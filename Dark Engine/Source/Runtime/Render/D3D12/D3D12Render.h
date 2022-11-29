@@ -36,6 +36,7 @@ typedef VertexPositionNormalColorTexture Vertex;
 
 class D3D12Mesh;
 class D3D12Mesh1;
+class D3D12Model;
 
 
 //
@@ -193,6 +194,7 @@ public:
 	void RenderObj();
 	void RenderScene();
 	void EndFrame() override;
+	D3D12Model* LoadModel(std::string path = "");
 
 	void Update();
 
@@ -200,6 +202,8 @@ private:
 	uint64_t Signal(uint64_t &fenceValue);
 	void WaitForFenceValue(uint64_t fenceValue);
 	void WaitFrame();
+
+
 
 
 	float rot = 0.0f;
@@ -245,9 +249,10 @@ public:
 
 
 	ModelMeshPart* TestBone;
+	Assimp::Importer importer;
 	
 
-	vector<D3D12Mesh> models;
+
 
 
 

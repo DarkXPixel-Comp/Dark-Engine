@@ -37,8 +37,8 @@ void DEngine::Initialize(DEngineInitInfo info)
 
 
 	
-	mouse->SetWindow(Window.GetHandle());
-	mouse->SetMode(Mouse::MODE_RELATIVE);
+	//mouse->SetWindow(Window.GetHandle());
+	//mouse->SetMode(Mouse::MODE_RELATIVE);
 	//mouse->SetVisible(true);
 	
 

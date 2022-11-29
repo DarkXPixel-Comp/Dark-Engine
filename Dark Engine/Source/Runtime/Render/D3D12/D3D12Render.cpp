@@ -6,7 +6,6 @@
 #include <Model.h>
 #include <BinaryReader.h>
 #include <thread>
-#include <assimp/mesh.h>
 
 //#include <SimpleMath.h>
 #undef max
@@ -422,14 +421,22 @@ void D3D12Renderer::Init()
 	models[1].Position = XMFLOAT3(2, 5, 0);*/
 
 
-
-
-
 	//model.Init(this, info);
+
+
+//	auto s = importer.ReadFile("Models/spere.obj", aiProcess_Triangulate);
+
+
+
 
 }
 
 using namespace DirectX::SimpleMath;
+
+
+
+
+
 
 
 
@@ -470,12 +477,12 @@ void D3D12Renderer::Render()
 			_countof(Vertices), Indices, _countof(Indices));
 
 
-		for (size_t i = 0; i < 1000; i++)
+		/*for (size_t i = 0; i < 1000; i++)
 		{
 			auto actor = scene->CreateActor();
 			actor->SetMesh(mesh);
 			actor->SetLocation({ i * 2.f , 0.f, 0.f });
-		}
+		}*/
 
 		/*thread th([&]()
 			{
@@ -487,7 +494,15 @@ void D3D12Renderer::Render()
 
 		//th.detach();
 
+		auto me = LoadModel("Models/sphere.obj");
+
+		auto actor = scene->CreateActor();
+
+		actor->SetModel(me);
+
 		on = false;
+
+
 
 	}
 	
@@ -497,7 +512,7 @@ void D3D12Renderer::Render()
 	CommandConsole::Print("\n");
 
 
-	//scene->GetActors()[0]->AddLocation({0.0005f * GEngine.GetDeltaTime() , 0, 0});
+	scene->GetActors()[0]->AddRotation({0.0005f * GEngine.GetDeltaTime() , 0, 0});
 
 
 
@@ -839,6 +854,75 @@ void D3D12Renderer::EndFrame()
 {
 }
 
+D3D12Model* D3D12Renderer::LoadModel(std::string path)
+{
+	D3D12Mesh1* mesh = new D3D12Mesh1;
+	
+
+	const aiScene* scene = importer.ReadFile(path, aiProcess_Triangulate);
+
+
+	if (!scene)
+		return nullptr;
+
+
+	aiMesh* Mesh = scene->mMeshes[0];
+
+	
+
+	std::vector<Vertex> vertices(Mesh->mNumVertices);
+	std::vector<WORD> indices;
+
+	for (size_t i = 0; i < Mesh->mNumVertices; i++)
+	{
+		Vertex vertex;
+
+
+		XMFLOAT3 position;
+
+		position.x = Mesh->mVertices[i].x;
+		position.y = Mesh->mVertices[i].y;
+		position.z = Mesh->mVertices[i].z;
+
+		vertex.position = position;
+
+
+		XMFLOAT3 normal;
+
+		normal.x = Mesh->mNormals[i].x;
+		normal.y = Mesh->mNormals[i].y;
+		normal.z = Mesh->mNormals[i].z;
+
+		vertex.normal = normal;
+
+
+		vertex.textureCoordinate = XMFLOAT2(0.f, 0.f);
+
+		vertex.color = XMFLOAT4(0.f, 0.f, 0.f, 0.f);
+
+		vertices[i] = vertex;
+
+	}
+
+	
+	for (unsigned int i = 0; i < Mesh->mNumFaces; i++)
+	{
+		aiFace face = Mesh->mFaces[i];
+		for (unsigned int j = 0; j < face.mNumIndices; j++)
+			indices.push_back(face.mIndices[j]);
+	}
+
+
+	mesh->Init(Device.Get(), CommandQueue.Get(), vertices.data(), vertices.size(),
+		indices.data(), indices.size());
+
+	D3D12Model* model = new D3D12Model(mesh, XMFLOAT3(0.f, 0.f, 0.f), XMFLOAT3(0.f, 0.f, 0.f), XMFLOAT3(1.f, 1.f, 1.f));
+
+
+	importer.FreeScene();
+	return model;
+}
+
 void D3D12Renderer::Update()
 {
 	auto scene = GEngine.GetWorld();
@@ -850,17 +934,18 @@ void D3D12Renderer::Update()
 
 
 	const auto StateKeyboard = GEngine.GetKeyboard()->GetState();
-	const auto StateMouse = GEngine.GetMouse()->GetState();
+	//const auto StateMouse = GEngine.GetMouse()->GetState();
 	tracker.Update(StateKeyboard);
+
 
 
 	auto delta = GEngine.GetDeltaTime();
 
-	float mouseX = StateMouse.x * 0.05;
-	float mouseY = StateMouse.y * 0.05;
+	/*float mouseX = StateMouse.x * 0.05;
+	float mouseY = StateMouse.y * 0.05;*/
 
-	yaw += mouseX;
-	pitch += mouseY;
+	//yaw += mouseX;
+	//pitch += mouseY;
 
 
 	//yaw = 100;
@@ -879,11 +964,6 @@ void D3D12Renderer::Update()
 	front.x = cos(XMConvertToRadians(yaw)) * cos(XMConvertToRadians(pitch));
 	front.y = sin(XMConvertToRadians(pitch));
 	front.z = sin(XMConvertToRadians(yaw)) * cos(XMConvertToRadians(pitch));
-
-
-
-
-	XMMatrixReflect()
 
 
 
@@ -934,8 +1014,8 @@ void D3D12Renderer::Update()
 		CameraX += Transl * -front.x * delta;
 		CameraY += Transl * -front.y * delta;
 
-		CommandConsole::Print(to_string((static_cast<float>((GEngine.GetDeltaTime())))).c_str());
-		CommandConsole::Print("\n");
+		/*CommandConsole::Print(to_string((static_cast<float>((GEngine.GetDeltaTime())))).c_str());
+		CommandConsole::Print("\n");*/
 
 	}
 
@@ -1077,7 +1157,7 @@ void D3D12Renderer::Update()
 	}
 
 	scene->GetCamera()->SetLocation({ CameraX, CameraY, CameraZ });
-//	scene->GetCamera()->SetRotation({ 0, pitch, yaw });
+	scene->GetCamera()->SetRotation({ 0, pitch, yaw });
 
 	//scene->GetCamera()->SetLocation
 

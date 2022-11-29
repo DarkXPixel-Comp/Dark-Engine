@@ -77,4 +77,10 @@ void AActor::SetMesh(D3D12Mesh1* mesh)
 
 }
 
+void AActor::SetModel(D3D12Model* model)
+{
+	m_Model = model;
+
+}
+
 

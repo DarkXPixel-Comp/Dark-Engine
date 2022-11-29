@@ -36,6 +36,7 @@ public:
 
 
 	void SetMesh(D3D12Mesh1* mesh);
+	void SetModel(D3D12Model* model);
 
 
 	
