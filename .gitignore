@@ -30,3 +30,9 @@
 *.exe
 *.out
 *.app
+
+.vs
+learn
+x64
+DirectXTK-main
+
