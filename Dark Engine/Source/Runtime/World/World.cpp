@@ -1,4 +1,5 @@
 #include "World.h"
+#include <Engine/public/DEngine.h>
 
 void AWorld::Initialize()
 {
@@ -14,14 +15,18 @@ void AWorld::Initialize()
 
 void AWorld::Update()
 {
-	Camera->Update();
+	float DeltaTime = GEngine.GetDeltaTime();
+
+
+
 
 	for (auto& i : Actors)
 	{
 		i->Update();
-
+		i->Tick(DeltaTime);
 	}
 
+	Camera->Update();
 
 
 }

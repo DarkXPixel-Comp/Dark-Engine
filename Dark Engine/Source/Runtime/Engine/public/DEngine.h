@@ -1,14 +1,11 @@
 #pragma once
 #include <Source/Runtime/Core/Core.h>
-#include <Source/Runtime/Render/Renderer.h>
 #include <World/World.h>
-//#include "World/World.h"
-#include <Keyboard.h>
 #include <Mouse.h>
-#include <chrono>
+//#include "World/World.h"
 
-
-
+class DirectX::Keyboard;
+class DirectX::Mouse;
 
 
 
@@ -62,13 +59,11 @@ struct FScreenMessage
 #define _inst this
 
 
-
-using DirectX::Keyboard;
-using DirectX::Mouse;
-
 class DEngine
 {
 	typedef std::chrono::high_resolution_clock Clock;
+	typedef DirectX::Mouse Mouse;
+	typedef DirectX::Keyboard Keyboard;
 
 public:
 	DEngine() = default;
@@ -92,7 +87,7 @@ public:
 	Keyboard* GetKeyboard() { return keyboard.get(); }
 	Mouse* GetMouse() { return mouse.get(); }
 
-	float GetDeltaTime() { return deltaTime; }
+	float GetDeltaTime(); //{ return deltaTime; }
 	int GetFPS() { return fps; }
 	
 
@@ -102,13 +97,16 @@ private:
 	DEngineInitInfo InitInfo;
 	bool isAppWork = false;
 
+	std::chrono::steady_clock::time_point StartPoint;
+
+
 
 	platformWindow Window;
 	Renderer* Renderer;
 	AWorld* World;
 	//FRenderScene* RenderScene;
-	std::unique_ptr<DirectX::Keyboard> keyboard;
-	std::unique_ptr<DirectX::Mouse> mouse;
+	std::unique_ptr<Keyboard> keyboard;
+	std::unique_ptr<Mouse> mouse;
 	
 	float deltaTime = 0.f;
 	int fps = 0;

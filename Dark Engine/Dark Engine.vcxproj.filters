@@ -1032,6 +1032,15 @@
     <ClInclude Include="Source\Runtime\Engine\Classes\StaticMeshActor\StaticMeshActor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Runtime\Engine\Classes\Components\LightComponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Runtime\Engine\Classes\Misc\Dimensional.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Runtime\Core\Application\Application.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Runtime\Launch\Platforms\Launch.cpp">
@@ -1101,6 +1110,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source\Runtime\Engine\Classes\StaticMeshActor\StaticMeshActor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Runtime\Core\Application\Application.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

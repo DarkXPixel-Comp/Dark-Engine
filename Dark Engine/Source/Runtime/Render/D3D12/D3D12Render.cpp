@@ -477,6 +477,8 @@ void D3D12Renderer::Render()
 			_countof(Vertices), Indices, _countof(Indices));
 
 
+
+
 		/*for (size_t i = 0; i < 1000; i++)
 		{
 			auto actor = scene->CreateActor();
@@ -494,11 +496,19 @@ void D3D12Renderer::Render()
 
 		//th.detach();
 
-		auto me = LoadModel("Models/sphere.obj");
+		auto me = LoadMesh("Models/sphere.obj");
 
-		auto actor = scene->CreateActor();
+		for (size_t i = 0; i < 1; i++)
+		{
+			auto actor = scene->CreateActor();
 
-		actor->SetModel(me);
+			actor->SetMesh(me[0]);
+
+			actor->AddLocation(i * 3);
+		}
+
+
+		//actor->SetScaling({ 0.1, 0.1, 0.1 });
 
 		on = false;
 
@@ -506,189 +516,22 @@ void D3D12Renderer::Render()
 
 	}
 	
+	//this_thread::sleep_for(1ns);
 
-	//CommandConsole::Print(to_string( (static_cast<int>(1 / (GEngine.GetDeltaTime() / 1000)))).c_str());
-	CommandConsole::Print(to_string(GEngine.GetFPS()).c_str());
+	CommandConsole::Print(to_string(GEngine.GetDeltaTime()).c_str());
 	CommandConsole::Print("\n");
 
 
-	scene->GetActors()[0]->AddRotation({0.0005f * GEngine.GetDeltaTime() , 0, 0});
 
 
 
 
-
-	//Update();
-
-	/*thread th([&]()
-		{
-			RenderScene();
-		});*/
-
-	//Update();
-
-
-	//const auto StateKeyboard = GEngine.GetKeyboard()->GetState();
-	//const auto StateMouse = GEngine.GetMouse()->GetState();
-	//tracker.Update(StateKeyboard);
-	//float mouseX = StateMouse.x * 0.05;
-	//float mouseY = StateMouse.y * 0.05;
-
-	//yaw += mouseX;
-	//pitch += mouseY;
-
-
-
-
-	//if (StateKeyboard.Escape)
-	//{
-	//	GEngine.Quit();
-
-	//}
-
-	//scene->GetCamera()->SetRotation({0.f, pitch, yaw});
 
 	Update();
 
 	RenderScene();
 
-	//th.join();
 	return;
-
-
-	Update();
-
-
-	float aspectRatio = 16 / 9;
-
-
-	//ModelMatrix = XMMatrixRotationRollPitchYaw(0, 0, rot);
-	ModelMatrix = XMMatrixScalingFromVector(Scale);
-	ModelMatrix = XMMatrixMultiply(ModelMatrix, XMMatrixTranslation(x, y, z));
-	ViewMatrix = XMMatrixLookAtLH(eyePosition, focusPoint, upDirection);
-	ProjectionMatrix = XMMatrixPerspectiveFovLH(XMConvertToRadians(90), aspectRatio,
-		0.1f, 100.0f);
-
-
-	auto BackBuffer = BackBuffers[CurrentBackBufferIndex];
-
-	CommandAllocator->Reset();
-
-	GraphicsCommandList->Reset(CommandAllocator.Get(), PipelineState.Get());
-
-	CD3DX12_CPU_DESCRIPTOR_HANDLE rtv(RTDescriptorHeap->GetCpuHandle(CurrentBackBufferIndex));
-
-	CD3DX12_RESOURCE_BARRIER Barrier = CD3DX12_RESOURCE_BARRIER::Transition(
-		BackBuffer.Get(),
-		D3D12_RESOURCE_STATE_PRESENT, D3D12_RESOURCE_STATE_RENDER_TARGET);
-
-
-
-	GraphicsCommandList->SetGraphicsRootSignature(RootSignature.Get());
-
-	ID3D12DescriptorHeap* ppHeaps[] = { SRDescriptorHeap->Heap() };
-	GraphicsCommandList->SetDescriptorHeaps(1, ppHeaps);
-
-	//GraphicsCommandList->SetGraphicsRootShaderResourceView(4, Texture->GetGPUVirtualAddress());
-	GraphicsCommandList->SetGraphicsRootDescriptorTable(1, SRDescriptorHeap->GetFirstGpuHandle());
-
-
-
-	GraphicsCommandList->RSSetViewports(1, &Viewport);
-	GraphicsCommandList->RSSetScissorRects(1, &ScissorRect);
-
-	GraphicsCommandList->ResourceBarrier(1, &Barrier);
-
-	GraphicsCommandList->OMSetRenderTargets(1, &rtv,
-		FALSE, nullptr);
-
-
-	FLOAT clearColor[] = { 0.4f, 0.6f, 0.9f, 1.0f };
-
-	GraphicsCommandList->ClearRenderTargetView(rtv, clearColor, 0, nullptr);
-
-
-
-	GraphicsCommandList->IASetPrimitiveTopology(D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
-	GraphicsCommandList->IASetVertexBuffers(0, 1, &VertexBufferView);
-	GraphicsCommandList->IASetIndexBuffer(&IndexBufferView);
-
-	XMMATRIX t = XMMatrixMultiply(ViewMatrix, ProjectionMatrix);
-
-
-	/*XMMATRIX MVP = XMMatrixMultiply(ModelMatrix, ViewMatrix);
-	MVP = XMMatrixMultiply(MVP, ProjectionMatrix);*/
-	XMMATRIX MVP = XMMatrixMultiply(ModelMatrix, scene->GetCamera()->GetMatrixCamera());
-
-	GraphicsCommandList->SetGraphicsRoot32BitConstants(0, sizeof(XMMATRIX) / 4,
-		&MVP, 0);
-
-
-	GraphicsCommandList->SetGraphicsRoot32BitConstants(5, sizeof(XMMATRIX) / 4,
-		&ModelMatrix, 0);
-
-
-
-	XMVECTOR Col = XMVectorSet(1.f, 1.f, 1.f, 1.f),
-		CamPos = XMVectorSet(0.f, 0.f, 0.f, 0.f),
-		LPos = XMVectorSet(CameraX, CameraY, CameraZ, 0.f);
-	
-
-	GraphicsCommandList->SetGraphicsRoot32BitConstants(2, 4,
-		&Col, 0);
-	GraphicsCommandList->SetGraphicsRoot32BitConstants(3, 4,
-		&LPos, 0);
-	GraphicsCommandList->SetGraphicsRoot32BitConstants(4, 4,
-		&CamPos, 0);
-	GraphicsCommandList->SetGraphicsRoot32BitConstants(6, 1,
-		&iTime, 0);
-
-
-
-	
-
-
-
-
-	XMFLOAT4X4 mat;
-
-
-	
-
-
-	/*GraphicsCommandList->DrawIndexedInstanced(_countof(Indices), 1,
-		0, 0, 0);*/
-	GraphicsCommandList->DrawIndexedInstanced(_countof(Indices), 1,
-		0, 0, 0);
-
-
-	Barrier = CD3DX12_RESOURCE_BARRIER::Transition(
-		BackBuffer.Get(),
-		D3D12_RESOURCE_STATE_RENDER_TARGET, D3D12_RESOURCE_STATE_PRESENT);
-	GraphicsCommandList->ResourceBarrier(1, &Barrier);
-
-
-	GraphicsCommandList->Close();
-
-	ID3D12CommandList* const CommandLists[] = {
-		  GraphicsCommandList.Get() };
-
-	CommandQueue->ExecuteCommandLists(_countof(CommandLists), CommandLists);
-
-	WaitFrame();
-
-	SwapChain->Present(3, 0);
-
-	graphicsMemory->Commit(CommandQueue.Get());
-
-	
-
-	CurrentBackBufferIndex = SwapChain->GetCurrentBackBufferIndex();
-
-	
-
-	iTime += 0.001;
-
 
 }
 
@@ -794,8 +637,8 @@ void D3D12Renderer::RenderScene()
 		
 		
 		XMVECTOR Col = XMVectorSet(1.f, 1.f, 1.f, 1.f),
-					CamPos = XMVectorSet(0.f, 0.f, 0.f, 0.f),
-					LPos = XMVectorSet(CameraX, CameraY, CameraZ, 0.f);
+					CamPos = XMVectorSet(CameraX, CameraY, CameraZ, 0.f),
+					LPos = XMVectorSet(LightPosition.x, LightPosition.y, LightPosition.z, 0.f);
 		
 		
 		model->m_CommandList->SetGraphicsRoot32BitConstants(2, 4,
@@ -854,73 +697,87 @@ void D3D12Renderer::EndFrame()
 {
 }
 
-D3D12Model* D3D12Renderer::LoadModel(std::string path)
+std::vector<D3D12Mesh1*> D3D12Renderer::LoadMesh(std::string path)
 {
-	D3D12Mesh1* mesh = new D3D12Mesh1;
+	std::vector<D3D12Mesh1*> meshes;
 	
-
 	const aiScene* scene = importer.ReadFile(path, aiProcess_Triangulate);
 
 
 	if (!scene)
-		return nullptr;
+		return meshes;
 
 
-	aiMesh* Mesh = scene->mMeshes[0];
-
-	
-
-	std::vector<Vertex> vertices(Mesh->mNumVertices);
-	std::vector<WORD> indices;
-
-	for (size_t i = 0; i < Mesh->mNumVertices; i++)
+	for (size_t i = 0; i < scene->mNumMeshes; i++)
 	{
-		Vertex vertex;
+		aiMesh* Mesh = scene->mMeshes[i];
+
+		D3D12Mesh1* mesh = new D3D12Mesh1;
+
+		std::vector<Vertex> vertices(Mesh->mNumVertices);
+		std::vector<WORD> indices;
 
 
-		XMFLOAT3 position;
+		for (size_t i = 0; i < Mesh->mNumVertices; i++)
+		{
+			Vertex vertex;
 
-		position.x = Mesh->mVertices[i].x;
-		position.y = Mesh->mVertices[i].y;
-		position.z = Mesh->mVertices[i].z;
+			XMFLOAT3 position;
 
-		vertex.position = position;
+			position.x = Mesh->mVertices[i].x;
+			position.y = Mesh->mVertices[i].y;
+			position.z = Mesh->mVertices[i].z;
 
-
-		XMFLOAT3 normal;
-
-		normal.x = Mesh->mNormals[i].x;
-		normal.y = Mesh->mNormals[i].y;
-		normal.z = Mesh->mNormals[i].z;
-
-		vertex.normal = normal;
+			vertex.position = position;
 
 
-		vertex.textureCoordinate = XMFLOAT2(0.f, 0.f);
+			XMFLOAT3 normal;
 
-		vertex.color = XMFLOAT4(0.f, 0.f, 0.f, 0.f);
+			normal.x = Mesh->mNormals[i].x;
+			normal.y = Mesh->mNormals[i].y;
+			normal.z = Mesh->mNormals[i].z;
 
-		vertices[i] = vertex;
+			vertex.normal = normal;
 
+
+			if (Mesh->HasTextureCoords(0))
+			{
+				XMFLOAT2 texCoords;
+
+				texCoords.x = Mesh->mTextureCoords[0][i].x;
+				texCoords.y = (Mesh->mTextureCoords[0][i]).y;
+
+				vertex.textureCoordinate = texCoords;
+			
+
+			}
+			else
+			{
+				vertex.textureCoordinate = XMFLOAT2(0.f, 0.f);
+			}
+
+			vertex.color = XMFLOAT4(0.f, 0.f, 0.f, 0.f);
+
+			vertices[i] = vertex;
+
+		}
+
+		for (unsigned int i = 0; i < Mesh->mNumFaces; i++)
+		{
+			aiFace face = Mesh->mFaces[i];
+			for (unsigned int j = 0; j < face.mNumIndices; j++)
+				indices.push_back(face.mIndices[j]);
+		}
+
+
+		mesh->Init(Device.Get(), CommandQueue.Get(), vertices.data(), vertices.size(),
+			indices.data(), indices.size());
+
+		meshes.push_back(mesh);
 	}
-
-	
-	for (unsigned int i = 0; i < Mesh->mNumFaces; i++)
-	{
-		aiFace face = Mesh->mFaces[i];
-		for (unsigned int j = 0; j < face.mNumIndices; j++)
-			indices.push_back(face.mIndices[j]);
-	}
-
-
-	mesh->Init(Device.Get(), CommandQueue.Get(), vertices.data(), vertices.size(),
-		indices.data(), indices.size());
-
-	D3D12Model* model = new D3D12Model(mesh, XMFLOAT3(0.f, 0.f, 0.f), XMFLOAT3(0.f, 0.f, 0.f), XMFLOAT3(1.f, 1.f, 1.f));
-
 
 	importer.FreeScene();
-	return model;
+	return meshes;
 }
 
 void D3D12Renderer::Update()
@@ -984,16 +841,6 @@ void D3D12Renderer::Update()
 
 	front.Normalize();
 
-	//	upDirection = Up;
-
-
-		////CommandConsole::Print(to_string(front.x).c_str());
-		////CommandConsole::Print(" ");
-		////CommandConsole::Print(to_string(front.y).c_str());
-		////CommandConsole::Print(" ");
-		//CommandConsole::Print(to_string(yaw).c_str());
-		//CommandConsole::Print("\n");
-
 
 
 	float aspectRatio = 16 / 9;
@@ -1001,22 +848,14 @@ void D3D12Renderer::Update()
 
 	Transl = abs(0.005);
 
-	//CommandConsole::Print((std::to_string(StateMouse.x).c_str()));
-	//CommandConsole::Print("\n");
-
 
 
 
 	if (StateKeyboard.W)
 	{
-		//ModelMatrix = XMMatrixMultiply(XMMatrixTranslation(0, transl, 0), ModelMatrix);
 		CameraZ += Transl * front.z * delta;
 		CameraX += Transl * -front.x * delta;
 		CameraY += Transl * -front.y * delta;
-
-		/*CommandConsole::Print(to_string((static_cast<float>((GEngine.GetDeltaTime())))).c_str());
-		CommandConsole::Print("\n");*/
-
 	}
 
 	if (StateKeyboard.S)
@@ -1065,20 +904,19 @@ void D3D12Renderer::Update()
 		//pitch += -sensevity;
 
 		Scale.y += -sensevity * 0.01;
+
+
 	}
 	if (StateKeyboard.NumPad4)
 	{
-		//CameraY += Transl;
-	/*	CameraZ += Transl * +Up.z;
-		CameraX += Transl * -Up.x;
-		CameraY += Transl * Up.y;*/
-
 
 		//yaw += -sensevity;
 
 		//Scale -= sensevity;
 
 		Scale.x += -sensevity * 0.01;
+
+
 	}
 	if (StateKeyboard.NumPad6)
 	{
@@ -1158,19 +996,6 @@ void D3D12Renderer::Update()
 
 	scene->GetCamera()->SetLocation({ CameraX, CameraY, CameraZ });
 	scene->GetCamera()->SetRotation({ 0, pitch, yaw });
-
-	//scene->GetCamera()->SetLocation
-
-	//scene->Update();
-
-	//scene->Camera->SetLocation({ , 0, 0 });
-	//
-	//scene->Camera->SetRotation({ roll, pitch, yaw });
-
-
-	/*CommandConsole::Print(string(to_string(CameraX) + "  " + to_string(CameraY) + "  " + to_string(CameraZ) + "  ").c_str());
-
-	CommandConsole::Print("\n");*/
 
 }
 
@@ -1424,6 +1249,21 @@ void D3D12Mesh1::Init(ID3D12Device* device, ID3D12CommandQueue* queue, void* ver
 	Scale = { 1, 1, 1 };
 	m_device = device;
 
+	Vertexes.resize(vertSize);
+
+	for (size_t i = 0; i < vertSize; i++)
+	{
+		Vertexes[i] = *(static_cast<Vertex*>(vertexes) + i);
+	}
+
+
+	Indexes.resize(indSize);
+
+	for (size_t i = 0; i < indSize; i++)
+	{
+		Indexes[i] = *(static_cast<WORD*>(indexes) + i);
+	}
+
 
 
 
@@ -1470,5 +1310,6 @@ void D3D12Model::Update()
 	ModelMatrix = XMMatrixScalingFromVector(XMLoadFloat3(&Scale));
 	ModelMatrix = XMMatrixMultiply(ModelMatrix, XMMatrixRotationRollPitchYawFromVector(XMLoadFloat3(&Rotation)));
 	ModelMatrix = XMMatrixMultiply(ModelMatrix, XMMatrixTranslationFromVector(XMLoadFloat3(&Position)));
+
 
 }

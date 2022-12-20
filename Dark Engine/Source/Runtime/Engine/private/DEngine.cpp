@@ -61,9 +61,7 @@ void DEngine::Initialize(DEngineInitInfo info)
 
 
 
-
-
-
+	StartPoint = Clock::now();
 }
 
 
@@ -101,12 +99,15 @@ void DEngine::UpdateLoop()
 {
 	auto time = Clock::now();
 
-	World->Update();
 	//RenderScene->Update();
 
-
-	Renderer->Render();
-	Window.Update();
+	if (!Window.isAppQuit())
+	{
+		World->Update();
+		Renderer->Render();
+		Window.Update();
+	}
+	
 
 	auto time2 = Clock::now();
 
@@ -117,6 +118,8 @@ void DEngine::UpdateLoop()
 	deltaTime = static_cast<float>(elapsed.count()) / static_cast<float>(1000);
 
 	fps = _fps();
+
+	StartPoint = Clock::now();
 }
 
 
@@ -129,6 +132,24 @@ void DEngine::Shutdown()
 	Logger::log("", LOGGER_INFO);
 
 }
+
+
+float DEngine::GetDeltaTime()
+{
+	auto TimePoint = Clock::now();
+
+	auto elapsed = std::chrono::duration_cast<std::chrono::microseconds>(TimePoint - StartPoint);
+
+	
+	return static_cast<float>(elapsed.count() / 1000.f);
+
+
+	//return DeltaTime;
+
+}
+
+
+
 
 void DEngine::Quit()
 {

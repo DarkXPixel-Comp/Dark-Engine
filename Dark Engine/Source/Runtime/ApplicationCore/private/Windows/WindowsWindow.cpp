@@ -87,6 +87,7 @@ LRESULT CALLBACK mWndProc
 		DestroyWindow(hWnd);
 		break;
 	case WM_DESTROY:
+		is_Destroyed = true;
 		break;
 	case WM_SIZE:
 		break;
@@ -214,7 +215,7 @@ HWND WindowsWindow::GetHandle()
 
 bool WindowsWindow::isAppQuit()
 {
-	return is_appQuit;
+	return isDestroyed;
 }
 
 
@@ -360,6 +361,8 @@ void WindowsWindow::Update()
 	{
 		isDestroyed = true;
 
+		countWindows -= 1;
+
 		Logger::log("Window has been Destroyed. ID - ", LOGGER_INFO);
 	}
 
@@ -392,4 +395,42 @@ void WindowsWindow::Maximaze()
 void WindowsWindow::Minimize()
 {
 	ShowWindow(hWnd, SW_MINIMIZE);
+}
+
+void FWindowsWindow::Create(UINT w, UINT h, UINT x, UINT y)
+{
+	WNDCLASSEX wSex;
+
+	wSex.cbSize = sizeof(WNDCLASSEX);
+	wSex.style = CS_HREDRAW | CS_VREDRAW;
+	wSex.lpfnWndProc = nullptr;
+	wSex.cbClsExtra = 0;
+	wSex.cbWndExtra = 0;
+	wSex.hInstance = Application::GetInstance();
+	wSex.hIcon = PerEngineSettings::MainIcon();
+	wSex.hCursor = LoadCursor(wSex.hInstance, IDI_APPLICATION);
+	wSex.hbrBackground = (HBRUSH)COLOR_WINDOW;
+	wSex.lpszMenuName = NULL;
+	wSex.lpszClassName = PerEngineSettings::ProjectName();
+	wSex.hIconSm = PerEngineSettings::MainIcon();
+
+	if (!RegisterClassExW(&wSex))
+	{
+		Logger::log(L"Error register Class", LOGGER_ERROR);
+		Logger::wait();
+		abort();
+
+	}
+
+	hWnd = CreateWindowW(PerEngineSettings::ProjectName(),
+		PerEngineSettings::ProjectName(),
+		WS_OVERLAPPEDWINDOW,
+		x, y, w, h,
+		NULL,
+		NULL,
+		Application::GetInstance(),
+		NULL);
+	
+
+
 }

@@ -194,7 +194,7 @@ public:
 	void RenderObj();
 	void RenderScene();
 	void EndFrame() override;
-	D3D12Model* LoadModel(std::string path = "");
+	std::vector<D3D12Mesh1*> LoadMesh(std::string path = "");
 
 	void Update();
 
@@ -287,6 +287,8 @@ public:
 
 	float ScaleX, ScaleY, ScaleZ;
 
+	XMFLOAT3 LightPosition;
+
 
 	XMVECTOR eyePosition;
 	XMVECTOR focusPoint;
@@ -360,6 +362,21 @@ public:
 
 
 };
+
+class D3D12Model1
+{
+
+
+
+
+
+
+
+
+};
+
+
+
 
 
 class D3D12Mesh1
