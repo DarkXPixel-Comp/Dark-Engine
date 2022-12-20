@@ -12,7 +12,6 @@ AActor::AActor()
 
 void AActor::BeginPlay()
 {
-	Super::BeginPlay();
 
 
 
@@ -21,8 +20,6 @@ void AActor::BeginPlay()
 
 void AActor::Update()
 {
-	Super::Update();
-
 
 	if (m_Model)
 	{
@@ -50,6 +47,8 @@ void AActor::AddLocation(XMFLOAT3 loc)
 
 }
 
+
+
 void AActor::AddRotation(XMFLOAT3 rot)
 {
 	Rotation.x += rot.x;
@@ -67,6 +66,13 @@ void AActor::AddScaling(XMFLOAT3 scal)
 	Scale.z += scal.z;
 
 
+}
+
+void AActor::AddLocation(float x, float y, float z)
+{
+	Position.x += x;
+	Position.y += y;
+	Position.z += z;
 }
 
 void AActor::SetMesh(D3D12Mesh1* mesh)

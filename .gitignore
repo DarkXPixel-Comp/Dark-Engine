@@ -31,8 +31,20 @@
 *.out
 *.app
 
+# Resources
+.cmo
+.jpg
+.png
+.dds
+.cso
+.obj
+.mtl
+
 .vs
 learn
 x64
 DirectXTK-main
+Models
+Resources
+Textures
 

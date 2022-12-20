@@ -162,6 +162,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Source\Runtime\ApplicationCore\public\Windows\WindowsWindow.h" />
+    <ClInclude Include="Source\Runtime\Core\Application\Application.h" />
     <ClInclude Include="Source\Runtime\Core\CommandLine\CommandLine.h" />
     <ClInclude Include="Source\Runtime\Core\CoreDefines.h" />
     <ClInclude Include="Source\Runtime\Core\Function\UFunction.h" />
@@ -171,7 +172,9 @@
     <ClInclude Include="Source\Runtime\Engine\Classes\Camera\Camera.h" />
     <ClInclude Include="Source\Runtime\Engine\Classes\Components\ActorComponent.h" />
     <ClInclude Include="Source\Runtime\Engine\Classes\Components\InputComonent.h" />
+    <ClInclude Include="Source\Runtime\Engine\Classes\Components\LightComponent.h" />
     <ClInclude Include="Source\Runtime\Engine\Classes\Components\SceneComponent.h" />
+    <ClInclude Include="Source\Runtime\Engine\Classes\Misc\Dimensional.h" />
     <ClInclude Include="Source\Runtime\Engine\Classes\StaticMeshActor\StaticMeshActor.h" />
     <ClInclude Include="Source\Runtime\Engine\Classes\UObject\Object.h" />
     <ClInclude Include="Source\Runtime\Render\D3D12\D3D12.h" />
@@ -503,6 +506,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Runtime\ApplicationCore\private\Windows\WindowsWindow.cpp" />
+    <ClCompile Include="Source\Runtime\Core\Application\Application.cpp" />
     <ClCompile Include="Source\Runtime\Core\CommandLine\CommandLine.cpp" />
     <ClCompile Include="Source\Runtime\Core\ConfigManager\FConfigManager.cpp" />
     <ClCompile Include="Source\Runtime\Core\Logging\Logger.cpp" />

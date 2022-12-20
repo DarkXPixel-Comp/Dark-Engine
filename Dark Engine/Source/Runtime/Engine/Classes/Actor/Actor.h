@@ -6,6 +6,20 @@
 #include <Render/D3D12/D3D12Render.h>
 
 
+template <bool Const, typename Class, typename FuncType>
+struct TMemFunPtrType;
+
+
+template <typename Class, typename RetType, typename... ArgTypes>
+struct TMemFunPtrType<true, Class, RetType(ArgTypes...)>
+{
+	typedef RetType(Class::* Type)(ArgTypes...) const;
+};
+
+
+
+
+
 using namespace DirectX;
 
 class AActor : public UObject
@@ -16,16 +30,24 @@ public:
 
 
 public:
-	void BeginPlay() override;
-	void Update() override;
-	void Destroy() override;
+	virtual void BeginPlay();
+	virtual void Update();
+	virtual void Destroy();
+	virtual void Tick(float DeltaTime) {}
+
+
 
 	void AddLocation(XMFLOAT3 loc);
 	void AddRotation(XMFLOAT3 rot);
 	void AddScaling(XMFLOAT3 scal);
 
+	void AddLocation(float x = 0, float y = 0, float z = 0);
+	//void AddRotation(XMFLOAT3 rot);
+	//void AddScaling(XMFLOAT3 scal);
+
 	void SetLocation(XMFLOAT3 loc) { Position = loc; }
 	void SetRotation(XMFLOAT3 rot) { Rotation = rot; }
+	void SetScaling(XMFLOAT3 sc) { Scale = sc; }
 
 	const XMFLOAT3& GetLocation() const { return Position; }
 	const XMFLOAT3& GetRotation() const { return Rotation; };

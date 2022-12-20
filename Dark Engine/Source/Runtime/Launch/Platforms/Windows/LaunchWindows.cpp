@@ -85,11 +85,12 @@ int32_t WINAPI WinMain(
 	_In_ int32_t nCmdShow
 )
 {
-
 	SetThreadDpiAwarenessContext(DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2);
 	int32_t ErrorCode = 0;
 
-	//WindowsApplication* app = WindowsApplication::CreateWindowsApplication(hInstance, LoadIcon(hInstance, IDI_APPLICATION), WndProc, nCmdShow);
+	Application::Instance()->Initialize(hInstance, prevInstance, lpCmdLine, nCmdShow);
+	WindowsEnviromentSetup();
+
 
 
 	DEngineInitInfo info = {};
@@ -103,26 +104,12 @@ int32_t WINAPI WinMain(
 
 	GEngine.Initialize(info);
 
-	Windows::hInstance = hInstance;
-	Windows::nCmdShow = nCmdShow;
-	WindowsEnviromentSetup();
-
-	//Thread th(f, 5);
-
-	//DEngine::addNewWindow(800, 600, 0, 0, L"TEST2");
 
 
 
 
+	ErrorCode = guardedMain();
 
-	//try
-	{
-		ErrorCode = guardedMain();
-	}
-	/*catch (const std::exception &ex)
-	{
-		Logger::log(ex.what(), LOGGER_ERROR);
-	}*/
 
 	
 

@@ -8,6 +8,60 @@
 
 #include <functional>
 
+#undef CreateWindow;
+
+
+
+class FWindowsWindow;
+
+
+class FWindowsWindowManager
+{
+
+	void CreateWindow(UINT Weight, UINT Height, std::string Name);
+
+
+
+private:
+	std::vector<FWindowsWindow*> windows;
+
+
+};
+
+
+
+
+class FWindowsWindow
+{
+	void Create(UINT w, UINT h, UINT x, UINT y);
+	void Destroy();
+
+
+
+
+
+
+
+private:
+	UINT width{ 0 };
+	UINT height{ 0 };
+	UINT leftX{ 0 };
+	UINT topY{ 0 };
+
+	HWND	hWnd;
+	MSG		msg;
+
+	D3D12_VIEWPORT Viewport;
+	D3D12_RECT Rect;
+
+
+
+
+
+
+
+};
+
 
 
 class WindowsWindow 

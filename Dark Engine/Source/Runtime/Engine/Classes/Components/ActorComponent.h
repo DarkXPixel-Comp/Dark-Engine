@@ -5,6 +5,12 @@
 
 class UActorComponent : UObject
 {
+	virtual void InitializeComponent();
+	virtual void TickComponent(float DeltaTime);
+	virtual void BeginPlay();
+	
+
+
 
 
 };
