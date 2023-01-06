@@ -9,6 +9,8 @@ class DirectX::Mouse;
 
 
 
+
+
 struct DEngineInitInfo
 {
 	const char* nameGame;
@@ -30,7 +32,6 @@ struct DEngineInitInfo
 };
 
 #ifdef _WIN64
-using platformWindow = WindowsWindow;
 
 #elif
 #error This OS not support
@@ -73,10 +74,14 @@ public:
 	void Shutdown();
 	void Quit();
 
+	void TestFunc(int k) {
+		PrintLine(icstr(k));
+	}
+
 
 public:
 	bool isAppQuit();
-	platformWindow* GetWindow();
+	FWindowsWindowManager* GetWindowManager() { return &WindowManager; }
 
 	Renderer* GetRenderer() { return Renderer; }
 
@@ -101,7 +106,8 @@ private:
 
 
 
-	platformWindow Window;
+	FWindowsWindowManager WindowManager;
+
 	Renderer* Renderer;
 	AWorld* World;
 	//FRenderScene* RenderScene;
@@ -110,6 +116,7 @@ private:
 	
 	float deltaTime = 0.f;
 	int fps = 0;
+
 
 
 

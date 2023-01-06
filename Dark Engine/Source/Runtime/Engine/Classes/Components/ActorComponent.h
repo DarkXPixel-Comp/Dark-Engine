@@ -5,6 +5,7 @@
 
 class UActorComponent : UObject
 {
+public:
 	virtual void InitializeComponent();
 	virtual void TickComponent(float DeltaTime);
 	virtual void BeginPlay();

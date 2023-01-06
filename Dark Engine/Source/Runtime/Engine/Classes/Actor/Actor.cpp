@@ -20,11 +20,9 @@ void AActor::BeginPlay()
 
 void AActor::Update()
 {
-
 	if (m_Model)
 	{
 		m_Model->Update();
-
 
 
 		m_Model->Position = Position;

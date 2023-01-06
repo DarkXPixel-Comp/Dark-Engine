@@ -2,349 +2,133 @@
 #include <windowsx.h>
 #include <assert.h>
 
-#include <Keyboard.h>
-#include <Mouse.h>
+#include <Engine/public/DEngine.h>
 
-
-uint64_t countWindows = 0;
-
-bool is_appQuit = false;
-
-bool is_Destroyed = false;
-
-void (*renderFunc)() =	nullptr;
-void (*resizeFunc)() =	nullptr;
-void (*controlFunc)(int) = nullptr;
-void (*mouseFunc)(float, float) = nullptr;
-
-void ctlFunc(int button);
-void MouseFunc(float x, float y);
+#include <WinUser.h>
+#include <Windows.h>
 
 
 
-#define to_str(x) std::to_string(x)
-
-
-struct wndProcStruct
+FWindowsWindow::FWindowsWindow(FWindowsWindowManager* maneger, UINT index)
 {
-	std::string textForDrawOnScreen;
-} wndProcStruct;
-
-
-
-
-LRESULT CALLBACK mWndProc
-(
-	_In_ HWND hWnd,
-	_In_ UINT message,
-	_In_ WPARAM wParam,
-	_In_ LPARAM lParam
-)
-{	
-
-	HDC hdc;             
-	PAINTSTRUCT ps;   
-
-	static float x = 0, y = 0;
-
-	static bool showCurs = true;
-
-	switch (message)
-	{
-	case WM_ACTIVATE:
-	case WM_ACTIVATEAPP:
-		DirectX::Keyboard::ProcessMessage(message, wParam, lParam);
-		DirectX::Mouse::ProcessMessage(message, wParam, lParam);
-		break;
-
-	case WM_KEYDOWN:
-	case WM_KEYUP:
-	case WM_SYSKEYUP:
-		DirectX::Keyboard::ProcessMessage(message, wParam, lParam);
-		break;
-
-	case WM_INPUT:
-	case WM_MOUSEMOVE:
-	case WM_LBUTTONDOWN:
-	case WM_LBUTTONUP:
-	case WM_RBUTTONDOWN:
-	case WM_RBUTTONUP:
-	case WM_MBUTTONDOWN:
-	case WM_MBUTTONUP:
-	case WM_MOUSEWHEEL:
-	case WM_XBUTTONDOWN:
-	case WM_XBUTTONUP:
-	case WM_MOUSEHOVER:
-		DirectX::Mouse::ProcessMessage(message, wParam, lParam);
-		break;
-
-	case WM_CLOSE:
-		--countWindows;
-		if (countWindows == 0)
-		{
-			is_appQuit = true;
-		}
-		DestroyWindow(hWnd);
-		break;
-	case WM_DESTROY:
-		is_Destroyed = true;
-		break;
-	case WM_SIZE:
-		break;
-	case WM_PAINT:
-		/*hdc = BeginPaint(hWnd, &ps);
-		TextOutA(hdc, 10, 20, "Hello", 7);
-		EndPaint(hWnd, &ps);*/
-		return 0;
-		
-
-		break;
-	default:
-		return DefWindowProcW(hWnd, message, wParam, lParam);
-		break;
-	}
-
-	return 0;
+	m_Manager = (maneger);
+	m_Index = index;
 }
 
-void WindowsWindow::DrawTextOnWindow(std::string str)
+void FWindowsWindow::Create(UINT w, UINT h, UINT x, UINT y, string name, FWindowsWindow* Parent)
 {
-	HDC hdc;
-	PAINTSTRUCT ps;
-	RECT rect;
+	WNDCLASSEX wSex;
 
-	rect.left = 10;
-	rect.top =	 10;
-	rect.right = 200;
-	rect.bottom = 200;
+	wstring wClassName(name.begin(), name.end());
 
-
-	hdc = BeginPaint(hWnd, &ps);
-
-	DrawTextA(hdc, str.c_str(), str.size(), &rect, DT_NOCLIP);
+	LPCWSTR ClassName = wClassName.c_str();
 
 	
 
-	EndPaint(hWnd, &ps);
-
-
-	wndProcStruct.textForDrawOnScreen = str;
-}
-
-void ctlFunc(int button)
-{
-	if (controlFunc)
-		controlFunc(button);
-}
-
-void MouseFunc(float x, float y)
-{
-	if (mouseFunc)
-		mouseFunc(x, y);
-}
-
-
-
-void WindowsWindow::SetResolution(UINT w, UINT h)
-{
-	width = w == 0 ? width : w;
-	height = h == 0 ? height : h;
-
-
-	SetWindowPos(hWnd, hWnd, leftX, topY, width, height, SWP_NOZORDER);
-
-	Update();
-}
-
-
-void WindowsWindow::SetPos(UINT x, UINT y)
-{
-	leftX = x;
-	topY = y;
-
-	SetWindowPos(hWnd, hWnd, leftX, topY, width, height, SWP_NOZORDER);
-
-	Update();
-}
-
-void WindowsWindow::SetResPos(UINT w, UINT h, UINT x, UINT y)
-{
-	width = w;
-	height = h;
-
-	leftX = x;
-	topY = y;
-
-
-	SetWindowPos(hWnd, hWnd, leftX, topY, width, height, SWP_NOZORDER);
-
-	Update();
-}
-
-
-void WindowsWindow::SetControlFunction(void(*func)(int))
-{
-	controlFunc = func;
-}
-
-
-void abra(UINT, UINT) {}
-
-
-void WindowsWindow::SetRenderFunction(void(*func)())
-{
-	renderFunc = func;
-}
-
-void WindowsWindow::SetResizeFunction(void(*func)())
-{
-	resizeFunc = func;
-}
-
-
-void WindowsWindow::SetMouseFunction(void(*func)(float, float))
-{
-	mouseFunc = func;
-}
-
-
-HWND WindowsWindow::GetHandle()
-{
-	return hWnd;
-}
-
-bool WindowsWindow::isAppQuit()
-{
-	return isDestroyed;
-}
-
-
-UINT WindowsWindow::GetWitdh()
-{
-	return width;
-}
-
-UINT WindowsWindow::GetHeight()
-{
-	return height;
-}
-
-
-void WindowsWindow::CloseWindow()
-{
-	--countWindows;
-	if (countWindows == 0)
-	{
-		is_appQuit = true;
-	}
-	DestroyWindow(hWnd);
-}
-
-
-void WindowsWindow::Initialize(HINSTANCE hInstance, uint32_t cmdShow, LPCWSTR WindowName, UINT x, UINT y, UINT w, UINT h)
-{
-	leftX =	 leftX == 0 ? x : leftX;
-	topY =	 topY == 0 ? y : topY;
-	width =  width == 0 ? w : width;
-	height = height == 0 ? h : height;
-
-	WNDCLASSEX wSex;
-
 	wSex.cbSize = sizeof(WNDCLASSEX);
-	wSex.style = CS_HREDRAW | CS_VREDRAW;
-	wSex.lpfnWndProc = mWndProc;
+	wSex.style = CS_HREDRAW | CS_VREDRAW | CS_OWNDC;
+	wSex.lpfnWndProc = FWindowsWindow::WndProc;
 	wSex.cbClsExtra = 0;
 	wSex.cbWndExtra = 0;
-	wSex.hInstance = hInstance;
-	wSex.hIcon = LoadIcon(hInstance, IDI_APPLICATION);
-	wSex.hCursor = LoadCursor(NULL, IDC_ARROW);
-	wSex.hbrBackground = (HBRUSH)(COLOR_WINDOW);
+	wSex.hInstance = Application::GetInstance();
+	wSex.hIcon = LoadIcon(Application::GetInstance(), IDI_APPLICATION);
+	wSex.hCursor = LoadCursor(Application::GetInstance(), IDC_ARROW);
+	wSex.hbrBackground = (HBRUSH)COLOR_WINDOW;
 	wSex.lpszMenuName = NULL;
-	wSex.lpszClassName = WindowName;
-	wSex.hIconSm = LoadIcon(hInstance, IDI_APPLICATION);
+	wSex.lpszClassName = ClassName;
+	wSex.hIconSm = LoadIcon(Application::GetInstance(), IDI_APPLICATION);
+	
+
+
 
 
 	if (!RegisterClassExW(&wSex))
 	{
-		Logger::log(L"Error register Class" + std::wstring(WindowName), LOGGER_ERROR);
+		auto er = GetLastError();
 
+		Logger::log(L"Error register Class", LOGGER_ERROR);
 		Logger::wait();
-
 		abort();
 
 	}
 
-
-
-	hWnd = CreateWindowW(WindowName,
-		WindowName,
+	
+	m_Wnd = CreateWindowW(ClassName,
+		ClassName,
 		WS_OVERLAPPEDWINDOW,
-		leftX, topY,
-		width, height,
+		x, y, w, h,
 		NULL,
 		NULL,
-		hInstance,
+		Application::GetInstance(),
 		NULL);
 
-	if (!hWnd)
-	{
-		Logger::log(L"Error create window" + std::wstring(WindowName), LOGGER_ERROR);
 
-		MessageBox(NULL, L"AAAAAAAAA, HEEEEEEEELP NOW WORK", L"AAAAAAAAAAAAA", NULL);
+	if (!m_Wnd)
+	{
+		Logger::log("Error create Window " + name);
 
 		Logger::wait();
-
+		
 		abort();
+
+		return;
 	}
 
-	isDestroyed = false;
 
-	ShowWindow(hWnd, SW_SHOWDEFAULT);
-
-	UpdateWindow(hWnd);
-
-	++countWindows;
-
-	Logger::log("Succesfully create window", LOGGER_INFO);
-	Logger::log("leftX = " + to_str(leftX) + ", topY = " + to_str(topY) + ", width = " + to_str(width) + ", height = " + to_str(height), LOGGER_INFO);
+	SetWindowLongPtr(m_Wnd, GWLP_USERDATA, reinterpret_cast<LONG_PTR>(this));
 
 
-	//Logger::log("Id = " + to_str(id_Object), LOGGER_INFO);
+	ShowWindow(m_Wnd, Application::CmdShow());
+	UpdateWindow(m_Wnd);
 
+
+	RECT rect2;
+	GetWindowRect(m_Wnd, &rect2);
+
+	leftX = rect2.left;
+	topY = rect2.top;
+	width = rect2.right - rect2.left;
+	height = rect2.bottom - rect2.top;
+
+	m_Close = false;
+
+
+	Log("Success create window ", cstr(name), " " , icstr(width), "x", icstr(height));
 }
 
-
-
-
-
-
-
-
-WindowsWindow::WindowsWindow()
+void FWindowsWindow::Destroy()
 {
-
-
-}
-
-
-void WindowsWindow::Update()
-{
-	if (isDestroyed)
+	if (m_Close)
 		return;
 
-	GetMessage(&msg, hWnd, 0, 0);
-	{
-		TranslateMessage(&msg);
-		DispatchMessageW(&msg);
-	}
 
+	onDestroyWindow.BroadCast();
+
+	m_Close = true;
+	DestroyWindow(m_Wnd);
+
+
+	Log("Window has been Destroyed. - ", cstr(m_Name));
+
+
+
+}
+
+void FWindowsWindow::Update()
+{
+	if (!IsWindow(m_Wnd))
+	{
+		m_Close = true;
+
+		return;
+	}
 
 	RECT rect; POINT p;
 
-	GetWindowRect(hWnd, &rect);
+	GetWindowRect(m_Wnd, &rect);
 
 	leftX = rect.left;
-	topY =	rect.top;
+	topY = rect.top;
 
 
 	if (!(width == rect.right - rect.left || height == rect.bottom - rect.top))
@@ -352,85 +136,180 @@ void WindowsWindow::Update()
 		width = rect.right - rect.left;
 		height = rect.bottom - rect.top;
 
-		//resizeFunc();
 	}
 
 
-
-	if (!IsWindow(hWnd))
-	{
-		isDestroyed = true;
-
-		countWindows -= 1;
-
-		Logger::log("Window has been Destroyed. ID - ", LOGGER_INFO);
-	}
-
-
-
-	//wndProcStruct = {};
-
-}
-
-
-void WindowsWindow::Show()
-{
-	ShowWindow(hWnd, SW_SHOW);
-}
-
-
-
-void WindowsWindow::Hide()
-{
-	ShowWindow(hWnd, SW_HIDE);
-}
-
-void WindowsWindow::Maximaze()
-{
-	ShowWindow(hWnd, SW_MAXIMIZE);
-}
-
-
-
-void WindowsWindow::Minimize()
-{
-	ShowWindow(hWnd, SW_MINIMIZE);
-}
-
-void FWindowsWindow::Create(UINT w, UINT h, UINT x, UINT y)
-{
-	WNDCLASSEX wSex;
-
-	wSex.cbSize = sizeof(WNDCLASSEX);
-	wSex.style = CS_HREDRAW | CS_VREDRAW;
-	wSex.lpfnWndProc = nullptr;
-	wSex.cbClsExtra = 0;
-	wSex.cbWndExtra = 0;
-	wSex.hInstance = Application::GetInstance();
-	wSex.hIcon = PerEngineSettings::MainIcon();
-	wSex.hCursor = LoadCursor(wSex.hInstance, IDI_APPLICATION);
-	wSex.hbrBackground = (HBRUSH)COLOR_WINDOW;
-	wSex.lpszMenuName = NULL;
-	wSex.lpszClassName = PerEngineSettings::ProjectName();
-	wSex.hIconSm = PerEngineSettings::MainIcon();
-
-	if (!RegisterClassExW(&wSex))
-	{
-		Logger::log(L"Error register Class", LOGGER_ERROR);
-		Logger::wait();
-		abort();
-
-	}
-
-	hWnd = CreateWindowW(PerEngineSettings::ProjectName(),
-		PerEngineSettings::ProjectName(),
-		WS_OVERLAPPEDWINDOW,
-		x, y, w, h,
-		NULL,
-		NULL,
-		Application::GetInstance(),
-		NULL);
 	
 
 
 }
+
+void FWindowsWindow::SetResolution(UINT w, UINT h)
+{
+	width = w;
+	height = h;
+
+	SetWindowPos(m_Wnd, NULL, leftX, topY, w, h, NULL);
+
+}
+
+void FWindowsWindow::SetPos(UINT x, UINT y)
+{
+	leftX = x;
+	topY = y;
+
+	SetWindowPos(m_Wnd, NULL, x, y, width, height, NULL);
+
+}
+
+void FWindowsWindow::SetResPos(UINT w, UINT h, UINT x, UINT y)
+{
+	leftX = x;
+	topY = y;
+	width = w;
+	height = h;
+
+	SetWindowPos(m_Wnd, NULL, x, y, w, h, NULL);
+}
+
+void FWindowsWindow::SetWindowTitle(std::string str)
+{
+	SetWindowText(m_Wnd, strw(str).c_str());
+}
+
+LRESULT FWindowsWindow::WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
+{
+	FWindowsWindow* pThis = reinterpret_cast<FWindowsWindow*>(GetWindowLongPtr(hwnd, GWLP_USERDATA));
+
+	//GEngine.GetMouse()->SetWindow(hwnd);
+
+
+	DirectX::Mouse::ProcessMessage(msg, wParam, lParam);
+
+
+
+
+	switch (msg)
+	{
+	case WM_ACTIVATE:
+	case WM_ACTIVATEAPP:
+		DirectX::Keyboard::ProcessMessage(msg, wParam, lParam);
+		break;
+
+	case WM_KEYDOWN:
+	case WM_KEYUP:
+	case WM_SYSKEYUP:
+		DirectX::Keyboard::ProcessMessage(msg, wParam, lParam);
+		break;
+
+
+	//case WM_MOUSEMOVE:
+	//{
+	//	int xPos = GET_X_LPARAM(lParam);
+	//	int yPos = GET_Y_LPARAM(lParam);
+
+	//	POINT point;
+
+	//	GetCursorPos(&point);
+
+	//	SetCursorPos(pThis->GetWitdh() / 2, pThis->GetHeight() / 2);
+
+	//	int xDiff = point.x - (pThis->GetWitdh() / 2);
+	//	int yDiff = (point.y - (pThis->GetHeight() / 2));
+
+	//	PrintLine(icstr(xDiff), "\t" , icstr(yDiff), "\n");
+
+	//	pThis->MouseX = xDiff;
+	//	pThis->MouseY = yDiff;
+	//}
+	//	break;
+
+	//case WM_MOVE:
+	//	break;
+	///*case WM_PAINT:
+	//	break;*/
+
+	//case WM_SETCURSOR:
+	//	SetCursor(NULL);
+	//	break;
+	case WM_SIZE:
+	{
+		UINT width = LOWORD(lParam);
+		UINT height = HIWORD(lParam);
+
+		pThis->onResizeWindow.BroadCast(width, height);
+	}
+		break;
+
+	case WM_CLOSE:
+		pThis->Destroy();
+		break;
+	case WM_DESTROY:
+		pThis->Destroy();
+		break;
+	default:
+		return DefWindowProcW(hwnd, msg, wParam, lParam);
+		break;
+	}
+
+	return 0;
+}
+
+FWindowsWindow* FWindowsWindowManager::CreateWindow(UINT Weight, UINT Height, std::string Name)
+{
+	FWindowsWindow* window = new FWindowsWindow(this, windows.size());
+
+	window->Create(Weight, Height, 0, 0, Name + to_string(windows.size()), NULL);
+
+	windows.push_back(window);
+
+
+	return window;
+
+}
+
+void FWindowsWindowManager::Update()
+{
+	for (size_t i = 0; i < windows.size(); i++)
+	{
+		if (windows[i]->isClose())
+		{
+			Destroy(i);
+		}
+	}
+
+	for (auto& i : windows)
+	{
+		i->Update();
+	}
+
+	PeekMessage(&msg, 0, 0, 0, PM_REMOVE);
+	{
+		TranslateMessage(&msg);
+		DispatchMessageW(&msg);
+
+
+	}
+
+}
+
+void FWindowsWindowManager::Destroy(UINT index)
+{
+	auto wnd = windows[index];
+
+	wnd->Destroy();
+
+
+	delete windows[index];
+
+	windows.erase(windows.begin() + index);
+}
+
+void FWindowsWindowManager::Quit()
+{
+	for (size_t i = 0; i < windows.size(); i++)
+	{
+		Destroy(i);
+	}
+}
+

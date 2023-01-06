@@ -14,6 +14,7 @@
 
 
 
+#define Log(...) Logger::logF(__VA_ARGS__, nullptr)
 
 
 
@@ -57,9 +58,11 @@ public:
 
 	static void Initialize(size_t s);
 
-	static void log(std::string, LOGGER_ENUM);
+
+	static void log(std::string, LOGGER_ENUM severenty = LOGGER_INFO);
+	static void logF(const char* arg, ...);
 #ifdef _WIN32
-	static void log(std::wstring str, LOGGER_ENUM severenty);
+	static void log(std::wstring str, LOGGER_ENUM severenty = LOGGER_INFO);
 #endif // _WIN32
 
 	void urgLog(std::string, LOGGER_ENUM);

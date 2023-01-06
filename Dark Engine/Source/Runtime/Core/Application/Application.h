@@ -26,6 +26,7 @@ public:
 
 public:
 	static HINSTANCE GetInstance() { return _inst->hInsance; }
+	static INT32 CmdShow() { return _inst->nCmdShow; }
 	
 
 
