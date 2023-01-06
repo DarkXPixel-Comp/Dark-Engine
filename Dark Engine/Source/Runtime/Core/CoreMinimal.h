@@ -26,5 +26,11 @@
 
 #include "CommandLine/CommandLine.h"
 
+#define istr(x) std::to_string(x)
+#define icstr(x) std::to_string(x).c_str()
+#define cstr(x) x.c_str()
+#define strw(x) std::wstring(x.begin(), x.end())
+#define wstr(x) std::string(x.begin(), x.end())
+
 //#include <Source/Runtime/Engine/public/DEngine.h>
 

@@ -1,6 +1,9 @@
 #pragma once
 #include "../CoreMinimal.h"
 
+#define PrintLine(...) CommandConsole::PrintF(__VA_ARGS__, nullptr)
+
+using namespace std;
 
 class CommandConsole
 {
@@ -16,6 +19,10 @@ public:
 	static void Initialize(const char* consoleTitle);
 
 	static void Print(const char* text);
+
+	static void PrintF(const char* arg, ...);
+
+	static void PrintF(string arg, ...);
 
 	static bool isWork();
 

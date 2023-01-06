@@ -101,8 +101,20 @@ int32_t WINAPI WinMain(
 	info.WindowInitInfo.leftX = 0;
 	info.WindowInitInfo.topY = 0;
 	info.platformCmdShow = nCmdShow;
+	
 
-	GEngine.Initialize(info);
+	try
+	{
+		GEngine.Initialize(info);
+	}
+	catch (const std::exception& ex)
+	{
+		GEngine.Quit();
+	}
+	catch (...)
+	{
+		GEngine.Quit();
+	}
 
 
 

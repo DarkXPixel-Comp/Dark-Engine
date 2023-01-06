@@ -1,5 +1,6 @@
 #include "../public/DEngine.h"
 #include <Source/Runtime/Render/D3D12/D3D12Render.h>
+#include <iostream>
 
 DEngine GEngine;
 
@@ -7,8 +8,14 @@ DEngine GEngine;
 #define HINSTANCE() GetModuleHandle(NULL)
 
 
+
+
 void DEngine::Initialize(DEngineInitInfo info)
 {
+	keyboard = std::make_unique<DirectX::Keyboard>();
+	mouse = std::make_unique<DirectX::Mouse>();
+	
+
 	Logger::Initialize(LOGGER_ERROR | LOGGER_CONSOLE | LOGGER_INFO);
 
 #ifdef _DEBUG
@@ -16,31 +23,15 @@ void DEngine::Initialize(DEngineInitInfo info)
 #endif // _DEBUG
 	//InputCore::Initialize();
 
+	
+
 
 	std::string str = info.nameGame;
 	std::wstring nameWindow(str.begin(), str.end());
 
-	Window.Initialize(HINSTANCE(),
-		info.platformCmdShow,
-		nameWindow.c_str(),
-		info.WindowInitInfo.leftX, 
-		info.WindowInitInfo.topY,
-		info.WindowInitInfo.width,
-		info.WindowInitInfo.height);
-
-//	Window.SetResolution(1600, 900);
-
-	//Window.Minimize();
-
-	keyboard = std::make_unique<DirectX::Keyboard>();
-	mouse = std::make_unique<DirectX::Mouse>();
 
 
-	
-	//mouse->SetWindow(Window.GetHandle());
-	//mouse->SetMode(Mouse::MODE_RELATIVE);
-	//mouse->SetVisible(true);
-	
+	WindowManager.CreateWindow(1920, 1080, "Test");
 
 
 	Renderer = new RENDER_API;
@@ -59,6 +50,9 @@ void DEngine::Initialize(DEngineInitInfo info)
 
 	isAppWork = true;
 
+	
+	
+
 
 
 	StartPoint = Clock::now();
@@ -66,10 +60,7 @@ void DEngine::Initialize(DEngineInitInfo info)
 
 
 
-platformWindow* DEngine::GetWindow()
-{
-	return &Window;
-}
+
 
 int _fps()
 {
@@ -93,40 +84,59 @@ int _fps()
 }
 
 
+void onsize(long w, long h)
+{
+
+
+}
 
 
 void DEngine::UpdateLoop()
 {
-	auto time = Clock::now();
-
-	//RenderScene->Update();
-
-	if (!Window.isAppQuit())
+	if (!isAppQuit())
 	{
-		World->Update();
-		Renderer->Render();
-		Window.Update();
+		auto time = Clock::now();
+
+		//RenderScene->Update();
+
+	//	if (!Window.isAppQuit())
+		{
+			WindowManager.Update();
+			World->Update();
+			Renderer->Render();
+			//Window.Update();
+		}
+
+		auto time2 = Clock::now();
+
+		auto elapsed = std::chrono::duration_cast<std::chrono::microseconds>(time2 - time);
+
+		//deltaTime = static_cast<float>(elapsed.count());
+
+		deltaTime = static_cast<float>(elapsed.count()) / static_cast<float>(1000);
+
+
+		fps = 1 / (deltaTime / 1000);
+
+		if (WindowManager.GetPrimalWindow())
+		{
+			string wndTitle = istr(fps) + "  " + istr(WindowManager.GetPrimalWindow()->GetWitdh()) + "  "
+				+ istr(WindowManager.GetPrimalWindow()->GetHeight());
+			WindowManager.GetPrimalWindow()->SetWindowTitle(wndTitle);
+		}
+
+
+
+
+
+		StartPoint = Clock::now();
 	}
 	
-
-	auto time2 = Clock::now();
-
-	auto elapsed = std::chrono::duration_cast<std::chrono::microseconds>(time2 - time);
-
-	//deltaTime = static_cast<float>(elapsed.count());
-
-	deltaTime = static_cast<float>(elapsed.count()) / static_cast<float>(1000);
-
-	fps = _fps();
-
-	StartPoint = Clock::now();
 }
 
 
 void DEngine::Shutdown()
 {
-	Window.CloseWindow();
-
 	Logger::log("System succesfully shutdown", LOGGER_INFO);
 
 	Logger::log("", LOGGER_INFO);
@@ -136,6 +146,8 @@ void DEngine::Shutdown()
 
 float DEngine::GetDeltaTime()
 {
+	return deltaTime;
+
 	auto TimePoint = Clock::now();
 
 	auto elapsed = std::chrono::duration_cast<std::chrono::microseconds>(TimePoint - StartPoint);
@@ -153,7 +165,11 @@ float DEngine::GetDeltaTime()
 
 void DEngine::Quit()
 {
+	WindowManager.Quit();
+
 	isAppWork = false;
+
+	//PostQuitMessage(0);
 }
 
 bool DEngine::isAppQuit()
@@ -164,5 +180,5 @@ bool DEngine::isAppQuit()
 	//z = isAppWork;
 
 
-	return (Window.isAppQuit() && !CommandConsole::isWork()) || !isAppWork;
+	return (!CommandConsole::isWork()) || !isAppWork;
 }

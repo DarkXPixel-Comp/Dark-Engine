@@ -165,6 +165,7 @@
     <ClInclude Include="Source\Runtime\Core\Application\Application.h" />
     <ClInclude Include="Source\Runtime\Core\CommandLine\CommandLine.h" />
     <ClInclude Include="Source\Runtime\Core\CoreDefines.h" />
+    <ClInclude Include="Source\Runtime\Core\Delegate\Delegate.h" />
     <ClInclude Include="Source\Runtime\Core\Function\UFunction.h" />
     <ClInclude Include="Source\Runtime\Core\Misc\ScopeLock.h" />
     <ClInclude Include="Source\Runtime\Core\Threads\Threads.h" />
@@ -517,6 +518,8 @@
     <ClCompile Include="Source\Runtime\Engine\Classes\Camera\Camera.cpp" />
     <ClCompile Include="Source\Runtime\Engine\Classes\StaticMeshActor\StaticMeshActor.cpp" />
     <ClCompile Include="Source\Runtime\Engine\Classes\UObject\Object.cpp" />
+    <ClCompile Include="Source\Runtime\Engine\private\Classes\Components\ActorComponent.cpp" />
+    <ClCompile Include="Source\Runtime\Engine\private\Classes\Components\InputComponent.cpp" />
     <ClCompile Include="Source\Runtime\Engine\private\DEngine.cpp" />
     <ClCompile Include="Source\Runtime\Platform\Platform.cpp" />
     <ClCompile Include="Source\Runtime\Platform\private\Window\Window.cpp" />
@@ -534,6 +537,7 @@
     <ResourceCompile Include="Source\Runtime\Launch\Resource\Resource.rc" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="cpp.hint" />
     <None Include="Source\Runtime\Render\D3D12\DTK12\TeapotData.inc" />
     <None Include="Source\ThirdParty\glm\detail\func_common.inl" />
     <None Include="Source\ThirdParty\glm\detail\func_common_simd.inl" />

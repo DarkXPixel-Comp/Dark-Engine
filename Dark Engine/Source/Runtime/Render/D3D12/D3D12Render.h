@@ -11,6 +11,7 @@
 #include <SimpleMath.h>
 #include <VertexTypes.h>
 #include <GraphicsMemory.h>
+#include <Core/CommandLine/CommandLine.h>
 
 using namespace std;
 using namespace DirectX;
@@ -37,6 +38,7 @@ typedef VertexPositionNormalColorTexture Vertex;
 class D3D12Mesh;
 class D3D12Mesh1;
 class D3D12Model;
+class D3D12Material;
 
 
 //
@@ -180,14 +182,14 @@ class D3D12Renderer : public Renderer
 {
 private:
 	static const uint32_t BACK_BUFFER_COUNT = 2;
-
+	void Test() { PrintLine("Test"); }
 
 public:
 	D3D12Renderer();
 
 public:
 	void Init() override;
-	void Shutdown() override {}
+	void Shutdown() override;
 
 	void BeginFrame() override;
 	void Render() override;
@@ -363,24 +365,12 @@ public:
 
 };
 
-class D3D12Model1
-{
-
-
-
-
-
-
-
-
-};
-
-
-
 
 
 class D3D12Mesh1
 {
+	friend class D3D12Model1;
+
 	friend class D3D12Renderer;
 
 	std::vector<Vertex> Vertexes;
@@ -396,6 +386,8 @@ class D3D12Mesh1
 
 	D3D12_VERTEX_BUFFER_VIEW VertexBufferView = {};
 	D3D12_INDEX_BUFFER_VIEW IndexBufferView = {};
+
+	static D3D12Mesh1* DefaultMesh;
 
 
 public:
@@ -409,58 +401,90 @@ public:
 
 
 
+
+
+
 };
 
-
-
-
-
-
-class D3D12Mesh
+class D3D12Model1
 {
 	friend class D3D12Renderer;
 
-	std::vector<Vertex> Vertexes;
-	std::vector<WORD> Indexes;
-
-
-	ComPtr<ID3D12GraphicsCommandList6> CommandList;
-	ComPtr<ID3D12CommandAllocator> Allocator;
-
-
-	XMFLOAT3 Position;
-	XMFLOAT3 Rotation;
-	XMFLOAT3 Scale;
-
-	Resource VertexBuffer;
-	Resource IndexBuffer;
-
-	D3D12_VERTEX_BUFFER_VIEW VertexBufferView = {};
-	D3D12_INDEX_BUFFER_VIEW IndexBufferView = {};
-
-	Resource Texture;
-
-
-	XMMATRIX ModelMatrix;
-
-	ComPtr<ID3D12PipelineState> PipelineState;
-	ComPtr<ID3D12RootSignature> RootSignature;
-
-	unique_ptr<DescriptorHeap> SRDescriptorHeap;
-
-	D3D12_CPU_DESCRIPTOR_HANDLE cpuTexture;
-	D3D12_GPU_DESCRIPTOR_HANDLE gpuTexture;
-
-
-	ID3D12Device8* m_device;
 
 public:
-	void Init(const D3D12Renderer* renderer, D3D12MeshInitInfo info = D3D12MeshInitInfo());
-	void Update();
-	void Clear();
+	D3D12Model1(D3D12Mesh1* mesh = D3D12Mesh1::DefaultMesh);
 
 
+	D3D12Mesh1* Mesh;
+
+
+
+	ComPtr<ID3D12GraphicsCommandList6> m_CommandList;
+	ComPtr<ID3D12CommandAllocator> m_Allocator;
+	ID3D12Device* m_device;
 
 
 
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//class D3D12Mesh
+//{
+//	friend class D3D12Renderer;
+//
+//	std::vector<Vertex> Vertexes;
+//	std::vector<WORD> Indexes;
+//
+//
+//	ComPtr<ID3D12GraphicsCommandList6> CommandList;
+//	ComPtr<ID3D12CommandAllocator> Allocator;
+//
+//
+//	XMFLOAT3 Position;
+//	XMFLOAT3 Rotation;
+//	XMFLOAT3 Scale;
+//
+//	Resource VertexBuffer;
+//	Resource IndexBuffer;
+//
+//	D3D12_VERTEX_BUFFER_VIEW VertexBufferView = {};
+//	D3D12_INDEX_BUFFER_VIEW IndexBufferView = {};
+//
+//	Resource Texture;
+//
+//
+//	XMMATRIX ModelMatrix;
+//
+//	ComPtr<ID3D12PipelineState> PipelineState;
+//	ComPtr<ID3D12RootSignature> RootSignature;
+//
+//	unique_ptr<DescriptorHeap> SRDescriptorHeap;
+//
+//	D3D12_CPU_DESCRIPTOR_HANDLE cpuTexture;
+//	D3D12_GPU_DESCRIPTOR_HANDLE gpuTexture;
+//
+//
+//	ID3D12Device8* m_device;
+//
+//public:
+//	void Init(const D3D12Renderer* renderer, D3D12MeshInitInfo info = D3D12MeshInitInfo());
+//	void Update();
+//	void Clear();
+//
+//
+//
+//
+//
+//};

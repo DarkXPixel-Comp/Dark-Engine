@@ -4,14 +4,16 @@
 #include <DDSTextureLoader.h>
 #include <DirectXHelpers.h>
 #include <Model.h>
-#include <BinaryReader.h>
 #include <thread>
+#include <DirectXPackedVector.h>
 
 //#include <SimpleMath.h>
 #undef max
 
 using namespace D3D12MA;
 
+
+D3D12Mesh1* D3D12Mesh1::DefaultMesh = nullptr;
 
 void TransitionResource(Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList2> commandList,
 	Microsoft::WRL::ComPtr<ID3D12Resource> resource,
@@ -33,11 +35,6 @@ D3D12Renderer::D3D12Renderer()
 
 void D3D12Renderer::Init()
 {
-	//D3D12MA::CreateAllocator()
-
-
-	
-
 	HRESULT Error = S_OK;
 
 	DXCall(Error = CreateDXGIFactory2(0, IID_PPV_ARGS(&Factory)));
@@ -57,8 +54,12 @@ void D3D12Renderer::Init()
 
 	DXGI_SWAP_CHAIN_DESC1 SwapChainDesc = {};
 
-	SwapChainDesc.Width = GEngine.GetWindow()->GetWitdh();
-	SwapChainDesc.Height = GEngine.GetWindow()->GetHeight();
+	auto window = GEngine.GetWindowManager()->GetPrimalWindow();
+
+
+
+	SwapChainDesc.Width = window->GetWitdh();
+	SwapChainDesc.Height = window->GetHeight();
 	SwapChainDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
 	SwapChainDesc.SampleDesc = { 1, 0 };
 	SwapChainDesc.BufferCount = BACK_BUFFER_COUNT;
@@ -68,7 +69,7 @@ void D3D12Renderer::Init()
 
 	ComPtr<IDXGISwapChain1> SwapChain1;
 
-	Error = Factory->CreateSwapChainForHwnd(CommandQueue.Get(), GEngine.GetWindow()->GetHandle(), &SwapChainDesc, nullptr, nullptr, &SwapChain1);
+	Error = Factory->CreateSwapChainForHwnd(CommandQueue.Get(), window->GetHandle(), &SwapChainDesc, nullptr, nullptr, &SwapChain1);
 
 
 	SwapChain1.As(&SwapChain);
@@ -101,8 +102,6 @@ void D3D12Renderer::Init()
 		D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV,
 		D3D12_DESCRIPTOR_HEAP_FLAG_SHADER_VISIBLE,
 		D3D12_MAX_SHADER_VISIBLE_DESCRIPTOR_HEAP_SIZE_TIER_1);
-
-	//D3D12_MAX_SHADER_VISIBLE_DESCRIPTOR_HEAP_SIZE_TIER_1
 	
 
 	RTHandleSize = Device->GetDescriptorHandleIncrementSize(D3D12_DESCRIPTOR_HEAP_TYPE_RTV);
@@ -263,15 +262,7 @@ void D3D12Renderer::Init()
 	size_t dataSize = 0;
 	std::unique_ptr<uint8_t[]> data;
 
-	BinaryReader::ReadEntireFile(L"Resources/Texture.dds", data, &dataSize);
-
-	vector<char> bb(dataSize);
-
-	for (size_t i = 0; i < dataSize; i++)
-	{
-		bb[i] = *(data.get() + i);
-	}
-
+	
 
 
 	D3D12_ROOT_SIGNATURE_FLAGS rootSignatureFlags =
@@ -344,9 +335,9 @@ void D3D12Renderer::Init()
 
 	
 
-	ScissorRect = { 0, 0, (long)GEngine.GetWindow()->GetWitdh(), (long)GEngine.GetWindow()->GetHeight() };
+	ScissorRect = { 0, 0, (long)window->GetWitdh(), (long)window->GetHeight() };
 
-	Viewport = { 0.f, 0.f,  (float)GEngine.GetWindow()->GetWitdh(),  (float)GEngine.GetWindow()->GetHeight(), 0.f, 1.f };
+	Viewport = { 0.f, 0.f,  (float)window->GetWitdh(),  (float)window->GetHeight(), 0.f, 1.f };
 
 
 	
@@ -372,8 +363,6 @@ void D3D12Renderer::Init()
 	//auto M = Model::Crea
 
 
-	D3D12Mesh model;
-
 	//std::vector<Vertex> vert(&Vertices[0], &Vertices[_countof(Vertices) - 1]);
 
 
@@ -382,7 +371,7 @@ void D3D12Renderer::Init()
 	info.TexturePath = L"C:\\Users\\nahmu\\source\\repos\\Dark Engine\\Dark Engine\\Resources\\Texture.dds";
 	info.VertexShader = L"shaders/VertexShader.hlsl";
 	info.PixelShader = L"shaders/PixelShader.hlsl";
-	info.Vertices.insert(info.Vertices.begin(),	begin(Vertices), end(Vertices));
+	info.Vertices.insert(begin(info.Vertices),	begin(Vertices), end(Vertices));
 	info.Indices.insert(begin(info.Indices), begin(Indices), end(Indices));
 
 
@@ -392,44 +381,36 @@ void D3D12Renderer::Init()
 		_countof(Vertices), Indices, _countof(Indices));
 
 
-	
-
-
-
-	/*for (size_t i = 0; i < 10; i++)
 	{
-		for (size_t j = 0; j < 10; j++)
-		{
-			int32_t index = i * 10 + j * 1;
-			models.emplace_back();
-			models[index].Init(this, info);
-			models[index].Position = XMFLOAT3(i * 5, j * 5, 0);
-		}
+
+		auto Mesh = D3D12Mesh1::DefaultMesh = new D3D12Mesh1();
+
+		Mesh->Init(Device.Get(), CommandQueue.Get(), Vertices, _countof(Vertices),
+			Indices, _countof(Indices));
 	}
 
-*/
-
-
-
-
-	/*models.emplace_back();
-	models.emplace_back();
-
-	models[0].Init(this, info);
-	models[1].Init(this, info);
-
-	models[1].Position = XMFLOAT3(2, 5, 0);*/
-
-
-	//model.Init(this, info);
-
-
-//	auto s = importer.ReadFile("Models/spere.obj", aiProcess_Triangulate);
 
 
 
 
 }
+
+void D3D12Renderer::Shutdown()
+{
+	if (D3D12Mesh1::DefaultMesh)
+	{
+		delete D3D12Mesh1::DefaultMesh;
+	}
+
+
+
+
+
+
+}
+
+
+
 
 using namespace DirectX::SimpleMath;
 
@@ -472,57 +453,26 @@ void D3D12Renderer::Render()
 
 	if (on)
 	{
-		D3D12Mesh1* mesh = new D3D12Mesh1();
-		mesh->Init(Device.Get(), CommandQueue.Get(), Vertices,
-			_countof(Vertices), Indices, _countof(Indices));
-
-
-
-
-		/*for (size_t i = 0; i < 1000; i++)
-		{
-			auto actor = scene->CreateActor();
-			actor->SetMesh(mesh);
-			actor->SetLocation({ i * 2.f , 0.f, 0.f });
-		}*/
-
-		/*thread th([&]()
-			{
-				while (true)
-				{
-					Update();
-				}
-			});*/
-
-		//th.detach();
-
-		auto me = LoadMesh("Models/sphere.obj");
+		auto mesh = LoadMesh("Models/sphere.obj");
 
 		for (size_t i = 0; i < 1; i++)
 		{
 			auto actor = scene->CreateActor();
 
-			actor->SetMesh(me[0]);
+			actor->SetMesh(mesh[0]);
 
 			actor->AddLocation(i * 3);
 		}
 
 
-		//actor->SetScaling({ 0.1, 0.1, 0.1 });
 
 		on = false;
 
 
 
 	}
-	
-	//this_thread::sleep_for(1ns);
 
-	CommandConsole::Print(to_string(GEngine.GetDeltaTime()).c_str());
-	CommandConsole::Print("\n");
-
-
-
+	//PrintLine(icstr(GEngine.GetFPS()), "\n");
 
 
 
@@ -547,9 +497,6 @@ void D3D12Renderer::RenderScene()
 
 	auto scene = GEngine.GetWorld();
 	auto& actors = scene->GetActors();
-
-	//scene->GetCamera()->SetLocation({ CameraX, CameraY, CameraZ });
-	//scene->GetCamera()->SetRotation({ 0, pitch, yaw });
 
 
 
@@ -673,7 +620,7 @@ void D3D12Renderer::RenderScene()
 
 	WaitFrame();
 
-	SwapChain->Present(0, 0);
+	SwapChain->Present(1, 0);
 
 	graphicsMemory->Commit(CommandQueue.Get());
 
@@ -798,16 +745,20 @@ void D3D12Renderer::Update()
 
 	auto delta = GEngine.GetDeltaTime();
 
-	/*float mouseX = StateMouse.x * 0.05;
-	float mouseY = StateMouse.y * 0.05;*/
 
-	//yaw += mouseX;
-	//pitch += mouseY;
+
+
+
+	float mouseX = GEngine.GetWindowManager()->GetPrimalWindow()->MouseX * 0.05;
+	float mouseY = GEngine.GetWindowManager()->GetPrimalWindow()->MouseY * 0.05;
+
+	yaw += mouseX;
+	pitch += mouseY;
 
 
 	//yaw = 100;
 
-	/*if (pitch > 89.f)
+	if (pitch > 89.f)
 		pitch = 89.f;
 	if (pitch < -89.f)
 		pitch = -89.f;
@@ -815,7 +766,7 @@ void D3D12Renderer::Update()
 	if (yaw > 360)
 		yaw -= 360;
 	if (yaw < 0)
-		yaw += 360;*/
+		yaw += 360;
 
 	Vector3 front;
 	front.x = cos(XMConvertToRadians(yaw)) * cos(XMConvertToRadians(pitch));
@@ -1029,200 +980,6 @@ void D3D12Renderer::WaitFrame()
 
 }
 
-void D3D12Mesh::Init(const D3D12Renderer* renderer, D3D12MeshInitInfo info)
-{
-	m_device = renderer->Device.Get();
-	Vertexes = info.Vertices;
-	Indexes = info.Indices;
-
-
-	SRDescriptorHeap = make_unique<DescriptorHeap>(m_device,
-		D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV,
-		D3D12_DESCRIPTOR_HEAP_FLAG_SHADER_VISIBLE,
-		16);
-
-
-
-	m_device->CreateCommandList1(0, D3D12_COMMAND_LIST_TYPE_DIRECT, D3D12_COMMAND_LIST_FLAG_NONE,
-		IID_PPV_ARGS(&CommandList));
-
-	m_device->CreateCommandAllocator(D3D12_COMMAND_LIST_TYPE_DIRECT, IID_PPV_ARGS(&Allocator));
-
-
-
-
-	
-
-	ResourceUploadBatch ResourceUpload(m_device);
-
-
-
-	const D3D12_INPUT_LAYOUT_DESC inputLayout = Vertex::InputLayout;
-
-	D3D12_FEATURE_DATA_ROOT_SIGNATURE FeatureData = { D3D_ROOT_SIGNATURE_VERSION_1_0 };
-
-
-	ComPtr<ID3DBlob> RootSignatureBlob;
-	ComPtr<ID3DBlob> ErrorBlob;
-
-
-
-	CD3DX12_ROOT_PARAMETER RootParametrs[7];
-
-	CD3DX12_DESCRIPTOR_RANGE ranges[1];
-	ranges[0].Init(D3D12_DESCRIPTOR_RANGE_TYPE_SRV, 1,
-		1, 0);
-
-
-	//RootParametrs[0].InitAsConstants((sizeof(XMMATRIX) / 4) * 2, 0, 0, D3D12_SHADER_VISIBILITY_ALL);
-
-
-	RootParametrs[0].InitAsConstants(sizeof(XMMATRIX) / 4, 0, 0, D3D12_SHADER_VISIBILITY_ALL);
-	RootParametrs[1].InitAsDescriptorTable(1, &ranges[0], D3D12_SHADER_VISIBILITY_PIXEL);
-	RootParametrs[2].InitAsConstants(sizeof(XMFLOAT4) / 4, 2, 0, D3D12_SHADER_VISIBILITY_PIXEL);
-	RootParametrs[3].InitAsConstants(sizeof(XMFLOAT4) / 4, 3, 0, D3D12_SHADER_VISIBILITY_PIXEL);
-	RootParametrs[4].InitAsConstants(sizeof(XMFLOAT4) / 4, 4, 0, D3D12_SHADER_VISIBILITY_PIXEL);
-	RootParametrs[5].InitAsConstants(sizeof(XMMATRIX) / 4, 5, 0, D3D12_SHADER_VISIBILITY_ALL);
-	RootParametrs[6].InitAsConstants(1, 6, 0, D3D12_SHADER_VISIBILITY_ALL);
-
-	//RootParametrs[2].InitAsShaderResourceView(4, 0, D3D12_SHADER_VISIBILITY_PIXEL);
-
-	D3D12_STATIC_SAMPLER_DESC sampler = {};
-
-
-	sampler.Filter = D3D12_FILTER_MIN_MAG_MIP_POINT;
-	sampler.AddressU = D3D12_TEXTURE_ADDRESS_MODE_WRAP;
-	sampler.AddressV = D3D12_TEXTURE_ADDRESS_MODE_WRAP;
-	sampler.AddressW = D3D12_TEXTURE_ADDRESS_MODE_BORDER;
-	sampler.MipLODBias = 0;
-	sampler.MaxAnisotropy = 0;
-	sampler.ComparisonFunc = D3D12_COMPARISON_FUNC_NEVER;
-	sampler.BorderColor = D3D12_STATIC_BORDER_COLOR_TRANSPARENT_BLACK;
-	sampler.MinLOD = 0.0f;
-	sampler.MaxLOD = D3D12_FLOAT32_MAX;
-	sampler.ShaderRegister = 0;
-	sampler.RegisterSpace = 0;
-	sampler.ShaderVisibility = D3D12_SHADER_VISIBILITY_PIXEL;
-
-
-
-
-
-
-
-	D3D12_ROOT_SIGNATURE_FLAGS rootSignatureFlags =
-		D3D12_ROOT_SIGNATURE_FLAG_ALLOW_INPUT_ASSEMBLER_INPUT_LAYOUT |
-		D3D12_ROOT_SIGNATURE_FLAG_DENY_HULL_SHADER_ROOT_ACCESS |
-		D3D12_ROOT_SIGNATURE_FLAG_DENY_DOMAIN_SHADER_ROOT_ACCESS |
-		D3D12_ROOT_SIGNATURE_FLAG_DENY_GEOMETRY_SHADER_ROOT_ACCESS |
-		D3D12_ROOT_SIGNATURE_FLAG_DENY_PIXEL_SHADER_ROOT_ACCESS;
-
-
-	CD3DX12_ROOT_SIGNATURE_DESC RootSignatureDesc = {};
-	RootSignatureDesc.Init(_countof(RootParametrs), RootParametrs, 1,
-		&sampler, D3D12_ROOT_SIGNATURE_FLAG_ALLOW_INPUT_ASSEMBLER_INPUT_LAYOUT);
-
-
-	D3D12SerializeRootSignature(&RootSignatureDesc, D3D_ROOT_SIGNATURE_VERSION_1, &RootSignatureBlob, &ErrorBlob);
-
-
-	m_device->CreateRootSignature(0, RootSignatureBlob->GetBufferPointer(),
-		RootSignatureBlob->GetBufferSize(), IID_PPV_ARGS(&RootSignature));
-
-
-	ComPtr<ID3DBlob> VertexShader;
-	ComPtr<ID3DBlob> PixelShader;
-
-	D3DCompileFromFile(info.VertexShader.c_str(), nullptr, nullptr, "main", "vs_5_0",
-		0, 0, &VertexShader, nullptr);
-	D3DCompileFromFile(info.PixelShader.c_str(), nullptr, nullptr, "main", "ps_5_0",
-		0, 0, &PixelShader, nullptr);
-
-
-
-	D3D12_GRAPHICS_PIPELINE_STATE_DESC PipelineStateDesc = {};
-
-	PipelineStateDesc.InputLayout = (inputLayout);
-	//PipelineStateDesc.InputLayout.pInputElementDescs = inputLayout;
-	PipelineStateDesc.pRootSignature = RootSignature.Get();
-	PipelineStateDesc.PrimitiveTopologyType = D3D12_PRIMITIVE_TOPOLOGY_TYPE_TRIANGLE;
-	PipelineStateDesc.VS = CD3DX12_SHADER_BYTECODE(VertexShader->GetBufferPointer(), VertexShader->GetBufferSize());
-	PipelineStateDesc.PS = CD3DX12_SHADER_BYTECODE(PixelShader->GetBufferPointer(), PixelShader->GetBufferSize());
-	PipelineStateDesc.RasterizerState = CD3DX12_RASTERIZER_DESC(D3D12_DEFAULT);
-	PipelineStateDesc.BlendState = CD3DX12_BLEND_DESC(D3D12_DEFAULT);
-	PipelineStateDesc.DepthStencilState = CD3DX12_DEPTH_STENCIL_DESC(D3D12_DEFAULT);
-	PipelineStateDesc.SampleMask = UINT_MAX;
-	PipelineStateDesc.NumRenderTargets = 1;
-	PipelineStateDesc.RTVFormats[0] = DXGI_FORMAT_R8G8B8A8_UNORM;
-	PipelineStateDesc.SampleDesc = { 1, 0 };
-	//PipelineStateDesc.DSVFormat = DXGI_FORMAT_D32_FLOAT;
-
-
-
-	DXCall(m_device->CreateGraphicsPipelineState(&PipelineStateDesc, IID_PPV_ARGS(&PipelineState)));
-
-
-
-
-	ResourceUpload.Begin();
-
-	CreateStaticBuffer(m_device, ResourceUpload, Vertexes.data(), Vertexes.size(), sizeof(Vertex), 
-		D3D12_RESOURCE_STATE_VERTEX_AND_CONSTANT_BUFFER, &VertexBuffer);
-
-	VertexBufferView.BufferLocation = VertexBuffer->GetGPUVirtualAddress();
-	VertexBufferView.SizeInBytes = sizeof(Vertex) * Vertexes.size();
-	VertexBufferView.StrideInBytes = sizeof(Vertex);
-
-
-	CreateStaticBuffer(m_device,
-		ResourceUpload,
-		Indexes.data(),
-		Indexes.size(),
-		sizeof(WORD),
-		D3D12_RESOURCE_STATE_INDEX_BUFFER,
-		&IndexBuffer);
-
-	IndexBufferView.BufferLocation = IndexBuffer->GetGPUVirtualAddress();
-	IndexBufferView.Format = DXGI_FORMAT_R16_UINT;
-	IndexBufferView.SizeInBytes = sizeof(WORD) * Indexes.size();
-
-	CreateDDSTextureFromFile(m_device, ResourceUpload,
-		info.TexturePath.c_str(), &Texture);
-
-
-
-	ResourceUpload.End(renderer->CommandQueue.Get());
-
-
-
-	CreateShaderResourceView(m_device, Texture.Get(), SRDescriptorHeap->GetFirstCpuHandle());
-
-
-
-
-}
-
-void D3D12Mesh::Update()
-{
-	ModelMatrix = XMMatrixScalingFromVector(XMVectorSet(1, 1,1, 1));
-
-	ModelMatrix = XMMatrixMultiply(ModelMatrix, XMMatrixTranslation(Position.x, Position.y,
-		Position.z));
-
-
-
-
-
-
-}
-
-void D3D12Mesh::Clear()
-{
-
-
-
-
-}
 
 D3D12Model::D3D12Model(D3D12Mesh1* mesh, XMFLOAT3 pos, XMFLOAT3 rot, XMFLOAT3 sc)
 {

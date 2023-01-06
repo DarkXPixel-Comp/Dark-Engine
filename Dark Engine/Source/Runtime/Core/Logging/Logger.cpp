@@ -30,6 +30,10 @@ void Logger::Initialize(size_t s)
 	std::thread th(logging, inst); th.detach();
 
 	inst->urgLog("The system started successfully", LOGGER_ENUM::LOGGER_INFO);
+
+	//inst << std::string("s")
+
+
 }
 
 
@@ -78,15 +82,21 @@ void record(log_& obj)
 
 	if (obj.isConsole)
 	{
-		CommandConsole::Print(text.c_str());
+		/*CommandConsole::Print(text.c_str());
 		CommandConsole::Print(" - ");
 		CommandConsole::Print(obj.txt.c_str());
-		CommandConsole::Print("\n");
+		CommandConsole::Print("\n");*/
+
+		PrintLine(text.c_str(), " - ", obj.txt.c_str(), "\n");
+
+
+
 	}
 
 	fout.close();
 
 }
+
 
 void logging(Logger* obj)
 {
@@ -96,14 +106,19 @@ void logging(Logger* obj)
 		{
 			auto it = obj->logs.begin();
 
+			if (it == obj->logs.end())
+				continue;
+
 			record(*it);
 
 			//std::cout << it->txt;
 			obj->logs.erase(it);
 		}
 
-		std::this_thread::sleep_for(std::chrono::microseconds(100));
+		std::this_thread::sleep_for(std::chrono::microseconds(1000));
 	}
+
+
 }
 
 void Logger::log(std::string logTxt, LOGGER_ENUM severenty)
@@ -123,6 +138,29 @@ void Logger::log(std::string logTxt, LOGGER_ENUM severenty)
 	inst->logs.push_back(temp);
 
 }
+
+void Logger::logF(const char* arg, ...)
+{
+	va_list arguments;
+	
+	string ret;
+
+
+
+	for (va_start(arguments, arg); arg != nullptr; arg = va_arg(arguments, const char*))
+	{
+		ret += arg;
+	}
+
+
+	Logger::log(ret);
+
+	va_end(arguments);
+
+
+}
+
+
 
 void Logger::log(std::wstring str, LOGGER_ENUM severenty)
 {
@@ -189,8 +227,9 @@ void Logger::wait()
 {
 	while (!inst->logs.empty())
 	{
-		std::this_thread::sleep_for(std::chrono::milliseconds(3));
+		std::this_thread::sleep_for(std::chrono::milliseconds(10));
 	}
 
 }
+
 

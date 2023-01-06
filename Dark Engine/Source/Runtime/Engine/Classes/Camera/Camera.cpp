@@ -35,7 +35,7 @@ void ACameraActor::Update()
 	XMVECTOR dir = -XMVectorSet(Front.x, Front.y, -Front.z, 1);
 	
 
-	auto window = GEngine.GetWindow();
+	auto window = GEngine.GetWindowManager()->GetPrimalWindow();
 
 	XMMatrixOrthographicLH(window->GetWitdh(), window->GetHeight(), 0.1, 100);
 
