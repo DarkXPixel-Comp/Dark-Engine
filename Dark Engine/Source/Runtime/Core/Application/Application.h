@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
-#include <Core/CorePlatform.h>
+#include <Windows.h>
+
 
 
 

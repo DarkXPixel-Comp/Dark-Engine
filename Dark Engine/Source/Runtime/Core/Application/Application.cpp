@@ -1,6 +1,5 @@
 #include "Application.h"
 
-
 Application* Application::_inst;
 
 Application app;

@@ -1,49 +1,20 @@
 #pragma once
-
-#include <Source/Runtime/Core/CoreMinimal.h>
-
+#include <Core/Delegate/Delegate.h>
+#include <Windows.h>
 #include <string>
 
-#include <d3d12.h>
-
-#include <functional>
-
-#include <Core/Delegate/Delegate.h>
-
-
-#include <Keyboard.h>
-#include <Mouse.h>
-
-#undef CreateWindow;
+#undef CreateWindow
 
 DECLARE_MULTICAST_DELEGATE_TwoParams(ResizeWindow, long, long);
 DECLARE_MULTICAST_DELEGATE(FDestroyWindow);
+DECLARE_DELEGATE(FUpdateWindow);
 
 
 class FWindowsWindow;
+class FWindowsWindowManager;
 
 using namespace std;
 
-class FWindowsWindowManager
-{
-
-public:
-	FWindowsWindow* CreateWindow(UINT Weight, UINT Height, std::string Name);
-	FWindowsWindow* GetPrimalWindow() { return windows.size() != 0 ? windows[0] : nullptr; }
-	FWindowsWindow* GetWindow(UINT index) { return index > windows.size() ? nullptr : windows[index]; }
-	void Update();
-	void Destroy(UINT index);
-	void Quit();
-
-
-
-
-private:
-	std::vector<FWindowsWindow*> windows;
-
-	MSG msg;
-
-};
 
 
 
@@ -53,6 +24,7 @@ class FWindowsWindow
 	friend FWindowsWindowManager;
 public:
 	FWindowsWindow(FWindowsWindowManager* manager, UINT index);
+	~FWindowsWindow();
 	void Create(UINT w, UINT h, UINT x, UINT y, string name, FWindowsWindow* Parent);
 	void Destroy();
 	void Update();
@@ -71,7 +43,7 @@ public:
 
 	void SetResPos(UINT w, UINT h, UINT x, UINT y);
 
-	bool isClose() { return m_Close; }
+	bool isClose();
 
 	UINT GetWitdh() { return width; }
 	UINT GetHeight() { return height; }
@@ -82,12 +54,14 @@ public:
 
 	void SetWindowTitle(std::string str);
 
+	UINT GetRefreshRate() { return 60; }
+
 	int MouseX = 0, MouseY = 0;
 
 
 	ResizeWindow onResizeWindow;
 	FDestroyWindow onDestroyWindow;
-
+	FUpdateWindow onUpdateWindow;
 
 
 
@@ -108,8 +82,6 @@ private:
 	HWND	m_Wnd;
 	MSG		msg;
 
-	D3D12_VIEWPORT Viewport;
-	D3D12_RECT Rect;
 
 	string m_Name;
 
@@ -125,3 +97,43 @@ private:
 };
 
 
+
+
+class FWindowsWindowManager
+{
+	HANDLE hTimer;
+	bool timerIsStarted = false;
+	LARGE_INTEGER li;
+	UINT_PTR timerPtr;
+	long delay;
+
+public:
+	FWindowsWindowManager();
+	~FWindowsWindowManager();
+	FWindowsWindow* CreateWindow(UINT Weight, UINT Height, std::string Name);
+	//FWindowsWindow* GetPrimalWindow() { return windows.size() != 0 ? windows[0] : nullptr; }
+	FWindowsWindow* GetWindow(UINT index) { return index > windows.size() ? nullptr : windows[index]; }
+	void Update();
+	void Destroy(UINT index);
+	void Quit();
+	void SetDelay(int ms);
+	bool WindowsIsClose()
+	{
+		for (auto i : windows)
+		{
+			if (!i->isClose())
+				return false;
+		}
+
+		return true;
+	}
+
+
+
+
+private:
+	std::vector<FWindowsWindow*> windows;
+
+	MSG msg;
+
+};

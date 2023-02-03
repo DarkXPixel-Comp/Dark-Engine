@@ -1,2 +1,0 @@
-#include "StaticMeshActor.h"
-

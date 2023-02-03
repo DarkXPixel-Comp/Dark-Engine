@@ -1,6 +1,7 @@
 #include "../public/DEngine.h"
-#include <Source/Runtime/Render/D3D12/D3D12Render.h>
-#include <iostream>
+#include <Core/Logging/Logger.hpp>
+#include <Core/Timer/GameTimer.h>
+#include <Core/CoreDefines.h>
 
 DEngine GEngine;
 
@@ -8,177 +9,130 @@ DEngine GEngine;
 #define HINSTANCE() GetModuleHandle(NULL)
 
 
-
-
-void DEngine::Initialize(DEngineInitInfo info)
+DEngine::~DEngine()
 {
-	keyboard = std::make_unique<DirectX::Keyboard>();
-	mouse = std::make_unique<DirectX::Mouse>();
-	
-
-	Logger::Initialize(LOGGER_ERROR | LOGGER_CONSOLE | LOGGER_INFO);
-
-#ifdef _DEBUG
-	CommandConsole::Initialize("Debug Engine");
-#endif // _DEBUG
-	//InputCore::Initialize();
-
-	
-
-
-	std::string str = info.nameGame;
-	std::wstring nameWindow(str.begin(), str.end());
-
-
-
-	WindowManager.CreateWindow(1920, 1080, "Test");
-
-
-	Renderer = new RENDER_API;
-
-	Renderer->Init();
-
-	World = new AWorld;
-	//RenderScene = new FRenderScene;
-
-	World->Initialize();
-	//RenderScene->Initalize();
-
-	//RenderScene->SetCamera(World->GetCamera());
-
-	InitInfo = info;
-
-	isAppWork = true;
-
-	
-	
-
-
-
-	StartPoint = Clock::now();
+	Shutdown();
 }
 
 
 
-
-
-int _fps()
+int32_t DEngine::Initialize()
 {
-	static int fps = 0;
-	static auto lastTime = std::chrono::high_resolution_clock::now(); // ms
-	static int frameCount = 0;
+	Logger::Initialize(LOGGER_INFO | LOGGER_ERROR | LOGGER_WARNING | LOGGER_CONSOLE);
+	Log("DEngine Started Initialize");
 
-	++frameCount;
+	CommandConsole::Initialize("CommandConsole");
 
-	auto curTime = std::chrono::high_resolution_clock::now();
+	m_windowManager.CreateWindow(1920, 1080, "DEngine");
 
-	auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(curTime - lastTime);
-	if (elapsed.count() > 1000) // take a fixed time interval of 1 second
-	{
-		fps = frameCount;
-		frameCount = 0;
-		lastTime = curTime;
-	}
-	return fps;
+
+
+	m_renderer = new RENDER_API;
+	m_renderer->Init();
+
+
+
+
+
+
+	FGameTimer::Reset();
+
+
+	return 0;
 
 }
 
 
-void onsize(long w, long h)
+int32_t DEngine::PostInit()
 {
+	m_windowManager.SetDelay(16);
 
+
+
+	return 0;
+}
+
+
+
+bool DEngine::isAppWork()
+{
+	/*bool x1 = CommandConsole::isWork();
+	bool x2 = m_Quit;
+	bool x3 = m_windowManager.WindowsIsClose();*/
+
+	return !(m_Quit || !(CommandConsole::isWork() || !m_windowManager.WindowsIsClose()));
 
 }
+
+
+void DEngine::SetDelayUpdate(int DelayMs)
+{
+	m_windowManager.SetDelay(DelayMs < 1 ? 1 : DelayMs);
+}
+
+void DEngine::SetMaxFPS(int fps)
+{
+	m_windowManager.SetDelay(fps > 1000 ? 1 : 1000 / fps);
+}
+
+
 
 
 void DEngine::UpdateLoop()
 {
-	if (!isAppQuit())
+	float deltaTime = FGameTimer::DeltaTime();
+
+	m_windowManager.Update();
+	if (m_windowManager.WindowsIsClose()) return;
+
+
+	m_renderer->Render();
+
+	Tick();
+
+	FGameTimer::Tick();
+	 
+}
+
+
+DEngine* DEngine::GetEngine()
+{
+	return &GEngine;
+}
+
+
+
+void DEngine::Tick()
+{
 	{
-		auto time = Clock::now();
-
-		//RenderScene->Update();
-
-	//	if (!Window.isAppQuit())
-		{
-			WindowManager.Update();
-			World->Update();
-			Renderer->Render();
-			//Window.Update();
-		}
-
-		auto time2 = Clock::now();
-
-		auto elapsed = std::chrono::duration_cast<std::chrono::microseconds>(time2 - time);
-
-		//deltaTime = static_cast<float>(elapsed.count());
-
-		deltaTime = static_cast<float>(elapsed.count()) / static_cast<float>(1000);
-
-
-		fps = 1 / (deltaTime / 1000);
-
-		if (WindowManager.GetPrimalWindow())
-		{
-			string wndTitle = istr(fps) + "  " + istr(WindowManager.GetPrimalWindow()->GetWitdh()) + "  "
-				+ istr(WindowManager.GetPrimalWindow()->GetHeight());
-			WindowManager.GetPrimalWindow()->SetWindowTitle(wndTitle);
-		}
-
-
-
-
-
-		StartPoint = Clock::now();
+		m_windowManager.GetWindow(0)->SetWindowTitle(icstr(1 / FGameTimer::DeltaTime()));
 	}
 	
+
+
+
+}
+
+
+void DEngine::Quit()
+{
+	m_windowManager.Quit();
+
+	m_Quit = true;
+
+
+
+
 }
 
 
 void DEngine::Shutdown()
 {
-	Logger::log("System succesfully shutdown", LOGGER_INFO);
-
-	Logger::log("", LOGGER_INFO);
-
-}
-
-
-float DEngine::GetDeltaTime()
-{
-	return deltaTime;
-
-	auto TimePoint = Clock::now();
-
-	auto elapsed = std::chrono::duration_cast<std::chrono::microseconds>(TimePoint - StartPoint);
-
-	
-	return static_cast<float>(elapsed.count() / 1000.f);
-
-
-	//return DeltaTime;
+	if (!m_Quit)
+	{
+		Quit();
+	}
 
 }
 
 
-
-
-void DEngine::Quit()
-{
-	WindowManager.Quit();
-
-	isAppWork = false;
-
-	//PostQuitMessage(0);
-}
-
-bool DEngine::isAppQuit()
-{
-	//x = Window.isAppQuit();
-	//y = CommandConsole::isWork();
-
-	//z = isAppWork;
-
-
-	return (!CommandConsole::isWork()) || !isAppWork;
-}

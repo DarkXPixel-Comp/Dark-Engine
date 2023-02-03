@@ -1,12 +1,8 @@
 #include "../../public/Windows/WindowsWindow.h"
-#include <windowsx.h>
-#include <assert.h>
-
+#include <Core/Application/Application.h>
+#include <Core/Logging/Logger.hpp>
+#include <Core/CoreDefines.h>
 #include <Engine/public/DEngine.h>
-
-#include <WinUser.h>
-#include <Windows.h>
-
 
 
 FWindowsWindow::FWindowsWindow(FWindowsWindowManager* maneger, UINT index)
@@ -23,7 +19,7 @@ void FWindowsWindow::Create(UINT w, UINT h, UINT x, UINT y, string name, FWindow
 
 	LPCWSTR ClassName = wClassName.c_str();
 
-	
+
 
 	wSex.cbSize = sizeof(WNDCLASSEX);
 	wSex.style = CS_HREDRAW | CS_VREDRAW | CS_OWNDC;
@@ -37,7 +33,7 @@ void FWindowsWindow::Create(UINT w, UINT h, UINT x, UINT y, string name, FWindow
 	wSex.lpszMenuName = NULL;
 	wSex.lpszClassName = ClassName;
 	wSex.hIconSm = LoadIcon(Application::GetInstance(), IDI_APPLICATION);
-	
+
 
 
 
@@ -52,7 +48,7 @@ void FWindowsWindow::Create(UINT w, UINT h, UINT x, UINT y, string name, FWindow
 
 	}
 
-	
+
 	m_Wnd = CreateWindowW(ClassName,
 		ClassName,
 		WS_OVERLAPPEDWINDOW,
@@ -68,7 +64,7 @@ void FWindowsWindow::Create(UINT w, UINT h, UINT x, UINT y, string name, FWindow
 		Logger::log("Error create Window " + name);
 
 		Logger::wait();
-		
+
 		abort();
 
 		return;
@@ -93,7 +89,7 @@ void FWindowsWindow::Create(UINT w, UINT h, UINT x, UINT y, string name, FWindow
 	m_Close = false;
 
 
-	Log("Success create window ", cstr(name), " " , icstr(width), "x", icstr(height));
+	Log("Success create window ", cstr(name), " ", icstr(width), "x", icstr(height));
 }
 
 void FWindowsWindow::Destroy()
@@ -123,7 +119,7 @@ void FWindowsWindow::Update()
 		return;
 	}
 
-	RECT rect; POINT p;
+	RECT rect;
 
 	GetWindowRect(m_Wnd, &rect);
 
@@ -139,7 +135,7 @@ void FWindowsWindow::Update()
 	}
 
 
-	
+
 
 
 }
@@ -177,6 +173,11 @@ void FWindowsWindow::SetWindowTitle(std::string str)
 	SetWindowText(m_Wnd, strw(str).c_str());
 }
 
+bool FWindowsWindow::isClose()
+{
+	return m_Close;
+}
+
 LRESULT FWindowsWindow::WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
 {
 	FWindowsWindow* pThis = reinterpret_cast<FWindowsWindow*>(GetWindowLongPtr(hwnd, GWLP_USERDATA));
@@ -184,69 +185,39 @@ LRESULT FWindowsWindow::WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lPara
 	//GEngine.GetMouse()->SetWindow(hwnd);
 
 
-	DirectX::Mouse::ProcessMessage(msg, wParam, lParam);
+	//DirectX::Mouse::ProcessMessage(msg, wParam, lParam);
 
 
 
 
 	switch (msg)
 	{
-	case WM_ACTIVATE:
-	case WM_ACTIVATEAPP:
-		DirectX::Keyboard::ProcessMessage(msg, wParam, lParam);
+	case WM_CREATE:
+		SetCursor(LoadCursor(NULL, IDC_ARROW));
+		return DefWindowProcW(hwnd, msg, wParam, lParam);
+		break;
+	case WM_DESTROY:
+	{
+		PostQuitMessage(0);
+		return DefWindowProcW(hwnd, msg, wParam, lParam);
+		break;
+	}
+
+	case WM_CLOSE:
+		pThis->Destroy();
 		break;
 
-	case WM_KEYDOWN:
-	case WM_KEYUP:
-	case WM_SYSKEYUP:
-		DirectX::Keyboard::ProcessMessage(msg, wParam, lParam);
-		break;
-
-
-	//case WM_MOUSEMOVE:
-	//{
-	//	int xPos = GET_X_LPARAM(lParam);
-	//	int yPos = GET_Y_LPARAM(lParam);
-
-	//	POINT point;
-
-	//	GetCursorPos(&point);
-
-	//	SetCursorPos(pThis->GetWitdh() / 2, pThis->GetHeight() / 2);
-
-	//	int xDiff = point.x - (pThis->GetWitdh() / 2);
-	//	int yDiff = (point.y - (pThis->GetHeight() / 2));
-
-	//	PrintLine(icstr(xDiff), "\t" , icstr(yDiff), "\n");
-
-	//	pThis->MouseX = xDiff;
-	//	pThis->MouseY = yDiff;
-	//}
-	//	break;
-
-	//case WM_MOVE:
-	//	break;
-	///*case WM_PAINT:
-	//	break;*/
-
-	//case WM_SETCURSOR:
-	//	SetCursor(NULL);
-	//	break;
 	case WM_SIZE:
 	{
 		UINT width = LOWORD(lParam);
 		UINT height = HIWORD(lParam);
 
 		pThis->onResizeWindow.BroadCast(width, height);
-	}
-		break;
 
-	case WM_CLOSE:
-		pThis->Destroy();
-		break;
-	case WM_DESTROY:
-		pThis->Destroy();
-		break;
+		return DefWindowProcW(hwnd, msg, wParam, lParam);
+	}
+	break;
+
 	default:
 		return DefWindowProcW(hwnd, msg, wParam, lParam);
 		break;
@@ -257,7 +228,7 @@ LRESULT FWindowsWindow::WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lPara
 
 FWindowsWindow* FWindowsWindowManager::CreateWindow(UINT Weight, UINT Height, std::string Name)
 {
-	FWindowsWindow* window = new FWindowsWindow(this, windows.size());
+	FWindowsWindow* window = new FWindowsWindow(this, (UINT)windows.size());
 
 	window->Create(Weight, Height, 0, 0, Name + to_string(windows.size()), NULL);
 
@@ -270,28 +241,76 @@ FWindowsWindow* FWindowsWindowManager::CreateWindow(UINT Weight, UINT Height, st
 
 void FWindowsWindowManager::Update()
 {
-	for (size_t i = 0; i < windows.size(); i++)
-	{
-		if (windows[i]->isClose())
-		{
-			Destroy(i);
-		}
-	}
-
 	for (auto& i : windows)
 	{
 		i->Update();
 	}
 
-	PeekMessage(&msg, 0, 0, 0, PM_REMOVE);
+
+
+
+	while (PeekMessage(&msg, 0, 0, 0, PM_REMOVE))
 	{
+		if (msg.message == WM_QUIT)
+		{
+			GEngine.Quit();
+			return;
+		}
+
+
 		TranslateMessage(&msg);
 		DispatchMessageW(&msg);
 
+	}
 
+	if (timerIsStarted)
+	{
+		//WaitForSingleObject(&hTimer, INFINITE);
+		WaitForMultipleObjects(1, &hTimer, TRUE, INFINITE);
+	}
+
+	//MsgWaitForMultipleObjects(1, &hTimer, TRUE, INFINITE, QS_ALLEVENTS);
+
+}
+
+
+void FWindowsWindowManager::SetDelay(int ms)
+{
+	//KillTimer(NULL, (UINT_PTR)hTimer);
+	delay = ms;
+
+	if (hTimer)
+	{
+		SetWaitableTimer(hTimer, &li, delay, NULL, NULL, FALSE);
+		timerIsStarted = true;
+	}
+}
+
+
+
+FWindowsWindowManager::FWindowsWindowManager()
+{
+	hTimer = CreateWaitableTimer(NULL, FALSE, NULL);
+
+	li.QuadPart = 0;
+
+	delay = 1;
+
+
+	if (hTimer)
+	{
+		//SetWaitableTimer(hTimer, &li, delay, NULL, NULL, FALSE);
 	}
 
 }
+
+FWindowsWindow::~FWindowsWindow()
+{
+	this->Destroy();
+
+
+}
+
 
 void FWindowsWindowManager::Destroy(UINT index)
 {
@@ -309,7 +328,19 @@ void FWindowsWindowManager::Quit()
 {
 	for (size_t i = 0; i < windows.size(); i++)
 	{
-		Destroy(i);
+		delete windows[i];
 	}
+
+
+	windows.clear();
+	KillTimer(NULL, (UINT_PTR)hTimer);
+	timerIsStarted = false;
+
 }
 
+
+FWindowsWindowManager::~FWindowsWindowManager()
+{
+	Quit();
+
+}

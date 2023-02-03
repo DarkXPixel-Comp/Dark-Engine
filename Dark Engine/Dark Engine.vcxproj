@@ -166,21 +166,16 @@
     <ClInclude Include="Source\Runtime\Core\CommandLine\CommandLine.h" />
     <ClInclude Include="Source\Runtime\Core\CoreDefines.h" />
     <ClInclude Include="Source\Runtime\Core\Delegate\Delegate.h" />
-    <ClInclude Include="Source\Runtime\Core\Function\UFunction.h" />
-    <ClInclude Include="Source\Runtime\Core\Misc\ScopeLock.h" />
-    <ClInclude Include="Source\Runtime\Core\Threads\Threads.h" />
-    <ClInclude Include="Source\Runtime\Engine\Classes\Actor\Actor.h" />
-    <ClInclude Include="Source\Runtime\Engine\Classes\Camera\Camera.h" />
-    <ClInclude Include="Source\Runtime\Engine\Classes\Components\ActorComponent.h" />
-    <ClInclude Include="Source\Runtime\Engine\Classes\Components\InputComonent.h" />
-    <ClInclude Include="Source\Runtime\Engine\Classes\Components\LightComponent.h" />
-    <ClInclude Include="Source\Runtime\Engine\Classes\Components\SceneComponent.h" />
-    <ClInclude Include="Source\Runtime\Engine\Classes\Misc\Dimensional.h" />
-    <ClInclude Include="Source\Runtime\Engine\Classes\StaticMeshActor\StaticMeshActor.h" />
-    <ClInclude Include="Source\Runtime\Engine\Classes\UObject\Object.h" />
+    <ClInclude Include="Source\Runtime\Core\Timer\GameTimer.h" />
     <ClInclude Include="Source\Runtime\Render\D3D12\D3D12.h" />
-    <ClInclude Include="Source\Runtime\Render\D3D12\D3D12MemoryAllocator\D3D12MemAlloc.h" />
+    <ClInclude Include="Source\Runtime\Render\D3D12\D3D12Camera.h" />
+    <ClInclude Include="Source\Runtime\Render\D3D12\D3D12Mesh.h" />
+    <ClInclude Include="Source\Runtime\Render\D3D12\D3D12Model.h" />
+    <ClInclude Include="Source\Runtime\Render\D3D12\D3D12PSO.h" />
     <ClInclude Include="Source\Runtime\Render\D3D12\D3D12Render.h" />
+    <ClInclude Include="Source\Runtime\Render\D3D12\D3D12Resource.h" />
+    <ClInclude Include="Source\Runtime\Render\D3D12\D3D12Scene.h" />
+    <ClInclude Include="Source\Runtime\Render\D3D12\D3D12Utils.h" />
     <ClInclude Include="Source\Runtime\Render\D3D12\d3dx12.h" />
     <ClInclude Include="Source\Runtime\Render\D3D12\DTK12\AlignedNew.h" />
     <ClInclude Include="Source\Runtime\Render\D3D12\DTK12\Bezier.h" />
@@ -197,54 +192,35 @@
     <ClInclude Include="Source\Runtime\Render\D3D12\DTK12\SDKMesh.h" />
     <ClInclude Include="Source\Runtime\Render\D3D12\DTK12\SharedResourcePool.h" />
     <ClInclude Include="Source\Runtime\Render\D3D12\DTK12\vbo.h" />
-    <ClInclude Include="Source\Runtime\Render\Misc\Mesh.h" />
     <ClInclude Include="Source\Runtime\Render\OpenGL\OpenGLRender.h" />
     <ClInclude Include="Source\Runtime\Render\Renderer.h" />
     <ClInclude Include="Source\Runtime\Engine\public\DEngine.h" />
     <ClInclude Include="Source\Runtime\Launch\Resource\resource.h" />
-    <ClInclude Include="Source\Runtime\Core\ConfigManager\FConfigManager.h" />
     <ClInclude Include="Source\Runtime\Core\Core.h" />
     <ClInclude Include="Source\Runtime\Core\CoreMinimal.h" />
     <ClInclude Include="Source\Runtime\Core\CoreTypes.h" />
     <ClInclude Include="Source\Runtime\Core\CorePlatform.h" />
     <ClInclude Include="Source\Runtime\Core\Logging\Logger.hpp" />
     <ClInclude Include="Source\Runtime\Core\Settings\PerEngineSettings.h" />
-    <ClInclude Include="Source\Runtime\Core\Windows\MinimalWindowsAPI.h" />
-    <ClInclude Include="Source\Runtime\Core\Windows\WindowsSystemIncludes.h" />
-    <ClInclude Include="Source\Runtime\CrashReportCore\CrashReportConfig.h" />
-    <ClInclude Include="Source\Runtime\Launch\Platforms\Launch.h" />
-    <ClInclude Include="Source\Runtime\Platform\Platform.h" />
-    <ClInclude Include="Source\Runtime\Platform\public\PlatformTypes.h" />
-    <ClInclude Include="Source\Runtime\Platform\public\Window\Window.h" />
     <ClInclude Include="Source\Runtime\World\public\World.h" />
-    <ClInclude Include="Source\Runtime\World\World.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Runtime\ApplicationCore\private\Windows\WindowsWindow.cpp" />
     <ClCompile Include="Source\Runtime\Core\Application\Application.cpp" />
     <ClCompile Include="Source\Runtime\Core\CommandLine\CommandLine.cpp" />
-    <ClCompile Include="Source\Runtime\Core\ConfigManager\FConfigManager.cpp" />
     <ClCompile Include="Source\Runtime\Core\Logging\Logger.cpp" />
     <ClCompile Include="Source\Runtime\Core\Settings\PerEngineSettings.cpp" />
-    <ClCompile Include="Source\Runtime\Core\Windows\MinimalWindowsAPI.cpp" />
-    <ClCompile Include="Source\Runtime\CrashReportCore\CrashReportConfig.cpp" />
-    <ClCompile Include="Source\Runtime\Engine\Classes\Actor\Actor.cpp" />
-    <ClCompile Include="Source\Runtime\Engine\Classes\Camera\Camera.cpp" />
-    <ClCompile Include="Source\Runtime\Engine\Classes\StaticMeshActor\StaticMeshActor.cpp" />
-    <ClCompile Include="Source\Runtime\Engine\Classes\UObject\Object.cpp" />
-    <ClCompile Include="Source\Runtime\Engine\private\Classes\Components\ActorComponent.cpp" />
-    <ClCompile Include="Source\Runtime\Engine\private\Classes\Components\InputComponent.cpp" />
+    <ClCompile Include="Source\Runtime\Core\Timer\GameTimer.cpp" />
     <ClCompile Include="Source\Runtime\Engine\private\DEngine.cpp" />
-    <ClCompile Include="Source\Runtime\Platform\Platform.cpp" />
-    <ClCompile Include="Source\Runtime\Platform\private\Window\Window.cpp" />
-    <ClCompile Include="Source\Runtime\Launch\Platforms\EngineLoop.cpp" />
-    <ClCompile Include="Source\Runtime\Launch\Platforms\Launch.cpp" />
     <ClCompile Include="Source\Runtime\Launch\Platforms\Windows\LaunchWindows.cpp" />
     <ClCompile Include="Source\Runtime\Render\D3D12\D3D12.cpp" />
-    <ClCompile Include="Source\Runtime\Render\D3D12\D3D12MemoryAllocator\D3D12MemAlloc.cpp" />
+    <ClCompile Include="Source\Runtime\Render\D3D12\D3D12Camera.cpp" />
+    <ClCompile Include="Source\Runtime\Render\D3D12\D3D12Mesh.cpp" />
+    <ClCompile Include="Source\Runtime\Render\D3D12\D3D12Model.cpp" />
+    <ClCompile Include="Source\Runtime\Render\D3D12\D3D12PSO.cpp" />
     <ClCompile Include="Source\Runtime\Render\D3D12\D3D12Render.cpp" />
-    <ClCompile Include="Source\Runtime\Render\Misc\Mesh.cpp" />
-    <ClCompile Include="Source\Runtime\World\World.cpp" />
+    <ClCompile Include="Source\Runtime\Render\D3D12\D3D12Resource.cpp" />
+    <ClCompile Include="Source\Runtime\Render\D3D12\D3D12Utils.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Source\Runtime\Launch\Resource\Resource.rc" />
@@ -252,6 +228,16 @@
   <ItemGroup>
     <None Include="cpp.hint" />
     <None Include="Source\Runtime\Render\D3D12\DTK12\TeapotData.inc" />
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="shaders\PixelShader.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">6.5</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="shaders\VertexShader.hlsl">
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">6.5</ShaderModel>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Vertex</ShaderType>
+    </FxCompile>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

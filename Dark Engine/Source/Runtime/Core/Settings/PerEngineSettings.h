@@ -1,5 +1,7 @@
 #pragma once
-#include "../CoreMinimal.h"
+#include <Windows.h>
+#include <Core/CoreTypes.h>
+
 
 
 

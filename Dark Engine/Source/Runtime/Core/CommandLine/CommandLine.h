@@ -1,5 +1,7 @@
 #pragma once
-#include "../CoreMinimal.h"
+
+#include <Windows.h>
+#include <string>
 
 #define PrintLine(...) CommandConsole::PrintF(__VA_ARGS__, nullptr)
 

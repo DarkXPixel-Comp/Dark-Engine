@@ -1,9 +1,9 @@
 #include "CommandLine.h"
+#include <Windows.h>
 #include <cassert>
 #include <io.h>
 #include <fcntl.h>
 #include <iostream>
-
 CommandConsole* CommandConsole::_inst = nullptr;
 
 CommandConsole console;

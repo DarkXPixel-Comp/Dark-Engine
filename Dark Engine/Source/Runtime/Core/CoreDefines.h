@@ -65,3 +65,11 @@ Can be overridden by setting to 1 or 0 in the project's .Target.cs files.
 #ifndef NO_CVARS
 #define NO_CVARS 0
 #endif
+
+#pragma once
+
+#define istr(x) std::to_string(x)
+#define icstr(x) std::to_string(x).c_str()
+#define cstr(x) x.c_str()
+#define strw(x) std::wstring(x.begin(), x.end())
+#define wstr(x) std::string(x.begin(), x.end())

@@ -6,20 +6,6 @@
 #include <d3dcompiler.h>
 #include <wrl.h>
 #include "d3dx12.h"
-#include "D3D12MemoryAllocator/D3D12MemAlloc.h"
-#include <DTK12/DescriptorHeap.h>
-#include <DDSTextureLoader.h>
-#include <BufferHelpers.h>
-#include <VertexTypes.h>
-#include <CommonStates.h>
-#include <GraphicsMemory.h>
-#include <ResourceUploadBatch.h>
-#include <Model.h>
-#include <assimp/Importer.hpp>
-#include <assimp/scene.h>
-#include <assimp/postprocess.h>
-#include <assimp/mesh.h>
-
 
 
 
