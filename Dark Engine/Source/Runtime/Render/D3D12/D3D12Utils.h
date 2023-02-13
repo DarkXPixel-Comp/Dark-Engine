@@ -1,8 +1,11 @@
 #pragma once
 #include <unordered_map>
 #include <memory>
+#include <string>
 #include <Windows.h>
 #include "D3D12.h"
+#include "D3D12Camera.h"
+
 
 
 
@@ -15,11 +18,13 @@ enum eShaderType
 };
 
 class D3D12PipelineShaderRootSignature;
+class D3D12Mesh;
 
 
 class D3DUtil
 {
 	static std::unordered_map<UINT, std::unique_ptr<D3D12PipelineShaderRootSignature>> Pipelines;
+	static std::unordered_map<std::string, std::unique_ptr<D3D12Mesh>> m_meshes;
 
 
 public:
@@ -27,6 +32,7 @@ public:
 	{
 		return (byteSize + 255) & ~255;
 	}
+	
 	static UINT GetCountPipelines() { return Pipelines.size(); }
 
 	static void Init();
@@ -47,6 +53,7 @@ public:
 
 	static ID3D12Device8* GetDevice(); 
 	static ID3D12CommandQueue* GetCommandQueue();
+	static D3D12Mesh* LoadMesh(std::string path);
 
 	static XMMATRIX CalcMVP()
 	{
@@ -60,6 +67,30 @@ public:
 
 		return MVPmatrix;
 
+	}
+	static XMFLOAT4X4 GetViewProjMatrix(D3D12Camera* camera)
+	{
+		XMFLOAT4X4 ViewProj = {};
+		if (!camera)
+			return ViewProj;
+
+
+		XMFLOAT3 front;
+		front.x = cos(XMConvertToRadians(camera->m_rotation.z))
+			* cos(XMConvertToRadians(camera->m_rotation.y));
+		front.y = sin(XMConvertToRadians(camera->m_rotation.y));
+		front.z = sin(XMConvertToRadians(camera->m_rotation.z))
+			* cos(XMConvertToRadians(camera->m_rotation.y));
+
+		const XMVECTOR position = XMLoadFloat3(&camera->m_position);
+		const XMVECTOR direction = XMLoadFloat3(&front);
+		XMMATRIX ViewMatrix = XMMatrixLookToLH(position, direction, XMVectorSet(0, 1, 0, 0));
+		XMMATRIX ProjectionMatrix = XMMatrixPerspectiveFovLH(camera->m_fov, camera->m_aspectRatio,
+			0.1f, 100.f);
+		XMMATRIX VP = XMMatrixMultiply(ViewMatrix, ProjectionMatrix);
+
+		XMStoreFloat4x4(&ViewProj, VP);
+		return ViewProj;
 	}
 
 

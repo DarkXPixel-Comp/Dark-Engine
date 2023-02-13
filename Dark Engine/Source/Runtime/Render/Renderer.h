@@ -4,6 +4,9 @@
 #define RENDER_API 
 
 
+class D3D12Scene;
+
+
 class Renderer
 {
 public:
@@ -13,7 +16,7 @@ public:
 	virtual void Shutdown() = 0;
 
 	virtual void BeginFrame() = 0;
-	virtual void Render() = 0;
+	virtual void Render(D3D12Scene*) = 0;
 	virtual void EndFrame() = 0;
 
 

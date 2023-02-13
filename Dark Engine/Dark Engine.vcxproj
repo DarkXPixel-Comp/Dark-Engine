@@ -167,6 +167,9 @@
     <ClInclude Include="Source\Runtime\Core\CoreDefines.h" />
     <ClInclude Include="Source\Runtime\Core\Delegate\Delegate.h" />
     <ClInclude Include="Source\Runtime\Core\Timer\GameTimer.h" />
+    <ClInclude Include="Source\Runtime\Engine\Classes\Actor\Actor.h" />
+    <ClInclude Include="Source\Runtime\Engine\Classes\Camera\CameraActor.h" />
+    <ClInclude Include="Source\Runtime\Engine\Classes\UObject\UObject.h" />
     <ClInclude Include="Source\Runtime\Render\D3D12\D3D12.h" />
     <ClInclude Include="Source\Runtime\Render\D3D12\D3D12Camera.h" />
     <ClInclude Include="Source\Runtime\Render\D3D12\D3D12Mesh.h" />
@@ -175,6 +178,7 @@
     <ClInclude Include="Source\Runtime\Render\D3D12\D3D12Render.h" />
     <ClInclude Include="Source\Runtime\Render\D3D12\D3D12Resource.h" />
     <ClInclude Include="Source\Runtime\Render\D3D12\D3D12Scene.h" />
+    <ClInclude Include="Source\Runtime\Render\D3D12\D3D12Types.h" />
     <ClInclude Include="Source\Runtime\Render\D3D12\D3D12Utils.h" />
     <ClInclude Include="Source\Runtime\Render\D3D12\d3dx12.h" />
     <ClInclude Include="Source\Runtime\Render\D3D12\DTK12\AlignedNew.h" />
@@ -203,6 +207,7 @@
     <ClInclude Include="Source\Runtime\Core\Logging\Logger.hpp" />
     <ClInclude Include="Source\Runtime\Core\Settings\PerEngineSettings.h" />
     <ClInclude Include="Source\Runtime\World\public\World.h" />
+    <ClInclude Include="Source\Runtime\World\World.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Runtime\ApplicationCore\private\Windows\WindowsWindow.cpp" />
@@ -211,6 +216,8 @@
     <ClCompile Include="Source\Runtime\Core\Logging\Logger.cpp" />
     <ClCompile Include="Source\Runtime\Core\Settings\PerEngineSettings.cpp" />
     <ClCompile Include="Source\Runtime\Core\Timer\GameTimer.cpp" />
+    <ClCompile Include="Source\Runtime\Engine\Classes\Actor\Actor.cpp" />
+    <ClCompile Include="Source\Runtime\Engine\Classes\Camera\CameraActor.cpp" />
     <ClCompile Include="Source\Runtime\Engine\private\DEngine.cpp" />
     <ClCompile Include="Source\Runtime\Launch\Platforms\Windows\LaunchWindows.cpp" />
     <ClCompile Include="Source\Runtime\Render\D3D12\D3D12.cpp" />
@@ -220,7 +227,9 @@
     <ClCompile Include="Source\Runtime\Render\D3D12\D3D12PSO.cpp" />
     <ClCompile Include="Source\Runtime\Render\D3D12\D3D12Render.cpp" />
     <ClCompile Include="Source\Runtime\Render\D3D12\D3D12Resource.cpp" />
+    <ClCompile Include="Source\Runtime\Render\D3D12\D3D12Scene.cpp" />
     <ClCompile Include="Source\Runtime\Render\D3D12\D3D12Utils.cpp" />
+    <ClCompile Include="Source\Runtime\world\World.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Source\Runtime\Launch\Resource\Resource.rc" />

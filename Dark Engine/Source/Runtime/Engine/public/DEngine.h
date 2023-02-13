@@ -1,8 +1,12 @@
 #pragma once
 #include <Render/Renderer.h>
+#include <ApplicationCore/public/Windows/WindowsWindow.h>
+#include <World/World.h>
 #include <chrono>
 #include <Windows.h>
-#include <ApplicationCore/public/Windows/WindowsWindow.h>
+#include <memory>
+
+
 
 
 
@@ -44,7 +48,7 @@ public:
 
 public:
 	FWindowsWindowManager* GetWindowManager() { return &m_windowManager; }
-	Renderer* GetRenderer() { return m_renderer; }
+	Renderer* GetRenderer() { return m_renderer.get(); }
 
 private:
 	FWindowsWindowManager m_windowManager;
@@ -53,7 +57,10 @@ private:
 
 
 
-	Renderer* m_renderer;
+	//Renderer* m_renderer;
+	unique_ptr<Renderer> m_renderer;
+	unique_ptr<D3D12Scene> m_scene;
+	unique_ptr<AWorld> m_world;
 
 
 

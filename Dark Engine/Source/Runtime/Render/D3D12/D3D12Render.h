@@ -7,6 +7,8 @@
 #include <string>
 #include <DescriptorHeap.h>
 #include <memory>
+#include "D3D12Types.h"
+#include "D3D12Resource.h"
 
 
 
@@ -37,6 +39,7 @@ class D3D12Mesh;
 class D3D12Mesh1;
 class D3D12Model;
 class D3D12Material;
+class D3D12Scene;
 
 
 
@@ -54,7 +57,7 @@ public:
 	void Shutdown() override;
 
 	void BeginFrame() override;
-	void Render() override;
+	void Render(D3D12Scene*) override;
 	void RenderObj();
 	void RenderScene();
 	void EndFrame() override;
@@ -75,10 +78,6 @@ private:
 public:
 	friend class D3D12Mesh;
 
-
-	//D3D12MA::Allocator* MemoryAllocator;
-
-
 	ComPtr<IDXGIFactory7> m_factory;
 	ComPtr<ID3D12Device8> m_device;
 	ComPtr<IDXGIAdapter1> m_adapter;
@@ -90,11 +89,6 @@ public:
 	unique_ptr <DescriptorHeap> RTDescriptorHeap;
 	unique_ptr <DescriptorHeap> DSDescriptorHeap;
 	unique_ptr<DescriptorHeap> SRDescriptorHeap;
-
-
-	//	ComPtr<ID3D12DescriptorHeap> RTDescriptorHeap;
-		//ComPtr<ID3D12DescriptorHeap> DSDescriptorHeap;
-		//ComPtr<ID3D12DescriptorHeap> DescriptorHeap;
 
 	ComPtr<IDXGISwapChain4> m_swapChain;
 
@@ -116,4 +110,6 @@ public:
 	D3D12_RECT ScissorRect;
 	float Fov;
 
+	
+	unique_ptr<D3D12UploadBufferResource<D3D12PassConstants>> m_passBuffer;
 };

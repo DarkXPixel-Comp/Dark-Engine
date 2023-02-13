@@ -1,4 +1,5 @@
 #include "../public/DEngine.h"
+#include <Render/D3D12/D3D12Scene.h>
 #include <Core/Logging/Logger.hpp>
 #include <Core/Timer/GameTimer.h>
 #include <Core/CoreDefines.h>
@@ -25,15 +26,11 @@ int32_t DEngine::Initialize()
 
 	m_windowManager.CreateWindow(1920, 1080, "DEngine");
 
-
-
-	m_renderer = new RENDER_API;
+	m_renderer = std::make_unique<RENDER_API>();
 	m_renderer->Init();
-
-
-
-
-
+	m_scene = std::make_unique<D3D12Scene>();
+	m_world = std::make_unique<AWorld>();
+	m_world->Init();
 
 	FGameTimer::Reset();
 
@@ -45,8 +42,17 @@ int32_t DEngine::Initialize()
 
 int32_t DEngine::PostInit()
 {
-	m_windowManager.SetDelay(16);
+	m_windowManager.SetDelay(16);	
 
+
+	auto mesh = D3DUtil::LoadMesh("Models/cube.obj");
+
+	auto model = new D3D12Model(mesh);
+
+	model->SetPosition({ 0, 0, 5 });
+	
+	m_scene->AddModel(model);
+	m_scene->SetCamera(D3D12Camera({2, 0, 0}, {0, 0, 90}));
 
 
 	return 0;
@@ -86,7 +92,7 @@ void DEngine::UpdateLoop()
 	if (m_windowManager.WindowsIsClose()) return;
 
 
-	m_renderer->Render();
+	m_renderer->Render(m_scene.get());
 
 	Tick();
 
@@ -107,10 +113,6 @@ void DEngine::Tick()
 	{
 		m_windowManager.GetWindow(0)->SetWindowTitle(icstr(1 / FGameTimer::DeltaTime()));
 	}
-	
-
-
-
 }
 
 

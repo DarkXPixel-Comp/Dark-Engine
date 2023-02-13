@@ -1,6 +1,9 @@
 #include "D3D12Render.h"
 #include <Engine/public/DEngine.h>
 #include "D3D12Utils.h"
+#include "D3D12Scene.h"
+#include "D3D12PSO.h"
+#include <World/World.h>
 
 #undef max
 
@@ -24,7 +27,6 @@ D3D12Renderer::D3D12Renderer()
 {
 	m_backBufferFormat = DXGI_FORMAT_R8G8B8A8_UNORM;
 	m_depthStencilFormat = DXGI_FORMAT_D32_FLOAT; //DXGI_FORMAT_D16_UNORM
-
 }
 
 void D3D12Renderer::Init()
@@ -85,7 +87,6 @@ void D3D12Renderer::Init()
 
 
 	}
-
 
 
 	RTDescriptorHeap = std::make_unique<DescriptorHeap>(m_device.Get(),
@@ -160,20 +161,17 @@ void D3D12Renderer::Init()
 	m_device->CreateDepthStencilView(m_depthBuffer.Get(), &depthStencilDesc,
 		DSDescriptorHeap->GetFirstCpuHandle());
 
-
-
-
-
 	ScissorRect = { 0, 0, (long)window->GetWitdh(), (long)window->GetHeight() };
 
 	Viewport = { 0.f, 0.f,  (float)window->GetWitdh(),  (float)window->GetHeight(), 0.f, 1.f };
 
 
+	m_passBuffer = std::make_unique<D3D12UploadBufferResource<D3D12PassConstants>>(1, true);
+
 
 	D3DUtil::InitPipelines();
-
-
-
+	
+	
 
 }
 
@@ -192,14 +190,68 @@ void D3D12Renderer::BeginFrame()
 
 }
 
-void D3D12Renderer::Render()
-{		
+void D3D12Renderer::Render(D3D12Scene* scene)
+{
+	if (scene == nullptr) return;
+	auto& backBuffer = m_backBuffers[CurrentBackBufferIndex];
+	auto PSO = D3DUtil::GetPipeline(eShaderType::Default);
+	auto models = scene->GetModels();
+	auto camera = scene->GetCamera();
+	CD3DX12_CPU_DESCRIPTOR_HANDLE backBufferHandle(RTDescriptorHeap->GetCpuHandle(CurrentBackBufferIndex));
+	CD3DX12_CPU_DESCRIPTOR_HANDLE depthBufferHandle(DSDescriptorHeap->GetFirstCpuHandle());
+	FLOAT clearColor[] = { 0.4f, 0.6f, 0.9f, 1.f };
+	ID3D12DescriptorHeap* ppHeaps[] = { SRDescriptorHeap->Heap() };
+	m_commandAllocator->Reset();
+	m_commandList->Reset(m_commandAllocator.Get(), PSO->m_pipelineState.Get());
+
+	TransitionResource(m_commandList, backBuffer.Get(),
+		D3D12_RESOURCE_STATE_PRESENT, D3D12_RESOURCE_STATE_RENDER_TARGET);
+	m_commandList->OMSetRenderTargets(1, &backBufferHandle, FALSE, &depthBufferHandle);
+	m_commandList->ClearRenderTargetView(backBufferHandle, clearColor, 0, nullptr);
+	m_commandList->ClearDepthStencilView(depthBufferHandle, D3D12_CLEAR_FLAG_DEPTH, 1.f, 0, 0, nullptr);
+	m_commandList->RSSetScissorRects(1, &ScissorRect);
+	m_commandList->RSSetViewports(1, &Viewport);
+	m_commandList->SetGraphicsRootSignature(PSO->m_rootSignature.Get());
+	m_commandList->SetDescriptorHeaps(1, ppHeaps);
+	m_commandList->IASetPrimitiveTopology(D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
+	
+	{
+		D3D12PassConstants passConst;
+
+		passConst.ViewProjectionMatrix = D3DUtil::GetViewProjMatrix(&camera);
+
+		m_passBuffer->CopyData(0, passConst);
+
+		D3D12_CONSTANT_BUFFER_VIEW_DESC desc = {};
+		desc.BufferLocation = m_passBuffer->GetResource()->GetGPUVirtualAddress();
+		desc.SizeInBytes = m_passBuffer->GetElementByteSize();
+		m_device->CreateConstantBufferView(&desc, SRDescriptorHeap->GetFirstCpuHandle());
+
+		m_commandList->SetGraphicsRootDescriptorTable(1, SRDescriptorHeap->GetFirstGpuHandle());
+	}
+	
+	for (auto& model : models)
+	{	
+		auto mesh = model->m_mesh;
+		model->FillConstantBuffer();
+		m_commandList->IASetVertexBuffers(0, 1, &mesh->m_vertexBufferView);
+		m_commandList->IASetIndexBuffer(&mesh->m_indexBufferView);
+		m_commandList->SetGraphicsRootConstantBufferView(0, model->m_cbvObject.GetResource()->GetGPUVirtualAddress());
+		m_commandList->DrawIndexedInstanced(mesh->m_indexBufferView.SizeInBytes / sizeof(WORD), 1, 0, 0, 0);
+	}
+
+	TransitionResource(m_commandList, backBuffer, D3D12_RESOURCE_STATE_RENDER_TARGET, D3D12_RESOURCE_STATE_PRESENT);
+
+	m_commandList->Close();
+	ID3D12CommandList* lists[] = { m_commandList.Get() };
+	m_commandQueue->ExecuteCommandLists(1, lists);
+	WaitFrame();
+
+	m_swapChain->Present(0, 0);
 
 
-
-
+	CurrentBackBufferIndex = m_swapChain->GetCurrentBackBufferIndex();
 	return;
-
 }
 
 void D3D12Renderer::RenderObj()

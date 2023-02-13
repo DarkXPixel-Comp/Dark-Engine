@@ -4,12 +4,15 @@
 #include <ResourceUploadBatch.h>
 #include <BufferHelpers.h>
 
+
 D3D12Mesh::D3D12Mesh()
 {
+	m_device = D3DUtil::GetDevice();
 }
 
 D3D12Mesh::D3D12Mesh(std::vector<Vertex> vertices, std::vector<WORD> indices)
 {
+	m_device = D3DUtil::GetDevice();
 	Init(vertices, indices);
 }
 

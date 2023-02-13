@@ -1,8 +1,18 @@
 cbuffer cbObject : register(b0)
 {
-    matrix MVP;
+	float4x4 ModelMatrix;
 }
 
+
+
+
+cbuffer cbPass : register(b1)
+{
+	float4x4 gView;
+	float4x4 gProj;
+	float4x4 gViewProj;
+	float4 gColor;
+}
 
 
 
@@ -20,10 +30,11 @@ struct PSInput
 PSInput main(float3 position : SV_Position,float3 normal : NORMAL, float4 color : COLOR, float2 uv : TEXCOORD)
 {
     PSInput result;
-
-    
-    result.position = mul(MVP, float4(position, 1.0f));
-    result.color = (color);
+	
+	
+	float4 posW = mul(ModelMatrix, float4(position, 1.f));
+	result.position = mul(gViewProj, posW);
+	result.color = (gColor);
     result.uv = uv;
     result.normal = normal;
 

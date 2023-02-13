@@ -211,12 +211,9 @@ LRESULT FWindowsWindow::WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lPara
 	{
 		UINT width = LOWORD(lParam);
 		UINT height = HIWORD(lParam);
-
 		pThis->onResizeWindow.BroadCast(width, height);
-
-		return DefWindowProcW(hwnd, msg, wParam, lParam);
+		break;
 	}
-	break;
 
 	default:
 		return DefWindowProcW(hwnd, msg, wParam, lParam);

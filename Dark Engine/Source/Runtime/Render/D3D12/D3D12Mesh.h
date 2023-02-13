@@ -11,6 +11,7 @@
 
 class D3D12Mesh
 {
+	friend class D3D12Renderer;
 	ID3D12Device8* m_device;
 
 	ID3D12Resource* m_vertexBuffer;
