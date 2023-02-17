@@ -79,6 +79,7 @@ public:
 		D3D12_RASTERIZER_DESC rasterDesc = {};
 
 		rasterDesc = CD3DX12_RASTERIZER_DESC(D3D12_DEFAULT);
+		//rasterDesc.FillMode = D3D12_FILL_MODE_WIREFRAME;
 
 
 		D3D12_GRAPHICS_PIPELINE_STATE_DESC pipelineStateDesc = {};

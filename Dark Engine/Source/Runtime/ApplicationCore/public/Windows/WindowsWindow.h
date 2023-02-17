@@ -54,7 +54,7 @@ public:
 
 	void SetWindowTitle(std::string str);
 
-	UINT GetRefreshRate() { return 60; }
+	UINT GetRefreshRate() { return 75; }
 
 	int MouseX = 0, MouseY = 0;
 

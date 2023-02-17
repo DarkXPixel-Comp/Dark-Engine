@@ -14,6 +14,7 @@ public:
 
 	static float GameTime();
 	static float DeltaTime();
+	static float TotalTime();
 
 	static void Reset();
 	static void Start();

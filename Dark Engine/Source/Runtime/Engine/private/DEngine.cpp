@@ -24,7 +24,9 @@ int32_t DEngine::Initialize()
 
 	CommandConsole::Initialize("CommandConsole");
 
+	m_input = std::make_unique<FInputCore>();
 	m_windowManager.CreateWindow(1920, 1080, "DEngine");
+	m_input->SetWindow(m_windowManager.GetWindow(0)->GetHandle());
 
 	m_renderer = std::make_unique<RENDER_API>();
 	m_renderer->Init();
@@ -33,6 +35,8 @@ int32_t DEngine::Initialize()
 	m_world->Init();
 
 	FGameTimer::Reset();
+	FGameTimer::Tick();
+
 
 
 	return 0;
@@ -47,12 +51,17 @@ int32_t DEngine::PostInit()
 
 	auto mesh = D3DUtil::LoadMesh("Models/cube.obj");
 
-	auto model = new D3D12Model(mesh);
 
-	model->SetPosition({ 0, 0, 5 });
-	
-	m_scene->AddModel(model);
-	m_scene->SetCamera(D3D12Camera({2, 0, 0}, {0, 0, 90}));
+	for (size_t i = 0; i < 1; i++)
+	{
+		auto actor = m_world->CreateActor();
+		actor->SetPosition({ (float)i, 0, 5 });
+		actor->SetMesh(mesh);
+	}
+
+	m_world->GetCamera()->SetRotation({0, 0, 90.f});
+	m_world->GetCamera()->SetupPlayerController(m_input.get());
+	m_input->EscDelegate.Bind(this, &DEngine::Quit);
 
 
 	return 0;
@@ -89,8 +98,11 @@ void DEngine::UpdateLoop()
 	float deltaTime = FGameTimer::DeltaTime();
 
 	m_windowManager.Update();
+	m_input->Update();
 	if (m_windowManager.WindowsIsClose()) return;
 
+	m_world->Update(deltaTime);
+	m_world->FillScene(m_scene.get());
 
 	m_renderer->Render(m_scene.get());
 

@@ -2,6 +2,7 @@
 #include <Render/Renderer.h>
 #include <ApplicationCore/public/Windows/WindowsWindow.h>
 #include <World/World.h>
+#include <Input/InputCore.h>
 #include <chrono>
 #include <Windows.h>
 #include <memory>
@@ -61,6 +62,7 @@ private:
 	unique_ptr<Renderer> m_renderer;
 	unique_ptr<D3D12Scene> m_scene;
 	unique_ptr<AWorld> m_world;
+	unique_ptr<FInputCore> m_input;
 
 
 

@@ -10,7 +10,8 @@ struct D3D12Camera
 	FLOAT m_fov;
 	FLOAT m_aspectRatio;
 public:
-	D3D12Camera(XMFLOAT3 position, XMFLOAT3 rotation);
+	D3D12Camera(XMFLOAT3 position = {}, XMFLOAT3 rotation = {});
+	
 
 
 };

@@ -20,13 +20,14 @@ UINT D3DUtil::CreatePipeline(eShaderType type)
 	{
 	case Default:
 	{
-		std::vector<CD3DX12_ROOT_PARAMETER1> parametrs(2);
+		std::vector<CD3DX12_ROOT_PARAMETER1> parametrs(3);
 		std::vector<D3D12_ROOT_PARAMETER1> pParametrs(parametrs.size());
 		CD3DX12_DESCRIPTOR_RANGE1 cbvRange;
 		cbvRange.Init(D3D12_DESCRIPTOR_RANGE_TYPE_CBV, 1, 1);
 
 		parametrs[0].InitAsConstantBufferView(0, 0);
 		parametrs[1].InitAsDescriptorTable(1, &cbvRange);
+		parametrs[2].InitAsConstantBufferView(2, 0);
 
 		for (size_t i = 0; i < parametrs.size(); i++) { pParametrs[i] = parametrs[i]; }
 

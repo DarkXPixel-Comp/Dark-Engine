@@ -32,4 +32,19 @@ void D3D12Model::FillConstantBuffer()
 	ModelMatrix = XMMatrixMultiply(ModelMatrix, ProjectionMatrix);*/
 
 	m_cbvObject.CopyData(0, ModelMatrix);
+
+	D3D12MaterialConstants material;
+	if (m_material)
+	{
+		material.Diffuse = m_material->m_diffuseAlbedo;
+		material.Frensel = m_material->m_frenselR0;
+		material.MatTransform = m_material->m_matTransform;
+		material.Roughness = m_material->m_roughness;
+
+	}
+	
+	m_cbvMaterial.CopyData(0, material);
+
+
+
 }

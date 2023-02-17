@@ -105,14 +105,14 @@ template <typename InRetValType, typename... ParamTypes>
 class TDelegate
 {
 public:
-	void Bind(InRetValType(*func)(ParamTypes...))
+	const void Bind(InRetValType(*func)(ParamTypes...))
 	{
 		container = new TFuncContainer<InRetValType, ParamTypes...>(func);
 
 
 	}
 	template<typename UserClass>
-	void Bind(UserClass* inUserObject, InRetValType(UserClass::* func)(ParamTypes...))
+	const void Bind(UserClass* inUserObject, InRetValType(UserClass::* func)(ParamTypes...))
 	{
 		container = new TMethodContainter<UserClass, InRetValType, ParamTypes...>(inUserObject, func);
 
@@ -139,7 +139,7 @@ class TMultiCastDelegate
 	using FFuncPtr = InRetValType(*)(ParamTypes...);
 
 public:
-	void Bind(InRetValType(*func)(ParamTypes...))
+	const void Bind(InRetValType(*func)(ParamTypes...))
 	{
 		IIContainer<InRetValType, ParamTypes...>* temp = new TFuncContainer<InRetValType, ParamTypes...>(func);
 
@@ -148,7 +148,7 @@ public:
 		pFunc = func;
 	}
 	template<typename UserClass>
-	void Bind(UserClass* inUserObject, InRetValType(UserClass::* func)(ParamTypes...))
+	const void Bind(UserClass* inUserObject, InRetValType(UserClass::* func)(ParamTypes...))
 	{
 		//container = new TMethodContainter<UserClass, InRetValType, ParamTypes...>(inUserObject, func);
 

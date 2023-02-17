@@ -46,7 +46,7 @@ template<typename T>
 inline D3D12UploadBufferResource<T>::~D3D12UploadBufferResource()
 {
 	m_uploadBuffer->Unmap(0, 0);
-	m_uploadBuffer->Release();
+	//m_uploadBuffer->Release();
 }
 
 

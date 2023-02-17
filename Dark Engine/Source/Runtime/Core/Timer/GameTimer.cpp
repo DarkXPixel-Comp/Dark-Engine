@@ -52,6 +52,11 @@ float FGameTimer::DeltaTime()
 	return (float)_inst_->m_deltaTime;
 }
 
+float FGameTimer::TotalTime()
+{
+	return (float)(((_inst_->m_currTime - _inst_->m_pausedTime) - _inst_->m_baseTime) * _inst_->m_secondsPerCount);
+}
+
 
 void FGameTimer::Reset()
 {

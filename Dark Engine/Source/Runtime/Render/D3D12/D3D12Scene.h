@@ -16,5 +16,5 @@ public:
 	void SetModels(std::vector<D3D12Model*> models);
 	void ResetModels();
 	std::vector<D3D12Model*> GetModels() const { return m_models; }
-	D3D12Camera GetCamera() const { return m_camera; }
+	D3D12Camera& GetCamera() { return m_camera; }
 };

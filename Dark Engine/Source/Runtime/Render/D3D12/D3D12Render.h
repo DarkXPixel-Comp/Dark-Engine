@@ -61,6 +61,7 @@ public:
 	void RenderObj();
 	void RenderScene();
 	void EndFrame() override;
+	void OnResize(long x, long y);
 	std::vector<D3D12Mesh1*> LoadMesh(std::string path = "");
 
 	void Update();

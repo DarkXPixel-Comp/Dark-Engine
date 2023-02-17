@@ -4,6 +4,7 @@
 #include "D3D12Scene.h"
 #include "D3D12PSO.h"
 #include <World/World.h>
+#include <Core/Timer/GameTimer.h>
 
 #undef max
 
@@ -170,6 +171,8 @@ void D3D12Renderer::Init()
 
 
 	D3DUtil::InitPipelines();
+
+	window->onResizeWindow.Bind(this, &D3D12Renderer::OnResize);
 	
 	
 
@@ -196,7 +199,8 @@ void D3D12Renderer::Render(D3D12Scene* scene)
 	auto& backBuffer = m_backBuffers[CurrentBackBufferIndex];
 	auto PSO = D3DUtil::GetPipeline(eShaderType::Default);
 	auto models = scene->GetModels();
-	auto camera = scene->GetCamera();
+	auto& camera = scene->GetCamera();
+	auto window = GEngine.GetWindowManager()->GetWindow(0);
 	CD3DX12_CPU_DESCRIPTOR_HANDLE backBufferHandle(RTDescriptorHeap->GetCpuHandle(CurrentBackBufferIndex));
 	CD3DX12_CPU_DESCRIPTOR_HANDLE depthBufferHandle(DSDescriptorHeap->GetFirstCpuHandle());
 	FLOAT clearColor[] = { 0.4f, 0.6f, 0.9f, 1.f };
@@ -219,6 +223,10 @@ void D3D12Renderer::Render(D3D12Scene* scene)
 		D3D12PassConstants passConst;
 
 		passConst.ViewProjectionMatrix = D3DUtil::GetViewProjMatrix(&camera);
+		passConst.RenderTargetSize = XMFLOAT2(window->GetWitdh(), window->GetHeight());
+		passConst.TotalTime = FGameTimer::TotalTime();
+		passConst.DeltaTime = FGameTimer::DeltaTime();
+		passConst.AmbientLight = { 0.2f, 0.2f, 0.2f, 1.f };
 
 		m_passBuffer->CopyData(0, passConst);
 
@@ -237,6 +245,7 @@ void D3D12Renderer::Render(D3D12Scene* scene)
 		m_commandList->IASetVertexBuffers(0, 1, &mesh->m_vertexBufferView);
 		m_commandList->IASetIndexBuffer(&mesh->m_indexBufferView);
 		m_commandList->SetGraphicsRootConstantBufferView(0, model->m_cbvObject.GetResource()->GetGPUVirtualAddress());
+		m_commandList->SetGraphicsRootConstantBufferView(2, model->m_cbvMaterial.GetResource()->GetGPUVirtualAddress());
 		m_commandList->DrawIndexedInstanced(mesh->m_indexBufferView.SizeInBytes / sizeof(WORD), 1, 0, 0, 0);
 	}
 
@@ -247,7 +256,7 @@ void D3D12Renderer::Render(D3D12Scene* scene)
 	m_commandQueue->ExecuteCommandLists(1, lists);
 	WaitFrame();
 
-	m_swapChain->Present(0, 0);
+	m_swapChain->Present(1, 0);
 
 
 	CurrentBackBufferIndex = m_swapChain->GetCurrentBackBufferIndex();
@@ -271,6 +280,11 @@ void D3D12Renderer::RenderScene()
 
 void D3D12Renderer::EndFrame()
 {
+}
+
+void D3D12Renderer::OnResize(long x, long y)
+{
+	
 }
 
 

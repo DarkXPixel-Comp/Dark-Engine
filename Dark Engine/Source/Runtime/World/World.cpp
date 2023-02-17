@@ -14,6 +14,7 @@ void AWorld::Update(float DeltaTime)
     {
         i->Update(DeltaTime);
     }
+    m_camera->Update(DeltaTime);
 }
 
 

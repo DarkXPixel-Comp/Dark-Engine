@@ -156,6 +156,12 @@
     <ClInclude Include="Source\Runtime\Engine\Classes\Camera\CameraActor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Runtime\Input\InputCore.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Runtime\Render\D3D12\D3D12Material.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Runtime\Launch\Platforms\Windows\LaunchWindows.cpp">
@@ -216,6 +222,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source\Runtime\Engine\Classes\Camera\CameraActor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Runtime\Input\InputCore.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

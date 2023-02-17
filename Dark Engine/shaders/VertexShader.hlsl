@@ -3,7 +3,10 @@ cbuffer cbObject : register(b0)
 	float4x4 ModelMatrix;
 }
 
-
+/*	XMFLOAT2 gRenderTargetSize;
+	float gTotalTime;
+	float gDeltaTime;
+*/
 
 
 cbuffer cbPass : register(b1)
@@ -11,10 +14,11 @@ cbuffer cbPass : register(b1)
 	float4x4 gView;
 	float4x4 gProj;
 	float4x4 gViewProj;
-	float4 gColor;
+	float2 gRenderTargetSize;
+	float gTotalTime;
+	float gDeltaTime;
+	float4 gAmbientLight;
 }
-
-
 
 
 
@@ -33,8 +37,11 @@ PSInput main(float3 position : SV_Position,float3 normal : NORMAL, float4 color 
 	
 	
 	float4 posW = mul(ModelMatrix, float4(position, 1.f));
-	result.position = mul(gViewProj, posW);
-	result.color = (gColor);
+	float4 pos = mul(gViewProj, posW);
+	//pos.z += -0.1;
+	result.position = pos;
+	result.color = (color);
+	
     result.uv = uv;
     result.normal = normal;
 

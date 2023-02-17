@@ -170,8 +170,10 @@
     <ClInclude Include="Source\Runtime\Engine\Classes\Actor\Actor.h" />
     <ClInclude Include="Source\Runtime\Engine\Classes\Camera\CameraActor.h" />
     <ClInclude Include="Source\Runtime\Engine\Classes\UObject\UObject.h" />
+    <ClInclude Include="Source\Runtime\Input\InputCore.h" />
     <ClInclude Include="Source\Runtime\Render\D3D12\D3D12.h" />
     <ClInclude Include="Source\Runtime\Render\D3D12\D3D12Camera.h" />
+    <ClInclude Include="Source\Runtime\Render\D3D12\D3D12Material.h" />
     <ClInclude Include="Source\Runtime\Render\D3D12\D3D12Mesh.h" />
     <ClInclude Include="Source\Runtime\Render\D3D12\D3D12Model.h" />
     <ClInclude Include="Source\Runtime\Render\D3D12\D3D12PSO.h" />
@@ -219,6 +221,7 @@
     <ClCompile Include="Source\Runtime\Engine\Classes\Actor\Actor.cpp" />
     <ClCompile Include="Source\Runtime\Engine\Classes\Camera\CameraActor.cpp" />
     <ClCompile Include="Source\Runtime\Engine\private\DEngine.cpp" />
+    <ClCompile Include="Source\Runtime\Input\InputCore.cpp" />
     <ClCompile Include="Source\Runtime\Launch\Platforms\Windows\LaunchWindows.cpp" />
     <ClCompile Include="Source\Runtime\Render\D3D12\D3D12.cpp" />
     <ClCompile Include="Source\Runtime\Render\D3D12\D3D12Camera.cpp" />

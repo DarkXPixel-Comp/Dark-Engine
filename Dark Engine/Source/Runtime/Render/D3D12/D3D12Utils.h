@@ -92,6 +92,14 @@ public:
 		XMStoreFloat4x4(&ViewProj, VP);
 		return ViewProj;
 	}
+	static float GetDistanceBetweenPoints(XMFLOAT3 x1, XMFLOAT3 x2)
+	{
+		XMVECTOR v1 = XMLoadFloat3(&x1);
+
+
+
+
+	}
 
 
 };

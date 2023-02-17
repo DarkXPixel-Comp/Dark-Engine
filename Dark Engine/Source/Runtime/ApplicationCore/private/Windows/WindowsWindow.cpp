@@ -3,6 +3,7 @@
 #include <Core/Logging/Logger.hpp>
 #include <Core/CoreDefines.h>
 #include <Engine/public/DEngine.h>
+#include <Input/InputCore.h>
 
 
 FWindowsWindow::FWindowsWindow(FWindowsWindowManager* maneger, UINT index)
@@ -182,13 +183,7 @@ LRESULT FWindowsWindow::WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lPara
 {
 	FWindowsWindow* pThis = reinterpret_cast<FWindowsWindow*>(GetWindowLongPtr(hwnd, GWLP_USERDATA));
 
-	//GEngine.GetMouse()->SetWindow(hwnd);
-
-
-	//DirectX::Mouse::ProcessMessage(msg, wParam, lParam);
-
-
-
+	FInputCore::InputProc(hwnd, msg, wParam, lParam);
 
 	switch (msg)
 	{
@@ -260,11 +255,11 @@ void FWindowsWindowManager::Update()
 
 	}
 
-	if (timerIsStarted)
-	{
-		//WaitForSingleObject(&hTimer, INFINITE);
-		WaitForMultipleObjects(1, &hTimer, TRUE, INFINITE);
-	}
+	//if (timerIsStarted)
+	//{
+	//	//WaitForSingleObject(&hTimer, INFINITE);
+	//	WaitForMultipleObjects(1, &hTimer, TRUE, INFINITE);
+	//}
 
 	//MsgWaitForMultipleObjects(1, &hTimer, TRUE, INFINITE, QS_ALLEVENTS);
 
