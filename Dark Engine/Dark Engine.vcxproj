@@ -81,8 +81,9 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\ThirdParty\Assimp\include;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\Runtime;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\lib\include;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\DTK12;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\Runtime\graphics\D3D12\extras;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine;$(IncludePath)</IncludePath>
+    <IncludePath>C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\ThirdParty\DTK12;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\ThirdParty;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\ThirdParty\Assimp\include;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\Runtime;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\lib\include;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\DTK12;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\Runtime\graphics\D3D12\extras;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine;$(IncludePath)</IncludePath>
     <LibraryPath>C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\ThirdParty\Assimp\lib\Debug;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\lib\src;C:\Users\nahmu\source\repos\Dark Engine;$(LibraryPath)</LibraryPath>
+    <OutDir>$(SolutionDir)Dark Engine\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -232,6 +233,7 @@
     <ClCompile Include="Source\Runtime\Render\D3D12\D3D12Resource.cpp" />
     <ClCompile Include="Source\Runtime\Render\D3D12\D3D12Scene.cpp" />
     <ClCompile Include="Source\Runtime\Render\D3D12\D3D12Utils.cpp" />
+    <ClCompile Include="Source\Runtime\Render\Renderer.cpp" />
     <ClCompile Include="Source\Runtime\world\World.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -245,10 +247,12 @@
     <FxCompile Include="shaders\PixelShader.hlsl">
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>
       <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">6.5</ShaderModel>
+      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ProjectDir)shaders\%(Filename).cso</ObjectFileOutput>
     </FxCompile>
     <FxCompile Include="shaders\VertexShader.hlsl">
       <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">6.5</ShaderModel>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Vertex</ShaderType>
+      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ProjectDir)shaders\%(Filename).cso</ObjectFileOutput>
     </FxCompile>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

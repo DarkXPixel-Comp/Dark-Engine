@@ -49,19 +49,62 @@ int32_t DEngine::PostInit()
 	m_windowManager.SetDelay(16);	
 
 
-	auto mesh = D3DUtil::LoadMesh("Models/cube.obj");
+	auto SphereMesh = D3DUtil::LoadMesh("Models/objectSphere.obj");
+	auto CubeMesh = D3DUtil::LoadMesh("Models/cube.obj");
+
+	D3DUtil::LoadMesh("Models/objectSphere.obj");
 
 
-	for (size_t i = 0; i < 1; i++)
+	{
+		auto CubeActor = m_world->CreateActor();
+		CubeActor->SetPosition({ 0, 0, 5 });
+		CubeActor->SetMesh(CubeMesh);
+
+		auto material = new D3D12Material();
+		material->m_diffuseAlbedo = XMFLOAT4(0.5f, 0.7f, 0.6f, 1.0f);
+		material->m_frenselR0 = { 0.1f, 0.1f, 0.1f };
+		material->m_roughness = 0.5f;
+
+		CubeActor->GetModel()->SetMaterial(material);
+	}
+
+	{
+		auto SphereActor = m_world->CreateActor();
+		SphereActor->SetPosition({ 3, 0, 5 });
+		SphereActor->SetMesh(SphereMesh);
+
+		auto material = new D3D12Material();
+		material->m_diffuseAlbedo = XMFLOAT4(0.5f, 0.2f, 0.6f, 1.0f);
+		material->m_frenselR0 = { 0.1f, 0.1f, 0.1f };
+		material->m_roughness = 0.5f;
+
+		SphereActor->GetModel()->SetMaterial(material);
+
+	}
+	
+
+
+	for (size_t i = 0; i < 2; i++)
 	{
 		auto actor = m_world->CreateActor();
-		actor->SetPosition({ (float)i, 0, 5 });
-		actor->SetMesh(mesh);
+		actor->SetPosition({ (float)i * 3, 0, 5 });
+		actor->SetMesh(SphereMesh);
+
+		auto material = new D3D12Material();
+		material->m_diffuseAlbedo = XMFLOAT4(0.5f, 0.2f, 0.6f, 1.0f);
+		material->m_frenselR0 = { 0.9f, 0.1f, 0.1f };
+		material->m_roughness = 0.5f;
+
+		actor->GetModel()->SetMaterial(material);
 	}
+
 
 	m_world->GetCamera()->SetRotation({0, 0, 90.f});
 	m_world->GetCamera()->SetupPlayerController(m_input.get());
 	m_input->EscDelegate.Bind(this, &DEngine::Quit);
+
+	m_renderer->SetVsync(1);
+
 
 
 	return 0;
@@ -106,7 +149,7 @@ void DEngine::UpdateLoop()
 
 	m_renderer->Render(m_scene.get());
 
-	Tick();
+	Tick(deltaTime);
 
 	FGameTimer::Tick();
 	 
@@ -120,11 +163,11 @@ DEngine* DEngine::GetEngine()
 
 
 
-void DEngine::Tick()
+void DEngine::Tick(float deltaTime)
 {
-	{
-		m_windowManager.GetWindow(0)->SetWindowTitle(icstr(1 / FGameTimer::DeltaTime()));
-	}
+	onTick.BroadCast(deltaTime);
+	m_windowManager.GetWindow(0)->SetWindowTitle(icstr(1 / deltaTime));
+
 }
 
 

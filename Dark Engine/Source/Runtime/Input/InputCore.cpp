@@ -32,6 +32,8 @@ void FInputCore::Update()
         m_mouse->SetMode(Mouse::MODE_RELATIVE);
         m_isRelative = true;
         ActionDelegate.BroadCast(eInputActionState::F1);
+        MouseState.x = 0;
+        MouseState.y = 0;
     }
     if (KeyBoardState.IsKeyDown(Keyboard::F2))
     {

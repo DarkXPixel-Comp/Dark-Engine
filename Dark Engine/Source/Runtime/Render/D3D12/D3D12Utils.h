@@ -74,17 +74,18 @@ public:
 		if (!camera)
 			return ViewProj;
 
+		//camera->m_rotation.z = 130.f;
 
 		XMFLOAT3 front;
-		front.x = cos(XMConvertToRadians(camera->m_rotation.z))
-			* cos(XMConvertToRadians(camera->m_rotation.y));
-		front.y = sin(XMConvertToRadians(camera->m_rotation.y));
+		front.x = -(cos(XMConvertToRadians(camera->m_rotation.z)) * cos(XMConvertToRadians(camera->m_rotation.y)));
+		front.y = -sin(XMConvertToRadians(camera->m_rotation.y));
 		front.z = sin(XMConvertToRadians(camera->m_rotation.z))
 			* cos(XMConvertToRadians(camera->m_rotation.y));
 
 		const XMVECTOR position = XMLoadFloat3(&camera->m_position);
 		const XMVECTOR direction = XMLoadFloat3(&front);
 		XMMATRIX ViewMatrix = XMMatrixLookToLH(position, direction, XMVectorSet(0, 1, 0, 0));
+
 		XMMATRIX ProjectionMatrix = XMMatrixPerspectiveFovLH(camera->m_fov, camera->m_aspectRatio,
 			0.1f, 100.f);
 		XMMATRIX VP = XMMatrixMultiply(ViewMatrix, ProjectionMatrix);

@@ -1,6 +1,7 @@
 #pragma once
 #include <Render/Renderer.h>
 #include <ApplicationCore/public/Windows/WindowsWindow.h>
+#include <Core/Delegate/Delegate.h>
 #include <World/World.h>
 #include <Input/InputCore.h>
 #include <chrono>
@@ -16,6 +17,9 @@
 #elif
 #error This OS not support
 #endif 
+
+
+DECLARE_MULTICAST_DELEGATE_OneParam(FOnTick, float);
 
 
 
@@ -36,13 +40,12 @@ public:
 	void Shutdown();
 	void SetDelayUpdate(int DelayMs);
 	void SetMaxFPS(int fps);
-	void Tick();
+	void Tick(float deltaTime);
 	bool isAppWork();
 	void Quit();
-
 	static DEngine* GetEngine();
 
-
+	FOnTick onTick;
 
 	
 

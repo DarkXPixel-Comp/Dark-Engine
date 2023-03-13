@@ -28,6 +28,9 @@ public:
 	void SetRotation(XMFLOAT3 rot) { m_rotation = rot; }
 	XMFLOAT3 GetPosition() { return m_position; }
 	XMFLOAT3 GetRotation() { return m_rotation; }
+	XMFLOAT3 GetFrontVector();
+	XMFLOAT3 GetRightVector();
+	XMFLOAT3 GetUpVector();
 
 
 

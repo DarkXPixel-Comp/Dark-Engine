@@ -2,6 +2,7 @@
 #include "../Actor/Actor.h"
 #include <Render/D3D12/D3D12Camera.h>
 #include <Input/InputCore.h>
+#include <DirectXMath.h>
 
 
 class UCameraActor : public AActor 
@@ -30,5 +31,8 @@ public:
 protected:
 	D3D12Camera m_camera;
 private:
-	float sensevity = 0.4;
+	float sensevity = 0.09;
+	float mouseSensevity = 0.5;
+	float Speed = 0.1f;
+	DirectX::XMFLOAT2 Controller;
 };

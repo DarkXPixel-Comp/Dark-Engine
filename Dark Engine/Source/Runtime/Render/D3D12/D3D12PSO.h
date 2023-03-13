@@ -68,12 +68,16 @@ public:
 		ComPtr<ID3DBlob> vertexShader;
 		ComPtr<ID3DBlob> pixelShader;
 
-		D3DCompileFromFile(strw(vertexShaderPath).c_str(), nullptr,
-			nullptr, "main", "vs_5_1", 0, 0, &vertexShader, &errorBlob);
+		//D3DCompileFromFile(strw(vertexShaderPath).c_str(), nullptr,
+		//	nullptr, "main", "vs_5_1", 0, 0, &vertexShader, &errorBlob);
 
 
-		D3DCompileFromFile(strw(pixelShaderPath).c_str(), nullptr,
-			nullptr, "main", "ps_5_1", 0, 0, &pixelShader, &errorBlob);
+		//D3DCompileFromFile(strw(pixelShaderPath).c_str(), nullptr,
+		//	nullptr, "main", "ps_5_1", 0, 0, &pixelShader, &errorBlob);
+
+
+		D3DReadFileToBlob(L"shaders/VertexShader.cso", &vertexShader);
+		D3DReadFileToBlob(L"shaders/PixelShader.cso", &pixelShader);
 
 
 		D3D12_RASTERIZER_DESC rasterDesc = {};

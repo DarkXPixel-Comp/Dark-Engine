@@ -83,12 +83,13 @@ D3D12Mesh* D3DUtil::LoadMesh(std::string path)
 				position.z = Mesh->mVertices[j].z;
 				vert.position = position;
 			}
+			if (Mesh->HasNormals())
 			{
 				XMFLOAT3 normal;
 
-				normal.x = Mesh->mNormals->x;
-				normal.y = Mesh->mNormals->y;
-				normal.z = Mesh->mNormals->z;
+				normal.x = Mesh->mNormals[j].x;
+				normal.y = Mesh->mNormals[j].y;
+				normal.z = Mesh->mNormals[j].z;
 				vert.normal = normal;
 			}
 			if (Mesh->HasTextureCoords(0))

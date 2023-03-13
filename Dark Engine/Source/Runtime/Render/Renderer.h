@@ -10,8 +10,6 @@ class D3D12Scene;
 class Renderer
 {
 public:
-	//Renderer();
-
 	virtual void Init() = 0;
 	virtual void Shutdown() = 0;
 
@@ -19,6 +17,13 @@ public:
 	virtual void Render(D3D12Scene*) = 0;
 	virtual void EndFrame() = 0;
 
+	virtual void SetVsync(int vsync);
+
+
+
+
+protected:
+	bool bVsync = false;
 
 };
 

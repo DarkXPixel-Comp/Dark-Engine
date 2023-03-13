@@ -227,6 +227,9 @@
     <ClCompile Include="Source\Runtime\Input\InputCore.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Runtime\Render\Renderer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Source\Runtime\Launch\Resource\Resource.rc">

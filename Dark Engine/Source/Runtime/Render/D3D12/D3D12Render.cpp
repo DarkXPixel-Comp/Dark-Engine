@@ -184,6 +184,12 @@ void D3D12Renderer::Shutdown()
 
 
 
+static DirectX::XMFLOAT3 SphericalToCartesian(float radius, float theta, float phi)
+{
+	return XMFLOAT3(-(radius * sinf(phi) * cosf(theta)),
+		-(radius * cosf(phi)),
+		-(radius * sinf(phi) * sinf(theta)));
+}
 
 
 
@@ -203,7 +209,7 @@ void D3D12Renderer::Render(D3D12Scene* scene)
 	auto window = GEngine.GetWindowManager()->GetWindow(0);
 	CD3DX12_CPU_DESCRIPTOR_HANDLE backBufferHandle(RTDescriptorHeap->GetCpuHandle(CurrentBackBufferIndex));
 	CD3DX12_CPU_DESCRIPTOR_HANDLE depthBufferHandle(DSDescriptorHeap->GetFirstCpuHandle());
-	FLOAT clearColor[] = { 0.4f, 0.6f, 0.9f, 1.f };
+	FLOAT clearColor[] = { 0.0f, 0.0f, 0.0f, 1.f };
 	ID3D12DescriptorHeap* ppHeaps[] = { SRDescriptorHeap->Heap() };
 	m_commandAllocator->Reset();
 	m_commandList->Reset(m_commandAllocator.Get(), PSO->m_pipelineState.Get());
@@ -226,7 +232,17 @@ void D3D12Renderer::Render(D3D12Scene* scene)
 		passConst.RenderTargetSize = XMFLOAT2(window->GetWitdh(), window->GetHeight());
 		passConst.TotalTime = FGameTimer::TotalTime();
 		passConst.DeltaTime = FGameTimer::DeltaTime();
-		passConst.AmbientLight = { 0.2f, 0.2f, 0.2f, 1.f };
+		passConst.EyePos = camera.m_position;
+		passConst.AmbientLight = { 0.25f, 0.25f, 0.25f, 1.0f };
+
+		passConst.Lights[0].Strenght = { 1.f, 1.f, 1.f };
+		passConst.Lights[0].Direction = { 1, -1, 0 };
+
+		passConst.Lights[1].Strenght = { 1.0f, 1.f, 1.0f };
+		passConst.Lights[1].Direction = { 1, -1, 0 };
+		passConst.Lights[1].Position = { 2, 2, 3 };
+		passConst.Lights[1].FalloffStart = 0;
+		passConst.Lights[1].FalloffEnd = 200.f;
 
 		m_passBuffer->CopyData(0, passConst);
 
@@ -256,7 +272,7 @@ void D3D12Renderer::Render(D3D12Scene* scene)
 	m_commandQueue->ExecuteCommandLists(1, lists);
 	WaitFrame();
 
-	m_swapChain->Present(1, 0);
+	m_swapChain->Present(bVsync, 0);
 
 
 	CurrentBackBufferIndex = m_swapChain->GetCurrentBackBufferIndex();
