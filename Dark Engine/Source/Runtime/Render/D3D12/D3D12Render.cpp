@@ -38,6 +38,7 @@ void D3D12Renderer::Init()
 		debug->EnableDebugLayer();
 	}
 
+	auto wnd = GEngine.GetWindowManager()->GetWindow(0);
 
 	HRESULT Error = S_OK;
 
@@ -62,7 +63,6 @@ void D3D12Renderer::Init()
 
 
 	{
-		auto wnd = GEngine.GetWindowManager()->GetWindow(0);
 		ComPtr<IDXGISwapChain> swapchain;
 
 		DXGI_SWAP_CHAIN_DESC pDesc = {};
@@ -147,7 +147,8 @@ void D3D12Renderer::Init()
 	depthOptimizedClearValue.DepthStencil.Stencil = 0;
 
 	auto Properties = CD3DX12_HEAP_PROPERTIES(D3D12_HEAP_TYPE_DEFAULT);
-	auto TexScreen = CD3DX12_RESOURCE_DESC::Tex2D(DXGI_FORMAT_D32_FLOAT, 1920, 1080,
+	auto TexScreen = CD3DX12_RESOURCE_DESC::Tex2D(DXGI_FORMAT_D32_FLOAT, wnd->GetWitdh(),
+		wnd->GetHeight(),
 		1, 0, 1, 0, D3D12_RESOURCE_FLAG_ALLOW_DEPTH_STENCIL);
 
 
@@ -257,6 +258,7 @@ void D3D12Renderer::Render(D3D12Scene* scene)
 	for (auto& model : models)
 	{	
 		auto mesh = model->m_mesh;
+		if (!mesh) continue;
 		model->FillConstantBuffer();
 		m_commandList->IASetVertexBuffers(0, 1, &mesh->m_vertexBufferView);
 		m_commandList->IASetIndexBuffer(&mesh->m_indexBufferView);

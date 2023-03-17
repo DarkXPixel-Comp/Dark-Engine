@@ -54,18 +54,19 @@ public:
 	static ID3D12Device8* GetDevice(); 
 	static ID3D12CommandQueue* GetCommandQueue();
 	static D3D12Mesh* LoadMesh(std::string path);
+	static std::vector<D3D12Mesh*> LoadMeshes(std::string path, bool bCombineMeshes);
 
 	static XMMATRIX CalcMVP()
 	{
-		XMMATRIX MVPmatrix = XMMatrixTranslation(0, 0, 3);
+		XMMATRIX MVPMatrix = XMMatrixTranslation(0, 0, 3);
 		XMVECTOR EyePos = XMVectorSet(0, 0, 0, 1);
-		XMVECTOR FocucPos = XMVectorSet(0, 0, 3, 1);
+		XMVECTOR FocusPos = XMVectorSet(0, 0, 3, 1);
 		XMVECTOR UpDir = XMVectorSet(0, 1, 0, 0);
 
-		MVPmatrix = XMMatrixMultiply(MVPmatrix, XMMatrixLookAtLH(EyePos, FocucPos, UpDir));
-		MVPmatrix = XMMatrixMultiply(MVPmatrix, XMMatrixPerspectiveFovLH(90, 16 / 9, 0.1, 100));
+		MVPMatrix = XMMatrixMultiply(MVPMatrix, XMMatrixLookAtLH(EyePos, FocusPos, UpDir));
+		MVPMatrix = XMMatrixMultiply(MVPMatrix, XMMatrixPerspectiveFovLH(90, 16 / 9, 0.1, 100));
 
-		return MVPmatrix;
+		return MVPMatrix;
 
 	}
 	static XMFLOAT4X4 GetViewProjMatrix(D3D12Camera* camera)
@@ -96,13 +97,7 @@ public:
 	static float GetDistanceBetweenPoints(XMFLOAT3 x1, XMFLOAT3 x2)
 	{
 		XMVECTOR v1 = XMLoadFloat3(&x1);
-
-
-
-
 	}
-
-
 };
 
 

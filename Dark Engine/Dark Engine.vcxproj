@@ -170,6 +170,8 @@
     <ClInclude Include="Source\Runtime\Core\Timer\GameTimer.h" />
     <ClInclude Include="Source\Runtime\Engine\Classes\Actor\Actor.h" />
     <ClInclude Include="Source\Runtime\Engine\Classes\Camera\CameraActor.h" />
+    <ClInclude Include="Source\Runtime\Engine\Classes\Components\ActorComponent\ActorComponent.h" />
+    <ClInclude Include="Source\Runtime\Engine\Classes\Components\RotateComponent\RotateComponent.h" />
     <ClInclude Include="Source\Runtime\Engine\Classes\UObject\UObject.h" />
     <ClInclude Include="Source\Runtime\Input\InputCore.h" />
     <ClInclude Include="Source\Runtime\Render\D3D12\D3D12.h" />
@@ -221,6 +223,8 @@
     <ClCompile Include="Source\Runtime\Core\Timer\GameTimer.cpp" />
     <ClCompile Include="Source\Runtime\Engine\Classes\Actor\Actor.cpp" />
     <ClCompile Include="Source\Runtime\Engine\Classes\Camera\CameraActor.cpp" />
+    <ClCompile Include="Source\Runtime\Engine\Classes\Components\ActorComponent\ActorComponent.cpp" />
+    <ClCompile Include="Source\Runtime\Engine\Classes\Components\RotateComponent\RotateComponent.cpp" />
     <ClCompile Include="Source\Runtime\Engine\private\DEngine.cpp" />
     <ClCompile Include="Source\Runtime\Input\InputCore.cpp" />
     <ClCompile Include="Source\Runtime\Launch\Platforms\Windows\LaunchWindows.cpp" />

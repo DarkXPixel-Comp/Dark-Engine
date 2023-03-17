@@ -19,15 +19,15 @@ void D3D12Model::FillConstantBuffer()
 {
 	XMMATRIX ModelMatrix = XMMatrixIdentity();
 	XMMATRIX Translation = XMMatrixTranslationFromVector(XMLoadFloat3(&m_position));
-	XMMATRIX Rotation = XMMatrixIdentity();
+	XMMATRIX Rotation = XMMatrixRotationRollPitchYawFromVector(XMLoadFloat3(&m_rotation));
 	XMMATRIX Scaling = XMMatrixScalingFromVector(XMLoadFloat3(&m_scaling));
 
 	XMMATRIX ViewMatrix = XMMatrixLookToLH(XMVectorSet(0, 0, 0, 1), XMVectorSet(0, 0, 1, 0), XMVectorSet(0, 1, 0, 0));
 	XMMATRIX ProjectionMatrix = XMMatrixPerspectiveFovLH(90, 16.f / 9, 0.1f, 100.f);
 
 
-	ModelMatrix = XMMatrixMultiply(Translation, Rotation);
-	ModelMatrix = XMMatrixMultiply(ModelMatrix, Scaling);
+	ModelMatrix = XMMatrixMultiply(Scaling, Rotation);
+	ModelMatrix = XMMatrixMultiply(ModelMatrix, Translation);
 	/*ModelMatrix = XMMatrixMultiply(ModelMatrix, ViewMatrix);
 	ModelMatrix = XMMatrixMultiply(ModelMatrix, ProjectionMatrix);*/
 

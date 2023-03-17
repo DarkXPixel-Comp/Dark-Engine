@@ -1,19 +1,33 @@
 #include "Actor.h"
+#include "../Components/RotateComponent/RotateComponent.h"
 
 void AActor::BeginPlay()
 {
 	Super::BeginPlay();
+	m_model = std::make_unique<D3D12Model>();
+
+
+	auto* component = (CreateDefaultSubObject<URotateComponent>("name"));
+
+	m_ActorComponents.push_back(component);
 }
 
 void AActor::Update(float DeltaTime)
 {
 	Super::Update(DeltaTime);
+
+	for (auto& i : m_ActorComponents)
+	{
+		i->Update(DeltaTime);
+	}
+
 	if (m_model)
 	{
 		m_model->SetPosition(m_position);
 		m_model->SetRotation(m_rotation);
 		m_model->SetScaling(m_scale);
 	}
+
 }
 
 void AActor::Destroy()
@@ -27,11 +41,19 @@ void AActor::SetupPlayerController(FInputCore* controller)
 
 void AActor::SetMesh(D3D12Mesh* mesh)
 {
-	if (!m_model)
+	if (!mesh) return;
+	if(!m_model)
 	{
 		m_model = std::make_unique<D3D12Model>(m_position, m_rotation, m_scale);
 	}
 	m_model->SetMesh(mesh);
+}
+
+void AActor::AddRotation(XMFLOAT3 rot)
+{
+	m_rotation.x += rot.x;
+	m_rotation.y += rot.y;
+	m_rotation.z += rot.z;
 }
 
 XMFLOAT3 AActor::GetFrontVector()

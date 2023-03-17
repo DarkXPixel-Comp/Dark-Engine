@@ -56,6 +56,12 @@ ID3D12CommandQueue* D3DUtil::GetCommandQueue()
 	return static_cast<D3D12Renderer*>(DEngine::GetEngine()->GetRenderer())->m_commandQueue.Get();
 }
 
+//std::vector<D3D12Mesh*> D3DUtil::LoadMeshes(std::string path, bool bCombineMeshes)
+//{
+//	return std::vector<D3D12Mesh*>();
+//}
+
+
 D3D12Mesh* D3DUtil::LoadMesh(std::string path)
 {
 	if (m_meshes.find(path) != m_meshes.end())
@@ -67,11 +73,25 @@ D3D12Mesh* D3DUtil::LoadMesh(std::string path)
 	const aiScene* scene = importer.ReadFile(path, aiProcess_Triangulate);
 	if (!scene) return nullptr;
 
+	INT64 CountVertices = 0;
+
 	for (size_t i = 0; i < scene->mNumMeshes; i++)
 	{
-		aiMesh* Mesh = scene->mMeshes[0];
-		std::vector<Vertex> vertices(Mesh->mNumVertices);
-		std::vector<WORD> indices;
+		aiMesh* Mesh = scene->mMeshes[i];
+		CountVertices += Mesh->mNumVertices;
+	}
+
+
+	std::vector<Vertex> vertices(CountVertices);
+	std::vector<WORD> indices;
+
+	int64_t Counter = 0;
+	int64_t LastCountVertices = 0;
+
+	for (size_t i = 0; i < scene->mNumMeshes; i++)
+	{
+		aiMesh* Mesh = scene->mMeshes[i];
+		
 
 		for (size_t j = 0; j < Mesh->mNumVertices; j++)
 		{
@@ -105,7 +125,8 @@ D3D12Mesh* D3DUtil::LoadMesh(std::string path)
 				vert.textureCoordinate = XMFLOAT2(0.f, 0.f);
 			}
 			vert.color = XMFLOAT4(0.f, 0.f, 0.f, 1.f);
-			vertices[j] = vert;
+			vertices[Counter] = vert;
+			Counter++;
 		}
 
 
@@ -115,13 +136,16 @@ D3D12Mesh* D3DUtil::LoadMesh(std::string path)
 
 			for (size_t k = 0; k < face.mNumIndices; k++)
 			{
-				indices.push_back(face.mIndices[k]);
+				indices.push_back(face.mIndices[k] + LastCountVertices);
 			}
 		}
 
-		m_meshes.emplace(path, std::make_unique<D3D12Mesh>(vertices, indices));
-		return m_meshes.find(path)->second.get();
+		LastCountVertices += Mesh->mNumVertices;
+
 	}
+
+	m_meshes.emplace(path, std::make_unique<D3D12Mesh>(vertices, indices));
+	return m_meshes.find(path)->second.get();
 
 }
 

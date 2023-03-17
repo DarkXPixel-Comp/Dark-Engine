@@ -40,7 +40,7 @@ cbuffer cbPass : register(b1)
 	float gTotalTime;
 	float gDeltaTime;
 	float3 gEyePos;
-	float gNearZ;
+	float gZNear;
 	float4 gAmbientLight;
 	float gFarZ;
 }

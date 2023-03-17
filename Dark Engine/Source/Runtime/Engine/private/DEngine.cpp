@@ -49,15 +49,31 @@ int32_t DEngine::PostInit()
 	m_windowManager.SetDelay(16);	
 
 
-	auto SphereMesh = D3DUtil::LoadMesh("Models/objectSphere.obj");
-	auto CubeMesh = D3DUtil::LoadMesh("Models/cube.obj");
+	auto PersonMesh = D3DUtil::LoadMesh("Models/objectSphere.obj");
+	auto CubeMesh = D3DUtil::LoadMesh("Models/dev.fbx");
+	auto FloorMesh = D3DUtil::LoadMesh("Models/floor.obj");
+	auto SphereMesh = D3DUtil::LoadMesh("Models/m9.fbx");
 
-	D3DUtil::LoadMesh("Models/objectSphere.obj");
+	{
+		auto FloorActor = m_world->CreateActor();
+		FloorActor->SetPosition({ 0, 0, 0 });
+		FloorActor->SetScale({ 10, 0, 10 });
+		FloorActor->SetRotation({0, 0, 0});
+		FloorActor->SetMesh(FloorMesh);
+
+		auto material = new D3D12Material();
+		material->m_diffuseAlbedo = XMFLOAT4(0.1f, 0.1f, 0.1f, 1.0f);
+		material->m_frenselR0 = { 0.1f, 0.1f, 0.1f };
+		material->m_roughness = 1.0f;
+
+		FloorActor->GetModel()->SetMaterial(material);
+	}
 
 
 	{
 		auto CubeActor = m_world->CreateActor();
 		CubeActor->SetPosition({ 0, 0, 5 });
+		CubeActor->SetScale({0.015, 0.015, 0.015});
 		CubeActor->SetMesh(CubeMesh);
 
 		auto material = new D3D12Material();
@@ -71,7 +87,7 @@ int32_t DEngine::PostInit()
 	{
 		auto SphereActor = m_world->CreateActor();
 		SphereActor->SetPosition({ 3, 0, 5 });
-		SphereActor->SetMesh(SphereMesh);
+		SphereActor->SetMesh(PersonMesh);
 
 		auto material = new D3D12Material();
 		material->m_diffuseAlbedo = XMFLOAT4(0.5f, 0.2f, 0.6f, 1.0f);
@@ -81,23 +97,24 @@ int32_t DEngine::PostInit()
 		SphereActor->GetModel()->SetMaterial(material);
 
 	}
-	
 
 
-	for (size_t i = 0; i < 2; i++)
 	{
-		auto actor = m_world->CreateActor();
-		actor->SetPosition({ (float)i * 3, 0, 5 });
-		actor->SetMesh(SphereMesh);
+		auto SphereActor = m_world->CreateActor();
+		SphereActor->SetPosition({ 2, 2, 3 });
+		SphereActor->SetMesh(SphereMesh);
+		SphereActor->SetScale({ 10, 10, 10 });
+		SphereActor->SetRotation({ 0, 0, 0 });
 
 		auto material = new D3D12Material();
-		material->m_diffuseAlbedo = XMFLOAT4(0.5f, 0.2f, 0.6f, 1.0f);
-		material->m_frenselR0 = { 0.9f, 0.1f, 0.1f };
-		material->m_roughness = 0.5f;
+		material->m_diffuseAlbedo = XMFLOAT4(1.f, 1.0f, 1.0f, 1.0f);
+		material->m_frenselR0 = { 1.0f, 1.0f, 1.0f };
+		material->m_roughness = 0.0f;
 
-		actor->GetModel()->SetMaterial(material);
+		SphereActor->GetModel()->SetMaterial(material);
+
+		onTick.Bind(SphereActor, &AActor::OnUpdateRotation);
 	}
-
 
 	m_world->GetCamera()->SetRotation({0, 0, 90.f});
 	m_world->GetCamera()->SetupPlayerController(m_input.get());
