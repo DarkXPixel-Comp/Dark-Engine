@@ -1,11 +1,12 @@
 #include "LightingUtils.hlsl"
+#include "Common.hlsl"
 
 cbuffer cbObject : register(b0)
 {
 	float4x4 ModelMatrix;
 }
 
-cbuffer cbPass : register(b1)
+cbuffer cbPass : register(b3)
 {
 	Light gLights[16];
 	float4x4 gView;
@@ -22,18 +23,13 @@ cbuffer cbPass : register(b1)
 
 
 
-struct PSInput
-{
-    float4 position : SV_POSITION;
-	float3 normal : NORMAL;
-    float4 color : COLOR;
-    float2 uv : TEXCOORD;
-	float3 posW : POSITION;
-	float3 normalW : WNORMAL;
-};
 
-
-PSInput main(float3 position : SV_Position,float3 normal : NORMAL, float4 color : COLOR, float2 uv : TEXCOORD)
+PSInput main(float3 position : SV_Position,
+			float3 normal : NORMAL,
+			float4 color : COLOR,
+			float3 tangent : TANGENT,
+			float3 bitangent : BITANGENT,
+			float2 uv : TEXCOORD)
 {
     PSInput result;
 	
@@ -47,6 +43,8 @@ PSInput main(float3 position : SV_Position,float3 normal : NORMAL, float4 color 
 	result.color = (color);
 	float3 normalW = mul((float3x3) ModelMatrix, normal);
 	result.normalW = normal;
+	
+	result.tangentW = mul((float3x3) ModelMatrix, tangent);
 	
     result.uv = uv;
     result.normal = normal;

@@ -13,7 +13,6 @@ public:
 	virtual void Init() = 0;
 	virtual void Shutdown() = 0;
 
-	virtual void BeginFrame() = 0;
 	virtual void Render(D3D12Scene*) = 0;
 	virtual void EndFrame() = 0;
 

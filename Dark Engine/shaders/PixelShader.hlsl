@@ -12,17 +12,18 @@
 
 
 #include "LightingUtils.hlsl"
+#include "Common.hlsl"
 
 
-struct PSInput
-{
-	float4 position : SV_POSITION;
-	float3 normal : NORMAL;
-	float4 color : COLOR;
-	float2 uv : TEXCOORD;
-	float3 posW : POSITION;
-	float3 normalW : WNORMAL;
-};
+SamplerState gSamPointWrap : register(s0);
+SamplerState gSamPointClamp : register(s1);
+SamplerState gSamLinearWrap : register(s2);
+SamplerState gSamLinearClamp : register(s3);
+SamplerState gSamAnisotropicWrap : register(s4);
+SamplerState gSamAnisotropicClamp : register(s5);
+
+Texture2D tAlbedo : register(t0);
+Texture2D tNormal : register(t1);
 
 
 cbuffer cbObject : register(b0)
@@ -30,7 +31,7 @@ cbuffer cbObject : register(b0)
 	float4x4 ModelMatrix;
 }
 
-cbuffer cbPass : register(b1)
+cbuffer cbPass : register(b3)
 {
 	Light gLights[16];
 	float4x4 gView;
@@ -44,7 +45,6 @@ cbuffer cbPass : register(b1)
 	float4 gAmbientLight;
 	float gFarZ;
 }
-
 
 
 cbuffer cbMaterial : register(b2)
@@ -62,23 +62,33 @@ cbuffer cbMaterial : register(b2)
 
 float4 main(PSInput input) : SV_TARGET
 {
-	//return input.color + gAmbientLight;
+	//return gColorMap.Sample(gSamLinearClamp, input.uv);
+	//return float4(1, 1, 1, 1);
 	
+	float4 gDiffuseAlbedo = gDiffuse * tAlbedo.Sample(gSamLinearWrap, input.uv);
+	float4 gNormalMapSample = tNormal.Sample(gSamLinearWrap, input.uv);
+	
+	float3 bumpedNormal = NormalSampleToWorldSpace(gNormalMapSample.xyz, input.normalW, input.tangentW);
+	
+	//bumpedNormal = input.normalW;
+	
+
 	input.normalW = normalize(input.normalW);
 	
 	float3 toEye = normalize(gEyePos - input.posW);
 	
-	float4 ambient = gAmbientLight * gDiffuse;
+	float4 ambient = gAmbientLight * gDiffuseAlbedo;
 	
+	//return gDiffuse + 0;
 
 	const float shininess = 1.0f - gRoughness;
-	Material mat = { gDiffuse, gFrensel, shininess };
+	Material mat = { gDiffuseAlbedo, gFrensel, shininess };
 	float3 shadowFactor = 1.0f;
-	float4 directLight = ComputeLighting(gLights, mat, input.posW, input.normalW, toEye, shadowFactor);
+	float4 directLight = ComputeLighting(gLights, mat, input.posW, bumpedNormal, toEye, shadowFactor);
 	
 	
 	float4 litColor = ambient + directLight;
-	litColor.a = gDiffuse.a;
+	litColor.a = gDiffuseAlbedo.a;
 	//return ambient;
 	return litColor;
 

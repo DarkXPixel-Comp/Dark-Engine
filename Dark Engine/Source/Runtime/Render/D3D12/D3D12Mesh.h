@@ -1,13 +1,16 @@
 #pragma once
 #include <vector>
+#include <string>
 #include <VertexTypes.h>
 #include <wtypes.h>
 #include "D3D12.h"
+#include "D3D12Types.h"
 
 
 
-#define Vertex VertexPositionNormalColorTexture
+//#define Vertex VertexPositionNormalColorTexture
 
+#define Vertex VertexDefault
 
 class D3D12Mesh
 {
@@ -31,7 +34,8 @@ public:
 
 	void Init(std::vector<Vertex> vertices, std::vector<WORD> indices);
 
-
+public:
+	std::string PathToMesh;
 
 
 

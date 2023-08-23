@@ -5,10 +5,11 @@
 #include <Windows.h>
 #include "D3D12.h"
 #include "D3D12Camera.h"
+#include "D3D12Texture.h"
 
 
 
-
+#define D3D_DEFAULT_TEXTURE	"Resources/uv.dds"
 
 enum eShaderType
 {
@@ -25,6 +26,8 @@ class D3DUtil
 {
 	static std::unordered_map<UINT, std::unique_ptr<D3D12PipelineShaderRootSignature>> Pipelines;
 	static std::unordered_map<std::string, std::unique_ptr<D3D12Mesh>> m_meshes;
+	static std::unordered_map<std::string, std::unique_ptr<D3D12Texture>> m_textures;
+	static std::vector<CD3DX12_STATIC_SAMPLER_DESC> m_samplers;
 
 
 public:
@@ -34,8 +37,10 @@ public:
 	}
 	
 	static UINT GetCountPipelines() { return Pipelines.size(); }
+	static const std::vector<CD3DX12_STATIC_SAMPLER_DESC> GetStaticSamples() { return m_samplers; }
 
 	static void Init();
+	static void Shutdown();
 	static void InitPipelines()
 	{
 		for (size_t i = 0; i < eShaderType::Size; i++)
@@ -43,6 +48,7 @@ public:
 			CreatePipeline(static_cast<eShaderType>(i));
 		}
 	}
+	static void InitStaticSamples();
 	static D3D12PipelineShaderRootSignature* GetPipeline(UINT id) { return Pipelines.find(id)->second.get(); }
 	static UINT CreatePipeline(eShaderType type);
 
@@ -54,6 +60,8 @@ public:
 	static ID3D12Device8* GetDevice(); 
 	static ID3D12CommandQueue* GetCommandQueue();
 	static D3D12Mesh* LoadMesh(std::string path);
+	static void DeleteMesh(D3D12Mesh* mesh);
+	static D3D12Texture* LoadTexture(std::string path);
 	static std::vector<D3D12Mesh*> LoadMeshes(std::string path, bool bCombineMeshes);
 
 	static XMMATRIX CalcMVP()
@@ -98,6 +106,38 @@ public:
 	{
 		XMVECTOR v1 = XMLoadFloat3(&x1);
 	}
+
 };
+
+static XMFLOAT3 operator-(const XMFLOAT3& v1, const XMFLOAT3& v2)
+{
+	XMFLOAT3 result;
+	result.x = v1.x - v2.x;
+	result.y = v1.y - v2.y;
+	result.z = v1.z - v2.z;
+
+	return result;
+}
+
+
+static XMFLOAT2 operator-(const XMFLOAT2& v1, const XMFLOAT2& v2)
+{
+	XMFLOAT2 result;
+	result.x = v1.x - v2.x;
+	result.y = v1.y - v2.y;
+
+	return result;
+}
+
+
+static XMFLOAT3 operator*(const XMFLOAT3& v1, const float f2)
+{
+	XMFLOAT3 result;
+	result.x = v1.x * f2;
+	result.y = v1.y * f2;
+	result.z = v1.z * f2;
+
+	return result;
+}
 
 

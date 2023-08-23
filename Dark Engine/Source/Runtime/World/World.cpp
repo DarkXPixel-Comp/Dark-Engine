@@ -19,14 +19,6 @@ void AWorld::Update(float DeltaTime)
 
 
 
-AActor* AWorld::CreateActor()
-{   
-    auto& it = m_actors.emplace_back(std::make_unique<AActor>());
-    it->BeginPlay();
-    return it.get();
-}
-
-
 void AWorld::FillScene(D3D12Scene* scene)
 {
     scene->ResetModels();
@@ -39,4 +31,12 @@ void AWorld::FillScene(D3D12Scene* scene)
     }
     scene->SetCamera(m_camera->GetCamera());
 
+}
+
+
+AActor* AWorld::CreateActor()
+{
+    auto& it = m_actors.emplace_back(std::make_unique<AActor>());
+    it->BeginPlay();
+    return it.get();
 }

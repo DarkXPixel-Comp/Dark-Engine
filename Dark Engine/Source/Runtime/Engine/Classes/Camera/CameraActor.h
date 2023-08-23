@@ -5,14 +5,15 @@
 #include <DirectXMath.h>
 
 
+#include <Engine/Classes/Components/RotateComponent/RotateComponent.h>
+
+
 class UCameraActor : public AActor 
 {
 	typedef AActor Super;
 public:
-	UCameraActor()
-	{
-		
-	}
+	UCameraActor();
+
 	void OnResize(long, long);
 
 	void BeginPlay() override;
@@ -28,6 +29,10 @@ public:
 	void Action(eInputActionState action);
 	D3D12Camera GetCamera() { return m_camera; }
 
+
+public:
+	URotateComponent* m_rotateComponent;
+
 protected:
 	D3D12Camera m_camera;
 private:
@@ -35,4 +40,7 @@ private:
 	float mouseSensevity = 0.5;
 	float Speed = 0.1f;
 	DirectX::XMFLOAT2 Controller;
+
+
+	
 };

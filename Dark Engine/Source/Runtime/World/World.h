@@ -29,7 +29,26 @@ public:
 	AActor* CreateActor();
 
 
+	template <typename T>
+	AActor* CreateActor();
+
+
 private:
 	std::vector<std::unique_ptr<AActor>> m_actors;
 	std::unique_ptr<UCameraActor> m_camera;
 };
+
+template <typename T>
+AActor* AWorld::CreateActor()
+{
+	auto& it = m_actors.emplace_back(std::make_unique<T>());
+	it->BeginPlay();
+	return it.get();
+}
+
+
+template <typename T>
+T* Cast(AActor* actor)
+{
+	return reinterpret_cast<T*>(actor);
+}

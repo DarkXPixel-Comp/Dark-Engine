@@ -7,9 +7,6 @@ void AActor::BeginPlay()
 	m_model = std::make_unique<D3D12Model>();
 
 
-	auto* component = (CreateDefaultSubObject<URotateComponent>("name"));
-
-	m_ActorComponents.push_back(component);
 }
 
 void AActor::Update(float DeltaTime)

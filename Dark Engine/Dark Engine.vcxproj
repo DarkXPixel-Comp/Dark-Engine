@@ -163,15 +163,20 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Source\Runtime\ApplicationCore\public\Windows\WindowsWindow.h" />
+    <ClInclude Include="Source\Runtime\Audio\Audio.h" />
     <ClInclude Include="Source\Runtime\Core\Application\Application.h" />
     <ClInclude Include="Source\Runtime\Core\CommandLine\CommandLine.h" />
     <ClInclude Include="Source\Runtime\Core\CoreDefines.h" />
     <ClInclude Include="Source\Runtime\Core\Delegate\Delegate.h" />
+    <ClInclude Include="Source\Runtime\Core\Memory\TGlobalPtr.h" />
+    <ClInclude Include="Source\Runtime\Core\Memory\TMemory.h" />
     <ClInclude Include="Source\Runtime\Core\Timer\GameTimer.h" />
+    <ClInclude Include="Source\Runtime\Core\Transform\FVector.h" />
     <ClInclude Include="Source\Runtime\Engine\Classes\Actor\Actor.h" />
     <ClInclude Include="Source\Runtime\Engine\Classes\Camera\CameraActor.h" />
     <ClInclude Include="Source\Runtime\Engine\Classes\Components\ActorComponent\ActorComponent.h" />
     <ClInclude Include="Source\Runtime\Engine\Classes\Components\RotateComponent\RotateComponent.h" />
+    <ClInclude Include="Source\Runtime\Engine\Classes\TestActor\TestActor.h" />
     <ClInclude Include="Source\Runtime\Engine\Classes\UObject\UObject.h" />
     <ClInclude Include="Source\Runtime\Input\InputCore.h" />
     <ClInclude Include="Source\Runtime\Render\D3D12\D3D12.h" />
@@ -183,6 +188,7 @@
     <ClInclude Include="Source\Runtime\Render\D3D12\D3D12Render.h" />
     <ClInclude Include="Source\Runtime\Render\D3D12\D3D12Resource.h" />
     <ClInclude Include="Source\Runtime\Render\D3D12\D3D12Scene.h" />
+    <ClInclude Include="Source\Runtime\Render\D3D12\D3D12Texture.h" />
     <ClInclude Include="Source\Runtime\Render\D3D12\D3D12Types.h" />
     <ClInclude Include="Source\Runtime\Render\D3D12\D3D12Utils.h" />
     <ClInclude Include="Source\Runtime\Render\D3D12\d3dx12.h" />
@@ -219,12 +225,15 @@
     <ClCompile Include="Source\Runtime\Core\Application\Application.cpp" />
     <ClCompile Include="Source\Runtime\Core\CommandLine\CommandLine.cpp" />
     <ClCompile Include="Source\Runtime\Core\Logging\Logger.cpp" />
+    <ClCompile Include="Source\Runtime\Core\Memory\TMemory.cpp" />
     <ClCompile Include="Source\Runtime\Core\Settings\PerEngineSettings.cpp" />
     <ClCompile Include="Source\Runtime\Core\Timer\GameTimer.cpp" />
+    <ClCompile Include="Source\Runtime\Core\Transform\FVector.cpp" />
     <ClCompile Include="Source\Runtime\Engine\Classes\Actor\Actor.cpp" />
     <ClCompile Include="Source\Runtime\Engine\Classes\Camera\CameraActor.cpp" />
     <ClCompile Include="Source\Runtime\Engine\Classes\Components\ActorComponent\ActorComponent.cpp" />
     <ClCompile Include="Source\Runtime\Engine\Classes\Components\RotateComponent\RotateComponent.cpp" />
+    <ClCompile Include="Source\Runtime\Engine\Classes\TestActor\TestActor.cpp" />
     <ClCompile Include="Source\Runtime\Engine\private\DEngine.cpp" />
     <ClCompile Include="Source\Runtime\Input\InputCore.cpp" />
     <ClCompile Include="Source\Runtime\Launch\Platforms\Windows\LaunchWindows.cpp" />
@@ -236,6 +245,7 @@
     <ClCompile Include="Source\Runtime\Render\D3D12\D3D12Render.cpp" />
     <ClCompile Include="Source\Runtime\Render\D3D12\D3D12Resource.cpp" />
     <ClCompile Include="Source\Runtime\Render\D3D12\D3D12Scene.cpp" />
+    <ClCompile Include="Source\Runtime\Render\D3D12\D3D12Types.cpp" />
     <ClCompile Include="Source\Runtime\Render\D3D12\D3D12Utils.cpp" />
     <ClCompile Include="Source\Runtime\Render\Renderer.cpp" />
     <ClCompile Include="Source\Runtime\world\World.cpp" />

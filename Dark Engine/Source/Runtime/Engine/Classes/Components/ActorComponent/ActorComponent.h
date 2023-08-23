@@ -17,6 +17,9 @@ public:
 public:
 	AActor* GetOwner();
 
+public:
+	bool bCanEverTick = false;
+
 protected:
 	AActor* m_Owner;
 
