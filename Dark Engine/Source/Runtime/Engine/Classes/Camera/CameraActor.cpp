@@ -3,10 +3,25 @@
 #include <Core/CoreDefines.h>
 #include <Engine/public/DEngine.h>
 
-void UCameraActor::BeginPlay()
+
+UCameraActor::UCameraActor()
 {
+	m_rotateComponent = (CreateDefaultSubObject<URotateComponent>("name"));
+	m_ActorComponents.push_back(m_rotateComponent);
+
+
+
 	auto window = GEngine.GetWindowManager()->GetWindow(0);
 	window->onResizeWindow.Bind(this, &UCameraActor::OnResize);
+
+}
+
+void UCameraActor::BeginPlay()
+{
+	Super::BeginPlay();
+
+
+	
 
 }
 

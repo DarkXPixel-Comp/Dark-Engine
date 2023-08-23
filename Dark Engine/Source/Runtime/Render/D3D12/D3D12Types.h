@@ -36,3 +36,43 @@ struct D3D12MaterialConstants
 	float Roughness;
 	XMFLOAT4X4 MatTransform;
 };
+
+
+struct VertexDefault
+{
+	VertexDefault() = default;
+
+	VertexDefault(const VertexDefault&) = default;
+	VertexDefault& operator=(const VertexDefault&) = default;
+
+	VertexDefault(VertexDefault&&) = default;
+	VertexDefault& operator=(VertexDefault&&) = default;
+
+	VertexDefault(
+		XMFLOAT3 const& iposition,
+		XMFLOAT3 const& inormal,
+		XMFLOAT4 const& itextureCoordinate,
+		XMFLOAT2 const& iuv,
+		XMFLOAT3 const& itangent,
+		XMFLOAT3 const& ibitangent
+	) noexcept
+	{
+	}
+
+
+
+	XMFLOAT3 position;
+	XMFLOAT3 normal;
+	XMFLOAT4 color;
+	XMFLOAT3 tangent;
+	XMFLOAT3 bitangent;
+	XMFLOAT2 textureCoordinate;
+
+	static const D3D12_INPUT_LAYOUT_DESC InputLayout;
+
+private:
+	static constexpr unsigned int InputElementCount = 6;
+	static const D3D12_INPUT_ELEMENT_DESC InputElements[InputElementCount];
+
+
+};

@@ -4,9 +4,12 @@
 #include <Core/Delegate/Delegate.h>
 #include <World/World.h>
 #include <Input/InputCore.h>
+#include <Core/Memory/TMemory.h>
+#include <Audio/Audio.h>
 #include <chrono>
 #include <Windows.h>
 #include <memory>
+
 
 
 
@@ -53,6 +56,7 @@ public:
 public:
 	FWindowsWindowManager* GetWindowManager() { return &m_windowManager; }
 	Renderer* GetRenderer() { return m_renderer.get(); }
+	TMemory* GetMemory() { return m_memory.get(); }
 
 private:
 	FWindowsWindowManager m_windowManager;
@@ -63,9 +67,11 @@ private:
 
 	//Renderer* m_renderer;
 	unique_ptr<Renderer> m_renderer;
+	unique_ptr<FAudioCore> m_audio;
 	unique_ptr<D3D12Scene> m_scene;
 	unique_ptr<AWorld> m_world;
 	unique_ptr<FInputCore> m_input;
+	unique_ptr<TMemory> m_memory;
 
 
 

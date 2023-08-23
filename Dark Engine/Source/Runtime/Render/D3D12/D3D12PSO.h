@@ -5,7 +5,18 @@
 #include <string>
 #include <Core/CoreDefines.h>
 #include "D3D12Mesh.h"
+#include "D3D12Utils.h"
 
+
+
+
+
+struct D3D12ShaderDesc
+{
+
+	
+
+};
 
 
 
@@ -24,27 +35,26 @@ class D3D12PipelineShaderRootSignature
 
 
 public:
-	D3D12PipelineShaderRootSignature(ID3D12Device8* device, std::string vertexShaderPath, std::string pixelShaderPath,
+	D3D12PipelineShaderRootSignature(ID3D12Device8* device,
+		std::string vertexShaderPath,
+		std::string pixelShaderPath,
 		std::vector<D3D12_ROOT_PARAMETER1> rootParametrs)
 	{
-		CD3DX12_ROOT_PARAMETER1 parametrs[1];
+		//CD3DX12_ROOT_PARAMETER1 parametrs[1];
+		//CD3DX12_DESCRIPTOR_RANGE1 cbvTable;
+		auto staticSamplers = D3DUtil::GetStaticSamples();
+
+		//cbvTable.Init(D3D12_DESCRIPTOR_RANGE_TYPE_CBV, 1, 0);
+
+		//parametrs[0].InitAsDescriptorTable(1, &cbvTable);
 
 
-		CD3DX12_DESCRIPTOR_RANGE1 cbvTable;
-
-		cbvTable.Init(D3D12_DESCRIPTOR_RANGE_TYPE_CBV, 1, 0);
-
-
-
-
-		parametrs[0].InitAsDescriptorTable(1, &cbvTable);
-
-
-		CD3DX12_VERSIONED_ROOT_SIGNATURE_DESC rootSigDescVers(rootParametrs.size(), rootParametrs.data(), 0,
-			nullptr, D3D12_ROOT_SIGNATURE_FLAG_ALLOW_INPUT_ASSEMBLER_INPUT_LAYOUT);
-
-
-
+		CD3DX12_VERSIONED_ROOT_SIGNATURE_DESC rootSigDescVers(
+			rootParametrs.size(),
+			rootParametrs.data(),
+			staticSamplers.size(),
+			staticSamplers.data(),
+			D3D12_ROOT_SIGNATURE_FLAG_ALLOW_INPUT_ASSEMBLER_INPUT_LAYOUT);
 
 
 		ComPtr<ID3DBlob> rootSignatureBlob;
@@ -52,7 +62,6 @@ public:
 
 		//D3D12SerializeRootSignature(&rootSigDesc, D3D_ROOT_SIGNATURE_VERSION_1, &rootSignatureBlob, &errorBlob);
 		D3D12SerializeVersionedRootSignature(&rootSigDescVers, &rootSignatureBlob, &errorBlob);
-
 
 
 		if (errorBlob)
@@ -89,6 +98,7 @@ public:
 		D3D12_GRAPHICS_PIPELINE_STATE_DESC pipelineStateDesc = {};
 
 
+
 		pipelineStateDesc.InputLayout = Vertex::InputLayout;
 		pipelineStateDesc.pRootSignature = m_rootSignature.Get();
 		pipelineStateDesc.VS = { vertexShader->GetBufferPointer(), vertexShader->GetBufferSize() };
@@ -103,7 +113,9 @@ public:
 		pipelineStateDesc.SampleDesc = { 1, 0 };
 		pipelineStateDesc.DSVFormat = DXGI_FORMAT_D32_FLOAT;
 
-		DXCall(device->CreateGraphicsPipelineState(&pipelineStateDesc, IID_PPV_ARGS(&m_pipelineState)));
+		auto er = (device->CreateGraphicsPipelineState(&pipelineStateDesc, IID_PPV_ARGS(&m_pipelineState)));
+
+		
 
 		id = _idCounter++;
 

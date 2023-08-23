@@ -38,6 +38,9 @@ void D3D12Renderer::Init()
 		debug->EnableDebugLayer();
 	}
 
+	auto wnd = GEngine.GetWindowManager()->GetWindow(0);
+
+	
 
 	HRESULT Error = S_OK;
 
@@ -62,7 +65,6 @@ void D3D12Renderer::Init()
 
 
 	{
-		auto wnd = GEngine.GetWindowManager()->GetWindow(0);
 		ComPtr<IDXGISwapChain> swapchain;
 
 		DXGI_SWAP_CHAIN_DESC pDesc = {};
@@ -105,7 +107,6 @@ void D3D12Renderer::Init()
 		D3D12_DESCRIPTOR_HEAP_FLAG_SHADER_VISIBLE,
 		D3D12_MAX_SHADER_VISIBLE_DESCRIPTOR_HEAP_SIZE_TIER_1);
 	
-
 	RTHandleSize = m_device->GetDescriptorHandleIncrementSize(D3D12_DESCRIPTOR_HEAP_TYPE_RTV);
 
 	for (size_t i = 0; i < BACK_BUFFER_COUNT; i++)
@@ -147,7 +148,8 @@ void D3D12Renderer::Init()
 	depthOptimizedClearValue.DepthStencil.Stencil = 0;
 
 	auto Properties = CD3DX12_HEAP_PROPERTIES(D3D12_HEAP_TYPE_DEFAULT);
-	auto TexScreen = CD3DX12_RESOURCE_DESC::Tex2D(DXGI_FORMAT_D32_FLOAT, 1920, 1080,
+	auto TexScreen = CD3DX12_RESOURCE_DESC::Tex2D(DXGI_FORMAT_D32_FLOAT, wnd->GetWitdh(),
+		wnd->GetHeight(),
 		1, 0, 1, 0, D3D12_RESOURCE_FLAG_ALLOW_DEPTH_STENCIL);
 
 
@@ -170,6 +172,7 @@ void D3D12Renderer::Init()
 	m_passBuffer = std::make_unique<D3D12UploadBufferResource<D3D12PassConstants>>(1, true);
 
 
+	D3DUtil::InitStaticSamples();
 	D3DUtil::InitPipelines();
 
 	window->onResizeWindow.Bind(this, &D3D12Renderer::OnResize);
@@ -180,6 +183,7 @@ void D3D12Renderer::Init()
 
 void D3D12Renderer::Shutdown()
 {
+	D3DUtil::Shutdown();
 }
 
 
@@ -194,13 +198,75 @@ static DirectX::XMFLOAT3 SphericalToCartesian(float radius, float theta, float p
 
 
 
-void D3D12Renderer::BeginFrame()
+void D3D12Renderer::BeginFrame(D3D12Scene* scene)
 {
+	auto models = scene->GetModels();
+	auto DefaultTex = D3DUtil::LoadTexture(D3D_DEFAULT_TEXTURE);
+		m_device->CreateShaderResourceView(
+			DefaultTex->m_textureBuffer,
+			&DefaultTex->m_srvDesc,
+			SRDescriptorHeap->GetCpuHandle(m_freeSRVDescriptor++));
 
+	for (auto& model : models)
+	{
+		auto material = model->m_material;
+
+		if (material->m_BaseDescriptorIndex == -1)
+		{
+			material->m_BaseDescriptorIndex = m_freeSRVDescriptor;
+			m_freeSRVDescriptor += 2;
+		}
+		else
+		{
+			continue;
+		}
+
+		{
+			if (material->t_Albedo)
+			{
+				m_device->CreateShaderResourceView(
+					material->t_Albedo->m_textureBuffer,
+					&material->t_Albedo->m_srvDesc,
+					SRDescriptorHeap->GetCpuHandle(material->m_BaseDescriptorIndex + 0)
+				);
+			}
+			else
+			{
+				m_device->CreateShaderResourceView(
+					DefaultTex->m_textureBuffer,
+					&DefaultTex->m_srvDesc,
+					SRDescriptorHeap->GetCpuHandle(material->m_BaseDescriptorIndex + 0)
+				);
+			}
+		}
+
+		{
+			if (material->t_Normal)
+			{
+				m_device->CreateShaderResourceView(
+					material->t_Normal->m_textureBuffer,
+					&material->t_Normal->m_srvDesc,
+					SRDescriptorHeap->GetCpuHandle(material->m_BaseDescriptorIndex + 1)
+				);
+			}
+			else
+			{
+				m_device->CreateShaderResourceView(
+					DefaultTex->m_textureBuffer,
+					&DefaultTex->m_srvDesc,
+					SRDescriptorHeap->GetCpuHandle(material->m_BaseDescriptorIndex + 1)
+				);
+			}
+		}
+
+
+	}
 }
 
 void D3D12Renderer::Render(D3D12Scene* scene)
 {
+	BeginFrame(scene);
+
 	if (scene == nullptr) return;
 	auto& backBuffer = m_backBuffers[CurrentBackBufferIndex];
 	auto PSO = D3DUtil::GetPipeline(eShaderType::Default);
@@ -224,6 +290,7 @@ void D3D12Renderer::Render(D3D12Scene* scene)
 	m_commandList->SetGraphicsRootSignature(PSO->m_rootSignature.Get());
 	m_commandList->SetDescriptorHeaps(1, ppHeaps);
 	m_commandList->IASetPrimitiveTopology(D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
+
 	
 	{
 		D3D12PassConstants passConst;
@@ -246,18 +313,23 @@ void D3D12Renderer::Render(D3D12Scene* scene)
 
 		m_passBuffer->CopyData(0, passConst);
 
-		D3D12_CONSTANT_BUFFER_VIEW_DESC desc = {};
-		desc.BufferLocation = m_passBuffer->GetResource()->GetGPUVirtualAddress();
-		desc.SizeInBytes = m_passBuffer->GetElementByteSize();
-		m_device->CreateConstantBufferView(&desc, SRDescriptorHeap->GetFirstCpuHandle());
 
-		m_commandList->SetGraphicsRootDescriptorTable(1, SRDescriptorHeap->GetFirstGpuHandle());
+
+		m_commandList->SetGraphicsRootConstantBufferView(3, m_passBuffer->GetResource()->GetGPUVirtualAddress());
+
+
 	}
 	
 	for (auto& model : models)
 	{	
 		auto mesh = model->m_mesh;
+		auto material = model->m_material;
+		if (!mesh) continue;
 		model->FillConstantBuffer();
+		m_commandList->SetGraphicsRootDescriptorTable(1,
+		SRDescriptorHeap->GetGpuHandle(material->m_BaseDescriptorIndex));
+
+
 		m_commandList->IASetVertexBuffers(0, 1, &mesh->m_vertexBufferView);
 		m_commandList->IASetIndexBuffer(&mesh->m_indexBufferView);
 		m_commandList->SetGraphicsRootConstantBufferView(0, model->m_cbvObject.GetResource()->GetGPUVirtualAddress());
@@ -276,6 +348,8 @@ void D3D12Renderer::Render(D3D12Scene* scene)
 
 
 	CurrentBackBufferIndex = m_swapChain->GetCurrentBackBufferIndex();
+
+	m_freeSRVDescriptor = 0;
 	return;
 }
 

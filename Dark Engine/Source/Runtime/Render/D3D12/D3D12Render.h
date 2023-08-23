@@ -56,7 +56,7 @@ public:
 	void Init() override;
 	void Shutdown() override;
 
-	void BeginFrame() override;
+	void BeginFrame(D3D12Scene* scene);
 	void Render(D3D12Scene*) override;
 	void RenderObj();
 	void RenderScene();
@@ -75,6 +75,7 @@ private:
 
 
 	float rot = 0.0f;
+	uint64_t m_freeSRVDescriptor = 0;
 
 public:
 	friend class D3D12Mesh;
