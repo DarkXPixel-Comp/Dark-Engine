@@ -88,9 +88,6 @@ void record(log_& obj)
 		CommandConsole::Print("\n");*/
 
 		PrintLine(text.c_str(), " - ", obj.txt.c_str(), "\n");
-
-
-
 	}
 
 	fout.close();

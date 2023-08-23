@@ -1,6 +1,7 @@
 #pragma once
 #include <xaudio2.h>
 #include <assert.h>
+#include <Core/Logging/Logger.hpp>
 
 
 
@@ -12,9 +13,12 @@ public:
 	{
 		HRESULT hr = CoInitializeEx(nullptr, COINIT_MULTITHREADED);
 
+		Log("Testfdssdfgdfgdf");
+
 		if (FAILED(hr))
 		{
 			assert(false);
+		
 			return;
 		}
 

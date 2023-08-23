@@ -34,11 +34,6 @@ void UCameraActor::Update(float DeltaTime)
 	m_camera.m_rotation = m_rotation;
 
 	sensevity = DeltaTime * 100;
-
-	PrintLine(icstr(m_rotation.x), "\t");
-	PrintLine(icstr(m_rotation.y), "\t");
-	PrintLine(icstr(m_rotation.z), "\n");
-
 }
 
 void UCameraActor::Destroy()
