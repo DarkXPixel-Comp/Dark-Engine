@@ -1,8 +1,9 @@
 #pragma once
 #include <unordered_map>
 #include <memory>
-#include <string>
+#include <Containers/String/DarkString.h>
 #include <Windows.h>
+#include <Core/Memory/TUniquePtr.h>
 #include "D3D12.h"
 #include "D3D12Camera.h"
 #include "D3D12Texture.h"
@@ -24,9 +25,9 @@ class D3D12Mesh;
 
 class D3DUtil
 {
-	static std::unordered_map<UINT, std::unique_ptr<D3D12PipelineShaderRootSignature>> Pipelines;
-	static std::unordered_map<std::string, std::unique_ptr<D3D12Mesh>> m_meshes;
-	static std::unordered_map<std::string, std::unique_ptr<D3D12Texture>> m_textures;
+	static std::unordered_map<UINT, TUniquePtr<D3D12PipelineShaderRootSignature>> Pipelines;
+	static std::unordered_map<FString, TUniquePtr<D3D12Mesh>> m_meshes;
+	static std::unordered_map<FString, TUniquePtr<D3D12Texture>> m_textures;
 	static std::vector<CD3DX12_STATIC_SAMPLER_DESC> m_samplers;
 
 
@@ -59,10 +60,10 @@ public:
 
 	static ID3D12Device8* GetDevice(); 
 	static ID3D12CommandQueue* GetCommandQueue();
-	static D3D12Mesh* LoadMesh(std::string path);
+	static D3D12Mesh* LoadMesh(FString path);
 	static void DeleteMesh(D3D12Mesh* mesh);
-	static D3D12Texture* LoadTexture(std::string path);
-	static std::vector<D3D12Mesh*> LoadMeshes(std::string path, bool bCombineMeshes);
+	static D3D12Texture* LoadTexture(FString path);
+	static std::vector<D3D12Mesh*> LoadMeshes(FString path, bool bCombineMeshes);
 
 	static XMMATRIX CalcMVP()
 	{

@@ -1,7 +1,9 @@
 #pragma once
+#include <Core/Core.h>
 #include <Render/Renderer.h>
 #include <ApplicationCore/public/Windows/WindowsWindow.h>
 #include <Core/Delegate/Delegate.h>
+#include <Core/Memory/TUniquePtr.h>
 #include <World/World.h>
 #include <Input/InputCore.h>
 #include <Core/Memory/TMemory.h>
@@ -9,6 +11,7 @@
 #include <chrono>
 #include <Windows.h>
 #include <memory>
+
 
 
 
@@ -29,7 +32,7 @@ DECLARE_MULTICAST_DELEGATE_OneParam(FOnTick, float);
 
 
 
-class DEngine
+class DENGINE_API DEngine
 {
 	typedef std::chrono::high_resolution_clock Clock;
 
@@ -66,16 +69,16 @@ private:
 
 
 	//Renderer* m_renderer;
-	unique_ptr<Renderer> m_renderer;
-	unique_ptr<FAudioCore> m_audio;
-	unique_ptr<D3D12Scene> m_scene;
-	unique_ptr<AWorld> m_world;
-	unique_ptr<FInputCore> m_input;
-	unique_ptr<TMemory> m_memory;
+	TUniquePtr<Renderer> m_renderer;
+	TUniquePtr<FAudioCore> m_audio;
+	TUniquePtr<D3D12Scene> m_scene;
+	TUniquePtr<AWorld> m_world;
+	TUniquePtr<FInputCore> m_input;
+	TUniquePtr<TMemory> m_memory;
 
 
 
 
 };
 
-extern DEngine GEngine;
+extern DENGINE_API DEngine GEngine;

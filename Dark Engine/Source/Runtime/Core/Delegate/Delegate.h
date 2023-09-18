@@ -1,7 +1,8 @@
 #pragma once
 
 //#include <assert.h>
-#include <vector>
+#include <vector> 
+#include <Core/Core.h>
 
 
 #define FUNC_DECLARE_MULTICAST_DELEGATE(DelegateName, ReturnType, ...) typedef TMultiCastDelegate<ReturnType, __VA_ARGS__> DelegateName
@@ -44,13 +45,13 @@
 
 
 
-class IContainer {
+class DENGINE_API IContainer {
 public: virtual void Call() = 0;
 };
 
 
 template<typename InRetValType, typename ...ParamTypes>
-class IIContainer
+class DENGINE_API IIContainer
 {
 public:
 	virtual InRetValType Call(ParamTypes...) = 0;
@@ -61,7 +62,7 @@ public:
 
 
 template <typename UserClass, typename InRetValType, typename... ParamTypes>
-class TMethodContainter : public IIContainer<InRetValType, ParamTypes...>
+class DENGINE_API TMethodContainter : public IIContainer<InRetValType, ParamTypes...>
 {
 	using FFuncPtr = InRetValType(UserClass::*)(ParamTypes...);
 public:
@@ -84,7 +85,7 @@ private:
 };
 
 template<typename InRetValType, typename... ParamTypes>
-class TFuncContainer : public IIContainer<InRetValType, ParamTypes...>
+class DENGINE_API TFuncContainer : public IIContainer<InRetValType, ParamTypes...>
 {
 	using FFuncPtr = InRetValType(*)(ParamTypes...);
 
@@ -102,7 +103,7 @@ private:
 };
 
 template <typename InRetValType, typename... ParamTypes>
-class TDelegate
+class DENGINE_API TDelegate
 {
 public:
 	const void Bind(InRetValType(*func)(ParamTypes...))
@@ -134,7 +135,7 @@ public:
 };
 
 template <typename InRetValType, typename... ParamTypes>
-class TMultiCastDelegate
+class DENGINE_API TMultiCastDelegate
 {
 	using FFuncPtr = InRetValType(*)(ParamTypes...);
 

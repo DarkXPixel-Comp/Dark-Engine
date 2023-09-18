@@ -1,6 +1,6 @@
 #pragma once
 #include <vector>
-#include <string>
+#include <Containers/String/DarkString.h>
 #include <VertexTypes.h>
 #include <wtypes.h>
 #include "D3D12.h"
@@ -35,7 +35,7 @@ public:
 	void Init(std::vector<Vertex> vertices, std::vector<WORD> indices);
 
 public:
-	std::string PathToMesh;
+	FString PathToMesh;
 
 
 

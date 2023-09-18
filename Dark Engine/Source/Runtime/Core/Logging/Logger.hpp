@@ -1,10 +1,11 @@
 #pragma once
-#include <string>
+#include <Containers/String/DarkString.h>
 #include <ctime>
 #include <list>
 #include <fstream>
 #include <thread>
 #include <mutex>
+#include <Containers/String/DarkString.h>
 
 #ifdef _WIN32
 #include <Windows.h>
@@ -22,7 +23,7 @@ struct log_
 {
 	size_t severenty;
 
-	std::string txt;
+	FString txt;
 
 	time_t time;
 
@@ -59,15 +60,15 @@ public:
 	static void Initialize(size_t s);
 
 
-	static void log(std::string, LOGGER_ENUM severenty = LOGGER_INFO);
+	static void log(FString, LOGGER_ENUM severenty = LOGGER_INFO);
 	static void logF(const char* arg, ...);
 #ifdef _WIN32
 	static void log(std::wstring str, LOGGER_ENUM severenty = LOGGER_INFO);
 #endif // _WIN32
 
-	void urgLog(std::string, LOGGER_ENUM);
+	void urgLog(FString, LOGGER_ENUM);
 
-	static void exLog(std::string, LOGGER_ENUM);
+	static void exLog(FString, LOGGER_ENUM);
 
 	static void wait();
 

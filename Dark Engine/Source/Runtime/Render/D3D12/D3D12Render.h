@@ -4,7 +4,7 @@
 #include <VertexTypes.h>
 #include <Core/CommandLine/CommandLine.h>
 #include <vector>
-#include <string>
+#include <Containers/String/DarkString.h>
 #include <DescriptorHeap.h>
 #include <memory>
 #include "D3D12Types.h"
@@ -62,7 +62,7 @@ public:
 	void RenderScene();
 	void EndFrame() override;
 	void OnResize(long x, long y);
-	std::vector<D3D12Mesh1*> LoadMesh(std::string path = "");
+	std::vector<D3D12Mesh1*> LoadMesh(FString path = "");
 
 	void Update();
 
@@ -88,9 +88,9 @@ public:
 	ComPtr<ID3D12GraphicsCommandList6> m_commandList;
 	ComPtr<ID3D12CommandQueue> m_commandQueue;
 
-	unique_ptr <DescriptorHeap> RTDescriptorHeap;
-	unique_ptr <DescriptorHeap> DSDescriptorHeap;
-	unique_ptr<DescriptorHeap> SRDescriptorHeap;
+	TUniquePtr <DescriptorHeap> RTDescriptorHeap;
+	TUniquePtr <DescriptorHeap> DSDescriptorHeap;
+	TUniquePtr<DescriptorHeap> SRDescriptorHeap;
 
 	ComPtr<IDXGISwapChain4> m_swapChain;
 
@@ -113,5 +113,5 @@ public:
 	float Fov;
 
 	
-	unique_ptr<D3D12UploadBufferResource<D3D12PassConstants>> m_passBuffer;
+	TUniquePtr<D3D12UploadBufferResource<D3D12PassConstants>> m_passBuffer;
 };

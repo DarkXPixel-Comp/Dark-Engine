@@ -11,9 +11,9 @@
 #include <DTK12/ResourceUploadBatch.h>
 
 
-std::unordered_map<UINT, std::unique_ptr<D3D12PipelineShaderRootSignature>> D3DUtil::Pipelines;
-std::unordered_map<std::string, std::unique_ptr<D3D12Mesh>> D3DUtil::m_meshes;
-std::unordered_map<std::string, std::unique_ptr<D3D12Texture>> D3DUtil::m_textures;
+std::unordered_map<UINT, TUniquePtr<D3D12PipelineShaderRootSignature>> D3DUtil::Pipelines;
+std::unordered_map<FString, TUniquePtr<D3D12Mesh>> D3DUtil::m_meshes;
+std::unordered_map<FString, TUniquePtr<D3D12Texture>> D3DUtil::m_textures;
 std::vector<CD3DX12_STATIC_SAMPLER_DESC> D3DUtil::m_samplers(6);
 
 void D3DUtil::Init()
@@ -117,13 +117,13 @@ ID3D12CommandQueue* D3DUtil::GetCommandQueue()
 	return static_cast<D3D12Renderer*>(DEngine::GetEngine()->GetRenderer())->m_commandQueue.Get();
 }
 
-//std::vector<D3D12Mesh*> D3DUtil::LoadMeshes(std::string path, bool bCombineMeshes)
+//std::vector<D3D12Mesh*> D3DUtil::LoadMeshes(FString path, bool bCombineMeshes)
 //{
 //	return std::vector<D3D12Mesh*>();
 //}
 
 
-D3D12Texture* D3DUtil::LoadTexture(std::string path)
+D3D12Texture* D3DUtil::LoadTexture(FString path)
 {
 	if (m_textures.find(path) != m_textures.end())
 	{
@@ -135,7 +135,7 @@ D3D12Texture* D3DUtil::LoadTexture(std::string path)
 
 	auto texture = new D3D12Texture();
 	
-	m_textures.emplace(path, std::unique_ptr<D3D12Texture>(texture));
+	m_textures.emplace(path, TUniquePtr<D3D12Texture>(texture));
 	
 
 	HRESULT hr = S_OK;
@@ -176,7 +176,7 @@ D3D12Texture* D3DUtil::LoadTexture(std::string path)
 }
 
 
-D3D12Mesh* D3DUtil::LoadMesh(std::string path)
+D3D12Mesh* D3DUtil::LoadMesh(FString path)
 {
 	if (m_meshes.find(path) != m_meshes.end())
 	{

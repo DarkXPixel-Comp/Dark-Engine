@@ -1,8 +1,10 @@
 #pragma once
+#include <Core/Core.h>
 #include <Windows.h>
 #include <Mouse.h>
 #include <Keyboard.h>
 #include <memory>
+#include <Core/Memory/TUniquePtr.h>
 #include <Core/Delegate/Delegate.h>
 
 
@@ -31,7 +33,7 @@ DECLARE_MULTICAST_DELEGATE(FSpaceDelegate);
 
 
 
-class FInputCore
+class DENGINE_API FInputCore
 {
 	static FInputCore* _inst_;
 public:
@@ -57,8 +59,8 @@ public:
 	FSpaceDelegate SpaceDelegate;
 
 private:
-	std::unique_ptr<DirectX::Keyboard> m_keyboard;
-	std::unique_ptr<DirectX::Mouse> m_mouse;
+	TUniquePtr<DirectX::Keyboard> m_keyboard;
+	TUniquePtr<DirectX::Mouse> m_mouse;
 	HWND m_hWnd = NULL;
 	bool m_isRelative = false;
 };

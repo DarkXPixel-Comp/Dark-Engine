@@ -1,7 +1,7 @@
 #pragma once
 #include <Core/Delegate/Delegate.h>
 #include <Windows.h>
-#include <string>
+#include <Containers/String/DarkString.h>
 
 #undef CreateWindow
 
@@ -52,7 +52,7 @@ public:
 
 	HWND GetHandle() { return m_Wnd; }
 
-	void SetWindowTitle(std::string str);
+	void SetWindowTitle(FString str);
 
 	UINT GetRefreshRate() { return 75; }
 
@@ -110,7 +110,7 @@ class FWindowsWindowManager
 public:
 	FWindowsWindowManager();
 	~FWindowsWindowManager();
-	FWindowsWindow* CreateWindow(UINT Weight, UINT Height, std::string Name);
+	FWindowsWindow* CreateWindow(UINT Weight, UINT Height, FString Name);
 	//FWindowsWindow* GetPrimalWindow() { return windows.size() != 0 ? windows[0] : nullptr; }
 	FWindowsWindow* GetWindow(UINT index) { return index > windows.size() ? nullptr : windows[index]; }
 	void Update();

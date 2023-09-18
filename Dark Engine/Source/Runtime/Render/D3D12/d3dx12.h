@@ -3495,7 +3495,7 @@ struct D3DX12_MESH_SHADER_PIPELINE_STATE_DESC
 //    };
 //
 //#if(__cplusplus >= 201103L)
-//    std::list<std::unique_ptr<const SUBOBJECT_HELPER_BASE>> m_OwnedSubobjectHelpers;
+//    std::list<std::TUniquePtr<const SUBOBJECT_HELPER_BASE>> m_OwnedSubobjectHelpers;
 //#else
 //    class OWNED_HELPER
 //    {

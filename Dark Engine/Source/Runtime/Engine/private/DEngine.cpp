@@ -220,7 +220,8 @@ void DEngine::Tick(float deltaTime)
 
 void DEngine::Quit()
 {
-	m_renderer->Shutdown();
+	if (m_renderer)
+		m_renderer->Shutdown();
 	m_windowManager.Quit();
 	m_Quit = true;
 

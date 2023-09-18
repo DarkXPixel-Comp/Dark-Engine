@@ -31,7 +31,7 @@ void Logger::Initialize(size_t s)
 
 	inst->urgLog("The system started successfully", LOGGER_ENUM::LOGGER_INFO);
 
-	//inst << std::string("s")
+	//inst << FString("s")
 
 
 }
@@ -41,7 +41,7 @@ void Logger::Initialize(size_t s)
 
 void record(log_& obj)
 {
-	std::string folder = "logs/";
+	FString folder = "logs/";
 
 	tm ltm;
 	localtime_s(&ltm, &obj.time);
@@ -50,7 +50,7 @@ void record(log_& obj)
 
 	std::ofstream fout(folder + std::to_string(ltm.tm_year - 100 + 2000) + "-" + std::to_string(ltm.tm_mday) + "-" + std::to_string(ltm.tm_mon + 1) + ".log", std::ios::app);
 
-	std::string text = "[" + std::to_string(ltm.tm_hour) + ":" + std::to_string(ltm.tm_min) + ":" + std::to_string(ltm.tm_sec) + "] ";
+	FString text = "[" + std::to_string(ltm.tm_hour) + ":" + std::to_string(ltm.tm_min) + ":" + std::to_string(ltm.tm_sec) + "] ";
 
 	//fout << "[" + std::to_string(ltm.tm_hour) + ":" + std::to_string(ltm.tm_min) + ":" + std::to_string(ltm.tm_sec) + "] ";
 
@@ -118,7 +118,7 @@ void logging(Logger* obj)
 
 }
 
-void Logger::log(std::string logTxt, LOGGER_ENUM severenty)
+void Logger::log(FString logTxt, LOGGER_ENUM severenty)
 {
 	if (((inst->severenty) | (severenty)) != inst->severenty)
 	{
@@ -170,7 +170,7 @@ void Logger::log(std::wstring str, LOGGER_ENUM severenty)
 
 	temp.severenty = severenty;
 	temp.time = time(0);
-	temp.txt = std::string(str.begin(), str.end());
+	temp.txt = FString(str.begin(), str.end());
 	temp.isConsole = true;
 
 	inst->logs.push_back(temp);
@@ -179,7 +179,7 @@ void Logger::log(std::wstring str, LOGGER_ENUM severenty)
 }
 
 
-void Logger::urgLog(std::string logTxt, LOGGER_ENUM severinty)
+void Logger::urgLog(FString logTxt, LOGGER_ENUM severinty)
 {
 	std::list<log_> lTemp = this->logs;
 
@@ -205,7 +205,7 @@ void Logger::urgLog(std::string logTxt, LOGGER_ENUM severinty)
 
 }
 
-void Logger::exLog(std::string logTxt, LOGGER_ENUM severenty)
+void Logger::exLog(FString logTxt, LOGGER_ENUM severenty)
 {
 	log_ temp;
 

@@ -1,7 +1,7 @@
 #pragma once
 
 #include <Windows.h>
-#include <string>
+#include <Containers/String/DarkString.h>
 
 #define PrintLine(...) CommandConsole::PrintF(__VA_ARGS__, nullptr)
 

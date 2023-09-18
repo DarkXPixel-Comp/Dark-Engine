@@ -44,13 +44,13 @@ public:
 
 protected:
 	template <typename T>
-	T* CreateDefaultSubObject(std::string name);
+	T* CreateDefaultSubObject(FString name);
 
 protected:
 	XMFLOAT3 m_position;
 	XMFLOAT3 m_rotation;
 	XMFLOAT3 m_scale;
-	std::unique_ptr<D3D12Model> m_model;
+	TUniquePtr<D3D12Model> m_model;
 
 	std::vector<UActorComponent*> m_ActorComponents;
 
@@ -62,7 +62,7 @@ protected:
 
 
 template<typename T>
-inline T* AActor::CreateDefaultSubObject(std::string name)
+inline T* AActor::CreateDefaultSubObject(FString name)
 {
 	UActorComponent* component = new T(this);
 	return reinterpret_cast<T*>(component);

@@ -1,13 +1,12 @@
 #pragma once
-#include <string>
 #include <Windows.h>
+#include <Containers/String/DarkString.h>
 
 
 
 
 class Application
 {
-	typedef std::string STRING;
 private:
 	static Application* _inst;
 
@@ -18,11 +17,11 @@ public:
 	Application();
 	~Application();
 
-	void Initialize(HINSTANCE, HINSTANCE, STRING, INT32);
+	void Initialize(HINSTANCE, HINSTANCE, FString, INT32);
 
 public:
 	void ParseCmdLine();
-	bool CheckParameterCmdLine(STRING Parametr, STRING& data);
+	bool CheckParameterCmdLine(FString Parametr, FString& data);
 
 
 public:
@@ -34,7 +33,7 @@ public:
 private:
 	HINSTANCE hInsance;
 	HINSTANCE nPrevInstance;
-	STRING lpCmdLine;
+	FString lpCmdLine;
 	INT32 nCmdShow;
 	
 

@@ -13,7 +13,7 @@ Application::~Application()
 {
 }
 
-void Application::Initialize(HINSTANCE inst, HINSTANCE prevInst, STRING cmdLine, INT32 cmdshow)
+void Application::Initialize(HINSTANCE inst, HINSTANCE prevInst, FString cmdLine, INT32 cmdshow)
 {
 	hInsance = inst;
 	nPrevInstance = prevInst;
