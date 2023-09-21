@@ -1,11 +1,12 @@
 #pragma once
 #include <Engine/Classes/UObject/UObject.h>
+#include <Core.h>
 
 
 
 class AActor;
 
-class UActorComponent : public UObject
+class DENGINE_API UActorComponent : public UObject
 {
 	typedef UObject Super;
 public:

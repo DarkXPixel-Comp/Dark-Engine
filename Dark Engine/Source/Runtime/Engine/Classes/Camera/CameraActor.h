@@ -27,7 +27,7 @@ public:
 	void D();
 	void Space();
 	void Action(eInputActionState action);
-	D3D12Camera GetCamera() { return m_camera; }
+	D3D12Camera& GetCamera() { return m_camera; }
 
 
 public:

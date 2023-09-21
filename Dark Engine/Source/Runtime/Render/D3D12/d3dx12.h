@@ -3315,7 +3315,7 @@ struct D3DX12_MESH_SHADER_PIPELINE_STATE_DESC
 //  <list>
 //
 //  <string>
-//#include <vector>
+//#include <Core/Containers/Array/Array.h>
 //#include <memory>
 //#ifndef D3DX12_USE_ATL
 //#include <wrl/client.h>
@@ -3444,7 +3444,7 @@ struct D3DX12_MESH_SHADER_PIPELINE_STATE_DESC
 //    D3D12_STATE_OBJECT_DESC m_Desc;
 //    std::list<SUBOBJECT_WRAPPER>   m_SubobjectList; // Pointers to list nodes handed out so
 //                                                    // these can be edited live
-//    std::vector<D3D12_STATE_SUBOBJECT> m_SubobjectArray; // Built at the end, copying list contents
+//    TArray<D3D12_STATE_SUBOBJECT> m_SubobjectArray; // Built at the end, copying list contents
 //
 //    std::list<D3D12_SUBOBJECT_TO_EXPORTS_ASSOCIATION>
 //            m_RepointedAssociations; // subobject type that contains pointers to other subobjects,
@@ -3586,7 +3586,7 @@ struct D3DX12_MESH_SHADER_PIPELINE_STATE_DESC
 //    void* Data() noexcept override { return &m_Desc; }
 //    D3D12_DXIL_LIBRARY_DESC m_Desc;
 //    CD3DX12_STATE_OBJECT_DESC::StringContainer m_Strings;
-//    std::vector<D3D12_EXPORT_DESC> m_Exports;
+//    TArray<D3D12_EXPORT_DESC> m_Exports;
 //};
 //
 ////------------------------------------------------------------------------------------------------
@@ -3655,7 +3655,7 @@ struct D3DX12_MESH_SHADER_PIPELINE_STATE_DESC
 //    D3D12_EXISTING_COLLECTION_DESC m_Desc;
 //    D3DX12_COM_PTR<ID3D12StateObject> m_CollectionRef;
 //    CD3DX12_STATE_OBJECT_DESC::StringContainer m_Strings;
-//    std::vector<D3D12_EXPORT_DESC> m_Exports;
+//    TArray<D3D12_EXPORT_DESC> m_Exports;
 //};
 //
 ////------------------------------------------------------------------------------------------------
@@ -3714,7 +3714,7 @@ struct D3DX12_MESH_SHADER_PIPELINE_STATE_DESC
 //    void* Data() noexcept override { return &m_Desc; }
 //    D3D12_SUBOBJECT_TO_EXPORTS_ASSOCIATION m_Desc;
 //    CD3DX12_STATE_OBJECT_DESC::StringContainer m_Strings;
-//    std::vector<LPCWSTR> m_Exports;
+//    TArray<LPCWSTR> m_Exports;
 //};
 //
 ////------------------------------------------------------------------------------------------------
@@ -3775,7 +3775,7 @@ struct D3DX12_MESH_SHADER_PIPELINE_STATE_DESC
 //    D3D12_DXIL_SUBOBJECT_TO_EXPORTS_ASSOCIATION m_Desc;
 //    CD3DX12_STATE_OBJECT_DESC::StringContainer m_Strings;
 //    CD3DX12_STATE_OBJECT_DESC::StringContainer m_SubobjectName;
-//    std::vector<LPCWSTR> m_Exports;
+//    TArray<LPCWSTR> m_Exports;
 //};
 //
 ////------------------------------------------------------------------------------------------------
@@ -4199,7 +4199,7 @@ struct D3DX12_MESH_SHADER_PIPELINE_STATE_DESC
 //#ifndef D3DX12_NO_CHECK_FEATURE_SUPPORT_CLASS
 //
 ////------------------------------------------------------------------------------------------------
-//#include <vector>
+//#include <Core/Containers/Array/Array.h>
 //
 //class CD3DX12FeatureSupport
 //{
@@ -4328,7 +4328,7 @@ struct D3DX12_MESH_SHADER_PIPELINE_STATE_DESC
 //    UINT ProtectedResourceSessionTypeCount(UINT NodeIndex = 0) const;
 //
 //    // PROTECTED_RESOURCE_SESSION_TYPES
-//    std::vector<GUID> ProtectedResourceSessionTypes(UINT NodeIndex = 0) const;
+//    TArray<GUID> ProtectedResourceSessionTypes(UINT NodeIndex = 0) const;
 //
 //    // D3D12_OPTIONS8
 //    BOOL UnalignedBlockTexturesSupported() const noexcept;
@@ -4355,7 +4355,7 @@ struct D3DX12_MESH_SHADER_PIPELINE_STATE_DESC
 //private: // Private structs and helpers declaration
 //    struct ProtectedResourceSessionTypesLocal : D3D12_FEATURE_DATA_PROTECTED_RESOURCE_SESSION_TYPES
 //    {
-//        std::vector<GUID> TypeVec;
+//        TArray<GUID> TypeVec;
 //    };
 //
 //    // Helper function to decide the highest shader model supported by the system
@@ -4386,23 +4386,23 @@ struct D3DX12_MESH_SHADER_PIPELINE_STATE_DESC
 //    D3D12_FEATURE_DATA_GPU_VIRTUAL_ADDRESS_SUPPORT m_dGPUVASupport;
 //    D3D12_FEATURE_DATA_SHADER_MODEL m_dShaderModel;
 //    D3D12_FEATURE_DATA_D3D12_OPTIONS1 m_dOptions1;
-//    std::vector<D3D12_FEATURE_DATA_PROTECTED_RESOURCE_SESSION_SUPPORT> m_dProtectedResourceSessionSupport;
+//    TArray<D3D12_FEATURE_DATA_PROTECTED_RESOURCE_SESSION_SUPPORT> m_dProtectedResourceSessionSupport;
 //    D3D12_FEATURE_DATA_ROOT_SIGNATURE m_dRootSignature;
-//    std::vector<D3D12_FEATURE_DATA_ARCHITECTURE1> m_dArchitecture1;
+//    TArray<D3D12_FEATURE_DATA_ARCHITECTURE1> m_dArchitecture1;
 //    D3D12_FEATURE_DATA_D3D12_OPTIONS2 m_dOptions2;
 //    D3D12_FEATURE_DATA_SHADER_CACHE m_dShaderCache;
 //    D3D12_FEATURE_DATA_COMMAND_QUEUE_PRIORITY m_dCommandQueuePriority;
 //    D3D12_FEATURE_DATA_D3D12_OPTIONS3 m_dOptions3;
 //    D3D12_FEATURE_DATA_EXISTING_HEAPS m_dExistingHeaps;
 //    D3D12_FEATURE_DATA_D3D12_OPTIONS4 m_dOptions4;
-//    std::vector<D3D12_FEATURE_DATA_SERIALIZATION> m_dSerialization; // Cat2 NodeIndex
+//    TArray<D3D12_FEATURE_DATA_SERIALIZATION> m_dSerialization; // Cat2 NodeIndex
 //    D3D12_FEATURE_DATA_CROSS_NODE m_dCrossNode;
 //    D3D12_FEATURE_DATA_D3D12_OPTIONS5 m_dOptions5;
 //    D3D12_FEATURE_DATA_DISPLAYABLE m_dDisplayable;
 //    D3D12_FEATURE_DATA_D3D12_OPTIONS6 m_dOptions6;
 //    D3D12_FEATURE_DATA_D3D12_OPTIONS7 m_dOptions7;
-//    std::vector<D3D12_FEATURE_DATA_PROTECTED_RESOURCE_SESSION_TYPE_COUNT> m_dProtectedResourceSessionTypeCount; // Cat2 NodeIndex
-//    std::vector<ProtectedResourceSessionTypesLocal> m_dProtectedResourceSessionTypes; // Cat3
+//    TArray<D3D12_FEATURE_DATA_PROTECTED_RESOURCE_SESSION_TYPE_COUNT> m_dProtectedResourceSessionTypeCount; // Cat2 NodeIndex
+//    TArray<ProtectedResourceSessionTypesLocal> m_dProtectedResourceSessionTypes; // Cat3
 //    D3D12_FEATURE_DATA_D3D12_OPTIONS8 m_dOptions8;
 //    D3D12_FEATURE_DATA_D3D12_OPTIONS9 m_dOptions9;
 //    D3D12_FEATURE_DATA_D3D12_OPTIONS10 m_dOptions10;
@@ -4900,7 +4900,7 @@ struct D3DX12_MESH_SHADER_PIPELINE_STATE_DESC
 //FEATURE_SUPPORT_GET_NODE_INDEXED_NAME(UINT, m_dProtectedResourceSessionTypeCount, Count, ProtectedResourceSessionTypeCount);
 //
 //// 34: Protected Resource Session Types
-//FEATURE_SUPPORT_GET_NODE_INDEXED_NAME(std::vector<GUID>, m_dProtectedResourceSessionTypes, TypeVec, ProtectedResourceSessionTypes);
+//FEATURE_SUPPORT_GET_NODE_INDEXED_NAME(TArray<GUID>, m_dProtectedResourceSessionTypes, TypeVec, ProtectedResourceSessionTypes);
 //
 //// 36: Options8
 //FEATURE_SUPPORT_GET(BOOL, m_dOptions8, UnalignedBlockTexturesSupported);

@@ -30,24 +30,25 @@ D3D12Renderer::D3D12Renderer()
 	m_depthStencilFormat = DXGI_FORMAT_D32_FLOAT; //DXGI_FORMAT_D16_UNORM
 }
 
-void D3D12Renderer::Init()
+int32_t D3D12Renderer::Init()
 {
+	HRESULT Error = S_OK;
+
+#ifdef _DEBUG
 	{
 		ComPtr<ID3D12Debug> debug;
 		D3D12GetDebugInterface(IID_PPV_ARGS(&debug));
 		debug->EnableDebugLayer();
 	}
-
-	auto wnd = GEngine.GetWindowManager()->GetWindow(0);
-
-	
-
-	HRESULT Error = S_OK;
+#endif // _DEBUG
+	m_renderWindow = GEngine.GetWindowManager()->GetWindow(0);
+	m_renderWindow->onResizeWindow.Bind(this, &D3D12Renderer::OnResize);
 
 	DXCall(Error = CreateDXGIFactory2(0, IID_PPV_ARGS(&m_factory)));
 	DXCall(Error = D3D12CreateDevice(nullptr, D3D_FEATURE_LEVEL_12_0, IID_PPV_ARGS(&m_device)));
+	DXCall(Error = m_factory->EnumAdapterByLuid(m_device->GetAdapterLuid(), IID_PPV_ARGS(&m_adapter)));
 
-	DXCall(m_factory->EnumAdapterByLuid(m_device->GetAdapterLuid(), IID_PPV_ARGS(&m_adapter)));
+
 
 	D3D12_COMMAND_QUEUE_DESC CommandQueueDesc = {};
 
@@ -55,85 +56,61 @@ void D3D12Renderer::Init()
 	CommandQueueDesc.Type = D3D12_COMMAND_LIST_TYPE_DIRECT;
 	CommandQueueDesc.NodeMask = 0;
 	CommandQueueDesc.Flags = D3D12_COMMAND_QUEUE_FLAG_NONE;
-
-
 	DXCall(Error = m_device->CreateCommandQueue(&CommandQueueDesc, IID_PPV_ARGS(&m_commandQueue)));
 
 	DXGI_SWAP_CHAIN_DESC1 SwapChainDesc = {};
+	DXGI_SWAP_CHAIN_DESC pDesc = {};
 
-	auto window = GEngine.GetWindowManager()->GetWindow(0);
-
-
-	{
-		ComPtr<IDXGISwapChain> swapchain;
-
-		DXGI_SWAP_CHAIN_DESC pDesc = {};
-		pDesc.BufferDesc.Width = wnd->GetWitdh();
-		pDesc.BufferDesc.Height = wnd->GetHeight();
-		pDesc.BufferDesc.RefreshRate.Numerator = wnd->GetRefreshRate();
-		pDesc.BufferDesc.RefreshRate.Denominator = 1;
-		pDesc.BufferDesc.Format = m_backBufferFormat;
-		pDesc.BufferDesc.ScanlineOrdering = DXGI_MODE_SCANLINE_ORDER_UNSPECIFIED;
-		pDesc.BufferDesc.Scaling = DXGI_MODE_SCALING_UNSPECIFIED;
-		pDesc.SampleDesc.Count = 1;
-		pDesc.SampleDesc.Quality = 0;
-		pDesc.BufferCount = BACK_BUFFER_COUNT;
-		pDesc.OutputWindow = wnd->GetHandle();
-		pDesc.Windowed = true;
-		pDesc.SwapEffect = DXGI_SWAP_EFFECT_FLIP_SEQUENTIAL;
-		pDesc.Flags = DXGI_SWAP_CHAIN_FLAG_ALLOW_MODE_SWITCH;
-
-		DXCall(Error = m_factory->CreateSwapChain(m_commandQueue.Get(), &pDesc, &swapchain));
-
-
-		swapchain.As(&m_swapChain);
-
-
-	}
+	pDesc.BufferDesc.Width = m_renderWindow->GetWitdh();
+	pDesc.BufferDesc.Height = m_renderWindow->GetHeight();
+	pDesc.BufferDesc.RefreshRate.Numerator = m_renderWindow->GetRefreshRate();
+	pDesc.BufferDesc.RefreshRate.Denominator = 1;
+	pDesc.BufferDesc.Format = m_backBufferFormat;
+	pDesc.BufferDesc.ScanlineOrdering = DXGI_MODE_SCANLINE_ORDER_UNSPECIFIED;
+	pDesc.BufferDesc.Scaling = DXGI_MODE_SCALING_UNSPECIFIED;
+	pDesc.SampleDesc.Count = 1;
+	pDesc.SampleDesc.Quality = 0;
+	pDesc.BufferCount = BACK_BUFFER_COUNT;
+	pDesc.OutputWindow = m_renderWindow->GetHandle();
+	pDesc.Windowed = true;
+	pDesc.SwapEffect = DXGI_SWAP_EFFECT_FLIP_SEQUENTIAL;
+	pDesc.Flags = DXGI_SWAP_CHAIN_FLAG_ALLOW_MODE_SWITCH;
+	DXCall(Error = m_factory->CreateSwapChain(m_commandQueue.Get(), &pDesc, &m_swapchainT));
+	m_swapchainT.As(&m_swapchain);
 
 
 	RTDescriptorHeap = std::make_unique<DescriptorHeap>(m_device.Get(),
 		D3D12_DESCRIPTOR_HEAP_TYPE_RTV,
 		D3D12_DESCRIPTOR_HEAP_FLAG_NONE,
 		BACK_BUFFER_COUNT);
-
 	DSDescriptorHeap = make_unique<DescriptorHeap>(m_device.Get(),
 		D3D12_DESCRIPTOR_HEAP_TYPE_DSV,
 		D3D12_DESCRIPTOR_HEAP_FLAG_NONE,
 		1);
-
 	SRDescriptorHeap = make_unique<DescriptorHeap>(m_device.Get(),
 		D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV,
 		D3D12_DESCRIPTOR_HEAP_FLAG_SHADER_VISIBLE,
 		D3D12_MAX_SHADER_VISIBLE_DESCRIPTOR_HEAP_SIZE_TIER_1);
 	
 	RTHandleSize = m_device->GetDescriptorHandleIncrementSize(D3D12_DESCRIPTOR_HEAP_TYPE_RTV);
+	DSHandleSize = m_device->GetDescriptorHandleIncrementSize(D3D12_DESCRIPTOR_HEAP_TYPE_DSV);
+	CBSRUAHandleSize = m_device->GetDescriptorHandleIncrementSize(D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV);
 
 	for (size_t i = 0; i < BACK_BUFFER_COUNT; i++)
 	{
 		D3D12_CPU_DESCRIPTOR_HANDLE cpuHandle = RTDescriptorHeap->GetCpuHandle(i);
-		m_swapChain->GetBuffer(i, IID_PPV_ARGS(&m_backBuffers[i]));
-
+		DXCall(Error = m_swapchain->GetBuffer(i, IID_PPV_ARGS(&m_backBuffers[i])));
 		m_device->CreateRenderTargetView(m_backBuffers[i].Get(), nullptr, cpuHandle);
 	}
 
+	DXCall(Error = m_device->CreateCommandAllocator(D3D12_COMMAND_LIST_TYPE_DIRECT,
+		IID_PPV_ARGS(&m_commandAllocator)));
+	DXCall(m_commandAllocator->Reset());
 
-
-
-	
-	
-
-	(Error = m_device->CreateCommandAllocator(D3D12_COMMAND_LIST_TYPE_DIRECT, IID_PPV_ARGS(&m_commandAllocator)));
-
-	m_commandAllocator->Reset();
-
-	m_device->CreateCommandList1(0, D3D12_COMMAND_LIST_TYPE_DIRECT, D3D12_COMMAND_LIST_FLAG_NONE,
-		IID_PPV_ARGS(&m_commandList));
+	DXCall(m_device->CreateCommandList1(0, D3D12_COMMAND_LIST_TYPE_DIRECT, D3D12_COMMAND_LIST_FLAG_NONE,
+		IID_PPV_ARGS(&m_commandList)));
 		
-
 	DXCall(m_device->CreateFence(0, D3D12_FENCE_FLAG_NONE, IID_PPV_ARGS(&m_fence)));
-
-
 	m_fenceEvent = CreateEvent(NULL, FALSE, FALSE, NULL);
 
 
@@ -148,10 +125,9 @@ void D3D12Renderer::Init()
 	depthOptimizedClearValue.DepthStencil.Stencil = 0;
 
 	auto Properties = CD3DX12_HEAP_PROPERTIES(D3D12_HEAP_TYPE_DEFAULT);
-	auto TexScreen = CD3DX12_RESOURCE_DESC::Tex2D(DXGI_FORMAT_D32_FLOAT, wnd->GetWitdh(),
-		wnd->GetHeight(),
+	auto TexScreen = CD3DX12_RESOURCE_DESC::Tex2D(DXGI_FORMAT_D32_FLOAT, m_renderWindow->GetWitdh(),
+		m_renderWindow->GetHeight(),
 		1, 0, 1, 0, D3D12_RESOURCE_FLAG_ALLOW_DEPTH_STENCIL);
-
 
 	m_device->CreateCommittedResource(&Properties,
 		D3D12_HEAP_FLAG_NONE,
@@ -160,24 +136,21 @@ void D3D12Renderer::Init()
 		&depthOptimizedClearValue,
 		IID_PPV_ARGS(&m_depthBuffer)
 	);
-
 	m_device->CreateDepthStencilView(m_depthBuffer.Get(), &depthStencilDesc,
 		DSDescriptorHeap->GetFirstCpuHandle());
 
-	ScissorRect = { 0, 0, (long)window->GetWitdh(), (long)window->GetHeight() };
-
-	Viewport = { 0.f, 0.f,  (float)window->GetWitdh(),  (float)window->GetHeight(), 0.f, 1.f };
+	ScissorRect = { 0, 0, static_cast<long>(m_renderWindow->GetWitdh()), 
+		static_cast<long>(m_renderWindow->GetHeight()) };
+	Viewport = { 0.f, 0.f,  static_cast<float>(m_renderWindow->GetWitdh()),
+		static_cast<float>(m_renderWindow->GetHeight()), 0.f, 1.f };
 
 
 	m_passBuffer = std::make_unique<D3D12UploadBufferResource<D3D12PassConstants>>(1, true);
-
-
 	D3DUtil::InitStaticSamples();
 	D3DUtil::InitPipelines();
+		
 
-	window->onResizeWindow.Bind(this, &D3D12Renderer::OnResize);
-	
-	
+	return Error;
 
 }
 
@@ -344,10 +317,10 @@ void D3D12Renderer::Render(D3D12Scene* scene)
 	m_commandQueue->ExecuteCommandLists(1, lists);
 	WaitFrame();
 
-	m_swapChain->Present(bVsync, 0);
+	m_swapchain->Present(bVsync, 0);
 
 
-	CurrentBackBufferIndex = m_swapChain->GetCurrentBackBufferIndex();
+	CurrentBackBufferIndex = m_swapchain->GetCurrentBackBufferIndex();
 
 	m_freeSRVDescriptor = 0;
 	return;

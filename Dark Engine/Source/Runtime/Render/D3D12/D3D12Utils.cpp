@@ -14,7 +14,7 @@
 std::unordered_map<UINT, TUniquePtr<D3D12PipelineShaderRootSignature>> D3DUtil::Pipelines;
 std::unordered_map<FString, TUniquePtr<D3D12Mesh>> D3DUtil::m_meshes;
 std::unordered_map<FString, TUniquePtr<D3D12Texture>> D3DUtil::m_textures;
-std::vector<CD3DX12_STATIC_SAMPLER_DESC> D3DUtil::m_samplers(6);
+TArray<CD3DX12_STATIC_SAMPLER_DESC> D3DUtil::m_samplers(6);
 
 void D3DUtil::Init()
 {
@@ -36,8 +36,8 @@ UINT D3DUtil::CreatePipeline(eShaderType type)
 	{
 	case Default:
 	{
-		std::vector<CD3DX12_ROOT_PARAMETER1> parametrs(4);
-		std::vector<D3D12_ROOT_PARAMETER1> pParametrs(parametrs.size());
+		TArray<CD3DX12_ROOT_PARAMETER1> parametrs(4);
+		TArray<D3D12_ROOT_PARAMETER1> pParametrs(parametrs.size());
 		CD3DX12_DESCRIPTOR_RANGE1 srvRange;
 		srvRange.Init(D3D12_DESCRIPTOR_RANGE_TYPE_SRV, 2, 0);
 
@@ -117,9 +117,9 @@ ID3D12CommandQueue* D3DUtil::GetCommandQueue()
 	return static_cast<D3D12Renderer*>(DEngine::GetEngine()->GetRenderer())->m_commandQueue.Get();
 }
 
-//std::vector<D3D12Mesh*> D3DUtil::LoadMeshes(FString path, bool bCombineMeshes)
+//TArray<D3D12Mesh*> D3DUtil::LoadMeshes(FString path, bool bCombineMeshes)
 //{
-//	return std::vector<D3D12Mesh*>();
+//	return TArray<D3D12Mesh*>();
 //}
 
 
@@ -198,8 +198,8 @@ D3D12Mesh* D3DUtil::LoadMesh(FString path)
 	}
 
 
-	std::vector<Vertex> vertices(CountVertices);
-	std::vector<WORD> indices;
+	TArray<Vertex> vertices(CountVertices);
+	TArray<WORD> indices;
 
 	int64_t Counter = 0;
 	int64_t LastCountVertices = 0;

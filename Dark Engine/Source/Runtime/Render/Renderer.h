@@ -1,4 +1,6 @@
 #pragma once
+#include <stdint.h>
+#include <Core.h>
 
 #define D3D12
 #define RENDER_API 
@@ -7,10 +9,10 @@
 class D3D12Scene;
 
 
-class Renderer
+class DENGINE_API Renderer
 {
 public:
-	virtual void Init() = 0;
+	virtual int32_t Init() = 0;
 	virtual void Shutdown() = 0;
 
 	virtual void Render(D3D12Scene*) = 0;

@@ -10,14 +10,14 @@ D3D12Mesh::D3D12Mesh()
 	m_device = D3DUtil::GetDevice();
 }
 
-D3D12Mesh::D3D12Mesh(std::vector<Vertex> vertices, std::vector<WORD> indices)
+D3D12Mesh::D3D12Mesh(TArray<Vertex> vertices, TArray<WORD> indices)
 {
 	m_device = D3DUtil::GetDevice();
 	Init(vertices, indices);
 }
 
 
-void D3D12Mesh::Init(std::vector<Vertex> vertices, std::vector<WORD> indices)
+void D3D12Mesh::Init(TArray<Vertex> vertices, TArray<WORD> indices)
 {
 	ResourceUploadBatch upload(m_device);
 

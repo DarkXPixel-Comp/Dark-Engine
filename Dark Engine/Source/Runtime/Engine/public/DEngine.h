@@ -8,6 +8,7 @@
 #include <Input/InputCore.h>
 #include <Core/Memory/TMemory.h>
 #include <Audio/Audio.h>
+#include <DEditor.h>
 #include <chrono>
 #include <Windows.h>
 #include <memory>
@@ -50,18 +51,22 @@ public:
 	bool isAppWork();
 	void Quit();
 	static DEngine* GetEngine();
+	static void SetEditor(DEditor* edt);
 
 	FOnTick onTick;
 
-	
+
 
 
 public:
 	FWindowsWindowManager* GetWindowManager() { return &m_windowManager; }
 	Renderer* GetRenderer() { return m_renderer.get(); }
 	TMemory* GetMemory() { return m_memory.get(); }
+	AWorld* GetWorld() { return m_world.get(); }
 
 private:
+	DEditor* m_editor;
+	DEditor m_defaultEditor;
 	FWindowsWindowManager m_windowManager;
 	bool m_Quit = false;
 

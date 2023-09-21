@@ -12,8 +12,6 @@ CommandConsole console;
 
 CommandConsole::CommandConsole()
 {
-
-
 	if (_inst)
 		return;
 
@@ -177,7 +175,7 @@ void CommandConsole::Print(const char* text)
 #endif // _WIN64
 }
 
-void CommandConsole::PrintF(const char* arg, ...)
+void CommandConsole::Prints(const char* arg, ...)
 {
     va_list arguments;
 

@@ -1,7 +1,7 @@
 #pragma once
 
 //#include <assert.h>
-#include <vector> 
+#include <Core/Containers/Array/Array.h> 
 #include <Core/Core.h>
 
 
@@ -45,13 +45,13 @@
 
 
 
-class DENGINE_API IContainer {
+class IContainer {
 public: virtual void Call() = 0;
 };
 
 
 template<typename InRetValType, typename ...ParamTypes>
-class DENGINE_API IIContainer
+class IIContainer
 {
 public:
 	virtual InRetValType Call(ParamTypes...) = 0;
@@ -62,7 +62,7 @@ public:
 
 
 template <typename UserClass, typename InRetValType, typename... ParamTypes>
-class DENGINE_API TMethodContainter : public IIContainer<InRetValType, ParamTypes...>
+class TMethodContainter : public IIContainer<InRetValType, ParamTypes...>
 {
 	using FFuncPtr = InRetValType(UserClass::*)(ParamTypes...);
 public:
@@ -85,7 +85,7 @@ private:
 };
 
 template<typename InRetValType, typename... ParamTypes>
-class DENGINE_API TFuncContainer : public IIContainer<InRetValType, ParamTypes...>
+class TFuncContainer : public IIContainer<InRetValType, ParamTypes...>
 {
 	using FFuncPtr = InRetValType(*)(ParamTypes...);
 
@@ -103,7 +103,7 @@ private:
 };
 
 template <typename InRetValType, typename... ParamTypes>
-class DENGINE_API TDelegate
+class TDelegate
 {
 public:
 	const void Bind(InRetValType(*func)(ParamTypes...))
@@ -135,29 +135,27 @@ public:
 };
 
 template <typename InRetValType, typename... ParamTypes>
-class DENGINE_API TMultiCastDelegate
+class TMultiCastDelegate
 {
 	using FFuncPtr = InRetValType(*)(ParamTypes...);
 
 public:
+	TMultiCastDelegate() { containers = new TArray<IIContainer<InRetValType, ParamTypes...>*>(); }
+	~TMultiCastDelegate() { delete containers; }
 	const void Bind(InRetValType(*func)(ParamTypes...))
 	{
 		IIContainer<InRetValType, ParamTypes...>* temp = new TFuncContainer<InRetValType, ParamTypes...>(func);
 
-		containers.push_back(temp);
+		containers->push_back(temp);
 
 		pFunc = func;
 	}
 	template<typename UserClass>
 	const void Bind(UserClass* inUserObject, InRetValType(UserClass::* func)(ParamTypes...))
 	{
-		//container = new TMethodContainter<UserClass, InRetValType, ParamTypes...>(inUserObject, func);
-
-		//containers.push_back(new TMethodContainter < UserClass, InRetValType, ParamTypes...)(inUserObject, func);
-
 		IIContainer<InRetValType, ParamTypes...>* temp = new TMethodContainter<UserClass, InRetValType, ParamTypes...>(inUserObject, func);
 
-		containers.push_back(temp);
+		containers->push_back(temp);
 	}
 
 
@@ -165,24 +163,16 @@ public:
 
 	void BroadCast(ParamTypes... params)
 	{
-		for (auto& i : containers)
+		for (auto& i : *containers)
 		{
 			i->Call(params...);
 		}
 
 	}
 
+	TArray<IIContainer<InRetValType, ParamTypes...>*>* containers;
 
-
-
-	
-
-
-
-
-	std::vector<IIContainer<InRetValType, ParamTypes...>*> containers;
-
-	IIContainer<InRetValType, ParamTypes...>* container;
+	//IIContainer<InRetValType, ParamTypes...>* container;
 	FFuncPtr pFunc;
 };
 

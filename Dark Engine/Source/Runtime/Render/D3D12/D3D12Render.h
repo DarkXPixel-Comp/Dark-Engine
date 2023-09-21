@@ -2,11 +2,12 @@
 #include "D3D12.h"
 #include "../Renderer.h"
 #include <VertexTypes.h>
-#include <Core/CommandLine/CommandLine.h>
-#include <vector>
-#include <Containers/String/DarkString.h>
+#include <Core/Containers/Array/Array.h>
 #include <DescriptorHeap.h>
 #include <memory>
+#include <Containers/String/DarkString.h>
+#include <Core/CommandLine/CommandLine.h>
+#include <ApplicationCore/public/Windows/WindowsWindow.h>
 #include "D3D12Types.h"
 #include "D3D12Resource.h"
 
@@ -53,7 +54,7 @@ public:
 	D3D12Renderer();
 
 public:
-	void Init() override;
+	int32_t Init() override;
 	void Shutdown() override;
 
 	void BeginFrame(D3D12Scene* scene);
@@ -62,7 +63,7 @@ public:
 	void RenderScene();
 	void EndFrame() override;
 	void OnResize(long x, long y);
-	std::vector<D3D12Mesh1*> LoadMesh(FString path = "");
+	TArray<D3D12Mesh1*> LoadMesh(FString path = "");
 
 	void Update();
 
@@ -90,9 +91,12 @@ public:
 
 	TUniquePtr <DescriptorHeap> RTDescriptorHeap;
 	TUniquePtr <DescriptorHeap> DSDescriptorHeap;
-	TUniquePtr<DescriptorHeap> SRDescriptorHeap;
+	TUniquePtr <DescriptorHeap> SRDescriptorHeap;
 
-	ComPtr<IDXGISwapChain4> m_swapChain;
+	ComPtr<IDXGISwapChain4> m_swapchain;
+	ComPtr<IDXGISwapChain> m_swapchainT;
+
+	FWindowsWindow* m_renderWindow;
 
 	Resource m_backBuffers[BACK_BUFFER_COUNT];
 	Resource m_depthBuffer;
@@ -106,7 +110,9 @@ public:
 	uint64_t m_fenceValue;
 
 	uint64_t CurrentBackBufferIndex = 0;
-	SIZE_T RTHandleSize = 0;
+	SIZE_T RTHandleSize =		0;
+	SIZE_T DSHandleSize =		0;
+	SIZE_T CBSRUAHandleSize =	0;
 
 	D3D12_VIEWPORT Viewport;
 	D3D12_RECT ScissorRect;

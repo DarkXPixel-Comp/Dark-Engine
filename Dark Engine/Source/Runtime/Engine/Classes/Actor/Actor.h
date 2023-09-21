@@ -1,5 +1,6 @@
 #pragma once
 #include "../UObject/UObject.h"
+#include <Core.h>
 #include <Engine/Classes/Components/ActorComponent/ActorComponent.h>
 #include <DirectXMath.h>
 #include <Render/D3D12/D3D12Model.h>
@@ -8,14 +9,16 @@
 using namespace DirectX;
 
 
-class AActor : public UObject
+class DENGINE_API AActor : public UObject
 {
 	typedef UObject Super;
 public:
 	AActor() :	m_position(0, 0, 0),
 				m_rotation(0, 0, 0),
 				m_scale(1, 1, 1)
-	{}
+	{
+		m_model = std::make_unique<D3D12Model>();
+	}
 
 	void BeginPlay() override;
 	void Update(float DeltaTime) override;
@@ -52,7 +55,7 @@ protected:
 	XMFLOAT3 m_scale;
 	TUniquePtr<D3D12Model> m_model;
 
-	std::vector<UActorComponent*> m_ActorComponents;
+	TArray<UActorComponent*> m_ActorComponents;
 
 
 	

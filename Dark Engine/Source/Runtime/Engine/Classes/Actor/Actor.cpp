@@ -4,9 +4,6 @@
 void AActor::BeginPlay()
 {
 	Super::BeginPlay();
-	m_model = std::make_unique<D3D12Model>();
-
-
 }
 
 void AActor::Update(float DeltaTime)

@@ -36,8 +36,8 @@ int32_t WINAPI WinMain(
 	Application::Instance()->Initialize(hInstance, prevInstance, lpCmdLine, nCmdShow);
 	WindowsEnviromentSetup();
 
-	GEngine.Initialize();
-	GEngine.PostInit();
+	ErrorCode = GEngine.Initialize();
+	ErrorCode = GEngine.PostInit();
 
 
 	while (GEngine.isAppWork())
@@ -50,9 +50,8 @@ int32_t WINAPI WinMain(
 	GEngine.Shutdown();
 
 
-
-
 	Logger::wait();
+	Logger::Exit();
 
 
 	return ErrorCode;

@@ -1,4 +1,5 @@
 #pragma once
+#include <Core.h>
 
 
 
@@ -8,7 +9,7 @@ struct FObjectConstructor
 };
 
 
-class UObject
+class DENGINE_API UObject
 {
 private:
 

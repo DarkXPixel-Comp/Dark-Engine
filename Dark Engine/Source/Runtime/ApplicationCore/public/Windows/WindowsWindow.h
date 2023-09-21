@@ -1,4 +1,5 @@
 #pragma once
+#include <Core.h>
 #include <Core/Delegate/Delegate.h>
 #include <Windows.h>
 #include <Containers/String/DarkString.h>
@@ -19,7 +20,7 @@ using namespace std;
 
 
 
-class FWindowsWindow
+class DENGINE_API FWindowsWindow
 {
 	friend FWindowsWindowManager;
 public:
@@ -99,7 +100,7 @@ private:
 
 
 
-class FWindowsWindowManager
+class DENGINE_API FWindowsWindowManager
 {
 	HANDLE hTimer;
 	bool timerIsStarted = false;
@@ -132,7 +133,7 @@ public:
 
 
 private:
-	std::vector<FWindowsWindow*> windows;
+	TArray<FWindowsWindow*> windows;
 
 	MSG msg;
 

@@ -11,13 +11,13 @@ void D3D12Scene::AddModel(D3D12Model* model)
 		m_models.push_back(model);
 }
 
-void D3D12Scene::AddModels(std::vector<D3D12Model*> models)
+void D3D12Scene::AddModels(TArray<D3D12Model*> models)
 {
 	models.insert(m_models.end(), models.begin(), models.end());
 
 }
 
-void D3D12Scene::SetModels(std::vector<D3D12Model*> models)
+void D3D12Scene::SetModels(TArray<D3D12Model*> models)
 {
 	m_models = models;
 }

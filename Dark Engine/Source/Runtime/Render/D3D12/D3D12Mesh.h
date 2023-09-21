@@ -1,5 +1,5 @@
 #pragma once
-#include <vector>
+#include <Core/Containers/Array/Array.h>
 #include <Containers/String/DarkString.h>
 #include <VertexTypes.h>
 #include <wtypes.h>
@@ -26,13 +26,13 @@ class D3D12Mesh
 
 public:
 	D3D12Mesh();
-	D3D12Mesh(std::vector<Vertex> vertices, std::vector<WORD> indices);
+	D3D12Mesh(TArray<Vertex> vertices, TArray<WORD> indices);
 
 	D3D12Mesh(const D3D12Mesh& m) = delete;
 	D3D12Mesh(D3D12Mesh&&) = delete;
 
 
-	void Init(std::vector<Vertex> vertices, std::vector<WORD> indices);
+	void Init(TArray<Vertex> vertices, TArray<WORD> indices);
 
 public:
 	FString PathToMesh;

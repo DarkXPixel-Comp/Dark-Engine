@@ -4,6 +4,7 @@
 #include <Core/Timer/GameTimer.h>
 #include <Core/CoreDefines.h>
 #include <Engine/Classes/TestActor/TestActor.h>
+#include <Application/Application.h>
 
 #include <Core/Transform/FVector.h>
 
@@ -24,11 +25,8 @@ int32_t DEngine::Initialize()
 {
 	Logger::Initialize(LOGGER_INFO | LOGGER_ERROR | LOGGER_WARNING | LOGGER_CONSOLE);
 	Log("DEngine Started Initialize");
-
 	CommandConsole::Initialize("CommandConsole");
-
-
-	m_memory = std::make_unique<TMemory>();
+  	m_memory = std::make_unique<TMemory>();
 	m_input = std::make_unique<FInputCore>();
 	m_windowManager.CreateWindow(1920, 1080, "DEngine");
 	m_input->SetWindow(m_windowManager.GetWindow(0)->GetHandle());
@@ -39,6 +37,9 @@ int32_t DEngine::Initialize()
 	m_scene = std::make_unique<D3D12Scene>();
 	m_world = std::make_unique<AWorld>();
 	m_world->Init();
+
+	if (!m_editor)
+		m_editor = &m_defaultEditor;
 
 	FGameTimer::Reset();
 	FGameTimer::Tick();
@@ -73,6 +74,7 @@ int32_t DEngine::PostInit()
 	
 
 
+
 	{
 		auto FloorActor = m_world->CreateActor();
 		FloorActor->SetPosition({ 0, 0, 0 });
@@ -101,7 +103,7 @@ int32_t DEngine::PostInit()
 
 		auto Test = Cast<ATestActor>(CubeActor);
 
-		Test->rotateComponent->SetRotateOnTick({ 0, 0, 0 });
+		Test->rotateComponent->SetRotateOnTick({ 10, 0, 0 });
 
 
 		auto material = new D3D12Material();
@@ -148,11 +150,12 @@ int32_t DEngine::PostInit()
 
 	m_world->GetCamera()->SetRotation({0, 0, 90.f});
 	m_world->GetCamera()->SetupPlayerController(m_input.get());
+	//m_world->GetCamera()->GetCamera().m_fov = 80;
 	m_input->EscDelegate.Bind(this, &DEngine::Quit);
 
 	m_renderer->SetVsync(0);
 
-
+	m_editor->Init();
 
 	return 0;
 }
@@ -196,12 +199,22 @@ void DEngine::UpdateLoop()
 
 	m_renderer->Render(m_scene.get());
 
+
+	m_editor->Update(deltaTime);
 	Tick(deltaTime);
 
 	FGameTimer::Tick();
 	 
 }
 
+
+void DEngine::SetEditor(DEditor* edt)
+{
+	if (edt != nullptr && GEngine.m_editor == nullptr) 
+	{
+		GEngine.m_editor = edt;
+	}
+}
 
 DEngine* DEngine::GetEngine()
 {

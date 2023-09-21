@@ -1,13 +1,14 @@
 #pragma once
 
+#include <Core.h>
 #include <Windows.h>
 #include <Containers/String/DarkString.h>
 
-#define PrintLine(...) CommandConsole::PrintF(__VA_ARGS__, nullptr)
+#define PrintLine(...) CommandConsole::Prints(__VA_ARGS__, nullptr)
 
 using namespace std;
 
-class CommandConsole
+class DENGINE_API CommandConsole
 {
 	static CommandConsole* _inst;
 
@@ -22,9 +23,9 @@ public:
 
 	static void Print(const char* text);
 
-	static void PrintF(const char* arg, ...);
+	static void Prints(const char* arg, ...);
 
-	static void PrintF(string arg, ...);
+	static void Prints(string arg, ...);
 
 	static bool isWork();
 
