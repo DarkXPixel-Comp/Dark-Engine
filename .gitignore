@@ -9,6 +9,7 @@
 *.pdb
 
 
+
 # Precompiled Headers
 *.gch
 *.pch
@@ -17,6 +18,7 @@
 *.so
 *.dylib
 *.dll
+.exp
 
 # Fortran module files
 *.mod

@@ -6,11 +6,6 @@
 
 UCameraActor::UCameraActor()
 {
-	m_rotateComponent = (CreateDefaultSubObject<URotateComponent>("name"));
-	m_ActorComponents.push_back(m_rotateComponent);
-
-
-
 	auto window = GEngine.GetWindowManager()->GetWindow(0);
 	window->onResizeWindow.Bind(this, &UCameraActor::OnResize);
 
@@ -19,10 +14,6 @@ UCameraActor::UCameraActor()
 void UCameraActor::BeginPlay()
 {
 	Super::BeginPlay();
-
-
-	
-
 }
 
 

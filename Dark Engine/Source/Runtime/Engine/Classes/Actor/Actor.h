@@ -2,6 +2,7 @@
 #include "../UObject/UObject.h"
 #include <Core.h>
 #include <Engine/Classes/Components/ActorComponent/ActorComponent.h>
+#include <Components/SceneComponent/USceneComponent.h>
 #include <DirectXMath.h>
 #include <Render/D3D12/D3D12Model.h>
 #include <Input/InputCore.h>
@@ -46,8 +47,8 @@ public:
 
 
 protected:
-	template <typename T>
-	T* CreateDefaultSubObject(FString name);
+	//template <typename T>
+	//T* CreateDefaultSubObject(FString name);
 
 protected:
 	XMFLOAT3 m_position;
@@ -55,7 +56,7 @@ protected:
 	XMFLOAT3 m_scale;
 	TUniquePtr<D3D12Model> m_model;
 
-	TArray<UActorComponent*> m_ActorComponents;
+	TUniquePtr<USceneComponent> m_rootComponent;
 
 
 	
@@ -64,9 +65,10 @@ protected:
 
 
 
-template<typename T>
-inline T* AActor::CreateDefaultSubObject(FString name)
-{
-	UActorComponent* component = new T(this);
-	return reinterpret_cast<T*>(component);
-}
+//template<typename T>
+//inline T* AActor::CreateDefaultSubObject(FString name)
+//{
+//	UActorComponent* component = new T(this);
+//	m_ActorComponents.push_back(component);
+//	return reinterpret_cast<T*>(component);
+//}

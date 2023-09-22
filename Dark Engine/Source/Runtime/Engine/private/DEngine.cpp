@@ -5,8 +5,8 @@
 #include <Core/CoreDefines.h>
 #include <Engine/Classes/TestActor/TestActor.h>
 #include <Application/Application.h>
+#include <Components/SceneComponent/USceneComponent.h>
 
-#include <Core/Transform/FVector.h>
 
 DEngine GEngine;
 
@@ -43,11 +43,6 @@ int32_t DEngine::Initialize()
 
 	FGameTimer::Reset();
 	FGameTimer::Tick();
-
-
-
-	
-
 
 	return 0;
 
@@ -237,10 +232,6 @@ void DEngine::Quit()
 		m_renderer->Shutdown();
 	m_windowManager.Quit();
 	m_Quit = true;
-
-
-
-
 }
 
 
@@ -250,7 +241,6 @@ void DEngine::Shutdown()
 	{
 		Quit();
 	}
-
 }
 
 

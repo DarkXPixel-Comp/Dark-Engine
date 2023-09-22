@@ -145,15 +145,15 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Development|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\Runtime\World;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\Runtime\Engine\public;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\Runtime\Editor\public;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\Runtime\Render\;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\Runtime\Core;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\ThirdParty\DTK12;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\ThirdParty;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\ThirdParty\Assimp\include;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\Runtime;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\lib\include;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\DTK12;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\Runtime\graphics\D3D12\extras;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine;$(IncludePath)</IncludePath>
+    <IncludePath>C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\Runtime\Engine\Classes;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\Runtime\World;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\Runtime\Engine\public;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\Runtime\Editor\public;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\Runtime\Render\;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\Runtime\Core;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\ThirdParty\DTK12;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\ThirdParty;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\ThirdParty\Assimp\include;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\Runtime;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\lib\include;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\DTK12;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\Runtime\graphics\D3D12\extras;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine;$(IncludePath)</IncludePath>
     <LibraryPath>C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\ThirdParty\Assimp\lib\Debug;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\lib\src;C:\Users\nahmu\source\repos\Dark Engine;$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)Dark Engine\bin</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DLL|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\Runtime\World;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\Runtime\Engine\public;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\Runtime\Editor\public;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\Runtime\Render;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\Runtime\Core;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\ThirdParty\DTK12;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\ThirdParty;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\ThirdParty\Assimp\include;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\Runtime;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\lib\include;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\DTK12;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\Runtime\graphics\D3D12\extras;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine;$(IncludePath)</IncludePath>
+    <IncludePath>C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\Runtime\Engine\Classes;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\Runtime\World;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\Runtime\Engine\public;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\Runtime\Editor\public;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\Runtime\Render\;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\Runtime\Core;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\ThirdParty\DTK12;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\ThirdParty;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\ThirdParty\Assimp\include;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\Runtime;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\lib\include;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\DTK12;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\Runtime\graphics\D3D12\extras;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine;$(IncludePath)</IncludePath>
     <LibraryPath>C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\ThirdParty\Assimp\lib\Debug;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\lib\src;C:\Users\nahmu\source\repos\Dark Engine;$(LibraryPath)</LibraryPath>
-    <OutDir>$(SolutionDir)Dark Engine\bin</OutDir>
+  <OutDir>$(SolutionDir)Dark Engine\bin</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -311,19 +311,21 @@
     <ClInclude Include="Source\Runtime\Core\Application\Application.h" />
     <ClInclude Include="Source\Runtime\Core\CommandLine\CommandLine.h" />
     <ClInclude Include="Source\Runtime\Core\Containers\Array\Array.h" />
+    <ClInclude Include="Source\Runtime\Core\Containers\List\TList.h" />
     <ClInclude Include="Source\Runtime\Core\CoreDefines.h" />
     <ClInclude Include="Source\Runtime\Core\Delegate\Delegate.h" />
+    <ClInclude Include="Source\Runtime\Core\Math\DarkMathUtility.h" />
     <ClInclude Include="Source\Runtime\Core\Memory\TGlobalPtr.h" />
     <ClInclude Include="Source\Runtime\Core\Memory\TMemory.h" />
     <ClInclude Include="Source\Runtime\Core\Memory\TUniquePtr.h" />
     <ClInclude Include="Source\Runtime\Core\Containers\String\DarkString.h" />
     <ClInclude Include="Source\Runtime\Core\Timer\GameTimer.h" />
-    <ClInclude Include="Source\Runtime\Core\Transform\FVector.h" />
     <ClInclude Include="Source\Runtime\Editor\public\DEditor.h" />
     <ClInclude Include="Source\Runtime\Engine\Classes\Actor\Actor.h" />
     <ClInclude Include="Source\Runtime\Engine\Classes\Camera\CameraActor.h" />
     <ClInclude Include="Source\Runtime\Engine\Classes\Components\ActorComponent\ActorComponent.h" />
     <ClInclude Include="Source\Runtime\Engine\Classes\Components\RotateComponent\RotateComponent.h" />
+    <ClInclude Include="Source\Runtime\Engine\Classes\Components\SceneComponent\USceneComponent.h" />
     <ClInclude Include="Source\Runtime\Engine\Classes\TestActor\TestActor.h" />
     <ClInclude Include="Source\Runtime\Engine\Classes\UObject\UObject.h" />
     <ClInclude Include="Source\Runtime\Input\InputCore.h" />
@@ -375,15 +377,17 @@
     <ClCompile Include="Source\Runtime\Core\Application\Application.cpp" />
     <ClCompile Include="Source\Runtime\Core\CommandLine\CommandLine.cpp" />
     <ClCompile Include="Source\Runtime\Core\Logging\Logger.cpp" />
+    <ClCompile Include="Source\Runtime\Core\Math\DarkMathUtility.cpp" />
     <ClCompile Include="Source\Runtime\Core\Memory\TMemory.cpp" />
     <ClCompile Include="Source\Runtime\Core\Settings\PerEngineSettings.cpp" />
     <ClCompile Include="Source\Runtime\Core\Timer\GameTimer.cpp" />
-    <ClCompile Include="Source\Runtime\Core\Transform\FVector.cpp" />
     <ClCompile Include="Source\Runtime\Engine\Classes\Actor\Actor.cpp" />
     <ClCompile Include="Source\Runtime\Engine\Classes\Camera\CameraActor.cpp" />
     <ClCompile Include="Source\Runtime\Engine\Classes\Components\ActorComponent\ActorComponent.cpp" />
     <ClCompile Include="Source\Runtime\Engine\Classes\Components\RotateComponent\RotateComponent.cpp" />
+    <ClCompile Include="Source\Runtime\Engine\Classes\Components\SceneComponent\USceneComponent.cpp" />
     <ClCompile Include="Source\Runtime\Engine\Classes\TestActor\TestActor.cpp" />
+    <ClCompile Include="Source\Runtime\Engine\Classes\UObject\UObject.cpp" />
     <ClCompile Include="Source\Runtime\Engine\private\DEngine.cpp" />
     <ClCompile Include="Source\Runtime\Input\InputCore.cpp" />
     <ClCompile Include="Source\Runtime\Launch\Platforms\Windows\LaunchWindows.cpp" />

@@ -1,5 +1,6 @@
 #include "Actor.h"
 #include "../Components/RotateComponent/RotateComponent.h"
+#include <Logging/Logger.hpp>
 
 void AActor::BeginPlay()
 {
@@ -9,11 +10,6 @@ void AActor::BeginPlay()
 void AActor::Update(float DeltaTime)
 {
 	Super::Update(DeltaTime);
-
-	for (auto& i : m_ActorComponents)
-	{
-		i->Update(DeltaTime);
-	}
 
 	if (m_model)
 	{

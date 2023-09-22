@@ -171,9 +171,6 @@
     <ClInclude Include="Source\Runtime\Engine\Classes\TestActor\TestActor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Runtime\Core\Transform\FVector.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Runtime\Render\D3D12\D3D12Texture.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -202,6 +199,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\Runtime\Editor\public\DEditor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Runtime\Engine\Classes\Components\SceneComponent\USceneComponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Runtime\Core\Containers\List\TList.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Runtime\Core\Math\DarkMathUtility.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -281,9 +287,6 @@
     <ClCompile Include="Source\Runtime\Engine\Classes\TestActor\TestActor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Runtime\Core\Transform\FVector.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Runtime\Core\Memory\TMemory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -291,6 +294,15 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source\Runtime\Render\D3D12\D3D12Shader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Runtime\Engine\Classes\Components\SceneComponent\USceneComponent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Runtime\Engine\Classes\UObject\UObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Runtime\Core\Math\DarkMathUtility.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
