@@ -1,0 +1,121 @@
+c:\users\nahmu\source\repos\dark engine\dark engine\shaders\pixelshader.cso
+c:\users\nahmu\source\repos\dark engine\dark engine\shaders\vertexshader.cso
+c:\users\nahmu\source\repos\dark engine\dark engine\bin\dark engine.exe
+c:\users\nahmu\source\repos\dark engine\dark engine\bin\dark engine.pdb
+c:\users\nahmu\source\repos\dark engine\dark engine\bin\dark engine.lib
+c:\users\nahmu\source\repos\dark engine\dark engine\bin\dark engine.exp
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\.d.json
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\d3d12render.obj
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\d3d12render.cod
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\d3d12utils.obj
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\d3d12utils.cod
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\cameraactor.obj
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\cameraactor.cod
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\dengine.obj
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\dengine.cod
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\d3d12resource.obj
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\d3d12resource.cod
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\uscenecomponent.obj
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\uscenecomponent.cod
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\launchwindows.obj
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\launchwindows.cod
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\logger.obj
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\logger.cod
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\application.obj
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\application.cod
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\d3d12model.obj
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\d3d12model.cod
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\d3d12pso.obj
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\d3d12pso.cod
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\testactor.obj
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\testactor.cod
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\d3d12.obj
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\d3d12.cod
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\uobject.obj
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\uobject.cod
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\perenginesettings.obj
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\perenginesettings.cod
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\inputcore.obj
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\inputcore.cod
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\d3d12shader.obj
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\d3d12shader.cod
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\renderer.obj
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\renderer.cod
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\d3d12scene.obj
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\d3d12scene.cod
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\actorcomponent.obj
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\actorcomponent.cod
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\darkmathutility.obj
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\darkmathutility.cod
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\rotatecomponent.obj
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\rotatecomponent.cod
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\windowswindow.obj
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\windowswindow.cod
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\d3d12mesh.obj
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\d3d12mesh.cod
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\tmemory.obj
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\tmemory.cod
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\actor.obj
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\actor.cod
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\d3d12camera.obj
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\d3d12camera.cod
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\gametimer.obj
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\gametimer.cod
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\d3d12types.obj
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\d3d12types.cod
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\world.obj
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\world.cod
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\commandline.obj
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\commandline.cod
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\resource.res
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\gametimer.cpp.module.json
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\actorcomponent.cpp.module.json
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\launchwindows.cpp.module.json
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\d3d12.cpp.module.json
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\d3d12shader.cpp.module.json
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\darkmathutility.cpp.module.json
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\uscenecomponent.cpp.module.json
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\rotatecomponent.cpp.module.json
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\perenginesettings.cpp.module.json
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\application.cpp.module.json
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\commandline.cpp.module.json
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\d3d12camera.cpp.module.json
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\d3d12scene.cpp.module.json
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\uobject.cpp.module.json
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\d3d12resource.cpp.module.json
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\cameraactor.cpp.module.json
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\actor.cpp.module.json
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\d3d12types.cpp.module.json
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\world.cpp.module.json
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\d3d12pso.cpp.module.json
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\d3d12mesh.cpp.module.json
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\dengine.cpp.module.json
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\testactor.cpp.module.json
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\tmemory.cpp.module.json
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\d3d12model.cpp.module.json
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\d3d12render.cpp.module.json
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\windowswindow.cpp.module.json
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\d3d12utils.cpp.module.json
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\inputcore.cpp.module.json
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\logger.cpp.module.json
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\renderer.cpp.module.json
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\vc143.idb
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\vc143.pdb
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\dark engine.tlog\cl.command.1.tlog
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\dark engine.tlog\cl.items.tlog
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\dark engine.tlog\dxc.command.1.tlog
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\dark engine.tlog\dxc.read.1.tlog
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\dark engine.tlog\dxc.write.1.tlog
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\dark engine.tlog\fxc.command.1.tlog
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\dark engine.tlog\link.command.1.tlog
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\dark engine.tlog\link.read.1.tlog
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\dark engine.tlog\link.write.1.tlog
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\dark engine.tlog\link.write.2u.tlog
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\dark engine.tlog\microsoft.build.cpptasks.cl.read.1.tlog
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\dark engine.tlog\microsoft.build.cpptasks.cl.write.1.tlog
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\dark engine.tlog\rc.command.1.tlog
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\dark engine.tlog\rc.read.1.tlog
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\dark engine.tlog\rc.write.1.tlog
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\dark engine_md.tlog\cl.command.1.tlog
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\dark engine_md.tlog\microsoft.build.cpptasks.cl.read.1.tlog
+c:\users\nahmu\source\repos\dark engine\dark engine\intermediate\dark engine_md.tlog\microsoft.build.cpptasks.cl.write.1.tlog

@@ -78,6 +78,7 @@
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
+    <EnableASAN>false</EnableASAN>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DLL|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
@@ -139,25 +140,27 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\Runtime\Engine\public;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\Runtime\World;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\Runtime\Editor\public;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\Runtime\Core;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\ThirdParty\DTK12;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\ThirdParty;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\ThirdParty\Assimp\include;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\Runtime;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\lib\include;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\DTK12;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\Runtime\graphics\D3D12\extras;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\ThirdParty\Assimp\lib\Debug;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\lib\src;C:\Users\nahmu\source\repos\Dark Engine;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(MSBuildProjectDirectory)\Source\Runtime\Engine\Classes;$(MSBuildProjectDirectory)\Source\Runtime\World;$(MSBuildProjectDirectory)\Source\Runtime\Engine\public;$(MSBuildProjectDirectory)\Source\Runtime\Editor\public;$(MSBuildProjectDirectory)\Source\Runtime\Render\;$(MSBuildProjectDirectory)\Source\Runtime\Core;$(MSBuildProjectDirectory)\Source\ThirdParty\DTK12;$(MSBuildProjectDirectory)\Source\ThirdParty;$(MSBuildProjectDirectory)\Source\ThirdParty\Assimp\include;$(MSBuildProjectDirectory)\Source\Runtime;$(MSBuildProjectDirectory)\lib\include;$(MSBuildProjectDirectory)\DTK12;$(MSBuildProjectDirectory)\Source\Runtime\graphics\D3D12\extras;$(MSBuildProjectDirectory)\Source;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine;$(MSBuildProjectDirectory);$(IncludePath)</IncludePath>
+    <LibraryPath>$(MSBuildProjectDirectory)\Source\ThirdParty\Assimp\lib\Debug;$(MSBuildProjectDirectory)\lib\src;C:\Users\nahmu\source\repos\Dark Engine;$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)Dark Engine\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Development|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\Runtime\Engine\Classes;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\Runtime\World;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\Runtime\Engine\public;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\Runtime\Editor\public;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\Runtime\Render\;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\Runtime\Core;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\ThirdParty\DTK12;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\ThirdParty;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\ThirdParty\Assimp\include;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\Runtime;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\lib\include;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\DTK12;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\Runtime\graphics\D3D12\extras;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\ThirdParty\Assimp\lib\Debug;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\lib\src;C:\Users\nahmu\source\repos\Dark Engine;$(LibraryPath)</LibraryPath>
-    <OutDir>$(SolutionDir)Dark Engine\bin</OutDir>
+    <IncludePath>$(MSBuildProjectDirectory)\Source\Runtime\Engine\Classes;$(MSBuildProjectDirectory)\Source\Runtime\World;$(MSBuildProjectDirectory)\Source\Runtime\Engine\public;$(MSBuildProjectDirectory)\Source\Runtime\Editor\public;$(MSBuildProjectDirectory)\Source\Runtime\Render\;$(MSBuildProjectDirectory)\Source\Runtime\Core;$(MSBuildProjectDirectory)\Source\ThirdParty\DTK12;$(MSBuildProjectDirectory)\Source\ThirdParty;$(MSBuildProjectDirectory)\Source\ThirdParty\Assimp\include;$(MSBuildProjectDirectory)\Source\Runtime;$(MSBuildProjectDirectory)\lib\include;$(MSBuildProjectDirectory)\DTK12;$(MSBuildProjectDirectory)\Source\Runtime\graphics\D3D12\extras;$(MSBuildProjectDirectory)\Source;$(MSBuildProjectDirectory);$(IncludePath)</IncludePath>
+    <LibraryPath>$(MSBuildProjectDirectory)\Source\ThirdParty\Assimp\lib\Debug;$(MSBuildProjectDirectory)\lib\src;C:\Users\nahmu\source\repos\Dark Engine;$(LibraryPath)</LibraryPath>
+    <OutDir>$(SolutionDir)Dark Engine\bin\</OutDir>
+    <IntDir>.\Intermediate\</IntDir>
+    <MultiProcFXC>false</MultiProcFXC>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DLL|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\Runtime\Engine\Classes;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\Runtime\World;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\Runtime\Engine\public;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\Runtime\Editor\public;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\Runtime\Render\;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\Runtime\Core;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\ThirdParty\DTK12;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\ThirdParty;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\ThirdParty\Assimp\include;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\Runtime;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\lib\include;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\DTK12;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\Runtime\graphics\D3D12\extras;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\ThirdParty\Assimp\lib\Debug;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\lib\src;C:\Users\nahmu\source\repos\Dark Engine;$(LibraryPath)</LibraryPath>
-  <OutDir>$(SolutionDir)Dark Engine\bin</OutDir>
+    <IncludePath>$(MSBuildProjectDirectory)\Source\Runtime\Engine\Classes;$(MSBuildProjectDirectory)\Source\Runtime\World;$(MSBuildProjectDirectory)\Source\Runtime\Engine\public;$(MSBuildProjectDirectory)\Source\Runtime\Editor\public;$(MSBuildProjectDirectory)\Source\Runtime\Render\;$(MSBuildProjectDirectory)\Source\Runtime\Core;$(MSBuildProjectDirectory)\Source\ThirdParty\DTK12;$(MSBuildProjectDirectory)\Source\ThirdParty;$(MSBuildProjectDirectory)\Source\ThirdParty\Assimp\include;$(MSBuildProjectDirectory)\Source\Runtime;$(MSBuildProjectDirectory)\lib\include;$(MSBuildProjectDirectory)\DTK12;$(MSBuildProjectDirectory)\Source\Runtime\graphics\D3D12\extras;$(MSBuildProjectDirectory)\Source;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine;$(IncludePath)</IncludePath>
+    <LibraryPath>$(MSBuildProjectDirectory)\Source\ThirdParty\Assimp\lib\Debug;$(MSBuildProjectDirectory)\lib\src;C:\Users\nahmu\source\repos\Dark Engine;$(LibraryPath)</LibraryPath>
+    <OutDir>$(SolutionDir)Dark Engine\bin</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine;$(IncludePath)</IncludePath>
+    <IncludePath>$(MSBuildProjectDirectory)\Source;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -248,11 +251,24 @@
       <ScanSourceForModuleDependencies>true</ScanSourceForModuleDependencies>
       <TranslateIncludes>false</TranslateIncludes>
       <EnableModules>true</EnableModules>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>Disabled</Optimization>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <ControlFlowGuard>false</ControlFlowGuard>
+      <EnforceTypeConversionRules>true</EnforceTypeConversionRules>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <AssemblerOutput>All</AssemblerOutput>
+      <ShowIncludes>false</ShowIncludes>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;d3d12.lib;d3dcompiler.lib;dxgi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SuppressStartupBanner>false</SuppressStartupBanner>
+      <TreatLinkerWarningAsErrors>false</TreatLinkerWarningAsErrors>
+      <ForceFileOutput>Enabled</ForceFileOutput>
+      <LargeAddressAware>true</LargeAddressAware>
     </Link>
     <ImageContentTask>
       <ContentOutput>$(ProjectDir)Resources\%(Filename).dds</ContentOutput>
@@ -260,6 +276,17 @@
     <MeshContentTask>
       <ContentOutput>$(ProjectDir)Resources\%(Filename).cmo</ContentOutput>
     </MeshContentTask>
+    <FxCompile />
+    <FxCompile>
+      <AllResourcesBound>
+      </AllResourcesBound>
+      <AssemblerOutput>
+      </AssemblerOutput>
+      <AssemblerOutputFile>
+      </AssemblerOutputFile>
+      <ObjectFileOutput>$(MSBuildProjectDirectory)\shaders\%(Filename).cso</ObjectFileOutput>
+      <ShaderModel>6.5</ShaderModel>
+    </FxCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DLL|x64'">
     <ClCompile>
@@ -324,6 +351,7 @@
     <ClInclude Include="Source\Runtime\Engine\Classes\Actor\Actor.h" />
     <ClInclude Include="Source\Runtime\Engine\Classes\Camera\CameraActor.h" />
     <ClInclude Include="Source\Runtime\Engine\Classes\Components\ActorComponent\ActorComponent.h" />
+    <ClInclude Include="Source\Runtime\Engine\Classes\Components\MeshComponent\MeshComponent.h" />
     <ClInclude Include="Source\Runtime\Engine\Classes\Components\RotateComponent\RotateComponent.h" />
     <ClInclude Include="Source\Runtime\Engine\Classes\Components\SceneComponent\USceneComponent.h" />
     <ClInclude Include="Source\Runtime\Engine\Classes\TestActor\TestActor.h" />
@@ -369,6 +397,7 @@
     <ClInclude Include="Source\Runtime\Core\CorePlatform.h" />
     <ClInclude Include="Source\Runtime\Core\Logging\Logger.hpp" />
     <ClInclude Include="Source\Runtime\Core\Settings\PerEngineSettings.h" />
+    <ClInclude Include="Source\Runtime\Scene\public\Scene.h" />
     <ClInclude Include="Source\Runtime\World\public\World.h" />
     <ClInclude Include="Source\Runtime\World\World.h" />
   </ItemGroup>
@@ -414,26 +443,14 @@
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="shaders\PixelShader.hlsl">
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Development|x64'">Pixel</ShaderType>
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='DLL|x64'">Pixel</ShaderType>
-      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">6.5</ShaderModel>
       <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Development|x64'">6.5</ShaderModel>
-      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='DLL|x64'">6.5</ShaderModel>
-      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ProjectDir)shaders\%(Filename).cso</ObjectFileOutput>
-      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Development|x64'">$(ProjectDir)shaders\%(Filename).cso</ObjectFileOutput>
-      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='DLL|x64'">$(ProjectDir)shaders\%(Filename).cso</ObjectFileOutput>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Development|x64'">false</ExcludedFromBuild>
     </FxCompile>
     <FxCompile Include="shaders\VertexShader.hlsl">
-      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">6.5</ShaderModel>
-      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Development|x64'">6.5</ShaderModel>
-      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='DLL|x64'">6.5</ShaderModel>
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Vertex</ShaderType>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Development|x64'">false</ExcludedFromBuild>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Development|x64'">Vertex</ShaderType>
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='DLL|x64'">Vertex</ShaderType>
-      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ProjectDir)shaders\%(Filename).cso</ObjectFileOutput>
-      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Development|x64'">$(ProjectDir)shaders\%(Filename).cso</ObjectFileOutput>
-      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='DLL|x64'">$(ProjectDir)shaders\%(Filename).cso</ObjectFileOutput>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Development|x64'">6.5</ShaderModel>
     </FxCompile>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

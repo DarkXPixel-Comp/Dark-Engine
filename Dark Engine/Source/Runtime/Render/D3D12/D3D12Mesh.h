@@ -12,7 +12,12 @@
 
 #define Vertex VertexDefault
 
-class D3D12Mesh
+class FRenderMesh
+{
+
+};
+
+class /*F*/D3D12Mesh : public FRenderMesh
 {
 	friend class D3D12Renderer;
 	ID3D12Device8* m_device;

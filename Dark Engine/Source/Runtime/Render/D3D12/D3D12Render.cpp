@@ -48,8 +48,6 @@ int32_t D3D12Renderer::Init()
 	DXCall(Error = D3D12CreateDevice(nullptr, D3D_FEATURE_LEVEL_12_0, IID_PPV_ARGS(&m_device)));
 	DXCall(Error = m_factory->EnumAdapterByLuid(m_device->GetAdapterLuid(), IID_PPV_ARGS(&m_adapter)));
 
-
-
 	D3D12_COMMAND_QUEUE_DESC CommandQueueDesc = {};
 
 	CommandQueueDesc.Priority = D3D12_COMMAND_QUEUE_PRIORITY_HIGH;

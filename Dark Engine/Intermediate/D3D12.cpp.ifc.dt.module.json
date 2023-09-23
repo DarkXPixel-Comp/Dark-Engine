@@ -1,0 +1,9 @@
+{
+    "Version": "1.1",
+    "Data": {
+        "Source": "c:\\users\\nahmu\\source\\repos\\dark engine\\dark engine\\source\\runtime\\render\\d3d12\\d3d12.cpp",
+        "ProvidedModule": "",
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

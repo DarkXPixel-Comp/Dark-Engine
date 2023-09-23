@@ -8,6 +8,10 @@
 
 
 
+// Scene component - содержит указатель на экземпл€р обьекта сцены
+
+
+
 
 class USceneComponent : public UActorComponent
 {
@@ -34,7 +38,7 @@ public:
 
 private:
 	TList<USceneComponent*> m_childComponents;
-	TUniquePtr<D3D12Model> m_model;
+
 
 	FVector m_position{};
 	FVector m_rotation{};
