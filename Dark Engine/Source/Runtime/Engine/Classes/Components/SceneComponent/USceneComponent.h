@@ -4,7 +4,7 @@
 #include <Containers/List/TList.h>
 #include <Memory/TUniquePtr.h>
 #include <Render/D3D12/D3D12Model.h>
-#include <Math/DarkMathUtility.h>
+#include <Math/Vector.h>
 
 
 
@@ -19,9 +19,9 @@ class USceneComponent : public UActorComponent
 
 public:
 	USceneComponent();
-	void BeginPlay() override;
-	void Update(float DeltaTime) override;
-	void Destroy() override;
+	virtual void BeginPlay() override;
+	virtual void Update(float DeltaTime) override;
+	virtual void Destroy() override;
 
 public:
 	void SetPosition(FVector pos);

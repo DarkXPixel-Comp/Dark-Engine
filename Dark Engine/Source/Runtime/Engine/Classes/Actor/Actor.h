@@ -14,18 +14,13 @@ class DENGINE_API AActor : public UObject
 {
 	typedef UObject Super;
 public:
-	AActor() :	m_position(0, 0, 0),
-				m_rotation(0, 0, 0),
-				m_scale(1, 1, 1)
-	{
-		m_model = std::make_unique<D3D12Model>();
-	}
+	AActor();
 
 	void BeginPlay() override;
 	void Update(float DeltaTime) override;
 	void Destroy() override;
 	virtual void SetupPlayerController(FInputCore* controller);
-	void SetMesh(D3D12Mesh* mesh);
+	void SetMesh(FD3D12Mesh* mesh);
 	D3D12Model* GetModel() { return m_model.get(); }
 
 public:
@@ -38,6 +33,8 @@ public:
 	XMFLOAT3 GetFrontVector();
 	XMFLOAT3 GetRightVector();
 	XMFLOAT3 GetUpVector();
+	USceneComponent* GetRootComponent() { return m_rootComponent.get(); }
+
 
 	void OnUpdateRotation(float delta)
 	{
@@ -47,8 +44,6 @@ public:
 
 
 protected:
-	//template <typename T>
-	//T* CreateDefaultSubObject(FString name);
 
 protected:
 	XMFLOAT3 m_position;

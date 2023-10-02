@@ -1,6 +1,8 @@
 #pragma once
 
-#pragma once
+#include <HAL/Platform.h>
+
+
 
 
 typedef unsigned int uint32_t;
@@ -37,13 +39,6 @@ typedef unsigned long long uintmax_t;
 
 
 
-#ifdef BUILD_DLL
-#define GameEngine_API __declspec(dllexport)
-
-#else
-#define GameEngine_API __declspec(dllimport)
-
-#endif
 
 
 

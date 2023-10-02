@@ -317,8 +317,9 @@ void D3D12Renderer::Render(D3D12Scene* scene)
 
 	m_swapchain->Present(bVsync, 0);
 
+	CurrentBackBufferIndex = !CurrentBackBufferIndex;
 
-	CurrentBackBufferIndex = m_swapchain->GetCurrentBackBufferIndex();
+	//CurrentBackBufferIndex = m_swapchain->GetCurrentBackBufferIndex();
 
 	m_freeSRVDescriptor = 0;
 	return;

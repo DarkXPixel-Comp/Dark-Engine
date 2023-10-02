@@ -1,8 +1,23 @@
 #pragma once
 
 #include <string>
-
-#include <Core/Containers/Array/Array.h>
+#include <HAL/Platform.h>
 
 
 using FString = std::string;
+
+
+
+class FStringT
+{
+	
+
+
+
+
+
+
+
+
+
+};

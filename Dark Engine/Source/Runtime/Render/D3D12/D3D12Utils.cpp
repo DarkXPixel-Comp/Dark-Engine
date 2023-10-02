@@ -12,7 +12,7 @@
 
 
 std::unordered_map<UINT, TUniquePtr<D3D12PipelineShaderRootSignature>> D3DUtil::Pipelines;
-std::unordered_map<FString, TUniquePtr<D3D12Mesh>> D3DUtil::m_meshes;
+std::unordered_map<FString, TUniquePtr<FD3D12Mesh>> D3DUtil::m_meshes;
 std::unordered_map<FString, TUniquePtr<D3D12Texture>> D3DUtil::m_textures;
 TArray<CD3DX12_STATIC_SAMPLER_DESC> D3DUtil::m_samplers(6);
 
@@ -117,9 +117,9 @@ ID3D12CommandQueue* D3DUtil::GetCommandQueue()
 	return static_cast<D3D12Renderer*>(DEngine::GetEngine()->GetRenderer())->m_commandQueue.Get();
 }
 
-//TArray<D3D12Mesh*> D3DUtil::LoadMeshes(FString path, bool bCombineMeshes)
+//TArray<FD3D12Mesh*> D3DUtil::LoadMeshes(FString path, bool bCombineMeshes)
 //{
-//	return TArray<D3D12Mesh*>();
+//	return TArray<FD3D12Mesh*>();
 //}
 
 
@@ -176,7 +176,7 @@ D3D12Texture* D3DUtil::LoadTexture(FString path)
 }
 
 
-D3D12Mesh* D3DUtil::LoadMesh(FString path)
+FD3D12Mesh* D3DUtil::LoadMesh(FString path)
 {
 	if (m_meshes.find(path) != m_meshes.end())
 	{
@@ -327,12 +327,12 @@ D3D12Mesh* D3DUtil::LoadMesh(FString path)
 
 
 
-	m_meshes.emplace(path, std::make_unique<D3D12Mesh>(vertices, indices));
+	m_meshes.emplace(path, std::make_unique<FD3D12Mesh>(vertices, indices));
 	return m_meshes.find(path)->second.get();
 
 }
 
-void D3DUtil::DeleteMesh(D3D12Mesh* mesh)
+void D3DUtil::DeleteMesh(FD3D12Mesh* mesh)
 {
 	auto it = m_meshes.find(mesh->PathToMesh);
 

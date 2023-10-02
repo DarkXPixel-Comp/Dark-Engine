@@ -207,13 +207,34 @@
     <ClInclude Include="Source\Runtime\Core\Containers\List\TList.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Runtime\Core\Math\DarkMathUtility.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Runtime\Engine\Classes\Components\MeshComponent\MeshComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\Runtime\Scene\public\Scene.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Runtime\Engine\public\SceneTypes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Runtime\Core\Public\GenericPlatform\GenericPlatform.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Runtime\Core\Public\HAL\Platform.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Runtime\Engine\Classes\Components\PrimitiveComponent\PrimitiveComponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Runtime\Core\Public\Math\MathFwd.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Runtime\Core\Public\Math\Vector.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Runtime\Core\Public\Math\Vector2D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Runtime\Core\Public\Windows\WindowsPlatform.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -308,7 +329,7 @@
     <ClCompile Include="Source\Runtime\Engine\Classes\UObject\UObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Runtime\Core\Math\DarkMathUtility.cpp">
+    <ClCompile Include="Source\Runtime\Engine\Classes\Components\PrimitiveComponent\PrimitiveComponent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

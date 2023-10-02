@@ -2277,7 +2277,7 @@ EXTRN	?Update@FWindowsWindowManager@@QEAAXXZ:PROC	; FWindowsWindowManager::Updat
 EXTRN	?Quit@FWindowsWindowManager@@QEAAXXZ:PROC	; FWindowsWindowManager::Quit
 EXTRN	?SetDelay@FWindowsWindowManager@@QEAAXH@Z:PROC	; FWindowsWindowManager::SetDelay
 EXTRN	??0D3D12Camera@@QEAA@UXMFLOAT3@DirectX@@0@Z:PROC ; D3D12Camera::D3D12Camera
-EXTRN	?LoadMesh@D3DUtil@@SAPEAVD3D12Mesh@@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z:PROC ; D3DUtil::LoadMesh
+EXTRN	?LoadMesh@D3DUtil@@SAPEAVFD3D12Mesh@@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z:PROC ; D3DUtil::LoadMesh
 EXTRN	?LoadTexture@D3DUtil@@SAPEAVD3D12Texture@@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z:PROC ; D3DUtil::LoadTexture
 EXTRN	??0D3D12Renderer@@QEAA@XZ:PROC			; D3D12Renderer::D3D12Renderer
 EXTRN	?BeginPlay@UObject@@UEAAXXZ:PROC		; UObject::BeginPlay
@@ -2288,7 +2288,7 @@ EXTRN	?GetOwner@UObject@@UEAAPEAV1@XZ:PROC		; UObject::GetOwner
 EXTRN	??0FInputCore@@QEAA@XZ:PROC			; FInputCore::FInputCore
 EXTRN	?SetWindow@FInputCore@@QEAAXPEAUHWND__@@@Z:PROC	; FInputCore::SetWindow
 EXTRN	?Update@FInputCore@@QEAAXXZ:PROC		; FInputCore::Update
-EXTRN	?SetMesh@AActor@@QEAAXPEAVD3D12Mesh@@@Z:PROC	; AActor::SetMesh
+EXTRN	?SetMesh@AActor@@QEAAXPEAVFD3D12Mesh@@@Z:PROC	; AActor::SetMesh
 EXTRN	?Init@AWorld@@QEAAXXZ:PROC			; AWorld::Init
 EXTRN	?Update@AWorld@@QEAAXM@Z:PROC			; AWorld::Update
 EXTRN	?FillScene@AWorld@@QEAAXPEAVD3D12Scene@@@Z:PROC	; AWorld::FillScene
@@ -25811,7 +25811,7 @@ $LN20:
 	00 00		 mov	 QWORD PTR tv626[rbp], rax
   0006b	48 8b 8d d0 05
 	00 00		 mov	 rcx, QWORD PTR tv626[rbp]
-  00072	e8 00 00 00 00	 call	 ?LoadMesh@D3DUtil@@SAPEAVD3D12Mesh@@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z ; D3DUtil::LoadMesh
+  00072	e8 00 00 00 00	 call	 ?LoadMesh@D3DUtil@@SAPEAVFD3D12Mesh@@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z ; D3DUtil::LoadMesh
   00077	48 89 45 00	 mov	 QWORD PTR PersonMesh$[rbp], rax
 
 ; 58   : 	auto DiffuseKanistra = D3DUtil::LoadTexture("Resources/kanistra.dds");
@@ -25867,7 +25867,7 @@ $LN20:
 	00 00		 mov	 QWORD PTR tv632[rbp], rax
   00113	48 8b 8d d0 05
 	00 00		 mov	 rcx, QWORD PTR tv632[rbp]
-  0011a	e8 00 00 00 00	 call	 ?LoadMesh@D3DUtil@@SAPEAVD3D12Mesh@@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z ; D3DUtil::LoadMesh
+  0011a	e8 00 00 00 00	 call	 ?LoadMesh@D3DUtil@@SAPEAVFD3D12Mesh@@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z ; D3DUtil::LoadMesh
   0011f	48 89 45 18	 mov	 QWORD PTR CubeMesh$[rbp], rax
 
 ; 63   : 	auto FloorMesh = D3DUtil::LoadMesh("Models/floor.obj");
@@ -25885,7 +25885,7 @@ $LN20:
 	00 00		 mov	 QWORD PTR tv634[rbp], rax
   0014b	48 8b 8d d0 05
 	00 00		 mov	 rcx, QWORD PTR tv634[rbp]
-  00152	e8 00 00 00 00	 call	 ?LoadMesh@D3DUtil@@SAPEAVD3D12Mesh@@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z ; D3DUtil::LoadMesh
+  00152	e8 00 00 00 00	 call	 ?LoadMesh@D3DUtil@@SAPEAVFD3D12Mesh@@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z ; D3DUtil::LoadMesh
   00157	48 89 45 20	 mov	 QWORD PTR FloorMesh$[rbp], rax
 
 ; 64   : 	auto SphereMesh = D3DUtil::LoadMesh("Models/m9.fbx");
@@ -25903,7 +25903,7 @@ $LN20:
 	00 00		 mov	 QWORD PTR tv636[rbp], rax
   00183	48 8b 8d d0 05
 	00 00		 mov	 rcx, QWORD PTR tv636[rbp]
-  0018a	e8 00 00 00 00	 call	 ?LoadMesh@D3DUtil@@SAPEAVD3D12Mesh@@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z ; D3DUtil::LoadMesh
+  0018a	e8 00 00 00 00	 call	 ?LoadMesh@D3DUtil@@SAPEAVFD3D12Mesh@@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z ; D3DUtil::LoadMesh
   0018f	48 89 45 28	 mov	 QWORD PTR SphereMesh$[rbp], rax
 
 ; 65   : 	auto UVTexture = D3DUtil::LoadTexture("Resources/uv.dds");
@@ -26053,7 +26053,7 @@ $LN20:
 
   0033b	48 8b 55 20	 mov	 rdx, QWORD PTR FloorMesh$[rbp]
   0033f	48 8b 4d 48	 mov	 rcx, QWORD PTR FloorActor$1[rbp]
-  00343	e8 00 00 00 00	 call	 ?SetMesh@AActor@@QEAAXPEAVD3D12Mesh@@@Z ; AActor::SetMesh
+  00343	e8 00 00 00 00	 call	 ?SetMesh@AActor@@QEAAXPEAVFD3D12Mesh@@@Z ; AActor::SetMesh
 
 ; 79   : 
 ; 80   : 		auto material = new D3D12Material();
@@ -26228,7 +26228,7 @@ $LN4@PostInit:
 
   0052a	48 8b 55 18	 mov	 rdx, QWORD PTR CubeMesh$[rbp]
   0052e	48 8b 4d 58	 mov	 rcx, QWORD PTR CubeActor$3[rbp]
-  00532	e8 00 00 00 00	 call	 ?SetMesh@AActor@@QEAAXPEAVD3D12Mesh@@@Z ; AActor::SetMesh
+  00532	e8 00 00 00 00	 call	 ?SetMesh@AActor@@QEAAXPEAVFD3D12Mesh@@@Z ; AActor::SetMesh
 
 ; 98   : 
 ; 99   : 		auto Test = Cast<ATestActor>(CubeActor);
@@ -26459,7 +26459,7 @@ $LN6@PostInit:
 
   007da	48 8b 55 00	 mov	 rdx, QWORD PTR PersonMesh$[rbp]
   007de	48 8b 4d 70	 mov	 rcx, QWORD PTR SphereActor$6[rbp]
-  007e2	e8 00 00 00 00	 call	 ?SetMesh@AActor@@QEAAXPEAVD3D12Mesh@@@Z ; AActor::SetMesh
+  007e2	e8 00 00 00 00	 call	 ?SetMesh@AActor@@QEAAXPEAVFD3D12Mesh@@@Z ; AActor::SetMesh
 
 ; 118  : 
 ; 119  : 		auto material = new D3D12Material();
@@ -26611,7 +26611,7 @@ $LN8@PostInit:
   00983	48 8b 55 28	 mov	 rdx, QWORD PTR SphereMesh$[rbp]
   00987	48 8b 8d 80 00
 	00 00		 mov	 rcx, QWORD PTR SphereActor$8[rbp]
-  0098e	e8 00 00 00 00	 call	 ?SetMesh@AActor@@QEAAXPEAVD3D12Mesh@@@Z ; AActor::SetMesh
+  0098e	e8 00 00 00 00	 call	 ?SetMesh@AActor@@QEAAXPEAVFD3D12Mesh@@@Z ; AActor::SetMesh
 
 ; 134  : 		SphereActor->SetScale({ 10, 10, 10 });
 

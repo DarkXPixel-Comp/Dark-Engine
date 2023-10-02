@@ -2,6 +2,14 @@
 #include "../Components/RotateComponent/RotateComponent.h"
 #include <Logging/Logger.hpp>
 
+AActor::AActor() :	m_position(0, 0, 0),
+					m_rotation(0, 0, 0),
+					m_scale(1, 1, 1)
+{
+	m_model = std::make_unique<D3D12Model>();
+	//m_rootComponent = m_rootComponent(Default);
+}
+
 void AActor::BeginPlay()
 {
 	Super::BeginPlay();
@@ -29,7 +37,7 @@ void AActor::SetupPlayerController(FInputCore* controller)
 
 }
 
-void AActor::SetMesh(D3D12Mesh* mesh)
+void AActor::SetMesh(FD3D12Mesh* mesh)
 {
 	if (!mesh) return;
 	if(!m_model)

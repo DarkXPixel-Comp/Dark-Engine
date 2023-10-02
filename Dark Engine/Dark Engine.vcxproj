@@ -140,7 +140,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(MSBuildProjectDirectory)\Source\Runtime\Engine\Classes;$(MSBuildProjectDirectory)\Source\Runtime\World;$(MSBuildProjectDirectory)\Source\Runtime\Engine\public;$(MSBuildProjectDirectory)\Source\Runtime\Editor\public;$(MSBuildProjectDirectory)\Source\Runtime\Render\;$(MSBuildProjectDirectory)\Source\Runtime\Core;$(MSBuildProjectDirectory)\Source\ThirdParty\DTK12;$(MSBuildProjectDirectory)\Source\ThirdParty;$(MSBuildProjectDirectory)\Source\ThirdParty\Assimp\include;$(MSBuildProjectDirectory)\Source\Runtime;$(MSBuildProjectDirectory)\lib\include;$(MSBuildProjectDirectory)\DTK12;$(MSBuildProjectDirectory)\Source\Runtime\graphics\D3D12\extras;$(MSBuildProjectDirectory)\Source;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine;$(MSBuildProjectDirectory);$(IncludePath)</IncludePath>
+    <IncludePath>C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\Runtime\Core\public;$(MSBuildProjectDirectory)\Source\Runtime\Engine\Classes;$(MSBuildProjectDirectory)\Source\Runtime\World;$(MSBuildProjectDirectory)\Source\Runtime\Engine\public;$(MSBuildProjectDirectory)\Source\Runtime\Editor\public;$(MSBuildProjectDirectory)\Source\Runtime\Render\;$(MSBuildProjectDirectory)\Source\Runtime\Core;$(MSBuildProjectDirectory)\Source\ThirdParty\DTK12;$(MSBuildProjectDirectory)\Source\ThirdParty;$(MSBuildProjectDirectory)\Source\ThirdParty\Assimp\include;$(MSBuildProjectDirectory)\Source\Runtime;$(MSBuildProjectDirectory)\lib\include;$(MSBuildProjectDirectory)\DTK12;$(MSBuildProjectDirectory)\Source\Runtime\graphics\D3D12\extras;$(MSBuildProjectDirectory)\Source;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine;$(MSBuildProjectDirectory);$(IncludePath)</IncludePath>
     <LibraryPath>$(MSBuildProjectDirectory)\Source\ThirdParty\Assimp\lib\Debug;$(MSBuildProjectDirectory)\lib\src;C:\Users\nahmu\source\repos\Dark Engine;$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)Dark Engine\</OutDir>
   </PropertyGroup>
@@ -341,21 +341,28 @@
     <ClInclude Include="Source\Runtime\Core\Containers\List\TList.h" />
     <ClInclude Include="Source\Runtime\Core\CoreDefines.h" />
     <ClInclude Include="Source\Runtime\Core\Delegate\Delegate.h" />
-    <ClInclude Include="Source\Runtime\Core\Math\DarkMathUtility.h" />
     <ClInclude Include="Source\Runtime\Core\Memory\TGlobalPtr.h" />
     <ClInclude Include="Source\Runtime\Core\Memory\TMemory.h" />
     <ClInclude Include="Source\Runtime\Core\Memory\TUniquePtr.h" />
     <ClInclude Include="Source\Runtime\Core\Containers\String\DarkString.h" />
+    <ClInclude Include="Source\Runtime\Core\Public\Math\MathFwd.h" />
+    <ClInclude Include="Source\Runtime\Core\Public\Math\Vector.h" />
+    <ClInclude Include="Source\Runtime\Core\Public\Math\Vector2D.h" />
+    <ClInclude Include="Source\Runtime\Core\Public\GenericPlatform\GenericPlatform.h" />
+    <ClInclude Include="Source\Runtime\Core\Public\HAL\Platform.h" />
+    <ClInclude Include="Source\Runtime\Core\Public\Windows\WindowsPlatform.h" />
     <ClInclude Include="Source\Runtime\Core\Timer\GameTimer.h" />
     <ClInclude Include="Source\Runtime\Editor\public\DEditor.h" />
     <ClInclude Include="Source\Runtime\Engine\Classes\Actor\Actor.h" />
     <ClInclude Include="Source\Runtime\Engine\Classes\Camera\CameraActor.h" />
     <ClInclude Include="Source\Runtime\Engine\Classes\Components\ActorComponent\ActorComponent.h" />
     <ClInclude Include="Source\Runtime\Engine\Classes\Components\MeshComponent\MeshComponent.h" />
+    <ClInclude Include="Source\Runtime\Engine\Classes\Components\PrimitiveComponent\PrimitiveComponent.h" />
     <ClInclude Include="Source\Runtime\Engine\Classes\Components\RotateComponent\RotateComponent.h" />
     <ClInclude Include="Source\Runtime\Engine\Classes\Components\SceneComponent\USceneComponent.h" />
     <ClInclude Include="Source\Runtime\Engine\Classes\TestActor\TestActor.h" />
     <ClInclude Include="Source\Runtime\Engine\Classes\UObject\UObject.h" />
+    <ClInclude Include="Source\Runtime\Engine\public\SceneTypes.h" />
     <ClInclude Include="Source\Runtime\Input\InputCore.h" />
     <ClInclude Include="Source\Runtime\Launch\Platforms\Windows\LaunchWindows.h" />
     <ClInclude Include="Source\Runtime\Render\D3D12\D3D12.h" />
@@ -406,13 +413,13 @@
     <ClCompile Include="Source\Runtime\Core\Application\Application.cpp" />
     <ClCompile Include="Source\Runtime\Core\CommandLine\CommandLine.cpp" />
     <ClCompile Include="Source\Runtime\Core\Logging\Logger.cpp" />
-    <ClCompile Include="Source\Runtime\Core\Math\DarkMathUtility.cpp" />
     <ClCompile Include="Source\Runtime\Core\Memory\TMemory.cpp" />
     <ClCompile Include="Source\Runtime\Core\Settings\PerEngineSettings.cpp" />
     <ClCompile Include="Source\Runtime\Core\Timer\GameTimer.cpp" />
     <ClCompile Include="Source\Runtime\Engine\Classes\Actor\Actor.cpp" />
     <ClCompile Include="Source\Runtime\Engine\Classes\Camera\CameraActor.cpp" />
     <ClCompile Include="Source\Runtime\Engine\Classes\Components\ActorComponent\ActorComponent.cpp" />
+    <ClCompile Include="Source\Runtime\Engine\Classes\Components\PrimitiveComponent\PrimitiveComponent.cpp" />
     <ClCompile Include="Source\Runtime\Engine\Classes\Components\RotateComponent\RotateComponent.cpp" />
     <ClCompile Include="Source\Runtime\Engine\Classes\Components\SceneComponent\USceneComponent.cpp" />
     <ClCompile Include="Source\Runtime\Engine\Classes\TestActor\TestActor.cpp" />
@@ -446,11 +453,15 @@
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Development|x64'">Pixel</ShaderType>
       <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Development|x64'">6.5</ShaderModel>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Development|x64'">false</ExcludedFromBuild>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">6.6</ShaderModel>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>
     </FxCompile>
     <FxCompile Include="shaders\VertexShader.hlsl">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Development|x64'">false</ExcludedFromBuild>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Development|x64'">Vertex</ShaderType>
       <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Development|x64'">6.5</ShaderModel>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">6.6</ShaderModel>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Vertex</ShaderType>
     </FxCompile>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

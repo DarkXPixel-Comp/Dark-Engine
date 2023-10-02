@@ -1611,14 +1611,14 @@ PUBLIC	?_Get_first@?$_Compressed_pair@V?$allocator@UD3D12MaterialConstants@@@std
 PUBLIC	??0?$D3D12UploadBufferResource@UD3D12MaterialConstants@@@@QEAA@I_N@Z ; D3D12UploadBufferResource<D3D12MaterialConstants>::D3D12UploadBufferResource<D3D12MaterialConstants>
 PUBLIC	??1?$D3D12UploadBufferResource@UD3D12MaterialConstants@@@@QEAA@XZ ; D3D12UploadBufferResource<D3D12MaterialConstants>::~D3D12UploadBufferResource<D3D12MaterialConstants>
 PUBLIC	??0D3D12Model@@QEAA@UXMFLOAT3@DirectX@@00@Z	; D3D12Model::D3D12Model
-PUBLIC	?SetMesh@D3D12Model@@QEAAXPEAVD3D12Mesh@@@Z	; D3D12Model::SetMesh
+PUBLIC	?SetMesh@D3D12Model@@QEAAXPEAVFD3D12Mesh@@@Z	; D3D12Model::SetMesh
 PUBLIC	??1D3D12Model@@QEAA@XZ				; D3D12Model::~D3D12Model
 PUBLIC	??_GD3D12Model@@QEAAPEAXI@Z			; D3D12Model::`scalar deleting destructor'
 PUBLIC	?BeginPlay@AActor@@UEAAXXZ			; AActor::BeginPlay
 PUBLIC	?Update@AActor@@UEAAXM@Z			; AActor::Update
 PUBLIC	?Destroy@AActor@@UEAAXXZ			; AActor::Destroy
 PUBLIC	?SetupPlayerController@AActor@@UEAAXPEAVFInputCore@@@Z ; AActor::SetupPlayerController
-PUBLIC	?SetMesh@AActor@@QEAAXPEAVD3D12Mesh@@@Z		; AActor::SetMesh
+PUBLIC	?SetMesh@AActor@@QEAAXPEAVFD3D12Mesh@@@Z	; AActor::SetMesh
 PUBLIC	?AddRotation@AActor@@QEAAXUXMFLOAT3@DirectX@@@Z	; AActor::AddRotation
 PUBLIC	?GetFrontVector@AActor@@QEAA?AUXMFLOAT3@DirectX@@XZ ; AActor::GetFrontVector
 PUBLIC	?GetRightVector@AActor@@QEAA?AUXMFLOAT3@DirectX@@XZ ; AActor::GetRightVector
@@ -2416,9 +2416,9 @@ $pdata$?dtor$0@?0???0D3D12Model@@QEAA@UXMFLOAT3@DirectX@@00@Z@4HA DD imagerel ?d
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$?SetMesh@D3D12Model@@QEAAXPEAVD3D12Mesh@@@Z DD imagerel $LN3
+$pdata$?SetMesh@D3D12Model@@QEAAXPEAVFD3D12Mesh@@@Z DD imagerel $LN3
 	DD	imagerel $LN3+49
-	DD	imagerel $unwind$?SetMesh@D3D12Model@@QEAAXPEAVD3D12Mesh@@@Z
+	DD	imagerel $unwind$?SetMesh@D3D12Model@@QEAAXPEAVFD3D12Mesh@@@Z
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
@@ -2458,9 +2458,9 @@ $pdata$?SetupPlayerController@AActor@@UEAAXPEAVFInputCore@@@Z DD imagerel $LN3
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$?SetMesh@AActor@@QEAAXPEAVD3D12Mesh@@@Z DD imagerel $LN6
+$pdata$?SetMesh@AActor@@QEAAXPEAVFD3D12Mesh@@@Z DD imagerel $LN6
 	DD	imagerel $LN6+178
-	DD	imagerel $unwind$?SetMesh@AActor@@QEAAXPEAVD3D12Mesh@@@Z
+	DD	imagerel $unwind$?SetMesh@AActor@@QEAAXPEAVFD3D12Mesh@@@Z
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
@@ -4032,7 +4032,7 @@ $unwind$?AddRotation@AActor@@QEAAXUXMFLOAT3@DirectX@@@Z DD 025031401H
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$unwind$?SetMesh@AActor@@QEAAXPEAVD3D12Mesh@@@Z DD 025031401H
+$unwind$?SetMesh@AActor@@QEAAXPEAVFD3D12Mesh@@@Z DD 025031401H
 	DD	0d20f2314H
 	DD	0500bH
 xdata	ENDS
@@ -4075,7 +4075,7 @@ $unwind$??1D3D12Model@@QEAA@XZ DD 025030f01H
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$unwind$?SetMesh@D3D12Model@@QEAAXPEAVD3D12Mesh@@@Z DD 025031401H
+$unwind$?SetMesh@D3D12Model@@QEAAXPEAVFD3D12Mesh@@@Z DD 025031401H
 	DD	0b20f2314H
 	DD	0500bH
 xdata	ENDS
@@ -9852,14 +9852,14 @@ $LN3:
 _TEXT	ENDS
 ; Function compile flags: /Odtp /ZI
 ; File C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\Runtime\Engine\Classes\Actor\Actor.cpp
-;	COMDAT ?SetMesh@AActor@@QEAAXPEAVD3D12Mesh@@@Z
+;	COMDAT ?SetMesh@AActor@@QEAAXPEAVFD3D12Mesh@@@Z
 _TEXT	SEGMENT
 $T1 = 64
 tv92 = 72
 tv89 = 72
 this$ = 96
 mesh$ = 104
-?SetMesh@AActor@@QEAAXPEAVD3D12Mesh@@@Z PROC		; AActor::SetMesh, COMDAT
+?SetMesh@AActor@@QEAAXPEAVFD3D12Mesh@@@Z PROC		; AActor::SetMesh, COMDAT
 
 ; 33   : {
 
@@ -9923,7 +9923,7 @@ $LN3@SetMesh:
   0009b	48 89 45 48	 mov	 QWORD PTR tv89[rbp], rax
   0009f	48 8b 55 68	 mov	 rdx, QWORD PTR mesh$[rbp]
   000a3	48 8b 4d 48	 mov	 rcx, QWORD PTR tv89[rbp]
-  000a7	e8 00 00 00 00	 call	 ?SetMesh@D3D12Model@@QEAAXPEAVD3D12Mesh@@@Z ; D3D12Model::SetMesh
+  000a7	e8 00 00 00 00	 call	 ?SetMesh@D3D12Model@@QEAAXPEAVFD3D12Mesh@@@Z ; D3D12Model::SetMesh
 $LN1@SetMesh:
 
 ; 40   : }
@@ -9931,7 +9931,7 @@ $LN1@SetMesh:
   000ac	48 8d 65 50	 lea	 rsp, QWORD PTR [rbp+80]
   000b0	5d		 pop	 rbp
   000b1	c3		 ret	 0
-?SetMesh@AActor@@QEAAXPEAVD3D12Mesh@@@Z ENDP		; AActor::SetMesh
+?SetMesh@AActor@@QEAAXPEAVFD3D12Mesh@@@Z ENDP		; AActor::SetMesh
 _TEXT	ENDS
 ; Function compile flags: /Odtp /ZI
 ; File C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\Runtime\Engine\Classes\Actor\Actor.cpp
@@ -10222,13 +10222,13 @@ $LN3:
 _TEXT	ENDS
 ; Function compile flags: /Odtp /ZI
 ; File C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\Runtime\Render\D3D12\D3D12Model.h
-;	COMDAT ?SetMesh@D3D12Model@@QEAAXPEAVD3D12Mesh@@@Z
+;	COMDAT ?SetMesh@D3D12Model@@QEAAXPEAVFD3D12Mesh@@@Z
 _TEXT	SEGMENT
 this$ = 80
 mesh$ = 88
-?SetMesh@D3D12Model@@QEAAXPEAVD3D12Mesh@@@Z PROC	; D3D12Model::SetMesh, COMDAT
+?SetMesh@D3D12Model@@QEAAXPEAVFD3D12Mesh@@@Z PROC	; D3D12Model::SetMesh, COMDAT
 
-; 31   : 	void SetMesh(D3D12Mesh* mesh) { m_mesh = mesh; }
+; 31   : 	void SetMesh(FD3D12Mesh* mesh) { m_mesh = mesh; }
 
 $LN3:
   00000	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
@@ -10245,7 +10245,7 @@ $LN3:
   0002b	48 8d 65 40	 lea	 rsp, QWORD PTR [rbp+64]
   0002f	5d		 pop	 rbp
   00030	c3		 ret	 0
-?SetMesh@D3D12Model@@QEAAXPEAVD3D12Mesh@@@Z ENDP	; D3D12Model::SetMesh
+?SetMesh@D3D12Model@@QEAAXPEAVFD3D12Mesh@@@Z ENDP	; D3D12Model::SetMesh
 _TEXT	ENDS
 ; Function compile flags: /Odtp /ZI
 ; File C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\Runtime\Render\D3D12\D3D12Model.h

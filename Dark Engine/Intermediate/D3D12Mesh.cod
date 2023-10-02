@@ -1554,9 +1554,9 @@ PUBLIC	??1?$_Compressed_pair@V?$allocator@D@std@@V?$_String_val@U?$_Simple_types
 PUBLIC	?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ ; Microsoft::WRL::ComPtr<IUnknown>::InternalRelease
 PUBLIC	??1?$ComPtr@UIUnknown@@@WRL@Microsoft@@QEAA@XZ	; Microsoft::WRL::ComPtr<IUnknown>::~ComPtr<IUnknown>
 PUBLIC	??_E?$ComPtr@UIUnknown@@@WRL@Microsoft@@QEAAPEAXI@Z ; Microsoft::WRL::ComPtr<IUnknown>::`vector deleting destructor'
-PUBLIC	??0D3D12Mesh@@QEAA@XZ				; D3D12Mesh::D3D12Mesh
-PUBLIC	??0D3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z ; D3D12Mesh::D3D12Mesh
-PUBLIC	?Init@D3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z ; D3D12Mesh::Init
+PUBLIC	??0FD3D12Mesh@@QEAA@XZ				; FD3D12Mesh::FD3D12Mesh
+PUBLIC	??0FD3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z ; FD3D12Mesh::FD3D12Mesh
+PUBLIC	?Init@FD3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z ; FD3D12Mesh::Init
 PUBLIC	??0logic_error@std@@QEAA@PEBD@Z			; std::logic_error::logic_error
 PUBLIC	??1logic_error@std@@UEAA@XZ			; std::logic_error::~logic_error
 PUBLIC	??0logic_error@std@@QEAA@AEBV01@@Z		; std::logic_error::logic_error
@@ -2189,75 +2189,75 @@ $pdata$??_E?$ComPtr@UIUnknown@@@WRL@Microsoft@@QEAAPEAXI@Z DD imagerel $LN6
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$??0D3D12Mesh@@QEAA@XZ DD imagerel $LN4
+$pdata$??0FD3D12Mesh@@QEAA@XZ DD imagerel $LN4
 	DD	imagerel $LN4+66
-	DD	imagerel $unwind$??0D3D12Mesh@@QEAA@XZ
+	DD	imagerel $unwind$??0FD3D12Mesh@@QEAA@XZ
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$?dtor$0@?0???0D3D12Mesh@@QEAA@XZ@4HA DD imagerel ?dtor$0@?0???0D3D12Mesh@@QEAA@XZ@4HA
-	DD	imagerel ?dtor$0@?0???0D3D12Mesh@@QEAA@XZ@4HA+29
-	DD	imagerel $unwind$?dtor$0@?0???0D3D12Mesh@@QEAA@XZ@4HA
+$pdata$?dtor$0@?0???0FD3D12Mesh@@QEAA@XZ@4HA DD imagerel ?dtor$0@?0???0FD3D12Mesh@@QEAA@XZ@4HA
+	DD	imagerel ?dtor$0@?0???0FD3D12Mesh@@QEAA@XZ@4HA+29
+	DD	imagerel $unwind$?dtor$0@?0???0FD3D12Mesh@@QEAA@XZ@4HA
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$??0D3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z DD imagerel $LN8
+$pdata$??0FD3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z DD imagerel $LN8
 	DD	imagerel $LN8+253
-	DD	imagerel $unwind$??0D3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z
+	DD	imagerel $unwind$??0FD3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$?dtor$0@?0???0D3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z@4HA DD imagerel ?dtor$0@?0???0D3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z@4HA
-	DD	imagerel ?dtor$0@?0???0D3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z@4HA+28
-	DD	imagerel $unwind$?dtor$0@?0???0D3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z@4HA
+$pdata$?dtor$0@?0???0FD3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z@4HA DD imagerel ?dtor$0@?0???0FD3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z@4HA
+	DD	imagerel ?dtor$0@?0???0FD3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z@4HA+28
+	DD	imagerel $unwind$?dtor$0@?0???0FD3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z@4HA
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$?dtor$1@?0???0D3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z@4HA DD imagerel ?dtor$1@?0???0D3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z@4HA
-	DD	imagerel ?dtor$1@?0???0D3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z@4HA+28
-	DD	imagerel $unwind$?dtor$1@?0???0D3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z@4HA
+$pdata$?dtor$1@?0???0FD3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z@4HA DD imagerel ?dtor$1@?0???0FD3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z@4HA
+	DD	imagerel ?dtor$1@?0???0FD3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z@4HA+28
+	DD	imagerel $unwind$?dtor$1@?0???0FD3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z@4HA
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$?dtor$2@?0???0D3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z@4HA DD imagerel ?dtor$2@?0???0D3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z@4HA
-	DD	imagerel ?dtor$2@?0???0D3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z@4HA+32
-	DD	imagerel $unwind$?dtor$2@?0???0D3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z@4HA
+$pdata$?dtor$2@?0???0FD3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z@4HA DD imagerel ?dtor$2@?0???0FD3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z@4HA
+	DD	imagerel ?dtor$2@?0???0FD3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z@4HA+32
+	DD	imagerel $unwind$?dtor$2@?0???0FD3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z@4HA
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$?dtor$3@?0???0D3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z@4HA DD imagerel ?dtor$3@?0???0D3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z@4HA
-	DD	imagerel ?dtor$3@?0???0D3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z@4HA+25
-	DD	imagerel $unwind$?dtor$3@?0???0D3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z@4HA
+$pdata$?dtor$3@?0???0FD3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z@4HA DD imagerel ?dtor$3@?0???0FD3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z@4HA
+	DD	imagerel ?dtor$3@?0???0FD3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z@4HA+25
+	DD	imagerel $unwind$?dtor$3@?0???0FD3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z@4HA
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$?Init@D3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z DD imagerel $LN7
+$pdata$?Init@FD3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z DD imagerel $LN7
 	DD	imagerel $LN7+522
-	DD	imagerel $unwind$?Init@D3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z
+	DD	imagerel $unwind$?Init@FD3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$?dtor$0@?0??Init@D3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z@4HA DD imagerel ?dtor$0@?0??Init@D3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z@4HA
-	DD	imagerel ?dtor$0@?0??Init@D3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z@4HA+28
-	DD	imagerel $unwind$?dtor$0@?0??Init@D3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z@4HA
+$pdata$?dtor$0@?0??Init@FD3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z@4HA DD imagerel ?dtor$0@?0??Init@FD3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z@4HA
+	DD	imagerel ?dtor$0@?0??Init@FD3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z@4HA+28
+	DD	imagerel $unwind$?dtor$0@?0??Init@FD3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z@4HA
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$?dtor$1@?0??Init@D3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z@4HA DD imagerel ?dtor$1@?0??Init@D3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z@4HA
-	DD	imagerel ?dtor$1@?0??Init@D3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z@4HA+28
-	DD	imagerel $unwind$?dtor$1@?0??Init@D3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z@4HA
+$pdata$?dtor$1@?0??Init@FD3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z@4HA DD imagerel ?dtor$1@?0??Init@FD3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z@4HA
+	DD	imagerel ?dtor$1@?0??Init@FD3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z@4HA+28
+	DD	imagerel $unwind$?dtor$1@?0??Init@FD3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z@4HA
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$?dtor$2@?0??Init@D3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z@4HA DD imagerel ?dtor$2@?0??Init@D3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z@4HA
-	DD	imagerel ?dtor$2@?0??Init@D3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z@4HA+25
-	DD	imagerel $unwind$?dtor$2@?0??Init@D3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z@4HA
+$pdata$?dtor$2@?0??Init@FD3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z@4HA DD imagerel ?dtor$2@?0??Init@FD3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z@4HA
+	DD	imagerel ?dtor$2@?0??Init@FD3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z@4HA+25
+	DD	imagerel $unwind$?dtor$2@?0??Init@FD3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z@4HA
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$?dtor$3@?0??Init@D3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z@4HA DD imagerel ?dtor$3@?0??Init@D3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z@4HA
-	DD	imagerel ?dtor$3@?0??Init@D3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z@4HA+25
-	DD	imagerel $unwind$?dtor$3@?0??Init@D3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z@4HA
+$pdata$?dtor$3@?0??Init@FD3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z@4HA DD imagerel ?dtor$3@?0??Init@FD3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z@4HA
+	DD	imagerel ?dtor$3@?0??Init@FD3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z@4HA+25
+	DD	imagerel $unwind$?dtor$3@?0??Init@FD3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z@4HA
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
@@ -4820,27 +4820,27 @@ $unwind$??0logic_error@std@@QEAA@PEBD@Z DD 025031401H
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$unwind$?dtor$3@?0??Init@D3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z@4HA DD 020601H
+$unwind$?dtor$3@?0??Init@FD3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z@4HA DD 020601H
 	DD	050023206H
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$unwind$?dtor$2@?0??Init@D3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z@4HA DD 020601H
+$unwind$?dtor$2@?0??Init@FD3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z@4HA DD 020601H
 	DD	050023206H
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$unwind$?dtor$1@?0??Init@D3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z@4HA DD 020601H
+$unwind$?dtor$1@?0??Init@FD3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z@4HA DD 020601H
 	DD	050023206H
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$unwind$?dtor$0@?0??Init@D3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z@4HA DD 020601H
+$unwind$?dtor$0@?0??Init@FD3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z@4HA DD 020601H
 	DD	050023206H
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$ip2state$?Init@D3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z DB 010H
+$ip2state$?Init@FD3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z DB 010H
 	DB	00H
 	DB	00H
 	DB	'8'
@@ -4860,53 +4860,53 @@ $ip2state$?Init@D3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDe
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$stateUnwindMap$?Init@D3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z DB 08H
+$stateUnwindMap$?Init@FD3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z DB 08H
 	DB	0eH
-	DD	imagerel ?dtor$0@?0??Init@D3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z@4HA
+	DD	imagerel ?dtor$0@?0??Init@FD3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z@4HA
 	DB	02eH
-	DD	imagerel ?dtor$1@?0??Init@D3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z@4HA
+	DD	imagerel ?dtor$1@?0??Init@FD3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z@4HA
 	DB	02eH
-	DD	imagerel ?dtor$2@?0??Init@D3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z@4HA
+	DD	imagerel ?dtor$2@?0??Init@FD3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z@4HA
 	DB	02eH
-	DD	imagerel ?dtor$3@?0??Init@D3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z@4HA
+	DD	imagerel ?dtor$3@?0??Init@FD3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z@4HA
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$cppxdata$?Init@D3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z DB 028H
-	DD	imagerel $stateUnwindMap$?Init@D3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z
-	DD	imagerel $ip2state$?Init@D3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z
+$cppxdata$?Init@FD3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z DB 028H
+	DD	imagerel $stateUnwindMap$?Init@FD3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z
+	DD	imagerel $ip2state$?Init@FD3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$unwind$?Init@D3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z DD 045041c11H
+$unwind$?Init@FD3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z DD 045041c11H
 	DD	0117431cH
 	DD	050100018H
 	DD	imagerel __CxxFrameHandler4
-	DD	imagerel $cppxdata$?Init@D3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z
+	DD	imagerel $cppxdata$?Init@FD3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$unwind$?dtor$3@?0???0D3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z@4HA DD 020601H
+$unwind$?dtor$3@?0???0FD3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z@4HA DD 020601H
 	DD	050023206H
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$unwind$?dtor$2@?0???0D3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z@4HA DD 020601H
+$unwind$?dtor$2@?0???0FD3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z@4HA DD 020601H
 	DD	050023206H
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$unwind$?dtor$1@?0???0D3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z@4HA DD 020601H
+$unwind$?dtor$1@?0???0FD3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z@4HA DD 020601H
 	DD	050023206H
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$unwind$?dtor$0@?0???0D3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z@4HA DD 020601H
+$unwind$?dtor$0@?0???0FD3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z@4HA DD 020601H
 	DD	050023206H
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$ip2state$??0D3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z DB 0eH
+$ip2state$??0FD3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z DB 0eH
 	DB	00H
 	DB	00H
 	DB	'8'
@@ -4924,38 +4924,38 @@ $ip2state$??0D3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefau
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$stateUnwindMap$??0D3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z DB 08H
+$stateUnwindMap$??0FD3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z DB 08H
 	DB	0eH
-	DD	imagerel ?dtor$0@?0???0D3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z@4HA
+	DD	imagerel ?dtor$0@?0???0FD3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z@4HA
 	DB	02eH
-	DD	imagerel ?dtor$1@?0???0D3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z@4HA
+	DD	imagerel ?dtor$1@?0???0FD3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z@4HA
 	DB	02eH
-	DD	imagerel ?dtor$2@?0???0D3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z@4HA
+	DD	imagerel ?dtor$2@?0???0FD3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z@4HA
 	DB	02eH
-	DD	imagerel ?dtor$3@?0???0D3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z@4HA
+	DD	imagerel ?dtor$3@?0???0FD3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z@4HA
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$cppxdata$??0D3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z DB 028H
-	DD	imagerel $stateUnwindMap$??0D3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z
-	DD	imagerel $ip2state$??0D3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z
+$cppxdata$??0FD3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z DB 028H
+	DD	imagerel $stateUnwindMap$??0FD3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z
+	DD	imagerel $ip2state$??0FD3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$unwind$??0D3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z DD 025041c11H
+$unwind$??0FD3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z DD 025041c11H
 	DD	0117231cH
 	DD	05010001cH
 	DD	imagerel __CxxFrameHandler4
-	DD	imagerel $cppxdata$??0D3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z
+	DD	imagerel $cppxdata$??0FD3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$unwind$?dtor$0@?0???0D3D12Mesh@@QEAA@XZ@4HA DD 020601H
+$unwind$?dtor$0@?0???0FD3D12Mesh@@QEAA@XZ@4HA DD 020601H
 	DD	050023206H
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$ip2state$??0D3D12Mesh@@QEAA@XZ DB 06H
+$ip2state$??0FD3D12Mesh@@QEAA@XZ DB 06H
 	DB	00H
 	DB	00H
 	DB	'X'
@@ -4965,23 +4965,23 @@ $ip2state$??0D3D12Mesh@@QEAA@XZ DB 06H
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$stateUnwindMap$??0D3D12Mesh@@QEAA@XZ DB 02H
+$stateUnwindMap$??0FD3D12Mesh@@QEAA@XZ DB 02H
 	DB	0eH
-	DD	imagerel ?dtor$0@?0???0D3D12Mesh@@QEAA@XZ@4HA
+	DD	imagerel ?dtor$0@?0???0FD3D12Mesh@@QEAA@XZ@4HA
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$cppxdata$??0D3D12Mesh@@QEAA@XZ DB 028H
-	DD	imagerel $stateUnwindMap$??0D3D12Mesh@@QEAA@XZ
-	DD	imagerel $ip2state$??0D3D12Mesh@@QEAA@XZ
+$cppxdata$??0FD3D12Mesh@@QEAA@XZ DB 028H
+	DD	imagerel $stateUnwindMap$??0FD3D12Mesh@@QEAA@XZ
+	DD	imagerel $ip2state$??0FD3D12Mesh@@QEAA@XZ
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$unwind$??0D3D12Mesh@@QEAA@XZ DD 025030f11H
+$unwind$??0FD3D12Mesh@@QEAA@XZ DD 025030f11H
 	DD	0b20a230fH
 	DD	05006H
 	DD	imagerel __CxxFrameHandler4
-	DD	imagerel $cppxdata$??0D3D12Mesh@@QEAA@XZ
+	DD	imagerel $cppxdata$??0FD3D12Mesh@@QEAA@XZ
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
@@ -12885,7 +12885,7 @@ $LN4:
 _TEXT	ENDS
 ; Function compile flags: /Odtp /ZI
 ; File C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\Runtime\Render\D3D12\D3D12Mesh.cpp
-;	COMDAT ?Init@D3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z
+;	COMDAT ?Init@FD3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z
 _TEXT	SEGMENT
 upload$ = 0
 $T1 = 80
@@ -12900,7 +12900,7 @@ tv128 = 112
 this$ = 144
 vertices$ = 152
 indices$ = 160
-?Init@D3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z PROC ; D3D12Mesh::Init, COMDAT
+?Init@FD3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z PROC ; FD3D12Mesh::Init, COMDAT
 
 ; 21   : {
 
@@ -13090,7 +13090,7 @@ $LN7:
 	00 00		 lea	 rsp, QWORD PTR [rbp+128]
   00208	5d		 pop	 rbp
   00209	c3		 ret	 0
-?Init@D3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z ENDP ; D3D12Mesh::Init
+?Init@FD3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z ENDP ; FD3D12Mesh::Init
 _TEXT	ENDS
 ; Function compile flags: /Odtp /ZI
 ;	COMDAT text$x
@@ -13108,7 +13108,7 @@ tv128 = 112
 this$ = 144
 vertices$ = 152
 indices$ = 160
-?dtor$0@?0??Init@D3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z@4HA PROC ; `D3D12Mesh::Init'::`1'::dtor$0
+?dtor$0@?0??Init@FD3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z@4HA PROC ; `FD3D12Mesh::Init'::`1'::dtor$0
   00000	40 55		 push	 rbp
   00002	48 83 ec 20	 sub	 rsp, 32			; 00000020H
   00006	48 8d 6a 40	 lea	 rbp, QWORD PTR [rdx+64]
@@ -13118,7 +13118,7 @@ indices$ = 160
   00016	48 83 c4 20	 add	 rsp, 32			; 00000020H
   0001a	5d		 pop	 rbp
   0001b	c3		 ret	 0
-?dtor$0@?0??Init@D3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z@4HA ENDP ; `D3D12Mesh::Init'::`1'::dtor$0
+?dtor$0@?0??Init@FD3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z@4HA ENDP ; `FD3D12Mesh::Init'::`1'::dtor$0
 text$x	ENDS
 ; Function compile flags: /Odtp /ZI
 ;	COMDAT text$x
@@ -13136,7 +13136,7 @@ tv128 = 112
 this$ = 144
 vertices$ = 152
 indices$ = 160
-?dtor$1@?0??Init@D3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z@4HA PROC ; `D3D12Mesh::Init'::`1'::dtor$1
+?dtor$1@?0??Init@FD3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z@4HA PROC ; `FD3D12Mesh::Init'::`1'::dtor$1
   00000	40 55		 push	 rbp
   00002	48 83 ec 20	 sub	 rsp, 32			; 00000020H
   00006	48 8d 6a 40	 lea	 rbp, QWORD PTR [rdx+64]
@@ -13146,7 +13146,7 @@ indices$ = 160
   00016	48 83 c4 20	 add	 rsp, 32			; 00000020H
   0001a	5d		 pop	 rbp
   0001b	c3		 ret	 0
-?dtor$1@?0??Init@D3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z@4HA ENDP ; `D3D12Mesh::Init'::`1'::dtor$1
+?dtor$1@?0??Init@FD3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z@4HA ENDP ; `FD3D12Mesh::Init'::`1'::dtor$1
 text$x	ENDS
 ; Function compile flags: /Odtp /ZI
 ;	COMDAT text$x
@@ -13164,7 +13164,7 @@ tv128 = 112
 this$ = 144
 vertices$ = 152
 indices$ = 160
-?dtor$2@?0??Init@D3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z@4HA PROC ; `D3D12Mesh::Init'::`1'::dtor$2
+?dtor$2@?0??Init@FD3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z@4HA PROC ; `FD3D12Mesh::Init'::`1'::dtor$2
   00000	40 55		 push	 rbp
   00002	48 83 ec 20	 sub	 rsp, 32			; 00000020H
   00006	48 8d 6a 40	 lea	 rbp, QWORD PTR [rdx+64]
@@ -13173,7 +13173,7 @@ indices$ = 160
   00013	48 83 c4 20	 add	 rsp, 32			; 00000020H
   00017	5d		 pop	 rbp
   00018	c3		 ret	 0
-?dtor$2@?0??Init@D3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z@4HA ENDP ; `D3D12Mesh::Init'::`1'::dtor$2
+?dtor$2@?0??Init@FD3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z@4HA ENDP ; `FD3D12Mesh::Init'::`1'::dtor$2
 text$x	ENDS
 ; Function compile flags: /Odtp /ZI
 ;	COMDAT text$x
@@ -13191,7 +13191,7 @@ tv128 = 112
 this$ = 144
 vertices$ = 152
 indices$ = 160
-?dtor$3@?0??Init@D3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z@4HA PROC ; `D3D12Mesh::Init'::`1'::dtor$3
+?dtor$3@?0??Init@FD3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z@4HA PROC ; `FD3D12Mesh::Init'::`1'::dtor$3
   00000	40 55		 push	 rbp
   00002	48 83 ec 20	 sub	 rsp, 32			; 00000020H
   00006	48 8d 6a 40	 lea	 rbp, QWORD PTR [rdx+64]
@@ -13200,25 +13200,25 @@ indices$ = 160
   00013	48 83 c4 20	 add	 rsp, 32			; 00000020H
   00017	5d		 pop	 rbp
   00018	c3		 ret	 0
-?dtor$3@?0??Init@D3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z@4HA ENDP ; `D3D12Mesh::Init'::`1'::dtor$3
+?dtor$3@?0??Init@FD3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z@4HA ENDP ; `FD3D12Mesh::Init'::`1'::dtor$3
 text$x	ENDS
 ; Function compile flags: /Odtp /ZI
 ; File C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\Runtime\Render\D3D12\D3D12Mesh.cpp
-;	COMDAT ??0D3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z
+;	COMDAT ??0FD3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z
 _TEXT	SEGMENT
 $T1 = 64
 $T2 = 96
 $T3 = 104
 $T4 = 136
-tv68 = 144
-tv135 = 152
-tv87 = 160
-tv137 = 168
-tv95 = 176
+tv72 = 144
+tv139 = 152
+tv91 = 160
+tv141 = 168
+tv131 = 176
 this$ = 208
 vertices$ = 216
 indices$ = 224
-??0D3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z PROC ; D3D12Mesh::D3D12Mesh, COMDAT
+??0FD3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z PROC ; FD3D12Mesh::FD3D12Mesh, COMDAT
 
 ; 14   : {
 
@@ -13256,15 +13256,15 @@ $LN8:
   0005a	48 8b 4d 60	 mov	 rcx, QWORD PTR $T2[rbp]
   0005e	e8 00 00 00 00	 call	 ??0?$vector@GV?$allocator@G@std@@@std@@QEAA@AEBV01@@Z ; std::vector<unsigned short,std::allocator<unsigned short> >::vector<unsigned short,std::allocator<unsigned short> >
   00063	48 89 85 90 00
-	00 00		 mov	 QWORD PTR tv68[rbp], rax
+	00 00		 mov	 QWORD PTR tv72[rbp], rax
   0006a	48 8b 85 90 00
-	00 00		 mov	 rax, QWORD PTR tv68[rbp]
+	00 00		 mov	 rax, QWORD PTR tv72[rbp]
   00071	48 89 85 98 00
-	00 00		 mov	 QWORD PTR tv135[rbp], rax
+	00 00		 mov	 QWORD PTR tv139[rbp], rax
   00078	48 8b 85 98 00
-	00 00		 mov	 rax, QWORD PTR tv135[rbp]
+	00 00		 mov	 rax, QWORD PTR tv139[rbp]
   0007f	48 89 85 a0 00
-	00 00		 mov	 QWORD PTR tv87[rbp], rax
+	00 00		 mov	 QWORD PTR tv91[rbp], rax
   00086	48 8d 45 68	 lea	 rax, QWORD PTR $T3[rbp]
   0008a	48 89 85 88 00
 	00 00		 mov	 QWORD PTR $T4[rbp], rax
@@ -13274,18 +13274,18 @@ $LN8:
 	00 00		 mov	 rcx, QWORD PTR $T4[rbp]
   0009f	e8 00 00 00 00	 call	 ??0?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@QEAA@AEBV01@@Z ; std::vector<VertexDefault,std::allocator<VertexDefault> >::vector<VertexDefault,std::allocator<VertexDefault> >
   000a4	48 89 85 a8 00
-	00 00		 mov	 QWORD PTR tv137[rbp], rax
+	00 00		 mov	 QWORD PTR tv141[rbp], rax
   000ab	48 8b 85 a8 00
-	00 00		 mov	 rax, QWORD PTR tv137[rbp]
+	00 00		 mov	 rax, QWORD PTR tv141[rbp]
   000b2	48 89 85 b0 00
-	00 00		 mov	 QWORD PTR tv95[rbp], rax
+	00 00		 mov	 QWORD PTR tv131[rbp], rax
   000b9	4c 8b 85 a0 00
-	00 00		 mov	 r8, QWORD PTR tv87[rbp]
+	00 00		 mov	 r8, QWORD PTR tv91[rbp]
   000c0	48 8b 95 b0 00
-	00 00		 mov	 rdx, QWORD PTR tv95[rbp]
+	00 00		 mov	 rdx, QWORD PTR tv131[rbp]
   000c7	48 8b 8d d0 00
 	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  000ce	e8 00 00 00 00	 call	 ?Init@D3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z ; D3D12Mesh::Init
+  000ce	e8 00 00 00 00	 call	 ?Init@FD3D12Mesh@@QEAAXV?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@3@@Z ; FD3D12Mesh::Init
   000d3	90		 npad	 1
 
 ; 17   : }
@@ -13303,7 +13303,7 @@ $LN8:
 	00 00		 lea	 rsp, QWORD PTR [rbp+192]
   000fb	5d		 pop	 rbp
   000fc	c3		 ret	 0
-??0D3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z ENDP ; D3D12Mesh::D3D12Mesh
+??0FD3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z ENDP ; FD3D12Mesh::FD3D12Mesh
 _TEXT	ENDS
 ; Function compile flags: /Odtp /ZI
 ;	COMDAT text$x
@@ -13312,15 +13312,15 @@ $T1 = 64
 $T2 = 96
 $T3 = 104
 $T4 = 136
-tv68 = 144
-tv135 = 152
-tv87 = 160
-tv137 = 168
-tv95 = 176
+tv72 = 144
+tv139 = 152
+tv91 = 160
+tv141 = 168
+tv131 = 176
 this$ = 208
 vertices$ = 216
 indices$ = 224
-?dtor$0@?0???0D3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z@4HA PROC ; `D3D12Mesh::D3D12Mesh'::`1'::dtor$0
+?dtor$0@?0???0FD3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z@4HA PROC ; `FD3D12Mesh::FD3D12Mesh'::`1'::dtor$0
   00000	40 55		 push	 rbp
   00002	48 83 ec 20	 sub	 rsp, 32			; 00000020H
   00006	48 8d 6a 20	 lea	 rbp, QWORD PTR [rdx+32]
@@ -13330,7 +13330,7 @@ indices$ = 224
   00016	48 83 c4 20	 add	 rsp, 32			; 00000020H
   0001a	5d		 pop	 rbp
   0001b	c3		 ret	 0
-?dtor$0@?0???0D3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z@4HA ENDP ; `D3D12Mesh::D3D12Mesh'::`1'::dtor$0
+?dtor$0@?0???0FD3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z@4HA ENDP ; `FD3D12Mesh::FD3D12Mesh'::`1'::dtor$0
 text$x	ENDS
 ; Function compile flags: /Odtp /ZI
 ;	COMDAT text$x
@@ -13339,15 +13339,15 @@ $T1 = 64
 $T2 = 96
 $T3 = 104
 $T4 = 136
-tv68 = 144
-tv135 = 152
-tv87 = 160
-tv137 = 168
-tv95 = 176
+tv72 = 144
+tv139 = 152
+tv91 = 160
+tv141 = 168
+tv131 = 176
 this$ = 208
 vertices$ = 216
 indices$ = 224
-?dtor$1@?0???0D3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z@4HA PROC ; `D3D12Mesh::D3D12Mesh'::`1'::dtor$1
+?dtor$1@?0???0FD3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z@4HA PROC ; `FD3D12Mesh::FD3D12Mesh'::`1'::dtor$1
   00000	40 55		 push	 rbp
   00002	48 83 ec 20	 sub	 rsp, 32			; 00000020H
   00006	48 8d 6a 20	 lea	 rbp, QWORD PTR [rdx+32]
@@ -13357,7 +13357,7 @@ indices$ = 224
   00016	48 83 c4 20	 add	 rsp, 32			; 00000020H
   0001a	5d		 pop	 rbp
   0001b	c3		 ret	 0
-?dtor$1@?0???0D3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z@4HA ENDP ; `D3D12Mesh::D3D12Mesh'::`1'::dtor$1
+?dtor$1@?0???0FD3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z@4HA ENDP ; `FD3D12Mesh::FD3D12Mesh'::`1'::dtor$1
 text$x	ENDS
 ; Function compile flags: /Odtp /ZI
 ;	COMDAT text$x
@@ -13366,15 +13366,15 @@ $T1 = 64
 $T2 = 96
 $T3 = 104
 $T4 = 136
-tv68 = 144
-tv135 = 152
-tv87 = 160
-tv137 = 168
-tv95 = 176
+tv72 = 144
+tv139 = 152
+tv91 = 160
+tv141 = 168
+tv131 = 176
 this$ = 208
 vertices$ = 216
 indices$ = 224
-?dtor$2@?0???0D3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z@4HA PROC ; `D3D12Mesh::D3D12Mesh'::`1'::dtor$2
+?dtor$2@?0???0FD3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z@4HA PROC ; `FD3D12Mesh::FD3D12Mesh'::`1'::dtor$2
   00000	40 55		 push	 rbp
   00002	48 83 ec 20	 sub	 rsp, 32			; 00000020H
   00006	48 8d 6a 20	 lea	 rbp, QWORD PTR [rdx+32]
@@ -13385,7 +13385,7 @@ indices$ = 224
   0001a	48 83 c4 20	 add	 rsp, 32			; 00000020H
   0001e	5d		 pop	 rbp
   0001f	c3		 ret	 0
-?dtor$2@?0???0D3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z@4HA ENDP ; `D3D12Mesh::D3D12Mesh'::`1'::dtor$2
+?dtor$2@?0???0FD3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z@4HA ENDP ; `FD3D12Mesh::FD3D12Mesh'::`1'::dtor$2
 text$x	ENDS
 ; Function compile flags: /Odtp /ZI
 ;	COMDAT text$x
@@ -13394,15 +13394,15 @@ $T1 = 64
 $T2 = 96
 $T3 = 104
 $T4 = 136
-tv68 = 144
-tv135 = 152
-tv87 = 160
-tv137 = 168
-tv95 = 176
+tv72 = 144
+tv139 = 152
+tv91 = 160
+tv141 = 168
+tv131 = 176
 this$ = 208
 vertices$ = 216
 indices$ = 224
-?dtor$3@?0???0D3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z@4HA PROC ; `D3D12Mesh::D3D12Mesh'::`1'::dtor$3
+?dtor$3@?0???0FD3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z@4HA PROC ; `FD3D12Mesh::FD3D12Mesh'::`1'::dtor$3
   00000	40 55		 push	 rbp
   00002	48 83 ec 20	 sub	 rsp, 32			; 00000020H
   00006	48 8d 6a 20	 lea	 rbp, QWORD PTR [rdx+32]
@@ -13411,14 +13411,14 @@ indices$ = 224
   00013	48 83 c4 20	 add	 rsp, 32			; 00000020H
   00017	5d		 pop	 rbp
   00018	c3		 ret	 0
-?dtor$3@?0???0D3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z@4HA ENDP ; `D3D12Mesh::D3D12Mesh'::`1'::dtor$3
+?dtor$3@?0???0FD3D12Mesh@@QEAA@V?$vector@UVertexDefault@@V?$allocator@UVertexDefault@@@std@@@std@@V?$vector@GV?$allocator@G@std@@@2@@Z@4HA ENDP ; `FD3D12Mesh::FD3D12Mesh'::`1'::dtor$3
 text$x	ENDS
 ; Function compile flags: /Odtp /ZI
 ; File C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\Runtime\Render\D3D12\D3D12Mesh.cpp
-;	COMDAT ??0D3D12Mesh@@QEAA@XZ
+;	COMDAT ??0FD3D12Mesh@@QEAA@XZ
 _TEXT	SEGMENT
 this$ = 80
-??0D3D12Mesh@@QEAA@XZ PROC				; D3D12Mesh::D3D12Mesh, COMDAT
+??0FD3D12Mesh@@QEAA@XZ PROC				; FD3D12Mesh::FD3D12Mesh, COMDAT
 
 ; 9    : {
 
@@ -13448,13 +13448,13 @@ $LN4:
   0003c	48 8d 65 40	 lea	 rsp, QWORD PTR [rbp+64]
   00040	5d		 pop	 rbp
   00041	c3		 ret	 0
-??0D3D12Mesh@@QEAA@XZ ENDP				; D3D12Mesh::D3D12Mesh
+??0FD3D12Mesh@@QEAA@XZ ENDP				; FD3D12Mesh::FD3D12Mesh
 _TEXT	ENDS
 ; Function compile flags: /Odtp /ZI
 ;	COMDAT text$x
 text$x	SEGMENT
 this$ = 80
-?dtor$0@?0???0D3D12Mesh@@QEAA@XZ@4HA PROC		; `D3D12Mesh::D3D12Mesh'::`1'::dtor$0
+?dtor$0@?0???0FD3D12Mesh@@QEAA@XZ@4HA PROC		; `FD3D12Mesh::FD3D12Mesh'::`1'::dtor$0
   00000	40 55		 push	 rbp
   00002	48 83 ec 20	 sub	 rsp, 32			; 00000020H
   00006	48 8d 6a 20	 lea	 rbp, QWORD PTR [rdx+32]
@@ -13464,7 +13464,7 @@ this$ = 80
   00017	48 83 c4 20	 add	 rsp, 32			; 00000020H
   0001b	5d		 pop	 rbp
   0001c	c3		 ret	 0
-?dtor$0@?0???0D3D12Mesh@@QEAA@XZ@4HA ENDP		; `D3D12Mesh::D3D12Mesh'::`1'::dtor$0
+?dtor$0@?0???0FD3D12Mesh@@QEAA@XZ@4HA ENDP		; `FD3D12Mesh::FD3D12Mesh'::`1'::dtor$0
 text$x	ENDS
 ; Function compile flags: /Odtp /ZI
 ;	COMDAT ??_E?$ComPtr@UIUnknown@@@WRL@Microsoft@@QEAAPEAXI@Z

@@ -1,8 +1,15 @@
 #pragma once
 
-#include <Components/SceneComponent/USceneComponent.h>
+#include <Components/PrimitiveComponent/PrimitiveComponent.h>
 
-class UMeshComponent : public USceneComponent
+class UMeshComponent : public UPrimitiveComponent
 {
+
+
+
+
+
+
+
 
 };

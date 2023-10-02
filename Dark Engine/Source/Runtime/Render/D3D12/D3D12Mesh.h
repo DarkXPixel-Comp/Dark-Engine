@@ -17,7 +17,7 @@ class FRenderMesh
 
 };
 
-class /*F*/D3D12Mesh : public FRenderMesh
+class FD3D12Mesh : public FRenderMesh
 {
 	friend class D3D12Renderer;
 	ID3D12Device8* m_device;
@@ -30,11 +30,11 @@ class /*F*/D3D12Mesh : public FRenderMesh
 
 
 public:
-	D3D12Mesh();
-	D3D12Mesh(TArray<Vertex> vertices, TArray<WORD> indices);
+	FD3D12Mesh();
+	FD3D12Mesh(TArray<Vertex> vertices, TArray<WORD> indices);
 
-	D3D12Mesh(const D3D12Mesh& m) = delete;
-	D3D12Mesh(D3D12Mesh&&) = delete;
+	FD3D12Mesh(const FD3D12Mesh& m) = delete;
+	FD3D12Mesh(FD3D12Mesh&&) = delete;
 
 
 	void Init(TArray<Vertex> vertices, TArray<WORD> indices);

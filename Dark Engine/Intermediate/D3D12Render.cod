@@ -3370,8 +3370,8 @@ $pdata$?dtor$0@?0??BeginFrame@D3D12Renderer@@QEAAXPEAVD3D12Scene@@@Z@4HA DD imag
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$?Render@D3D12Renderer@@UEAAXPEAVD3D12Scene@@@Z DD imagerel $LN13
-	DD	imagerel $LN13+3594
+$pdata$?Render@D3D12Renderer@@UEAAXPEAVD3D12Scene@@@Z DD imagerel $LN15
+	DD	imagerel $LN15+3591
 	DD	imagerel $unwind$?Render@D3D12Renderer@@UEAAXPEAVD3D12Scene@@@Z
 pdata	ENDS
 ;	COMDAT pdata
@@ -9292,7 +9292,7 @@ $ip2state$?Render@D3D12Renderer@@UEAAXPEAVD3D12Scene@@@Z DB 06H
 	DB	00H
 	DB	011H, 02H
 	DB	02H
-	DB	0c9H, '5'
+	DB	0bdH, '5'
 	DB	00H
 xdata	ENDS
 ;	COMDAT xdata
@@ -26471,7 +26471,7 @@ tv81 = 96
 this$ = 128
 ?WaitFrame@D3D12Renderer@@AEAAXXZ PROC			; D3D12Renderer::WaitFrame, COMDAT
 
-; 375  : {
+; 376  : {
 
 $LN4:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -26483,7 +26483,7 @@ $LN4:
 	00 00		 lea	 rcx, OFFSET FLAT:__F9EF3DD8_D3D12Render@cpp
   00019	e8 00 00 00 00	 call	 __CheckForDebuggerJustMyCode
 
-; 376  : 	m_commandQueue->Signal(m_fence.Get(), ++m_fenceValue);
+; 377  : 	m_commandQueue->Signal(m_fence.Get(), ++m_fenceValue);
 
   0001e	48 8b 85 80 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -26518,8 +26518,8 @@ $LN4:
   0008c	48 8b 4d 48	 mov	 rcx, QWORD PTR tv68[rbp]
   00090	ff 55 50	 call	 QWORD PTR tv83[rbp]
 
-; 377  : 
-; 378  : 	if (m_fence->GetCompletedValue() < m_fenceValue)
+; 378  : 
+; 379  : 	if (m_fence->GetCompletedValue() < m_fenceValue)
 
   00093	48 8b 85 80 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -26539,8 +26539,8 @@ $LN4:
   000c8	0f 83 8e 00 00
 	00		 jae	 $LN2@WaitFrame
 
-; 379  : 	{
-; 380  : 		m_fence->SetEventOnCompletion(m_fenceValue, m_fenceEvent);
+; 380  : 	{
+; 381  : 		m_fence->SetEventOnCompletion(m_fenceValue, m_fenceEvent);
 
   000ce	48 8b 85 80 00
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
@@ -26568,7 +26568,7 @@ $LN4:
   00122	48 8b 4d 48	 mov	 rcx, QWORD PTR tv129[rbp]
   00126	ff 55 50	 call	 QWORD PTR tv142[rbp]
 
-; 381  : 		WaitForSingleObject(m_fenceEvent, static_cast<DWORD>(std::chrono::milliseconds::max().count()));
+; 382  : 		WaitForSingleObject(m_fenceEvent, static_cast<DWORD>(std::chrono::milliseconds::max().count()));
 
   00129	48 8d 4d 40	 lea	 rcx, QWORD PTR $T1[rbp]
   0012d	e8 00 00 00 00	 call	 ?max@?$duration@_JU?$ratio@$00$0DOI@@std@@@chrono@std@@SA?AV123@XZ ; std::chrono::duration<__int64,std::ratio<1,1000> >::max
@@ -26586,11 +26586,11 @@ $LN4:
 	00		 call	 QWORD PTR __imp_WaitForSingleObject
 $LN2@WaitFrame:
 
-; 382  : 
-; 383  : 	}
-; 384  : 
+; 383  : 
+; 384  : 	}
 ; 385  : 
-; 386  : }
+; 386  : 
+; 387  : }
 
   0015c	48 8d 65 70	 lea	 rsp, QWORD PTR [rbp+112]
   00160	5d		 pop	 rbp
@@ -26612,7 +26612,7 @@ this$ = 112
 fenceValue$ = 120
 ?WaitForFenceValue@D3D12Renderer@@AEAAX_K@Z PROC	; D3D12Renderer::WaitForFenceValue, COMDAT
 
-; 365  : {
+; 366  : {
 
 $LN4:
   00000	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
@@ -26625,7 +26625,7 @@ $LN4:
 	00 00		 lea	 rcx, OFFSET FLAT:__F9EF3DD8_D3D12Render@cpp
   0001e	e8 00 00 00 00	 call	 __CheckForDebuggerJustMyCode
 
-; 366  : 	if (m_fence->GetCompletedValue() < fenceValue)
+; 367  : 	if (m_fence->GetCompletedValue() < fenceValue)
 
   00023	48 8b 45 70	 mov	 rax, QWORD PTR this$[rbp]
   00027	48 05 a8 00 00
@@ -26640,8 +26640,8 @@ $LN4:
   00047	48 3b 45 78	 cmp	 rax, QWORD PTR fenceValue$[rbp]
   0004b	73 73		 jae	 SHORT $LN2@WaitForFen
 
-; 367  : 	{
-; 368  : 		m_fence->SetEventOnCompletion(fenceValue, m_fenceEvent);
+; 368  : 	{
+; 369  : 		m_fence->SetEventOnCompletion(fenceValue, m_fenceEvent);
 
   0004d	48 8b 45 70	 mov	 rax, QWORD PTR this$[rbp]
   00051	48 05 a8 00 00
@@ -26662,7 +26662,7 @@ $LN4:
   00089	48 8b 4d 48	 mov	 rcx, QWORD PTR tv77[rbp]
   0008d	ff 55 50	 call	 QWORD PTR tv87[rbp]
 
-; 369  : 		WaitForSingleObject(m_fenceEvent, static_cast<DWORD>(std::chrono::milliseconds::max().count()));
+; 370  : 		WaitForSingleObject(m_fenceEvent, static_cast<DWORD>(std::chrono::milliseconds::max().count()));
 
   00090	48 8d 4d 40	 lea	 rcx, QWORD PTR $T1[rbp]
   00094	e8 00 00 00 00	 call	 ?max@?$duration@_JU?$ratio@$00$0DOI@@std@@@chrono@std@@SA?AV123@XZ ; std::chrono::duration<__int64,std::ratio<1,1000> >::max
@@ -26679,9 +26679,9 @@ $LN4:
 	00		 call	 QWORD PTR __imp_WaitForSingleObject
 $LN2@WaitForFen:
 
-; 370  : 
-; 371  : 	}
-; 372  : }
+; 371  : 
+; 372  : 	}
+; 373  : }
 
   000c0	48 8d 65 60	 lea	 rsp, QWORD PTR [rbp+96]
   000c4	5d		 pop	 rbp
@@ -26700,7 +26700,7 @@ this$ = 112
 fenceValue$ = 120
 ?Signal@D3D12Renderer@@AEAA_KAEA_K@Z PROC		; D3D12Renderer::Signal, COMDAT
 
-; 359  : {
+; 360  : {
 
 $LN3:
   00000	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
@@ -26713,7 +26713,7 @@ $LN3:
 	00 00		 lea	 rcx, OFFSET FLAT:__F9EF3DD8_D3D12Render@cpp
   0001e	e8 00 00 00 00	 call	 __CheckForDebuggerJustMyCode
 
-; 360  : 	m_commandQueue->Signal(m_fence.Get(), ++fenceValue);
+; 361  : 	m_commandQueue->Signal(m_fence.Get(), ++fenceValue);
 
   00023	48 8b 45 70	 mov	 rax, QWORD PTR this$[rbp]
   00027	48 83 c0 48	 add	 rax, 72			; 00000048H
@@ -26743,12 +26743,12 @@ $LN3:
   00080	48 8b 4d 40	 mov	 rcx, QWORD PTR tv68[rbp]
   00084	ff 55 48	 call	 QWORD PTR tv83[rbp]
 
-; 361  : 	return fenceValue;
+; 362  : 	return fenceValue;
 
   00087	48 8b 45 78	 mov	 rax, QWORD PTR fenceValue$[rbp]
   0008b	48 8b 00	 mov	 rax, QWORD PTR [rax]
 
-; 362  : }
+; 363  : }
 
   0008e	48 8d 65 60	 lea	 rsp, QWORD PTR [rbp+96]
   00092	5d		 pop	 rbp
@@ -26762,7 +26762,7 @@ _TEXT	SEGMENT
 this$ = 80
 ?Update@D3D12Renderer@@QEAAXXZ PROC			; D3D12Renderer::Update, COMDAT
 
-; 353  : {
+; 354  : {
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -26773,9 +26773,9 @@ $LN3:
 	00 00		 lea	 rcx, OFFSET FLAT:__F9EF3DD8_D3D12Render@cpp
   00016	e8 00 00 00 00	 call	 __CheckForDebuggerJustMyCode
 
-; 354  : 	
-; 355  : 
-; 356  : }
+; 355  : 	
+; 356  : 
+; 357  : }
 
   0001b	48 8d 65 40	 lea	 rsp, QWORD PTR [rbp+64]
   0001f	5d		 pop	 rbp
@@ -26791,7 +26791,7 @@ x$ = 88
 y$ = 96
 ?OnResize@D3D12Renderer@@QEAAXJJ@Z PROC			; D3D12Renderer::OnResize, COMDAT
 
-; 347  : {
+; 348  : {
 
 $LN3:
   00000	44 89 44 24 18	 mov	 DWORD PTR [rsp+24], r8d
@@ -26804,8 +26804,8 @@ $LN3:
 	00 00		 lea	 rcx, OFFSET FLAT:__F9EF3DD8_D3D12Render@cpp
   0001f	e8 00 00 00 00	 call	 __CheckForDebuggerJustMyCode
 
-; 348  : 	
-; 349  : }
+; 349  : 	
+; 350  : }
 
   00024	48 8d 65 40	 lea	 rsp, QWORD PTR [rbp+64]
   00028	5d		 pop	 rbp
@@ -26819,7 +26819,7 @@ _TEXT	SEGMENT
 this$ = 80
 ?EndFrame@D3D12Renderer@@UEAAXXZ PROC			; D3D12Renderer::EndFrame, COMDAT
 
-; 343  : {
+; 344  : {
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -26830,7 +26830,7 @@ $LN3:
 	00 00		 lea	 rcx, OFFSET FLAT:__F9EF3DD8_D3D12Render@cpp
   00016	e8 00 00 00 00	 call	 __CheckForDebuggerJustMyCode
 
-; 344  : }
+; 345  : }
 
   0001b	48 8d 65 40	 lea	 rsp, QWORD PTR [rbp+64]
   0001f	5d		 pop	 rbp
@@ -26844,7 +26844,7 @@ _TEXT	SEGMENT
 this$ = 80
 ?RenderScene@D3D12Renderer@@QEAAXXZ PROC		; D3D12Renderer::RenderScene, COMDAT
 
-; 334  : {
+; 335  : {
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -26855,10 +26855,10 @@ $LN3:
 	00 00		 lea	 rcx, OFFSET FLAT:__F9EF3DD8_D3D12Render@cpp
   00016	e8 00 00 00 00	 call	 __CheckForDebuggerJustMyCode
 
-; 335  : 	
-; 336  : 
+; 336  : 	
 ; 337  : 
-; 338  : }
+; 338  : 
+; 339  : }
 
   0001b	48 8d 65 40	 lea	 rsp, QWORD PTR [rbp+64]
   0001f	5d		 pop	 rbp
@@ -26872,7 +26872,7 @@ _TEXT	SEGMENT
 this$ = 80
 ?RenderObj@D3D12Renderer@@QEAAXXZ PROC			; D3D12Renderer::RenderObj, COMDAT
 
-; 328  : {
+; 329  : {
 
 $LN3:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -26883,7 +26883,7 @@ $LN3:
 	00 00		 lea	 rcx, OFFSET FLAT:__F9EF3DD8_D3D12Render@cpp
   00016	e8 00 00 00 00	 call	 __CheckForDebuggerJustMyCode
 
-; 329  : }
+; 330  : }
 
   0001b	48 8d 65 40	 lea	 rsp, QWORD PTR [rbp+64]
   0001f	5d		 pop	 rbp
@@ -26935,9 +26935,9 @@ $T28 = 1632
 $T29 = 1640
 $T30 = 1648
 $T31 = 1656
-tv737 = 1664
-tv733 = 1664
-tv724 = 1664
+tv727 = 1664
+tv723 = 1664
+tv718 = 1664
 tv700 = 1664
 tv684 = 1664
 tv670 = 1664
@@ -26985,8 +26985,8 @@ tv230 = 1672
 tv187 = 1672
 tv180 = 1672
 tv130 = 1672
-tv739 = 1680
-tv735 = 1680
+tv729 = 1680
+tv725 = 1680
 tv713 = 1680
 tv635 = 1680
 tv603 = 1680
@@ -27008,7 +27008,7 @@ scene$ = 1736
 
 ; 238  : {
 
-$LN13:
+$LN15:
   00000	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
   00005	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
   0000a	55		 push	 rbp
@@ -27035,7 +27035,7 @@ $LN13:
   00038	48 83 bd c8 06
 	00 00 00	 cmp	 QWORD PTR scene$[rbp], 0
   00040	75 05		 jne	 SHORT $LN5@Render
-  00042	e9 b8 0d 00 00	 jmp	 $LN1@Render
+  00042	e9 b5 0d 00 00	 jmp	 $LN1@Render
 $LN5@Render:
 
 ; 242  : 	auto& backBuffer = m_backBuffers[CurrentBackBufferIndex];
@@ -27217,9 +27217,9 @@ $LN5@Render:
 	00 00		 mov	 rcx, QWORD PTR $T11[rbp]
   00251	e8 00 00 00 00	 call	 ??$?0UID3D12Resource@@@?$ComPtr@UID3D12Resource@@@WRL@Microsoft@@QEAA@PEAUID3D12Resource@@@Z ; Microsoft::WRL::ComPtr<ID3D12Resource>::ComPtr<ID3D12Resource><ID3D12Resource>
   00256	48 89 85 80 06
-	00 00		 mov	 QWORD PTR tv733[rbp], rax
+	00 00		 mov	 QWORD PTR tv723[rbp], rax
   0025d	48 8b 85 80 06
-	00 00		 mov	 rax, QWORD PTR tv733[rbp]
+	00 00		 mov	 rax, QWORD PTR tv723[rbp]
   00264	48 89 85 88 06
 	00 00		 mov	 QWORD PTR tv187[rbp], rax
   0026b	48 8d 85 88 05
@@ -27234,9 +27234,9 @@ $LN5@Render:
 	00 00		 mov	 rcx, QWORD PTR $T13[rbp]
   0028e	e8 00 00 00 00	 call	 ??0?$ComPtr@UID3D12GraphicsCommandList6@@@WRL@Microsoft@@QEAA@AEBV012@@Z ; Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList6>::ComPtr<ID3D12GraphicsCommandList6>
   00293	48 89 85 90 06
-	00 00		 mov	 QWORD PTR tv735[rbp], rax
+	00 00		 mov	 QWORD PTR tv725[rbp], rax
   0029a	48 8b 85 90 06
-	00 00		 mov	 rax, QWORD PTR tv735[rbp]
+	00 00		 mov	 rax, QWORD PTR tv725[rbp]
   002a1	48 89 85 98 06
 	00 00		 mov	 QWORD PTR tv204[rbp], rax
   002a8	41 b9 04 00 00
@@ -28054,9 +28054,9 @@ $LN3@Render:
 	00 00		 mov	 rcx, QWORD PTR $T29[rbp]
   00c41	e8 00 00 00 00	 call	 ??0?$ComPtr@UID3D12Resource@@@WRL@Microsoft@@QEAA@AEBV012@@Z ; Microsoft::WRL::ComPtr<ID3D12Resource>::ComPtr<ID3D12Resource>
   00c46	48 89 85 80 06
-	00 00		 mov	 QWORD PTR tv737[rbp], rax
+	00 00		 mov	 QWORD PTR tv727[rbp], rax
   00c4d	48 8b 85 80 06
-	00 00		 mov	 rax, QWORD PTR tv737[rbp]
+	00 00		 mov	 rax, QWORD PTR tv727[rbp]
   00c54	48 89 85 88 06
 	00 00		 mov	 QWORD PTR tv645[rbp], rax
   00c5b	48 8d 85 70 06
@@ -28071,9 +28071,9 @@ $LN3@Render:
 	00 00		 mov	 rcx, QWORD PTR $T31[rbp]
   00c7e	e8 00 00 00 00	 call	 ??0?$ComPtr@UID3D12GraphicsCommandList6@@@WRL@Microsoft@@QEAA@AEBV012@@Z ; Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList6>::ComPtr<ID3D12GraphicsCommandList6>
   00c83	48 89 85 90 06
-	00 00		 mov	 QWORD PTR tv739[rbp], rax
+	00 00		 mov	 QWORD PTR tv729[rbp], rax
   00c8a	48 8b 85 90 06
-	00 00		 mov	 rax, QWORD PTR tv739[rbp]
+	00 00		 mov	 rax, QWORD PTR tv729[rbp]
   00c91	48 89 85 98 06
 	00 00		 mov	 QWORD PTR tv660[rbp], rax
   00c98	45 33 c9	 xor	 r9d, r9d
@@ -28171,51 +28171,53 @@ $LN3@Render:
 	00		 call	 QWORD PTR tv715[rbp]
 
 ; 319  : 
-; 320  : 
-; 321  : 	CurrentBackBufferIndex = m_swapchain->GetCurrentBackBufferIndex();
+; 320  : 	CurrentBackBufferIndex = !CurrentBackBufferIndex;
 
   00da6	48 8b 85 c0 06
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00dad	48 83 c0 68	 add	 rax, 104		; 00000068H
-  00db1	48 8b c8	 mov	 rcx, rax
-  00db4	e8 00 00 00 00	 call	 ??C?$ComPtr@UIDXGISwapChain4@@@WRL@Microsoft@@QEBAPEAUIDXGISwapChain4@@XZ ; Microsoft::WRL::ComPtr<IDXGISwapChain4>::operator->
-  00db9	48 89 85 80 06
-	00 00		 mov	 QWORD PTR tv724[rbp], rax
-  00dc0	48 8b 85 80 06
-	00 00		 mov	 rax, QWORD PTR tv724[rbp]
-  00dc7	48 8b 00	 mov	 rax, QWORD PTR [rax]
-  00dca	48 8b 8d 80 06
-	00 00		 mov	 rcx, QWORD PTR tv724[rbp]
-  00dd1	ff 90 20 01 00
-	00		 call	 QWORD PTR [rax+288]
-  00dd7	8b c0		 mov	 eax, eax
-  00dd9	48 8b 8d c0 06
-	00 00		 mov	 rcx, QWORD PTR this$[rbp]
-  00de0	48 89 81 b8 00
-	00 00		 mov	 QWORD PTR [rcx+184], rax
-
-; 322  : 
-; 323  : 	m_freeSRVDescriptor = 0;
-
-  00de7	48 8b 85 c0 06
+  00dad	48 83 b8 b8 00
+	00 00 00	 cmp	 QWORD PTR [rax+184], 0
+  00db5	75 0d		 jne	 SHORT $LN8@Render
+  00db7	48 c7 85 80 06
+	00 00 01 00 00
+	00		 mov	 QWORD PTR tv718[rbp], 1
+  00dc2	eb 0b		 jmp	 SHORT $LN9@Render
+$LN8@Render:
+  00dc4	48 c7 85 80 06
+	00 00 00 00 00
+	00		 mov	 QWORD PTR tv718[rbp], 0
+$LN9@Render:
+  00dcf	48 8b 85 c0 06
 	00 00		 mov	 rax, QWORD PTR this$[rbp]
-  00dee	48 c7 40 18 00
+  00dd6	48 8b 8d 80 06
+	00 00		 mov	 rcx, QWORD PTR tv718[rbp]
+  00ddd	48 89 88 b8 00
+	00 00		 mov	 QWORD PTR [rax+184], rcx
+
+; 321  : 
+; 322  : 	//CurrentBackBufferIndex = m_swapchain->GetCurrentBackBufferIndex();
+; 323  : 
+; 324  : 	m_freeSRVDescriptor = 0;
+
+  00de4	48 8b 85 c0 06
+	00 00		 mov	 rax, QWORD PTR this$[rbp]
+  00deb	48 c7 40 18 00
 	00 00 00	 mov	 QWORD PTR [rax+24], 0
 
-; 324  : 	return;
+; 325  : 	return;
 
-  00df6	48 8d 4d 10	 lea	 rcx, QWORD PTR models$[rbp]
-  00dfa	e8 00 00 00 00	 call	 ??1?$vector@PEAVD3D12Model@@V?$allocator@PEAVD3D12Model@@@std@@@std@@QEAA@XZ ; std::vector<D3D12Model *,std::allocator<D3D12Model *> >::~vector<D3D12Model *,std::allocator<D3D12Model *> >
+  00df3	48 8d 4d 10	 lea	 rcx, QWORD PTR models$[rbp]
+  00df7	e8 00 00 00 00	 call	 ??1?$vector@PEAVD3D12Model@@V?$allocator@PEAVD3D12Model@@@std@@@std@@QEAA@XZ ; std::vector<D3D12Model *,std::allocator<D3D12Model *> >::~vector<D3D12Model *,std::allocator<D3D12Model *> >
 $LN1@Render:
 
-; 325  : }
+; 326  : }
 
-  00dff	48 8d a5 a0 06
+  00dfc	48 8d a5 a0 06
 	00 00		 lea	 rsp, QWORD PTR [rbp+1696]
-  00e06	5f		 pop	 rdi
-  00e07	5e		 pop	 rsi
-  00e08	5d		 pop	 rbp
-  00e09	c3		 ret	 0
+  00e03	5f		 pop	 rdi
+  00e04	5e		 pop	 rsi
+  00e05	5d		 pop	 rbp
+  00e06	c3		 ret	 0
 ?Render@D3D12Renderer@@UEAAXPEAVD3D12Scene@@@Z ENDP	; D3D12Renderer::Render
 _TEXT	ENDS
 ; Function compile flags: /Odtp /ZI
@@ -28262,9 +28264,9 @@ $T28 = 1632
 $T29 = 1640
 $T30 = 1648
 $T31 = 1656
-tv737 = 1664
-tv733 = 1664
-tv724 = 1664
+tv727 = 1664
+tv723 = 1664
+tv718 = 1664
 tv700 = 1664
 tv684 = 1664
 tv670 = 1664
@@ -28312,8 +28314,8 @@ tv230 = 1672
 tv187 = 1672
 tv180 = 1672
 tv130 = 1672
-tv739 = 1680
-tv735 = 1680
+tv729 = 1680
+tv725 = 1680
 tv713 = 1680
 tv635 = 1680
 tv603 = 1680

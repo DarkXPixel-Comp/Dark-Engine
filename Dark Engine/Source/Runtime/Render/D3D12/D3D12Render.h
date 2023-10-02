@@ -36,7 +36,7 @@ struct VertexPosColor
 
 //VertexPositionNormalColorTexture
 
-class D3D12Mesh;
+class FD3D12Mesh;
 class D3D12Mesh1;
 class D3D12Model;
 class D3D12Material;
@@ -79,7 +79,7 @@ private:
 	uint64_t m_freeSRVDescriptor = 0;
 
 public:
-	friend class D3D12Mesh;
+	friend class FD3D12Mesh;
 
 	ComPtr<IDXGIFactory7> m_factory;
 	ComPtr<ID3D12Device8> m_device;
@@ -117,6 +117,7 @@ public:
 	D3D12_VIEWPORT Viewport;
 	D3D12_RECT ScissorRect;
 	float Fov;
+	int msaa = 1;
 
 	
 	TUniquePtr<D3D12UploadBufferResource<D3D12PassConstants>> m_passBuffer;
