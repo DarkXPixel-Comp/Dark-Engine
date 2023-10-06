@@ -4,6 +4,7 @@
 #include <Engine/public/DEngine.h>
 #include <Core/Logging/Logger.hpp>
 
+#include "LaunchWindows.h"
 
 
 void WindowsEnviromentSetup()
@@ -15,6 +16,7 @@ void WindowsEnviromentSetup()
 	PerEngineSettings::SetMainIcon(5);
 
 }
+
 
 
 
@@ -34,8 +36,8 @@ int32_t WINAPI WinMain(
 	Application::Instance()->Initialize(hInstance, prevInstance, lpCmdLine, nCmdShow);
 	WindowsEnviromentSetup();
 
-	GEngine.Initialize();
-	GEngine.PostInit();
+	ErrorCode = GEngine.Initialize();
+	ErrorCode = GEngine.PostInit();
 
 
 	while (GEngine.isAppWork())
@@ -48,10 +50,15 @@ int32_t WINAPI WinMain(
 	GEngine.Shutdown();
 
 
-
-
 	Logger::wait();
+	Logger::Exit();
 
 
 	return ErrorCode;
+}
+
+
+int32_t DENGINE_API WWinMain(HINSTANCE hInstance, HINSTANCE prevInstance, char* lpCmdLine, int32_t nCmdShow)
+{
+	return WinMain(hInstance, prevInstance, lpCmdLine, nCmdShow);
 }

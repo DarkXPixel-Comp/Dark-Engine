@@ -65,8 +65,8 @@ float4 main(PSInput input) : SV_TARGET
 	//return gColorMap.Sample(gSamLinearClamp, input.uv);
 	//return float4(1, 1, 1, 1);
 	
-	float4 gDiffuseAlbedo = gDiffuse * tAlbedo.Sample(gSamLinearWrap, input.uv);
-	float4 gNormalMapSample = tNormal.Sample(gSamLinearWrap, input.uv);
+	float4 gDiffuseAlbedo = gDiffuse * tAlbedo.Sample(gSamAnisotropicWrap, input.uv);
+	float4 gNormalMapSample = tNormal.Sample(gSamAnisotropicWrap, input.uv);
 	
 	float3 bumpedNormal = NormalSampleToWorldSpace(gNormalMapSample.xyz, input.normalW, input.tangentW);
 	

@@ -3,6 +3,7 @@
 
 #include "../Actor/Actor.h"
 #include "../Components/RotateComponent/RotateComponent.h"
+#include <Components/SceneComponent/USceneComponent.h>
 
 class ATestActor : public AActor
 {
@@ -16,6 +17,7 @@ public:
 
 public:
 	URotateComponent* rotateComponent;
+	USceneComponent* sceneComponent;
 
 
 

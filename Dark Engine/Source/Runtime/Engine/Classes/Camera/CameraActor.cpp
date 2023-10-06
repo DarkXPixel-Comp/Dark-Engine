@@ -6,11 +6,6 @@
 
 UCameraActor::UCameraActor()
 {
-	m_rotateComponent = (CreateDefaultSubObject<URotateComponent>("name"));
-	m_ActorComponents.push_back(m_rotateComponent);
-
-
-
 	auto window = GEngine.GetWindowManager()->GetWindow(0);
 	window->onResizeWindow.Bind(this, &UCameraActor::OnResize);
 
@@ -19,10 +14,6 @@ UCameraActor::UCameraActor()
 void UCameraActor::BeginPlay()
 {
 	Super::BeginPlay();
-
-
-	
-
 }
 
 
@@ -34,11 +25,6 @@ void UCameraActor::Update(float DeltaTime)
 	m_camera.m_rotation = m_rotation;
 
 	sensevity = DeltaTime * 100;
-
-	PrintLine(icstr(m_rotation.x), "\t");
-	PrintLine(icstr(m_rotation.y), "\t");
-	PrintLine(icstr(m_rotation.z), "\n");
-
 }
 
 void UCameraActor::Destroy()

@@ -5,6 +5,22 @@
       <Configuration>Debug</Configuration>
       <Platform>Win32</Platform>
     </ProjectConfiguration>
+    <ProjectConfiguration Include="Development|Win32">
+      <Configuration>Development</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Development|x64">
+      <Configuration>Development</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="DLL|Win32">
+      <Configuration>DLL</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="DLL|x64">
+      <Configuration>DLL</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
     <ProjectConfiguration Include="Release|Win32">
       <Configuration>Release</Configuration>
       <Platform>Win32</Platform>
@@ -32,6 +48,18 @@
     <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Development|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DLL|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
@@ -41,6 +69,19 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Development|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <EnableASAN>false</EnableASAN>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DLL|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
@@ -63,10 +104,22 @@
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Development|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='DLL|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Development|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='DLL|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -76,20 +129,65 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Development|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DLL|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\ThirdParty\DTK12;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\ThirdParty;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\ThirdParty\Assimp\include;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\Runtime;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\lib\include;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\DTK12;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\Runtime\graphics\D3D12\extras;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\ThirdParty\Assimp\lib\Debug;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\lib\src;C:\Users\nahmu\source\repos\Dark Engine;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\Runtime\Core\public;$(MSBuildProjectDirectory)\Source\Runtime\Engine\Classes;$(MSBuildProjectDirectory)\Source\Runtime\World;$(MSBuildProjectDirectory)\Source\Runtime\Engine\public;$(MSBuildProjectDirectory)\Source\Runtime\Editor\public;$(MSBuildProjectDirectory)\Source\Runtime\Render\;$(MSBuildProjectDirectory)\Source\Runtime\Core;$(MSBuildProjectDirectory)\Source\ThirdParty\DTK12;$(MSBuildProjectDirectory)\Source\ThirdParty;$(MSBuildProjectDirectory)\Source\ThirdParty\Assimp\include;$(MSBuildProjectDirectory)\Source\Runtime;$(MSBuildProjectDirectory)\lib\include;$(MSBuildProjectDirectory)\DTK12;$(MSBuildProjectDirectory)\Source\Runtime\graphics\D3D12\extras;$(MSBuildProjectDirectory)\Source;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine;$(MSBuildProjectDirectory);$(IncludePath)</IncludePath>
+    <LibraryPath>$(MSBuildProjectDirectory)\Source\ThirdParty\Assimp\lib\Debug;$(MSBuildProjectDirectory)\lib\src;C:\Users\nahmu\source\repos\Dark Engine;$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)Dark Engine\</OutDir>
+    <AllProjectIncludesArePublic>true</AllProjectIncludesArePublic>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Development|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(MSBuildProjectDirectory)\Source\Runtime\Engine\Classes;$(MSBuildProjectDirectory)\Source\Runtime\World;$(MSBuildProjectDirectory)\Source\Runtime\Engine\public;$(MSBuildProjectDirectory)\Source\Runtime\Editor\public;$(MSBuildProjectDirectory)\Source\Runtime\Render\;$(MSBuildProjectDirectory)\Source\Runtime\Core;$(MSBuildProjectDirectory)\Source\ThirdParty\DTK12;$(MSBuildProjectDirectory)\Source\ThirdParty;$(MSBuildProjectDirectory)\Source\ThirdParty\Assimp\include;$(MSBuildProjectDirectory)\Source\Runtime;$(MSBuildProjectDirectory)\lib\include;$(MSBuildProjectDirectory)\DTK12;$(MSBuildProjectDirectory)\Source\Runtime\graphics\D3D12\extras;$(MSBuildProjectDirectory)\Source;$(MSBuildProjectDirectory)\Source\Runtime\Core\public;$(MSBuildProjectDirectory);$(MSBuildProjectDirectory)\Intermediate\Build\Win64\$(IntDir)\Compile;$(IncludePath)</IncludePath>
+    <LibraryPath>$(MSBuildProjectDirectory)\Source\ThirdParty\Assimp\lib\Debug;$(MSBuildProjectDirectory)\lib\src;C:\Users\nahmu\source\repos\Dark Engine;$(LibraryPath)</LibraryPath>
+    <OutDir>$(SolutionDir)Dark Engine\bin\</OutDir>
+    <IntDir>.\Intermediate\Build\Win64\$(Platform)\$(Configuration)\</IntDir>
+    <MultiProcFXC>false</MultiProcFXC>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DLL|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(MSBuildProjectDirectory)\Source\Runtime\Engine\Classes;$(MSBuildProjectDirectory)\Source\Runtime\World;$(MSBuildProjectDirectory)\Source\Runtime\Engine\public;$(MSBuildProjectDirectory)\Source\Runtime\Editor\public;$(MSBuildProjectDirectory)\Source\Runtime\Render\;$(MSBuildProjectDirectory)\Source\Runtime\Core;$(MSBuildProjectDirectory)\Source\ThirdParty\DTK12;$(MSBuildProjectDirectory)\Source\ThirdParty;$(MSBuildProjectDirectory)\Source\ThirdParty\Assimp\include;$(MSBuildProjectDirectory)\Source\Runtime;$(MSBuildProjectDirectory)\lib\include;$(MSBuildProjectDirectory)\DTK12;$(MSBuildProjectDirectory)\Source\Runtime\graphics\D3D12\extras;$(MSBuildProjectDirectory)\Source;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine;$(IncludePath)</IncludePath>
+    <LibraryPath>$(MSBuildProjectDirectory)\Source\ThirdParty\Assimp\lib\Debug;$(MSBuildProjectDirectory)\lib\src;C:\Users\nahmu\source\repos\Dark Engine;$(LibraryPath)</LibraryPath>
+    <OutDir>$(SolutionDir)Dark Engine\bin</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine;$(IncludePath)</IncludePath>
+    <IncludePath>$(MSBuildProjectDirectory)\Source;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Development|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DLL|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
@@ -121,7 +219,86 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_WIN32;_BUILD;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;_WIN32;_BUILD;_TTEE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <ForcedIncludeFiles>%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ScanSourceForModuleDependencies>true</ScanSourceForModuleDependencies>
+      <TranslateIncludes>false</TranslateIncludes>
+      <EnableModules>true</EnableModules>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;d3d12.lib;d3dcompiler.lib;dxgi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <ImageContentTask>
+      <ContentOutput>$(ProjectDir)Resources\%(Filename).dds</ContentOutput>
+    </ImageContentTask>
+    <MeshContentTask>
+      <ContentOutput>$(ProjectDir)Resources\%(Filename).cmo</ContentOutput>
+    </MeshContentTask>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Development|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>false</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_WIN32;_BUILD;_TTEE;_DEVELOPMENT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <ForcedIncludeFiles>%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ScanSourceForModuleDependencies>true</ScanSourceForModuleDependencies>
+      <TranslateIncludes>false</TranslateIncludes>
+      <EnableModules>true</EnableModules>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>Disabled</Optimization>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <ControlFlowGuard>false</ControlFlowGuard>
+      <EnforceTypeConversionRules>true</EnforceTypeConversionRules>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <AssemblerOutput>NoListing</AssemblerOutput>
+      <ShowIncludes>false</ShowIncludes>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ModuleOutputFile>$(IntDir)</ModuleOutputFile>
+      <ModuleDependenciesFile>$(IntDir)</ModuleDependenciesFile>
+      <XMLDocumentationFileName>$(IntDir)</XMLDocumentationFileName>
+      <SourceDependenciesFile />
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;d3d12.lib;d3dcompiler.lib;dxgi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SuppressStartupBanner>false</SuppressStartupBanner>
+      <TreatLinkerWarningAsErrors>false</TreatLinkerWarningAsErrors>
+      <ForceFileOutput>Enabled</ForceFileOutput>
+      <LargeAddressAware>true</LargeAddressAware>
+    </Link>
+    <ImageContentTask>
+      <ContentOutput>$(ProjectDir)Resources\%(Filename).dds</ContentOutput>
+    </ImageContentTask>
+    <MeshContentTask>
+      <ContentOutput>$(ProjectDir)Resources\%(Filename).cmo</ContentOutput>
+    </MeshContentTask>
+    <FxCompile />
+    <FxCompile>
+      <AllResourcesBound>
+      </AllResourcesBound>
+      <AssemblerOutput>
+      </AssemblerOutput>
+      <AssemblerOutputFile>
+      </AssemblerOutputFile>
+      <ObjectFileOutput>$(MSBuildProjectDirectory)\shaders\%(Filename).cso</ObjectFileOutput>
+      <ShaderModel>6.5</ShaderModel>
+    </FxCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DLL|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_WIN32;_BUILD;_TTEE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
@@ -163,22 +340,46 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Source\Runtime\ApplicationCore\public\Windows\WindowsWindow.h" />
-    <ClInclude Include="Source\Runtime\Audio\Audio.h" />
     <ClInclude Include="Source\Runtime\Core\Application\Application.h" />
     <ClInclude Include="Source\Runtime\Core\CommandLine\CommandLine.h" />
+    <ClInclude Include="Source\Runtime\Core\Containers\Array\Array.h" />
+    <ClInclude Include="Source\Runtime\Core\Containers\List\TList.h" />
     <ClInclude Include="Source\Runtime\Core\CoreDefines.h" />
     <ClInclude Include="Source\Runtime\Core\Delegate\Delegate.h" />
     <ClInclude Include="Source\Runtime\Core\Memory\TGlobalPtr.h" />
     <ClInclude Include="Source\Runtime\Core\Memory\TMemory.h" />
+    <ClInclude Include="Source\Runtime\Core\Memory\TUniquePtr.h" />
+    <ClInclude Include="Source\Runtime\Core\Containers\String\DarkString.h" />
+    <ClInclude Include="Source\Runtime\Core\Public\GenericPlatform\GenericPlatformMath.h" />
+    <ClInclude Include="Source\Runtime\Core\Public\HAL\PlatformMath.h" />
+    <ClInclude Include="Source\Runtime\Core\Public\HAL\PreprocessorHelpers.h" />
+    <ClInclude Include="Source\Runtime\Core\Public\Math\DarkMathUtility.h" />
+    <ClInclude Include="Source\Runtime\Core\Public\Math\DarkPlatformMathSSE.h" />
+    <ClInclude Include="Source\Runtime\Core\Public\Math\DarkPlatformMathSSE4.h" />
+    <ClInclude Include="Source\Runtime\Core\Public\Math\MathFwd.h" />
+    <ClInclude Include="Source\Runtime\Core\Public\Math\Vector.h" />
+    <ClInclude Include="Source\Runtime\Core\Public\Math\Vector2D.h" />
+    <ClInclude Include="Source\Runtime\Core\Public\GenericPlatform\GenericPlatform.h" />
+    <ClInclude Include="Source\Runtime\Core\Public\HAL\Platform.h" />
+    <ClInclude Include="Source\Runtime\Core\Public\Microsoft\MicrosoftPlatformMath.h" />
+    <ClInclude Include="Source\Runtime\Core\Public\Templates\DarkTypeTraits.h" />
+    <ClInclude Include="Source\Runtime\Core\Public\Templates\EnableIf.h" />
+    <ClInclude Include="Source\Runtime\Core\Public\Windows\WindowsPlatform.h" />
+    <ClInclude Include="Source\Runtime\Core\Public\Windows\WindowsPlatformMath.h" />
     <ClInclude Include="Source\Runtime\Core\Timer\GameTimer.h" />
-    <ClInclude Include="Source\Runtime\Core\Transform\FVector.h" />
+    <ClInclude Include="Source\Runtime\Editor\public\DEditor.h" />
     <ClInclude Include="Source\Runtime\Engine\Classes\Actor\Actor.h" />
     <ClInclude Include="Source\Runtime\Engine\Classes\Camera\CameraActor.h" />
     <ClInclude Include="Source\Runtime\Engine\Classes\Components\ActorComponent\ActorComponent.h" />
+    <ClInclude Include="Source\Runtime\Engine\Classes\Components\MeshComponent\MeshComponent.h" />
+    <ClInclude Include="Source\Runtime\Engine\Classes\Components\PrimitiveComponent\PrimitiveComponent.h" />
     <ClInclude Include="Source\Runtime\Engine\Classes\Components\RotateComponent\RotateComponent.h" />
+    <ClInclude Include="Source\Runtime\Engine\Classes\Components\SceneComponent\USceneComponent.h" />
     <ClInclude Include="Source\Runtime\Engine\Classes\TestActor\TestActor.h" />
     <ClInclude Include="Source\Runtime\Engine\Classes\UObject\UObject.h" />
+    <ClInclude Include="Source\Runtime\Engine\public\SceneTypes.h" />
     <ClInclude Include="Source\Runtime\Input\InputCore.h" />
+    <ClInclude Include="Source\Runtime\Launch\Platforms\Windows\LaunchWindows.h" />
     <ClInclude Include="Source\Runtime\Render\D3D12\D3D12.h" />
     <ClInclude Include="Source\Runtime\Render\D3D12\D3D12Camera.h" />
     <ClInclude Include="Source\Runtime\Render\D3D12\D3D12Material.h" />
@@ -188,6 +389,7 @@
     <ClInclude Include="Source\Runtime\Render\D3D12\D3D12Render.h" />
     <ClInclude Include="Source\Runtime\Render\D3D12\D3D12Resource.h" />
     <ClInclude Include="Source\Runtime\Render\D3D12\D3D12Scene.h" />
+    <ClInclude Include="Source\Runtime\Render\D3D12\D3D12Shader.h" />
     <ClInclude Include="Source\Runtime\Render\D3D12\D3D12Texture.h" />
     <ClInclude Include="Source\Runtime\Render\D3D12\D3D12Types.h" />
     <ClInclude Include="Source\Runtime\Render\D3D12\D3D12Utils.h" />
@@ -217,6 +419,7 @@
     <ClInclude Include="Source\Runtime\Core\CorePlatform.h" />
     <ClInclude Include="Source\Runtime\Core\Logging\Logger.hpp" />
     <ClInclude Include="Source\Runtime\Core\Settings\PerEngineSettings.h" />
+    <ClInclude Include="Source\Runtime\Scene\public\Scene.h" />
     <ClInclude Include="Source\Runtime\World\public\World.h" />
     <ClInclude Include="Source\Runtime\World\World.h" />
   </ItemGroup>
@@ -226,14 +429,17 @@
     <ClCompile Include="Source\Runtime\Core\CommandLine\CommandLine.cpp" />
     <ClCompile Include="Source\Runtime\Core\Logging\Logger.cpp" />
     <ClCompile Include="Source\Runtime\Core\Memory\TMemory.cpp" />
+    <ClCompile Include="Source\Runtime\Core\Private\Math\DarkMath.cpp" />
     <ClCompile Include="Source\Runtime\Core\Settings\PerEngineSettings.cpp" />
     <ClCompile Include="Source\Runtime\Core\Timer\GameTimer.cpp" />
-    <ClCompile Include="Source\Runtime\Core\Transform\FVector.cpp" />
     <ClCompile Include="Source\Runtime\Engine\Classes\Actor\Actor.cpp" />
     <ClCompile Include="Source\Runtime\Engine\Classes\Camera\CameraActor.cpp" />
     <ClCompile Include="Source\Runtime\Engine\Classes\Components\ActorComponent\ActorComponent.cpp" />
+    <ClCompile Include="Source\Runtime\Engine\Classes\Components\PrimitiveComponent\PrimitiveComponent.cpp" />
     <ClCompile Include="Source\Runtime\Engine\Classes\Components\RotateComponent\RotateComponent.cpp" />
+    <ClCompile Include="Source\Runtime\Engine\Classes\Components\SceneComponent\USceneComponent.cpp" />
     <ClCompile Include="Source\Runtime\Engine\Classes\TestActor\TestActor.cpp" />
+    <ClCompile Include="Source\Runtime\Engine\Classes\UObject\UObject.cpp" />
     <ClCompile Include="Source\Runtime\Engine\private\DEngine.cpp" />
     <ClCompile Include="Source\Runtime\Input\InputCore.cpp" />
     <ClCompile Include="Source\Runtime\Launch\Platforms\Windows\LaunchWindows.cpp" />
@@ -245,6 +451,7 @@
     <ClCompile Include="Source\Runtime\Render\D3D12\D3D12Render.cpp" />
     <ClCompile Include="Source\Runtime\Render\D3D12\D3D12Resource.cpp" />
     <ClCompile Include="Source\Runtime\Render\D3D12\D3D12Scene.cpp" />
+    <ClCompile Include="Source\Runtime\Render\D3D12\D3D12Shader.cpp" />
     <ClCompile Include="Source\Runtime\Render\D3D12\D3D12Types.cpp" />
     <ClCompile Include="Source\Runtime\Render\D3D12\D3D12Utils.cpp" />
     <ClCompile Include="Source\Runtime\Render\Renderer.cpp" />
@@ -259,14 +466,18 @@
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="shaders\PixelShader.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Development|x64'">Pixel</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Development|x64'">6.5</ShaderModel>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Development|x64'">false</ExcludedFromBuild>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">6.6</ShaderModel>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>
-      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">6.5</ShaderModel>
-      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ProjectDir)shaders\%(Filename).cso</ObjectFileOutput>
     </FxCompile>
     <FxCompile Include="shaders\VertexShader.hlsl">
-      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">6.5</ShaderModel>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Development|x64'">false</ExcludedFromBuild>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Development|x64'">Vertex</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Development|x64'">6.5</ShaderModel>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">6.6</ShaderModel>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Vertex</ShaderType>
-      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ProjectDir)shaders\%(Filename).cso</ObjectFileOutput>
     </FxCompile>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

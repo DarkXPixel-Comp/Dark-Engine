@@ -169,7 +169,7 @@ void FWindowsWindow::SetResPos(UINT w, UINT h, UINT x, UINT y)
 	SetWindowPos(m_Wnd, NULL, x, y, w, h, NULL);
 }
 
-void FWindowsWindow::SetWindowTitle(std::string str)
+void FWindowsWindow::SetWindowTitle(FString str)
 {
 	SetWindowText(m_Wnd, strw(str).c_str());
 }
@@ -218,7 +218,7 @@ LRESULT FWindowsWindow::WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lPara
 	return 0;
 }
 
-FWindowsWindow* FWindowsWindowManager::CreateWindow(UINT Weight, UINT Height, std::string Name)
+FWindowsWindow* FWindowsWindowManager::CreateWindow(UINT Weight, UINT Height, FString Name)
 {
 	FWindowsWindow* window = new FWindowsWindow(this, (UINT)windows.size());
 

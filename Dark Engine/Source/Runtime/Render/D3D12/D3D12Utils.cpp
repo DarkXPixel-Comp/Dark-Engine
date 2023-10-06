@@ -11,10 +11,10 @@
 #include <DTK12/ResourceUploadBatch.h>
 
 
-std::unordered_map<UINT, std::unique_ptr<D3D12PipelineShaderRootSignature>> D3DUtil::Pipelines;
-std::unordered_map<std::string, std::unique_ptr<D3D12Mesh>> D3DUtil::m_meshes;
-std::unordered_map<std::string, std::unique_ptr<D3D12Texture>> D3DUtil::m_textures;
-std::vector<CD3DX12_STATIC_SAMPLER_DESC> D3DUtil::m_samplers(6);
+std::unordered_map<UINT, TUniquePtr<D3D12PipelineShaderRootSignature>> D3DUtil::Pipelines;
+std::unordered_map<FString, TUniquePtr<FD3D12Mesh>> D3DUtil::m_meshes;
+std::unordered_map<FString, TUniquePtr<D3D12Texture>> D3DUtil::m_textures;
+TArray<CD3DX12_STATIC_SAMPLER_DESC> D3DUtil::m_samplers(6);
 
 void D3DUtil::Init()
 {
@@ -36,8 +36,8 @@ UINT D3DUtil::CreatePipeline(eShaderType type)
 	{
 	case Default:
 	{
-		std::vector<CD3DX12_ROOT_PARAMETER1> parametrs(4);
-		std::vector<D3D12_ROOT_PARAMETER1> pParametrs(parametrs.size());
+		TArray<CD3DX12_ROOT_PARAMETER1> parametrs(4);
+		TArray<D3D12_ROOT_PARAMETER1> pParametrs(parametrs.size());
 		CD3DX12_DESCRIPTOR_RANGE1 srvRange;
 		srvRange.Init(D3D12_DESCRIPTOR_RANGE_TYPE_SRV, 2, 0);
 
@@ -117,13 +117,13 @@ ID3D12CommandQueue* D3DUtil::GetCommandQueue()
 	return static_cast<D3D12Renderer*>(DEngine::GetEngine()->GetRenderer())->m_commandQueue.Get();
 }
 
-//std::vector<D3D12Mesh*> D3DUtil::LoadMeshes(std::string path, bool bCombineMeshes)
+//TArray<FD3D12Mesh*> D3DUtil::LoadMeshes(FString path, bool bCombineMeshes)
 //{
-//	return std::vector<D3D12Mesh*>();
+//	return TArray<FD3D12Mesh*>();
 //}
 
 
-D3D12Texture* D3DUtil::LoadTexture(std::string path)
+D3D12Texture* D3DUtil::LoadTexture(FString path)
 {
 	if (m_textures.find(path) != m_textures.end())
 	{
@@ -135,7 +135,7 @@ D3D12Texture* D3DUtil::LoadTexture(std::string path)
 
 	auto texture = new D3D12Texture();
 	
-	m_textures.emplace(path, std::unique_ptr<D3D12Texture>(texture));
+	m_textures.emplace(path, TUniquePtr<D3D12Texture>(texture));
 	
 
 	HRESULT hr = S_OK;
@@ -176,7 +176,7 @@ D3D12Texture* D3DUtil::LoadTexture(std::string path)
 }
 
 
-D3D12Mesh* D3DUtil::LoadMesh(std::string path)
+FD3D12Mesh* D3DUtil::LoadMesh(FString path)
 {
 	if (m_meshes.find(path) != m_meshes.end())
 	{
@@ -198,8 +198,8 @@ D3D12Mesh* D3DUtil::LoadMesh(std::string path)
 	}
 
 
-	std::vector<Vertex> vertices(CountVertices);
-	std::vector<WORD> indices;
+	TArray<Vertex> vertices(CountVertices);
+	TArray<WORD> indices;
 
 	int64_t Counter = 0;
 	int64_t LastCountVertices = 0;
@@ -327,12 +327,12 @@ D3D12Mesh* D3DUtil::LoadMesh(std::string path)
 
 
 
-	m_meshes.emplace(path, std::make_unique<D3D12Mesh>(vertices, indices));
+	m_meshes.emplace(path, std::make_unique<FD3D12Mesh>(vertices, indices));
 	return m_meshes.find(path)->second.get();
 
 }
 
-void D3DUtil::DeleteMesh(D3D12Mesh* mesh)
+void D3DUtil::DeleteMesh(FD3D12Mesh* mesh)
 {
 	auto it = m_meshes.find(mesh->PathToMesh);
 

@@ -1,13 +1,20 @@
 #pragma once
-#include <string>
+#include <Core.h>
 #include <Windows.h>
+#include <Containers/String/DarkString.h>
+#include <Containers/Array/Array.h>
+#include <algorithm>
 
 
-
-
-class Application
+struct FCMDParameter
 {
-	typedef std::string STRING;
+	FString Parameter;
+	FString Value;
+};
+
+
+class DENGINE_API Application
+{
 private:
 	static Application* _inst;
 
@@ -18,11 +25,13 @@ public:
 	Application();
 	~Application();
 
-	void Initialize(HINSTANCE, HINSTANCE, STRING, INT32);
+	void Initialize(HINSTANCE, HINSTANCE, FString, INT32);
 
 public:
 	void ParseCmdLine();
-	bool CheckParameterCmdLine(STRING Parametr, STRING& data);
+	bool CheckParameterCmdLine(FString Parametr, FString& data);
+	FString GetParameter(FString param) { return std::find_if(parameters.begin(), parameters.end(),
+		[&param](const FCMDParameter &v){ return v.Parameter == param;})->Value;}
 
 
 public:
@@ -34,8 +43,11 @@ public:
 private:
 	HINSTANCE hInsance;
 	HINSTANCE nPrevInstance;
-	STRING lpCmdLine;
+	FString lpCmdLine;
 	INT32 nCmdShow;
+
+private:
+	TArray<FCMDParameter> parameters;
 	
 
 

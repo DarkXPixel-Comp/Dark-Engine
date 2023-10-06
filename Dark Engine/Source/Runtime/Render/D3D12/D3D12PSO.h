@@ -1,8 +1,8 @@
 #pragma once
 #include <Windows.h>
 #include "D3D12.h"
-#include <vector>
-#include <string>
+#include <Core/Containers/Array/Array.h>
+#include <Containers/String/DarkString.h>
 #include <Core/CoreDefines.h>
 #include "D3D12Mesh.h"
 #include "D3D12Utils.h"
@@ -36,9 +36,9 @@ class D3D12PipelineShaderRootSignature
 
 public:
 	D3D12PipelineShaderRootSignature(ID3D12Device8* device,
-		std::string vertexShaderPath,
-		std::string pixelShaderPath,
-		std::vector<D3D12_ROOT_PARAMETER1> rootParametrs)
+		FString vertexShaderPath,
+		FString pixelShaderPath,
+		TArray<D3D12_ROOT_PARAMETER1> rootParametrs)
 	{
 		//CD3DX12_ROOT_PARAMETER1 parametrs[1];
 		//CD3DX12_DESCRIPTOR_RANGE1 cbvTable;
@@ -66,7 +66,7 @@ public:
 
 		if (errorBlob)
 		{
-			std::string err = (const char*)errorBlob->GetBufferPointer();
+			FString err = (const char*)errorBlob->GetBufferPointer();
 		}
 
 		DXCall(device->CreateRootSignature(0, rootSignatureBlob->GetBufferPointer(),

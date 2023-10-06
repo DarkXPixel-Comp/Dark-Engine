@@ -17,7 +17,7 @@ void URotateComponent::Update(float DeltaTime)
 	rot.y *= DeltaTime;
 	rot.z *= DeltaTime;
 
-	m_Owner->AddRotation(rot);
+	Cast<AActor>(GetOwner())->AddRotation(rot);
 }
 
 void URotateComponent::Destroy()

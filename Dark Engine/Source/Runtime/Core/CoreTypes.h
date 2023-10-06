@@ -1,26 +1,8 @@
 #pragma once
 
-#pragma once
-
-
-typedef unsigned int uint32_t;
-typedef long long unsigned int uint64_t;
-typedef short unsigned int uint16_t;
-typedef short int int16_t;
-typedef int int32_t;
-typedef long long int int64_t;
-typedef signed char int8_t;
-typedef uint32_t BOOL32;
-
-typedef long long intmax_t;
-typedef unsigned long long uintmax_t;
-
-
-
+#include <HAL/Platform.h>
 
 #define MAX_NAME_STRING 255
-//#define HInstance() GetModuleHandle(NULL)
-
 
 #define INT8_MIN         (-127i8 - 1)
 #define INT16_MIN        (-32767i16 - 1)
@@ -37,13 +19,6 @@ typedef unsigned long long uintmax_t;
 
 
 
-#ifdef BUILD_DLL
-#define GameEngine_API __declspec(dllexport)
-
-#else
-#define GameEngine_API __declspec(dllimport)
-
-#endif
 
 
 

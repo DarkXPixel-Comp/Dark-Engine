@@ -3,10 +3,8 @@
 #include <Engine/Classes/Actor/Actor.h>
 
 
-UActorComponent::UActorComponent(AActor* actor)
+UActorComponent::UActorComponent()
 {
-	m_Owner = actor;
-	BeginPlay();
 }
 
 void UActorComponent::BeginPlay()
@@ -25,7 +23,7 @@ void UActorComponent::Destroy()
 	Super::Destroy();
 }
 
-AActor* UActorComponent::GetOwner()
-{
-	return m_Owner;
-}
+//AActor* UActorComponent::GetOwner()
+//{
+//	return m_Owner;
+//}

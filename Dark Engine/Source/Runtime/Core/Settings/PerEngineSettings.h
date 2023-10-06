@@ -1,4 +1,5 @@
 #pragma once
+#include <Core.h>
 #include <Windows.h>
 #include <Core/CoreTypes.h>
 
@@ -9,7 +10,7 @@
 
 
 
-class PerEngineSettings
+class DENGINE_API PerEngineSettings
 {
 private:
 	static PerEngineSettings* instance;

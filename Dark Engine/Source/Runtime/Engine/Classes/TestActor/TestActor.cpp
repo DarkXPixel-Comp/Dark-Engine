@@ -3,7 +3,7 @@
 ATestActor::ATestActor()
 {
 	rotateComponent = CreateDefaultSubObject<URotateComponent>("name");
-	m_ActorComponents.push_back(rotateComponent);
+	sceneComponent = CreateDefaultSubObject<USceneComponent>("Scene");
 
 	rotateComponent->SetRotateOnTick({ 5, 5, -5 });
 

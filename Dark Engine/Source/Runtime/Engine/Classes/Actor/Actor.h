@@ -1,6 +1,8 @@
 #pragma once
 #include "../UObject/UObject.h"
+#include <Core.h>
 #include <Engine/Classes/Components/ActorComponent/ActorComponent.h>
+#include <Components/SceneComponent/USceneComponent.h>
 #include <DirectXMath.h>
 #include <Render/D3D12/D3D12Model.h>
 #include <Input/InputCore.h>
@@ -8,20 +10,17 @@
 using namespace DirectX;
 
 
-class AActor : public UObject
+class DENGINE_API AActor : public UObject
 {
 	typedef UObject Super;
 public:
-	AActor() :	m_position(0, 0, 0),
-				m_rotation(0, 0, 0),
-				m_scale(1, 1, 1)
-	{}
+	AActor();
 
 	void BeginPlay() override;
 	void Update(float DeltaTime) override;
 	void Destroy() override;
 	virtual void SetupPlayerController(FInputCore* controller);
-	void SetMesh(D3D12Mesh* mesh);
+	void SetMesh(FD3D12Mesh* mesh);
 	D3D12Model* GetModel() { return m_model.get(); }
 
 public:
@@ -34,6 +33,8 @@ public:
 	XMFLOAT3 GetFrontVector();
 	XMFLOAT3 GetRightVector();
 	XMFLOAT3 GetUpVector();
+	USceneComponent* GetRootComponent() { return m_rootComponent.get(); }
+
 
 	void OnUpdateRotation(float delta)
 	{
@@ -43,16 +44,14 @@ public:
 
 
 protected:
-	template <typename T>
-	T* CreateDefaultSubObject(std::string name);
 
 protected:
 	XMFLOAT3 m_position;
 	XMFLOAT3 m_rotation;
 	XMFLOAT3 m_scale;
-	std::unique_ptr<D3D12Model> m_model;
+	TUniquePtr<D3D12Model> m_model;
 
-	std::vector<UActorComponent*> m_ActorComponents;
+	TUniquePtr<USceneComponent> m_rootComponent;
 
 
 	
@@ -61,9 +60,10 @@ protected:
 
 
 
-template<typename T>
-inline T* AActor::CreateDefaultSubObject(std::string name)
-{
-	UActorComponent* component = new T(this);
-	return reinterpret_cast<T*>(component);
-}
+//template<typename T>
+//inline T* AActor::CreateDefaultSubObject(FString name)
+//{
+//	UActorComponent* component = new T(this);
+//	m_ActorComponents.push_back(component);
+//	return reinterpret_cast<T*>(component);
+//}

@@ -1,10 +1,12 @@
 #pragma once
 #include <memory>
-#include <vector>
+#include <Core/Containers/Array/Array.h>
+#include <Core/Memory/TUniquePtr.h>
 #include <DirectXMath.h>
 #include <Engine/Classes/Actor/Actor.h>
 #include <Engine/Classes/Camera/CameraActor.h>
 #include <Render/D3D12/D3D12Scene.h>
+
 
 
 
@@ -34,8 +36,8 @@ public:
 
 
 private:
-	std::vector<std::unique_ptr<AActor>> m_actors;
-	std::unique_ptr<UCameraActor> m_camera;
+	TArray<TUniquePtr<AActor>> m_actors;
+	TUniquePtr<UCameraActor> m_camera;
 };
 
 template <typename T>

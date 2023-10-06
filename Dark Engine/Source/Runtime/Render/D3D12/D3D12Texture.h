@@ -6,7 +6,7 @@
 class D3D12Texture
 {
 public:
-	std::string name;
+	FString name;
 	ID3D12Resource* m_textureBuffer;
 
 	D3D12_SHADER_RESOURCE_VIEW_DESC m_srvDesc;

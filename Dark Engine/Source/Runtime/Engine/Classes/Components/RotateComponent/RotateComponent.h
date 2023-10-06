@@ -1,17 +1,18 @@
 #pragma once
 #include "../ActorComponent/ActorComponent.h"
+#include <Core.h>
 #include <DirectXMath.h>
 
 class AActor;
 
 using namespace DirectX;
 
-class URotateComponent : public UActorComponent
+class DENGINE_API URotateComponent : public UActorComponent
 {
 	typedef UActorComponent Super;
 
 public:
-	URotateComponent(AActor* actor) : Super(actor) {}
+	URotateComponent() {}
 	void BeginPlay() override;
 	void Update(float DeltaTime) override;
 	void Destroy() override;

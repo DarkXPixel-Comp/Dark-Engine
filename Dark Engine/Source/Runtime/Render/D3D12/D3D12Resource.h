@@ -1,12 +1,12 @@
 #pragma once
 #include "D3D12Utils.h"
 #include "D3D12.h"
-#include <vector>
+#include <Core/Containers/Array/Array.h>
 
 template <typename T>
 class D3D12UploadBufferResource
 {
-	std::vector<T> m_dataBuffer;
+	TArray<T> m_dataBuffer;
 	UINT m_elementByteSize;
 	UINT m_elementsByteSize;
 	ID3D12Device8* m_device;

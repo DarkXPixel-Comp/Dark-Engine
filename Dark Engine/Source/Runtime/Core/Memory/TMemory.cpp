@@ -1,4 +1,5 @@
 #include "TMemory.h"
+#include <HAL/Platform.h>
 
 TMemory::TMemory()
 {
@@ -19,7 +20,7 @@ TMemory::~TMemory()
 Bucket TMemory::Allocate(size_t size)
 {
     Bucket bucket = {};
-    uint64_t m = *std::min_element(m_FreeId.begin(), m_FreeId.end());
+    uint64 m = *std::min_element(m_FreeId.begin(), m_FreeId.end());
 
 
     if (m < id_counter)

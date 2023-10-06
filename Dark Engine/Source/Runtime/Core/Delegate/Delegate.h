@@ -1,7 +1,8 @@
 #pragma once
 
 //#include <assert.h>
-#include <vector>
+#include <Core/Containers/Array/Array.h> 
+#include <Core/Core.h>
 
 
 #define FUNC_DECLARE_MULTICAST_DELEGATE(DelegateName, ReturnType, ...) typedef TMultiCastDelegate<ReturnType, __VA_ARGS__> DelegateName
@@ -139,24 +140,22 @@ class TMultiCastDelegate
 	using FFuncPtr = InRetValType(*)(ParamTypes...);
 
 public:
+	TMultiCastDelegate() { containers = new TArray<IIContainer<InRetValType, ParamTypes...>*>(); }
+	~TMultiCastDelegate() { delete containers; }
 	const void Bind(InRetValType(*func)(ParamTypes...))
 	{
 		IIContainer<InRetValType, ParamTypes...>* temp = new TFuncContainer<InRetValType, ParamTypes...>(func);
 
-		containers.push_back(temp);
+		containers->push_back(temp);
 
 		pFunc = func;
 	}
 	template<typename UserClass>
 	const void Bind(UserClass* inUserObject, InRetValType(UserClass::* func)(ParamTypes...))
 	{
-		//container = new TMethodContainter<UserClass, InRetValType, ParamTypes...>(inUserObject, func);
-
-		//containers.push_back(new TMethodContainter < UserClass, InRetValType, ParamTypes...)(inUserObject, func);
-
 		IIContainer<InRetValType, ParamTypes...>* temp = new TMethodContainter<UserClass, InRetValType, ParamTypes...>(inUserObject, func);
 
-		containers.push_back(temp);
+		containers->push_back(temp);
 	}
 
 
@@ -164,24 +163,16 @@ public:
 
 	void BroadCast(ParamTypes... params)
 	{
-		for (auto& i : containers)
+		for (auto& i : *containers)
 		{
 			i->Call(params...);
 		}
 
 	}
 
+	TArray<IIContainer<InRetValType, ParamTypes...>*>* containers;
 
-
-
-	
-
-
-
-
-	std::vector<IIContainer<InRetValType, ParamTypes...>*> containers;
-
-	IIContainer<InRetValType, ParamTypes...>* container;
+	//IIContainer<InRetValType, ParamTypes...>* container;
 	FFuncPtr pFunc;
 };
 
