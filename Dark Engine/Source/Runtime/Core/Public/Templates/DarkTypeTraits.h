@@ -4,6 +4,7 @@
 #include <CoreTypes.h>
 #include <Templates/EnableIf.h>
 #include <type_traits>
+#include "IsFloatingPoint.h"
 
 #if __cplusplus < 202000
 	#define	DE_REQUIRES(...) , std::enable_if_t<(__VA_ARGS__), int>= 0

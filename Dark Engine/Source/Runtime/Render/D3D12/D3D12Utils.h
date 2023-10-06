@@ -1,7 +1,7 @@
 #pragma once
 #include <unordered_map>
 #include <memory>
-#include <Containers/String/DarkString.h>
+#include <Containers/DarkString.h>
 #include <Windows.h>
 #include <Core/Memory/TUniquePtr.h>
 #include <Core.h>

@@ -186,7 +186,7 @@
     <ClInclude Include="Source\Runtime\Core\Memory\TUniquePtr.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Runtime\Core\Containers\String\DarkString.h">
+    <ClInclude Include="Source\Runtime\Core\Public\Containers\DarkString.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\Runtime\Core\Containers\Array\Array.h">
@@ -262,6 +262,27 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\Runtime\Core\Public\HAL\PreprocessorHelpers.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Runtime\Core\Public\Math\Rotator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Runtime\Core\Public\Templates\IsFloatingPoint.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Runtime\D3D12RHI\public\D3D12RHI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Runtime\D3D12RHI\public\D3D12ThirdParty.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Runtime\D3D12RHI\public\Windows\WindowsD3D12ThirdParty.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Runtime\Core\Public\Misc\AssertionMacros.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Runtime\Core\Public\MSVC\MSVCPlatform.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

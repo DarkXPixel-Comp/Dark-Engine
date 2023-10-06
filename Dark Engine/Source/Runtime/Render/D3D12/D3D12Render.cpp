@@ -6,6 +6,7 @@
 #include <World/World.h>
 #include <Core/Timer/GameTimer.h>
 
+
 #undef max
 
 
@@ -146,6 +147,8 @@ int32_t D3D12Renderer::Init()
 	m_passBuffer = std::make_unique<D3D12UploadBufferResource<D3D12PassConstants>>(1, true);
 	D3DUtil::InitStaticSamples();
 	D3DUtil::InitPipelines();
+
+
 		
 
 	return Error;

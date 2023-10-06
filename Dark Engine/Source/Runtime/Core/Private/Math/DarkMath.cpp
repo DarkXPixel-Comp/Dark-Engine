@@ -1,5 +1,10 @@
 #include <Math/Vector.h>
+#include "Math/Rotator.h"
 
+
+
+template<> const FRotator3f FRotator3f::ZeroRotator(0, 0, 0);
+template<> const FRotator3d FRotator3d::ZeroRotator(0, 0, 0);
 
 template<> const FVector3f FVector3f::ZeroVector(0, 0, 0);
 template<> const FVector3f FVector3f::OneVector(1, 1, 1);

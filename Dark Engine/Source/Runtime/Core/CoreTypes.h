@@ -1,6 +1,7 @@
 #pragma once
 
 #include <HAL/Platform.h>
+#include "CorePlatform.h"
 
 #define MAX_NAME_STRING 255
 

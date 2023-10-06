@@ -1,6 +1,11 @@
 #pragma once
 #include <GenericPlatform/GenericPlatform.h>			
 
+#if defined(__clang__)
+#else
+#include "MSVC/MSVCPlatform.h"
+#endif
+
 
 
 

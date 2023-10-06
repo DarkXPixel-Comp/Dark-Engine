@@ -2,7 +2,7 @@
 #include <Core.h>
 #include <Core/Delegate/Delegate.h>
 #include <Windows.h>
-#include <Containers/String/DarkString.h>
+#include <Containers/DarkString.h>
 
 #undef CreateWindow
 

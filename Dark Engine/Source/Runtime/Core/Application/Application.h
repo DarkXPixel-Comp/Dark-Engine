@@ -1,7 +1,7 @@
 #pragma once
 #include <Core.h>
 #include <Windows.h>
-#include <Containers/String/DarkString.h>
+#include <Containers/DarkString.h>
 #include <Containers/Array/Array.h>
 #include <algorithm>
 

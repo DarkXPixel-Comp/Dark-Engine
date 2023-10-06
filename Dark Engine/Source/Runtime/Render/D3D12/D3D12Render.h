@@ -5,7 +5,7 @@
 #include <Core/Containers/Array/Array.h>
 #include <DescriptorHeap.h>
 #include <memory>
-#include <Containers/String/DarkString.h>
+#include <Containers/DarkString.h>
 #include <Core/CommandLine/CommandLine.h>
 #include <CoreTypes.h>
 #include <ApplicationCore/public/Windows/WindowsWindow.h>

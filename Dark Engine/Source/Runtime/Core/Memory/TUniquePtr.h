@@ -1,6 +1,6 @@
 #pragma once
 #include <Core/Core.h>
-#include <Core/Containers/String/DarkString.h>
+#include <Containers/DarkString.h>
 
 #include <memory>
 
