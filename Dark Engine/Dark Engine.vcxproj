@@ -143,13 +143,14 @@
     <IncludePath>C:\Users\nahmu\source\repos\Dark Engine\Dark Engine\Source\Runtime\Core\public;$(MSBuildProjectDirectory)\Source\Runtime\Engine\Classes;$(MSBuildProjectDirectory)\Source\Runtime\World;$(MSBuildProjectDirectory)\Source\Runtime\Engine\public;$(MSBuildProjectDirectory)\Source\Runtime\Editor\public;$(MSBuildProjectDirectory)\Source\Runtime\Render\;$(MSBuildProjectDirectory)\Source\Runtime\Core;$(MSBuildProjectDirectory)\Source\ThirdParty\DTK12;$(MSBuildProjectDirectory)\Source\ThirdParty;$(MSBuildProjectDirectory)\Source\ThirdParty\Assimp\include;$(MSBuildProjectDirectory)\Source\Runtime;$(MSBuildProjectDirectory)\lib\include;$(MSBuildProjectDirectory)\DTK12;$(MSBuildProjectDirectory)\Source\Runtime\graphics\D3D12\extras;$(MSBuildProjectDirectory)\Source;C:\Users\nahmu\source\repos\Dark Engine\Dark Engine;$(MSBuildProjectDirectory);$(IncludePath)</IncludePath>
     <LibraryPath>$(MSBuildProjectDirectory)\Source\ThirdParty\Assimp\lib\Debug;$(MSBuildProjectDirectory)\lib\src;C:\Users\nahmu\source\repos\Dark Engine;$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)Dark Engine\</OutDir>
+    <AllProjectIncludesArePublic>true</AllProjectIncludesArePublic>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Development|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(MSBuildProjectDirectory)\Source\Runtime\Engine\Classes;$(MSBuildProjectDirectory)\Source\Runtime\World;$(MSBuildProjectDirectory)\Source\Runtime\Engine\public;$(MSBuildProjectDirectory)\Source\Runtime\Editor\public;$(MSBuildProjectDirectory)\Source\Runtime\Render\;$(MSBuildProjectDirectory)\Source\Runtime\Core;$(MSBuildProjectDirectory)\Source\ThirdParty\DTK12;$(MSBuildProjectDirectory)\Source\ThirdParty;$(MSBuildProjectDirectory)\Source\ThirdParty\Assimp\include;$(MSBuildProjectDirectory)\Source\Runtime;$(MSBuildProjectDirectory)\lib\include;$(MSBuildProjectDirectory)\DTK12;$(MSBuildProjectDirectory)\Source\Runtime\graphics\D3D12\extras;$(MSBuildProjectDirectory)\Source;$(MSBuildProjectDirectory);$(IncludePath)</IncludePath>
+    <IncludePath>$(MSBuildProjectDirectory)\Source\Runtime\Engine\Classes;$(MSBuildProjectDirectory)\Source\Runtime\World;$(MSBuildProjectDirectory)\Source\Runtime\Engine\public;$(MSBuildProjectDirectory)\Source\Runtime\Editor\public;$(MSBuildProjectDirectory)\Source\Runtime\Render\;$(MSBuildProjectDirectory)\Source\Runtime\Core;$(MSBuildProjectDirectory)\Source\ThirdParty\DTK12;$(MSBuildProjectDirectory)\Source\ThirdParty;$(MSBuildProjectDirectory)\Source\ThirdParty\Assimp\include;$(MSBuildProjectDirectory)\Source\Runtime;$(MSBuildProjectDirectory)\lib\include;$(MSBuildProjectDirectory)\DTK12;$(MSBuildProjectDirectory)\Source\Runtime\graphics\D3D12\extras;$(MSBuildProjectDirectory)\Source;$(MSBuildProjectDirectory)\Source\Runtime\Core\public;$(MSBuildProjectDirectory);$(MSBuildProjectDirectory)\Intermediate\Build\Win64\$(IntDir)\Compile;$(IncludePath)</IncludePath>
     <LibraryPath>$(MSBuildProjectDirectory)\Source\ThirdParty\Assimp\lib\Debug;$(MSBuildProjectDirectory)\lib\src;C:\Users\nahmu\source\repos\Dark Engine;$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)Dark Engine\bin\</OutDir>
-    <IntDir>.\Intermediate\</IntDir>
+    <IntDir>.\Intermediate\Build\Win64\$(Platform)\$(Configuration)\</IntDir>
     <MultiProcFXC>false</MultiProcFXC>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DLL|x64'">
@@ -258,8 +259,13 @@
       <ControlFlowGuard>false</ControlFlowGuard>
       <EnforceTypeConversionRules>true</EnforceTypeConversionRules>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
-      <AssemblerOutput>All</AssemblerOutput>
+      <AssemblerOutput>NoListing</AssemblerOutput>
       <ShowIncludes>false</ShowIncludes>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ModuleOutputFile>$(IntDir)</ModuleOutputFile>
+      <ModuleDependenciesFile>$(IntDir)</ModuleDependenciesFile>
+      <XMLDocumentationFileName>$(IntDir)</XMLDocumentationFileName>
+      <SourceDependenciesFile />
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -334,7 +340,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Source\Runtime\ApplicationCore\public\Windows\WindowsWindow.h" />
-    <ClInclude Include="Source\Runtime\Audio\Audio.h" />
     <ClInclude Include="Source\Runtime\Core\Application\Application.h" />
     <ClInclude Include="Source\Runtime\Core\CommandLine\CommandLine.h" />
     <ClInclude Include="Source\Runtime\Core\Containers\Array\Array.h" />
@@ -345,12 +350,22 @@
     <ClInclude Include="Source\Runtime\Core\Memory\TMemory.h" />
     <ClInclude Include="Source\Runtime\Core\Memory\TUniquePtr.h" />
     <ClInclude Include="Source\Runtime\Core\Containers\String\DarkString.h" />
+    <ClInclude Include="Source\Runtime\Core\Public\GenericPlatform\GenericPlatformMath.h" />
+    <ClInclude Include="Source\Runtime\Core\Public\HAL\PlatformMath.h" />
+    <ClInclude Include="Source\Runtime\Core\Public\HAL\PreprocessorHelpers.h" />
+    <ClInclude Include="Source\Runtime\Core\Public\Math\DarkMathUtility.h" />
+    <ClInclude Include="Source\Runtime\Core\Public\Math\DarkPlatformMathSSE.h" />
+    <ClInclude Include="Source\Runtime\Core\Public\Math\DarkPlatformMathSSE4.h" />
     <ClInclude Include="Source\Runtime\Core\Public\Math\MathFwd.h" />
     <ClInclude Include="Source\Runtime\Core\Public\Math\Vector.h" />
     <ClInclude Include="Source\Runtime\Core\Public\Math\Vector2D.h" />
     <ClInclude Include="Source\Runtime\Core\Public\GenericPlatform\GenericPlatform.h" />
     <ClInclude Include="Source\Runtime\Core\Public\HAL\Platform.h" />
+    <ClInclude Include="Source\Runtime\Core\Public\Microsoft\MicrosoftPlatformMath.h" />
+    <ClInclude Include="Source\Runtime\Core\Public\Templates\DarkTypeTraits.h" />
+    <ClInclude Include="Source\Runtime\Core\Public\Templates\EnableIf.h" />
     <ClInclude Include="Source\Runtime\Core\Public\Windows\WindowsPlatform.h" />
+    <ClInclude Include="Source\Runtime\Core\Public\Windows\WindowsPlatformMath.h" />
     <ClInclude Include="Source\Runtime\Core\Timer\GameTimer.h" />
     <ClInclude Include="Source\Runtime\Editor\public\DEditor.h" />
     <ClInclude Include="Source\Runtime\Engine\Classes\Actor\Actor.h" />
@@ -414,6 +429,7 @@
     <ClCompile Include="Source\Runtime\Core\CommandLine\CommandLine.cpp" />
     <ClCompile Include="Source\Runtime\Core\Logging\Logger.cpp" />
     <ClCompile Include="Source\Runtime\Core\Memory\TMemory.cpp" />
+    <ClCompile Include="Source\Runtime\Core\Private\Math\DarkMath.cpp" />
     <ClCompile Include="Source\Runtime\Core\Settings\PerEngineSettings.cpp" />
     <ClCompile Include="Source\Runtime\Core\Timer\GameTimer.cpp" />
     <ClCompile Include="Source\Runtime\Engine\Classes\Actor\Actor.cpp" />

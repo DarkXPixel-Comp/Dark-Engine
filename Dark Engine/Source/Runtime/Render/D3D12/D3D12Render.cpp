@@ -356,13 +356,13 @@ void D3D12Renderer::Update()
 
 }
 
-uint64_t D3D12Renderer::Signal(uint64_t &fenceValue)
+uint64 D3D12Renderer::Signal(uint64 &fenceValue)
 {
 	m_commandQueue->Signal(m_fence.Get(), ++fenceValue);
 	return fenceValue;
 }
 
-void D3D12Renderer::WaitForFenceValue(uint64_t fenceValue)
+void D3D12Renderer::WaitForFenceValue(uint64 fenceValue)
 {
 	if (m_fence->GetCompletedValue() < fenceValue)
 	{

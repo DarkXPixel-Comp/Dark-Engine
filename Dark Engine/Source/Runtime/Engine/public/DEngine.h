@@ -7,7 +7,6 @@
 #include <World/World.h>
 #include <Input/InputCore.h>
 #include <Core/Memory/TMemory.h>
-#include <Audio/Audio.h>
 #include <DEditor.h>
 #include <chrono>
 #include <Windows.h>
@@ -75,7 +74,6 @@ private:
 
 	//Renderer* m_renderer;
 	TUniquePtr<Renderer> m_renderer;
-	TUniquePtr<FAudioCore> m_audio;
 	TUniquePtr<D3D12Scene> m_scene;
 	TUniquePtr<AWorld> m_world;
 	TUniquePtr<FInputCore> m_input;

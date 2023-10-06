@@ -1,4 +1,5 @@
 #include "USceneComponent.h"
+#include "Math/MathFwd.h"
 
 USceneComponent::USceneComponent()
 {

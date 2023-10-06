@@ -40,12 +40,12 @@ private:
 	TList<USceneComponent*> m_childComponents;
 
 
-	FVector m_position{};
-	FVector m_rotation{};
-	FVector m_scale{};
+	FVector m_position;
+	FVector m_rotation;
+	FVector m_scale;
 	
-	FVector m_positionOffset{};
-	FVector m_rotationOffset{};
-	FVector m_scaleOffset{};
+	FVector m_positionOffset;
+	FVector m_rotationOffset;
+	FVector m_scaleOffset;
 
 };

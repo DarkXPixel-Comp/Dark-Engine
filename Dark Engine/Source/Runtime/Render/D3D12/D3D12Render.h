@@ -7,6 +7,7 @@
 #include <memory>
 #include <Containers/String/DarkString.h>
 #include <Core/CommandLine/CommandLine.h>
+#include <CoreTypes.h>
 #include <ApplicationCore/public/Windows/WindowsWindow.h>
 #include "D3D12Types.h"
 #include "D3D12Resource.h"
@@ -47,7 +48,7 @@ class D3D12Scene;
 class D3D12Renderer : public Renderer
 {
 private:
-	static const uint32_t BACK_BUFFER_COUNT = 2;
+	static const uint32 BACK_BUFFER_COUNT = 2;
 	void Test() { PrintLine("Test"); }
 
 public:
@@ -68,15 +69,15 @@ public:
 	void Update();
 
 private:
-	uint64_t Signal(uint64_t& fenceValue);
-	void WaitForFenceValue(uint64_t fenceValue);
+	uint64 Signal(uint64& fenceValue);
+	void WaitForFenceValue(uint64 fenceValue);
 	void WaitFrame();
 
 
 
 
 	float rot = 0.0f;
-	uint64_t m_freeSRVDescriptor = 0;
+	uint64 m_freeSRVDescriptor = 0;
 
 public:
 	friend class FD3D12Mesh;
@@ -107,9 +108,9 @@ public:
 
 	HANDLE m_fenceEvent;
 	ComPtr<ID3D12Fence> m_fence;
-	uint64_t m_fenceValue;
+	uint64 m_fenceValue;
 
-	uint64_t CurrentBackBufferIndex = 0;
+	uint64 CurrentBackBufferIndex = 0;
 	SIZE_T RTHandleSize =		0;
 	SIZE_T DSHandleSize =		0;
 	SIZE_T CBSRUAHandleSize =	0;

@@ -5,6 +5,8 @@ VisualStudioVersion = 17.7.33808.371
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Dark Engine", "Dark Engine\Dark Engine.vcxproj", "{80EDAB7C-F741-47AB-BED7-ADB56F82E9F2}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Engine", "Engine", "{63A659DB-10D6-4279-8866-E682F161D1B5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -36,6 +38,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{80EDAB7C-F741-47AB-BED7-ADB56F82E9F2} = {63A659DB-10D6-4279-8866-E682F161D1B5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4A3F5028-8F9C-42CC-9578-E3C06111AB45}

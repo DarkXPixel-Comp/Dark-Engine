@@ -7,6 +7,7 @@ UPrimitiveComponent::UPrimitiveComponent()
 void UPrimitiveComponent::BeginPlay()
 {
 	Super::BeginPlay();
+
 }
 
 void UPrimitiveComponent::Update(float DeltaTime)

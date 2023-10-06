@@ -2,6 +2,7 @@
 #include <list>
 #include <unordered_map>
 #include <unordered_set>
+#include "HAL/Platform.h"
 
 
 
@@ -9,16 +10,16 @@ struct Bucket
 {
 	void* ptr = nullptr;
 	size_t sizePointer = 0;
-	uint64_t id = UINT64_MAX;
+	uint64 id = UINT64_MAX;
 };
 
 
 
 class TMemory
 {
-	std::unordered_map<uint64_t, Bucket> m_Buckets;
-	std::unordered_set<uint64_t> m_FreeId;
-	uint64_t id_counter = 0;
+	std::unordered_map<uint64, Bucket> m_Buckets;
+	std::unordered_set<uint64> m_FreeId;
+	uint64 id_counter = 0;
 
 
 public:

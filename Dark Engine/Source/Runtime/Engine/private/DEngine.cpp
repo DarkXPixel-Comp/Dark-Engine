@@ -33,7 +33,6 @@ int32_t DEngine::Initialize()
 
 	m_renderer = std::make_unique<RENDER_API>();
 	m_renderer->Init();
-	m_audio = std::make_unique<FAudioCore>();
 	m_scene = std::make_unique<D3D12Scene>();
 	m_world = std::make_unique<AWorld>();
 	m_world->Init();
