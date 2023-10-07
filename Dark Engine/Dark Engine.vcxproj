@@ -342,7 +342,7 @@
     <ClInclude Include="Source\Runtime\ApplicationCore\public\Windows\WindowsWindow.h" />
     <ClInclude Include="Source\Runtime\Core\Application\Application.h" />
     <ClInclude Include="Source\Runtime\Core\CommandLine\CommandLine.h" />
-    <ClInclude Include="Source\Runtime\Core\Containers\Array\Array.h" />
+    <ClInclude Include="Source\Runtime\Core\Public\Containers\Array.h" />
     <ClInclude Include="Source\Runtime\Core\Containers\List\TList.h" />
     <ClInclude Include="Source\Runtime\Core\CoreDefines.h" />
     <ClInclude Include="Source\Runtime\Core\Delegate\Delegate.h" />
@@ -368,6 +368,8 @@
     <ClInclude Include="Source\Runtime\Core\Public\Templates\DarkTypeTraits.h" />
     <ClInclude Include="Source\Runtime\Core\Public\Templates\EnableIf.h" />
     <ClInclude Include="Source\Runtime\Core\Public\Templates\IsFloatingPoint.h" />
+    <ClInclude Include="Source\Runtime\Core\Public\Templates\IsSigned.h" />
+    <ClInclude Include="Source\Runtime\Core\Public\Templates\MakeUnsigned.h" />
     <ClInclude Include="Source\Runtime\Core\Public\Windows\WindowsPlatform.h" />
     <ClInclude Include="Source\Runtime\Core\Public\Windows\WindowsPlatformMath.h" />
     <ClInclude Include="Source\Runtime\Core\Timer\GameTimer.h" />

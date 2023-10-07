@@ -189,7 +189,7 @@
     <ClInclude Include="Source\Runtime\Core\Public\Containers\DarkString.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Runtime\Core\Containers\Array\Array.h">
+    <ClInclude Include="Source\Runtime\Core\Public\Containers\Array.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\Runtime\Render\D3D12\D3D12Shader.h">
@@ -283,6 +283,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\Runtime\Core\Public\MSVC\MSVCPlatform.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Runtime\Core\Public\Templates\MakeUnsigned.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Runtime\Core\Public\Templates\IsSigned.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

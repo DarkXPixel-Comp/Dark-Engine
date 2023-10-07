@@ -2,7 +2,7 @@
 #include <Core.h>
 #include <Windows.h>
 #include <Containers/DarkString.h>
-#include <Containers/Array/Array.h>
+#include <Containers/Array.h>
 #include <algorithm>
 
 

@@ -1,5 +1,5 @@
 #pragma once
-#include <Core/Containers/Array/Array.h>
+#include <Containers/Array.h>
 #include <Containers/DarkString.h>
 #include <VertexTypes.h>
 #include <wtypes.h>

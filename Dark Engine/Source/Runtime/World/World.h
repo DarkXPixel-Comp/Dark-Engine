@@ -1,6 +1,6 @@
 #pragma once
 #include <memory>
-#include <Core/Containers/Array/Array.h>
+#include <Containers/Array.h>
 #include <Core/Memory/TUniquePtr.h>
 #include <DirectXMath.h>
 #include <Engine/Classes/Actor/Actor.h>

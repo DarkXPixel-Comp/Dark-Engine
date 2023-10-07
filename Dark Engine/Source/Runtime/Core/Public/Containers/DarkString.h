@@ -10,7 +10,10 @@ using FString = std::string;
 
 class FStringT
 {
+private:
 	
+
+
 
 
 

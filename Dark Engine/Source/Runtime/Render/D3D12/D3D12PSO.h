@@ -1,7 +1,7 @@
 #pragma once
 #include <Windows.h>
 #include "D3D12.h"
-#include <Core/Containers/Array/Array.h>
+#include <Containers/Array.h>
 #include <Containers/DarkString.h>
 #include <Core/CoreDefines.h>
 #include "D3D12Mesh.h"

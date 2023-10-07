@@ -2,7 +2,7 @@
 #include "D3D12.h"
 #include "../Renderer.h"
 #include <VertexTypes.h>
-#include <Core/Containers/Array/Array.h>
+#include <Containers/Array.h>
 #include <DescriptorHeap.h>
 #include <memory>
 #include <Containers/DarkString.h>

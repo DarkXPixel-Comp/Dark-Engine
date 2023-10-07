@@ -9,7 +9,7 @@
 #include "D3D12Camera.h"
 #include "D3D12Texture.h"
 #include "HAL/Platform.h"
-#include "Containers/Array/Array.h"
+#include "Containers/Array.h"
 
 
 

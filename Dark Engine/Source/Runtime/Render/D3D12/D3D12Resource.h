@@ -1,7 +1,7 @@
 #pragma once
 #include "D3D12Utils.h"
 #include "D3D12.h"
-#include <Core/Containers/Array/Array.h>
+#include <Containers/Array.h>
 
 template <typename T>
 class D3D12UploadBufferResource
