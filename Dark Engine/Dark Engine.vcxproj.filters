@@ -291,6 +291,33 @@
     <ClInclude Include="Source\Runtime\Core\Public\Templates\IsSigned.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Runtime\Core\Public\Templates\ChooseClass.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Runtime\Core\Public\Containers\ContainerAllocationPolices.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Runtime\Core\Public\Math\NumericLimits.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Runtime\Core\Public\HAL\DarkMemory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Runtime\Core\Public\Templates\IsPointer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Runtime\Core\Public\Windows\WindowsPlatformMemory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Runtime\Core\Public\HAL\PlatformMemory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Runtime\Core\Public\GenericPlatform\GenericPlatformMemory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Runtime\Core\Public\GenericPlatform\GenericPlatformString.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Runtime\Launch\Platforms\Windows\LaunchWindows.cpp">
@@ -387,6 +414,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source\Runtime\Core\Private\Math\DarkMath.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Runtime\Core\Private\Mish\AssertionMacros.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

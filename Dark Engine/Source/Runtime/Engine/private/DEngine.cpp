@@ -6,6 +6,7 @@
 #include <Engine/Classes/TestActor/TestActor.h>
 #include <Application/Application.h>
 #include <Components/SceneComponent/USceneComponent.h>
+#include "Math/MathFwd.h"
 
 
 DEngine GEngine;
@@ -36,6 +37,8 @@ int32_t DEngine::Initialize()
 	m_scene = std::make_unique<D3D12Scene>();
 	m_world = std::make_unique<AWorld>();
 	m_world->Init();
+
+	FVector vec;
 
 	if (!m_editor)
 		m_editor = &m_defaultEditor;

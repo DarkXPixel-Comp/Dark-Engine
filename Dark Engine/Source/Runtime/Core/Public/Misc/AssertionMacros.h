@@ -31,6 +31,9 @@ struct FDebug
 {
 public:
 	static DENGINE_API bool VARARGS	CheckVerifyFailedImpl(const ANSICHAR* Expr, const ANSICHAR* File, int32 Line, void* ProgramCounter, const TCHAR* Format, ...);
+	static DENGINE_API void LogAssertFailedMessageImplV(const ANSICHAR* Expr, const ANSICHAR* File, int32 Line, void* ProgramCounter, const TCHAR* Fmt, va_list Args);
+
+
 
 };
 
@@ -49,6 +52,10 @@ public:
 #endif
 #ifndef check
 #define check(expr)				DE_CHECK_IMPL(expr)
+#ifndef	checkSlow
+#define checkSlow(expr)			check(expr)
+#endif
+
 #endif
 
 // Technically we could use just the _F version (lambda-based) for asserts

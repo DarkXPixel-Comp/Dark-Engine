@@ -3,7 +3,6 @@
 #include "PreprocessorHelpers.h"
 
 
-
 #if !defined(PLATFORM_WINDOWS)
 #define PLATFORRM_WINDOWS 0
 #endif
@@ -50,6 +49,9 @@ typedef FPlatformTypes::CHAR16 UCS2CHAR;
 typedef FPlatformTypes::CHAR16 UTF16CHAR;
 typedef FPlatformTypes::CHAR32 UTF32CHAR;
 
+typedef FPlatformTypes::SIZE_T SIZE_T;
+typedef FPlatformTypes::SSIZE_T SSIZE_T;
+
 
 #define UTF8TEXT_PASTE(x) u8 ## x
 #define UTF16TEXT_PASTE(x) u ## x
@@ -66,4 +68,7 @@ typedef FPlatformTypes::CHAR32 UTF32CHAR;
 
 
 
+
+#define UTF16TEXT(x) UTF16TEXT_PASTE(x)
+#define WIDETEXT(str) WIDETEXT_PASTE(str)
 
