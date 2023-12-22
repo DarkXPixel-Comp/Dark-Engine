@@ -130,19 +130,19 @@ namespace Develop
 		template <typename OtherElementType, typename OtherSizeType>
 		void CopyToEmpty(const OtherElementType* OtherData, OtherSizeType OtherNum, SizeType PrevMax)
 		{
-			//SizeType NewNum = (SizeType)OtherNum;
-			//checkf((OtherSizeType)NewNum == OtherNum, TEXT("Invalid number of elements to add to this array type: %lld"), (long long)NewNum);
+			SizeType NewNum = (SizeType)OtherNum;
+			checkf((OtherSizeType)NewNum == OtherNum, TEXT("Invalid number of elements to add to this array type: %lld"), (long long)NewNum);
 
-			//ArrayNum = NewNum;
-			//if (OtherNum || PrevMax)
-			//{
-			//	ResizeForCopy(NewNum, PrevMax);
-			//	ConstructItems<ElementType>(GetData(), OtherData, OtherNum);
-			//}
-			//else
-			//{
-			//	ArrayMax = AllocatorInstance.GetInitialCapacity();
-			//}
+			ArrayNum = NewNum;
+			if (OtherNum || PrevMax)
+			{
+				ResizeForCopy(NewNum, PrevMax);
+				ConstructItems<ElementType>(GetData(), OtherData, OtherNum);
+			}
+			else
+			{
+				ArrayMax = AllocatorInstance.GetInitialCapacity();
+			}
 		}
 
 	};

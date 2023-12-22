@@ -1,6 +1,7 @@
 #pragma once
 
 #include "HAL/Platform.h"
+#include "D3D12ThirdParty.h"
 
 
 // This is a value that should be tweaked to fit the app, lower numbers will have better performance
