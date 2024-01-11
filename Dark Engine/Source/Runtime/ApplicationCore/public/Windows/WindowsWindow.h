@@ -1,6 +1,6 @@
 #pragma once
 #include <Core.h>
-#include <Core/Delegate/Delegate.h>
+#include <Delegate/Delegate.h>
 #include <Windows.h>
 #include <Containers/DarkString.h>
 

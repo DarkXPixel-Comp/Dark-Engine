@@ -1,7 +1,7 @@
 #include "CameraActor.h"
-#include <Core/CommandLine/CommandLine.h>
-#include <Core/CoreDefines.h>
-#include <Engine/public/DEngine.h>
+#include <CommandLine/CommandLine.h>
+#include <CoreDefines.h>
+#include <DEngine.h>
 
 
 UCameraActor::UCameraActor()

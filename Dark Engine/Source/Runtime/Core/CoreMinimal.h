@@ -9,6 +9,7 @@
 
 
 #include <Definitions.h>
+#include "CoreTypes.h"
 
 
 //

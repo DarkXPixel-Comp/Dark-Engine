@@ -17,6 +17,8 @@ void URotateComponent::Update(float DeltaTime)
 	rot.y *= DeltaTime;
 	rot.z *= DeltaTime;
 
+	//Cast<URotateComponent>(GetOwner())->SetRotateOnTick({0, 0, 0});
+
 	Cast<AActor>(GetOwner())->AddRotation(rot);
 }
 

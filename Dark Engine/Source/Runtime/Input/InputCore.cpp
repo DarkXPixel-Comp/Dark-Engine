@@ -1,6 +1,6 @@
 #include "InputCore.h"
-#include <Core/CommandLine/CommandLine.h>
-#include <Core/CoreDefines.h>
+#include <CommandLine/CommandLine.h>
+#include <CoreDefines.h>
 
 
 FInputCore* FInputCore::_inst_ = nullptr;
@@ -51,6 +51,8 @@ void FInputCore::Update()
     if (KeyBoardState.A) ADelegate.BroadCast();
     if (KeyBoardState.Space) SpaceDelegate.BroadCast();
     if (KeyBoardState.LeftShift) ActionDelegate.BroadCast(LShift);
+    if (KeyBoardState.F3) ActionDelegate.BroadCast(F3);
+    if (KeyBoardState.F4) ActionDelegate.BroadCast(F4);
     
     if(m_isRelative)
         MouseDelegate.BroadCast(MouseState.x, MouseState.y);

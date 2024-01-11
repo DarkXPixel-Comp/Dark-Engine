@@ -1,18 +1,20 @@
 #pragma once
-#include <Core/Core.h>
+#include <Core.h>
 #include <Windows.h>
 #include <Mouse.h>
 #include <Keyboard.h>
 #include <memory>
-#include <Core/Memory/TUniquePtr.h>
-#include <Core/Delegate/Delegate.h>
+#include <Memory/TUniquePtr.h>
+#include <Delegate/Delegate.h>
 
 
 enum eInputActionState
 {
 	F1 = 0,
 	F2,
-	LShift
+	F3,
+	F4,
+	LShift,
 };
 
 enum eInputAxisState

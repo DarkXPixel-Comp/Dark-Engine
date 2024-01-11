@@ -2,4 +2,5 @@
 
 
 #include "CoreTypes.h"
-#include "GenericPlatform/GenericPlatformMemory.h"
+
+#include COMPILED_PLATFORM_HEADER(PlatformMemory.h)

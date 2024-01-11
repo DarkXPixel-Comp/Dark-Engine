@@ -1,11 +1,9 @@
 #pragma once	 
 #include "../Actor/Actor.h"
-#include <Render/D3D12/D3D12Camera.h>
-#include <Input/InputCore.h>
+#include <D3D12/D3D12Camera.h>
+#include <InputCore.h>
 #include <DirectXMath.h>
-
-
-#include <Engine/Classes/Components/RotateComponent/RotateComponent.h>
+#include <Components/RotateComponent/RotateComponent.h>
 
 
 class UCameraActor : public AActor 

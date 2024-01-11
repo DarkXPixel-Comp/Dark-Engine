@@ -1,0 +1,42 @@
+﻿{
+	"configurations": [
+		{
+			"name": "Win64-Debug",
+			"generator": "Ninja",
+			"configurationType": "Debug",
+			"inheritEnvironments": [ "msvc_x64_x64" ],
+			"buildRoot": "${projectDir}\\Dark Engine\\Intermediate\\Build\\${name}",
+			"installRoot": "${projectDir}\\Dark Engine",
+			"cmakeCommandArgs": "",
+			"buildCommandArgs": "",
+			"ctestCommandArgs": "",
+			"intelliSenseMode": "windows-msvc-x64"
+		},
+		{
+			"name": "Win64-Release",
+			"generator": "Ninja",
+			"configurationType": "Release",
+			"buildRoot": "${projectDir}\\Dark Engine\\Intermediate\\Build\\${name}",
+			"installRoot": "${projectDir}\\Dark Engine",
+			"cmakeCommandArgs": "",
+			"buildCommandArgs": "",
+			"ctestCommandArgs": "",
+			"inheritEnvironments": [ "msvc_x64_x64" ],
+			"variables": [],
+			"intelliSenseMode": "windows-msvc-x64"
+		},
+		{
+			"name": "Win64-Test",
+			"generator": "Ninja",
+			"configurationType": "RelWithDebInfo",
+			"buildRoot": "${projectDir}\\Dark Engine\\Intermediate\\Build\\${name}",
+			"installRoot": "${projectDir}\\Dark Engine",
+			"cmakeCommandArgs": "",
+			"buildCommandArgs": "",
+			"ctestCommandArgs": "",
+			"inheritEnvironments": [ "msvc_x64_x64" ],
+			"variables": [],
+			"intelliSenseMode": "windows-msvc-x64"
+		}
+	]
+}

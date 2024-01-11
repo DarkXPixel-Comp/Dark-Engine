@@ -1,10 +1,18 @@
 #include "D3D12Render.h"
-#include <Engine/public/DEngine.h>
+#include <DEngine.h>
 #include "D3D12Utils.h"
 #include "D3D12Scene.h"
 #include "D3D12PSO.h"
-#include <World/World.h>
-#include <Core/Timer/GameTimer.h>
+#include <World.h>
+#include <Timer/GameTimer.h>
+#include <ResourceUploadBatch.h>
+#include <BufferHelpers.h>
+
+
+#include <d3d12.h>
+
+
+#define SizeOfInUint32(obj) ((sizeof(obj) - 1) / sizeof(UINT32) + 1)
 
 
 #undef max
@@ -20,13 +28,14 @@ void TransitionResource(Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList6> comma
 		beforeState, afterState);
 
 	commandList->ResourceBarrier(1, &barrier);
-
+	
 
 }
 
 
 D3D12Renderer::D3D12Renderer()
 {
+	
 	m_backBufferFormat = DXGI_FORMAT_R8G8B8A8_UNORM;
 	m_depthStencilFormat = DXGI_FORMAT_D32_FLOAT; //DXGI_FORMAT_D16_UNORM
 }
@@ -36,18 +45,33 @@ int32_t D3D12Renderer::Init()
 	HRESULT Error = S_OK;
 
 #ifdef _DEBUG
-	{
-		ComPtr<ID3D12Debug> debug;
-		D3D12GetDebugInterface(IID_PPV_ARGS(&debug));
-		debug->EnableDebugLayer();
-	}
+	//{
+	//	ComPtr<ID3D12Debug1> debug;
+	//	D3D12GetDebugInterface(IID_PPV_ARGS(&debug));
+	//	debug->EnableDebugLayer();
+	//	debug->SetEnableGPUBasedValidation(true);
+	//}
 #endif // _DEBUG
 	m_renderWindow = GEngine.GetWindowManager()->GetWindow(0);
 	m_renderWindow->onResizeWindow.Bind(this, &D3D12Renderer::OnResize);
 
-	DXCall(Error = CreateDXGIFactory2(0, IID_PPV_ARGS(&m_factory)));
-	DXCall(Error = D3D12CreateDevice(nullptr, D3D_FEATURE_LEVEL_12_0, IID_PPV_ARGS(&m_device)));
+	DXCall(Error = CreateDXGIFactory( IID_PPV_ARGS(&m_factory)));
+	DXCall(Error = D3D12CreateDevice(nullptr, D3D_FEATURE_LEVEL_12_1, IID_PPV_ARGS(&m_device)));
 	DXCall(Error = m_factory->EnumAdapterByLuid(m_device->GetAdapterLuid(), IID_PPV_ARGS(&m_adapter)));
+
+	{
+		D3D12_FEATURE_DATA_D3D12_OPTIONS5 RayTracingSupports = {};
+		DXCall(m_device->CheckFeatureSupport(D3D12_FEATURE_D3D12_OPTIONS5, &RayTracingSupports,
+			sizeof(RayTracingSupports)));
+		if (RayTracingSupports.RaytracingTier == D3D12_RAYTRACING_TIER_NOT_SUPPORTED)
+		{
+			Log("PISDEC");
+			return -1;
+		}
+	}
+
+
+
 
 	D3D12_COMMAND_QUEUE_DESC CommandQueueDesc = {};
 
@@ -100,6 +124,7 @@ int32_t D3D12Renderer::Init()
 		D3D12_CPU_DESCRIPTOR_HANDLE cpuHandle = RTDescriptorHeap->GetCpuHandle(i);
 		DXCall(Error = m_swapchain->GetBuffer(i, IID_PPV_ARGS(&m_backBuffers[i])));
 		m_device->CreateRenderTargetView(m_backBuffers[i].Get(), nullptr, cpuHandle);
+		m_device->CreateShaderResourceView(m_backBuffers[i].Get(), nullptr, SRDescriptorHeap->GetCpuHandle(222 + i));
 	}
 
 	DXCall(Error = m_device->CreateCommandAllocator(D3D12_COMMAND_LIST_TYPE_DIRECT,
@@ -144,15 +169,195 @@ int32_t D3D12Renderer::Init()
 		static_cast<float>(m_renderWindow->GetHeight()), 0.f, 1.f };
 
 
+	RenderTargetState RTState(m_backBufferFormat, m_depthStencilFormat);
+
+	PostProcess = std::make_unique<BasicPostProcess>(m_device.Get(), RTState, BasicPostProcess::BloomBlur);
 	m_passBuffer = std::make_unique<D3D12UploadBufferResource<D3D12PassConstants>>(1, true);
+	GraphMemory = std::make_unique<GraphicsMemory>(m_device.Get());
+	D3DUtil::Init();
 	D3DUtil::InitStaticSamples();
 	D3DUtil::InitPipelines();
 
 
 		
+	GEngine.GetInput()->ActionDelegate.Bind(this, &D3D12Renderer::OnInput);
+	m_renderWindow->onResizeWindow.Bind(this, &D3D12Renderer::OnResize);
+
+
+
+
+	{
+		struct Vert
+		{
+			XMFLOAT3 vertices;
+			XMFLOAT2 uv;
+		} vert;
+		ResourceUploadBatch upload(m_device.Get());
+
+		upload.Begin();
+		
+		TArray<Vert> vertices = { {{-1, -1, 0}, {0, 1}}, {{-1, 1, 0}, {0, 0}}, {{1, -1, 0}, {1, 1}}, {{1, 1, 0}, {1, 0}} };
+		TArray<uint32> indices = { 0, 1, 2, 1, 3, 2 };
+		TArray<Vert> verticesCube = {{{-1, -1, -1}, {} },
+									{{-1,  1, -1}, {} },
+									{{ 1,  1, -1}, {} }, 
+									{{ 1, -1, -1}, {} },
+
+									{{-1, -1,  1}, {} },
+									{{-1,  1,  1}, {} },
+									{{ 1,  1,  1}, {} },
+									{{ 1, -1,  1}, {} } };
+		TArray<uint32> IndicesCube{ 0, 1, 3, 1, 2, 3,
+									4, 5, 7, 5, 6, 7,
+									4, 5, 0, 5, 0, 1,
+									7, 6, 3, 6, 3, 2,
+									1, 5, 2, 2, 5, 6,
+									0, 4, 3, 4, 7, 3};
+					
+
+		CreateStaticBuffer(m_device.Get(), upload, vertices.data(), vertices.size(), D3D12_RESOURCE_STATE_VERTEX_AND_CONSTANT_BUFFER, &m_backVertexBuffer);
+		CreateStaticBuffer(m_device.Get(), upload, indices.data(), indices.size(), D3D12_RESOURCE_STATE_INDEX_BUFFER, &m_backIndicesBuffer);
+		
+		CreateStaticBuffer(m_device.Get(), upload, verticesCube.data(), verticesCube.size(),
+			D3D12_RESOURCE_STATE_VERTEX_AND_CONSTANT_BUFFER, &m_vertexSkyBoxBuffer);
+		CreateStaticBuffer(m_device.Get(), upload, IndicesCube.data(), IndicesCube.size(),
+			D3D12_RESOURCE_STATE_INDEX_BUFFER, &m_indicesSkyBoxBuffer);
+
+
+
+		upload.End(D3DUtil::GetCommandQueue()).wait();
+
+		m_backVertexView.BufferLocation = m_backVertexBuffer->GetGPUVirtualAddress();
+		m_backVertexView.SizeInBytes = sizeof(Vert) * vertices.size();
+		m_backVertexView.StrideInBytes = sizeof(Vert);
+
+		m_backIndexView.BufferLocation = m_backIndicesBuffer->GetGPUVirtualAddress();
+		m_backIndexView.Format = DXGI_FORMAT_R32_UINT;
+		m_backIndexView.SizeInBytes = sizeof(uint32) * indices.size();
+
+		m_SkyBoxVertexView.BufferLocation = m_vertexSkyBoxBuffer->GetGPUVirtualAddress();
+		m_SkyBoxVertexView.SizeInBytes = sizeof(Vert) * verticesCube.size();
+		m_SkyBoxVertexView.StrideInBytes = sizeof(Vert);
+
+		m_SkyBoxIndexView.BufferLocation = m_indicesSkyBoxBuffer->GetGPUVirtualAddress();
+		m_SkyBoxIndexView.Format = DXGI_FORMAT_R32_UINT;
+		m_SkyBoxIndexView.SizeInBytes = sizeof(uint32) * IndicesCube.size();
+
+		{
+			TArray<D3D12_ROOT_PARAMETER1> params(3);
+			TArray<D3D12_INPUT_ELEMENT_DESC> elements(2);
+			D3D12_INPUT_LAYOUT_DESC layout;
+
+			elements[0] = { "SV_Position", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, D3D12_APPEND_ALIGNED_ELEMENT, D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA, 0 };
+			elements[1] = { "TEXCOORD", 0, DXGI_FORMAT_R32G32_FLOAT, 0, D3D12_APPEND_ALIGNED_ELEMENT, D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA, 0 };
+			layout.NumElements = 2;
+			layout.pInputElementDescs = elements.data();
+
+			CD3DX12_DESCRIPTOR_RANGE1 range(D3D12_DESCRIPTOR_RANGE_TYPE_SRV, 1, 2);
+			CD3DX12_ROOT_PARAMETER1::InitAsDescriptorTable(params[2], 1, &range);
+			CD3DX12_ROOT_PARAMETER1::InitAsConstantBufferView(params[0], 0, 0, 
+				D3D12_ROOT_DESCRIPTOR_FLAG_DATA_STATIC_WHILE_SET_AT_EXECUTE, D3D12_SHADER_VISIBILITY_VERTEX);
+			CD3DX12_ROOT_PARAMETER1::InitAsConstantBufferView(params[1], 1, 0,
+				D3D12_ROOT_DESCRIPTOR_FLAG_DATA_STATIC_WHILE_SET_AT_EXECUTE, D3D12_SHADER_VISIBILITY_VERTEX);
+
+
+			m_SkyBoxPSO = std::make_unique<D3D12PipelineShaderRootSignature>(m_device.Get(),
+				FPaths::CombineDir(FPaths::EngineShaderDir(), "Skybox.hlsl"), 
+				FPaths::CombineDir(FPaths::EngineShaderDir(), "SkyboxPixel.hlsl"),
+				params, layout, true, D3D12_CULL_MODE_NONE, D3D12_COMPARISON_FUNC_LESS_EQUAL);
+
+		}
+
+		{
+
+			TArray<D3D12_ROOT_PARAMETER1> params(1);
+			TArray<D3D12_INPUT_ELEMENT_DESC> elements(2);
+			D3D12_INPUT_LAYOUT_DESC layout;
+
+			elements[0] = { "SV_Position", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, D3D12_APPEND_ALIGNED_ELEMENT, D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA, 0 };
+			elements[1] = { "TEXCOORD", 0, DXGI_FORMAT_R32G32_FLOAT, 0, D3D12_APPEND_ALIGNED_ELEMENT, D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA, 0 };
+			layout.NumElements = 2;
+			layout.pInputElementDescs = elements.data();
+
+
+			CD3DX12_DESCRIPTOR_RANGE1 range(D3D12_DESCRIPTOR_RANGE_TYPE_SRV, 1, 0);
+			CD3DX12_ROOT_PARAMETER1::InitAsDescriptorTable(params[0], 1, &range);
+			m_PostProcessPSO = std::make_unique<D3D12PipelineShaderRootSignature>(m_device.Get(),
+				FPaths::CombineDir(FPaths::EngineShaderDir(), "PostProcess.hlsl"),
+				FPaths::CombineDir(FPaths::EngineShaderDir(), "IncreaseBright.hlsl"), params, layout, false);
+			m_Blur = std::make_unique<D3D12PipelineShaderRootSignature>(m_device.Get(), 
+				FPaths::CombineDir(FPaths::EngineShaderDir(), "PostProcess.hlsl"),
+				FPaths::CombineDir(FPaths::EngineShaderDir(), "Blur.hlsl"),
+				params, layout, false);
+		}
+
+	}
+
+	m_skyboxTexture = D3DUtil::LoadTexture(FPaths::CombineDir(FPaths::EngineContentDir(), "Textures/cubemap.dds"), true);
+
+	m_cbvObjectSkyBox = std::make_unique<D3D12UploadBufferResource<XMMATRIX>>(1, true);
+
+
+
+
+
+
+
+
+	if (IsRaster)
+		return Error;
+
+
+
+	// RayTracing
+
+	{
+		CD3DX12_DESCRIPTOR_RANGE UAVDescriptor;
+		UAVDescriptor.Init(D3D12_DESCRIPTOR_RANGE_TYPE_UAV, 1, 0);
+
+		CD3DX12_ROOT_PARAMETER rootParameters[2];
+		rootParameters[0].InitAsDescriptorTable(1, &UAVDescriptor);
+		rootParameters[1].InitAsShaderResourceView(0);
+		CD3DX12_ROOT_SIGNATURE_DESC globalRootSignatureDesc(ARRAYSIZE(rootParameters), rootParameters);
+
+		ID3DBlob* blob;
+		ID3DBlob* error;
+
+		D3D12SerializeRootSignature(&globalRootSignatureDesc, D3D_ROOT_SIGNATURE_VERSION_1, &blob, &error);
+		m_device->CreateRootSignature(0, blob->GetBufferPointer(), blob->GetBufferSize(), IID_PPV_ARGS(&m_RayTracingGlobalRootSignature));
+
+	}
+
+	{
+		CD3DX12_DESCRIPTOR_RANGE UAVDescriptor;
+		UAVDescriptor.Init(D3D12_DESCRIPTOR_RANGE_TYPE_UAV, 1, 0);
+
+		CD3DX12_ROOT_PARAMETER rootParameters[1];
+		rootParameters[0].InitAsConstants(SizeOfInUint32(m_RayGenCB), 0, 0);
+		CD3DX12_ROOT_SIGNATURE_DESC localRootSignatureDesc(ARRAYSIZE(rootParameters), rootParameters);
+		localRootSignatureDesc.Flags = D3D12_ROOT_SIGNATURE_FLAG_LOCAL_ROOT_SIGNATURE;
+
+		ID3DBlob* blob;
+		ID3DBlob* error;
+
+		D3D12SerializeRootSignature(&localRootSignatureDesc, D3D_ROOT_SIGNATURE_VERSION_1, &blob, &error);
+		m_device->CreateRootSignature(0, blob->GetBufferPointer(), blob->GetBufferSize(), IID_PPV_ARGS(&m_RayTracingLocalRootSignature));
+
+	}
 
 	return Error;
 
+}
+
+
+void D3D12Renderer::OnInput(eInputActionState action)
+{
+	if (action == F3)
+		IsRaster = false;
+	if (action == F4)
+	{
+		IsRaster = true;
+	}
 }
 
 void D3D12Renderer::Shutdown()
@@ -176,10 +381,24 @@ void D3D12Renderer::BeginFrame(D3D12Scene* scene)
 {
 	auto models = scene->GetModels();
 	auto DefaultTex = D3DUtil::LoadTexture(D3D_DEFAULT_TEXTURE);
+	auto SkyboxTex = D3DUtil::LoadTexture(D3D_DEFAULT_SKYBOX);
+
+	if (!isDefaultTexLoaded)
+	{
 		m_device->CreateShaderResourceView(
 			DefaultTex->m_textureBuffer,
 			&DefaultTex->m_srvDesc,
 			SRDescriptorHeap->GetCpuHandle(m_freeSRVDescriptor++));
+		isDefaultTexLoaded = !isDefaultTexLoaded;
+	}
+	if (!isSkyboxTexLoaded)
+	{
+		m_device->CreateShaderResourceView(
+			SkyboxTex->m_textureBuffer,
+			&SkyboxTex->m_srvDesc,
+			SRDescriptorHeap->GetCpuHandle(333));
+		isSkyboxTexLoaded = !isSkyboxTexLoaded;
+	}
 
 	for (auto& model : models)
 	{
@@ -250,72 +469,156 @@ void D3D12Renderer::Render(D3D12Scene* scene)
 	CD3DX12_CPU_DESCRIPTOR_HANDLE backBufferHandle(RTDescriptorHeap->GetCpuHandle(CurrentBackBufferIndex));
 	CD3DX12_CPU_DESCRIPTOR_HANDLE depthBufferHandle(DSDescriptorHeap->GetFirstCpuHandle());
 	FLOAT clearColor[] = { 0.0f, 0.0f, 0.0f, 1.f };
-	ID3D12DescriptorHeap* ppHeaps[] = { SRDescriptorHeap->Heap() };
-	m_commandAllocator->Reset();
-	m_commandList->Reset(m_commandAllocator.Get(), PSO->m_pipelineState.Get());
-
-	TransitionResource(m_commandList, backBuffer.Get(),
-		D3D12_RESOURCE_STATE_PRESENT, D3D12_RESOURCE_STATE_RENDER_TARGET);
-	m_commandList->OMSetRenderTargets(1, &backBufferHandle, FALSE, &depthBufferHandle);
-	m_commandList->ClearRenderTargetView(backBufferHandle, clearColor, 0, nullptr);
-	m_commandList->ClearDepthStencilView(depthBufferHandle, D3D12_CLEAR_FLAG_DEPTH, 1.f, 0, 0, nullptr);
-	m_commandList->RSSetScissorRects(1, &ScissorRect);
-	m_commandList->RSSetViewports(1, &Viewport);
-	m_commandList->SetGraphicsRootSignature(PSO->m_rootSignature.Get());
-	m_commandList->SetDescriptorHeaps(1, ppHeaps);
-	m_commandList->IASetPrimitiveTopology(D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
-
-	
+	if (IsRaster)
 	{
-		D3D12PassConstants passConst;
+		ID3D12DescriptorHeap* ppHeaps[] = { SRDescriptorHeap->Heap() };
+		m_commandAllocator->Reset();
+		m_commandList->Reset(m_commandAllocator.Get(), PSO->m_pipelineState.Get());
 
-		passConst.ViewProjectionMatrix = D3DUtil::GetViewProjMatrix(&camera);
-		passConst.RenderTargetSize = XMFLOAT2(window->GetWitdh(), window->GetHeight());
-		passConst.TotalTime = FGameTimer::TotalTime();
-		passConst.DeltaTime = FGameTimer::DeltaTime();
-		passConst.EyePos = camera.m_position;
-		passConst.AmbientLight = { 0.25f, 0.25f, 0.25f, 1.0f };
-
-		passConst.Lights[0].Strenght = { 1.f, 1.f, 1.f };
-		passConst.Lights[0].Direction = { 1, -1, 0 };
-
-		passConst.Lights[1].Strenght = { 1.0f, 1.f, 1.0f };
-		passConst.Lights[1].Direction = { 1, -1, 0 };
-		passConst.Lights[1].Position = { 2, 2, 3 };
-		passConst.Lights[1].FalloffStart = 0;
-		passConst.Lights[1].FalloffEnd = 200.f;
-
-		m_passBuffer->CopyData(0, passConst);
+		TransitionResource(m_commandList, backBuffer.Get(),
+			D3D12_RESOURCE_STATE_PRESENT, D3D12_RESOURCE_STATE_RENDER_TARGET);
+		m_commandList->OMSetRenderTargets(1, &backBufferHandle, FALSE, &depthBufferHandle);
+		m_commandList->ClearRenderTargetView(backBufferHandle, clearColor, 0, nullptr);
+		m_commandList->ClearDepthStencilView(depthBufferHandle, D3D12_CLEAR_FLAG_DEPTH, 1.f, 0, 0, nullptr);
+		m_commandList->RSSetScissorRects(1, &ScissorRect);
+		m_commandList->RSSetViewports(1, &Viewport);
+		m_commandList->SetGraphicsRootSignature(PSO->m_rootSignature.Get());
+		m_commandList->SetDescriptorHeaps(1, ppHeaps);
+		m_commandList->IASetPrimitiveTopology(D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 
 
+		{
+			D3D12PassConstants passConst;
 
-		m_commandList->SetGraphicsRootConstantBufferView(3, m_passBuffer->GetResource()->GetGPUVirtualAddress());
+			passConst.ViewProjectionMatrix = D3DUtil::GetViewProjMatrix(&camera);
+			passConst.RenderTargetSize = XMFLOAT2(window->GetWitdh(), window->GetHeight());
+			passConst.TotalTime = FGameTimer::TotalTime();
+			passConst.DeltaTime = FGameTimer::DeltaTime();
+			passConst.EyePos = camera.m_position;
+			passConst.AmbientLight = { 0.25f, 0.25f, 0.25f, 1.0f };
 
+			passConst.Lights[0].Strenght = { 1.f, 1.f, 1.f };
+			passConst.Lights[0].Direction = { 1, -1, 0 };
+
+			passConst.Lights[1].Strenght = { 1.0f, 1.f, 1.0f };
+			passConst.Lights[1].Direction = { 1, -1, 0 };
+			passConst.Lights[1].Position = { 2, 2, 3 };
+			passConst.Lights[1].FalloffStart = 0;
+			passConst.Lights[1].FalloffEnd = 200.f;
+
+			m_passBuffer->CopyData(0, passConst);
+
+
+
+			m_commandList->SetGraphicsRootConstantBufferView(3, m_passBuffer->GetResource()->GetGPUVirtualAddress());
+
+
+		}
+
+		for (auto& model : models)
+		{
+			auto mesh = model->m_mesh;
+			auto material = model->m_material;
+			if (!mesh) continue;
+			model->FillConstantBuffer();
+			m_commandList->SetGraphicsRootDescriptorTable(1,
+				SRDescriptorHeap->GetGpuHandle(material->m_BaseDescriptorIndex));
+			//......
+
+
+			m_commandList->IASetVertexBuffers(0, 1, &mesh->m_vertexBufferView);
+			m_commandList->IASetIndexBuffer(&mesh->m_indexBufferView);
+			m_commandList->SetGraphicsRootConstantBufferView(0, model->m_cbvObject.GetResource()->GetGPUVirtualAddress());
+			m_commandList->SetGraphicsRootConstantBufferView(2, model->m_cbvMaterial.GetResource()->GetGPUVirtualAddress());
+			m_commandList->DrawIndexedInstanced(mesh->m_indexBufferView.SizeInBytes / sizeof(WORD), 1, 0, 0, 0);
+		}
+
+
+		{	//Skybox
+
+			m_commandList->SetPipelineState(m_SkyBoxPSO->m_pipelineState.Get());
+			m_commandList->SetGraphicsRootSignature(m_SkyBoxPSO->m_rootSignature.Get());
+			//m_commandList->SetGraphicsRootConstantBufferView(1, m_passBuffer->GetResource()->GetGPUVirtualAddress());
+			{
+				XMMATRIX ModelMatrix = XMMatrixIdentity();
+				XMMATRIX Translation = XMMatrixTranslationFromVector(XMLoadFloat3(&camera.m_position));
+				XMMATRIX Rotation = XMMatrixIdentity();
+				//Rotation = XMMatrixRotationRollPitchYawFromVector(XMLoadFloat3(&camera.m_rotation));
+				XMMATRIX Scaling = XMMatrixIdentity();
+
+
+				ModelMatrix = XMMatrixMultiply(Scaling, Rotation);
+				ModelMatrix = XMMatrixMultiply(ModelMatrix, Translation);
+
+				m_cbvObjectSkyBox->CopyData(0, ModelMatrix);
+			}
+			m_commandList->SetGraphicsRootConstantBufferView(1,
+			m_cbvObjectSkyBox->GetResource()->GetGPUVirtualAddress());
+			m_commandList->SetGraphicsRootConstantBufferView(0, m_passBuffer->GetResource()->GetGPUVirtualAddress());
+			m_commandList->SetGraphicsRootDescriptorTable(2, SRDescriptorHeap->GetGpuHandle(333));
+
+
+
+			m_commandList->IASetVertexBuffers(0, 1, &m_SkyBoxVertexView);
+			m_commandList->IASetIndexBuffer(&m_SkyBoxIndexView);
+
+			  
+			m_commandList->DrawIndexedInstanced(36, 1, 0, 0, 0);
+
+
+
+		}
+
+
+		{
+			TransitionResource(m_commandList, backBuffer.Get(),
+				D3D12_RESOURCE_STATE_RENDER_TARGET, D3D12_RESOURCE_STATE_ALL_SHADER_RESOURCE);
+
+			m_commandList->SetPipelineState(m_PostProcessPSO->m_pipelineState.Get());
+			m_commandList->SetGraphicsRootSignature(m_PostProcessPSO->m_rootSignature.Get());
+			//m_commandList->ClearDepthStencilView(depthBufferHandle, D3D12_CLEAR_FLAG_DEPTH, 1.f, 0, 0, nullptr);
+			m_commandList->OMSetRenderTargets(1, &backBufferHandle, FALSE, nullptr);
+
+			m_commandList->SetGraphicsRootDescriptorTable(0, SRDescriptorHeap->GetGpuHandle(222 + CurrentBackBufferIndex));
+
+			m_commandList->IASetVertexBuffers(0, 1, &m_backVertexView);
+			m_commandList->IASetIndexBuffer(&m_backIndexView);
+			//m_commandList->DrawInstanced(3, 1, 0, 0);
+			//m_commandList->DrawIndexedInstanced(6, 1, 0, 0, 0);
+
+
+
+
+
+			/*PostProcess->SetSourceTexture(SRDescriptorHeap->GetGpuHandle(222 + CurrentBackBufferIndex), backBuffer.Get());
+			PostProcess->SetBloomBlurParameters(true, 1.f, 1);*/
+
+			//m_commandList->OMSetRenderTargets(1, &backBufferHandle, false, nullptr);
+		 //  
+			//try
+			{
+				//PostProcess->Process(m_commandList.Get());
+			}
+			//catch ()
+			{
+
+			}			   
+			
+
+			TransitionResource(m_commandList, backBuffer.Get(),
+				D3D12_RESOURCE_STATE_ALL_SHADER_RESOURCE, D3D12_RESOURCE_STATE_RENDER_TARGET);
+		}
+
+		TransitionResource(m_commandList, backBuffer, D3D12_RESOURCE_STATE_RENDER_TARGET, D3D12_RESOURCE_STATE_PRESENT);
+
+		m_commandList->Close();
+		ID3D12CommandList* lists[] = { m_commandList.Get() };
+		m_commandQueue->ExecuteCommandLists(1, lists);
+	}
+	else
+	{
 
 	}
-	
-	for (auto& model : models)
-	{	
-		auto mesh = model->m_mesh;
-		auto material = model->m_material;
-		if (!mesh) continue;
-		model->FillConstantBuffer();
-		m_commandList->SetGraphicsRootDescriptorTable(1,
-		SRDescriptorHeap->GetGpuHandle(material->m_BaseDescriptorIndex));
-
-
-		m_commandList->IASetVertexBuffers(0, 1, &mesh->m_vertexBufferView);
-		m_commandList->IASetIndexBuffer(&mesh->m_indexBufferView);
-		m_commandList->SetGraphicsRootConstantBufferView(0, model->m_cbvObject.GetResource()->GetGPUVirtualAddress());
-		m_commandList->SetGraphicsRootConstantBufferView(2, model->m_cbvMaterial.GetResource()->GetGPUVirtualAddress());
-		m_commandList->DrawIndexedInstanced(mesh->m_indexBufferView.SizeInBytes / sizeof(WORD), 1, 0, 0, 0);
-	}
-
-	TransitionResource(m_commandList, backBuffer, D3D12_RESOURCE_STATE_RENDER_TARGET, D3D12_RESOURCE_STATE_PRESENT);
-
-	m_commandList->Close();
-	ID3D12CommandList* lists[] = { m_commandList.Get() };
-	m_commandQueue->ExecuteCommandLists(1, lists);
 	WaitFrame();
 
 	m_swapchain->Present(bVsync, 0);
@@ -332,6 +635,17 @@ void D3D12Renderer::RenderObj()
 {
 }
 
+
+void D3D12Renderer::PostProcessing(D3D12_GPU_DESCRIPTOR_HANDLE renderHandle, ID3D12Resource* outputHandle)
+{
+
+
+
+
+
+
+
+}
 
 
 void D3D12Renderer::RenderScene()

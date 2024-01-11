@@ -1,6 +1,6 @@
 #include "ActorComponent.h"
 
-#include <Engine/Classes/Actor/Actor.h>
+#include <Actor/Actor.h>
 
 
 UActorComponent::UActorComponent()

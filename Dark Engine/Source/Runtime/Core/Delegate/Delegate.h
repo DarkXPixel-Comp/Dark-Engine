@@ -2,7 +2,7 @@
 
 //#include <assert.h>
 #include <Containers/Array.h> 
-#include <Core/Core.h>
+#include "Core.h"
 
 
 #define FUNC_DECLARE_MULTICAST_DELEGATE(DelegateName, ReturnType, ...) typedef TMultiCastDelegate<ReturnType, __VA_ARGS__> DelegateName

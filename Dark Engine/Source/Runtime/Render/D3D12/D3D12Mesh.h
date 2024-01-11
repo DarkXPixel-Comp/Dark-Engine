@@ -1,9 +1,9 @@
 #pragma once
 #include <Containers/Array.h>
 #include <Containers/DarkString.h>
-#include <VertexTypes.h>
+
 #include <wtypes.h>
-#include "D3D12.h"
+#include "D3D12Main.h"
 #include "D3D12Types.h"
 
 

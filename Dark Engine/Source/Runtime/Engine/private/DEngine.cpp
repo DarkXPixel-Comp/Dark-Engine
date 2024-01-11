@@ -1,12 +1,15 @@
 #include "../public/DEngine.h"
-#include <Render/D3D12/D3D12Scene.h>
-#include <Core/Logging/Logger.hpp>
-#include <Core/Timer/GameTimer.h>
-#include <Core/CoreDefines.h>
-#include <Engine/Classes/TestActor/TestActor.h>
+#include "D3D12/D3D12Scene.h"
+#include <Logging/Logger.hpp>
+#include <Timer/GameTimer.h>
+#include <CoreDefines.h>
+#include <TestActor/TestActor.h>
 #include <Application/Application.h>
 #include <Components/SceneComponent/USceneComponent.h>
 #include "Math/MathFwd.h"
+#include <RHI.h>
+#include "Misc/Paths.h"
+//#include "RHI.h"
 
 
 DEngine GEngine;
@@ -38,10 +41,12 @@ int32_t DEngine::Initialize()
 	m_world = std::make_unique<AWorld>();
 	m_world->Init();
 
+	//RHIInit();
+
 	FVector vec;
 
-	if (!m_editor)
-		m_editor = &m_defaultEditor;
+	//if (!m_editor)
+	//	m_editor = &m_defaultEditor;
 
 	FGameTimer::Reset();
 	FGameTimer::Tick();
@@ -50,24 +55,32 @@ int32_t DEngine::Initialize()
 
 }
 
+void ThreadRender()
+{
+
+}
 
 int32_t DEngine::PostInit()
 {
-	m_windowManager.SetDelay(16);	
+	m_windowManager.SetDelay(32);	
 
 
-	auto PersonMesh = D3DUtil::LoadMesh("Models/kanistra.fbx");
-	auto DiffuseKanistra = D3DUtil::LoadTexture("Resources/kanistra.dds");
-	auto NormalKanistra = D3DUtil::LoadTexture("Resources/kanistra_normal.dds");
+	
+
+	auto PersonMesh = D3DUtil::LoadMesh(FPaths::CombineDir(FPaths::EngineContentDir(), "Meshes/kanistra.fbx"));
+	auto DiffuseKanistra = D3DUtil::LoadTexture(FPaths::CombineDir(FPaths::EngineContentDir(), "Textures/kanistra.dds"));
+	auto NormalKanistra = D3DUtil::LoadTexture(FPaths::CombineDir(FPaths::EngineContentDir(), "Textures/kanistra_normal.dds"));
+	auto GrassDiff = D3DUtil::LoadTexture(FPaths::CombineDir(FPaths::EngineContentDir(), "Textures/sandDif.dds"));
+	auto GrassNorm = D3DUtil::LoadTexture(FPaths::CombineDir(FPaths::EngineContentDir(), "Textures/sandNor.dds"));
 
 
-	auto CubeMesh = D3DUtil::LoadMesh("Models/dev.fbx");
-	auto FloorMesh = D3DUtil::LoadMesh("Models/floor.obj");
-	auto SphereMesh = D3DUtil::LoadMesh("Models/m9.fbx");
-	auto UVTexture = D3DUtil::LoadTexture("Resources/uv.dds");
+	auto CubeMesh = D3DUtil::LoadMesh(FPaths::CombineDir(FPaths::EngineContentDir(), "Meshes/dev.fbx"));
+	auto FloorMesh = D3DUtil::LoadMesh(FPaths::CombineDir(FPaths::EngineContentDir(), "Meshes/floor.obj"));
+	auto SphereMesh = D3DUtil::LoadMesh(FPaths::CombineDir(FPaths::EngineContentDir(), "Meshes/m9.fbx"));
+	auto UVTexture = D3DUtil::LoadTexture(FPaths::CombineDir(FPaths::EngineContentDir(), "Textures/uv.dds"));
 
-	auto CubeTexture = D3DUtil::LoadTexture("Resources/Super.dds");
-	auto NormalMap = D3DUtil::LoadTexture("Resources/SuperNormal.dds");
+	auto CubeTexture = D3DUtil::LoadTexture(FPaths::CombineDir(FPaths::EngineContentDir(), "Textures/Super.dds"));
+	auto NormalMap = D3DUtil::LoadTexture(FPaths::CombineDir(FPaths::EngineContentDir(), "Textures/SuperNormal.dds"));
 	
 
 
@@ -83,8 +96,8 @@ int32_t DEngine::PostInit()
 		material->m_diffuseAlbedo = XMFLOAT4(0.1f, 0.1f, 0.1f, 1.0f);
 		material->m_frenselR0 = { 0.1f, 0.1f, 0.1f };
 		material->m_roughness = 1.0f;
-		material->t_Albedo = DiffuseKanistra;
-		material->t_Normal = NormalKanistra;
+		material->t_Albedo = GrassDiff;
+		material->t_Normal = NormalMap;
 
 		
 
@@ -152,7 +165,12 @@ int32_t DEngine::PostInit()
 
 	m_renderer->SetVsync(0);
 
-	m_editor->Init();
+	/*m_editor->Init();*/
+
+	//SetMaxFPS(500);
+
+	/*thread th(ThreadRender);
+	th.detach();*/
 
 	return 0;
 }
@@ -183,6 +201,8 @@ void DEngine::SetMaxFPS(int fps)
 
 
 
+
+
 void DEngine::UpdateLoop()
 {
 	float deltaTime = FGameTimer::DeltaTime();
@@ -197,7 +217,7 @@ void DEngine::UpdateLoop()
 	m_renderer->Render(m_scene.get());
 
 
-	m_editor->Update(deltaTime);
+	//m_editor->Update(deltaTime);
 	Tick(deltaTime);
 
 	FGameTimer::Tick();
@@ -205,13 +225,13 @@ void DEngine::UpdateLoop()
 }
 
 
-void DEngine::SetEditor(DEditor* edt)
-{
-	if (edt != nullptr && GEngine.m_editor == nullptr) 
-	{
-		GEngine.m_editor = edt;
-	}
-}
+//void DEngine::SetEditor(DEditor* edt)
+//{
+//	if (edt != nullptr && GEngine.m_editor == nullptr) 
+//	{
+//		GEngine.m_editor = edt;
+//	}
+//}
 
 DEngine* DEngine::GetEngine()
 {

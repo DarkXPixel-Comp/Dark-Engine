@@ -1,9 +1,9 @@
 #include "../../public/Windows/WindowsWindow.h"
-#include <Core/Application/Application.h>
-#include <Core/Logging/Logger.hpp>
-#include <Core/CoreDefines.h>
-#include <Engine/public/DEngine.h>
-#include <Input/InputCore.h>
+#include <Application/Application.h>
+#include <Logging/Logger.hpp>
+#include <CoreDefines.h>
+#include <DEngine.h>
+#include <InputCore.h>
 
 
 FWindowsWindow::FWindowsWindow(FWindowsWindowManager* maneger, UINT index)

@@ -1,7 +1,7 @@
 #pragma once
 #include <Core.h>
+#include "CoreTypes.h"
 #include <Windows.h>
-#include <Core/CoreTypes.h>
 
 #define MAX_NAME_STRING 256
 

@@ -1,6 +1,6 @@
 #pragma once
 #include "D3D12Utils.h"
-#include "D3D12.h"
+#include "D3D12Main.h"
 #include <Containers/Array.h>
 
 template <typename T>

@@ -1,11 +1,11 @@
 #pragma once
 #include "../UObject/UObject.h"
 #include <Core.h>
-#include <Engine/Classes/Components/ActorComponent/ActorComponent.h>
+#include <Components/ActorComponent/ActorComponent.h>
 #include <Components/SceneComponent/USceneComponent.h>
 #include <DirectXMath.h>
-#include <Render/D3D12/D3D12Model.h>
-#include <Input/InputCore.h>
+#include <D3D12/D3D12Model.h>
+#include <InputCore.h>
 
 using namespace DirectX;
 

@@ -137,7 +137,7 @@ namespace Develop
 			if (OtherNum || PrevMax)
 			{
 				ResizeForCopy(NewNum, PrevMax);
-				ConstructItems<ElementType>(GetData(), OtherData, OtherNum);
+				//ConstructItems<ElementType>(GetData(), OtherData, OtherNum);
 			}
 			else
 			{

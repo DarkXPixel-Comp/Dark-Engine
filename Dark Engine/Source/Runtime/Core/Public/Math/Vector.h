@@ -542,6 +542,7 @@ namespace DE
 
 		template<typename T>
 		FORCEINLINE TVector<T>::TVector()
+			: X(0.f), Y(0.f), Z(0.f)
 		{}
 		
 		template<typename T>

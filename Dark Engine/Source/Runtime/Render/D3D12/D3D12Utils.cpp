@@ -2,23 +2,29 @@
 #include "D3D12Render.h"
 #include "D3D12PSO.h"
 #include "D3D12Texture.h"
-#include <Engine/public/DEngine.h>
+#include <DEngine.h>
 #include <assimp/Importer.hpp>
 #include <assimp/scene.h>
 #include <assimp/mesh.h>
 #include <assimp/postprocess.h>
-#include <DTK12/DDSTextureLoader.h>
-#include <DTK12/ResourceUploadBatch.h>
+#include <DDSTextureLoader.h>
+#include <ResourceUploadBatch.h>
+#include "Misc/Paths.h"
 
 
 std::unordered_map<UINT, TUniquePtr<D3D12PipelineShaderRootSignature>> D3DUtil::Pipelines;
 std::unordered_map<FString, TUniquePtr<FD3D12Mesh>> D3DUtil::m_meshes;
 std::unordered_map<FString, TUniquePtr<D3D12Texture>> D3DUtil::m_textures;
 TArray<CD3DX12_STATIC_SAMPLER_DESC> D3DUtil::m_samplers(6);
+ComPtr<IDxcCompiler3> D3DUtil::m_ShaderCompiler;
+ComPtr<IDxcUtils>  D3DUtil::m_Utils;
 
 void D3DUtil::Init()
 {
 	LoadTexture(D3D_DEFAULT_TEXTURE);
+
+	DxcCreateInstance(CLSID_DxcCompiler, IID_PPV_ARGS(&m_ShaderCompiler));
+	DxcCreateInstance(CLSID_DxcUtils, IID_PPV_ARGS(&m_Utils));
 
 }
 
@@ -52,7 +58,7 @@ UINT D3DUtil::CreatePipeline(eShaderType type)
 		for (size_t i = 0; i < parametrs.size(); i++) { pParametrs[i] = parametrs[i]; }
 
 		D3D12PipelineShaderRootSignature* PSO = new D3D12PipelineShaderRootSignature(render->m_device.Get(),
-			"shaders/VertexShader.hlsl", "shaders/PixelShader.hlsl", pParametrs);
+			FPaths::CombineDir(FPaths::EngineShaderDir(), "VertexShader.hlsl"), FPaths::CombineDir(FPaths::EngineShaderDir(), "PixelShader.hlsl"), pParametrs);
 
 		Pipelines.emplace(PSO->GetID(), PSO);
 	}
@@ -123,7 +129,7 @@ ID3D12CommandQueue* D3DUtil::GetCommandQueue()
 //}
 
 
-D3D12Texture* D3DUtil::LoadTexture(FString path)
+D3D12Texture* D3DUtil::LoadTexture(FString path, bool isCubeMap)
 {
 	if (m_textures.find(path) != m_textures.end())
 	{
@@ -151,23 +157,37 @@ D3D12Texture* D3DUtil::LoadTexture(FString path)
 	upload.End(GetCommandQueue()).wait();
 
 	
+	if (!texture->m_textureBuffer)
+	{
+		return nullptr;
+	}
 
 	D3D12_SHADER_RESOURCE_VIEW_DESC srvDesc;
 
 	srvDesc.Shader4ComponentMapping = D3D12_DEFAULT_SHADER_4_COMPONENT_MAPPING;
 	srvDesc.Format = texture->m_textureBuffer->GetDesc().Format;
 
-	switch (texture->m_textureBuffer->GetDesc().Dimension)
-	{	
-	case D3D12_RESOURCE_DIMENSION_TEXTURE2D:
-		srvDesc.ViewDimension = D3D12_SRV_DIMENSION_TEXTURE2D;
-		srvDesc.Texture2D.MostDetailedMip = 0;
-		srvDesc.Texture2D.MipLevels = texture->m_textureBuffer->GetDesc().MipLevels;
-		srvDesc.Texture2D.ResourceMinLODClamp = 0.f;
-		srvDesc.Texture2D.PlaneSlice = 0;
-		break;
-	default:
-		break;
+	if (isCubeMap)
+	{
+		srvDesc.ViewDimension = D3D12_SRV_DIMENSION_TEXTURECUBE;
+		srvDesc.TextureCube.MostDetailedMip = 0;
+		srvDesc.TextureCube.MipLevels = texture->m_textureBuffer->GetDesc().MipLevels;
+		srvDesc.TextureCube.ResourceMinLODClamp = 0.f;
+	}
+	else
+	{
+		switch (texture->m_textureBuffer->GetDesc().Dimension)
+		{
+		case D3D12_RESOURCE_DIMENSION_TEXTURE2D:
+			srvDesc.ViewDimension = D3D12_SRV_DIMENSION_TEXTURE2D;
+			srvDesc.Texture2D.MostDetailedMip = 0;
+			srvDesc.Texture2D.MipLevels = texture->m_textureBuffer->GetDesc().MipLevels;
+			srvDesc.Texture2D.ResourceMinLODClamp = 0.f;
+			srvDesc.Texture2D.PlaneSlice = 0;
+			break;
+		default:
+			break;
+		}
 	}
 
 

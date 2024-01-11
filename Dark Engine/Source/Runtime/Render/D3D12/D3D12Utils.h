@@ -3,17 +3,21 @@
 #include <memory>
 #include <Containers/DarkString.h>
 #include <Windows.h>
-#include <Core/Memory/TUniquePtr.h>
+#include <Memory/TUniquePtr.h>
 #include <Core.h>
-#include "D3D12.h"
+#include "D3D12Main.h"
 #include "D3D12Camera.h"
 #include "D3D12Texture.h"
 #include "HAL/Platform.h"
 #include "Containers/Array.h"
+#include <dxcapi.h>
+#include <d3d12shader.h>
+#include "Misc/Paths.h"
 
 
 
-#define D3D_DEFAULT_TEXTURE	"Resources/uv.dds"
+#define D3D_DEFAULT_TEXTURE	 FPaths::CombineDir(FPaths::EngineContentDir(), "Textures/uv.dds")
+#define D3D_DEFAULT_SKYBOX	FPaths::CombineDir(FPaths::EngineContentDir(), "Textures/cubemap.dds")
 
 enum eShaderType
 {
@@ -34,7 +38,11 @@ class DENGINE_API D3DUtil
 	static TArray<CD3DX12_STATIC_SAMPLER_DESC> m_samplers;
 
 
+
 public:
+	static ComPtr<IDxcCompiler3> m_ShaderCompiler;
+	static ComPtr<IDxcUtils> m_Utils;
+
 	static UINT CalcConstantBufferByteSize(UINT byteSize)
 	{
 		return (byteSize + 255) & ~255;
@@ -60,7 +68,7 @@ public:
 	static ID3D12CommandQueue* GetCommandQueue();
 	static FD3D12Mesh* LoadMesh(FString path);
 	static void DeleteMesh(FD3D12Mesh* mesh);
-	static D3D12Texture* LoadTexture(FString path);
+	static D3D12Texture* LoadTexture(FString path, bool isCubeMap = false);
 	static TArray<FD3D12Mesh*> LoadMeshes(FString path, bool bCombineMeshes);
 
 	static XMMATRIX CalcMVP()

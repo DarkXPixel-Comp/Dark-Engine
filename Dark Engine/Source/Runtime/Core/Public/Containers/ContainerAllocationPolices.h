@@ -6,8 +6,14 @@
 #include <type_traits>
 
 
+
+
+
+
+
+
 template <typename SizeType>
-FORCEINLINE SizeType DefaultCalculateSlackReserve(SizeType NumElements, SIZE_T BytesPerElement, bool bAllowQuantize, uint32 Alignment = DEFAULT_ALIGNMENT)
+SizeType DefaultCalculateSlackReserve(SizeType NumElements, SIZE_T BytesPerElement, bool bAllowQuantize, uint32 Alignment = DEFAULT_ALIGNMENT)
 {
 	SizeType Retval = NumElements;
 	check(NumElements > 0);
@@ -71,7 +77,7 @@ public:
 		{}
 
 		template <typename OtherAllocator>
-		FORCEINLINE void MoveToEmptyFromOtherAllocator(typename OtherAllocator::ForAnyElementType& Other)
+		void MoveToEmptyFromOtherAllocator(typename OtherAllocator::ForAnyElementType& Other)
 		{
 			check((void*)this != (void*)&Other);
 			if (Data)
@@ -83,26 +89,23 @@ public:
 		}
 
 
-		FORCEINLINE void MoveToEmpty(ForAnyElementType& Other)
+		void MoveToEmpty(ForAnyElementType& Other)
 		{
 			this->MoveToEmptyFromOtherAllocator<TSizedHeapAllocator>(Other);
 		}
 
-		FORCEINLINE ~ForAnyElementType()
+		~ForAnyElementType()
 		{
 			if (Data)
 			{
 				BaseMallocType::Free(Data);
 			}
 		}
+
+	
+		FScriptContainerElement* GetAllocation() const { return Data; }
+
 		
-		FORCEINLINE ~ForAnyElementType()
-		{
-			if (Data)
-			{
-				BaseMallocType::Free(Data);
-			}
-		}
 
 		void ResizeAllocation(SizeType PreviousNumElements, SizeType NumElements, SIZE_T NumBytesPerElement)
 		{
@@ -126,27 +129,27 @@ public:
 			}
 		}
 
-		FORCEINLINE SizeType CalculateSlackReserve(SizeType NumElements, SIZE_T NumBytesPerElement) const
+		SizeType CalculateSlackReserve(SizeType NumElements, SIZE_T NumBytesPerElement) const
 		{
 			return DefaultCalculateSlackReserve(NumElements, NumBytesPerElement, true);
 		}
-		FORCEINLINE SizeType CalculateSlackReserve(SizeType NumElements, SIZE_T NumBytesPerElement, uint32 AlignmentOfElement) const
+		SizeType CalculateSlackReserve(SizeType NumElements, SIZE_T NumBytesPerElement, uint32 AlignmentOfElement) const
 		{
 			return DefaultCalculateSlackReserve(NumElements, NumBytesPerElement, true, (uint32)AlignmentOfElement);
 		}
-		FORCEINLINE SizeType CalculateSlackShrink(SizeType NumElements, SizeType NumAllocatedElements, SIZE_T NumBytesPerElement) const
+		SizeType CalculateSlackShrink(SizeType NumElements, SizeType NumAllocatedElements, SIZE_T NumBytesPerElement) const
 		{
 			return DefaultCalculateSlackShrink(NumElements, NumAllocatedElements, NumBytesPerElement, true);
 		}
-		FORCEINLINE SizeType CalculateSlackShrink(SizeType NumElements, SizeType NumAllocatedElements, SIZE_T NumBytesPerElement, uint32 AlignmentOfElement) const
+		SizeType CalculateSlackShrink(SizeType NumElements, SizeType NumAllocatedElements, SIZE_T NumBytesPerElement, uint32 AlignmentOfElement) const
 		{
 			return DefaultCalculateSlackShrink(NumElements, NumAllocatedElements, NumBytesPerElement, true, (uint32)AlignmentOfElement);
 		}
-		FORCEINLINE SizeType CalculateSlackGrow(SizeType NumElements, SizeType NumAllocatedElements, SIZE_T NumBytesPerElement) const
+		SizeType CalculateSlackGrow(SizeType NumElements, SizeType NumAllocatedElements, SIZE_T NumBytesPerElement) const
 		{
 			return DefaultCalculateSlackGrow(NumElements, NumAllocatedElements, NumBytesPerElement, true);
 		}
-		FORCEINLINE SizeType CalculateSlackGrow(SizeType NumElements, SizeType NumAllocatedElements, SIZE_T NumBytesPerElement, uint32 AlignmentOfElement) const
+		SizeType CalculateSlackGrow(SizeType NumElements, SizeType NumAllocatedElements, SIZE_T NumBytesPerElement, uint32 AlignmentOfElement) const
 		{
 			return DefaultCalculateSlackGrow(NumElements, NumAllocatedElements, NumBytesPerElement, true, (uint32)AlignmentOfElement);
 		}
@@ -186,7 +189,7 @@ public:
 			
 		}
 
-		FORCEINLINE ElementType* GetAllocation() const
+		ElementType* GetAllocation() const
 		{
 			return (ElementType*)ForAnyElementType::GetAllocation();
 		}
@@ -195,3 +198,11 @@ public:
 	};
 
 };
+
+
+template <int IndexSize> class TSizedDefaultAllocator : public TSizedHeapAllocator<IndexSize>
+{
+public:
+	typedef TSizedHeapAllocator<IndexSize> Typedef;
+};
+
