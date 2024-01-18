@@ -18,7 +18,11 @@
 #include <PostProcess.h>
 #include <GraphicsMemory.h>
 #include "D3D12PSO.h"
+#include "imgui.h"
+#include "imgui_impl_dx12.h"
+#include "imgui_impl_win32.h"
 
+#include "Delegate/Delegate.h"
 
 
 
@@ -66,6 +70,8 @@ class D3D12Scene;
 
 
 
+
+
 class D3D12Renderer : public Renderer
 {
 private:
@@ -81,11 +87,13 @@ public:
 
 	void BeginFrame(D3D12Scene* scene);
 	void Render(D3D12Scene*) override;
+	void SetResolution(int32 Width, int32 Height, bool IsFullScreen) override;
 	void RenderObj();
 	void RenderScene();
 	void EndFrame() override;
 	void OnResize(long x, long y);
 	void OnInput(eInputActionState action);
+	void OnInterface();
 
 	void PostProcessing(D3D12_GPU_DESCRIPTOR_HANDLE renderHandle, ID3D12Resource* outputHandle);
 	TArray<D3D12Mesh1*> LoadMesh(FString path = "");
@@ -125,6 +133,8 @@ public:
 
 	ComPtr<IDXGISwapChain4> m_swapchain;
 	ComPtr<IDXGISwapChain> m_swapchainT;
+
+
 
 
 	TUniquePtr<BasicPostProcess> PostProcess;

@@ -4,6 +4,9 @@
 #include <CoreDefines.h>
 #include <DEngine.h>
 #include <InputCore.h>
+#include "imgui.h"
+#include "imgui_impl_win32.h"
+
 
 
 FWindowsWindow::FWindowsWindow(FWindowsWindowManager* maneger, UINT index)
@@ -179,11 +182,18 @@ bool FWindowsWindow::isClose()
 	return m_Close;
 }
 
+extern IMGUI_IMPL_API LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
+
 LRESULT FWindowsWindow::WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
 {
 	FWindowsWindow* pThis = reinterpret_cast<FWindowsWindow*>(GetWindowLongPtr(hwnd, GWLP_USERDATA));
 
 	FInputCore::InputProc(hwnd, msg, wParam, lParam);
+
+	if (ImGui_ImplWin32_WndProcHandler(hwnd, msg, wParam, lParam))
+	{
+		return 1;
+	}
 
 	switch (msg)
 	{

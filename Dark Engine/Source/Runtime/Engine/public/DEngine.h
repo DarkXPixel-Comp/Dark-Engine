@@ -26,6 +26,7 @@
 
 
 DECLARE_MULTICAST_DELEGATE_OneParam(FOnTick, float);
+DECLARE_MULTICAST_DELEGATE(FOnRenderInterface);
 
 
 
@@ -53,6 +54,7 @@ public:
 //	static void SetEditor(DEditor* edt);
 
 	FOnTick onTick;
+	FOnRenderInterface OnRenderInterface;
 
 
 
@@ -81,6 +83,11 @@ private:
 	TUniquePtr<AWorld> m_world;
 	TUniquePtr<FInputCore> m_input;
 	TUniquePtr<TMemory> m_memory;
+
+
+private:
+	void SetFullscreen();
+	void Interface();
 
 
 

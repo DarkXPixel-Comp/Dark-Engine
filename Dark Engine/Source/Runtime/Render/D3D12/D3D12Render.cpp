@@ -298,7 +298,16 @@ int32_t D3D12Renderer::Init()
 	m_cbvObjectSkyBox = std::make_unique<D3D12UploadBufferResource<XMMATRIX>>(1, true);
 
 
+	ImGui::CreateContext();
 
+	ImGui_ImplWin32_Init(m_renderWindow->GetHandle());
+
+
+	ImGui_ImplDX12_Init(m_device.Get(), BACK_BUFFER_COUNT, m_backBufferFormat, SRDescriptorHeap->Heap(), 
+		SRDescriptorHeap->GetCpuHandle(778), SRDescriptorHeap->GetGpuHandle(778));
+
+
+	GEngine.OnRenderInterface.Bind(this, &D3D12Renderer::OnInterface);
 
 
 
@@ -456,9 +465,87 @@ void D3D12Renderer::BeginFrame(D3D12Scene* scene)
 	}
 }
 
+
+void D3D12Renderer::OnInterface()
+{
+	/*bool p_open = false;
+
+	ImGuiViewport* MainViewport = ImGui::GetMainViewport();
+
+	ImGui::SetNextWindowPos({0, 0});
+	ImGui::SetNextWindowSize({500, 500});
+
+
+
+	if (!ImGui::Begin("HALLO", &p_open, ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_NoTitleBar))
+	{
+		return;
+
+	}
+
+
+	ImGui::PushItemWidth(ImGui::GetFontSize() * -12);
+
+	if (ImGui::BeginMenuBar())
+	{
+		if (ImGui::BeginMenu("Menu"))
+		{
+			ImGui::MenuItem("Test", nullptr);
+
+		}
+
+	
+	}
+
+	ImGui::End();
+	*/
+
+}
+
+void D3D12Renderer::SetResolution(int32 Width, int32 Height, bool IsFullScreen)
+{
+	m_swapchain->SetFullscreenState(IsFullScreen, nullptr);
+
+	for (uint32 i = 0; i < BACK_BUFFER_COUNT; i++)
+	{
+		m_backBuffers[i].Reset();
+	}
+
+
+	DXGI_SWAP_CHAIN_DESC Desc = {};
+
+	m_swapchain->GetDesc(&Desc);
+
+	m_swapchain->ResizeBuffers(BACK_BUFFER_COUNT, Width, Height, Desc.BufferDesc.Format, Desc.Flags);
+
+	
+	CurrentBackBufferIndex = m_swapchain->GetCurrentBackBufferIndex();
+
+	for (size_t i = 0; i < BACK_BUFFER_COUNT; i++)
+	{
+		HRESULT Error;
+		D3D12_CPU_DESCRIPTOR_HANDLE cpuHandle = RTDescriptorHeap->GetCpuHandle(i);
+		DXCall(Error = m_swapchain->GetBuffer(i, IID_PPV_ARGS(&m_backBuffers[i])));
+		m_device->CreateRenderTargetView(m_backBuffers[i].Get(), nullptr, cpuHandle);
+		m_device->CreateShaderResourceView(m_backBuffers[i].Get(), nullptr, SRDescriptorHeap->GetCpuHandle(222 + i));
+	}
+
+}
+
 void D3D12Renderer::Render(D3D12Scene* scene)
 {
+	ImGui_ImplDX12_NewFrame();
+	ImGui_ImplWin32_NewFrame();
+	ImGui::NewFrame();
+
+	GEngine.OnRenderInterface.BroadCast();
+
 	BeginFrame(scene);
+
+
+
+	//ImGui::ShowDemoWindow();
+
 
 	if (scene == nullptr) return;
 	auto& backBuffer = m_backBuffers[CurrentBackBufferIndex];
@@ -611,6 +698,9 @@ void D3D12Renderer::Render(D3D12Scene* scene)
 
 		TransitionResource(m_commandList, backBuffer, D3D12_RESOURCE_STATE_RENDER_TARGET, D3D12_RESOURCE_STATE_PRESENT);
 
+		ImGui::Render();
+		ImGui_ImplDX12_RenderDrawData(ImGui::GetDrawData(), m_commandList.Get());
+
 		m_commandList->Close();
 		ID3D12CommandList* lists[] = { m_commandList.Get() };
 		m_commandQueue->ExecuteCommandLists(1, lists);
@@ -620,6 +710,7 @@ void D3D12Renderer::Render(D3D12Scene* scene)
 
 	}
 	WaitFrame();
+
 
 	m_swapchain->Present(bVsync, 0);
 

@@ -5,6 +5,9 @@
 
 UActorComponent::UActorComponent()
 {
+	AddProperties({ "CanEverTick", Boolean, &bCanEverTick });
+
+	ADD_VARIABLE(bCanEverTick);
 }
 
 void UActorComponent::BeginPlay()

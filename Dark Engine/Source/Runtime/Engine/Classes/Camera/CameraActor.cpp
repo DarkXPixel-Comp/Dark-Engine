@@ -2,6 +2,7 @@
 #include <CommandLine/CommandLine.h>
 #include <CoreDefines.h>
 #include <DEngine.h>
+#include "GameTimer.h"
 
 
 UCameraActor::UCameraActor()
@@ -51,8 +52,13 @@ void UCameraActor::OnResize(long x, long y)
 
 void UCameraActor::MouseLook(float x, float y)
 {
-	float yaw = x * sensevity * mouseSensevity;
-	float pitch = y * sensevity * mouseSensevity;
+	float deltaTime = FGameTimer::DeltaTime();
+
+	float yaw = x  * mouseSensevity * 100;
+	float pitch = y  * mouseSensevity * 100;
+
+	yaw *= deltaTime;
+	pitch *= deltaTime;
 
 	m_rotation.z += yaw;
 	m_rotation.y += pitch;

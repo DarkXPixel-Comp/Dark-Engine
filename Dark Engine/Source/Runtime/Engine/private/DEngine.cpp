@@ -11,6 +11,12 @@
 #include "Misc/Paths.h"
 //#include "RHI.h"
 
+#include "imgui.h"
+#include "imgui_stdlib.h"
+
+#include "D3D12/D3D12Utils.h"
+#include "D3D12/D3D12Material.h"
+
 
 DEngine GEngine;
 
@@ -91,6 +97,7 @@ int32_t DEngine::PostInit()
 		FloorActor->SetScale({ 10, 0, 10 });
 		FloorActor->SetRotation({0, 0, 0});
 		FloorActor->SetMesh(FloorMesh);
+		FloorActor->SetName("Floor");
 
 		auto material = new D3D12Material();
 		material->m_diffuseAlbedo = XMFLOAT4(0.1f, 0.1f, 0.1f, 1.0f);
@@ -110,6 +117,7 @@ int32_t DEngine::PostInit()
 		CubeActor->SetPosition({ 0, 0, 5 });
 		CubeActor->SetScale({0.015, 0.015, 0.015});
 		CubeActor->SetMesh(CubeMesh);
+		CubeActor->SetName("Person");
 
 		auto Test = Cast<ATestActor>(CubeActor);
 
@@ -130,6 +138,7 @@ int32_t DEngine::PostInit()
 		SphereActor->SetScale({ 4, 4, 4 });
 		SphereActor->SetRotation({ 190, 0, 0 });
 		SphereActor->SetMesh(PersonMesh);
+		SphereActor->SetName("Fuel");
 
 		auto material = new D3D12Material();
 		material->m_diffuseAlbedo = XMFLOAT4(0.5f, 0.2f, 0.6f, 1.0f);
@@ -148,6 +157,7 @@ int32_t DEngine::PostInit()
 		SphereActor->SetMesh(SphereMesh);
 		SphereActor->SetScale({ 10, 10, 10 });
 		SphereActor->SetRotation({ 0, 0, 0 });
+		SphereActor->SetName("Knife");
 
 		auto material = new D3D12Material();
 		material->m_diffuseAlbedo = XMFLOAT4(1.f, 1.0f, 1.0f, 1.0f);
@@ -162,6 +172,9 @@ int32_t DEngine::PostInit()
 	m_world->GetCamera()->SetupPlayerController(m_input.get());
 	//m_world->GetCamera()->GetCamera().m_fov = 80;
 	m_input->EscDelegate.Bind(this, &DEngine::Quit);
+	m_input->F11Delegate.Bind(this, &DEngine::SetFullscreen);
+	OnRenderInterface.Bind(this, &DEngine::Interface);
+
 
 	m_renderer->SetVsync(0);
 
@@ -198,7 +211,154 @@ void DEngine::SetMaxFPS(int fps)
 	m_windowManager.SetDelay(fps > 1000 ? 1 : 1000 / fps);
 }
 
+void DEngine::SetFullscreen()
+{
+	static bool FullScreen = true;
+	m_renderer->SetResolution(1920, 1080, FullScreen);
+	FullScreen = !FullScreen;
 
+}
+
+
+
+
+void AddInterface(TArray<FObjectProperties> Properties)
+{
+	for (auto& i : Properties)
+	{
+		TArray<FObjectProperties> prop;
+		switch (i.TypeProperties)
+		{
+		case None:
+			break;
+		case Integer:
+			break;
+		case Float:
+			break;
+		case String:
+			break;
+		case Pointer:
+			break;
+		case Vector2:
+			break;
+		case Vector3:
+			ImGui::DragFloat3(i.Name.c_str(), (float*)i.Properties);
+			break;
+		case Vector4:
+			break;
+		case Array:
+			break;
+		case Custom:
+			ImGui::SeparatorText(i.Name.c_str());
+			prop = reinterpret_cast<UObject*>(i.Properties)->GetProperties();
+			AddInterface(prop);
+			break;
+		default:
+			break;
+		}
+
+	}
+
+}
+
+
+void DEngine::Interface()
+{
+	bool p_open = false;
+
+	ImGuiViewport* MainViewport = ImGui::GetMainViewport();
+
+	ImGui::SetNextWindowPos({0, 0});
+	//ImGui::SetNextWindowSize({ 500, 500 });
+
+
+
+	if (!ImGui::Begin("Objects", &p_open, ImGuiWindowFlags_NoTitleBar))
+	{
+		return;
+
+	}
+
+	if (ImGui::CollapsingHeader("Objects"))
+	{
+		for (auto &actor : *m_world->GetActors())
+		{
+			if(ImGui::TreeNode(actor->GetName().c_str()))
+			{
+				AddInterface(actor->GetProperties());
+
+
+
+				ImGui::SeparatorText("Render Properties");
+				XMFLOAT3 Position = actor->GetPosition();
+				XMFLOAT3 Rotation = actor->GetRotation();
+				XMFLOAT3 Scale = actor->GetScale();
+
+
+				ImGui::DragFloat3("Position", ((float*)&Position));
+				ImGui::DragFloat3("Rotation", ((float*)&Rotation));
+				ImGui::DragFloat3("Scale", ((float*)&Scale));
+
+
+				ImGui::SeparatorText("Texture Properties");
+
+				auto mat = actor->GetModel()->GetMaterial()->t_Albedo;
+
+				TArray<FString> Items;
+				TArray<D3D12Texture*> TexturesPtr;
+
+				int32 CurrentId = -1;
+				int32 index = 0;
+
+				auto textures = D3DUtil::GetTextures();
+				for (auto& i : *textures)
+				{
+					if (mat == i.second.get())
+						CurrentId = index;
+					Items.push_back(i.second->name);
+					TexturesPtr.push_back(i.second.get());
+					index++;
+				}
+
+				if (ImGui::BeginListBox("Textures"))
+				{
+					for (size_t i = 0; i < Items.size(); i++)
+					{
+						const bool is_selected = (CurrentId == i);
+						if (ImGui::Selectable(Items[i].c_str(), is_selected))
+						{
+							CurrentId = i;
+							if (mat != TexturesPtr[i])
+							{
+								actor->GetModel()->GetMaterial()->t_Albedo = TexturesPtr[i];
+								actor->GetModel()->GetMaterial()->m_BaseDescriptorIndex = -1;
+							}
+						}
+						if (is_selected)
+						{
+							ImGui::SetItemDefaultFocus();
+						}
+					}
+					ImGui::EndListBox();
+				}
+
+
+
+
+
+				actor->SetPosition(Position);
+				actor->SetRotation(Rotation);
+				actor->SetScale(Scale);
+
+				ImGui::TreePop();
+
+			}
+
+		}
+
+	}
+
+}
 
 
 

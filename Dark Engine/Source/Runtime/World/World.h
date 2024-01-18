@@ -28,6 +28,7 @@ public:
 
 
 	UCameraActor* GetCamera() { return m_camera.get(); }
+	TArray<TUniquePtr<AActor>>* GetActors() { return &m_actors; }
 	AActor* CreateActor();
 
 

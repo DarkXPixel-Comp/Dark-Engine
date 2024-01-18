@@ -10,6 +10,7 @@
 #include <DDSTextureLoader.h>
 #include <ResourceUploadBatch.h>
 #include "Misc/Paths.h"
+#include <fstream>
 
 
 std::unordered_map<UINT, TUniquePtr<D3D12PipelineShaderRootSignature>> D3DUtil::Pipelines;
@@ -142,6 +143,7 @@ D3D12Texture* D3DUtil::LoadTexture(FString path, bool isCubeMap)
 	auto texture = new D3D12Texture();
 	
 	m_textures.emplace(path, TUniquePtr<D3D12Texture>(texture));
+	texture->name = path;
 	
 
 	HRESULT hr = S_OK;
@@ -227,8 +229,7 @@ FD3D12Mesh* D3DUtil::LoadMesh(FString path)
 	for (size_t i = 0; i < scene->mNumMeshes; i++)
 	{
 		aiMesh* Mesh = scene->mMeshes[i];
-		
-	
+			
 		
 		for (size_t j = 0; j < Mesh->mNumVertices; j++)
 		{

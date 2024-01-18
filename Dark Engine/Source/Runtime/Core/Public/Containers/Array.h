@@ -19,7 +19,7 @@ using TArray = std::vector<T>;
 namespace Develop
 {
 	template<typename InElementType, typename InAllocatorType>
-	class TArray
+	class TTArray
 	{
 		template<typename OtherInElementType, typename OtherAllocator>
 		friend class TArray;
@@ -51,7 +51,7 @@ namespace Develop
 		//	ArrayMax(AllocatorInstance.GetInitialCapacity())
 		//{}
 
-		FORCEINLINE TArray(const ElementType* Ptr, SizeType Count)
+		FORCEINLINE TTArray(const ElementType* Ptr, SizeType Count)
 		{
 			if(Count < 0)
 			{

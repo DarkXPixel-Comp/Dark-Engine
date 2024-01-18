@@ -17,6 +17,7 @@ public:
 
 	virtual void Render(D3D12Scene*) = 0;
 	virtual void EndFrame() = 0;
+	virtual void SetResolution(int32 Width, int32 Height, bool IsFullScreen) = 0;
 
 	virtual void SetVsync(int vsync);
 

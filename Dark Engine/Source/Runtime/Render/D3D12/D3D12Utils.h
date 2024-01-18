@@ -60,6 +60,11 @@ public:
 			CreatePipeline(static_cast<eShaderType>(i));
 		}
 	}
+
+	static std::unordered_map<FString, TUniquePtr<D3D12Texture>>* GetTextures()
+	{
+		return &m_textures;
+	}
 	static void InitStaticSamples();
 	static D3D12PipelineShaderRootSignature* GetPipeline(UINT id) { return Pipelines.find(id)->second.get(); }
 	static uint32 CreatePipeline(eShaderType type);

@@ -34,14 +34,16 @@ void SetupWindowsEnviroment()
 
 
 
-int32 LaunchWindowsStartup(HINSTANCE hInInstance, HINSTANCE hPrevInstance, char* CmdLine, int32 nCmdShow)
+int32 LaunchWindowsStartup(HINSTANCE hInInstance, HINSTANCE hPrevInstance, char* pCmdLine, int32 nCmdShow, TCHAR* CmdLine)
 {
 	SetupWindowsEnviroment();
 
 	int32_t ErrorCode = 0;
 	hInstance = hInInstance;
 
-	Application::Instance()->Initialize(hInInstance, hPrevInstance, CmdLine, nCmdShow);
+	Application::Instance()->Initialize(hInInstance, hPrevInstance, pCmdLine, nCmdShow);
+
+	ErrorCode = GuardedMain(CmdLine);
 	
 
 	ErrorCode = GEngine.Initialize();
@@ -78,7 +80,7 @@ int32_t WINAPI WinMain(
 	_In_ int32_t nCmdShow
 )
 {
-	int32 Result = LaunchWindowsStartup(hInInstance, prevInstance, lpCmdLine, nCmdShow);
+	int32 Result = LaunchWindowsStartup(hInInstance, prevInstance, lpCmdLine, nCmdShow, nullptr);
 	
 	return Result;
 }

@@ -12,7 +12,10 @@ class DENGINE_API URotateComponent : public UActorComponent
 	typedef UActorComponent Super;
 
 public:
-	URotateComponent() {}
+	URotateComponent()
+	{
+		AddProperties({ "RotationOnTick", Vector3, &m_rotation });
+	}
 	void BeginPlay() override;
 	void Update(float DeltaTime) override;
 	void Destroy() override;

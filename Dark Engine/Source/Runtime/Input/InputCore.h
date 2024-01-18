@@ -14,6 +14,7 @@ enum eInputActionState
 	F2,
 	F3,
 	F4,
+	F11,
 	LShift,
 };
 
@@ -31,6 +32,7 @@ DECLARE_MULTICAST_DELEGATE(FWDelegate);
 DECLARE_MULTICAST_DELEGATE(FSDelegate);
 DECLARE_MULTICAST_DELEGATE(FDDelegate);
 DECLARE_MULTICAST_DELEGATE(FADelegate);
+DECLARE_MULTICAST_DELEGATE(FF11Delegate);
 DECLARE_MULTICAST_DELEGATE(FSpaceDelegate);
 
 
@@ -59,10 +61,14 @@ public:
 	FADelegate ADelegate;
 	FDDelegate DDelegate;
 	FSpaceDelegate SpaceDelegate;
+	FF11Delegate F11Delegate;
+
 
 private:
 	TUniquePtr<DirectX::Keyboard> m_keyboard;
 	TUniquePtr<DirectX::Mouse> m_mouse;
 	HWND m_hWnd = NULL;
 	bool m_isRelative = false;
+
+	bool f11 = true;
 };

@@ -5,7 +5,7 @@
 
 
 
-class FD3D12DynamicRHI :public ID3D12PlatformDynamicRHI
+class FD3D12DynamicRHI final :public ID3D12PlatformDynamicRHI
 {
 	static FD3D12DynamicRHI* SingleD3D12RHI;
 
@@ -25,6 +25,15 @@ public:
 
 	virtual void PostInit() {}
 	virtual void Shutdown() {}
+
+
+	virtual ID3D12CommandQueue* RHIGetCommandQueue() override { return nullptr; }
+	virtual ID3D12Device* RHIGetDevice() { return nullptr; }
+	virtual ID3D12GraphicsCommandList* RHIGetGraphicsCommandList(uint32 InDeviceIndex) { return nullptr; }
+	virtual DXGI_FORMAT RHIGetSwapChainFormat() const { return DXGI_FORMAT_UNKNOWN; }
+
+
+
 
 
 private:

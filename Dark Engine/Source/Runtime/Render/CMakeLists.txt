@@ -7,7 +7,7 @@ find_library(RenderLibs CORE Engine DTK12 D3DCompiler Assimp)
 
 target_compile_features(Render PUBLIC cxx_std_20)
 
-target_link_libraries(Render PUBLIC Core Engine DTK12 D3DCompiler Assimp)
+target_link_libraries(Render PUBLIC Core Engine DTK12 D3DCompiler Assimp IMGUI)
 
 #target_link_libraries(Render PUBLIC ${RenderLibs})
 
