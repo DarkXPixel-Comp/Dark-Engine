@@ -68,6 +68,9 @@ float4 main(PSInput input) : SV_TARGET
 	float4 gDiffuseAlbedo = gDiffuse * tAlbedo.Sample(gSamAnisotropicWrap, input.uv);
 	float4 gNormalMapSample = tNormal.Sample(gSamAnisotropicWrap, input.uv);
 	
+	
+	//return input.position.z ;
+	
 	float3 bumpedNormal = NormalSampleToWorldSpace(gNormalMapSample.xyz, input.normalW, input.tangentW);
 	
 	//bumpedNormal = input.normalW;
@@ -88,6 +91,7 @@ float4 main(PSInput input) : SV_TARGET
 	
 	
 	float4 litColor = ambient + directLight;
+	
 	litColor.a = gDiffuseAlbedo.a;
 	//return ambient;
 	return litColor;

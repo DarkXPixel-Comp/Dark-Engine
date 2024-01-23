@@ -15,11 +15,21 @@ void D3D12Model::SetScaling(XMFLOAT3 sc)
 	m_scaling = sc;
 }
 
+
+
+
 void D3D12Model::FillConstantBuffer()
 {
 	XMMATRIX ModelMatrix = XMMatrixIdentity();
+
+	XMFLOAT3 TempRotation = m_rotation;
+	TempRotation.x = XMConvertToRadians(TempRotation.x);
+	TempRotation.y = XMConvertToRadians(TempRotation.y);
+	TempRotation.z = XMConvertToRadians(TempRotation.z);
+
+
 	XMMATRIX Translation = XMMatrixTranslationFromVector(XMLoadFloat3(&m_position));
-	XMMATRIX Rotation = XMMatrixRotationRollPitchYawFromVector(XMLoadFloat3(&m_rotation));
+	XMMATRIX Rotation = XMMatrixRotationRollPitchYawFromVector(XMLoadFloat3(&TempRotation));
 	XMMATRIX Scaling = XMMatrixScalingFromVector(XMLoadFloat3(&m_scaling));
 
 

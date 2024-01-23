@@ -37,12 +37,14 @@ PSInput main(float3 position : SV_Position,
 	
 	float4 posW = mul(ModelMatrix, float4(position, 1.f));
 	float4 pos = mul(gViewProj, posW);
-	//pos.z += -0.1;
+//	pos.z += -0.1;
 	result.position = pos;
 	result.posW = posW;
 	result.color = (color);
 	float3 normalW = mul((float3x3) ModelMatrix, normal);
 	result.normalW = normal;
+	
+	
 	
 	result.tangentW = mul((float3x3) ModelMatrix, tangent);
 	

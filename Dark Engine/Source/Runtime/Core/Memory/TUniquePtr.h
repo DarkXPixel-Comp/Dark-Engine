@@ -2,6 +2,8 @@
 #include <Core.h>
 #include <Containers/DarkString.h>
 
+#include <wrl.h>
+
 #include <memory>
 
 template <class T>
@@ -9,6 +11,10 @@ using TUniquePtr = std::unique_ptr<T>;
 
 template <class T>
 using TSharedPtr = std::shared_ptr<T>;
+
+
+template <class T>
+using TRefCountPtr = Microsoft::WRL::ComPtr<T>;
 
 
 

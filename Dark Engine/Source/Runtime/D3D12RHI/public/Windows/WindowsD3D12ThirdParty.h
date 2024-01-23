@@ -13,6 +13,7 @@
 //#include <>
 #include <dxgi1_6.h>
 #include <dxgidebug.h>
+#include "d3dx12.h"
 
 #undef DrawText
 

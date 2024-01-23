@@ -114,7 +114,7 @@ private:
 public:
 	friend class FD3D12Mesh;
 
-	bool IsRaster = true;
+	bool IsRaster = false;
 	bool isDefaultTexLoaded = false;
 	bool isSkyboxTexLoaded = false;
 	int msaa = 1;
@@ -122,6 +122,7 @@ public:
 	ComPtr<IDXGIFactory7> m_factory;
 	ComPtr<ID3D12Device8> m_device;
 	ComPtr<IDXGIAdapter1> m_adapter;
+	ComPtr<ID3D12Resource> tempBuffer;
 
 	ComPtr<ID3D12CommandAllocator> m_commandAllocator;
 	ComPtr<ID3D12GraphicsCommandList6> m_commandList;
@@ -148,6 +149,7 @@ public:
 	Resource m_depthBuffer;
 	Resource m_backVertexBuffer;
 	Resource m_backIndicesBuffer;
+	Resource m_RenderTarget;
 
 	Resource m_vertexSkyBoxBuffer;
 	Resource m_indicesSkyBoxBuffer;

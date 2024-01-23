@@ -295,8 +295,8 @@ void DEngine::Interface()
 				XMFLOAT3 Scale = actor->GetScale();
 
 
-				ImGui::DragFloat3("Position", ((float*)&Position));
-				ImGui::DragFloat3("Rotation", ((float*)&Rotation));
+				ImGui::DragFloat3("Position", ((float*)&Position), 0.1f);
+				ImGui::DragFloat3("Rotation", ((float*)&Rotation), 1.f, 0, 360, "%.1f");
 				ImGui::DragFloat3("Scale", ((float*)&Scale));
 
 

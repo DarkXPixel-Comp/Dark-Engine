@@ -3,6 +3,7 @@
 // Дополнительные сведения: https://go.microsoft.com/fwlink/?linkid=865984
 #define FUNC_DECLARE_DELEGATE(DelegateName, ReturnType, __VA_ARGS__)
 #define Vertex
-#define COMPILED_PLATFORM_HEADER#define DENGINE_API __declspec(dllexport)
+#define COMPILED_PLATFORM_HEADER
+#define DENGINE_API __declspec(dllexport)
 #define DENGINE_API
 #define DENGINE_API __declspec(dllimport)

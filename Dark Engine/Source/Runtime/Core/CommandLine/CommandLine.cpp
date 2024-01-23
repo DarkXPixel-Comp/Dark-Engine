@@ -134,9 +134,7 @@ void BindCrtHandlesToStdHandles(bool bindStdIn, bool bindStdOut, bool bindStdErr
 
 void CommandConsole::Initialize(const char* consoleTitle = "Debug Engine console")
 {
-#if _WIN64
-
-	
+#ifdef _WIN64
 	assert(AllocConsole());
 
 	AttachConsole(GetCurrentProcessId());
@@ -149,7 +147,6 @@ void CommandConsole::Initialize(const char* consoleTitle = "Debug Engine console
 
     
     BindCrtHandlesToStdHandles(true, true, true);
-
 
 #elif
 #error This OS not support

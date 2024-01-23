@@ -221,6 +221,7 @@ FD3D12Mesh* D3DUtil::LoadMesh(FString path)
 
 
 	TArray<Vertex> vertices(CountVertices);
+	TArray<XMFLOAT3> RayTracedVertices;
 	TArray<WORD> indices;
 
 	int64_t Counter = 0;

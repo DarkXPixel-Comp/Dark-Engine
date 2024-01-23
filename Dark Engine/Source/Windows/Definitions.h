@@ -113,3 +113,4 @@
 #define DO_CHECK
 #define CORE_API
 #define TEST_API __declspec(dllimport)
+//#define _WIN64

@@ -4,6 +4,8 @@
 #include <DirectXMath.h>
 #include <d3dcompiler.h>
 #include <wrl.h>
+#include "CoreTypes.h"
+#include "Containers/DarkString.h"
 
 
 #include <d3d12.h>
@@ -29,7 +31,15 @@ typedef ComPtr<ID3D12Resource> Resource;
 #ifndef _DEBUG
 #define DXCall(x) x
 #else
-#define DXCall(x) if(FAILED(x)) {throw;}
+inline void VerifyD3D12Result(HRESULT hr, const ANSICHAR* Code, const ANSICHAR* Filename, uint32 Line)
+{
+	FString Error = Code;
+}
+
+
+
+
+#define DXCall(x) {HRESULT Result = x; if(FAILED(Result)) {VerifyD3D12Result(Result, #x, __FILE__, __LINE__);}}
 #endif // _DEBUG
 
 #define checked(x) if(!x) {	throw;	}

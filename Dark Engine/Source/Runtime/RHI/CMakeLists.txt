@@ -11,7 +11,7 @@ if(MSVC AND WIN32)
 	target_sources(RHI PRIVATE "private/Windows/WindowsDynamicRHI.cpp")
 endif()
 
-target_sources(RHI PRIVATE "private/DynamicRHI.cpp" "private/RHI.cpp" "private/RHICommandList.cpp")
+target_sources(RHI PRIVATE "private/DynamicRHI.cpp" "private/RHI.cpp" "private/RHICommandList.cpp" "public/RHIResources.h")
 target_include_directories(RHI PUBLIC "public")
 
 install(TARGETS RHI)
