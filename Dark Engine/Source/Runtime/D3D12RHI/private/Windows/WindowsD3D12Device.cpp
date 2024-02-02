@@ -11,7 +11,7 @@ FD3D12DynamicRHI* GD3D12RHI = nullptr;
 
 FDynamicRHI* FD3D12DynamicRHIModule::CreateRHI()
 {
-	if(ChosenAdapters.size() != 0)
+	if(ChosenAdapters.GetSize() != 0)
 		GD3D12RHI = new FD3D12DynamicRHI(ChosenAdapters);
 
 
@@ -119,7 +119,7 @@ bool TestD3D12CreateDevice(IDXGIAdapter* Adapter, FD3D12DeviceBasicInfo& BasicIn
 
 void FD3D12DynamicRHIModule::FindAdapter()
 {
-	if (ChosenAdapters.size() != 0)
+	if (ChosenAdapters.GetSize() != 0)
 	{
 		return;
 	}
@@ -169,11 +169,11 @@ void FD3D12DynamicRHIModule::FindAdapter()
 	if (BestMemoryAdapter.IsValid())
 	{
 		NewAdapter = std::make_shared<FD3D12Adapter>(BestMemoryAdapter);
-		ChosenAdapters.push_back(NewAdapter);
+		ChosenAdapters.Add(NewAdapter);
 	}
 
 
-	if (ChosenAdapters.size() > 0 && ChosenAdapters[0]->GetDesc().IsValid())
+	if (ChosenAdapters.GetSize() > 0 && ChosenAdapters[0]->GetDesc().IsValid())
 	{
 		const DXGI_ADAPTER_DESC& AdapterDesc = ChosenAdapters[0]->GetAdapterDesc();
 

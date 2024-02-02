@@ -23,6 +23,10 @@ using namespace std;
 class DENGINE_API FWindowsWindow
 {
 	friend FWindowsWindowManager;
+
+public:
+	static const TCHAR AppWindowClass[];
+
 public:
 	FWindowsWindow(FWindowsWindowManager* manager, UINT index);
 	~FWindowsWindow();
@@ -37,6 +41,15 @@ public:
 	void Maximaze() { ShowWindow(m_Wnd, SW_MAXIMIZE); }
 
 	void Minimize() { ShowWindow(m_Wnd, SW_MINIMIZE); }
+
+	HWND GetHWnd() { return HWnd; }
+
+	void SetWindowFocus();
+
+	bool IsPointInWindow(int32 X, int32 Y);
+
+	int32 GetWindowBorderSize();
+	int32 GetWindowTitleBarSize();
 
 	void SetResolution(UINT w, UINT h);
 
@@ -95,6 +108,17 @@ private:
 
 
 
+
+///////////////////
+
+
+
+private:
+	HWND HWnd;
+	float AspectRatio;
+	bool bIsVisible;
+
+
 };
 
 
@@ -113,7 +137,7 @@ public:
 	~FWindowsWindowManager();
 	FWindowsWindow* CreateWindow(UINT Weight, UINT Height, FString Name);
 	//FWindowsWindow* GetPrimalWindow() { return windows.size() != 0 ? windows[0] : nullptr; }
-	FWindowsWindow* GetWindow(UINT index) { return index > windows.size() ? nullptr : windows[index]; }
+	FWindowsWindow* GetWindow(UINT index = 0) { return index > windows.GetSize() ? nullptr : windows[index]; }
 	void Update();
 	void Destroy(UINT index);
 	void Quit();

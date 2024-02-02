@@ -44,7 +44,7 @@ UINT D3DUtil::CreatePipeline(eShaderType type)
 	case Default:
 	{
 		TArray<CD3DX12_ROOT_PARAMETER1> parametrs(4);
-		TArray<D3D12_ROOT_PARAMETER1> pParametrs(parametrs.size());
+		TArray<D3D12_ROOT_PARAMETER1> pParametrs(parametrs.GetSize());
 		CD3DX12_DESCRIPTOR_RANGE1 srvRange;
 		srvRange.Init(D3D12_DESCRIPTOR_RANGE_TYPE_SRV, 2, 0);
 
@@ -56,7 +56,7 @@ UINT D3DUtil::CreatePipeline(eShaderType type)
 		parametrs[3].InitAsConstantBufferView(3, 0);
 
 
-		for (size_t i = 0; i < parametrs.size(); i++) { pParametrs[i] = parametrs[i]; }
+		for (size_t i = 0; i < parametrs.GetSize(); i++) { pParametrs[i] = parametrs[i]; }
 
 		D3D12PipelineShaderRootSignature* PSO = new D3D12PipelineShaderRootSignature(render->m_device.Get(),
 			FPaths::CombineDir(FPaths::EngineShaderDir(), "VertexShader.hlsl"), FPaths::CombineDir(FPaths::EngineShaderDir(), "PixelShader.hlsl"), pParametrs);
@@ -300,7 +300,7 @@ FD3D12Mesh* D3DUtil::LoadMesh(FString path)
 
 			for (size_t k = 0; k < face.mNumIndices; k++)
 			{
-				indices.push_back(face.mIndices[k] + LastCountVertices);
+				indices.Push(face.mIndices[k] + LastCountVertices);
 			}
 		}
 
@@ -309,9 +309,9 @@ FD3D12Mesh* D3DUtil::LoadMesh(FString path)
 	}
 
 
-	for (size_t i = 0; i < vertices.size(); i += 3)
+	for (size_t i = 0; i < vertices.GetSize(); i += 3)
 	{
-		if (i + 2 >= vertices.size())
+		if (i + 2 >= vertices.GetSize())
 		{
 			break;
 		}

@@ -6,10 +6,13 @@ target_link_libraries(Renderer PUBLIC Core RHI)
 #target_link_libraries(RHI PUBLIC ${RHILibs})
 
 if(MSVC AND WIN32)
-	#target_sources(Renderer PRIVATE "private/Windows/WindowsDynamicRHI.cpp")
+	target_sources(Renderer PRIVATE "private/Windows/WindowsDynamicRHI.cpp")
 endif()
 
 target_sources(Renderer PRIVATE "public/RenderResource.h" "public/SceneRendering.h" "private/RenderResource.cpp")
+
+SettingProject(Renderer)
+
 target_include_directories(Renderer PUBLIC "public")
 
-install(TARGETS Renderer)
+#install(TARGETS Renderer)

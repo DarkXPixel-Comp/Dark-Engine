@@ -114,7 +114,7 @@ private:
 public:
 	friend class FD3D12Mesh;
 
-	bool IsRaster = false;
+	bool IsRaster = true;
 	bool isDefaultTexLoaded = false;
 	bool isSkyboxTexLoaded = false;
 	int msaa = 1;

@@ -340,6 +340,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="resource1.h" />
     <ClInclude Include="Source\Runtime\ApplicationCore\public\Windows\WindowsWindow.h" />
     <ClInclude Include="Source\Runtime\Core\Application\Application.h" />
     <ClInclude Include="Source\Runtime\Core\CommandLine\CommandLine.h" />
@@ -516,6 +517,7 @@
     <ClCompile Include="Source\Runtime\world\World.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ResourceCompile Include="Resource.rc" />
     <ResourceCompile Include="Source\Runtime\Launch\Resource\Resource.rc" />
   </ItemGroup>
   <ItemGroup>

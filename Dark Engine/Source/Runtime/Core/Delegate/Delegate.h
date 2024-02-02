@@ -155,7 +155,7 @@ public:
 	{
 		IIContainer<InRetValType, ParamTypes...>* temp = new TMethodContainter<UserClass, InRetValType, ParamTypes...>(inUserObject, func);
 
-		containers->push_back(temp);
+		containers->Push(temp);
 	}
 
 

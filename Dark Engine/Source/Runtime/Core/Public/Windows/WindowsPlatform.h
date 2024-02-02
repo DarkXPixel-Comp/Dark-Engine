@@ -1,5 +1,5 @@
 #pragma once
-#include <GenericPlatform/GenericPlatform.h>			
+#include "GenericPlatform/GenericPlatform.h"			
 
 #if defined(__clang__)
 #else

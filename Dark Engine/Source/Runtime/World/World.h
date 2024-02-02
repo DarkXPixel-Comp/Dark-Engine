@@ -44,7 +44,7 @@ private:
 template <typename T>
 AActor* AWorld::CreateActor()
 {
-	auto& it = m_actors.emplace_back(std::make_unique<T>());
+	auto& it = m_actors.GetVector().emplace_back(std::make_unique<T>());
 	it->BeginPlay();
 	return it.get();
 }

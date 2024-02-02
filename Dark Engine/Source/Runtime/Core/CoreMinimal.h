@@ -10,6 +10,7 @@
 
 #include <Definitions.h>
 #include "CoreTypes.h"
+#include "HAL/DarkMemory.h"
 
 
 //

@@ -60,6 +60,9 @@ void UCameraActor::MouseLook(float x, float y)
 	yaw *= deltaTime;
 	pitch *= deltaTime;
 
+	yaw = x * 0.1;
+	pitch = y * 0.1;
+
 	m_rotation.z += yaw;
 	m_rotation.y += pitch;
 

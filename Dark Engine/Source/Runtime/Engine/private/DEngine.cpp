@@ -57,6 +57,8 @@ int32_t DEngine::Initialize()
 	FGameTimer::Reset();
 	FGameTimer::Tick();
 
+
+	
 	return 0;
 
 }
@@ -268,7 +270,15 @@ void DEngine::Interface()
 
 	ImGuiViewport* MainViewport = ImGui::GetMainViewport();
 
-	ImGui::SetNextWindowPos({0, 0});
+
+
+	float SizeX = m_windowManager.GetWindow()->GetWitdh();
+	float SizeY = m_windowManager.GetWindow()->GetHeight();
+
+
+	//MainViewport->Size.x
+
+	ImGui::SetNextWindowPos({0 * SizeX, 0.017f * SizeY});
 	//ImGui::SetNextWindowSize({ 500, 500 });
 
 
@@ -315,14 +325,14 @@ void DEngine::Interface()
 				{
 					if (mat == i.second.get())
 						CurrentId = index;
-					Items.push_back(i.second->name);
-					TexturesPtr.push_back(i.second.get());
+					Items.Add(i.second->name);
+					TexturesPtr.Add(i.second.get());
 					index++;
 				}
 
 				if (ImGui::BeginListBox("Textures"))
 				{
-					for (size_t i = 0; i < Items.size(); i++)
+					for (size_t i = 0; i < Items.GetSize(); i++)
 					{
 						const bool is_selected = (CurrentId == i);
 						if (ImGui::Selectable(Items[i].c_str(), is_selected))
@@ -372,15 +382,19 @@ void DEngine::UpdateLoop()
 	if (m_windowManager.WindowsIsClose()) return;
 
 	m_world->Update(deltaTime);
-	m_world->FillScene(m_scene.get());
+	if(!m_Quit)
+		m_world->FillScene(m_scene.get());
 
-	m_renderer->Render(m_scene.get());
+	if(!m_Quit)
+		m_renderer->Render(m_scene.get());
 
 
 	//m_editor->Update(deltaTime);
-	Tick(deltaTime);
+	if(!m_Quit)
+		Tick(deltaTime);
 
-	FGameTimer::Tick();
+	if(!m_Quit)
+		FGameTimer::Tick();
 	 
 }
 

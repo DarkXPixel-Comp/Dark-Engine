@@ -43,5 +43,5 @@ UObject* UObject::GetOwner()
 
 void UObject::AddProperties(FObjectProperties Properties)
 {
-	ObjectProperties.push_back(Properties);
+	ObjectProperties.Push(Properties);
 }

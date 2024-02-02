@@ -396,6 +396,9 @@
     <ClInclude Include="Source\Runtime\Render\D3D12\D3D12Main.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="resource1.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Runtime\Launch\private\Windows\LaunchWindows.cpp">
@@ -536,6 +539,9 @@
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Source\Runtime\Launch\Resource\Resource.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+    <ResourceCompile Include="Resource.rc">
       <Filter>Resource Files</Filter>
     </ResourceCompile>
   </ItemGroup>

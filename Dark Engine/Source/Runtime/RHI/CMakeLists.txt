@@ -1,6 +1,6 @@
 add_library(RHI)
 
-find_library(RHILibs Core Engine)
+find_library(RHILibs Core Engine D3D12RHI)
 
 
 target_compile_features(RHI PUBLIC cxx_std_20)
@@ -9,9 +9,15 @@ target_link_libraries(RHI PUBLIC Core D3D12RHI)
 
 if(MSVC AND WIN32)
 	target_sources(RHI PRIVATE "private/Windows/WindowsDynamicRHI.cpp")
+	#set(RHI_Sources ${RHI_Sources} "private/Windows/WindowsDynamicRHI.cpp")
 endif()
 
+#set(RHI_Sources ${RHI_Sources} "private/DynamicRHI.cpp" "private/RHI.cpp" "private/RHICommandList.cpp" "public/RHIResources.h")
 target_sources(RHI PRIVATE "private/DynamicRHI.cpp" "private/RHI.cpp" "private/RHICommandList.cpp" "public/RHIResources.h")
 target_include_directories(RHI PUBLIC "public")
 
-install(TARGETS RHI)
+SettingProject(RHI)
+
+
+
+#install(TARGETS RHI)

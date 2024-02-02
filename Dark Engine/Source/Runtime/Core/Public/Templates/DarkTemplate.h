@@ -18,7 +18,18 @@ typename TRemoveReference<T>::Type&& MoveTemp(T&& Obj)
 	return (CastType&&)Obj;
 }
 
-
+//
+//template <typename T>
+//FORCEINLINE T&& Forward(typename TRemoveReference<T>::Type& Obj)
+//{
+//	return (T&&)Obj;
+//}
+//
+//template <typename T>
+//FORCEINLINE T&& Forward(typename TRemoveReference<T>::Type&& Obj)
+//{
+//	return (T&&)Obj;
+//}
 
 
 class FNoncopyble

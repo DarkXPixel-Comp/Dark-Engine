@@ -52,10 +52,10 @@ public:
 
 
 		CD3DX12_VERSIONED_ROOT_SIGNATURE_DESC rootSigDescVers(
-			rootParametrs.size(),
-			rootParametrs.data(),
-			staticSamplers.size(),
-			staticSamplers.data(),
+			rootParametrs.GetSize(),
+			rootParametrs.GetData(),
+			staticSamplers.GetSize(),
+			staticSamplers.GetData(),
 			D3D12_ROOT_SIGNATURE_FLAG_ALLOW_INPUT_ASSEMBLER_INPUT_LAYOUT);
 
 

@@ -17,9 +17,9 @@ public:
 	~FD3D12DynamicRHI();
 
 	FD3D12Adapter& GetAdapter(int32 Index = 0) { return *ChosenAdapters[Index]; }
-	const FD3D12Adapter& GetAdapter(int32 Index = 0) const { return *ChosenAdapters[Index]; }
+	const FD3D12Adapter& GetAdapter(int32 Index = 0) const { return *(ChosenAdapters[Index]); }
 
-	const uint32 GetNumAdapters() const { return ChosenAdapters.size(); }
+	const uint64 GetNumAdapters() const { return /*ChosenAdapters.GetSize()*/0; }
 
 	void Init() override;
 

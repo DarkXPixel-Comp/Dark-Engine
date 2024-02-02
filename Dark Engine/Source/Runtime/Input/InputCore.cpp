@@ -27,6 +27,9 @@ void FInputCore::Update()
 	auto KeyBoardState = m_keyboard->GetState();
 	auto MouseState = m_mouse->GetState();
 
+
+
+
 	if (KeyBoardState.IsKeyDown(Keyboard::F1))
 	{
 		m_mouse->SetMode(Mouse::MODE_RELATIVE);

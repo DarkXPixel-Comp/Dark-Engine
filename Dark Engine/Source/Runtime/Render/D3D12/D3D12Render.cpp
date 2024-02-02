@@ -28,6 +28,8 @@ void TransitionResource(Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList6> comma
 		beforeState, afterState);
 
 	commandList->ResourceBarrier(1, &barrier);
+
+
 	
 
 }
@@ -48,8 +50,8 @@ int32_t D3D12Renderer::Init()
 	{
 		ComPtr<ID3D12Debug1> debug;
 		D3D12GetDebugInterface(IID_PPV_ARGS(&debug));
-		debug->EnableDebugLayer();
-		debug->SetEnableGPUBasedValidation(true);
+		//debug->EnableDebugLayer();
+		//debug->SetEnableGPUBasedValidation(true);
 	}
 #endif // _DEBUG
 	m_renderWindow = GEngine.GetWindowManager()->GetWindow(0);
@@ -73,6 +75,7 @@ int32_t D3D12Renderer::Init()
 
 
 
+
 	D3D12_COMMAND_QUEUE_DESC CommandQueueDesc = {};
 
 	CommandQueueDesc.Priority = D3D12_COMMAND_QUEUE_PRIORITY_HIGH;
@@ -80,6 +83,7 @@ int32_t D3D12Renderer::Init()
 	CommandQueueDesc.NodeMask = 0;
 	CommandQueueDesc.Flags = D3D12_COMMAND_QUEUE_FLAG_NONE;
 	DXCall(Error = m_device->CreateCommandQueue(&CommandQueueDesc, IID_PPV_ARGS(&m_commandQueue)));
+
 
 	DXGI_SWAP_CHAIN_DESC1 SwapChainDesc = {};
 	DXGI_SWAP_CHAIN_DESC pDesc = {};
@@ -189,6 +193,8 @@ int32_t D3D12Renderer::Init()
 	Viewport = { 0.f, 0.f,  static_cast<float>(m_renderWindow->GetWitdh()),
 		static_cast<float>(m_renderWindow->GetHeight()), 0.f, 1.f };
 
+	Viewport = { 4, 7, 4, 52, 5, 47 };
+
 	ScissorRect = { 0, 0, 1920, 1080 };
 	Viewport = { 0, 0, 1920, 1080, 0.f, 1.f };
 
@@ -239,12 +245,12 @@ int32_t D3D12Renderer::Init()
 									0, 4, 3, 4, 7, 3};
 					
 
-		CreateStaticBuffer(m_device.Get(), upload, vertices.data(), vertices.size(), D3D12_RESOURCE_STATE_VERTEX_AND_CONSTANT_BUFFER, &m_backVertexBuffer);
-		CreateStaticBuffer(m_device.Get(), upload, indices.data(), indices.size(), D3D12_RESOURCE_STATE_INDEX_BUFFER, &m_backIndicesBuffer);
+		CreateStaticBuffer(m_device.Get(), upload, vertices.GetData(), vertices.GetSize(), D3D12_RESOURCE_STATE_VERTEX_AND_CONSTANT_BUFFER, &m_backVertexBuffer);
+		CreateStaticBuffer(m_device.Get(), upload, indices.GetData(), indices.GetSize(), D3D12_RESOURCE_STATE_INDEX_BUFFER, &m_backIndicesBuffer);
 		
-		CreateStaticBuffer(m_device.Get(), upload, verticesCube.data(), verticesCube.size(),
+		CreateStaticBuffer(m_device.Get(), upload, verticesCube.GetData(), verticesCube.GetSize(),
 			D3D12_RESOURCE_STATE_VERTEX_AND_CONSTANT_BUFFER, &m_vertexSkyBoxBuffer);
-		CreateStaticBuffer(m_device.Get(), upload, IndicesCube.data(), IndicesCube.size(),
+		CreateStaticBuffer(m_device.Get(), upload, IndicesCube.GetData(), IndicesCube.GetSize(),
 			D3D12_RESOURCE_STATE_INDEX_BUFFER, &m_indicesSkyBoxBuffer);
 
 
@@ -252,20 +258,20 @@ int32_t D3D12Renderer::Init()
 		upload.End(D3DUtil::GetCommandQueue()).wait();
 
 		m_backVertexView.BufferLocation = m_backVertexBuffer->GetGPUVirtualAddress();
-		m_backVertexView.SizeInBytes = sizeof(Vert) * vertices.size();
+		m_backVertexView.SizeInBytes = sizeof(Vert) * vertices.GetSize();
 		m_backVertexView.StrideInBytes = sizeof(Vert);
 
 		m_backIndexView.BufferLocation = m_backIndicesBuffer->GetGPUVirtualAddress();
 		m_backIndexView.Format = DXGI_FORMAT_R32_UINT;
-		m_backIndexView.SizeInBytes = sizeof(uint32) * indices.size();
+		m_backIndexView.SizeInBytes = sizeof(uint32) * indices.GetSize();
 
 		m_SkyBoxVertexView.BufferLocation = m_vertexSkyBoxBuffer->GetGPUVirtualAddress();
-		m_SkyBoxVertexView.SizeInBytes = sizeof(Vert) * verticesCube.size();
+		m_SkyBoxVertexView.SizeInBytes = sizeof(Vert) * verticesCube.GetSize();
 		m_SkyBoxVertexView.StrideInBytes = sizeof(Vert);
 
 		m_SkyBoxIndexView.BufferLocation = m_indicesSkyBoxBuffer->GetGPUVirtualAddress();
 		m_SkyBoxIndexView.Format = DXGI_FORMAT_R32_UINT;
-		m_SkyBoxIndexView.SizeInBytes = sizeof(uint32) * IndicesCube.size();
+		m_SkyBoxIndexView.SizeInBytes = sizeof(uint32) * IndicesCube.GetSize();
 
 		{
 			TArray<D3D12_ROOT_PARAMETER1> params(3);
@@ -275,7 +281,7 @@ int32_t D3D12Renderer::Init()
 			elements[0] = { "SV_Position", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, D3D12_APPEND_ALIGNED_ELEMENT, D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA, 0 };
 			elements[1] = { "TEXCOORD", 0, DXGI_FORMAT_R32G32_FLOAT, 0, D3D12_APPEND_ALIGNED_ELEMENT, D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA, 0 };
 			layout.NumElements = 2;
-			layout.pInputElementDescs = elements.data();
+			layout.pInputElementDescs = elements.GetData();
 
 			CD3DX12_DESCRIPTOR_RANGE1 range(D3D12_DESCRIPTOR_RANGE_TYPE_SRV, 1, 2);
 			CD3DX12_ROOT_PARAMETER1::InitAsDescriptorTable(params[2], 1, &range);
@@ -301,7 +307,7 @@ int32_t D3D12Renderer::Init()
 			elements[0] = { "SV_Position", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, D3D12_APPEND_ALIGNED_ELEMENT, D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA, 0 };
 			elements[1] = { "TEXCOORD", 0, DXGI_FORMAT_R32G32_FLOAT, 0, D3D12_APPEND_ALIGNED_ELEMENT, D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA, 0 };
 			layout.NumElements = 2;
-			layout.pInputElementDescs = elements.data();
+			layout.pInputElementDescs = elements.GetData();
 
 
 			CD3DX12_DESCRIPTOR_RANGE1 range(D3D12_DESCRIPTOR_RANGE_TYPE_SRV, 1, 0);
@@ -323,12 +329,26 @@ int32_t D3D12Renderer::Init()
 
 
 	ImGui::CreateContext();
+	ImGuiIO& gui = ImGui::GetIO();
+	gui.DisplaySize = { (float)m_renderWindow->GetWitdh(), (float)m_renderWindow->GetHeight() };
+	
+	ImGui::StyleColorsClassic();
+
+
+	ImGuiStyle& style = ImGui::GetStyle();
+	{
+		style.WindowRounding = 0.0f;
+		style.Colors[ImGuiCol_WindowBg].w = 1.0f;
+	}
 
 	ImGui_ImplWin32_Init(m_renderWindow->GetHandle());
 
 
 	ImGui_ImplDX12_Init(m_device.Get(), BACK_BUFFER_COUNT, m_backBufferFormat, SRDescriptorHeap->Heap(), 
 		SRDescriptorHeap->GetCpuHandle(778), SRDescriptorHeap->GetGpuHandle(778));
+
+
+	
 
 
 	GEngine.OnRenderInterface.Bind(this, &D3D12Renderer::OnInterface);
@@ -584,8 +604,42 @@ void D3D12Renderer::Render(D3D12Scene* scene)
 	ImGui_ImplDX12_NewFrame();
 	ImGui_ImplWin32_NewFrame();
 	ImGui::NewFrame();
+	ImGui::SetWindowSize({ 0, 0 });
 
-	GEngine.OnRenderInterface.BroadCast();
+
+
+	/*if (ImGui::Begin("Main"))*/
+	{
+		if (ImGui::BeginMainMenuBar())
+		{
+			if (ImGui::BeginMenu("Test"))
+			{
+				ImGui::EndMenu();
+			}
+
+			ImGui::SetCursorPosX(ImGui::GetWindowWidth() - 20);
+
+
+			if (ImGui::ColorButton("X", { 1, 0, 0, 1 }, ImGuiColorEditFlags_NoTooltip, {20, 20}))
+			{
+				GEngine.Quit();
+
+				return;
+			}
+			
+
+			/*if (ImGui::BeginMenuBar())
+			{
+
+
+				ImGui::EndMenuBar();
+			}*/
+
+			ImGui::EndMainMenuBar();
+		}
+
+		GEngine.OnRenderInterface.BroadCast();
+	}
 
 	BeginFrame(scene);
 
@@ -753,7 +807,7 @@ void D3D12Renderer::Render(D3D12Scene* scene)
 
 
 
-			ImGui::Begin("Window");
+			ImGui::Begin("Window", 0, ImGuiWindowFlags_NoTitleBar);
 
 			ImVec2 WndSize = ImGui::GetWindowSize();
 			ImVec2 WndPos = ImGui::GetWindowPos();
@@ -779,6 +833,13 @@ void D3D12Renderer::Render(D3D12Scene* scene)
 				D3D12_RESOURCE_STATE_COPY_DEST, D3D12_RESOURCE_STATE_RENDER_TARGET);
 
 			m_commandList->OMSetRenderTargets(1, &backBufferHandle, false, nullptr);
+			//D3D12_VIEWPORT tViewport;
+			//D3D12_RECT tRect;
+			//tViewport = { 0, 0, (float)window->GetWitdh(),500, 0, 1 };
+			//tRect = { 0, 0, 1920, 500 };
+
+			//m_commandList->RSSetViewports(1, &tViewport);
+			//m_commandList->RSSetScissorRects(1, &tRect);
 
 		}
 

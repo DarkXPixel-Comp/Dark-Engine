@@ -42,21 +42,21 @@ void Application::ParseCmdLine()
 			memset(buf, '\0', strlen(buf));
 			if (i >= lpCmdLine.size())
 			{
-				parameters.push_back(parameter);
+				parameters.Add(parameter);
 				return;
 			}
 
 			if (lpCmdLine[i] == '-')
 			{
 				--i;
-				parameters.push_back(parameter);
+				parameters.Add(parameter);
 				continue;
 			}
 			++i;
 			if (lpCmdLine[i] == '-')
 			{
 				--i;
-				parameters.push_back(parameter);
+				parameters.Add(parameter);
 				continue;
 			}
 			while (i < lpCmdLine.size() && (lpCmdLine[i] != ' ' && lpCmdLine[i] != '-'))
@@ -66,7 +66,7 @@ void Application::ParseCmdLine()
 			}
 
 			parameter.Value = buf;
-			parameters.push_back(parameter);
+			parameters.Add(parameter);
 		}
 	}
 }

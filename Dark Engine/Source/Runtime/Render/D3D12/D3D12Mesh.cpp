@@ -23,20 +23,20 @@ void FD3D12Mesh::Init(TArray<Vertex> vertices, TArray<WORD> indices)
 
 
 	upload.Begin();
-	CreateStaticBuffer(m_device, upload, vertices.data(), vertices.size(),
+	CreateStaticBuffer(m_device, upload, vertices.GetData(), vertices.GetSize(),
 		D3D12_RESOURCE_STATE_VERTEX_AND_CONSTANT_BUFFER, &m_vertexBuffer);
 
-	CreateStaticBuffer(m_device, upload, indices.data(), indices.size(),
+	CreateStaticBuffer(m_device, upload, indices.GetData(), indices.GetSize(),
 		D3D12_RESOURCE_STATE_INDEX_BUFFER, &m_indexBuffer);
 	upload.End(D3DUtil::GetCommandQueue()).wait();
 
 
 
 	m_vertexBufferView.BufferLocation = m_vertexBuffer->GetGPUVirtualAddress();
-	m_vertexBufferView.SizeInBytes = sizeof(Vertex) * vertices.size();
+	m_vertexBufferView.SizeInBytes = sizeof(Vertex) * vertices.GetSize();
 	m_vertexBufferView.StrideInBytes = sizeof(Vertex);
 
 	m_indexBufferView.BufferLocation = m_indexBuffer->GetGPUVirtualAddress();
 	m_indexBufferView.Format = DXGI_FORMAT_R16_UINT;
-	m_indexBufferView.SizeInBytes = sizeof(WORD) * indices.size();
+	m_indexBufferView.SizeInBytes = sizeof(WORD) * indices.GetSize();
 }

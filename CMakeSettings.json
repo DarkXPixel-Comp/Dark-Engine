@@ -6,11 +6,11 @@
 			"configurationType": "Debug",
 			"inheritEnvironments": [ "msvc_x64_x64" ],
 			"buildRoot": "${projectDir}\\Dark Engine\\Intermediate\\Build\\${name}",
-			"installRoot": "${projectDir}\\Dark Engine",
 			"cmakeCommandArgs": "",
 			"buildCommandArgs": "",
 			"ctestCommandArgs": "",
-			"intelliSenseMode": "windows-msvc-x64"
+			"intelliSenseMode": "windows-msvc-x64",
+			"installRoot": "${projectDir}\\Dark Engine\\bin"
 		},
 		{
 			"name": "Win64-Release",

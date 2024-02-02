@@ -2,6 +2,8 @@
 //#include "Definitions.h"
 #include "PreprocessorHelpers.h"
 
+#include "Definitions.h"
+
 
 #if !defined(PLATFORM_WINDOWS)
 #define PLATFORRM_WINDOWS 0
@@ -10,7 +12,8 @@
 #define PLATFORM_MICROSOFT 0
 #endif
 
-#include COMPILED_PLATFORM_HEADER(Platform.h)
+#include "Windows/WindowsPlatform.h"
+//#include COMPILED_PLATFORM_HEADER(Platform.h)
 
 
 

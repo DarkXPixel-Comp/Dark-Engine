@@ -34,6 +34,8 @@ float4 main(PSInput input) : SV_TARGET
 	float vstep = dir.y;
 	
 	
+	
+	
 	for (int i = 1; i < 5; i++)
 	{
 		FragmentColor += tRender.Sample(gSamPointWrap, input.uv + float2(hstep * offset[i], vstep * offset[i])) * weight[i] +

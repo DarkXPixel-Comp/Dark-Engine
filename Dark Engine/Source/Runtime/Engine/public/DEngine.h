@@ -56,6 +56,8 @@ public:
 	FOnTick onTick;
 	FOnRenderInterface OnRenderInterface;
 
+	TSharedPtr<class Window> CreateWindow();
+
 
 
 

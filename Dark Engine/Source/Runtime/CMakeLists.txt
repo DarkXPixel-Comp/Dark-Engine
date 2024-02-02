@@ -8,4 +8,8 @@ add_subdirectory("Launch")
 add_subdirectory("Render")
 add_subdirectory("RHI")
 add_subdirectory("World")
+add_subdirectory("CoreDObject")
+add_subdirectory("UICore")
+
+
 

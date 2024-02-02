@@ -8,6 +8,8 @@
 #include "imgui_impl_win32.h"
 
 
+const TCHAR FWindowsWindow::AppWindowClass[] = TEXT("DarkWindow");
+
 
 FWindowsWindow::FWindowsWindow(FWindowsWindowManager* maneger, UINT index)
 {
@@ -25,13 +27,14 @@ void FWindowsWindow::Create(UINT w, UINT h, UINT x, UINT y, string name, FWindow
 
 
 
+
 	wSex.cbSize = sizeof(WNDCLASSEX);
 	wSex.style = CS_HREDRAW | CS_VREDRAW | CS_OWNDC;
 	wSex.lpfnWndProc = FWindowsWindow::WndProc;
 	wSex.cbClsExtra = 0;
 	wSex.cbWndExtra = 0;
 	wSex.hInstance = Application::GetInstance();
-	wSex.hIcon = LoadIcon(Application::GetInstance(), IDI_APPLICATION);
+	wSex.hIcon = LoadIcon(Application::GetInstance(), MAKEINTRESOURCE(554));
 	wSex.hCursor = LoadCursor(Application::GetInstance(), IDC_ARROW);
 	wSex.hbrBackground = (HBRUSH)COLOR_WINDOW;
 	wSex.lpszMenuName = NULL;
@@ -61,8 +64,7 @@ void FWindowsWindow::Create(UINT w, UINT h, UINT x, UINT y, string name, FWindow
 		NULL,
 		Application::GetInstance(),
 		NULL);
-
-
+	
 	if (!m_Wnd)
 	{
 		Logger::log("Error create Window " + name);
@@ -76,6 +78,7 @@ void FWindowsWindow::Create(UINT w, UINT h, UINT x, UINT y, string name, FWindow
 
 
 	SetWindowLongPtr(m_Wnd, GWLP_USERDATA, reinterpret_cast<LONG_PTR>(this));
+	SetWindowLong(m_Wnd, GWL_STYLE, WS_OVERLAPPEDWINDOW);
 
 
 	ShowWindow(m_Wnd, Application::CmdShow());
@@ -230,11 +233,11 @@ LRESULT FWindowsWindow::WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lPara
 
 FWindowsWindow* FWindowsWindowManager::CreateWindow(UINT Weight, UINT Height, FString Name)
 {
-	FWindowsWindow* window = new FWindowsWindow(this, (UINT)windows.size());
+	FWindowsWindow* window = new FWindowsWindow(this, (UINT)windows.GetSize());
 
-	window->Create(Weight, Height, 0, 0, Name + to_string(windows.size()), NULL);
+	window->Create(Weight, Height, 0, 0, Name + to_string(windows.GetSize()), NULL);
 
-	windows.push_back(window);
+	windows.Add(window);
 
 
 	return window;
@@ -323,18 +326,18 @@ void FWindowsWindowManager::Destroy(UINT index)
 
 	delete windows[index];
 
-	windows.erase(windows.begin() + index);
+	windows.Erase(windows.begin() + index);
 }
 
 void FWindowsWindowManager::Quit()
 {
-	for (size_t i = 0; i < windows.size(); i++)
+	for (size_t i = 0; i < windows.GetSize(); i++)
 	{
 		delete windows[i];
 	}
 
 
-	windows.clear();
+	windows.Empty();
 	KillTimer(NULL, (UINT_PTR)hTimer);
 	timerIsStarted = false;
 

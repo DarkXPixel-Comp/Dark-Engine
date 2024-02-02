@@ -7,3 +7,4 @@ endif()
 
 add_subdirectory("Runtime")
 add_subdirectory("ThirdParty")
+add_subdirectory("Scripts")

@@ -30,7 +30,7 @@ template<typename T>
 D3D12UploadBufferResource<T>::D3D12UploadBufferResource(UINT elementCount, bool isConstantBuffer)
 {
 	m_device = D3DUtil::GetDevice();
-	m_dataBuffer.resize(elementCount);
+	m_dataBuffer.Resize(elementCount);
 	m_elementByteSize = isConstantBuffer ? D3DUtil::CalcConstantBufferByteSize(sizeof(T)) : sizeof(T);
 	m_elementsByteSize = elementCount * m_elementByteSize;
 
