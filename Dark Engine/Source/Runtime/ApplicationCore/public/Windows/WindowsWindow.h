@@ -3,6 +3,9 @@
 #include <Delegate/Delegate.h>
 #include <Windows.h>
 #include <Containers/DarkString.h>
+#include "GenericPlatform/GenericWindow.h"
+#include "GenericPlatform/GenericWindowDefinition.h"
+#include "Windows/WindowsApplication.h"
 
 #undef CreateWindow
 
@@ -20,7 +23,7 @@ using namespace std;
 
 
 
-class DENGINE_API FWindowsWindow
+class DENGINE_API FWindowsWindow  : public FGenericWindow
 {
 	friend FWindowsWindowManager;
 
@@ -33,6 +36,13 @@ public:
 	void Create(UINT w, UINT h, UINT x, UINT y, string name, FWindowsWindow* Parent);
 	void Destroy();
 	void Update();
+
+
+	void Initialize(FWindowsApplication* const Application, const FGenericWindowDefinition& InDefinition, HINSTANCE InHInstance, const FWindowsWindow& InParent);
+
+public:
+	virtual void* GetOSWindowHandle() const override { return HWnd; }
+
 
 	void Show() { ShowWindow(m_Wnd, SW_SHOW); }
 
@@ -82,6 +92,9 @@ public:
 private:
 	static LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam);
 
+
+	TSharedPtr<FGenericWindowDefinition> Definition;
+	FWindowsApplication* OwningApplication;
 
 
 

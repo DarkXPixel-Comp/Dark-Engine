@@ -19,6 +19,19 @@ void FWindowsApplication::DestroyWindowsApplication()
 	WindowsApplication = nullptr;
 }
 
+LRESULT FWindowsApplication::AppWndProc(HWND hwnd, uint32 msg, WPARAM wParam, LPARAM lParam)
+{
+	return WindowsApplication->ProcessMessage(hwnd, msg, wParam, lParam);
+}
+
+int32 FWindowsApplication::ProcessMessage(HWND hWnd, uint32 Msg, WPARAM wParam, LPARAM lParam)
+{
+
+
+
+	return DefWindowProc(hWnd, Msg, wParam, lParam);
+}
+
 
 FWindowsApplication::FWindowsApplication(const HINSTANCE HInstance, const HICON IconHandle) :
 	InstanceHandle(HInstance)
@@ -47,6 +60,7 @@ bool FWindowsApplication::RegisterClass(const HINSTANCE HInstance, const HICON H
 	WNDCLASS WC;
 	FMemory::Memzero(&WC, sizeof(WC));
 	WC.style = CS_DBLCLKS;
+	WC.lpfnWndProc = AppWndProc;
 	WC.cbClsExtra = 0;
 	WC.cbWndExtra = 0;
 	WC.hInstance = HInstance;

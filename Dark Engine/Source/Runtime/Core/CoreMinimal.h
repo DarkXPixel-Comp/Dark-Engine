@@ -11,6 +11,8 @@
 #include <Definitions.h>
 #include "CoreTypes.h"
 #include "HAL/DarkMemory.h"
+#include "Containers/DarkString.h"
+#include "Containers/Array.h"
 
 
 //

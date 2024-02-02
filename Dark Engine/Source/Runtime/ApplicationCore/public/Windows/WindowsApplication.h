@@ -18,7 +18,10 @@ public:
 
 
 private:
+	static LRESULT AppWndProc(HWND hwnd, uint32 msg, WPARAM wParam, LPARAM lParam);
 	LRESULT WindowsApplication_WndProc(HWND hwnd, uint32 msg, WPARAM wParam, LPARAM lParam);
+
+	int32 ProcessMessage(HWND hWnd, uint32 Msg, WPARAM wParam, LPARAM lParam);
 
 	FWindowsApplication(const HINSTANCE HInstance, const HICON HIcon);
 	~FWindowsApplication();

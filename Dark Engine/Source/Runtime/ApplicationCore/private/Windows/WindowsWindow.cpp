@@ -11,6 +11,81 @@
 const TCHAR FWindowsWindow::AppWindowClass[] = TEXT("DarkWindow");
 
 
+void FWindowsWindow::Initialize(FWindowsApplication* const Application, const FGenericWindowDefinition& InDefinition, HINSTANCE InHInstance, const FWindowsWindow& InParent)
+{
+	Definition = std::make_shared<FGenericWindowDefinition>(InDefinition);
+	OwningApplication = Application;
+
+	uint32 WindowStyle = 0;
+	uint32 WindowExStyle = 0;
+
+	const float XInitialRect = Definition->XPositionOnScreen;
+	const float YInitialRect = Definition->YPositionOnScreen;
+
+	const float WidthInitial = Definition->WidthOnScreen;
+	const float HeightInitial = Definition->HeightOnScreen;
+
+	int32 ClientX = FMath::TruncToInt(XInitialRect);
+	int32 ClientY = FMath::TruncToInt(YInitialRect);
+	int32 ClientWidth = FMath::TruncToInt(WidthInitial);
+	int32 ClientHeight = FMath::TruncToInt(HeightInitial);
+
+	int32 WindowX = ClientX;
+	int32 WindowY = ClientY;
+	int32 WindowWidth = ClientWidth;
+	int32 WindowHeight = ClientHeight;
+
+	if (Definition->bHasWindowBorder)
+	{
+		WindowStyle = WS_OVERLAPPED | WS_SYSMENU | WS_CAPTION | WS_MAXIMIZEBOX | WS_MINIMIZEBOX | WS_THICKFRAME;
+		WindowExStyle = WS_EX_APPWINDOW;
+
+
+	}
+	else
+	{
+		WindowExStyle = WS_EX_WINDOWEDGE;
+
+		WindowStyle = WS_POPUP | WS_CLIPCHILDREN | WS_CLIPSIBLINGS;
+
+		WindowExStyle |= WS_EX_APPWINDOW;
+
+	}
+
+	RECT BorderRect = { 0, 0, 0, 0 };
+	
+	AdjustWindowRectEx(&BorderRect, WindowStyle, false, WindowExStyle);
+
+	ClientX += BorderRect.left;
+	ClientY += BorderRect.top;
+	WindowWidth += BorderRect.right - BorderRect.left;
+	WindowHeight += BorderRect.bottom - BorderRect.top;
+
+	TCHAR* Title = wstring(Definition->Title.begin(), Definition->Title.end()).data();
+
+
+	HWnd = CreateWindowEx(WindowExStyle, AppWindowClass, Title, WindowStyle, WindowX,
+		WindowY, WindowWidth, WindowHeight, NULL, NULL, InHInstance, NULL);
+
+	if (HWnd == NULL)
+	{
+		const uint32 Error = GetLastError();
+
+
+		return;
+	}
+
+
+
+
+
+}
+
+
+
+
+
+
 FWindowsWindow::FWindowsWindow(FWindowsWindowManager* maneger, UINT index)
 {
 	m_Manager = (maneger);
