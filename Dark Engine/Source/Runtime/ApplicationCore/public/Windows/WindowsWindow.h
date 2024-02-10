@@ -6,6 +6,7 @@
 #include "GenericPlatform/GenericWindow.h"
 #include "GenericPlatform/GenericWindowDefinition.h"
 #include "Windows/WindowsApplication.h"
+#include "Memory/TUniquePtr.h"
 
 #undef CreateWindow
 
@@ -14,16 +15,21 @@ DECLARE_MULTICAST_DELEGATE(FDestroyWindow);
 DECLARE_DELEGATE(FUpdateWindow);
 
 
-class FWindowsWindow;
 class FWindowsWindowManager;
 
 using namespace std;
 
+struct FGenericWindowDefinition;
 
 
 
 
-class DENGINE_API FWindowsWindow  : public FGenericWindow
+
+
+
+
+
+class DENGINE_API FWindowsWindow  : public FGenericWindow, public IDropTarget
 {
 	friend FWindowsWindowManager;
 
@@ -38,7 +44,7 @@ public:
 	void Update();
 
 
-	void Initialize(FWindowsApplication* const Application, const FGenericWindowDefinition& InDefinition, HINSTANCE InHInstance, const FWindowsWindow& InParent);
+	void Initialize(class FWindowsApplication* const Application, const FGenericWindowDefinition& InDefinition, HINSTANCE InHInstance, const FWindowsWindow& InParent);
 
 public:
 	virtual void* GetOSWindowHandle() const override { return HWnd; }
@@ -78,6 +84,8 @@ public:
 
 	void SetWindowTitle(FString str);
 
+	virtual void SetTitle(const TCHAR* const Title);
+
 	UINT GetRefreshRate() { return 75; }
 
 	int MouseX = 0, MouseY = 0;
@@ -92,11 +100,23 @@ public:
 private:
 	static LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam);
 
-
+ 
 	TSharedPtr<FGenericWindowDefinition> Definition;
-	FWindowsApplication* OwningApplication;
+	//std::shared_ptr<FGenericApplication> Definition;
+	class FWindowsApplication* OwningApplication;
 
 
+
+public:
+	virtual HRESULT DragEnter(IDataObject* DataObject, DWORD KewState, POINTL CursorPosition, DWORD* CursorEffect) override;
+	virtual HRESULT DragOver(DWORD KeyState, POINTL CursorPosition, DWORD* CursorEffect) override;
+	virtual HRESULT DragLeave() override;
+	virtual HRESULT Drop(IDataObject* DataObject, DWORD KeyState, POINTL CursorPosition, DWORD* CursorEffect) override;
+
+
+	HRESULT QueryInterface(REFIID iid, void** ppvObject) override;
+	ULONG AddRef() override;
+	ULONG Release() override;
 
 
 

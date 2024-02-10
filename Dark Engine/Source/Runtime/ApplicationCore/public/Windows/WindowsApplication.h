@@ -3,7 +3,7 @@
 #include "Windows/MinimalWindowsApi.h"
 #include "GenericPlatform/GenericApplication.h"
 #include "Windows/WindowsWindow.h"
-#include <TUniquePtr.h>
+#include "TUniquePtr.h"
 
 
 #undef RegisterClass
@@ -34,7 +34,7 @@ private:
 
 
 
-	TArray <TSharedPtr<FWindowsWindow>>	Windows;
+	TArray<TSharedPtr<class FWindowsWindow>> Windows;
 
 
 

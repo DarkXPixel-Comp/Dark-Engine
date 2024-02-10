@@ -2,4 +2,4 @@
 
 
 
-bool GIsRequestingExit = false;
+bool GIsRequestingExit = true;

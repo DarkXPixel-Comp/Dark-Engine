@@ -28,6 +28,7 @@ function(SettingProject target)
 	file(RELATIVE_PATH cmake_file "${PROJECT_SOURCE_DIR}" "${CMAKE_CURRENT_SOURCE_DIR}/../CMakeLists.txt")
 	get_filename_component(dir "${cmake_file}" PATH)
 	set_target_properties(${target} PROPERTIES FOLDER ${dir})
+	target_include_directories(${target} PRIVATE "${PROJECT_SOURCE_DIR}/Dark Engine/Source")
 endfunction()
 
 
@@ -42,6 +43,7 @@ set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 FILE(GLOB_RECURSE headers "Dark Engine/Source/*.h")
 FILE(GLOB_RECURSE sources "Dark Engine/Source/*.cpp")
 
+#include_directories("")
 
 add_compile_definitions(UBT_COMPILED_PLATFORM=Windows ROOT_DIR="${PROJECT_SOURCE_DIR}")
 

@@ -46,23 +46,23 @@ int32 LaunchWindowsStartup(HINSTANCE hInInstance, HINSTANCE hPrevInstance, char*
 	ErrorCode = GuardedMain(CmdLine);
 	
 
-	ErrorCode = GEngine.Initialize();
-	ErrorCode = GEngine.PostInit();
+	//ErrorCode = GEngine.Initialize();
+	//ErrorCode = GEngine.PostInit();
 
 
-	while (GEngine.isAppWork())
-	{
-		GEngine.UpdateLoop();
-	}
+	//while (GEngine.isAppWork())
+	//{
+	//	GEngine.UpdateLoop();
+	//}
 
 
 
 
-	GEngine.Shutdown();
+	//GEngine.Shutdown();
 
 
-	Logger::wait();
-	Logger::Exit();
+	//Logger::wait();
+	//Logger::Exit();
 
 
 	return ErrorCode;

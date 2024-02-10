@@ -10,6 +10,7 @@ public:
 	static TMultiCastDelegate<void> OnPostInit;
 	static TMultiCastDelegate<void> OnTick;
 	static TMultiCastDelegate<void> OnPreMain;
+	static TMultiCastDelegate<void>	OnExitRequest;
 
 
 };

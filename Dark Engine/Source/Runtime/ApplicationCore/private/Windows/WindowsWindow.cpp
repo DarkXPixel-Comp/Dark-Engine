@@ -1,4 +1,4 @@
-#include "../../public/Windows/WindowsWindow.h"
+#include "Windows/WindowsWindow.h"
 #include <Application/Application.h>
 #include <Logging/Logger.hpp>
 #include <CoreDefines.h>
@@ -13,17 +13,17 @@ const TCHAR FWindowsWindow::AppWindowClass[] = TEXT("DarkWindow");
 
 void FWindowsWindow::Initialize(FWindowsApplication* const Application, const FGenericWindowDefinition& InDefinition, HINSTANCE InHInstance, const FWindowsWindow& InParent)
 {
-	Definition = std::make_shared<FGenericWindowDefinition>(InDefinition);
+//Definition = std::make_shared<FGenericWindowDefinition>(InDefinition);
 	OwningApplication = Application;
 
 	uint32 WindowStyle = 0;
 	uint32 WindowExStyle = 0;
 
-	const float XInitialRect = Definition->XPositionOnScreen;
-	const float YInitialRect = Definition->YPositionOnScreen;
+	const float XInitialRect = InDefinition.XPositionOnScreen;
+	const float YInitialRect = InDefinition.YPositionOnScreen;
 
-	const float WidthInitial = Definition->WidthOnScreen;
-	const float HeightInitial = Definition->HeightOnScreen;
+	const float WidthInitial = InDefinition.WidthOnScreen;
+	const float HeightInitial = InDefinition.HeightOnScreen;
 
 	int32 ClientX = FMath::TruncToInt(XInitialRect);
 	int32 ClientY = FMath::TruncToInt(YInitialRect);
@@ -35,7 +35,7 @@ void FWindowsWindow::Initialize(FWindowsApplication* const Application, const FG
 	int32 WindowWidth = ClientWidth;
 	int32 WindowHeight = ClientHeight;
 
-	if (Definition->bHasWindowBorder)
+	if (InDefinition.bHasWindowBorder)
 	{
 		WindowStyle = WS_OVERLAPPED | WS_SYSMENU | WS_CAPTION | WS_MAXIMIZEBOX | WS_MINIMIZEBOX | WS_THICKFRAME;
 		WindowExStyle = WS_EX_APPWINDOW;
@@ -61,7 +61,7 @@ void FWindowsWindow::Initialize(FWindowsApplication* const Application, const FG
 	WindowWidth += BorderRect.right - BorderRect.left;
 	WindowHeight += BorderRect.bottom - BorderRect.top;
 
-	TCHAR* Title = wstring(Definition->Title.begin(), Definition->Title.end()).data();
+	const TCHAR* Title = TEXT("TEST"); // wstring(Definition->Title.begin(), Definition->Title.end()).data();
 
 
 	HWnd = CreateWindowEx(WindowExStyle, AppWindowClass, Title, WindowStyle, WindowX,
@@ -119,7 +119,6 @@ void FWindowsWindow::Create(UINT w, UINT h, UINT x, UINT y, string name, FWindow
 
 
 
-
 	if (!RegisterClassExW(&wSex))
 	{
 		auto er = GetLastError();
@@ -129,6 +128,7 @@ void FWindowsWindow::Create(UINT w, UINT h, UINT x, UINT y, string name, FWindow
 		abort();
 
 	}
+
 
 
 	m_Wnd = CreateWindowW(ClassName,
@@ -253,6 +253,11 @@ void FWindowsWindow::SetResPos(UINT w, UINT h, UINT x, UINT y)
 void FWindowsWindow::SetWindowTitle(FString str)
 {
 	SetWindowText(m_Wnd, strw(str).c_str());
+}
+
+void FWindowsWindow::SetTitle(const TCHAR* const Title)
+{
+	SetWindowText(HWnd, Title);
 }
 
 bool FWindowsWindow::isClose()
@@ -424,3 +429,44 @@ FWindowsWindowManager::~FWindowsWindowManager()
 	Quit();
 
 }
+
+
+HRESULT FWindowsWindow::DragEnter(IDataObject* DataObject, DWORD KewState, POINTL CursorPosition, DWORD* CursorEffect)
+{
+	return S_OK;
+}
+
+HRESULT FWindowsWindow::DragOver(DWORD KeyState, POINTL CursorPosition, DWORD* CursorEffect)
+{
+	return S_OK;
+}
+
+HRESULT	FWindowsWindow::DragLeave()
+{
+	return S_OK;
+}
+
+
+HRESULT FWindowsWindow::Drop(IDataObject* DataObject, DWORD KeyState, POINTL CursorPosition, DWORD* CursorEffect)
+{
+	return S_OK;
+}
+
+
+HRESULT FWindowsWindow::QueryInterface(REFIID iid, void** ppvObject)
+{
+	return S_OK;
+}
+
+ULONG FWindowsWindow::AddRef()
+{
+	return S_OK;
+}
+
+ULONG FWindowsWindow::Release()
+{
+	return S_OK;
+}
+
+
+

@@ -11,8 +11,8 @@ set(Input_Sources ${Input_Sources} "InputCore.cpp")
 #GroupSourcesByFolder(Input "${Input_Sources}")
 
 
-target_sources(Input PRIVATE "InputCore.cpp")
-target_include_directories(Input PUBLIC "../Input")
+target_sources(Input PRIVATE "private/InputCore.cpp")
+target_include_directories(Input PUBLIC "public")
 
 SettingProject(Input)
 install(TARGETS Input)

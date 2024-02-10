@@ -3,10 +3,16 @@
 #include "Templates/IsSigned.h"
 #include "Logging/Logger.hpp"
 #include <vector>
+#include <set>
 #include "HAL/Platform.h"
 
 
 #include "Templates/ChooseClass.h"
+
+
+
+template <class ...Args>
+using TSet = std::set<Args...>;
 
 
 

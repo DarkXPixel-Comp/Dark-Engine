@@ -35,12 +35,12 @@ int32 GuardedMain(const TCHAR* CmdLine)
 	FCoreDelegates::OnPreMain.BroadCast();
 	int32 Error = EnginePreInit(CmdLine);
 
-	if (Error != 0 || IsExitRequested)
+	if (Error != 0 || IsExitRequested())
 	{
 		return Error;
 	}
 	
-	Error = EngineInit(CmdLine);
+	//Error = EngineInit(CmdLine);
 
 	while (!IsExitRequested())
 	{

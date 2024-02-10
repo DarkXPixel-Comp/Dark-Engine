@@ -1,5 +1,8 @@
 #pragma once
 #include <HAL/Platform.h>
+#include "Vector2D.h"
+#include "Vector.h"
+
 
 namespace DE::Math
 {

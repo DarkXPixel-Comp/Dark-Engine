@@ -10,7 +10,7 @@ FWindowsApplication* WindowsApplication;
 FWindowsApplication* FWindowsApplication::CreateWindowsApplication(const HINSTANCE HInstance, const HICON IconHandle)
 {
 	WindowsApplication = new FWindowsApplication(HInstance, IconHandle);
-	return nullptr;
+	return WindowsApplication;
 }
 
 void FWindowsApplication::DestroyWindowsApplication()

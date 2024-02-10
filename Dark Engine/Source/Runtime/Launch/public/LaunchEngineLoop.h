@@ -11,11 +11,11 @@ public:
 	virtual ~FEngineLoop() {}
 
 public:
-	int32 PreInit(int32 ArgC, TCHAR* ArgV[], const TCHAR* AdditionalCommandLine = nullptr) { return 0; }
-	int32 PreInit(const TCHAR* CmdLine) { return 0; }
-	int32 PreInitPreStartupScreen(const TCHAR* CmdLine) { return 0; }
+	int32 PreInit(const TCHAR* CmdLine);
+
 	
-	int32 Init() { return 0; }
+	
+	int32 Init();
 	void InitTime() {}
 	void Exit() {}
 	void Tick() {}

@@ -14,9 +14,9 @@ enum EWindowMode
 class FGenericWindow
 {
 public:
-	FGenericWindow();
+	FGenericWindow() {}
 
-	virtual bool GetFullScreenInfo(int32& X, int32& Y, int32& Width, int32& Height) {}
+	virtual bool GetFullScreenInfo(int32& X, int32& Y, int32& Width, int32& Height) { return true; }
 
 	virtual void Destroy() {}
 
@@ -25,6 +25,12 @@ public:
 	virtual void* GetOSWindowHandle() const { return nullptr; }
 
 	virtual void SetTitle(FString Title) {}
+
+
+protected:
+	bool bIsVisible = false;
+	EWindowMode WindowMode;
+
 
 
 

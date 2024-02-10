@@ -5,7 +5,7 @@
 #include "Windows/MinimalWindowsApi.h"
 #include "WindowsPlatformMisc.h"
 
-extern "C" Windows::HINSTANCE hInstance;
+extern "C" HINSTANCE hInstance;
 
 
 #include <intrin.h>

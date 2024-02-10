@@ -17,7 +17,7 @@ bool VARARGS FDebug::CheckVerifyFailedImpl(
 
 	va_end(Args);
 
-	return false;
+	return true;
 }
 
 void FDebug::LogAssertFailedMessageImplV(const ANSICHAR* Expr, const ANSICHAR* File, int32 Line, void* ProgramCounter, const TCHAR* Fmt, va_list Args)

@@ -12,8 +12,8 @@
 #define PLATFORM_MICROSOFT 0
 #endif
 
-#include "Windows/WindowsPlatform.h"
-//#include COMPILED_PLATFORM_HEADER(Platform.h)
+//#include "Windows/WindowsPlatform.h"
+#include COMPILED_PLATFORM_HEADER(Platform.h)
 
 
 

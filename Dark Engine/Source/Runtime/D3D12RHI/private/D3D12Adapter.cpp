@@ -5,6 +5,7 @@ FD3D12AdapterDesc::FD3D12AdapterDesc() = default;
 FD3D12AdapterDesc::FD3D12AdapterDesc(const DXGI_ADAPTER_DESC& InDesc, int32 InAdapterIndex)
 	: Desc(InDesc)
 	, AdapterIndex(InAdapterIndex)
+	, MaxSupportFeatureLevel(D3D_FEATURE_LEVEL_12_2 /*temp*/)
 	//, RootSignatureManager(this), PipelineStateCache(this), DefaultContextRedirector(this)
 {
 
