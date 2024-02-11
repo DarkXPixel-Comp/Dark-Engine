@@ -9,6 +9,17 @@
 #undef RegisterClass
 
 
+
+class IWindowsMessageHandler
+{
+public:
+	virtual int32 ProcessMessage(HWND hwnd, uint32 msg, WPARAM wParam, LPARAM lParam) = 0;
+};
+
+
+
+
+
 class FWindowsApplication : public FGenericApplication
 {
 public:
@@ -24,6 +35,10 @@ private:
 	static LRESULT AppWndProc(HWND hwnd, uint32 msg, WPARAM wParam, LPARAM lParam);
 	LRESULT WindowsApplication_WndProc(HWND hwnd, uint32 msg, WPARAM wParam, LPARAM lParam);
 
+	virtual void PumpMessages() override;
+
+	virtual void AddMessageHandler(IWindowsMessageHandler& InMessageHandler);
+
 	int32 ProcessMessage(HWND hWnd, uint32 Msg, WPARAM wParam, LPARAM lParam);
 
 	FWindowsApplication(const HINSTANCE HInstance, const HICON HIcon);
@@ -38,6 +53,7 @@ private:
 
 
 	TArray<TSharedPtr<class FWindowsWindow>> Windows;
+	TArray<TSharedPtr<IWindowsMessageHandler>>	MessageHandlers;
 
 
 

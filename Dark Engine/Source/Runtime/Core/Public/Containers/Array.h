@@ -47,7 +47,9 @@ public:
 	auto GetData() { return _vector.data(); }
 	//const auto GetData() { return _vector.data(); }
 
-	SizeType GetSize() { return _vector.size(); }
+	SizeType GetSize() const { return _vector.size(); }
+
+	SizeType Num() const { return _vector.size(); }
 
 	void Empty() { return _vector.clear(); }
 
@@ -60,6 +62,8 @@ public:
 	std::vector<ElementType>& GetVector() { return _vector; }
 
 	decltype(auto) Insert(auto Where, auto It1, auto It2) { return _vector.insert(Where, It1, It2); }
+
+	SizeType Remove(const ElementType& Element) { return 0; }
 
 
 

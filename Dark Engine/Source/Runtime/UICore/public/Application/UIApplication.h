@@ -23,6 +23,7 @@ public:
 	void InitializeRenderer(TSharedPtr<FUIRenderer> InRenderer);
 	TSharedPtr<UIWindow> AddWindow(TSharedPtr<UIWindow> InWindow);
 	void RegisterGameViewport(TSharedPtr<UIViewport> InViewport);
+	void Tick(float DeltaTime);
 
 
 private:

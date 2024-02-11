@@ -70,10 +70,10 @@ void FWindowsWindow::Initialize(FWindowsApplication* const Application, const FG
 	if (HWnd == NULL)
 	{
 		const uint32 Error = GetLastError();
-
-
 		return;
 	}
+
+	SetWindowLongPtr(HWnd, GWLP_USERDATA, reinterpret_cast<LONG_PTR>(this));
 }
 
 

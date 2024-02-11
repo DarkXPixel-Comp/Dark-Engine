@@ -12,6 +12,7 @@ public:
 		return MakeShareble(new FGenericWindow());
 	}
 	virtual void InitializeWindow(const TSharedPtr<FGenericWindow>& InWindows, const TSharedPtr<FGenericWindowDefinition>& InDefinition) {}
-
+	virtual void PumpMessages() {}
+	virtual void Tick(float DeltaTime) {}
 
 };

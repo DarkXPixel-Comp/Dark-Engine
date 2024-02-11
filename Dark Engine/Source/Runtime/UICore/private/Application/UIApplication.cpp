@@ -32,6 +32,12 @@ void UIApplication::InitializeRenderer(TSharedPtr<FUIRenderer> InRenderer)
 	Renderer->Initialize();
 }
 
+void UIApplication::Tick(float DeltaTime)
+{
+	PlatformApplication->PumpMessages();
+	PlatformApplication->Tick(DeltaTime);
+}
+
 
 TSharedPtr<UIWindow> UIApplication::AddWindow(TSharedPtr<UIWindow> InWindow)
 {

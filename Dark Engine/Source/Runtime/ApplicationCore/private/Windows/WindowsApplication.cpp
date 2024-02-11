@@ -24,12 +24,76 @@ LRESULT FWindowsApplication::AppWndProc(HWND hwnd, uint32 msg, WPARAM wParam, LP
 	return WindowsApplication->ProcessMessage(hwnd, msg, wParam, lParam);
 }
 
+static TSharedPtr< FWindowsWindow > FindWindowByHWND(const TArray< TSharedPtr< FWindowsWindow > >& WindowsToSearch, HWND HandleToFind)
+{
+	for (int32 WindowIndex = 0; WindowIndex < WindowsToSearch.Num(); ++WindowIndex)
+	{
+		TSharedPtr< FWindowsWindow > Window = WindowsToSearch[WindowIndex];
+		if (Window->GetHWnd() == HandleToFind)
+		{
+			return Window;
+		}
+	}
+
+	return TSharedPtr< FWindowsWindow >(nullptr);
+}
+
+
+
 int32 FWindowsApplication::ProcessMessage(HWND hWnd, uint32 Msg, WPARAM wParam, LPARAM lParam)
 {
+	//TSharedPtr<FWindowsWindow> CurrentWindow = MakeShareble<FWindowsWindow>(reinterpret_cast<FWindowsWindow*>
+	//	( GetWindowLongPtr(hWnd, GWLP_USERDATA)));
+
+	TSharedPtr<FWindowsWindow> CurrentWindow = FindWindowByHWND(Windows, hWnd);
+
+	if (Windows.Num() && CurrentWindow)
+	{
+		for (auto Handler : MessageHandlers)
+		{
+			Handler->ProcessMessage(hWnd, Msg, wParam, lParam);
+
+		}
+		
+
+
+		switch (Msg)
+		{
+		case WM_DESTROY:
+			Windows.Remove(CurrentWindow);
+			return 0;
+			break;
+
+
+
+		default:
+			break;
+		}
+
+
+
+
+
+	}
+	
+
 
 
 
 	return DefWindowProc(hWnd, Msg, wParam, lParam);
+}
+
+void FWindowsApplication::PumpMessages()
+{
+	MSG Message;
+
+	while (PeekMessage(&Message, NULL, 0, 0, PM_REMOVE))
+	{
+		TranslateMessage(&Message);
+		DispatchMessage(&Message);
+	}
+
+
 }
 
 
