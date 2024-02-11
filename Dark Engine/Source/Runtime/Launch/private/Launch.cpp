@@ -40,7 +40,7 @@ int32 GuardedMain(const TCHAR* CmdLine)
 		return Error;
 	}
 	
-	//Error = EngineInit(CmdLine);
+	Error = EngineInit(CmdLine);
 
 	while (!IsExitRequested())
 	{

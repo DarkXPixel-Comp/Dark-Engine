@@ -1,6 +1,6 @@
 #pragma once
 #include "D3D12Main.h"
-#include "../Renderer.h"
+#include "D3D12/Renderer.h"
 #include <VertexTypes.h>
 #include "VertexTypes.h"
 #include <Containers/Array.h>

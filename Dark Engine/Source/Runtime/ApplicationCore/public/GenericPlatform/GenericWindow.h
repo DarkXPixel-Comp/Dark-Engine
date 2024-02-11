@@ -2,6 +2,7 @@
 
 #include "CoreTypes.h"
 #include "Containers/DarkString.h"
+#include "CoreMinimal.h"
 
 
 enum EWindowMode
@@ -21,6 +22,8 @@ public:
 	virtual void Destroy() {}
 
 	virtual void Show() {}
+
+	virtual TSharedPtr<FGenericWindow> MakeWindow() { return MakeShareble(new FGenericWindow()); }
 
 	virtual void* GetOSWindowHandle() const { return nullptr; }
 

@@ -21,14 +21,17 @@ public:
 
 public:
 	void InitializeRenderer(TSharedPtr<FUIRenderer> InRenderer);
+	TSharedPtr<UIWindow> AddWindow(TSharedPtr<UIWindow> InWindow);
+	void RegisterGameViewport(TSharedPtr<UIViewport> InViewport);
 
 
+private:
+	TSharedPtr<FGenericWindow> MakeWindow(TSharedPtr<UIWindow> InUIWindow);
 
 
 
 private:
 	static TSharedPtr<UIApplication> CurrentApplication;
-
 	static TSharedPtr<FGenericApplication>	PlatformApplication;
 private:
 	TArray<TSharedPtr<UIWindow>> UIWindows;

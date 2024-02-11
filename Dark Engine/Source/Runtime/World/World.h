@@ -7,7 +7,7 @@
 #include <Camera/CameraActor.h>
 #include <D3D12/D3D12Scene.h>
 
-
+#define WORLD_API DLLEXPORT
 
 
 class UCameraActor;
@@ -20,16 +20,16 @@ class AWorld
 public:
 	AWorld() {}
 
-	void Init();
-	void Update(float DeltaTime);
-	void Clear();
-	void Destroy();
-	void FillScene(D3D12Scene* scene);
+	WORLD_API void Init();
+	WORLD_API void Update(float DeltaTime);
+	WORLD_API void Clear();
+	WORLD_API void Destroy();
+	WORLD_API void FillScene(D3D12Scene* scene);
 
 
-	UCameraActor* GetCamera() { return m_camera.get(); }
-	TArray<TUniquePtr<AActor>>* GetActors() { return &m_actors; }
-	AActor* CreateActor();
+	WORLD_API UCameraActor* GetCamera() { return m_camera.get(); }
+	WORLD_API TArray<TUniquePtr<AActor>>* GetActors() { return &m_actors; }
+	WORLD_API AActor* CreateActor();
 
 
 	template <typename T>

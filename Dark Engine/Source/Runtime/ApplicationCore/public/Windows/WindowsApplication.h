@@ -15,7 +15,10 @@ public:
 	static FWindowsApplication* CreateWindowsApplication(const HINSTANCE HInstance, const HICON HIcon);
 	static void DestroyWindowsApplication();
 
-
+public:
+	TSharedPtr<FGenericWindow> MakeWindow() override;
+	virtual void InitializeWindow(const TSharedPtr<FGenericWindow>& InWindow,
+		const TSharedPtr<FGenericWindowDefinition>& InDefinition) override;
 
 private:
 	static LRESULT AppWndProc(HWND hwnd, uint32 msg, WPARAM wParam, LPARAM lParam);

@@ -4,17 +4,12 @@ using System;
 using Sharpmake;
 using System.Collections.Generic;
 
-[Sharpmake.Generate]
+[Sharpmake.Compile]
 public class Render : DarkModule
 {
 	public Render()
 	{
 		Name = "Render";
-
-		AddTargets(new Target(Platform.win64,
-		DevEnv.vs2022, Optimization.Debug | Optimization.Release, OutputType.Lib));
-
-
 
 	}
 
@@ -27,7 +22,7 @@ public class Render : DarkModule
 		config.IncludePaths.Add("[project.RootPath]");
 		//config.IncludePrivatePaths.Add("[project.RootPath]/private");
 
-		config.AddPublicDependency<World>(target);
+		//config.AddPublicDependency<World>(target);
 
 
 	}

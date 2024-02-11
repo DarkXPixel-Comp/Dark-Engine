@@ -4,7 +4,7 @@
 class FUIRenderer
 {
 public:
-	void Initialize() {}
+	virtual void Initialize() {}
 
 
 

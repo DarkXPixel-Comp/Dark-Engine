@@ -1,6 +1,9 @@
 #pragma once
 #include "CoreMinimal.h"
 
+
+
+
 struct FGenericWindowDefinition
 {
 	FString Title;

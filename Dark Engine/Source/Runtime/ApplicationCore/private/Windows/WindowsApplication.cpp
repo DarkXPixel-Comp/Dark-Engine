@@ -47,11 +47,30 @@ FWindowsApplication::FWindowsApplication(const HINSTANCE HInstance, const HICON 
 
 }
 
+
+
+
+void FWindowsApplication::InitializeWindow(const TSharedPtr<FGenericWindow>& InWindow,
+	const TSharedPtr<FGenericWindowDefinition>& InDefinition)
+{
+
+	const TSharedPtr<FWindowsWindow> Window = StaticCastSharedPtr<FWindowsWindow>(InWindow);
+
+	Windows.Add(Window);
+	Window->Initialize(this, *InDefinition, InstanceHandle);
+
+}
+
+
 FWindowsApplication::~FWindowsApplication()
 {
 	OleUninitialize();
+}
 
 
+TSharedPtr<FGenericWindow> FWindowsApplication::MakeWindow()
+{
+	return FWindowsWindow::Make();
 }
 
 

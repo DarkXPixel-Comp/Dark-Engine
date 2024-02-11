@@ -11,7 +11,7 @@
 const TCHAR FWindowsWindow::AppWindowClass[] = TEXT("DarkWindow");
 
 
-void FWindowsWindow::Initialize(FWindowsApplication* const Application, const FGenericWindowDefinition& InDefinition, HINSTANCE InHInstance, const FWindowsWindow& InParent)
+void FWindowsWindow::Initialize(FWindowsApplication* const Application, const FGenericWindowDefinition& InDefinition, HINSTANCE InHInstance)
 {
 //Definition = std::make_shared<FGenericWindowDefinition>(InDefinition);
 	OwningApplication = Application;
@@ -74,14 +74,13 @@ void FWindowsWindow::Initialize(FWindowsApplication* const Application, const FG
 
 		return;
 	}
-
-
-
-
-
 }
 
 
+TSharedPtr<FGenericWindow> FWindowsWindow::Make()
+{
+	return MakeShareble(new FWindowsWindow());
+}
 
 
 

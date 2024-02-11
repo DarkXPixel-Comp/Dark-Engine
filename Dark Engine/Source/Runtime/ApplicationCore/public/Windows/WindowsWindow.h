@@ -38,13 +38,14 @@ public:
 
 public:
 	FWindowsWindow(FWindowsWindowManager* manager, UINT index);
+	FWindowsWindow() {}
 	~FWindowsWindow();
 	void Create(UINT w, UINT h, UINT x, UINT y, string name, FWindowsWindow* Parent);
 	void Destroy();
 	void Update();
 
 
-	void Initialize(class FWindowsApplication* const Application, const FGenericWindowDefinition& InDefinition, HINSTANCE InHInstance, const FWindowsWindow& InParent);
+	void Initialize(class FWindowsApplication* const Application, const FGenericWindowDefinition& InDefinition, HINSTANCE InHInstance);
 
 public:
 	virtual void* GetOSWindowHandle() const override { return HWnd; }
@@ -61,6 +62,8 @@ public:
 	HWND GetHWnd() { return HWnd; }
 
 	void SetWindowFocus();
+
+	static TSharedPtr<FGenericWindow> Make();
 
 	bool IsPointInWindow(int32 X, int32 Y);
 

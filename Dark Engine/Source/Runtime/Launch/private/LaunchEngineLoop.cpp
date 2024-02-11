@@ -11,7 +11,11 @@ int32 FEngineLoop::PreInit(const TCHAR* CmdLine)
 	RHIInit();
 
 	TSharedPtr<UIApplication> CurrentApplication = UIApplication::Create();
-	CurrentApplication->InitializeRenderer(nullptr);
+	//CurrentApplication->InitializeRenderer(nullptr);
+
+	TSharedPtr<UIWindow> RootWindow = MakeShareble(new UIWindow());
+
+	CurrentApplication->AddWindow(RootWindow);
 
 	
 
@@ -25,5 +29,8 @@ int32 FEngineLoop::PreInit(const TCHAR* CmdLine)
 
 int32 FEngineLoop::Init()
 {
+
+
+
 	return 0;
 }

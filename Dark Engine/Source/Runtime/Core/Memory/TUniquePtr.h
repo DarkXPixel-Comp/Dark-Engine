@@ -27,6 +27,12 @@ TSharedPtr<T> MakeShareble(T* ptr)
 	//return std::make_shared<T>(ptr);
 }
 
+template <class T, class F>
+TSharedPtr<T> StaticCastSharedPtr(TSharedPtr<F> ptr)
+{
+	return std::static_pointer_cast<T>(ptr);
+}
+
 
 
 
