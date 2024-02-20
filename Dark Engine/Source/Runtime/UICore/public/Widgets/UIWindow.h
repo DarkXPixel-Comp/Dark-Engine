@@ -19,14 +19,15 @@ public:
 
 	FVector2f GetInitSizeInScreen() const { return InitSizeScreen; }
 	FVector2f GetInitPositionInScreen() const { return InitPositionScreen; }
-	bool HasWindowBorder() const { return true; }
+	bool HasWindowBorder() const { return false; }
 	FString GetTitle() const { return Title; }
+	void SetTitle(FString InTitle) { Title = InTitle; }
 	
 
 
 private:
 	TSharedPtr<FGenericWindow> NativeWindow;
-	FVector2f InitSizeScreen;
+	FVector2f InitSizeScreen = {1280, 720};
 	FVector2f InitPositionScreen;
 	FString Title;
 

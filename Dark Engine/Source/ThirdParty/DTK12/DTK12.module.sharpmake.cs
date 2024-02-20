@@ -22,7 +22,7 @@ public class DTK12 : DarkModule
 	public override void Configure(Project.Configuration config, Target target)
 	{
 		base.Configure(config, target);
-		config.Output = Configuration.OutputType.Lib;
+		config.Output = Configuration.OutputType.Utility;
 		config.IncludePaths.Add("[project.RootPath]");
 		config.LibraryPaths.Add("[project.RootPath]");
 		config.LibraryFiles.Add("DirectXTK12.lib");

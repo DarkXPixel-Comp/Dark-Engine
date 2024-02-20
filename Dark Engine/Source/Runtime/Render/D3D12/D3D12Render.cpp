@@ -292,8 +292,8 @@ int32_t D3D12Renderer::Init()
 
 
 			m_SkyBoxPSO = std::make_unique<D3D12PipelineShaderRootSignature>(m_device.Get(),
-				FPaths::CombineDir(FPaths::EngineShaderDir(), "Skybox.hlsl"), 
-				FPaths::CombineDir(FPaths::EngineShaderDir(), "SkyboxPixel.hlsl"),
+				FPaths::CombineDir(FPaths::EngineShaderDir(), TEXT("Skybox.hlsl")), 
+				FPaths::CombineDir(FPaths::EngineShaderDir(), TEXT("SkyboxPixel.hlsl")),
 				params, layout, true, D3D12_CULL_MODE_NONE, D3D12_COMPARISON_FUNC_LESS_EQUAL);
 
 		}
@@ -727,57 +727,57 @@ void D3D12Renderer::Render(D3D12Scene* scene)
 		}
 
 
-		{	//Skybox
+		//{	//Skybox
 
-			m_commandList->SetPipelineState(m_SkyBoxPSO->m_pipelineState.Get());
-			m_commandList->SetGraphicsRootSignature(m_SkyBoxPSO->m_rootSignature.Get());
-			//m_commandList->SetGraphicsRootConstantBufferView(1, m_passBuffer->GetResource()->GetGPUVirtualAddress());
-			{
-				XMMATRIX ModelMatrix = XMMatrixIdentity();
-				XMMATRIX Translation = XMMatrixTranslationFromVector(XMLoadFloat3(&camera.m_position));
-				XMMATRIX Rotation = XMMatrixIdentity();
-				//Rotation = XMMatrixRotationRollPitchYawFromVector(XMLoadFloat3(&camera.m_rotation));
-				XMMATRIX Scaling = XMMatrixIdentity();
-
-
-				ModelMatrix = XMMatrixMultiply(Scaling, Rotation);
-				ModelMatrix = XMMatrixMultiply(ModelMatrix, Translation);
-
-				m_cbvObjectSkyBox->CopyData(0, ModelMatrix);
-			}
-			m_commandList->SetGraphicsRootConstantBufferView(1,
-			m_cbvObjectSkyBox->GetResource()->GetGPUVirtualAddress());
-			m_commandList->SetGraphicsRootConstantBufferView(0, m_passBuffer->GetResource()->GetGPUVirtualAddress());
-			m_commandList->SetGraphicsRootDescriptorTable(2, SRDescriptorHeap->GetGpuHandle(333));
+		//	m_commandList->SetPipelineState(m_SkyBoxPSO->m_pipelineState.Get());
+		//	m_commandList->SetGraphicsRootSignature(m_SkyBoxPSO->m_rootSignature.Get());
+		//	//m_commandList->SetGraphicsRootConstantBufferView(1, m_passBuffer->GetResource()->GetGPUVirtualAddress());
+		//	{
+		//		XMMATRIX ModelMatrix = XMMatrixIdentity();
+		//		XMMATRIX Translation = XMMatrixTranslationFromVector(XMLoadFloat3(&camera.m_position));
+		//		XMMATRIX Rotation = XMMatrixIdentity();
+		//		//Rotation = XMMatrixRotationRollPitchYawFromVector(XMLoadFloat3(&camera.m_rotation));
+		//		XMMATRIX Scaling = XMMatrixIdentity();
 
 
+		//		ModelMatrix = XMMatrixMultiply(Scaling, Rotation);
+		//		ModelMatrix = XMMatrixMultiply(ModelMatrix, Translation);
 
-			m_commandList->IASetVertexBuffers(0, 1, &m_SkyBoxVertexView);
-			m_commandList->IASetIndexBuffer(&m_SkyBoxIndexView);
-
-			  
-			m_commandList->DrawIndexedInstanced(36, 1, 0, 0, 0);
+		//		m_cbvObjectSkyBox->CopyData(0, ModelMatrix);
+		//	}
+		//	m_commandList->SetGraphicsRootConstantBufferView(1,
+		//	m_cbvObjectSkyBox->GetResource()->GetGPUVirtualAddress());
+		//	m_commandList->SetGraphicsRootConstantBufferView(0, m_passBuffer->GetResource()->GetGPUVirtualAddress());
+		//	m_commandList->SetGraphicsRootDescriptorTable(2, SRDescriptorHeap->GetGpuHandle(333));
 
 
 
-		}
+		//	m_commandList->IASetVertexBuffers(0, 1, &m_SkyBoxVertexView);
+		//	m_commandList->IASetIndexBuffer(&m_SkyBoxIndexView);
+
+		//	  
+		//	m_commandList->DrawIndexedInstanced(36, 1, 0, 0, 0);
+
+
+
+		//}
 
 
 		{
-			TransitionResource(m_commandList, m_RenderTarget.Get(),
-				D3D12_RESOURCE_STATE_RENDER_TARGET, D3D12_RESOURCE_STATE_ALL_SHADER_RESOURCE);
+			//TransitionResource(m_commandList, m_RenderTarget.Get(),
+			//	D3D12_RESOURCE_STATE_RENDER_TARGET, D3D12_RESOURCE_STATE_ALL_SHADER_RESOURCE);
 
-			m_commandList->SetPipelineState(m_PostProcessPSO->m_pipelineState.Get());
-			m_commandList->SetGraphicsRootSignature(m_PostProcessPSO->m_rootSignature.Get());
-			//m_commandList->ClearDepthStencilView(depthBufferHandle, D3D12_CLEAR_FLAG_DEPTH, 1.f, 0, 0, nullptr);
-			m_commandList->OMSetRenderTargets(1, &RenderTargetHandle, FALSE, nullptr);
+			//m_commandList->SetPipelineState(m_PostProcessPSO->m_pipelineState.Get());
+			//m_commandList->SetGraphicsRootSignature(m_PostProcessPSO->m_rootSignature.Get());
+			////m_commandList->ClearDepthStencilView(depthBufferHandle, D3D12_CLEAR_FLAG_DEPTH, 1.f, 0, 0, nullptr);
+			//m_commandList->OMSetRenderTargets(1, &RenderTargetHandle, FALSE, nullptr);
 
-			m_commandList->SetGraphicsRootDescriptorTable(0, SRDescriptorHeap->GetGpuHandle(247));
+			//m_commandList->SetGraphicsRootDescriptorTable(0, SRDescriptorHeap->GetGpuHandle(247));
 
-			m_commandList->IASetVertexBuffers(0, 1, &m_backVertexView);
-			m_commandList->IASetIndexBuffer(&m_backIndexView);
-			//m_commandList->DrawInstanced(3, 1, 0, 0);
-			//m_commandList->DrawIndexedInstanced(6, 1, 0, 0, 0);
+			//m_commandList->IASetVertexBuffers(0, 1, &m_backVertexView);
+			//m_commandList->IASetIndexBuffer(&m_backIndexView);
+			////m_commandList->DrawInstanced(3, 1, 0, 0);
+			////m_commandList->DrawIndexedInstanced(6, 1, 0, 0, 0);
 
 
 			TransitionResource(m_commandList, m_RenderTarget.Get(),

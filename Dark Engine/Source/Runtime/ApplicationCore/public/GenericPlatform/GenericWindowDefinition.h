@@ -15,6 +15,7 @@ struct FGenericWindowDefinition
 	float HeightOnScreen;
 
 	bool bHasWindowBorder;
+	int32 CornerRadius = 5;
 	
 
 };

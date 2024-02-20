@@ -22,9 +22,12 @@ public class Launch : DarkModule
 	public override void Configure(Project.Configuration config, Target target)
 	{
 		base.Configure(config, target);
-		config.AddPublicDependency<Core>(target);
-		config.AddPublicDependency<D3D12RHI>(target);
-		config.AddPublicDependency<DearImGui>(target);
-		config.AddPublicDependency<Input>(target);
+		config.AddPrivateDependency<Core>(target);
+		config.AddPrivateDependency<CoreDObject>(target);
+		config.AddPrivateDependency<Engine>(target);
+		config.AddPrivateDependency<RHI>(target);
+		config.AddPrivateDependency<UICore>(target);
+		config.AddPrivateDependency<DearImGui>(target);
+
 	}
 }

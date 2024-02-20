@@ -47,7 +47,7 @@ void record(log_& obj)
 
 	
 
-	std::ofstream fout(folder + std::to_string(ltm.tm_year - 100 + 2000) + "-" + std::to_string(ltm.tm_mday) + "-" + std::to_string(ltm.tm_mon + 1) + ".log", std::ios::app);
+	std::ofstream fout(folder.ToString() + std::to_string(ltm.tm_year - 100 + 2000) + "-" + std::to_string(ltm.tm_mday) + "-" + std::to_string(ltm.tm_mon + 1) + ".log", std::ios::app);
 
 	FString text = "[" + std::to_string(ltm.tm_hour) + ":" + std::to_string(ltm.tm_min) + ":" + std::to_string(ltm.tm_sec) + "] ";
 
@@ -77,7 +77,7 @@ void record(log_& obj)
 		break;
 	}
 
-	fout << text << " - " << obj.txt << "\n";
+	fout << text.ToString() << " - " << obj.txt.ToString() << "\n";
 
 	if (obj.isConsole)
 	{
@@ -86,7 +86,7 @@ void record(log_& obj)
 		CommandConsole::Print(obj.txt.c_str());
 		CommandConsole::Print("\n");*/
 
-		PrintLine(text.c_str(), " - ", obj.txt.c_str(), "\n");
+		PrintLine(text.ToString().c_str(), " - ", obj.txt.ToString().c_str(), "\n");
 	}
 
 	fout.close();
@@ -178,7 +178,7 @@ void Logger::log(std::wstring str, LOGGER_ENUM severenty)
 
 	temp.severenty = severenty;
 	temp.time = time(0);
-	temp.txt = FString(str.begin(), str.end());
+	temp.txt = str;
 	temp.isConsole = true;
 
 	inst->logs.push_back(temp);

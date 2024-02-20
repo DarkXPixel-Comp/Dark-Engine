@@ -25,10 +25,11 @@ public class UICore : DarkModule
 		config.Output = Configuration.OutputType.Lib;
 		config.IncludePaths.Add("[project.RootPath]/public");
 		config.IncludePrivatePaths.Add("[project.RootPath]/private");
+
 		config.AddPublicDependency<Core>(target);
-		config.AddPublicDependency<D3D12RHI>(target);
-		config.AddPublicDependency<DearImGui>(target);
-		config.AddPublicDependency<Input>(target);
+		config.AddPublicDependency<ApplicationCore>(target);
+		config.AddPrivateDependency<DearImGui>(target);
+
 
 	}
 }

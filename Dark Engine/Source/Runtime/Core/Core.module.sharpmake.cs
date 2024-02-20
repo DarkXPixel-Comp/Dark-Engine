@@ -27,6 +27,9 @@ public class Core : DarkModule
 		config.IncludePaths.Add("[project.RootPath]");
 		config.IncludePrivatePaths.Add("[project.RootPath]/private");
 
+		config.AddPrivateDependency<DTK12>(target, DependencySetting.DefaultWithoutLinking);
+		config.AddPrivateIncludePathModuleName<ApplicationCore>(target);
+
 
 	}
 }

@@ -25,6 +25,9 @@ public class Renderer : DarkModule
 		config.Output = Configuration.OutputType.Lib;
 		config.IncludePaths.Add("[project.RootPath]/public");
 		config.IncludePrivatePaths.Add("[project.RootPath]/private");
+		config.AddPublicDependency<Core>(target);
+		config.AddPrivateDependency<RHI>(target);
+		//config.AddPublicDependency<Engine>(target);
 		//config.AddPrivateDependency<Core>(target);
 		//config.AddPrivateDependency<RHI>(target);
 

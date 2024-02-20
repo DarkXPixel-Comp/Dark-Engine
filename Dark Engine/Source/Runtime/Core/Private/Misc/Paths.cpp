@@ -18,7 +18,8 @@ CORE_API FString FPaths::EngineContentDir()
 
 CORE_API FString FPaths::RootDir()
 {
-	return FString(ROOT_DIR) + "/";
+	//return FString("TEST");
+	return FString(ROOT_DIR) + TEXT("/");
 }
 
 CORE_API FString FPaths::CombineDir(FString Str1, FString Str2)

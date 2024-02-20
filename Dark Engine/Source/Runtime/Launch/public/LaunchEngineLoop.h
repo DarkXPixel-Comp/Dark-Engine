@@ -18,7 +18,7 @@ public:
 	int32 Init();
 	void InitTime() {}
 	void Exit() {}
-	void Tick() {}
+	void Tick();
 
 
 

@@ -26,6 +26,7 @@ public class Input : DarkModule
 		config.IncludePaths.Add("[project.RootPath]/public");
 		config.IncludePrivatePaths.Add("[project.RootPath]/private");
 		config.AddPublicDependency<Core>(target);
+		config.AddPublicDependency<DTK12>(target);
 
 	}
 }

@@ -1,3 +1,5 @@
+#pragma once
+
 #include "Memory/TUniquePtr.h"
 #include "DarkClient.h"
 #include "SceneViewport.h"
@@ -5,7 +7,7 @@
 #include "ViewportClient.h"
 
 
-
+class FViewport;
 
 
 class FGameViewportClient : public FViewportClient

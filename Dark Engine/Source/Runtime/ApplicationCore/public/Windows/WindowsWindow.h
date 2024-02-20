@@ -49,15 +49,19 @@ public:
 
 public:
 	virtual void* GetOSWindowHandle() const override { return HWnd; }
+	void AdjustWindowRegion(int32 Width, int32 Height);
+	HRGN MakeWindowRegionObject(bool bIncludeBorderWhenMaximized) const;
+	void ReshapeWindow(int32 NewX, int32 NewY, int32 NewWidth, int32 NewHeight);
+	void Restore() { ShowWindow(HWnd, SW_RESTORE); }
 
 
-	void Show() { ShowWindow(m_Wnd, SW_SHOW); }
+	void Show() { ShowWindow(HWnd, SW_SHOW); }
 
-	void Hide() { ShowWindow(m_Wnd, SW_HIDE); }
+	void Hide() { ShowWindow(HWnd, SW_HIDE); }
 
-	void Maximaze() { ShowWindow(m_Wnd, SW_MAXIMIZE); }
+	void Maximaze() { ShowWindow(HWnd, SW_MAXIMIZE); }
 
-	void Minimize() { ShowWindow(m_Wnd, SW_MINIMIZE); }
+	void Minimize() { ShowWindow(HWnd, SW_MINIMIZE); }
 
 	HWND GetHWnd() { return HWnd; }
 
@@ -67,8 +71,8 @@ public:
 
 	bool IsPointInWindow(int32 X, int32 Y);
 
-	int32 GetWindowBorderSize();
-	int32 GetWindowTitleBarSize();
+	int32 GetWindowBorderSize() const;
+	int32 GetWindowTitleBarSize() const;
 
 	void SetResolution(UINT w, UINT h);
 
@@ -77,6 +81,8 @@ public:
 	void SetResPos(UINT w, UINT h, UINT x, UINT y);
 
 	bool isClose();
+	bool IsMaximized() const { return IsZoomed(HWnd); }
+
 
 	UINT GetWitdh() { return width; }
 	UINT GetHeight() { return height; }
@@ -129,6 +135,7 @@ private:
 	UINT leftX{ 0 };
 	UINT topY{ 0 };
 
+
 	HWND	m_Wnd;
 	MSG		msg;
 
@@ -153,6 +160,13 @@ private:
 	HWND HWnd;
 	float AspectRatio;
 	bool bIsVisible;
+	int32 VirtualWidth;
+	int32 VirtualHeight;
+	int32 RegionWidth;
+	int32 RegionHeight;
+
+	FGenericWindowDefinition WndDefinition;
+
 
 
 };

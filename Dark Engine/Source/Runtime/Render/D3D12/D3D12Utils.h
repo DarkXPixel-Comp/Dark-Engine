@@ -33,8 +33,8 @@ class FD3D12Mesh;
 class DENGINE_API D3DUtil
 {
 	static std::unordered_map<UINT, TUniquePtr<D3D12PipelineShaderRootSignature>> Pipelines;
-	static std::unordered_map<FString, TUniquePtr<FD3D12Mesh>> m_meshes;
-	static std::unordered_map<FString, TUniquePtr<D3D12Texture>> m_textures;
+	static std::unordered_map<std::string, TUniquePtr<FD3D12Mesh>> m_meshes;
+	static std::unordered_map<std::string, TUniquePtr<D3D12Texture>> m_textures;
 	static TArray<CD3DX12_STATIC_SAMPLER_DESC> m_samplers;
 
 
@@ -61,7 +61,7 @@ public:
 		}
 	}
 
-	static std::unordered_map<FString, TUniquePtr<D3D12Texture>>* GetTextures()
+	static std::unordered_map<std::string, TUniquePtr<D3D12Texture>>* GetTextures()
 	{
 		return &m_textures;
 	}
@@ -74,7 +74,7 @@ public:
 	static FD3D12Mesh* LoadMesh(FString path);
 	static void DeleteMesh(FD3D12Mesh* mesh);
 	static D3D12Texture* LoadTexture(FString path, bool isCubeMap = false);
-	static TArray<FD3D12Mesh*> LoadMeshes(FString path, bool bCombineMeshes);
+	static TArray<FD3D12Mesh*> LoadMeshes(std::string path, bool bCombineMeshes);
 
 	static XMMATRIX CalcMVP()
 	{

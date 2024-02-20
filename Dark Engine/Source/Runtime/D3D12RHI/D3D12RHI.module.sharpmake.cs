@@ -25,7 +25,11 @@ public class D3D12RHI : DarkModule
 		config.Output = Configuration.OutputType.Lib;
 		config.IncludePaths.Add("[project.RootPath]/public");
 		config.IncludePrivatePaths.Add("[project.RootPath]/private");
+		config.AddPrivateDependency<Engine>(target);
+		config.AddPrivateDependency<CoreDObject>(target);
+		//config.AddPrivateDependency<Engine>(target);
 		config.AddPublicDependency<RHI>(target);
+		config.AddPublicDependency<Core>(target);
 
 	}
 }

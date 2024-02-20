@@ -26,7 +26,18 @@ public class Engine : DarkModule
 		config.IncludePaths.Add("[project.RootPath]/public");
 		config.IncludePrivatePaths.Add("[project.RootPath]/private");
 		config.IncludePaths.Add("[project.RootPath]/Classes");
-		config.AddPublicDependency<Render>(target);
 
+		config.AddPublicDependency<Core>(target);
+		config.AddPublicDependency<UICore>(target);
+		config.AddPublicDependency<CoreDObject>(target);
+		config.AddPublicDependency<Render>(target);
+		config.AddPublicDependency<Editor>(target);
+
+
+		//config.AddPublicIncludePathModuleName<Input>(target);
+		config.AddPublicIncludePathModuleName<RHI>(target);
+		config.AddPublicIncludePathModuleName<World>(target);
+		//config.AddPublicIncludePathModuleName<UICore>(target);
+		//config.AddPublicIncludePathModuleName<RHI>(target);
 	}
 }

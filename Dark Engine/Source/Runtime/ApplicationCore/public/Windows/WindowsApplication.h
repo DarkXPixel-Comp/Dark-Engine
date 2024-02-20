@@ -3,7 +3,7 @@
 #include "Windows/MinimalWindowsApi.h"
 #include "GenericPlatform/GenericApplication.h"
 #include "Windows/WindowsWindow.h"
-#include "TUniquePtr.h"
+#include "Memory/TUniquePtr.h"
 
 
 #undef RegisterClass
@@ -37,7 +37,7 @@ private:
 
 	virtual void PumpMessages() override;
 
-	virtual void AddMessageHandler(IWindowsMessageHandler& InMessageHandler);
+	virtual void AddMessageHandler(IWindowsMessageHandler& InMessageHandler) {}
 
 	int32 ProcessMessage(HWND hWnd, uint32 Msg, WPARAM wParam, LPARAM lParam);
 

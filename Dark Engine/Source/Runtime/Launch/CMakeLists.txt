@@ -1,8 +1,5 @@
-add_executable(Launch "Resource/Windows/app.o")
+add_executable(Launch) # "Resource/Windows/app.o"
 
-find_library(LaunchLibs Core Engine)
-
-#set(Launch_Sources)
 
 
 
@@ -26,6 +23,7 @@ if(MSVC AND WIN32)
 
 	set(LAUNCH_RESOURCES "Resource/Windows/app.rc" "Resource/Windows/Logo.ico" "Resource/Windows/resource.h")
 	target_sources(Launch PRIVATE "private/Windows/LaunchWindows.cpp")
+	target_sources(Launch PRIVATE "Resource/Windows/app.o")
 	set(Launch_Sources ${Launch_Sources} "private/Windows/LaunchWindows.cpp")
 endif()
 
@@ -42,6 +40,7 @@ set(Launch_Sources ${Launch_Sources} "private/Launch.cpp")
 #GroupSourcesByFolder(Launch "${Launch_Sources}")
 
 target_sources(Launch PRIVATE "Private/Launch.cpp" "private/LaunchEngineLoop.cpp")
+
 
 SettingProject(Launch)
 

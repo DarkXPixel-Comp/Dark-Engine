@@ -14,8 +14,10 @@ int32 FEngineLoop::PreInit(const TCHAR* CmdLine)
 	//CurrentApplication->InitializeRenderer(nullptr);
 
 	TSharedPtr<UIWindow> RootWindow = MakeShareble(new UIWindow());
+	RootWindow->SetTitle("Edtior");
 
 	CurrentApplication->AddWindow(RootWindow);
+
 
 
 	RootWindow->ShowWindow();
@@ -36,4 +38,13 @@ int32 FEngineLoop::Init()
 
 
 	return 0;
+}
+
+void FEngineLoop::Tick()
+{
+	UIApplication::Get()->Tick(1);
+
+
+
+
 }

@@ -7,7 +7,7 @@ D3D12Shader::D3D12Shader(eD3D12ShaderType type, FString path)
 	m_shaderType = type;
 	m_shaderPath = path;
 
-	if (path == "")
+	if (path == TEXT(""))
 		return;
 
 

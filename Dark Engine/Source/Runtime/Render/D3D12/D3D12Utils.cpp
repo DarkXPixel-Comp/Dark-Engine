@@ -14,8 +14,8 @@
 
 
 std::unordered_map<UINT, TUniquePtr<D3D12PipelineShaderRootSignature>> D3DUtil::Pipelines;
-std::unordered_map<FString, TUniquePtr<FD3D12Mesh>> D3DUtil::m_meshes;
-std::unordered_map<FString, TUniquePtr<D3D12Texture>> D3DUtil::m_textures;
+std::unordered_map<std::string, TUniquePtr<FD3D12Mesh>> D3DUtil::m_meshes;
+std::unordered_map<std::string, TUniquePtr<D3D12Texture>> D3DUtil::m_textures;
 TArray<CD3DX12_STATIC_SAMPLER_DESC> D3DUtil::m_samplers(6);
 ComPtr<IDxcCompiler3> D3DUtil::m_ShaderCompiler;
 ComPtr<IDxcUtils>  D3DUtil::m_Utils;
@@ -59,7 +59,7 @@ UINT D3DUtil::CreatePipeline(eShaderType type)
 		for (size_t i = 0; i < parametrs.GetSize(); i++) { pParametrs[i] = parametrs[i]; }
 
 		D3D12PipelineShaderRootSignature* PSO = new D3D12PipelineShaderRootSignature(render->m_device.Get(),
-			FPaths::CombineDir(FPaths::EngineShaderDir(), "VertexShader.hlsl"), FPaths::CombineDir(FPaths::EngineShaderDir(), "PixelShader.hlsl"), pParametrs);
+			FPaths::CombineDir(FPaths::EngineShaderDir(), TEXT("VertexShader.hlsl")), FPaths::CombineDir(FPaths::EngineShaderDir(), TEXT("PixelShader.hlsl")), pParametrs);
 
 		Pipelines.emplace(PSO->GetID(), PSO);
 	}
@@ -132,9 +132,9 @@ ID3D12CommandQueue* D3DUtil::GetCommandQueue()
 
 D3D12Texture* D3DUtil::LoadTexture(FString path, bool isCubeMap)
 {
-	if (m_textures.find(path) != m_textures.end())
+	if (m_textures.find(path.ToString()) != m_textures.end())
 	{
-		return m_textures.find(path)->second.get();
+		return m_textures.find(path.ToString())->second.get();
 	}
 
 
@@ -142,7 +142,7 @@ D3D12Texture* D3DUtil::LoadTexture(FString path, bool isCubeMap)
 
 	auto texture = new D3D12Texture();
 	
-	m_textures.emplace(path, TUniquePtr<D3D12Texture>(texture));
+	m_textures.emplace(path.ToString(), TUniquePtr<D3D12Texture>(texture));
 	texture->name = path;
 	
 
@@ -200,15 +200,15 @@ D3D12Texture* D3DUtil::LoadTexture(FString path, bool isCubeMap)
 
 FD3D12Mesh* D3DUtil::LoadMesh(FString path)
 {
-	if (m_meshes.find(path) != m_meshes.end())
+	if (m_meshes.find(path.ToString()) != m_meshes.end())
 	{
-		return m_meshes.find(path)->second.get();
+		return m_meshes.find(path.ToString())->second.get();
 	}
 
 	
 
 	Assimp::Importer importer;
-	const aiScene* scene = importer.ReadFile(path, aiProcess_Triangulate);
+	const aiScene* scene = importer.ReadFile(path.ToString(), aiProcess_Triangulate);
 	if (!scene) return nullptr;
 
 	INT64 CountVertices = 0;
@@ -349,14 +349,14 @@ FD3D12Mesh* D3DUtil::LoadMesh(FString path)
 
 
 
-	m_meshes.emplace(path, std::make_unique<FD3D12Mesh>(vertices, indices));
-	return m_meshes.find(path)->second.get();
+	m_meshes.emplace(path.ToString(), std::make_unique<FD3D12Mesh>(vertices, indices));
+	return m_meshes.find(path.ToString())->second.get();
 
 }
 
 void D3DUtil::DeleteMesh(FD3D12Mesh* mesh)
 {
-	auto it = m_meshes.find(mesh->PathToMesh);
+	auto it = m_meshes.find(mesh->PathToMesh.ToString());
 
 	if (it == m_meshes.end())
 		return;

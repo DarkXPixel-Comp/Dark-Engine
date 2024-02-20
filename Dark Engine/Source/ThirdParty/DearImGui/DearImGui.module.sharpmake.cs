@@ -22,7 +22,7 @@ public class DearImGui : DarkModule
 	public override void Configure(Project.Configuration config, Target target)
 	{
 		base.Configure(config, target);
-		config.Output = Configuration.OutputType.Dll;
+		//config.Output = Configuration.OutputType.Dll;
 		config.IncludePaths.Add("[project.RootPath]/public");
 		config.IncludePrivatePaths.Add("[project.RootPath]/private");
 

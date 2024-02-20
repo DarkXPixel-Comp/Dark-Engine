@@ -3,22 +3,25 @@
 
 #include "CoreTypes.h"
 #include "Templates/EnableIf.h"
+#include "stringapiset.h"
+
 
 
 #include <type_traits>
 
 
 
-
-namespace DE::Core::Private
+struct FGenericPlatformString
 {
-	DENGINE_API int32 GetConvertedLength(const UTF8CHAR* Dest, const WIDECHAR* Src);
 
 
-}
 
 
-struct FGenericPlatformString/* : public FGenericPlatformStricmp*/
-{
+
+
+
+
 
 };
+
+

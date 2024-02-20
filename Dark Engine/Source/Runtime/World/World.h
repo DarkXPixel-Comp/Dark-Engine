@@ -6,14 +6,30 @@
 #include <Actor/Actor.h>
 #include <Camera/CameraActor.h>
 #include <D3D12/D3D12Scene.h>
+#include "SceneInterface.h"
 
-#define WORLD_API DLLEXPORT
+
+#define WORLD_API
 
 
 class UCameraActor;
 class AActor;
 
+
+
+
 using namespace DirectX;
+
+class FWorld
+{
+public:
+	FSceneInterface* Scene;
+
+
+
+};
+
+
 
 class AWorld
 {

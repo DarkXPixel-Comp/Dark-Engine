@@ -86,9 +86,9 @@ public:
 
 
 
-			int len = MultiByteToWideChar(CP_ACP, 0, vertexShaderPath.c_str(), -1, NULL, 0);
+			/*int len = MultiByteToWideChar(CP_ACP, 0, vertexShaderPath.c_str(), -1, NULL, 0);
 			wstring wPathShader(L" ", len);
-			MultiByteToWideChar(CP_ACP, 0, vertexShaderPath.c_str(), -1, wPathShader.data(), len);
+			MultiByteToWideChar(CP_ACP, 0, vertexShaderPath.c_str(), -1, wPathShader.data(), len);*/
 
 
 			LPCWSTR pszArgs[] =
@@ -96,13 +96,13 @@ public:
 				L"-E main",
 				L"-T vs_6_6",
 				L"Zi",
-				wPathShader.c_str()
+				vertexShaderPath.Data()
 				//L"-E", L"main",              // Entry point.
 				//L"-T", L"vs_6_6",            // Target.
 			};
 
 			ComPtr<IDxcBlobEncoding> pSource = nullptr;
-			pUtils->LoadFile(wPathShader.c_str(), nullptr, &pSource);
+			pUtils->LoadFile(vertexShaderPath.Data(), nullptr, &pSource);
 			DxcBuffer Source;
 			Source.Ptr = pSource->GetBufferPointer();
 			Source.Size = pSource->GetBufferSize();
@@ -125,9 +125,9 @@ public:
 
 
 
-			int len = MultiByteToWideChar(CP_ACP, 0, pixelShaderPath.c_str(), -1, NULL, 0);
+			/*int len = MultiByteToWideChar(CP_ACP, 0, pixelShaderPath.c_str(), -1, NULL, 0);
 			wstring wPathShader(L" ", len);
-			MultiByteToWideChar(CP_ACP, 0, pixelShaderPath.c_str(), -1, wPathShader.data(), len);
+			MultiByteToWideChar(CP_ACP, 0, pixelShaderPath.c_str(), -1, wPathShader.data(), len);*/
 
 
 			LPCWSTR pszArgs[] =
@@ -135,13 +135,13 @@ public:
 				L"-E main",
 				L"-T ps_6_6",
 				L"Zi",
-				wPathShader.c_str()
+				vertexShaderPath.Data()
 				//L"-E", L"main",              // Entry point.
 				//L"-T", L"vs_6_6",            // Target.
 			};
 
 			ComPtr<IDxcBlobEncoding> pSource = nullptr;
-			pUtils->LoadFile(wPathShader.c_str(), nullptr, &pSource);
+			pUtils->LoadFile(vertexShaderPath.Data(), nullptr, &pSource);
 			DxcBuffer Source;
 			Source.Ptr = pSource->GetBufferPointer();
 			Source.Size = pSource->GetBufferSize();

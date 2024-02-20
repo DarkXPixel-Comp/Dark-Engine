@@ -63,7 +63,7 @@ public:
 
 	decltype(auto) Insert(auto Where, auto It1, auto It2) { return _vector.insert(Where, It1, It2); }
 
-	SizeType Remove(const ElementType& Element) { return 0; }
+	void Remove(const ElementType& Element) { _vector.erase(std::find(_vector.begin(), _vector.end(), Element)); }
 
 
 

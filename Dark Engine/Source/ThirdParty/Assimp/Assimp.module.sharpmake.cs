@@ -22,7 +22,7 @@ public class Assimp : DarkModule
 	public override void Configure(Project.Configuration config, Target target)
 	{
 		base.Configure(config, target);
-		config.Output = Configuration.OutputType.Dll;
+		config.Output = Configuration.OutputType.Utility;
 		config.IncludePaths.Add("[project.RootPath]/include");
 		config.LibraryPaths.Add("[project.RootPath]/lib/Debug");
 		config.LibraryFiles.Add("assimp-vc143-mtd.lib");

@@ -244,14 +244,14 @@ void AddInterface(TArray<FObjectProperties> Properties)
 		case Vector2:
 			break;
 		case Vector3:
-			ImGui::DragFloat3(i.Name.c_str(), (float*)i.Properties);
+			ImGui::DragFloat3(i.Name.ToString().c_str(), (float*)i.Properties);
 			break;
 		case Vector4:
 			break;
 		case Array:
 			break;
 		case Custom:
-			ImGui::SeparatorText(i.Name.c_str());
+			ImGui::SeparatorText(i.Name.ToString().c_str());
 			prop = reinterpret_cast<UObject*>(i.Properties)->GetProperties();
 			AddInterface(prop);
 			break;
@@ -293,7 +293,7 @@ void DEngine::Interface()
 	{
 		for (auto &actor : *m_world->GetActors())
 		{
-			if(ImGui::TreeNode(actor->GetName().c_str()))
+			if(ImGui::TreeNode(actor->GetName().ToString().c_str()))
 			{
 				AddInterface(actor->GetProperties());
 
@@ -335,7 +335,7 @@ void DEngine::Interface()
 					for (size_t i = 0; i < Items.GetSize(); i++)
 					{
 						const bool is_selected = (CurrentId == i);
-						if (ImGui::Selectable(Items[i].c_str(), is_selected))
+						if (ImGui::Selectable(Items[i].ToString().c_str(), is_selected))
 						{
 							CurrentId = i;
 							if (mat != TexturesPtr[i])

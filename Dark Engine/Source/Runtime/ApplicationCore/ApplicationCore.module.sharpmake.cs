@@ -25,12 +25,14 @@ public class ApplicationCore : DarkModule
 		config.Output = Configuration.OutputType.Lib;
 		config.IncludePaths.Add("[project.RootPath]/public");
 		config.IncludePrivatePaths.Add("[project.RootPath]/private");
-		//config.AddPrivateDependency<Core>(target);
-		config.AddPublicDependency<Editor>(target);
 
-		//config.AddPrivateDependency<Engine>(target);
-		//config.AddPrivateDependency<Input>(target);
-		//config.AddPrivateDependency<DearImGui>(target);
+
+		config.AddPrivateDependency<DTK12>(target, DependencySetting.DefaultWithoutLinking);
+		config.AddPublicDependency<Core>(target);
+		config.AddPublicDependency<Input>(target);
+		config.AddPrivateDependency<DearImGui>(target);
+		config.AddPublicIncludePathModuleName<RHI>(target);
+
 
 	}
 }

@@ -2,6 +2,7 @@
 #include "CoreMinimal.h"
 
 #include "Windows/WindowsWindow.h"
+#include <CoreGlobals.h>
 
 
 FWindowsApplication* WindowsApplication;
@@ -54,25 +55,23 @@ int32 FWindowsApplication::ProcessMessage(HWND hWnd, uint32 Msg, WPARAM wParam, 
 			Handler->ProcessMessage(hWnd, Msg, wParam, lParam);
 
 		}
-		
-
-
 		switch (Msg)
 		{
 		case WM_DESTROY:
 			Windows.Remove(CurrentWindow);
+			if (Windows.Num() <= 0)
+				GIsRequestingExit = true;
 			return 0;
 			break;
+		case WM_QUIT:
+			GIsRequestingExit = true;
+			return 0;
 
 
 
 		default:
 			break;
 		}
-
-
-
-
 
 	}
 	

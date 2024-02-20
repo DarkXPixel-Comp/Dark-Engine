@@ -4,5 +4,10 @@
 
 class FUIRHIRenderer : public FUIRenderer
 {
+	void Initialize();
+	
+
+
+
 
 };

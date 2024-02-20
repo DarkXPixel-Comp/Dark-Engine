@@ -61,13 +61,20 @@ public class DarkModule : Project
 	{
 		conf.ProjectPath = Path.Combine(Modules.PathSolution, "Dark Engine/Intermediate/ProjectFiles");
 		conf.Options.Add(Sharpmake.Options.Vc.General.WindowsTargetPlatformVersion.Latest);
+		conf.Options.Add(Sharpmake.Options.Vc.Compiler.CppLanguageStandard.CPP20);
 		conf.TargetPath = Path.Combine(Modules.PathSolution, "Dark Engine", "bin");
 		conf.TargetLibraryPath = Path.Combine(Modules.PathSolution, "Dark Engine", "bin", "lib");
 		conf.IntermediatePath = Path.Combine(Modules.PathSolution, "Dark Engine/Intermediate/Build/Win64/Sharpmake");
 		conf.Output = Configuration.OutputType.Lib;
 		conf.ExportAdditionalLibrariesEvenForStaticLib = true;
 		conf.DumpDependencyGraph = true;
-		conf.IncludePaths.Add(Path.Combine(Modules.PathSolution, "Dark Engine/Source/Windows"));
+
+		if(target.Platform == Platform.win64)
+		{
+			conf.IncludePaths.Add(Path.Combine(Modules.PathSolution, "Dark Engine/Source/Windows"));
+
+		}
+		conf.IncludePaths.Add(Path.Combine(Modules.PathSolution, "Dark Engine/Source"));
 	}
 
 
