@@ -1,13 +1,5 @@
-# Dark Engine
+# Branches
+Most active development branch - Development
+Release - Dont use
 
-This is My Engine
- 
 
-# Roadmap
-
-1. Создать структуру-описание Шейдеров для быстрого поиска
-2. Компиляция Шейдеров реал тайм
-3. Сгрупировка объектов сцены по шейдерам
-
-# Assembly
-1. Эксперименты с памятью (Расположение байтов в памяти)
