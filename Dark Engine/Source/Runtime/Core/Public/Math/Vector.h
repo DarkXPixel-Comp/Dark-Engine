@@ -152,7 +152,10 @@ namespace DE
 			 * @param V The other vector.
 			 * @return The dot product.
 			 */
-			FORCEINLINE T operator|(const TVector<T>& V) const;
+			FORCEINLINE T operator|(const TVector<T>& V) const
+			{
+				return Dot(V);
+			}
 
 			/**
 			 * Calculate the dot product between this and another vector.
@@ -174,19 +177,19 @@ namespace DE
 
 			FORCEINLINE TVector<T> operator-(const TVector<T>& V) const;
 
-			template<typename FArg, TEMPLATE_REQUIRES(std::is_arithmetic<FArg>::value)>
+			template<typename FArg>
 			FORCEINLINE TVector<T> operator-(FArg Bias)
 			{
 				return TVector<T>(X - (T)Bias, Y - (T)Bias, Z - T(Bias));
 			}
 
 
-			template<typename FArg, TEMPLATE_REQUIRES(std::is_arithmetic<FArg>::value)>
+			template<typename FArg>
 			FORCEINLINE TVector<T> operator*(FArg Scale) const
 			{
 				return TVector<T>(X * (T)Scale, Y * (T)Scale, Z * (T)Scale);
 			}	
-			template<typename FArg, TEMPLATE_REQUIRES(std::is_arithmetic<FArg>::value)>
+			template<typename FArg>
 			FORCEINLINE TVector<T> operator/(FArg Scale) const
 			{
 				const T RScale = T(1) / Scale;
@@ -197,9 +200,15 @@ namespace DE
 
 			FORCEINLINE TVector<T> operator/(const TVector<T>& V) const;
 
-			bool operator==(const TVector<T>& V) const;
+			bool operator==(const TVector<T>& V) const
+			{
+				return Equals(V);
+			}
 
-			bool operator!=(const TVector<T>& V) const;
+			bool operator!=(const TVector<T>& V) const
+			{
+				return !Equals(V);
+			}
 
 			bool Equals(const TVector<T>& V, T Tolerance = DE_KINDA_SMALL_NUMBER) const;
 
@@ -231,9 +240,15 @@ namespace DE
 			TVector<T> operator/=(const TVector<T>& V);
 
 
-			T& operator[](int32 Index);
+			T& operator[](int32 Index)
+			{
+				return Component(Index);
+			}
 
-			T operator[](int32 Index) const;
+			T operator[](int32 Index) const
+			{
+				return Component(Index);
+			}
 
 			T& Component(int32 Index);
 
@@ -276,7 +291,10 @@ namespace DE
 			 *
 			 * @return The length of this vector.
 			 */
-			T Size() const;
+			T Size() const
+			{
+				return Length();
+			}
 
 			/**
 			 * Get the length (magnitude) of this vector.
@@ -290,28 +308,40 @@ namespace DE
 			 *
 			 * @return The squared length of this vector.
 			 */
-			T SizeSquared() const;
+			T SizeSquared() const
+			{
+				return SquaredLength();
+			}
 
 			/**
 			 * Get the squared length of this vector.
 			 *
 			 * @return The squared length of this vector.
 			 */
-			T SquaredLength() const;
+			T SquaredLength() const
+			{
+				return X * X + Y * Y + Z * Z;
+			}
 
 			/**
 			 * Get the length of the 2D components of this vector.
 			 *
 			 * @return The 2D length of this vector.
 			 */
-			T Size2D() const;
+			T Size2D() const
+			{
+				return FMath::Sqrt(X * X + Y * Y);
+			}
 
 			/**
 			 * Get the squared length of the 2D components of this vector.
 			 *
 			 * @return The squared 2D length of this vector.
 			 */
-			T SizeSquared2D() const;
+			T SizeSquared2D() const
+			{
+				return X * X + Y * Y;
+			}
 
 			/**
 			 * Checks whether vector is near to zero within a specified tolerance.
@@ -565,11 +595,114 @@ namespace DE
 		{
 		}
 
+		template<typename T>
+		inline void TVector<T>::Set(T InX, T InY, T InZ)
+		{
+			X = InX;
+			Y = InY;
+			Z = InZ;
+		}
+
+		template<typename T>
+		inline T& TVector<T>::Component(int32 Index)
+		{
+			return XYZ[Index];
+		}
+		template<typename T>
+		inline T TVector<T>::Component(int32 Index) const
+		{
+			return XYZ[Index];
+		}
+
+		template<typename T>
+		inline TVector<T> TVector<T>::GetAbs() const
+		{
+			return TVector<T>
+				(
+					FMath::Abs(X),
+					FMath::Abs(Y),
+					FMath::Abs(Z)
+				);
+		}
+
+		template<typename T>
+		inline T TVector<T>::GetMax() const
+		{
+			return FMath::Max(FMath::Max(X, Y), Z);
+		}
+		template<typename T>
+		inline T TVector<T>::GetAbsMax() const
+		{
+			return FMath::AbsMax(FMath::AbsMax(X, Y), Z);
+		}
+
+
+		template<typename T>
+		inline T TVector<T>::GetMin() const
+		{
+			return FMath::Min(FMath::Min(X, Y), Z);
+		}
+		template<typename T>
+		inline T TVector<T>::GetAbsMin() const
+		{
+			return FMath::AbsMin(FMath::AbsMin(X, Y), Z);
+		}
+
+		template<typename T>
+		inline TVector<T> TVector<T>::ComponentMin(const TVector<T>& Other) const
+		{
+			return TVector<T>
+				(
+					FMath::Min(X, Other.X),
+					FMath::Min(Y, Other.Y),
+					FMath::Min(Z, Other.Z)
+				);
+		}
+		template<typename T>
+		inline TVector<T> TVector<T>::ComponentMax(const TVector<T>& Other) const
+		{
+			return TVector<T>
+				(
+					FMath::Max(X, Other.X),
+					FMath::Max(Y, Other.Y),
+					FMath::Max(Z, Other.Z)
+				);
+		}
+
+		template<typename T>
+		inline bool TVector<T>::Equals(const TVector<T>& V, T Tolerance) const
+		{
+			return FMath::Abs(X - V.X) < Tolerance && FMath::Abs(Y - V.Y) < Tolerance && FMath::Abs(Z - V.Z) < Tolerance;
+		}
+
+		template<typename T>
+		inline bool TVector<T>::AllComponentEqual(T Tolerance) const
+		{
+			return FMath::Abs(X - Y) < Tolerance && FMath::Abs(Y - Z) < Tolerance;
+		}
 
 		template<typename T>
 		FORCEINLINE TVector<T> TVector<T>::operator+(const TVector<T>& V) const
 		{
 			return TVector<T>(X + V.X, Y + V.Y, Z + V.Z);
+		}
+
+		template<typename T>
+		FORCEINLINE TVector<T> TVector<T>::operator*(const TVector<T>& V) const
+		{
+			return TVector<T>(X * V.X, Y * V.Y, Z * V.Z);
+		}
+
+		template<typename T>
+		FORCEINLINE TVector<T> TVector<T>::operator/(const TVector<T>& V) const
+		{
+			return TVector<T>(X / V.X, Y / V.Y, Z / V.Z);
+		}
+
+		template<typename T>
+		FORCEINLINE TVector<T> TVector<T>::operator^(const TVector<T>&V) const
+		{
+			return Cross(V);
 		}
 
 
@@ -581,6 +714,42 @@ namespace DE
 					 !FMath::IsFinite(Z));
 		}
 
+
+		template<typename T>
+		inline T TVector<T>::DotProduct(const TVector<T>& A, const TVector<T>& B)
+		{
+			return A.X * B.X + A.Y * B.Y + A.Z * B.Z;
+		}
+
+		template<typename T>
+		inline T TVector<T>::Dot(const TVector<T>& V) const
+		{
+			return DotProduct(*this, V);
+		}
+
+
+		template<typename T>
+		inline TVector<T> TVector<T>::CrossProduct(const TVector<T>& A, const TVector<T>& B)
+		{
+			return TVector
+			(
+				A.Y * B.Z - A.Z * B.Y,
+				A.Z * B.X - A.X * B.Z,
+				A.X * B.Y - A.Y * B.X
+			);
+		}
+
+		template<typename T>
+		inline TVector<T> TVector<T>::Cross(const TVector<T>& V) const
+		{
+			return CrossProduct(*this, V);
+		}
+
+		template<typename T>
+		inline T TVector<T>::Length() const
+		{
+			return FMath::Sqrt(X * X + Y * Y + Z * Z);
+		}
 
 
 	}

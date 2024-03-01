@@ -1,7 +1,11 @@
+#pragma once
 #include "D3D12RHI.h"
-#include "D3D12Adapter.h"
-#include "D3D12Device.h"
+#include "D3D12ThirdParty.h"
 
+
+
+class FD3D12Adapter;
+class FD3D12Device;
 
 
 

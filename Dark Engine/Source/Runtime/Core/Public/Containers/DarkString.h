@@ -57,6 +57,7 @@ public:
 		return *this;
 	}
 
+	const TCHAR* operator*() const { return _string.data(); }
 	TCHAR* operator*() { return _string.data(); }
 
 	bool operator==(FString R)

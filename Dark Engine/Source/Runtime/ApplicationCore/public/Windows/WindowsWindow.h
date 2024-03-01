@@ -44,6 +44,8 @@ public:
 	void Destroy();
 	void Update();
 
+	void Tick(float DeltaTime);
+
 
 	void Initialize(class FWindowsApplication* const Application, const FGenericWindowDefinition& InDefinition, HINSTANCE InHInstance);
 
@@ -54,12 +56,18 @@ public:
 	void ReshapeWindow(int32 NewX, int32 NewY, int32 NewWidth, int32 NewHeight);
 	void Restore() { ShowWindow(HWnd, SW_RESTORE); }
 
+	float GetAspectRatio() const { return  AspectRatio; }
 
-	void Show() { ShowWindow(HWnd, SW_SHOW); }
+#ifdef IMGUI
+	virtual void InitImGui();
+#endif
+
+
+	virtual void Show() { ShowWindow(HWnd, SW_SHOW); }
 
 	void Hide() { ShowWindow(HWnd, SW_HIDE); }
 
-	void Maximaze() { ShowWindow(HWnd, SW_MAXIMIZE); }
+	void Maximize() override { ShowWindow(HWnd, SW_MAXIMIZE); }
 
 	void Minimize() { ShowWindow(HWnd, SW_MINIMIZE); }
 
@@ -104,6 +112,8 @@ public:
 	FDestroyWindow onDestroyWindow;
 	FUpdateWindow onUpdateWindow;
 
+
+	const FGenericWindowDefinition& GetDefinition() const { return WndDefinition; }
 
 
 private:
@@ -158,12 +168,13 @@ private:
 
 private:
 	HWND HWnd;
-	float AspectRatio;
+	float AspectRatio = 16 / 9;
 	bool bIsVisible;
 	int32 VirtualWidth;
 	int32 VirtualHeight;
 	int32 RegionWidth;
 	int32 RegionHeight;
+	bool bIsDestroyed = false;
 
 	FGenericWindowDefinition WndDefinition;
 
@@ -208,6 +219,7 @@ public:
 
 private:
 	TArray<FWindowsWindow*> windows;
+
 
 	MSG msg;
 

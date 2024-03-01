@@ -1,6 +1,8 @@
 #pragma once
 #include "Templates/DarkTemplate.h"
 #include "D3D12RHIPrivate.h"
+#include "Containers/StaticArray.h"
+#include "D3D12Viewport.h"
 
 
 #include <wrl.h>
@@ -67,15 +69,22 @@ public:
 	void CreateRootDevice(bool bWithDebug = false);
 	void CreateDXGIFactory(bool bWithDebug = false);
 
+	FD3D12Device* GetDevice(uint32 Index = 0) const { return Devices[Index]; }
+
+	TArray<FD3D12Viewport*>& GetViewports() { return Viewports; }
+
 
 private:
 	FD3D12AdapterDesc Desc = {};
 	ComPtr<ID3D12Device10> RootDevice;
 	ComPtr<IDXGIFactory7> DXGIFactory;
 	ComPtr<IDXGIAdapter4> DXGIAdapter;
+	TStaticArray<FD3D12Device*, 1> Devices;
 
 	bool bDebugDevice;
 	bool bDeviceCreated;
+
+	TArray<FD3D12Viewport*>	Viewports;
 
 
 

@@ -9,6 +9,7 @@
 #include "Math/MathFwd.h"
 
 #include "Camera/CameraTypes.h"
+#include "Widgets/UIWindow.h"
 
 
 
@@ -54,7 +55,9 @@ private:
 	TSharedPtr<class FWorld> World;
 
 public:
-	FViewport* GameViewport;
+	FEditorViewportClient();
+	FSceneViewport* GameViewport;
+	FRenderTarget* RenderTarget;
 	TArray<FEditorWidget> EditorWidgets;
 
 	void Draw(FViewport* InViewport, FCanvas* InCanvas);

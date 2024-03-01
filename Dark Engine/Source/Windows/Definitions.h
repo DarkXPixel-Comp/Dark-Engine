@@ -115,3 +115,5 @@
 #define TEST_API __declspec(dllimport)
 #define _WIN64
 #define IS_EDITOR
+#define IMGUI
+#define GIsEditor true

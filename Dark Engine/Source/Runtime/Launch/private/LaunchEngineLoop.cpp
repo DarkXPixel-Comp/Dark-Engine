@@ -2,6 +2,8 @@
 #include "RHI.h"
 #include "HAL/PlatformApplicationMisc.h"
 #include "Application/UIApplication.h"
+#include "Engine/EditorEngine.h"
+#include "Rendering/UIRHIRenderer.h"
 
 
 int32 FEngineLoop::PreInit(const TCHAR* CmdLine)
@@ -10,17 +12,27 @@ int32 FEngineLoop::PreInit(const TCHAR* CmdLine)
 	CommandConsole::Initialize("Dark Engine Console");
 	RHIInit();
 
+
+	Engine = new DEditorEngine();
+	
+
 	TSharedPtr<UIApplication> CurrentApplication = UIApplication::Create();
-	//CurrentApplication->InitializeRenderer(nullptr);
+
+	TSharedPtr<FUIRHIRenderer> UIRenderer = MakeShareble(new FUIRHIRenderer());
+
+	CurrentApplication->InitializeRenderer(UIRenderer);
 
 	TSharedPtr<UIWindow> RootWindow = MakeShareble(new UIWindow());
-	RootWindow->SetTitle("Edtior");
-
+	RootWindow->SetbWindowBorder(false);
 	CurrentApplication->AddWindow(RootWindow);
-
-
-
 	RootWindow->ShowWindow();
+	TSharedPtr<UIViewport> GameViewport = MakeShareble(new UIViewport());
+	//GameViewport->SetViewport()
+	RootWindow->SetTitle("Edtior");
+	GameViewport->SetPostion({ 0, 0 });
+	GameViewport->SetSize({ 800, 600 });
+	//RootWindow->Maximize();
+	RootWindow->AddWidget(GameViewport);
 
 	
 
@@ -34,6 +46,7 @@ int32 FEngineLoop::PreInit(const TCHAR* CmdLine)
 
 int32 FEngineLoop::Init()
 {
+	RHIPostInit();
 
 
 
@@ -43,6 +56,8 @@ int32 FEngineLoop::Init()
 void FEngineLoop::Tick()
 {
 	UIApplication::Get()->Tick(1);
+	//Engine->Tick(1);
+
 
 
 

@@ -1,6 +1,7 @@
 #pragma once
 #include "D3D12RHI.h"
 #include "D3D12Adapter.h"
+#include "D3D12Viewport.h"
 
 
 
@@ -10,7 +11,7 @@ class FD3D12DynamicRHI final :public ID3D12PlatformDynamicRHI
 	static FD3D12DynamicRHI* SingleD3D12RHI;
 
 public:
-	static FD3D12DynamicRHI* GetD3DRHI12() { return SingleD3D12RHI; }
+	static FD3D12DynamicRHI* GetD3D12RHI() { return SingleD3D12RHI; }
 
 	FD3D12DynamicRHI(const TArray<TSharedPtr<FD3D12Adapter>>& InChosenAdapters);
 
@@ -23,8 +24,12 @@ public:
 
 	void Init() override;
 
-	virtual void PostInit() {}
+	void PostInit() override;
+
+	//virtual void PostInit();
 	virtual void Shutdown() {}
+
+	virtual TSharedPtr<FRHIViewport> RHICreateViewport(void* WindowHandle, uint32 SizeX, uint32 SizeY, bool bIsFullscreen) override;
 
 
 	virtual ID3D12CommandQueue* RHIGetCommandQueue() override { return nullptr; }

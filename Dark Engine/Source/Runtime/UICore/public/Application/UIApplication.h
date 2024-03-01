@@ -24,6 +24,8 @@ public:
 	TSharedPtr<UIWindow> AddWindow(TSharedPtr<UIWindow> InWindow);
 	void RegisterGameViewport(TSharedPtr<UIViewport> InViewport);
 	void Tick(float DeltaTime);
+	void DrawWindows();
+	TSharedPtr<FUIRenderer>	GetRenderer() const { return Renderer; }
 
 
 private:
@@ -39,7 +41,9 @@ private:
 
 	TWeakPtr<UIViewport> GameViewport;
 
-	TSet<TWeakPtr<UIViewport>> AllGameViewports;
+	TArray<TWeakPtr<UIViewport>> AllGameViewports;
 
 	TSharedPtr<FUIRenderer>	Renderer;
+
+	TArray<UIWidget> Widgets;
 };

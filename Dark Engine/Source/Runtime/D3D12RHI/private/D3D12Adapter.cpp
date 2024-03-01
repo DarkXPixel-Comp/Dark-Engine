@@ -1,4 +1,5 @@
 #include "D3D12Adapter.h"
+#include "D3D12Device.h"
 
 
 FD3D12AdapterDesc::FD3D12AdapterDesc() = default;
@@ -54,10 +55,7 @@ void FD3D12Adapter::InitializeDevices()
 		CreateRootDevice(true);
 	}
 
-
-
-
-
+	Devices[0] = new FD3D12Device(this);
 
 
 
@@ -95,6 +93,8 @@ void FD3D12Adapter::CreateRootDevice(bool bWithDebug)
 		D3D12CreateDevice(GetAdapter(), GetFeatureLevel(),
 			IID_PPV_ARGS(&RootDevice));
 	}
+
+
 
 
 

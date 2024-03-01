@@ -31,6 +31,8 @@ public:
 	virtual void InitializeWindow(const TSharedPtr<FGenericWindow>& InWindow,
 		const TSharedPtr<FGenericWindowDefinition>& InDefinition) override;
 
+
+
 private:
 	static LRESULT AppWndProc(HWND hwnd, uint32 msg, WPARAM wParam, LPARAM lParam);
 	LRESULT WindowsApplication_WndProc(HWND hwnd, uint32 msg, WPARAM wParam, LPARAM lParam);

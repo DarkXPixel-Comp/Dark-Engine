@@ -1,24 +1,42 @@
 #include "Engine/EditorViewportClient.h"
 #include "SceneView.h"
 #include "SceneInterface.h"
+#include "RenderGlobals.h"
+#include <Widgets/UIWindow.h>
+#include "Engine/EditorEngine.h"
 
 
+
+
+FEditorViewportClient::FEditorViewportClient()
+{
+	Engine->AddViewportClient(this);
+}
 
 void FEditorViewportClient::Draw(FViewport* InViewport, FCanvas* InCanvas)
 {
-	GameViewport = InViewport;
+	GameViewport = (FSceneViewport*)InViewport;
 	FWorld* World = GetWorld();
 
-	FSceneView SceneView(nullptr, GetScene(), this);
+	FSceneView SceneView(GameViewport, GetScene(), this);
 
 	
 	SceneView.CalcSceneView();
 
+	GetRenderer()->BeginRenderingView(InCanvas, &SceneView);
+
+	GetRenderer()->RenderUI(RenderTarget);
+
+
+}
 
 
 
-
-
+FSceneViewport* FEditorViewportClient::CreateGameViewport()
+{
+	//GameViewport = new FSceneViewport();
+	//GameViewport->SetSize()
+	return GameViewport;
 }
 
 FSceneInterface* FEditorViewportClient::GetScene() const
@@ -35,6 +53,7 @@ FSceneInterface* FEditorViewportClient::GetScene() const
 void FEditorViewportClient::Tick(float DeltaTime)
 {
 	
+
 
 
 

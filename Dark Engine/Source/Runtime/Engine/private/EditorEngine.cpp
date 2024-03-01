@@ -15,8 +15,7 @@ TSharedPtr<UIWindow> DEditorEngine::CreateGameWindow()
 
 
 
-
-	return TSharedPtr<UIWindow>();
+	return Window;
 }
 
 void DEditorEngine::Tick(float DeltaTime)
@@ -24,27 +23,26 @@ void DEditorEngine::Tick(float DeltaTime)
 	for (auto& ViewportClient : AllViewportClients)
 	{
 		ViewportClient->Tick(DeltaTime);
+		UpdateViewportClient(ViewportClient);
 	}
 
-	
+}
 
-
-
-
-
+void DEditorEngine::AddViewportClient(FViewportClient* ViewportClient)
+{
+	AllViewportClients.Add((FEditorViewportClient*)ViewportClient);
 }
 
 void DEditorEngine::UpdateViewportClient(FEditorViewportClient* InViewportClient)
 {
 	if (InViewportClient->IsRealtime())
 	{
-		InViewportClient->GameViewport->Draw();
+		InViewportClient->GameViewport->Draw(InViewportClient);
 	}
+	CurrentViewportClient = InViewportClient;
+}
 
-
-
-
-
-
-
+void DEditorEngine::UpdateViewportClient()
+{
+	CurrentViewportClient->GameViewport->Draw(CurrentViewportClient);
 }

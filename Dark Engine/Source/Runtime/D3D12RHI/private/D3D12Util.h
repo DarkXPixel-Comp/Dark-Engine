@@ -3,7 +3,7 @@
 #include <d3d12.h>
 
 
-void VerifyD3D12Result(HRESULT hr, const ANSICHAR* Code, const ANSICHAR* Filename, uint32 Line)
+FORCEINLINE void VerifyD3D12Result(HRESULT hr, const ANSICHAR* Code, const ANSICHAR* Filename, uint32 Line)
 {
 	FString Error = Code;
 }
@@ -15,7 +15,7 @@ void VerifyD3D12Result(HRESULT hr, const ANSICHAR* Code, const ANSICHAR* Filenam
 
 
 
-void SetName(ID3D12Object* const Object, const TCHAR* const Name)
+FORCEINLINE void SetName(ID3D12Object* const Object, const TCHAR* const Name)
 {
 	if (Object && Name)
 	{
@@ -28,7 +28,7 @@ void SetName(ID3D12Object* const Object, const TCHAR* const Name)
 
 }
 
-void SetName(FD3D12Resource* const Resource, const TCHAR* const Name)
+FORCEINLINE void SetName(FD3D12Resource* const Resource, const TCHAR* const Name)
 {
 
 }

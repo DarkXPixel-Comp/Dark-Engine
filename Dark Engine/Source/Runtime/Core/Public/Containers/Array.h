@@ -44,6 +44,14 @@ public:
 	template <typename... ArgsType>
 	decltype(auto) Emplace(ArgsType&&... Args) { return _vector.emplace_back(std::forward<ArgsType>(Args)...); }
 
+	template <typename... ArgsType>
+	ElementType& Emplace_GetRef(ArgsType&&...Args)
+	{
+		_vector.emplace_back(std::forward<ArgsType>(Args)...);
+		//return Last();
+	}
+
+
 	auto GetData() { return _vector.data(); }
 	//const auto GetData() { return _vector.data(); }
 
@@ -61,14 +69,25 @@ public:
 
 	std::vector<ElementType>& GetVector() { return _vector; }
 
+	ElementType PopBack() { auto it = _vector.end() - 1; auto result = *it; _vector.erase(it); return result; }
+
+	template<typename OtherElementType>
+	void Append(TArray<OtherElementType>&& Source) { _vector.append_range(Source); }
+
 	decltype(auto) Insert(auto Where, auto It1, auto It2) { return _vector.insert(Where, It1, It2); }
 
 	void Remove(const ElementType& Element) { _vector.erase(std::find(_vector.begin(), _vector.end(), Element)); }
+
+	ElementType& Last() { return _vector[_vector.size() - 1]; }
+
+	//void AddZeroed(uint32 Num) {}
 
 
 
 	const ElementType& operator[](SizeType Index) const { return _vector[Index]; }
 	ElementType& operator[](SizeType Index) { return _vector[Index]; }
+
+	bool IsValidIndex(SizeType Index) const { return Index < _vector.size(); }
 
 
 	TArray<ElementType> operator+(const TArray<ElementType>& R)

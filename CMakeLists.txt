@@ -36,7 +36,7 @@ endfunction()
 
 
 
-project("Dark Engine" VERSION 0.0.1)
+project("Dark Engine" VERSION 0.0.2)
 
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 

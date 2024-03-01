@@ -23,11 +23,25 @@ public:
 
 	virtual void Show() {}
 
+	virtual void Update() {}
+
+	virtual void Maximize() {}
+
 	virtual TSharedPtr<FGenericWindow> MakeWindow() { return MakeShareble(new FGenericWindow()); }
 
 	virtual void* GetOSWindowHandle() const { return nullptr; }
 
 	virtual void SetTitle(FString Title) {}
+
+	virtual FIntRect GetRect() const { return FIntRect(); }
+	virtual FIntPoint GetSize() const { return FIntPoint(); }
+	virtual FIntPoint GetPosition() const { return FIntPoint(); }
+
+	virtual EWindowMode GetWindowMode() const { return WindowMode; }
+
+#ifdef IMGUI
+	virtual void InitImGui() {}
+#endif
 
 
 protected:

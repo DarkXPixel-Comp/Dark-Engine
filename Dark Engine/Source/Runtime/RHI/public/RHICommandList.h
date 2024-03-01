@@ -1,6 +1,7 @@
 #pragma once
 #include "Templates/DarkTemplate.h"
 #include "CoreTypes.h"
+#include "RHIResources.h"
 
 class FGraphEventRef;
 
@@ -75,6 +76,18 @@ class FRHICommandListImmediate : public FRHICommandList
 
 	}
 	
+
+	void ExecuteAndReset();
+	void Reset();
+
+public:
+	void BeginScene();
+	void EndScene();
+	void BeginDrawingViewport(FRHIViewport* Viewport, FRHITexture* RenderTargetRHI) {}
+	void EndDrawingViewport(FRHIViewport* Viewport, bool bPresent, bool bVsync);
+	void BeginFrame();
+	void EndFrame();
+
 
 
 };

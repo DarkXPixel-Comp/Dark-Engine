@@ -1,19 +1,29 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "Rendering/RenderingCommon.h"
+#include "UIWidget.h"
+#include "Math/MathFwd.h"
+#include "Engine/EditorViewportClient.h"
+//#include "Engine/SceneViewport.h"
 
 
-class UIViewport
+class FSceneViewport;
+
+class UIViewport : public UIWidget
 {
 public:
 	UIViewport();
-	FVector2D ViewportSize;
+//	void SetViewport(TSharedPtr<IUIViewport> Viewport) { ViewportInterface = Viewport; }
+
 
 
 
 
 protected:
-	TWeakPtr<IUIViewport> ViewportInterface;
+	TSharedPtr<FSceneViewport> Viewport;
+	TSharedPtr<FViewportClient>	ViewportClient;
+	FVector2D ViewportSize;
+
 
 
 

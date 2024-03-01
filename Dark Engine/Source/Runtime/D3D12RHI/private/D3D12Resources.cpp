@@ -33,3 +33,30 @@ void FD3D12Heap::SetHeap(ID3D12Heap* InHeap, const TCHAR* InName, bool bForceGet
 
 
 }
+
+bool FD3D12ResourceBarrierBatcher::AddTransition(FD3D12Resource* pResource, D3D12_RESOURCE_STATES Before, D3D12_RESOURCE_STATES After, uint32 SubResource)
+{
+	check(Before != After);
+
+	if (Barriers.Num() != 0)
+	{	
+		const FD3D12ResourceBarrier& Last = Barriers.Last();
+
+		if (Last.Type == D3D12_RESOURCE_BARRIER_TYPE_TRANSITION
+			&& pResource->GetResource() == Last.Transition.pResource
+			&& SubResource == Last.Transition.Subresource
+			&& Before == Last.Transition.StateBefore
+			&& After == Last.Transition.StateAfter)
+		{
+			Barriers.Remove(Last);
+			return 0;
+		}
+	}
+	
+
+	FD3D12ResourceBarrier& Barrier = Barriers.Emplace(CD3DX12_RESOURCE_BARRIER::Transition(pResource->GetResource(), Before,
+		After, SubResource));
+
+
+	return true;
+}

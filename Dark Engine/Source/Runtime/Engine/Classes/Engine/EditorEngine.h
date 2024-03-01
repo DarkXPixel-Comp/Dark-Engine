@@ -5,7 +5,7 @@
 #include "Containers/Array.h"
 
 
-class DEditorEngine : public DEngine
+class DEditorEngine : public DEdEngine
 {
 public:
 	static TSharedPtr<UIWindow>	CreateGameWindow();
@@ -13,10 +13,13 @@ public:
 public:
 	void Tick(float DeltaTime);
 
+public:
+	void AddViewportClient(FViewportClient* ViewportClient) override;
+
 
 private:
 	void UpdateViewportClient(FEditorViewportClient* InViewportClient);
-
+	void UpdateViewportClient();
 
 private:
 	TArray<FEditorViewportClient*> AllViewportClients;
@@ -27,3 +30,5 @@ private:
 
 
 };
+
+

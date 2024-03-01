@@ -170,6 +170,14 @@ void FWindowsWindow::ReshapeWindow(int32 NewX, int32 NewY, int32 NewWidth, int32
 
 }
 
+#ifdef IMGUI
+void FWindowsWindow::InitImGui()
+{
+	ImGui_ImplWin32_Init(HWnd);
+}
+#endif
+
+
 void FWindowsWindow::Initialize(FWindowsApplication* const Application, const FGenericWindowDefinition& InDefinition, HINSTANCE InHInstance)
 {
 //Definition = std::make_shared<FGenericWindowDefinition>(InDefinition);
@@ -228,6 +236,8 @@ void FWindowsWindow::Initialize(FWindowsApplication* const Application, const FG
 	HWnd = CreateWindowEx(WindowExStyle, AppWindowClass, *Title, WindowStyle, WindowX,
 		WindowY, WindowWidth, WindowHeight, NULL, NULL, InHInstance, NULL);
 
+	WindowMode = EWindowMode::Windowed;
+
 	if (HWnd == NULL)
 	{
 		const uint32 Error = GetLastError();
@@ -270,6 +280,9 @@ void FWindowsWindow::Initialize(FWindowsApplication* const Application, const FG
 	//RegisterDragDrop(HWnd, this);
 
 
+#ifdef IMGUI
+	ImGui_ImplWin32_Init(HWnd);
+#endif
 
 	SetWindowLongPtr(HWnd, GWLP_USERDATA, reinterpret_cast<LONG_PTR>(this));
 }
@@ -376,50 +389,26 @@ void FWindowsWindow::Create(UINT w, UINT h, UINT x, UINT y, string name, FWindow
 
 void FWindowsWindow::Destroy()
 {
-	if (m_Close)
+	if (bIsDestroyed)
+	{
 		return;
+	}
+#ifdef  IMGUI
+	ImGui_ImplWin32_Shutdown();
+#endif //  IMGUI
 
+	bIsDestroyed = true;
+}
 
-	onDestroyWindow.BroadCast();
-
-	m_Close = true;
-	DestroyWindow(m_Wnd);
-
-
-	Log("Window has been Destroyed. - ", cstr(m_Name));
-
-
-
+void FWindowsWindow::Tick(float DeltaTime)
+{
+#ifdef  IMGUI
+	ImGui_ImplWin32_NewFrame();
+#endif //  IMGUI
 }
 
 void FWindowsWindow::Update()
 {
-	if (!IsWindow(m_Wnd))
-	{
-		m_Close = true;
-
-		return;
-	}
-
-	RECT rect;
-
-	GetWindowRect(m_Wnd, &rect);
-
-	leftX = rect.left;
-	topY = rect.top;
-
-
-	if (!(width == rect.right - rect.left || height == rect.bottom - rect.top))
-	{
-		width = rect.right - rect.left;
-		height = rect.bottom - rect.top;
-
-	}
-
-
-
-
-
 }
 
 void FWindowsWindow::SetResolution(UINT w, UINT h)
@@ -591,6 +580,7 @@ FWindowsWindowManager::FWindowsWindowManager()
 
 FWindowsWindow::~FWindowsWindow()
 {
+
 	this->Destroy();
 
 

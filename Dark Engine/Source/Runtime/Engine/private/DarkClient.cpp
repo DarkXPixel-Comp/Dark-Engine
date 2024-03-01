@@ -1,9 +1,21 @@
 #include "DarkClient.h"
 
 
-void FViewport::Draw()
+const TRefCountPtr<FRHITexture>& FRenderTarget::GetRenderTargetTexture() const
 {
-	FWorld* World = GetClient()->GetWorld();
+	return RenderTargetTexture;
+	
+}
+
+
+
+
+
+
+void FViewport::Draw(FViewportClient* InViewport)
+{
+	ViewportClient = InViewport;
+	FWorld* World = nullptr;//GetClient()->GetWorld();
 
 
 	ViewportClient->Draw(this, World);
