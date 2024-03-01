@@ -30,3 +30,45 @@ void FUIRHIRenderer::CreateViewport(UIWindow* InWindow)
 
 
 }
+
+void FUIRHIRenderer::DrawWindows(const TArray<TSharedPtr<UIWindow>>& InWindows)
+{
+	for (auto& Window : InWindows)
+	{
+		if (Window)
+		{
+			const FVector2f ViewportSize = Window->GetViewportSize();
+
+			if (ViewportSize.X > 0 && ViewportSize.Y > 0)
+			{
+				FViewportInfo* ViewInfo = nullptr;
+
+				FViewportInfo* FoundViewInfo = WindowToViewportInfo.find(Window.get())->second;
+				if (FoundViewInfo)
+				{
+					ViewInfo = FoundViewInfo;
+				}
+				else
+				{
+					continue;
+				}
+
+
+				bool bVsync = 1;
+
+
+
+
+			}
+
+		}
+
+
+	}
+
+
+
+
+
+
+}

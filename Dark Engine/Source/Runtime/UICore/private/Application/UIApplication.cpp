@@ -8,6 +8,7 @@
 #include "DescriptorHeap.h"
 #include <dxgi.h>
 #include <Runtime/D3D12RHI/public/d3dx12.h>
+#include "Timer/GameTimer.h"
 
 
 
@@ -50,6 +51,7 @@ TSharedPtr<UIApplication> UIApplication::Create(const TSharedPtr<FGenericApplica
 	PlatformApplication = InPlatformApplictation;
 
 	CurrentApplication = MakeShareble(new UIApplication());
+	FGameTimer::Start();
 
 
 	return CurrentApplication;
@@ -70,21 +72,40 @@ void UIApplication::InitializeRenderer(TSharedPtr<FUIRenderer> InRenderer)
 
 }
 
-void UIApplication::Tick(float DeltaTime)
+void UIApplication::Tick()
 {
-	PlatformApplication->PumpMessages();
+	float DeltaTime = FGameTimer::DeltaTime();
+
+	TickPlatform(DeltaTime);
+
+	FGameTimer::Tick();
+
+	TickAndDrawWidgets(DeltaTime);
+
+
+
+}
+
+void UIApplication::TickPlatform(float DeltaTime)
+{
+	if (UIWindows.Num() > 0)
+	{
+		PlatformApplication->PumpMessages();
+	}
 	PlatformApplication->Tick(DeltaTime);
+
+}
+
+void UIApplication::TickAndDrawWidgets(float DeltaTime)
+{
+	DrawWindows();
 }
 
 void UIApplication::DrawWindows()
 {	
-	for (auto& Window : UIWindows)
-	{
-		Window->DrawWindow();
+	check(Renderer);
 
-	}
-
-
+	Renderer->DrawWindows(UIWindows);
 
 }
 

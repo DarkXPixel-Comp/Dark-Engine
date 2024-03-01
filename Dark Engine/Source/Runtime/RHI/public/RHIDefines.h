@@ -57,6 +57,16 @@ enum EShaderType : uint8
 	ST_RayCallable
 };
 
+enum class ETextureDimension
+{
+	Texture2D,
+	Texture2DArray,
+	Texture3D,
+	TextureCube,
+	TextureCubeArray
+};
+
+
 struct FRHIDescriptorHandle
 {
 	FRHIDescriptorHandle() = default;
@@ -70,3 +80,4 @@ private:
 	uint32 Index;
 	uint32 Type;
 };
+

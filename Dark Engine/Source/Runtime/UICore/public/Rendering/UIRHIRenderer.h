@@ -28,6 +28,8 @@ public:
 	virtual void BeginFrame() {}
 	virtual void EndFrame() {}
 
+	virtual void DrawWindows(const TArray<TSharedPtr<UIWindow>>& Windows);
+
 
 private:
 	TMap<const UIWindow*, FViewportInfo*> WindowToViewportInfo;

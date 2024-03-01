@@ -29,6 +29,7 @@ public:
 	void AddWidget(TSharedPtr<UIWidget> InWidget) { Widgets.Add(InWidget); }
 	//void SetViewportClient(TSharedPtr<FViewportClient> InViewportClient) { ViewportClient = InViewportClient; }
 	void SetImGuiContext(ImGuiContext* InContext) { IMGUIContext = InContext; }
+	FVector2f GetViewportSize() { return GetInitSizeInScreen(); }
 
 	TSharedPtr<FViewportClient> CreateViewportClient();
 	void CreateViewport();

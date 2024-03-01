@@ -185,6 +185,44 @@ class FRHITexture : public FRHIResource
 
 };
 
+struct FRHITextureDesc
+{
+	FRHITextureDesc() = default;
+	FRHITextureDesc(const FRHITextureDesc& Other)
+	{
+		*this = Other;
+	}
+	FRHITextureDesc(
+		ETextureDimension InDimension,
+		EPixelFormat InFormat,
+		FIntPoint  InExtent,
+		uint16 InDepth,
+		uint16 InArraySize,
+		uint8 InNumMips,
+		uint8 InNumSamples,
+		uint32 InExtData
+	):
+		Dimension(InDimension),
+		Format(InFormat),
+		Extent(InExtent),
+		Depth(InDepth),
+		ArraySize(InArraySize),
+		NumMips(InNumMips),
+		NumSamples(InNumSamples),
+		ExtData(InExtData)
+	{}
+
+	uint32 ExtData = 0;
+	FIntPoint Extent = FIntPoint(1, 1);
+	uint16 ArraySize = 1;
+	uint8 NumMips = 1;
+	uint8 Depth = 1;
+	uint8 NumSamples = 1;
+	ETextureDimension Dimension = ETextureDimension::Texture2D;
+	EPixelFormat Format = PF_Unknown;
+
+};
+
 
 class FRHIViewport : public FRHIResource
 {

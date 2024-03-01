@@ -41,6 +41,9 @@ public:
 
 private:
 	void CalculateSwapchainNum(int32 SwapchainNum);
+	DXGI_MODE_DESC SetupDXGI_MODE_DESC() const;
+	FD3D12Texture* GetSwapChainSurface( EPixelFormat PixelFormat, uint32 SizeX, uint32 SizeY,
+		IDXGISwapChain* SwapChain, uint32 BackBufferIndex, TRefCountPtr<ID3D12Resource> BackBufferResourceOverride);
 
 
 
