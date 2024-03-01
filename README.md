@@ -1,13 +1,4 @@
 # Dark Engine
+DONT USE "Generate.bat"
 
-This is My Engine
- 
-
-# Roadmap
-
-1. Создать структуру-описание Шейдеров для быстрого поиска
-2. Компиляция Шейдеров реал тайм
-3. Сгрупировка объектов сцены по шейдерам
-
-# Assembly
-1. Эксперименты с памятью (Расположение байтов в памяти)
+It is recommended to use Visual Studio cmake
