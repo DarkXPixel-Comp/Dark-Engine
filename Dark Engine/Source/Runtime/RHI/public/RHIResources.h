@@ -58,6 +58,8 @@ public:
 
 	const FString& GetName() const { return Name; }
 
+	void SetName(FString InName) { Name = InName; }
+
 
 
 
@@ -166,8 +168,6 @@ public:
 	const FRHIBufferDesc& GetDesc() { return Desc; }
 
 
-	FString GetName() const { return Name; }
-	void SetName(FString InName) { Name = InName; }
 
 	
 
@@ -178,12 +178,6 @@ private:
 
 };
 
-
-
-class FRHITexture : public FRHIResource
-{
-
-};
 
 struct FRHITextureDesc
 {
@@ -201,7 +195,7 @@ struct FRHITextureDesc
 		uint8 InNumMips,
 		uint8 InNumSamples,
 		uint32 InExtData
-	):
+	) :
 		Dimension(InDimension),
 		Format(InFormat),
 		Extent(InExtent),
@@ -210,6 +204,9 @@ struct FRHITextureDesc
 		NumMips(InNumMips),
 		NumSamples(InNumSamples),
 		ExtData(InExtData)
+	{}
+	FRHITextureDesc(ETextureDimension InDimension) :
+		Dimension(InDimension)
 	{}
 
 	uint32 ExtData = 0;
@@ -222,6 +219,71 @@ struct FRHITextureDesc
 	EPixelFormat Format = PF_Unknown;
 
 };
+
+
+struct FRHITextureCreateDesc : public FRHITextureDesc
+{
+	static FRHITextureCreateDesc Create(const TCHAR* InDebugName, ETextureDimension InDimension)
+	{
+		return FRHITextureCreateDesc(InDebugName, InDimension);
+	}
+	static FRHITextureCreateDesc Create2D(const TCHAR* InDebugName)
+	{
+		return FRHITextureCreateDesc(InDebugName, ETextureDimension::Texture2D);
+	}
+
+	FRHITextureCreateDesc& SetExtent(const FIntPoint& InExtent)
+	{
+		Extent = InExtent;
+		return *this;
+	}
+	FRHITextureCreateDesc& SetFormat(EPixelFormat InFormat)
+	{
+		Format = InFormat;
+		return *this;
+	}
+
+	FRHITextureCreateDesc() = default;
+	FRHITextureCreateDesc(const TCHAR* InDebugName, ETextureDimension InDeminsion) :
+		FRHITextureDesc(InDeminsion),
+		DebugName(InDebugName)
+	{}
+	FRHITextureCreateDesc(const FRHITextureDesc& InDesc, const TCHAR* InDebugName) :
+		FRHITextureDesc(InDesc),
+		DebugName(InDebugName)
+	{}
+
+
+
+
+	const TCHAR* DebugName = nullptr;
+
+
+
+
+};
+
+
+
+
+class FRHITexture : public FRHIResource
+{
+protected:
+	FRHITexture(const FRHITextureCreateDesc& InDesc) :
+		FRHIResource(RRT_Texture),
+		TextureDesc(InDesc)
+	{
+		SetName(InDesc.DebugName);
+	}
+
+
+private:
+	FRHITextureDesc TextureDesc;
+
+};
+
+
+
 
 
 class FRHIViewport : public FRHIResource

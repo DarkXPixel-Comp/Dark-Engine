@@ -9,6 +9,44 @@
 
 
 class FD3D12BaseShaderResource;
+class FD3D12Resource;
+
+
+
+
+class FD3D12ResourceLocation : public FD3D12DeviceChild
+{
+public:
+	FD3D12ResourceLocation(FD3D12Device* Parent);
+	~FD3D12ResourceLocation();
+
+	FD3D12Resource* GetResource() const { return Resource; }
+	void SetOwner(FD3D12BaseShaderResource* InOwner) { Owner = InOwner; }
+
+
+	void Clear();
+
+private:
+	FD3D12Resource* Resource;
+	FD3D12BaseShaderResource* Owner;
+
+
+
+};
+
+
+
+struct FD3D12ResourceDesc : public D3D12_RESOURCE_DESC
+{
+	FD3D12ResourceDesc() = default;
+	FD3D12ResourceDesc(const CD3DX12_RESOURCE_DESC& Other):
+		D3D12_RESOURCE_DESC(Other)
+	{}
+	FD3D12ResourceDesc(const D3D12_RESOURCE_DESC& Other): 
+		D3D12_RESOURCE_DESC(Other)
+	{}
+};
+
 
 
 
@@ -41,48 +79,56 @@ private:
 
 
 
-class FD3D12Resource
+class FD3D12Resource : public FD3D12DeviceChild
 {
-public:
-	ID3D12Resource* GetResource() const { return Resource.Get(); }
-
-
-
 private:
 
 
 	TRefCountPtr<ID3D12Resource> Resource;
+	TSharedPtr<FD3D12Heap> Heap;
+
+	D3D12_GPU_VIRTUAL_ADDRESS GPUVirtualAddress;
+	void* ResourceBaseAddress;
+
+	const FD3D12ResourceDesc Desc;
+
+	D3D12_RESOURCE_STATES DefaultResourceState;
+	D3D12_RESOURCE_STATES ReadableState;
+	D3D12_RESOURCE_STATES WritableState;
+
+	D3D12_HEAP_TYPE HeapType;
+	FString DebugName;
 
 
-	TRefCountPtr<FD3D12Heap> Heap;
+	bool bBackBuffer = true;
 
 
 
 
-
-};
-
-
-
-class FD3D12ResourceLocation : public FD3D12DeviceChild
-{
 public:
-	FD3D12ResourceLocation(FD3D12Device* Parent);
-	~FD3D12ResourceLocation();
+	FD3D12Resource() = delete;
+	FD3D12Resource(
+		FD3D12Device* ParentDevice,
+		ID3D12Resource* InResource,
+		D3D12_RESOURCE_STATES InInitialResourceState,
+		const FD3D12ResourceDesc& InDesc,
+		FD3D12Heap* InHeap = nullptr,
+		D3D12_HEAP_TYPE InHeapType = D3D12_HEAP_TYPE_DEFAULT
+	);
 
-	FD3D12Resource* GetResource() const { return Resource; }
-	void SetOwner(FD3D12BaseShaderResource* InOwner) { Owner = InOwner; }
 
 
-	void Clear();
+	ID3D12Resource* GetResource() const { return Resource.Get(); }
 
-private:
-	FD3D12Resource* Resource;
-	FD3D12BaseShaderResource* Owner;
+
 
 
 
 };
+
+
+
+
 
 
 

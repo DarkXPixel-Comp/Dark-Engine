@@ -70,15 +70,32 @@ FD3D12Texture* FD3D12Viewport::GetSwapChainSurface(EPixelFormat PixelFormat, uin
 			D3D12_RESOURCE_STATE_PRESENT, nullptr, IID_PPV_ARGS(&BackBufferResource));
 	}
 
-	D3D12_RESOURCE_DESC BackBufferDesc = BackBufferResource->GetDesc();
+
+	const FD3D12ResourceDesc BackBufferDesc = BackBufferResource->GetDesc();
 
 	FString Name = "BackBuffer" + std::to_string(BackBufferIndex);
 
+	FRHITextureCreateDesc CreateDesc = FRHITextureCreateDesc::Create2D(*Name);
+
+	CreateDesc
+		.SetExtent(FIntPoint((uint32)BackBufferDesc.Width, (uint32)BackBufferDesc.Height))
+		.SetFormat(PixelFormat);
+
+	FD3D12DynamicRHI* DynamicRHI = FD3D12DynamicRHI::GetD3D12RHI();
+	
+	FD3D12Texture* SwapChainTexture = DynamicRHI->CreateD3D12Texture(CreateDesc, Adapter->GetDevice());
+
+	const D3D12_RESOURCE_STATES InitialState = D3D12_RESOURCE_STATE_COMMON;
+
+	FD3D12Resource* NewResource = new FD3D12Resource(Parent->GetDevice(), BackBufferResource.Get(), InitialState, BackBufferDesc);
+
+	//NewResource->SetIsBackBuffer(true);
 
 
 
 
 
+	return SwapChainTexture;
 
 }
 
@@ -200,7 +217,7 @@ void FD3D12Viewport::Resize(uint32 InSizeX, uint32 InSizeY, bool bInIsFullscreen
 	for (uint32 i = 0; i < NumBackBuffers; i++)
 	{
 		check(BackBuffers[i] == nullptr);
-		BackBuffers[i] = GetSwap
+		//BackBuffers[i] = GetSwap
 
 	}
 

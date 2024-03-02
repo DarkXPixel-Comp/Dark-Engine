@@ -40,6 +40,12 @@ public:
 
 
 
+public:
+	FD3D12Texture* CreateD3D12Texture(const FRHITextureCreateDesc& CreateDesc, FD3D12Device* Device)
+	{
+		return new FD3D12Texture(CreateDesc, Device);
+	}
+
 
 private:
 	TArray<TSharedPtr<FD3D12Adapter>> ChosenAdapters;
