@@ -3,11 +3,14 @@
 #include "D3D12CommandList.h"
 #include "D3D12Queue.h"
 #include "D3D12Adapter.h"
+#include "D3D12Descriptors.h"
 
 
 class FD3D12ContextCommon;
 class FD3D12CommandAllocator;
 class FD3D12CommandList;
+class FD3D12DescriptorHeapManager;
+class FD3D12CpuDescriptorManager;
 
 
 
@@ -48,6 +51,11 @@ public:
 
 	FD3D12CommandAllocator* GetCommandAllocator(ED3D12QueueType QueueType);
 	FD3D12CommandList* GetCommandList(FD3D12CommandAllocator* CommandAllocator);
+	FD3D12DescriptorHeapManager& GetDescriptorHeapManager() { return DescriptorHeapManager; }
+	FD3D12CpuDescriptorManager& GetCpuDescriptorManger(ERHIDescriptorHeapType InType)
+	{
+		return CpuDescriptorManagers[(int32)InType];
+	}
 
 
 
@@ -55,6 +63,9 @@ public:
 
 private:
 	TArray<FD3D12Queue> Queues;
+	TArray<FD3D12CpuDescriptorManager> CpuDescriptorManagers;
+	FD3D12DescriptorHeapManager DescriptorHeapManager;
+
 
 
 };

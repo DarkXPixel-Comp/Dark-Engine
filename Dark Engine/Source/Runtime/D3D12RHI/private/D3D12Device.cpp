@@ -1,15 +1,22 @@
 #include "D3D12Device.h"
 #include "D3D12RHIPrivate.h"
 #include "D3D12Util.h"
+#include "D3D12Descriptors.h"
 
 
 
 FD3D12Device::FD3D12Device(FD3D12Adapter* InAdapter):
-	FD3D12AdapterChild(InAdapter)
+	FD3D12AdapterChild(InAdapter),
+	DescriptorHeapManager(this)
 {
 	for (uint32 i = 0; i < (uint32)ED3D12QueueType::Count; ++i)
 	{
 		Queues.Emplace(this, (ED3D12QueueType)i);
+	}
+
+	for (uint32 HeapType = 0; HeapType < (int32)ERHIDescriptorHeapType::Count; ++HeapType)
+	{
+		CpuDescriptorManagers.Emplace(this, (ERHIDescriptorHeapType)HeapType);
 	}
 
 }

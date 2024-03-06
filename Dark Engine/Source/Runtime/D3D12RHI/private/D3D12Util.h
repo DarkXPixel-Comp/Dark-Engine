@@ -33,3 +33,25 @@ FORCEINLINE void SetName(FD3D12Resource* const Resource, const TCHAR* const Name
 
 }
 
+namespace DX12
+{
+	FORCEINLINE void SetName(ID3D12Object* const Object, const TCHAR* const Name)
+	{
+		if (Object && Name)
+		{
+			Object->SetName(Name);
+			return;
+		}
+		Object->SetName(L"NULL");
+
+
+
+	}
+
+	FORCEINLINE void SetName(FD3D12Resource* const Resource, const TCHAR* const Name)
+	{
+
+	}
+
+}
+

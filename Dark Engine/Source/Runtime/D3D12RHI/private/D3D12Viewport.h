@@ -35,9 +35,9 @@ public:
 		default:
 			break;
 		}
-
-
 	}
+
+	FD3D12Texture* GetCurrentBackBuffer() const { return BackBuffers[CurrentBackBufferIndex].get(); }
 
 private:
 	void CalculateSwapchainNum(int32 SwapchainNum);

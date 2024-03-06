@@ -30,7 +30,7 @@ TSharedPtr<T> MakeShareble(T* ptr)
 template <class T, typename ...Args>
 TSharedPtr<T> MakeShareble(Args... args)
 {
-	return std::make_shared<T>(args);
+	return std::make_shared<T>(args...);
 }
 
 //template <class T>

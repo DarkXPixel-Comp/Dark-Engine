@@ -32,6 +32,7 @@ public:
 	virtual TSharedPtr<FRHIViewport> RHICreateViewport(void* WindowHandle, uint32 SizeX, uint32 SizeY, bool bIsFullscreen) override;
 
 
+
 	virtual ID3D12CommandQueue* RHIGetCommandQueue() override { return nullptr; }
 	virtual ID3D12Device* RHIGetDevice() { return nullptr; }
 	virtual ID3D12GraphicsCommandList* RHIGetGraphicsCommandList(uint32 InDeviceIndex) { return nullptr; }

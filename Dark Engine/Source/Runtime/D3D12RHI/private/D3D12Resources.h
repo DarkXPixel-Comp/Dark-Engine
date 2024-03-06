@@ -24,11 +24,13 @@ public:
 	void SetOwner(FD3D12BaseShaderResource* InOwner) { Owner = InOwner; }
 
 
+
 	void Clear();
 
 private:
 	FD3D12Resource* Resource;
-	FD3D12BaseShaderResource* Owner;
+	FD3D12BaseShaderResource* Owner; 
+	void* MappedAddress;
 
 
 
@@ -118,11 +120,17 @@ public:
 
 
 
+
+
+
+
+	void SetIsBackBuffer(bool bInBackBuffer) { bBackBuffer = bInBackBuffer; }
 	ID3D12Resource* GetResource() const { return Resource.Get(); }
 
 
 
 
+	
 
 };
 

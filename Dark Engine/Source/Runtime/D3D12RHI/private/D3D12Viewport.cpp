@@ -88,11 +88,20 @@ FD3D12Texture* FD3D12Viewport::GetSwapChainSurface(EPixelFormat PixelFormat, uin
 	const D3D12_RESOURCE_STATES InitialState = D3D12_RESOURCE_STATE_COMMON;
 
 	FD3D12Resource* NewResource = new FD3D12Resource(Parent->GetDevice(), BackBufferResource.Get(), InitialState, BackBufferDesc);
+	NewResource->SetIsBackBuffer(true);
+	SwapChainTexture->SetResource(NewResource);
 
-	//NewResource->SetIsBackBuffer(true);
 
+	D3D12_RENDER_TARGET_VIEW_DESC RTVDesc{};
+	RTVDesc.Format = BackBufferDesc.Format;
+	RTVDesc.ViewDimension = D3D12_RTV_DIMENSION_TEXTURE2D;
+	RTVDesc.Texture2D.MipSlice = 0;
 
+	SwapChainTexture->AddRTV(RTVDesc, 0);
 
+	DX12::SetName(SwapChainTexture->GetResource(), *Name);
+
+	SwapChainTexture->GetResource()->SetIsBackBuffer(true);
 
 
 	return SwapChainTexture;
@@ -168,6 +177,8 @@ void FD3D12Viewport::Init()
 	Factory->MakeWindowAssociation(WindowHandle, DXGI_MWA_NO_WINDOW_CHANGES);
 
 
+	Resize(BufferDesc.Width, BufferDesc.Height, bIsFullscreen, PixelFormat);
+
 
 
 
@@ -217,9 +228,10 @@ void FD3D12Viewport::Resize(uint32 InSizeX, uint32 InSizeY, bool bInIsFullscreen
 	for (uint32 i = 0; i < NumBackBuffers; i++)
 	{
 		check(BackBuffers[i] == nullptr);
-		//BackBuffers[i] = GetSwap
-
+		BackBuffers[i] = MakeShareble(GetSwapChainSurface(PixelFormat, SizeX, SizeY, SwapChain1.Get(),
+			i, nullptr));
 	}
+	CurrentBackBufferIndex = 0;
 
 	
 }

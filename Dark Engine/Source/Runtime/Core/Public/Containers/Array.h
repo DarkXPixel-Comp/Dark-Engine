@@ -78,6 +78,7 @@ public:
 
 	void Remove(const ElementType& Element) { _vector.erase(std::find(_vector.begin(), _vector.end(), Element)); }
 
+
 	ElementType& Last() { return _vector[_vector.size() - 1]; }
 
 	//void AddZeroed(uint32 Num) {}

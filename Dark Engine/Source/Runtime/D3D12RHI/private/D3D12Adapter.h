@@ -73,6 +73,8 @@ public:
 
 	TArray<FD3D12Viewport*>& GetViewports() { return Viewports; }
 
+	void SetDrawingViewport(FD3D12Viewport* InViewport) { DrawingViewport = InViewport; }
+
 
 private:
 	FD3D12AdapterDesc Desc = {};
@@ -85,6 +87,8 @@ private:
 	bool bDeviceCreated;
 
 	TArray<FD3D12Viewport*>	Viewports;
+
+	FD3D12Viewport* DrawingViewport;
 
 
 

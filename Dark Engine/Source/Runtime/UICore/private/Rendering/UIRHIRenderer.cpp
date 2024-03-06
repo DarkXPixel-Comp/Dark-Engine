@@ -1,6 +1,7 @@
 #include "Rendering/UIRHIRenderer.h"
 #include "Math/MathFwd.h"
 #include <DynamicRHI.h>
+#include "RHICommandList.h"
 
 
 void FUIRHIRenderer::Initialize()
@@ -33,6 +34,8 @@ void FUIRHIRenderer::CreateViewport(UIWindow* InWindow)
 
 void FUIRHIRenderer::DrawWindows(const TArray<TSharedPtr<UIWindow>>& InWindows)
 {
+	FRHICommandListImmediate* RHICmdList = nullptr;
+
 	for (auto& Window : InWindows)
 	{
 		if (Window)
@@ -53,8 +56,11 @@ void FUIRHIRenderer::DrawWindows(const TArray<TSharedPtr<UIWindow>>& InWindows)
 					continue;
 				}
 
-
 				bool bVsync = 1;
+
+
+				RHICmdList->BeginDrawingViewport(ViewInfo->ViewportRHI.get(), nullptr);
+				//RHICmdList->SetViewport(0, 0, 0 ViewInfo->Width, ViewInfo->Height, 0.f);
 
 
 

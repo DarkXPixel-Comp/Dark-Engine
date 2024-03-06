@@ -73,3 +73,17 @@ FD3D12CommandContextBase::FD3D12CommandContextBase(FD3D12Adapter* InParent):
 	FD3D12AdapterChild(InParent)
 {
 }
+
+void FD3D12CommandContextBase::RHIBeginDrawingViewport(FRHIViewport* RHIViewport, FRHITexture* RenderTargetRHI)
+{
+	FD3D12Viewport* Viewport = reinterpret_cast<FD3D12Viewport*>(RHIViewport);
+	
+	Parent->SetDrawingViewport(Viewport);
+
+	if (RenderTargetRHI == nullptr)
+	{
+		RenderTargetRHI = Viewport->GetCurrentBackBuffer();
+
+	}
+
+}
