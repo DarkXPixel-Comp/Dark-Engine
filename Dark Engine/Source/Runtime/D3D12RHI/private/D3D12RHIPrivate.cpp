@@ -1,5 +1,7 @@
 #include "D3D12RHIPrivate.h"
 #include <Misc/AssertionMacros.h>
+#include "RHICommandList.h"
+#include "D3D12CommandContext.h"
 #include "imgui_impl_dx12.h"
 
 
@@ -34,6 +36,19 @@ void FD3D12DynamicRHI::Init()
 		Adapter->InitializeDevices();
 	}
 
+	FD3D12Adapter& Adapter = GetAdapter();
+
+	ImGuiDescriptorHeap = CreateDescriptorHeap(
+		Adapter.GetDevice(),
+		TEXT("ImGuiDescriptorHeap"),
+		ERHIDescriptorHeapType::Standart,
+		1,
+		D3D12_DESCRIPTOR_HEAP_FLAG_SHADER_VISIBLE
+	);
+
+	GRHICommandList.GetImmediateCommandList().InitializeContexts();
+
+
 }
 
 TSharedPtr<FRHIViewport> FD3D12DynamicRHI::RHICreateViewport(void* WindowHandle, uint32 SizeX, uint32 SizeY, bool bIsFullscreen)
@@ -42,7 +57,37 @@ TSharedPtr<FRHIViewport> FD3D12DynamicRHI::RHICreateViewport(void* WindowHandle,
 		bIsFullscreen, EPixelFormat::PF_R8G8B8A8);
 	RenderingViewport->Init();
 
+#ifdef IMGUI
+	ImGui_ImplDX12_Init(GetAdapter().GetD3DDevice(), RenderingViewport->GetCountBackBuffers(),
+		FD3D12Viewport::GetRenderTargetFormat(
+			EPixelFormat::PF_R8G8B8A8),
+			ImGuiDescriptorHeap->GetHeap(),
+			ImGuiDescriptorHeap->GetCPUSlotHandle(ImGuiDescriptorHandle),
+			ImGuiDescriptorHeap->GetGPUSlotHandle(ImGuiDescriptorHandle));
+#endif
+
 	return MakeShareble(RenderingViewport);
+}
+
+FD3D12CommandContext* FD3D12DynamicRHI::CreateCommandContext(FD3D12Device* InParent, ED3D12QueueType InQueueType, bool InIsDefaultContext)
+{
+	return new FD3D12CommandContext(InParent, InQueueType, InIsDefaultContext);
+}
+
+IRHIComputeContext* FD3D12DynamicRHI::RHIGetCommandContext()
+{
+	return CreateCommandContext(GetAdapter().GetDevice(), ED3D12QueueType::Direct, false);
+}
+
+IRHICommandContext* FD3D12DynamicRHI::RHIGetDefaultContext()
+{
+	IRHICommandContext* DefaultCommandContext = nullptr;
+
+	FD3D12Device* Device = GetAdapter().GetDevice();
+
+	DefaultCommandContext = static_cast<IRHICommandContext*>(&Device->GetDefaultCommandContext());
+	check(DefaultCommandContext);
+	return DefaultCommandContext;
 }
 
 
@@ -50,8 +95,5 @@ TSharedPtr<FRHIViewport> FD3D12DynamicRHI::RHICreateViewport(void* WindowHandle,
 
 void FD3D12DynamicRHI::PostInit()
 {
-#ifdef IMGUI
-	//ImGui_ImplDX12_Init()
-#endif
-
+	FD3D12Adapter& Adapter = GetAdapter();
 }

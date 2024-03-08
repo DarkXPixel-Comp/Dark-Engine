@@ -5,6 +5,7 @@
 #include <vector>
 #include <set>
 #include "HAL/Platform.h"
+#include "Memory/TUniquePtr.h"
 
 
 #include "Templates/ChooseClass.h"
@@ -69,7 +70,7 @@ public:
 
 	std::vector<ElementType>& GetVector() { return _vector; }
 
-	ElementType PopBack() { auto it = _vector.end() - 1; auto result = *it; _vector.erase(it); return result; }
+	ElementType PopBack() { if (_vector.size() == 0) return nullptr; auto it = _vector.end() - 1; auto result = *it; _vector.erase(it); return result; }
 
 	template<typename OtherElementType>
 	void Append(TArray<OtherElementType>&& Source) { _vector.append_range(Source); }
@@ -77,6 +78,25 @@ public:
 	decltype(auto) Insert(auto Where, auto It1, auto It2) { return _vector.insert(Where, It1, It2); }
 
 	void Remove(const ElementType& Element) { _vector.erase(std::find(_vector.begin(), _vector.end(), Element)); }
+	template<typename T>
+	void RemovePtr(const decltype(std::shared_ptr<T>)& Element)
+	{
+		Remove(Element);
+	}
+	void RemovePtr(ElementType& Element)
+	{
+		ElementType* BaseElement = _vector.data();
+		ElementType* OtherElement = &Element;
+		for (size_t i = 0; i < _vector.size(); ++i)
+		{
+			if ((BaseElement + i) == OtherElement)
+			{
+				_vector.erase(_vector.begin() + i);
+				return;
+			}
+
+		}
+	}
 
 
 	ElementType& Last() { return _vector[_vector.size() - 1]; }

@@ -11,6 +11,7 @@ class FD3D12CommandAllocator;
 class FD3D12CommandList;
 class FD3D12DescriptorHeapManager;
 class FD3D12CpuDescriptorManager;
+class FD3D12CommandContext;
 
 
 
@@ -26,6 +27,10 @@ public:
 
 	TRefCountPtr<ID3D12CommandQueue> CommandQueue;
 	TRefCountPtr<ID3D12Fence> Fence;
+	uint64 FenceValue = 0;
+	HANDLE FenceEvent;
+
+	void WaitFrame();
 
 
 
@@ -61,10 +66,13 @@ public:
 
 	FD3D12Queue& GetQueue(ED3D12QueueType QueueType) { return Queues[(uint32)QueueType]; }
 
+	FD3D12CommandContext& GetDefaultCommandContext() { return *ImmediateCommandContext; }
+
 private:
 	TArray<FD3D12Queue> Queues;
 	TArray<FD3D12CpuDescriptorManager> CpuDescriptorManagers;
 	FD3D12DescriptorHeapManager DescriptorHeapManager;
+	FD3D12CommandContext* ImmediateCommandContext = nullptr;
 
 
 

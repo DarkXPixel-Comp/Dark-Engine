@@ -74,6 +74,7 @@ public:
 	TArray<FD3D12Viewport*>& GetViewports() { return Viewports; }
 
 	void SetDrawingViewport(FD3D12Viewport* InViewport) { DrawingViewport = InViewport; }
+	FD3D12Viewport* GetDrawingViewport() const { return DrawingViewport; }
 
 
 private:

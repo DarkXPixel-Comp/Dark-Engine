@@ -7,9 +7,9 @@
 enum class ED3D12QueueType
 {
 	Direct = 0,
-	Copy,
-	Async,
-	Count
+	Copy = 1,
+	Async = 2,
+	Count = 3
 };
 
 

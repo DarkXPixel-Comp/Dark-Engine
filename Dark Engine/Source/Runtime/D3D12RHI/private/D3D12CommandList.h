@@ -49,6 +49,9 @@ public:
 	bool IsClosed() const { return State.bIsClosed; }
 
 
+	ID3D12GraphicsCommandList* GetGraphicsCommandList() const { return GraphicsCommandList.Get(); }
+
+
 private:
 	struct
 	{

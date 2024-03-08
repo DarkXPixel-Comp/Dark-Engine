@@ -48,7 +48,7 @@ public:
 
 
 	void Initialize(class FWindowsApplication* const Application, const FGenericWindowDefinition& InDefinition, HINSTANCE InHInstance);
-
+	void BeginImGui();
 public:
 	virtual void* GetOSWindowHandle() const override { return HWnd; }
 	void AdjustWindowRegion(int32 Width, int32 Height);

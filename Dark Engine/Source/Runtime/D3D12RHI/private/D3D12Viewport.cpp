@@ -235,3 +235,13 @@ void FD3D12Viewport::Resize(uint32 InSizeX, uint32 InSizeY, bool bInIsFullscreen
 
 	
 }
+
+bool FD3D12Viewport::Present(bool bVsync)
+{
+	return false;
+}
+
+void FD3D12Viewport::WaitForFrameEventCompletion()
+{
+	
+}

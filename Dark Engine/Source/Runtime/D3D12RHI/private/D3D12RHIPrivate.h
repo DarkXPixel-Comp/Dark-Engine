@@ -2,6 +2,10 @@
 #include "D3D12RHI.h"
 #include "D3D12Adapter.h"
 #include "D3D12Viewport.h"
+#include "D3D12Descriptors.h"
+#include "DynamicRHI.h"
+#include "RHIContext.h"
+#include "D3D12Queue.h"
 
 
 
@@ -32,6 +36,12 @@ public:
 	virtual TSharedPtr<FRHIViewport> RHICreateViewport(void* WindowHandle, uint32 SizeX, uint32 SizeY, bool bIsFullscreen) override;
 
 
+	virtual IRHIComputeContext* RHIGetCommandContext() override;
+	virtual IRHICommandContext* RHIGetDefaultContext() override;
+
+	class FD3D12CommandContext* CreateCommandContext(FD3D12Device* InParent, ED3D12QueueType InQueueType, bool InIsDefaultContext);;
+
+	
 
 	virtual ID3D12CommandQueue* RHIGetCommandQueue() override { return nullptr; }
 	virtual ID3D12Device* RHIGetDevice() { return nullptr; }
@@ -40,6 +50,10 @@ public:
 
 
 
+#ifdef IMGUI
+	FD3D12DescriptorHeap* ImGuiDescriptorHeap;
+	uint32 ImGuiDescriptorHandle = 0;
+#endif
 
 public:
 	FD3D12Texture* CreateD3D12Texture(const FRHITextureCreateDesc& CreateDesc, FD3D12Device* Device)
@@ -51,6 +65,7 @@ public:
 private:
 	TArray<TSharedPtr<FD3D12Adapter>> ChosenAdapters;
 	D3D_FEATURE_LEVEL FeatureLevel;
+
 
 
 

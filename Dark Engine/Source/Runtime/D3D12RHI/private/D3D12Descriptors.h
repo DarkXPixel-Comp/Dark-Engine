@@ -95,7 +95,7 @@ public:
 	ERHIDescriptorHeapType GetType() const { return Type; }
 	D3D12_DESCRIPTOR_HEAP_FLAGS GetFlags() const { return Flags; }
 	D3D12_CPU_DESCRIPTOR_HANDLE GetCPUSlotHandle(uint32 Slot) { return CD3DX12_CPU_DESCRIPTOR_HANDLE(CpuBase, Slot, DescriptorSize); }
-	
+	D3D12_GPU_DESCRIPTOR_HANDLE GetGPUSlotHandle(uint32 Slot) { return CD3DX12_GPU_DESCRIPTOR_HANDLE(GpuBase, Slot, DescriptorSize); }
 								
 private:
 	TRefCountPtr<ID3D12DescriptorHeap> Heap;

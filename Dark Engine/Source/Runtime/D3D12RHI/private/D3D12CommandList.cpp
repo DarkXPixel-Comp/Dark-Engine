@@ -64,27 +64,32 @@ void FD3D12CommandList::Reset(FD3D12CommandAllocator* NewCommandAllocator)
 	check(IsClosed());
 	check(NewCommandAllocator->Device == Device && NewCommandAllocator->QueueType == QueueType);
 
-	if (CopyCommandList)
+	DXCall(GraphicsCommandList->Reset(*NewCommandAllocator, nullptr));
+
+	/*if (CopyCommandList)
 	{
 		DXCall(CopyCommandList->Reset(*NewCommandAllocator, nullptr));
 	}
 	else
 	{
 		DXCall(GraphicsCommandList->Reset(*NewCommandAllocator, nullptr));
-	}
+	}*/
 
+	State.bIsClosed = false;
 }
 
 void FD3D12CommandList::Close()
 {
-	if (CopyCommandList)
+	State.bIsClosed = true;
+	DXCall(GraphicsCommandList->Close());
+	/*if (CopyCommandList)
 	{
 		DXCall(CopyCommandList->Close());
 	}
 	else
 	{
 		DXCall(GraphicsCommandList->Close());
-	}
+	}*/
 }
 
 FD3D12CommandList::FState::FState(FD3D12CommandAllocator* InCommandAllocator):

@@ -177,6 +177,13 @@ void FWindowsWindow::InitImGui()
 }
 #endif
 
+void FWindowsWindow::BeginImGui()
+{
+#ifdef  IMGUI
+	ImGui_ImplWin32_NewFrame();
+#endif //  IMGUI
+
+}
 
 void FWindowsWindow::Initialize(FWindowsApplication* const Application, const FGenericWindowDefinition& InDefinition, HINSTANCE InHInstance)
 {

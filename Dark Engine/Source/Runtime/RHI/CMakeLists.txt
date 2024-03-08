@@ -4,7 +4,7 @@ find_library(RHILibs Core Engine D3D12RHI)
 
 
 target_compile_features(RHI PUBLIC cxx_std_20)
-target_link_libraries(RHI PRIVATE Core D3D12RHI)
+target_link_libraries(RHI PRIVATE Core D3D12RHI IMGUI)
 #target_link_libraries(RHI PUBLIC ${RHILibs})
 
 if(MSVC AND WIN32)

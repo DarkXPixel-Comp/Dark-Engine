@@ -76,28 +76,28 @@ FD3D12CpuDescriptor FD3D12CpuDescriptorManager::AllocateHeapSlot()
 {
 	FD3D12CpuDescriptor Result;
 
-	//if (FreeHeapIndex.Num() == 0)
-	//{
-	//	//AllocateHeap();
-	//}
+	if (FreeHeapIndex.Num() == 0)
+	{
+		AllocateHeap();
+	}
 
-	//auto &IndexFreeHeap = FreeHeapIndex.Last();
-	//Result.HeapIndex = IndexFreeHeap;
+	auto &IndexFreeHeap = FreeHeapIndex.Last();
+	Result.HeapIndex = IndexFreeHeap;
 
-	//FD3D12CpuEntry& HeapEntry = Heaps[Result.HeapIndex];
-	//FD3D12CpuFreeRange& Range = HeapEntry.FreeList.Last();
+	FD3D12CpuEntry& HeapEntry = Heaps[Result.HeapIndex];
+	FD3D12CpuFreeRange& Range = HeapEntry.FreeList.Last();
 
-	//Result.ptr = Range.Start;
-	//Range.Start += DescriptorSize;
+	Result.ptr = Range.Start;
+	Range.Start += DescriptorSize;
 
-	//if (Range.Start == Range.End)
-	//{
-	//	HeapEntry.FreeList.Remove(HeapEntry.FreeList.Last());
-	//	if (HeapEntry.FreeList.Num() == 0)
-	//	{
-	//		FreeHeapIndex.Remove(IndexFreeHeap);
-	//	}
-	//}
+	if (Range.Start == Range.End)
+	{
+		HeapEntry.FreeList.RemovePtr(HeapEntry.FreeList.Last());
+		if (HeapEntry.FreeList.Num() == 0)
+		{
+			FreeHeapIndex.Remove(IndexFreeHeap);
+		}
+	}
 	return Result;
 }
 

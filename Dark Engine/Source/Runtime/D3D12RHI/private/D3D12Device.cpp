@@ -19,10 +19,12 @@ FD3D12Device::FD3D12Device(FD3D12Adapter* InAdapter):
 		CpuDescriptorManagers.Emplace(this, (ERHIDescriptorHeapType)HeapType);
 	}
 
+	ImmediateCommandContext = FD3D12DynamicRHI::GetD3D12RHI()->CreateCommandContext(this, ED3D12QueueType::Direct, true);
 }
 
 FD3D12CommandAllocator* FD3D12Device::GetCommandAllocator(ED3D12QueueType QueueType)
 {
+	//Queues[(uint32)QueueType];
 	FD3D12CommandAllocator* Allocator = Queues[(uint32)QueueType].ObjectPool.Allocators.PopBack();
 
 
@@ -30,6 +32,8 @@ FD3D12CommandAllocator* FD3D12Device::GetCommandAllocator(ED3D12QueueType QueueT
 	{
 		Allocator = new FD3D12CommandAllocator(this, QueueType);
 	}
+
+	Allocator->Reset();
 	check(Allocator);
 
 	return Allocator;
@@ -70,5 +74,16 @@ FD3D12Queue::FD3D12Queue(FD3D12Device* InDevice, ED3D12QueueType InQueueType):
 	DXCall(Device->GetDevice()->CreateFence(0, D3D12_FENCE_FLAG_NONE, IID_PPV_ARGS(&Fence)));
 
 	Fence->SetName(*(FString(GetD3D12CommandQueueTypeName(InQueueType)) + FString(TEXT(" queue fence"))));
+
+}
+
+void FD3D12Queue::WaitFrame()
+{
+	CommandQueue->Signal(Fence.Get(), ++FenceValue);
+	if (Fence->GetCompletedValue() < FenceValue)
+	{
+		Fence->SetEventOnCompletion(FenceValue, FenceEvent);
+		WaitForSingleObject(FenceEvent, 1000);
+	}
 
 }

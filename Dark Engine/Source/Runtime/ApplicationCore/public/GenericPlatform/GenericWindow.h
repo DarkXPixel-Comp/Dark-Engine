@@ -41,7 +41,9 @@ public:
 
 #ifdef IMGUI
 	virtual void InitImGui() {}
+	virtual void BeginImGui() {}
 #endif
+
 
 
 protected:

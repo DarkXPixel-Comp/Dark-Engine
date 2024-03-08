@@ -34,7 +34,7 @@ void FUIRHIRenderer::CreateViewport(UIWindow* InWindow)
 
 void FUIRHIRenderer::DrawWindows(const TArray<TSharedPtr<UIWindow>>& InWindows)
 {
-	FRHICommandListImmediate* RHICmdList = nullptr;
+	FRHICommandListImmediate* RHICmdList = &GRHICommandList.GetImmediateCommandList();
 
 	for (auto& Window : InWindows)
 	{
@@ -60,8 +60,19 @@ void FUIRHIRenderer::DrawWindows(const TArray<TSharedPtr<UIWindow>>& InWindows)
 
 
 				RHICmdList->BeginDrawingViewport(ViewInfo->ViewportRHI.get(), nullptr);
+				RHICmdList->BeginFrame();
+#ifdef IMGUI
+				RHICmdList->BeginImGui();
+				Window->GetNativeWindow()->BeginImGui();
+				ImGui::NewFrame();
+#endif
+				ImGui::ShowDemoWindow();
 				//RHICmdList->SetViewport(0, 0, 0 ViewInfo->Width, ViewInfo->Height, 0.f);
 
+				ImGui::Render();
+				RHICmdList->EndImGui();
+				RHICmdList->EndFrame();
+				RHICmdList->EndDrawingViewport(ViewInfo->ViewportRHI.get(), true, 1);
 
 
 

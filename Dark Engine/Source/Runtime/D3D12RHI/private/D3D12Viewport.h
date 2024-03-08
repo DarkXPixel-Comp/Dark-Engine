@@ -18,6 +18,10 @@ public:
 
 	bool Present(bool bVsync);
 
+	uint32 GetCountBackBuffers() const { return NumBackBuffers; }
+
+	void WaitForFrameEventCompletion() override;
+
 
 	FORCEINLINE static DXGI_FORMAT GetRenderTargetFormat(EPixelFormat PixelFormat)
 	{
