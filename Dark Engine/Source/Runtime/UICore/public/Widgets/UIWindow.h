@@ -38,7 +38,7 @@ public:
 
 
 private:
-	bool bHasWindowBorder = true;
+	bool bHasWindowBorder = false;
 	TSharedPtr<FGenericWindow> NativeWindow;
 	FVector2f InitSizeScreen = {1280, 720};
 	FVector2f InitPositionScreen;

@@ -256,7 +256,7 @@ void FWindowsWindow::Initialize(FWindowsApplication* const Application, const FG
 
 	ReshapeWindow(ClientX, ClientY, ClientWidth, ClientHeight);
 
-
+	SetWindowText(HWnd, *Title);
 	if (!InDefinition.bHasWindowBorder)
 	{
 		const DWMNCRENDERINGPOLICY RenderingPolicy = DWMNCRP_DISABLED;
