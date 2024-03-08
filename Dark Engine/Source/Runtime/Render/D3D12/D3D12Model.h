@@ -1,5 +1,5 @@
 #pragma once
-#include "D3D12.h"
+#include "D3D12Main.h"
 #include "D3D12Mesh.h"
 #include "D3D12Resource.h"
 #include "D3D12Types.h"
@@ -29,6 +29,7 @@ public:
 	void SetScaling(XMFLOAT3);
 
 	void SetMesh(FD3D12Mesh* mesh) { m_mesh = mesh; }
+	D3D12Material* GetMaterial() { return m_material; }
 	void SetMaterial(D3D12Material* material) { m_material = material; }
 	void FillConstantBuffer();
 };

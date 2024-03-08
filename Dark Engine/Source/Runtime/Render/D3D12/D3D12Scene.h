@@ -1,6 +1,6 @@
 #pragma once
 
-#include "D3D12.h"
+#include "D3D12Main.h"
 #include "D3D12Model.h"
 #include "D3D12Camera.h"
 

@@ -1,7 +1,7 @@
 #pragma once
 #include <Core.h>
-#include <Containers/String/DarkString.h>
-#include "D3D12.h"
+#include <Containers/DarkString.h>
+#include "D3D12Main.h"
 
 
 enum eD3D12ShaderType

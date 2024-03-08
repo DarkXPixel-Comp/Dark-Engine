@@ -1,7 +1,8 @@
 #pragma once
-#include "Definitions.h"
+//#include "Definitions.h"
 #include "PreprocessorHelpers.h"
 
+#include "Definitions.h"
 
 
 #if !defined(PLATFORM_WINDOWS)
@@ -11,8 +12,28 @@
 #define PLATFORM_MICROSOFT 0
 #endif
 
+//#include "Windows/WindowsPlatform.h"
 #include COMPILED_PLATFORM_HEADER(Platform.h)
 
+
+
+#ifndef LIKELY						/* Hints compiler that expression is likely to be true, much softer than UE_ASSUME - allows (penalized by worse performance) expression to be false */
+#if ( defined(__clang__) || defined(__GNUC__) ) && (PLATFORM_UNIX)	// effect of these on non-Linux platform has not been analyzed as of 2016-03-21
+#define LIKELY(x)			__builtin_expect(!!(x), 1)
+#else
+// the additional "!!" is added to silence "warning: equality comparison with exteraneous parenthese" messages on android
+#define LIKELY(x)			(!!(x))
+#endif
+#endif
+
+#ifndef UNLIKELY					/* Hints compiler that expression is unlikely to be true, allows (penalized by worse performance) expression to be true */
+#if ( defined(__clang__) || defined(__GNUC__) ) && (PLATFORM_UNIX)	// effect of these on non-Linux platform has not been analyzed as of 2016-03-21
+#define UNLIKELY(x)			__builtin_expect(!!(x), 0)
+#else
+	// the additional "!!" is added to silence "warning: equality comparison with exteraneous parenthese" messages on android
+#define UNLIKELY(x)			(!!(x))
+#endif
+#endif
 
 
 typedef FPlatformTypes::int8 int8;
@@ -31,6 +52,9 @@ typedef FPlatformTypes::CHAR16 UCS2CHAR;
 typedef FPlatformTypes::CHAR16 UTF16CHAR;
 typedef FPlatformTypes::CHAR32 UTF32CHAR;
 
+typedef FPlatformTypes::SIZE_T SIZE_T;
+typedef FPlatformTypes::SSIZE_T SSIZE_T;
+
 
 #define UTF8TEXT_PASTE(x) u8 ## x
 #define UTF16TEXT_PASTE(x) u ## x
@@ -47,4 +71,7 @@ typedef FPlatformTypes::CHAR32 UTF32CHAR;
 
 
 
+
+#define UTF16TEXT(x) UTF16TEXT_PASTE(x)
+#define WIDETEXT(str) WIDETEXT_PASTE(str)
 

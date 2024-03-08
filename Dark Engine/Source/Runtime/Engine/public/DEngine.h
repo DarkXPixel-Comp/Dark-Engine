@@ -1,13 +1,13 @@
 #pragma once
-#include <Core/Core.h>
-#include <Render/Renderer.h>
-#include <ApplicationCore/public/Windows/WindowsWindow.h>
-#include <Core/Delegate/Delegate.h>
-#include <Core/Memory/TUniquePtr.h>
-#include <World/World.h>
-#include <Input/InputCore.h>
-#include <Core/Memory/TMemory.h>
-#include <DEditor.h>
+#include <Core.h>
+#include "D3D12/Renderer.h"
+#include <Windows/WindowsWindow.h>
+#include <Delegate/Delegate.h>
+#include <Memory/TUniquePtr.h>
+#include <World.h>
+#include <InputCore.h>
+#include <Memory/TMemory.h>
+#include "DEditor.h"
 #include <chrono>
 #include <Windows.h>
 #include <memory>
@@ -26,6 +26,7 @@
 
 
 DECLARE_MULTICAST_DELEGATE_OneParam(FOnTick, float);
+DECLARE_MULTICAST_DELEGATE(FOnRenderInterface);
 
 
 
@@ -50,9 +51,12 @@ public:
 	bool isAppWork();
 	void Quit();
 	static DEngine* GetEngine();
-	static void SetEditor(DEditor* edt);
+//	static void SetEditor(DEditor* edt);
 
 	FOnTick onTick;
+	FOnRenderInterface OnRenderInterface;
+
+	TSharedPtr<class Window> CreateWindow();
 
 
 
@@ -62,12 +66,15 @@ public:
 	Renderer* GetRenderer() { return m_renderer.get(); }
 	TMemory* GetMemory() { return m_memory.get(); }
 	AWorld* GetWorld() { return m_world.get(); }
+	FInputCore* GetInput() { return m_input.get(); }
+	D3D12Scene* GetScene() { return m_scene.get(); }
 
 private:
-	DEditor* m_editor;
-	DEditor m_defaultEditor;
+	/*DEditor* m_editor;
+	DEditor m_defaultEditor;*/
 	FWindowsWindowManager m_windowManager;
 	bool m_Quit = false;
+	bool renderRun = false;
 
 
 
@@ -80,8 +87,13 @@ private:
 	TUniquePtr<TMemory> m_memory;
 
 
+private:
+	void SetFullscreen();
+	void Interface();
+
+
 
 
 };
 
-extern DENGINE_API DEngine GEngine;
+extern DEngine GEngine;

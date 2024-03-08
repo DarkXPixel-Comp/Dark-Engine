@@ -1,10 +1,13 @@
 #include "ActorComponent.h"
 
-#include <Engine/Classes/Actor/Actor.h>
+#include <Actor/Actor.h>
 
 
 UActorComponent::UActorComponent()
 {
+	AddProperties({ "CanEverTick", Boolean, &bCanEverTick });
+
+	ADD_VARIABLE(bCanEverTick);
 }
 
 void UActorComponent::BeginPlay()

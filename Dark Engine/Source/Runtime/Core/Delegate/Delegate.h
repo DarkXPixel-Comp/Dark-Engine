@@ -1,8 +1,8 @@
 #pragma once
 
 //#include <assert.h>
-#include <Core/Containers/Array/Array.h> 
-#include <Core/Core.h>
+#include <Containers/Array.h> 
+#include "Core.h"
 
 
 #define FUNC_DECLARE_MULTICAST_DELEGATE(DelegateName, ReturnType, ...) typedef TMultiCastDelegate<ReturnType, __VA_ARGS__> DelegateName
@@ -155,7 +155,7 @@ public:
 	{
 		IIContainer<InRetValType, ParamTypes...>* temp = new TMethodContainter<UserClass, InRetValType, ParamTypes...>(inUserObject, func);
 
-		containers->push_back(temp);
+		containers->Push(temp);
 	}
 
 

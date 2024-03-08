@@ -1,16 +1,26 @@
 #pragma once
-#include <GenericPlatform/GenericPlatform.h>			
+#include "GenericPlatform/GenericPlatform.h"			
+
+#if defined(__clang__)
+#else
+#include "MSVC/MSVCPlatform.h"
+#endif
 
 
 
 
 struct FWindowsPlatformTypes : public FGenericPlatformTypes
 {
-
-
-
-
-
+#ifdef _WIN64
+	typedef unsigned __int64 SIZE_T;
+	typedef __int64 SSIZE_T;
+#else
+	typedef unsigned long SIZE_T;
+	typedef long SSIZE_T;
+#endif // _WIN64
+#if USE_UTF8_TCHARS
+	typedef UTF8CHAR TCHAR;
+#endif
 };
 
 
@@ -117,3 +127,5 @@ typedef FWindowsPlatformTypes FPlatformTypes;
 #define FORCEINLINE __forceinline									/* Force code to be inline */
 #define FORCENOINLINE __declspec(noinline)							/* Force code to NOT be inline */
 #define FUNCTION_NON_NULL_RETURN_START _Ret_notnull_				/* Indicate that the function never returns nullptr. */
+#define DLLEXPORT __declspec(dllexport)
+#define DLLIMPORT __declspec(dllimport)

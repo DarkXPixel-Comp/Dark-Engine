@@ -1,5 +1,5 @@
 #pragma once
-#include "D3D12.h"
+#include "D3D12Main.h"
 
 
 struct D3D12Light

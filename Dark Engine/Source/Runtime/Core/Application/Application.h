@@ -1,8 +1,8 @@
 #pragma once
 #include <Core.h>
 #include <Windows.h>
-#include <Containers/String/DarkString.h>
-#include <Containers/Array/Array.h>
+#include <Containers/DarkString.h>
+#include <Containers/Array.h>
 #include <algorithm>
 
 
@@ -30,8 +30,8 @@ public:
 public:
 	void ParseCmdLine();
 	bool CheckParameterCmdLine(FString Parametr, FString& data);
-	FString GetParameter(FString param) { return std::find_if(parameters.begin(), parameters.end(),
-		[&param](const FCMDParameter &v){ return v.Parameter == param;})->Value;}
+	/*FString GetParameter(FString param) { return std::find_if(parameters.begin(), parameters.end(),
+		[&param](const FCMDParameter &v){ return v.Parameter == param;})->Value;}*/
 
 
 public:

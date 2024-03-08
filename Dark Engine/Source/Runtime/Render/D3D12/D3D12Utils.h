@@ -1,19 +1,23 @@
 #pragma once
 #include <unordered_map>
 #include <memory>
-#include <Containers/String/DarkString.h>
+#include <Containers/DarkString.h>
 #include <Windows.h>
-#include <Core/Memory/TUniquePtr.h>
+#include <Memory/TUniquePtr.h>
 #include <Core.h>
-#include "D3D12.h"
+#include "D3D12Main.h"
 #include "D3D12Camera.h"
 #include "D3D12Texture.h"
 #include "HAL/Platform.h"
-#include "Containers/Array/Array.h"
+#include "Containers/Array.h"
+#include <dxcapi.h>
+#include <d3d12shader.h>
+#include "Misc/Paths.h"
 
 
 
-#define D3D_DEFAULT_TEXTURE	"Resources/uv.dds"
+#define D3D_DEFAULT_TEXTURE	 FPaths::CombineDir(FPaths::EngineContentDir(), "Textures/uv.dds")
+#define D3D_DEFAULT_SKYBOX	FPaths::CombineDir(FPaths::EngineContentDir(), "Textures/cubemap.dds")
 
 enum eShaderType
 {
@@ -29,12 +33,16 @@ class FD3D12Mesh;
 class DENGINE_API D3DUtil
 {
 	static std::unordered_map<UINT, TUniquePtr<D3D12PipelineShaderRootSignature>> Pipelines;
-	static std::unordered_map<FString, TUniquePtr<FD3D12Mesh>> m_meshes;
-	static std::unordered_map<FString, TUniquePtr<D3D12Texture>> m_textures;
+	static std::unordered_map<std::string, TUniquePtr<FD3D12Mesh>> m_meshes;
+	static std::unordered_map<std::string, TUniquePtr<D3D12Texture>> m_textures;
 	static TArray<CD3DX12_STATIC_SAMPLER_DESC> m_samplers;
 
 
+
 public:
+	static ComPtr<IDxcCompiler3> m_ShaderCompiler;
+	static ComPtr<IDxcUtils> m_Utils;
+
 	static UINT CalcConstantBufferByteSize(UINT byteSize)
 	{
 		return (byteSize + 255) & ~255;
@@ -52,6 +60,11 @@ public:
 			CreatePipeline(static_cast<eShaderType>(i));
 		}
 	}
+
+	static std::unordered_map<std::string, TUniquePtr<D3D12Texture>>* GetTextures()
+	{
+		return &m_textures;
+	}
 	static void InitStaticSamples();
 	static D3D12PipelineShaderRootSignature* GetPipeline(UINT id) { return Pipelines.find(id)->second.get(); }
 	static uint32 CreatePipeline(eShaderType type);
@@ -60,8 +73,8 @@ public:
 	static ID3D12CommandQueue* GetCommandQueue();
 	static FD3D12Mesh* LoadMesh(FString path);
 	static void DeleteMesh(FD3D12Mesh* mesh);
-	static D3D12Texture* LoadTexture(FString path);
-	static TArray<FD3D12Mesh*> LoadMeshes(FString path, bool bCombineMeshes);
+	static D3D12Texture* LoadTexture(FString path, bool isCubeMap = false);
+	static TArray<FD3D12Mesh*> LoadMeshes(std::string path, bool bCombineMeshes);
 
 	static XMMATRIX CalcMVP()
 	{

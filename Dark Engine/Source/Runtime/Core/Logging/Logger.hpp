@@ -1,12 +1,12 @@
 #pragma once
 #include <Core.h>
-#include <Containers/String/DarkString.h>
+#include <Containers/DarkString.h>
 #include <ctime>
 #include <list>
 #include <fstream>
 #include <thread>
 #include <mutex>
-#include <Containers/String/DarkString.h>
+#include <Containers/DarkString.h>
 
 #ifdef _WIN32
 #include <Windows.h>

@@ -2,23 +2,30 @@
 #include "D3D12Render.h"
 #include "D3D12PSO.h"
 #include "D3D12Texture.h"
-#include <Engine/public/DEngine.h>
+#include <DEngine.h>
 #include <assimp/Importer.hpp>
 #include <assimp/scene.h>
 #include <assimp/mesh.h>
 #include <assimp/postprocess.h>
-#include <DTK12/DDSTextureLoader.h>
-#include <DTK12/ResourceUploadBatch.h>
+#include <DDSTextureLoader.h>
+#include <ResourceUploadBatch.h>
+#include "Misc/Paths.h"
+#include <fstream>
 
 
 std::unordered_map<UINT, TUniquePtr<D3D12PipelineShaderRootSignature>> D3DUtil::Pipelines;
-std::unordered_map<FString, TUniquePtr<FD3D12Mesh>> D3DUtil::m_meshes;
-std::unordered_map<FString, TUniquePtr<D3D12Texture>> D3DUtil::m_textures;
+std::unordered_map<std::string, TUniquePtr<FD3D12Mesh>> D3DUtil::m_meshes;
+std::unordered_map<std::string, TUniquePtr<D3D12Texture>> D3DUtil::m_textures;
 TArray<CD3DX12_STATIC_SAMPLER_DESC> D3DUtil::m_samplers(6);
+ComPtr<IDxcCompiler3> D3DUtil::m_ShaderCompiler;
+ComPtr<IDxcUtils>  D3DUtil::m_Utils;
 
 void D3DUtil::Init()
 {
 	LoadTexture(D3D_DEFAULT_TEXTURE);
+
+	DxcCreateInstance(CLSID_DxcCompiler, IID_PPV_ARGS(&m_ShaderCompiler));
+	DxcCreateInstance(CLSID_DxcUtils, IID_PPV_ARGS(&m_Utils));
 
 }
 
@@ -37,7 +44,7 @@ UINT D3DUtil::CreatePipeline(eShaderType type)
 	case Default:
 	{
 		TArray<CD3DX12_ROOT_PARAMETER1> parametrs(4);
-		TArray<D3D12_ROOT_PARAMETER1> pParametrs(parametrs.size());
+		TArray<D3D12_ROOT_PARAMETER1> pParametrs(parametrs.GetSize());
 		CD3DX12_DESCRIPTOR_RANGE1 srvRange;
 		srvRange.Init(D3D12_DESCRIPTOR_RANGE_TYPE_SRV, 2, 0);
 
@@ -49,10 +56,10 @@ UINT D3DUtil::CreatePipeline(eShaderType type)
 		parametrs[3].InitAsConstantBufferView(3, 0);
 
 
-		for (size_t i = 0; i < parametrs.size(); i++) { pParametrs[i] = parametrs[i]; }
+		for (size_t i = 0; i < parametrs.GetSize(); i++) { pParametrs[i] = parametrs[i]; }
 
 		D3D12PipelineShaderRootSignature* PSO = new D3D12PipelineShaderRootSignature(render->m_device.Get(),
-			"shaders/VertexShader.hlsl", "shaders/PixelShader.hlsl", pParametrs);
+			FPaths::CombineDir(FPaths::EngineShaderDir(), TEXT("VertexShader.hlsl")), FPaths::CombineDir(FPaths::EngineShaderDir(), TEXT("PixelShader.hlsl")), pParametrs);
 
 		Pipelines.emplace(PSO->GetID(), PSO);
 	}
@@ -123,11 +130,11 @@ ID3D12CommandQueue* D3DUtil::GetCommandQueue()
 //}
 
 
-D3D12Texture* D3DUtil::LoadTexture(FString path)
+D3D12Texture* D3DUtil::LoadTexture(FString path, bool isCubeMap)
 {
-	if (m_textures.find(path) != m_textures.end())
+	if (m_textures.find(path.ToString()) != m_textures.end())
 	{
-		return m_textures.find(path)->second.get();
+		return m_textures.find(path.ToString())->second.get();
 	}
 
 
@@ -135,7 +142,8 @@ D3D12Texture* D3DUtil::LoadTexture(FString path)
 
 	auto texture = new D3D12Texture();
 	
-	m_textures.emplace(path, TUniquePtr<D3D12Texture>(texture));
+	m_textures.emplace(path.ToString(), TUniquePtr<D3D12Texture>(texture));
+	texture->name = path;
 	
 
 	HRESULT hr = S_OK;
@@ -151,23 +159,37 @@ D3D12Texture* D3DUtil::LoadTexture(FString path)
 	upload.End(GetCommandQueue()).wait();
 
 	
+	if (!texture->m_textureBuffer)
+	{
+		return nullptr;
+	}
 
 	D3D12_SHADER_RESOURCE_VIEW_DESC srvDesc;
 
 	srvDesc.Shader4ComponentMapping = D3D12_DEFAULT_SHADER_4_COMPONENT_MAPPING;
 	srvDesc.Format = texture->m_textureBuffer->GetDesc().Format;
 
-	switch (texture->m_textureBuffer->GetDesc().Dimension)
-	{	
-	case D3D12_RESOURCE_DIMENSION_TEXTURE2D:
-		srvDesc.ViewDimension = D3D12_SRV_DIMENSION_TEXTURE2D;
-		srvDesc.Texture2D.MostDetailedMip = 0;
-		srvDesc.Texture2D.MipLevels = texture->m_textureBuffer->GetDesc().MipLevels;
-		srvDesc.Texture2D.ResourceMinLODClamp = 0.f;
-		srvDesc.Texture2D.PlaneSlice = 0;
-		break;
-	default:
-		break;
+	if (isCubeMap)
+	{
+		srvDesc.ViewDimension = D3D12_SRV_DIMENSION_TEXTURECUBE;
+		srvDesc.TextureCube.MostDetailedMip = 0;
+		srvDesc.TextureCube.MipLevels = texture->m_textureBuffer->GetDesc().MipLevels;
+		srvDesc.TextureCube.ResourceMinLODClamp = 0.f;
+	}
+	else
+	{
+		switch (texture->m_textureBuffer->GetDesc().Dimension)
+		{
+		case D3D12_RESOURCE_DIMENSION_TEXTURE2D:
+			srvDesc.ViewDimension = D3D12_SRV_DIMENSION_TEXTURE2D;
+			srvDesc.Texture2D.MostDetailedMip = 0;
+			srvDesc.Texture2D.MipLevels = texture->m_textureBuffer->GetDesc().MipLevels;
+			srvDesc.Texture2D.ResourceMinLODClamp = 0.f;
+			srvDesc.Texture2D.PlaneSlice = 0;
+			break;
+		default:
+			break;
+		}
 	}
 
 
@@ -178,15 +200,15 @@ D3D12Texture* D3DUtil::LoadTexture(FString path)
 
 FD3D12Mesh* D3DUtil::LoadMesh(FString path)
 {
-	if (m_meshes.find(path) != m_meshes.end())
+	if (m_meshes.find(path.ToString()) != m_meshes.end())
 	{
-		return m_meshes.find(path)->second.get();
+		return m_meshes.find(path.ToString())->second.get();
 	}
 
 	
 
 	Assimp::Importer importer;
-	const aiScene* scene = importer.ReadFile(path, aiProcess_Triangulate);
+	const aiScene* scene = importer.ReadFile(path.ToString(), aiProcess_Triangulate);
 	if (!scene) return nullptr;
 
 	INT64 CountVertices = 0;
@@ -199,6 +221,7 @@ FD3D12Mesh* D3DUtil::LoadMesh(FString path)
 
 
 	TArray<Vertex> vertices(CountVertices);
+	TArray<XMFLOAT3> RayTracedVertices;
 	TArray<WORD> indices;
 
 	int64_t Counter = 0;
@@ -207,8 +230,7 @@ FD3D12Mesh* D3DUtil::LoadMesh(FString path)
 	for (size_t i = 0; i < scene->mNumMeshes; i++)
 	{
 		aiMesh* Mesh = scene->mMeshes[i];
-		
-	
+			
 		
 		for (size_t j = 0; j < Mesh->mNumVertices; j++)
 		{
@@ -278,7 +300,7 @@ FD3D12Mesh* D3DUtil::LoadMesh(FString path)
 
 			for (size_t k = 0; k < face.mNumIndices; k++)
 			{
-				indices.push_back(face.mIndices[k] + LastCountVertices);
+				indices.Push(face.mIndices[k] + LastCountVertices);
 			}
 		}
 
@@ -287,9 +309,9 @@ FD3D12Mesh* D3DUtil::LoadMesh(FString path)
 	}
 
 
-	for (size_t i = 0; i < vertices.size(); i += 3)
+	for (size_t i = 0; i < vertices.GetSize(); i += 3)
 	{
-		if (i + 2 >= vertices.size())
+		if (i + 2 >= vertices.GetSize())
 		{
 			break;
 		}
@@ -327,14 +349,14 @@ FD3D12Mesh* D3DUtil::LoadMesh(FString path)
 
 
 
-	m_meshes.emplace(path, std::make_unique<FD3D12Mesh>(vertices, indices));
-	return m_meshes.find(path)->second.get();
+	m_meshes.emplace(path.ToString(), std::make_unique<FD3D12Mesh>(vertices, indices));
+	return m_meshes.find(path.ToString())->second.get();
 
 }
 
 void D3DUtil::DeleteMesh(FD3D12Mesh* mesh)
 {
-	auto it = m_meshes.find(mesh->PathToMesh);
+	auto it = m_meshes.find(mesh->PathToMesh.ToString());
 
 	if (it == m_meshes.end())
 		return;

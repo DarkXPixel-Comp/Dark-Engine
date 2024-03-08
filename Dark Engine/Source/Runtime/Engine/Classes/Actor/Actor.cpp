@@ -49,9 +49,10 @@ void AActor::SetMesh(FD3D12Mesh* mesh)
 
 void AActor::AddRotation(XMFLOAT3 rot)
 {
-	m_rotation.x += rot.x;
-	m_rotation.y += rot.y;
-	m_rotation.z += rot.z;
+	m_rotation.x = rot.x + m_rotation.x > 360 ? rot.x + m_rotation.x - 360 : rot.x + m_rotation.x;
+	m_rotation.y = rot.y + m_rotation.y > 360 ? rot.y + m_rotation.y - 360 : rot.y + m_rotation.y;
+	m_rotation.z = rot.z + m_rotation.z > 360 ? rot.z + m_rotation.z - 360 : rot.z + m_rotation.z;
+
 }
 
 XMFLOAT3 AActor::GetFrontVector()

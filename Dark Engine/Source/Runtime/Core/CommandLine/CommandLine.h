@@ -2,7 +2,7 @@
 
 #include <Core.h>
 #include <Windows.h>
-#include <Containers/String/DarkString.h>
+#include <Containers/DarkString.h>
 
 #define PrintLine(...) CommandConsole::Prints(__VA_ARGS__, nullptr)
 

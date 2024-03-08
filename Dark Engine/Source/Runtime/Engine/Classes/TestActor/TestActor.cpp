@@ -2,11 +2,14 @@
 
 ATestActor::ATestActor()
 {
+
 	rotateComponent = CreateDefaultSubObject<URotateComponent>("name");
 	sceneComponent = CreateDefaultSubObject<USceneComponent>("Scene");
 
 	rotateComponent->SetRotateOnTick({ 5, 5, -5 });
 
+
+	AddProperties(FObjectProperties("RotateComponent", Custom, rotateComponent));
 }
 
 void ATestActor::BeginPlay()

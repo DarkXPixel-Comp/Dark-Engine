@@ -1,13 +1,16 @@
 #pragma once
 #include "../UObject/UObject.h"
 #include <Core.h>
-#include <Engine/Classes/Components/ActorComponent/ActorComponent.h>
+#include <Components/ActorComponent/ActorComponent.h>
 #include <Components/SceneComponent/USceneComponent.h>
 #include <DirectXMath.h>
-#include <Render/D3D12/D3D12Model.h>
-#include <Input/InputCore.h>
+#include <D3D12/D3D12Model.h>
+#include <InputCore.h>
 
 using namespace DirectX;
+
+
+
 
 
 class DENGINE_API AActor : public UObject
@@ -23,6 +26,7 @@ public:
 	void SetMesh(FD3D12Mesh* mesh);
 	D3D12Model* GetModel() { return m_model.get(); }
 
+
 public:
 	void SetPosition(XMFLOAT3 pos) { m_position = pos; }
 	void SetRotation(XMFLOAT3 rot) { m_rotation = rot; }
@@ -30,6 +34,7 @@ public:
 	void AddRotation(XMFLOAT3 rot);
 	XMFLOAT3 GetPosition() { return m_position; }
 	XMFLOAT3 GetRotation() { return m_rotation; }
+	XMFLOAT3 GetScale() { return m_scale; }
 	XMFLOAT3 GetFrontVector();
 	XMFLOAT3 GetRightVector();
 	XMFLOAT3 GetUpVector();
@@ -52,6 +57,8 @@ protected:
 	TUniquePtr<D3D12Model> m_model;
 
 	TUniquePtr<USceneComponent> m_rootComponent;
+
+private:
 
 
 	

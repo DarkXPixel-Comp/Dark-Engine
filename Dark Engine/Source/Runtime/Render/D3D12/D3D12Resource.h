@@ -1,7 +1,7 @@
 #pragma once
 #include "D3D12Utils.h"
-#include "D3D12.h"
-#include <Core/Containers/Array/Array.h>
+#include "D3D12Main.h"
+#include <Containers/Array.h>
 
 template <typename T>
 class D3D12UploadBufferResource
@@ -30,7 +30,7 @@ template<typename T>
 D3D12UploadBufferResource<T>::D3D12UploadBufferResource(UINT elementCount, bool isConstantBuffer)
 {
 	m_device = D3DUtil::GetDevice();
-	m_dataBuffer.resize(elementCount);
+	m_dataBuffer.Resize(elementCount);
 	m_elementByteSize = isConstantBuffer ? D3DUtil::CalcConstantBufferByteSize(sizeof(T)) : sizeof(T);
 	m_elementsByteSize = elementCount * m_elementByteSize;
 

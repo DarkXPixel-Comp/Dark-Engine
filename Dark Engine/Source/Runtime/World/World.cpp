@@ -36,7 +36,9 @@ void AWorld::FillScene(D3D12Scene* scene)
 
 AActor* AWorld::CreateActor()
 {
-    auto& it = m_actors.emplace_back(std::make_unique<AActor>());
+    //auto& it = m_actors.GetVector().emplace_back(std::make_unique<AActor>());
+
+    auto& it = m_actors.Emplace(std::make_unique<AActor>());
     it->BeginPlay();
     return it.get();
 }

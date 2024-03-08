@@ -1,6 +1,19 @@
 #pragma once
 
-#ifdef _WIN32
+#ifdef _WINDLL
+#define DENGINE_API __declspec(dllexport)
+#elif STATIC
+#define DENGINE_API __declspec(dllimport)
+#else
+#define DENGINE_API
+#endif // _WINDLL
 
 
-#endif // _WIN32
+//#ifdef _WINDLL
+//#define DENGINE_API __declspec(dllexport)
+//#elif _TTEE
+//#define DENGINE_API
+//#else
+//#define DENGINE_API __declspec(dllimport)
+//#endif // _WINDLL
+//

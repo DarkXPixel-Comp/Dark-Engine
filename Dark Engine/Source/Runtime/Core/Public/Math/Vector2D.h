@@ -29,6 +29,11 @@ namespace DE
 			};
 
 
+/*TEMP*/public:
+			TVector2(T InF) : X(InF), Y(InF) {}
+			TVector2() : X(0), Y(0) {}
+			TVector2(T InX, T InY) : X(InX), Y(InY) {}
+
 
 		};
 

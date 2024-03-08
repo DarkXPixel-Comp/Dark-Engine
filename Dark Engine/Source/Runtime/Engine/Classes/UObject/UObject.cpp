@@ -1,5 +1,7 @@
 #include "UObject.h"
 
+uint64 UObject::CountObjects = 0;
+
 void UObject::BeginPlay()
 {
 	for (auto& i : m_objects)
@@ -37,4 +39,9 @@ void UObject::SetOwner(UObject* owner)
 UObject* UObject::GetOwner()
 {
 	return m_owner;
+}
+
+void UObject::AddProperties(FObjectProperties Properties)
+{
+	ObjectProperties.Push(Properties);
 }

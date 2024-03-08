@@ -1,9 +1,9 @@
 #pragma once
 #include <Windows.h>
-#include "D3D12.h"
-#include <Core/Containers/Array/Array.h>
-#include <Containers/String/DarkString.h>
-#include <Core/CoreDefines.h>
+#include "D3D12Main.h"
+#include <Containers/Array.h>
+#include <Containers/DarkString.h>
+#include <CoreDefines.h>
 #include "D3D12Mesh.h"
 #include "D3D12Utils.h"
 
@@ -38,7 +38,9 @@ public:
 	D3D12PipelineShaderRootSignature(ID3D12Device8* device,
 		FString vertexShaderPath,
 		FString pixelShaderPath,
-		TArray<D3D12_ROOT_PARAMETER1> rootParametrs)
+		TArray<D3D12_ROOT_PARAMETER1> rootParametrs, D3D12_INPUT_LAYOUT_DESC layout = Vertex::InputLayout,
+		bool depth = true,
+		D3D12_CULL_MODE CullMode = D3D12_CULL_MODE_BACK, D3D12_COMPARISON_FUNC depthFunc = D3D12_COMPARISON_FUNC_LESS)
 	{
 		//CD3DX12_ROOT_PARAMETER1 parametrs[1];
 		//CD3DX12_DESCRIPTOR_RANGE1 cbvTable;
@@ -50,10 +52,10 @@ public:
 
 
 		CD3DX12_VERSIONED_ROOT_SIGNATURE_DESC rootSigDescVers(
-			rootParametrs.size(),
-			rootParametrs.data(),
-			staticSamplers.size(),
-			staticSamplers.data(),
+			rootParametrs.GetSize(),
+			rootParametrs.GetData(),
+			staticSamplers.GetSize(),
+			staticSamplers.GetData(),
 			D3D12_ROOT_SIGNATURE_FLAG_ALLOW_INPUT_ASSEMBLER_INPUT_LAYOUT);
 
 
@@ -73,39 +75,133 @@ public:
 			rootSignatureBlob->GetBufferSize(), IID_PPV_ARGS(&m_rootSignature)));
 
 
+		auto pUtils = D3DUtil::m_Utils.Get();
+		auto pCompiler = D3DUtil::m_ShaderCompiler.Get();
+		ComPtr<IDxcBlob> pVertexShader;
+		ComPtr<IDxcBlob> pPixelShader;
 
-		ComPtr<ID3DBlob> vertexShader;
-		ComPtr<ID3DBlob> pixelShader;
-
-		//D3DCompileFromFile(strw(vertexShaderPath).c_str(), nullptr,
-		//	nullptr, "main", "vs_5_1", 0, 0, &vertexShader, &errorBlob);
-
-
-		//D3DCompileFromFile(strw(pixelShaderPath).c_str(), nullptr,
-		//	nullptr, "main", "ps_5_1", 0, 0, &pixelShader, &errorBlob);
+		{
+			ComPtr<IDxcIncludeHandler> pIncludeHandler;
+			D3DUtil::m_Utils->CreateDefaultIncludeHandler(&pIncludeHandler);
 
 
-		D3DReadFileToBlob(L"shaders/VertexShader.cso", &vertexShader);
-		D3DReadFileToBlob(L"shaders/PixelShader.cso", &pixelShader);
+
+			/*int len = MultiByteToWideChar(CP_ACP, 0, vertexShaderPath.c_str(), -1, NULL, 0);
+			wstring wPathShader(L" ", len);
+			MultiByteToWideChar(CP_ACP, 0, vertexShaderPath.c_str(), -1, wPathShader.data(), len);*/
+
+
+			LPCWSTR pszArgs[] =
+			{
+				L"-E main",
+				L"-T vs_6_6",
+				L"Zi",
+				vertexShaderPath.Data()
+				//L"-E", L"main",              // Entry point.
+				//L"-T", L"vs_6_6",            // Target.
+			};
+
+			ComPtr<IDxcBlobEncoding> pSource = nullptr;
+			pUtils->LoadFile(vertexShaderPath.Data(), nullptr, &pSource);
+			DxcBuffer Source;
+			Source.Ptr = pSource->GetBufferPointer();
+			Source.Size = pSource->GetBufferSize();
+			Source.Encoding = DXC_CP_ACP;
+
+			wstring ws = (wchar_t*)pSource->GetBufferPointer();
+
+
+
+			ComPtr<IDxcResult> 	pResult;
+			D3DUtil::m_ShaderCompiler->Compile(&Source, pszArgs, _countof(pszArgs), pIncludeHandler.Get(), IID_PPV_ARGS(&pResult));
+
+
+			pResult->GetOutput(DXC_OUT_OBJECT, IID_PPV_ARGS(&pVertexShader), nullptr);
+
+		}
+		{
+			ComPtr<IDxcIncludeHandler> pIncludeHandler;
+			D3DUtil::m_Utils->CreateDefaultIncludeHandler(&pIncludeHandler);
+
+
+
+			/*int len = MultiByteToWideChar(CP_ACP, 0, pixelShaderPath.c_str(), -1, NULL, 0);
+			wstring wPathShader(L" ", len);
+			MultiByteToWideChar(CP_ACP, 0, pixelShaderPath.c_str(), -1, wPathShader.data(), len);*/
+
+
+			LPCWSTR pszArgs[] =
+			{
+				L"-E main",
+				L"-T ps_6_6",
+				L"Zi",
+				vertexShaderPath.Data()
+				//L"-E", L"main",              // Entry point.
+				//L"-T", L"vs_6_6",            // Target.
+			};
+
+			ComPtr<IDxcBlobEncoding> pSource = nullptr;
+			pUtils->LoadFile(vertexShaderPath.Data(), nullptr, &pSource);
+			DxcBuffer Source;
+			Source.Ptr = pSource->GetBufferPointer();
+			Source.Size = pSource->GetBufferSize();
+			Source.Encoding = DXC_CP_ACP;
+
+			wstring ws = (wchar_t*)pSource->GetBufferPointer();
+
+
+
+			ComPtr<IDxcResult> 	pResult;
+			D3DUtil::m_ShaderCompiler->Compile(&Source, pszArgs, _countof(pszArgs), pIncludeHandler.Get(), IID_PPV_ARGS(&pResult));
+
+
+			pResult->GetOutput(DXC_OUT_OBJECT, IID_PPV_ARGS(&pPixelShader), nullptr);
+
+		}
+
+
+
+		//ComPtr<ID3DBlob> vertexShader;
+		//ComPtr<ID3DBlob> pixelShader;
+
+		////D3DCompileFromFile(strw(vertexShaderPath).c_str(), nullptr,
+		////	nullptr, "main", "vs_5_1", 0, 0, &vertexShader, &errorBlob);
+
+
+		////D3DCompileFromFile(strw(pixelShaderPath).c_str(), nullptr,
+		////	nullptr, "main", "ps_5_1", 0, 0, &pixelShader, &errorBlob);
+
+
+		//D3DReadFileToBlob(strw(vertexShaderPath).c_str(), &vertexShader);
+		//D3DReadFileToBlob(strw(pixelShaderPath).c_str(), &pixelShader);
 
 
 		D3D12_RASTERIZER_DESC rasterDesc = {};
 
 		rasterDesc = CD3DX12_RASTERIZER_DESC(D3D12_DEFAULT);
 		//rasterDesc.FillMode = D3D12_FILL_MODE_WIREFRAME;
+		rasterDesc.CullMode = CullMode;
 
 
 		D3D12_GRAPHICS_PIPELINE_STATE_DESC pipelineStateDesc = {};
 
 
 
-		pipelineStateDesc.InputLayout = Vertex::InputLayout;
+		pipelineStateDesc.InputLayout = layout;
 		pipelineStateDesc.pRootSignature = m_rootSignature.Get();
-		pipelineStateDesc.VS = { vertexShader->GetBufferPointer(), vertexShader->GetBufferSize() };
-		pipelineStateDesc.PS = { pixelShader->GetBufferPointer(), pixelShader->GetBufferSize() };
+		pipelineStateDesc.VS = { pVertexShader->GetBufferPointer(), pVertexShader->GetBufferSize() };
+		pipelineStateDesc.PS = { pPixelShader->GetBufferPointer(), pPixelShader->GetBufferSize() };
 		pipelineStateDesc.RasterizerState = rasterDesc;
 		pipelineStateDesc.BlendState = CD3DX12_BLEND_DESC(CD3DX12_DEFAULT());
-		pipelineStateDesc.DepthStencilState = CD3DX12_DEPTH_STENCIL_DESC(CD3DX12_DEFAULT());
+		if(depth)
+		{
+			pipelineStateDesc.DepthStencilState = CD3DX12_DEPTH_STENCIL_DESC(CD3DX12_DEFAULT());
+			pipelineStateDesc.DepthStencilState.DepthFunc = depthFunc;
+		}
+		else
+		{
+			pipelineStateDesc.DepthStencilState.DepthEnable = false;
+		}
 		pipelineStateDesc.SampleMask = UINT_MAX;
 		pipelineStateDesc.PrimitiveTopologyType = D3D12_PRIMITIVE_TOPOLOGY_TYPE_TRIANGLE;
 		pipelineStateDesc.NumRenderTargets = 1;

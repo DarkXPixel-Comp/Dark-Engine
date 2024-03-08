@@ -1,5 +1,11 @@
 #include <Math/Vector.h>
+#include "Math/Rotator.h"
+#include "Math/Matrix.h"
+#include "Math/IntPoint.h"
 
+
+template<> const FRotator3f FRotator3f::ZeroRotator(0, 0, 0);
+template<> const FRotator3d FRotator3d::ZeroRotator(0, 0, 0);
 
 template<> const FVector3f FVector3f::ZeroVector(0, 0, 0);
 template<> const FVector3f FVector3f::OneVector(1, 1, 1);
@@ -23,6 +29,9 @@ template<> const FVector3d FVector3d::LeftVector(0, -1, 0);
 template<> const FVector3d FVector3d::XAxisVector(1, 0, 0);
 template<> const FVector3d FVector3d::YAxisVector(0, 1, 0);
 template<> const FVector3d FVector3d::ZAxisVector(0, 0, 1);
+
+template<> const FIntPoint FIntPoint::ZeroValue(0, 0);
+
 
 
 

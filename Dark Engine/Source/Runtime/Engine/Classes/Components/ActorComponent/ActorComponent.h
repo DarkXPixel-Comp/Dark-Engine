@@ -1,5 +1,5 @@
 #pragma once
-#include <Engine/Classes/UObject/UObject.h>
+#include <UObject/UObject.h>
 #include <Core.h>
 
 

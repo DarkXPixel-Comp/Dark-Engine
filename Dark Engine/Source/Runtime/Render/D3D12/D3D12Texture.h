@@ -1,6 +1,6 @@
 #pragma once
 
-#include "D3D12.h"
+#include "D3D12Main.h"
 
 
 class D3D12Texture
