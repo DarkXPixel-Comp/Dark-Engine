@@ -32,6 +32,8 @@ public:
 	virtual void RHIBeginDrawingViewport(FRHIViewport* Viewport, FRHITexture* RenderTarget) = 0;
 	virtual void RHIEndDrawingViewport(FRHIViewport* Viewport, bool bPresent, bool Vsync) = 0;
 	virtual void RHIBeginFrame() = 0;
+	virtual void RHIBeginRenderPass(struct FRHIRenderPassInfo& InInfo) = 0;
+	virtual void RHIEndRenderPass() {}
 	virtual void RHIEndFrame() = 0;
 	virtual void BeginScene() {}
 	virtual void EndScene() {}
@@ -43,13 +45,4 @@ public:
 	virtual void RHISetShaderSampler(FRHIGraphicsShader* Shader, uint32 SamplerIndex, FRHISamplerState* State) {}
 	virtual void RHIBeginImGui() = 0;
 	virtual void RHIEndImGui() = 0;
-
-	
-
-
-
-
-
-
-
 };

@@ -2,6 +2,7 @@
 #include "imgui_impl_dx12.h"
 #include "D3D12Descriptors.h"
 #include "D3D12View.h"
+#include "RHIResources.h"
 
 FD3D12ContextCommon::FD3D12ContextCommon(FD3D12Device* InDevice, ED3D12QueueType InQueueType, bool InbIsDefaultContext):
 	Device(InDevice),
@@ -125,6 +126,8 @@ void FD3D12CommandContext::RHIBeginFrame()
 	Viewport->GetCurrentBackBuffer()->RenderTargetView->GetCpuHandle();
 
 
+
+
 	List.GetGraphicsCommandList()->SetDescriptorHeaps(1, Heaps);
 	Viewport->GetCurrentBackBuffer();
 
@@ -150,6 +153,22 @@ void FD3D12CommandContext::RHIEndImGui()
 #ifdef IMGUI
 	ImGui_ImplDX12_RenderDrawData(ImGui::GetDrawData(), List.GetGraphicsCommandList());
 #endif
+}
+
+void FD3D12CommandContext::RHIBeginRenderPass(FRHIRenderPassInfo& InInfo)
+{
+
+
+}
+
+void FD3D12CommandContext::SetRenderTargets(const FRHIRenderTargetView *RenderTargetsRHI, const FRHIDepthRenderTargetView *DepthStencilViewRHI)
+{
+	FD3D12Texture* NewDepthTexture = DepthStencilViewRHI ? (FD3D12Texture*)DepthStencilViewRHI->Texture : nullptr;
+
+
+	//FD3D12DepthStencilView* DepthStencilView;
+
+
 }
 
 void FD3D12CommandContextBase::RHISetViewport(float MinX, float MinY, float MinZ, float MaxX, float MaxY, float MaxZ)

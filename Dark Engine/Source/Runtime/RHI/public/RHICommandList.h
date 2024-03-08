@@ -104,6 +104,10 @@ class FRHICommandListImmediate : public FRHICommandList
 public:
 	void BeginScene();
 	void EndScene();
+	void BeginRenderPass(struct FRHIRenderPassInfo& InInfo)
+	{
+		GetContext().RHIBeginRenderPass(InInfo);
+	}
 	void BeginDrawingViewport(FRHIViewport* Viewport, FRHITexture* RenderTargetRHI)
 	{
 		GetContext().RHIBeginDrawingViewport(Viewport, RenderTargetRHI);

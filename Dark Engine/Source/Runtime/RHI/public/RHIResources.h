@@ -3,6 +3,7 @@
 #include "CoreTypes.h"
 #include "Containers/DarkString.h"
 #include "Containers/Array.h"
+#include "Containers/StaticArray.h"
 
 
 
@@ -361,4 +362,81 @@ class FRHISamplerState : public FRHIResource
 {
 	FRHISamplerState() : FRHIResource(RRT_SamplerState) {}
 	virtual FRHIDescriptorHandle GetBindlessHandle() const { return FRHIDescriptorHandle(); }
+};
+
+class FRHIRenderTargetView
+{
+public:
+	FRHIRenderTargetView() = default;
+
+
+	FRHITexture* Texture;
+private:
+
+
+};
+
+
+
+
+
+
+class FRHIDepthRenderTargetView
+{
+public:
+	FRHITexture* Texture;
+
+
+private:
+};
+
+struct FRHIRenderPassInfo
+{
+	struct FColorEntry
+	{
+		FRHITexture* RenderTarget = nullptr;
+		int32 ArraySlice = -1;
+		uint8 MipIndex = 0;
+	};
+	TStaticArray<FColorEntry, 8> ColorRenderTargets;
+
+	struct FDepthStencilEntry
+	{
+		FRHITexture* DepthStencilTarget = nullptr;
+	};
+
+	FDepthStencilEntry DepthStencilEntry;
+
+	FRHIRenderPassInfo() = default;
+	FRHIRenderPassInfo(FRHITexture* ColorRT)
+	{
+		check(ColorRT);
+		ColorRenderTargets[0].RenderTarget = ColorRT;
+	}
+	FRHIRenderPassInfo(uint32 NumColorRT, FRHITexture** ColorRT)
+	{
+		check(NumColorRT > 0);
+		for (int32 i = 0; i < NumColorRT; ++i)
+		{
+			check(ColorRT[i]);
+			ColorRenderTargets[i].RenderTarget = ColorRT[i];
+		}
+	}
+
+
+};
+
+
+class FRHISetRenderTargetInfo
+{
+public:
+	FRHIRenderTargetView ColorRenderTarget[8];
+	int32 NumColorRenderTargets;
+	bool bClearColor;
+
+	FRHIDepthRenderTargetView DepthStencilRenderTarget;
+	bool bClearDepth;
+	bool bClearStencil;
+
+	//...
 };

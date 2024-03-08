@@ -17,13 +17,15 @@ using TSet = std::set<Args...>;
 
 
 
+
+
 template <typename ElementType>
 class TArray
 {
 	using SizeType = uint64;
 
 public:
-	TArray() {}
+	TArray() { }
 
 	TArray(SizeType Size) : _vector(Size) {}
 

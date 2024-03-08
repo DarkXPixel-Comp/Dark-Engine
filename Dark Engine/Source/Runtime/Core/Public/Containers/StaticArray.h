@@ -4,5 +4,11 @@
 #include "array"
 
 
-template<typename T, int Num>
-using TStaticArray = std::array<T, Num>;
+
+template <typename ElementType, uint32 ElementCount>
+class TStaticArray : public TArray<ElementType>
+{
+public:
+	TStaticArray() : TArray<ElementType>(ElementCount) {}
+
+};

@@ -5,6 +5,7 @@
 #include "D3D12Resources.h"
 #include "D3D12Submission.h"
 #include "RHIContext.h"
+#include "RHIResources.h"
 
 
 
@@ -95,9 +96,6 @@ public:
 	void RHIBeginDrawingViewport(FRHIViewport* Viewport, FRHITexture* RenderTargetRHI) override;
 	void RHIEndDrawingViewport(FRHIViewport* Viewport, bool bPresent, bool Vsync) override;
 	void RHISetViewport(float MinX, float MinY, float MinZ, float MaxX, float MaxY, float MaxZ) override;
-
-
-
 };
 
 class FD3D12CommandContext : public FD3D12ContextCommon, public FD3D12CommandContextBase, public FD3D12DeviceChild
@@ -108,5 +106,8 @@ public:
 	void RHIEndFrame() override;
 	void RHIBeginImGui() override;
 	void RHIEndImGui() override;
+	void RHIBeginRenderPass(struct FRHIRenderPassInfo& InInfo);
+
+	void SetRenderTargets(const FRHIRenderTargetView* RenderTargetsRHI, const FRHIDepthRenderTargetView* DepthStencilViewRHI);
 
 };
