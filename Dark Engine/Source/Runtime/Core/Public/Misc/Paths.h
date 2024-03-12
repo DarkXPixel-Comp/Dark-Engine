@@ -6,6 +6,7 @@
 
 
 
+
 class FPaths
 {
 public:
@@ -17,6 +18,8 @@ public:
 	static CORE_API FString EngineDir();
 
 	static CORE_API FString ContentDir();
+
+	static CORE_API FString EngineBinariesDir();
 
 	static CORE_API FString EngineUserDir(); 
 

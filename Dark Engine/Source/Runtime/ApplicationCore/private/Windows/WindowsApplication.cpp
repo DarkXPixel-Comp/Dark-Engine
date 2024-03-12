@@ -3,6 +3,8 @@
 
 #include "Windows/WindowsWindow.h"
 #include <CoreGlobals.h>
+#include "imgui_impl_win32.h"
+#include "Math/MathFwd.h"
 
 
 FWindowsApplication* WindowsApplication;
@@ -40,6 +42,16 @@ static TSharedPtr< FWindowsWindow > FindWindowByHWND(const TArray< TSharedPtr< F
 }
 
 
+FIntPoint FWindowsApplication::GetMousePos() const
+{
+	POINT Coords;
+	GetCursorPos(&Coords);
+	return FIntPoint(Coords.x, Coords.y);
+}
+
+
+extern IMGUI_IMPL_API LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
+
 
 int32 FWindowsApplication::ProcessMessage(HWND hWnd, uint32 Msg, WPARAM wParam, LPARAM lParam)
 {
@@ -48,13 +60,17 @@ int32 FWindowsApplication::ProcessMessage(HWND hWnd, uint32 Msg, WPARAM wParam, 
 
 	TSharedPtr<FWindowsWindow> CurrentWindow = FindWindowByHWND(Windows, hWnd);
 
+
+
 	if (Windows.Num() && CurrentWindow)
 	{
 		for (auto Handler : MessageHandlers)
 		{
 			Handler->ProcessMessage(hWnd, Msg, wParam, lParam);
-
 		}
+
+
+		ImGui_ImplWin32_WndProcHandler(hWnd, Msg, wParam, lParam);
 		switch (Msg)
 		{
 		case WM_DESTROY:
@@ -79,6 +95,43 @@ int32 FWindowsApplication::ProcessMessage(HWND hWnd, uint32 Msg, WPARAM wParam, 
 			return 0;
 		}
 
+
+		//case WM_LBUTTONDOWN:
+		//{
+		//	return DefWindowProcW()
+		//}
+
+		case WM_INPUT:
+		{
+			uint32 Size = 0;
+			GetRawInputData((HRAWINPUT)lParam, RID_INPUT, NULL, &Size, sizeof(RAWINPUTHEADER));
+
+			TUniquePtr<uint8[]> RawData = make_unique<uint8[]>(Size);
+			if (GetRawInputData((HRAWINPUT)lParam, RID_INPUT, RawData.get(), &Size, sizeof(RAWINPUTHEADER)) == Size)
+			{
+				const RAWINPUT* const Raw = (const RAWINPUT* const)RawData.get();
+
+				if (Raw->header.dwType == RIM_TYPEMOUSE)
+				{
+					const bool IsAbsoluteInput = (Raw->data.mouse.usFlags & MOUSE_MOVE_ABSOLUTE) == MOUSE_MOVE_ABSOLUTE;
+					if (IsAbsoluteInput)
+					{
+						MessageHandler->OnMouseMove();
+					}
+					else
+					{
+						const int xPosRelative = Raw->data.mouse.lLastX;
+						const int yPosRelative = Raw->data.mouse.lLastY;
+
+						MessageHandler->OnRawMouseMove(xPosRelative, yPosRelative);
+
+					}
+				}
+
+			}
+
+		}
+
 		case WM_SIZE:
 		{
 			if (CurrentWindow)
@@ -90,11 +143,88 @@ int32 FWindowsApplication::ProcessMessage(HWND hWnd, uint32 Msg, WPARAM wParam, 
 					CurrentWindow->AdjustWindowRegion(NewWidth, NewHeight);
 				}
 
-				const bool bWasMinimized = (wParam == SIZE_MAXIMIZED);
+				const bool bWasMinimized = (wParam == SIZE_MINIMIZED);
+				MessageHandler->OnSizeChanged(CurrentWindow, NewWidth, NewHeight, bWasMinimized);
 			}
+
+
 			break;
 		}
-		//case WM_SIZING:
+		case WM_SIZING:
+		{
+			WINDOWINFO WindowInfo = {};
+			WindowInfo.cbSize = sizeof(WindowInfo);
+			GetWindowInfo(hWnd, &WindowInfo);
+
+			RECT TestRect;
+			TestRect.left = TestRect.right = TestRect.top = TestRect.bottom = 0;
+			AdjustWindowRectEx(&TestRect, WindowInfo.dwStyle, false, WindowInfo.dwExStyle);
+
+			RECT* Rect = (RECT*)lParam;
+			Rect->left -= TestRect.left;
+			Rect->right -= TestRect.right;
+			Rect->top -= TestRect.top;
+			Rect->bottom -= TestRect.bottom;
+
+			int32 NewWidth = Rect->right - Rect->left;
+			int32 NewHeight = Rect->bottom - Rect->top;
+
+			switch (wParam)
+			{
+			case WMSZ_LEFT:
+			case WMSZ_RIGHT:
+			case WMSZ_BOTTOMLEFT:
+			case WMSZ_BOTTOMRIGHT:
+			case WMSZ_TOPLEFT:
+			case WMSZ_TOPRIGHT:
+			{
+				int32 MinWidth = 100;
+
+				if (NewWidth < MinWidth)
+				{
+					if (wParam == WMSZ_LEFT || wParam == WMSZ_BOTTOMLEFT || wParam == WMSZ_TOPLEFT)
+					{
+						Rect->left -= (MinWidth - NewWidth);
+					}
+					else if (wParam == WMSZ_RIGHT || wParam == WMSZ_BOTTOMRIGHT || wParam == WMSZ_TOPRIGHT)
+					{
+						Rect->right += (MinWidth - NewWidth);
+					}
+
+					NewWidth = MinWidth;
+				}
+				break;
+			}
+
+			case WMSZ_TOP:
+			case WMSZ_BOTTOM:
+			{
+				int32 MinHeight = 100;
+
+				if (NewHeight < MinHeight)
+				{
+					if (wParam == WMSZ_TOP)
+					{
+						Rect->top -= (MinHeight - NewHeight);
+					}
+					else
+					{
+						Rect->bottom += (MinHeight - NewHeight);
+					}
+
+					NewHeight = MinHeight;
+				}
+				break;
+			}
+			}
+
+
+
+			AdjustWindowRectEx(Rect, WindowInfo.dwStyle, false, WindowInfo.dwExStyle);
+
+			return TRUE;
+		}
+
 		case WM_NCCALCSIZE:
 			if (wParam && !CurrentWindow->GetDefinition().bHasWindowBorder)
 			{

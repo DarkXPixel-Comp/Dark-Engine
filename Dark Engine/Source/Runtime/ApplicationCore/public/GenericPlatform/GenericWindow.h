@@ -39,6 +39,8 @@ public:
 
 	virtual EWindowMode GetWindowMode() const { return WindowMode; }
 
+	virtual FIntPoint GetRelativeMousePos() const { return FIntPoint(); }
+
 #ifdef IMGUI
 	virtual void InitImGui() {}
 	virtual void BeginImGui() {}

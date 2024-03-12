@@ -3,13 +3,14 @@
 #include "Widgets/UIWindow.h"
 #include "Widgets/UIViewport.h"
 #include "GenericPlatform/GenericApplication.h"
+#include "GenericPlatform/GenericApplicationHandler.h"
 #include "Rendering/UIRenderer.h"
 
 
 
 
 //STATIC CLASS
-class UIApplication
+class UIApplication	: public FGenericApplicationHandler
 {
 public:
 	static UIApplication* Get() { return CurrentApplication.get(); }
@@ -29,6 +30,8 @@ public:
 	void DrawWindows();
 	TSharedPtr<FUIRenderer>	GetRenderer() const { return Renderer; }
 
+
+	FIntPoint GetMousePosition() const;
 
 private:
 	TSharedPtr<FGenericWindow> MakeWindow(TSharedPtr<UIWindow> InUIWindow);

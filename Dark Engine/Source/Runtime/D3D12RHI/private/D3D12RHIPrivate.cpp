@@ -74,6 +74,13 @@ FD3D12CommandContext* FD3D12DynamicRHI::CreateCommandContext(FD3D12Device* InPar
 	return new FD3D12CommandContext(InParent, InQueueType, InIsDefaultContext);
 }
 
+FRHITexture* FD3D12DynamicRHI::RHIGetViewportBackBuffer(FRHIViewport* Viewport)
+{
+	FD3D12Viewport* D3DViewport = static_cast<FD3D12Viewport*>(Viewport);
+	FRHITexture* Result = static_cast<FRHITexture*>(D3DViewport->GetCurrentBackBuffer());
+	return Result;
+}
+
 IRHIComputeContext* FD3D12DynamicRHI::RHIGetCommandContext()
 {
 	return CreateCommandContext(GetAdapter().GetDevice(), ED3D12QueueType::Direct, false);

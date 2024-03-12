@@ -15,7 +15,9 @@ public:
 	UIViewport();
 //	void SetViewport(TSharedPtr<IUIViewport> Viewport) { ViewportInterface = Viewport; }
 
+	virtual void Update(float DeltaTime);
 
+	virtual void DrawImGui();
 
 
 
@@ -24,6 +26,8 @@ protected:
 	TSharedPtr<FViewportClient>	ViewportClient;
 	FVector2D ViewportSize;
 
+private:
+	float Delta = 0.f;
 
 
 

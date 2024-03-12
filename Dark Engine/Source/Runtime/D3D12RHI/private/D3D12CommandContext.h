@@ -35,6 +35,7 @@ public:
 	void Finalize(TArray<FD3D12Payload*>& OutPayloads);
 	bool isAsyncComputeContext() const { return QueueType == ED3D12QueueType::Async; }
 	uint64 GetCommandListID() { return GetCommandList().State.CommandListID; }
+	void TransitionResource(FD3D12Resource* Resource, D3D12_RESOURCE_STATES Before, D3D12_RESOURCE_STATES After, uint32 SubResource);
 	
 
 	FD3D12CommandList& GetCommandList()
@@ -107,7 +108,12 @@ public:
 	void RHIBeginImGui() override;
 	void RHIEndImGui() override;
 	void RHIBeginRenderPass(struct FRHIRenderPassInfo& InInfo);
+	void SetRenderTargets(int32 NumRenderTargets, const FRHIRenderTargetView* RenderTargetsRHI, const FRHIDepthRenderTargetView* DepthStencilViewRHI, bool bClear = false);
+	void SetRenderTargetsAndClear(const FRHISetRenderTargetInfo& RenderTargetsInfo);
+	void RHISetShaderParameter(FRHIGraphicsShader* ShaderRHI, uint32 BufferIndex, uint32 Offset,
+		uint32 Size, const void* Data);
 
-	void SetRenderTargets(const FRHIRenderTargetView* RenderTargetsRHI, const FRHIDepthRenderTargetView* DepthStencilViewRHI);
 
+private:
+	void SettingRenderPass();
 };

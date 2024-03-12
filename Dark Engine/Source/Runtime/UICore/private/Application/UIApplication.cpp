@@ -9,6 +9,7 @@
 #include <dxgi.h>
 #include <Runtime/D3D12RHI/public/d3dx12.h>
 #include "Timer/GameTimer.h"
+#include "Misc/Paths.h"
 
 
 
@@ -49,8 +50,11 @@ void TransitionResource(Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList> comman
 TSharedPtr<UIApplication> UIApplication::Create(const TSharedPtr<FGenericApplication>& InPlatformApplictation)
 {
 	PlatformApplication = InPlatformApplictation;
-
 	CurrentApplication = MakeShareble(new UIApplication());
+
+	PlatformApplication->SetMessageHandler(CurrentApplication);
+
+
 	FGameTimer::Start();
 
 
@@ -96,15 +100,24 @@ void UIApplication::TickPlatform(float DeltaTime)
 
 }
 
+
+
+
+
 void UIApplication::TickAndDrawWidgets(float DeltaTime)
 {
 	DrawWindows();
+	for (auto& Window : UIWindows)
+	{
+		Window->Update(DeltaTime);
+	}
 }
 
 void UIApplication::DrawWindows()
 {	
 	check(Renderer);
 
+	
 	Renderer->DrawWindows(UIWindows);
 
 }
@@ -129,6 +142,12 @@ void UIApplication::RegisterGameViewport(TSharedPtr<UIViewport> InViewport)
 
 
 
+FIntPoint UIApplication::GetMousePosition() const
+{
+
+	return PlatformApplication->GetMousePos();
+}
+
 TSharedPtr<FGenericWindow> UIApplication::MakeWindow(TSharedPtr<UIWindow> InUIWindow)
 {
 	TSharedPtr<FGenericWindowDefinition> Definition = MakeShareble(new FGenericWindowDefinition());
@@ -152,6 +171,13 @@ TSharedPtr<FGenericWindow> UIApplication::MakeWindow(TSharedPtr<UIWindow> InUIWi
 	
 #ifdef IMGUI
 	InUIWindow->SetImGuiContext(ImGui::CreateContext());
+
+	//SET IMGUI STYLE
+	{
+		ImGui::StyleColorsSpectrum();
+
+	}
+
 	//Window->InitImGui();
 #endif
 

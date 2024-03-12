@@ -32,6 +32,7 @@ public:
 		const TSharedPtr<FGenericWindowDefinition>& InDefinition) override;
 
 
+	virtual FIntPoint GetMousePos() const;
 
 private:
 	static LRESULT AppWndProc(HWND hwnd, uint32 msg, WPARAM wParam, LPARAM lParam);
@@ -40,6 +41,7 @@ private:
 	virtual void PumpMessages() override;
 
 	virtual void AddMessageHandler(IWindowsMessageHandler& InMessageHandler) {}
+
 
 	int32 ProcessMessage(HWND hWnd, uint32 Msg, WPARAM wParam, LPARAM lParam);
 

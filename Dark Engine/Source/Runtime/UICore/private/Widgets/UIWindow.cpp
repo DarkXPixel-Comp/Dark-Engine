@@ -29,6 +29,13 @@ void UIWindow::ShowWindow()
 
 
 
+void UIWindow::Update(float DeltaTime)
+{
+	for (auto& Widget : Widgets)
+	{
+		Widget->Update(DeltaTime);
+	}
+}
 
 
 
@@ -63,4 +70,9 @@ void UIWindow::DrawWindow()
 
 
 
+}
+
+FIntPoint UIWindow::GetMousePosition() const
+{
+	return NativeWindow->GetRelativeMousePos();
 }

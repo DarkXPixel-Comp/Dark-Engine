@@ -16,7 +16,7 @@ class FD3D12Device;
 class FD3D12DynamicRHIModule : public IDynamicRHIModule
 {
 public:
-	FD3D12DynamicRHIModule() { FindAdapter(); }
+	FD3D12DynamicRHIModule();
 
 	virtual FDynamicRHI* CreateRHI() override;
 

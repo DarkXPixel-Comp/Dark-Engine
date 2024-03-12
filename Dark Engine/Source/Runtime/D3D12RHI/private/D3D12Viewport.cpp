@@ -3,6 +3,7 @@
 #include "D3D12Adapter.h"
 #include "D3D12Device.h"
 #include "D3D12Util.h"
+#include "D3D12CommandContext.h"
 
 
 static const uint32 WindowsDefaultNumBackBuffers = 3;
@@ -238,7 +239,30 @@ void FD3D12Viewport::Resize(uint32 InSizeX, uint32 InSizeY, bool bInIsFullscreen
 
 bool FD3D12Viewport::Present(bool bVsync)
 {
-	return false;
+	FD3D12Texture* BackBuffer = GetCurrentBackBuffer();
+	FD3D12CommandContext& DefaultContext = Parent->GetDevice()->GetDefaultCommandContext();
+
+	DefaultContext.TransitionResource(BackBuffer->GetResource(),
+		BackBuffer->GetResource()->GetCurrentState(), D3D12_RESOURCE_STATE_PRESENT, 0);
+
+
+	DefaultContext.FlushCommands();
+
+	UINT Flags = 0;
+	if (!bVsync && !bIsFullscreen)
+	{
+		Flags |= DXGI_PRESENT_ALLOW_TEARING;
+	}
+
+	if (SwapChain4)
+	{
+		SwapChain4->Present(bVsync, Flags);
+		CurrentBackBufferIndex = SwapChain4->GetCurrentBackBufferIndex();
+	}
+
+
+
+	return true;
 }
 
 void FD3D12Viewport::WaitForFrameEventCompletion()

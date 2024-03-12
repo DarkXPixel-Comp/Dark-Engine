@@ -24,6 +24,7 @@ public:
 	virtual void PostInit() {}
 	virtual void Shutdown() = 0;
 	virtual TSharedPtr<FRHIViewport> RHICreateViewport(void* WindowHandle, uint32 SizeX, uint32 SizeY, bool bIsFullscreen) = 0;
+	virtual FRHITexture* RHIGetViewportBackBuffer(FRHIViewport* Viewport) = 0;
 	virtual IRHIComputeContext* RHIGetCommandContext() = 0;
 	virtual IRHIComputeContext* RHIGetDefaultContext() = 0;
 
@@ -46,3 +47,7 @@ FDynamicRHI* PlatformCreateDynamicRHI();
 
 
 TSharedPtr<FRHIViewport> CreateRHIViewport(void* WindowHandle, uint32 SizeX, uint32 SizeY, bool bIsFullscreen);
+FORCEINLINE FRHITexture* RHIGetViewportBackBuffer(FRHIViewport* Viewport)
+{
+	return GDynamicRHI->RHIGetViewportBackBuffer(Viewport);
+}

@@ -3,6 +3,8 @@
 //#include <assert.h>
 #include <Containers/Array.h> 
 #include "Core.h"
+#include "type_traits"
+#include <functional>
 
 
 #define FUNC_DECLARE_MULTICAST_DELEGATE(DelegateName, ReturnType, ...) typedef TMultiCastDelegate<ReturnType, __VA_ARGS__> DelegateName
@@ -88,17 +90,20 @@ template<typename InRetValType, typename... ParamTypes>
 class TFuncContainer : public IIContainer<InRetValType, ParamTypes...>
 {
 	using FFuncPtr = InRetValType(*)(ParamTypes...);
+	using FuncPtr = std::function<InRetValType(ParamTypes...)>;
 
 public:
 	TFuncContainer(FFuncPtr func) : pFunc(func) {}
+	TFuncContainer(FuncPtr func) : ppFunc(func)	{}
 
 	InRetValType Call(ParamTypes... params)
 	{
-		return pFunc(params...);
+		return pFunc ? pFunc(params...) : ppFunc(params...);
 	}
 
 private:
-	FFuncPtr pFunc;
+	FFuncPtr pFunc = nullptr;
+	FuncPtr ppFunc;
 
 };
 
@@ -109,9 +114,14 @@ public:
 	const void Bind(InRetValType(*func)(ParamTypes...))
 	{
 		container = new TFuncContainer<InRetValType, ParamTypes...>(func);
-
-
 	}
+
+	const void Bind(std::function<InRetValType(ParamTypes...)> func)
+	{
+		//container = new TFuncContainer<InRetValType, ParamTypes...>(std::forward<InRetValType(*)(ParamTypes...)>(Lambda));
+		container = new TFuncContainer<InRetValType, ParamTypes...>(func);
+	}
+
 	template<typename UserClass>
 	const void Bind(UserClass* inUserObject, InRetValType(UserClass::* func)(ParamTypes...))
 	{
@@ -130,7 +140,7 @@ public:
 		}
 	}
 
-	IIContainer<InRetValType, ParamTypes...>* container;
+	IIContainer<InRetValType, ParamTypes...>* container = nullptr;
 
 };
 
@@ -146,10 +156,17 @@ public:
 	{
 		IIContainer<InRetValType, ParamTypes...>* temp = new TFuncContainer<InRetValType, ParamTypes...>(func);
 
-		containers->push_back(temp);
+		containers->Push(temp);
 
 		pFunc = func;
 	}
+
+	const void Bind(std::function<InRetValType(ParamTypes...)> func)
+	{
+		IIContainer<InRetValType, ParamTypes...>* temp = new TFuncContainer<InRetValType, ParamTypes...>(func);
+		containers->Push(temp);
+	}
+
 	template<typename UserClass>
 	const void Bind(UserClass* inUserObject, InRetValType(UserClass::* func)(ParamTypes...))
 	{
@@ -170,7 +187,7 @@ public:
 
 	}
 
-	TArray<IIContainer<InRetValType, ParamTypes...>*>* containers;
+	TArray<IIContainer<InRetValType, ParamTypes...>*>* containers = nullptr;
 
 	//IIContainer<InRetValType, ParamTypes...>* container;
 	FFuncPtr pFunc;

@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include <algorithm>
 #include <HAL/Platform.h>
 
 
@@ -17,6 +18,7 @@ public:
 	FString() : _string(L"") {}
 	FString(const ANSICHAR* Str);
 	FString(const WIDECHAR* Str);
+	FString(uint32 Size) : _string(Size ,L'\0') {}
 
 	FString(const std::wstring& Str);
 	FString(const std::string& Str);
@@ -27,16 +29,40 @@ public:
 	}
 
 
+
+
 	FString& operator=(const TCHAR* Str);
 	FString& operator=(const FString& Str) { _string = Str._string; return *this; }
 
+	const char* operator-()
+	{
+		return GetStr();
+	}
+
 	TCHAR& operator[](int32 Index);
 
+
+	FString& Replace(TCHAR Str1, TCHAR Str2)
+	{
+		std::replace(_string.begin(), _string.end(), Str1, Str2);
+		return *this;
+	}
 
 
 	int32 Len() const;
 	decltype(auto) Data() const { return _string.c_str(); }
 	std::string ToString() const;
+
+	static FString FloatToString(float Val)
+	{
+		return std::to_wstring(Val);
+	}
+
+	const char* GetStr()
+	{
+		_tempString = ToString();
+		return _tempString.c_str();
+	}
 
 
 
@@ -78,4 +104,5 @@ public:
 
 private:
 	std::wstring _string;
+	std::string _tempString;
 };
