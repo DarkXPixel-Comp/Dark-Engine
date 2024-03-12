@@ -2,6 +2,7 @@
 #include "Math/MathFwd.h"
 #include <DynamicRHI.h>
 #include "RHICommandList.h"
+#include <CoreGlobals.h>
 
 
 void FUIRHIRenderer::Initialize()
@@ -46,6 +47,7 @@ void FUIRHIRenderer::DrawWindows(const TArray<TSharedPtr<UIWindow>>& InWindows)
 			{
 				FViewportInfo* ViewInfo = nullptr;
 
+
 				FViewportInfo* FoundViewInfo = WindowToViewportInfo.find(Window.get())->second;
 				if (FoundViewInfo)
 				{
@@ -59,15 +61,22 @@ void FUIRHIRenderer::DrawWindows(const TArray<TSharedPtr<UIWindow>>& InWindows)
 				bool bVsync = 1;
 
 
+				FRHITexture* BackBuffer = RHIGetViewportBackBuffer(ViewInfo->ViewportRHI.get());
 				RHICmdList->BeginDrawingViewport(ViewInfo->ViewportRHI.get(), nullptr);
 				RHICmdList->BeginFrame();
 #ifdef IMGUI
 				RHICmdList->BeginImGui();
 				Window->GetNativeWindow()->BeginImGui();
+
+				FRHIRenderPassInfo RPInfo(BackBuffer);
+				RHICmdList->BeginRenderPass(RPInfo);
 				ImGui::NewFrame();
 #endif
-				ImGui::ShowDemoWindow();
-				//RHICmdList->SetViewport(0, 0, 0 ViewInfo->Width, ViewInfo->Height, 0.f);
+				for (auto& Widget : Window->GetWidgets())
+				{
+					Widget->DrawImGui();
+				}
+
 
 				ImGui::Render();
 				RHICmdList->EndImGui();

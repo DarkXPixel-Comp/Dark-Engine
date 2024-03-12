@@ -269,6 +269,8 @@ struct FRHITextureCreateDesc : public FRHITextureDesc
 
 class FRHITexture : public FRHIResource
 {
+public:
+	EPixelFormat GetPixelFormat() const { return TextureDesc.Format; }
 protected:
 	FRHITexture(const FRHITextureCreateDesc& InDesc) :
 		FRHIResource(RRT_Texture),
@@ -276,7 +278,6 @@ protected:
 	{
 		SetName(InDesc.DebugName);
 	}
-
 
 private:
 	FRHITextureDesc TextureDesc;
@@ -370,7 +371,9 @@ public:
 	FRHIRenderTargetView() = default;
 
 
-	FRHITexture* Texture;
+	FRHITexture* Texture = nullptr;
+	uint32 MipIndex = 1;
+	uint32 ArraySlice = 0;
 private:
 
 
@@ -379,7 +382,7 @@ private:
 
 
 
-
+class FRHISetRenderTargetInfo;
 
 class FRHIDepthRenderTargetView
 {
@@ -423,6 +426,8 @@ struct FRHIRenderPassInfo
 		}
 	}
 
+	FRHISetRenderTargetInfo ConvertToRenderTargetInfo() const;
+
 
 };
 
@@ -430,13 +435,13 @@ struct FRHIRenderPassInfo
 class FRHISetRenderTargetInfo
 {
 public:
-	FRHIRenderTargetView ColorRenderTarget[8];
-	int32 NumColorRenderTargets;
-	bool bClearColor;
+	FRHIRenderTargetView ColorRenderTarget[MAX_RENDER_TARGETS];
+	int32 NumColorRenderTargets = 0;
+	bool bClearColor = false;
 
 	FRHIDepthRenderTargetView DepthStencilRenderTarget;
-	bool bClearDepth;
-	bool bClearStencil;
+	bool bClearDepth = false;
+	bool bClearStencil = false;
 
 	//...
 };

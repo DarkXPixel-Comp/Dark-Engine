@@ -41,7 +41,8 @@ public:
 
 	class FD3D12CommandContext* CreateCommandContext(FD3D12Device* InParent, ED3D12QueueType InQueueType, bool InIsDefaultContext);;
 
-	
+	virtual FRHITexture* RHIGetViewportBackBuffer(FRHIViewport* Viewport) override;
+
 
 	virtual ID3D12CommandQueue* RHIGetCommandQueue() override { return nullptr; }
 	virtual ID3D12Device* RHIGetDevice() { return nullptr; }

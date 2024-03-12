@@ -74,7 +74,8 @@ FD3D12Resource::FD3D12Resource(
 	Resource(InResource),
 	Heap(InHeap),
 	Desc(InDesc),
-	HeapType(InHeapType)
+	HeapType(InHeapType),
+	DefaultResourceState(InInitialResourceState)
 {
 	if (Resource && Desc.Dimension == D3D12_RESOURCE_DIMENSION_BUFFER)
 	{

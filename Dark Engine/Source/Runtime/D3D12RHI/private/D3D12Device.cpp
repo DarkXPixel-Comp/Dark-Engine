@@ -31,6 +31,7 @@ FD3D12CommandAllocator* FD3D12Device::GetCommandAllocator(ED3D12QueueType QueueT
 	if (!Allocator)
 	{
 		Allocator = new FD3D12CommandAllocator(this, QueueType);
+		Logger::log("Alloc Allocator");
 	}
 
 	Allocator->Reset();
@@ -74,6 +75,7 @@ FD3D12Queue::FD3D12Queue(FD3D12Device* InDevice, ED3D12QueueType InQueueType):
 	DXCall(Device->GetDevice()->CreateFence(0, D3D12_FENCE_FLAG_NONE, IID_PPV_ARGS(&Fence)));
 
 	Fence->SetName(*(FString(GetD3D12CommandQueueTypeName(InQueueType)) + FString(TEXT(" queue fence"))));
+	FenceEvent = CreateEvent(NULL, FALSE, FALSE, NULL);
 
 }
 
@@ -83,7 +85,7 @@ void FD3D12Queue::WaitFrame()
 	if (Fence->GetCompletedValue() < FenceValue)
 	{
 		Fence->SetEventOnCompletion(FenceValue, FenceEvent);
-		WaitForSingleObject(FenceEvent, 1000);
+		WaitForSingleObject(FenceEvent, 100000);
 	}
 
 }

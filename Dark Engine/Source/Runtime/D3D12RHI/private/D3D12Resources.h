@@ -119,18 +119,11 @@ public:
 	);
 
 
-
-
-
-
-
+	D3D12_RESOURCE_STATES GetCurrentState() const { return DefaultResourceState; }
+	void SetState(D3D12_RESOURCE_STATES State) { DefaultResourceState = State; }
 	void SetIsBackBuffer(bool bInBackBuffer) { bBackBuffer = bInBackBuffer; }
 	ID3D12Resource* GetResource() const { return Resource.Get(); }
 
-
-
-
-	
 
 };
 

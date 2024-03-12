@@ -14,6 +14,8 @@ struct FViewportInfo
 	bool bFullscreen;
 
 
+
+
 };
 
 class FUIRHIRenderer : public FUIRenderer

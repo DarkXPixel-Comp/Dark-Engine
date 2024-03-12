@@ -39,6 +39,18 @@ namespace DE
 			{}
 
 
+			bool IsPointInRect(IntPointType Point)
+			{
+				if (Point.X > LeftUp.X &&
+					Point.X < RightDown.X &&
+					Point.Y > LeftUp.Y &&
+					Point.Y < RightDown.Y)
+				{
+					return true;
+				}
+				return false;
+			}
+
 
 
 		};

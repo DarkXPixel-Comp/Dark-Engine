@@ -1,4 +1,5 @@
 #include "Misc/Paths.h"
+#include "HAL/PlatformMisc.h"
 
 CORE_API FString FPaths::LaunchDir()
 {
@@ -11,6 +12,11 @@ CORE_API FString FPaths::EngineDir()
 	return DefaultEngineDir;
 }
 
+CORE_API FString FPaths::EngineBinariesDir()
+{
+	return EngineDir() + "bin/";
+}
+
 CORE_API FString FPaths::EngineContentDir()
 {
 	return EngineDir() + "Content/";
@@ -18,8 +24,7 @@ CORE_API FString FPaths::EngineContentDir()
 
 CORE_API FString FPaths::RootDir()
 {
-	//return FString("TEST");
-	return FString(ROOT_DIR) + TEXT("/");
+	return FPlatformMisc::EngineDir();
 }
 
 CORE_API FString FPaths::CombineDir(FString Str1, FString Str2)

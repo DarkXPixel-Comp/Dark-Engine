@@ -117,3 +117,5 @@
 #define IS_EDITOR
 #define IMGUI
 #define GIsEditor true
+#define MAX_RENDER_TARGETS 8
+#define USE_PIX

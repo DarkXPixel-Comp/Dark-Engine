@@ -92,6 +92,17 @@ HRGN FWindowsWindow::MakeWindowRegionObject(bool bIncludeBorderWhenMaximized) co
 
 }
 
+
+FIntPoint FWindowsWindow::GetRelativeMousePos() const
+{
+	POINT Result;
+	GetCursorPos(&Result);
+	ScreenToClient(HWnd, &Result);
+
+
+	return FIntPoint(Result.x, Result.y);
+}
+
 void FWindowsWindow::ReshapeWindow(int32 NewX, int32 NewY, int32 NewWidth, int32 NewHeight)
 {
 	WINDOWINFO WindowInfo;
@@ -102,12 +113,12 @@ void FWindowsWindow::ReshapeWindow(int32 NewX, int32 NewY, int32 NewWidth, int32
 
 	// Don't resize the window if it's been embedded inside another application, the
 	// outer application will take care of it.
-	if (WindowMode == EWindowMode::Windowed)
-	{
-		RegionWidth = VirtualWidth = NewWidth;
-		RegionHeight = VirtualHeight = NewHeight;
-		return;
-	}
+	//if (WindowMode == EWindowMode::Windowed)
+	//{
+	//	RegionWidth = VirtualWidth = NewWidth;
+	//	RegionHeight = VirtualHeight = NewHeight;
+	//	return;
+	//}
 
 	// X,Y, Width, Height defines the top-left pixel of the client area on the screen
 	if (WndDefinition.bHasWindowBorder)
@@ -213,14 +224,15 @@ void FWindowsWindow::Initialize(FWindowsApplication* const Application, const FG
 	if (InDefinition.bHasWindowBorder)
 	{
 		WindowStyle = WS_OVERLAPPED | WS_SYSMENU | WS_CAPTION | WS_MAXIMIZEBOX | WS_MINIMIZEBOX | WS_THICKFRAME;
+		//WindowStyle = WS_POPUP | WS_BORDER;
 		WindowExStyle = WS_EX_APPWINDOW | WS_EX_WINDOWEDGE | WS_EX_LAYERED | WS_EX_TOPMOST;
 
 		RECT BorderRect = { 0, 0, 0, 0 };
 
 		AdjustWindowRectEx(&BorderRect, WindowStyle, false, WindowExStyle);
 
-		ClientX += BorderRect.left;
-		ClientY += BorderRect.top;
+		WindowX += BorderRect.left;
+		WindowY += BorderRect.top;
 		WindowWidth += BorderRect.right - BorderRect.left;
 		WindowHeight += BorderRect.bottom - BorderRect.top;
 

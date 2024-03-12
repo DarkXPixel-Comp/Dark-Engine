@@ -7,6 +7,7 @@
 #include "GenericPlatform/GenericWindowDefinition.h"
 #include "Windows/WindowsApplication.h"
 #include "Memory/TUniquePtr.h"
+#include "Math/MathFwd.h"
 
 #undef CreateWindow
 
@@ -46,7 +47,8 @@ public:
 
 	void Tick(float DeltaTime);
 
-
+	virtual FIntPoint GetRelativeMousePos() const;
+						 
 	void Initialize(class FWindowsApplication* const Application, const FGenericWindowDefinition& InDefinition, HINSTANCE InHInstance);
 	void BeginImGui();
 public:
