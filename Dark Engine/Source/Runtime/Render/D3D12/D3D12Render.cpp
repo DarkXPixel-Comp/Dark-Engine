@@ -67,7 +67,6 @@ int32_t D3D12Renderer::Init()
 			sizeof(RayTracingSupports)));
 		if (RayTracingSupports.RaytracingTier == D3D12_RAYTRACING_TIER_NOT_SUPPORTED)
 		{
-			Log("PISDEC");
 			return -1;
 		}
 	}

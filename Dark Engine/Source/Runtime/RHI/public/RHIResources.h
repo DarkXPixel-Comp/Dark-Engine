@@ -1,9 +1,10 @@
 #pragma once
 #include "RHIDefines.h"
-#include "CoreTypes.h"
 #include "Containers/DarkString.h"
 #include "Containers/Array.h"
 #include "Containers/StaticArray.h"
+#include "Misc/AssertionMacros.h"
+#include "Math/MathFwd.h"
 
 
 
@@ -297,6 +298,7 @@ public:
 
 	virtual void Tick(float DeltaTime) {}
 	virtual void WaitForFrameEventCompletion() {}
+	virtual void Resize(int32 Width, int32 Height, bool bWasMinimized) {}
 
 };
 

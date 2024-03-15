@@ -31,6 +31,7 @@ public:
 	void AddWidget(TSharedPtr<UIWidget> InWidget) { InWidget->InitWindow(this); Widgets.Add(InWidget); }
 	//void SetViewportClient(TSharedPtr<FViewportClient> InViewportClient) { ViewportClient = InViewportClient; }
 	void SetImGuiContext(ImGuiContext* InContext) { IMGUIContext = InContext; }
+	ImGuiContext* GetImGuiContext() const { return IMGUIContext; }
 	FVector2f GetViewportSize() { return GetInitSizeInScreen(); }
 	const TArray<TSharedPtr<UIWidget>>& GetWidgets() const { return Widgets; }
 
@@ -39,6 +40,7 @@ public:
 	void DrawWindow();
 
 	FIntPoint GetMousePosition() const;
+	void SetSizeViewport(FVector2f InSize) { SizeViewport = InSize; }
 
 
 private:
@@ -46,6 +48,7 @@ private:
 	TSharedPtr<FGenericWindow> NativeWindow;
 	FVector2f InitSizeScreen = {1280, 720};
 	FVector2f InitPositionScreen;
+	FVector2f SizeViewport = InitSizeScreen;
 	FString Title;
 	//TSharedPtr<FViewportClient>
 	TArray<TSharedPtr<UIWidget>> Widgets;

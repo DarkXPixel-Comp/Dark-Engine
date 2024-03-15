@@ -1,5 +1,6 @@
 #include "D3D12Adapter.h"
 #include "D3D12Device.h"
+#include <Logger.h>
 
 
 FD3D12AdapterDesc::FD3D12AdapterDesc() = default;
@@ -79,6 +80,7 @@ void FD3D12Adapter::CreateRootDevice(bool bWithDebug)
 
 		}
 
+		Logger::log("[D3D12RHI] Debug D3D12 Init");
 	}
 
 	CreateDXGIFactory2(0, IID_PPV_ARGS(&DXGIFactory));
@@ -93,14 +95,6 @@ void FD3D12Adapter::CreateRootDevice(bool bWithDebug)
 		D3D12CreateDevice(GetAdapter(), GetFeatureLevel(),
 			IID_PPV_ARGS(&RootDevice));
 	}
-
-
-
-
-
-
-
-
 
 }
 

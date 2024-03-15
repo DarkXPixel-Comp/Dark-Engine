@@ -27,7 +27,7 @@
     <ClInclude Include="Source\Runtime\Core\CorePlatform.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Runtime\Core\Logging\Logger.hpp">
+    <ClInclude Include="Source\Runtime\Core\Logging\Logger.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\Runtime\Core\Settings\PerEngineSettings.h">

@@ -459,7 +459,7 @@
     <ClInclude Include="Source\Runtime\Core\CoreMinimal.h" />
     <ClInclude Include="Source\Runtime\Core\CoreTypes.h" />
     <ClInclude Include="Source\Runtime\Core\CorePlatform.h" />
-    <ClInclude Include="Source\Runtime\Core\Logging\Logger.hpp" />
+    <ClInclude Include="Source\Runtime\Core\Logging\Logger.h" />
     <ClInclude Include="Source\Runtime\Core\Settings\PerEngineSettings.h" />
     <ClInclude Include="Source\Runtime\RHI\public\DynamicRHI.h" />
     <ClInclude Include="Source\Runtime\RHI\public\RHI.h" />

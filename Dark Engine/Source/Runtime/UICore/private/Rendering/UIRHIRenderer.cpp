@@ -33,6 +33,17 @@ void FUIRHIRenderer::CreateViewport(UIWindow* InWindow)
 
 }
 
+void FUIRHIRenderer::Resize(UIWindow* InWindow, const int32 Width, const int32 Height, const bool bWasMinimized)
+{																	 
+	FViewportInfo* Info = WindowToViewportInfo.find(InWindow)->second;
+	Info->bFullscreen = IsViewportFullscreen(*InWindow);
+	Info->Width = Width;
+	Info->Height = Height;
+	Info->ViewportRHI->Resize(Width, Height, bWasMinimized);
+
+
+}
+
 void FUIRHIRenderer::DrawWindows(const TArray<TSharedPtr<UIWindow>>& InWindows)
 {
 	FRHICommandListImmediate* RHICmdList = &GRHICommandList.GetImmediateCommandList();
@@ -76,10 +87,17 @@ void FUIRHIRenderer::DrawWindows(const TArray<TSharedPtr<UIWindow>>& InWindows)
 				{
 					Widget->DrawImGui();
 				}
-
-
 				ImGui::Render();
+
+#ifdef IMGUI
 				RHICmdList->EndImGui();
+				if (ImGui::GetIO().ConfigFlags & ImGuiConfigFlags_ViewportsEnable)
+				{
+					ImGui::UpdatePlatformWindows();
+					ImGui::RenderPlatformWindowsDefault();
+				}
+#endif
+
 				RHICmdList->EndFrame();
 				RHICmdList->EndDrawingViewport(ViewInfo->ViewportRHI.get(), true, 1);
 

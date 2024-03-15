@@ -4,8 +4,8 @@
 #include "Widgets/UIButton.h"
 #include "Delegate/Delegate.h"
 
-DECLARE_DELEGATE(FUIMenuDelegate);
-
+DECLARE_MULTICAST_DELEGATE(FUIMenuDelegate);
+DECLARE_MULTICAST_DELEGATE(FUIMenuItemDelegate);
 
 
 class UIMenu : public UIWidget
@@ -21,6 +21,27 @@ public:
 
 	FUIMenuDelegate	MenuDelegate;
 private:
+
+
+
+
+};
+
+
+
+class UIMenuItem : public UIWidget
+{
+public:
+	UIMenuItem() {}
+
+	virtual void DrawImGui();
+	virtual void Update(float DeltaTime);
+
+
+
+	FUIMenuItemDelegate MenuItemDelegate;
+private:
+	bool bPressed = false;
 
 
 

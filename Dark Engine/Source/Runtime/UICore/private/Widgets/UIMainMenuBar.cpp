@@ -29,17 +29,39 @@ void UIMainMenuBar::Update(float DeltaTime)
 		check(true);
 	}
 	
-	FIntRect TitleBarRect(40, 0, Owner->GetInitSizeInScreen().X, 19);
+	FIntRect TitleBarRect(0, 0, Owner->GetViewportSize().X, Size.Y);
+	Rect = TitleBarRect;
 
-	
 
-	if (ImGui::IsMouseDown(ImGuiMouseButton_Left) &&
+	if (!ImGui::IsMouseDown(ImGuiMouseButton_Left) && bMouseLeftIsDown)
+	{
+		bMouseLeftIsDown = false;
+	}
+
+
+	if (ImGui::IsMouseDown(ImGuiMouseButton_Left))
+	{
+		if (TitleBarRect.IsPointInRect(Owner->GetMousePosition())
+			&& !IsRects() && !bMouseLeftIsDown)
+		{
+			ReleaseCapture();
+			//SetCapture((HWND)Owner->GetNativeWindow()->GetOSWindowHandle());
+			SendMessage((HWND)Owner->GetNativeWindow()->GetOSWindowHandle(), 0xA1, 0x2, 0);
+		}
+		else
+		{
+			bMouseLeftIsDown = true;
+		}
+	}
+
+	/*if (ImGui::IsMouseDown(ImGuiMouseButton_Left) &&
 		TitleBarRect.IsPointInRect(Owner->GetMousePosition())
 		&& !IsRects())
 	{
 		ReleaseCapture();
 		SendMessage((HWND)Owner->GetNativeWindow()->GetOSWindowHandle(), 0xA1, 0x2, 0);
-	}
+
+	}*/
 
 	UIWidget::Update(DeltaTime);
 }

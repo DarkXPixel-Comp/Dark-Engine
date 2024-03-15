@@ -1,6 +1,6 @@
 #include "../public/DEngine.h"
 #include "D3D12/D3D12Scene.h"
-#include <Logging/Logger.hpp>
+#include <Logging/Logger.h>
 #include <Timer/GameTimer.h>
 #include <CoreDefines.h>
 #include <TestActor/TestActor.h>

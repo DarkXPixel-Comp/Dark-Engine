@@ -22,6 +22,8 @@ public:
 
 	void WaitForFrameEventCompletion() override;
 
+	virtual void Resize(int32 Width, int32 Height, bool bWasMinimized) override;
+
 
 	FORCEINLINE static DXGI_FORMAT GetRenderTargetFormat(EPixelFormat PixelFormat)
 	{

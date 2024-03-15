@@ -1,5 +1,5 @@
 #include "D3D12Shader.h"
-#include <Logging/Logger.hpp>
+#include <Logging/Logger.h>
 #include <CoreDefines.h>
 
 D3D12Shader::D3D12Shader(eD3D12ShaderType type, FString path)

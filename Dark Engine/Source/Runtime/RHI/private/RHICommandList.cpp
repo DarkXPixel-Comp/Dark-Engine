@@ -1,6 +1,7 @@
 #include "RHICommandList.h"
 #include "DynamicRHI.h"
 #include "imgui.h"
+#include <Logger.h>
 
 
 FRHICommandListExecutor GRHICommandList;
@@ -23,6 +24,8 @@ void FRHICommandListImmediate::InitializeContexts()
 	{
 		SwitchPipeline();
 	}
+
+	Logger::log("[D3D12RHI]InitDefaultContexts");
 
 
 }

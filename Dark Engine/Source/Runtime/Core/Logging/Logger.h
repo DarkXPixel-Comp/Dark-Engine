@@ -1,18 +1,19 @@
 #pragma once
-#include <Core.h>
+//#include <Core.h>
 #include <Containers/DarkString.h>
 #include <ctime>
 #include <list>
 #include <fstream>
 #include <thread>
 #include <mutex>
-#include <Containers/DarkString.h>
+#include <vector>
 
 #ifdef _WIN32
 #include <Windows.h>
 #endif // _WIN32
 
 #include "../CommandLine/CommandLine.h"
+#include "Math/MathFwd.h"
 
 
 
@@ -20,16 +21,21 @@
 
 
 
+
+
 struct log_
 {
 	size_t severenty;
-
 	FString txt;
-
 	time_t time;
-
 	bool isConsole = false;
+
+	///////
+	FString Result;
+	bool ModernLog = false;
+	//FVector Color;
 };
+
 
 
 enum LOGGER_ENUM
@@ -62,18 +68,31 @@ public:
 	static void logF(const char* arg, ...);
 	static void logF(FString* arg, ...);
 	static void exLog(FString, LOGGER_ENUM);
+	static void log(log_ InLog);
 	void urgLog(FString, LOGGER_ENUM);
 #ifdef _WIN32
 	static void log(std::wstring str, LOGGER_ENUM severenty = LOGGER_INFO);
 #endif // _WIN32
 	static void wait();
 
+	static const std::vector<log_>& GetLogs() { return inst->Logs; }
+
+	static uint64 GetMaxCountLogs() { return inst->MaxCountLogs; }
+	static uint64 GetCurrentCountLogs() { return inst->CountCurrentLogs; }
+
+public:
+	//TArray<log_> Logs;
+	//TArray<int> Logs;
+	std::vector<log_> Logs;
+	uint64 CountCurrentLogs = 0;
+	uint64 MaxCountLogs = 0;
 
 
 private:
 	size_t severity = 0;
 	std::list <log_> logs;
 	bool isWork = true;
+	const uint64 MAX_LOGS = 1024;
 private:
 	static Logger* inst;
 };

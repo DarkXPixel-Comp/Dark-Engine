@@ -9,6 +9,6 @@ void FD3D12Texture::AddRTV(const D3D12_RENDER_TARGET_VIEW_DESC& RTVDesc, int32 O
 
 void FD3D12Texture::SetResource(FD3D12Resource* InResource)
 {
-	Resource = InResource;
+	Resource = MakeShareble(InResource);
 }
 

@@ -2,6 +2,7 @@
 #include "Engine/EditorViewportClient.h"
 #include "Engine/EditorEngine.h"
 #include "imgui.h"
+#include <imgui_internal.h>
 
 
 void ItemRowsBackground(float lineHeight = -1.0f, const ImColor& color = ImColor(20, 20, 20, 64))
@@ -62,6 +63,8 @@ UIViewport::UIViewport()
 	EditorViewport->SetSize(FIntPoint(800, 600));
 	EditorViewport->CreateGameViewport();
 	//EditorViewport->SetSize(NativeWindow->GetSize());
+
+	//Name = TEXT("UIViewport");
 }
 
 void UIViewport::Update(float DeltaTime)
@@ -76,29 +79,13 @@ void UIViewport::Update(float DeltaTime)
 
 void UIViewport::DrawImGui()
 {
-	//ImGui::SetNextWindowSize(ImVec2(Rect.RightDown.X - Rect.LeftUp.X,Rect.RightDown.Y - Rect.LeftUp.Y));
-	/*ImGui::SetNextWindowSize(ImVec2(Size.X, Size.Y));
-	ImGui::SetNextWindowPos(ImVec2(Position.X, Position.Y));*/
-
-
-	//if (ImGui::Begin("Test"))
-	//{
-	//	ImGui::End();
-	//}
-
-
-	if (ImGui::Begin("UIViewport"))
+	if (ImGui::Begin(-Name, NULL, ImGuiWindowFlags_Modal))
 	{
 		float Fps = 1 / Delta;
 
-		ImGui::Text(FString::FloatToString(Fps).GetStr());
+		ImGui::Text(FString::NumToString(Fps).GetStr());
 		//ImGui::Text(FString::FloatToString(Fps).GetStr());
-
-
 		ImGui::End();
 	}
-
-
-
 }
 

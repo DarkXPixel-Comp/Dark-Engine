@@ -1,6 +1,7 @@
 #pragma once
-#include "Logger.hpp"
+#include "Logger.h"
 #include <Application/Application.h>
+
 
 
 
@@ -23,9 +24,11 @@ void Logger::Initialize(size_t s)
 {
 	inst->severity = (s);
 	inst->isWork = true;
+	inst->Logs.resize(256);
+
 	std::thread th(logging, inst); th.detach();
 
-	inst->urgLog("The system started successfully", LOGGER_ENUM::LOGGER_INFO);
+	inst->log("The system started successfully", LOGGER_ENUM::LOGGER_INFO);
 
 	//inst << FString("s")
 
@@ -89,8 +92,21 @@ void record(log_& obj)
 		PrintLine(text.ToString().c_str(), " - ", obj.txt.ToString().c_str(), "\n");
 	}
 
+	obj.Result = text + " - " + obj.txt;
+
 	fout.close();
 
+}
+
+void ModernLog(log_& Obj)
+{
+	tm ltm;
+	localtime_s(&ltm, &Obj.time);
+
+	FString text = "[" + std::to_string(ltm.tm_hour) + ":" + std::to_string(ltm.tm_min)
+		+ ":" + std::to_string(ltm.tm_sec) + "]";
+
+	Obj.Result = text + + TEXT(" - ") + Obj.Result;
 }
 
 
@@ -105,9 +121,24 @@ void logging(Logger* obj)
 			if (it == obj->logs.end())
 				continue;
 
-			record(*it);
-
+			if (it->ModernLog)
+			{
+				ModernLog(*it);
+			}
+			else
+			{
+				record(*it);
+			}
 			//std::cout << it->txt;
+
+			
+			if (obj->CountCurrentLogs >= 256)
+			{
+				obj->CountCurrentLogs = 0;
+			}
+			obj->Logs[obj->CountCurrentLogs++] = *it;
+			obj->MaxCountLogs = FPlatformMath::Max(obj->MaxCountLogs, obj->CountCurrentLogs);
+
 			obj->logs.erase(it);
 		}
 
@@ -223,6 +254,12 @@ void Logger::exLog(FString logTxt, LOGGER_ENUM severenty)
 	temp.isConsole = true;
 
 	inst->logs.push_back(temp);
+}
+
+void Logger::log(log_ InLog)
+{
+	InLog.time = time(0);
+	inst->logs.push_back(InLog);
 }
 
 

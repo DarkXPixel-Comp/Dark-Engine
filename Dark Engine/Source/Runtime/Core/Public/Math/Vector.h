@@ -564,7 +564,7 @@ namespace DE
 
 			bool ContainsNaN() const;
 
-			FString	ToString() const;
+			//FString	ToString() const { return FString(); }
 
 
 

@@ -34,3 +34,17 @@ void UIMenu::Update(float DeltaTime)
 
 	UIWidget::Update(DeltaTime);
 }
+
+void UIMenuItem::DrawImGui()
+{
+	ImGui::MenuItem(-Name, NULL, &bPressed);
+}
+
+void UIMenuItem::Update(float DeltaTime)
+{
+	if (bPressed)
+	{
+		MenuItemDelegate.BroadCast();
+		bPressed = false;
+	}
+}

@@ -7,6 +7,7 @@
 
 #include <filesystem>
 #include <shlobj.h>
+#include <Logger.h>
 
 static std::wstring GetLatestWinPixGpuCapturerPath_Cpp17()
 {
@@ -44,13 +45,14 @@ FD3D12DynamicRHI* GD3D12RHI = nullptr;
 
 FD3D12DynamicRHIModule::FD3D12DynamicRHIModule()
 {
-#ifdef USE_PIX
+#if USE_PIX
 	if (GetModuleHandle(TEXT("WinPixGpuCapturer.dll")) == 0)
 	{
-		LoadLibrary(GetLatestWinPixGpuCapturerPath_Cpp17().c_str());
+		if (LoadLibrary(GetLatestWinPixGpuCapturerPath_Cpp17().c_str()))
+		{
+			Logger::log("[D3D12RHIModule] WinPixGpuCapturer.dll was loaded");
+		}
 	}
-
-	
 #endif
 
 
@@ -214,6 +216,10 @@ void FD3D12DynamicRHIModule::FindAdapter()
 
 		}
 	}
+
+
+	Logger::log(FString("[D3D12RHIModule] Choose D3D12Device: ") + BestMemoryAdapter.Desc.Description + " with "
+		+ FString::NumToString(BestMemoryAdapter.Desc.DedicatedVideoMemory / (1024 * 1024)) + "MB");
 
 	TSharedPtr<FD3D12Adapter> NewAdapter;
 

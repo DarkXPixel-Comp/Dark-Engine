@@ -29,6 +29,7 @@ public:
 	virtual void DrawWindows() {}
 	virtual void BeginFrame() {}
 	virtual void EndFrame() {}
+	virtual void Resize(UIWindow* InWindow, const int32 Width, const int32 Height, const bool bWasMinimized);
 
 	virtual void DrawWindows(const TArray<TSharedPtr<UIWindow>>& Windows);
 

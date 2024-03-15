@@ -46,6 +46,10 @@ public:
 	{
 		return false;
 	}
+	virtual bool OnResize(const int32 Width, const int32 Height, const bool bFullscreen)
+	{
+		return false;
+	}
 
 
 

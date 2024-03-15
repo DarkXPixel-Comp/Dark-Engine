@@ -5,6 +5,7 @@
 #include <CoreGlobals.h>
 #include "imgui_impl_win32.h"
 #include "Math/MathFwd.h"
+#include <HAL/DarkMemory.h>
 
 
 FWindowsApplication* WindowsApplication;
@@ -146,8 +147,6 @@ int32 FWindowsApplication::ProcessMessage(HWND hWnd, uint32 Msg, WPARAM wParam, 
 				const bool bWasMinimized = (wParam == SIZE_MINIMIZED);
 				MessageHandler->OnSizeChanged(CurrentWindow, NewWidth, NewHeight, bWasMinimized);
 			}
-
-
 			break;
 		}
 		case WM_SIZING:

@@ -1,6 +1,6 @@
 #include "Actor.h"
 #include "../Components/RotateComponent/RotateComponent.h"
-#include <Logging/Logger.hpp>
+#include <Logging/Logger.h>
 
 AActor::AActor() :	m_position(0, 0, 0),
 					m_rotation(0, 0, 0),

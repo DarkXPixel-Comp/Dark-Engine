@@ -3,7 +3,9 @@
 #include "Containers/Array.h"
 #include "Memory/TUniquePtr.h"
 #include <functional>
+//#include "UIWindow.h"
 
+class UIWindow;
 
 class UIWidget
 {
@@ -23,7 +25,7 @@ public:
 	void SetPostion(FIntPoint InPosition) { Position = InPosition; }
 	FString	GetName() const { return Name; }
 	void SetName(FString InName) { Name = InName; }
-	void AddChild(TSharedPtr<UIWidget> Child) { ChildWidgets.Add(Child); }
+	void AddChild(TSharedPtr<UIWidget> Child) { Child->Owner = Owner; ChildWidgets.Add(Child); }
 	FIntRect GetRect() { return Rect; }
 
 protected:
@@ -40,6 +42,8 @@ protected:
 	TArray<TSharedPtr<UIWidget>> ChildWidgets;
 	UIWindow* Owner;
 	FString Name;
+	uint64 Index = 0;
+	bool bHaveExitButton = false;
 
 
 

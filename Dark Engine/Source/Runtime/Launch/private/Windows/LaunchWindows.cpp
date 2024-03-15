@@ -3,7 +3,7 @@
 //#include <Launch/Resource/resource.h>
 #include <Application/Application.h>
 #include <DEngine.h>
-#include <Logging/Logger.hpp>
+#include <Logging/Logger.h>
 #include <Windows/WindowsSystemIncludes.h>
 
 

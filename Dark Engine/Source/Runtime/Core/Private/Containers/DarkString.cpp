@@ -1,4 +1,6 @@
-#include "Containers/DarkString.h"
+#include "Containers/DarkString.h" 
+
+#include "Containers/Array.h"
 
 
 
@@ -34,6 +36,60 @@ FString::FString(const std::string& Str)
 {
 
 
+}
+
+FString FString::PrintFInternal(const TCHAR* Fmt, ...)
+{
+	//int32 BufferSize = 512;
+	//TCHAR StartingBuffer[512];
+	//TArray<TCHAR> Buffer(StartingBuffer);
+	//int32 Result = -1;
+
+
+	//va_list Args;
+	//va_start(Args, Fmt);
+	//Result = _vsnwprintf(Buffer.GetData(), BufferSize, Fmt, Args);
+
+
+	//va_end(Args);
+
+
+
+	//return FString();
+
+
+
+	int32 BufferSize = 512;
+	TCHAR StartingBuffer[512];
+	//TArray<TCHAR> TBuffer = StartingBuffer;
+	TArray<TCHAR> Buffer(StartingBuffer);
+	int32 Result = -1;
+
+
+	GET_VARARGS_RESULT(Buffer.GetData(), BufferSize, BufferSize - 1, Fmt, Fmt, Result);
+
+	//va_list args;
+	//va_start(args, Fmt);
+
+	//Result = _vsnwprintf(Buffer.GetData(), BufferSize, Fmt, args);
+	//va_end(args);
+
+	if (Result == -1)
+	{
+		Buffer.Empty();
+		while (Result == -1)
+		{
+			BufferSize *= 2;
+			Buffer.Resize(BufferSize);
+			GET_VARARGS_RESULT(Buffer.GetData(), BufferSize, BufferSize - 1, Fmt, Fmt, Result);
+		}
+	}
+
+	Buffer[Result] = TEXT('\0');
+
+	FString ResultString(Buffer.GetData());
+
+	return ResultString;
 }
 
 FString::FString(const WIDECHAR* Str)

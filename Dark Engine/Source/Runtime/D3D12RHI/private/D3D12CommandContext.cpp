@@ -87,6 +87,13 @@ void FD3D12ContextCommon::FlushCommands(ED3D12FlushFlags Flags)
 {
 	check(bIsDefualtContext);
 
+	if (Flags == ED3D12FlushFlags::WaitForSubmission)
+	{
+		FD3D12Queue& Queue = Device->GetQueue(ED3D12QueueType::Direct);
+		Queue.WaitFrame();
+		return;
+	}
+
 	if (IsOpen())
 	{
 		//CloseCommandList();
@@ -202,6 +209,8 @@ void FD3D12CommandContext::RHIBeginRenderPass(FRHIRenderPassInfo& InInfo)
 	//GetCommandList().GetGraphicsCommandList4()->BeginRenderPass(RenderTargetsInfo.NumColorRenderTargets, RenderPassRenderTargetDesc.GetData(), );
 
 
+
+	//Logger::log("[D3D12RHI] Begin render pass");
 
 	FRHISetRenderTargetInfo RTInfo = InInfo.ConvertToRenderTargetInfo();
 	SetRenderTargetsAndClear(RTInfo);

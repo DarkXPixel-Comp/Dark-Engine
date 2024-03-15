@@ -1,11 +1,12 @@
 #pragma once
 
+
 #include <string>
 #include <algorithm>
 #include <HAL/Platform.h>
+#include "Misc/VarArgs.h"
 
 
-//using FString = std::string;
 
 
 
@@ -23,15 +24,34 @@ public:
 	FString(const std::wstring& Str);
 	FString(const std::string& Str);
 
+	FString(TCHAR* Str) : _string(Str) {}
+
 	FString(const FString& Str)
 	{
 		_string = Str._string;
 	}
 
+	FString& AppendV(const TCHAR* Fmt, va_list Args)
+	{
+		TCHAR Buf[512];
+		int32 Res = _vsnwprintf(Buf, 512, Fmt, Args);
+		if (Res >= 0 && Res < sizeof(Buf))
+		{
+			*this += Buf;
+		}
+		return *this;
+	}
 
 
+	template <typename ...TypeArgs>
+	static FString PrintF(const TCHAR* Fmt, TypeArgs... Args)
+	{
+		return PrintFInternal(Fmt, Args...);
+	}
+	static FString PrintFInternal(const TCHAR* Fmt, ...);
 
-	FString& operator=(const TCHAR* Str);
+
+	FString& operator=(const TCHAR* Str) { _string = Str; return *this; }
 	FString& operator=(const FString& Str) { _string = Str._string; return *this; }
 
 	const char* operator-()
@@ -53,10 +73,13 @@ public:
 	decltype(auto) Data() const { return _string.c_str(); }
 	std::string ToString() const;
 
-	static FString FloatToString(float Val)
+
+	template<typename T>
+	static FString NumToString(T Val)
 	{
 		return std::to_wstring(Val);
 	}
+	
 
 	const char* GetStr()
 	{

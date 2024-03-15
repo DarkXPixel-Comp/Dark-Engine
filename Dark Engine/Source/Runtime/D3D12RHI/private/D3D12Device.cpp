@@ -2,6 +2,7 @@
 #include "D3D12RHIPrivate.h"
 #include "D3D12Util.h"
 #include "D3D12Descriptors.h"
+#include <Logger.h>
 
 
 

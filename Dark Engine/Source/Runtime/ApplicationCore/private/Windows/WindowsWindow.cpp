@@ -1,12 +1,13 @@
 #include "Windows/WindowsWindow.h"
 #include <Application/Application.h>
-#include <Logging/Logger.hpp>
+#include <Logging/Logger.h>
 #include <CoreDefines.h>
 #include <InputCore.h>
 #include "imgui.h"
 #include "imgui_impl_win32.h"
 #include "CoreGlobals.h"
 #include "dwmapi.h"
+#include <HAL/DarkMemory.h>
 
 
 const TCHAR FWindowsWindow::AppWindowClass[] = TEXT("DarkWindow");

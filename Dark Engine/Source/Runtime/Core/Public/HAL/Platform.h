@@ -2,7 +2,6 @@
 //#include "Definitions.h"
 #include "PreprocessorHelpers.h"
 
-#include "Definitions.h"
 
 
 #if !defined(PLATFORM_WINDOWS)

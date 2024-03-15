@@ -20,6 +20,10 @@ public:
 	static TSharedPtr<UIApplication> Create(const TSharedPtr<FGenericApplication>& InPlatformApplictation);
 	static TSharedPtr<UIApplication> Create();
 
+
+public:
+	virtual bool OnSizeChanged(const TSharedPtr<FGenericWindow>& Window, const int32 Width, const int32 Height, bool bWasMinimized = false);
+
 public:
 	void InitializeRenderer(TSharedPtr<FUIRenderer> InRenderer);
 	TSharedPtr<UIWindow> AddWindow(TSharedPtr<UIWindow> InWindow);
@@ -28,14 +32,15 @@ public:
 	void TickPlatform(float DeltaTime);
 	void TickAndDrawWidgets(float DeltaTime);
 	void DrawWindows();
-	TSharedPtr<FUIRenderer>	GetRenderer() const { return Renderer; }
 
+	TSharedPtr<FUIRenderer>	GetRenderer() const { return Renderer; }
 
 	FIntPoint GetMousePosition() const;
 
 private:
 	TSharedPtr<FGenericWindow> MakeWindow(TSharedPtr<UIWindow> InUIWindow);
 
+	UIWindow* const FindUIWindowByNative(TSharedPtr<FGenericWindow> InWindow);
 
 
 private:

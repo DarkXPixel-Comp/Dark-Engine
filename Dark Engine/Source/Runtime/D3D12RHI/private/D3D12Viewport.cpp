@@ -189,6 +189,8 @@ void FD3D12Viewport::Resize(uint32 InSizeX, uint32 InSizeY, bool bInIsFullscreen
 {
 	FD3D12Adapter* Adapter = GetParentAdapter();
 
+		
+	Adapter->GetDevice()->GetDefaultCommandContext().FlushCommands(ED3D12FlushFlags::WaitForSubmission);
 
 
 	for (uint32 i = 0; i < NumBackBuffers; ++i)
@@ -223,7 +225,7 @@ void FD3D12Viewport::Resize(uint32 InSizeX, uint32 InSizeY, bool bInIsFullscreen
 
 
 	UINT SwapChainFlags = DXGI_SWAP_CHAIN_FLAG_ALLOW_MODE_SWITCH;
-	SwapChain1->ResizeBuffers(NumBackBuffers, SizeX, SizeY, GetRenderTargetFormat(InPixelFormat), SwapChainFlags);
+	DXCall(SwapChain1->ResizeBuffers(NumBackBuffers, SizeX, SizeY, GetRenderTargetFormat(InPixelFormat), SwapChainFlags));
 
 	FD3D12Device* Device = Adapter->GetDevice();
 	for (uint32 i = 0; i < NumBackBuffers; i++)
@@ -269,3 +271,9 @@ void FD3D12Viewport::WaitForFrameEventCompletion()
 {
 	
 }
+
+void FD3D12Viewport::Resize(int32 Width, int32 Height, bool bWasMinimized)
+{
+	Resize(Width, Height, false, PixelFormat);
+}
+

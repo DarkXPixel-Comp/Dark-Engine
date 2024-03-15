@@ -6,6 +6,7 @@
 #include <CoreDefines.h>
 #include "D3D12Mesh.h"
 #include "D3D12Utils.h"
+#include "string"
 
 
 
@@ -108,8 +109,8 @@ public:
 			Source.Size = pSource->GetBufferSize();
 			Source.Encoding = DXC_CP_ACP;
 
-			wstring ws = (wchar_t*)pSource->GetBufferPointer();
-
+			std::wstring ws = (wchar_t*)pSource->GetBufferPointer();
+			
 
 
 			ComPtr<IDxcResult> 	pResult;
@@ -147,7 +148,7 @@ public:
 			Source.Size = pSource->GetBufferSize();
 			Source.Encoding = DXC_CP_ACP;
 
-			wstring ws = (wchar_t*)pSource->GetBufferPointer();
+			std::wstring ws = (wchar_t*)pSource->GetBufferPointer();
 
 
 

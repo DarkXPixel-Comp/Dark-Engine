@@ -1,14 +1,12 @@
 #pragma once
 #include "Templates/MakeUnsigned.h"
 #include "Templates/IsSigned.h"
-#include "Logging/Logger.hpp"
 #include <vector>
 #include <set>
 #include "HAL/Platform.h"
-#include "Memory/TUniquePtr.h"
+#include <memory>
 
 
-#include "Templates/ChooseClass.h"
 
 
 
@@ -33,6 +31,16 @@ public:
 
 	TArray(std::vector<ElementType> Elements) : _vector(Elements) {}
 
+	template<std::size_t N>
+	TArray(ElementType (&Elements)[N]) :_vector(N) 
+	{
+		memcpy(_vector.data(), Elements, N);
+	}
+		
+	/*TArray(ElementType* Elements, SizeType N) :_vector(N)
+	{
+		memcpy(_vector.data(), Elements, N);
+	}*/
 
 	constexpr decltype(auto) begin() const { return _vector.begin(); }
 	constexpr decltype(auto) end() const { return _vector.end(); }
@@ -81,7 +89,11 @@ public:
 
 	void Remove(const ElementType& Element) { _vector.erase(std::find(_vector.begin(), _vector.end(), Element)); }
 	template<typename T>
-	void RemovePtr(const decltype(std::shared_ptr<T>)& Element)
+	//void RemovePtr(const decltype(std::shared_ptr<T>)& Element)
+	//{
+	//	Remove(Element);
+	//}
+	void RemovePtr(const std::shared_ptr<T>& Element)
 	{
 		Remove(Element);
 	}
@@ -120,7 +132,9 @@ public:
 
 		return Result;
 	}
-	
+
+
+
 
 
 

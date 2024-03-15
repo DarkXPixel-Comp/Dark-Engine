@@ -8,6 +8,97 @@
 #include "Widgets/UIMainMenuBar.h"
 #include "UICore.h"
 #include "Misc/Paths.h"
+#include "Widgets/UIWidgetTest.h"
+#include "Widgets/UIDock.h"
+#include "Widgets/UILogs.h"
+#include "Logging/LogMacros.h"
+
+
+
+DECLARE_LOG_CATEGORY(TEST, All);
+
+void SetupEditorLayout(UIWindow* RootWindow)
+{
+	TSharedPtr<UIWidgetTest> Test = MakeShareble(new UIWidgetTest());
+
+
+	TSharedPtr<UIDock> MainDock = MakeShareble(new UIDock());
+
+	TSharedPtr<UILogs> Logs = MakeShareble(new UILogs());
+	{
+		Logs->SetName("Logs");
+		MainDock->AddChild(Logs);
+	}
+
+	TSharedPtr<UIMainMenuBar> MainMenuBar = MakeShareble(new UIMainMenuBar());
+	{
+		MainMenuBar->SetSize(FIntPoint(0, 20));
+	}
+
+
+	DE_LOG(TEST, Warning, TEXT("TEST"));
+
+	//TSharedPtr<UIButton> ExitButton = MakeShareble(new UIButton());
+	//{
+	//	ExitButton->SetPostion(FIntPoint(0, 0));
+	//	ExitButton->SetSize(FIntPoint(80, 80));
+	//	ExitButton->ButtonDelegate.Bind([&]()
+	//		{
+	//			GIsRequestingExit = true;
+	//		});
+	//	MainMenuBar->AddChild(ExitButton);
+	//}
+
+	//ExitButton->SetName(TEXT("Exit"));
+
+	TSharedPtr<UIViewport> MainViewport = MakeShareble(new UIViewport());
+	{
+		MainViewport->SetName("UIViewport");
+		MainDock->AddChild(MainViewport);
+	}
+
+	TSharedPtr<UIMenu> Menu = MakeShareble(new UIMenu());
+	{
+		Menu->SetName("Menu");
+		MainMenuBar->AddChild(Menu);
+	}
+	TSharedPtr<UIMenuItem> ExitMenuItem = MakeShareble(new UIMenuItem());
+	{
+		ExitMenuItem->SetName("Exit");
+		ExitMenuItem->MenuItemDelegate.Bind([&]()
+			{
+				GIsRequestingExit = true;
+			});
+
+		Menu->AddChild(ExitMenuItem);
+	}
+
+	TSharedPtr<UIMenuItem> AddNewWindowItem = MakeShareble(new UIMenuItem());
+	{
+		AddNewWindowItem->SetName("Add new Window");
+		AddNewWindowItem->MenuItemDelegate.Bind([=]()
+			{
+				TSharedPtr<UIViewport> MainViewport = MakeShareble(new UIViewport());
+				{
+					MainViewport->SetName("UIViewport2");
+					MainDock->AddChild(MainViewport);
+				}
+			});
+
+		Menu->AddChild(AddNewWindowItem);
+	}
+
+
+	RootWindow->AddWidget(MainDock);
+	RootWindow->AddWidget(MainMenuBar);
+	//RootWindow->AddWidget(Test);
+
+
+
+
+
+}
+
 
 
 int32 FEngineLoop::PreInit(const TCHAR* CmdLine)
@@ -21,49 +112,21 @@ int32 FEngineLoop::PreInit(const TCHAR* CmdLine)
 	
 
 	TSharedPtr<UIApplication> CurrentApplication = UIApplication::Create();
-
+	TSharedPtr<UIWindow> RootWindow = MakeShareble(new UIWindow());
 	TSharedPtr<FUIRHIRenderer> UIRenderer = MakeShareble(new FUIRHIRenderer());
-	TSharedPtr<UIMainMenuBar> MenuBar = MakeShareble(new UIMainMenuBar());
-	TSharedPtr<UIMenu> Menu = MakeShareble(new UIMenu());
-	TSharedPtr<UIButton> Button = MakeShareble(new UIButton());
-	TSharedPtr<UINodeEditor> NodeEditor = MakeShareble(new UINodeEditor());
-	Button->ButtonDelegate.Bind([&]()
-		{
-			GIsRequestingExit = true;
-		});
-	Button->SetName(TEXT("Exit"));
-	Button->SetSize(FIntPoint(40, 40));
-	MenuBar->SetSize(FIntPoint(0, 40));
-	Menu->AddChild(Button);
-	Menu->SetName(TEXT("MENU"));
-	Menu->SetSize(FIntPoint(40, MenuBar->GetRecommendedHeightObject()));
-	MenuBar->AddChild(Menu);
-
-	FString Test = FPaths::EngineContentDir();
 
 	CurrentApplication->InitializeRenderer(UIRenderer);
-
-	TSharedPtr<UIWindow> RootWindow = MakeShareble(new UIWindow());
 	RootWindow->SetbWindowBorder(false);
 	CurrentApplication->AddWindow(RootWindow);
+
 	RootWindow->ShowWindow();
-	TSharedPtr<UIViewport> GameViewport = MakeShareble(new UIViewport());
-	//GameViewport->SetViewport()
 	RootWindow->SetTitle("Edtior");
-	GameViewport->SetPostion({ 20, 20 });
-	GameViewport->SetSize({ 800, 600 });
-	//RootWindow->Maximize();
-	RootWindow->AddWidget(GameViewport);
-	RootWindow->AddWidget(MenuBar);
-	//RootWindow->AddWidget(NodeEditor);
+
+
+	SetupEditorLayout(RootWindow.get());
 
 
 	
-
-
-
-
-
 	return 0;
 
 } 

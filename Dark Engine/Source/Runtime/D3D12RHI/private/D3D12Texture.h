@@ -22,7 +22,7 @@ public:
 
 	
 	void AddRTV(const D3D12_RENDER_TARGET_VIEW_DESC& RTVDesc, int32 OutIndex);
-	FD3D12Resource* GetResource() const { return Resource; }
+	FD3D12Resource* GetResource() const { return Resource.get(); }
 	void SetResource(FD3D12Resource* InResource);
 
 public:
@@ -33,7 +33,7 @@ public:
 
 private:
 	D3D12_GPU_VIRTUAL_ADDRESS GPUVirtualAddress;
-	FD3D12Resource* Resource;
+	TSharedPtr<FD3D12Resource> Resource;
 
 
 

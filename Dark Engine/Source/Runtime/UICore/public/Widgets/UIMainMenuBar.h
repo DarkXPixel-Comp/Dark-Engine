@@ -17,6 +17,9 @@ public:
 
 private:
 	bool IsRects() const;
+	
+private:
+	bool bMouseLeftIsDown = false;
 
 
 
