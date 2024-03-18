@@ -3,7 +3,8 @@ add_library(Engine)
 find_library(EngineLibs Core Render Input ApplicationCore World Editor RHI)
 
 target_compile_features(Engine PUBLIC cxx_std_20)
-target_link_libraries(Engine PUBLIC Input ApplicationCore World Editor RHI Core Render UICore Renderer)
+target_link_libraries(Engine PUBLIC Input World Editor Core Render RHI Renderer UICore)
+target_link_libraries(Engine PRIVATE ApplicationCore)
 #target_link_libraries(Engine PUBLIC ${EngineLibs})
 
 #set(Engine_Sources ${Engine_Sources} "private/DEngine.cpp" "Classes/Actor/Actor.cpp"  "Classes/Camera/CameraActor.cpp" "Classes/Components/ActorComponent/ActorComponent.cpp"

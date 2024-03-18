@@ -27,7 +27,7 @@ public:
 	bool HasWindowBorder() const { return bHasWindowBorder; }
 	void SetbWindowBorder(bool InbHasWindowBorder) { bHasWindowBorder = InbHasWindowBorder; }
 	FString GetTitle() const { return Title; }
-	void SetTitle(FString InTitle) { Title = InTitle; }
+	void SetTitle(FString InTitle) { Title = InTitle;}
 	void AddWidget(TSharedPtr<UIWidget> InWidget) { InWidget->InitWindow(this); Widgets.Add(InWidget); }
 	//void SetViewportClient(TSharedPtr<FViewportClient> InViewportClient) { ViewportClient = InViewportClient; }
 	void SetImGuiContext(ImGuiContext* InContext) { IMGUIContext = InContext; }

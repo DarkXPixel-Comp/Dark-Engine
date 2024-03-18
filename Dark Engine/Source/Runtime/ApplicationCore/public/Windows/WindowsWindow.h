@@ -38,10 +38,8 @@ public:
 	static const TCHAR AppWindowClass[];
 
 public:
-	FWindowsWindow(FWindowsWindowManager* manager, UINT index);
 	FWindowsWindow() {}
 	~FWindowsWindow();
-	void Create(UINT w, UINT h, UINT x, UINT y, string name, FWindowsWindow* Parent);
 	void Destroy();
 	void Update();
 
@@ -84,31 +82,24 @@ public:
 	int32 GetWindowBorderSize() const;
 	int32 GetWindowTitleBarSize() const;
 
-	void SetResolution(UINT w, UINT h);
-
-	void SetPos(UINT x, UINT y);
-
-	void SetResPos(UINT w, UINT h, UINT x, UINT y);
-
-	bool isClose();
 	bool IsMaximized() const { return IsZoomed(HWnd); }
 
 
-	UINT GetWitdh() { return width; }
-	UINT GetHeight() { return height; }
+	UINT GetWitdh() { return VirtualWidth; }
+	UINT GetHeight() { return VirtualHeight; }
 
-	UINT GetIndex() { return m_Index; }
+	virtual void SetTitle(const TCHAR* const Title)
+	{
+		SetWindowText(HWnd, Title);
+	}
 
-	HWND GetHandle() { return m_Wnd; }
+	virtual void SetTitle(FString Title)
+	{
+		SetTitle(*Title);
+	}
 
-	void SetWindowTitle(FString str);
-
-	virtual void SetTitle(const TCHAR* const Title);
 
 	UINT GetRefreshRate() { return 75; }
-
-	int MouseX = 0, MouseY = 0;
-
 
 	ResizeWindow onResizeWindow;
 	FDestroyWindow onDestroyWindow;
@@ -119,12 +110,9 @@ public:
 
 
 private:
-	static LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam);
-
- 
 	TSharedPtr<FGenericWindowDefinition> Definition;
 	//std::shared_ptr<FGenericApplication> Definition;
-	class FWindowsApplication* OwningApplication;
+	class FWindowsApplication* OwningApplication = nullptr;
 
 
 
@@ -140,42 +128,14 @@ public:
 	ULONG Release() override;
 
 
-
 private:
-	UINT width{ 0 };
-	UINT height{ 0 };
-	UINT leftX{ 0 };
-	UINT topY{ 0 };
-
-
-	HWND	m_Wnd;
-	MSG		msg;
-
-
-	string m_Name;
-
-	FWindowsWindowManager* m_Manager;
-
-	bool m_Close = true;
-
-	UINT m_Index;
-
-
-
-
-
-///////////////////
-
-
-
-private:
-	HWND HWnd;
+	HWND HWnd{NULL};
 	float AspectRatio = 16 / 9;
-	bool bIsVisible;
-	int32 VirtualWidth;
-	int32 VirtualHeight;
-	int32 RegionWidth;
-	int32 RegionHeight;
+	bool bIsVisible = false;
+	int32 VirtualWidth = 0;
+	int32 VirtualHeight = 0;
+	int32 RegionWidth = 0;
+	int32 RegionHeight = 0;
 	bool bIsDestroyed = false;
 
 	FGenericWindowDefinition WndDefinition;
@@ -185,44 +145,3 @@ private:
 };
 
 
-
-
-class DENGINE_API FWindowsWindowManager
-{
-	HANDLE hTimer;
-	bool timerIsStarted = false;
-	LARGE_INTEGER li;
-	UINT_PTR timerPtr;
-	long delay;
-
-public:
-	FWindowsWindowManager();
-	~FWindowsWindowManager();
-	FWindowsWindow* CreateWindow(UINT Weight, UINT Height, FString Name);
-	//FWindowsWindow* GetPrimalWindow() { return windows.size() != 0 ? windows[0] : nullptr; }
-	FWindowsWindow* GetWindow(UINT index = 0) { return index > windows.GetSize() ? nullptr : windows[index]; }
-	void Update();
-	void Destroy(UINT index);
-	void Quit();
-	void SetDelay(int ms);
-	bool WindowsIsClose()
-	{
-		for (auto i : windows)
-		{
-			if (!i->isClose())
-				return false;
-		}
-
-		return true;
-	}
-
-
-
-
-private:
-	TArray<FWindowsWindow*> windows;
-
-
-	MSG msg;
-
-};

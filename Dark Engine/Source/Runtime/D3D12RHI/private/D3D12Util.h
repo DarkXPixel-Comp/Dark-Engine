@@ -6,6 +6,7 @@
 FORCEINLINE void VerifyD3D12Result(HRESULT hr, const ANSICHAR* Code, const ANSICHAR* Filename, uint32 Line)
 {
 	FString Error = Code;
+	DE_LOG(D3D12RHI, Error, TEXT("%i = %s \t in %s(%i)"), hr, *Error, *FString(Filename), Line);
 }
 
 

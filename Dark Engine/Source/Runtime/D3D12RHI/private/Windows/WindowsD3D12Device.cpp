@@ -218,8 +218,7 @@ void FD3D12DynamicRHIModule::FindAdapter()
 	}
 
 
-	Logger::log(FString("[D3D12RHIModule] Choose D3D12Device: ") + BestMemoryAdapter.Desc.Description + " with "
-		+ FString::NumToString(BestMemoryAdapter.Desc.DedicatedVideoMemory / (1024 * 1024)) + "MB");
+
 
 	TSharedPtr<FD3D12Adapter> NewAdapter;
 
@@ -227,6 +226,13 @@ void FD3D12DynamicRHIModule::FindAdapter()
 	{
 		NewAdapter = std::make_shared<FD3D12Adapter>(BestMemoryAdapter);
 		ChosenAdapters.Add(NewAdapter);
+		DE_LOG(D3D12RHI, Log, TEXT("Choose device: %s with %iMB"), BestMemoryAdapter.Desc.Description,
+			BestMemoryAdapter.Desc.DedicatedVideoMemory / (1024 * 1024));
+	}
+	else
+	{
+		DE_LOG(D3D12RHI, Fatal, TEXT("This system not have supported GPU. %s(%i)"), BestMemoryAdapter.Desc.Description,
+			BestMemoryAdapter.Desc.DedicatedVideoMemory / (1024 * 1024));
 	}
 
 

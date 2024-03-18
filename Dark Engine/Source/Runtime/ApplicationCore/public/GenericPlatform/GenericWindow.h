@@ -50,7 +50,7 @@ public:
 
 protected:
 	bool bIsVisible = false;
-	EWindowMode WindowMode;
+	EWindowMode WindowMode = EWindowMode::Windowed;
 
 
 

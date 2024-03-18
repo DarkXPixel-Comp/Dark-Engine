@@ -59,6 +59,8 @@ typedef FPlatformTypes::SSIZE_T SSIZE_T;
 #define UTF16TEXT_PASTE(x) u ## x
 #define WIDETEXT_PASTE(x) L ## x
 
+#undef TEXT
+
 #if !defined(TEXT)
 #if PLATFORM_TCHAR_IS_UTF8CHAR
 #define TEXT_PASTE(x) UTF8TEXT(x)

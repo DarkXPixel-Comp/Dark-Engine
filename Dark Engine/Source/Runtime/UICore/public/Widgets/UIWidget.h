@@ -6,6 +6,10 @@
 //#include "UIWindow.h"
 
 class UIWindow;
+struct ImVec4;
+
+
+ImVec4 FVectorToImVec4(const FVector& InVector);
 
 class UIWidget
 {

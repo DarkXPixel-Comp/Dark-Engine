@@ -22,11 +22,20 @@ FD3D12DescriptorHeap* CreateDescriptorHeap(FD3D12Device* Device, const TCHAR* De
 	Desc.NumDescriptors = NumDescriptors;
 	Desc.Flags = Flags;
 
-	ID3D12DescriptorHeap* Heap;
+	TRefCountPtr<ID3D12DescriptorHeap> Heap;
 	DXCall(Device->GetDevice()->CreateDescriptorHeap(&Desc, IID_PPV_ARGS(&Heap)));
-	SetName(Heap, DebugName);
+	SetName(Heap.Get(), DebugName);
 
-	return new FD3D12DescriptorHeap(Device, Heap, NumDescriptors, HeapType, Flags);
+	return new FD3D12DescriptorHeap(Device, Heap.Get(), NumDescriptors, HeapType, Flags);
+}
+
+void CopyDescriptors(FD3D12Device* Device, FD3D12DescriptorHeap* TargetHeap, FD3D12DescriptorHeap* SourceHeap, uint32 NumDescriptors)
+{
+	const D3D12_CPU_DESCRIPTOR_HANDLE TargetStart = TargetHeap->GetCPUSlotHandle(0);
+	const D3D12_CPU_DESCRIPTOR_HANDLE SourceStart = SourceHeap->GetCPUSlotHandle(0);
+	const D3D12_DESCRIPTOR_HEAP_TYPE D3DHeapType = GetD3D12DescriptorHeapType(TargetHeap->GetType());
+
+	Device->GetDevice()->CopyDescriptorsSimple(NumDescriptors, TargetStart, SourceStart, D3DHeapType);
 }
 
 void FD3D12DescriptorHeapManager::Init(uint32 InNumGlobalResourceDescriptors, uint32 InNumGlobalSamplerDescriptors)
@@ -59,6 +68,15 @@ void FD3D12DescriptorHeapManager::Init(uint32 InNumGlobalResourceDescriptors, ui
 FD3D12DescriptorHeap* FD3D12DescriptorHeapManager::AllocateHeap(const TCHAR* InDebugName, ERHIDescriptorHeapType InHeapType, uint32 InNumDescriptors, D3D12_DESCRIPTOR_HEAP_FLAGS InHeapFlags)
 {
 	return CreateDescriptorHeap(Parent, InDebugName, InHeapType, InNumDescriptors, InHeapFlags);
+}
+
+void FD3D12DescriptorHeapManager::ImmediateFreeHeap(FD3D12DescriptorHeap* InHeap)
+{
+	if (InHeap)
+	{
+		InHeap->AddRef();
+		InHeap->Release();
+	}
 }
 
 

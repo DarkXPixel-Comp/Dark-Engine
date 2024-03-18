@@ -111,6 +111,8 @@
 #define ANALYTICS_API DLLIMPORT
 #define DIRECTORYWATCHER_API DLLIMPORT
 #define DO_CHECK
+#undef CORE_API
+#undef _WIN64
 #define CORE_API
 #define TEST_API __declspec(dllimport)
 #define _WIN64
@@ -118,4 +120,6 @@
 #define IMGUI
 #define GIsEditor true
 #define MAX_RENDER_TARGETS 8
+#define _CRT_SECURE_NO_WARNINGS 1
 //#define USE_PIX
+#pragma warning(disable: 6031)

@@ -8,7 +8,8 @@
 
 FD3D12Device::FD3D12Device(FD3D12Adapter* InAdapter):
 	FD3D12AdapterChild(InAdapter),
-	DescriptorHeapManager(this)
+	DescriptorHeapManager(this),
+	BindlessDescriptorManager(this)
 {
 	for (uint32 i = 0; i < (uint32)ED3D12QueueType::Count; ++i)
 	{
@@ -19,6 +20,14 @@ FD3D12Device::FD3D12Device(FD3D12Adapter* InAdapter):
 	{
 		CpuDescriptorManagers.Emplace(this, (ERHIDescriptorHeapType)HeapType);
 	}
+
+	BindlessDescriptorManager.Init();
+
+	DescriptorHeapManager.Init(0, 0);
+
+
+
+
 
 	ImmediateCommandContext = FD3D12DynamicRHI::GetD3D12RHI()->CreateCommandContext(this, ED3D12QueueType::Direct, true);
 }
@@ -32,7 +41,6 @@ FD3D12CommandAllocator* FD3D12Device::GetCommandAllocator(ED3D12QueueType QueueT
 	if (!Allocator)
 	{
 		Allocator = new FD3D12CommandAllocator(this, QueueType);
-		Logger::log("Alloc Allocator");
 	}
 
 	Allocator->Reset();

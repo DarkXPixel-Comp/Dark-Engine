@@ -21,23 +21,23 @@ struct FMsg
 			switch (Verbosity)
 			{
 			case ELogVerbosity::Fatal:
-				//Log.Color = { 1.f, 0.f, 0.f };
+				CurrentLog.Color = { 1.0, 0.0, 0.0 };
 				Verbose = TEXT("FATAL");
 				break;
 			case ELogVerbosity::Error:
-				//Log.Color = { 0.8f, 0.f, 0.f };
+				CurrentLog.Color = { 0.8, 0.0, 0.0 };
 				Verbose = TEXT("Error");
 				break;
 			case ELogVerbosity::Warning:
-				//Log.Color = { 0.7f, 0.7f, 0.f };
+				CurrentLog.Color = { 0.7, 0.7, 0.0 };
 				Verbose = TEXT("Warning");
 				break;
 			case ELogVerbosity::Display:
-				//Log.Color = { 0.1f, 0.1f, 0.1f };
+				CurrentLog.Color = { 0.1, 0.1, 0.1 };
 				Verbose = TEXT("Display");
 				break;
 			case ELogVerbosity::Log:
-				//Log.Color = { 0.1f, 0.1f, 0.1f };
+				CurrentLog.Color = { 0.1, 0.1, 0.1 };
 				Verbose = TEXT("Log");
 				break;
 			default:
@@ -97,8 +97,10 @@ void BasicLog(const FLogCategoryBase& Category, const FStaticBasicLogRecord* Log
 #define DE_LOG(CategoryName, Verbosity, Format, ...) \
 {	\
 	static constexpr FStaticBasicLogRecord LOG_Static(Format, __builtin_FILE(), __builtin_LINE(), ELogVerbosity::Verbosity)	;\
-	if((ELogVerbosity::Verbosity & ELogVerbosity::VerbosityMask) == ELogVerbosity::Fatal) \
-	{ }		\
+	if constexpr ((ELogVerbosity::Verbosity & ELogVerbosity::VerbosityMask) == ELogVerbosity::Fatal) \
+	{	  \
+		BasicLog(CategoryName, &LOG_Static, ##__VA_ARGS__);		\
+	}		\
 	else if constexpr ((ELogVerbosity::Verbosity & ELogVerbosity::VerbosityMask) <= ELogVerbosity::VeryVerbose)	 \
 	{	 \
 		BasicLog(CategoryName, &LOG_Static, ##__VA_ARGS__);   \

@@ -1,6 +1,6 @@
 #include "D3D12Adapter.h"
 #include "D3D12Device.h"
-#include <Logger.h>
+#include "Logging/LogMacros.h"
 
 
 FD3D12AdapterDesc::FD3D12AdapterDesc() = default;
@@ -78,9 +78,12 @@ void FD3D12Adapter::CreateRootDevice(bool bWithDebug)
 
 			DebugController1->SetEnableGPUBasedValidation(TRUE);
 
+			DE_LOG(D3D12RHI, Log, TEXT("Debug layer enable"));
 		}
-
-		Logger::log("[D3D12RHI] Debug D3D12 Init");
+		else
+		{
+			DE_LOG(D3D12RHI, Warning, TEXT("Debug layer can not on"));
+		}
 	}
 
 	CreateDXGIFactory2(0, IID_PPV_ARGS(&DXGIFactory));

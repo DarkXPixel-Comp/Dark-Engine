@@ -31,6 +31,7 @@ void UIWindow::ShowWindow()
 
 void UIWindow::Update(float DeltaTime)
 {
+	NativeWindow->SetTitle(Title);
 	for (auto& Widget : Widgets)
 	{
 		Widget->Update(DeltaTime);

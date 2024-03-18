@@ -23,7 +23,7 @@ public:
 class FWindowsApplication : public FGenericApplication
 {
 public:
-	static FWindowsApplication* CreateWindowsApplication(const HINSTANCE HInstance, const HICON HIcon);
+	static FWindowsApplication* CreateWindowsApplication(const HINSTANCE HInstance, const HICON HIcon, const HCURSOR HCursor = NULL);
 	static void DestroyWindowsApplication();
 
 public:
@@ -45,14 +45,14 @@ private:
 
 	int32 ProcessMessage(HWND hWnd, uint32 Msg, WPARAM wParam, LPARAM lParam);
 
-	FWindowsApplication(const HINSTANCE HInstance, const HICON HIcon);
+	FWindowsApplication(const HINSTANCE HInstance, const HICON HIcon, const HCURSOR HCursor = NULL);
 	~FWindowsApplication();
 
 
 	HINSTANCE InstanceHandle;
 
 private:
-	static bool RegisterClass(const HINSTANCE HInstance, const HICON HIcon);
+	static bool RegisterClass(const HINSTANCE HInstance, const HICON HIcon, const HCURSOR HCursor);
 
 
 

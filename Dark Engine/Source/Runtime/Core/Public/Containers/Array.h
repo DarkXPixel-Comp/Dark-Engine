@@ -45,6 +45,16 @@ public:
 	constexpr decltype(auto) begin() const { return _vector.begin(); }
 	constexpr decltype(auto) end() const { return _vector.end(); }
 
+	constexpr decltype(auto) begin() { return _vector.begin(); }
+	constexpr decltype(auto) end() { return _vector.end(); }
+
+
+	//std::vector<ElementType>::iterator begin()
+
+
+	//decltype(auto) begin() const { return _vector.begin(); }
+	//decltype(auto) end() const { return _vector.end(); }
+
 
 	void Add(ElementType&& Item) { return _vector.push_back(Item); }
 	void Add(const ElementType& Item) { return _vector.push_back(Item); }

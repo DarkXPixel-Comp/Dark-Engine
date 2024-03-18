@@ -150,7 +150,7 @@ void logging(Logger* obj)
 
 void Logger::log(FString logTxt, LOGGER_ENUM severenty)
 {
-	if (((inst->severity) | (severenty)) != inst->severity)
+	/*if (((inst->severity) | (severenty)) != inst->severity)
 	{
 		return;
 	}
@@ -162,13 +162,13 @@ void Logger::log(FString logTxt, LOGGER_ENUM severenty)
 	temp.txt = logTxt;
 	temp.isConsole = true;
 
-	inst->logs.push_back(temp);
+	inst->logs.push_back(temp);*/
 
 }
 
 void Logger::logF(const char* arg, ...)
 {
-	va_list arguments;
+	/*va_list arguments;
 	string ret;
 	for (va_start(arguments, arg); arg != nullptr; arg = va_arg(arguments, const char*))
 	{
@@ -176,31 +176,31 @@ void Logger::logF(const char* arg, ...)
 	}
 
 	Logger::log(ret);
-	va_end(arguments);
+	va_end(arguments);*/
 
 
 }
 
 void Logger::logF(FString *arg, ...)
 {
-	va_list arguments;
-	FString ret;
+	//va_list arguments;
+	//FString ret;
 
 
-	for (va_start(arguments, arg); arg != nullptr; arg = va_arg(arguments, FString*))
-	{
-		ret += *arg;
-	}
+	//for (va_start(arguments, arg); arg != nullptr; arg = va_arg(arguments, FString*))
+	//{
+	//	ret += *arg;
+	//}
 
-	Logger::log(ret);
-	va_end(arguments);
+	//Logger::log(ret);
+	//va_end(arguments);
 }
 
 
 
 void Logger::log(std::wstring str, LOGGER_ENUM severenty)
 {
-	if (((inst->severity) | (severenty)) != inst->severity)
+	/*if (((inst->severity) | (severenty)) != inst->severity)
 	{
 		return;
 	}
@@ -212,7 +212,7 @@ void Logger::log(std::wstring str, LOGGER_ENUM severenty)
 	temp.txt = str;
 	temp.isConsole = true;
 
-	inst->logs.push_back(temp);
+	inst->logs.push_back(temp);*/
 
 
 }
@@ -220,7 +220,7 @@ void Logger::log(std::wstring str, LOGGER_ENUM severenty)
 
 void Logger::urgLog(FString logTxt, LOGGER_ENUM severinty)
 {
-	std::list<log_> lTemp = this->logs;
+	/*std::list<log_> lTemp = this->logs;
 
 	logs.clear();
 
@@ -240,7 +240,7 @@ void Logger::urgLog(FString logTxt, LOGGER_ENUM severinty)
 
 	lTemp.clear();
 
-	return;
+	return;*/
 
 }
 
@@ -248,12 +248,12 @@ void Logger::exLog(FString logTxt, LOGGER_ENUM severenty)
 {
 	log_ temp;
 
-	temp.severenty = severenty;
-	temp.time = time(0);
-	temp.txt = logTxt;
-	temp.isConsole = true;
+	//temp.severenty = severenty;
+	//temp.time = time(0);
+	//temp.txt = logTxt;
+	//temp.isConsole = true;
 
-	inst->logs.push_back(temp);
+	//inst->logs.push_back(temp);
 }
 
 void Logger::log(log_ InLog)

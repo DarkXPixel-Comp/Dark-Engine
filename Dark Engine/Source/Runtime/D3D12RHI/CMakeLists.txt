@@ -24,8 +24,9 @@ target_sources(D3D12RHI PRIVATE "private/D3D12Adapter.cpp" "private/D3D12RHIPriv
 "private/D3D12Util.h" "public/d3dx12.h" "public/D3D12Defines.h" "public/D3D12DynamicRHI.h" "public/D3D12RHI.h"
 "public/D3D12RootSignatureDefinitions.h" "private/D3D12Viewport.h" "private/D3D12Viewport.cpp"
 "private/D3D12Texture.h" "private/D3D12Texture.cpp" "private/D3D12CommandContext.h" "private/D3D12CommandContext.cpp" "private/D3D12Queue.h"
-"private/D3D12CommandList.h" "private/D3D12CommandList.cpp" "private/D3D12Submission.h" "private/D3D12Resources.cpp" "private/D3D12View.h" "private/D3D12View.cpp" "private/D3D12Descriptors.cpp" "private/D3D12Shader.h" "private/D3D12PipelineState.h")
+"private/D3D12CommandList.h" "private/D3D12CommandList.cpp" "private/D3D12Submission.h" "private/D3D12Resources.cpp" "private/D3D12View.h" "private/D3D12View.cpp" "private/D3D12Descriptors.cpp" "private/D3D12Shader.h" "private/D3D12PipelineState.h" "private/D3D12BindlessDescriptors.h" "private/D3D12BindlessDescriptors.cpp")
 target_include_directories(D3D12RHI PUBLIC "public")
+target_include_directories(D3D12RHI PRIVATE "private")
 
 SettingProject(D3D12RHI)
 

@@ -1,5 +1,6 @@
 #pragma once
 #include "PixelFormat.h"
+#include "CoreTypes.h"
 
 enum class ERHIInterfaceType
 {
@@ -24,13 +25,21 @@ enum ERHIResourceType
 	RRT_MeshShader
 };
 
-enum ERHIDescriptorHeapType
+enum class ERHIDescriptorHeapType : uint8
 {
 	Standart = 0,
 	Sampler,
 	RenderTarget,
 	DepthStencil,
-	Count
+	Count,
+	Invalid = MAX_uint8
+};
+
+enum class ERHIBindlessConfiguration
+{
+	Disable,
+	AllShaders,
+	RayTracingShaders
 };
 
 
@@ -72,12 +81,19 @@ struct FRHIDescriptorHandle
 	FRHIDescriptorHandle() = default;
 	FRHIDescriptorHandle(ERHIDescriptorHeapType InType, uint32 InIndex):
 		Index(InIndex),
-		Type(InType) 
+		Type((uint8)InType) 
 	{}
 
 
+	uint32 GetIndex() const { return Index; }
+	ERHIDescriptorHeapType GetHeapType() const { return (ERHIDescriptorHeapType)Type; }
+
+	FORCEINLINE bool IsValid() const { return Index != MAX_uint32 && Type != (uint8)ERHIDescriptorHeapType::Invalid; }
+
 private:
-	uint32 Index;
-	uint32 Type;
+	uint32 Index = MAX_uint32;
+	uint8 Type = (uint8)ERHIDescriptorHeapType::Invalid;
 };
+
+
 

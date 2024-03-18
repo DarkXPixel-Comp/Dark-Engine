@@ -10,8 +10,8 @@
 
 
 
-
-
+#pragma warning(push)
+#pragma warning(disable: 4661)
 namespace DE
 {
 	namespace Math
@@ -120,6 +120,10 @@ namespace DE
 
 			explicit TVector(const TVector2<T> V1, TVector2<T> V2);
 
+			explicit TVector(std::initializer_list<T> Elements);
+
+			TVector<T>& operator=(std::initializer_list<T> Elements);
+
 			/**
 			* Calculate cross product between this and another vector.
 			*
@@ -144,6 +148,8 @@ namespace DE
 			* @param B The second vector.
 			* @return The cross product.
 			*/
+
+
 			FORCEINLINE static TVector<T> CrossProduct(const TVector<T>& A, const TVector<T>& B);
 
 			/**
@@ -582,11 +588,34 @@ namespace DE
 			DiagnosticCheckNaN();
 		}
 
-		template<typename T>
+	/*	template<typename T>
 		FORCEINLINE DE::Math::TVector<T>::TVector(const TVector2<T> V, T InZ)
 			: X(V.X), Y(V.Y), Z(InZ)
 		{
 			DiagnosticCheckNaN();
+		}*/
+
+		template<typename T>
+		FORCEINLINE TVector<T>::TVector(std::initializer_list<T> Elements)
+		{
+			int32 SizeList = Elements.size() > 3 ? 3 : Elements.size();
+			auto it = Elements.begin();
+			for (int32 i = 0; i < SizeList; ++i)
+			{
+				XYZ[i] = *(it + i);
+			}
+		}
+
+		template<typename T>
+		FORCEINLINE TVector<T>& TVector<T>::operator=(std::initializer_list<T> Elements)
+		{
+			int32 SizeList = Elements.size() > 3 ? 3 : Elements.size();
+			auto it = Elements.begin();
+			for (int32 i = 0; i < SizeList; ++i)
+			{
+				XYZ[i] = *(it + i);
+			}
+			return *this;
 		}
 
 		template<typename T>
@@ -728,6 +757,8 @@ namespace DE
 		}
 
 
+
+
 		template<typename T>
 		inline TVector<T> TVector<T>::CrossProduct(const TVector<T>& A, const TVector<T>& B)
 		{
@@ -757,3 +788,5 @@ namespace DE
 }
 
 
+
+#pragma warning (pop)

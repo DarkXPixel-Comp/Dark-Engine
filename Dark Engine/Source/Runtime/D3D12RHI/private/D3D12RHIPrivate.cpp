@@ -3,7 +3,6 @@
 #include "RHICommandList.h"
 #include "D3D12CommandContext.h"
 #include "imgui_impl_dx12.h"
-#include <Logger.h>
 
 
 FD3D12DynamicRHI* FD3D12DynamicRHI::SingleD3D12RHI = nullptr;
@@ -31,7 +30,8 @@ FD3D12DynamicRHI::~FD3D12DynamicRHI()
 
 void FD3D12DynamicRHI::Init()
 {
-	Logger::log("[D3D12RHI] Start initialize D3D12RHI");
+	DE_LOG(D3D12RHI, Log, TEXT("Start init"));
+
 	for (auto& Adapter : ChosenAdapters)
 	{
 		check(Adapter->GetDesc().IsValid());
@@ -50,9 +50,7 @@ void FD3D12DynamicRHI::Init()
 
 	GRHICommandList.GetImmediateCommandList().InitializeContexts();
 
-	Logger::log("[D3D12RHI] Finish initialize D3D12RHI");
-
-
+	DE_LOG(D3D12RHI, Log, TEXT("Finish init"));
 }
 
 TSharedPtr<FRHIViewport> FD3D12DynamicRHI::RHICreateViewport(void* WindowHandle, uint32 SizeX, uint32 SizeY, bool bIsFullscreen)

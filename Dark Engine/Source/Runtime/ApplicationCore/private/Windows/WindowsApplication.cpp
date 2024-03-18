@@ -11,9 +11,9 @@
 FWindowsApplication* WindowsApplication;
 
 
-FWindowsApplication* FWindowsApplication::CreateWindowsApplication(const HINSTANCE HInstance, const HICON IconHandle)
+FWindowsApplication* FWindowsApplication::CreateWindowsApplication(const HINSTANCE HInstance, const HICON IconHandle, const HCURSOR HCursor)
 {
-	WindowsApplication = new FWindowsApplication(HInstance, IconHandle);
+	WindowsApplication = new FWindowsApplication(HInstance, IconHandle, HCursor);
 	return WindowsApplication;
 }
 
@@ -130,7 +130,7 @@ int32 FWindowsApplication::ProcessMessage(HWND hWnd, uint32 Msg, WPARAM wParam, 
 				}
 
 			}
-
+			break;
 		}
 
 		case WM_SIZE:
@@ -278,7 +278,7 @@ int32 FWindowsApplication::ProcessMessage(HWND hWnd, uint32 Msg, WPARAM wParam, 
 
 
 
-	return DefWindowProc(hWnd, Msg, wParam, lParam);
+	return (int32)DefWindowProc(hWnd, Msg, wParam, lParam);
 }
 
 void FWindowsApplication::PumpMessages()
@@ -295,18 +295,14 @@ void FWindowsApplication::PumpMessages()
 }
 
 
-FWindowsApplication::FWindowsApplication(const HINSTANCE HInstance, const HICON IconHandle) :
+FWindowsApplication::FWindowsApplication(const HINSTANCE HInstance, const HICON IconHandle, const HCURSOR HCursor) :
 	InstanceHandle(HInstance)
 {
-	bool bClassRegister = RegisterClass(InstanceHandle, IconHandle);
+	bool bClassRegister = RegisterClass(InstanceHandle, IconHandle, HCursor);
+
 
 	// For Drag and Drop
 	OleInitialize(NULL);
-
-
-
-
-
 }
 
 
@@ -336,7 +332,7 @@ TSharedPtr<FGenericWindow> FWindowsApplication::MakeWindow()
 }
 
 
-bool FWindowsApplication::RegisterClass(const HINSTANCE HInstance, const HICON HIcon)
+bool FWindowsApplication::RegisterClass(const HINSTANCE HInstance, const HICON HIcon, const HCURSOR HCursor)
 {
 	WNDCLASS WC;
 	FMemory::Memzero(&WC, sizeof(WC));
@@ -346,7 +342,7 @@ bool FWindowsApplication::RegisterClass(const HINSTANCE HInstance, const HICON H
 	WC.cbWndExtra = 0;
 	WC.hInstance = HInstance;
 	WC.hIcon = HIcon;
-	WC.hCursor = NULL;
+	WC.hCursor = HCursor;
 	WC.hbrBackground = NULL;
 	WC.lpszMenuName = NULL;
 	WC.lpszClassName = FWindowsWindow::AppWindowClass;

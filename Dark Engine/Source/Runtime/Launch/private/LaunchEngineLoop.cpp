@@ -15,8 +15,6 @@
 
 
 
-DECLARE_LOG_CATEGORY(TEST, All);
-
 void SetupEditorLayout(UIWindow* RootWindow)
 {
 	TSharedPtr<UIWidgetTest> Test = MakeShareble(new UIWidgetTest());
@@ -35,21 +33,6 @@ void SetupEditorLayout(UIWindow* RootWindow)
 		MainMenuBar->SetSize(FIntPoint(0, 20));
 	}
 
-
-	DE_LOG(TEST, Warning, TEXT("TEST"));
-
-	//TSharedPtr<UIButton> ExitButton = MakeShareble(new UIButton());
-	//{
-	//	ExitButton->SetPostion(FIntPoint(0, 0));
-	//	ExitButton->SetSize(FIntPoint(80, 80));
-	//	ExitButton->ButtonDelegate.Bind([&]()
-	//		{
-	//			GIsRequestingExit = true;
-	//		});
-	//	MainMenuBar->AddChild(ExitButton);
-	//}
-
-	//ExitButton->SetName(TEXT("Exit"));
 
 	TSharedPtr<UIViewport> MainViewport = MakeShareble(new UIViewport());
 	{

@@ -178,40 +178,6 @@ void FD3D12CommandContext::RHIEndImGui()
 
 void FD3D12CommandContext::RHIBeginRenderPass(FRHIRenderPassInfo& InInfo)
 {
-	//auto RenderTargetsInfo = InInfo.ConvertToRenderTargetInfo();
-	//float ClearColor[4] = { 0, 0, 0, 1 };
-	//TArray<D3D12_RENDER_PASS_RENDER_TARGET_DESC> RenderPassRenderTargetDesc(RenderTargetsInfo.NumColorRenderTargets);
-	//TArray<D3D12_RENDER_PASS_DEPTH_STENCIL_DESC> DepthStencilPassDesc(RenderTargetsInfo.NumColorRenderTargets);
-	//for (int32 i = 0; i < RenderTargetsInfo.NumColorRenderTargets; ++i)
-	//{
-	//	FD3D12Texture* RenderTarget = static_cast<FD3D12Texture*>(RenderTargetsInfo.ColorRenderTarget[i].Texture);
-	//	D3D12_RENDER_PASS_BEGINNING_ACCESS BeginningAccess;
-	//	BeginningAccess.Type = D3D12_RENDER_PASS_BEGINNING_ACCESS_TYPE_CLEAR;
-	//	BeginningAccess.Clear.ClearValue.Format = FD3D12Viewport::GetRenderTargetFormat(RenderTarget->GetPixelFormat());
-	//	{
-	//		BeginningAccess.Clear.ClearValue.Color[0] = 0;
-	//		BeginningAccess.Clear.ClearValue.Color[1] = 0;
-	//		BeginningAccess.Clear.ClearValue.Color[2] = 0;
-	//		BeginningAccess.Clear.ClearValue.Color[3] = 1;
-	//	}
-
-
-	//	RenderPassRenderTargetDesc[i].cpuDescriptor = RenderTarget->RenderTargetView->GetCpuHandle();
-	//	RenderPassRenderTargetDesc[i].BeginningAccess = BeginningAccess;
-	//	RenderPassRenderTargetDesc[i].EndingAccess.Type = D3D12_RENDER_PASS_ENDING_ACCESS_TYPE_PRESERVE;
-
-	//	//DepthStencilPassDesc[i].
-	//}
-
-
-
-
-	//GetCommandList().GetGraphicsCommandList4()->BeginRenderPass(RenderTargetsInfo.NumColorRenderTargets, RenderPassRenderTargetDesc.GetData(), );
-
-
-
-	//Logger::log("[D3D12RHI] Begin render pass");
-
 	FRHISetRenderTargetInfo RTInfo = InInfo.ConvertToRenderTargetInfo();
 	SetRenderTargetsAndClear(RTInfo);
 }

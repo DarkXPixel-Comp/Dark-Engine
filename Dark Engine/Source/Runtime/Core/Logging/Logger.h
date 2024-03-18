@@ -17,7 +17,7 @@
 
 
 
-#define Log(...) Logger::logF(__VA_ARGS__, nullptr)
+//#define Log(...) Logger::logF(__VA_ARGS__, nullptr)
 
 
 
@@ -32,8 +32,11 @@ struct log_
 
 	///////
 	FString Result;
+	int32 Line;
+	FString File;
 	bool ModernLog = false;
-	//FVector Color;
+
+	FVector Color;
 };
 
 
