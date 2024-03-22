@@ -22,18 +22,21 @@ public:
 
 	
 	void AddRTV(const D3D12_RENDER_TARGET_VIEW_DESC& RTVDesc, int32 OutIndex);
-	FD3D12Resource* GetResource() const { return Resource.get(); }
+	void AddSRV(const D3D12_SHADER_RESOURCE_VIEW_DESC& SRVDesc);
+
+	FD3D12Resource* GetResource() const { return Resource.Get(); }
 	void SetResource(FD3D12Resource* InResource);
 
 public:
 	TSharedPtr<class FD3D12RenderTargetView> RenderTargetView;
+	TSharedPtr<class FD3D12ShaderResourceView> ShaderResourceView;
 	/*TSharedPtr<FD3D12DepthStencilView> DepthStencilView;
 	TSharedPtr<FD3D12ShaderResoutrceView> ShaderResourceView;*/
 
 
 private:
 	D3D12_GPU_VIRTUAL_ADDRESS GPUVirtualAddress;
-	TSharedPtr<FD3D12Resource> Resource;
+	TRefCountPtr<FD3D12Resource> Resource;
 
 
 

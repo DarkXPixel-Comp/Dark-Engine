@@ -37,11 +37,5 @@ public:
 
 	static CORE_API FString ProjectContentDir();
 
-	//static CORE_API FString ShaderDir
-
 	static CORE_API FString CombineDir(FString Str1, FString Str2);
-											  
-
-
-
 };

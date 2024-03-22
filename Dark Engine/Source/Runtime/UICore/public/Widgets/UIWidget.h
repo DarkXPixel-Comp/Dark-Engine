@@ -3,6 +3,7 @@
 #include "Containers/Array.h"
 #include "Memory/TUniquePtr.h"
 #include <functional>
+#include "UICommon.h"
 //#include "UIWindow.h"
 
 class UIWindow;
@@ -15,7 +16,11 @@ class UIWidget
 {
 	friend class UIWindow;
 public:
-	UIWidget() {}
+	UIWidget(FString InName = TEXT("UIWidget")):
+		Name(InName)
+	{
+		DE_LOG(UICoreLog, Display, TEXT("Create %s"), *Name);
+	}
 	virtual void Update(float DeltaTime)
 	{
 		ForEachChild([DeltaTime](UIWidget* Widget)

@@ -58,13 +58,13 @@ public:
 
 	const int32 GetAdapterIndex() const { return Desc.AdapterIndex; }
 	const D3D_FEATURE_LEVEL GetFeatureLevel() const { return Desc.MaxSupportFeatureLevel; }
-	ID3D12Device10* GetD3DDevice() const { return RootDevice.Get(); }
+	ID3D12Device* GetD3DDevice() const { return RootDevice.Get(); }
 	const FD3D12AdapterDesc& GetDesc() const { return Desc; }
 	const DXGI_ADAPTER_DESC& GetAdapterDesc() const { return Desc.Desc; }
 
 	IDXGIAdapter4* GetAdapter() { return DXGIAdapter.Get(); }
 
-	IDXGIFactory7* GetDXGIFactory()	const { return DXGIFactory.Get(); }
+	IDXGIFactory5* GetDXGIFactory()	const { return DXGIFactory.Get(); }
 
 	void CreateRootDevice(bool bWithDebug = false);
 	void CreateDXGIFactory(bool bWithDebug = false);
@@ -79,7 +79,7 @@ public:
 
 private:
 	FD3D12AdapterDesc Desc = {};
-	ComPtr<ID3D12Device10> RootDevice;
+	ComPtr<ID3D12Device> RootDevice;
 	ComPtr<IDXGIFactory7> DXGIFactory;
 	ComPtr<IDXGIAdapter4> DXGIAdapter;
 	TStaticArray<FD3D12Device*, 1> Devices;

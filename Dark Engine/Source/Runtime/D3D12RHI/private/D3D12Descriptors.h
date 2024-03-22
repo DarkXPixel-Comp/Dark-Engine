@@ -189,3 +189,5 @@ FD3D12DescriptorHeap* CreateDescriptorHeap(FD3D12Device* Device, const TCHAR* De
 
 void CopyDescriptors(FD3D12Device* Device, FD3D12DescriptorHeap* TargetHeap,
 	FD3D12DescriptorHeap* SourceHeap, uint32 NumDescriptors);
+void CopyDescriptor(FD3D12Device* Device, FD3D12DescriptorHeap* TargetHeap,
+	FRHIDescriptorHandle Handle, D3D12_CPU_DESCRIPTOR_HANDLE SourceCpuHandle);

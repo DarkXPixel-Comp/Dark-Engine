@@ -12,7 +12,11 @@
 #include "Widgets/UIDock.h"
 #include "Widgets/UILogs.h"
 #include "Logging/LogMacros.h"
+#include "Widgets/UIEditorViewport.h"
 
+
+
+DECLARE_LOG_CATEGORY(Launch, Display);
 
 
 void SetupEditorLayout(UIWindow* RootWindow)
@@ -37,7 +41,7 @@ void SetupEditorLayout(UIWindow* RootWindow)
 	TSharedPtr<UIViewport> MainViewport = MakeShareble(new UIViewport());
 	{
 		MainViewport->SetName("UIViewport");
-		MainDock->AddChild(MainViewport);
+		//MainDock->AddChild(MainViewport);
 	}
 
 	TSharedPtr<UIMenu> Menu = MakeShareble(new UIMenu());
@@ -54,6 +58,12 @@ void SetupEditorLayout(UIWindow* RootWindow)
 			});
 
 		Menu->AddChild(ExitMenuItem);
+	}
+
+	TSharedPtr<UIEditorViewport> EditorViewport = MakeShareble(new UIEditorViewport());
+	{
+		EditorViewport->SetName(TEXT("EditorViewport"));
+		MainDock->AddChild(EditorViewport);
 	}
 
 	TSharedPtr<UIMenuItem> AddNewWindowItem = MakeShareble(new UIMenuItem());
@@ -86,27 +96,41 @@ void SetupEditorLayout(UIWindow* RootWindow)
 
 int32 FEngineLoop::PreInit(const TCHAR* CmdLine)
 {
+	//setlocale(LC_ALL, ".ACP");
+
 	Logger::Initialize(LOGGER_INFO | LOGGER_ERROR);
 	CommandConsole::Initialize("Dark Engine Console");
 	RHIInit();
 
+	DE_LOG(Launch, Display, TEXT("RHI init"));
+
 
 	Engine = new DEditorEngine();
+
+	DE_LOG(Launch, Display, TEXT("Create Engine"));
 	
 
 	TSharedPtr<UIApplication> CurrentApplication = UIApplication::Create();
+	DE_LOG(Launch, Display, TEXT("Create UIApplication"));
 	TSharedPtr<UIWindow> RootWindow = MakeShareble(new UIWindow());
+	DE_LOG(Launch, Display, TEXT("Create UIWindow"));
 	TSharedPtr<FUIRHIRenderer> UIRenderer = MakeShareble(new FUIRHIRenderer());
+	DE_LOG(Launch, Display, TEXT("Create UIRenderer"));
 
 	CurrentApplication->InitializeRenderer(UIRenderer);
+	DE_LOG(Launch, Display, TEXT("Init UIRenderer"));
 	RootWindow->SetbWindowBorder(false);
 	CurrentApplication->AddWindow(RootWindow);
+	DE_LOG(Launch, Display, TEXT("Add window"));
 
 	RootWindow->ShowWindow();
+	DE_LOG(Launch, Display, TEXT("Show window"));
 	RootWindow->SetTitle("Edtior");
+	DE_LOG(Launch, Display, TEXT("Set title \"%s\""), *RootWindow->GetTitle());
 
 
 	SetupEditorLayout(RootWindow.get());
+	DE_LOG(Launch, Display, TEXT("Setup EditorLayout"));
 
 
 	
@@ -117,6 +141,7 @@ int32 FEngineLoop::PreInit(const TCHAR* CmdLine)
 int32 FEngineLoop::Init()
 {
 	RHIPostInit();
+	DE_LOG(Launch, Display, TEXT("RHI Post init"));
 
 
 
@@ -125,8 +150,9 @@ int32 FEngineLoop::Init()
 
 void FEngineLoop::Tick()
 {
+	Engine->Tick(1);
+
 	UIApplication::Get()->Tick();
-	//Engine->Tick(1);
 
 
 

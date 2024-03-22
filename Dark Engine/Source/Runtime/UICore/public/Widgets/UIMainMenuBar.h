@@ -6,7 +6,7 @@
 class UIMainMenuBar : public UIWidget
 {
 public:
-	UIMainMenuBar() {}
+	UIMainMenuBar() : UIWidget(TEXT("UIMainMenuBar")) {}
 
 	virtual void DrawImGui();
 

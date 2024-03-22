@@ -4,6 +4,7 @@
 
 #include "D3D12RHICommon.h"
 #include "Templates/DarkTemplate.h"
+#include "Templates/RefCounting.h"
 
 
 
@@ -71,17 +72,13 @@ private:
 	TCHAR* HeapName;
 	D3D12_HEAP_DESC HeapDesc;
 	D3D12_GPU_VIRTUAL_ADDRESS GPUVirtualAddress = 0;
-
-
-
-
 };
 
 
 
 
 
-class FD3D12Resource : public FD3D12DeviceChild
+class FD3D12Resource : public FD3D12DeviceChild, public FRefCountedObject
 {
 private:
 

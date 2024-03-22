@@ -56,15 +56,10 @@ void ItemRowsBackground(float lineHeight = -1.0f, const ImColor& color = ImColor
 
 
 
-UIViewport::UIViewport()
+UIViewport::UIViewport():
+	UIWidget(TEXT("UIViewport"))
 {
-	FEditorViewportClient* EditorViewport = new FEditorViewportClient();
-	ViewportClient = MakeShareble(EditorViewport);
-	EditorViewport->SetSize(FIntPoint(800, 600));
-	EditorViewport->CreateGameViewport();
-	//EditorViewport->SetSize(NativeWindow->GetSize());
 
-	//Name = TEXT("UIViewport");
 }
 
 void UIViewport::Update(float DeltaTime)

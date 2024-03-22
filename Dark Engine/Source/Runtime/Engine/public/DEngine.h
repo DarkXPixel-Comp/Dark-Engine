@@ -4,7 +4,6 @@
 #include <Windows/WindowsWindow.h>
 #include <Delegate/Delegate.h>
 #include <Memory/TUniquePtr.h>
-#include <World.h>
 #include <InputCore.h>
 #include <Memory/TMemory.h>
 #include "DEditor.h"

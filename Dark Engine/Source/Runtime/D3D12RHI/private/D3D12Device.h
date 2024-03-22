@@ -60,7 +60,7 @@ public:
 	FD3D12CommandAllocator* GetCommandAllocator(ED3D12QueueType QueueType);
 	FD3D12CommandList* GetCommandList(FD3D12CommandAllocator* CommandAllocator);
 	FD3D12DescriptorHeapManager& GetDescriptorHeapManager() { return DescriptorHeapManager; }
-	FD3D12BindlessDescriptorManager GetBindlessDescriptorManager() { return BindlessDescriptorManager; }
+	FD3D12BindlessDescriptorManager& GetBindlessDescriptorManager() { return BindlessDescriptorManager; }
 	FD3D12CpuDescriptorManager& GetCpuDescriptorManger(ERHIDescriptorHeapType InType)
 	{
 		return CpuDescriptorManagers[(int32)InType];

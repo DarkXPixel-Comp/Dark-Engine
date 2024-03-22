@@ -35,7 +35,21 @@ void CopyDescriptors(FD3D12Device* Device, FD3D12DescriptorHeap* TargetHeap, FD3
 	const D3D12_CPU_DESCRIPTOR_HANDLE SourceStart = SourceHeap->GetCPUSlotHandle(0);
 	const D3D12_DESCRIPTOR_HEAP_TYPE D3DHeapType = GetD3D12DescriptorHeapType(TargetHeap->GetType());
 
-	Device->GetDevice()->CopyDescriptorsSimple(NumDescriptors, TargetStart, SourceStart, D3DHeapType);
+	Device->GetDevice()->CopyDescriptorsSimple(NumDescriptors, TargetStart,
+		SourceStart, D3DHeapType);
+}
+
+void CopyDescriptor(FD3D12Device* Device, FD3D12DescriptorHeap* TargetHeap, FRHIDescriptorHandle Handle,
+	D3D12_CPU_DESCRIPTOR_HANDLE SourceCpuHandle)
+{
+	if (Handle.IsValid())
+	{
+		const D3D12_CPU_DESCRIPTOR_HANDLE DestCpuHandle = TargetHeap->GetCPUSlotHandle(Handle.GetIndex());
+		const D3D12_DESCRIPTOR_HEAP_TYPE D3DHeapType = GetD3D12DescriptorHeapType(Handle.GetHeapType());
+
+		Device->GetDevice()->CopyDescriptorsSimple(1, DestCpuHandle,
+			SourceCpuHandle, D3DHeapType);
+	}
 }
 
 void FD3D12DescriptorHeapManager::Init(uint32 InNumGlobalResourceDescriptors, uint32 InNumGlobalSamplerDescriptors)
@@ -117,6 +131,48 @@ FD3D12CpuDescriptor FD3D12CpuDescriptorManager::AllocateHeapSlot()
 		}
 	}
 	return Result;
+}
+
+void FD3D12CpuDescriptorManager::FreeHeapSlot(FD3D12CpuDescriptor& Descriptor)
+{
+	FD3D12CpuEntry& HeapEntry = Heaps[Descriptor.HeapIndex];
+
+	const FD3D12CpuFreeRange NewRange{ Descriptor.ptr, Descriptor.ptr + DescriptorSize };
+
+	bool bFound = false;
+	for (auto& i : HeapEntry.FreeList)
+	{
+		FD3D12CpuFreeRange& Range = i;
+		if (Range.Start < Range.End)
+		{
+			Range.Start = Descriptor.ptr;
+
+			bFound = true;
+		}
+		else if (Range.End == Descriptor.ptr)
+		{
+			Range.Start = Descriptor.ptr;
+			bFound = true;
+		}
+		else if (Range.Start > Descriptor.ptr)
+		{
+			HeapEntry.FreeList.Add(NewRange);
+		}
+
+		if (bFound)
+		{
+			break;
+		}
+	}
+	if (!bFound)
+	{
+		if (HeapEntry.FreeList.Num() == 0)
+		{
+			FreeHeapIndex.Add(Descriptor.HeapIndex);
+		}
+		HeapEntry.FreeList.Add(NewRange);
+	}
+	Descriptor = {};
 }
 
 void FD3D12CpuDescriptorManager::AllocateHeap()

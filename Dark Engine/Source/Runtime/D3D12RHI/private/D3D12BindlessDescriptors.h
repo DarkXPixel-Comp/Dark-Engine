@@ -23,6 +23,8 @@ public:
 	ERHIDescriptorHeapType GetType() const { return Type; }
 
 
+	void UpdateImmediate(FRHIDescriptorHandle InHandle, D3D12_CPU_DESCRIPTOR_HANDLE InSourceCpuHandle);
+
 private:
 	void SetupInitialState(uint32 InNumDescriptorsPerHeap);
 	void ResizeHeaps(uint32 InNumDescriptorsPerHeap);
@@ -59,6 +61,8 @@ public:
 
 	FRHIDescriptorHandle Allocate(ERHIDescriptorHeapType InType);
 	void ImmediateFree(FRHIDescriptorHandle InHandle);
+
+	void UpdateImmediate(FRHIDescriptorHandle InHandle, D3D12_CPU_DESCRIPTOR_HANDLE InSourceCpuHandle);
 
 	FD3D12DescriptorHeap* GetHeap(ERHIDescriptorHeapType InType) const;
 

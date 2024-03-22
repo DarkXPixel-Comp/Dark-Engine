@@ -2,7 +2,7 @@ add_library(Renderer)
 
 
 target_compile_features(Renderer PUBLIC cxx_std_20)
-target_link_libraries(Renderer PUBLIC Core RHI World Engine)
+target_link_libraries(Renderer PUBLIC Core RHI Engine)
 #target_link_libraries(RHI PUBLIC ${RHILibs})
 
 

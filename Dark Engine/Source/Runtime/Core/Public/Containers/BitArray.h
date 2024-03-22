@@ -19,7 +19,7 @@ public:
 
 	FORCEINLINE void Init(bool bValue, uint64 InNumBits)
 	{
-		Resize(bValue, true, bValue);
+		Resize(InNumBits, true, bValue);
 
 
 	}

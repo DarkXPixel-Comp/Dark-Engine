@@ -48,54 +48,34 @@ void record(log_& obj)
 	tm ltm;
 	localtime_s(&ltm, &obj.time);
 
+
 	
 
-	std::ofstream fout(folder.ToString() + std::to_string(ltm.tm_year - 100 + 2000) + "-" + std::to_string(ltm.tm_mday) + "-" + std::to_string(ltm.tm_mon + 1) + ".log", std::ios::app);
+	//std::ofstream fout;	
 
-	FString text = "[" + std::to_string(ltm.tm_hour) + ":" + std::to_string(ltm.tm_min) + ":" + std::to_string(ltm.tm_sec) + "] ";
-
-	//fout << "[" + std::to_string(ltm.tm_hour) + ":" + std::to_string(ltm.tm_min) + ":" + std::to_string(ltm.tm_sec) + "] ";
+	std::wofstream fout;
 
 
-	//fout << text;
+	FString out = folder.ToString() + std::to_string(ltm.tm_year - 100 + 2000) +
+		"-" + std::to_string(ltm.tm_mday) + "-" + std::to_string(ltm.tm_mon + 1) + ".log";
 
+	out = FString::PrintF(TEXT("logs/%i-%i-%i.log"), (ltm.tm_year - 100 + 2000), (ltm.tm_mday), (ltm.tm_mon + 1));
 
-	switch (obj.severenty)
+	//fout.open(folder.ToString() + std::to_string(ltm.tm_year - 100 + 2000) + "-" + std::to_string(ltm.tm_mday) + "-" + std::to_string(ltm.tm_mon + 1) + ".log", std::ios::app);
+	
+	fout.open(*out, std::ios::app);
+
+	fout.imbue(std::locale(".utf-8"));
+
+	if (!fout.is_open())
 	{
-	case LOGGER_ERROR:
-		//fout << "ERROR ";
-		text += "ERROR ";
-		break;
-	case LOGGER_WARNING:
-		//fout << "WARNIMG";
-		text += "WARNIMG ";
-		break;
-	case LOGGER_INFO:
-		//fout << "INFO ";
-		text += "INFO ";
-		break;
-	default:
-		//fout << "NULL ";
-		text += "NULL ";
-		break;
+		return;
 	}
 
-	fout << text.ToString() << " - " << obj.txt.ToString() << "\n";
 
-	if (obj.isConsole)
-	{
-		/*CommandConsole::Print(text.c_str());
-		CommandConsole::Print(" - ");
-		CommandConsole::Print(obj.txt.c_str());
-		CommandConsole::Print("\n");*/
-
-		PrintLine(text.ToString().c_str(), " - ", obj.txt.ToString().c_str(), "\n");
-	}
-
-	obj.Result = text + " - " + obj.txt;
+	fout << *obj.Result << L"\n";
 
 	fout.close();
-
 }
 
 void ModernLog(log_& Obj)
@@ -124,6 +104,7 @@ void logging(Logger* obj)
 			if (it->ModernLog)
 			{
 				ModernLog(*it);
+				record(*it);
 			}
 			else
 			{
@@ -150,19 +131,20 @@ void logging(Logger* obj)
 
 void Logger::log(FString logTxt, LOGGER_ENUM severenty)
 {
-	/*if (((inst->severity) | (severenty)) != inst->severity)
-	{
-		return;
-	}
+	//if (((inst->severity) | (severenty)) != inst->severity)
+	//{
+	//	return;
+	//}
 
-	log_ temp;
+	//log_ temp;
 
-	temp.severenty = severenty;
-	temp.time = time(0);
-	temp.txt = logTxt;
-	temp.isConsole = true;
+	//temp.severenty = severenty;
+	//temp.time = time(0);
+	//temp.txt = logTxt;
+	////temp.isConsole = true;
+	//temp.ModernLog = false;
 
-	inst->logs.push_back(temp);*/
+	//inst->logs.push_back(temp);
 
 }
 

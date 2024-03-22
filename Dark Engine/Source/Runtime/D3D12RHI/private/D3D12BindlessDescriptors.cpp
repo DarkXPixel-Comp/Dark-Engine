@@ -96,6 +96,12 @@ void FD3D12BindlessDescriptorHeapManager::ResizeHeaps(uint32 InNumDescriptorsPer
 
 }
 
+void FD3D12BindlessDescriptorHeapManager::UpdateImmediate(FRHIDescriptorHandle InHandle, D3D12_CPU_DESCRIPTOR_HANDLE InSourceCpuHandle)
+{
+	CopyDescriptor(GetParentDevice(), CpuHeap.Get(), InHandle, InSourceCpuHandle);
+	CopyDescriptor(GetParentDevice(), GpuHeap.Get(), InHandle, InSourceCpuHandle);
+}
+
 void FD3D12BindlessDescriptorHeapManager::SetupInitialState(uint32 InNumDescriptorsPerHeap)
 {
 	const TCHAR* const HeapNameCpu = Type == ERHIDescriptorHeapType::Standart ? TEXT("BindlessResourcesCPU") : TEXT("BindlessSamplersCPU");
@@ -164,4 +170,16 @@ void FD3D12BindlessDescriptorManager::ImmediateFree(FRHIDescriptorHandle InHandl
 			return Manager.Free(InHandle);
 		}
 	}
+}
+
+void FD3D12BindlessDescriptorManager::UpdateImmediate(FRHIDescriptorHandle InHandle, D3D12_CPU_DESCRIPTOR_HANDLE InSourceCpuHandle)
+{
+	for (FD3D12BindlessDescriptorHeapManager& Manager : Managers)
+	{
+		if (Manager.GetType() == InHandle.GetHeapType())
+		{
+			return Manager.UpdateImmediate(InHandle, InSourceCpuHandle);
+		}
+	}
+
 }

@@ -1,7 +1,7 @@
 #include "SceneRenderer.h"
 #include "SceneView.h"
 #include "Canvas.h"
-#include "World.h"
+#include "Engine/World.h"
 #include "ScenePrivate.h"
 #include "SceneRendering.h"
 #include <RHICommandList.h>

@@ -67,10 +67,6 @@ FDynamicRHI* FD3D12DynamicRHIModule::CreateRHI()
 	if(ChosenAdapters.GetSize() != 0)
 		GD3D12RHI = new FD3D12DynamicRHI(ChosenAdapters);
 
-
-
-
-
 	return GD3D12RHI;
 }
 
@@ -147,7 +143,7 @@ D3D_FEATURE_LEVEL FindHighestFeatureLevel(ID3D12Device* Device, D3D_FEATURE_LEVE
 bool TestD3D12CreateDevice(IDXGIAdapter* Adapter, FD3D12DeviceBasicInfo& BasicInfo)
 {
 	ID3D12Device* Device = nullptr;
-	D3D_FEATURE_LEVEL MinFeatureLevel = D3D_FEATURE_LEVEL_12_2;
+	D3D_FEATURE_LEVEL MinFeatureLevel = D3D_FEATURE_LEVEL_12_0;
 	const HRESULT D3D12CreateDeviceResult = D3D12CreateDevice(Adapter, MinFeatureLevel, IID_PPV_ARGS(&Device));
 	if (SUCCEEDED(D3D12CreateDeviceResult))
 	{

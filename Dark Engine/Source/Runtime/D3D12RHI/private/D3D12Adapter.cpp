@@ -1,13 +1,14 @@
 #include "D3D12Adapter.h"
 #include "D3D12Device.h"
 #include "Logging/LogMacros.h"
+#include <D3D12Util.h>
 
 
 FD3D12AdapterDesc::FD3D12AdapterDesc() = default;
 FD3D12AdapterDesc::FD3D12AdapterDesc(const DXGI_ADAPTER_DESC& InDesc, int32 InAdapterIndex)
 	: Desc(InDesc)
 	, AdapterIndex(InAdapterIndex)
-	, MaxSupportFeatureLevel(D3D_FEATURE_LEVEL_12_2 /*temp*/)
+	, MaxSupportFeatureLevel(D3D_FEATURE_LEVEL_12_0 /*temp*/)
 	//, RootSignatureManager(this), PipelineStateCache(this), DefaultContextRedirector(this)
 {
 
@@ -53,7 +54,7 @@ void FD3D12Adapter::InitializeDevices()
 {
 	if (!RootDevice)
 	{
-		CreateRootDevice(true);
+		CreateRootDevice(false);
 	}
 
 	Devices[0] = new FD3D12Device(this);
@@ -93,10 +94,20 @@ void FD3D12Adapter::CreateRootDevice(bool bWithDebug)
 
 	DXGIFactory->EnumAdapters(Desc.AdapterIndex, &TempAdapter);
 
+
+	//FString test = ParseDX12Error(D3D12CreateDevice(NULL, D3D_FEATURE_LEVEL_11_0,
+	//	IID_PPV_ARGS(&RootDevice)));
+
+	//DE_LOG(D3D12RHI, Display, TEXT("%s"), *test);
+
 	if (!bDeviceCreated)
 	{
-		D3D12CreateDevice(GetAdapter(), GetFeatureLevel(),
-			IID_PPV_ARGS(&RootDevice));
+		DXCall(D3D12CreateDevice(NULL, D3D_FEATURE_LEVEL_11_0,
+			IID_PPV_ARGS(&RootDevice)));
+	}
+	else
+	{
+		DE_LOG(D3D12RHI, Error, TEXT("Device not Created"));
 	}
 
 }

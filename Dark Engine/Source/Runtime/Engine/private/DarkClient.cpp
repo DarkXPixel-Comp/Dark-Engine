@@ -15,8 +15,7 @@ const TRefCountPtr<FRHITexture>& FRenderTarget::GetRenderTargetTexture() const
 void FViewport::Draw(FViewportClient* InViewport)
 {
 	ViewportClient = InViewport;
-	FWorld* World = nullptr;//GetClient()->GetWorld();
-
+	FWorld* World = GetClient()->GetWorld();
 
 	ViewportClient->Draw(this, World);
 

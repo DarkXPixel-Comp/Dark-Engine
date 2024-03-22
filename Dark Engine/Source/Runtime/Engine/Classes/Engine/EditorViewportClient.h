@@ -10,17 +10,18 @@
 
 #include "Camera/CameraTypes.h"
 #include "Widgets/UIWindow.h"
+#include "SceneInterface.h"
 
 
+class UIEditorViewport;
 
 class FEditorWidget
 {
 
-
-
-
 };
 
+
+class FSceneViewport;
 
 
 struct FViewportCameraTransform
@@ -55,7 +56,10 @@ private:
 	TSharedPtr<class FWorld> World;
 
 public:
-	FEditorViewportClient();
+	FEditorViewportClient(UIEditorViewport* InLevelViewport);	   
+	FEditorViewportClient(const FEditorViewportClient&) = delete;
+	FEditorViewportClient& const operator=(const FEditorViewportClient&) = delete;
+
 	FSceneViewport* GameViewport;
 	FRenderTarget* RenderTarget;
 	TArray<FEditorWidget> EditorWidgets;
@@ -64,14 +68,15 @@ public:
 
 	FSceneViewport* CreateGameViewport();
 
+	FViewport* Viewport;
+
 	void SetViewport(FViewport* InViewport);
 
 	FSceneInterface* GetScene() const;
 
 	const FViewportCameraTransform& GetViewTransform() const { return ViewTransform; }
 
-
-	virtual FWorld* GetWorld() const { return nullptr; }
+	virtual FWorld* GetWorld() const;
 
 	FSceneViewport* GetGameViewport();
 	const TArray<FEditorWidget>& GetEditorWidgets() const { return EditorWidgets; }
@@ -91,6 +96,7 @@ public:
 private:
 	void DrawEditor();
 	FViewportCameraTransform ViewTransform;
+	UIEditorViewport* EditorViewportWidget;
 
 
 

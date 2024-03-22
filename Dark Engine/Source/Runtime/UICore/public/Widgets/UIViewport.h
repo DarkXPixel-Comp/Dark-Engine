@@ -11,7 +11,7 @@
 
 class FSceneViewport;
 
-class UIViewport : public UIWidget
+class UIViewport : public virtual UIWidget
 {
 public:
 	UIViewport();

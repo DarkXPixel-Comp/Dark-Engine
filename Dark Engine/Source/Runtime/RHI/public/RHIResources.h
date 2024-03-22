@@ -5,6 +5,7 @@
 #include "Containers/StaticArray.h"
 #include "Misc/AssertionMacros.h"
 #include "Math/MathFwd.h"
+#include "Templates/RefCounting.h"
 
 
 
@@ -34,7 +35,7 @@ struct FRHIViewDesc
 
 
 
-class FRHIResource
+class FRHIResource : public FRefCountedObject
 {
 	friend class FRHICommandListImmediate;
 
@@ -219,7 +220,8 @@ struct FRHITextureDesc
 	uint8 NumSamples = 1;
 	ETextureDimension Dimension = ETextureDimension::Texture2D;
 	EPixelFormat Format = PF_Unknown;
-
+	ERHIAcces InitialState = ERHIAcces::Unknown;
+	ETextureCreateFlags Flags = ETextureCreateFlags::None;
 };
 
 
@@ -242,6 +244,16 @@ struct FRHITextureCreateDesc : public FRHITextureDesc
 	FRHITextureCreateDesc& SetFormat(EPixelFormat InFormat)
 	{
 		Format = InFormat;
+		return *this;
+	}
+	FRHITextureCreateDesc& SetFlags(ETextureCreateFlags InFlags)
+	{
+		Flags = InFlags;
+		return *this;
+	}
+	FRHITextureCreateDesc& SetInitialState(ERHIAcces InInitialState)
+	{
+		InitialState = InInitialState;
 		return *this;
 	}
 
@@ -268,10 +280,15 @@ struct FRHITextureCreateDesc : public FRHITextureDesc
 
 
 
-class FRHITexture : public FRHIResource
+class FRHITexture : public FRHIResource 
 {
 public:
 	EPixelFormat GetPixelFormat() const { return TextureDesc.Format; }
+
+	virtual void* GetNativeResource() const { return nullptr; }
+	virtual void* GetNativeShaderResourceView() const { return nullptr; }
+	FIntPoint GetSize() const { return TextureDesc.Extent; }
+
 protected:
 	FRHITexture(const FRHITextureCreateDesc& InDesc) :
 		FRHIResource(RRT_Texture),
@@ -279,6 +296,9 @@ protected:
 	{
 		SetName(InDesc.DebugName);
 	}
+
+
+
 
 private:
 	FRHITextureDesc TextureDesc;

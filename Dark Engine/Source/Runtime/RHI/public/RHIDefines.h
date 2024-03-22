@@ -1,6 +1,7 @@
 #pragma once
 #include "PixelFormat.h"
 #include "CoreTypes.h"
+#include "Misc/EnumClassFlags.h"
 
 enum class ERHIInterfaceType
 {
@@ -49,7 +50,14 @@ enum class ERHIAcces
 	Unknown = 0,
 
 	CpuRead = 1 << 0,
-	Present = 1 << 1
+	Present = 1 << 1,
+	VertexOrIndexBuffer = 1 << 2,
+	SRVGraphics = 1 << 3,
+	UAVCompute = 1 << 4,
+	UAVGraphics = 1 << 5,
+	RTV = 1 << 6,
+	CopyDesc = 1 << 7,
+	DSVWrite = 1 << 8
 
 };
 
@@ -74,6 +82,23 @@ enum class ETextureDimension
 	TextureCube,
 	TextureCubeArray
 };
+
+enum class ETextureCreateFlags : uint64
+{
+	None = 0,
+
+	RenderTargetable = 1ull << 0,
+	DepthStencilTargetable = 1ull << 1,
+	ShaderResource = 1ull << 2,
+	CPUWritable = 1ull << 3,
+	Dynamic = 1ull << 4,
+	UAV = 1ull << 5,
+	Presentable = 1ull << 6,
+	CPUReadBack = 1ull << 7,
+};
+
+ENUM_CLASS_FLAGS(ETextureCreateFlags);
+
 
 
 struct FRHIDescriptorHandle

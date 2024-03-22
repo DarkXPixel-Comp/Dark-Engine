@@ -3,7 +3,6 @@
 #include "D3D12Utils.h"
 #include "D3D12Scene.h"
 #include "D3D12PSO.h"
-#include <World.h>
 #include <Timer/GameTimer.h>
 #include <ResourceUploadBatch.h>
 #include <BufferHelpers.h>

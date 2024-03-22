@@ -2,7 +2,8 @@
 #include "imgui.h"
 #include <Logger.h>
 
-UILogs::UILogs()
+UILogs::UILogs():
+	UIWidget(TEXT("UILogs"))
 {
 	
 }

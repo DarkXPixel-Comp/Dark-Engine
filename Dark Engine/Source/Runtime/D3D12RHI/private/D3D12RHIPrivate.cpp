@@ -3,6 +3,7 @@
 #include "RHICommandList.h"
 #include "D3D12CommandContext.h"
 #include "imgui_impl_dx12.h"
+#include <D3D12Util.h>
 
 
 FD3D12DynamicRHI* FD3D12DynamicRHI::SingleD3D12RHI = nullptr;
@@ -47,8 +48,12 @@ void FD3D12DynamicRHI::Init()
 		1,
 		D3D12_DESCRIPTOR_HEAP_FLAG_SHADER_VISIBLE
 	);
+	DE_LOG(D3D12RHI, Log, TEXT("Create IMGUI Heap"));
+
 
 	GRHICommandList.GetImmediateCommandList().InitializeContexts();
+
+	DE_LOG(D3D12RHI, Log, TEXT("Initialize Contexts"));
 
 	DE_LOG(D3D12RHI, Log, TEXT("Finish init"));
 }
@@ -82,6 +87,73 @@ FRHITexture* FD3D12DynamicRHI::RHIGetViewportBackBuffer(FRHIViewport* Viewport)
 	FRHITexture* Result = static_cast<FRHITexture*>(D3DViewport->GetCurrentBackBuffer());
 	return Result;
 }
+
+TRefCountPtr<FRHITexture> FD3D12DynamicRHI::RHICreateTexture(const FRHITextureCreateDesc& CreateDesc)
+{
+	return CreateD3D12Texture(CreateDesc, GetAdapter().GetDevice());
+}
+
+FD3D12Texture* FD3D12DynamicRHI::CreateEmptyD3D12Texture(const FRHITextureCreateDesc& CreateDesc, FD3D12Device* Device)
+{
+	return new FD3D12Texture(CreateDesc, Device);
+}
+
+FD3D12Texture* FD3D12DynamicRHI::CreateD3D12Texture(const FRHITextureCreateDesc& CreateDesc, FD3D12Device* Device)
+{
+	FD3D12Texture* NewTexture = CreateEmptyD3D12Texture(CreateDesc, Device);
+
+	D3D12_HEAP_PROPERTIES TextureHeapProperties = {};
+	TextureHeapProperties.Type = D3D12_HEAP_TYPE_DEFAULT;
+
+	D3D12_RESOURCE_DESC TextureDesc = {};
+
+
+
+	//Device->GetDevice()->CreateCommittedResource(&TextureHeapProperties, D3D12_HEAP_FLAG_NONE,
+	//	)
+
+	switch (CreateDesc.Dimension)
+	{
+	case ETextureDimension::Texture2D:
+		TextureDesc.Dimension = D3D12_RESOURCE_DIMENSION_TEXTURE2D;
+		TextureDesc.Format = FD3D12Viewport::GetRenderTargetFormat(CreateDesc.Format);
+		TextureDesc.MipLevels = CreateDesc.NumMips;
+		TextureDesc.DepthOrArraySize = CreateDesc.Depth;
+		TextureDesc.Flags = D3D12_RESOURCE_FLAG_NONE;
+		TextureDesc.Width = CreateDesc.Extent.X;
+		TextureDesc.Height = CreateDesc.Extent.Y;
+		TextureDesc.SampleDesc = { 1, 0 };
+		break;
+	case ETextureDimension::Texture2DArray:
+		break;
+	case ETextureDimension::Texture3D:
+		break;
+	case ETextureDimension::TextureCube:
+		break;
+	case ETextureDimension::TextureCubeArray:
+		break;
+	default:
+		break;
+	}
+
+	TRefCountPtr<ID3D12Resource> D3DTextureResource;
+
+	DXCall(Device->GetDevice()->CreateCommittedResource(&TextureHeapProperties, D3D12_HEAP_FLAG_NONE, &TextureDesc,
+		D3D12_RESOURCE_STATE_COMMON, nullptr, IID_PPV_ARGS(&D3DTextureResource)));
+
+	FD3D12Resource* TextureResource = new FD3D12Resource(Device, D3DTextureResource.Get(),
+		D3D12_RESOURCE_STATE_COMMON, TextureDesc);
+	NewTexture->SetResource(TextureResource);
+
+	//NewTexture->
+
+
+
+
+	return NewTexture;
+}
+
+
 
 IRHIComputeContext* FD3D12DynamicRHI::RHIGetCommandContext()
 {

@@ -41,6 +41,7 @@ public:
 	//FIntPoint GetSize() const { return FIntPoint(SizeX, SizeY); }
 	FIntPoint GetSizeXY() const { return FIntPoint(SizeX, SizeY); }
 	virtual float GetDisplayGamma() const override { return 0; }
+	virtual void Resize(int32 InSizeX, int32 InSizeY) = 0;
 
 
 private:

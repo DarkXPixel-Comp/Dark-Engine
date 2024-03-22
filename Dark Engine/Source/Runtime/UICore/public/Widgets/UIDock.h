@@ -5,7 +5,7 @@
 class UIDock : public UIWidget
 {
 public:
-	UIDock() {}
+	UIDock(): UIWidget(TEXT("UIDock")) {}
 
 	void DrawImGui();
 	void Update(float DeltaTime);

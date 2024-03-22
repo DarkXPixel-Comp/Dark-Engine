@@ -32,11 +32,46 @@ function(SettingProject target)
 endfunction()
 
 
+macro(SettingFiles Out)
+	SET(Res "")
+	file(GLOB_RECURSE Result RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "${CMAKE_CURRENT_SOURCE_DIR}/*.h")
+	LIST(APPEND Res ${Result})
+	file(GLOB_RECURSE Result RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "${CMAKE_CURRENT_SOURCE_DIR}/*.cpp")
+	LIST(APPEND Res ${Result})
+	set(${Out} ${Res})
+	#file(GLOB_RECURSE Result RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "${CMAKE_CURRENT_SOURCE_DIR}/public/*.h")
+	#LIST(APPEND Res ${Result})
+	#file(GLOB_RECURSE Result RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "${CMAKE_CURRENT_SOURCE_DIR}/public/*.cpp")
+	#LIST(APPEND Res ${Result})
+	#file(GLOB_RECURSE Result RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "${CMAKE_CURRENT_SOURCE_DIR}/private/*.h")
+	#LIST(APPEND Res ${Result})
+	#file(GLOB_RECURSE Result RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "${CMAKE_CURRENT_SOURCE_DIR}/private/*.cpp")
+	#LIST(APPEND Res ${Result})
+	#set(${Out} ${Res})
+endmacro()
+
+
+MACRO(SUBDIRLIST result curdir)
+  FILE(GLOB children RELATIVE ${curdir} ${curdir}/*)
+  SET(dirlist "")
+  FOREACH(child ${children})
+    IF(IS_DIRECTORY ${curdir}/${child})
+      LIST(APPEND dirlist ${child})
+    ENDIF()
+  ENDFOREACH()
+  SET(${result} ${dirlist})
+ENDMACRO()
 
 
 
 
-project("Dark Engine" VERSION 0.0.12)
+
+if(MSVC)
+	add_compile_options(/MP 12)
+endif()
+
+
+project("Dark Engine" VERSION 0.0.13)
 
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 

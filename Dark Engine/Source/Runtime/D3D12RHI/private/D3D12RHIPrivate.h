@@ -49,6 +49,7 @@ public:
 	virtual ID3D12GraphicsCommandList* RHIGetGraphicsCommandList(uint32 InDeviceIndex) { return nullptr; }
 	virtual DXGI_FORMAT RHIGetSwapChainFormat() const { return DXGI_FORMAT_UNKNOWN; }
 
+	virtual TRefCountPtr<FRHITexture> RHICreateTexture(const FRHITextureCreateDesc& CreateDesc);
 
 
 #ifdef IMGUI
@@ -57,11 +58,8 @@ public:
 #endif
 
 public:
-	FD3D12Texture* CreateD3D12Texture(const FRHITextureCreateDesc& CreateDesc, FD3D12Device* Device)
-	{
-		return new FD3D12Texture(CreateDesc, Device);
-	}
-
+	FD3D12Texture* CreateEmptyD3D12Texture(const FRHITextureCreateDesc& CreateDesc, FD3D12Device* Device);
+	FD3D12Texture* CreateD3D12Texture(const FRHITextureCreateDesc& CreateDesc, FD3D12Device* Device);
 
 private:
 	TArray<TSharedPtr<FD3D12Adapter>> ChosenAdapters;

@@ -41,7 +41,17 @@ namespace DE
 				Y(InXY[1])
 			{}
 
+			template<typename T>
+			bool operator==(const TIntPoint<T>& Val)
+			{
+				return X == Val.X && Y == Val.Y;
+			}
 
+			template<typename T>
+			bool operator!=(const TIntPoint<T>& Val)
+			{
+				return X != Val.X || Y != Val.Y;
+			}
 
 
 		};

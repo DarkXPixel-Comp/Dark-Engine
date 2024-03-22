@@ -1,7 +1,7 @@
 #pragma once
 #include "SceneInterface.h"
-#include "World.h"
-
+#include "Engine/World.h"
+#include "CoreTypes.h"
 
 class FScene : public FSceneInterface
 {

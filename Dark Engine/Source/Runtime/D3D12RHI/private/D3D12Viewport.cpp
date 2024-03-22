@@ -84,7 +84,7 @@ FD3D12Texture* FD3D12Viewport::GetSwapChainSurface(EPixelFormat PixelFormat, uin
 
 	FD3D12DynamicRHI* DynamicRHI = FD3D12DynamicRHI::GetD3D12RHI();
 	
-	FD3D12Texture* SwapChainTexture = DynamicRHI->CreateD3D12Texture(CreateDesc, Adapter->GetDevice());
+	FD3D12Texture* SwapChainTexture = DynamicRHI->CreateEmptyD3D12Texture(CreateDesc, Adapter->GetDevice());
 
 	const D3D12_RESOURCE_STATES InitialState = D3D12_RESOURCE_STATE_COMMON;
 
@@ -99,6 +99,16 @@ FD3D12Texture* FD3D12Viewport::GetSwapChainSurface(EPixelFormat PixelFormat, uin
 	RTVDesc.Texture2D.MipSlice = 0;
 
 	SwapChainTexture->AddRTV(RTVDesc, 0);
+	
+
+	D3D12_SHADER_RESOURCE_VIEW_DESC SRVDesc = {};
+	SRVDesc.Shader4ComponentMapping = D3D12_DEFAULT_SHADER_4_COMPONENT_MAPPING;
+	SRVDesc.Format = BackBufferDesc.Format;
+	SRVDesc.ViewDimension = D3D12_SRV_DIMENSION_TEXTURE2D;
+	SRVDesc.Texture2D.MostDetailedMip = 0;
+	SRVDesc.Texture2D.MipLevels = 1;
+
+	SwapChainTexture->AddSRV(SRVDesc);
 
 	DX12::SetName(SwapChainTexture->GetResource(), *Name);
 
@@ -127,7 +137,7 @@ void FD3D12Viewport::CalculateSwapchainNum(int32 SwapChainNum)
 void FD3D12Viewport::Init()
 {
 	FD3D12Adapter* Adapter = GetParentAdapter();
-	IDXGIFactory7* Factory = Adapter->GetDXGIFactory();
+	IDXGIFactory5* Factory = Adapter->GetDXGIFactory();
 
 
 	CalculateSwapchainNum(WindowsDefaultNumBackBuffers);

@@ -4,13 +4,26 @@
 #include "RenderGlobals.h"
 #include <Widgets/UIWindow.h>
 #include "Engine/EditorEngine.h"
+#include "Engine/World.h"
 
 
 
 
-FEditorViewportClient::FEditorViewportClient()
+FEditorViewportClient::FEditorViewportClient(UIEditorViewport* InEditorViewport):
+	EditorViewportWidget(InEditorViewport)
 {
+	FSceneInterface* Scene = GetScene();
+
 	Engine->AddViewportClient(this);
+}
+
+
+FWorld* FEditorViewportClient::GetWorld() const
+{
+	FWorld* Result = nullptr;
+
+	Result = &GWorld;
+	return Result;
 }
 
 void FEditorViewportClient::Draw(FViewport* InViewport, FCanvas* InCanvas)
@@ -47,8 +60,8 @@ FSceneInterface* FEditorViewportClient::GetScene() const
 		return World->Scene;
 	}
 	return nullptr;
-
 }
+				 
 
 void FEditorViewportClient::Tick(float DeltaTime)
 {
