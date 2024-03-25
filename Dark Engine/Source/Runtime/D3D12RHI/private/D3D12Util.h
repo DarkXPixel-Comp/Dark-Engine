@@ -3,6 +3,32 @@
 #include <d3d12.h>
 #include <comdef.h>
 
+
+static DXGI_FORMAT GDXGIFormats[EPixelFormat::Count] = 
+{
+	DXGI_FORMAT_UNKNOWN,
+	DXGI_FORMAT_R32G32B32A32_FLOAT,
+	DXGI_FORMAT_R32_FLOAT,
+	DXGI_FORMAT_R8G8B8A8_UNORM,
+	DXGI_FORMAT_R32G32B32A32_UINT,
+	DXGI_FORMAT_B8G8R8A8_UNORM
+	//DXGI_FORMAT_DE
+};
+
+
+
+
+
+
+
+
+FORCEINLINE DXGI_FORMAT GetDXGIFormat(EPixelFormat InFormat)
+{
+	return GDXGIFormats[InFormat];
+}
+						   
+
+
 FORCEINLINE FString GetDX12ErrorMessage(HRESULT hr)
 {
 	return _com_error(hr).ErrorMessage();
@@ -44,7 +70,10 @@ FORCEINLINE void SetName(ID3D12Object* const Object, const TCHAR* const Name)
 
 FORCEINLINE void SetName(FD3D12Resource* const Resource, const TCHAR* const Name)
 {
-
+	if (Resource && Name)
+	{
+		Resource->GetResource()->SetName(Name);
+	}
 }
 
 namespace DX12
@@ -64,7 +93,10 @@ namespace DX12
 
 	FORCEINLINE void SetName(FD3D12Resource* const Resource, const TCHAR* const Name)
 	{
-
+		if (Resource && Name)
+		{
+			Resource->GetResource()->SetName(Name);
+		}
 	}
 
 }

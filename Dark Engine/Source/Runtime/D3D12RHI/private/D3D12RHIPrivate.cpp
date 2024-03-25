@@ -4,7 +4,11 @@
 #include "D3D12CommandContext.h"
 #include "imgui_impl_dx12.h"
 #include <D3D12Util.h>
+#include "D3D12View.h"
 
+#include "DDSTextureLoader.h"
+#include "ResourceUploadBatch.h"
+#include "Misc/Paths.h"
 
 FD3D12DynamicRHI* FD3D12DynamicRHI::SingleD3D12RHI = nullptr;
 
@@ -61,16 +65,18 @@ void FD3D12DynamicRHI::Init()
 TSharedPtr<FRHIViewport> FD3D12DynamicRHI::RHICreateViewport(void* WindowHandle, uint32 SizeX, uint32 SizeY, bool bIsFullscreen)
 {
 	FD3D12Viewport* RenderingViewport = new FD3D12Viewport(&GetAdapter(), HWND(WindowHandle), SizeX, SizeY,
-		bIsFullscreen, EPixelFormat::PF_R8G8B8A8);
+		bIsFullscreen, EPixelFormat::PF_B8G8R8A8_UNORM);
 	RenderingViewport->Init();
 
 #ifdef IMGUI
+	FD3D12BindlessDescriptorManager& DescriptorManager = GetAdapter().GetDevice()->GetBindlessDescriptorManager();
+	ImGuiDescriptorHandle = DescriptorManager.Allocate(ERHIDescriptorHeapType::Standart);
+
 	ImGui_ImplDX12_Init(GetAdapter().GetD3DDevice(), RenderingViewport->GetCountBackBuffers(),
-		FD3D12Viewport::GetRenderTargetFormat(
-			EPixelFormat::PF_R8G8B8A8),
-			ImGuiDescriptorHeap->GetHeap(),
-			ImGuiDescriptorHeap->GetCPUSlotHandle(ImGuiDescriptorHandle),
-			ImGuiDescriptorHeap->GetGPUSlotHandle(ImGuiDescriptorHandle));
+		GetDXGIFormat(EPixelFormat::PF_B8G8R8A8_UNORM),
+		DescriptorManager.GetHeap(ERHIDescriptorHeapType::Standart)->GetHeap(),
+		DescriptorManager.GetHeap(ERHIDescriptorHeapType::Standart)->GetCPUSlotHandle(ImGuiDescriptorHandle.GetIndex()),
+		DescriptorManager.GetGpuHandle(ImGuiDescriptorHandle));
 #endif
 
 	return MakeShareble(RenderingViewport);
@@ -104,49 +110,46 @@ FD3D12Texture* FD3D12DynamicRHI::CreateD3D12Texture(const FRHITextureCreateDesc&
 
 	D3D12_HEAP_PROPERTIES TextureHeapProperties = {};
 	TextureHeapProperties.Type = D3D12_HEAP_TYPE_DEFAULT;
+	
+	const FLOAT Color[4] = { 1.0f, 0.f, 0.f, 1.f};
 
-	D3D12_RESOURCE_DESC TextureDesc = {};
-
-
-
-	//Device->GetDevice()->CreateCommittedResource(&TextureHeapProperties, D3D12_HEAP_FLAG_NONE,
-	//	)
-
-	switch (CreateDesc.Dimension)
+	D3D12_CLEAR_VALUE ClearValue = {};
+	ClearValue.Format = GetDXGIFormat(CreateDesc.Format);
+	for (uint32 i = 0; i < 4; ++i)
 	{
-	case ETextureDimension::Texture2D:
-		TextureDesc.Dimension = D3D12_RESOURCE_DIMENSION_TEXTURE2D;
-		TextureDesc.Format = FD3D12Viewport::GetRenderTargetFormat(CreateDesc.Format);
-		TextureDesc.MipLevels = CreateDesc.NumMips;
-		TextureDesc.DepthOrArraySize = CreateDesc.Depth;
-		TextureDesc.Flags = D3D12_RESOURCE_FLAG_NONE;
-		TextureDesc.Width = CreateDesc.Extent.X;
-		TextureDesc.Height = CreateDesc.Extent.Y;
-		TextureDesc.SampleDesc = { 1, 0 };
-		break;
-	case ETextureDimension::Texture2DArray:
-		break;
-	case ETextureDimension::Texture3D:
-		break;
-	case ETextureDimension::TextureCube:
-		break;
-	case ETextureDimension::TextureCubeArray:
-		break;
-	default:
-		break;
+		ClearValue.Color[i] = Color[i];
 	}
+
+	D3D12_RESOURCE_DESC TextureDesc = FD3D12Texture::GetResourceDescFromTextureDesc(CreateDesc);
+
 
 	TRefCountPtr<ID3D12Resource> D3DTextureResource;
 
 	DXCall(Device->GetDevice()->CreateCommittedResource(&TextureHeapProperties, D3D12_HEAP_FLAG_NONE, &TextureDesc,
-		D3D12_RESOURCE_STATE_COMMON, nullptr, IID_PPV_ARGS(&D3DTextureResource)));
+		D3D12_RESOURCE_STATE_COMMON, &ClearValue, IID_PPV_ARGS(&D3DTextureResource)));
 
 	FD3D12Resource* TextureResource = new FD3D12Resource(Device, D3DTextureResource.Get(),
 		D3D12_RESOURCE_STATE_COMMON, TextureDesc);
 	NewTexture->SetResource(TextureResource);
+	DX12::SetName(TextureResource, CreateDesc.DebugName);
 
-	//NewTexture->
+	NewTexture->CreateViews();
 
+
+	FD3D12CommandContext& Context = GetAdapter().GetDevice()->GetDefaultCommandContext();
+	Context.TransitionResource(TextureResource, D3D12_RESOURCE_STATE_COMMON,
+		D3D12_RESOURCE_STATE_RENDER_TARGET, 0);
+
+
+
+
+	Context.GetCommandList().GetGraphicsCommandList()->ClearRenderTargetView(NewTexture->RenderTargetViews[0]->GetCpuHandle(),
+		Color, 0, nullptr);
+	Context.TransitionResource(TextureResource, D3D12_RESOURCE_STATE_RENDER_TARGET,
+		D3D12_RESOURCE_STATE_PIXEL_SHADER_RESOURCE, 0);
+
+	//Context.GetCommandList().GetGraphicsCommandList()->Dra
+	Context.FlushCommands();
 
 
 

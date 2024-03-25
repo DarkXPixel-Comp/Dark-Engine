@@ -98,7 +98,8 @@ FD3D12Texture* FD3D12Viewport::GetSwapChainSurface(EPixelFormat PixelFormat, uin
 	RTVDesc.ViewDimension = D3D12_RTV_DIMENSION_TEXTURE2D;
 	RTVDesc.Texture2D.MipSlice = 0;
 
-	SwapChainTexture->AddRTV(RTVDesc, 0);
+	SwapChainTexture->SetNumRTV(1);
+	SwapChainTexture->EmplaceRTV(RTVDesc, 0);
 	
 
 	D3D12_SHADER_RESOURCE_VIEW_DESC SRVDesc = {};
@@ -108,7 +109,7 @@ FD3D12Texture* FD3D12Viewport::GetSwapChainSurface(EPixelFormat PixelFormat, uin
 	SRVDesc.Texture2D.MostDetailedMip = 0;
 	SRVDesc.Texture2D.MipLevels = 1;
 
-	SwapChainTexture->AddSRV(SRVDesc);
+	SwapChainTexture->EmplaceSRV(SRVDesc);
 
 	DX12::SetName(SwapChainTexture->GetResource(), *Name);
 

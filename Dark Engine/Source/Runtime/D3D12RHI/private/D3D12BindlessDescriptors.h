@@ -64,9 +64,11 @@ public:
 
 	void UpdateImmediate(FRHIDescriptorHandle InHandle, D3D12_CPU_DESCRIPTOR_HANDLE InSourceCpuHandle);
 
-	FD3D12DescriptorHeap* GetHeap(ERHIDescriptorHeapType InType) const;
+	FD3D12DescriptorHeap* GetHeap(ERHIDescriptorHeapType InType);
 
 	D3D12_GPU_DESCRIPTOR_HANDLE GetGpuHandle(FRHIDescriptorHandle InHandle) const;
+
+	//D3D12_GPU_DESCRIPTOR_HANDLE GetGpuHandle(FRHIDescriptorHandle InHandle) const;
 
 private:
 	ERHIBindlessConfiguration ResourcesConfiguration;

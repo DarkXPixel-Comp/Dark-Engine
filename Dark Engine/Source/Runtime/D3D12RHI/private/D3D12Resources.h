@@ -81,8 +81,6 @@ private:
 class FD3D12Resource : public FD3D12DeviceChild, public FRefCountedObject
 {
 private:
-
-
 	TRefCountPtr<ID3D12Resource> Resource;
 	TSharedPtr<FD3D12Heap> Heap;
 
@@ -115,11 +113,17 @@ public:
 		D3D12_HEAP_TYPE InHeapType = D3D12_HEAP_TYPE_DEFAULT
 	);
 
+	~FD3D12Resource()
+	{
+
+	}
+
 
 	D3D12_RESOURCE_STATES GetCurrentState() const { return DefaultResourceState; }
 	void SetState(D3D12_RESOURCE_STATES State) { DefaultResourceState = State; }
 	void SetIsBackBuffer(bool bInBackBuffer) { bBackBuffer = bInBackBuffer; }
 	ID3D12Resource* GetResource() const { return Resource.Get(); }
+	const FD3D12ResourceDesc& GetDesc() const { return Desc; }
 
 
 };

@@ -61,4 +61,5 @@ public:
 private:
 	class FD3D12Resource* Resource;
 	D3D12_SHADER_RESOURCE_VIEW_DESC SRVDesc;
+	D3D12_GPU_DESCRIPTOR_HANDLE TestGPUHandle;
 };

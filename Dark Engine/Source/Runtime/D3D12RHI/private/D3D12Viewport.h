@@ -6,6 +6,8 @@
 #include "RHIResources.h"
 #include "D3D12Texture.h"
 
+DXGI_FORMAT GetDXGIFormat(EPixelFormat PixelFormat);
+
 class FD3D12Viewport : public FRHIViewport , public FD3D12AdapterChild
 {
 public:
@@ -27,20 +29,7 @@ public:
 
 	FORCEINLINE static DXGI_FORMAT GetRenderTargetFormat(EPixelFormat PixelFormat)
 	{
-		switch (PixelFormat)
-		{
-		case PF_Unknown:
-			break;
-		case PF_A32B32G32R32F:
-			break;
-		case PF_R32_FLOAT:
-			break;
-		case PF_R8G8B8A8:
-			return DXGI_FORMAT_R8G8B8A8_UNORM;
-			break;
-		default:
-			break;
-		}
+		return GetDXGIFormat(PixelFormat);
 	}
 
 	FD3D12Texture* GetCurrentBackBuffer() const { return BackBuffers[CurrentBackBufferIndex].get(); }

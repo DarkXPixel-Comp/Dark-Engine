@@ -54,7 +54,7 @@ void FD3D12Adapter::InitializeDevices()
 {
 	if (!RootDevice)
 	{
-		CreateRootDevice(false);
+		CreateRootDevice(D3D12_DEBUG);
 	}
 
 	Devices[0] = new FD3D12Device(this);
@@ -74,10 +74,11 @@ void FD3D12Adapter::CreateRootDevice(bool bWithDebug)
 			DebugController->EnableDebugLayer();
 			bDebugDevice = true;
 
-			ComPtr<ID3D12Debug1> DebugController1;
-			DebugController->QueryInterface(IID_PPV_ARGS(&DebugController1));
+			ComPtr<ID3D12Debug5> DebugController5;
+			DebugController->QueryInterface(IID_PPV_ARGS(&DebugController5));
 
-			DebugController1->SetEnableGPUBasedValidation(TRUE);
+			DebugController5->SetEnableGPUBasedValidation(TRUE);
+			DebugController5->SetEnableAutoName(TRUE);
 
 			DE_LOG(D3D12RHI, Log, TEXT("Debug layer enable"));
 		}
@@ -94,11 +95,6 @@ void FD3D12Adapter::CreateRootDevice(bool bWithDebug)
 
 	DXGIFactory->EnumAdapters(Desc.AdapterIndex, &TempAdapter);
 
-
-	//FString test = ParseDX12Error(D3D12CreateDevice(NULL, D3D_FEATURE_LEVEL_11_0,
-	//	IID_PPV_ARGS(&RootDevice)));
-
-	//DE_LOG(D3D12RHI, Display, TEXT("%s"), *test);
 
 	if (!bDeviceCreated)
 	{

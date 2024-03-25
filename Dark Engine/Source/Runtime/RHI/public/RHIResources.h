@@ -43,9 +43,6 @@ public:
 	FRHIResource(ERHIResourceType InResourceType): ResourceType(InResourceType) {}
 	virtual ~FRHIResource() {}
 
-	uint32 Release() { return 0; }
-
-
 	bool IsValid() const
 	{
 		return bIsValid;
@@ -212,6 +209,24 @@ struct FRHITextureDesc
 		Dimension(InDimension)
 	{}
 
+
+	bool IsTextureCube() const
+	{
+		return Dimension == ETextureDimension::TextureCube || Dimension == ETextureDimension::TextureCubeArray;
+	}
+	bool IsTexture2D() const
+	{
+		return Dimension == ETextureDimension::Texture2D || Dimension == ETextureDimension::Texture2DArray;
+	}
+	bool IsTexture3D() const
+	{
+		return Dimension == ETextureDimension::Texture3D;
+	}
+	bool IsTextureArray() const
+	{
+		return Dimension == ETextureDimension::Texture2DArray || Dimension == ETextureDimension::TextureCubeArray;
+	}
+
 	uint32 ExtData = 0;
 	FIntPoint Extent = FIntPoint(1, 1);
 	uint16 ArraySize = 1;
@@ -288,6 +303,7 @@ public:
 	virtual void* GetNativeResource() const { return nullptr; }
 	virtual void* GetNativeShaderResourceView() const { return nullptr; }
 	FIntPoint GetSize() const { return TextureDesc.Extent; }
+	virtual const FRHITextureDesc& GetDesc() const { return TextureDesc; }
 
 protected:
 	FRHITexture(const FRHITextureCreateDesc& InDesc) :

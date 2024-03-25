@@ -90,12 +90,19 @@ public:
 	FD3D12DescriptorHeap(FD3D12Device* InDevice, ID3D12DescriptorHeap* InHeap, uint32 InNumDescriptors,
 		ERHIDescriptorHeapType InType, D3D12_DESCRIPTOR_HEAP_FLAGS InFlags);
 
+	~FD3D12DescriptorHeap()
+	{
+
+	}
 
 	ID3D12DescriptorHeap* GetHeap() const { return Heap.Get(); }
 	ERHIDescriptorHeapType GetType() const { return Type; }
 	D3D12_DESCRIPTOR_HEAP_FLAGS GetFlags() const { return Flags; }
-	D3D12_CPU_DESCRIPTOR_HANDLE GetCPUSlotHandle(uint32 Slot) { return CD3DX12_CPU_DESCRIPTOR_HANDLE(CpuBase, Slot, DescriptorSize); }
-	D3D12_GPU_DESCRIPTOR_HANDLE GetGPUSlotHandle(uint32 Slot) { return CD3DX12_GPU_DESCRIPTOR_HANDLE(GpuBase, Slot, DescriptorSize); }
+	D3D12_CPU_DESCRIPTOR_HANDLE GetCPUSlotHandle(uint32 Slot) const { return CD3DX12_CPU_DESCRIPTOR_HANDLE(CpuBase, Slot, DescriptorSize); }
+	D3D12_GPU_DESCRIPTOR_HANDLE GetGPUSlotHandle(uint32 Slot) const 
+	{
+		return CD3DX12_GPU_DESCRIPTOR_HANDLE(GpuBase, Slot, DescriptorSize);
+	}
 								
 private:
 	TRefCountPtr<ID3D12DescriptorHeap> Heap;

@@ -67,6 +67,16 @@ void FD3D12BindlessDescriptorHeapManager::Free(FRHIDescriptorHandle InHandle)
 
 }
 
+FD3D12DescriptorHeap* FD3D12BindlessDescriptorHeapManager::GetHeap()
+{
+	return GpuHeap.Get();
+}
+
+const FD3D12DescriptorHeap* FD3D12BindlessDescriptorHeapManager::GetHeap() const
+{
+	return GpuHeap.Get();
+}
+
 void FD3D12BindlessDescriptorHeapManager::ResizeHeaps(uint32 InNumDescriptorsPerHeap)
 {
 	if (InNumDescriptorsPerHeap > NumDescriptorsPerHeap)
@@ -182,4 +192,34 @@ void FD3D12BindlessDescriptorManager::UpdateImmediate(FRHIDescriptorHandle InHan
 		}
 	}
 
+}
+
+FD3D12DescriptorHeap* FD3D12BindlessDescriptorManager::GetHeap(ERHIDescriptorHeapType InType)
+{
+	for (FD3D12BindlessDescriptorHeapManager& Manager : Managers)
+	{
+		if (Manager.GetType() == InType)
+		{
+			return Manager.GetHeap();
+		}
+
+	}
+
+	return nullptr;
+}
+
+D3D12_GPU_DESCRIPTOR_HANDLE FD3D12BindlessDescriptorManager::GetGpuHandle(FRHIDescriptorHandle InHandle) const
+{
+	for (const FD3D12BindlessDescriptorHeapManager& Manager : Managers)
+	{
+		if (Manager.GetType() == InHandle.GetHeapType())
+		{
+			return Manager.GetHeap()->GetGPUSlotHandle(InHandle.GetIndex());
+		}
+
+	}
+
+
+
+	return D3D12_GPU_DESCRIPTOR_HANDLE();
 }

@@ -143,19 +143,27 @@ void FD3D12CommandContext::RHIBeginFrame()
 {	
 	FD3D12CommandList& List = GetCommandList();
 	FD3D12Viewport* Viewport = FD3D12AdapterChild::Parent->GetDrawingViewport();
-	ID3D12DescriptorHeap* Heaps[] = { FD3D12DynamicRHI::GetD3D12RHI()->ImGuiDescriptorHeap->GetHeap() };
-	Viewport->GetCurrentBackBuffer()->RenderTargetView->GetCpuHandle();
+	//ID3D12DescriptorHeap* Heaps[] = { FD3D12DynamicRHI::GetD3D12RHI()->ImGuiDescriptorHeap->GetHeap() };
+	ID3D12DescriptorHeap* Heaps[] = { FD3D12DeviceChild::Parent->GetBindlessDescriptorManager().
+		GetHeap(ERHIDescriptorHeapType::Standart)->GetHeap()};
+	Viewport->GetCurrentBackBuffer()->RenderTargetViews[0]->GetCpuHandle();
 
 
 
 
 	List.GetGraphicsCommandList()->SetDescriptorHeaps(1, Heaps);
 	Viewport->GetCurrentBackBuffer();
-
 }
 
 void FD3D12CommandContext::RHIEndFrame()
 {
+	FD3D12CommandList& List = GetCommandList();
+	/*FD3D12Viewport* Viewport = FD3D12AdapterChild::Parent->GetDrawingViewport();
+	const FLOAT Color[4] = { 0, 0, 0, 1 };
+
+	List.GetGraphicsCommandList()->ClearRenderTargetView(Viewport->GetCurrentBackBuffer()->RenderTargetViews[0]->GetCpuHandle(),
+		Color, 0, nullptr);
+	Viewport->GetCurrentBackBuffer()->RenderTargetViews[0]->GetCpuHandle();*/
 	FlushCommands();
 }
 
@@ -195,14 +203,14 @@ void FD3D12CommandContext::SetRenderTargets(int32 NumRenderTargets, const FRHIRe
 		if (i < MAX_RENDER_TARGETS && RenderTargetsRHI[i].Texture != nullptr)
 		{
 			FD3D12Texture* NewRenderTarget = static_cast<FD3D12Texture*>(RenderTargetsRHI[i].Texture);
-			RenderTarget = NewRenderTarget->RenderTargetView.get();
+			RenderTarget = NewRenderTarget->RenderTargetViews[0].get();
 			TransitionResource(NewRenderTarget->GetResource(),
 				NewRenderTarget->GetResource()->GetCurrentState(), D3D12_RESOURCE_STATE_RENDER_TARGET, 0);
 			RTVDescriptors[i] = RenderTarget->GetCpuHandle();
-			if (bClear)
+			if (bClear && NewRenderTarget->IsValid())
 			{
 				const FLOAT ClearColor[4] = { 0, 0, 0, 1 };
-				GetCommandList().GetGraphicsCommandList()->ClearRenderTargetView(RenderTarget->GetCpuHandle(), ClearColor, 0, nullptr);;
+				GetCommandList().GetGraphicsCommandList()->ClearRenderTargetView(RenderTarget->GetCpuHandle(), ClearColor, 0, nullptr);
 			}
 		}	
 

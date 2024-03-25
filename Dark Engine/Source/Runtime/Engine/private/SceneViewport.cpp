@@ -13,19 +13,27 @@ void FSceneViewport::InitRHI()
 {
 	RTTSize = FIntPoint(0, 0);
 
-	TRefCountPtr<FRHITexture> RTRHI;
+
+	BufferedShaderResourceTextureRHI.Reset();
+	BufferedRenderTargetRHI.Reset();
+
+
+
+
+
+	TRefCountPtr<FRHITexture> RTRHI, SRVRHI;
 	
 	const FRHITextureCreateDesc Desc =
 		FRHITextureCreateDesc::Create2D(TEXT("BufferRT"))
 		.SetExtent(GetSize())
-		.SetFormat(EPixelFormat::PF_R8G8B8A8)
+		.SetFormat(EPixelFormat::PF_B8G8R8A8_UNORM)
 		.SetFlags(ETextureCreateFlags::RenderTargetable | ETextureCreateFlags::ShaderResource)
 		.SetInitialState(ERHIAcces::SRVGraphics);
 
-	RTRHI = RHICreateTexture(Desc);
-	
+	SRVRHI = RTRHI = RHICreateTexture(Desc);
+	check(SRVRHI && RTRHI);
 
-
-
-
+	BufferedRenderTargetRHI = RTRHI;
+	BufferedShaderResourceTextureRHI = SRVRHI;
+	RenderTargetTextureRHI = BufferedShaderResourceTextureRHI;
 }

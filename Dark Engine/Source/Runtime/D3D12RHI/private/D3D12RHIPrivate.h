@@ -54,7 +54,8 @@ public:
 
 #ifdef IMGUI
 	FD3D12DescriptorHeap* ImGuiDescriptorHeap;
-	uint32 ImGuiDescriptorHandle = 0;
+	//uint32 ImGuiDescriptorHandle = 0;
+	FRHIDescriptorHandle ImGuiDescriptorHandle;
 #endif
 
 public:

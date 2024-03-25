@@ -13,6 +13,7 @@ void FD3D12RenderTargetView::CreteView(const D3D12_RENDER_TARGET_VIEW_DESC& InDe
 	UpdateBindlessSlot();
 }
 
+
 FD3D12View::~FD3D12View()
 {
 	GetParentDevice()->GetCpuDescriptorManger(HeapType).FreeHeapSlot(CpuHandle);
@@ -40,4 +41,7 @@ void FD3D12ShaderResourceView::CreateView(const D3D12_SHADER_RESOURCE_VIEW_DESC&
 	Parent->GetDevice()->CreateShaderResourceView(Resource->GetResource(), &InDesc, CpuHandle);
 	
 	UpdateBindlessSlot();
+
+	FD3D12BindlessDescriptorManager& BindlessManager = GetParentDevice()->GetBindlessDescriptorManager();
+	TestGPUHandle = BindlessManager.GetGpuHandle(BindlessHandle);
 }

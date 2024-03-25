@@ -37,21 +37,25 @@ void UIEditorViewport::Update(float DeltaTime)
 	{
 		OnResize(Size.X, Size.Y);
 		LastSize = Size;
+		return;
 	}
 
 }
 
 void UIEditorViewport::DrawImGui()
 {
-	if (ImGui::Begin(-Name))
+	if (ImGui::Begin(-Name, nullptr, ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoScrollWithMouse))
 	{
 		ImVec2 ImSize = ImGui::GetWindowSize();
 		Size = FIntPoint(ImSize.x, ImSize.y);
 
 		TRefCountPtr<FRHITexture> Texture = SceneViewport->GetRenderTargetTexture();
 		if (Texture)
-		{
-			ImGui::Image(Texture->GetNativeShaderResourceView(), ImVec2(Texture->GetSize().X, Texture->GetSize().Y));
+		{  
+			ImGui::SetCursorPos(ImVec2(0, 0));
+			ImVec2 SSize = { static_cast<float>(Texture->GetSize().X),  static_cast<float>(Texture->GetSize().Y) };
+			ImGui::Image(Texture->GetNativeShaderResourceView(), SSize, ImVec2(0, 0),
+				ImVec2(1, 1), ImVec4(1, 1, 1, 1), ImVec4(0, 0, 0, 0));
 		}
 		ImGui::End();
 	}

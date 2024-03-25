@@ -82,6 +82,7 @@ FD3D12Resource::FD3D12Resource(
 		GPUVirtualAddress = Resource->GetGPUVirtualAddress();
 	}
 
+	DX12::SetName(this, TEXT("NULL"));
 
 
 

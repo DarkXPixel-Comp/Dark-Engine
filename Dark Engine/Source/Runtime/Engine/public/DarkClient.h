@@ -23,8 +23,8 @@ public:
 
 
 
-private:
-	TRefCountPtr<FRHITexture> RenderTargetTexture;
+protected:
+	TRefCountPtr<FRHITexture> RenderTargetTextureRHI;
 };
 
 
