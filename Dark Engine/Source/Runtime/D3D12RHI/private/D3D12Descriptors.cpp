@@ -113,18 +113,18 @@ FD3D12CpuDescriptor FD3D12CpuDescriptorManager::AllocateHeapSlot()
 		AllocateHeap();
 	}
 
-	auto &IndexFreeHeap = FreeHeapIndex.Last();
+	auto &IndexFreeHeap = FreeHeapIndex.First();
 	Result.HeapIndex = IndexFreeHeap;
 
 	FD3D12CpuEntry& HeapEntry = Heaps[Result.HeapIndex];
-	FD3D12CpuFreeRange& Range = HeapEntry.FreeList.Last();
+	FD3D12CpuFreeRange& Range = HeapEntry.FreeList.First();
 
 	Result.ptr = Range.Start;
 	Range.Start += DescriptorSize;
 
 	if (Range.Start == Range.End)
 	{
-		HeapEntry.FreeList.RemovePtr(HeapEntry.FreeList.Last());
+		HeapEntry.FreeList.RemovePtr(HeapEntry.FreeList.First());
 		if (HeapEntry.FreeList.Num() == 0)
 		{
 			FreeHeapIndex.Remove(IndexFreeHeap);
@@ -143,7 +143,7 @@ void FD3D12CpuDescriptorManager::FreeHeapSlot(FD3D12CpuDescriptor& Descriptor)
 	for (auto& i : HeapEntry.FreeList)
 	{
 		FD3D12CpuFreeRange& Range = i;
-		if (Range.Start < Range.End)
+		if (Range.Start == Descriptor.ptr + DescriptorSize)
 		{
 			Range.Start = Descriptor.ptr;
 
@@ -151,12 +151,16 @@ void FD3D12CpuDescriptorManager::FreeHeapSlot(FD3D12CpuDescriptor& Descriptor)
 		}
 		else if (Range.End == Descriptor.ptr)
 		{
-			Range.Start = Descriptor.ptr;
+			Range.End += Descriptor.ptr;
 			bFound = true;
 		}
-		else if (Range.Start > Descriptor.ptr)
+		else
 		{
-			HeapEntry.FreeList.Add(NewRange);
+			if (Range.Start > Descriptor.ptr)
+			{
+				HeapEntry.FreeList.Add(NewRange);
+				bFound = true;
+			}
 		}
 
 		if (bFound)

@@ -40,9 +40,12 @@ public:
 
 	void CreateViews();
 
+	virtual FIntPoint GetSize() const override;
+
 	static D3D12_RESOURCE_DESC GetResourceDescFromTextureDesc(const FRHITextureCreateDesc& InDesc);
 
 	virtual void* GetNativeShaderResourceView() const override;
+
 
 public:
 	TArray<TSharedPtr<class FD3D12RenderTargetView>> RenderTargetViews;

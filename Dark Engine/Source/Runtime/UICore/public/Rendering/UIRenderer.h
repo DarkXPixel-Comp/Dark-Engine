@@ -12,6 +12,13 @@ public:
 
 	bool IsViewportFullscreen(const UIWindow& Window) const;
 
+	void SetVsync(int32 ValueSync)
+	{
+		Vsync = ValueSync;
+	}
+
+protected:
+	int32 Vsync = 1;
 
 
 

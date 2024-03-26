@@ -73,6 +73,10 @@ void FUIRHIRenderer::DrawWindows(const TArray<TSharedPtr<UIWindow>>& InWindows)
 
 
 				FRHITexture* BackBuffer = RHIGetViewportBackBuffer(ViewInfo->ViewportRHI.get());
+				if (!BackBuffer)
+				{
+					return;
+				}
 				RHICmdList->BeginDrawingViewport(ViewInfo->ViewportRHI.get(), nullptr);
 				RHICmdList->BeginFrame();
 #ifdef IMGUI
@@ -99,7 +103,7 @@ void FUIRHIRenderer::DrawWindows(const TArray<TSharedPtr<UIWindow>>& InWindows)
 #endif
 
 				RHICmdList->EndFrame();
-				RHICmdList->EndDrawingViewport(ViewInfo->ViewportRHI.get(), true, 1);
+				RHICmdList->EndDrawingViewport(ViewInfo->ViewportRHI.get(), true, Vsync);
 
 
 

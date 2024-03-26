@@ -1,6 +1,7 @@
 #include "D3D12Texture.h"
 #include "D3D12View.h"
 #include "D3D12Util.h"
+#include "D3D12CommandContext.h"
 
 
 D3D12_RESOURCE_DIMENSION GetD3D12Dimension(ETextureDimension InDimension)
@@ -180,6 +181,21 @@ void FD3D12Texture::CreateViews()
 
 }
 
+FIntPoint FD3D12Texture::GetSize() const
+{
+	FIntPoint Result;
+
+	if (GetResource())
+	{
+		auto ResourceDesc = GetResource()->GetResource()->GetDesc();
+		Result.X = ResourceDesc.Width;
+		Result.Y = ResourceDesc.Height;
+	}
+
+
+	return Result;
+}
+
 D3D12_RESOURCE_DESC FD3D12Texture::GetResourceDescFromTextureDesc(const FRHITextureCreateDesc& InDesc)
 {
 	D3D12_RESOURCE_DESC Result = {};
@@ -192,7 +208,7 @@ D3D12_RESOURCE_DESC FD3D12Texture::GetResourceDescFromTextureDesc(const FRHIText
 		Result.Alignment = 0;
 		Result.Width = InDesc.Extent.X;
 		Result.Height = InDesc.Extent.Y;
-		Result.Format = DXGI_FORMAT_B8G8R8A8_TYPELESS;//GetDXGIFormat(InDesc.Format);
+		Result.Format = GetDXGIFormat(InDesc.Format);
 		Result.Layout = D3D12_TEXTURE_LAYOUT_UNKNOWN;
 		Result.MipLevels = InDesc.NumMips;
 		Result.SampleDesc = { 1, 0 };

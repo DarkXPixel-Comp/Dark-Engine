@@ -13,84 +13,109 @@
 #include "Widgets/UILogs.h"
 #include "Logging/LogMacros.h"
 #include "Widgets/UIEditorViewport.h"
+#include "Widgets/UIEditorSettings.h"
 
 
 
 DECLARE_LOG_CATEGORY(Launch, Display);
 
 
-void SetupEditorLayout(UIWindow* RootWindow)
+
+
+
+struct FEditorLayout
 {
-	TSharedPtr<UIWidgetTest> Test = MakeShareble(new UIWidgetTest());
-
-
-	TSharedPtr<UIDock> MainDock = MakeShareble(new UIDock());
-
-	TSharedPtr<UILogs> Logs = MakeShareble(new UILogs());
+	void SetupEditorLayout(UIWindow* InRootWindow)
 	{
-		Logs->SetName("Logs");
-		MainDock->AddChild(Logs);
-	}
-
-	TSharedPtr<UIMainMenuBar> MainMenuBar = MakeShareble(new UIMainMenuBar());
-	{
-		MainMenuBar->SetSize(FIntPoint(0, 20));
-	}
+		RootWindow = InRootWindow;
+		TSharedPtr<UIWidgetTest> Test = MakeShareble(new UIWidgetTest());
 
 
-	TSharedPtr<UIViewport> MainViewport = MakeShareble(new UIViewport());
-	{
-		MainViewport->SetName("UIViewport");
-		//MainDock->AddChild(MainViewport);
-	}
+		TSharedPtr<UIDock> MainDock = MakeShareble(new UIDock());
 
-	TSharedPtr<UIMenu> Menu = MakeShareble(new UIMenu());
-	{
-		Menu->SetName("Menu");
-		MainMenuBar->AddChild(Menu);
-	}
-	TSharedPtr<UIMenuItem> ExitMenuItem = MakeShareble(new UIMenuItem());
-	{
-		ExitMenuItem->SetName("Exit");
-		ExitMenuItem->MenuItemDelegate.Bind([&]()
-			{
-				GIsRequestingExit = true;
-			});
+		TSharedPtr<UILogs> Logs = MakeShareble(new UILogs());
+		{
+			Logs->SetName("Logs");
+			MainDock->AddChild(Logs);
+		}
 
-		Menu->AddChild(ExitMenuItem);
-	}
+		TSharedPtr<UIMainMenuBar> MainMenuBar = MakeShareble(new UIMainMenuBar());
+		{
+			MainMenuBar->SetSize(FIntPoint(0, 20));
+		}
 
-	TSharedPtr<UIEditorViewport> EditorViewport = MakeShareble(new UIEditorViewport());
-	{
-		EditorViewport->SetName(TEXT("EditorViewport"));
-		MainDock->AddChild(EditorViewport);
-	}
 
-	TSharedPtr<UIMenuItem> AddNewWindowItem = MakeShareble(new UIMenuItem());
-	{
-		AddNewWindowItem->SetName("Add new Window");
-		AddNewWindowItem->MenuItemDelegate.Bind([=]()
-			{
-				TSharedPtr<UIViewport> MainViewport = MakeShareble(new UIViewport());
+		TSharedPtr<UIViewport> MainViewport = MakeShareble(new UIViewport());
+		{
+			MainViewport->SetName("UIViewport");
+			//MainDock->AddChild(MainViewport);
+		}
+
+		TSharedPtr<UIMenu> Menu = MakeShareble(new UIMenu());
+		{
+			Menu->SetName("Menu");
+			MainMenuBar->AddChild(Menu);
+		}
+		TSharedPtr<UIMenuItem> ExitMenuItem = MakeShareble(new UIMenuItem());
+		{
+			ExitMenuItem->SetName("Exit");
+			ExitMenuItem->MenuItemDelegate.Bind([&]()
 				{
-					MainViewport->SetName("UIViewport2");
-					MainDock->AddChild(MainViewport);
-				}
-			});
+					GIsRequestingExit = true;
+				});
 
-		Menu->AddChild(AddNewWindowItem);
+			Menu->AddChild(ExitMenuItem);
+		}
+
+		TSharedPtr<UIEditorViewport> EditorViewport = MakeShareble(new UIEditorViewport());
+		{
+			EditorViewport->SetName(TEXT("EditorViewport"));
+			MainDock->AddChild(EditorViewport);
+		}
+		RootViewport = EditorViewport;
+
+
+
+		TSharedPtr<UIMenuItem> AddNewWindowItem = MakeShareble(new UIMenuItem());
+		{
+			AddNewWindowItem->SetName("Add new Window");
+			AddNewWindowItem->MenuItemDelegate.Bind([=]()
+				{
+					TSharedPtr<UIViewport> MainViewport = MakeShareble(new UIViewport());
+					{
+						MainViewport->SetName("UIViewport2");
+						MainDock->AddChild(MainViewport);
+					}
+				});
+
+			Menu->AddChild(AddNewWindowItem);
+		}
+
+		EditorSettings = MakeShareble(new UIEditorSettings());
+		EditorSettings->SetEditorViewport(RootViewport);
+
+
+		RootWindow->AddWidget(MainDock);
+		RootWindow->AddWidget(MainMenuBar);
+		RootWindow->AddWidget(EditorSettings);
+		//RootWindow->AddWidget(Test);
+
+
+
+
+
 	}
 
+private:
+	UIWindow* RootWindow = nullptr;
+	TSharedPtr<UIEditorViewport> RootViewport = nullptr;
+	TSharedPtr<UIEditorSettings> EditorSettings;
 
-	RootWindow->AddWidget(MainDock);
-	RootWindow->AddWidget(MainMenuBar);
-	//RootWindow->AddWidget(Test);
+} EditorLayout;
 
 
 
 
-
-}
 
 
 
@@ -102,35 +127,35 @@ int32 FEngineLoop::PreInit(const TCHAR* CmdLine)
 	CommandConsole::Initialize("Dark Engine Console");
 	RHIInit();
 
-	DE_LOG(Launch, Display, TEXT("RHI init"));
+	DE_LOG(Launch, Log, TEXT("RHI init"));
 
 
 	Engine = new DEditorEngine();
 
-	DE_LOG(Launch, Display, TEXT("Create Engine"));
+	DE_LOG(Launch, Log, TEXT("Create Engine"));
 	
 
 	TSharedPtr<UIApplication> CurrentApplication = UIApplication::Create();
-	DE_LOG(Launch, Display, TEXT("Create UIApplication"));
+	DE_LOG(Launch, Log, TEXT("Create UIApplication"));
 	TSharedPtr<UIWindow> RootWindow = MakeShareble(new UIWindow());
-	DE_LOG(Launch, Display, TEXT("Create UIWindow"));
+	DE_LOG(Launch, Log, TEXT("Create UIWindow"));
 	TSharedPtr<FUIRHIRenderer> UIRenderer = MakeShareble(new FUIRHIRenderer());
-	DE_LOG(Launch, Display, TEXT("Create UIRenderer"));
+	DE_LOG(Launch, Log, TEXT("Create UIRenderer"));
 
 	CurrentApplication->InitializeRenderer(UIRenderer);
-	DE_LOG(Launch, Display, TEXT("Init UIRenderer"));
+	DE_LOG(Launch, Log, TEXT("Init UIRenderer"));
 	RootWindow->SetbWindowBorder(false);
 	CurrentApplication->AddWindow(RootWindow);
-	DE_LOG(Launch, Display, TEXT("Add window"));
+	DE_LOG(Launch, Log, TEXT("Add window"));
 
 	RootWindow->ShowWindow();
-	DE_LOG(Launch, Display, TEXT("Show window"));
+	DE_LOG(Launch, Log, TEXT("Show window"));
 	RootWindow->SetTitle("Edtior");
-	DE_LOG(Launch, Display, TEXT("Set title \"%s\""), *RootWindow->GetTitle());
+	DE_LOG(Launch, Log, TEXT("Set title \"%s\""), *RootWindow->GetTitle());
 
 
-	SetupEditorLayout(RootWindow.get());
-	DE_LOG(Launch, Display, TEXT("Setup EditorLayout"));
+	EditorLayout.SetupEditorLayout(RootWindow.get());
+	DE_LOG(Launch, Log, TEXT("Setup EditorLayout"));
 
 
 	
@@ -141,7 +166,7 @@ int32 FEngineLoop::PreInit(const TCHAR* CmdLine)
 int32 FEngineLoop::Init()
 {
 	RHIPostInit();
-	DE_LOG(Launch, Display, TEXT("RHI Post init"));
+	DE_LOG(Launch, Log, TEXT("RHI Post init"));
 
 
 

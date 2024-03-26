@@ -27,13 +27,6 @@ protected:
 	TSharedPtr<FSceneViewport> Viewport;
 	TSharedPtr<FViewportClient>	ViewportClient;
 	FVector2D ViewportSize;
-
-private:
 	float Delta = 0.f;
-
-
-
-
-
 
 };

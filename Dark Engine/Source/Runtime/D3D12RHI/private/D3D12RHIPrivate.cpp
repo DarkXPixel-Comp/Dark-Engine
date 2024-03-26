@@ -65,7 +65,7 @@ void FD3D12DynamicRHI::Init()
 TSharedPtr<FRHIViewport> FD3D12DynamicRHI::RHICreateViewport(void* WindowHandle, uint32 SizeX, uint32 SizeY, bool bIsFullscreen)
 {
 	FD3D12Viewport* RenderingViewport = new FD3D12Viewport(&GetAdapter(), HWND(WindowHandle), SizeX, SizeY,
-		bIsFullscreen, EPixelFormat::PF_B8G8R8A8_UNORM);
+		bIsFullscreen, EPixelFormat::PF_R8G8B8A8_UNORM);
 	RenderingViewport->Init();
 
 #ifdef IMGUI
@@ -73,7 +73,7 @@ TSharedPtr<FRHIViewport> FD3D12DynamicRHI::RHICreateViewport(void* WindowHandle,
 	ImGuiDescriptorHandle = DescriptorManager.Allocate(ERHIDescriptorHeapType::Standart);
 
 	ImGui_ImplDX12_Init(GetAdapter().GetD3DDevice(), RenderingViewport->GetCountBackBuffers(),
-		GetDXGIFormat(EPixelFormat::PF_B8G8R8A8_UNORM),
+		GetDXGIFormat(EPixelFormat::PF_R8G8B8A8_UNORM),
 		DescriptorManager.GetHeap(ERHIDescriptorHeapType::Standart)->GetHeap(),
 		DescriptorManager.GetHeap(ERHIDescriptorHeapType::Standart)->GetCPUSlotHandle(ImGuiDescriptorHandle.GetIndex()),
 		DescriptorManager.GetGpuHandle(ImGuiDescriptorHandle));
@@ -111,7 +111,7 @@ FD3D12Texture* FD3D12DynamicRHI::CreateD3D12Texture(const FRHITextureCreateDesc&
 	D3D12_HEAP_PROPERTIES TextureHeapProperties = {};
 	TextureHeapProperties.Type = D3D12_HEAP_TYPE_DEFAULT;
 	
-	const FLOAT Color[4] = { 1.0f, 0.f, 0.f, 1.f};
+	const FLOAT Color[4] = { 0.0f, 0.f, 0.f, 1.f};
 
 	D3D12_CLEAR_VALUE ClearValue = {};
 	ClearValue.Format = GetDXGIFormat(CreateDesc.Format);
@@ -134,24 +134,6 @@ FD3D12Texture* FD3D12DynamicRHI::CreateD3D12Texture(const FRHITextureCreateDesc&
 	DX12::SetName(TextureResource, CreateDesc.DebugName);
 
 	NewTexture->CreateViews();
-
-
-	FD3D12CommandContext& Context = GetAdapter().GetDevice()->GetDefaultCommandContext();
-	Context.TransitionResource(TextureResource, D3D12_RESOURCE_STATE_COMMON,
-		D3D12_RESOURCE_STATE_RENDER_TARGET, 0);
-
-
-
-
-	Context.GetCommandList().GetGraphicsCommandList()->ClearRenderTargetView(NewTexture->RenderTargetViews[0]->GetCpuHandle(),
-		Color, 0, nullptr);
-	Context.TransitionResource(TextureResource, D3D12_RESOURCE_STATE_RENDER_TARGET,
-		D3D12_RESOURCE_STATE_PIXEL_SHADER_RESOURCE, 0);
-
-	//Context.GetCommandList().GetGraphicsCommandList()->Dra
-	Context.FlushCommands();
-
-
 
 	return NewTexture;
 }

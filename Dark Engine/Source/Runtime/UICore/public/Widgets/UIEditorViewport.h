@@ -15,13 +15,14 @@ public:
 	void Update(float DeltaTime);
 	void DrawImGui();
 	void OnResize(int32 NewX, int32 NewY);
-
-
-
+	void SetResolution(int32 Width, int32 Height);
+	void SetColorBackground(FVector InColor);
+	
 private:
 	TSharedPtr<FEditorViewportClient> EditorViewportClient;
 	TSharedPtr<FSceneViewport> SceneViewport;
 	FIntPoint LastSize;
+	bool SkipImage = false;
 
 
 };

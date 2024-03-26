@@ -13,9 +13,9 @@ void FSceneViewport::InitRHI()
 {
 	RTTSize = FIntPoint(0, 0);
 
-
 	BufferedShaderResourceTextureRHI.Reset();
 	BufferedRenderTargetRHI.Reset();
+	RenderTargetTextureRHI.Reset();
 
 
 
@@ -26,7 +26,7 @@ void FSceneViewport::InitRHI()
 	const FRHITextureCreateDesc Desc =
 		FRHITextureCreateDesc::Create2D(TEXT("BufferRT"))
 		.SetExtent(GetSize())
-		.SetFormat(EPixelFormat::PF_B8G8R8A8_UNORM)
+		.SetFormat(EPixelFormat::PF_R8G8B8A8_UNORM)
 		.SetFlags(ETextureCreateFlags::RenderTargetable | ETextureCreateFlags::ShaderResource)
 		.SetInitialState(ERHIAcces::SRVGraphics);
 

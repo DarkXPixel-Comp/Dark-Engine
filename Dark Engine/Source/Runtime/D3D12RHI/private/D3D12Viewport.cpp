@@ -264,7 +264,7 @@ bool FD3D12Viewport::Present(bool bVsync)
 	UINT Flags = 0;
 	if (!bVsync && !bIsFullscreen)
 	{
-		Flags |= DXGI_PRESENT_ALLOW_TEARING;
+		//Flags |= DXGI_PRESENT_ALLOW_TEARING;
 	}
 
 	if (SwapChain4)

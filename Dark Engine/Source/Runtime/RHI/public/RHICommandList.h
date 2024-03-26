@@ -131,6 +131,10 @@ public:
 	}
 	void InitializeContexts();
 
+	void ClearTextureColor(FRHITexture* InTexture, FVector InColor)
+	{
+		GetContext().RHIClearTextureColor(InTexture, InColor);
+	}
 
 
 };

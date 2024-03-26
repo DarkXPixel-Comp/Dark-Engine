@@ -71,7 +71,7 @@ if(MSVC)
 endif()
 
 
-project("Dark Engine" VERSION 0.0.13)
+project("Dark Engine" VERSION 0.0.15)
 
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 

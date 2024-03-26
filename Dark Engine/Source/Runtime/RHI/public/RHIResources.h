@@ -302,7 +302,7 @@ public:
 
 	virtual void* GetNativeResource() const { return nullptr; }
 	virtual void* GetNativeShaderResourceView() const { return nullptr; }
-	FIntPoint GetSize() const { return TextureDesc.Extent; }
+	virtual FIntPoint GetSize() const { return TextureDesc.Extent; }
 	virtual const FRHITextureDesc& GetDesc() const { return TextureDesc; }
 
 protected:

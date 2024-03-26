@@ -1,6 +1,7 @@
 #include "Widgets/UIEditorViewport.h"
 #include "Engine/EditorViewportClient.h"
 #include "Engine/SceneViewport.h"
+#include "RHICommandList.h"
 
 
 
@@ -13,6 +14,7 @@ UIEditorViewport::UIEditorViewport():
 	EditorViewportClient->Viewport = SceneViewport.get();
 	Size = FIntPoint(-1, -1);
 	SceneViewport->SetSize(Size.X, Size.Y);
+	SceneViewport->Resize(1280, 720);
 
 
 
@@ -33,13 +35,11 @@ void UIEditorViewport::ConstructEditorViewportClient()
 
 void UIEditorViewport::Update(float DeltaTime)
 {
-	if (Size != LastSize)
+	UIViewport::Update(DeltaTime);
+	/*if (!SceneViewport->GetRenderTargetTexture())
 	{
-		OnResize(Size.X, Size.Y);
-		LastSize = Size;
-		return;
-	}
-
+		SceneViewport->Resize(1280, 720);
+	}*/
 }
 
 void UIEditorViewport::DrawImGui()
@@ -49,21 +49,45 @@ void UIEditorViewport::DrawImGui()
 		ImVec2 ImSize = ImGui::GetWindowSize();
 		Size = FIntPoint(ImSize.x, ImSize.y);
 
-		TRefCountPtr<FRHITexture> Texture = SceneViewport->GetRenderTargetTexture();
+		FRHITexture* Texture = SceneViewport->GetRenderTargetTexture().Get();
 		if (Texture)
 		{  
 			ImGui::SetCursorPos(ImVec2(0, 0));
 			ImVec2 SSize = { static_cast<float>(Texture->GetSize().X),  static_cast<float>(Texture->GetSize().Y) };
-			ImGui::Image(Texture->GetNativeShaderResourceView(), SSize, ImVec2(0, 0),
+			ImGui::Image(Texture->GetNativeShaderResourceView(), ImSize, ImVec2(0, 0),
 				ImVec2(1, 1), ImVec4(1, 1, 1, 1), ImVec4(0, 0, 0, 0));
 		}
+
+
+		ImGui::SetCursorPos(ImVec2(5, 30));
+		float Fps = 1 / Delta;
+
+		ImGui::Text(-FString::NumToString((int)Fps));
 		ImGui::End();
 	}
 }
 
 void UIEditorViewport::OnResize(int32 NewX, int32 NewY)
 {
-	SceneViewport->Resize(NewX, NewY);
+	//if (!SceneViewport->GetRenderTargetTexture())
+	//{
+	//	SceneViewport->Resize(NewX, NewY);
+	//}
+}
+
+void UIEditorViewport::SetResolution(int32 Width, int32 Height)
+{
+	if (SceneViewport->GetRenderTargetTexture())
+	{
+		SceneViewport->Resize(Width, Height);
+	}
+}
+
+void UIEditorViewport::SetColorBackground(FVector InColor)
+{
+	FRHICommandListImmediate& CmdList =  GRHICommandList.GetImmediateCommandList();
+	
+	CmdList.ClearTextureColor(SceneViewport->GetRenderTargetTexture().Get(), InColor);
 }
 
 

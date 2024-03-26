@@ -45,4 +45,6 @@ public:
 	virtual void RHISetShaderSampler(FRHIGraphicsShader* Shader, uint32 SamplerIndex, FRHISamplerState* State) {}
 	virtual void RHIBeginImGui() = 0;
 	virtual void RHIEndImGui() = 0;
+	virtual void RHIClearTextureColor(FRHITexture* InTexture, FVector InColor) = 0;
+
 };

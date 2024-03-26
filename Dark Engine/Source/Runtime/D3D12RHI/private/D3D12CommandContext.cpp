@@ -146,7 +146,6 @@ void FD3D12CommandContext::RHIBeginFrame()
 	//ID3D12DescriptorHeap* Heaps[] = { FD3D12DynamicRHI::GetD3D12RHI()->ImGuiDescriptorHeap->GetHeap() };
 	ID3D12DescriptorHeap* Heaps[] = { FD3D12DeviceChild::Parent->GetBindlessDescriptorManager().
 		GetHeap(ERHIDescriptorHeapType::Standart)->GetHeap()};
-	Viewport->GetCurrentBackBuffer()->RenderTargetViews[0]->GetCpuHandle();
 
 
 
@@ -226,6 +225,30 @@ void FD3D12CommandContext::SetRenderTargetsAndClear(const FRHISetRenderTargetInf
 {
 	//GetCommandList().GetGraphicsCommandList()->ClearRenderTargetView();
 	SetRenderTargets(RenderTargetsInfo.NumColorRenderTargets, RenderTargetsInfo.ColorRenderTarget, &RenderTargetsInfo.DepthStencilRenderTarget, true);
+}
+
+void FD3D12CommandContext::RHIClearTextureColor(FRHITexture* InTexture, FVector InColor)
+{
+	FD3D12Texture* D3DTexture = static_cast<FD3D12Texture*>(InTexture);
+
+
+	TransitionResource(D3DTexture->GetResource(), D3DTexture->GetResource()->GetCurrentState(),
+		D3D12_RESOURCE_STATE_RENDER_TARGET, 0);
+
+
+	FLOAT Color[4];
+	for (int32 i = 0; i < 3; ++i)
+	{
+		Color[i] = InColor[i];
+	}
+	Color[3] = 1;
+
+
+	GetCommandList().GetGraphicsCommandList()->ClearRenderTargetView(D3DTexture->RenderTargetViews[0]->GetCpuHandle(),
+		Color, 0, nullptr);
+	TransitionResource(D3DTexture->GetResource(), D3D12_RESOURCE_STATE_RENDER_TARGET,
+		D3D12_RESOURCE_STATE_PIXEL_SHADER_RESOURCE, 0);
+
 }
 
 void FD3D12CommandContextBase::RHISetViewport(float MinX, float MinY, float MinZ, float MaxX, float MaxY, float MaxZ)

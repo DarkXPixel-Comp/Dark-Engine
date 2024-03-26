@@ -19,7 +19,7 @@ public:
 	UIWidget(FString InName = TEXT("UIWidget")):
 		Name(InName)
 	{
-		DE_LOG(UICoreLog, Display, TEXT("Create %s"), *Name);
+		DE_LOG(UICoreLog, Log, TEXT("Create %s"), *Name);
 	}
 	virtual void Update(float DeltaTime)
 	{

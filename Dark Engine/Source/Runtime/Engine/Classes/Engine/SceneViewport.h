@@ -25,6 +25,4 @@ private:
 	FIntPoint RTTSize;
 	TRefCountPtr<FRHITexture> BufferedRenderTargetRHI;
 	TRefCountPtr<FRHITexture> BufferedShaderResourceTextureRHI;
-
-
 };

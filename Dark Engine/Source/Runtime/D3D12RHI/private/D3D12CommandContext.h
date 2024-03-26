@@ -112,6 +112,7 @@ public:
 	void SetRenderTargetsAndClear(const FRHISetRenderTargetInfo& RenderTargetsInfo);
 	void RHISetShaderParameter(FRHIGraphicsShader* ShaderRHI, uint32 BufferIndex, uint32 Offset,
 		uint32 Size, const void* Data);
+	void RHIClearTextureColor(FRHITexture* InTexture, FVector InColor);
 
 
 private:
