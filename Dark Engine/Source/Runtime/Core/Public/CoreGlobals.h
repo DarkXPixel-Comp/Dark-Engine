@@ -13,3 +13,8 @@ FORCEINLINE bool IsExitRequested()
 {
 	return GIsRequestingExit;
 }
+
+FORCEINLINE void RequestExit()
+{
+	GIsRequestingExit = true;
+}

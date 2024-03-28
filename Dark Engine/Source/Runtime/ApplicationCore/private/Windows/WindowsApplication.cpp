@@ -255,6 +255,14 @@ int32 FWindowsApplication::ProcessMessage(HWND hWnd, uint32 Msg, WPARAM wParam, 
 
 		break;
 
+		case WM_MOVE:
+		{
+			FIntPoint NewPosition = FIntPoint((int)(short)LOWORD(lParam), (int)(short)HIWORD(lParam));
+
+			MessageHandler->OnMovedWindow(CurrentWindow, NewPosition);
+		}
+		break;
+
 		case WM_SIZE:
 		{
 			if (CurrentWindow)

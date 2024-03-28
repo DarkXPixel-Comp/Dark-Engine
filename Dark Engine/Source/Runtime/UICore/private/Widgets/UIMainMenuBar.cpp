@@ -15,37 +15,32 @@ UIMainMenuBar::UIMainMenuBar() : UIWidget(TEXT("UIMainMenuBar"))
 
 void UIMainMenuBar::DrawImGui()
 {
-	//Owner->GetNativeWindow()->bTitleBarHovarered = false;
-	const float TitleBarHeight = 58.0f;
-	const bool IsMaximized = Owner->GetNativeWindow()->IsMaximized();
-	float TitleBarVerticalOffset = IsMaximized ? -6.0f : 0.0f;
+	bool bIsMaximized = Owner->GetNativeWindow()->IsMaximized();
+
+	const float TitleBarHeight = 58.f;
+	float TitleBarVerticalOffset = bIsMaximized ? -6.f : 0.f;
 	const ImVec2 WindowPadding = ImGui::GetCurrentWindow()->WindowPadding;
 
-	ImGui::SetCursorPos((ImVec2(WindowPadding.x, WindowPadding.y + TitleBarVerticalOffset)));
+	ImGui::SetCursorPos(ImVec2(WindowPadding.x, WindowPadding.y + TitleBarVerticalOffset));
 	const ImVec2 TitleBarMin = ImGui::GetCursorScreenPos();
-	const ImVec2 TitleBarMax = { ImGui::GetCursorScreenPos().x + ImGui::GetWindowWidth() - WindowPadding.y * 2.f,
+	const ImVec2 TitleBarMax = { ImGui::GetCursorScreenPos().x + ImGui::GetWindowWidth() - WindowPadding.y * 2.0f,
 								ImGui::GetCursorScreenPos().y + TitleBarHeight };
 	auto* BgDrawList = ImGui::GetBackgroundDrawList();
 	auto* FgDrawList = ImGui::GetForegroundDrawList();
-
 	BgDrawList->AddRectFilled(TitleBarMin, TitleBarMax, ImGui::GetColorU32(ImVec4(0, 0, 0, 1)));
 
-	ImGui::BeginHorizontal("TitleBar", {ImGui::GetWindowWidth() - WindowPadding.y * 2.f, 
-		ImGui::GetFrameHeightWithSpacing()});
-
-	static float MoveOffsetX = 0.f;
-	static float MoveOffsetY = 0.f;
+	ImGui::BeginHorizontal("TitleBar", { ImGui::GetWindowWidth() - WindowPadding.y * 2.f, ImGui::GetFrameHeightWithSpacing() });
 
 	const float W = ImGui::GetContentRegionAvail().x;
 	const float ButtonAreaWidth = 94;
 
-	ImGui::SetCursorPos(ImVec2(WindowPadding.x , WindowPadding.y + TitleBarVerticalOffset));
-	ImGui::InvisibleButton("##titleBarDragZone", ImVec2(W, TitleBarHeight));
+	ImGui::SetCursorPos(ImVec2(WindowPadding.x, WindowPadding.y + TitleBarVerticalOffset));
+	ImGui::SetNextItemAllowOverlap();
+	ImGui::InvisibleButton("##TitleBarDragZone", ImVec2(W - ButtonAreaWidth, TitleBarHeight));
 
-	Owner->GetNativeWindow()->bTitleBarHovarered = ImGui::IsItemHovered(ImGuiHoveredFlags_DockHierarchy);
+	Owner->GetNativeWindow()->bTitleBarHovarered = ImGui::IsItemHovered();
 
-
-	if (IsMaximized)
+	if (bIsMaximized)
 	{
 		float WindowMousePosY = ImGui::GetMousePos().y - ImGui::GetCursorScreenPos().y;
 		if (WindowMousePosY >= 0.f && WindowMousePosY <= 5.f)
@@ -54,55 +49,70 @@ void UIMainMenuBar::DrawImGui()
 		}
 	}
 
+	ImGui::SuspendLayout();
 
-	if (MenuItems.Num())
+
+
+	const float LogoHorizontalOffset = 16.f * 2.f + 48.f + WindowPadding.x;
+	ImGui::SetCursorPos(ImVec2(LogoHorizontalOffset, 6.f + TitleBarVerticalOffset));
+
+	const ImRect MenuBarRect = { ImGui::GetCursorPos(), {ImGui::GetContentRegionAvail().x +
+	ImGui::GetCursorScreenPos().x, ImGui::GetFrameHeightWithSpacing()} };
+
+	/*if (ImGui::Button("tt"))
 	{
-		ImGui::SuspendLayout();
-		ImGui::SetItemAllowOverlap();
-		const float LogoHorizontalOffset = 16.f * 2.f + 48.f + WindowPadding.x;
-		ImGui::SetCursorPos(ImVec2(LogoHorizontalOffset, 6.f + TitleBarVerticalOffset));
-		DrawMenuBar();
-		if (ImGui::IsItemHovered())
+		GIsRequestingExit = true;
+	}*/
+
+	ImGui::BeginGroup();
+	if (ImDark::BeginMenubar(MenuBarRect))
+	{
+		for (auto& Menu : MenuItems)
 		{
-			Owner->GetNativeWindow()->bTitleBarHovarered = false;
+			Menu->DrawImGui();
 		}
 
 
-		ImGui::ResumeLayout();
 
+		//if (ImGui::BeginMenu("File"))
+		//{
+		//	if (ImGui::MenuItem("Exit"))
+		//	{
+		//		GIsRequestingExit = true;
+		//	}
+		//	ImGui::EndMenu();
+		//}
 	}
-	
+	ImDark::EndMenubar();
+	ImGui::EndGroup();
 
+
+	/*ImGui::BeginGroup();
+
+
+	ImDark::EndMenubar();
+	ImGui::EndGroup();*/
+
+	if (ImGui::IsItemHovered())
 	{
-		ImVec2 CurrentCursorPos = ImGui::GetCursorPos();
-		ImVec2 TextSize = ImGui::CalcTextSize(-Title);
-		ImGui::SetCursorPos(ImVec2(ImGui::GetWindowWidth() * 0.5f - TextSize.x * 0.5f, 2.f + WindowPadding.y + 6.f));
-		ImGui::Text(-Title);
-		ImGui::SetCursorPos(CurrentCursorPos);
+		Owner->GetNativeWindow()->bTitleBarHovarered = false;
 	}
 
-
-	//const ImU32 buttonColN = ImGui::GetColorU32(ImGui::GetStyle().Colors[ImGuiCol_Text]);
-	//const ImU32 buttonColH = ImGui::GetColorU32(ImGui::GetStyle().Colors[ImGuiCol_Text]);
-	//const ImU32 buttonColP = ImGui::GetColorU32(ImGui::GetStyle().Colors[ImGuiCol_Text]);
-	//const float buttonWidth = 14.0f;
-	//const float buttonHeight = 14.0f;
-
-	//ImGui::Spring();
-	//
-	//ImGui::SetCursorPosY(ImGui::GetCursorPosY() + 8.f);
-
-	//{
-	//	const int Icon
-	//}
+	ImGui::ResumeLayout();
 
 
 
-	//ImGui::Spring(-1.f, 18.f);
+	ImVec2 CurrentCursorPos = ImGui::GetCursorPos();
+	ImVec2 TextSize = ImGui::CalcTextSize("Dark Engine");
+	ImGui::SetCursorPos(ImVec2(ImGui::GetWindowWidth() * 0.5f - TextSize.x * 0.5f, 2.f + WindowPadding.y + 6.f));
+	ImGui::Text("Dark Engine");
+	ImGui::SetCursorPos(CurrentCursorPos);
+
 	ImGui::EndHorizontal();
 
 
 	ImGui::SetCursorPosY(TitleBarHeight);
+
 
 }
 

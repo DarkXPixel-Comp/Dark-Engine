@@ -38,6 +38,7 @@ public:
 		const FVector2D CursorPos);
 	virtual bool OnMouseUp(const EMouseButtons::Type Button,
 		const FVector2D CursorPos) override;
+	virtual bool OnMovedWindow(const TSharedPtr<FGenericWindow>& Window, FIntPoint NewPosition) override;
 
 public:
 	void InitializeRenderer(TSharedPtr<FUIRenderer> InRenderer);

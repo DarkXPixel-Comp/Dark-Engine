@@ -130,7 +130,7 @@ FD3D12CpuDescriptor FD3D12CpuDescriptorManager::AllocateHeapSlot()
 	}
 
 
-	DE_LOG(D3D12RHI, Log, TEXT("Alloc slot (%i)"), Result.ptr);
+	//DE_LOG(D3D12RHI, Log, TEXT("Alloc slot (%i)"), Result.ptr);
 
 	return Result;
 }
@@ -179,7 +179,7 @@ void FD3D12CpuDescriptorManager::FreeHeapSlot(FD3D12CpuDescriptor& Descriptor)
 		HeapEntry.FreeList.Add(NewRange);
 	}
 
-	DE_LOG(D3D12RHI, Log, TEXT("Free slot (%i)"), Descriptor.ptr);
+	//DE_LOG(D3D12RHI, Log, TEXT("Free slot (%i)"), Descriptor.ptr);
 	Descriptor = {};
 }
 

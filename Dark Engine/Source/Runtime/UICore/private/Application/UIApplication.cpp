@@ -120,6 +120,12 @@ bool UIApplication::OnMouseUp(const EMouseButtons::Type Button, const FVector2D 
 	return true;
 }
 
+bool UIApplication::OnMovedWindow(const TSharedPtr<FGenericWindow>& Window, FIntPoint NewPosition)
+{
+	//DrawWindows();
+	return true;
+}
+
 void UIApplication::InitializeRenderer(TSharedPtr<FUIRenderer> InRenderer)
 {
 	check(InRenderer);

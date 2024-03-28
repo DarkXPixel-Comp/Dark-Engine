@@ -8,7 +8,6 @@
 class Logger;
 
 Logger* Logger::inst;
-Logger l;
 
 
 Logger::Logger()
@@ -22,6 +21,8 @@ Logger::Logger()
 
 void Logger::Initialize(size_t s)
 {
+	inst = new Logger();
+
 	inst->severity = (s);
 	inst->isWork = true;
 	inst->Logs.resize(256);
@@ -38,7 +39,15 @@ void Logger::Initialize(size_t s)
 
 void Logger::Exit()
 {
-	inst->isWork = false;
+	if (inst)
+	{
+		inst->wait();
+		inst->isWork = false;
+		inst->logs.clear();
+		inst->Logs.clear();
+		delete inst;
+		inst = nullptr;
+	}
 }
 
 void record(log_& obj)
@@ -240,8 +249,11 @@ void Logger::exLog(FString logTxt, LOGGER_ENUM severenty)
 
 void Logger::log(log_ InLog)
 {
-	/*InLog.time = time(0);
-	inst->logs.push_back(InLog);*/
+	if (inst && inst->isWork)
+	{
+		InLog.time = time(0);
+		inst->logs.push_back(InLog);
+	}
 }
 
 

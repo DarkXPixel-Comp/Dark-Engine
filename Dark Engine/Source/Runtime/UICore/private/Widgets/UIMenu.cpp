@@ -27,11 +27,6 @@ void UIMenu::DrawImGui()
 
 void UIMenu::Update(float DeltaTime)
 {
-	Size = FIntPoint(ImGui::CalcTextSize(Name.GetStr()).x + 25, ImGui::CalcTextSize(Name.GetStr()).y);
-	Position = 0;
-
-	Rect = FIntRect(Position, Size);
-
 	UIWidget::Update(DeltaTime);
 }
 

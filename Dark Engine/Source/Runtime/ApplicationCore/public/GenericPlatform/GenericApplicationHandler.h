@@ -40,6 +40,10 @@ public:
 
 
 
+	virtual bool OnMovedWindow(const TSharedPtr<FGenericWindow>& Window, FIntPoint NewPosition)
+	{
+		return false;
+	}
 
 	virtual bool OnMouseMove()
 	{

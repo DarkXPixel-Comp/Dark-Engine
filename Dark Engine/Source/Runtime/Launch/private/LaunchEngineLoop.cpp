@@ -33,11 +33,27 @@ struct FEditorLayout
 		RootWindow->AddWidget(MainDock);
 
 
+		TSharedPtr<UILogs> Logs = MakeShareble(new UILogs());
+		MainDock->AddChild(Logs);
+		MainDock->SetName(TEXT("Logs"));
+		
+
 		MainMenuBar = MakeShareble(new UIMainMenuBar());
 		MainDock->SetMainMenuBar(MainMenuBar);
 
 		EditorSettings = MakeShareble(new UIEditorSettings());
 		EditorSettings->SetEditorViewport(RootViewport);
+
+		TSharedPtr<UIMenuItem> ExitButton = MakeShareble(new UIMenuItem());
+		ExitButton->SetName(TEXT("Exit"));
+		ExitButton->MenuItemDelegate.Bind([=](bool bPressed)
+			{
+				if (bPressed)
+				{
+					RequestExit();
+				}
+			});
+		
 
 		TSharedPtr<UIMenuItem> CreateSettings = MakeShareble(new UIMenuItem());
 		CreateSettings->SetName(TEXT("Settings"));
@@ -57,6 +73,7 @@ struct FEditorLayout
 		MainMenuBar->AddMenu(File);
 		File->SetName(TEXT("File"));
 		File->AddChild(CreateSettings);
+		File->AddChild(ExitButton);
 		
 
 
@@ -81,7 +98,7 @@ private:
 	TSharedPtr<UIEditorViewport> RootViewport = nullptr;
 	TSharedPtr<UIDock> MainDock = nullptr;
 	TSharedPtr<UIEditorSettings> EditorSettings;
-	TSharedPtr<UIMainMenuBar> MainMenuBar = MakeShareble(new UIMainMenuBar());
+	TSharedPtr<UIMainMenuBar> MainMenuBar;
 
 } EditorLayout;
 
@@ -157,9 +174,10 @@ void FEngineLoop::Tick()
 	Engine->Tick(1);
 
 	UIApplication::Get()->Tick();
+}
 
-
-
-
+void FEngineLoop::Exit()
+{
+	Logger::Exit();
 
 }
