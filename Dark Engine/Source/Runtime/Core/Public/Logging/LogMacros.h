@@ -29,15 +29,15 @@ struct FMsg
 				Verbose = TEXT("Error");
 				break;
 			case ELogVerbosity::Warning:
-				CurrentLog.Color = { 0.7, 0.7, 0.0 };
+				CurrentLog.Color = { 1, 1, 0.0 };
 				Verbose = TEXT("Warning");
 				break;
 			case ELogVerbosity::Display:
-				CurrentLog.Color = { 0.1, 0.1, 0.1 };
+				CurrentLog.Color = { 0.9f, 0.9f, 0.9f };
 				Verbose = TEXT("Display");
 				break;
 			case ELogVerbosity::Log:
-				CurrentLog.Color = { 0.1, 0.1, 0.1 };
+				CurrentLog.Color = { 0.9f, 0.9f, 0.9f };
 				Verbose = TEXT("Log");
 				break;
 			default:

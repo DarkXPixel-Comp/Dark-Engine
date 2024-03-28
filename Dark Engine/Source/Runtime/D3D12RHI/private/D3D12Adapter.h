@@ -77,12 +77,14 @@ public:
 	FD3D12Viewport* GetDrawingViewport() const { return DrawingViewport; }
 
 
+
 private:
 	FD3D12AdapterDesc Desc = {};
 	ComPtr<ID3D12Device> RootDevice;
 	ComPtr<IDXGIFactory7> DXGIFactory;
 	ComPtr<IDXGIAdapter4> DXGIAdapter;
 	TStaticArray<FD3D12Device*, 1> Devices;
+	ComPtr<ID3D12InfoQueue1> InfoQueue;
 
 	bool bDebugDevice;
 	bool bDeviceCreated;

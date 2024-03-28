@@ -103,34 +103,58 @@ void logging(Logger* obj)
 {
 	while (obj->isWork)
 	{
-		while (!obj->logs.empty())
+		std::vector<log_> TempLogs = obj->logs;
+		obj->logs.clear();
+
+		for (auto& i : TempLogs)
 		{
-			auto it = obj->logs.begin();
-
-			if (it == obj->logs.end())
-				continue;
-
-			if (it->ModernLog)
+			if (i.ModernLog)
 			{
-				ModernLog(*it);
-				record(*it);
+				ModernLog(i);
+				record(i);
 			}
 			else
 			{
-				record(*it);
+				record(i);
 			}
 			//std::cout << it->txt;
 
-			
+
 			if (obj->CountCurrentLogs >= 256)
 			{
 				obj->CountCurrentLogs = 0;
 			}
-			obj->Logs[obj->CountCurrentLogs++] = *it;
+			obj->Logs[obj->CountCurrentLogs++] = i;
 			obj->MaxCountLogs = FPlatformMath::Max(obj->MaxCountLogs, obj->CountCurrentLogs);
-
-			obj->logs.erase(it);
 		}
+		//while (!TempLogs.empty())
+		//{
+		//	auto it = obj->logs.begin();
+
+		//	if (it == obj->logs.end())
+		//		continue;
+
+		//	if (it->ModernLog)
+		//	{
+		//		ModernLog(*it);
+		//		record(*it);
+		//	}
+		//	else
+		//	{
+		//		record(*it);
+		//	}
+		//	//std::cout << it->txt;
+
+		//	
+		//	if (obj->CountCurrentLogs >= 256)
+		//	{
+		//		obj->CountCurrentLogs = 0;
+		//	}
+		//	obj->Logs[obj->CountCurrentLogs++] = *it;
+		//	obj->MaxCountLogs = FPlatformMath::Max(obj->MaxCountLogs, obj->CountCurrentLogs);
+
+		//	TempLogs.erase(it);
+		//}
 
 		std::this_thread::sleep_for(std::chrono::microseconds(1000));
 	}

@@ -94,7 +94,7 @@ public:
 
 private:
 	size_t severity = 0;
-	std::list <log_> logs;
+	std::vector <log_> logs;
 	bool isWork = true;
 	const uint64 MAX_LOGS = 1024;
 private:

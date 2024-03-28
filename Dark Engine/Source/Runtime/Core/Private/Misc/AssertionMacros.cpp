@@ -15,7 +15,7 @@ bool VARARGS FDebug::CheckVerifyFailedImpl(
 	const TCHAR* Format,
 	...)
 {
-	DE_LOG(AssertMacros, Display, TEXT("%s in %s(%i)"), *FString(Expr), *FString(File), Line);
+	DE_LOG(AssertMacros, Warning, TEXT("%s in %s(%i)"), *FString(Expr), *FString(File), Line);
 
 	
 	return true;

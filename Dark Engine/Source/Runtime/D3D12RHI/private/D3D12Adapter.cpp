@@ -4,6 +4,46 @@
 #include <D3D12Util.h>
 
 
+DECLARE_LOG_CATEGORY(D3D12Callback, Display);
+
+
+
+/*DEFINE_ENUM_FLAG_OPERATORS(D3D12_MESSAGE_CALLBACK_FLAGS)
+typedef void ( __stdcall *D3D12MessageFunc )( 
+    D3D12_MESSAGE_CATEGORY Category,
+    D3D12_MESSAGE_SEVERITY Severity,
+    D3D12_MESSAGE_ID ID,
+    LPCSTR pDescription,
+    void *pContext);
+*/
+
+void D3D12MessageCallBack(D3D12_MESSAGE_CATEGORY Category, D3D12_MESSAGE_SEVERITY Severity,
+	D3D12_MESSAGE_ID ID, LPCSTR Description, void* pContext)
+{
+	switch (Severity)
+	{
+	case D3D12_MESSAGE_SEVERITY_CORRUPTION:
+		DE_LOG(D3D12Callback, Display, TEXT("%s"), *FString(Description));
+		break;
+	case D3D12_MESSAGE_SEVERITY_ERROR:
+		DE_LOG(D3D12Callback, Error, TEXT("%s"), *FString(Description));
+		break;
+	case D3D12_MESSAGE_SEVERITY_WARNING:
+		DE_LOG(D3D12Callback, Warning, TEXT("%s"), *FString(Description));
+		break;
+	case D3D12_MESSAGE_SEVERITY_INFO:
+		DE_LOG(D3D12Callback, Log, TEXT("%s"), *FString(Description));
+		break;
+	case D3D12_MESSAGE_SEVERITY_MESSAGE:
+		DE_LOG(D3D12Callback, Log, TEXT("%s"), *FString(Description));
+		break;
+	}
+}
+
+
+
+
+
 FD3D12AdapterDesc::FD3D12AdapterDesc() = default;
 FD3D12AdapterDesc::FD3D12AdapterDesc(const DXGI_ADAPTER_DESC& InDesc, int32 InAdapterIndex)
 	: Desc(InDesc)
@@ -63,6 +103,7 @@ void FD3D12Adapter::InitializeDevices()
 
 }
 
+#undef GetMessage
 
 void FD3D12Adapter::CreateRootDevice(bool bWithDebug)
 {
@@ -79,7 +120,7 @@ void FD3D12Adapter::CreateRootDevice(bool bWithDebug)
 
 			DebugController5->SetEnableGPUBasedValidation(TRUE);
 			DebugController5->SetEnableAutoName(TRUE);
-
+						
 			DE_LOG(D3D12RHI, Log, TEXT("Debug layer enable"));
 		}
 		else
@@ -106,5 +147,20 @@ void FD3D12Adapter::CreateRootDevice(bool bWithDebug)
 		DE_LOG(D3D12RHI, Error, TEXT("Device not Created"));
 	}
 
+
+	if (bWithDebug)
+	{
+		DXCall(RootDevice->QueryInterface(IID_PPV_ARGS(&InfoQueue)));
+		DWORD Out = 0;
+
+
+		InfoQueue->RegisterMessageCallback(D3D12MessageCallBack, D3D12_MESSAGE_CALLBACK_FLAG_NONE,
+			nullptr, &Out);
+		//InfoQueue->AddMessage(D3D12_MESSAGE_CATEGORY_INITIALIZATION, D3D12_MESSAGE_SEVERITY_INFO, D3D12_MESSAGE_ID_COPYRESOURCE_NULLDST, "TEST");
+
+	}
+
+
 }
+
 

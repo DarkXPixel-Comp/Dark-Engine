@@ -15,8 +15,8 @@ void UILogs::DrawImGui()
 		auto Logs = Logger::GetLogs();
 		for (uint32 i = 0; i < Logger::GetMaxCountLogs(); ++i)
 		{
-			//ImGui::TextColored(FVectorToImVec4(Logs[i].Color), -Logs[i].Result);
-			ImGui::Text(-Logs[i].Result);
+			ImGui::TextColored(FVectorToImVec4(Logs[i].Color), -Logs[i].Result);
+			//ImGui::Text(-Logs[i].Result);
 		}
 		if (LastLogsSize != Logger::GetCurrentCountLogs())
 		{

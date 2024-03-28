@@ -41,6 +41,13 @@ struct FEditorLayout
 		MainMenuBar = MakeShareble(new UIMainMenuBar());
 		MainDock->SetMainMenuBar(MainMenuBar);
 
+		RootViewport = MakeShareble(new UIEditorViewport());
+		{
+			RootViewport->SetName(TEXT("EditorViewport"));
+			MainDock->AddChild(RootViewport);
+		}
+
+
 		EditorSettings = MakeShareble(new UIEditorSettings());
 		EditorSettings->SetEditorViewport(RootViewport);
 
@@ -76,12 +83,6 @@ struct FEditorLayout
 		File->AddChild(ExitButton);
 		
 
-
-		RootViewport = MakeShareble(new UIEditorViewport());
-		{
-			RootViewport->SetName(TEXT("EditorViewport"));
-			MainDock->AddChild(RootViewport);
-		}
 
 
 		//RootWindow->AddWidget(MainDock);

@@ -126,7 +126,7 @@ FD3D12Texture* FD3D12DynamicRHI::CreateD3D12Texture(const FRHITextureCreateDesc&
 	TRefCountPtr<ID3D12Resource> D3DTextureResource;
 
 	DXCall(Device->GetDevice()->CreateCommittedResource(&TextureHeapProperties, D3D12_HEAP_FLAG_NONE, &TextureDesc,
-		D3D12_RESOURCE_STATE_COMMON, &ClearValue, IID_PPV_ARGS(&D3DTextureResource)));
+		D3D12_RESOURCE_STATE_COMMON, nullptr, IID_PPV_ARGS(&D3DTextureResource)));
 
 	FD3D12Resource* TextureResource = new FD3D12Resource(Device, D3DTextureResource.Get(),
 		D3D12_RESOURCE_STATE_COMMON, TextureDesc);

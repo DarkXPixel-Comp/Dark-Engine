@@ -67,7 +67,8 @@ public:
 			{ \
 				if (FDebug::CheckVerifyFailedImpl(#expr, __FILE__, __LINE__, PLATFORM_RETURN_ADDRESS(), TEXT(""))) \
 				{ \
-					PLATFORM_BREAK(); \
+					if(IsDebuggerPresent())\
+						{PLATFORM_BREAK();} \
 				} \
 			} \
 		}
