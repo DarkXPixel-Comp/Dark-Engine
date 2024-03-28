@@ -33,7 +33,9 @@ protected:
 class FViewport	 : public FRenderTarget
 {
 public:
-	void Draw(FViewportClient* InViewport);
+	FViewport(FViewportClient* InViewportClient);
+
+	void Draw();
 
 	FViewportClient* GetClient() const { return ViewportClient; }
 

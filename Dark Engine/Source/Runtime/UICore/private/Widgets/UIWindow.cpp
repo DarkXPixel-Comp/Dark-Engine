@@ -32,6 +32,20 @@ void UIWindow::ShowWindow()
 void UIWindow::Update(float DeltaTime)
 {
 	NativeWindow->SetTitle(Title);
+
+	for (auto& Widget : DeferedAddWidgets)
+	{
+		Widgets.Add(Widget);
+		Widget->InitWindow(this);
+	}
+	for (auto& Widget : DeferedRemoveWidgets)
+	{
+		Widgets.Remove(Widget);
+	}
+	DeferedAddWidgets.Empty();
+	DeferedRemoveWidgets.Empty();
+	
+
 	for (auto& Widget : Widgets)
 	{
 		Widget->Update(DeltaTime);

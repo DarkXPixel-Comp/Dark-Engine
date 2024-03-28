@@ -40,8 +40,6 @@ void FUIRHIRenderer::Resize(UIWindow* InWindow, const int32 Width, const int32 H
 	Info->Width = Width;
 	Info->Height = Height;
 	Info->ViewportRHI->Resize(Width, Height, bWasMinimized);
-
-
 }
 
 void FUIRHIRenderer::DrawWindows(const TArray<TSharedPtr<UIWindow>>& InWindows)

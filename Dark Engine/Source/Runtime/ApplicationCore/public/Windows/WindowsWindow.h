@@ -32,8 +32,6 @@ struct FGenericWindowDefinition;
 
 class DENGINE_API FWindowsWindow  : public FGenericWindow, public IDropTarget
 {
-	friend FWindowsWindowManager;
-
 public:
 	static const TCHAR AppWindowClass[];
 
@@ -82,7 +80,7 @@ public:
 	int32 GetWindowBorderSize() const;
 	int32 GetWindowTitleBarSize() const;
 
-	bool IsMaximized() const { return IsZoomed(HWnd); }
+	virtual bool IsMaximized() const { return IsZoomed(HWnd); }
 
 
 	UINT GetWitdh() { return VirtualWidth; }

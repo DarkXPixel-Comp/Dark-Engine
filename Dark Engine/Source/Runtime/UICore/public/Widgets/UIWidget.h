@@ -35,6 +35,7 @@ public:
 	FString	GetName() const { return Name; }
 	void SetName(FString InName) { Name = InName; }
 	void AddChild(TSharedPtr<UIWidget> Child) { Child->Owner = Owner; ChildWidgets.Add(Child); }
+	void RemoveChild(TSharedPtr<UIWidget> Child) { ChildWidgets.Remove(Child); }
 	FIntRect GetRect() { return Rect; }
 
 	UIWindow* Owner;

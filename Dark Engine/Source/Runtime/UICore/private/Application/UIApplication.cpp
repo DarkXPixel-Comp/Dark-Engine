@@ -19,6 +19,7 @@ TSharedPtr<FGenericApplication> UIApplication::PlatformApplication = nullptr;
 
 
 
+void embraceTheDarkness();
 
 
 
@@ -43,13 +44,79 @@ TSharedPtr<UIApplication> UIApplication::Create()
 }
 
 
+
+TSharedPtr<FGenericWindow> UIApplication::MakeWindow(TSharedPtr<UIWindow> InUIWindow)
+{
+	TSharedPtr<FGenericWindowDefinition> Definition = MakeShareble(new FGenericWindowDefinition());
+
+	const FVector2f Size = InUIWindow->GetInitSizeInScreen();
+	Definition->WidthOnScreen = Size.X;
+	Definition->HeightOnScreen = Size.Y;
+
+
+
+	const FVector2f Position = InUIWindow->GetInitPositionInScreen();
+	Definition->XPositionOnScreen = Position.X;
+	Definition->YPositionOnScreen = Position.Y;
+	Definition->bHasWindowBorder = InUIWindow->HasWindowBorder();
+
+	Definition->Title = InUIWindow->GetTitle();
+
+	TSharedPtr<FGenericWindow> Window = PlatformApplication->MakeWindow();
+
+	InUIWindow->SetNativeWindow(Window);
+
+#ifdef IMGUI
+	InUIWindow->SetImGuiContext(ImGui::CreateContext());
+	InUIWindow->GetImGuiContext()->IO.ConfigFlags |= ImGuiConfigFlags_DockingEnable |
+		ImGuiConfigFlags_ViewportsEnable | ImGuiConfigFlags_NavEnableKeyboard;
+	InUIWindow->GetImGuiContext()->IO.IniFilename = "../Config/UIImgui.ini";
+//	InUIWindow->GetImGuiContext()->IO.ConfigFlags |= ImGuiConfigFlags_NoMouseCursorChange;
+
+	ImGui::Spectrum::LoadFont();
+	embraceTheDarkness();
+#endif
+
+	PlatformApplication->InitializeWindow(Window, Definition);
+
+
+	return Window;
+}
+
+
+
+
+
+
 bool UIApplication::OnSizeChanged(const TSharedPtr<FGenericWindow>& InWindow, const int32 Width, const int32 Height, bool bWasMinimized)
 {
 	UIWindow* Window = FindUIWindowByNative(InWindow);
 	Renderer->Resize(Window, Width, Height, bWasMinimized);
 	Window->SetSizeViewport(FVector2f(Width, Height));
 
+	DrawWindows();
+	return true;
+}
 
+bool UIApplication::OnMouseDown(const TSharedPtr<FGenericWindow>& InWindow,
+	const EMouseButtons::Type Button, const FVector2D CursorPos)
+{
+	UIWindow* Window = FindUIWindowByNative(InWindow);
+	check(Window);
+
+	PlatformApplication->SetCapture(InWindow);
+
+	OnMouseDownDelegate.BroadCast(Window, Button, CursorPos);
+
+
+
+	return true;
+}
+
+bool UIApplication::OnMouseUp(const EMouseButtons::Type Button, const FVector2D CursorPos)
+{
+	OnMouseUpDelegate.BroadCast(Button, CursorPos);
+	PlatformApplication->SetCapture(nullptr);
 	return true;
 }
 
@@ -93,6 +160,7 @@ void UIApplication::TickPlatform(float DeltaTime)
 void UIApplication::TickAndDrawWidgets(float DeltaTime)
 {
 	DrawWindows();
+
 	for (auto& Window : UIWindows)
 	{
 		Window->Update(DeltaTime);
@@ -185,6 +253,13 @@ void embraceTheDarkness()
 	colors[ImGuiCol_ModalWindowDimBg] = ImVec4(1.00f, 0.00f, 0.00f, 0.35f);
 
 	ImGuiStyle& style = ImGui::GetStyle();
+	//style.WindowPadding = ImVec2(10.f, 10.f);
+	//style.FramePadding = ImVec2(8.0f, 6.0f);
+	//style.ItemSpacing = ImVec2(6.0f, 6.0f);
+	//style.ChildRounding = 6.0f;
+	//style.PopupRounding = 6.0f;
+	//style.FrameRounding = 6.0f;
+	//style.WindowTitleAlign = ImVec2(0.5f, 0.5f);
 	style.WindowPadding = ImVec2(8.00f, 8.00f);
 	style.FramePadding = ImVec2(5.00f, 2.00f);
 	style.CellPadding = ImVec2(6.00f, 6.00f);
@@ -212,119 +287,9 @@ void embraceTheDarkness()
 
 FIntPoint UIApplication::GetMousePosition() const
 {
-
 	return PlatformApplication->GetMousePos();
 }
 
-TSharedPtr<FGenericWindow> UIApplication::MakeWindow(TSharedPtr<UIWindow> InUIWindow)
-{
-	TSharedPtr<FGenericWindowDefinition> Definition = MakeShareble(new FGenericWindowDefinition());
-
-	const FVector2f Size = InUIWindow->GetInitSizeInScreen();
-	Definition->WidthOnScreen = Size.X;
-	Definition->HeightOnScreen = Size.Y;
-
-
-
-	const FVector2f Position = InUIWindow->GetInitPositionInScreen();
-	Definition->XPositionOnScreen = Position.X;
-	Definition->YPositionOnScreen = Position.Y;
-	Definition->bHasWindowBorder = InUIWindow->HasWindowBorder();
-
-	Definition->Title = InUIWindow->GetTitle();
-
-	TSharedPtr<FGenericWindow> Window = PlatformApplication->MakeWindow();
-
-	InUIWindow->SetNativeWindow(Window);
-
-#ifdef IMGUI
-	InUIWindow->SetImGuiContext(ImGui::CreateContext());
-	InUIWindow->GetImGuiContext()->IO.ConfigFlags |= ImGuiConfigFlags_DockingEnable | ImGuiConfigFlags_ViewportsEnable;
-	InUIWindow->GetImGuiContext()->IO.IniFilename = "../Config/UIImgui.ini";
-
-	//SET IMGUI STYLE
-	{
-		//ImGui::GetIO().Fonts->AddFontFromFileTTF((FPaths::EngineContentDir() + "Fonts/Roboto-Regular.ttf").GetStr(),
-		//	14);	 //temp
-
-		//ImGui::StyleS
-		ImGui::Spectrum::LoadFont();
-		embraceTheDarkness();
-		//ImGui::Spectrum::StyleColorsSpectrum();
-
-		//auto &style = ImGui::GetStyle();
-		//auto& colors = style.Colors;
-	
-
-		//style.WindowPadding = ImVec2(9, 5);
-		//style.WindowRounding = 10;
-		//style.FramePadding = ImVec2(5, 3);
-		//style.FrameRounding = 6.0; 
-		//style.ItemSpacing = ImVec2(9.0, 3.0);
-		//style.ItemInnerSpacing = ImVec2(9.0, 3.0);
-		//style.IndentSpacing = 21;
-		//style.ScrollbarSize = 6.0;
-		//style.ScrollbarRounding = 13;
-		//style.GrabMinSize = 17.0;
-		//style.GrabRounding = 16.0;
-		//style.WindowTitleAlign = ImVec2(0.5, 0.5);
-		//style.ButtonTextAlign = ImVec2(0.5, 0.5);
-
-
-		//colors[ImGuiCol_Text] = ImVec4(0.90, 0.90, 0.90, 1.00);
-		//colors[ImGuiCol_TextDisabled] = ImVec4(1.00, 1.00, 1.00, 1.00);
-		//colors[ImGuiCol_WindowBg] = ImVec4(0.00, 0.00, 0.00, 1.00);
-		//colors[ImGuiCol_ChildBg] = ImVec4(0.00, 0.00, 0.00, 1.00);
-		//colors[ImGuiCol_PopupBg] = ImVec4(0.00, 0.00, 0.00, 1.00);
-		//colors[ImGuiCol_Border] = ImVec4(0.82, 0.77, 0.78, 1.00);
-		//colors[ImGuiCol_BorderShadow] = ImVec4(0.35, 0.35, 0.35, 0.66);
-		//colors[ImGuiCol_FrameBg] = ImVec4(1.00, 1.00, 1.00, 0.28);
-		//colors[ImGuiCol_FrameBgHovered] = ImVec4(0.68, 0.68, 0.68, 0.67);
-		//colors[ImGuiCol_FrameBgActive] = ImVec4(0.79, 0.73, 0.73, 0.62);
-		//colors[ImGuiCol_TitleBg] = ImVec4(0.00, 0.00, 0.00, 1.00);
-		//colors[ImGuiCol_TitleBgActive] = ImVec4(0.46, 0.46, 0.46, 1.00);
-		//colors[ImGuiCol_TitleBgCollapsed] = ImVec4(0.00, 0.00, 0.00, 1.00);
-		//colors[ImGuiCol_MenuBarBg] = ImVec4(0.00, 0.00, 0.00, 0.80);
-		//colors[ImGuiCol_ScrollbarBg] = ImVec4(0.00, 0.00, 0.00, 0.60);
-		//colors[ImGuiCol_ScrollbarGrab] = ImVec4(1.00, 1.00, 1.00, 0.87);
-		//colors[ImGuiCol_ScrollbarGrabHovered] = ImVec4(1.00, 1.00, 1.00, 0.79);
-		//colors[ImGuiCol_ScrollbarGrabActive] = ImVec4(0.80, 0.50, 0.50, 0.40);
-		////colors[ImGuiCol_ComboBg] = ImVec4(0.24, 0.24, 0.24, 0.99);
-		//colors[ImGuiCol_CheckMark] = ImVec4(0.99, 0.99, 0.99, 0.52);
-		//colors[ImGuiCol_SliderGrab] = ImVec4(1.00, 1.00, 1.00, 0.42);
-		//colors[ImGuiCol_SliderGrabActive] = ImVec4(0.76, 0.76, 0.76, 1.00);
-		//colors[ImGuiCol_Button] = ImVec4(0.51, 0.51, 0.51, 0.60);
-		//colors[ImGuiCol_ButtonHovered] = ImVec4(0.68, 0.68, 0.68, 1.00);
-		//colors[ImGuiCol_ButtonActive] = ImVec4(0.67, 0.67, 0.67, 1.00);
-		//colors[ImGuiCol_Header] = ImVec4(0.72, 0.72, 0.72, 0.54);
-		//colors[ImGuiCol_HeaderHovered] = ImVec4(0.92, 0.92, 0.95, 0.77);
-		//colors[ImGuiCol_HeaderActive] = ImVec4(0.82, 0.82, 0.82, 0.80);
-		//colors[ImGuiCol_Separator] = ImVec4(0.73, 0.73, 0.73, 1.00);
-		//colors[ImGuiCol_SeparatorHovered] = ImVec4(0.81, 0.81, 0.81, 1.00);
-		//colors[ImGuiCol_SeparatorActive] = ImVec4(0.74, 0.74, 0.74, 1.00);
-		//colors[ImGuiCol_ResizeGrip] = ImVec4(0.80, 0.80, 0.80, 0.30);
-		//colors[ImGuiCol_ResizeGripHovered] = ImVec4(0.95, 0.95, 0.95, 0.60);
-		//colors[ImGuiCol_ResizeGripActive] = ImVec4(1.00, 1.00, 1.00, 0.90);
-		////colors[ImGuiCol_CloseButton] = ImVec4(0.45, 0.45, 0.45, 0.50);
-		////colors[ImGuiCol_CloseButtonHovered] = ImVec4(0.70, 0.70, 0.90, 0.60);
-		////colors[ImGuiCol_CloseButtonActive] = ImVec4(0.70, 0.70, 0.70, 1.00);
-		//colors[ImGuiCol_PlotLines] = ImVec4(1.00, 1.00, 1.00, 1.00);
-		//colors[ImGuiCol_PlotLinesHovered] = ImVec4(1.00, 1.00, 1.00, 1.00);
-		//colors[ImGuiCol_PlotHistogram] = ImVec4(1.00, 1.00, 1.00, 1.00);
-		//colors[ImGuiCol_PlotHistogramHovered] = ImVec4(1.00, 1.00, 1.00, 1.00);
-		//colors[ImGuiCol_TextSelectedBg] = ImVec4(1.00, 1.00, 1.00, 0.35);
-		////colors[ImGuiCol_ModalWindowDarkening] = ImVec4(0.88, 0.88, 0.88, 0.35);
-
-	}
-
-	//Window->InitImGui();
-#endif
-
-	PlatformApplication->InitializeWindow(Window, Definition);
-
-
-	return Window;
-}
 
 UIWindow* const UIApplication::FindUIWindowByNative(TSharedPtr<FGenericWindow> InWindow)
 {

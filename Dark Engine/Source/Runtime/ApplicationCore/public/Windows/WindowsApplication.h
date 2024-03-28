@@ -32,6 +32,8 @@ public:
 		const TSharedPtr<FGenericWindowDefinition>& InDefinition) override;
 
 
+	virtual void SetCapture(const TSharedPtr<FGenericWindow>& InWindow);
+
 	virtual FIntPoint GetMousePos() const;
 
 private:

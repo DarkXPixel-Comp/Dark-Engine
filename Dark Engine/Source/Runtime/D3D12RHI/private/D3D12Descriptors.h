@@ -69,6 +69,11 @@ struct FD3D12CpuFreeRange
 {
 	uint64 Start;
 	uint64 End;
+
+	bool operator==(const FD3D12CpuFreeRange& Other)
+	{
+		return Start == Other.Start && End == Other.End;
+	}
 };
 
 struct FD3D12CpuEntry

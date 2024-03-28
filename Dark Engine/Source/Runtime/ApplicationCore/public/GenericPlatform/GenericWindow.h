@@ -41,12 +41,15 @@ public:
 
 	virtual FIntPoint GetRelativeMousePos() const { return FIntPoint(); }
 
+	virtual bool IsMaximized() const { return false; }
+
 #ifdef IMGUI
 	virtual void InitImGui() {}
 	virtual void BeginImGui() {}
 #endif
 
 
+	bool bTitleBarHovarered = false;
 
 protected:
 	bool bIsVisible = false;

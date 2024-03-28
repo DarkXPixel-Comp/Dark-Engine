@@ -5,6 +5,7 @@
 #include <Widgets/UIWindow.h>
 #include "Engine/EditorEngine.h"
 #include "Engine/World.h"
+#include "Canvas.h"
 
 
 
@@ -26,31 +27,22 @@ FWorld* FEditorViewportClient::GetWorld() const
 	return Result;
 }
 
-void FEditorViewportClient::Draw(FViewport* InViewport, FCanvas* InCanvas)
+void FEditorViewportClient::Draw(FViewport* InViewport, FCanvas* Canvas)
 {
-	GameViewport = (FSceneViewport*)InViewport;
+	Viewport = InViewport ? InViewport : Viewport;
 	FWorld* World = GetWorld();
 
-	FSceneView SceneView(GameViewport, GetScene(), this);
+	FSceneView SceneView(Canvas->GetRenderTarget(), GetScene());
 
 	
 	SceneView.CalcSceneView();
 
-	GetRenderer()->BeginRenderingView(InCanvas, &SceneView);
-
-	GetRenderer()->RenderUI(RenderTarget);
+	//GetRenderer()->BeginRenderingView(InCanvas, &SceneView);
 
 
 }
 
 
-
-FSceneViewport* FEditorViewportClient::CreateGameViewport()
-{
-	//GameViewport = new FSceneViewport();
-	//GameViewport->SetSize()
-	return GameViewport;
-}
 
 FSceneInterface* FEditorViewportClient::GetScene() const
 {

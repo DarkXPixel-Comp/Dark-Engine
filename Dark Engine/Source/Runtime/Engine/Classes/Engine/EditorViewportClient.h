@@ -60,15 +60,12 @@ public:
 	FEditorViewportClient(const FEditorViewportClient&) = delete;
 	FEditorViewportClient& const operator=(const FEditorViewportClient&) = delete;
 
-	FSceneViewport* GameViewport;
+	FViewport* Viewport;
 	FRenderTarget* RenderTarget;
 	TArray<FEditorWidget> EditorWidgets;
 
 	void Draw(FViewport* InViewport, FCanvas* InCanvas);
 
-	FSceneViewport* CreateGameViewport();
-
-	FViewport* Viewport;
 
 	void SetViewport(FViewport* InViewport);
 

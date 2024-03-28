@@ -206,7 +206,7 @@ void FD3D12Viewport::Resize(uint32 InSizeX, uint32 InSizeY, bool bInIsFullscreen
 
 	for (uint32 i = 0; i < NumBackBuffers; ++i)
 	{
-		BackBuffers[i].reset();
+		BackBuffers[i].Reset();
 	}
 
 
@@ -242,8 +242,7 @@ void FD3D12Viewport::Resize(uint32 InSizeX, uint32 InSizeY, bool bInIsFullscreen
 	for (uint32 i = 0; i < NumBackBuffers; i++)
 	{
 		check(BackBuffers[i] == nullptr);
-		BackBuffers[i] = MakeShareble(GetSwapChainSurface(PixelFormat, SizeX, SizeY, SwapChain1.Get(),
-			i, nullptr));
+		BackBuffers[i] = GetSwapChainSurface(PixelFormat, SizeX, SizeY, SwapChain1.Get(), i, nullptr);
 	}
 	CurrentBackBufferIndex = 0;
 

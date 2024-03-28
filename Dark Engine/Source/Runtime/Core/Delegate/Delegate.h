@@ -136,7 +136,7 @@ public:
 	{
 		if (container)
 		{
-			return container->Call();
+			return container->Call(params...);
 		}
 	}
 

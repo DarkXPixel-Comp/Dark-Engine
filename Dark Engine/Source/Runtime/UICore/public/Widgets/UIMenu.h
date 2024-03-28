@@ -5,8 +5,8 @@
 #include "Delegate/Delegate.h"
 
 DECLARE_MULTICAST_DELEGATE(FUIMenuDelegate);
-DECLARE_MULTICAST_DELEGATE(FUIMenuItemDelegate);
 
+DECLARE_MULTICAST_DELEGATE_OneParam(FUIMenuItemDelegate, bool);
 
 class UIMenu : public UIWidget
 {
@@ -42,6 +42,7 @@ public:
 	FUIMenuItemDelegate MenuItemDelegate;
 private:
 	bool bPressed = false;
+	bool bLastPressed = false;
 
 
 

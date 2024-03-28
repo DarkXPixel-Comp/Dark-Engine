@@ -10,6 +10,10 @@ public:
 	void DrawImGui();
 	void Update(float DeltaTime);
 
+	void SetMainMenuBar(TSharedPtr<class UIMainMenuBar> InMenuBar);
+
+private:
+	TSharedPtr<class UIMainMenuBar>	MainMenuBar;
 
 
 

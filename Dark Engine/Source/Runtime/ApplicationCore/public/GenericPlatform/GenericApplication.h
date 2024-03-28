@@ -18,6 +18,7 @@ public:
 	virtual void Tick(float DeltaTime) {}
 	virtual void SetMessageHandler(const TSharedPtr<FGenericApplicationHandler>& InMessageHandler) { MessageHandler = InMessageHandler; }
 	virtual FIntPoint GetMousePos() const { return FIntPoint(); }
+	virtual void SetCapture(const TSharedPtr<FGenericWindow>& InWindow) {}
 
 
 

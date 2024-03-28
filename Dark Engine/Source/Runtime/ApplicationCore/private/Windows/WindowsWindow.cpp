@@ -13,6 +13,22 @@
 const TCHAR FWindowsWindow::AppWindowClass[] = TEXT("DarkWindow");
 
 
+HRGN CreateWindowRgn(HWND hwnd)
+{
+	RECT rc;
+	GetClientRect(hwnd, &rc);
+
+	HRGN hrgn = CreateRectRgn(0, 0, -rc.right, -rc.bottom);
+	if (hrgn == NULL)
+		return NULL;
+
+	HRGN hrgn2;
+	GetWindowRgn(hwnd, hrgn2);
+	CombineRgn(hrgn, hrgn, hrgn2, RGN_DIFF);
+	return hrgn;
+}
+
+
 
 void FWindowsWindow::AdjustWindowRegion(int32 Width, int32 Height)
 {
@@ -22,6 +38,7 @@ void FWindowsWindow::AdjustWindowRegion(int32 Width, int32 Height)
 	HRGN Region = MakeWindowRegionObject(true);
 
 	verify(SetWindowRgn(HWnd, Region, false));
+	//SetWindowRgn(HWnd, CreateWindowRgn(HWnd), TRUE);
 
 
 }
@@ -287,6 +304,24 @@ void FWindowsWindow::Initialize(FWindowsApplication* const Application, const FG
 		uint32 SetWindowPosFlags = SWP_NOMOVE | SWP_NOSIZE | SWP_NOZORDER | SWP_FRAMECHANGED;
 
 		SetWindowPos(HWnd, nullptr, 0, 0, 0, 0, SetWindowPosFlags);
+
+		RECT rcWorkArea;
+		SystemParametersInfo(SPI_GETWORKAREA, 0, &rcWorkArea, 0);
+
+		if (WindowX < rcWorkArea.left) {
+			WindowX = rcWorkArea.left;
+		}
+		if (WindowY < rcWorkArea.top) {
+			WindowY = rcWorkArea.top;
+		}
+		if (WindowX + VirtualWidth > rcWorkArea.right) {
+			WindowX = rcWorkArea.right - VirtualWidth;
+		}
+		if (WindowY + VirtualHeight > rcWorkArea.bottom) {
+			WindowY = rcWorkArea.bottom - VirtualHeight;
+		}
+		SetWindowPos(HWnd, nullptr, WindowX, WindowY, VirtualWidth, VirtualHeight, SetWindowPosFlags);
+
 
 		DeleteMenu(GetSystemMenu(HWnd, false), SC_CLOSE, MF_BYCOMMAND);
 

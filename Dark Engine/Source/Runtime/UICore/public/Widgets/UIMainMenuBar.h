@@ -6,20 +6,20 @@
 class UIMainMenuBar : public UIWidget
 {
 public:
-	UIMainMenuBar() : UIWidget(TEXT("UIMainMenuBar")) {}
+	UIMainMenuBar();
 
 	virtual void DrawImGui();
 
 	virtual void Update(float DeltaTime);
 
-	int32 GetRecommendedHeightObject() const { return Size.Y; }
+	void AddMenu(const TSharedPtr<class UIMenu>& InMenu);
 
-
-private:
-	bool IsRects() const;
+protected:
+	void DrawMenuBar();
 	
 private:
-	bool bMouseLeftIsDown = false;
+	FString Title = TEXT("Dark Engine");
+	TArray<TSharedPtr<class UIMenu>> MenuItems;
 
 
 

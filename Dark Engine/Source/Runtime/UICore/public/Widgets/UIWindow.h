@@ -29,10 +29,13 @@ public:
 	FString GetTitle() const { return Title; }
 	void SetTitle(FString InTitle) { Title = InTitle;}
 	void AddWidget(TSharedPtr<UIWidget> InWidget) { InWidget->InitWindow(this); Widgets.Add(InWidget); }
+	void AddDeferedWidget(TSharedPtr<UIWidget>InWidget) { DeferedAddWidgets.Add(InWidget); }
+	void RemoveDeferedWidget(TSharedPtr<UIWidget>InWidget) { DeferedRemoveWidgets.Add(InWidget); }
+	void RemoveWidget(TSharedPtr<UIWidget> InWidget) { Widgets.RemovePtr(InWidget); }
 	//void SetViewportClient(TSharedPtr<FViewportClient> InViewportClient) { ViewportClient = InViewportClient; }
 	void SetImGuiContext(ImGuiContext* InContext) { IMGUIContext = InContext; }
 	ImGuiContext* GetImGuiContext() const { return IMGUIContext; }
-	FVector2f GetViewportSize() { return GetInitSizeInScreen(); }
+	FVector2f GetViewportSize() { return SizeViewport; }
 	const TArray<TSharedPtr<UIWidget>>& GetWidgets() const { return Widgets; }
 
 	TSharedPtr<FViewportClient> CreateViewportClient();
@@ -52,6 +55,8 @@ private:
 	FString Title;
 	//TSharedPtr<FViewportClient>
 	TArray<TSharedPtr<UIWidget>> Widgets;
+	TArray<TSharedPtr<UIWidget>> DeferedAddWidgets;
+	TArray<TSharedPtr<UIWidget>> DeferedRemoveWidgets;
 	//TSharedPtr<FUIWindowViewport> Viewport;
 	TSharedPtr<FRHIViewport> Viewport;
 	ImGuiContext* IMGUIContext;

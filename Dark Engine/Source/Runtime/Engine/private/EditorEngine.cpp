@@ -37,12 +37,12 @@ void DEditorEngine::UpdateViewportClient(FEditorViewportClient* InViewportClient
 {
 	if (InViewportClient->IsRealtime())
 	{
-		InViewportClient->Viewport->Draw(InViewportClient);
+		InViewportClient->Viewport->Draw();
 	}
 	CurrentViewportClient = InViewportClient;
 }
 
 void DEditorEngine::UpdateViewportClient()
 {
-	CurrentViewportClient->GameViewport->Draw(CurrentViewportClient);
+	CurrentViewportClient->Viewport->Draw();
 }

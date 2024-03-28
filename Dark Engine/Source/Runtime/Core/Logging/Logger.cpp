@@ -240,8 +240,8 @@ void Logger::exLog(FString logTxt, LOGGER_ENUM severenty)
 
 void Logger::log(log_ InLog)
 {
-	InLog.time = time(0);
-	inst->logs.push_back(InLog);
+	/*InLog.time = time(0);
+	inst->logs.push_back(InLog);*/
 }
 
 

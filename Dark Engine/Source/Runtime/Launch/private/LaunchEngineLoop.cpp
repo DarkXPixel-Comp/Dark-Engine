@@ -28,88 +28,60 @@ struct FEditorLayout
 	void SetupEditorLayout(UIWindow* InRootWindow)
 	{
 		RootWindow = InRootWindow;
-		TSharedPtr<UIWidgetTest> Test = MakeShareble(new UIWidgetTest());
+
+		MainDock = MakeShareble(new UIDock());
+		RootWindow->AddWidget(MainDock);
 
 
-		TSharedPtr<UIDock> MainDock = MakeShareble(new UIDock());
-
-		TSharedPtr<UILogs> Logs = MakeShareble(new UILogs());
-		{
-			Logs->SetName("Logs");
-			MainDock->AddChild(Logs);
-		}
-
-		TSharedPtr<UIMainMenuBar> MainMenuBar = MakeShareble(new UIMainMenuBar());
-		{
-			MainMenuBar->SetSize(FIntPoint(0, 20));
-		}
-
-
-		TSharedPtr<UIViewport> MainViewport = MakeShareble(new UIViewport());
-		{
-			MainViewport->SetName("UIViewport");
-			//MainDock->AddChild(MainViewport);
-		}
-
-		TSharedPtr<UIMenu> Menu = MakeShareble(new UIMenu());
-		{
-			Menu->SetName("Menu");
-			MainMenuBar->AddChild(Menu);
-		}
-		TSharedPtr<UIMenuItem> ExitMenuItem = MakeShareble(new UIMenuItem());
-		{
-			ExitMenuItem->SetName("Exit");
-			ExitMenuItem->MenuItemDelegate.Bind([&]()
-				{
-					GIsRequestingExit = true;
-				});
-
-			Menu->AddChild(ExitMenuItem);
-		}
-
-		TSharedPtr<UIEditorViewport> EditorViewport = MakeShareble(new UIEditorViewport());
-		{
-			EditorViewport->SetName(TEXT("EditorViewport"));
-			MainDock->AddChild(EditorViewport);
-		}
-		RootViewport = EditorViewport;
-
-
-
-		TSharedPtr<UIMenuItem> AddNewWindowItem = MakeShareble(new UIMenuItem());
-		{
-			AddNewWindowItem->SetName("Add new Window");
-			AddNewWindowItem->MenuItemDelegate.Bind([=]()
-				{
-					TSharedPtr<UIViewport> MainViewport = MakeShareble(new UIViewport());
-					{
-						MainViewport->SetName("UIViewport2");
-						MainDock->AddChild(MainViewport);
-					}
-				});
-
-			Menu->AddChild(AddNewWindowItem);
-		}
+		MainMenuBar = MakeShareble(new UIMainMenuBar());
+		MainDock->SetMainMenuBar(MainMenuBar);
 
 		EditorSettings = MakeShareble(new UIEditorSettings());
 		EditorSettings->SetEditorViewport(RootViewport);
 
+		TSharedPtr<UIMenuItem> CreateSettings = MakeShareble(new UIMenuItem());
+		CreateSettings->SetName(TEXT("Settings"));
+		CreateSettings->MenuItemDelegate.Bind([&](bool bPressed)
+			{
+				if (bPressed)
+				{
+					MainDock->AddChild(EditorSettings);
+				}
+				else
+				{
+					MainDock->RemoveChild(EditorSettings);
+				}
+			});
 
-		RootWindow->AddWidget(MainDock);
-		RootWindow->AddWidget(MainMenuBar);
-		RootWindow->AddWidget(EditorSettings);
-		//RootWindow->AddWidget(Test);
+		TSharedPtr<UIMenu> File = MakeShareble(new UIMenu());
+		MainMenuBar->AddMenu(File);
+		File->SetName(TEXT("File"));
+		File->AddChild(CreateSettings);
+		
 
 
+		RootViewport = MakeShareble(new UIEditorViewport());
+		{
+			RootViewport->SetName(TEXT("EditorViewport"));
+			MainDock->AddChild(RootViewport);
+		}
 
 
+		//RootWindow->AddWidget(MainDock);
 
+
+		//MainDock->AddChild(EditorSettings);
+		//RootWindow->AddWidget(EditorSettings);
+
+;
 	}
 
 private:
 	UIWindow* RootWindow = nullptr;
 	TSharedPtr<UIEditorViewport> RootViewport = nullptr;
+	TSharedPtr<UIDock> MainDock = nullptr;
 	TSharedPtr<UIEditorSettings> EditorSettings;
+	TSharedPtr<UIMainMenuBar> MainMenuBar = MakeShareble(new UIMainMenuBar());
 
 } EditorLayout;
 
@@ -175,6 +147,13 @@ int32 FEngineLoop::Init()
 
 void FEngineLoop::Tick()
 {
+	static int32 Counter = 0;
+
+	if (Counter++ == 100)
+	{
+		//GIsRequestingExit = true;
+	}
+
 	Engine->Tick(1);
 
 	UIApplication::Get()->Tick();

@@ -32,7 +32,7 @@ public:
 		return GetDXGIFormat(PixelFormat);
 	}
 
-	FD3D12Texture* GetCurrentBackBuffer() const { return BackBuffers[CurrentBackBufferIndex].get(); }
+	FD3D12Texture* GetCurrentBackBuffer() const { return BackBuffers[CurrentBackBufferIndex].Get(); }
 
 private:
 	void CalculateSwapchainNum(int32 SwapchainNum);
@@ -52,7 +52,7 @@ private:
 	bool bIsValid;
 	uint32 CurrentBackBufferIndex;
 	
-	TArray<TSharedPtr<FD3D12Texture>> BackBuffers;
+	TArray<TRefCountPtr<FD3D12Texture>> BackBuffers;
 	uint32 NumBackBuffers;
 
 	TRefCountPtr<IDXGISwapChain1> SwapChain1;

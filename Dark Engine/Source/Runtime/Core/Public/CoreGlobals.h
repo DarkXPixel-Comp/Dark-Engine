@@ -7,6 +7,7 @@
 
 
 extern DENGINE_API bool GIsRequestingExit;
+extern bool GIsTitleBarHovered;
 
 FORCEINLINE bool IsExitRequested()
 {

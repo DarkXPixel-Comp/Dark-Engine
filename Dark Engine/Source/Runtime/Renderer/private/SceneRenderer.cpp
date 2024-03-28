@@ -62,8 +62,3 @@ void FRenderer::BeginRenderingView(FCanvas* Canvas,FSceneView* View)
 
 	delete SceneRender;
 }
-
-void FRenderer::RenderUI(FRenderTarget* RenderTarget)
-{
-
-}

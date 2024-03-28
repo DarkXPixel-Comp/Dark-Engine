@@ -6,8 +6,8 @@ void UIMenu::DrawImGui()
 	//ImGui::Begin("Menu", nullptr, ImGuiWindowFlags_MenuBar);
 	
 	if (ImGui::BeginMenu(Name.ToString().c_str()))
-	{
-		ImGui::SetWindowSize(Name.ToString().c_str(), ImVec2(Size.X, Size.Y));
+	{  
+		//ImGui::SetWindowSize(Name.ToString().c_str(), ImVec2(Size.X, Size.Y));
 		MenuDelegate.BroadCast();
 
 		ForEachChild([](UIWidget* Widget)
@@ -27,7 +27,7 @@ void UIMenu::DrawImGui()
 
 void UIMenu::Update(float DeltaTime)
 {
-	Size = FIntPoint(ImGui::CalcTextSize(Name.GetStr()).x, ImGui::CalcTextSize(Name.GetStr()).y);
+	Size = FIntPoint(ImGui::CalcTextSize(Name.GetStr()).x + 25, ImGui::CalcTextSize(Name.GetStr()).y);
 	Position = 0;
 
 	Rect = FIntRect(Position, Size);
@@ -37,14 +37,17 @@ void UIMenu::Update(float DeltaTime)
 
 void UIMenuItem::DrawImGui()
 {
-	ImGui::MenuItem(-Name, NULL, &bPressed);
+	if (ImGui::MenuItem(-Name, NULL, &bPressed))
+	{
+		bool test = bPressed;
+	}
 }
 
 void UIMenuItem::Update(float DeltaTime)
 {
-	if (bPressed)
+	if (bPressed != bLastPressed)
 	{
-		MenuItemDelegate.BroadCast();
-		bPressed = false;
+		MenuItemDelegate.BroadCast(bPressed);
+		bLastPressed = bPressed;
 	}
 }

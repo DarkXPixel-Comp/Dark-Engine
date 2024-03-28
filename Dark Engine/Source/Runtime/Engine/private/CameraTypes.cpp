@@ -19,7 +19,7 @@ FMatrix FMinimalViewInfo::CalculateProjectionMatrix() const
 
 void FMinimalViewInfo::CalculateProjectionMatrixGivenViewRectangle(const FMinimalViewInfo& ViewInfo, FSceneView& InOutProjectionData)
 {
-	InOutProjectionData.ProjectionMatrix = ViewInfo.CalculateProjectionMatrix();
+	//InOutProjectionData.ProjectionMatrix = ViewInfo.CalculateProjectionMatrix();
 
 
 

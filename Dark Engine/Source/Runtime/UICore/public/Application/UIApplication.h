@@ -6,6 +6,13 @@
 #include "GenericPlatform/GenericApplicationHandler.h"
 #include "Rendering/UIRenderer.h"
 
+#include "Delegate/Delegate.h"
+
+
+
+DECLARE_MULTICAST_DELEGATE_ThreeParams(FOnMouseDown, UIWindow*,
+	const EMouseButtons::Type, const FVector2D);
+DECLARE_MULTICAST_DELEGATE_TwoParams(FOnMouseUp, const EMouseButtons::Type, const FVector2D);
 
 
 
@@ -27,6 +34,10 @@ public:
 
 public:
 	virtual bool OnSizeChanged(const TSharedPtr<FGenericWindow>& Window, const int32 Width, const int32 Height, bool bWasMinimized = false);
+	virtual bool OnMouseDown(const TSharedPtr<FGenericWindow>& Window, const EMouseButtons::Type Button,
+		const FVector2D CursorPos);
+	virtual bool OnMouseUp(const EMouseButtons::Type Button,
+		const FVector2D CursorPos) override;
 
 public:
 	void InitializeRenderer(TSharedPtr<FUIRenderer> InRenderer);
@@ -47,9 +58,16 @@ private:
 	UIWindow* const FindUIWindowByNative(TSharedPtr<FGenericWindow> InWindow);
 
 
+
+
 private:
 	static TSharedPtr<UIApplication> CurrentApplication;
 	static TSharedPtr<FGenericApplication>	PlatformApplication;
+
+public:
+	FOnMouseDown OnMouseDownDelegate;
+	FOnMouseUp OnMouseUpDelegate;
+
 private:
 	TArray<TSharedPtr<UIWindow>> UIWindows;
 

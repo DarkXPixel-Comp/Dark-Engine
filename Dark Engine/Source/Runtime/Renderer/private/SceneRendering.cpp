@@ -4,7 +4,7 @@ FSceneRender::FSceneRender(const FSceneView* InView) :
 	Scene(InView->Scene->GetRenderScene()),
 	SceneView(*InView)
 {
-	SceneView.SetSceneRenderer(this);
+	//SceneView.SetSceneRenderer(this);
 
 
 }

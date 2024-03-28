@@ -100,8 +100,6 @@ FD3D12CpuDescriptorManager::FD3D12CpuDescriptorManager(FD3D12Device* InDevice, E
 {
 	DescriptorSize = Parent->GetDevice()->GetDescriptorHandleIncrementSize(GetD3D12DescriptorHeapType(InHeapType));
 	NumDescriptorsPerHeap = GetCpuDescriptorHeapSize(InHeapType);
-
-
 }
 
 FD3D12CpuDescriptor FD3D12CpuDescriptorManager::AllocateHeapSlot()
@@ -124,12 +122,16 @@ FD3D12CpuDescriptor FD3D12CpuDescriptorManager::AllocateHeapSlot()
 
 	if (Range.Start == Range.End)
 	{
-		HeapEntry.FreeList.RemovePtr(HeapEntry.FreeList.First());
+		HeapEntry.FreeList.Remove(HeapEntry.FreeList.First());
 		if (HeapEntry.FreeList.Num() == 0)
 		{
 			FreeHeapIndex.Remove(IndexFreeHeap);
 		}
 	}
+
+
+	DE_LOG(D3D12RHI, Log, TEXT("Alloc slot (%i)"), Result.ptr);
+
 	return Result;
 }
 
@@ -151,7 +153,7 @@ void FD3D12CpuDescriptorManager::FreeHeapSlot(FD3D12CpuDescriptor& Descriptor)
 		}
 		else if (Range.End == Descriptor.ptr)
 		{
-			Range.End += Descriptor.ptr;
+			Range.End += DescriptorSize;
 			bFound = true;
 		}
 		else
@@ -176,6 +178,8 @@ void FD3D12CpuDescriptorManager::FreeHeapSlot(FD3D12CpuDescriptor& Descriptor)
 		}
 		HeapEntry.FreeList.Add(NewRange);
 	}
+
+	DE_LOG(D3D12RHI, Log, TEXT("Free slot (%i)"), Descriptor.ptr);
 	Descriptor = {};
 }
 

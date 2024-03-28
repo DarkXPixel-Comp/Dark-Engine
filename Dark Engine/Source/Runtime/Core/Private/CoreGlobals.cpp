@@ -3,3 +3,4 @@
 
 
 bool GIsRequestingExit = false;
+bool GIsTitleBarHovered = false;
