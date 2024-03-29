@@ -16,6 +16,8 @@ public:
 	virtual FIntPoint GetSize() const { return GetSizeXY(); }
 	virtual void Resize(int32 InSizeX, int32 InSizeY);
 
+	void SetTexturePath(FString Path);
+
 
 	void InitRHI();
 

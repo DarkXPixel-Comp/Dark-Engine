@@ -7,10 +7,80 @@
 #include "CoreGlobals.h"
 #include "imdark_extension.h"
 #include "Widgets/UIMenu.h"
+#include "RHIResources.h"
+#include "DynamicRHI.h"
+
+
+#include "stb_image.h"
+#include "Misc/Paths.h"
+
+
+struct FColor
+{
+	FColor(uint8 InX, uint8 InY, uint8 InZ, uint8 InW) : x(InX), y(InY), z(InZ), w(InW)
+	{}
+	FColor()
+	{}
+	uint8 x = 0;
+	uint8 y = 0;
+	uint8 z = 0;
+	uint8 w = 0xFF;
+};
+
 
 UIMainMenuBar::UIMainMenuBar() : UIWidget(TEXT("UIMainMenuBar"))
 {
-	
+	int32 W, H, Channels;
+
+	uint8* img = stbi_load(-FString::PrintF(TEXT("%sImages/Logo.png"), *FPaths::EngineContentDir()),
+		&W, &H, &Channels, 0);
+
+	if (!img)
+	{
+		return;
+	}
+
+
+	const FRHITextureCreateDesc Desc =
+		FRHITextureCreateDesc::Create2D(TEXT("IconTexture"))
+		.SetExtent(FIntPoint(W, H))
+		.SetFormat(EPixelFormat::PF_R8G8B8A8_UNORM)
+		.SetFlags(ETextureCreateFlags::ShaderResource)
+		.SetInitialState(ERHIAcces::SRVGraphics);
+
+	IconTextureRHI = RHICreateTexture(Desc);
+	check(IconTextureRHI);
+
+	uint32 Stride;
+	uint64 OutSize;
+	uint8* Color = (uint8*)RHILockTexture2D(IconTextureRHI.Get(), 0, RLM_WriteOnly,
+		Stride, &OutSize);
+
+	TArray<FColor> Colors(H * W);
+
+
+	uint32 Index = 0;
+	for (uint8* p = img; p != img + (H * W * Channels); p += Channels)
+	{
+		if (Channels == 3)
+		{
+			Colors[Index] = { *p, *(p + 1), *(p + 2), 0xFF };
+		}
+		else if (Channels == 4)
+		{
+			Colors[Index] = { *p, *(p + 1), *(p + 2), *(p + 3) };
+		}
+		++Index;
+	}
+
+
+
+	for (int32 Y = 0; Y < H; ++Y)
+	{
+		FMemory::Memcpy(Color + Stride * Y, ((uint8*)Colors.GetData()) + ((W * 4) * Y), W * 4);
+	}
+
+	RHIUnlockTexture2D(IconTextureRHI.Get(), 0);
 }
 
 void UIMainMenuBar::DrawImGui()
@@ -28,6 +98,19 @@ void UIMainMenuBar::DrawImGui()
 	auto* BgDrawList = ImGui::GetBackgroundDrawList();
 	auto* FgDrawList = ImGui::GetForegroundDrawList();
 	BgDrawList->AddRectFilled(TitleBarMin, TitleBarMax, ImGui::GetColorU32(ImVec4(0, 0, 0, 1)));
+
+	if (IconTextureRHI)
+	{
+		const int32 LogoWidth = 60;
+		const int32 LogoHeight = 60;
+		const ImVec2 LogoOffset(0.0f + WindowPadding.x, 0.f + WindowPadding.y + TitleBarVerticalOffset);
+		const ImVec2 LogoRectStart = { ImGui::GetItemRectMin().x + LogoOffset.x, ImGui::GetItemRectMin().y + LogoOffset.y };
+		const ImVec2 LogoRectMax = { LogoRectStart.x + LogoWidth, LogoRectStart.y + LogoHeight };
+		FgDrawList->AddImage(IconTextureRHI->GetNativeShaderResourceView(), LogoRectStart, LogoRectMax);
+
+	}
+
+
 
 	ImGui::BeginHorizontal("TitleBar", { ImGui::GetWindowWidth() - WindowPadding.y * 2.f, ImGui::GetFrameHeightWithSpacing() });
 

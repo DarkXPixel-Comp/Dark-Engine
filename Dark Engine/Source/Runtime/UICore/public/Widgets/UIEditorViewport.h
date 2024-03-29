@@ -17,6 +17,7 @@ public:
 	void OnResize(int32 NewX, int32 NewY);
 	void SetResolution(int32 Width, int32 Height);
 	void SetColorBackground(FVector InColor);
+	void SetTexturePath(FString Path);
 	
 private:
 	TSharedPtr<FEditorViewportClient> EditorViewportClient;

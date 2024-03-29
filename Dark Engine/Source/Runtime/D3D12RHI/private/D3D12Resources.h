@@ -159,11 +159,31 @@ public:
 
 private:
 	FD3D12ResourceLocation ResourceLocation;
-
-
-
 };
 
+
+struct FD3D12LockedResource : public FD3D12DeviceChild
+{
+	FD3D12LockedResource(FD3D12Device* InDevice) :
+		FD3D12DeviceChild(InDevice),
+		LockedOffset(0),
+		LockedPitch(0),
+		bLocked(false),
+		bLockedForReadOnly(false),
+		bHasNeverBeenLocked(true),
+		MappedAddress(nullptr)
+	{}
+
+	TRefCountPtr<ID3D12Resource> Resource;
+	//FD3D12ResourceLocation ResourceLocation;
+	uint32 LockedOffset;
+	uint32 LockedPitch;
+	uint32 bLocked : 1;
+	uint32 bLockedForReadOnly : 1;
+	uint32 bHasNeverBeenLocked : 1;
+	void* MappedAddress;
+
+};
 
 class FD3D12ResourceBarrierBatcher
 {

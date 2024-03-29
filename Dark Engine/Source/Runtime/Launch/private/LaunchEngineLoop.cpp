@@ -115,6 +115,7 @@ int32 FEngineLoop::PreInit(const TCHAR* CmdLine)
 
 	Logger::Initialize(LOGGER_INFO | LOGGER_ERROR);
 	CommandConsole::Initialize("Dark Engine Console");
+	FMath::RandInit(time(0));
 	RHIInit();
 
 	DE_LOG(Launch, Log, TEXT("RHI init"));

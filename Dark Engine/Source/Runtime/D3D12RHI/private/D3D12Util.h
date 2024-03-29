@@ -26,7 +26,11 @@ FORCEINLINE DXGI_FORMAT GetDXGIFormat(EPixelFormat InFormat)
 {
 	return GDXGIFormats[InFormat];
 }
-						   
+	
+FORCEINLINE uint32 CalcSubresource(uint32 MipSlice, uint32 ArraySlice, uint32 MipLevels)
+{
+	return MipSlice + ArraySlice * MipLevels;
+}
 
 
 FORCEINLINE FString GetDX12ErrorMessage(HRESULT hr)

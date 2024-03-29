@@ -316,7 +316,7 @@ protected:
 
 
 
-private:
+protected:
 	FRHITextureDesc TextureDesc;
 
 };

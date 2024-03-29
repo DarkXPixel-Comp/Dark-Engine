@@ -3,6 +3,7 @@
 #include "imspinner.h"
 #include "Application/UIApplication.h"
 
+
 void UIEditorSettings::DrawImGui()
 {
 	if (ImGui::Begin(-Name, nullptr, ImGuiWindowFlags_Modal))
@@ -24,6 +25,8 @@ void UIEditorSettings::DrawImGui()
 		//ImGui::ColorPicker3("Background color", TempSettings.Color);
 	   
 		ImGui::Checkbox("Vsync", &TempSettings.bVsync);
+
+		ImGui::InputText("Path", TempSettings.PathTexture, 256);
 
 		ImSpinner::SpinnerAtom("Test", 5, 3);
 		
@@ -59,6 +62,7 @@ void UIEditorSettings::Update(float DeltaTime)
 			EditorViewport->SetResolution(CurrentSettings.ResolutionViewport.X, CurrentSettings.ResolutionViewport.Y);
 			EditorViewport->SetColorBackground(FVector(CurrentSettings.Color[0], CurrentSettings.Color[1],
 				CurrentSettings.Color[2]));
+			EditorViewport->SetTexturePath(FString(CurrentSettings.PathTexture));
 			UIApplication::Get()->GetRenderer()->SetVsync(CurrentSettings.bVsync);
 		}
 	}

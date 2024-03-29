@@ -99,6 +99,20 @@ TRefCountPtr<FRHITexture> FD3D12DynamicRHI::RHICreateTexture(const FRHITextureCr
 	return CreateD3D12Texture(CreateDesc, GetAdapter().GetDevice());
 }
 
+void* FD3D12DynamicRHI::RHILockTexture2D(FRHITexture* TextureRHI, uint32 MipIndex, EResourceLockMode LockMode, uint32& DestStride, bool bLockWithinMiptail, uint64* OutLockedByteCount)
+{
+	check(TextureRHI);
+	FD3D12Texture* D3DTexture = static_cast<FD3D12Texture*>(TextureRHI);
+	return D3DTexture->Lock(nullptr, MipIndex, 0, LockMode, DestStride, OutLockedByteCount);
+}
+
+void FD3D12DynamicRHI::RHIUnlockTexture2D(FRHITexture* TextureRHI, uint32 MipIndex, bool bLockWithinMiptail)
+{
+	check(TextureRHI);
+	FD3D12Texture* D3DTexture = static_cast<FD3D12Texture*>(TextureRHI);
+	D3DTexture->Unlock(nullptr, MipIndex, 0);
+}
+
 FD3D12Texture* FD3D12DynamicRHI::CreateEmptyD3D12Texture(const FRHITextureCreateDesc& CreateDesc, FD3D12Device* Device)
 {
 	return new FD3D12Texture(CreateDesc, Device);
@@ -134,6 +148,7 @@ FD3D12Texture* FD3D12DynamicRHI::CreateD3D12Texture(const FRHITextureCreateDesc&
 	DX12::SetName(TextureResource, CreateDesc.DebugName);
 
 	NewTexture->CreateViews();
+
 
 	return NewTexture;
 }

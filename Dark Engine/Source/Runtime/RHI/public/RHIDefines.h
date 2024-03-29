@@ -121,4 +121,12 @@ private:
 };
 
 
+enum EResourceLockMode
+{
+	RLM_ReadOnly,
+	RLM_WriteOnly,
+	RLM_WriteOnly_NoOverwrite,
+	RML_Num
+};
+
 

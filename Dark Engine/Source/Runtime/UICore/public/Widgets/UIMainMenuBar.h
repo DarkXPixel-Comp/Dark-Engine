@@ -3,6 +3,7 @@
 #include "imgui.h"
 
 
+
 class UIMainMenuBar : public UIWidget
 {
 public:
@@ -14,12 +15,18 @@ public:
 
 	void AddMenu(const TSharedPtr<class UIMenu>& InMenu);
 
+	void SetIconTexture(TRefCountPtr<class FRHITexture> InIconTexture)
+	{
+		IconTextureRHI = InIconTexture;
+	}
+
 protected:
 	void DrawMenuBar();
 	
 private:
 	FString Title = TEXT("Dark Engine");
 	TArray<TSharedPtr<class UIMenu>> MenuItems;
+	TRefCountPtr<class FRHITexture> IconTextureRHI;
 
 
 

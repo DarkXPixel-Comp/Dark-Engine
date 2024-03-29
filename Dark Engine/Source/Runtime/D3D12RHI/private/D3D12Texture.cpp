@@ -272,3 +272,183 @@ void* FD3D12Texture::GetNativeShaderResourceView() const
 	return Result;
 }
 
+template <typename T>
+FORCEINLINE constexpr T Align(T Val, uint64 Alignment)
+{
+	return (T)(((uint64)Val + Alignment - 1) & ~(Alignment - 1));
+}
+
+
+void* FD3D12Texture::Lock(FRHICommandListImmediate* RHICmdList, uint32 MipIndex, uint32 ArrayIndex, EResourceLockMode LockMode, uint32& DestStride, uint64* OutLockedByteCount)
+{
+	const static FString RHITextureLockName = TEXT("FRHITexture lock");
+
+	FD3D12Device* Device = GetParentDevice();
+	FD3D12Adapter* Adapter = Device->GetParentAdapter();
+
+	const uint32 Subresource = CalcSubresource(MipIndex, ArrayIndex, this->GetDesc().NumMips);
+
+	FD3D12LockedResource* LockedResource = new FD3D12LockedResource(Device);
+
+	const int32 BlockSizeX = 1;
+	const int32 BlockSizeY = 1;
+	const int32 BlockBytes = 4;
+	const int32 MipSizeX = FMath::Max(this->GetSize().X >> MipIndex, BlockSizeX);
+	const int32 MipSizeY = FMath::Max(this->GetSize().Y >> MipIndex, BlockSizeY);
+	const int32 NumBlockX = (MipSizeX + BlockSizeX - 1) / BlockSizeX;
+	const int32 NumBlockY = (MipSizeY + BlockSizeY - 1) / BlockSizeY;
+
+	const int32 XBytesAligned = Align(NumBlockX * BlockBytes, FD3D12_TEXTURE_DATA_PITCH_ALIGNMENT);
+	const int32 MipBytesAligned = XBytesAligned * NumBlockY;
+
+
+	if (OutLockedByteCount)
+	{
+		*OutLockedByteCount = MipBytesAligned;
+	}
+
+	void* Data = nullptr;
+
+	if (LockMode == RLM_WriteOnly)
+	{
+		const int32 BufferSize = Align(MipBytesAligned, D3D12_TEXTURE_DATA_PLACEMENT_ALIGNMENT);
+		const D3D12_RESOURCE_DESC ResourceDesc = CD3DX12_RESOURCE_DESC::Buffer(BufferSize,
+			D3D12_RESOURCE_FLAG_NONE);
+		const D3D12_HEAP_PROPERTIES HeapProps = CD3DX12_HEAP_PROPERTIES(D3D12_HEAP_TYPE_UPLOAD);
+		const D3D12_RANGE Range = { 0, BufferSize };
+
+		Adapter->GetD3DDevice()->CreateCommittedResource(&HeapProps,
+			D3D12_HEAP_FLAG_NONE, &ResourceDesc,
+			D3D12_RESOURCE_STATE_GENERIC_READ, nullptr,
+			IID_PPV_ARGS(&LockedResource->Resource));
+
+		DestStride = XBytesAligned;
+		LockedResource->LockedPitch = XBytesAligned;
+
+
+		LockedResource->Resource->Map(0, &Range, &Data);
+		LockedResource->MappedAddress = Data;
+	}
+	else
+	{
+		LockedResource->bLockedForReadOnly = true;
+
+		const D3D12_RESOURCE_DESC& TextureDesc = GetResource()->GetDesc();
+		TRefCountPtr<ID3D12Resource> TextureResource;
+
+		const D3D12_RESOURCE_DESC ResourceDesc = CD3DX12_RESOURCE_DESC::Buffer(MipBytesAligned,
+			D3D12_RESOURCE_FLAG_NONE);
+		const D3D12_HEAP_PROPERTIES HeapProps = CD3DX12_HEAP_PROPERTIES(D3D12_HEAP_TYPE_READBACK);
+
+		Adapter->GetD3DDevice()->CreateCommittedResource(&HeapProps, D3D12_HEAP_FLAG_NONE,
+			&ResourceDesc, D3D12_RESOURCE_STATE_COPY_DEST, nullptr, IID_PPV_ARGS(&TextureResource));
+
+		LockedResource->Resource = TextureResource;
+
+		D3D12_SUBRESOURCE_FOOTPRINT DestSubresource;
+		DestSubresource.Depth = 1;
+		DestSubresource.Height = MipSizeY;
+		DestSubresource.Width = MipSizeX;
+		DestSubresource.Format = TextureDesc.Format;
+		DestSubresource.RowPitch = XBytesAligned;
+
+		D3D12_PLACED_SUBRESOURCE_FOOTPRINT PlacedTexture2D = {};
+		PlacedTexture2D.Offset = 0;
+		PlacedTexture2D.Footprint = DestSubresource;
+
+		CD3DX12_TEXTURE_COPY_LOCATION DestCopyLocation(TextureResource.Get(), PlacedTexture2D);
+		CD3DX12_TEXTURE_COPY_LOCATION SourceCopyLocation(GetResource()->GetResource(), Subresource);
+		
+
+		FD3D12CommandContext& Context = Device->GetDefaultCommandContext();
+
+		//Context.FlushCommands();
+		Context.GetCommandList().GetGraphicsCommandList()->CopyTextureRegion
+		(
+			&DestCopyLocation,
+			0, 0, 0,
+			&SourceCopyLocation,
+			nullptr
+		);
+
+
+		Context.FlushCommands();
+		LockedResource->LockedPitch = XBytesAligned;
+		
+		const D3D12_RANGE Range = { 0, MipBytesAligned };
+		LockedResource->Resource->Map(0, &Range, &Data);
+	}
+	
+
+
+	LockedMap.insert(std::pair<uint32, FD3D12LockedResource*>(Subresource, LockedResource));
+
+	return Data;
+}
+
+void FD3D12Texture::Unlock(FRHICommandListImmediate* RHICmdList, uint32 MipIndex, uint32 ArrayIndex)
+{
+	const uint32 Subresource = CalcSubresource(MipIndex, ArrayIndex, TextureDesc.NumMips);
+
+	const int32 BlockSizeX = 1;
+	const int32 BlockSizeY = 1;
+	const int32 BlockBytes = 4;
+	const int32 MipSizeX = FMath::Max(this->GetSize().X >> MipIndex, BlockSizeX);
+	const int32 MipSizeY = FMath::Max(this->GetSize().Y >> MipIndex, BlockSizeY);
+	const int32 NumBlockX = (MipSizeX + BlockSizeX - 1) / BlockSizeX;
+	const int32 NumBlockY = (MipSizeY + BlockSizeY - 1) / BlockSizeY;
+ 
+	FD3D12LockedResource* LockedResource = LockedMap[Subresource];
+	check(LockedResource);
+
+	if (!LockedResource->bLockedForReadOnly)
+	{
+		FD3D12Resource* Resource = GetResource();
+		
+		const D3D12_RESOURCE_DESC& ResourceDesc = Resource->GetDesc();
+		D3D12_SUBRESOURCE_FOOTPRINT BufferPitchDesc;
+		BufferPitchDesc.Depth = 1;
+		BufferPitchDesc.Width = MipSizeX;
+		BufferPitchDesc.Height = MipSizeY;
+		BufferPitchDesc.Format = ResourceDesc.Format;
+		BufferPitchDesc.RowPitch = LockedResource->LockedPitch;
+
+		D3D12_PLACED_SUBRESOURCE_FOOTPRINT PlacedTexture2D = {};
+		PlacedTexture2D.Offset = 0;
+		PlacedTexture2D.Footprint = BufferPitchDesc;
+
+		CD3DX12_TEXTURE_COPY_LOCATION SourceCopyLocation(LockedResource->Resource.Get(), PlacedTexture2D);
+
+		UpdateTexture(Subresource, 0, 0, 0, SourceCopyLocation);
+	}
+
+
+	delete(LockedResource);
+	LockedMap.erase(Subresource);
+}
+
+void FD3D12Texture::UpdateTexture(uint32 MipIndex, uint32 DestX, uint32 DestY, uint32 DestZ, const D3D12_TEXTURE_COPY_LOCATION& SourceCopyLocation)
+{
+	FD3D12CommandContext& DefaultContext = GetParentDevice()->GetDefaultCommandContext();
+
+	D3D12_RESOURCE_STATES CurrentState = GetResource()->GetCurrentState();
+
+	DefaultContext.TransitionResource(GetResource(), CurrentState,
+		D3D12_RESOURCE_STATE_COPY_DEST, MipIndex);
+
+
+	CD3DX12_TEXTURE_COPY_LOCATION DestCopyLocation(GetResource()->GetResource(), MipIndex);
+
+	//DefaultContext.FlushCommands()
+
+	DefaultContext.GetCommandList().GetGraphicsCommandList()->CopyTextureRegion(&DestCopyLocation,
+		DestX, DestY, DestZ, &SourceCopyLocation, nullptr);
+
+
+	DefaultContext.TransitionResource(GetResource(), D3D12_RESOURCE_STATE_COPY_DEST,
+		CurrentState, MipIndex);
+
+	DefaultContext.FlushCommands();
+}
+
+

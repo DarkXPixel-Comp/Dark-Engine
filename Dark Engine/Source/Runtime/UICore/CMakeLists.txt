@@ -2,7 +2,7 @@ add_library(UICore)
 
 
 target_compile_features(UICore PUBLIC cxx_std_20)
-target_link_libraries(UICore PUBLIC Core ApplicationCore IMGUI DTK12 Engine)
+target_link_libraries(UICore PUBLIC Core ApplicationCore IMGUI DTK12 Engine STB)
 
 SettingFiles(UICoreSrc)
 target_sources(UICore PRIVATE ${UICoreSrc})
