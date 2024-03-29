@@ -119,18 +119,11 @@ void UIMainMenuBar::DrawImGui()
 
 	ImGui::SetCursorPos(ImVec2(WindowPadding.x, WindowPadding.y + TitleBarVerticalOffset));
 	ImGui::SetNextItemAllowOverlap();
+	//ImGui::Button("##TitleBarDragZone", ImVec2(W - ButtonAreaWidth, TitleBarHeight));
 	ImGui::InvisibleButton("##TitleBarDragZone", ImVec2(W - ButtonAreaWidth, TitleBarHeight));
 
 	Owner->GetNativeWindow()->bTitleBarHovarered = ImGui::IsItemHovered();
 
-	if (bIsMaximized)
-	{
-		float WindowMousePosY = ImGui::GetMousePos().y - ImGui::GetCursorScreenPos().y;
-		if (WindowMousePosY >= 0.f && WindowMousePosY <= 5.f)
-		{
-			Owner->GetNativeWindow()->bTitleBarHovarered = true;
-		}
-	}
 
 	ImGui::SuspendLayout();
 
@@ -154,27 +147,9 @@ void UIMainMenuBar::DrawImGui()
 		{
 			Menu->DrawImGui();
 		}
-
-
-
-		//if (ImGui::BeginMenu("File"))
-		//{
-		//	if (ImGui::MenuItem("Exit"))
-		//	{
-		//		GIsRequestingExit = true;
-		//	}
-		//	ImGui::EndMenu();
-		//}
 	}
 	ImDark::EndMenubar();
 	ImGui::EndGroup();
-
-
-	/*ImGui::BeginGroup();
-
-
-	ImDark::EndMenubar();
-	ImGui::EndGroup();*/
 
 	if (ImGui::IsItemHovered())
 	{
@@ -186,9 +161,9 @@ void UIMainMenuBar::DrawImGui()
 
 
 	ImVec2 CurrentCursorPos = ImGui::GetCursorPos();
-	ImVec2 TextSize = ImGui::CalcTextSize("Dark Engine");
+	ImVec2 TextSize = ImGui::CalcTextSize(-Title);
 	ImGui::SetCursorPos(ImVec2(ImGui::GetWindowWidth() * 0.5f - TextSize.x * 0.5f, 2.f + WindowPadding.y + 6.f));
-	ImGui::Text("Dark Engine");
+	ImGui::Text(-Title);
 	ImGui::SetCursorPos(CurrentCursorPos);
 
 	ImGui::EndHorizontal();

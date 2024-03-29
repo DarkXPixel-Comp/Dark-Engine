@@ -86,7 +86,7 @@ void UIEditorViewport::SetResolution(int32 Width, int32 Height)
 {
 	if (SceneViewport->GetRenderTargetTexture())
 	{
-		//SceneViewport->Resize(Width, Height);
+		SceneViewport->Resize(Width, Height);
 	}
 }
 

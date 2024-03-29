@@ -24,6 +24,8 @@ public:
 
 	void DrawImGui();
 	void Update(float DeltaTime);
+private:
+	void SetTextureBackground(FString Path);
 
 protected:
 	struct

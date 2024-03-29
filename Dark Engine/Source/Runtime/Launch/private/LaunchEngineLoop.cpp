@@ -40,6 +40,7 @@ struct FEditorLayout
 
 		MainMenuBar = MakeShareble(new UIMainMenuBar());
 		MainDock->SetMainMenuBar(MainMenuBar);
+		MainMenuBar->SetTitle(TEXT("DarkEngine"));
 
 		RootViewport = MakeShareble(new UIEditorViewport());
 		{
@@ -166,13 +167,6 @@ int32 FEngineLoop::Init()
 
 void FEngineLoop::Tick()
 {
-	static int32 Counter = 0;
-
-	if (Counter++ == 100)
-	{
-		//GIsRequestingExit = true;
-	}
-
 	Engine->Tick(1);
 
 	UIApplication::Get()->Tick();

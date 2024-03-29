@@ -20,6 +20,8 @@ public:
 		IconTextureRHI = InIconTexture;
 	}
 
+	void SetTitle(FString InTitle) { Title = InTitle; }
+
 protected:
 	void DrawMenuBar();
 	
