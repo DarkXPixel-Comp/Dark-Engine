@@ -40,6 +40,7 @@ protected:
 	bool bChangeSettings = false;
 private:
 	TSharedPtr<UIEditorViewport> EditorViewport;
+	bool bOpen = false;
 
 
 

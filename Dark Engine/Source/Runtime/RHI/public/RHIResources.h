@@ -396,6 +396,20 @@ public:
 	{}
 };
 
+class FRHIGeometryShader : public FRHIGraphicsShader
+{
+public:
+	FRHIGeometryShader() : FRHIGraphicsShader(RRT_GeometryShader, ST_Geometry)
+	{}
+};
+
+
+class FRHIComputeShader : public FRHIShader
+{
+public:
+	FRHIComputeShader() : FRHIShader(RRT_ComputeShader, ST_Geometry)
+	{}
+};
 
 class FRHISamplerState : public FRHIResource
 {
@@ -482,4 +496,37 @@ public:
 	bool bClearStencil = false;
 
 	//...
+};
+
+
+struct FBoundShaderStateInput
+{
+	FBoundShaderStateInput
+	(
+		FRHIVertexShader* InVertexShader,
+		FRHIPixelShader* InPixelShader,
+		FRHIGeometryShader* InGeometryShader
+	):
+		VertexShaderRHI(InVertexShader),
+		PixelShaderRHI(InPixelShader),
+		GeometryShaderRHI(InGeometryShader)
+	{}
+
+
+	FRHIVertexShader* VertexShaderRHI = nullptr;
+	FRHIPixelShader* PixelShaderRHI = nullptr;
+	FRHIGeometryShader* GeometryShaderRHI = nullptr;
+};
+
+
+
+class FGraphicsPipelineStateInitializer
+{
+public:
+	FBoundShaderStateInput BoundShaderState;
+	EPrimitiveType PrimitiveType;
+
+
+
+
 };

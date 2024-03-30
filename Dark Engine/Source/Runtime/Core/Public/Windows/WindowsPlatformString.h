@@ -8,8 +8,6 @@ struct FWindowsPlatformString : public FGenericPlatformString
 {
 
 
-
-
 };
 
 

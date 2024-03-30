@@ -1,6 +1,7 @@
 #include "Containers/DarkString.h" 
 
 #include "Containers/Array.h"
+#include <Windows.h>
 
 
 
@@ -30,6 +31,18 @@ std::string FString::ToString() const
 	return Result;
 }
 
+const char* FString::GetUTF8()		 // Change on Multiplatform or FPlatformString
+{
+	std::string Result;
+
+	int sz = WideCharToMultiByte(CP_UTF8, 0, _string.data(), -1, 0, 0, 0, 0);
+	Result.resize(sz);
+	WideCharToMultiByte(CP_UTF8, 0, _string.data(), -1, Result.data(), sz, 0, 0);
+
+	_tempString = Result;
+	return _tempString.c_str();
+}
+
 
 FString::FString(const std::string& Str)
 	: FString(Str.data())
@@ -40,39 +53,13 @@ FString::FString(const std::string& Str)
 
 FString FString::PrintFInternal(const TCHAR* Fmt, ...)
 {
-	//int32 BufferSize = 512;
-	//TCHAR StartingBuffer[512];
-	//TArray<TCHAR> Buffer(StartingBuffer);
-	//int32 Result = -1;
-
-
-	//va_list Args;
-	//va_start(Args, Fmt);
-	//Result = _vsnwprintf(Buffer.GetData(), BufferSize, Fmt, Args);
-
-
-	//va_end(Args);
-
-
-
-	//return FString();
-
-
-
 	int32 BufferSize = 512;
 	TCHAR StartingBuffer[512];
-	//TArray<TCHAR> TBuffer = StartingBuffer;
 	TArray<TCHAR> Buffer(StartingBuffer);
 	int32 Result = -1;
 
 
 	GET_VARARGS_RESULT(Buffer.GetData(), BufferSize, BufferSize - 1, Fmt, Fmt, Result);
-
-	//va_list args;
-	//va_start(args, Fmt);
-
-	//Result = _vsnwprintf(Buffer.GetData(), BufferSize, Fmt, args);
-	//va_end(args);
 
 	if (Result == -1)
 	{

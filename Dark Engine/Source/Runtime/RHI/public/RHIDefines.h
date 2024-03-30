@@ -23,7 +23,9 @@ enum ERHIResourceType
 	RRT_ComputePipelineState,
 	RRT_VertexShader,
 	RRT_PixelShader,
-	RRT_MeshShader
+	RRT_GeometryShader,
+	RRT_MeshShader,
+	RRT_ComputeShader
 };
 
 enum class ERHIDescriptorHeapType : uint8
@@ -71,7 +73,9 @@ enum EShaderType : uint8
 	ST_RayGen,
 	ST_RayMiss,
 	ST_RayHitGroup,
-	ST_RayCallable
+	ST_RayCallable,
+
+	ST_NumStandartTypes = 6
 };
 
 enum class ETextureDimension
@@ -127,6 +131,16 @@ enum EResourceLockMode
 	RLM_WriteOnly,
 	RLM_WriteOnly_NoOverwrite,
 	RML_Num
+};
+
+enum EPrimitiveType
+{
+	PT_TriangleList,
+	PT_TriangleStrip,
+	PT_LineList,
+	PT_QuadList,
+	PT_PointList,
+	PT_Num
 };
 
 

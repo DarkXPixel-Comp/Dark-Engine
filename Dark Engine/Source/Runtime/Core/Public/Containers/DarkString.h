@@ -59,6 +59,11 @@ public:
 		return GetStr();
 	}
 
+	const char* operator!()
+	{
+		return GetUTF8();
+	}
+
 	TCHAR& operator[](int32 Index);
 
 
@@ -72,6 +77,7 @@ public:
 	int32 Len() const;
 	decltype(auto) Data() const { return _string.c_str(); }
 	std::string ToString() const;
+	
 
 
 	template<typename T>
@@ -86,6 +92,8 @@ public:
 		_tempString = ToString();
 		return _tempString.c_str();
 	}
+
+	const char* GetUTF8();
 
 
 

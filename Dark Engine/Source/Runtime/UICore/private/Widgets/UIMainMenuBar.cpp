@@ -161,9 +161,9 @@ void UIMainMenuBar::DrawImGui()
 
 
 	ImVec2 CurrentCursorPos = ImGui::GetCursorPos();
-	ImVec2 TextSize = ImGui::CalcTextSize(-Title);
+	ImVec2 TextSize = ImGui::CalcTextSize(!Title);
 	ImGui::SetCursorPos(ImVec2(ImGui::GetWindowWidth() * 0.5f - TextSize.x * 0.5f, 2.f + WindowPadding.y + 6.f));
-	ImGui::Text(-Title);
+	ImGui::Text(!Title);
 	ImGui::SetCursorPos(CurrentCursorPos);
 
 	ImGui::EndHorizontal();

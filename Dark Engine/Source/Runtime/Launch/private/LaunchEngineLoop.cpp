@@ -40,14 +40,13 @@ struct FEditorLayout
 
 		MainMenuBar = MakeShareble(new UIMainMenuBar());
 		MainDock->SetMainMenuBar(MainMenuBar);
-		MainMenuBar->SetTitle(TEXT("DarkEngine"));
+		MainMenuBar->SetTitle(TEXT("Dark Engine"));
 
 		RootViewport = MakeShareble(new UIEditorViewport());
 		{
 			RootViewport->SetName(TEXT("EditorViewport"));
 			MainDock->AddChild(RootViewport);
 		}
-
 
 		EditorSettings = MakeShareble(new UIEditorSettings());
 		EditorSettings->SetEditorViewport(RootViewport);
@@ -148,7 +147,6 @@ int32 FEngineLoop::PreInit(const TCHAR* CmdLine)
 
 	EditorLayout.SetupEditorLayout(RootWindow.get());
 	DE_LOG(Launch, Log, TEXT("Setup EditorLayout"));
-
 
 	
 	return 0;

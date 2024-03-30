@@ -37,14 +37,18 @@ void UIEditorSettings::DrawImGui()
 
 		ImGui::Separator();
 
-		
+
 
 		ImGui::ColorEdit3("Background color", TempSettings.Color);
 		//ImGui::ColorPicker3("Background color", TempSettings.Color);
-	   
+
 		ImGui::Checkbox("Vsync", &TempSettings.bVsync);
 
-		ImGui::InputText("Path", TempSettings.PathTexture, 256);
+		if (ImGui::InputText("Path", TempSettings.PathTexture, 256, ImGuiInputTextFlags_EnterReturnsTrue))
+		{
+			CurrentSettings = TempSettings;
+			bChangeSettings = true;
+		}
 
 		ImSpinner::SpinnerAtom("Test", 5, 3);
 		

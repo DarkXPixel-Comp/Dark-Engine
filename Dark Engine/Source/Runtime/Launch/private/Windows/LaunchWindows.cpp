@@ -5,10 +5,12 @@
 #include <DEngine.h>
 #include <Logging/Logger.h>
 #include <Windows/WindowsSystemIncludes.h>
+#include "Logging/LogMacros.h"
 
 
 
 
+DECLARE_LOG_CATEGORY(LaunchWindowsLog, Display);
 
 
 extern int32 GuardedMain(const TCHAR* CmdLine);
@@ -19,8 +21,7 @@ void InvalidParameterHandler(const TCHAR* Expr,
 							 uint32 Line,
 							 uintptr_t Reserved)
 {
-	throw;
-
+	DE_LOG(LaunchWindowsLog, Fatal, TEXT("%s, Func = (%s) In %s(%i)"), Expr, Func, File, Line);
 }
 
 
@@ -37,31 +38,14 @@ int32 LaunchWindowsStartup(HINSTANCE hInInstance, HINSTANCE hPrevInstance, char*
 {
 	SetupWindowsEnviroment();
 
+	//setlocale(LC_ALL, ".utf8");
+
 	int32_t ErrorCode = 0;
 	hInstance = hInInstance;
 
-	Application::Instance()->Initialize(hInInstance, hPrevInstance, pCmdLine, nCmdShow);
 
 	ErrorCode = GuardedMain(CmdLine);
 	
-
-	/*ErrorCode = GEngine.Initialize();
-	ErrorCode = GEngine.PostInit();
-
-
-	while (GEngine.isAppWork())
-	{
-		GEngine.UpdateLoop();
-	}
-
-
-
-
-	GEngine.Shutdown();
-
-
-	Logger::wait();
-	Logger::Exit();*/
 
 
 	return ErrorCode;

@@ -8,8 +8,22 @@ namespace ImGui {
         extern const unsigned int SourceSansProRegular_compressed_data[]; // defined later in the file
 
         void LoadFont(float size) {
+
+            ImFontConfig FontConfig;
+            FontConfig.OversampleH = 1;
+            FontConfig.OversampleV = 1;
+            FontConfig.PixelSnapH = 1;
+
+            static const ImWchar ranges[] =
+            {
+                0x0020, 0x00FF, // Basic Latin + Latin Supplement
+                0x0400, 0x044F, // Cyrillic
+                0,
+            };
+
             ImGuiIO& io = ImGui::GetIO();
-            ImFont* font = io.Fonts->AddFontFromMemoryCompressedTTF(SourceSansProRegular_compressed_data, SourceSansProRegular_compressed_size, size);
+            ImFont* font = io.Fonts->AddFontFromMemoryCompressedTTF(SourceSansProRegular_compressed_data, SourceSansProRegular_compressed_size, size,
+                &FontConfig, ranges);
             IM_ASSERT(font != nullptr);
             io.FontDefault = font;
         }

@@ -54,6 +54,6 @@ protected:
 	TArray<TSharedPtr<UIWidget>> ChildWidgets;
 	FString Name;
 	uint64 Index = 0;
-	bool bHaveExitButton = false;
+	bool bOpen;
 
 };

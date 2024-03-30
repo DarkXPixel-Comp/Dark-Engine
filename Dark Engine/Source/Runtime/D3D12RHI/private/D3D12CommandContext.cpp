@@ -251,19 +251,39 @@ void FD3D12CommandContext::RHIClearTextureColor(FRHITexture* InTexture, FVector 
 
 }
 
-void FD3D12CommandContextBase::RHISetViewport(float MinX, float MinY, float MinZ, float MaxX, float MaxY, float MaxZ)
+void FD3D12CommandContext::RHISetShaderParameter(FRHIGraphicsShader* ShaderRHI, uint32 BufferIndex, uint32 Offset, uint32 NumBytes, const void* Data)
 {
-	D3D12_VIEWPORT Viewport = { MinX, MinY, (MaxX - MinX), (MaxY - MinY), MinZ, MaxZ };
-	if (Viewport.Width > 0 && Viewport.Height > 0)
-	{
-	}
+	const EShaderType ShaderType = ShaderRHI->GetType();
+
+
+
 
 }
+
+void FD3D12CommandContext::RHISetViewport(float MinX, float MinY, float MinZ, float MaxX, float MaxY, float MaxZ)
+{
+	D3D12_VIEWPORT Viewport = { MinX, MinY, (MaxX - MinX), (MaxY - MinY), MinZ, MaxZ };
+
+
+
+
+
+}
+
 
 FD3D12CommandContext::FD3D12CommandContext(FD3D12Device* InParent, ED3D12QueueType QueueType, bool InIsDefaultContext):
 	FD3D12ContextCommon(InParent, QueueType, InIsDefaultContext),
 	FD3D12CommandContextBase(InParent->GetParentAdapter()),
-	FD3D12DeviceChild(InParent)
+	FD3D12DeviceChild(InParent),
+	StageConstantBuffers
+	{
+		FD3D12ConstantBuffer(InParent),
+		FD3D12ConstantBuffer(InParent),
+		FD3D12ConstantBuffer(InParent),
+		FD3D12ConstantBuffer(InParent),
+		FD3D12ConstantBuffer(InParent),
+		FD3D12ConstantBuffer(InParent)
+	}
 {
 
 }

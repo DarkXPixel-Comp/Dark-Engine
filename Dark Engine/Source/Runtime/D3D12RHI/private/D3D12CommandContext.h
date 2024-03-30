@@ -6,6 +6,8 @@
 #include "D3D12Submission.h"
 #include "RHIContext.h"
 #include "RHIResources.h"
+#include "D3D12ConstantBuffer.h"
+
 
 
 
@@ -96,13 +98,18 @@ public:
 
 	void RHIBeginDrawingViewport(FRHIViewport* Viewport, FRHITexture* RenderTargetRHI) override;
 	void RHIEndDrawingViewport(FRHIViewport* Viewport, bool bPresent, bool Vsync) override;
-	void RHISetViewport(float MinX, float MinY, float MinZ, float MaxX, float MaxY, float MaxZ) override;
 };
 
 class FD3D12CommandContext : public FD3D12ContextCommon, public FD3D12CommandContextBase, public FD3D12DeviceChild
 {
 public:
 	FD3D12CommandContext(FD3D12Device* InParent, ED3D12QueueType QueueType, bool InIsDefaultContext);
+
+	FD3D12ConstantBuffer StageConstantBuffers[ST_NumStandartTypes];
+
+
+
+
 	void RHIBeginFrame() override;
 	void RHIEndFrame() override;
 	void RHIBeginImGui() override;
@@ -110,9 +117,13 @@ public:
 	void RHIBeginRenderPass(struct FRHIRenderPassInfo& InInfo);
 	void SetRenderTargets(int32 NumRenderTargets, const FRHIRenderTargetView* RenderTargetsRHI, const FRHIDepthRenderTargetView* DepthStencilViewRHI, bool bClear = false);
 	void SetRenderTargetsAndClear(const FRHISetRenderTargetInfo& RenderTargetsInfo);
-	void RHISetShaderParameter(FRHIGraphicsShader* ShaderRHI, uint32 BufferIndex, uint32 Offset,
-		uint32 Size, const void* Data);
+	/*void RHISetShaderParameter(FRHIGraphicsShader* ShaderRHI, uint32 BufferIndex, uint32 Offset,
+		uint32 Size, const void* Data);*/
 	void RHIClearTextureColor(FRHITexture* InTexture, FVector InColor);
+	void RHISetShaderParameter(FRHIGraphicsShader* ShaderRHI, uint32 BufferIndex,
+		uint32 Offset, uint32 NumBytes, const void* Data);
+
+	virtual void RHISetViewport(float MinX, float MinY, float MinZ, float MaxX, float MaxY, float MaxZ);
 
 
 private:
