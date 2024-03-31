@@ -48,9 +48,9 @@ void UIEditorViewport::Update(float DeltaTime)
 
 void UIEditorViewport::DrawImGui()
 {
-	if (ImGui::Begin(-Name, nullptr, ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoScrollWithMouse))
+	if (ImGui::Begin(-Name, IsWidgetClose(), ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoScrollWithMouse))
 	{
-		auto WindowPadding = Owner->GetImGuiContext()->Style.DisplayWindowPadding;
+		auto WindowPadding = Window->GetImGuiContext()->Style.DisplayWindowPadding;
 		ImVec2 ImSize = ImGui::GetWindowSize();
 		ImSize.y -= WindowPadding.y;
 

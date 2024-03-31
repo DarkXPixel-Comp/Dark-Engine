@@ -85,7 +85,7 @@ UIMainMenuBar::UIMainMenuBar() : UIWidget(TEXT("UIMainMenuBar"))
 
 void UIMainMenuBar::DrawImGui()
 {
-	bool bIsMaximized = Owner->GetNativeWindow()->IsMaximized();
+	bool bIsMaximized = Window->GetNativeWindow()->IsMaximized();
 
 	const float TitleBarHeight = 58.f;
 	float TitleBarVerticalOffset = bIsMaximized ? -6.f : 0.f;
@@ -122,7 +122,7 @@ void UIMainMenuBar::DrawImGui()
 	//ImGui::Button("##TitleBarDragZone", ImVec2(W - ButtonAreaWidth, TitleBarHeight));
 	ImGui::InvisibleButton("##TitleBarDragZone", ImVec2(W - ButtonAreaWidth, TitleBarHeight));
 
-	Owner->GetNativeWindow()->bTitleBarHovarered = ImGui::IsItemHovered();
+	Window->GetNativeWindow()->bTitleBarHovarered = ImGui::IsItemHovered();
 
 
 	ImGui::SuspendLayout();
@@ -153,7 +153,7 @@ void UIMainMenuBar::DrawImGui()
 
 	if (ImGui::IsItemHovered())
 	{
-		Owner->GetNativeWindow()->bTitleBarHovarered = false;
+		Window->GetNativeWindow()->bTitleBarHovarered = false;
 	}
 
 	ImGui::ResumeLayout();
@@ -188,7 +188,7 @@ void UIMainMenuBar::Update(float DeltaTime)
 void UIMainMenuBar::AddMenu(const TSharedPtr<class UIMenu>& InMenu)
 {
 	MenuItems.Add(InMenu);
-	InMenu->Owner = Owner;
+	InMenu->Window = Window;
 }
 
 void UIMainMenuBar::DrawMenuBar()

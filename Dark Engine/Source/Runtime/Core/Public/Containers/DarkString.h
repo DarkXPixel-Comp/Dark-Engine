@@ -89,7 +89,11 @@ public:
 
 	const char* GetStr()
 	{
-		_tempString = ToString();
+		if (bChangedString)
+		{
+			_tempString = ToString();
+			bChangedString = false;
+		}
 		return _tempString.c_str();
 	}
 
@@ -136,4 +140,6 @@ public:
 private:
 	std::wstring _string;
 	std::string _tempString;
+
+	bool bChangedString = true;
 };

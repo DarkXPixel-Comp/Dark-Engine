@@ -7,7 +7,7 @@
 
 void UIDock::DrawImGui()
 {
-	Owner->GetNativeWindow()->bTitleBarHovarered = false;
+	Window->GetNativeWindow()->bTitleBarHovarered = false;
 
 	ImGuiWindowFlags WindowFlags = ImGuiWindowFlags_NoDocking;
 
@@ -22,7 +22,7 @@ void UIDock::DrawImGui()
 	WindowFlags |= ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove;
 	WindowFlags |= ImGuiWindowFlags_NoBringToFrontOnFocus | ImGuiWindowFlags_NoNavFocus;
 
-	const bool bIsMaximized = Owner->GetNativeWindow()->IsMaximized();
+	const bool bIsMaximized = Window->GetNativeWindow()->IsMaximized();
 
 	ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, bIsMaximized ? ImVec2(6.0f, 6.0f) : ImVec2(1.0f, 1.0f));
 	ImGui::PushStyleVar(ImGuiStyleVar_WindowBorderSize, 3.0f);
@@ -58,61 +58,6 @@ void UIDock::DrawImGui()
 
 	ImGui::End();
 										 
-
-
-
-
-
-
-	//ImGui::DockSpaceOverViewport(ImGui::GetMainViewport(), 0);
-
-	//ImGuiWindowFlags WindowFlags = ImGuiWindowFlags_NoDocking;
-
-	//ImGuiViewport* Viewport = ImGui::GetMainViewport();
-
-	//ImGui::SetNextWindowPos(Viewport->Pos);
-	//ImGui::SetNextWindowSize(Viewport->Size);
-	//ImGui::SetNextWindowViewport(Viewport->ID);
-
-	//WindowFlags |= ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize |
-	//	ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoBringToFrontOnFocus | ImGuiWindowFlags_NoNavFocus;	 
-	//
-	//const bool IsMaximized = Owner->GetNativeWindow()->IsMaximized();
-	//
-	//ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, IsMaximized ? ImVec2(6.f, 6.f) : ImVec2(1.f, 1.f));
-
-	//ImGui::PushStyleVar(ImGuiStyleVar_WindowBorderSize, 3.0f);
-
-	//ImGui::PushStyleColor(ImGuiCol_MenuBarBg, ImVec4{ 0.0f, 0.0f, 0.0f, 0.0f });
-
-	//ImGui::Begin("DockSpaceWindow", nullptr, WindowFlags);
-
-	//ImGui::PopStyleColor(); // MenuBarBg
-	//ImGui::PopStyleVar(2);
-
-	////ImGui::PopStyleVar(2);
-
-
-	//if (MainMenuBar)
-	//{
-	//	MainMenuBar->DrawImGui();
-	//}
-
-	//ImGuiIO& IO = ImGui::GetIO();
-	//ImGuiStyle& Style = ImGui::GetStyle();
-	//float MinWinSizeX = Style.WindowMinSize.x;
-	//Style.WindowMinSize.x = 370.f;
-	//ImGui::DockSpace(ImGui::GetID("MyDockspace"));
-	//Style.WindowMinSize.x = MinWinSizeX;
-
-
-	//ForEachChild([](UIWidget* Widget)
-	//	{
-	//		Widget->DrawImGui();
-	//	});
-
-	//ImGui::End();
-
 }
 
 void UIDock::Update(float DeltaTime)
@@ -126,5 +71,5 @@ void UIDock::Update(float DeltaTime)
 
 void UIDock::SetMainMenuBar(TSharedPtr<class UIMainMenuBar> InMenuBar)
 {
-	MainMenuBar = InMenuBar; MainMenuBar->Owner = Owner;
+	MainMenuBar = InMenuBar; MainMenuBar->Window = Window;
 }

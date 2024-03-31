@@ -64,6 +64,7 @@ UIViewport::UIViewport():
 
 void UIViewport::Update(float DeltaTime)
 {
+	UIWidget::Update(DeltaTime);
 	Delta = DeltaTime;
 }
 

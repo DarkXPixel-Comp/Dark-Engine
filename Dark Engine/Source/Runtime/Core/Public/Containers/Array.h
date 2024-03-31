@@ -97,7 +97,14 @@ public:
 
 	decltype(auto) Insert(auto Where, auto It1, auto It2) { return _vector.insert(Where, It1, It2); }
 
-	void Remove(const ElementType& Element) { _vector.erase(std::find(_vector.begin(), _vector.end(), Element)); }
+	void Remove(const ElementType& Element) 
+	{
+		auto it = std::find(_vector.begin(), _vector.end(), Element);
+		if (it != _vector.end())
+		{
+			_vector.erase(it);
+		}
+	}
 	template<typename T>
 	//void RemovePtr(const decltype(std::shared_ptr<T>)& Element)
 	//{
@@ -107,6 +114,23 @@ public:
 	{
 		Remove(Element);
 	}
+
+	template<typename T>
+	void RemovePtr(T* Element)
+	{
+		ElementType* BaseElement = _vector.data();
+
+		for (uint64 i = 0; i < _vector.size(); ++i)
+		{
+			if ((BaseElement + i)->get() == Element)
+			{
+				_vector.erase(_vector.begin() + i);
+				return;
+			}
+
+		}
+	}
+
 	void RemovePtr(ElementType& Element)
 	{
 		ElementType* BaseElement = _vector.data();

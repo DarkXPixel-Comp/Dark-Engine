@@ -32,6 +32,7 @@ public:
 	void AddDeferedWidget(TSharedPtr<UIWidget>InWidget) { DeferedAddWidgets.Add(InWidget); }
 	void RemoveDeferedWidget(TSharedPtr<UIWidget>InWidget) { DeferedRemoveWidgets.Add(InWidget); }
 	void RemoveWidget(TSharedPtr<UIWidget> InWidget) { Widgets.RemovePtr(InWidget); }
+	void RemoveWidget(UIWidget* InWidget) { Widgets.RemovePtr(InWidget); }
 	//void SetViewportClient(TSharedPtr<FViewportClient> InViewportClient) { ViewportClient = InViewportClient; }
 	void SetImGuiContext(ImGuiContext* InContext) { IMGUIContext = InContext; }
 	ImGuiContext* GetImGuiContext() const { return IMGUIContext; }

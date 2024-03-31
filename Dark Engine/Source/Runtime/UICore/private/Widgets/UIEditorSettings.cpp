@@ -24,7 +24,7 @@ struct FColor
 
 void UIEditorSettings::DrawImGui()
 {
-	if (ImGui::Begin(-Name, nullptr, ImGuiWindowFlags_Modal))
+	if (ImGui::Begin(-Name, IsWidgetClose(), ImGuiWindowFlags_Modal))
 	{
 		ImGui::Text("Viewport");
 
@@ -89,6 +89,7 @@ void UIEditorSettings::Update(float DeltaTime)
 			UIApplication::Get()->GetRenderer()->SetVsync(CurrentSettings.bVsync);
 		}
 	}
+	UIWidget::Update(DeltaTime);
 }
 
 void UIEditorSettings::SetTextureBackground(FString Path)

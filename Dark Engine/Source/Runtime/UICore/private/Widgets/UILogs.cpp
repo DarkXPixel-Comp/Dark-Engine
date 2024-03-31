@@ -10,9 +10,10 @@ UILogs::UILogs():
 
 void UILogs::DrawImGui()
 {
-	if (ImGui::Begin(-Name))
+	if (ImGui::Begin(-Name, IsWidgetClose()))
 	{
-		auto Logs = Logger::GetLogs();
+		//auto& Logs = Logger::GetLogs();
+		std::vector<log_>& Logs = Logger::GetLogs();
 		for (uint32 i = 0; i < Logger::GetMaxCountLogs(); ++i)
 		{
 			ImGui::TextColored(FVectorToImVec4(Logs[i].Color), -Logs[i].Result);

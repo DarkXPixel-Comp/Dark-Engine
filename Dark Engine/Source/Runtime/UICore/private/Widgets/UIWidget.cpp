@@ -1,11 +1,40 @@
 #include "Widgets/UIWidget.h"
 #include "imgui.h"
-
+#include "Widgets/UIWindow.h"
 
 
 ImVec4 FVectorToImVec4(const FVector& InVector)
 {
 	return ImVec4(InVector.X, InVector.Y, InVector.Z, 1);
+}
+
+void UIWidget::CloseWidget()
+{
+	if(Owner)
+		Owner->DefferedRemoveChild(this);
+	Window->RemoveWidget(this);
+	Window = nullptr;
+	Owner = nullptr;
+}
+
+
+void UIWidget::Update(float DeltaTime)
+{
+	for (auto& i : DefferedRemoved)
+	{
+		ChildWidgets.RemovePtr(i);
+	}
+	DefferedRemoved.Empty();
+
+	ForEachChild([DeltaTime](UIWidget* Widget)
+		{
+			Widget->Update(DeltaTime);
+		});
+
+	if (bHaveCloseButton && !bOpen)
+	{
+		CloseWidget();
+	}
 }
 
 void UIWidget::ForEachChild(std::function<void(UIWidget*)> Func)

@@ -79,7 +79,7 @@ public:
 #endif // _WIN32
 	static void wait();
 
-	static const std::vector<log_>& GetLogs() { return inst->Logs; }
+	static std::vector<log_>& GetLogs() { return inst->Logs; }
 
 	static uint64 GetMaxCountLogs() { return inst->MaxCountLogs; }
 	static uint64 GetCurrentCountLogs() { return inst->CountCurrentLogs; }

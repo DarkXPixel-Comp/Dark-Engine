@@ -35,7 +35,8 @@ struct FEditorLayout
 
 		TSharedPtr<UILogs> Logs = MakeShareble(new UILogs());
 		MainDock->AddChild(Logs);
-		MainDock->SetName(TEXT("Logs"));
+		Logs->SetName(TEXT("Logs"));
+		//Logs->bHaveCloseButton = true;
 		
 
 		MainMenuBar = MakeShareble(new UIMainMenuBar());
@@ -45,11 +46,13 @@ struct FEditorLayout
 		RootViewport = MakeShareble(new UIEditorViewport());
 		{
 			RootViewport->SetName(TEXT("EditorViewport"));
+			//RootViewport->bHaveCloseButton = true;
 			MainDock->AddChild(RootViewport);
 		}
 
 		EditorSettings = MakeShareble(new UIEditorSettings());
 		EditorSettings->SetEditorViewport(RootViewport);
+		//EditorSettings->bHaveCloseButton = true;
 
 		TSharedPtr<UIMenuItem> ExitButton = MakeShareble(new UIMenuItem());
 		ExitButton->SetName(TEXT("Exit"));
