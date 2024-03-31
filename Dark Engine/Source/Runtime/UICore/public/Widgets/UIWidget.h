@@ -37,8 +37,11 @@ public:
 	void AddChild(TSharedPtr<UIWidget> Child) { Child->Owner = Owner; ChildWidgets.Add(Child); }
 	void RemoveChild(TSharedPtr<UIWidget> Child) { ChildWidgets.Remove(Child); }
 	FIntRect GetRect() { return Rect; }
+void CloseWidget();
 
 	UIWindow* Owner;
+ UIWidget* pOwner;
+ 
 
 protected:
 	//void ForEachChild(void(*Func)(UIWidget*));
@@ -55,5 +58,6 @@ protected:
 	FString Name;
 	uint64 Index = 0;
 	bool bOpen;
+ bool bHaveCloseButton;
 
 };
