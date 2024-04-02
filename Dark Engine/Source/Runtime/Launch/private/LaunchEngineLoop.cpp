@@ -52,7 +52,7 @@ struct FEditorLayout
 
 		EditorSettings = MakeShareble(new UIEditorSettings());
 		EditorSettings->SetEditorViewport(RootViewport);
-		//EditorSettings->bHaveCloseButton = true;
+		//ditorSettings->bHaveCloseButton = true;
 
 		TSharedPtr<UIMenuItem> ExitButton = MakeShareble(new UIMenuItem());
 		ExitButton->SetName(TEXT("Exit"));
@@ -67,14 +67,16 @@ struct FEditorLayout
 
 		TSharedPtr<UIMenuItem> CreateSettings = MakeShareble(new UIMenuItem());
 		CreateSettings->SetName(TEXT("Settings"));
-		CreateSettings->MenuItemDelegate.Bind([&](bool bPressed)
+		CreateSettings->MenuItemDelegate.Bind([&, CreateSettings](bool bPressed)
 			{
 				if (bPressed)
 				{
 					MainDock->AddChild(EditorSettings);
+					CreateSettings->AddChild(EditorSettings);
 				}
 				else
 				{
+					CreateSettings->RemoveChild(EditorSettings);
 					MainDock->RemoveChild(EditorSettings);
 				}
 			});
@@ -160,6 +162,7 @@ int32 FEngineLoop::Init()
 {
 	RHIPostInit();
 	DE_LOG(Launch, Log, TEXT("RHI Post init"));
+	((DEditorEngine*)Engine)->NewMap();
 
 
 
@@ -175,6 +178,9 @@ void FEngineLoop::Tick()
 
 void FEngineLoop::Exit()
 {
-	Logger::Exit();
+	Engine->Shutdown();
+	delete Engine;
+	Engine = nullptr;
 
+	Logger::Exit();
 }

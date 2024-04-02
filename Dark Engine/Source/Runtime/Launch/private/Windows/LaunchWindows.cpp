@@ -27,7 +27,7 @@ void InvalidParameterHandler(const TCHAR* Expr,
 
 
 
-void SetupWindowsEnviroment()
+static void SetupWindowsEnviroment()
 {
 	_set_invalid_parameter_handler(InvalidParameterHandler);
 }

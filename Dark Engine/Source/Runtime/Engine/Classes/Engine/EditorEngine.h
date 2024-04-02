@@ -12,9 +12,12 @@ public:
 
 public:
 	void Tick(float DeltaTime);
+	void Shutdown();
 
 public:
 	void AddViewportClient(FViewportClient* ViewportClient) override;
+
+	FWorld* NewMap();
 
 
 private:

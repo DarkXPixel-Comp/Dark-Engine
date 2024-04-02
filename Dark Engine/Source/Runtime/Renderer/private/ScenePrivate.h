@@ -6,6 +6,9 @@
 class FScene : public FSceneInterface
 {
 public:
+	FScene(FWorld* InWorld);
+
+
 	virtual FScene* GetRenderScene() override final { return this; }
 	virtual FWorld* GetWorld() final { return World; }
 

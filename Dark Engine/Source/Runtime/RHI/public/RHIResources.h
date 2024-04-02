@@ -74,7 +74,7 @@ private:
 
 protected:
 	ERHIResourceType ResourceType;
-	FString Name;
+	FString Name = TEXT("RHIResource");
 
 };
 

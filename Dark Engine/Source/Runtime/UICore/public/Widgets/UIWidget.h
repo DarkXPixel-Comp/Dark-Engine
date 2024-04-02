@@ -51,6 +51,12 @@ public:
 		return bOpen;
 	}
 
+	void SetOpen(bool InbOpen)
+	{
+		bOpen = InbOpen;
+	}
+
+
 
 
 	FIntRect GetRect() { return Rect; }

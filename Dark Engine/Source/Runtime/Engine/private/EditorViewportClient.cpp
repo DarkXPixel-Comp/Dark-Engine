@@ -23,7 +23,7 @@ FWorld* FEditorViewportClient::GetWorld() const
 {
 	FWorld* Result = nullptr;
 
-	Result = &GWorld;
+	Result = GWorld;
 	return Result;
 }
 
@@ -37,7 +37,7 @@ void FEditorViewportClient::Draw(FViewport* InViewport, FCanvas* Canvas)
 	
 	SceneView.CalcSceneView();
 
-	//GetRenderer()->BeginRenderingView(InCanvas, &SceneView);
+	GetRenderer()->BeginRenderingView(Canvas, &SceneView);
 
 
 }

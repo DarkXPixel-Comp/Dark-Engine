@@ -18,8 +18,8 @@ public:
 
 
 public:
-	const class FRenderTarget* RenderTarget;
-	FSceneInterface* Scene;
+	const class FRenderTarget* RenderTarget = nullptr;
+	FSceneInterface* Scene = nullptr;
 
 
 

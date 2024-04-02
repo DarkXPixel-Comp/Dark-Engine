@@ -1,16 +1,6 @@
 #include "imdark_extension.h"
 
 
-ImRect RectOffset(const ImRect& rect, float x, float y)
-{
-	ImRect result = rect;
-	result.Min.x += x;
-	result.Min.y += y;
-	result.Max.x += x;
-	result.Max.y += y;
-	return result;
-}
-
 
 
 namespace ImDark

@@ -34,12 +34,17 @@ void UIMenuItem::DrawImGui()
 {
 	if (ImGui::MenuItem(-Name, NULL, &bPressed))
 	{
-		bool test = bPressed;
+
 	}
 }
 
 void UIMenuItem::Update(float DeltaTime)
 {
+	if (ChildWidgets.Num() == 1 && ChildWidgets[0]->bHaveCloseButton && (ChildWidgets[0]->IsOpen() != bPressed))
+	{
+		bPressed = ChildWidgets[0]->IsOpen();
+		bLastPressed = bPressed;
+	}
 	if (bPressed != bLastPressed)
 	{
 		MenuItemDelegate.BroadCast(bPressed);

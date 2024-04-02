@@ -27,11 +27,11 @@ void FRenderer::BeginRenderingView(FCanvas* Canvas,FSceneView* View)
 {
 	check(Canvas);
 	check(View);
-	check(View->Scene);
+	//check(View->Scene);
 
 	FWorld* World = nullptr;
 
-	FScene* const Scene = View->Scene->GetRenderScene();
+	FScene* const Scene = View->Scene ? View->Scene->GetRenderScene() : nullptr;
 	if (Scene)
 	{
 		World = Scene->GetWorld();
@@ -43,17 +43,23 @@ void FRenderer::BeginRenderingView(FCanvas* Canvas,FSceneView* View)
 
 
 	Canvas->Flush();
+	FSceneRender* SceneRender;
 
-	Scene->IncrementFrameNumber();
-	//View->FrameNumber = Scene->GetFrameNumber();
-	FSceneRender* SceneRender = new FSceneRender(View);
+	if (Scene)
+	{
+		Scene->IncrementFrameNumber();
+	}
 
+	SceneRender = new FSceneRender(View);
 	FRHICommandListImmediate& RHICmdList = FRHICommandListExecutor::GetImmediateCommandList();
 
 
 	//SceneRender->UpdateReflection(;)
 
-	RenderView(RHICmdList, SceneRender);
+	if (Scene)
+	{
+		RenderView(RHICmdList, SceneRender);
+	}
 
 
 
@@ -61,4 +67,18 @@ void FRenderer::BeginRenderingView(FCanvas* Canvas,FSceneView* View)
 	//ImGui::DRAW
 
 	delete SceneRender;
+}
+
+FSceneInterface* FRenderer::AllocateScene(FWorld* World)
+{
+	FScene* NewScene = new FScene(World);
+	AllocatedScenes.Add(NewScene);
+	return NewScene;
+}
+
+void FRenderer::RemoveScene(FSceneInterface* Scene)
+{
+	check(Scene);
+	delete Scene;
+	AllocatedScenes.Remove(Scene);
 }

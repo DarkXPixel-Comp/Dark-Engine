@@ -46,3 +46,21 @@ void DEditorEngine::UpdateViewportClient()
 {
 	CurrentViewportClient->Viewport->Draw();
 }
+
+FWorld* DEditorEngine::NewMap()
+{
+	FWorld* NewWorld = new FWorld();
+	NewWorld->InitWorld();
+	GWorld = NewWorld;
+	return NewWorld;
+}
+
+void DEditorEngine::Shutdown()
+{
+	if (GWorld)
+	{
+		delete GWorld;
+		GWorld = nullptr;
+	}
+
+}

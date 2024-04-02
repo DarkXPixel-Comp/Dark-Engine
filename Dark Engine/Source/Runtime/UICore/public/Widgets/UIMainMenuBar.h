@@ -24,11 +24,17 @@ public:
 
 protected:
 	void DrawMenuBar();
+	void FastLoadIcon(TRefCountPtr<class FRHITexture>& InTexture, FString Path);
+	void FastLoadIcon(TRefCountPtr<class FRHITexture>& InTexture, uint8* Bytes, uint64 SizeBytes);
+	
 	
 private:
 	FString Title = TEXT("Dark Engine");
 	TArray<TSharedPtr<class UIMenu>> MenuItems;
 	TRefCountPtr<class FRHITexture> IconTextureRHI;
+	TRefCountPtr<class FRHITexture> MaximizeTextureRHI;
+	TRefCountPtr<class FRHITexture> CloseTextureRHI;
+	TRefCountPtr<class FRHITexture> MinimizeTextureRHI;
 
 
 
