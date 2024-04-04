@@ -121,10 +121,20 @@ public:
 	const TCHAR* operator*() const { return _string.data(); }
 	TCHAR* operator*() { return _string.data(); }
 
-	bool operator==(FString R)
+	bool operator==(const FString& R) const
 	{
 		return _string == R._string;
 	}
+
+	bool operator<(const FString& R) const
+	{
+		return _string < R._string;
+	}
+	bool operator>(const FString& R) const
+	{
+		return _string > R._string;
+	}
+
 
 	decltype(auto) begin() { return _string.begin(); }
 	decltype(auto) end() { return _string.end(); }
@@ -142,4 +152,22 @@ private:
 	std::string _tempString;
 
 	bool bChangedString = true;
+
+private:
+	friend struct std::hash<FString>;
+
+};
+
+
+template<>
+struct std::hash<FString>
+{
+	std::size_t operator()(const FString& Key) const
+	{
+		using std::size_t;
+		using std::hash;
+		using std::wstring;
+
+		return hash<wstring>()(Key._string);
+	}
 };

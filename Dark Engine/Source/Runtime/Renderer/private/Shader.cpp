@@ -2,7 +2,8 @@
 #include "HAL/DarkMemory.h"
 
 TArray<const FShaderTypeRegistration*> GShaderTypeRegistationInstances;
-TArray<FShaderType*> GShaderTypes;
+TArray<const FShaderType*> GShaderTypes;
+TUnordoredMap<FString, FShaderType*> GNameToTypeMap;
 TArray<const FShaderPipelineType*> GShaderPipelineTypes;
 
 
@@ -52,4 +53,32 @@ FShaderPipelineType::FShaderPipelineType(const TCHAR* InName, const FShaderType*
 TArray<const FShaderPipelineType*>& FShaderPipelineType::GetTypeList()
 {
 	return GShaderPipelineTypes;
+}
+
+FShaderType::FShaderType
+(
+	EShaderTypeInternal InShaderType,
+	const TCHAR* InName, 
+	const TCHAR* InSourceFilename, 
+	const TCHAR* InFunctionName, 
+	uint32 InType
+):
+	ShaderType(InShaderType),
+	Name(InName),
+	SourceFileName(InSourceFilename),
+	FunctionName(InFunctionName),
+	Type((EShaderType)InType)
+{
+	GetTypeList().Add(this);
+	GetNameToTypeMap().emplace(Name, this);
+}
+
+TArray<const FShaderType*>& FShaderType::GetTypeList()
+{
+	return GShaderTypes;
+}
+
+TUnordoredMap<FString, FShaderType*>& FShaderType::GetNameToTypeMap()
+{
+	return GNameToTypeMap;
 }

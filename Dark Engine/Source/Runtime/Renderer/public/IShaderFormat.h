@@ -5,6 +5,6 @@
 class IShaderFormat
 {
 public:
-	virtual void CompileShader(FString Format, const class FShaderCompilerInput& Input);
+	virtual void CompileShader(FString Format, const struct FShaderCompilerInput& Input) = 0;
 
 };

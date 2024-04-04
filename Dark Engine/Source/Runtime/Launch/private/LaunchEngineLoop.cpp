@@ -14,6 +14,7 @@
 #include "Logging/LogMacros.h"
 #include "Widgets/UIEditorViewport.h"
 #include "Widgets/UIEditorSettings.h"
+#include "Shader.h"
 
 
 
@@ -121,6 +122,9 @@ int32 FEngineLoop::PreInit(const TCHAR* CmdLine)
 	Logger::Initialize(LOGGER_INFO | LOGGER_ERROR);
 	CommandConsole::Initialize("Dark Engine Console");
 	FMath::RandInit(time(0));
+
+	//FShaderTypeRegistration::CommitAll();
+
 	RHIInit();
 
 	DE_LOG(Launch, Log, TEXT("RHI init"));

@@ -1,5 +1,6 @@
 #pragma once
 #include "ShaderCore.h"
+#include "IShaderFormat.h"
 
 
 bool PreprocessD3DShader(
@@ -19,4 +20,7 @@ void CompileD3DShader
 
 
 
-class FD3DShaderFormat : 
+class FD3DShaderFormat : public IShaderFormat
+{
+
+};

@@ -2,6 +2,11 @@
 #include "Containers/UnordoredMap.h"
 #include "Containers/DarkString.h"
 
+#include "Logging/LogMacros.h"
+
+DECLARE_LOG_CATEGORY(LogShaders, Display)
+
+
 class FShaderCompilerDefinitions
 {
 public:

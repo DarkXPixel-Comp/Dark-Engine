@@ -6,7 +6,34 @@
 class FGlobalShaderType : public FShaderType
 {
 public:
+	typedef FShader::CompiledShaderInitializerType CompiledShaderInitializerType;
 
+	FGlobalShaderType
+	(
+		const TCHAR* InName,
+		const TCHAR* InSourceFilename,
+		const TCHAR* InFunctionName,
+		uint32 InType
+	);
+
+
+
+};
+
+
+class FGlobalShaderMap
+{
+public:
+	TShaderRefBase<FShader>	 GetShader(FShaderType* ShaderType) const;
+	FORCEINLINE bool IsEmpty() const
+	{
+		return ShadersMap.empty();
+	}
+
+
+
+private:
+	TUnordoredMap<FString, TShaderRefBase<FShader>>	ShadersMap;
 
 };
 
@@ -15,6 +42,10 @@ class FGlobalShader : public FShader
 {
 public:
 	using ShaderMetaType = FGlobalShaderType;
+
+	FGlobalShader() {}
+
+	FGlobalShader(const ShaderMetaType::CompiledShaderInitializerType& Initializer) : FShader(Initializer) {}
 
 
 };
