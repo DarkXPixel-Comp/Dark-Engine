@@ -1,4 +1,5 @@
 #include "SceneRendering.h"
+#include "IndirectLightRendering.h"
 
 FSceneRender::FSceneRender(const FSceneView* InView) :
 	Scene(InView->Scene ? InView->Scene->GetRenderScene() : nullptr),
@@ -11,7 +12,9 @@ FSceneRender::FSceneRender(const FSceneView* InView) :
 
 void FSceneRender::Render(FRHICommandListImmediate& CmdList)
 {
-	RenderTriangle(CmdList);
+	RenderLight();
+
+	//RenderTriangle(CmdList);
 
 
 

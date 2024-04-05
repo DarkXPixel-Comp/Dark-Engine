@@ -64,6 +64,7 @@ struct FShaderCompilerInput
 	FString SourceFilePath;
 	FString EntryPoint;
 	FString ShaderName;
+	uint32 ShaderType;
 
 	FShaderCompilerEnvironment Environment;
 };
@@ -72,10 +73,19 @@ struct FShaderPreprocessOutput
 {
 	FString PreprocessedSource;
 	FString OriginalPreprocessedSource;
+	float PreprocessTime;
+};
+
+struct FShaderCode
+{
+	TArray<uint8> ShaderCodeWithOptionalData;
 };
 
 
 struct FShaderCompilerOutput
 {
+	FShaderCode ShaderCode;
+
+
 
 };

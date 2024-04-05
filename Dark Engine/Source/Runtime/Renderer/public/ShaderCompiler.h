@@ -28,4 +28,6 @@ public:
 		TArray<TSharedPtr<FShaderCompileJob>>& Jobs);
 	static FShader* FinishCompileShader(const FGlobalShaderType* ShaderType, const FShaderCompileJob& CompileJob);
 
+	static void FinishCompilation(FString MaterialName, TArray<TSharedPtr<FShaderCompileJob>>& Jobs);
+
 };

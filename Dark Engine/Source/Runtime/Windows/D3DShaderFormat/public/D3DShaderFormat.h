@@ -14,6 +14,7 @@ void CompileD3DShader
 (
 	const struct FShaderCompilerInput& Input,
 	const class FShaderPreprocessOutput&,
+	struct FShaderCompilerOutput& Output,
 	const class FString& WorkingDirectory
 );
 
@@ -22,5 +23,15 @@ void CompileD3DShader
 
 class FD3DShaderFormat : public IShaderFormat
 {
+	virtual bool PreprocessShader(const FShaderCompilerInput& Input, const FShaderCompilerEnvironment& Environment, FShaderPreprocessOutput& PreprocessOutput) const override
+	{
+		return PreprocessD3DShader(Input, Environment, PreprocessOutput);
+	}
+	virtual void CompileShader(FString Name, const FShaderCompilerInput& Input, const FShaderPreprocessOutput& PreprocessOutput,
+		FShaderCompilerOutput& Output) const
+	{
+		return CompileD3DShader(Input, PreprocessOutput, Output, TEXT(""));
+	}
+
 
 };

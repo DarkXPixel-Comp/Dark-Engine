@@ -1,4 +1,6 @@
 #include "GlobalShader.h"
+#include "Misc/Paths.h"
+
 
 class FDiffuseIndirectCompositePS : public FGlobalShader
 {
@@ -6,4 +8,12 @@ class FDiffuseIndirectCompositePS : public FGlobalShader
 	SHADER_USE_PARAMETER_STRUCT(FDiffuseIndirectCompositePS, FGlobalShader);
 };
 
-IMPLEMENT_GLOBAL_SHADER(FDiffuseIndirectCompositePS, "test.shader", "Main", ST_Pixel);
+
+IMPLEMENT_GLOBAL_SHADER(FDiffuseIndirectCompositePS, "VertexShader.hlsl",
+	"main", ST_Vertex);
+
+
+void RenderLight()
+{
+
+}

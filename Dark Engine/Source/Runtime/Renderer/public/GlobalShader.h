@@ -43,7 +43,7 @@ class FGlobalShader : public FShader
 public:
 	using ShaderMetaType = FGlobalShaderType;
 
-	FGlobalShader() {}
+	FGlobalShader() : FShader() {}
 
 	FGlobalShader(const ShaderMetaType::CompiledShaderInitializerType& Initializer) : FShader(Initializer) {}
 

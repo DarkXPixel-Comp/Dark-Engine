@@ -15,6 +15,7 @@
 #include "Widgets/UIEditorViewport.h"
 #include "Widgets/UIEditorSettings.h"
 #include "Shader.h"
+#include "ShaderCompiler.h"
 
 
 
@@ -123,12 +124,14 @@ int32 FEngineLoop::PreInit(const TCHAR* CmdLine)
 	CommandConsole::Initialize("Dark Engine Console");
 	FMath::RandInit(time(0));
 
-	//FShaderTypeRegistration::CommitAll();
+	FShaderTypeRegistration::CommitAll();
 
 	RHIInit();
 
 	DE_LOG(Launch, Log, TEXT("RHI init"));
 
+
+	CompileGlobalShaders();
 
 	Engine = new DEditorEngine();
 

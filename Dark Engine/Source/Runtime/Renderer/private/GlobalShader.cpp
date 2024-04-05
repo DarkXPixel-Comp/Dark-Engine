@@ -1,5 +1,6 @@
 #include "GlobalShader.h"
 
+
 FGlobalShaderType::FGlobalShaderType(
 	const TCHAR* InName,
 	const TCHAR* InSourceFilename, 

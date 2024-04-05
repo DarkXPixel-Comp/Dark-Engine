@@ -2,8 +2,11 @@ add_library(Renderer)
 
 
 target_compile_features(Renderer PUBLIC cxx_std_20)
+
+
 target_link_libraries(Renderer PUBLIC Core RHI Engine D3DShaderFormat)
 #target_link_libraries(RHI PUBLIC ${RHILibs})
+#target_link_options(Renderer PUBLIC "LINKER:/WHOLEARCHIVE")
 
 
 #target_sources(Renderer PRIVATE "public/RenderResource.h" "private/SceneRendering.h"

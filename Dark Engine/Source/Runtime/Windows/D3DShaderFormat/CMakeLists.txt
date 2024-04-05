@@ -2,7 +2,7 @@ add_library(D3DShaderFormat)
 
 
 target_compile_features(D3DShaderFormat PUBLIC cxx_std_20)
-target_link_libraries(D3DShaderFormat PUBLIC Renderer)
+target_link_libraries(D3DShaderFormat PUBLIC Renderer D3DCompiler)
 
 SettingFiles(D3DShaderFormatSrc)
 target_sources(D3DShaderFormat PRIVATE ${D3DShaderFormatSrc})
@@ -13,4 +13,4 @@ target_include_directories(D3DShaderFormat PUBLIC "public" "private")
 
 SettingProject(D3DShaderFormat)
 
-#install(TARGETS UICore)
+install(TARGETS D3DShaderFormat)

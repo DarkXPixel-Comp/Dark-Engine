@@ -8,6 +8,7 @@
 
 
 
+
 static void RenderView(FRHICommandListImmediate& RHICmdList, FSceneRender* SceneRenderer)
 {
 	FScene* const Scene = SceneRenderer->Scene;

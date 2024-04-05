@@ -110,7 +110,7 @@ public:
 	FShaderTypeRegistration(std::function<FShaderType& ()> InShaderTypeAccessor):
 		ShaderTypeAccessor(InShaderTypeAccessor)
 	{
-		//GetInstances().Add(this);
+		GetInstances().Add(this);
 	}
 
 	static TArray<const FShaderTypeRegistration*>& GetInstances();
@@ -254,11 +254,7 @@ ShaderClass::ShaderMetaType& ShaderClass::GetStaticType()\
 );\
 	return StaticType;\
 }\
-	FShaderTypeRegistration ShaderClass::ShaderTypeRegistration{std::function<FShaderType&()>{ShaderClass::GetStaticType}};\
-\
-\
-\
-\
+	FShaderTypeRegistration ShaderClass::ShaderTypeRegistration(ShaderClass::GetStaticType);
 
 
 #define SHADER_USE_PARAMETER_STRUCT(ShaderClass, ShaderParentClass) \
