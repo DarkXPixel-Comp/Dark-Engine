@@ -32,6 +32,8 @@ void VerifyGlobalShaders()
 	}
 
 
+	TArray<TSharedPtr<FShaderCompileJob>> GlobalShaderJobs;
+
 	for (auto& ShaderTypeIt : FShaderType::GetTypeList())
 	{
 		FGlobalShaderType* GlobalShaderType = ShaderTypeIt->GetGlobalShaderType();
@@ -39,11 +41,19 @@ void VerifyGlobalShaders()
 		{
 			continue;
 		}
-		TShaderRefBase<FShader>	GlobalShader = GGlobalShaderMap->GetShader(GlobalShaderType);
-	//	FGlobalShaderTypeCompiler::BeginCompileShader(GlobalShader);
+		FGlobalShaderTypeCompiler::BeginCompileShader(GlobalShaderType, GlobalShaderJobs);
+	}
 
+	if (GlobalShaderJobs.Num() > 0)
+	{
 
 	}
 
+}
 
+void FGlobalShaderTypeCompiler::BeginCompileShader(const FGlobalShaderType* ShaderType,
+	TArray<TSharedPtr<FShaderCompileJob>>& Jobs)
+{
+	FShaderCompileJob* NewJob = new FShaderCompileJob();
+	Jobs.Add(MakeShareble(NewJob));
 }

@@ -13,7 +13,7 @@ bool PreprocessD3DShader(
 void CompileD3DShader
 (
 	const struct FShaderCompilerInput& Input,
-	const class FShaderPreprocessorOutput&,
+	const class FShaderPreprocessOutput&,
 	const class FString& WorkingDirectory
 );
 

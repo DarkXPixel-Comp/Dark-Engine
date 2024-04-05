@@ -1,8 +1,9 @@
 #pragma once
 #include "Containers/UnordoredMap.h"
 #include "Containers/DarkString.h"
-
 #include "Logging/LogMacros.h"
+
+#include <variant>
 
 DECLARE_LOG_CATEGORY(LogShaders, Display)
 
@@ -45,7 +46,36 @@ public:
 
 private:
 	TMap<FString, FString> Definitions;
+};
+
+struct FShaderCompilerEnvironment
+{
+	FShaderCompilerDefinitions Definitions;
+	TMap<FString, std::variant<bool, float, int32, uint32, FString>> CompileArgs;
+
+};
 
 
+
+
+struct FShaderCompilerInput
+{
+	FString	ShaderFormat;
+	FString SourceFilePath;
+	FString EntryPoint;
+	FString ShaderName;
+
+	FShaderCompilerEnvironment Environment;
+};
+
+struct FShaderPreprocessOutput
+{
+	FString PreprocessedSource;
+	FString OriginalPreprocessedSource;
+};
+
+
+struct FShaderCompilerOutput
+{
 
 };
