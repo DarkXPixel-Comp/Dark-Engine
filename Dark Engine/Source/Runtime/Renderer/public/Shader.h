@@ -10,6 +10,26 @@
 #include <functional>
 
 
+struct FShaderCompiledInitializerType;
+
+class FShader
+{
+public:
+
+	FShader() {}
+
+	FShader(const FShaderCompiledInitializerType& Initializer);
+
+	~FShader() {}
+
+private:
+	const class FShaderType* Type;
+	TArray<uint8> Code;
+
+
+
+
+};
 
 
 
@@ -49,6 +69,9 @@ public:
 	}
 
 
+	FShader* FinishCompileShader(class FShaderCompileJob& CurrentJob, const FString& InDebugDescription);
+
+
 	FORCEINLINE const TCHAR* GetName() const
 	{
 		return Name;
@@ -76,6 +99,16 @@ private:
 	EShaderTypeInternal ShaderType;
 	EShaderType Type;
 };
+
+
+struct FShaderCompiledInitializerType
+{
+	const FShaderType* Type;
+	const FShaderType::FParameters* Parameters;
+	const TArray<uint8>& Code;
+	//const FShaderParameterMap
+};
+
 
 
 class FShaderPipelineType
@@ -120,14 +153,6 @@ private:
 	std::function<FShaderType& ()> ShaderTypeAccessor;
 };
 
-struct FShaderCompiledInitializerType
-{
-	const FShaderType* Type;
-	const FShaderType::FParameters* Parameters;
-	const TArray<uint8>& Code;
-	//const FShaderParameterMap
-};
-
 
 
 class FShaderMapResourceCode
@@ -141,6 +166,12 @@ public:
 };
 
 
+
+class FShaderMapContent
+{
+
+
+};
 
 
 class FShaderMapBase
@@ -206,22 +237,6 @@ private:
 
 
 
-class FShader
-{
-public:
-	using CompiledShaderInitializerType = FShaderCompiledInitializerType;
-
-
-	FShader() {}
-
-	FShader(const CompiledShaderInitializerType& Initializer) {}
-
-	~FShader() {}
-
-
-
-};
-
 
 
 
@@ -239,8 +254,8 @@ static ShaderMetaType& GetStaticType();	\
 private:\
 static FShaderTypeRegistration ShaderTypeRegistration;\
 public: static FShader* ConstructSerializedInstance() {return new ShaderClass();}\
-static FShader* ConstructCompiledInstance(const typename FShader::CompiledShaderInitializerType& Initializer)\
-{return new ShaderClass(static_cast<const typename ShaderMetaType::CompiledShaderInitializerType&>(Initializer));}\
+static FShader* ConstructCompiledInstance(const typename FShaderCompiledInitializerType& Initializer)\
+{return new ShaderClass(static_cast<const typename FShaderCompiledInitializerType&>(Initializer));}\
 
 #define IMPLEMENT_SHADER_TYPE(ShaderClass, SourceFilename, FunctionName, ShaderType)\
 ShaderClass::ShaderMetaType& ShaderClass::GetStaticType()\
@@ -258,6 +273,6 @@ ShaderClass::ShaderMetaType& ShaderClass::GetStaticType()\
 
 
 #define SHADER_USE_PARAMETER_STRUCT(ShaderClass, ShaderParentClass) \
-ShaderClass(const ShaderMetaType::CompiledShaderInitializerType& Initializer): ShaderParentClass(Initializer) {}\
+ShaderClass(const FShaderCompiledInitializerType& Initializer): ShaderParentClass(Initializer) {}\
 ShaderClass() {}
 

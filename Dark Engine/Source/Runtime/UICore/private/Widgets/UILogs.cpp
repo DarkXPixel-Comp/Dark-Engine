@@ -23,11 +23,14 @@ void UILogs::DrawImGui()
 		{
 			ScrollToBottom = true;
 		}
+		ImGui::InputText("Input", InputText, 256, 0);
 
 		if (ScrollToBottom)
 		{
 			ImGui::SetScrollHereY(1.f);
-		}	
+		}
+
+
 		ScrollToBottom = false;
 		LastLogsSize = Logger::GetCurrentCountLogs();
 		

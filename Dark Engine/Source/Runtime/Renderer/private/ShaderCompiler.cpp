@@ -5,6 +5,8 @@
 #include "GlobalShader.h"
 #include "ShaderCore.h"
 #include "Timer/GameTimer.h"
+#include "Containers/Array.h"
+#include "Containers/DarkString.h"
 
 
 
@@ -53,9 +55,7 @@ void VerifyGlobalShaders()
 	if (GlobalShaderJobs.Num() > 0)
 	{
 		FGlobalShaderTypeCompiler::FinishCompilation(TEXT("Global"), GlobalShaderJobs);
-
 	}
-
 }
 
 void FGlobalShaderTypeCompiler::BeginCompileShader(const FGlobalShaderType* ShaderType,
@@ -65,6 +65,7 @@ void FGlobalShaderTypeCompiler::BeginCompileShader(const FGlobalShaderType* Shad
 	NewJob->Input.EntryPoint = ShaderType->GetFunctionName();
 	NewJob->Input.SourceFilePath = ShaderType->GetShaderFilename();
 	NewJob->Input.ShaderType = ShaderType->GetShaderType();
+	NewJob->Input.Type = (FShaderType*)ShaderType;
 	Jobs.Add(MakeShareble(NewJob));
 }
 
@@ -101,6 +102,16 @@ void CompileShader(FShaderCompileJob& Job)
 }
 
 
+void ProcessCompiledShaderMap(TArray<TSharedPtr<FShaderCompileJob>>& Jobs)
+{
+	for (auto& It : Jobs)
+	{
+		GGlobalShaderMap->FindOrAddShader((FGlobalShaderType*)It->Input.Type,
+			It->Input.Type->FinishCompileShader(*It, TEXT("Global")));
+	}
+}
+
+
 
 void FGlobalShaderTypeCompiler::FinishCompilation(FString MaterialName, TArray<TSharedPtr<FShaderCompileJob>>& Jobs)
 {
@@ -109,9 +120,6 @@ void FGlobalShaderTypeCompiler::FinishCompilation(FString MaterialName, TArray<T
 		CompileShader(*It);
 	}
 
-	
-
-
-
+	ProcessCompiledShaderMap(Jobs);
 
 }

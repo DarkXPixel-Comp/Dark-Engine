@@ -15,6 +15,7 @@ public:
 private:
 	uint64 LastLogsSize = 0;
 	bool ScrollToBottom = true;
+	char InputText[256] = "";
 
 
 

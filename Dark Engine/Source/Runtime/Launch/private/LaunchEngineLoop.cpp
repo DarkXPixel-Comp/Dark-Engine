@@ -16,6 +16,7 @@
 #include "Widgets/UIEditorSettings.h"
 #include "Shader.h"
 #include "ShaderCompiler.h"
+#include "Console/ConsoleStd.h"
 
 
 
@@ -170,7 +171,6 @@ int32 FEngineLoop::Init()
 	RHIPostInit();
 	DE_LOG(Launch, Log, TEXT("RHI Post init"));
 	((DEditorEngine*)Engine)->NewMap();
-
 
 
 	return 0;

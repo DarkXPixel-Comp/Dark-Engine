@@ -1,13 +1,12 @@
 #pragma once
 #include "Shader.h"
-					  
+
+extern class FGlobalShaderMap* GGlobalShaderMap;
 
 
 class FGlobalShaderType : public FShaderType
 {
 public:
-	typedef FShader::CompiledShaderInitializerType CompiledShaderInitializerType;
-
 	FGlobalShaderType
 	(
 		const TCHAR* InName,
@@ -15,9 +14,6 @@ public:
 		const TCHAR* InFunctionName,
 		uint32 InType
 	);
-
-
-
 };
 
 
@@ -30,6 +26,7 @@ public:
 		return ShadersMap.empty();
 	}
 
+	FShader* FindOrAddShader(FGlobalShaderType* ShaderType, FShader* InShader);
 
 
 private:
@@ -45,7 +42,7 @@ public:
 
 	FGlobalShader() : FShader() {}
 
-	FGlobalShader(const ShaderMetaType::CompiledShaderInitializerType& Initializer) : FShader(Initializer) {}
+	FGlobalShader(const FShaderCompiledInitializerType& Initializer) : FShader(Initializer) {}
 
 
 };

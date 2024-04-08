@@ -17,3 +17,15 @@ TShaderRefBase<FShader> FGlobalShaderMap::GetShader(FShaderType* ShaderType) con
 	auto ShaderIt = ShadersMap.find(ShaderType->GetName());
 	return ShaderIt != ShadersMap.end() ? ShaderIt->second : TShaderRefBase<FShader>();
 }
+
+
+FShader* FGlobalShaderMap::FindOrAddShader(FGlobalShaderType* ShaderType, FShader* InShader)
+{
+	auto ShaderIt = ShadersMap.find(ShaderType->GetName());
+	if (ShaderIt == ShadersMap.end())
+	{
+		ShadersMap.emplace(ShaderType->GetName(), TShaderRefBase<FShader>(InShader));
+		return InShader;
+	}
+	return ShaderIt->second.GetShader();
+}

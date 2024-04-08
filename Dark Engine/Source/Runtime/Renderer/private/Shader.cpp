@@ -1,11 +1,29 @@
 #include "Shader.h"
 #include "HAL/DarkMemory.h"
+#include <ShaderCompiler.h>
 
 TArray<const FShaderTypeRegistration*> GShaderTypeRegistationInstances;
 TArray<const FShaderType*> GShaderTypes;
 TUnordoredMap<FString, FShaderType*> GNameToTypeMap;
 TArray<const FShaderPipelineType*> GShaderPipelineTypes;
 
+
+FShader::FShader(const FShaderCompiledInitializerType& Initializer):
+	Type(Initializer.Type),
+	Code(Initializer.Code)
+{
+
+}
+
+FShader* FShaderType::FinishCompileShader(FShaderCompileJob& CurrentJob, const FString& InDebugDescription)
+{
+	FShader* Shader = new FShader(FShaderCompiledInitializerType({this, nullptr, 
+		CurrentJob.Output.ShaderCode.ShaderCodeWithOptionalData}));
+
+
+
+	return Shader;
+}
 
 
 TArray<const FShaderTypeRegistration*>& FShaderTypeRegistration::GetInstances()

@@ -65,6 +65,7 @@ struct FShaderCompilerInput
 	FString EntryPoint;
 	FString ShaderName;
 	uint32 ShaderType;
+	class FShaderType* Type;
 
 	FShaderCompilerEnvironment Environment;
 };
