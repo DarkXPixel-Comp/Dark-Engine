@@ -10,5 +10,12 @@ void FBaseConsole::AddLog(const FString& Text, FVector3f Color, float Time)
 	Log.Color = Color;
 	Log.Time = Time;
 	Cache.Add(Log);
-	OnAddConsoleInput.BroadCast(Log);
+	OnAddConsoleMessage.BroadCast(Log);
+}
+
+void FBaseConsole::InputText(const FString& Text)
+{
+	AddLog(Text, FVector3f(1, 1, 1));
+	Inputs.Add(Text);
+	OnAddConsoleInput.BroadCast(Text);
 }

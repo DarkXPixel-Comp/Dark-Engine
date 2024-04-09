@@ -2,6 +2,7 @@
 
 #include "Containers/Array.h"
 #include <Windows.h>
+#include <xlocale>
 
 
 
@@ -11,8 +12,29 @@ FString::FString(const ANSICHAR* Str)
 	_string.resize(Lenght);
 
 	size_t ConvertedChars = 0;
+	//fout.imbue(std::locale(".utf-8"));
+
+	//_locale_t LocaleUtf8 = _create_locale(LC_ALL, ".utf-8");
 
 	mbstowcs_s(NULL, _string.data(), Lenght, Str, Lenght - 1);
+
+	//_free_locale(LocaleUtf8);
+	////_mbstowcs_s_l
+
+
+	//std::string Result;
+
+	//int sz = MultiByteToWideChar(CP_UTF8, 0, Str, -1, 0, 0);
+
+	//_string.resize(sz);
+	//MultiByteToWideChar(CP_UTF8, 0, Str, -1, _string.data(), sz);
+
+	//int sz = WideCharToMultiByte(CP_UTF8, 0, _string.data(), -1, 0, 0, 0, 0);
+	//Result.resize(sz);
+	//WideCharToMultiByte(CP_UTF8, 0, _string.data(), -1, Result.data(), sz, 0, 0);
+
+	//_tempString = Result;
+	//return _tempString.c_str();
 }
 
 FString::FString(const std::wstring& Str)

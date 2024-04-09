@@ -14,9 +14,11 @@
 #include "Logging/LogMacros.h"
 #include "Widgets/UIEditorViewport.h"
 #include "Widgets/UIEditorSettings.h"
+#include "Widgets/UIConsole.h"
 #include "Shader.h"
 #include "ShaderCompiler.h"
-#include "Console/ConsoleStd.h"
+#include "Console/GlobalInputOutConsole.h"
+
 
 
 
@@ -36,9 +38,12 @@ struct FEditorLayout
 		RootWindow->AddWidget(MainDock);
 
 
-		TSharedPtr<UILogs> Logs = MakeShareble(new UILogs());
+		TSharedPtr<UIConsole> Console = MakeShareble(new UIConsole());
+		MainDock->AddChild(Console);
+		Console->SetName(TEXT("Console"));
+		/*TSharedPtr<UILogs> Logs = MakeShareble(new UILogs());
 		MainDock->AddChild(Logs);
-		Logs->SetName(TEXT("Logs"));
+		Logs->SetName(TEXT("Logs"));*/
 		//Logs->bHaveCloseButton = true;
 		
 
@@ -119,11 +124,14 @@ private:
 
 int32 FEngineLoop::PreInit(const TCHAR* CmdLine)
 {
-	//setlocale(LC_ALL, ".ACP");
+	setlocale(LC_ALL, ".utf-16");
 
 	Logger::Initialize(LOGGER_INFO | LOGGER_ERROR);
-	CommandConsole::Initialize("Dark Engine Console");
+	//CommandConsole::Initialize("Dark Engine Console");
 	FMath::RandInit(time(0));
+
+	GGlobalConsole.Initialize(true);
+	GGlobalConsole.SetAutoClose(false);
 
 	FShaderTypeRegistration::CommitAll();
 

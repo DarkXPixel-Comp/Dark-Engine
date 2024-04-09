@@ -57,7 +57,7 @@ static void BindCrtHandlesToStdHandles(bool bindStdIn, bool bindStdOut, bool bin
 		HANDLE stdHandle = GetStdHandle(STD_OUTPUT_HANDLE);
 		if (stdHandle != INVALID_HANDLE_VALUE)
 		{
-			int fileDescriptor = _open_osfhandle((intptr_t)stdHandle, _O_TEXT);
+			int fileDescriptor = _open_osfhandle((intptr_t)stdHandle, _O_TEXT | _O_U16TEXT);
 			if (fileDescriptor != -1)
 			{
 				FILE* file = _fdopen(fileDescriptor, "w");
@@ -114,6 +114,9 @@ static void BindCrtHandlesToStdHandles(bool bindStdIn, bool bindStdOut, bool bin
 		std::wcerr.clear();
 		std::cerr.clear();
 	}
+
+	SetConsoleCP(CP_UTF8);
+	SetConsoleOutputCP(CP_UTF8);
 }
 
 
@@ -135,6 +138,27 @@ void FConsoleStd::CreateConsoleOS(const FString& Label)
 
 void FConsoleStd::DestroyConsole()
 {
-	FreeConsole();
+	if (bAutoClose && bInitializeConsole)
+	{
+		FreeConsole();
+	}
 	bInitializeConsole = false;
+}
+
+void FConsoleStd::SetAutoClose(bool InbAutoClose)
+{
+	bAutoClose = InbAutoClose;
+}
+
+
+void FConsoleStd::AddLog(const FString& Text, FVector3f Color, float Time)
+{
+	FBaseConsole::AddLog(Text, Color, Time);
+	if (bInitializeConsole)
+	{
+		FString Test = Text;
+		std::wcout << *Text << TEXT("\n");
+		//std::cout << Test.GetUTF8() << "\n";
+	}
+
 }

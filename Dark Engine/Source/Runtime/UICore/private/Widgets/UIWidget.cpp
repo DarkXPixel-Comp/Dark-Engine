@@ -8,6 +8,12 @@ ImVec4 FVectorToImVec4(const FVector& InVector)
 	return ImVec4(InVector.X, InVector.Y, InVector.Z, 1);
 }
 
+const ImVec4 FVector3fToImVec4(const FVector3f& InVector)
+{
+	return ImVec4(InVector.X, InVector.Y, InVector.Z, 1);
+}
+
+
 void UIWidget::CloseWidget()
 {
 	if(Owner)

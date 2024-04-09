@@ -3,6 +3,7 @@
 
 #include <format>
 #include <Logger.h>
+#include "Console/GlobalInputOutConsole.h"
 
 
 struct FMsg
@@ -52,6 +53,7 @@ struct FMsg
 			CurrentLog.ModernLog = true;
 			CurrentLog.Result = Result;
 			Logger::log(CurrentLog);
+			GGlobalConsole.AddLog(CurrentLog.Result);
 
 			/*FString Result = std::format(TEXT("{}: {}: {}"), *Category, *Verbose, Message);
 			Log.ModernLog = true;
