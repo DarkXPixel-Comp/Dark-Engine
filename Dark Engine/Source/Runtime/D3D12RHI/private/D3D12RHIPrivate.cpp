@@ -178,3 +178,8 @@ void FD3D12DynamicRHI::PostInit()
 {
 	FD3D12Adapter& Adapter = GetAdapter();
 }
+
+TRefCountPtr<FRHIGraphicsPipelineState> FD3D12DynamicRHI::RHICreateGraphicsPipelineState(const FGraphicsPipelineStateInitializer& Initalizer)
+{
+	return TRefCountPtr<FRHIGraphicsPipelineState>();
+}

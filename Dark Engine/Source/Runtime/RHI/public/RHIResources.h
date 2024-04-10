@@ -527,6 +527,24 @@ public:
 	EPrimitiveType PrimitiveType;
 
 
+	bool operator==(const FGraphicsPipelineStateInitializer& Other) const
+	{
+		return false;
+	}
 
+private:
+};
+
+
+template<>
+struct std::hash<FGraphicsPipelineStateInitializer>
+{
+	std::size_t operator()(const FGraphicsPipelineStateInitializer& Key) const
+	{
+		return std::hash<uint32>()((uint32)Key.PrimitiveType)
+			^ (std::hash<uint64>()((uint64)Key.BoundShaderState.VertexShaderRHI) << 1)
+			^ (std::hash<uint64>()((uint64)Key.BoundShaderState.PixelShaderRHI) << 1)
+			^ (std::hash<uint64>()((uint64)Key.BoundShaderState.GeometryShaderRHI) << 1);
+	}
 
 };

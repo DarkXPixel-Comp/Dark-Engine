@@ -54,6 +54,7 @@ public:
 		uint32& DestStride, bool bLockWithinMiptail, uint64* OutLockedByteCount);
 	virtual void RHIUnlockTexture2D(FRHITexture* Texture, uint32 MipIndex, bool bLockWithinMiptail);
 
+	virtual TRefCountPtr<FRHIGraphicsPipelineState> RHICreateGraphicsPipelineState(const class FGraphicsPipelineStateInitializer& Initalizer) override;
 
 
 

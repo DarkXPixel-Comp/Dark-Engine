@@ -126,14 +126,13 @@ private:
 
 
 enum EResourceLockMode
-{
-	RLM_ReadOnly,
+{	
 	RLM_WriteOnly,
 	RLM_WriteOnly_NoOverwrite,
 	RML_Num
 };
 
-enum EPrimitiveType
+enum EPrimitiveType : uint32
 {
 	PT_TriangleList,
 	PT_TriangleStrip,

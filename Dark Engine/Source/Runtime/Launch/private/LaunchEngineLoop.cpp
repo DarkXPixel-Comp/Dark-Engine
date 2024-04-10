@@ -124,7 +124,7 @@ private:
 
 int32 FEngineLoop::PreInit(const TCHAR* CmdLine)
 {
-	setlocale(LC_ALL, ".utf-16");
+	//setlocale(LC_ALL, ".utf-16");
 
 	Logger::Initialize(LOGGER_INFO | LOGGER_ERROR);
 	//CommandConsole::Initialize("Dark Engine Console");

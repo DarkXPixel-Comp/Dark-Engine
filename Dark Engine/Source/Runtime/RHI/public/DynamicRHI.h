@@ -29,6 +29,8 @@ public:
 	virtual IRHIComputeContext* RHIGetDefaultContext() = 0;
 	virtual TRefCountPtr<FRHITexture> RHICreateTexture(const FRHITextureCreateDesc& CreateDesc) = 0;
 	virtual void* RHILockTexture2D(FRHITexture* TextureRHI, uint32 MipIndex, EResourceLockMode LockMode, uint32& DestStride, bool bLockWithinMiptail, uint64* OutLockedByteCount) = 0;
+	virtual TRefCountPtr<FRHIGraphicsPipelineState> RHICreateGraphicsPipelineState(const class FGraphicsPipelineStateInitializer& Initializer) = 0;
+
 
 	virtual void RHIUnlockTexture2D(FRHITexture* TextureRHI, uint32 MipIndex, bool bLockWithinMiptail) = 0;
 	virtual ERHIInterfaceType GetInterfaceType() const { return ERHIInterfaceType::Hidden; }
@@ -70,5 +72,10 @@ FORCEINLINE void* RHILockTexture2D(FRHITexture* TextureRHI, uint32 MipIndex, ERe
 FORCEINLINE void RHIUnlockTexture2D(FRHITexture* TextureRHI, uint32 MipIndex, bool bLockWithinMiptail = false)
 {
 	GDynamicRHI->RHIUnlockTexture2D(TextureRHI, MipIndex, bLockWithinMiptail);
+}
+
+FORCEINLINE TRefCountPtr<FRHIGraphicsPipelineState> RHICreateGraphicsPipelineState(const class FGraphicsPipelineStateInitializer& Initializer)
+{
+	return GDynamicRHI->RHICreateGraphicsPipelineState(Initializer);
 }
 
