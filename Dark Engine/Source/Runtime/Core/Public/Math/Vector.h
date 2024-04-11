@@ -216,6 +216,11 @@ namespace DE
 				return !Equals(V);
 			}
 
+			/*operator T[3]() const
+			{
+				return XYZ;
+			}*/
+
 			bool Equals(const TVector<T>& V, T Tolerance = DE_KINDA_SMALL_NUMBER) const;
 
 			bool AllComponentEqual(T Tolerance = DE_KINDA_SMALL_NUMBER) const;

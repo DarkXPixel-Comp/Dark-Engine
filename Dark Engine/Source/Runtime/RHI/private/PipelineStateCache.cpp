@@ -32,6 +32,8 @@ FGraphicsPipelineStateInitializer* FPipelineStateCache::GetAndOrCreateGraphicsPi
 	{
 		Result = new FGraphicsPipelineState();
 
+		Result->RHIPipeline = RHICreateGraphicsPipelineState(Initializer);
+
 
 
 		GGraphicsPipelineMap.emplace(Initializer, Result);

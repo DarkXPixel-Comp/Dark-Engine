@@ -77,7 +77,30 @@ public:
 	int32 Len() const;
 	decltype(auto) Data() const { return _string.c_str(); }
 	std::string ToString() const;
-	
+
+	//operator const TCHAR*() const
+	//{
+	//	return _string.data();
+	//}
+	//
+	//operator TCHAR*()
+	//{
+	//	return _string.data();
+	//}
+
+	//operator const ANSICHAR* ()
+	//{
+	//	return GetStr();
+	//}
+	//operator ANSICHAR* ()
+	//{
+	//	if (bChangedString)
+	//	{
+	//		_tempString = ToString();
+	//		bChangedString = false;
+	//	}
+	//	return _tempString.data();
+	//}
 
 
 	template<typename T>

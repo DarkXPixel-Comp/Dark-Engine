@@ -12,6 +12,7 @@ struct ImVec4;
 
 ImVec4 FVectorToImVec4(const FVector& InVector);
 
+
 class UIWidget
 {
 	friend class UIWindow;
@@ -57,7 +58,7 @@ public:
 	}
 
 
-
+	//operator int() const;
 
 	FIntRect GetRect() { return Rect; }
 	UIWindow* Window = nullptr;

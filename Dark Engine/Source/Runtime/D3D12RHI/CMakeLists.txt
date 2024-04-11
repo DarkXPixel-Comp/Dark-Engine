@@ -20,7 +20,7 @@ endif()
 #GroupSourcesByFolder(D3D12RHI "${D3D12RHI_Sources}")
 
 SETTINGFILES(D3D12RHISrc)
-target_sources(D3D12RHI PRIVATE ${D3D12RHISrc})
+target_sources(D3D12RHI PRIVATE ${D3D12RHISrc} "private/D3D12RootSignature.cpp")
 
 target_include_directories(D3D12RHI PUBLIC "public")
 target_include_directories(D3D12RHI PRIVATE "private")
