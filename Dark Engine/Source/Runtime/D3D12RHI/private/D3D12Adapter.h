@@ -59,6 +59,8 @@ public:
 	const int32 GetAdapterIndex() const { return Desc.AdapterIndex; }
 	const D3D_FEATURE_LEVEL GetFeatureLevel() const { return Desc.MaxSupportFeatureLevel; }
 	ID3D12Device* GetD3DDevice() const { return RootDevice.Get(); }
+	ID3D12Device2* GetD3DDevice2() const { return RootDevice2.Get(); }
+
 	const FD3D12AdapterDesc& GetDesc() const { return Desc; }
 	const DXGI_ADAPTER_DESC& GetAdapterDesc() const { return Desc.Desc; }
 
@@ -76,11 +78,14 @@ public:
 	void SetDrawingViewport(FD3D12Viewport* InViewport) { DrawingViewport = InViewport; }
 	FD3D12Viewport* GetDrawingViewport() const { return DrawingViewport; }
 
+	class FD3D12RootSignatureManager* const RootSignatureManager;
+
 
 
 private:
 	FD3D12AdapterDesc Desc = {};
 	ComPtr<ID3D12Device> RootDevice;
+	ComPtr<ID3D12Device2> RootDevice2;
 	ComPtr<IDXGIFactory7> DXGIFactory;
 	ComPtr<IDXGIAdapter4> DXGIAdapter;
 	TStaticArray<FD3D12Device*, 1> Devices;

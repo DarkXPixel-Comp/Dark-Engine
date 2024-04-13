@@ -3,33 +3,34 @@
 #include "D3D12Adapter.h"
 #include "d3dx12.h"
 #include "D3D12Util.h"
+#include "D3D12Shader.h"
 
 
-FD3D12RootSignature* FD3D12RootSignatureManager::GetRootSignature(FGraphicsPipelineStateInitializer* Initalizer)
+FD3D12RootSignature* FD3D12RootSignatureManager::GetRootSignature(const FBoundShaderStateInput& BSS)
 {
-	auto It = RootSignatureMap.find(Initalizer);
+	auto It = RootSignatureMap.find(BSS);
 
 	if (It == RootSignatureMap.end())
 	{
-		return CreateRootSignature(Initalizer);
+		return CreateRootSignature(BSS);
 	}
 
 	return It->second;
 }
 
-FD3D12RootSignature* FD3D12RootSignatureManager::CreateRootSignature(FGraphicsPipelineStateInitializer* Initalizer)
+FD3D12RootSignature* FD3D12RootSignatureManager::CreateRootSignature(const FBoundShaderStateInput& BSS)
 {
-	FD3D12RootSignature* NewRootSignature = new FD3D12RootSignature(GetParentAdapter(), Initalizer);
+	FD3D12RootSignature* NewRootSignature = new FD3D12RootSignature(GetParentAdapter(), BSS);
 
-	RootSignatureMap.emplace(Initalizer, NewRootSignature);
+	RootSignatureMap.emplace(BSS, NewRootSignature);
 	return NewRootSignature;
 }
 
-void FD3D12RootSignature::Init(FGraphicsPipelineStateInitializer* Initalizer)
+void FD3D12RootSignature::Init(const FBoundShaderStateInput& BSS)
 {
+	FD3D12RootSignatureDesc Desc(BSS);
 
-
-
+	Init(Desc.GetDesc());
 }
 
 void FD3D12RootSignature::Init(const D3D12_VERSIONED_ROOT_SIGNATURE_DESC& InDesc)
@@ -46,7 +47,60 @@ void FD3D12RootSignature::Init(const D3D12_VERSIONED_ROOT_SIGNATURE_DESC& InDesc
 
 	DXCall(Device->CreateRootSignature(0, RootSignatureBlob->GetBufferPointer(), RootSignatureBlob->GetBufferSize(),
 		IID_PPV_ARGS(&RootSignature)));
+}
+
+FD3D12RootSignatureDesc::FD3D12RootSignatureDesc(const FBoundShaderStateInput& BSS)
+{
+	uint32 RootParameterCount = 0;
+
+	FD3D12VertexShader* VertexShader = (FD3D12VertexShader*)BSS.VertexShaderRHI;
+	if (VertexShader->ResourceCounts.NumSRVs > 0)
+	{
+		DescriptorRanges[RootParameterCount].Init(D3D12_DESCRIPTOR_RANGE_TYPE_SRV, VertexShader->ResourceCounts.NumSRVs, 0, 0);
+		TableSlots[RootParameterCount].InitAsDescriptorTable(1, &DescriptorRanges[RootParameterCount]);
+		++RootParameterCount;
+		RootParameterSize += 1;
+	}
+	if (VertexShader->ResourceCounts.NumCBVs > 0)
+	{
+		DescriptorRanges[RootParameterCount].Init(D3D12_DESCRIPTOR_RANGE_TYPE_CBV, VertexShader->ResourceCounts.NumCBVs, 0, 0);
+		TableSlots[RootParameterCount].InitAsDescriptorTable(1, &DescriptorRanges[RootParameterCount]);
+		++RootParameterCount;
+		RootParameterSize += 1;
+	}
+	if (VertexShader->ResourceCounts.NumSamplers > 0)
+	{
+		DescriptorRanges[RootParameterCount].Init(D3D12_DESCRIPTOR_RANGE_TYPE_SAMPLER, VertexShader->ResourceCounts.NumSamplers, 0, 0);
+		TableSlots[RootParameterCount].InitAsDescriptorTable(1, &DescriptorRanges[RootParameterCount]);
+		++RootParameterCount;
+		RootParameterSize += 1;
+	}
 
 
+	FD3D12VertexShader* PixelShader = (FD3D12VertexShader*)BSS.PixelShaderRHI;
+	if (PixelShader->ResourceCounts.NumSRVs > 0)
+	{
+		DescriptorRanges[RootParameterCount].Init(D3D12_DESCRIPTOR_RANGE_TYPE_SRV, PixelShader->ResourceCounts.NumSRVs, 0, 0);
+		TableSlots[RootParameterCount].InitAsDescriptorTable(1, &DescriptorRanges[RootParameterCount]);
+		++RootParameterCount;
+		RootParameterSize += 1;
+	}
+	if (PixelShader->ResourceCounts.NumCBVs > 0)
+	{
+		DescriptorRanges[RootParameterCount].Init(D3D12_DESCRIPTOR_RANGE_TYPE_CBV, PixelShader->ResourceCounts.NumCBVs, 0, 0);
+		TableSlots[RootParameterCount].InitAsDescriptorTable(1, &DescriptorRanges[RootParameterCount]);
+		++RootParameterCount;
+		RootParameterSize += 1;
+	}
+	if (PixelShader->ResourceCounts.NumSamplers > 0)
+	{
+		DescriptorRanges[RootParameterCount].Init(D3D12_DESCRIPTOR_RANGE_TYPE_SAMPLER, PixelShader->ResourceCounts.NumSamplers, 0, 0);
+		TableSlots[RootParameterCount].InitAsDescriptorTable(1, &DescriptorRanges[RootParameterCount]);
+		++RootParameterCount;
+		RootParameterSize += 1;
+	}
+
+
+	RootDesc.Init_1_1(RootParameterCount, TableSlots);
 
 }

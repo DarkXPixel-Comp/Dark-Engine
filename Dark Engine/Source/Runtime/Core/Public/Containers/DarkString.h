@@ -164,12 +164,6 @@ public:
 
 
 
-
-
-
-
-
-
 private:
 	std::wstring _string;
 	std::string _tempString;

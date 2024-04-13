@@ -383,6 +383,28 @@ public:
 
 };
 
+
+struct FVertexElement
+{
+	uint8 StreamIndex;
+	uint8 Offset;
+	EVertexElementType Type;
+	uint16 Stride;
+
+	uint16 bUseInstanceIndex;
+
+};
+
+
+typedef TArray<FVertexElement> FVertexDeclarationElementList;
+
+class FRHIVertexDeclaration : public FRHIResource
+{
+public:
+	FRHIVertexDeclaration() : FRHIResource(RRT_VertexDeclaration) {}
+	virtual bool GetInitializer(FVertexDeclarationElementList& Init) { return false; }
+};
+
 class FRHIVertexShader : public FRHIGraphicsShader
 {
 public:
@@ -499,6 +521,8 @@ public:
 };
 
 
+
+
 struct FBoundShaderStateInput
 {
 	FBoundShaderStateInput
@@ -512,7 +536,15 @@ struct FBoundShaderStateInput
 		GeometryShaderRHI(InGeometryShader)
 	{}
 
+	FBoundShaderStateInput()
+	{}
 
+	bool operator ==(const FBoundShaderStateInput& Other) const
+	{
+		return VertexShaderRHI == Other.VertexShaderRHI && PixelShaderRHI == Other.PixelShaderRHI && GeometryShaderRHI == Other.GeometryShaderRHI;
+	}
+
+	FRHIVertexDeclaration* VertexDeclaration = nullptr;
 	FRHIVertexShader* VertexShaderRHI = nullptr;
 	FRHIPixelShader* PixelShaderRHI = nullptr;
 	FRHIGeometryShader* GeometryShaderRHI = nullptr;
@@ -533,6 +565,18 @@ public:
 	}
 
 private:
+};
+
+template<>
+struct std::hash<FBoundShaderStateInput>
+{
+	std::size_t operator()(const FBoundShaderStateInput& Key) const
+	{
+		return(std::hash<uint64>()((uint64)Key.VertexShaderRHI) << 1)
+			^ (std::hash<uint64>()((uint64)Key.PixelShaderRHI) << 1)
+			^ (std::hash<uint64>()((uint64)Key.GeometryShaderRHI) << 1);
+	}
+
 };
 
 

@@ -8,6 +8,7 @@
 #include "RHIResources.h"
 
 #include <functional>
+#include "ShaderCore.h"
 
 
 struct FShaderCompiledInitializerType;
@@ -22,13 +23,15 @@ public:
 
 	~FShader() {}
 
+	TRefCountPtr<FRHIShader> GetRHIShader();
+
+
+	virtual void GetShaderBounds(FShaderBounds& ShaderBounds) {}
+
 private:
 	const class FShaderType* Type;
 	TArray<uint8> Code;
-
-
-
-
+	TRefCountPtr<FRHIShader> RHIShader;
 };
 
 
@@ -218,7 +221,7 @@ public:
 		FRHIShader* RHIShader = nullptr;
 		if (ShaderContent)
 		{
-			//RHIShader
+			RHIShader = ShaderContent->GetRHIShader().Get();
 		}
 		return RHIShader;
 	}

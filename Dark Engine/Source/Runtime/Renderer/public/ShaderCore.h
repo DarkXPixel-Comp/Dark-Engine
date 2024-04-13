@@ -86,7 +86,13 @@ struct FShaderCode
 struct FShaderCompilerOutput
 {
 	FShaderCode ShaderCode;
+};
 
 
-
+struct FShaderBounds
+{
+	uint8 SamplerCount;
+	uint8 ConstantBufferCount;
+	uint8 ShaderResourceCount;
+	uint8 UnorderedAccessCount;
 };

@@ -1,6 +1,7 @@
 #include "Shader.h"
 #include "HAL/DarkMemory.h"
 #include <ShaderCompiler.h>
+#include "DynamicRHI.h"
 
 TArray<const FShaderTypeRegistration*> GShaderTypeRegistationInstances;
 TArray<const FShaderType*> GShaderTypes;
@@ -14,6 +15,35 @@ FShader::FShader(const FShaderCompiledInitializerType& Initializer):
 {
 
 }
+
+TRefCountPtr<FRHIShader> FShader::GetRHIShader()
+{
+	if (!RHIShader)
+	{
+		FShaderBounds Bounds = {};
+		GetShaderBounds(Bounds);
+
+		switch (Type->GetShaderType())
+		{
+		case ST_Vertex:
+			RHIShader = RHICreateVertexShader(Code, Bounds);
+			break;
+		case ST_Mesh:
+			break;
+		case ST_Pixel:
+			break;
+		case ST_Geometry:
+			break;
+		case ST_Compute:
+			break;
+		case ST_RayGen:
+			break;
+		}
+	}
+
+	return RHIShader;
+}
+
 
 FShader* FShaderType::FinishCompileShader(FShaderCompileJob& CurrentJob, const FString& InDebugDescription)
 {
@@ -100,3 +130,5 @@ TUnordoredMap<FString, FShaderType*>& FShaderType::GetNameToTypeMap()
 {
 	return GNameToTypeMap;
 }
+
+

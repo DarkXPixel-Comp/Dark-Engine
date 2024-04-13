@@ -9,6 +9,8 @@
 #include "DDSTextureLoader.h"
 #include "ResourceUploadBatch.h"
 #include "Misc/Paths.h"
+#include "D3D12Shader.h"
+#include "D3D12RootSignature.h"
 
 FD3D12DynamicRHI* FD3D12DynamicRHI::SingleD3D12RHI = nullptr;
 
@@ -92,6 +94,14 @@ FRHITexture* FD3D12DynamicRHI::RHIGetViewportBackBuffer(FRHIViewport* Viewport)
 	FD3D12Viewport* D3DViewport = static_cast<FD3D12Viewport*>(Viewport);
 	FRHITexture* Result = static_cast<FRHITexture*>(D3DViewport->GetCurrentBackBuffer());
 	return Result;
+}
+
+
+TRefCountPtr<FRHIVertexShader> FD3D12DynamicRHI::RHICreateVertexShader(TArray<uint8> Code, const FShaderBounds& Bounds)
+{
+	FD3D12VertexShader* Result = CreateStandartShader<FD3D12VertexShader>(Code);
+	Result->ResourceCounts = Bounds;
+	return CreateStandartShader<FD3D12VertexShader>(Code);
 }
 
 TRefCountPtr<FRHITexture> FD3D12DynamicRHI::RHICreateTexture(const FRHITextureCreateDesc& CreateDesc)
@@ -181,5 +191,9 @@ void FD3D12DynamicRHI::PostInit()
 
 TRefCountPtr<FRHIGraphicsPipelineState> FD3D12DynamicRHI::RHICreateGraphicsPipelineState(const FGraphicsPipelineStateInitializer& Initalizer)
 {
-	return TRefCountPtr<FRHIGraphicsPipelineState>();
+	const FD3D12RootSignature* RootSignature = GetAdapter().RootSignatureManager->GetRootSignature(Initalizer.BoundShaderState);
+	
+
+
+	return nullptr;
 }

@@ -21,6 +21,7 @@ enum ERHIResourceType
 	RRT_Viewport,
 	RRT_GraphicsPipelineState,
 	RRT_ComputePipelineState,
+	RRT_VertexDeclaration,
 	RRT_VertexShader,
 	RRT_PixelShader,
 	RRT_GeometryShader,
@@ -43,6 +44,19 @@ enum class ERHIBindlessConfiguration
 	Disable,
 	AllShaders,
 	RayTracingShaders
+};
+
+enum EVertexElementType
+{
+	VET_None,
+	VET_Float1,
+	VET_Float2,
+	VET_Float3,
+	VET_Color,
+	VET_Short2,
+	VET_Short3,
+	VET_Short4,
+	VET_UInt,
 };
 
 

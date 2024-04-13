@@ -130,6 +130,7 @@ void CompileD3DShader(const FShaderCompilerInput& Input, const FShaderPreprocess
 		CompileResult->GetErrorBuffer(&ErrorBuffer);
 		std::string Error = (char*)ErrorBuffer->GetBufferPointer();
 		DE_LOG(LogShaders, Error, TEXT("%s"), *FString(Error));
+		return;
 	}
 	
 

@@ -74,6 +74,7 @@ public:
 
 
 	auto GetData() { return _vector.data(); }
+	const ElementType* GetData() const { return _vector.data(); }
 	//const auto GetData() { return _vector.data(); }
 
 	SizeType GetSize() const { return _vector.size(); }
@@ -169,6 +170,11 @@ public:
 	}
 
 
+
+	operator bool() const
+	{
+		return Num() != 0;
+	}
 
 
 

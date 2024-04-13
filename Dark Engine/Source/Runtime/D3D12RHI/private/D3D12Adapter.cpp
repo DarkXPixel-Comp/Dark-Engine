@@ -2,6 +2,7 @@
 #include "D3D12Device.h"
 #include "Logging/LogMacros.h"
 #include <D3D12Util.h>
+#include "D3D12RootSignature.h"
 
 
 DECLARE_LOG_CATEGORY(D3D12Callback, Display);
@@ -66,15 +67,14 @@ bool FD3D12AdapterDesc::IsValid() const
 FD3D12Adapter::FD3D12Adapter(FD3D12AdapterDesc& DescIn)
 	: Desc(DescIn)
 	, bDeviceCreated(false)
+	, RootSignatureManager(new FD3D12RootSignatureManager(this))
 {
 
 }
 
 FD3D12Adapter::~FD3D12Adapter()
 {
-
-
-
+	delete RootSignatureManager;
 }
 
 
@@ -141,6 +141,8 @@ void FD3D12Adapter::CreateRootDevice(bool bWithDebug)
 	{
 		DXCall(D3D12CreateDevice(NULL, D3D_FEATURE_LEVEL_11_0,
 			IID_PPV_ARGS(&RootDevice)));
+
+		RootDevice->QueryInterface(IID_PPV_ARGS(&RootDevice2));
 	}
 	else
 	{
