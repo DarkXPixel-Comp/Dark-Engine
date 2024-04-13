@@ -11,6 +11,7 @@
 #include "Misc/Paths.h"
 #include "D3D12Shader.h"
 #include "D3D12RootSignature.h"
+#include "D3D12PipelineState.h"
 
 FD3D12DynamicRHI* FD3D12DynamicRHI::SingleD3D12RHI = nullptr;
 
@@ -101,7 +102,7 @@ TRefCountPtr<FRHIVertexShader> FD3D12DynamicRHI::RHICreateVertexShader(TArray<ui
 {
 	FD3D12VertexShader* Result = CreateStandartShader<FD3D12VertexShader>(Code);
 	Result->ResourceCounts = Bounds;
-	return CreateStandartShader<FD3D12VertexShader>(Code);
+	return Result;
 }
 
 TRefCountPtr<FRHITexture> FD3D12DynamicRHI::RHICreateTexture(const FRHITextureCreateDesc& CreateDesc)
@@ -191,9 +192,12 @@ void FD3D12DynamicRHI::PostInit()
 
 TRefCountPtr<FRHIGraphicsPipelineState> FD3D12DynamicRHI::RHICreateGraphicsPipelineState(const FGraphicsPipelineStateInitializer& Initalizer)
 {
-	const FD3D12RootSignature* RootSignature = GetAdapter().RootSignatureManager->GetRootSignature(Initalizer.BoundShaderState);
+	FD3D12Adapter& Adapter = GetAdapter();
+	const FD3D12RootSignature* RootSignature = Adapter.RootSignatureManager->GetRootSignature(Initalizer.BoundShaderState);
 	
+	FD3D12PipelineState* PipelineState = Adapter.PipelineStateManager->GetPipelineState(Initalizer, RootSignature);
+	check(PipelineState);
 
 
-	return nullptr;
+	return new FD3D12GraphicsPipelineState(Initalizer, RootSignature, PipelineState);
 }

@@ -24,6 +24,7 @@ FShader* FGlobalShaderMap::FindOrAddShader(FGlobalShaderType* ShaderType, FShade
 	auto ShaderIt = ShadersMap.find(ShaderType->GetName());
 	if (ShaderIt == ShadersMap.end())
 	{
+		InShader->SetShaderBounds(ShaderType->Bounds);
 		ShadersMap.emplace(ShaderType->GetName(), TShaderRefBase<FShader>(InShader));
 		return InShader;
 	}

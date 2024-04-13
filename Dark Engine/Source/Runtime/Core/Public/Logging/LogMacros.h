@@ -52,13 +52,16 @@ struct FMsg
 			FString Result = FString::PrintF(TEXT("[%s] [%s]: %s"), *Category, *Verbose, *Message);
 			CurrentLog.ModernLog = true;
 			CurrentLog.Result = Result;
-			Logger::log(CurrentLog);
-			GGlobalConsole.AddLog(CurrentLog.Result);
+			Logger::log(CurrentLog); 
 
-			/*FString Result = std::format(TEXT("{}: {}: {}"), *Category, *Verbose, Message);
-			Log.ModernLog = true;
-			Log.Result = Result;
-			Logger::log(Log);*/
+			FVector3f Color;
+			Color.X = CurrentLog.Color.X;
+			Color.Y = CurrentLog.Color.Y;
+			Color.Z = CurrentLog.Color.Z;
+			
+
+			GGlobalConsole.AddLog(CurrentLog.Result, Color);
+
 		}
 	}
 }; 

@@ -20,9 +20,6 @@ TRefCountPtr<FRHIShader> FShader::GetRHIShader()
 {
 	if (!RHIShader)
 	{
-		FShaderBounds Bounds = {};
-		GetShaderBounds(Bounds);
-
 		switch (Type->GetShaderType())
 		{
 		case ST_Vertex:

@@ -11,7 +11,7 @@
 
 static void RenderView(FRHICommandListImmediate& RHICmdList, FSceneRender* SceneRenderer)
 {
-	FScene* const Scene = SceneRenderer->Scene;
+	//FScene* const Scene = SceneRenderer->Scene;
 
 
 	SceneRenderer->Render(RHICmdList);
@@ -57,10 +57,11 @@ void FRenderer::BeginRenderingView(FCanvas* Canvas,FSceneView* View)
 
 	//SceneRender->UpdateReflection(;)
 
-	if (Scene)
-	{
-		RenderView(RHICmdList, SceneRender);
-	}
+	RenderView(RHICmdList, SceneRender);
+	//if (Scene)
+	//{
+	//	RenderView(RHICmdList, SceneRender);
+	//}
 
 
 

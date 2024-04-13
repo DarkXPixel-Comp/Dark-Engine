@@ -25,13 +25,14 @@ public:
 
 	TRefCountPtr<FRHIShader> GetRHIShader();
 
-
-	virtual void GetShaderBounds(FShaderBounds& ShaderBounds) {}
+	static void GetShaderBounds(FShaderBounds& ShaderBounds) {}
+	void SetShaderBounds(const FShaderBounds& ShaderBounds) { Bounds = ShaderBounds; }
 
 private:
 	const class FShaderType* Type;
 	TArray<uint8> Code;
 	TRefCountPtr<FRHIShader> RHIShader;
+	FShaderBounds Bounds;
 };
 
 
@@ -92,7 +93,7 @@ public:
 		return FunctionName;
 	}
 
-
+	FShaderBounds Bounds = {};
 
 
 private:
@@ -210,6 +211,7 @@ public:
 	TShaderRefBase() : ShaderContent(nullptr) {}
 	TShaderRefBase(ShaderType* InShader) : ShaderContent(InShader) {}
 
+
 	
 	FORCEINLINE ShaderType* GetShader() const
 	{ 
@@ -221,14 +223,14 @@ public:
 		FRHIShader* RHIShader = nullptr;
 		if (ShaderContent)
 		{
-			RHIShader = ShaderContent->GetRHIShader().Get();
+			RHIShader = ((ShaderType*)ShaderContent)->GetRHIShader().Get();
 		}
 		return RHIShader;
 	}
 
 	FORCEINLINE FRHIVertexShader* GetVertexShader() const
 	{
-		return static_cast<FRHIVertexShader>(GetRHIShader());
+		return static_cast<FRHIVertexShader*>(GetRHIShader());
 	}
 
 
@@ -270,6 +272,7 @@ ShaderClass::ShaderMetaType& ShaderClass::GetStaticType()\
 	FunctionName,\
 	ShaderType\
 );\
+	GetShaderBounds(StaticType.Bounds);\
 	return StaticType;\
 }\
 	FShaderTypeRegistration ShaderClass::ShaderTypeRegistration(ShaderClass::GetStaticType);

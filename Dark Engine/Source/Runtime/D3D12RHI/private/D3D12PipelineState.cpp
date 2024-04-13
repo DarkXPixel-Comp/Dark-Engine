@@ -5,7 +5,8 @@
 
 
 FD3D12GraphicsPipelineState::FD3D12GraphicsPipelineState(const FGraphicsPipelineStateInitializer& Initializer, const FD3D12RootSignature* InRootSignature, FD3D12PipelineState* InPipelineState):
-	RootSignature(InRootSignature)
+	RootSignature(InRootSignature),
+	PipelineState(InPipelineState)
 {
 
 }
@@ -29,8 +30,7 @@ void FD3D12PipelineState::Create(const FGraphicsPipelineStateInitializer& Inital
 {
 	ID3D12Device2* const Device = Parent->GetD3DDevice2();
 
-
-	D3D12_GRAPHICS_PIPELINE_STATE_DESC PipelineStateDesc = {};
+	/*D3D12_GRAPHICS_PIPELINE_STATE_DESC PipelineStateDesc = {};
 	PipelineStateDesc.pRootSignature = InRootSignature->GetRootSignature();
 	PipelineStateDesc.InputLayout.pInputElementDescs = ((FD3D12VertexDeclaration*)Initalizer.BoundShaderState.VertexDeclaration)->VertexElements.GetData();
 	PipelineStateDesc.InputLayout.NumElements = ((FD3D12VertexDeclaration*)Initalizer.BoundShaderState.VertexDeclaration)->VertexElements.Num();
@@ -40,9 +40,14 @@ void FD3D12PipelineState::Create(const FGraphicsPipelineStateInitializer& Inital
 	PipelineStateDesc.RasterizerState = CD3DX12_RASTERIZER_DESC(CD3DX12_DEFAULT());
 	PipelineStateDesc.DepthStencilState = CD3DX12_DEPTH_STENCIL_DESC(CD3DX12_DEFAULT());
 	PipelineStateDesc.PrimitiveTopologyType = Initalizer.PrimitiveType == PT_TriangleList || Initalizer.PrimitiveType == PT_TriangleStrip ? D3D12_PRIMITIVE_TOPOLOGY_TYPE_TRIANGLE : D3D12_PRIMITIVE_TOPOLOGY_TYPE_UNDEFINED;
-	PipelineStateDesc.SampleDesc = { 1, 0 };
+	PipelineStateDesc.SampleDesc = { 1, 0 };*/
 
+	FD3D12_GRAPHICS_PIPELINE_STATE_DESC PipelineStateDesc;
+				 
 	D3D12_PIPELINE_STATE_STREAM_DESC StreamDesc = { sizeof(PipelineStateDesc), &PipelineStateDesc };
+
+
+	CD3DX12_PIPELINE_STATE_STREAM_MS;
 
 	DXCall(Device->CreatePipelineState(&StreamDesc, IID_PPV_ARGS(&PSO)));
 }

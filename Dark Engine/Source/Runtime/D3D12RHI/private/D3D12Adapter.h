@@ -79,6 +79,7 @@ public:
 	FD3D12Viewport* GetDrawingViewport() const { return DrawingViewport; }
 
 	class FD3D12RootSignatureManager* const RootSignatureManager;
+	class FD3D12PipelineStateManager* const PipelineStateManager;
 
 
 

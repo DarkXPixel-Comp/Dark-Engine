@@ -6,7 +6,7 @@ cbuffer cbObject : register(b0)
 	float4x4 ModelMatrix;
 }
 
-cbuffer cbPass : register(b3)
+cbuffer cbPass : register(b1)
 {
 	Light gLights[16];
 	float4x4 gView;

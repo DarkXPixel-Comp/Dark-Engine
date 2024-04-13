@@ -3,6 +3,7 @@
 #include "Logging/LogMacros.h"
 #include <D3D12Util.h>
 #include "D3D12RootSignature.h"
+#include "D3D12PipelineState.h"
 
 
 DECLARE_LOG_CATEGORY(D3D12Callback, Display);
@@ -68,6 +69,7 @@ FD3D12Adapter::FD3D12Adapter(FD3D12AdapterDesc& DescIn)
 	: Desc(DescIn)
 	, bDeviceCreated(false)
 	, RootSignatureManager(new FD3D12RootSignatureManager(this))
+	, PipelineStateManager(new FD3D12PipelineStateManager(this))
 {
 
 }

@@ -163,7 +163,7 @@ int32 FEngineLoop::PreInit(const TCHAR* CmdLine)
 	RootWindow->ShowWindow();
 	DE_LOG(Launch, Log, TEXT("Show window"));
 	RootWindow->SetTitle("Edtior");
-	DE_LOG(Launch, Log, TEXT("Set title \"%s\""), *RootWindow->GetTitle());
+	DE_LOG(Launch, Log, TEXT("Title root window - \"%s\""), *RootWindow->GetTitle());
 
 
 	EditorLayout.SetupEditorLayout(RootWindow.get());

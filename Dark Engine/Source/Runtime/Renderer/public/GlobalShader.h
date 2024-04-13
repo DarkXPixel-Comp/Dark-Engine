@@ -21,10 +21,18 @@ class FGlobalShaderMap
 {
 public:
 	TShaderRefBase<FShader>	 GetShader(FShaderType* ShaderType) const;
+	template<typename ShaderType>
+	TShaderRefBase<ShaderType> GetShader()
+	{
+		// Eto pisdec. TEMP!!!
+		TShaderRefBase<ShaderType> Shader((ShaderType*)(GetShader((FShaderType*)(&ShaderType::GetStaticType())).GetShader()));
+		return Shader;
+	}
 	FORCEINLINE bool IsEmpty() const
 	{
 		return ShadersMap.empty();
 	}
+
 
 	FShader* FindOrAddShader(FGlobalShaderType* ShaderType, FShader* InShader);
 
@@ -52,9 +60,12 @@ public:
 
 
 
-
-
-
 #define DECLARE_GLOBAL_SHADER(ShaderClass) DECLARE_SHADER_TYPE(ShaderClass, Global)
 #define IMPLEMENT_GLOBAL_SHADER(ShaderClass, SourceFilename, FunctionName, ShaderType) IMPLEMENT_SHADER_TYPE(ShaderClass, TEXT(SourceFilename), TEXT(FunctionName), ShaderType)
+#define DECLARE_SHADER_BOUNDS(Samplers, CBVs, SRVs, UAVs) public: static void GetShaderBounds(FShaderBounds& ShaderBounds){\
+ShaderBounds.SamplerCount = Samplers;	\
+ShaderBounds.ConstantBufferCount = CBVs;  \
+ShaderBounds.ShaderResourceCount = SRVs; \
+ShaderBounds.UnorderedAccessCount = UAVs;\
+}
 
