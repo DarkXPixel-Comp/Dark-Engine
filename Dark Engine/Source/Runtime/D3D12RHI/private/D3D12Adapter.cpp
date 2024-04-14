@@ -69,14 +69,25 @@ FD3D12Adapter::FD3D12Adapter(FD3D12AdapterDesc& DescIn)
 	: Desc(DescIn)
 	, bDeviceCreated(false)
 	, RootSignatureManager(new FD3D12RootSignatureManager(this))
-	, PipelineStateManager(new FD3D12PipelineStateManager(this))
 {
 
 }
 
 FD3D12Adapter::~FD3D12Adapter()
 {
+	if (!bDestroyed)
+		Destroy();
+}
+
+void FD3D12Adapter::Destroy()
+{
+	for (const auto& Device : Devices)
+	{
+		Device->Destroy();
+	}
 	delete RootSignatureManager;
+
+	bDestroyed = true;
 }
 
 
@@ -99,7 +110,7 @@ void FD3D12Adapter::InitializeDevices()
 		CreateRootDevice(D3D12_DEBUG);
 	}
 
-	Devices[0] = new FD3D12Device(this);
+	Devices[0] = MakeShareble(new FD3D12Device(this));
 
 
 

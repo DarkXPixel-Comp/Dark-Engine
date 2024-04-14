@@ -30,7 +30,7 @@ struct FMsg
 				Verbose = TEXT("Error");
 				break;
 			case ELogVerbosity::Warning:
-				CurrentLog.Color = { 1, 1, 0.0 };
+				CurrentLog.Color = { 1.f, 1.f, 0.0 };
 				Verbose = TEXT("Warning");
 				break;
 			case ELogVerbosity::Display:

@@ -86,6 +86,7 @@ struct FShaderCode
 struct FShaderCompilerOutput
 {
 	FShaderCode ShaderCode;
+	std::size_t ShaderHash = 0;
 };
 
 

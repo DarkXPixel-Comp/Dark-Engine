@@ -63,7 +63,7 @@ int32_t WINAPI WinMain(
 	_In_ int32_t nCmdShow
 )
 {
-	int32 Result = LaunchWindowsStartup(hInInstance, prevInstance, lpCmdLine, nCmdShow, nullptr);
+	int32 Result = LaunchWindowsStartup(hInInstance, prevInstance, lpCmdLine, nCmdShow, *FString(lpCmdLine));
 	
 	return Result;
 }

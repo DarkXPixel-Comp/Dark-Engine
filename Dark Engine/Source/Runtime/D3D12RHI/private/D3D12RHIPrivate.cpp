@@ -98,7 +98,7 @@ FRHITexture* FD3D12DynamicRHI::RHIGetViewportBackBuffer(FRHIViewport* Viewport)
 }
 
 
-TRefCountPtr<FRHIVertexShader> FD3D12DynamicRHI::RHICreateVertexShader(TArray<uint8> Code, const FShaderBounds& Bounds)
+TRefCountPtr<FRHIVertexShader> FD3D12DynamicRHI::RHICreateVertexShader(const TArray<uint8>& Code, const FShaderBounds& Bounds)
 {
 	FD3D12VertexShader* Result = CreateStandartShader<FD3D12VertexShader>(Code);
 	Result->ResourceCounts = Bounds;
@@ -192,11 +192,12 @@ void FD3D12DynamicRHI::PostInit()
 
 TRefCountPtr<FRHIGraphicsPipelineState> FD3D12DynamicRHI::RHICreateGraphicsPipelineState(const FGraphicsPipelineStateInitializer& Initalizer)
 {
+	FD3D12Device* Device = GetAdapter().GetDevice();
 	FD3D12Adapter& Adapter = GetAdapter();
 	const FD3D12RootSignature* RootSignature = Adapter.RootSignatureManager->GetRootSignature(Initalizer.BoundShaderState);
 	
-	FD3D12PipelineState* PipelineState = Adapter.PipelineStateManager->GetPipelineState(Initalizer, RootSignature);
-	check(PipelineState);
+	FD3D12PipelineState* PipelineState = Device->GetPipelineStateManager().GetPipelineState(Initalizer, RootSignature);
+	//check(PipelineState);
 
 
 	return new FD3D12GraphicsPipelineState(Initalizer, RootSignature, PipelineState);

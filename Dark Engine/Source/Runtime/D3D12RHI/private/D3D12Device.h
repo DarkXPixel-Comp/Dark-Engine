@@ -49,10 +49,13 @@ public:
 };
 
 
-class FD3D12Device : public FD3D12AdapterChild
+class FD3D12Device : public FD3D12AdapterChild	
 {
 public:
 	FD3D12Device(FD3D12Adapter* InAdapter);
+	~FD3D12Device();
+
+	void Destroy();
 
 	FORCEINLINE ID3D12Device* GetDevice() const { return GetParentAdapter()->GetD3DDevice(); }
 
@@ -70,12 +73,14 @@ public:
 
 	FD3D12Queue& GetQueue(ED3D12QueueType QueueType) { return Queues[(uint32)QueueType]; }
 	FD3D12CommandContext& GetDefaultCommandContext() { return *ImmediateCommandContext; }
+	class FD3D12PipelineStateManager& GetPipelineStateManager() { return *PipelineStateManager; }
 
 private:
 	TArray<FD3D12Queue> Queues;
 	TArray<FD3D12CpuDescriptorManager> CpuDescriptorManagers;
 	FD3D12DescriptorHeapManager DescriptorHeapManager;
 	FD3D12BindlessDescriptorManager BindlessDescriptorManager;
+	class FD3D12PipelineStateManager* const PipelineStateManager;
 	FD3D12CommandContext* ImmediateCommandContext = nullptr;
 
 

@@ -30,16 +30,17 @@ struct FD3D12ShaderData
 	{
 		return CD3DX12_SHADER_BYTECODE(Code.GetData(), Code.Num());
 	}
-
 };
 
 
 
 template <typename TShaderType>
-TShaderType* CreateStandartShader(TArray<uint8> InCode)
+TShaderType* CreateStandartShader(const TArray<uint8>& InCode)
 {
 	TShaderType* Shader = new TShaderType();
 	Shader->Code = InCode;
+	Shader->ShaderHash = std::hash<TArray<uint8>>{}(InCode);
+
 
 	return Shader;
 
@@ -54,6 +55,12 @@ public:
 	FD3D12VertexDeclaration(const FD3D12VertexElements& InElements):
 		VertexElements(InElements)
 	{}
+
+
+	D3D12_INPUT_LAYOUT_DESC GetLayoutDsec() const
+	{
+		return D3D12_INPUT_LAYOUT_DESC{VertexElements.GetData(), (UINT)VertexElements.Num()};
+	}
 
 
 

@@ -43,6 +43,7 @@
 .cso
 .obj
 .mtl
+.cache
 
 .vs
 learn

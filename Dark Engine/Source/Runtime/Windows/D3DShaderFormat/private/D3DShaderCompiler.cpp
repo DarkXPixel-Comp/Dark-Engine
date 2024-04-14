@@ -133,9 +133,9 @@ void CompileD3DShader(const FShaderCompilerInput& Input, const FShaderPreprocess
 		return;
 	}
 	
-
 	Output.ShaderCode.ShaderCodeWithOptionalData.Resize(OutResult->GetBufferSize());
 	FMemory::Memcpy(Output.ShaderCode.ShaderCodeWithOptionalData.GetData(),
 		OutResult->GetBufferPointer(), OutResult->GetBufferSize());
+	Output.ShaderHash = std::hash<TArray<uint8>>{}(Output.ShaderCode.ShaderCodeWithOptionalData);
 }
 

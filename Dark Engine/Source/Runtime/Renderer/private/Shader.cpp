@@ -46,8 +46,7 @@ FShader* FShaderType::FinishCompileShader(FShaderCompileJob& CurrentJob, const F
 {
 	FShader* Shader = new FShader(FShaderCompiledInitializerType({this, nullptr, 
 		CurrentJob.Output.ShaderCode.ShaderCodeWithOptionalData}));
-
-
+	Shader->HashShader = CurrentJob.Output.ShaderHash;
 
 	return Shader;
 }

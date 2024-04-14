@@ -130,8 +130,20 @@ int32 FEngineLoop::PreInit(const TCHAR* CmdLine)
 	//CommandConsole::Initialize("Dark Engine Console");
 	FMath::RandInit(time(0));
 
-	GGlobalConsole.Initialize(true);
-	GGlobalConsole.SetAutoClose(false);
+	// TEMP!!!!
+	bool bWithOSConsole = FString(CmdLine) == TEXT("-CMD");
+	GGlobalConsole.Initialize(bWithOSConsole);
+	GGlobalConsole.SetAutoClose(true);
+
+	GGlobalConsole.OnAddConsoleInput.Bind([&](FString Str)
+		{
+			if (Str == TEXT("Console.CreateConsoleOS"))
+			{
+				GGlobalConsole.CreateConsoleOS(TEXT("Dark Console"));
+			}
+		});
+
+	DE_LOG(Launch, Log, TEXT("FEngineLoop Pre init (%s)"), CmdLine);
 
 	FShaderTypeRegistration::CommitAll();
 
@@ -196,6 +208,8 @@ void FEngineLoop::Exit()
 	Engine->Shutdown();
 	delete Engine;
 	Engine = nullptr;
+
+	RHIExit();
 
 	Logger::Exit();
 }

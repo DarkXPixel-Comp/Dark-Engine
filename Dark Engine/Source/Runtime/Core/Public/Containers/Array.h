@@ -176,15 +176,38 @@ public:
 		return Num() != 0;
 	}
 
-
-
-
-
-
-
 private:
 	std::vector<ElementType> _vector;
+
+	friend struct std::hash<TArray<ElementType>>;
 };
+
+template <class T>
+inline void hash_combine(std::size_t& seed, const T& v)
+{
+	std::hash<T> hasher;
+	seed ^= hasher(v) + 0x9e3779b9 + (seed << 6) + (seed >> 2);
+}
+
+inline void hash_without_hash_combine(std::size_t& seed, const std::size_t& hash)
+{
+	seed ^= hash + 0x9e3779b9 + (seed << 6) + (seed >> 2);
+}
+
+template<typename T>
+struct std::hash<TArray<T>>
+{
+	std::size_t operator()(const TArray<T>& Key) const
+	{
+		std::size_t Result = 0;
+		for (const auto& i : Key)
+		{
+			hash_combine(Result, i);
+		}
+		return Result;
+	}
+};
+
 
 
 

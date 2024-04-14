@@ -11,13 +11,13 @@ UIConsole::UIConsole():
 
 void UIConsole::DrawImGui()
 {
-	if (ImGui::Begin(!Name, IsWidgetClose()))
+	if (ImGui::Begin(!Name, IsWidgetClose(), ImGuiWindowFlags_HorizontalScrollbar))
 	{
 		const TArray<FConsoleLog>& Logs = GGlobalConsole.GetLogs();
 
 		for (const auto& Log : Logs)
 		{
-			ImGui::TextColored(ImVec4(Log.Color.X, Log.Color.Y, Log.Color.Y, 1), Log.Log.ToString().c_str());
+			ImGui::TextColored(ImVec4(Log.Color.X, Log.Color.Y, Log.Color.Z, 1), Log.Log.ToString().c_str());
 		}
 
 		if (ImGui::InputText("Input", InputText, 256, ImGuiInputTextFlags_EnterReturnsTrue))

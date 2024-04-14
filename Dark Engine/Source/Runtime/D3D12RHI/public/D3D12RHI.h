@@ -19,6 +19,7 @@ public:
 	FD3D12DynamicRHIModule();
 
 	virtual FDynamicRHI* CreateRHI() override;
+	virtual void Shutdown() override;
 
 
 private:

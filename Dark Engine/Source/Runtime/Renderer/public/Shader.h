@@ -28,6 +28,8 @@ public:
 	static void GetShaderBounds(FShaderBounds& ShaderBounds) {}
 	void SetShaderBounds(const FShaderBounds& ShaderBounds) { Bounds = ShaderBounds; }
 
+	uint64 HashShader = 0;
+
 private:
 	const class FShaderType* Type;
 	TArray<uint8> Code;

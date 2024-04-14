@@ -19,6 +19,8 @@ public:
 
 	static CORE_API FString ContentDir();
 
+	static CORE_API FString CacheDir();
+
 	static CORE_API FString EngineBinariesDir();
 
 	static CORE_API FString EngineUserDir(); 

@@ -70,6 +70,15 @@ FDynamicRHI* FD3D12DynamicRHIModule::CreateRHI()
 	return GD3D12RHI;
 }
 
+void FD3D12DynamicRHIModule::Shutdown()
+{
+	for (auto& i : ChosenAdapters)
+	{
+		//i.reset();
+		i->Destroy();
+	}
+}
+
 
 void GetResourceTiers(ID3D12Device* Device, D3D12_RESOURCE_BINDING_TIER& OutResourceBindingTier,
 	D3D12_RESOURCE_HEAP_TIER& OutResourceHeapTier)

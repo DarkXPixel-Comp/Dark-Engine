@@ -12,6 +12,11 @@ CORE_API FString FPaths::EngineDir()
 	return DefaultEngineDir;
 }
 
+CORE_API FString FPaths::CacheDir()
+{
+	return EngineDir() + TEXT("Cache/");
+}
+
 CORE_API FString FPaths::EngineBinariesDir()
 {
 	return EngineDir() + "bin/";

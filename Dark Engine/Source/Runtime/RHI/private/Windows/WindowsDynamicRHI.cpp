@@ -24,10 +24,16 @@ FDynamicRHI* PlatformCreateDynamicRHI()
 	{
 		DynamicRHI = GLoadedRHIModule->CreateRHI();
 	}
-
-
-
-
-
 	return DynamicRHI;
 }
+
+void DynamicRHIShutdown()
+{
+	if (GLoadedRHIModule)
+	{
+		GLoadedRHIModule->Shutdown();
+		delete GLoadedRHIModule;
+	}
+}
+
+

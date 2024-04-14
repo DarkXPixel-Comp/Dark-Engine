@@ -12,8 +12,7 @@ class IDynamicRHIModule
 {
 public:
 	virtual class FDynamicRHI* CreateRHI() = 0;
-
-
+	virtual void Shutdown() = 0;
 };
 
 
@@ -31,7 +30,7 @@ public:
 	virtual TRefCountPtr<FRHITexture> RHICreateTexture(const FRHITextureCreateDesc& CreateDesc) = 0;
 	virtual void* RHILockTexture2D(FRHITexture* TextureRHI, uint32 MipIndex, EResourceLockMode LockMode, uint32& DestStride, bool bLockWithinMiptail, uint64* OutLockedByteCount) = 0;
 	virtual TRefCountPtr<FRHIGraphicsPipelineState> RHICreateGraphicsPipelineState(const class FGraphicsPipelineStateInitializer& Initializer) = 0;
-	virtual TRefCountPtr<FRHIVertexShader> RHICreateVertexShader(TArray<uint8> Code, const FShaderBounds& Bounds) = 0;
+	virtual TRefCountPtr<FRHIVertexShader> RHICreateVertexShader(const TArray<uint8>& Code, const FShaderBounds& Bounds) = 0;
 
 	virtual void RHIUnlockTexture2D(FRHITexture* TextureRHI, uint32 MipIndex, bool bLockWithinMiptail) = 0;
 	virtual ERHIInterfaceType GetInterfaceType() const { return ERHIInterfaceType::Hidden; }
@@ -49,6 +48,8 @@ public:
 
 
 FDynamicRHI* PlatformCreateDynamicRHI();
+
+extern void DynamicRHIShutdown();
 
 
 TSharedPtr<FRHIViewport> CreateRHIViewport(void* WindowHandle, uint32 SizeX, uint32 SizeY, bool bIsFullscreen);
@@ -80,7 +81,7 @@ FORCEINLINE TRefCountPtr<FRHIGraphicsPipelineState> RHICreateGraphicsPipelineSta
 	return GDynamicRHI->RHICreateGraphicsPipelineState(Initializer);
 }
 
-FORCEINLINE TRefCountPtr<FRHIVertexShader> RHICreateVertexShader(TArray<uint8> Code, const struct FShaderBounds& Bounds)
+FORCEINLINE TRefCountPtr<FRHIVertexShader> RHICreateVertexShader(const TArray<uint8>& Code, const struct FShaderBounds& Bounds)
 {
 	return GDynamicRHI->RHICreateVertexShader(Code, Bounds);
 }

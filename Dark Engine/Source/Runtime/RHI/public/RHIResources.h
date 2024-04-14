@@ -364,6 +364,8 @@ public:
 	{}
 
 
+	uint64 ShaderHash = 0;
+
 private:
 	struct ShaderID
 	{
@@ -541,7 +543,7 @@ struct FBoundShaderStateInput
 
 	bool operator ==(const FBoundShaderStateInput& Other) const
 	{
-		return VertexShaderRHI == Other.VertexShaderRHI && PixelShaderRHI == Other.PixelShaderRHI && GeometryShaderRHI == Other.GeometryShaderRHI;
+		return VertexShaderRHI == Other.VertexShaderRHI && PixelShaderRHI == Other.PixelShaderRHI && GeometryShaderRHI == Other.GeometryShaderRHI && VertexDeclaration == Other.VertexDeclaration; 
 	}
 
 	FRHIVertexDeclaration* VertexDeclaration = nullptr;
@@ -561,7 +563,7 @@ public:
 
 	bool operator==(const FGraphicsPipelineStateInitializer& Other) const
 	{
-		return false;
+		return Other.BoundShaderState == BoundShaderState && PrimitiveType == Other.PrimitiveType;
 	}
 
 private:
@@ -572,9 +574,16 @@ struct std::hash<FBoundShaderStateInput>
 {
 	std::size_t operator()(const FBoundShaderStateInput& Key) const
 	{
-		return(std::hash<uint64>()((uint64)Key.VertexShaderRHI) << 1)
+		std::size_t Result = 0;
+		hash_without_hash_combine(Result, Key.PixelShaderRHI ? Key.PixelShaderRHI->ShaderHash : 0);
+		hash_without_hash_combine(Result, Key.PixelShaderRHI ? Key.VertexShaderRHI->ShaderHash : 0);
+		hash_without_hash_combine(Result, Key.PixelShaderRHI ? Key.GeometryShaderRHI->ShaderHash : 0);
+		//hash_without_hash_combine(Result, Key.PixelShaderRHI ? Key.VertexDeclaration->ShaderHash : 0);
+
+		return Result;
+		/*return(std::hash<uint64>()((uint64)Key.VertexShaderRHI) << 1)
 			^ (std::hash<uint64>()((uint64)Key.PixelShaderRHI) << 1)
-			^ (std::hash<uint64>()((uint64)Key.GeometryShaderRHI) << 1);
+			^ (std::hash<uint64>()((uint64)Key.GeometryShaderRHI) << 1);*/
 	}
 
 };
@@ -584,11 +593,11 @@ template<>
 struct std::hash<FGraphicsPipelineStateInitializer>
 {
 	std::size_t operator()(const FGraphicsPipelineStateInitializer& Key) const
-	{
-		return std::hash<uint32>()((uint32)Key.PrimitiveType)
-			^ (std::hash<uint64>()((uint64)Key.BoundShaderState.VertexShaderRHI) << 1)
-			^ (std::hash<uint64>()((uint64)Key.BoundShaderState.PixelShaderRHI) << 1)
-			^ (std::hash<uint64>()((uint64)Key.BoundShaderState.GeometryShaderRHI) << 1);
+	{	 
+		std::size_t Result = 0;
+		hash_combine(Result, Key.BoundShaderState);
+		hash_combine(Result, (uint32)Key.PrimitiveType);
+		return Result;
 	}
 
 };

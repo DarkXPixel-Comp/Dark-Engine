@@ -1,5 +1,6 @@
 #include "GlobalShader.h"
 #include "Misc/Paths.h"
+#include "DynamicRHI.h"
 
 
 class FDiffuseIndirectCompositePS : public FGlobalShader
@@ -22,4 +23,11 @@ void RenderLight()
 	TShaderRefBase<FDiffuseIndirectCompositePS> VertexShader =
 		GGlobalShaderMap->GetShader<FDiffuseIndirectCompositePS>();
 	FRHIVertexShader* RHIVertexShader = VertexShader.GetVertexShader();
+
+
+	FGraphicsPipelineStateInitializer Initializer = {};
+	Initializer.PrimitiveType = PT_TriangleList;
+	Initializer.BoundShaderState.VertexShaderRHI = RHIVertexShader;
+	RHICreateGraphicsPipelineState(Initializer);
+
 }

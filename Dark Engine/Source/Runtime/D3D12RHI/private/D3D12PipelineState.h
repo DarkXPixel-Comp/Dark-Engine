@@ -32,14 +32,18 @@ struct FD3D12_GRAPHICS_PIPELINE_STATE_DESC
 class FD3D12PipelineStateManager : public FD3D12AdapterChild
 {
 public:
-	FD3D12PipelineStateManager(FD3D12Adapter* InParent) : FD3D12AdapterChild(InParent) {}
+	FD3D12PipelineStateManager(FD3D12Adapter* InParent);
 
 	FD3D12PipelineState* GetPipelineState(const FGraphicsPipelineStateInitializer& Initializer, const FD3D12RootSignature* InRootSignature);
 
+	D3D12_PIPELINE_STATE_STREAM_DESC SetPipelineDesc(const FGraphicsPipelineStateInitializer& Initializer, FD3D12_GRAPHICS_PIPELINE_STATE_DESC& PipelineStateDesc, const FD3D12RootSignature* InRootSignature);
 
+	void CachePSO();
 
 private:
 	TUnordoredMap<FGraphicsPipelineStateInitializer, struct FD3D12PipelineState*> PSOMap;
+	TRefCountPtr<ID3D12PipelineLibrary1> PipelineLibrary;
+	TArray<uint8> Cache;
 
 
 };
@@ -50,7 +54,7 @@ struct FD3D12PipelineState : public  FD3D12AdapterChild
 {
 	FD3D12PipelineState(FD3D12Adapter* InParent) : FD3D12AdapterChild(InParent) {}
 
-	void Create(const FGraphicsPipelineStateInitializer& Initalizer, const FD3D12RootSignature* InRootSignature);
+	void Create(const D3D12_PIPELINE_STATE_STREAM_DESC& Initalizer, const FD3D12RootSignature* InRootSignature);
 
 	TRefCountPtr<ID3D12PipelineState> PSO;
 };

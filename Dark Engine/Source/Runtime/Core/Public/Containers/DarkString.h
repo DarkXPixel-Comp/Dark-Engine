@@ -146,7 +146,8 @@ public:
 
 	bool operator==(const FString& R) const
 	{
-		return _string == R._string;
+		return _string.compare(R._string) == 0;
+		//return _string == R._string;
 	}
 
 	bool operator<(const FString& R) const

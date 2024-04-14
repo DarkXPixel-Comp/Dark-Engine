@@ -53,6 +53,8 @@ public:
 	FD3D12Adapter(FD3D12AdapterDesc& DescIn);
 	~FD3D12Adapter();
 
+	void Destroy();
+
 	void InitializeDevices();
 
 
@@ -71,7 +73,7 @@ public:
 	void CreateRootDevice(bool bWithDebug = false);
 	void CreateDXGIFactory(bool bWithDebug = false);
 
-	FD3D12Device* GetDevice(uint32 Index = 0) const { return Devices[Index]; }
+	FD3D12Device* GetDevice(uint32 Index = 0) const { return Devices[Index].get(); }
 
 	TArray<FD3D12Viewport*>& GetViewports() { return Viewports; }
 
@@ -79,7 +81,6 @@ public:
 	FD3D12Viewport* GetDrawingViewport() const { return DrawingViewport; }
 
 	class FD3D12RootSignatureManager* const RootSignatureManager;
-	class FD3D12PipelineStateManager* const PipelineStateManager;
 
 
 
@@ -89,11 +90,12 @@ private:
 	ComPtr<ID3D12Device2> RootDevice2;
 	ComPtr<IDXGIFactory7> DXGIFactory;
 	ComPtr<IDXGIAdapter4> DXGIAdapter;
-	TStaticArray<FD3D12Device*, 1> Devices;
+	TStaticArray<TSharedPtr<FD3D12Device>, 1> Devices;
 	ComPtr<ID3D12InfoQueue1> InfoQueue;
 
 	bool bDebugDevice;
 	bool bDeviceCreated;
+	bool bDestroyed = false;
 
 	TArray<FD3D12Viewport*>	Viewports;
 
