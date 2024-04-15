@@ -133,7 +133,26 @@ int32 FEngineLoop::PreInit(const TCHAR* CmdLine)
 	// TEMP!!!!
 	bool bWithOSConsole = FString(CmdLine) == TEXT("-CMD");
 	GGlobalConsole.Initialize(bWithOSConsole);
-	GGlobalConsole.SetAutoClose(true);
+	GGlobalConsole.SetAutoClose(false);
+
+
+	
+	//std::function<void(const TArray<FString>&)> T([](const TArray<FString>&) {});
+
+	//Test.Bind([](const TArray<FString>&)
+	//	{
+	//		GGlobalConsole.CreateConsoleOS(TEXT("Test"));
+	//	});
+	GGlobalConsole.RegisterConsoleCommand(TEXT("c.CreateOS"), [](const TArray<FString>& Args)
+		{
+			GGlobalConsole.CreateConsoleOS(Args.GetSize() > 0 ? Args[0] : TEXT("Undefined"));
+		});
+
+	GGlobalConsole.RegisterConsoleCommand(TEXT("Suka"), [](const TArray<FString>& Args)
+		{
+			GGlobalConsole.AddLog(TEXT("Da pisdec voobse"));
+		});
+
 
 	GGlobalConsole.OnAddConsoleInput.Bind([&](FString Str)
 		{
@@ -212,4 +231,6 @@ void FEngineLoop::Exit()
 	RHIExit();
 
 	Logger::Exit();
+
+	GGlobalConsole.Destroy();
 }

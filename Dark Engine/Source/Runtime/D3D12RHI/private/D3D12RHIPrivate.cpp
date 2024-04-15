@@ -65,6 +65,14 @@ void FD3D12DynamicRHI::Init()
 	DE_LOG(D3D12RHI, Log, TEXT("Finish init"));
 }
 
+void FD3D12DynamicRHI::Shutdown()
+{
+	for (auto& i : VertexDeclarationMap)
+	{
+		i.second->Release();
+	}
+}
+
 TSharedPtr<FRHIViewport> FD3D12DynamicRHI::RHICreateViewport(void* WindowHandle, uint32 SizeX, uint32 SizeY, bool bIsFullscreen)
 {
 	FD3D12Viewport* RenderingViewport = new FD3D12Viewport(&GetAdapter(), HWND(WindowHandle), SizeX, SizeY,
@@ -101,6 +109,19 @@ FRHITexture* FD3D12DynamicRHI::RHIGetViewportBackBuffer(FRHIViewport* Viewport)
 TRefCountPtr<FRHIVertexDeclaration> FD3D12DynamicRHI::RHICreateVertexDeclaration(const FVertexDeclarationElementList& Elements)
 {
 	FD3D12VertexElements D3DElements(Elements.Num());
+
+	uint64 Hash = 0;
+	for (const auto& i : Elements)
+	{
+		hash_combine(Hash, i);
+	}
+
+	auto It = VertexDeclarationMap.find(Hash);
+
+	if (It != VertexDeclarationMap.end())
+	{
+		return It->second;
+	}
 
 	for (uint32 i = 0; i < Elements.Num(); ++i)
 	{
@@ -147,6 +168,9 @@ TRefCountPtr<FRHIVertexDeclaration> FD3D12DynamicRHI::RHICreateVertexDeclaration
 		Element.InputSlot = 0;
 	}
 	FD3D12VertexDeclaration* VertexDeclaration = new FD3D12VertexDeclaration(D3DElements);
+
+	VertexDeclarationMap.emplace(Hash, VertexDeclaration);
+	VertexDeclaration->AddRef();
 
 	return VertexDeclaration;
 }

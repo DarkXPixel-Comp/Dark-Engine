@@ -46,7 +46,7 @@ enum class ERHIBindlessConfiguration
 	RayTracingShaders
 };
 
-enum EVertexElementType
+enum EVertexElementType : uint8
 {
 	VET_None,
 	VET_Float1,

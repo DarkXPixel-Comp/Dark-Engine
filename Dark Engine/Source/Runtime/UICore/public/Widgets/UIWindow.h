@@ -27,7 +27,7 @@ public:
 	bool HasWindowBorder() const { return bHasWindowBorder; }
 	void SetbWindowBorder(bool InbHasWindowBorder) { bHasWindowBorder = InbHasWindowBorder; }
 	FString GetTitle() const { return Title; }
-	void SetTitle(FString InTitle) { Title = InTitle;}
+	void SetTitle(FString InTitle) { Title = InTitle; bTitleChanged = true; }
 	void AddWidget(TSharedPtr<UIWidget> InWidget) { InWidget->InitWindow(this); Widgets.Add(InWidget); }
 	void AddDeferedWidget(TSharedPtr<UIWidget>InWidget) { DeferedAddWidgets.Add(InWidget); }
 	void RemoveDeferedWidget(TSharedPtr<UIWidget>InWidget) { DeferedRemoveWidgets.Add(InWidget); }
@@ -54,6 +54,7 @@ private:
 	FVector2f InitPositionScreen;
 	FVector2f SizeViewport = InitSizeScreen;
 	FString Title;
+	bool bTitleChanged = true;
 	//TSharedPtr<FViewportClient>
 	TArray<TSharedPtr<UIWidget>> Widgets;
 	TArray<TSharedPtr<UIWidget>> DeferedAddWidgets;

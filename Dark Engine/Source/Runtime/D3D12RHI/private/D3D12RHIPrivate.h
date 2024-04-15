@@ -6,6 +6,7 @@
 #include "DynamicRHI.h"
 #include "RHIContext.h"
 #include "D3D12Queue.h"
+#include "Containers/UnordoredMap.h"
 
 
 
@@ -31,7 +32,7 @@ public:
 	void PostInit() override;
 
 	//virtual void PostInit();
-	virtual void Shutdown() {}
+	virtual void Shutdown() override;
 
 	virtual TSharedPtr<FRHIViewport> RHICreateViewport(void* WindowHandle, uint32 SizeX, uint32 SizeY, bool bIsFullscreen) override;
 
@@ -75,10 +76,6 @@ public:
 private:
 	TArray<TSharedPtr<FD3D12Adapter>> ChosenAdapters;
 	D3D_FEATURE_LEVEL FeatureLevel;
-
-
-
-
-
+	TMap<uint64, class FRHIVertexDeclaration*> VertexDeclarationMap;
 };
 

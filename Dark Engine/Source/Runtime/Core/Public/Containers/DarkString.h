@@ -74,8 +74,26 @@ public:
 	}
 
 
+	void Resize(uint32 NewSize)
+	{
+		_string.resize(NewSize);
+	}
+
+	void Reserve(uint32 NewReserve)
+	{
+		_string.reserve(NewReserve);
+	}
+
+	std::wstring& GetNativeString()
+	{
+		return _string;
+	}
+
+
 	int32 Len() const;
 	decltype(auto) Data() const { return _string.c_str(); }
+	TCHAR* Data() { return _string.data(); }
+
 	std::string ToString() const;
 
 	//operator const TCHAR*() const

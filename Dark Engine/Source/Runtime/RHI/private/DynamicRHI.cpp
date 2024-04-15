@@ -39,6 +39,7 @@ void RHIPostInit()
 
 void RHIExit()
 {
+	GDynamicRHI->Shutdown();
 	DynamicRHIShutdown();
 }
 

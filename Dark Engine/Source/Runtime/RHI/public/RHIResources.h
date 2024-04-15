@@ -403,8 +403,21 @@ struct FVertexElement
 		bUseInstanceIndex(InbUseInstanceIndex),
 		Stride(InStride)
 	{}
+};
 
-
+template<>
+struct std::hash<FVertexElement>
+{
+	uint64 operator()(const FVertexElement& Other) const
+	{
+		uint64 Result = 0;
+		hash_combine(Result, Other.Offset);
+		hash_combine(Result, Other.Stride);
+		hash_combine(Result, Other.AttributeIndex);
+		hash_combine(Result, Other.bUseInstanceIndex);
+		hash_combine(Result, (uint8)Other.Type);
+		return Result;
+	}
 };
 
 

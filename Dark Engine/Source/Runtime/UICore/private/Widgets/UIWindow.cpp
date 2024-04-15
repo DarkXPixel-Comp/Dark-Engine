@@ -31,7 +31,11 @@ void UIWindow::ShowWindow()
 
 void UIWindow::Update(float DeltaTime)
 {
-	NativeWindow->SetTitle(Title);
+	if(bTitleChanged)
+	{
+		NativeWindow->SetTitle(Title);
+		bTitleChanged = false;
+	}
 
 	for (auto& Widget : DeferedAddWidgets)
 	{

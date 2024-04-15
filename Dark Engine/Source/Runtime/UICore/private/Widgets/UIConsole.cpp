@@ -9,6 +9,12 @@ UIConsole::UIConsole():
 	GGlobalConsole.OnAddConsoleMessage.Bind(this, &UIConsole::OnLogAdd);
 }
 
+int InputCallback(ImGuiInputTextCallbackData* data)
+{
+
+	return 0;
+}
+
 void UIConsole::DrawImGui()
 {
 	if (ImGui::Begin(!Name, IsWidgetClose(), ImGuiWindowFlags_HorizontalScrollbar))
@@ -20,7 +26,7 @@ void UIConsole::DrawImGui()
 			ImGui::TextColored(ImVec4(Log.Color.X, Log.Color.Y, Log.Color.Z, 1), Log.Log.ToString().c_str());
 		}
 
-		if (ImGui::InputText("Input", InputText, 256, ImGuiInputTextFlags_EnterReturnsTrue))
+		if (ImGui::InputText("Input", InputText, 256, ImGuiInputTextFlags_EnterReturnsTrue, InputCallback, this))
 		{
 			GGlobalConsole.InputText(InputText);
 			++ScrollToBottom;
