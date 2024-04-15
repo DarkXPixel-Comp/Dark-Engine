@@ -42,6 +42,26 @@ public:
 		return *this;
 	}
 
+	void PopBack()
+	{
+		_string.erase(_string.begin() + _string.size() - 1);
+	}
+
+	void PopFirst()
+	{
+		_string.erase(_string.begin());
+	}
+
+	TCHAR Back() const
+	{
+		return _string.back();
+	}
+
+	TCHAR First() const
+	{
+		return _string.front();
+	}
+
 	bool Contains(const FString& Other)
 	{
 		return _string.find(Other._string) != std::wstring::npos;
@@ -49,18 +69,21 @@ public:
 
 	static int32 FromString(int32& Value, const TCHAR* Buffer)
 	{
-		Value = std::stoi(Buffer);
+		//Value = std::stoi(Buffer);
+		Value = wcstol(Buffer, nullptr, 10);
 		return Value;
 	}
 
 	static float FromString(float& Value, const TCHAR* Buffer)
 	{
-		Value = std::stof(Buffer);
+		//Value = std::stof(Buffer);
+		Value = wcstof(Buffer, nullptr);
 		return Value;
 	}
 	static bool FromString(bool& Value, const TCHAR* Buffer)
 	{
-		Value = std::stoi(Buffer);
+		//Value = std::stoi(Buffer);
+		Value = wcstol(Buffer, nullptr, 10);
 		return Value;
 	}
 	static FString FromString(FString& Value, const TCHAR* Buffer)

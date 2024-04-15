@@ -11,6 +11,11 @@ void FGlobalInputOutConsole::Initialize(bool bCreateOsConsole)
 		FConsoleStd::CreateConsoleOS(TEXT("Dark Console"));
 	}
 	bInitialize = true;
+
+	RegisterConsoleCommand(TEXT("Clear"), [this](const TArray<FString>&)
+		{
+			this->Cache.Empty();
+		});
 }
 
 void FGlobalInputOutConsole::Destroy()

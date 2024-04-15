@@ -171,14 +171,51 @@ IConsoleVariable* FBaseConsole::RegisterConsoleVariableRef(const TCHAR* Name, in
 
 void FBaseConsole::ParseInput(FString& InputOutCommands, TArray<FString>& OutArgs)
 {
-	FString InputCommand;
+	FString InputCommand = TEXT("\0");
+	InputCommand.Resize(256);
 	std::wstringstream Stream(InputOutCommands.GetNativeString());
 	std::getline(Stream, InputCommand.GetNativeString(), TEXT(' '));
+
+	/*Stream.getline(InputCommand.Data(), 256, TEXT(' '));
+
+	TCHAR Buffer[256] = TEXT("\0");
+	bool ArgOpen = false;
+	while (Stream.good())
+	{
+		wchar_t buf;
+		Stream.get(buf);
+		if (buf == TEXT('"') || buf == TEXT(' '))
+		{
+			if (ArgOpen)
+			{
+				ArgOpen = false;	
+				if(FString(Buffer) != TEXT(""))
+					OutArgs.Add(Buffer);
+				wcsset(Buffer, TEXT('\0'));
+			}
+			else
+			{
+				ArgOpen = true;
+			}
+			continue;
+		}
+		if(ArgOpen)
+			wcscat(Buffer, &buf);
+	}*/
+
 
 	while (Stream.good())
 	{
 		FString Arg;
-		std::getline(Stream, Arg.GetNativeString(), TEXT(' '));
+		std::getline(Stream, Arg.GetNativeString(), TEXT(','));
+		if (Arg.Back() == TEXT(' '))
+		{
+			Arg.PopBack();
+		}
+		if (Arg.First() == TEXT(' '))
+		{
+			Arg.PopFirst();
+		}
 		if (Arg == TEXT(""))
 			continue;
 		OutArgs.Add(Arg);

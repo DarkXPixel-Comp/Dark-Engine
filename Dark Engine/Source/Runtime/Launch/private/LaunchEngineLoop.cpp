@@ -150,7 +150,12 @@ int32 FEngineLoop::PreInit(const TCHAR* CmdLine)
 
 	GGlobalConsole.RegisterConsoleCommand(TEXT("Suka"), [](const TArray<FString>& Args)
 		{
-			GGlobalConsole.AddLog(TEXT("Da pisdec voobse"));
+			//GGlobalConsole.AddLog(TEXT("Da pisdec voobse"));
+
+			for (const auto& i : Args)
+			{
+				GGlobalConsole.AddLog(i);
+			}
 		});
 
 
