@@ -43,7 +43,10 @@ public:
 
 	virtual FRHITexture* RHIGetViewportBackBuffer(FRHIViewport* Viewport) override;
 
+	virtual TRefCountPtr<FRHIVertexDeclaration>	RHICreateVertexDeclaration(const FVertexDeclarationElementList& Elements) override;
 	virtual TRefCountPtr<FRHIVertexShader> RHICreateVertexShader(const TArray<uint8>& Code, const FShaderBounds& Bounds) override;
+	virtual TRefCountPtr<FRHIPixelShader> RHICreatePixelShader(const TArray<uint8>& Code, const FShaderBounds& Bounds) override;
+
 
 	virtual ID3D12CommandQueue* RHIGetCommandQueue() override { return nullptr; }
 	virtual ID3D12Device* RHIGetDevice() { return nullptr; }

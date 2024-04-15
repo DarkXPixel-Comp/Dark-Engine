@@ -52,6 +52,7 @@ enum EVertexElementType
 	VET_Float1,
 	VET_Float2,
 	VET_Float3,
+	VET_Float4,
 	VET_Color,
 	VET_Short2,
 	VET_Short3,

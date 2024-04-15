@@ -62,6 +62,8 @@ public:
 		return D3D12_INPUT_LAYOUT_DESC{VertexElements.GetData(), (UINT)VertexElements.Num()};
 	}
 
+	FString SemanticName;
+
 
 
 };

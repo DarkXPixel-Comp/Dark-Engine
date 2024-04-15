@@ -11,15 +11,15 @@ const TCHAR* GetShaderProfileName(uint32 ShaderType)
 	switch (ShaderType)
 	{
 	case ST_Vertex:
-		return TEXT("vs_6_6");
+		return TEXT("vs_6_5");
 	case ST_Mesh:
-		return TEXT("ms_6_6");
+		return TEXT("ms_6_5");
 	case ST_Pixel:
-		return TEXT("ps_6_6");
+		return TEXT("ps_6_5");
 	case ST_Geometry:
-		return TEXT("gs_6_6");
+		return TEXT("gs_6_5");
 	case ST_Compute:
-		return TEXT("cs_6_6");
+		return TEXT("cs_6_5");
 	}
 
 }

@@ -32,16 +32,17 @@ FD3D12PipelineStateManager::FD3D12PipelineStateManager(FD3D12Adapter* InParent) 
 
 void FD3D12PipelineStateManager::CachePSO()
 {
+	TArray<uint8> NewCache;
 	std::ofstream fout;
 	FString File = FString::PrintF(TEXT("%sPSO.cache"), *FPaths::CacheDir());
 	fout.open(*File, ios::binary);
 
 	if (fout.is_open())
 	{
-		Cache.Resize(PipelineLibrary->GetSerializedSize());
-		PipelineLibrary->Serialize(Cache.GetData(), Cache.Num());
+		NewCache.Resize(PipelineLibrary->GetSerializedSize());
+		PipelineLibrary->Serialize(NewCache.GetData(), NewCache.Num());
 
-		fout.write((char*)Cache.GetData(), Cache.Num());
+		fout.write((char*)NewCache.GetData(), NewCache.Num());
 		fout.close();
 	}
 }
@@ -57,7 +58,10 @@ FD3D12PipelineState* FD3D12PipelineStateManager::GetPipelineState(const FGraphic
 	{
 		Result = new FD3D12PipelineState(GetParentAdapter());
 		TRefCountPtr<ID3D12PipelineState> PipelineState;
-		FString Hash = FString::NumToString(std::hash<FGraphicsPipelineStateInitializer>{}(Initializer));
+		uint64 HashNum = 0;
+		hash_combine(HashNum, Initializer);
+		hash_without_hash_combine(HashNum, InRootSignature->Hash);
+		FString Hash = FString::NumToString(HashNum);
 		D3D12_PIPELINE_STATE_STREAM_DESC StreamDesc = SetPipelineDesc(Initializer, PipelineStateDesc, InRootSignature);
 		HRESULT hr = S_OK;
 		DXCall(hr = PipelineLibrary->LoadPipeline(*Hash, &StreamDesc,

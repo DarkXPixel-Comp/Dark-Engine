@@ -388,12 +388,22 @@ public:
 
 struct FVertexElement
 {
-	uint8 StreamIndex;
 	uint8 Offset;
+	uint8 Stride;
+	uint8 AttributeIndex;
+	uint8 bUseInstanceIndex;
 	EVertexElementType Type;
-	uint16 Stride;
 
-	uint16 bUseInstanceIndex;
+	FVertexElement() {}
+
+	FVertexElement(EVertexElementType InType, uint8 InAttributeIndex, uint8 InOffset, uint8 InbUseInstanceIndex, uint8 InStride) :
+		Type(InType),
+		AttributeIndex(InAttributeIndex),
+		Offset(InOffset),
+		bUseInstanceIndex(InbUseInstanceIndex),
+		Stride(InStride)
+	{}
+
 
 };
 
@@ -576,8 +586,8 @@ struct std::hash<FBoundShaderStateInput>
 	{
 		std::size_t Result = 0;
 		hash_without_hash_combine(Result, Key.PixelShaderRHI ? Key.PixelShaderRHI->ShaderHash : 0);
-		hash_without_hash_combine(Result, Key.PixelShaderRHI ? Key.VertexShaderRHI->ShaderHash : 0);
-		hash_without_hash_combine(Result, Key.PixelShaderRHI ? Key.GeometryShaderRHI->ShaderHash : 0);
+		hash_without_hash_combine(Result, Key.VertexShaderRHI ? Key.VertexShaderRHI->ShaderHash : 0);
+		hash_without_hash_combine(Result, Key.GeometryShaderRHI ? Key.GeometryShaderRHI->ShaderHash : 0);
 		//hash_without_hash_combine(Result, Key.PixelShaderRHI ? Key.VertexDeclaration->ShaderHash : 0);
 
 		return Result;

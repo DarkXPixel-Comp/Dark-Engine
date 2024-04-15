@@ -24,12 +24,12 @@ cbuffer cbPass : register(b1)
 
 
 
-PSInput main(float3 position : SV_Position,
-			float3 normal : NORMAL,
-			float4 color : COLOR,
-			float3 tangent : TANGENT,
-			float3 bitangent : BITANGENT,
-			float2 uv : TEXCOORD)
+PSInput main(float3 position : Attribute0,
+			float3 normal : Attribute1,
+			float4 color : Attribute2,
+			float3 tangent : Attribute3,
+			float3 bitangent : Attribute4,
+			float2 uv : Attribute5)
 {
     PSInput result;
 	

@@ -15,6 +15,7 @@ public:
 
 	FORCEINLINE const D3D12_VERSIONED_ROOT_SIGNATURE_DESC& GetDesc() const { return RootDesc; }
 
+	uint64 Hash = 0;
 private:
 	uint32 RootParameterSize;
 	CD3DX12_ROOT_PARAMETER1 TableSlots[MaxRootParameters];
@@ -40,13 +41,11 @@ public:
 
 	ID3D12RootSignature* GetRootSignature() const { return RootSignature.Get(); }
 
+	uint64 Hash = 0;
 
 private:
 	TRefCountPtr<ID3DBlob> RootSignatureBlob;
 	TRefCountPtr<ID3D12RootSignature> RootSignature;
-
-
-
 };
 
 

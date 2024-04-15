@@ -28,6 +28,7 @@ TRefCountPtr<FRHIShader> FShader::GetRHIShader()
 		case ST_Mesh:
 			break;
 		case ST_Pixel:
+			RHIShader = RHICreatePixelShader(Code, Bounds);
 			break;
 		case ST_Geometry:
 			break;

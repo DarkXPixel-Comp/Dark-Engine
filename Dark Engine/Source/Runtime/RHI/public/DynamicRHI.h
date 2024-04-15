@@ -30,7 +30,9 @@ public:
 	virtual TRefCountPtr<FRHITexture> RHICreateTexture(const FRHITextureCreateDesc& CreateDesc) = 0;
 	virtual void* RHILockTexture2D(FRHITexture* TextureRHI, uint32 MipIndex, EResourceLockMode LockMode, uint32& DestStride, bool bLockWithinMiptail, uint64* OutLockedByteCount) = 0;
 	virtual TRefCountPtr<FRHIGraphicsPipelineState> RHICreateGraphicsPipelineState(const class FGraphicsPipelineStateInitializer& Initializer) = 0;
+	virtual TRefCountPtr<FRHIVertexDeclaration>	RHICreateVertexDeclaration(const FVertexDeclarationElementList& Elements) = 0;
 	virtual TRefCountPtr<FRHIVertexShader> RHICreateVertexShader(const TArray<uint8>& Code, const FShaderBounds& Bounds) = 0;
+	virtual TRefCountPtr<FRHIPixelShader> RHICreatePixelShader(const TArray<uint8>& Code, const FShaderBounds& Bounds) = 0;
 
 	virtual void RHIUnlockTexture2D(FRHITexture* TextureRHI, uint32 MipIndex, bool bLockWithinMiptail) = 0;
 	virtual ERHIInterfaceType GetInterfaceType() const { return ERHIInterfaceType::Hidden; }
@@ -85,4 +87,17 @@ FORCEINLINE TRefCountPtr<FRHIVertexShader> RHICreateVertexShader(const TArray<ui
 {
 	return GDynamicRHI->RHICreateVertexShader(Code, Bounds);
 }
+
+FORCEINLINE TRefCountPtr<FRHIVertexDeclaration>RHICreateVertexDeclaration(const FVertexDeclarationElementList& Elements)
+{
+	return GDynamicRHI->RHICreateVertexDeclaration(Elements);
+}
+
+
+
+FORCEINLINE TRefCountPtr<FRHIPixelShader> RHICreatePixelShader(const TArray<uint8>& Code, const struct FShaderBounds& Bounds)
+{
+	return GDynamicRHI->RHICreatePixelShader(Code, Bounds);
+}
+
 

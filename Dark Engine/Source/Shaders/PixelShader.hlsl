@@ -14,7 +14,24 @@
 #include "LightingUtils.hlsl"
 #include "Common.hlsl"
 
+cbuffer cbPass : register(b0)
+{
+	int t;
+}
+cbuffer cbPass1 : register(b1)
+{
+	int t1;
+}
+cbuffer cbPass2 : register(b2)
+{
+	int t2;
+}
 
+Texture2D tAlbedo : register(t0);
+
+
+
+/*
 SamplerState gSamPointWrap : register(s0);
 SamplerState gSamPointClamp : register(s1);
 SamplerState gSamLinearWrap : register(s2);
@@ -54,6 +71,7 @@ cbuffer cbMaterial : register(b2)
 	float gRoughness;
 	float4x4 gMatTransform;
 }
+*/
 
 
 
@@ -62,7 +80,8 @@ cbuffer cbMaterial : register(b2)
 
 float4 main(PSInput input) : SV_TARGET
 {
-	//return gColorMap.Sample(gSamLinearClamp, input.uv);
+	return float4(t, t, t, 1);
+	/*//return gColorMap.Sample(gSamLinearClamp, input.uv);
 	//return float4(1, 1, 1, 1);
 	
 	float4 gDiffuseAlbedo = gDiffuse * tAlbedo.Sample(gSamAnisotropicWrap, input.uv);
@@ -94,6 +113,6 @@ float4 main(PSInput input) : SV_TARGET
 	
 	litColor.a = gDiffuseAlbedo.a;
 	//return ambient;
-	return litColor;
+	return litColor;*/
 
 }

@@ -235,6 +235,12 @@ public:
 		return static_cast<FRHIVertexShader*>(GetRHIShader());
 	}
 
+	FORCEINLINE FRHIPixelShader* GetPixelShader() const
+	{
+		return static_cast<FRHIPixelShader*>(GetRHIShader());
+	}
+
+
 
 
 private:

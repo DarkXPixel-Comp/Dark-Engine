@@ -98,9 +98,69 @@ FRHITexture* FD3D12DynamicRHI::RHIGetViewportBackBuffer(FRHIViewport* Viewport)
 }
 
 
+TRefCountPtr<FRHIVertexDeclaration> FD3D12DynamicRHI::RHICreateVertexDeclaration(const FVertexDeclarationElementList& Elements)
+{
+	FD3D12VertexElements D3DElements(Elements.Num());
+
+	for (uint32 i = 0; i < Elements.Num(); ++i)
+	{
+		D3D12_INPUT_ELEMENT_DESC& Element = D3DElements[i];
+		
+		switch (Elements[i].Type)
+		{
+		case VET_Float1:
+			Element.Format = DXGI_FORMAT_R32_FLOAT;
+			break;
+		case VET_Float2:
+			Element.Format = DXGI_FORMAT_R32G32_FLOAT;
+			break;
+		case VET_Float3:
+			Element.Format = DXGI_FORMAT_R32G32B32_FLOAT;
+			break;
+		case VET_Float4:
+			Element.Format = DXGI_FORMAT_R32G32B32A32_FLOAT;
+			break;
+		case VET_Color:
+			Element.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
+			break;
+		case VET_Short2:
+			Element.Format = DXGI_FORMAT_R16G16_SINT;
+			break;
+		case VET_Short3:
+			Element.Format = DXGI_FORMAT_R32G32_SINT;
+			break;
+		case VET_Short4:
+			Element.Format = DXGI_FORMAT_R16G16B16A16_SINT;
+			break;
+		case VET_UInt:
+			Element.Format = DXGI_FORMAT_R32_UINT;
+			break;
+		default:
+			break;
+		}
+
+		Element.SemanticIndex = Elements[i].AttributeIndex;
+		Element.InputSlotClass = Elements[i].bUseInstanceIndex ? D3D12_INPUT_CLASSIFICATION_PER_INSTANCE_DATA : D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA;
+		Element.InstanceDataStepRate = Elements[i].bUseInstanceIndex ? 1 : 0;
+		Element.AlignedByteOffset = D3D12_APPEND_ALIGNED_ELEMENT;
+		Element.SemanticName = "Attribute";
+		Element.InputSlot = 0;
+	}
+	FD3D12VertexDeclaration* VertexDeclaration = new FD3D12VertexDeclaration(D3DElements);
+
+	return VertexDeclaration;
+}
+
 TRefCountPtr<FRHIVertexShader> FD3D12DynamicRHI::RHICreateVertexShader(const TArray<uint8>& Code, const FShaderBounds& Bounds)
 {
 	FD3D12VertexShader* Result = CreateStandartShader<FD3D12VertexShader>(Code);
+	Result->ResourceCounts = Bounds;
+	return Result;
+}
+
+TRefCountPtr<FRHIPixelShader> FD3D12DynamicRHI::RHICreatePixelShader(const TArray<uint8>& Code, const FShaderBounds& Bounds)
+{
+	FD3D12PixelShader* Result = CreateStandartShader<FD3D12PixelShader>(Code);
 	Result->ResourceCounts = Bounds;
 	return Result;
 }
