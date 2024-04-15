@@ -112,7 +112,7 @@ public:
 	{
 		GetContext().RHIBeginDrawingViewport(Viewport, RenderTargetRHI);
 	}
-	void EndDrawingViewport(FRHIViewport* Viewport, bool bPresent, bool bVsync)
+	void EndDrawingViewport(FRHIViewport* Viewport, bool bPresent, int32 bVsync)
 	{
 		GetContext().RHIEndDrawingViewport(Viewport, bPresent, bVsync);
 	}

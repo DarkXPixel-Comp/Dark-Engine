@@ -3,13 +3,18 @@
 #include <DynamicRHI.h>
 #include "RHICommandList.h"
 #include <CoreGlobals.h>
+#include "Console/GlobalInputOutConsole.h"
 
 
 void FUIRHIRenderer::Initialize()
 {
-
-
-
+	GGlobalConsole.RegisterConsoleVariableRef(TEXT("r.D3D12.Vsync"), Vsync)->SetOnChangedCallback([](IConsoleVariable* Var)
+		{
+			if (Var->AsVariable()->GetInt() > 4)
+			{
+				Var->AsVariable()->Set(4);
+			}
+		});
 
 }
 

@@ -6,6 +6,7 @@
 #include "DynamicRHI.h"
 #include "stb_image.h"
 #include "Misc/Paths.h"
+#include "Console/GlobalInputOutConsole.h"
 
 
 struct FColor
@@ -21,6 +22,20 @@ struct FColor
 };
 
 
+
+UIEditorSettings::UIEditorSettings() : UIWidget(TEXT("UIEditorSettings"))
+{
+	FMemory::Memzero(TempSettings.PathTexture, 256);
+
+	GGlobalConsole.RegisterConsoleCommand(TEXT("r.D3D12.Debug.Background"), [this](const TArray<FString>& Args)
+		{
+			if (Args.Num() > 0)
+			{
+				strcpy(TempSettings.PathTexture, Args[0].ToString().c_str());
+				bChangeSettings = true;
+			}
+		});
+}
 
 void UIEditorSettings::DrawImGui()
 {

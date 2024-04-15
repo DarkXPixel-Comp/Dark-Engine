@@ -42,6 +42,36 @@ public:
 		return *this;
 	}
 
+	bool Contains(const FString& Other)
+	{
+		return _string.find(Other._string) != std::wstring::npos;
+	}
+
+	static int32 FromString(int32& Value, const TCHAR* Buffer)
+	{
+		Value = std::stoi(Buffer);
+		return Value;
+	}
+
+	static float FromString(float& Value, const TCHAR* Buffer)
+	{
+		Value = std::stof(Buffer);
+		return Value;
+	}
+	static bool FromString(bool& Value, const TCHAR* Buffer)
+	{
+		Value = std::stoi(Buffer);
+		return Value;
+	}
+	static FString FromString(FString& Value, const TCHAR* Buffer)
+	{
+		Value = Buffer;
+		return Value;
+	}
+
+
+
+
 
 	template <typename ...TypeArgs>
 	static FString PrintF(const TCHAR* Fmt, TypeArgs... Args)
@@ -126,6 +156,29 @@ public:
 	{
 		return std::to_wstring(Val);
 	}
+
+	template<>
+	static FString NumToString(int32 Val)
+	{
+		return std::to_wstring(Val);
+	}
+	template<>
+	static FString NumToString(float Val)
+	{
+		return std::to_wstring(Val);
+	}
+	template<>
+	static FString NumToString(bool Val)
+	{
+		return std::to_wstring(Val);
+	}
+	template<>
+	static FString NumToString(FString Val)
+	{
+		return Val;
+	}
+
+
 	
 
 	const char* GetStr()

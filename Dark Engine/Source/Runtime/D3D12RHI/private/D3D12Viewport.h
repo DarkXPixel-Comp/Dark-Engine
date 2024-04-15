@@ -18,7 +18,7 @@ public:
 
 	void Resize(uint32 InSizeX, uint32 InSizeY, bool bInIsFullscreen, EPixelFormat InPixelFormat);
 
-	bool Present(bool bVsync);
+	bool Present(int32 bVsync);
 
 	uint32 GetCountBackBuffers() const { return NumBackBuffers; }
 

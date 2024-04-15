@@ -249,7 +249,7 @@ void FD3D12Viewport::Resize(uint32 InSizeX, uint32 InSizeY, bool bInIsFullscreen
 	
 }
 
-bool FD3D12Viewport::Present(bool bVsync)
+bool FD3D12Viewport::Present(int32 bVsync)
 {
 	FD3D12Texture* BackBuffer = GetCurrentBackBuffer();
 	FD3D12CommandContext& DefaultContext = Parent->GetDevice()->GetDefaultCommandContext();

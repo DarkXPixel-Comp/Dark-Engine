@@ -129,7 +129,7 @@ void FD3D12CommandContextBase::RHIBeginDrawingViewport(FRHIViewport* RHIViewport
 	}
 }
 
-void FD3D12CommandContextBase::RHIEndDrawingViewport(FRHIViewport *Viewport, bool bPresent, bool Vsync)
+void FD3D12CommandContextBase::RHIEndDrawingViewport(FRHIViewport *Viewport, bool bPresent, int32 Vsync)
 {
 	FD3D12Viewport* ViewportRHI = reinterpret_cast<FD3D12Viewport*>(Viewport);
 

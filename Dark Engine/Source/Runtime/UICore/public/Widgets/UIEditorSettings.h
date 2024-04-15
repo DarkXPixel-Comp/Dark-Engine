@@ -10,10 +10,7 @@ class UIEditorViewport;
 class UIEditorSettings : public UIWidget
 {
 public:
-	UIEditorSettings() : UIWidget(TEXT("UIEditorSettings"))
-	{
-		FMemory::Memzero(TempSettings.PathTexture, 256);
-	}
+	UIEditorSettings();
 
 public:
 	void SetEditorViewport(TSharedPtr<UIEditorViewport> InEditorViewport)

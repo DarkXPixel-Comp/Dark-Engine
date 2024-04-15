@@ -10,8 +10,11 @@ DECLARE_DELEGATE_OneParam(FOnAddConsoleMessage, struct FConsoleLog);
 
 
 typedef std::function<void(const TArray<FString>&)>	FConsoleSoloCommandWithArgsDelegate;
+typedef std::function<void(class IConsoleVariable*)> FConsoleSoloVariableDelegate;
 
-typedef TMultiCastDelegate<void, const TArray<FString>&> FConsoleVariableDelegate;
+
+
+typedef TMultiCastDelegate<void, class IConsoleVariable*> FConsoleVariableDelegate;
 typedef TMultiCastDelegate<void, const TArray<FString>&> FConsoleCommandWithArgsDelegate;
 
 
@@ -84,7 +87,7 @@ public:
 class IConsoleVariable : public IConsoleObject
 {
 public:
-	virtual void Set(const TCHAR* InValue);
+	virtual void Set(const TCHAR* InValue) = 0;
 	virtual bool GetBool() const = 0;
 	virtual int32 GetInt() const = 0;
 	virtual float GetFloat() const = 0;
@@ -107,7 +110,10 @@ public:
 		OutValue = GetString();
 	}
 
-	virtual void SetOnChangedCallback(FConsoleVariableDelegate Callback) = 0;
+	virtual FString ToString() const = 0;
+
+	virtual void SetOnChangedCallback(const FConsoleVariableDelegate& Callback) = 0;
+	virtual void SetOnChangedCallback(FConsoleSoloVariableDelegate Callback) = 0;
 
 	void Set(bool InValue)
 	{
@@ -120,6 +126,10 @@ public:
 	void Set(float InValue)
 	{
 		Set(*FString::PrintF(TEXT("%f"), InValue));
+	}
+	void Set(const FString& InValue)
+	{
+		Set(*InValue);
 	}
 };
 
@@ -137,7 +147,7 @@ public:
 	FBaseConsole() = default; 
 	~FBaseConsole();
 
-	virtual void AddLog(const FString& Text, FVector3f Color = FVector3f(0, 0, 0), float Time = 0.f);
+	virtual void AddLog(const FString& Text, FVector3f Color = FVector3f(1, 1, 1), float Time = 0.f);
 	void Update(float DeltaTime);
 	void RemoveLog();
 	void InputText(const FString& Text);
@@ -160,17 +170,15 @@ public:
 	class IConsoleVariable* RegisterConsoleVariableRef(const TCHAR* Name, bool& RefValue);
 
 
-
-
-
-
-
 	const TArray<FConsoleLog>& GetLogs() const { return Cache; }
 
 	FOnAddConsoleInput OnAddConsoleInput;  
 	FOnAddConsoleMessage OnAddConsoleMessage;
 
-
+	const TUnordoredMap<FString, IConsoleObject*>& GetConsoleObjects() const
+	{
+		return ConsoleObjects;
+	}
 
 
 private:

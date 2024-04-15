@@ -4,9 +4,6 @@
 uint64 FBaseConsole::StaticID = 0;
 
 
-
-
-
 class FConsoleCommand : public IConsoleCommand
 {
 public:
@@ -38,6 +35,101 @@ private:
 };
 
 
+template<class T>
+class FConsoleVariableRef : public IConsoleVariable
+{
+public:
+	FConsoleVariableRef(T& InRefValue):
+		RefValue(InRefValue)
+	{}
+
+	virtual class IConsoleVariable* AsVariable()
+	{
+		return this;
+	}
+
+
+	virtual void Set(const TCHAR* InValue)
+	{
+		FString::FromString(RefValue, InValue);
+		OnChangedCallback.BroadCast(this);
+	}
+
+	virtual void SetOnChangedCallback(const FConsoleVariableDelegate& Callback) override
+	{
+		OnChangedCallback = Callback;
+	}
+	virtual void SetOnChangedCallback(FConsoleSoloVariableDelegate Callback) override
+	{
+		OnChangedCallback.Bind(Callback);
+	}
+
+
+	virtual bool GetBool() const override { return false; }
+	virtual int32 GetInt() const { return 0; }
+	virtual float GetFloat() const { return 0; }
+	virtual FString GetString() const { return FString(); }
+
+	virtual FString ToString() const override
+	{
+		return FString::NumToString(RefValue);
+	}
+
+
+	virtual bool IsVariableBool() const override { return false; }
+	virtual bool IsVariableInt() const override { return false; }
+	virtual bool IsVariableFloat() const override { return false; }
+	virtual bool IsVariableString() const override { return false; }
+
+
+private:
+	T& RefValue;
+	FConsoleVariableDelegate OnChangedCallback;
+};
+
+template<>
+bool FConsoleVariableRef<bool>::GetBool() const
+{
+	return RefValue;
+}
+template<>
+int32 FConsoleVariableRef<int32>::GetInt() const
+{
+	return RefValue;
+}
+template<>
+float FConsoleVariableRef<float>::GetFloat() const
+{
+	return RefValue;
+}
+template<>
+FString FConsoleVariableRef<FString>::GetString() const
+{
+	return RefValue;
+}
+
+
+
+template<>
+bool FConsoleVariableRef<bool>::IsVariableBool() const
+{
+	return true;
+}
+template<>
+bool FConsoleVariableRef<int32>::IsVariableInt() const
+{
+	return true;
+}
+template<>
+bool FConsoleVariableRef<float>::IsVariableFloat() const
+{
+	return true;
+}
+template<>
+bool FConsoleVariableRef<FString>::IsVariableString() const
+{
+	return true;
+}
 
 
 IConsoleObject* FBaseConsole::AddConsoleObject(const TCHAR* Name, IConsoleObject* Obj)
@@ -72,6 +164,10 @@ IConsoleCommand* FBaseConsole::RegisterConsoleCommand(const TCHAR* Name, FConsol
 	return (IConsoleCommand*)AddConsoleObject(Name, new FConsoleCommand(Command));
 }
 
+IConsoleVariable* FBaseConsole::RegisterConsoleVariableRef(const TCHAR* Name, int32& RefValue)
+{
+	return (IConsoleVariable*)AddConsoleObject(Name, new FConsoleVariableRef<int32>(RefValue));
+}
 
 void FBaseConsole::ParseInput(FString& InputOutCommands, TArray<FString>& OutArgs)
 {
@@ -83,6 +179,8 @@ void FBaseConsole::ParseInput(FString& InputOutCommands, TArray<FString>& OutArg
 	{
 		FString Arg;
 		std::getline(Stream, Arg.GetNativeString(), TEXT(' '));
+		if (Arg == TEXT(""))
+			continue;
 		OutArgs.Add(Arg);
 	}
 	InputOutCommands = InputCommand;
@@ -110,6 +208,7 @@ void FBaseConsole::AddLog(const FString& Text, FVector3f Color, float Time)
 
 void FBaseConsole::InputText(const FString& Text)
 {
+	//AddLog(Text, FVector3f(1, 1, 1));
 	Inputs.Add(Text);
 	OnAddConsoleInput.BroadCast(Text);
 	TArray<FString> Args;
@@ -125,9 +224,21 @@ void FBaseConsole::InputText(const FString& Text)
 		{
 			It->second->AsCommand()->Execute(Args);
 		}
+		if (It->second->AsVariable())
+		{
+			if (Args.Num() > 0)
+			{
+				It->second->AsVariable()->Set(Args[0]);
+				AddLog(Text, FVector3f(1, 1, 1));
+			}
+			else
+			{
+				AddLog(FString::PrintF(TEXT("%s %s"), *Command, *It->second->AsVariable()->ToString()));
+			}
+		}
 	}
 	else
 	{
-		AddLog(Text, FVector3f(1, 1, 1));
+		//AddLog(Text, FVector3f(1, 1, 1));
 	}
 }

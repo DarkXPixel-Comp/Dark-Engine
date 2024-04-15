@@ -97,7 +97,7 @@ public:
 	FD3D12CommandContextBase(FD3D12Adapter* InParent);
 
 	void RHIBeginDrawingViewport(FRHIViewport* Viewport, FRHITexture* RenderTargetRHI) override;
-	void RHIEndDrawingViewport(FRHIViewport* Viewport, bool bPresent, bool Vsync) override;
+	void RHIEndDrawingViewport(FRHIViewport* Viewport, bool bPresent, int32 Vsync) override;
 };
 
 class FD3D12CommandContext : public FD3D12ContextCommon, public FD3D12CommandContextBase, public FD3D12DeviceChild
