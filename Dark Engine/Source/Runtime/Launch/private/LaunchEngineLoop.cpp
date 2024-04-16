@@ -94,20 +94,10 @@ struct FEditorLayout
 		File->SetName(TEXT("File"));
 		File->AddChild(CreateSettings);
 		File->AddChild(ExitButton);
-		
-
-
-
-		//RootWindow->AddWidget(MainDock);
-
-
-		//MainDock->AddChild(EditorSettings);
-		//RootWindow->AddWidget(EditorSettings);
-
-;
+	
 	}
 
-private:
+public:
 	UIWindow* RootWindow = nullptr;
 	TSharedPtr<UIEditorViewport> RootViewport = nullptr;
 	TSharedPtr<UIDock> MainDock = nullptr;
@@ -127,7 +117,6 @@ int32 FEngineLoop::PreInit(const TCHAR* CmdLine)
 	//setlocale(LC_ALL, ".utf-16");
 
 	Logger::Initialize(LOGGER_INFO | LOGGER_ERROR);
-	//CommandConsole::Initialize("Dark Engine Console");
 	FMath::RandInit(time(0));
 
 	// TEMP!!!!
@@ -136,36 +125,19 @@ int32 FEngineLoop::PreInit(const TCHAR* CmdLine)
 	GGlobalConsole.SetAutoClose(false);
 
 
-	
-	//std::function<void(const TArray<FString>&)> T([](const TArray<FString>&) {});
-
-	//Test.Bind([](const TArray<FString>&)
-	//	{
-	//		GGlobalConsole.CreateConsoleOS(TEXT("Test"));
-	//	});
 	GGlobalConsole.RegisterConsoleCommand(TEXT("c.CreateOS"), [](const TArray<FString>& Args)
 		{
 			GGlobalConsole.CreateConsoleOS(Args.GetSize() > 0 ? Args[0] : TEXT("Undefined"));
-		});
+		}, TEXT("Create Console OS (On close terminate Engine)"));
 
 	GGlobalConsole.RegisterConsoleCommand(TEXT("Suka"), [](const TArray<FString>& Args)
 		{
-			//GGlobalConsole.AddLog(TEXT("Da pisdec voobse"));
-
 			for (const auto& i : Args)
 			{
 				GGlobalConsole.AddLog(i);
 			}
-		});
+		}, TEXT("Repeat args"));
 
-
-	GGlobalConsole.OnAddConsoleInput.Bind([&](FString Str)
-		{
-			if (Str == TEXT("Console.CreateConsoleOS"))
-			{
-				GGlobalConsole.CreateConsoleOS(TEXT("Dark Console"));
-			}
-		});
 
 	DE_LOG(Launch, Log, TEXT("FEngineLoop Pre init (%s)"), CmdLine);
 
@@ -203,9 +175,22 @@ int32 FEngineLoop::PreInit(const TCHAR* CmdLine)
 
 
 	EditorLayout.SetupEditorLayout(RootWindow.get());
+	
 	DE_LOG(Launch, Log, TEXT("Setup EditorLayout"));
 
 	
+	GGlobalConsole.RegisterConsoleCommand(TEXT("r.Renderer.SetViewportResolution"),
+		[](const TArray<FString>& Args)
+		{
+			if (Args.Num() >= 2)
+			{
+				int32 X, Y;
+				EditorLayout.RootViewport->GetSceneViewport()->Resize(FString::FromString(X, *Args[0]), 
+					FString::FromString(Y, *Args[0]));
+			}
+
+		});
+
 	return 0;
 
 } 

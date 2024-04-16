@@ -144,9 +144,6 @@ void UIApplication::Tick()
 	FGameTimer::Tick();
 
 	TickAndDrawWidgets(DeltaTime);
-
-
-
 }
 
 void UIApplication::TickPlatform(float DeltaTime)
@@ -156,7 +153,6 @@ void UIApplication::TickPlatform(float DeltaTime)
 		PlatformApplication->PumpMessages();
 	}
 	PlatformApplication->Tick(DeltaTime);
-
 }
 
 
@@ -179,7 +175,6 @@ void UIApplication::DrawWindows()
 
 	
 	Renderer->DrawWindows(UIWindows);
-
 }
 
 
@@ -188,7 +183,6 @@ TSharedPtr<UIWindow> UIApplication::AddWindow(TSharedPtr<UIWindow> InWindow)
 	TSharedPtr<FGenericWindow> NewWindow = MakeWindow(InWindow);
 	UIWindows.Add(InWindow);
 	return InWindow;
-
 }
 
 

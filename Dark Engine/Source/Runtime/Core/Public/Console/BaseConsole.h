@@ -82,6 +82,8 @@ public:
 	{
 		return 0;
 	}
+
+	FString Description;
 };
 
 class IConsoleVariable : public IConsoleObject
@@ -153,21 +155,21 @@ public:
 	void InputText(const FString& Text);
 
 
-	IConsoleObject* AddConsoleObject(const TCHAR* Name, IConsoleObject* Obj);
+	IConsoleObject* AddConsoleObject(const TCHAR* Name, IConsoleObject* Obj, const TCHAR* Description = TEXT(""));
 
-	class IConsoleCommand* RegisterConsoleCommand(const TCHAR* Name, const FConsoleCommandWithArgsDelegate& Command);
-	class IConsoleCommand* RegisterConsoleCommand(const TCHAR* Name, FConsoleSoloCommandWithArgsDelegate Command);
+	class IConsoleCommand* RegisterConsoleCommand(const TCHAR* Name, const FConsoleCommandWithArgsDelegate& Command, const TCHAR* Description = TEXT(""));
+	class IConsoleCommand* RegisterConsoleCommand(const TCHAR* Name, FConsoleSoloCommandWithArgsDelegate Command, const TCHAR* Description = TEXT(""));
 
 
-	class IConsoleVariable* RegisterConsoleVariable(const TCHAR* Name, const FString& DefaultValue);
-	class IConsoleVariable* RegisterConsoleVariable(const TCHAR* Name, float DefaultValue);
-	class IConsoleVariable* RegisterConsoleVariable(const TCHAR* Name, int32 DefaultValue);
-	class IConsoleVariable* RegisterConsoleVariable(const TCHAR* Name, bool DefaultValue);
+	class IConsoleVariable* RegisterConsoleVariable(const TCHAR* Name, const FString& DefaultValue, const TCHAR* Description = TEXT(""));
+	class IConsoleVariable* RegisterConsoleVariable(const TCHAR* Name, float DefaultValue, const TCHAR* Description = TEXT(""));
+	class IConsoleVariable* RegisterConsoleVariable(const TCHAR* Name, int32 DefaultValue, const TCHAR* Description = TEXT(""));
+	class IConsoleVariable* RegisterConsoleVariable(const TCHAR* Name, bool DefaultValue, const TCHAR* Description = TEXT(""));
 
-	class IConsoleVariable* RegisterConsoleVariableRef(const TCHAR* Name, FString& RefValue);
-	class IConsoleVariable* RegisterConsoleVariableRef(const TCHAR* Name, float& RefValue);
-	class IConsoleVariable* RegisterConsoleVariableRef(const TCHAR* Name, int32& RefValue);
-	class IConsoleVariable* RegisterConsoleVariableRef(const TCHAR* Name, bool& RefValue);
+	class IConsoleVariable* RegisterConsoleVariableRef(const TCHAR* Name, FString& RefValue, const TCHAR* Description = TEXT(""));
+	class IConsoleVariable* RegisterConsoleVariableRef(const TCHAR* Name, float& RefValue, const TCHAR* Description = TEXT(""));
+	class IConsoleVariable* RegisterConsoleVariableRef(const TCHAR* Name, int32& RefValue, const TCHAR* Description = TEXT(""));
+	class IConsoleVariable* RegisterConsoleVariableRef(const TCHAR* Name, bool& RefValue, const TCHAR* Description = TEXT(""));
 
 
 	const TArray<FConsoleLog>& GetLogs() const { return Cache; }

@@ -54,12 +54,12 @@ public:
 
 	TCHAR Back() const
 	{
-		return _string.back();
+		return _string.size() != 0 ? _string.back() : TEXT('\0');
 	}
 
 	TCHAR First() const
 	{
-		return _string.front();
+		return _string.size() != 0 ? _string.front() : TEXT('\0');
 	}
 
 	bool Contains(const FString& Other)

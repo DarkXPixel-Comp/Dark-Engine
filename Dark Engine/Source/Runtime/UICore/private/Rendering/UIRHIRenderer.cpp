@@ -8,7 +8,7 @@
 
 void FUIRHIRenderer::Initialize()
 {
-	GGlobalConsole.RegisterConsoleVariableRef(TEXT("r.D3D12.Vsync"), Vsync)->SetOnChangedCallback([](IConsoleVariable* Var)
+	GGlobalConsole.RegisterConsoleVariableRef(TEXT("r.D3D12.Vsync"), Vsync, TEXT("Vertical sync"))->SetOnChangedCallback([](IConsoleVariable* Var)
 		{
 			if (Var->AsVariable()->GetInt() > 4)
 			{

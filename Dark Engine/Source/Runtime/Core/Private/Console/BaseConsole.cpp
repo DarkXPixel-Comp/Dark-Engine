@@ -132,7 +132,7 @@ bool FConsoleVariableRef<FString>::IsVariableString() const
 }
 
 
-IConsoleObject* FBaseConsole::AddConsoleObject(const TCHAR* Name, IConsoleObject* Obj)
+IConsoleObject* FBaseConsole::AddConsoleObject(const TCHAR* Name, IConsoleObject* Obj, const TCHAR* InDescription)
 {
 	check(Name);
 	check(Obj);
@@ -147,6 +147,7 @@ IConsoleObject* FBaseConsole::AddConsoleObject(const TCHAR* Name, IConsoleObject
 	}
 	else
 	{
+		Obj->Description = InDescription;
 		ConsoleObjects.emplace(Name, Obj);
 		return Obj;
 	}
@@ -154,19 +155,19 @@ IConsoleObject* FBaseConsole::AddConsoleObject(const TCHAR* Name, IConsoleObject
 }
 
 
-IConsoleCommand* FBaseConsole::RegisterConsoleCommand(const TCHAR* Name, const FConsoleCommandWithArgsDelegate& Command)
+IConsoleCommand* FBaseConsole::RegisterConsoleCommand(const TCHAR* Name, const FConsoleCommandWithArgsDelegate& Command, const TCHAR* Description)
 {
-	return (IConsoleCommand*)AddConsoleObject(Name, new FConsoleCommand(Command));
+	return (IConsoleCommand*)AddConsoleObject(Name, new FConsoleCommand(Command), Description);
 }
 
-IConsoleCommand* FBaseConsole::RegisterConsoleCommand(const TCHAR* Name, FConsoleSoloCommandWithArgsDelegate Command)
+IConsoleCommand* FBaseConsole::RegisterConsoleCommand(const TCHAR* Name, FConsoleSoloCommandWithArgsDelegate Command, const TCHAR* Description)
 {
-	return (IConsoleCommand*)AddConsoleObject(Name, new FConsoleCommand(Command));
+	return (IConsoleCommand*)AddConsoleObject(Name, new FConsoleCommand(Command), Description);
 }
 
-IConsoleVariable* FBaseConsole::RegisterConsoleVariableRef(const TCHAR* Name, int32& RefValue)
+IConsoleVariable* FBaseConsole::RegisterConsoleVariableRef(const TCHAR* Name, int32& RefValue, const TCHAR* Description)
 {
-	return (IConsoleVariable*)AddConsoleObject(Name, new FConsoleVariableRef<int32>(RefValue));
+	return (IConsoleVariable*)AddConsoleObject(Name, new FConsoleVariableRef<int32>(RefValue), Description);
 }
 
 void FBaseConsole::ParseInput(FString& InputOutCommands, TArray<FString>& OutArgs)
@@ -245,7 +246,6 @@ void FBaseConsole::AddLog(const FString& Text, FVector3f Color, float Time)
 
 void FBaseConsole::InputText(const FString& Text)
 {
-	//AddLog(Text, FVector3f(1, 1, 1));
 	Inputs.Add(Text);
 	OnAddConsoleInput.BroadCast(Text);
 	TArray<FString> Args;
@@ -273,9 +273,5 @@ void FBaseConsole::InputText(const FString& Text)
 				AddLog(FString::PrintF(TEXT("%s %s"), *Command, *It->second->AsVariable()->ToString()));
 			}
 		}
-	}
-	else
-	{
-		//AddLog(Text, FVector3f(1, 1, 1));
 	}
 }
