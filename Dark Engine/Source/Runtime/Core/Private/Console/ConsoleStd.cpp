@@ -3,6 +3,7 @@
 #include <io.h>
 #include <fcntl.h>
 #include <iostream>
+#include "thread"
 
 static void BindCrtHandlesToStdHandles(bool bindStdIn, bool bindStdOut, bool bindStdErr)
 {
@@ -126,6 +127,7 @@ FConsoleStd::~FConsoleStd()
 		DestroyConsole();
 }
 
+/*EXPERIMENTAL*/
 void FConsoleStd::CreateConsoleOS(const FString& Label)
 {  //TEMP
 	AllocConsole();
@@ -134,6 +136,19 @@ void FConsoleStd::CreateConsoleOS(const FString& Label)
 	BindCrtHandlesToStdHandles(true, true, true);
 	bInitializeConsole = true;
 
+	
+	Thread = std::thread([this]() 
+		{
+			while (this->bInitializeConsole)
+			{
+				FString String;
+				//std::wcin >> String.GetNativeString();
+				std::getline(std::wcin, String.GetNativeString());
+				this->InputText(String);
+			}
+		});
+
+	Thread.detach();
 }
 
 void FConsoleStd::DestroyConsole()

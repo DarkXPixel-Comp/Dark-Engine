@@ -3,6 +3,7 @@
 #include "Containers/Array.h"
 #include "Containers/UnordoredMap.h"
 #include "Delegate/Delegate.h"
+#include "Misc/ScopeLock.h"
 
 
 DECLARE_DELEGATE_OneParam(FOnAddConsoleInput, FString);
@@ -146,7 +147,7 @@ public:
 class FBaseConsole
 {
 public:
-	FBaseConsole() = default; 
+	FBaseConsole(); 
 	~FBaseConsole();
 
 	virtual void AddLog(const FString& Text, FVector3f Color = FVector3f(1, 1, 1), float Time = 0.f);
@@ -192,7 +193,7 @@ protected:
 	static uint64 StaticID;
 
 private:
+	mutable FCriticalSection AddLogCriticalSection;
 
 	TUnordoredMap<FString, IConsoleObject*>	ConsoleObjects;
-
 };

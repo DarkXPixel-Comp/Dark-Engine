@@ -177,34 +177,6 @@ void FBaseConsole::ParseInput(FString& InputOutCommands, TArray<FString>& OutArg
 	std::wstringstream Stream(InputOutCommands.GetNativeString());
 	std::getline(Stream, InputCommand.GetNativeString(), TEXT(' '));
 
-	/*Stream.getline(InputCommand.Data(), 256, TEXT(' '));
-
-	TCHAR Buffer[256] = TEXT("\0");
-	bool ArgOpen = false;
-	while (Stream.good())
-	{
-		wchar_t buf;
-		Stream.get(buf);
-		if (buf == TEXT('"') || buf == TEXT(' '))
-		{
-			if (ArgOpen)
-			{
-				ArgOpen = false;	
-				if(FString(Buffer) != TEXT(""))
-					OutArgs.Add(Buffer);
-				wcsset(Buffer, TEXT('\0'));
-			}
-			else
-			{
-				ArgOpen = true;
-			}
-			continue;
-		}
-		if(ArgOpen)
-			wcscat(Buffer, &buf);
-	}*/
-
-
 	while (Stream.good())
 	{
 		FString Arg;
@@ -225,6 +197,10 @@ void FBaseConsole::ParseInput(FString& InputOutCommands, TArray<FString>& OutArg
 }
 
 
+FBaseConsole::FBaseConsole()
+{
+}
+
 FBaseConsole::~FBaseConsole()
 {
 	for (auto& i : ConsoleObjects)
@@ -235,6 +211,7 @@ FBaseConsole::~FBaseConsole()
 
 void FBaseConsole::AddLog(const FString& Text, FVector3f Color, float Time)
 {
+	FScopeLock Lock(&AddLogCriticalSection);
 	FConsoleLog Log;
 	Log.Log = Text;
 	Log.Id = StaticID++;

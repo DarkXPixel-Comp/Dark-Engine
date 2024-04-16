@@ -128,7 +128,7 @@ int32 FEngineLoop::PreInit(const TCHAR* CmdLine)
 	GGlobalConsole.RegisterConsoleCommand(TEXT("c.CreateOS"), [](const TArray<FString>& Args)
 		{
 			GGlobalConsole.CreateConsoleOS(Args.GetSize() > 0 ? Args[0] : TEXT("Undefined"));
-		}, TEXT("Create Console OS (On close terminate Engine)"));
+		}, TEXT("(EXPERIMENTAL)Create Console OS (On close, terminate Engine)"));
 
 	GGlobalConsole.RegisterConsoleCommand(TEXT("Suka"), [](const TArray<FString>& Args)
 		{

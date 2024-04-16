@@ -38,6 +38,7 @@ public:
 		if (Res >= 0 && Res < sizeof(Buf))
 		{
 			*this += Buf;
+			bChangedString = true;
 		}
 		return *this;
 	}
@@ -45,11 +46,13 @@ public:
 	void PopBack()
 	{
 		_string.erase(_string.begin() + _string.size() - 1);
+		bChangedString = true;
 	}
 
 	void PopFirst()
 	{
 		_string.erase(_string.begin());
+		bChangedString = true;
 	}
 
 	TCHAR Back() const
@@ -107,12 +110,12 @@ public:
 	FString& operator=(const TCHAR* Str) { _string = Str; return *this; }
 	FString& operator=(const FString& Str) { _string = Str._string; return *this; }
 
-	const char* operator-()
+	const char* operator-() const
 	{
 		return GetStr();
 	}
 
-	const char* operator!()
+	const char* operator!() const
 	{
 		return GetUTF8();
 	}
@@ -149,30 +152,6 @@ public:
 
 	std::string ToString() const;
 
-	//operator const TCHAR*() const
-	//{
-	//	return _string.data();
-	//}
-	//
-	//operator TCHAR*()
-	//{
-	//	return _string.data();
-	//}
-
-	//operator const ANSICHAR* ()
-	//{
-	//	return GetStr();
-	//}
-	//operator ANSICHAR* ()
-	//{
-	//	if (bChangedString)
-	//	{
-	//		_tempString = ToString();
-	//		bChangedString = false;
-	//	}
-	//	return _tempString.data();
-	//}
-
 
 	template<typename T>
 	static FString NumToString(T Val)
@@ -204,17 +183,13 @@ public:
 
 	
 
-	const char* GetStr()
+	const char* GetStr() const
 	{
-		if (bChangedString)
-		{
-			_tempString = ToString();
-			bChangedString = false;
-		}
+		_tempString = ToString();
 		return _tempString.c_str();
 	}
 
-	const char* GetUTF8();
+	const char* GetUTF8() const;
 
 
 
@@ -261,9 +236,9 @@ public:
 
 private:
 	std::wstring _string;
-	std::string _tempString;
 
-	bool bChangedString = true;
+	mutable std::string _tempString;
+	mutable bool bChangedString = true;
 
 private:
 	friend struct std::hash<FString>;

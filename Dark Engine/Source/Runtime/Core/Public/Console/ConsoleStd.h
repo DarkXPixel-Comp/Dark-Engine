@@ -1,5 +1,6 @@
 #pragma once
 #include "Console/BaseConsole.h"
+#include <thread>
 
 
 
@@ -15,6 +16,9 @@ public:
 	void CreateConsoleOS(const FString& Label);
 	void DestroyConsole();
 	void SetAutoClose(bool InbAutoClose);
+
+
+	std::thread Thread;
 private:
 	bool bInitializeConsole = false;
 	bool bAutoClose = true;

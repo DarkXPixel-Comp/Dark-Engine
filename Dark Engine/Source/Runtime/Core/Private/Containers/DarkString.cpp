@@ -38,7 +38,7 @@ std::string FString::ToString() const
 	return Result;
 }
 
-const char* FString::GetUTF8()		 // Change on Multiplatform or FPlatformString
+const char* FString::GetUTF8() const		 // Change on Multiplatform or FPlatformString
 {
 	std::string Result;
 
