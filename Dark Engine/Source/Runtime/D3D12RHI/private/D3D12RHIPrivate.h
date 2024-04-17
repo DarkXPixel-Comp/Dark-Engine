@@ -75,6 +75,8 @@ public:
 	FD3D12Texture* CreateEmptyD3D12Texture(const FRHITextureCreateDesc& CreateDesc, FD3D12Device* Device);
 	FD3D12Texture* CreateD3D12Texture(const FRHITextureCreateDesc& CreateDesc, FD3D12Device* Device);
 
+	FD3D12Buffer* CreateD3D12Buffer(class FRHICommandListBase* RHICmdList, const FRHIBufferDesc& BufferDesc, ERHIAcces ResourceState, const TCHAR* DebugName);
+
 private:
 	TArray<TSharedPtr<FD3D12Adapter>> ChosenAdapters;
 	D3D_FEATURE_LEVEL FeatureLevel;

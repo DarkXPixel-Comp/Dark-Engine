@@ -145,10 +145,6 @@ struct FRHIBufferDesc
 		}
 		return false;
 	}
-
-
-
-
 };
 
 

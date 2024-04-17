@@ -178,7 +178,7 @@ public:
 
 
 
-protected:
+public:
 	FD3D12ResourceLocation ResourceLocation;
 };
 

@@ -27,6 +27,7 @@ public:
 	virtual FRHITexture* RHIGetViewportBackBuffer(FRHIViewport* Viewport) = 0;
 	virtual IRHIComputeContext* RHIGetCommandContext() = 0;
 	virtual IRHIComputeContext* RHIGetDefaultContext() = 0;
+	virtual TRefCountPtr<FRHIBuffer> CreateBuffer(const FRHIBufferDesc& CreateDesc, const TCHAR* DebugName, ERHIAcces InitialState) = 0;
 	virtual TRefCountPtr<FRHITexture> RHICreateTexture(const FRHITextureCreateDesc& CreateDesc) = 0;
 	virtual void* RHILockTexture2D(FRHITexture* TextureRHI, uint32 MipIndex, EResourceLockMode LockMode, uint32& DestStride, bool bLockWithinMiptail, uint64* OutLockedByteCount) = 0;
 	virtual TRefCountPtr<FRHIGraphicsPipelineState> RHICreateGraphicsPipelineState(const class FGraphicsPipelineStateInitializer& Initializer) = 0;

@@ -191,7 +191,7 @@ TRefCountPtr<FRHIPixelShader> FD3D12DynamicRHI::RHICreatePixelShader(const TArra
 
 TRefCountPtr<FRHIBuffer> FD3D12DynamicRHI::CreateBuffer(const FRHIBufferDesc& CreateDesc, const TCHAR* DebugName, ERHIAcces InitialState)
 {
-	return TRefCountPtr<FRHIBuffer>();
+	return CreateD3D12Buffer(nullptr, CreateDesc, InitialState, DebugName);
 }
 
 TRefCountPtr<FRHITexture> FD3D12DynamicRHI::RHICreateTexture(const FRHITextureCreateDesc& CreateDesc)
@@ -253,6 +253,29 @@ FD3D12Texture* FD3D12DynamicRHI::CreateD3D12Texture(const FRHITextureCreateDesc&
 	return NewTexture;
 }
 
+FD3D12Buffer* FD3D12DynamicRHI::CreateD3D12Buffer(FRHICommandListBase* RHICmdList, const FRHIBufferDesc& BufferDesc, ERHIAcces ResourceState, const TCHAR* DebugName)
+{
+	FD3D12Buffer* Buffer = nullptr;
+	D3D12_RESOURCE_DESC Desc = CD3DX12_RESOURCE_DESC::Buffer(BufferDesc.Size);
+	uint32 Alignment = 0;
+	D3D12_RESOURCE_STATES InitialState = GetD3D12ResourceState(ResourceState);
+	D3D12_HEAP_PROPERTIES HeapProperties = CD3DX12_HEAP_PROPERTIES(D3D12_HEAP_TYPE_DEFAULT);
+	FD3D12Device* Device = GetAdapter().GetDevice();
+	FD3D12Resource* Resource = nullptr;
+	TRefCountPtr<ID3D12Resource> D3DResource;
+
+	if (BufferDesc.Size > 0)
+	{
+		DXCall(Device->GetDevice()->CreateCommittedResource(&HeapProperties, D3D12_HEAP_FLAG_NONE, &Desc, InitialState, nullptr, IID_PPV_ARGS(&D3DResource)));
+		DX12::SetName(Resource, DebugName);
+		Resource = new FD3D12Resource(Device, D3DResource.Get(), InitialState, Desc);
+		Buffer = new FD3D12Buffer(Device, BufferDesc);
+		Buffer->ResourceLocation.SetResource(Resource);
+	}
+
+	return Buffer;
+}
+
 
 
 IRHIComputeContext* FD3D12DynamicRHI::RHIGetCommandContext()
@@ -294,6 +317,8 @@ TRefCountPtr<FRHIGraphicsPipelineState> FD3D12DynamicRHI::RHICreateGraphicsPipel
 
 	FD3D12GraphicsPipelineState* GraphicsPipelineState = new FD3D12GraphicsPipelineState(Initializer, RootSignature, PipelineState);
 	GraphicsPipelineStateCache.emplace(Initializer, GraphicsPipelineState);
+
+
 
 	return GraphicsPipelineState;
 }												   
