@@ -1,6 +1,8 @@
 #include "D3D12Resources.h"
 #include "D3D12Util.h"
 #include "d3dx12.h"
+#include "D3D12Device.h"
+#include "D3D12CommandContext.h"
 
 
 
@@ -83,6 +85,58 @@ FD3D12Resource::FD3D12Resource(
 	}
 
 	DX12::SetName(this, TEXT("NULL"));
+
+
+
+}
+
+void FD3D12Buffer::UploadResourceData(FRHICommandListBase& InRHICmdList, const void* Buffer, uint32 SizeBuffer, D3D12_RESOURCE_STATES InDestinationState, const TCHAR* Name)
+{
+	check(Buffer);
+	check(ResourceLocation.IsValid());
+
+	const uint32 BufferSize = GetSize();
+
+	check(BufferSize >= SizeBuffer);
+
+	if (ResourceLocation.GetMappedBaseAddress())
+	{
+		void* MappedUploadData = ResourceLocation.GetMappedBaseAddress();
+		FMemory::Memcpy(MappedUploadData, Buffer, SizeBuffer);
+	}
+	else
+	{
+		void* Data = nullptr;
+		FD3D12ResourceLocation SourceResource(GetParentDevice());
+		TRefCountPtr<ID3D12Resource> NewResource;
+		
+		const D3D12_HEAP_PROPERTIES HeapProps = CD3DX12_HEAP_PROPERTIES(D3D12_HEAP_TYPE_UPLOAD);
+		const D3D12_RESOURCE_DESC ResourceDesc = CD3DX12_RESOURCE_DESC::Buffer(SizeBuffer, D3D12_RESOURCE_FLAG_NONE);
+		
+		GetParentDevice()->GetDevice()->CreateCommittedResource(&HeapProps, D3D12_HEAP_FLAG_ALLOW_ALL_BUFFERS_AND_TEXTURES,
+			&ResourceDesc, D3D12_RESOURCE_STATE_GENERIC_READ, nullptr, IID_PPV_ARGS(&NewResource));
+
+		SourceResource.AsStandAlone(new FD3D12Resource(Parent, NewResource.Get(),
+			D3D12_RESOURCE_STATE_GENERIC_READ, ResourceDesc, nullptr, D3D12_HEAP_TYPE_UPLOAD), SizeBuffer, &HeapProps);;
+
+		Data = SourceResource.GetMappedBaseAddress();
+		check(Data);
+		FMemory::Memcpy(Data, Buffer, SizeBuffer);
+		
+
+		FD3D12CommandContext& CommandContext = Parent->GetDefaultCommandContext();
+		FD3D12Resource* Destination = ResourceLocation.GetResource();
+
+		//CommandContext.GetCommandList().GetGraphicsCommandList()->CopyBufferRegion(Destination->GetResource())
+
+		
+
+
+
+
+	}
+
+	
 
 
 

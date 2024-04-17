@@ -189,6 +189,11 @@ TRefCountPtr<FRHIPixelShader> FD3D12DynamicRHI::RHICreatePixelShader(const TArra
 	return Result;
 }
 
+TRefCountPtr<FRHIBuffer> FD3D12DynamicRHI::CreateBuffer(const FRHIBufferDesc& CreateDesc, const TCHAR* DebugName, ERHIAcces InitialState)
+{
+	return TRefCountPtr<FRHIBuffer>();
+}
+
 TRefCountPtr<FRHITexture> FD3D12DynamicRHI::RHICreateTexture(const FRHITextureCreateDesc& CreateDesc)
 {
 	return CreateD3D12Texture(CreateDesc, GetAdapter().GetDevice());

@@ -87,6 +87,12 @@ public:
 		GetContext().RHISetGraphicsPipelineState(PipelineState, ShaderInput);
 	}
 
+	void SetStreamSource(uint32 StreamIndex, FRHIBuffer* VertexBuffer, uint32 Offset)
+	{
+		GetContext().RHISetStreamSource(StreamIndex, VertexBuffer, Offset);
+
+	}
+
 };
 
 

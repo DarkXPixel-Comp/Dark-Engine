@@ -54,6 +54,8 @@ public:
 	virtual ID3D12GraphicsCommandList* RHIGetGraphicsCommandList(uint32 InDeviceIndex) { return nullptr; }
 	virtual DXGI_FORMAT RHIGetSwapChainFormat() const { return DXGI_FORMAT_UNKNOWN; }
 
+
+	virtual TRefCountPtr<FRHIBuffer> CreateBuffer(const FRHIBufferDesc& CreateDesc, const TCHAR* DebugName, ERHIAcces InitialState);
 	virtual TRefCountPtr<FRHITexture> RHICreateTexture(const FRHITextureCreateDesc& CreateDesc);
 	virtual void* RHILockTexture2D(FRHITexture* TextureRHI, uint32 MipIndex, EResourceLockMode LockMode,
 		uint32& DestStride, bool bLockWithinMiptail, uint64* OutLockedByteCount);

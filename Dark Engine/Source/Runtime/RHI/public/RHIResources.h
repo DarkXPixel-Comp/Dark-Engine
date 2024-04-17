@@ -158,7 +158,7 @@ struct FRHIBufferDesc
 class FRHIBuffer : public FRHIResource
 {
 public:
-	FRHIBuffer(FRHIBufferDesc& InDesc) :
+	FRHIBuffer(const FRHIBufferDesc& InDesc) :
 		FRHIResource(RRT_Buffer),
 		Desc(InDesc)	 
 	{}
@@ -177,6 +177,7 @@ private:
 	FRHIBufferDesc Desc = {};
 
 };
+
 
 
 struct FRHITextureDesc

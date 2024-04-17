@@ -8,73 +8,22 @@
 
 
 
-
 class FD3D12BaseShaderResource;
 class FD3D12Resource;
-
-
-
-
-class FD3D12ResourceLocation : public FD3D12DeviceChild
-{
-public:
-	FD3D12ResourceLocation(FD3D12Device* Parent);
-	~FD3D12ResourceLocation();
-
-	FD3D12Resource* GetResource() const { return Resource; }
-	void SetOwner(FD3D12BaseShaderResource* InOwner) { Owner = InOwner; }
-
-
-
-	void Clear();
-
-private:
-	FD3D12Resource* Resource;
-	FD3D12BaseShaderResource* Owner; 
-	void* MappedAddress;
-
-
-
-};
-
+class FD3D12Heap;
+struct FD3D12LockedResource;
 
 
 struct FD3D12ResourceDesc : public D3D12_RESOURCE_DESC
 {
 	FD3D12ResourceDesc() = default;
-	FD3D12ResourceDesc(const CD3DX12_RESOURCE_DESC& Other):
+	FD3D12ResourceDesc(const CD3DX12_RESOURCE_DESC& Other) :
 		D3D12_RESOURCE_DESC(Other)
 	{}
-	FD3D12ResourceDesc(const D3D12_RESOURCE_DESC& Other): 
+	FD3D12ResourceDesc(const D3D12_RESOURCE_DESC& Other) :
 		D3D12_RESOURCE_DESC(Other)
 	{}
 };
-
-
-
-
-
-class FD3D12Heap : public FD3D12DeviceChild
-{
-public:
-	FD3D12Heap(FD3D12Device* InDevice);
-
-	ID3D12Heap* GetHeap() const;
-
-	void SetHeap(ID3D12Heap* InHeap, const TCHAR* InName, bool bForceGetGPUAddress);
-
-	D3D12_GPU_VIRTUAL_ADDRESS GetGPUVirtualAddress() const { return GPUVirtualAddress; }
-
-
-
-private:
-	TRefCountPtr<ID3D12Heap> Heap;
-	TCHAR* HeapName;
-	D3D12_HEAP_DESC HeapDesc;
-	D3D12_GPU_VIRTUAL_ADDRESS GPUVirtualAddress = 0;
-};
-
-
 
 
 
@@ -87,7 +36,7 @@ private:
 	D3D12_GPU_VIRTUAL_ADDRESS GPUVirtualAddress;
 	void* ResourceBaseAddress;
 
-	const FD3D12ResourceDesc Desc;
+	const class FD3D12ResourceDesc Desc;
 
 	D3D12_RESOURCE_STATES DefaultResourceState;
 	D3D12_RESOURCE_STATES ReadableState;
@@ -118,8 +67,10 @@ public:
 
 	}
 
+	D3D12_GPU_VIRTUAL_ADDRESS GetGPUVirtualAddress() const { return GPUVirtualAddress; }
 
 	D3D12_RESOURCE_STATES GetCurrentState() const { return DefaultResourceState; }
+	D3D12_HEAP_TYPE GetHeapType() const { return HeapType; }
 	void SetState(D3D12_RESOURCE_STATES State) { DefaultResourceState = State; }
 	void SetIsBackBuffer(bool bInBackBuffer) { bBackBuffer = bInBackBuffer; }
 	ID3D12Resource* GetResource() const { return Resource.Get(); }
@@ -130,7 +81,79 @@ public:
 
 
 
+class FD3D12ResourceLocation : public FD3D12DeviceChild
+{
+public:
+	FD3D12ResourceLocation(FD3D12Device* Parent):
+		FD3D12DeviceChild(Parent)
+	{}
 
+
+	void SetResource(FD3D12Resource* InResource) { Resource = InResource; }
+	FD3D12Resource* GetResource() const { return Resource.Get(); }
+	void SetOwner(FD3D12BaseShaderResource* InOwner) { Owner = InOwner; }
+
+	void* GetMappedBaseAddress() const { return MappedAddress; }
+
+
+	bool IsValid() const
+	{
+		return Resource != nullptr;
+	}
+
+	void AsStandAlone(FD3D12Resource* InResource, uint64 InSize, const D3D12_HEAP_PROPERTIES* HeapProperties)
+	{
+		SetResource(InResource);
+		SetSize(InSize);
+
+		if (Resource->GetHeapType() == D3D12_HEAP_TYPE_UPLOAD || Resource->GetHeapType() == D3D12_HEAP_TYPE_READBACK)
+		{
+			D3D12_RANGE Range = { 0, 0 };
+			Resource->GetResource()->Map(0, &Range, &MappedAddress);
+		}
+
+		SetGPUVirtualAddress(Resource->GetGPUVirtualAddress());
+	}
+
+	void SetSize(uint64 InValue) { Size = InValue; }
+
+	void Clear();
+
+	void SetGPUVirtualAddress(D3D12_GPU_VIRTUAL_ADDRESS InAddress) { GPUVirtualAddress = InAddress; }
+																  
+private:
+	D3D12_GPU_VIRTUAL_ADDRESS GPUVirtualAddress;
+	TRefCountPtr<FD3D12Resource> Resource;
+	FD3D12BaseShaderResource* Owner; 
+	void* MappedAddress = nullptr;
+	uint64 Size = 0;
+};
+
+
+
+
+
+
+
+class FD3D12Heap : public FD3D12DeviceChild
+{
+public:
+	FD3D12Heap(FD3D12Device* InDevice);
+
+	ID3D12Heap* GetHeap() const;
+
+	void SetHeap(ID3D12Heap* InHeap, const TCHAR* InName, bool bForceGetGPUAddress);
+
+	D3D12_GPU_VIRTUAL_ADDRESS GetGPUVirtualAddress() const { return GPUVirtualAddress; }
+
+
+
+private:
+	TRefCountPtr<ID3D12Heap> Heap;
+	TCHAR* HeapName;
+	D3D12_HEAP_DESC HeapDesc;
+	D3D12_GPU_VIRTUAL_ADDRESS GPUVirtualAddress = 0;
+};
 
 
 
@@ -150,16 +173,15 @@ public:
 
 	}
 	
-
-
 public:
 	FD3D12Resource* GetResouce() const { return ResourceLocation.GetResource(); }
 
 
 
-private:
+protected:
 	FD3D12ResourceLocation ResourceLocation;
 };
+
 
 
 struct FD3D12LockedResource : public FD3D12DeviceChild
@@ -184,6 +206,30 @@ struct FD3D12LockedResource : public FD3D12DeviceChild
 	void* MappedAddress;
 
 };
+
+
+class FD3D12Buffer : public FRHIBuffer, public FD3D12BaseShaderResource
+{
+public:
+	FD3D12Buffer(FD3D12Device* InParent, const FRHIBufferDesc& Desc):
+		FRHIBuffer(Desc),
+		FD3D12BaseShaderResource(InParent),
+		LockedData(InParent)
+	{}
+
+	virtual ~FD3D12Buffer()
+	{
+	}
+	void UploadResourceData(class FRHICommandListBase& InRHICmdList, const void* Buffer, uint32 SizeBuffer,
+		D3D12_RESOURCE_STATES InDestinationState, const TCHAR* Name = nullptr);
+
+
+
+	struct FD3D12LockedResource LockedData;
+
+
+};
+
 
 class FD3D12ResourceBarrierBatcher
 {
