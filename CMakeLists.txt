@@ -67,7 +67,7 @@ ENDMACRO()
 
 
 
-project("Dark Engine" VERSION 0.0.36)
+project("Dark Engine" VERSION 0.0.37)
 
 
 if(MSVC)

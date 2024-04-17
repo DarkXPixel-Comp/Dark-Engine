@@ -17,6 +17,27 @@ static DXGI_FORMAT GDXGIFormats[EPixelFormat::Count] =
 
 
 
+/*PT_TriangleList,
+	PT_TriangleStrip,
+	PT_LineList,
+	PT_QuadList,
+	PT_PointList,
+	PT_Num*/
+
+static FORCEINLINE D3D_PRIMITIVE_TOPOLOGY GetD3D12PrimitiveTopology(uint32 PrimitiveTopology)
+{
+	static const uint8 D3D12PrimitiveTopology[] =
+	{
+		D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST,
+		D3D_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP,
+		D3D_PRIMITIVE_TOPOLOGY_LINELIST,
+		0,
+		D3D_PRIMITIVE_TOPOLOGY_POINTLIST
+	};
+
+	return (D3D_PRIMITIVE_TOPOLOGY)D3D12PrimitiveTopology[PrimitiveTopology];
+}
+
 
 
 

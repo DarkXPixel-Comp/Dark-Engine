@@ -4,6 +4,7 @@
 #include "D3D12Viewport.h"
 #include "D3D12View.h"
 #include "RHIResources.h"
+#include "D3D12PipelineState.h"
 
 FD3D12ContextCommon::FD3D12ContextCommon(FD3D12Device* InDevice, ED3D12QueueType InQueueType, bool InbIsDefaultContext):
 	Device(InDevice),
@@ -270,6 +271,14 @@ void FD3D12CommandContext::RHISetViewport(float MinX, float MinY, float MinZ, fl
 
 }
 
+void FD3D12CommandContext::RHISetGraphicsPipelineState(FRHIGraphicsPipelineState* GraphicsPSO, const FBoundShaderStateInput& ShaderInput)
+{
+	FD3D12GraphicsPipelineState* GraphicsPipelineState = static_cast<FD3D12GraphicsPipelineState*>(GraphicsPSO);
+
+	StateCache.SetGrapicsPipelineState(GraphicsPipelineState);
+}
+
+
 
 FD3D12CommandContext::FD3D12CommandContext(FD3D12Device* InParent, ED3D12QueueType QueueType, bool InIsDefaultContext):
 	FD3D12ContextCommon(InParent, QueueType, InIsDefaultContext),
@@ -283,7 +292,8 @@ FD3D12CommandContext::FD3D12CommandContext(FD3D12Device* InParent, ED3D12QueueTy
 		FD3D12ConstantBuffer(InParent),
 		FD3D12ConstantBuffer(InParent),
 		FD3D12ConstantBuffer(InParent)
-	}
+	},
+	StateCache(*this)
 {
 
 }

@@ -7,7 +7,7 @@
 
 void UIDock::DrawImGui()
 {
-	Window->GetNativeWindow()->bTitleBarHovarered = false;
+	Window->GetNativeWindow()->bTitleBarHovarered = ECursorArea::Client;
 
 	ImGuiWindowFlags WindowFlags = ImGuiWindowFlags_NoDocking;
 

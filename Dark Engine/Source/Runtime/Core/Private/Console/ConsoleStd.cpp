@@ -123,8 +123,9 @@ static void BindCrtHandlesToStdHandles(bool bindStdIn, bool bindStdOut, bool bin
 
 FConsoleStd::~FConsoleStd()
 {
-	if (bInitializeConsole)
-		DestroyConsole();
+	/*if (bInitializeConsole)
+		DestroyConsole();*/
+	bInitializeConsole = false;
 }
 
 /*EXPERIMENTAL*/
@@ -153,7 +154,7 @@ void FConsoleStd::CreateConsoleOS(const FString& Label)
 
 void FConsoleStd::DestroyConsole()
 {
-	if (bAutoClose && bInitializeConsole)
+	if (bInitializeConsole)
 	{
 		FreeConsole();
 	}

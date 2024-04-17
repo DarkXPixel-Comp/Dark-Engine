@@ -19,6 +19,10 @@ public:
 
 	void ShowWindow();
 	void Maximize() { NativeWindow->Maximize(); }
+	void Minimize() { NativeWindow->Minimize(); }
+	void MaximizeOrRestore() { IsMaximize() ? Restore() : Maximize(); }
+	bool IsMaximize() const { return NativeWindow->IsMaximized(); }
+	void Restore() const { NativeWindow->Restore(); }
 
 	void Update(float DeltaTime);
 

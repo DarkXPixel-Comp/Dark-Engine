@@ -1,5 +1,4 @@
 #pragma once
-#include "D3D12Device.h"
 #include "D3D12Queue.h"
 #include "D3D12CommandList.h"
 #include "D3D12Resources.h"
@@ -7,9 +6,11 @@
 #include "RHIContext.h"
 #include "RHIResources.h"
 #include "D3D12ConstantBuffer.h"
+#include "D3D12StateCache.h"
 
 
 
+class FD3D12Device;
 
 
 enum class ED3D12FlushFlags
@@ -108,6 +109,7 @@ public:
 	FD3D12ConstantBuffer StageConstantBuffers[ST_NumStandartTypes];
 
 
+	FD3D12StateCache StateCache;
 
 
 	void RHIBeginFrame() override;
@@ -125,6 +127,7 @@ public:
 
 	virtual void RHISetViewport(float MinX, float MinY, float MinZ, float MaxX, float MaxY, float MaxZ);
 
+	virtual void RHISetGraphicsPipelineState(class FRHIGraphicsPipelineState* GraphicsPSO, const FBoundShaderStateInput& ShaderInput) override;
 
 private:
 	void SettingRenderPass();

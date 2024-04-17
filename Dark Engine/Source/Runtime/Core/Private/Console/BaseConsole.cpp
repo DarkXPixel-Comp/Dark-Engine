@@ -181,14 +181,22 @@ void FBaseConsole::ParseInput(FString& InputOutCommands, TArray<FString>& OutArg
 	{
 		FString Arg;
 		std::getline(Stream, Arg.GetNativeString(), TEXT(','));
-		if (Arg.Back() == TEXT(' '))
+		while (Arg.Back() == TEXT(' '))
+		{
+			Arg.PopBack();
+		}
+		while (Arg.First() == TEXT(' '))
+		{
+			Arg.PopFirst();
+		}
+		/*if (Arg.Back() == TEXT(' '))
 		{
 			Arg.PopBack();
 		}
 		if (Arg.First() == TEXT(' '))
 		{
 			Arg.PopFirst();
-		}
+		}*/
 		if (Arg == TEXT(""))
 			continue;
 		OutArgs.Add(Arg);
@@ -199,6 +207,7 @@ void FBaseConsole::ParseInput(FString& InputOutCommands, TArray<FString>& OutArg
 
 FBaseConsole::FBaseConsole()
 {
+	bInit = true;
 }
 
 FBaseConsole::~FBaseConsole()
@@ -207,10 +216,14 @@ FBaseConsole::~FBaseConsole()
 	{
 		delete i.second;
 	}
+	ConsoleObjects.clear();
+	bInit = false;
 }
 
 void FBaseConsole::AddLog(const FString& Text, FVector3f Color, float Time)
 {
+	if (!bInit)
+		return;
 	FScopeLock Lock(&AddLogCriticalSection);
 	FConsoleLog Log;
 	Log.Log = Text;
@@ -223,6 +236,8 @@ void FBaseConsole::AddLog(const FString& Text, FVector3f Color, float Time)
 
 void FBaseConsole::InputText(const FString& Text)
 {
+	if (!bInit)
+		return;
 	Inputs.Add(Text);
 	OnAddConsoleInput.BroadCast(Text);
 	TArray<FString> Args;

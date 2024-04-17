@@ -52,7 +52,7 @@ public:
 	void AdjustWindowRegion(int32 Width, int32 Height);
 	HRGN MakeWindowRegionObject(bool bIncludeBorderWhenMaximized) const;
 	void ReshapeWindow(int32 NewX, int32 NewY, int32 NewWidth, int32 NewHeight);
-	void Restore() { ShowWindow(HWnd, SW_RESTORE); }
+	virtual void Restore() { ShowWindow(HWnd, SW_RESTORE); }
 
 	float GetAspectRatio() const { return  AspectRatio; }
 

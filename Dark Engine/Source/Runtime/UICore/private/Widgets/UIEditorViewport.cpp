@@ -72,6 +72,10 @@ void UIEditorViewport::DrawImGui()
 		ImGui::Text(-FString::NumToString((int)Fps));
 		ImGui::End();
 	}
+	
+	//DE_LOG(UICoreLog, Warning, TEXT("%i"), ImGui::GetFocusID());
+	//ImGui::GetFocusID();
+
 }
 
 void UIEditorViewport::OnResize(int32 NewX, int32 NewY)

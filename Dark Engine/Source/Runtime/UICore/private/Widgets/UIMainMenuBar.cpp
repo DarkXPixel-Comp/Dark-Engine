@@ -76,65 +76,16 @@ UIMainMenuBar::UIMainMenuBar() : UIWidget(TEXT("UIMainMenuBar"))
 {
 	FastLoadIcon(IconTextureRHI, FString::PrintF(TEXT("%sImages/Logo.png"),
 		*FPaths::EngineContentDir()));
-	FastLoadIcon(MaximizeTextureRHI, (uint8*)g_WindowMaximizeIcon,
-		sizeof(g_WindowMaximizeIcon));
-	FastLoadIcon(MinimizeTextureRHI, FString::PrintF(TEXT("%sImages/Logo.png"),
+	FastLoadIcon(MaximizeTextureRHI, FString::PrintF(TEXT("%sImages/Maximize.png"),
 		*FPaths::EngineContentDir()));
-	FastLoadIcon(CloseTextureRHI, (uint8*)g_WindowCloseIcon,
-		sizeof(g_WindowCloseIcon));
+	FastLoadIcon(MinimizeTextureRHI, FString::PrintF(TEXT("%sImages/Minimize.png"),
+		*FPaths::EngineContentDir()));
+	FastLoadIcon(RestoreTextureRHI, FString::PrintF(TEXT("%sImages/Restore.png"),
+		*FPaths::EngineContentDir()));
 
-	/*int32 W, H, Channels;
+	FastLoadIcon(CloseTextureRHI, FString::PrintF(TEXT("%sImages/Close.png"),
+		*FPaths::EngineContentDir()));
 
-	uint8* img = stbi_load(-FString::PrintF(TEXT("%sImages/Logo.png"), *FPaths::EngineContentDir()),
-		&W, &H, &Channels, 0);
-
-	if (!img)
-	{
-		return;
-	}
-
-
-	const FRHITextureCreateDesc Desc =
-		FRHITextureCreateDesc::Create2D(TEXT("IconTexture"))
-		.SetExtent(FIntPoint(W, H))
-		.SetFormat(EPixelFormat::PF_R8G8B8A8_UNORM)
-		.SetFlags(ETextureCreateFlags::ShaderResource)
-		.SetInitialState(ERHIAcces::SRVGraphics);
-
-	IconTextureRHI = RHICreateTexture(Desc);
-	check(IconTextureRHI);
-
-	uint32 Stride;
-	uint64 OutSize;
-	uint8* Color = (uint8*)RHILockTexture2D(IconTextureRHI.Get(), 0, RLM_WriteOnly,
-		Stride, &OutSize);
-
-	TArray<FColor> Colors(H * W);
-
-
-	uint32 Index = 0;
-	for (uint8* p = img; p != img + (H * W * Channels); p += Channels)
-	{
-		if (Channels == 3)
-		{
-			Colors[Index] = { *p, *(p + 1), *(p + 2), 0xFF };
-		}
-		else if (Channels == 4)
-		{
-			Colors[Index] = { *p, *(p + 1), *(p + 2), *(p + 3) };
-		}
-		++Index;
-	}
-
-
-
-	for (int32 Y = 0; Y < H; ++Y)
-	{
-		FMemory::Memcpy(Color + Stride * Y, ((uint8*)Colors.GetData()) + ((W * 4) * Y), W * 4);
-	}
-
-	RHIUnlockTexture2D(IconTextureRHI.Get(), 0);
-*/
 
 
 }
@@ -163,22 +114,19 @@ void UIMainMenuBar::DrawImGui()
 		const ImVec2 LogoRectStart = { ImGui::GetItemRectMin().x + LogoOffset.x, ImGui::GetItemRectMin().y + LogoOffset.y };
 		const ImVec2 LogoRectMax = { LogoRectStart.x + LogoWidth, LogoRectStart.y + LogoHeight };
 		FgDrawList->AddImage(IconTextureRHI->GetNativeShaderResourceView(), LogoRectStart, LogoRectMax);
-
 	}
-
-
 
 	ImGui::BeginHorizontal("TitleBar", { ImGui::GetWindowWidth() - WindowPadding.y * 2.f, ImGui::GetFrameHeightWithSpacing() });
 
 	const float W = ImGui::GetContentRegionAvail().x;
-	const float ButtonAreaWidth = 94;
+	const float ButtonAreaWidth = 0;
 
 	ImGui::SetCursorPos(ImVec2(WindowPadding.x, WindowPadding.y + TitleBarVerticalOffset));
 	ImGui::SetNextItemAllowOverlap();
-	//ImGui::Button("##TitleBarDragZone", ImVec2(W - ButtonAreaWidth, TitleBarHeight));
 	ImGui::InvisibleButton("##TitleBarDragZone", ImVec2(W - ButtonAreaWidth, TitleBarHeight));
 
-	Window->GetNativeWindow()->bTitleBarHovarered = ImGui::IsItemHovered();
+
+	Window->GetNativeWindow()->bTitleBarHovarered = ImGui::IsItemHovered() ? ECursorArea::Caption : ECursorArea::Client;
 
 
 	ImGui::SuspendLayout();
@@ -191,70 +139,148 @@ void UIMainMenuBar::DrawImGui()
 	const ImRect MenuBarRect = { ImGui::GetCursorPos(), {ImGui::GetContentRegionAvail().x +
 	ImGui::GetCursorScreenPos().x, ImGui::GetFrameHeightWithSpacing()} };
 
-	/*if (ImGui::Button("tt"))
+	// Menu Bar
 	{
-		GIsRequestingExit = true;
-	}*/
-
-	ImGui::BeginGroup();
-	if (ImDark::BeginMenubar(MenuBarRect))
-	{
-		for (auto& Menu : MenuItems)
+		ImGui::BeginGroup();
+		if (ImDark::BeginMenubar(MenuBarRect))
 		{
-			Menu->DrawImGui();
+			for (auto& Menu : MenuItems)
+			{
+				Menu->DrawImGui();
+			}
 		}
+		ImDark::EndMenubar();
+		ImGui::EndGroup();
+
+		if (ImGui::IsItemHovered())
+		{
+			Window->GetNativeWindow()->bTitleBarHovarered = ECursorArea::Client;
+		}
+
+		ImGui::ResumeLayout();
 	}
-	ImDark::EndMenubar();
-	ImGui::EndGroup();
-
-	if (ImGui::IsItemHovered())
-	{
-		Window->GetNativeWindow()->bTitleBarHovarered = false;
-	}
-
-	ImGui::ResumeLayout();
-
 
 
 	ImVec2 CurrentCursorPos = ImGui::GetCursorPos();
-	ImVec2 TextSize = ImGui::CalcTextSize(!Title);
-	ImGui::SetCursorPos(ImVec2(ImGui::GetWindowWidth() * 0.5f - TextSize.x * 0.5f, 2.f + WindowPadding.y + 6.f));
-	ImGui::Text(!Title);
+	// Title
+	{
+		ImVec2 TextSize = ImGui::CalcTextSize(!Title);
+		ImGui::SetCursorPos(ImVec2(ImGui::GetWindowWidth() * 0.5f - TextSize.x * 0.5f, 2.f + WindowPadding.y + 6.f));
+		ImGui::Text(!Title);
+	}
 	ImGui::SetCursorPos(CurrentCursorPos);
 
 
-	const ImU32 ButtonCol = ImGui::GetColorU32(ImVec4(0, 0, 0, 0.5));
-	const float buttonWidth = 14.0f;
-	const float buttonHeight = 14.0f;
-	
-	/*ImGui::Spring();
-	ImDark::ShiftCursorY(8.f);
-	{
-		const int iconWidth = MinimizeTextureRHI->GetSize().X;
-		const int iconHeight = MinimizeTextureRHI->GetSize().X;
-		const float padY = (buttonHeight - (float)iconHeight) / 2.0f;
-		if (ImGui::InvisibleButton("Minimize", ImVec2(buttonWidth, buttonHeight)))
-		{
+	float CurrentOffset = 0;
 
+	// Exit
+	ImGui::Spring();
+	{
+		const int32 iconWidth = 18;
+		const int32 iconHeight = 18;
+
+		ImGui::SetCursorPos(ImVec2(ImGui::GetWindowWidth() - iconWidth * 2.2 - CurrentOffset, TitleBarHeight * 0.5f - iconHeight * 0.5f));
+		ImGui::SetNextItemAllowOverlap();
+
+		if (ImGui::InvisibleButton("Close", ImVec2(iconWidth, iconHeight)))
+		{
+			RequestExit();
 		}
 
-		ImDark::DrawButtonImage(MinimizeTextureRHI->GetNativeShaderResourceView(), ButtonCol, ButtonCol, ButtonCol, ImDark::RectExpanded(ImDark::GetItemRect(), 0.0f, -padY));
-	}*/
+		if (ImGui::IsItemHovered())
+		{
+			Window->GetNativeWindow()->bTitleBarHovarered = ECursorArea::Client;
+		}
 
+		CurrentOffset += iconWidth + 10.f;
 
+		const int32 ButtonWidth = iconWidth;
+		const int32 ButtonHeight = iconHeight;
+		const ImVec2 ButtonOffset(0.0f + WindowPadding.x, 0.f + WindowPadding.y + TitleBarVerticalOffset);
+		const ImVec2 ButtonRectStart = { ImGui::GetItemRectMin().x + ButtonOffset.x, ImGui::GetItemRectMin().y + ButtonOffset.y };
+		const ImVec2 ButtonRectMax = { ButtonRectStart.x + ButtonWidth, ButtonRectStart.y + ButtonHeight };
+		FgDrawList->AddImage(CloseTextureRHI->GetNativeShaderResourceView(), ButtonRectStart, ButtonRectMax);
+	}
 
+	// Maximize/Restrore
+	ImGui::Spring();
+	{
+		const int32 iconWidth = 20;
+		const int32 iconHeight = 20;
 
+		ImGui::SetCursorPos(ImVec2(ImGui::GetWindowWidth() - iconWidth * 2.2 - CurrentOffset, TitleBarHeight * 0.5f - iconHeight * 0.5f));
+
+		ImGui::SetNextItemAllowOverlap();
+		if (ImGui::InvisibleButton("Maximize", ImVec2(iconWidth + 4, iconHeight)))
+		{
+			RequestMaximizeOrRestore = true;
+		}
+
+		if (ImGui::IsItemHovered())
+		{
+			Window->GetNativeWindow()->bTitleBarHovarered = ECursorArea::Client;
+		}
+
+		CurrentOffset += iconWidth + 10.f;
+
+		const int32 ButtonWidth = iconWidth;
+		const int32 ButtonHeight = iconHeight;
+		const ImVec2 ButtonOffset(0.0f + WindowPadding.x, 0.f + WindowPadding.y + TitleBarVerticalOffset);
+		const ImVec2 ButtonRectStart = { ImGui::GetItemRectMin().x + ButtonOffset.x, ImGui::GetItemRectMin().y + ButtonOffset.y };
+		const ImVec2 ButtonRectMax = { ButtonRectStart.x + ButtonWidth, ButtonRectStart.y + ButtonHeight };
+		if (Window->IsMaximize())
+			FgDrawList->AddImage(RestoreTextureRHI->GetNativeShaderResourceView(), ButtonRectStart, ButtonRectMax);
+		else
+			FgDrawList->AddImage(MaximizeTextureRHI->GetNativeShaderResourceView(), ButtonRectStart, ButtonRectMax);
+	}
+	// Minimize
+	ImGui::Spring();
+	{
+		const int32 iconWidth = 23;
+		const int32 iconHeight = 23;
+
+		ImGui::SetCursorPos(ImVec2(ImGui::GetWindowWidth() - iconWidth * 2.2 - CurrentOffset, TitleBarHeight * 0.5f - iconHeight * 0.5f));
+
+		ImGui::SetNextItemAllowOverlap();
+		if (ImGui::InvisibleButton("Minimize", ImVec2(iconWidth, iconHeight)))
+		{
+			RequestMinimize = true;
+		}
+		if (ImGui::IsItemHovered())
+		{
+			Window->GetNativeWindow()->bTitleBarHovarered = ECursorArea::Client;
+		}
+
+		CurrentOffset += iconWidth + 10.f;
+
+		const int32 ButtonWidth = iconWidth;
+		const int32 ButtonHeight = iconHeight;
+		const ImVec2 ButtonOffset(0.0f + WindowPadding.x, 0.f + WindowPadding.y + TitleBarVerticalOffset);
+		const ImVec2 ButtonRectStart = { ImGui::GetItemRectMin().x + ButtonOffset.x, ImGui::GetItemRectMin().y + ButtonOffset.y };
+		const ImVec2 ButtonRectMax = { ButtonRectStart.x + ButtonWidth, ButtonRectStart.y + ButtonHeight };
+		FgDrawList->AddImage(MinimizeTextureRHI->GetNativeShaderResourceView(), ButtonRectStart, ButtonRectMax);
+	}
+
+	ImGui::SetCursorPos(CurrentCursorPos);
 	ImGui::EndHorizontal();
-
-
 	ImGui::SetCursorPosY(TitleBarHeight);
-
-
 }
-
+  
 
 void UIMainMenuBar::Update(float DeltaTime)
 {	
+	if (RequestMaximizeOrRestore)
+	{
+		Window->MaximizeOrRestore();
+		RequestMaximizeOrRestore = false;
+	}
+	if (RequestMinimize)
+	{
+		Window->Minimize();
+		RequestMinimize = false;
+	}
+	
+
 	for (auto& Menu : MenuItems)
 	{
 		Menu->Update(DeltaTime);
@@ -285,18 +311,9 @@ void UIMainMenuBar::DrawMenuBar()
 			}
 			ImGui::EndMenu();
 		}
-
-		//for (auto& Menu : MenuItems)
-		//{
-		//	Menu->DrawImGui();
-		//}
 	}
-
-
-
 	ImDark::EndMenubar();
 	ImGui::EndGroup();
-
 }
 
 void UIMainMenuBar::FastLoadIcon(TRefCountPtr<FRHITexture>& InTexture, FString Path)

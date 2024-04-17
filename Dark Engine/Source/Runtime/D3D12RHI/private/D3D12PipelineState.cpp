@@ -6,6 +6,7 @@
 #include <filesystem>
 #include "Misc/Paths.h"
 
+#include "D3D12RHICommon.h"
 
 
 
@@ -25,8 +26,22 @@ FD3D12PipelineStateManager::FD3D12PipelineStateManager(FD3D12Adapter* InParent) 
 	
 
 	HRESULT hr = S_OK;
-	DXCall(hr = GetParentAdapter()->GetD3DDevice2()->CreatePipelineLibrary(Cache.GetData(), Cache.Num(),
-		IID_PPV_ARGS(&PipelineLibrary)));
+	hr = GetParentAdapter()->GetD3DDevice2()->CreatePipelineLibrary(Cache.GetData(), Cache.Num(), IID_ID3D12PipelineLibrary1, nullptr);
+
+	if (hr == S_FALSE)
+	{
+		DXCall(hr = GetParentAdapter()->GetD3DDevice2()->CreatePipelineLibrary(Cache.GetData(), Cache.Num(),
+			IID_PPV_ARGS(&PipelineLibrary)));
+	}
+	else if (hr == DXGI_ERROR_UNSUPPORTED)
+	{
+		DE_LOG(D3D12RHI, Error, TEXT("This device or driver not support Pipeline library"));
+	}
+	else
+	{
+		DXCall(hr = GetParentAdapter()->GetD3DDevice2()->CreatePipelineLibrary(nullptr, 0,
+			IID_PPV_ARGS(&PipelineLibrary)));
+	}
 	//PipelineLibrary->Serialize();
 }
 
@@ -64,8 +79,11 @@ FD3D12PipelineState* FD3D12PipelineStateManager::GetPipelineState(const FGraphic
 		FString Hash = FString::NumToString(HashNum);
 		D3D12_PIPELINE_STATE_STREAM_DESC StreamDesc = SetPipelineDesc(Initializer, PipelineStateDesc, InRootSignature);
 		HRESULT hr = S_OK;
-		DXCall(hr = PipelineLibrary->LoadPipeline(*Hash, &StreamDesc,
-			IID_PPV_ARGS(&PipelineState)));
+		if (PipelineLibrary)
+		{
+			DXCall(hr = PipelineLibrary->LoadPipeline(*Hash, &StreamDesc,
+				IID_PPV_ARGS(&PipelineState)));
+		}
 
 		if (PipelineState)
 		{
@@ -77,7 +95,10 @@ FD3D12PipelineState* FD3D12PipelineStateManager::GetPipelineState(const FGraphic
 			
 			if (Result->PSO)
 			{
-				PipelineLibrary->StorePipeline(*Hash, Result->PSO.Get());
+				if (PipelineLibrary)
+				{
+					PipelineLibrary->StorePipeline(*Hash, Result->PSO.Get());
+				}
 				//CachePSO();
 			}
 		}
@@ -124,7 +145,8 @@ D3D12_PIPELINE_STATE_STREAM_DESC FD3D12PipelineStateManager::SetPipelineDesc(con
 
 FD3D12GraphicsPipelineState::FD3D12GraphicsPipelineState(const FGraphicsPipelineStateInitializer& Initializer, const FD3D12RootSignature* InRootSignature, FD3D12PipelineState* InPipelineState) :
 	RootSignature(InRootSignature),
-	PipelineState(InPipelineState)
+	PipelineState(InPipelineState),
+	PipelineStateInitializer(Initializer)
 {
 
 }

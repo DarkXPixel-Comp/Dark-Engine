@@ -195,5 +195,6 @@ protected:
 private:
 	mutable FCriticalSection AddLogCriticalSection;
 
+	bool bInit = false;
 	TUnordoredMap<FString, IConsoleObject*>	ConsoleObjects;
 };

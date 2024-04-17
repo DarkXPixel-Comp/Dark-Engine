@@ -81,6 +81,12 @@ public:
 		GetContext().RHISetViewport(MinX, MinY, MinZ, MaxX, MaxY, MaxZ);
 	}
 
+
+	void SetGraphicsPipelineState(class FRHIGraphicsPipelineState* PipelineState, class FBoundShaderStateInput& ShaderInput)
+	{
+		GetContext().RHISetGraphicsPipelineState(PipelineState, ShaderInput);
+	}
+
 };
 
 
@@ -135,6 +141,8 @@ public:
 	{
 		GetContext().RHIClearTextureColor(InTexture, InColor);
 	}
+
+
 
 
 };

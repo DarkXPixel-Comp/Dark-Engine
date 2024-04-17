@@ -4,6 +4,9 @@
 #include "Containers/UnordoredMap.h"
 
 class FD3D12PipelineState;
+class FD3D12VertexShader;
+class FD3D12PixelShader;
+
 
 
 
@@ -65,11 +68,12 @@ struct FD3D12GraphicsPipelineState : public FRHIGraphicsPipelineState
 {
 	FD3D12GraphicsPipelineState(const FGraphicsPipelineStateInitializer& Initializer, const FD3D12RootSignature* InRootSignature, FD3D12PipelineState* InPipelineState);
 
+	FD3D12VertexShader* GetVertexShader() const { return (FD3D12VertexShader*)PipelineStateInitializer.BoundShaderState.VertexShaderRHI; }
+	FD3D12PixelShader* GetPixelShader() const { return (FD3D12PixelShader*)PipelineStateInitializer.BoundShaderState.PixelShaderRHI; }
+	//FD3D12VertexShader* GetVertexShader() const { return (FD3D12VertexShader*)PipelineStateInitializer.BoundShaderState.VertexShaderRHI; }
+
 
 	FGraphicsPipelineStateInitializer PipelineStateInitializer;
-
-
-
 	FD3D12PipelineState* PipelineState;
 	const FD3D12RootSignature* const RootSignature;
 };

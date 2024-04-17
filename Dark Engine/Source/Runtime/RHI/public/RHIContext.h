@@ -40,7 +40,7 @@ public:
 	virtual void RHISetStreamSource(uint32 StreamIndex, FRHIBuffer* VertexBuffer) {}
 	virtual void RHISetViewport(float MinX, float MinY, float MinZ, float MaxX, float MaxY, float MaxZ) {}
 	virtual void RHISetScissorRect(bool bEnable, uint32 MinX, uint32 MinY, uint32 MaxX, uint32 MaxY) {}
-	virtual void RHISetGraphicsPipelineState(FRHIGraphicsPipelineState* GraphicsPSO, uint32 Stencil) {}
+	virtual void RHISetGraphicsPipelineState(class FRHIGraphicsPipelineState* GraphicsPSO, const FBoundShaderStateInput& ShaderInput) = 0;
 	virtual void RHISetShaderTexture(FRHIGraphicsShader* Shader, uint32 TextureIndex, FRHITexture* Texture) {}
 	virtual void RHISetShaderSampler(FRHIGraphicsShader* Shader, uint32 SamplerIndex, FRHISamplerState* State) {}
 	virtual void RHIBeginImGui() = 0;

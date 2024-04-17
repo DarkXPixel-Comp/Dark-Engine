@@ -17,7 +17,6 @@ public:
 	void DestroyConsole();
 	void SetAutoClose(bool InbAutoClose);
 
-
 	std::thread Thread;
 private:
 	bool bInitializeConsole = false;

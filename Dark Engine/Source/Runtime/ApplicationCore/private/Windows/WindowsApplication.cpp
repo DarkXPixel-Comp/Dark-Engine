@@ -239,18 +239,20 @@ int32 FWindowsApplication::ProcessMessage(HWND hWnd, uint32 Msg, WPARAM wParam, 
 				if (hit & right)                    return HTRIGHT;
 				if (hit & bottom)                   return HTBOTTOM;
 			}
-			bool TitleBarHittest = false;
+			ECursorArea TitleBarHittest;
 			
 			TitleBarHittest = CurrentWindow->bTitleBarHovarered;
-			if (TitleBarHittest)
+
+			switch (TitleBarHittest)
 			{
-				return HTCAPTION;
+			case ECursorArea::Client:	return HTCLIENT;
+			case ECursorArea::Close:	return HTCLOSE;
+			case ECursorArea::Caption:	return HTCAPTION;
+			case ECursorArea::Maximize:	return HTZOOM;
+			case ECursorArea::Minimize:	return HTREDUCE;
+			case ECursorArea::Menu:		return HTMENU;
+			default:					return HTCLIENT;
 			}
-			else
-			{
-				return HTCLIENT;
-			}
-			
 		}
 
 		break;

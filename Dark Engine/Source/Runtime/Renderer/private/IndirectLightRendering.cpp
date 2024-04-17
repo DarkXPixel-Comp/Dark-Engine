@@ -1,6 +1,7 @@
 #include "GlobalShader.h"
 #include "Misc/Paths.h"
 #include "DynamicRHI.h"
+#include <RHICommandList.h>
 
 
 class FDiffuseIndirectCompositeVS : public FGlobalShader
@@ -30,6 +31,8 @@ IMPLEMENT_GLOBAL_SHADER(FDiffuseIndirectCompositePS, "PixelShader.hlsl",
 
 void RenderLight()
 {
+	FRHICommandListImmediate& RHICmdList = GRHICommandList.GetImmediateCommandList();
+
 	TShaderRefBase<FDiffuseIndirectCompositeVS> VertexShader =
 		GGlobalShaderMap->GetShader<FDiffuseIndirectCompositeVS>();
 	TShaderRefBase<FDiffuseIndirectCompositePS>	PixelShader =
@@ -54,6 +57,12 @@ void RenderLight()
 	Initializer.BoundShaderState.VertexShaderRHI = RHIVertexShader;
 	Initializer.BoundShaderState.PixelShaderRHI = RHIPixelShader;
 	Initializer.BoundShaderState.VertexDeclaration = RHIVertexDeclaration.Get();
-	RHICreateGraphicsPipelineState(Initializer);
+	//RHICreateGraphicsPipelineState(Initializer);
+
+	static TRefCountPtr<FRHIGraphicsPipelineState> PipelineState = RHICreateGraphicsPipelineState(Initializer);
+	RHICmdList.SetGraphicsPipelineState(PipelineState.Get(), Initializer.BoundShaderState);
+
+
+
 
 }

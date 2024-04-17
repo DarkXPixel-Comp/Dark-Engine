@@ -35,6 +35,10 @@ private:
 	TRefCountPtr<class FRHITexture> MaximizeTextureRHI;
 	TRefCountPtr<class FRHITexture> CloseTextureRHI;
 	TRefCountPtr<class FRHITexture> MinimizeTextureRHI;
+	TRefCountPtr<class FRHITexture> RestoreTextureRHI;
+
+	bool RequestMaximizeOrRestore = false;
+	bool RequestMinimize = false;
 
 
 
