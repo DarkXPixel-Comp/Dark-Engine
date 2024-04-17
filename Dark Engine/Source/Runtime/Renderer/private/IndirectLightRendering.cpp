@@ -59,7 +59,7 @@ void RenderLight()
 	Initializer.BoundShaderState.VertexDeclaration = RHIVertexDeclaration.Get();
 	//RHICreateGraphicsPipelineState(Initializer);
 
-	static TRefCountPtr<FRHIGraphicsPipelineState> PipelineState = RHICreateGraphicsPipelineState(Initializer);
+	TRefCountPtr<FRHIGraphicsPipelineState> PipelineState = RHICreateGraphicsPipelineState(Initializer);
 	RHICmdList.SetGraphicsPipelineState(PipelineState.Get(), Initializer.BoundShaderState);
 
 

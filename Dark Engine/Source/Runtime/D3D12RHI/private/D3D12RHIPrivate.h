@@ -77,5 +77,6 @@ private:
 	TArray<TSharedPtr<FD3D12Adapter>> ChosenAdapters;
 	D3D_FEATURE_LEVEL FeatureLevel;
 	TMap<uint64, class FRHIVertexDeclaration*> VertexDeclarationMap;
+	TUnordoredMap<class FGraphicsPipelineStateInitializer, TRefCountPtr<class FRHIGraphicsPipelineState>> GraphicsPipelineStateCache;
 };
 

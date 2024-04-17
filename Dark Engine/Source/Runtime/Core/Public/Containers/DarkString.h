@@ -120,6 +120,12 @@ public:
 		return GetUTF8();
 	}
 
+	FString operator/(const FString& Other)
+	{
+		return FString::PrintF(TEXT("%s/%s"), _string.data(), *Other);
+	}
+
+
 	TCHAR& operator[](int32 Index);
 
 

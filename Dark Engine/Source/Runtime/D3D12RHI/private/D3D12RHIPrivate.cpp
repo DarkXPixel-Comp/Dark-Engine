@@ -274,15 +274,21 @@ void FD3D12DynamicRHI::PostInit()
 	FD3D12Adapter& Adapter = GetAdapter();
 }
 
-TRefCountPtr<FRHIGraphicsPipelineState> FD3D12DynamicRHI::RHICreateGraphicsPipelineState(const FGraphicsPipelineStateInitializer& Initalizer)
+TRefCountPtr<FRHIGraphicsPipelineState> FD3D12DynamicRHI::RHICreateGraphicsPipelineState(const FGraphicsPipelineStateInitializer& Initializer)
 {
+	auto It = GraphicsPipelineStateCache.find(Initializer);
+	if (It != GraphicsPipelineStateCache.end())
+	{
+		return It->second;
+	}
+
 	FD3D12Device* Device = GetAdapter().GetDevice();
 	FD3D12Adapter& Adapter = GetAdapter();
-	const FD3D12RootSignature* RootSignature = Adapter.RootSignatureManager->GetRootSignature(Initalizer.BoundShaderState);
-	
-	FD3D12PipelineState* PipelineState = Device->GetPipelineStateManager().GetPipelineState(Initalizer, RootSignature);
-	//check(PipelineState);
+	const FD3D12RootSignature* RootSignature = Adapter.RootSignatureManager->GetRootSignature(Initializer.BoundShaderState);
+	FD3D12PipelineState* PipelineState = Device->GetPipelineStateManager().GetPipelineState(Initializer, RootSignature);
 
+	FD3D12GraphicsPipelineState* GraphicsPipelineState = new FD3D12GraphicsPipelineState(Initializer, RootSignature, PipelineState);
+	GraphicsPipelineStateCache.emplace(Initializer, GraphicsPipelineState);
 
-	return new FD3D12GraphicsPipelineState(Initalizer, RootSignature, PipelineState);
-}
+	return GraphicsPipelineState;
+}												   

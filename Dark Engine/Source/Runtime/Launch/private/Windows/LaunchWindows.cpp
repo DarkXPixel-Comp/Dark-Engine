@@ -1,5 +1,4 @@
-﻿
-#include <Settings/PerEngineSettings.h>
+﻿#include <Settings/PerEngineSettings.h>
 //#include <Launch/Resource/resource.h>
 #include <Application/Application.h>
 #include <DEngine.h>

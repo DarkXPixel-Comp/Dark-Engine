@@ -300,56 +300,36 @@ int32 FWindowsApplication::ProcessMessage(HWND hWnd, uint32 Msg, WPARAM wParam, 
 			int32 NewWidth = Rect->right - Rect->left;
 			int32 NewHeight = Rect->bottom - Rect->top;
 
-			switch (wParam)
-			{
-			case WMSZ_LEFT:
-			case WMSZ_RIGHT:
-			case WMSZ_BOTTOMLEFT:
-			case WMSZ_BOTTOMRIGHT:
-			case WMSZ_TOPLEFT:
-			case WMSZ_TOPRIGHT:
-			{
-				int32 MinWidth = 100;
+			int32 MinWidth = 800;
+			int32 MinHeight = 600;
 
-				if (NewWidth < MinWidth)
+			if (NewWidth < MinWidth)
+			{
+				if (wParam == WMSZ_LEFT || wParam == WMSZ_BOTTOMLEFT || wParam == WMSZ_TOPLEFT)
 				{
-					if (wParam == WMSZ_LEFT || wParam == WMSZ_BOTTOMLEFT || wParam == WMSZ_TOPLEFT)
-					{
-						Rect->left -= (MinWidth - NewWidth);
-					}
-					else if (wParam == WMSZ_RIGHT || wParam == WMSZ_BOTTOMRIGHT || wParam == WMSZ_TOPRIGHT)
-					{
-						Rect->right += (MinWidth - NewWidth);
-					}
-
-					NewWidth = MinWidth;
+					Rect->left -= (MinWidth - NewWidth);
 				}
-				break;
-			}
-
-			case WMSZ_TOP:
-			case WMSZ_BOTTOM:
-			{
-				int32 MinHeight = 100;
-
-				if (NewHeight < MinHeight)
+				else if (wParam == WMSZ_RIGHT || wParam == WMSZ_BOTTOMRIGHT || wParam == WMSZ_TOPRIGHT)
 				{
-					if (wParam == WMSZ_TOP)
-					{
-						Rect->top -= (MinHeight - NewHeight);
-					}
-					else
-					{
-						Rect->bottom += (MinHeight - NewHeight);
-					}
-
-					NewHeight = MinHeight;
+					Rect->right += (MinWidth - NewWidth);
 				}
-				break;
-			}
+
+				NewWidth = MinWidth;
 			}
 
+			if (NewHeight < MinHeight)
+			{
+				if (wParam == WMSZ_TOP || wParam == WMSZ_TOPLEFT || wParam == WMSZ_TOPRIGHT)
+				{
+					Rect->top -= (MinHeight - NewHeight);
+				}
+				else if(wParam == WMSZ_BOTTOM || wParam == WMSZ_BOTTOMLEFT || wParam == WMSZ_BOTTOMRIGHT)
+				{
+					Rect->bottom += (MinHeight - NewHeight);
+				}
 
+				NewHeight = MinHeight;
+			}
 
 			AdjustWindowRectEx(Rect, WindowInfo.dwStyle, false, WindowInfo.dwExStyle);
 

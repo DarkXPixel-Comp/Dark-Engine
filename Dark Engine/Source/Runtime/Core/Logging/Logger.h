@@ -26,18 +26,18 @@
 
 struct log_
 {
-	size_t severenty;
-	FString txt;
-	time_t time;
+	size_t severenty = 0;
+	FString txt = TEXT("");
+	time_t time = time_t();
 	bool isConsole = false;
 
 	///////
-	FString Result;
-	int32 Line;
-	FString File;
+	FString Result = TEXT("");
+	int32 Line = 0;
+	FString File = TEXT("");
 	bool ModernLog = false;
 
-	FVector Color;
+	FVector Color = FVector();
 };
 
 

@@ -190,7 +190,7 @@ public:
 	TArray<IIContainer<InRetValType, ParamTypes...>*>* containers = nullptr;
 
 	//IIContainer<InRetValType, ParamTypes...>* container;
-	FFuncPtr pFunc;
+	FFuncPtr pFunc = nullptr;
 };
 
 
