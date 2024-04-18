@@ -61,8 +61,4 @@ void RenderLight()
 
 	TRefCountPtr<FRHIGraphicsPipelineState> PipelineState = RHICreateGraphicsPipelineState(Initializer);
 	RHICmdList.SetGraphicsPipelineState(PipelineState.Get(), Initializer.BoundShaderState);
-
-
-
-
 }

@@ -62,7 +62,7 @@ enum EVertexElementType : uint8
 
 
 
-enum class ERHIAcces
+enum class ERHIAccess
 {
 	Unknown = 0,
 
@@ -142,6 +142,7 @@ private:
 
 enum EResourceLockMode
 {	
+	RLM_ReadOnly,
 	RLM_WriteOnly,
 	RLM_WriteOnly_NoOverwrite,
 	RML_Num

@@ -334,7 +334,7 @@ void UIMainMenuBar::FastLoadIcon(TRefCountPtr<FRHITexture>& InTexture, FString P
 		.SetExtent(FIntPoint(W, H))
 		.SetFormat(EPixelFormat::PF_R8G8B8A8_UNORM)
 		.SetFlags(ETextureCreateFlags::ShaderResource)
-		.SetInitialState(ERHIAcces::SRVGraphics);
+		.SetInitialState(ERHIAccess::SRVGraphics);
 
 	InTexture = RHICreateTexture(Desc);
 	check(InTexture);
@@ -391,7 +391,7 @@ void UIMainMenuBar::FastLoadIcon(TRefCountPtr<FRHITexture>& InTexture, uint8* By
 		.SetExtent(FIntPoint(W, H))
 		.SetFormat(EPixelFormat::PF_R8G8B8A8_UNORM)
 		.SetFlags(ETextureCreateFlags::ShaderResource)
-		.SetInitialState(ERHIAcces::SRVGraphics);
+		.SetInitialState(ERHIAccess::SRVGraphics);
 
 	InTexture = RHICreateTexture(Desc);
 	check(InTexture);

@@ -72,7 +72,7 @@ void FSceneViewport::InitRHI()
 		.SetExtent(GetSize())
 		.SetFormat(EPixelFormat::PF_R8G8B8A8_UNORM)
 		.SetFlags(ETextureCreateFlags::RenderTargetable | ETextureCreateFlags::ShaderResource)
-		.SetInitialState(ERHIAcces::SRVGraphics);
+		.SetInitialState(ERHIAccess::SRVGraphics);
 
 	SRVRHI = RTRHI = RHICreateTexture(Desc);
 	check(SRVRHI && RTRHI);

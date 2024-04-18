@@ -27,9 +27,12 @@ public:
 	virtual FRHITexture* RHIGetViewportBackBuffer(FRHIViewport* Viewport) = 0;
 	virtual IRHIComputeContext* RHIGetCommandContext() = 0;
 	virtual IRHIComputeContext* RHIGetDefaultContext() = 0;
-	virtual TRefCountPtr<FRHIBuffer> CreateBuffer(const FRHIBufferDesc& CreateDesc, const TCHAR* DebugName, ERHIAcces InitialState) = 0;
+	virtual TRefCountPtr<FRHIBuffer> RHICreateBuffer(const FRHIBufferDesc& CreateDesc, const TCHAR* DebugName, ERHIAccess InitialState) = 0;
 	virtual TRefCountPtr<FRHITexture> RHICreateTexture(const FRHITextureCreateDesc& CreateDesc) = 0;
 	virtual void* RHILockTexture2D(FRHITexture* TextureRHI, uint32 MipIndex, EResourceLockMode LockMode, uint32& DestStride, bool bLockWithinMiptail, uint64* OutLockedByteCount) = 0;
+	//virtual TRefCountPtr<FRHIBuffer> RHICreateBuffer(const FRHIBufferDesc& CreateDesc, const TCHAR* DebugName, ERHIAccess InitialState) = 0;
+	virtual void* RHILockBuffer(FRHIBuffer* BufferRHI, uint32 Offset, uint32 Size, EResourceLockMode LockMode) = 0;
+	virtual void  RHIUnlockBuffer(FRHIBuffer* BufferRHI) = 0;
 	virtual TRefCountPtr<FRHIGraphicsPipelineState> RHICreateGraphicsPipelineState(const class FGraphicsPipelineStateInitializer& Initializer) = 0;
 	virtual TRefCountPtr<FRHIVertexDeclaration>	RHICreateVertexDeclaration(const FVertexDeclarationElementList& Elements) = 0;
 	virtual TRefCountPtr<FRHIVertexShader> RHICreateVertexShader(const TArray<uint8>& Code, const struct FShaderBounds& Bounds) = 0;
@@ -61,12 +64,18 @@ FORCEINLINE FRHITexture* RHIGetViewportBackBuffer(FRHIViewport* Viewport)
 	return GDynamicRHI->RHIGetViewportBackBuffer(Viewport);
 }
 
+FORCEINLINE TRefCountPtr<FRHIBuffer> RHICreateBuffer(const FRHIBufferDesc& CreateDesc, const TCHAR* DebugName, ERHIAccess InitialState)
+{
+	return GDynamicRHI->RHICreateBuffer(CreateDesc, DebugName, InitialState);
+}
+
 FORCEINLINE TRefCountPtr<FRHITexture> RHICreateTexture(const FRHITextureCreateDesc& CreateDesc)
 {
 	//FRHICommandListImmediate& RHICmdList = FRHICommandListExecutor::GetImmediateCommandList();
 
 	return GDynamicRHI->RHICreateTexture(CreateDesc);
 }
+
 
 FORCEINLINE void* RHILockTexture2D(FRHITexture* TextureRHI, uint32 MipIndex, EResourceLockMode LockMode,
 	uint32& DestStride, uint64* OutLockedByteCount, bool bLockWithinMiptail = false)
@@ -78,6 +87,15 @@ FORCEINLINE void RHIUnlockTexture2D(FRHITexture* TextureRHI, uint32 MipIndex, bo
 {
 	GDynamicRHI->RHIUnlockTexture2D(TextureRHI, MipIndex, bLockWithinMiptail);
 }
+FORCEINLINE void* RHILockBuffer(FRHIBuffer* BufferRHI, uint32 Offset, uint32 Size, EResourceLockMode LockMode)
+{
+	return GDynamicRHI->RHILockBuffer(BufferRHI, Offset, Size, LockMode);
+}
+FORCEINLINE void  RHIUnlockBuffer(FRHIBuffer* BufferRHI)
+{
+	GDynamicRHI->RHIUnlockBuffer(BufferRHI);
+}
+
 
 FORCEINLINE TRefCountPtr<FRHIGraphicsPipelineState> RHICreateGraphicsPipelineState(const class FGraphicsPipelineStateInitializer& Initializer)
 {

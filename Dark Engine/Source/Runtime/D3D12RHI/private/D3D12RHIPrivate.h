@@ -55,7 +55,10 @@ public:
 	virtual DXGI_FORMAT RHIGetSwapChainFormat() const { return DXGI_FORMAT_UNKNOWN; }
 
 
-	virtual TRefCountPtr<FRHIBuffer> CreateBuffer(const FRHIBufferDesc& CreateDesc, const TCHAR* DebugName, ERHIAcces InitialState);
+	virtual TRefCountPtr<FRHIBuffer> RHICreateBuffer(const FRHIBufferDesc& CreateDesc, const TCHAR* DebugName, ERHIAccess InitialState);
+	virtual void* RHILockBuffer(FRHIBuffer* BufferRHI, uint32 Offset, uint32 Size, EResourceLockMode LockMode);
+	virtual void RHIUnlockBuffer(FRHIBuffer* BufferRHI);
+
 	virtual TRefCountPtr<FRHITexture> RHICreateTexture(const FRHITextureCreateDesc& CreateDesc);
 	virtual void* RHILockTexture2D(FRHITexture* TextureRHI, uint32 MipIndex, EResourceLockMode LockMode,
 		uint32& DestStride, bool bLockWithinMiptail, uint64* OutLockedByteCount);
@@ -75,7 +78,7 @@ public:
 	FD3D12Texture* CreateEmptyD3D12Texture(const FRHITextureCreateDesc& CreateDesc, FD3D12Device* Device);
 	FD3D12Texture* CreateD3D12Texture(const FRHITextureCreateDesc& CreateDesc, FD3D12Device* Device);
 
-	FD3D12Buffer* CreateD3D12Buffer(class FRHICommandListBase* RHICmdList, const FRHIBufferDesc& BufferDesc, ERHIAcces ResourceState, const TCHAR* DebugName);
+	FD3D12Buffer* CreateD3D12Buffer(class FRHICommandListBase* RHICmdList, const FRHIBufferDesc& BufferDesc, ERHIAccess ResourceState, const TCHAR* DebugName);
 
 private:
 	TArray<TSharedPtr<FD3D12Adapter>> ChosenAdapters;

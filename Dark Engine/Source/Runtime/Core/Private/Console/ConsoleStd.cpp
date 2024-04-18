@@ -143,7 +143,6 @@ void FConsoleStd::CreateConsoleOS(const FString& Label)
 			while (this->bInitializeConsole)
 			{
 				FString String;
-				//std::wcin >> String.GetNativeString();
 				std::getline(std::wcin, String.GetNativeString());
 				this->InputText(String);
 			}

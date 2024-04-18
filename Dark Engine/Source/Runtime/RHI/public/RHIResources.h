@@ -82,13 +82,13 @@ protected:
 class FRHIViewableResource : public FRHIResource
 {
 public:
-	FRHIViewableResource(ERHIResourceType InResourceType, ERHIAcces InAccess):
+	FRHIViewableResource(ERHIResourceType InResourceType, ERHIAccess InAccess):
 		FRHIResource(InResourceType),
 		Access(InAccess)
 	{}
 
 private:
-	ERHIAcces Access;
+	ERHIAccess Access;
 
 };
 
@@ -232,7 +232,7 @@ struct FRHITextureDesc
 	uint8 NumSamples = 1;
 	ETextureDimension Dimension = ETextureDimension::Texture2D;
 	EPixelFormat Format = PF_Unknown;
-	ERHIAcces InitialState = ERHIAcces::Unknown;
+	ERHIAccess InitialState = ERHIAccess::Unknown;
 	ETextureCreateFlags Flags = ETextureCreateFlags::None;
 };
 
@@ -263,7 +263,7 @@ struct FRHITextureCreateDesc : public FRHITextureDesc
 		Flags = InFlags;
 		return *this;
 	}
-	FRHITextureCreateDesc& SetInitialState(ERHIAcces InInitialState)
+	FRHITextureCreateDesc& SetInitialState(ERHIAccess InInitialState)
 	{
 		InitialState = InInitialState;
 		return *this;

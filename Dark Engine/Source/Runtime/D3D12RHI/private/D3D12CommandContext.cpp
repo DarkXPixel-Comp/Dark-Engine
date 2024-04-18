@@ -84,6 +84,16 @@ void FD3D12ContextCommon::TransitionResource(FD3D12Resource* Resource, D3D12_RES
 	Resource->SetState(After);
 }
 
+void FD3D12ContextCommon::TransitionResource(ID3D12Resource* Resource, D3D12_RESOURCE_STATES Before, D3D12_RESOURCE_STATES After, uint32 SubResource)
+{
+	if (Before == After)
+	{
+		return;
+	}
+	CD3DX12_RESOURCE_BARRIER Barrier = CD3DX12_RESOURCE_BARRIER::Transition(Resource, Before, After);
+	GetCommandList().GetGraphicsCommandList()->ResourceBarrier(1, &Barrier);
+}
+
 void FD3D12ContextCommon::FlushCommands(ED3D12FlushFlags Flags)
 {
 	check(bIsDefualtContext);

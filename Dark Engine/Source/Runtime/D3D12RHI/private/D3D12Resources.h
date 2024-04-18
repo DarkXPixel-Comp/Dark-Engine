@@ -196,6 +196,15 @@ struct FD3D12LockedResource : public FD3D12DeviceChild
 		MappedAddress(nullptr)
 	{}
 
+	FORCEINLINE void Reset()
+	{
+		Resource.Reset();
+		bLocked = false;
+		bLockedForReadOnly = false;
+		LockedOffset = 0;
+		LockedPitch = 0;
+	}
+
 	TRefCountPtr<ID3D12Resource> Resource;
 	//FD3D12ResourceLocation ResourceLocation;
 	uint32 LockedOffset;

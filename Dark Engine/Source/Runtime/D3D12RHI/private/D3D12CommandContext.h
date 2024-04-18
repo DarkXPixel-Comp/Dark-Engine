@@ -39,7 +39,7 @@ public:
 	bool isAsyncComputeContext() const { return QueueType == ED3D12QueueType::Async; }
 	uint64 GetCommandListID() { return GetCommandList().State.CommandListID; }
 	void TransitionResource(FD3D12Resource* Resource, D3D12_RESOURCE_STATES Before, D3D12_RESOURCE_STATES After, uint32 SubResource);
-	
+	void TransitionResource(ID3D12Resource* Resource, D3D12_RESOURCE_STATES Before, D3D12_RESOURCE_STATES After, uint32 SubResource);
 
 	FD3D12CommandList& GetCommandList()
 	{
