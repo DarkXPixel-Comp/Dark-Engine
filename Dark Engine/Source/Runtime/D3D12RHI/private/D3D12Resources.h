@@ -91,10 +91,12 @@ public:
 
 	void SetResource(FD3D12Resource* InResource) { Resource = InResource; }
 	FD3D12Resource* GetResource() const { return Resource.Get(); }
+	D3D12_GPU_VIRTUAL_ADDRESS GetGPUVirtualAddress() const { return Resource->GetGPUVirtualAddress(); }
 	void SetOwner(FD3D12BaseShaderResource* InOwner) { Owner = InOwner; }
 
 	void* GetMappedBaseAddress() const { return MappedAddress; }
 
+	uint64 GetSize() const { return Resource->GetDesc().Width; }
 
 	bool IsValid() const
 	{

@@ -281,8 +281,29 @@ void FD3D12CommandContext::RHISetViewport(float MinX, float MinY, float MinZ, fl
 
 }
 
-void FD3D12CommandContext::RHISetStreamSource(uint32 StreamIndex, FRHIBuffer* VertexBuffer, uint32 Offset)
+void FD3D12CommandContext::RHIDrawIndexedPrimitive(FRHIBuffer* IndexBufferRHI, int32 BaseVertexIndex, uint32 FirstInstance, uint32 NumVertices, uint32 StartIndex, uint32 NumPrimitives, uint32 NumInstances)
 {
+	FD3D12Buffer* IndexBuffer = static_cast<FD3D12Buffer*>(IndexBufferRHI);
+	check(NumPrimitives > 0);
+	check(IndexBuffer->GetSize() > 0);
+	check(IndexBuffer->ResourceLocation.GetResource());
+
+	NumInstances = FMath::Max<uint32>(1, NumInstances);
+
+	uint32 IndexCount = StateCache.GetVertexCount(NumPrimitives);
+
+
+
+	
+
+}
+
+void FD3D12CommandContext::RHISetStreamSource(uint32 StreamIndex, FRHIBuffer* VertexBufferRHI, uint32 Offset, uint32 Stride)
+{
+	FD3D12Buffer* VertexBuffer = static_cast<FD3D12Buffer*>(VertexBufferRHI);
+
+	StateCache.SetStreamSource(&VertexBuffer->ResourceLocation, StreamIndex, Offset, Stride);
+
 
 }
 

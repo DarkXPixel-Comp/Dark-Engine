@@ -25,6 +25,7 @@ class UIApplication	: public FGenericApplicationHandler
 {
 public:
 	static UIApplication* Get() { return CurrentApplication.get(); }
+	static void Destroy() { CurrentApplication.reset(); }
 
 
 public:

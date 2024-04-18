@@ -2,6 +2,7 @@
 #include "Misc/Paths.h"
 #include "DynamicRHI.h"
 #include <RHICommandList.h>
+#include "CommonRenderResources.h"
 
 
 class FDiffuseIndirectCompositeVS : public FGlobalShader
@@ -61,4 +62,18 @@ void RenderLight()
 
 	TRefCountPtr<FRHIGraphicsPipelineState> PipelineState = RHICreateGraphicsPipelineState(Initializer);
 	RHICmdList.SetGraphicsPipelineState(PipelineState.Get(), Initializer.BoundShaderState);
+
+	
+	/*static TRefCountPtr<FRHIBuffer> VertexBuffer = RHICreateBuffer(FRHIBufferDesc(32, 0), TEXT("Cube"), ERHIAccess::VertexOrIndexBuffer);*/
+
+	static FScreenRectangleVertexBuffer VertexBuffer;
+	VertexBuffer.Init();  
+
+	//void* Data = RHILockBuffer(VertexBuffer.VertexBuffer.Get(), 0, VertexBuffer.VertexBuffer->GetSize(), RLM_ReadOnly);
+	//TArray<FFilterVertex> Vertices(VertexBuffer.VertexBuffer->GetSize() / sizeof(FFilterVertex));
+
+	//FMemory::Memcpy(Vertices.GetData(), Data, VertexBuffer.VertexBuffer->GetSize());
+
+	//RHIUnlockBuffer(VertexBuffer.VertexBuffer.Get());
+	RHICmdList.SetStreamSource(0, VertexBuffer.VertexBuffer.Get(), 0, 32);
 }

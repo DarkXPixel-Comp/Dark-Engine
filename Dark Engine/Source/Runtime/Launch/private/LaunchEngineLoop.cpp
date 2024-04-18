@@ -97,6 +97,14 @@ struct FEditorLayout
 	
 	}
 
+	void Destroy()
+	{
+		RootViewport.reset();
+		MainDock.reset();
+		EditorSettings.reset();
+		MainMenuBar.reset();
+	}
+
 public:
 	UIWindow* RootWindow = nullptr;
 	TSharedPtr<UIEditorViewport> RootViewport = nullptr;
@@ -134,6 +142,11 @@ int32 FEngineLoop::PreInit(const TCHAR* CmdLine)
 		{
 			GGlobalConsole.DestroyConsole();
 		});
+
+	//GGlobalConsole.RegisterConsoleCommand(TEXT("g.RequestExit"), [](const TArray<FString>&) 
+	//	{
+	//		RequestExit();
+	//	}, TEXT("Request Exit"));
 
 	GGlobalConsole.RegisterConsoleCommand(TEXT("Suka"), [](const TArray<FString>& Args)
 		{
@@ -219,6 +232,8 @@ void FEngineLoop::Tick()
 
 void FEngineLoop::Exit()
 {
+	EditorLayout.Destroy();
+	UIApplication::Destroy();
 	Engine->Shutdown();
 	delete Engine;
 	Engine = nullptr;

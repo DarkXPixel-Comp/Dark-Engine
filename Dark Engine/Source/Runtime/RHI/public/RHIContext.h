@@ -37,7 +37,7 @@ public:
 	virtual void RHIEndFrame() = 0;
 	virtual void BeginScene() {}
 	virtual void EndScene() {}
-	virtual void RHISetStreamSource(uint32 StreamIndex, FRHIBuffer* VertexBuffer, uint32 Offset) = 0;
+	//virtual void RHISetStreamSource(uint32 StreamIndex, FRHIBuffer* VertexBuffer, uint32 Offset) = 0;
 	virtual void RHISetViewport(float MinX, float MinY, float MinZ, float MaxX, float MaxY, float MaxZ) {}
 	virtual void RHISetScissorRect(bool bEnable, uint32 MinX, uint32 MinY, uint32 MaxX, uint32 MaxY) {}
 	virtual void RHISetGraphicsPipelineState(class FRHIGraphicsPipelineState* GraphicsPSO, const FBoundShaderStateInput& ShaderInput) = 0;
@@ -46,5 +46,6 @@ public:
 	virtual void RHIBeginImGui() = 0;
 	virtual void RHIEndImGui() = 0;
 	virtual void RHIClearTextureColor(FRHITexture* InTexture, FVector InColor) = 0;
+	virtual void RHISetStreamSource(uint32 StreamIndex, FRHIBuffer* VertexBuffer, uint32 Offset, uint32 Stride) = 0;
 
 };

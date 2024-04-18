@@ -82,17 +82,16 @@ UIMainMenuBar::UIMainMenuBar() : UIWidget(TEXT("UIMainMenuBar"))
 		*FPaths::EngineContentDir()));
 	FastLoadIcon(RestoreTextureRHI, FString::PrintF(TEXT("%sImages/Restore.png"),
 		*FPaths::EngineContentDir()));
-
 	FastLoadIcon(CloseTextureRHI, FString::PrintF(TEXT("%sImages/Close.png"),
 		*FPaths::EngineContentDir()));
-
-
-
+	FastLoadIcon(Close2TextureRHI, FString::PrintF(TEXT("%sImages/Close2.png"),
+		*FPaths::EngineContentDir()));
 }
 
 void UIMainMenuBar::DrawImGui()
 {
 	bool bIsMaximized = Window->GetNativeWindow()->IsMaximized();
+	bool bHoveredExit = false;
 
 	const float TitleBarHeight = 58.f;
 	float TitleBarVerticalOffset = bIsMaximized ? -6.f : 0.f;
@@ -176,8 +175,12 @@ void UIMainMenuBar::DrawImGui()
 	// Exit
 	ImGui::Spring();
 	{
-		const int32 iconWidth = 18;
-		const int32 iconHeight = 18;
+		int32 iconWidth = 18;
+		int32 iconHeight = 18;
+
+
+		ImVec2 Test = ImVec2(ImGui::GetWindowWidth() - iconWidth * 2.2 - CurrentOffset, TitleBarHeight * 0.5f - iconHeight * 0.5f);
+		ImVec2 Test2 = ImVec2(Test.x + iconWidth, Test.y + iconHeight);
 
 		ImGui::SetCursorPos(ImVec2(ImGui::GetWindowWidth() - iconWidth * 2.2 - CurrentOffset, TitleBarHeight * 0.5f - iconHeight * 0.5f));
 		ImGui::SetNextItemAllowOverlap();
@@ -190,6 +193,9 @@ void UIMainMenuBar::DrawImGui()
 		if (ImGui::IsItemHovered())
 		{
 			Window->GetNativeWindow()->bTitleBarHovarered = ECursorArea::Client;
+			//bHoveredExit = true;
+			iconWidth += 2;
+			iconHeight += 2;
 		}
 
 		CurrentOffset += iconWidth + 10.f;
@@ -197,16 +203,17 @@ void UIMainMenuBar::DrawImGui()
 		const int32 ButtonWidth = iconWidth;
 		const int32 ButtonHeight = iconHeight;
 		const ImVec2 ButtonOffset(0.0f + WindowPadding.x, 0.f + WindowPadding.y + TitleBarVerticalOffset);
-		const ImVec2 ButtonRectStart = { ImGui::GetItemRectMin().x + ButtonOffset.x, ImGui::GetItemRectMin().y + ButtonOffset.y };
+		const ImVec2 ButtonRectStart = { ImGui::GetItemRectMin().x, ImGui::GetItemRectMin().y};
 		const ImVec2 ButtonRectMax = { ButtonRectStart.x + ButtonWidth, ButtonRectStart.y + ButtonHeight };
-		FgDrawList->AddImage(CloseTextureRHI->GetNativeShaderResourceView(), ButtonRectStart, ButtonRectMax);
+		FgDrawList->AddImage(bHoveredExit ? Close2TextureRHI->GetNativeShaderResourceView()
+			: CloseTextureRHI->GetNativeShaderResourceView(), ButtonRectStart, ButtonRectMax);
 	}
 
 	// Maximize/Restrore
 	ImGui::Spring();
 	{
-		const int32 iconWidth = 20;
-		const int32 iconHeight = 20;
+		int32 iconWidth = 20;
+		int32 iconHeight = 20;
 
 		ImGui::SetCursorPos(ImVec2(ImGui::GetWindowWidth() - iconWidth * 2.2 - CurrentOffset, TitleBarHeight * 0.5f - iconHeight * 0.5f));
 
@@ -219,6 +226,8 @@ void UIMainMenuBar::DrawImGui()
 		if (ImGui::IsItemHovered())
 		{
 			Window->GetNativeWindow()->bTitleBarHovarered = ECursorArea::Client;
+			iconWidth += 2;
+			iconHeight += 2;
 		}
 
 		CurrentOffset += iconWidth + 10.f;
@@ -226,7 +235,7 @@ void UIMainMenuBar::DrawImGui()
 		const int32 ButtonWidth = iconWidth;
 		const int32 ButtonHeight = iconHeight;
 		const ImVec2 ButtonOffset(0.0f + WindowPadding.x, 0.f + WindowPadding.y + TitleBarVerticalOffset);
-		const ImVec2 ButtonRectStart = { ImGui::GetItemRectMin().x + ButtonOffset.x, ImGui::GetItemRectMin().y + ButtonOffset.y };
+		const ImVec2 ButtonRectStart = { ImGui::GetItemRectMin().x, ImGui::GetItemRectMin().y };
 		const ImVec2 ButtonRectMax = { ButtonRectStart.x + ButtonWidth, ButtonRectStart.y + ButtonHeight };
 		if (Window->IsMaximize())
 			FgDrawList->AddImage(RestoreTextureRHI->GetNativeShaderResourceView(), ButtonRectStart, ButtonRectMax);
@@ -236,8 +245,8 @@ void UIMainMenuBar::DrawImGui()
 	// Minimize
 	ImGui::Spring();
 	{
-		const int32 iconWidth = 23;
-		const int32 iconHeight = 23;
+		int32 iconWidth = 23;
+		int32 iconHeight = 23;
 
 		ImGui::SetCursorPos(ImVec2(ImGui::GetWindowWidth() - iconWidth * 2.2 - CurrentOffset, TitleBarHeight * 0.5f - iconHeight * 0.5f));
 
@@ -249,6 +258,8 @@ void UIMainMenuBar::DrawImGui()
 		if (ImGui::IsItemHovered())
 		{
 			Window->GetNativeWindow()->bTitleBarHovarered = ECursorArea::Client;
+			iconWidth += 2;
+			iconHeight += 2;
 		}
 
 		CurrentOffset += iconWidth + 10.f;
@@ -256,7 +267,7 @@ void UIMainMenuBar::DrawImGui()
 		const int32 ButtonWidth = iconWidth;
 		const int32 ButtonHeight = iconHeight;
 		const ImVec2 ButtonOffset(0.0f + WindowPadding.x, 0.f + WindowPadding.y + TitleBarVerticalOffset);
-		const ImVec2 ButtonRectStart = { ImGui::GetItemRectMin().x + ButtonOffset.x, ImGui::GetItemRectMin().y + ButtonOffset.y };
+		const ImVec2 ButtonRectStart = { ImGui::GetItemRectMin().x, ImGui::GetItemRectMin().y };
 		const ImVec2 ButtonRectMax = { ButtonRectStart.x + ButtonWidth, ButtonRectStart.y + ButtonHeight };
 		FgDrawList->AddImage(MinimizeTextureRHI->GetNativeShaderResourceView(), ButtonRectStart, ButtonRectMax);
 	}

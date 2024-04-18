@@ -112,6 +112,10 @@ public:
 	FD3D12StateCache StateCache;
 
 
+	void CommitGraphicsResourceTables();
+	void CommitNonComputeShaderConstants();
+
+
 	void RHIBeginFrame() override;
 	void RHIEndFrame() override;
 	void RHIBeginImGui() override;
@@ -127,7 +131,11 @@ public:
 
 	virtual void RHISetViewport(float MinX, float MinY, float MinZ, float MaxX, float MaxY, float MaxZ);
 
-	virtual void RHISetStreamSource(uint32 StreamIndex, FRHIBuffer* VertexBuffer, uint32 Offset);
+	virtual void RHIDrawIndexedPrimitive(FRHIBuffer* IndexBuffer, int32 BaseVertexIndex,
+		uint32 FirstInstance, uint32 NumVertices, uint32 StartIndex, uint32 NumPrimitives, uint32 NumInstances);
+
+
+	virtual void RHISetStreamSource(uint32 StreamIndex, FRHIBuffer* VertexBuffer, uint32 Offset, uint32 Stride) override;
 	virtual void RHISetGraphicsPipelineState(class FRHIGraphicsPipelineState* GraphicsPSO, const FBoundShaderStateInput& ShaderInput) override;
 
 private:

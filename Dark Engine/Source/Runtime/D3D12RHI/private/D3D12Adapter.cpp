@@ -107,7 +107,7 @@ void FD3D12Adapter::InitializeDevices()
 {
 	if (!RootDevice)
 	{
-		CreateRootDevice(D3D12_DEBUG);
+		CreateRootDevice(true);
 	}
 
 	Devices[0] = MakeShareble(new FD3D12Device(this));
@@ -167,7 +167,6 @@ void FD3D12Adapter::CreateRootDevice(bool bWithDebug)
 	{
 		DXCall(RootDevice->QueryInterface(IID_PPV_ARGS(&InfoQueue)));
 		DWORD Out = 0;
-
 
 		InfoQueue->RegisterMessageCallback(D3D12MessageCallBack, D3D12_MESSAGE_CALLBACK_FLAG_NONE,
 			nullptr, &Out);

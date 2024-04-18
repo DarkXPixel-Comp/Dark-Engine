@@ -53,6 +53,13 @@ struct FMemory
 		return FPlatformMemory::Memcpy(Dest, Src, Count);
 	}
 
+	template<typename T>
+	static void* Memcpy(T& Dest, const T& Src)
+	{
+		return Memcpy(&Dest, &Src, sizeof(T));
+	}
+
+
 	bool MemIsZero(const void* Ptr, SIZE_T Count)
 	{
 		uint8* Start = (uint8*)Ptr;

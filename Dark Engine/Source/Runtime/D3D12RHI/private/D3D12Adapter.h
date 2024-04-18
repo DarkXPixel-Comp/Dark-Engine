@@ -91,6 +91,7 @@ private:
 	ComPtr<IDXGIFactory7> DXGIFactory;
 	ComPtr<IDXGIAdapter4> DXGIAdapter;
 	TStaticArray<TSharedPtr<FD3D12Device>, 1> Devices;
+
 	ComPtr<ID3D12InfoQueue1> InfoQueue;
 
 	bool bDebugDevice;
