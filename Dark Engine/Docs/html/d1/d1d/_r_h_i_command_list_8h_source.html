@@ -1,0 +1,386 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Dark Engine: Исходный файл Dark Engine/Source/Runtime/RHI/public/RHICommandList.h</title>
+<link rel="icon" href="../../Logo.ico" type="image/x-icon" />
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<script type="text/javascript" src="../../clipboard.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../Logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Dark Engine<span id="projectnumber">&#160;0.0.39</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../../',true,false,'search.php','Поиск');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(1); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_55043db21ba5ddd7c561d2c5a5a38944.html">Dark Engine</a></li><li class="navelem"><a class="el" href="../../dir_e00b54220e1e1486ac9971b606d33054.html">Source</a></li><li class="navelem"><a class="el" href="../../dir_ae01c8af07818b260cc3481e8588b277.html">Runtime</a></li><li class="navelem"><a class="el" href="../../dir_36f40cf2346c3a351d59e1803b4d918d.html">RHI</a></li><li class="navelem"><a class="el" href="../../dir_c109a2ed3ccf3db39eee5b1cbca42152.html">public</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">RHICommandList.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d1/d1d/_r_h_i_command_list_8h.html">См. документацию.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;<a class="code" href="../../de/d85/_dark_template_8h.html">Templates/DarkTemplate.h</a>&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="../../db/d04/_core_types_8h.html">CoreTypes.h</a>&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="../../db/dec/_r_h_i_resources_8h.html">RHIResources.h</a>&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="../../d0/dc7/_r_h_i_context_8h.html">RHIContext.h</a>&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="../../d8/db0/_dynamic_r_h_i_8h.html">DynamicRHI.h</a>&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">class </span>FGraphEventRef;</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="foldopen" id="foldopen00010" data-start="{" data-end="};">
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="../../d6/d36/class_f_r_h_i_command_list_base.html">   10</a></span><span class="keyword">class </span><a class="code hl_class" href="../../d6/d36/class_f_r_h_i_command_list_base.html">FRHICommandListBase</a> : <span class="keyword">public</span> <a class="code hl_class" href="../../d2/dc6/class_f_noncopyble.html">FNoncopyble</a></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>{</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00013" data-start="{" data-end="};">
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="../../d6/d36/class_f_r_h_i_command_list_base.html#a11ce7c99aa7331e71a7f0193c5135292">   13</a></span>    <span class="keyword">enum class</span> <a class="code hl_enumeration" href="../../d6/d36/class_f_r_h_i_command_list_base.html#a11ce7c99aa7331e71a7f0193c5135292">ERecordingThread</a></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    {</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>        <a class="code hl_enumvalue" href="../../d6/d36/class_f_r_h_i_command_list_base.html#a11ce7c99aa7331e71a7f0193c5135292a5e520da5341f2fec6d3bbfe7ef357922">Render</a>,</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>        <a class="code hl_enumvalue" href="../../d6/d36/class_f_r_h_i_command_list_base.html#a11ce7c99aa7331e71a7f0193c5135292aed36a1ef76a59ee3f15180e0441188ad">Any</a></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    };</div>
+</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="../../d6/d36/class_f_r_h_i_command_list_base.html#a4ea3171cc9487ac22e2a88ec5e58dfad">   20</a></span>    <a class="code hl_function" href="../../d6/d36/class_f_r_h_i_command_list_base.html#a4ea3171cc9487ac22e2a88ec5e58dfad">FRHICommandListBase</a>() {}</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="../../d6/d36/class_f_r_h_i_command_list_base.html#ae50c16008cdd6575e7fb56ab55fb2d87">   23</a></span>    <a class="code hl_function" href="../../d6/d36/class_f_r_h_i_command_list_base.html#ae50c16008cdd6575e7fb56ab55fb2d87">FRHICommandListBase</a>(<a class="code hl_class" href="../../d6/d36/class_f_r_h_i_command_list_base.html">FRHICommandListBase</a>&amp;&amp; Other) {}</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="../../d6/d36/class_f_r_h_i_command_list_base.html#a6a96d351cab4df7a05aed6f53f8233cb">   24</a></span>    <a class="code hl_function" href="../../d6/d36/class_f_r_h_i_command_list_base.html#a6a96d351cab4df7a05aed6f53f8233cb">~FRHICommandListBase</a>() {}</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="../../d6/d36/class_f_r_h_i_command_list_base.html#a7bf304af308aa3072aca59aab1f88f0c">   26</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d6/d36/class_f_r_h_i_command_list_base.html#a7bf304af308aa3072aca59aab1f88f0c">IsImmediate</a>();</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="../../d6/d36/class_f_r_h_i_command_list_base.html#a2c2d7709be18fccb197adb52f109481c">   27</a></span>    <span class="keyword">class </span><a class="code hl_class" href="../../d3/d7d/class_f_r_h_i_command_list_immediate.html">FRHICommandListImmediate</a>&amp; <a class="code hl_function" href="../../d6/d36/class_f_r_h_i_command_list_base.html#a2c2d7709be18fccb197adb52f109481c">GetAsImmediate</a>();</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="../../d6/d36/class_f_r_h_i_command_list_base.html#ad73bfcd91f4330ac623b5dcc3b6b7102">   28</a></span>    <span class="keyword">const</span> <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a84083085985fb180ad38b9c32e3937da">int32</a> <a class="code hl_function" href="../../d6/d36/class_f_r_h_i_command_list_base.html#ad73bfcd91f4330ac623b5dcc3b6b7102">GetUsedMemory</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="foldopen" id="foldopen00031" data-start="{" data-end="}">
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="../../d6/d36/class_f_r_h_i_command_list_base.html#a84c1086a66dadaa9d21affb3c43b2da6">   31</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d6/d36/class_f_r_h_i_command_list_base.html#a84c1086a66dadaa9d21affb3c43b2da6">SwitchPipeline</a>()</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    {</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        <a class="code hl_class" href="../../d2/db5/class_i_r_h_i_compute_context.html">IRHIComputeContext</a>* Context = <a class="code hl_variable" href="../../d3/dcd/_dynamic_r_h_i_8cpp.html#a7f476220c09bed9c45bc8cdcfde73e72">GDynamicRHI</a>-&gt;<a class="code hl_function" href="../../de/d38/class_f_dynamic_r_h_i.html#a416befd9929970c468352fca1cec71df">RHIGetDefaultContext</a>();</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        GraphicsContext = <span class="keyword">static_cast&lt;</span><a class="code hl_class" href="../../d8/d41/class_i_r_h_i_command_context.html">IRHICommandContext</a>*<span class="keyword">&gt;</span>(Context);</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    }</div>
+</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="../../d6/d36/class_f_r_h_i_command_list_base.html#a2e369d3f827a07e6d2c7e15aeaf1c6e0">   37</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d6/d36/class_f_r_h_i_command_list_base.html#a2e369d3f827a07e6d2c7e15aeaf1c6e0">AddDispatchPrerequisite</a>(<span class="keyword">const</span> FGraphEventRef&amp; InPrereq);</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="../../d6/d36/class_f_r_h_i_command_list_base.html#a7b4a70d0a4452f7b3f66e0eaa939c095">   39</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d6/d36/class_f_r_h_i_command_list_base.html#a7b4a70d0a4452f7b3f66e0eaa939c095">FinishRecording</a>();</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="../../d6/d36/class_f_r_h_i_command_list_base.html#a1a2ae72ef7510739e936a6ead4d2411c">   41</a></span>    <span class="keywordtype">void</span>* <a class="code hl_function" href="../../d6/d36/class_f_r_h_i_command_list_base.html#a1a2ae72ef7510739e936a6ead4d2411c">Alloc</a>(<a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a89241ea7101f26f05a4f1efd6be26b32">int64</a> InAlocSize, <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a89241ea7101f26f05a4f1efd6be26b32">int64</a> InAllignment);</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="foldopen" id="foldopen00043" data-start="{" data-end="}">
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="../../d6/d36/class_f_r_h_i_command_list_base.html#aba7acf76251af0ace18084cd78b58170">   43</a></span>    <a class="code hl_class" href="../../d8/d41/class_i_r_h_i_command_context.html">IRHICommandContext</a>&amp; <a class="code hl_function" href="../../d6/d36/class_f_r_h_i_command_list_base.html#aba7acf76251af0ace18084cd78b58170">GetContext</a>()</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    {</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        <span class="keywordflow">return</span> *GraphicsContext;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    }</div>
+</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <a class="code hl_class" href="../../d8/d41/class_i_r_h_i_command_context.html">IRHICommandContext</a>* GraphicsContext = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>};</div>
+</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="foldopen" id="foldopen00056" data-start="{" data-end="};">
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="../../dd/de6/class_f_r_h_i_compute_command_list.html">   56</a></span><span class="keyword">class </span><a class="code hl_class" href="../../dd/de6/class_f_r_h_i_compute_command_list.html">FRHIComputeCommandList</a> : <span class="keyword">public</span> <a class="code hl_class" href="../../d6/d36/class_f_r_h_i_command_list_base.html">FRHICommandListBase</a></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>{</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00059" data-start="{" data-end="}">
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="../../dd/de6/class_f_r_h_i_compute_command_list.html#a4ff96a1a8d2888ba1c983721355e7374">   59</a></span>    <a class="code hl_function" href="../../dd/de6/class_f_r_h_i_compute_command_list.html#a4ff96a1a8d2888ba1c983721355e7374">FRHIComputeCommandList</a>()</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    {</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    }</div>
+</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>};</div>
+</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="foldopen" id="foldopen00069" data-start="{" data-end="};">
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="../../d9/dfe/class_f_r_h_i_command_list.html">   69</a></span><span class="keyword">class </span><a class="code hl_class" href="../../d9/dfe/class_f_r_h_i_command_list.html">FRHICommandList</a> : <span class="keyword">public</span> <a class="code hl_class" href="../../dd/de6/class_f_r_h_i_compute_command_list.html">FRHIComputeCommandList</a></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>{</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00072" data-start="{" data-end="}">
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="../../d9/dfe/class_f_r_h_i_command_list.html#a1e880b04daedc67b72320ae4fc82033c">   72</a></span>    <a class="code hl_function" href="../../d9/dfe/class_f_r_h_i_command_list.html#a1e880b04daedc67b72320ae4fc82033c">FRHICommandList</a>()</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    {</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    }</div>
+</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="foldopen" id="foldopen00079" data-start="{" data-end="}">
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno"><a class="line" href="../../d9/dfe/class_f_r_h_i_command_list.html#a5caa8253a4db2fba6f42212088216b72">   79</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d9/dfe/class_f_r_h_i_command_list.html#a5caa8253a4db2fba6f42212088216b72">RHISetViewport</a>(<span class="keywordtype">float</span> MinX, <span class="keywordtype">float</span> MinY, <span class="keywordtype">float</span> MinZ, <span class="keywordtype">float</span> MaxX, <span class="keywordtype">float</span> MaxY, <span class="keywordtype">float</span> MaxZ)</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    {</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        <a class="code hl_function" href="../../d6/d36/class_f_r_h_i_command_list_base.html#aba7acf76251af0ace18084cd78b58170">GetContext</a>().<a class="code hl_function" href="../../d8/d41/class_i_r_h_i_command_context.html#ae672c0454fad64b877f50c8fe7661f77">RHISetViewport</a>(MinX, MinY, MinZ, MaxX, MaxY, MaxZ);</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    }</div>
+</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="foldopen" id="foldopen00085" data-start="{" data-end="}">
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="../../d9/dfe/class_f_r_h_i_command_list.html#abba29d30a36401d05482a57f69b5aeb4">   85</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d9/dfe/class_f_r_h_i_command_list.html#abba29d30a36401d05482a57f69b5aeb4">SetGraphicsPipelineState</a>(<span class="keyword">class</span> <a class="code hl_class" href="../../de/dfc/class_f_r_h_i_graphics_pipeline_state.html">FRHIGraphicsPipelineState</a>* PipelineState, <span class="keyword">class</span> <a class="code hl_struct" href="../../db/d5f/struct_f_bound_shader_state_input.html">FBoundShaderStateInput</a>&amp; ShaderInput)</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    {</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        <a class="code hl_function" href="../../d6/d36/class_f_r_h_i_command_list_base.html#aba7acf76251af0ace18084cd78b58170">GetContext</a>().<a class="code hl_function" href="../../d8/d41/class_i_r_h_i_command_context.html#a3a90c2d8763f94ca834b2e8d3a4fa1c5">RHISetGraphicsPipelineState</a>(PipelineState, ShaderInput);</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    }</div>
+</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="foldopen" id="foldopen00090" data-start="{" data-end="}">
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno"><a class="line" href="../../d9/dfe/class_f_r_h_i_command_list.html#ab4cb1485eec439e0eb703f6f17763aaf">   90</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d9/dfe/class_f_r_h_i_command_list.html#ab4cb1485eec439e0eb703f6f17763aaf">SetStreamSource</a>(<a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> StreamIndex, <a class="code hl_class" href="../../d9/d24/class_f_r_h_i_buffer.html">FRHIBuffer</a>* VertexBuffer, <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> Offset, <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> Stride)</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    {</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        <a class="code hl_function" href="../../d6/d36/class_f_r_h_i_command_list_base.html#aba7acf76251af0ace18084cd78b58170">GetContext</a>().<a class="code hl_function" href="../../d8/d41/class_i_r_h_i_command_context.html#a3a39de659290f300dc94d04fea9c47d3">RHISetStreamSource</a>(StreamIndex, VertexBuffer, Offset, Stride);</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    }</div>
+</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>};</div>
+</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
+<div class="foldopen" id="foldopen00101" data-start="{" data-end="};">
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno"><a class="line" href="../../d3/d7d/class_f_r_h_i_command_list_immediate.html">  101</a></span><span class="keyword">class </span><a class="code hl_class" href="../../d3/d7d/class_f_r_h_i_command_list_immediate.html">FRHICommandListImmediate</a> : <span class="keyword">public</span> <a class="code hl_class" href="../../d9/dfe/class_f_r_h_i_command_list.html">FRHICommandList</a></div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>{</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno"><a class="line" href="../../d3/d7d/class_f_r_h_i_command_list_immediate.html#ad7bbd4a69812463cf41e01e634f7db21">  103</a></span>    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code hl_class" href="../../d2/d3a/class_f_r_h_i_command_list_executor.html">FRHICommandListExecutor</a>;</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    <a class="code hl_class" href="../../d3/d7d/class_f_r_h_i_command_list_immediate.html">FRHICommandListImmediate</a>()</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    {</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    }</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    </div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <span class="keywordtype">void</span> ExecuteAndReset();</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    <span class="keywordtype">void</span> Reset();</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno"><a class="line" href="../../d3/d7d/class_f_r_h_i_command_list_immediate.html#addd243555a2c821969b7fed9e0743836">  116</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d3/d7d/class_f_r_h_i_command_list_immediate.html#addd243555a2c821969b7fed9e0743836">BeginScene</a>();</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno"><a class="line" href="../../d3/d7d/class_f_r_h_i_command_list_immediate.html#ab03ab0911ce54428fa0afeb80a8eec8f">  117</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d3/d7d/class_f_r_h_i_command_list_immediate.html#ab03ab0911ce54428fa0afeb80a8eec8f">EndScene</a>();</div>
+<div class="foldopen" id="foldopen00118" data-start="{" data-end="}">
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno"><a class="line" href="../../d3/d7d/class_f_r_h_i_command_list_immediate.html#a7e7e2ae2bac88331a32e2fd26464522e">  118</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d3/d7d/class_f_r_h_i_command_list_immediate.html#a7e7e2ae2bac88331a32e2fd26464522e">BeginRenderPass</a>(<span class="keyword">struct</span> <a class="code hl_struct" href="../../dc/dcb/struct_f_r_h_i_render_pass_info.html">FRHIRenderPassInfo</a>&amp; InInfo)</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    {</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>        <a class="code hl_function" href="../../d6/d36/class_f_r_h_i_command_list_base.html#aba7acf76251af0ace18084cd78b58170">GetContext</a>().<a class="code hl_function" href="../../d8/d41/class_i_r_h_i_command_context.html#a2386d2f02841a5684468d7beb7a1fc7c">RHIBeginRenderPass</a>(InInfo);</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    }</div>
+</div>
+<div class="foldopen" id="foldopen00122" data-start="{" data-end="}">
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno"><a class="line" href="../../d3/d7d/class_f_r_h_i_command_list_immediate.html#a5f324700e39e9b90ee68097200bf7dc4">  122</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d3/d7d/class_f_r_h_i_command_list_immediate.html#a5f324700e39e9b90ee68097200bf7dc4">BeginDrawingViewport</a>(<a class="code hl_class" href="../../d0/d5f/class_f_r_h_i_viewport.html">FRHIViewport</a>* <a class="code hl_struct" href="../../de/d02/struct_viewport.html">Viewport</a>, <a class="code hl_class" href="../../d3/d6d/class_f_r_h_i_texture.html">FRHITexture</a>* RenderTargetRHI)</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    {</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>        <a class="code hl_function" href="../../d6/d36/class_f_r_h_i_command_list_base.html#aba7acf76251af0ace18084cd78b58170">GetContext</a>().<a class="code hl_function" href="../../d8/d41/class_i_r_h_i_command_context.html#a7d0aa131ee738047cab127901d55f9f8">RHIBeginDrawingViewport</a>(<a class="code hl_struct" href="../../de/d02/struct_viewport.html">Viewport</a>, RenderTargetRHI);</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    }</div>
+</div>
+<div class="foldopen" id="foldopen00126" data-start="{" data-end="}">
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno"><a class="line" href="../../d3/d7d/class_f_r_h_i_command_list_immediate.html#a81c96110598f73f030b7c3a808938347">  126</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d3/d7d/class_f_r_h_i_command_list_immediate.html#a81c96110598f73f030b7c3a808938347">EndDrawingViewport</a>(<a class="code hl_class" href="../../d0/d5f/class_f_r_h_i_viewport.html">FRHIViewport</a>* <a class="code hl_struct" href="../../de/d02/struct_viewport.html">Viewport</a>, <span class="keywordtype">bool</span> bPresent, <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a84083085985fb180ad38b9c32e3937da">int32</a> bVsync)</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    {</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>        <a class="code hl_function" href="../../d6/d36/class_f_r_h_i_command_list_base.html#aba7acf76251af0ace18084cd78b58170">GetContext</a>().<a class="code hl_function" href="../../d8/d41/class_i_r_h_i_command_context.html#a436ec235e25ad15f4a4cdd4ae0dc13be">RHIEndDrawingViewport</a>(<a class="code hl_struct" href="../../de/d02/struct_viewport.html">Viewport</a>, bPresent, bVsync);</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    }</div>
+</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d3/d7d/class_f_r_h_i_command_list_immediate.html#a7d178fdbe27d52405a21dd567c5047e3">BeginFrame</a>();</div>
+<div class="foldopen" id="foldopen00131" data-start="{" data-end="}">
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno"><a class="line" href="../../d3/d7d/class_f_r_h_i_command_list_immediate.html#a1f09e2999a3d5f5ebedeb5d251e745cb">  131</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d3/d7d/class_f_r_h_i_command_list_immediate.html#a1f09e2999a3d5f5ebedeb5d251e745cb">EndFrame</a>()</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    {</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>        <a class="code hl_function" href="../../d6/d36/class_f_r_h_i_command_list_base.html#aba7acf76251af0ace18084cd78b58170">GetContext</a>().<a class="code hl_function" href="../../d8/d41/class_i_r_h_i_command_context.html#a9c270bca1093d983140d6621816b34c4">RHIEndFrame</a>();</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>    }</div>
+</div>
+<div class="foldopen" id="foldopen00135" data-start="{" data-end="}">
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno"><a class="line" href="../../d3/d7d/class_f_r_h_i_command_list_immediate.html#adb83c512eaf67a2d6d49037d83bc6895">  135</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d3/d7d/class_f_r_h_i_command_list_immediate.html#adb83c512eaf67a2d6d49037d83bc6895">BeginImGui</a>()</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>    {</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>        <a class="code hl_function" href="../../d6/d36/class_f_r_h_i_command_list_base.html#aba7acf76251af0ace18084cd78b58170">GetContext</a>().<a class="code hl_function" href="../../d8/d41/class_i_r_h_i_command_context.html#abdc8d79607cb9a68c6d79d6a7116f57c">RHIBeginImGui</a>();</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    }</div>
+</div>
+<div class="foldopen" id="foldopen00139" data-start="{" data-end="}">
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno"><a class="line" href="../../d3/d7d/class_f_r_h_i_command_list_immediate.html#a50f9e7b35ab88a869506da4bd537d610">  139</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d3/d7d/class_f_r_h_i_command_list_immediate.html#a50f9e7b35ab88a869506da4bd537d610">EndImGui</a>()</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>    {</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>        <a class="code hl_function" href="../../d6/d36/class_f_r_h_i_command_list_base.html#aba7acf76251af0ace18084cd78b58170">GetContext</a>().<a class="code hl_function" href="../../d8/d41/class_i_r_h_i_command_context.html#a2e14b0f1f38950719884854721ecfb51">RHIEndImGui</a>();</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>    }</div>
+</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d3/d7d/class_f_r_h_i_command_list_immediate.html#acaea61b77d043d0b9dfeebdb8312f93c">InitializeContexts</a>();</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span> </div>
+<div class="foldopen" id="foldopen00145" data-start="{" data-end="}">
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno"><a class="line" href="../../d3/d7d/class_f_r_h_i_command_list_immediate.html#adc5a701d267391d05ce4bb6fc3c82de1">  145</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d3/d7d/class_f_r_h_i_command_list_immediate.html#adc5a701d267391d05ce4bb6fc3c82de1">ClearTextureColor</a>(<a class="code hl_class" href="../../d3/d6d/class_f_r_h_i_texture.html">FRHITexture</a>* InTexture, <a class="code hl_class" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">FVector</a> InColor)</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>    {</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>        <a class="code hl_function" href="../../d6/d36/class_f_r_h_i_command_list_base.html#aba7acf76251af0ace18084cd78b58170">GetContext</a>().<a class="code hl_function" href="../../d8/d41/class_i_r_h_i_command_context.html#a5214f20c38de1bfbf9e69435142156a1">RHIClearTextureColor</a>(InTexture, InColor);</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    }</div>
+</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span> </div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span> </div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span> </div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span> </div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>};</div>
+</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span> </div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span> </div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span> </div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span> </div>
+<div class="foldopen" id="foldopen00158" data-start="{" data-end="};">
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno"><a class="line" href="../../d2/d3a/class_f_r_h_i_command_list_executor.html">  158</a></span><span class="keyword">class </span><a class="code hl_class" href="../../d2/d3a/class_f_r_h_i_command_list_executor.html">FRHICommandListExecutor</a></div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>{</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span><span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00161" data-start="{" data-end="}">
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno"><a class="line" href="../../d2/d3a/class_f_r_h_i_command_list_executor.html#a3fe631e7255e3ecf10d2e36567aeee64">  161</a></span>    <a class="code hl_function" href="../../d2/d3a/class_f_r_h_i_command_list_executor.html#a3fe631e7255e3ecf10d2e36567aeee64">FRHICommandListExecutor</a>()</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>        : bLatchedByPass(false)</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>    {</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span> </div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>    }</div>
+</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span> </div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>    <span class="keyword">static</span> <a class="code hl_class" href="../../d3/d7d/class_f_r_h_i_command_list_immediate.html">FRHICommandListImmediate</a>&amp; <a class="code hl_function" href="../../d2/d3a/class_f_r_h_i_command_list_executor.html#a5ae612979d49a56daaa48327342fc24d">GetImmediateCommandList</a>();</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno"><a class="line" href="../../d2/d3a/class_f_r_h_i_command_list_executor.html#ae1fad828e378013f5c4a5f1a24079653">  168</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d2/d3a/class_f_r_h_i_command_list_executor.html#ae1fad828e378013f5c4a5f1a24079653">LatchByPass</a>() {}</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span> </div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span> </div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span> </div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span> </div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>    <a class="code hl_class" href="../../d3/d7d/class_f_r_h_i_command_list_immediate.html">FRHICommandListImmediate</a> CommandListImmediate;</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>    <span class="keywordtype">bool</span> bLatchedByPass;</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span> </div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span> </div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>};</div>
+</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span> </div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span><span class="keyword">extern</span> <a class="code hl_class" href="../../d2/d3a/class_f_r_h_i_command_list_executor.html">FRHICommandListExecutor</a> <a class="code hl_variable" href="../../d1/d1d/_r_h_i_command_list_8h.html#a2087ac53276a37382721a9fec51b4a37">GRHICommandList</a>;</div>
+<div class="ttc" id="a_core_types_8h_html"><div class="ttname"><a href="../../db/d04/_core_types_8h.html">CoreTypes.h</a></div></div>
+<div class="ttc" id="a_dark_template_8h_html"><div class="ttname"><a href="../../de/d85/_dark_template_8h.html">DarkTemplate.h</a></div></div>
+<div class="ttc" id="a_dynamic_r_h_i_8cpp_html_a7f476220c09bed9c45bc8cdcfde73e72"><div class="ttname"><a href="../../d3/dcd/_dynamic_r_h_i_8cpp.html#a7f476220c09bed9c45bc8cdcfde73e72">GDynamicRHI</a></div><div class="ttdeci">FDynamicRHI * GDynamicRHI</div><div class="ttdef"><b>Definition</b> DynamicRHI.cpp:8</div></div>
+<div class="ttc" id="a_dynamic_r_h_i_8h_html"><div class="ttname"><a href="../../d8/db0/_dynamic_r_h_i_8h.html">DynamicRHI.h</a></div></div>
+<div class="ttc" id="a_platform_8h_html_a84083085985fb180ad38b9c32e3937da"><div class="ttname"><a href="../../d2/dc9/_platform_8h.html#a84083085985fb180ad38b9c32e3937da">int32</a></div><div class="ttdeci">FPlatformTypes::int32 int32</div><div class="ttdef"><b>Definition</b> Platform.h:42</div></div>
+<div class="ttc" id="a_platform_8h_html_a89241ea7101f26f05a4f1efd6be26b32"><div class="ttname"><a href="../../d2/dc9/_platform_8h.html#a89241ea7101f26f05a4f1efd6be26b32">int64</a></div><div class="ttdeci">FPlatformTypes::int64 int64</div><div class="ttdef"><b>Definition</b> Platform.h:44</div></div>
+<div class="ttc" id="a_platform_8h_html_a8c7a127091efbdfc5a16939041653e05"><div class="ttname"><a href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a></div><div class="ttdeci">FPlatformTypes::uint32 uint32</div><div class="ttdef"><b>Definition</b> Platform.h:43</div></div>
+<div class="ttc" id="a_r_h_i_command_list_8h_html_a2087ac53276a37382721a9fec51b4a37"><div class="ttname"><a href="../../d1/d1d/_r_h_i_command_list_8h.html#a2087ac53276a37382721a9fec51b4a37">GRHICommandList</a></div><div class="ttdeci">FRHICommandListExecutor GRHICommandList</div><div class="ttdef"><b>Definition</b> RHICommandList.cpp:7</div></div>
+<div class="ttc" id="a_r_h_i_context_8h_html"><div class="ttname"><a href="../../d0/dc7/_r_h_i_context_8h.html">RHIContext.h</a></div></div>
+<div class="ttc" id="a_r_h_i_resources_8h_html"><div class="ttname"><a href="../../db/dec/_r_h_i_resources_8h.html">RHIResources.h</a></div></div>
+<div class="ttc" id="aclass_f_dynamic_r_h_i_html_a416befd9929970c468352fca1cec71df"><div class="ttname"><a href="../../de/d38/class_f_dynamic_r_h_i.html#a416befd9929970c468352fca1cec71df">FDynamicRHI::RHIGetDefaultContext</a></div><div class="ttdeci">virtual IRHIComputeContext * RHIGetDefaultContext()=0</div></div>
+<div class="ttc" id="aclass_f_noncopyble_html"><div class="ttname"><a href="../../d2/dc6/class_f_noncopyble.html">FNoncopyble</a></div><div class="ttdef"><b>Definition</b> DarkTemplate.h:24</div></div>
+<div class="ttc" id="aclass_f_r_h_i_buffer_html"><div class="ttname"><a href="../../d9/d24/class_f_r_h_i_buffer.html">FRHIBuffer</a></div><div class="ttdef"><b>Definition</b> RHIResources.h:155</div></div>
+<div class="ttc" id="aclass_f_r_h_i_command_list_base_html"><div class="ttname"><a href="../../d6/d36/class_f_r_h_i_command_list_base.html">FRHICommandListBase</a></div><div class="ttdef"><b>Definition</b> RHICommandList.h:11</div></div>
+<div class="ttc" id="aclass_f_r_h_i_command_list_base_html_a11ce7c99aa7331e71a7f0193c5135292"><div class="ttname"><a href="../../d6/d36/class_f_r_h_i_command_list_base.html#a11ce7c99aa7331e71a7f0193c5135292">FRHICommandListBase::ERecordingThread</a></div><div class="ttdeci">ERecordingThread</div><div class="ttdef"><b>Definition</b> RHICommandList.h:14</div></div>
+<div class="ttc" id="aclass_f_r_h_i_command_list_base_html_a11ce7c99aa7331e71a7f0193c5135292a5e520da5341f2fec6d3bbfe7ef357922"><div class="ttname"><a href="../../d6/d36/class_f_r_h_i_command_list_base.html#a11ce7c99aa7331e71a7f0193c5135292a5e520da5341f2fec6d3bbfe7ef357922">FRHICommandListBase::ERecordingThread::Render</a></div><div class="ttdeci">@ Render</div></div>
+<div class="ttc" id="aclass_f_r_h_i_command_list_base_html_a11ce7c99aa7331e71a7f0193c5135292aed36a1ef76a59ee3f15180e0441188ad"><div class="ttname"><a href="../../d6/d36/class_f_r_h_i_command_list_base.html#a11ce7c99aa7331e71a7f0193c5135292aed36a1ef76a59ee3f15180e0441188ad">FRHICommandListBase::ERecordingThread::Any</a></div><div class="ttdeci">@ Any</div></div>
+<div class="ttc" id="aclass_f_r_h_i_command_list_base_html_a1a2ae72ef7510739e936a6ead4d2411c"><div class="ttname"><a href="../../d6/d36/class_f_r_h_i_command_list_base.html#a1a2ae72ef7510739e936a6ead4d2411c">FRHICommandListBase::Alloc</a></div><div class="ttdeci">void * Alloc(int64 InAlocSize, int64 InAllignment)</div></div>
+<div class="ttc" id="aclass_f_r_h_i_command_list_base_html_a2c2d7709be18fccb197adb52f109481c"><div class="ttname"><a href="../../d6/d36/class_f_r_h_i_command_list_base.html#a2c2d7709be18fccb197adb52f109481c">FRHICommandListBase::GetAsImmediate</a></div><div class="ttdeci">class FRHICommandListImmediate &amp; GetAsImmediate()</div></div>
+<div class="ttc" id="aclass_f_r_h_i_command_list_base_html_a2e369d3f827a07e6d2c7e15aeaf1c6e0"><div class="ttname"><a href="../../d6/d36/class_f_r_h_i_command_list_base.html#a2e369d3f827a07e6d2c7e15aeaf1c6e0">FRHICommandListBase::AddDispatchPrerequisite</a></div><div class="ttdeci">void AddDispatchPrerequisite(const FGraphEventRef &amp;InPrereq)</div></div>
+<div class="ttc" id="aclass_f_r_h_i_command_list_base_html_a4ea3171cc9487ac22e2a88ec5e58dfad"><div class="ttname"><a href="../../d6/d36/class_f_r_h_i_command_list_base.html#a4ea3171cc9487ac22e2a88ec5e58dfad">FRHICommandListBase::FRHICommandListBase</a></div><div class="ttdeci">FRHICommandListBase()</div><div class="ttdef"><b>Definition</b> RHICommandList.h:20</div></div>
+<div class="ttc" id="aclass_f_r_h_i_command_list_base_html_a6a96d351cab4df7a05aed6f53f8233cb"><div class="ttname"><a href="../../d6/d36/class_f_r_h_i_command_list_base.html#a6a96d351cab4df7a05aed6f53f8233cb">FRHICommandListBase::~FRHICommandListBase</a></div><div class="ttdeci">~FRHICommandListBase()</div><div class="ttdef"><b>Definition</b> RHICommandList.h:24</div></div>
+<div class="ttc" id="aclass_f_r_h_i_command_list_base_html_a7b4a70d0a4452f7b3f66e0eaa939c095"><div class="ttname"><a href="../../d6/d36/class_f_r_h_i_command_list_base.html#a7b4a70d0a4452f7b3f66e0eaa939c095">FRHICommandListBase::FinishRecording</a></div><div class="ttdeci">void FinishRecording()</div></div>
+<div class="ttc" id="aclass_f_r_h_i_command_list_base_html_a7bf304af308aa3072aca59aab1f88f0c"><div class="ttname"><a href="../../d6/d36/class_f_r_h_i_command_list_base.html#a7bf304af308aa3072aca59aab1f88f0c">FRHICommandListBase::IsImmediate</a></div><div class="ttdeci">bool IsImmediate()</div></div>
+<div class="ttc" id="aclass_f_r_h_i_command_list_base_html_a84c1086a66dadaa9d21affb3c43b2da6"><div class="ttname"><a href="../../d6/d36/class_f_r_h_i_command_list_base.html#a84c1086a66dadaa9d21affb3c43b2da6">FRHICommandListBase::SwitchPipeline</a></div><div class="ttdeci">void SwitchPipeline()</div><div class="ttdef"><b>Definition</b> RHICommandList.h:31</div></div>
+<div class="ttc" id="aclass_f_r_h_i_command_list_base_html_aba7acf76251af0ace18084cd78b58170"><div class="ttname"><a href="../../d6/d36/class_f_r_h_i_command_list_base.html#aba7acf76251af0ace18084cd78b58170">FRHICommandListBase::GetContext</a></div><div class="ttdeci">IRHICommandContext &amp; GetContext()</div><div class="ttdef"><b>Definition</b> RHICommandList.h:43</div></div>
+<div class="ttc" id="aclass_f_r_h_i_command_list_base_html_ad73bfcd91f4330ac623b5dcc3b6b7102"><div class="ttname"><a href="../../d6/d36/class_f_r_h_i_command_list_base.html#ad73bfcd91f4330ac623b5dcc3b6b7102">FRHICommandListBase::GetUsedMemory</a></div><div class="ttdeci">const int32 GetUsedMemory() const</div></div>
+<div class="ttc" id="aclass_f_r_h_i_command_list_base_html_ae50c16008cdd6575e7fb56ab55fb2d87"><div class="ttname"><a href="../../d6/d36/class_f_r_h_i_command_list_base.html#ae50c16008cdd6575e7fb56ab55fb2d87">FRHICommandListBase::FRHICommandListBase</a></div><div class="ttdeci">FRHICommandListBase(FRHICommandListBase &amp;&amp;Other)</div><div class="ttdef"><b>Definition</b> RHICommandList.h:23</div></div>
+<div class="ttc" id="aclass_f_r_h_i_command_list_executor_html"><div class="ttname"><a href="../../d2/d3a/class_f_r_h_i_command_list_executor.html">FRHICommandListExecutor</a></div><div class="ttdef"><b>Definition</b> RHICommandList.h:159</div></div>
+<div class="ttc" id="aclass_f_r_h_i_command_list_executor_html_a3fe631e7255e3ecf10d2e36567aeee64"><div class="ttname"><a href="../../d2/d3a/class_f_r_h_i_command_list_executor.html#a3fe631e7255e3ecf10d2e36567aeee64">FRHICommandListExecutor::FRHICommandListExecutor</a></div><div class="ttdeci">FRHICommandListExecutor()</div><div class="ttdef"><b>Definition</b> RHICommandList.h:161</div></div>
+<div class="ttc" id="aclass_f_r_h_i_command_list_executor_html_a5ae612979d49a56daaa48327342fc24d"><div class="ttname"><a href="../../d2/d3a/class_f_r_h_i_command_list_executor.html#a5ae612979d49a56daaa48327342fc24d">FRHICommandListExecutor::GetImmediateCommandList</a></div><div class="ttdeci">static FRHICommandListImmediate &amp; GetImmediateCommandList()</div><div class="ttdef"><b>Definition</b> RHICommandList.cpp:9</div></div>
+<div class="ttc" id="aclass_f_r_h_i_command_list_executor_html_ae1fad828e378013f5c4a5f1a24079653"><div class="ttname"><a href="../../d2/d3a/class_f_r_h_i_command_list_executor.html#ae1fad828e378013f5c4a5f1a24079653">FRHICommandListExecutor::LatchByPass</a></div><div class="ttdeci">void LatchByPass()</div><div class="ttdef"><b>Definition</b> RHICommandList.h:168</div></div>
+<div class="ttc" id="aclass_f_r_h_i_command_list_html"><div class="ttname"><a href="../../d9/dfe/class_f_r_h_i_command_list.html">FRHICommandList</a></div><div class="ttdef"><b>Definition</b> RHICommandList.h:70</div></div>
+<div class="ttc" id="aclass_f_r_h_i_command_list_html_a1e880b04daedc67b72320ae4fc82033c"><div class="ttname"><a href="../../d9/dfe/class_f_r_h_i_command_list.html#a1e880b04daedc67b72320ae4fc82033c">FRHICommandList::FRHICommandList</a></div><div class="ttdeci">FRHICommandList()</div><div class="ttdef"><b>Definition</b> RHICommandList.h:72</div></div>
+<div class="ttc" id="aclass_f_r_h_i_command_list_html_a5caa8253a4db2fba6f42212088216b72"><div class="ttname"><a href="../../d9/dfe/class_f_r_h_i_command_list.html#a5caa8253a4db2fba6f42212088216b72">FRHICommandList::RHISetViewport</a></div><div class="ttdeci">void RHISetViewport(float MinX, float MinY, float MinZ, float MaxX, float MaxY, float MaxZ)</div><div class="ttdef"><b>Definition</b> RHICommandList.h:79</div></div>
+<div class="ttc" id="aclass_f_r_h_i_command_list_html_ab4cb1485eec439e0eb703f6f17763aaf"><div class="ttname"><a href="../../d9/dfe/class_f_r_h_i_command_list.html#ab4cb1485eec439e0eb703f6f17763aaf">FRHICommandList::SetStreamSource</a></div><div class="ttdeci">void SetStreamSource(uint32 StreamIndex, FRHIBuffer *VertexBuffer, uint32 Offset, uint32 Stride)</div><div class="ttdef"><b>Definition</b> RHICommandList.h:90</div></div>
+<div class="ttc" id="aclass_f_r_h_i_command_list_html_abba29d30a36401d05482a57f69b5aeb4"><div class="ttname"><a href="../../d9/dfe/class_f_r_h_i_command_list.html#abba29d30a36401d05482a57f69b5aeb4">FRHICommandList::SetGraphicsPipelineState</a></div><div class="ttdeci">void SetGraphicsPipelineState(class FRHIGraphicsPipelineState *PipelineState, class FBoundShaderStateInput &amp;ShaderInput)</div><div class="ttdef"><b>Definition</b> RHICommandList.h:85</div></div>
+<div class="ttc" id="aclass_f_r_h_i_command_list_immediate_html"><div class="ttname"><a href="../../d3/d7d/class_f_r_h_i_command_list_immediate.html">FRHICommandListImmediate</a></div><div class="ttdef"><b>Definition</b> RHICommandList.h:102</div></div>
+<div class="ttc" id="aclass_f_r_h_i_command_list_immediate_html_a1f09e2999a3d5f5ebedeb5d251e745cb"><div class="ttname"><a href="../../d3/d7d/class_f_r_h_i_command_list_immediate.html#a1f09e2999a3d5f5ebedeb5d251e745cb">FRHICommandListImmediate::EndFrame</a></div><div class="ttdeci">void EndFrame()</div><div class="ttdef"><b>Definition</b> RHICommandList.h:131</div></div>
+<div class="ttc" id="aclass_f_r_h_i_command_list_immediate_html_a50f9e7b35ab88a869506da4bd537d610"><div class="ttname"><a href="../../d3/d7d/class_f_r_h_i_command_list_immediate.html#a50f9e7b35ab88a869506da4bd537d610">FRHICommandListImmediate::EndImGui</a></div><div class="ttdeci">void EndImGui()</div><div class="ttdef"><b>Definition</b> RHICommandList.h:139</div></div>
+<div class="ttc" id="aclass_f_r_h_i_command_list_immediate_html_a5f324700e39e9b90ee68097200bf7dc4"><div class="ttname"><a href="../../d3/d7d/class_f_r_h_i_command_list_immediate.html#a5f324700e39e9b90ee68097200bf7dc4">FRHICommandListImmediate::BeginDrawingViewport</a></div><div class="ttdeci">void BeginDrawingViewport(FRHIViewport *Viewport, FRHITexture *RenderTargetRHI)</div><div class="ttdef"><b>Definition</b> RHICommandList.h:122</div></div>
+<div class="ttc" id="aclass_f_r_h_i_command_list_immediate_html_a7d178fdbe27d52405a21dd567c5047e3"><div class="ttname"><a href="../../d3/d7d/class_f_r_h_i_command_list_immediate.html#a7d178fdbe27d52405a21dd567c5047e3">FRHICommandListImmediate::BeginFrame</a></div><div class="ttdeci">void BeginFrame()</div><div class="ttdef"><b>Definition</b> RHICommandList.cpp:15</div></div>
+<div class="ttc" id="aclass_f_r_h_i_command_list_immediate_html_a7e7e2ae2bac88331a32e2fd26464522e"><div class="ttname"><a href="../../d3/d7d/class_f_r_h_i_command_list_immediate.html#a7e7e2ae2bac88331a32e2fd26464522e">FRHICommandListImmediate::BeginRenderPass</a></div><div class="ttdeci">void BeginRenderPass(struct FRHIRenderPassInfo &amp;InInfo)</div><div class="ttdef"><b>Definition</b> RHICommandList.h:118</div></div>
+<div class="ttc" id="aclass_f_r_h_i_command_list_immediate_html_a81c96110598f73f030b7c3a808938347"><div class="ttname"><a href="../../d3/d7d/class_f_r_h_i_command_list_immediate.html#a81c96110598f73f030b7c3a808938347">FRHICommandListImmediate::EndDrawingViewport</a></div><div class="ttdeci">void EndDrawingViewport(FRHIViewport *Viewport, bool bPresent, int32 bVsync)</div><div class="ttdef"><b>Definition</b> RHICommandList.h:126</div></div>
+<div class="ttc" id="aclass_f_r_h_i_command_list_immediate_html_ab03ab0911ce54428fa0afeb80a8eec8f"><div class="ttname"><a href="../../d3/d7d/class_f_r_h_i_command_list_immediate.html#ab03ab0911ce54428fa0afeb80a8eec8f">FRHICommandListImmediate::EndScene</a></div><div class="ttdeci">void EndScene()</div></div>
+<div class="ttc" id="aclass_f_r_h_i_command_list_immediate_html_acaea61b77d043d0b9dfeebdb8312f93c"><div class="ttname"><a href="../../d3/d7d/class_f_r_h_i_command_list_immediate.html#acaea61b77d043d0b9dfeebdb8312f93c">FRHICommandListImmediate::InitializeContexts</a></div><div class="ttdeci">void InitializeContexts()</div><div class="ttdef"><b>Definition</b> RHICommandList.cpp:21</div></div>
+<div class="ttc" id="aclass_f_r_h_i_command_list_immediate_html_adb83c512eaf67a2d6d49037d83bc6895"><div class="ttname"><a href="../../d3/d7d/class_f_r_h_i_command_list_immediate.html#adb83c512eaf67a2d6d49037d83bc6895">FRHICommandListImmediate::BeginImGui</a></div><div class="ttdeci">void BeginImGui()</div><div class="ttdef"><b>Definition</b> RHICommandList.h:135</div></div>
+<div class="ttc" id="aclass_f_r_h_i_command_list_immediate_html_adc5a701d267391d05ce4bb6fc3c82de1"><div class="ttname"><a href="../../d3/d7d/class_f_r_h_i_command_list_immediate.html#adc5a701d267391d05ce4bb6fc3c82de1">FRHICommandListImmediate::ClearTextureColor</a></div><div class="ttdeci">void ClearTextureColor(FRHITexture *InTexture, FVector InColor)</div><div class="ttdef"><b>Definition</b> RHICommandList.h:145</div></div>
+<div class="ttc" id="aclass_f_r_h_i_command_list_immediate_html_addd243555a2c821969b7fed9e0743836"><div class="ttname"><a href="../../d3/d7d/class_f_r_h_i_command_list_immediate.html#addd243555a2c821969b7fed9e0743836">FRHICommandListImmediate::BeginScene</a></div><div class="ttdeci">void BeginScene()</div></div>
+<div class="ttc" id="aclass_f_r_h_i_compute_command_list_html"><div class="ttname"><a href="../../dd/de6/class_f_r_h_i_compute_command_list.html">FRHIComputeCommandList</a></div><div class="ttdef"><b>Definition</b> RHICommandList.h:57</div></div>
+<div class="ttc" id="aclass_f_r_h_i_compute_command_list_html_a4ff96a1a8d2888ba1c983721355e7374"><div class="ttname"><a href="../../dd/de6/class_f_r_h_i_compute_command_list.html#a4ff96a1a8d2888ba1c983721355e7374">FRHIComputeCommandList::FRHIComputeCommandList</a></div><div class="ttdeci">FRHIComputeCommandList()</div><div class="ttdef"><b>Definition</b> RHICommandList.h:59</div></div>
+<div class="ttc" id="aclass_f_r_h_i_graphics_pipeline_state_html"><div class="ttname"><a href="../../de/dfc/class_f_r_h_i_graphics_pipeline_state.html">FRHIGraphicsPipelineState</a></div><div class="ttdef"><b>Definition</b> RHIResources.h:112</div></div>
+<div class="ttc" id="aclass_f_r_h_i_texture_html"><div class="ttname"><a href="../../d3/d6d/class_f_r_h_i_texture.html">FRHITexture</a></div><div class="ttdef"><b>Definition</b> RHIResources.h:296</div></div>
+<div class="ttc" id="aclass_f_r_h_i_viewport_html"><div class="ttname"><a href="../../d0/d5f/class_f_r_h_i_viewport.html">FRHIViewport</a></div><div class="ttdef"><b>Definition</b> RHIResources.h:326</div></div>
+<div class="ttc" id="aclass_i_r_h_i_command_context_html"><div class="ttname"><a href="../../d8/d41/class_i_r_h_i_command_context.html">IRHICommandContext</a></div><div class="ttdef"><b>Definition</b> RHIContext.h:30</div></div>
+<div class="ttc" id="aclass_i_r_h_i_command_context_html_a2386d2f02841a5684468d7beb7a1fc7c"><div class="ttname"><a href="../../d8/d41/class_i_r_h_i_command_context.html#a2386d2f02841a5684468d7beb7a1fc7c">IRHICommandContext::RHIBeginRenderPass</a></div><div class="ttdeci">virtual void RHIBeginRenderPass(struct FRHIRenderPassInfo &amp;InInfo)=0</div></div>
+<div class="ttc" id="aclass_i_r_h_i_command_context_html_a2e14b0f1f38950719884854721ecfb51"><div class="ttname"><a href="../../d8/d41/class_i_r_h_i_command_context.html#a2e14b0f1f38950719884854721ecfb51">IRHICommandContext::RHIEndImGui</a></div><div class="ttdeci">virtual void RHIEndImGui()=0</div></div>
+<div class="ttc" id="aclass_i_r_h_i_command_context_html_a3a39de659290f300dc94d04fea9c47d3"><div class="ttname"><a href="../../d8/d41/class_i_r_h_i_command_context.html#a3a39de659290f300dc94d04fea9c47d3">IRHICommandContext::RHISetStreamSource</a></div><div class="ttdeci">virtual void RHISetStreamSource(uint32 StreamIndex, FRHIBuffer *VertexBuffer, uint32 Offset, uint32 Stride)=0</div></div>
+<div class="ttc" id="aclass_i_r_h_i_command_context_html_a3a90c2d8763f94ca834b2e8d3a4fa1c5"><div class="ttname"><a href="../../d8/d41/class_i_r_h_i_command_context.html#a3a90c2d8763f94ca834b2e8d3a4fa1c5">IRHICommandContext::RHISetGraphicsPipelineState</a></div><div class="ttdeci">virtual void RHISetGraphicsPipelineState(class FRHIGraphicsPipelineState *GraphicsPSO, const FBoundShaderStateInput &amp;ShaderInput)=0</div></div>
+<div class="ttc" id="aclass_i_r_h_i_command_context_html_a436ec235e25ad15f4a4cdd4ae0dc13be"><div class="ttname"><a href="../../d8/d41/class_i_r_h_i_command_context.html#a436ec235e25ad15f4a4cdd4ae0dc13be">IRHICommandContext::RHIEndDrawingViewport</a></div><div class="ttdeci">virtual void RHIEndDrawingViewport(FRHIViewport *Viewport, bool bPresent, int32 Vsync)=0</div></div>
+<div class="ttc" id="aclass_i_r_h_i_command_context_html_a5214f20c38de1bfbf9e69435142156a1"><div class="ttname"><a href="../../d8/d41/class_i_r_h_i_command_context.html#a5214f20c38de1bfbf9e69435142156a1">IRHICommandContext::RHIClearTextureColor</a></div><div class="ttdeci">virtual void RHIClearTextureColor(FRHITexture *InTexture, FVector InColor)=0</div></div>
+<div class="ttc" id="aclass_i_r_h_i_command_context_html_a7d0aa131ee738047cab127901d55f9f8"><div class="ttname"><a href="../../d8/d41/class_i_r_h_i_command_context.html#a7d0aa131ee738047cab127901d55f9f8">IRHICommandContext::RHIBeginDrawingViewport</a></div><div class="ttdeci">virtual void RHIBeginDrawingViewport(FRHIViewport *Viewport, FRHITexture *RenderTarget)=0</div></div>
+<div class="ttc" id="aclass_i_r_h_i_command_context_html_a9c270bca1093d983140d6621816b34c4"><div class="ttname"><a href="../../d8/d41/class_i_r_h_i_command_context.html#a9c270bca1093d983140d6621816b34c4">IRHICommandContext::RHIEndFrame</a></div><div class="ttdeci">virtual void RHIEndFrame()=0</div></div>
+<div class="ttc" id="aclass_i_r_h_i_command_context_html_abdc8d79607cb9a68c6d79d6a7116f57c"><div class="ttname"><a href="../../d8/d41/class_i_r_h_i_command_context.html#abdc8d79607cb9a68c6d79d6a7116f57c">IRHICommandContext::RHIBeginImGui</a></div><div class="ttdeci">virtual void RHIBeginImGui()=0</div></div>
+<div class="ttc" id="aclass_i_r_h_i_command_context_html_ae672c0454fad64b877f50c8fe7661f77"><div class="ttname"><a href="../../d8/d41/class_i_r_h_i_command_context.html#ae672c0454fad64b877f50c8fe7661f77">IRHICommandContext::RHISetViewport</a></div><div class="ttdeci">virtual void RHISetViewport(float MinX, float MinY, float MinZ, float MaxX, float MaxY, float MaxZ)</div><div class="ttdef"><b>Definition</b> RHIContext.h:41</div></div>
+<div class="ttc" id="aclass_i_r_h_i_compute_context_html"><div class="ttname"><a href="../../d2/db5/class_i_r_h_i_compute_context.html">IRHIComputeContext</a></div><div class="ttdef"><b>Definition</b> RHIContext.h:7</div></div>
+<div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector&lt; double &gt;</a></div></div>
+<div class="ttc" id="astruct_f_bound_shader_state_input_html"><div class="ttname"><a href="../../db/d5f/struct_f_bound_shader_state_input.html">FBoundShaderStateInput</a></div><div class="ttdef"><b>Definition</b> RHIResources.h:549</div></div>
+<div class="ttc" id="astruct_f_r_h_i_render_pass_info_html"><div class="ttname"><a href="../../dc/dcb/struct_f_r_h_i_render_pass_info.html">FRHIRenderPassInfo</a></div><div class="ttdef"><b>Definition</b> RHIResources.h:493</div></div>
+<div class="ttc" id="astruct_viewport_html"><div class="ttname"><a href="../../de/d02/struct_viewport.html">Viewport</a></div><div class="ttdef"><b>Definition</b> D3D12Render.h:37</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
+</body>
+</html>

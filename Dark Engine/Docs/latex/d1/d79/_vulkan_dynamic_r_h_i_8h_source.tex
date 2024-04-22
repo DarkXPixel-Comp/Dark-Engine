@@ -1,0 +1,38 @@
+\doxysection{Vulkan\+Dynamic\+RHI.\+h}
+\hypertarget{_vulkan_dynamic_r_h_i_8h_source}{}\label{_vulkan_dynamic_r_h_i_8h_source}\index{Dark Engine/Source/Runtime/VulkanRHI/public/VulkanDynamicRHI.h@{Dark Engine/Source/Runtime/VulkanRHI/public/VulkanDynamicRHI.h}}
+\mbox{\hyperlink{_vulkan_dynamic_r_h_i_8h}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_dynamic_r_h_i_8h}{DynamicRHI.h}}"{}}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//\#include\ "{}vulkan/vulkan.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{comment}{//}}
+\DoxyCodeLine{00005\ \textcolor{comment}{//}}
+\DoxyCodeLine{00006\ \textcolor{comment}{//class\ FVulkanDynamicRHI\ :\ public\ FDynamicRHI}}
+\DoxyCodeLine{00007\ \textcolor{comment}{//\{}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//public:}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ \ //static\ FVulkanDynamicRHI\&\ Get()\ \{\}}}
+\DoxyCodeLine{00010\ \textcolor{comment}{//}}
+\DoxyCodeLine{00011\ \textcolor{comment}{//\ \ FVulkanDynamicRHI();}}
+\DoxyCodeLine{00012\ \textcolor{comment}{//}}
+\DoxyCodeLine{00013\ \textcolor{comment}{//\ \ virtual\ VkInstance\ RHIGetVkInstance()\ const;}}
+\DoxyCodeLine{00014\ \textcolor{comment}{//\ \ virtual\ VkDevice\ RHIGetVkDevice()\ const;}}
+\DoxyCodeLine{00015\ \textcolor{comment}{//}}
+\DoxyCodeLine{00016\ \textcolor{comment}{//}}
+\DoxyCodeLine{00017\ \textcolor{comment}{//\ \ virtual\ void\ Init()\ override;}}
+\DoxyCodeLine{00018\ \textcolor{comment}{//\ \ virtual\ void\ PostInit()\ override;}}
+\DoxyCodeLine{00019\ \textcolor{comment}{//}}
+\DoxyCodeLine{00020\ \textcolor{comment}{//}}
+\DoxyCodeLine{00021\ \textcolor{comment}{//\};}}
+\DoxyCodeLine{00022\ \textcolor{comment}{//}}
+\DoxyCodeLine{00023\ \textcolor{comment}{//}}
+\DoxyCodeLine{00024\ \textcolor{comment}{//class\ FVulkanDynamicRHIModule\ :\ public\ IDynamicRHIModule}}
+\DoxyCodeLine{00025\ \textcolor{comment}{//\{}}
+\DoxyCodeLine{00026\ \textcolor{comment}{//public:}}
+\DoxyCodeLine{00027\ \textcolor{comment}{//\ \ FVulkanDynamicRHIModule();}}
+\DoxyCodeLine{00028\ \textcolor{comment}{//}}
+\DoxyCodeLine{00029\ \textcolor{comment}{//\ \ virtual\ FDynamicRHI*\ CreateRHI()\ override;}}
+\DoxyCodeLine{00030\ \textcolor{comment}{//}}
+\DoxyCodeLine{00031\ \textcolor{comment}{//private:}}
+\DoxyCodeLine{00032\ \textcolor{comment}{//\};}}
+
+\end{DoxyCode}

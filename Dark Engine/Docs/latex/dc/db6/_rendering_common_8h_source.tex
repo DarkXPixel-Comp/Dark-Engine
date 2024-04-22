@@ -1,0 +1,46 @@
+\doxysection{Rendering\+Common.\+h}
+\hypertarget{_rendering_common_8h_source}{}\label{_rendering_common_8h_source}\index{Dark Engine/Source/Runtime/UICore/public/Rendering/RenderingCommon.h@{Dark Engine/Source/Runtime/UICore/public/Rendering/RenderingCommon.h}}
+\mbox{\hyperlink{_rendering_common_8h}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_core_minimal_8h}{CoreMinimal.h}}"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_u_i_shader_resource_8h}{UIShaderResource.h}}"{}}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_i_u_i_viewport}{IUIViewport}}}
+\DoxyCodeLine{00008\ \{}
+\DoxyCodeLine{00009\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_i_u_i_viewport_a6cf29747cb2650279ffeace7d65be223}{OnDrawViewport}}()\ \{\}}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_int_point}{FIntPoint}}\ \mbox{\hyperlink{class_i_u_i_viewport_a3e2cfdaf01d6e43fe77d140c8a1d7624}{GetSize}}()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_f_u_i_shader_resource}{FUIShaderResource}}*\ \mbox{\hyperlink{class_i_u_i_viewport_a8587fbe3dc8b68ee1c23fea127b2d180}{GetViewportRenderTargetTexture}}()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_i_u_i_viewport_a296050fea1156389e389b765ac0dbcda}{OnMouseEnter}}()\ \{\}}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_i_u_i_viewport_af96c1d44a939031cb3ca90f1146103a5}{OnMouseLeave}}()\ \{\}}
+\DoxyCodeLine{00017\ \};}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{comment}{//class\ FUIBackBuffer\ :\ public\ FRenderTarget}}
+\DoxyCodeLine{00022\ \textcolor{comment}{//\{}}
+\DoxyCodeLine{00023\ \textcolor{comment}{//public:}}
+\DoxyCodeLine{00024\ \textcolor{comment}{//\ \ FUIBackBuffer(TSharedPtr\ FRHITexture)}}
+\DoxyCodeLine{00025\ \textcolor{comment}{//\};}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{comment}{//class\ FUIWindowViewport\ :\ public\ IUIViewport}}
+\DoxyCodeLine{00029\ \textcolor{comment}{//\{}}
+\DoxyCodeLine{00030\ \textcolor{comment}{//public:}}
+\DoxyCodeLine{00031\ \textcolor{comment}{//\ \ virtual\ FIntPoint\ GetSize()\ const\ \{\ return\ FIntPoint(RenderTarget-\/>GetWidth(),\ RenderTarget-\/>GetHeight());\ \}}}
+\DoxyCodeLine{00032\ \textcolor{comment}{//\ \ virtual\ FUIShaderResource*\ GetViewportRenderTargetTexture()\ const\ \{\ return\ RenderTarget.get();\ \}}}
+\DoxyCodeLine{00033\ \textcolor{comment}{//}}
+\DoxyCodeLine{00034\ \textcolor{comment}{//}}
+\DoxyCodeLine{00035\ \textcolor{comment}{//}}
+\DoxyCodeLine{00036\ \textcolor{comment}{//}}
+\DoxyCodeLine{00037\ \textcolor{comment}{//private:}}
+\DoxyCodeLine{00038\ \textcolor{comment}{//}}
+\DoxyCodeLine{00039\ \textcolor{comment}{//\};}}
+\DoxyCodeLine{00040\ \textcolor{comment}{//}}
+
+\end{DoxyCode}

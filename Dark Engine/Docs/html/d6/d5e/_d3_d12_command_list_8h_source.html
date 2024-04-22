@@ -1,0 +1,205 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Dark Engine: Исходный файл Dark Engine/Source/Runtime/D3D12RHI/private/D3D12CommandList.h</title>
+<link rel="icon" href="../../Logo.ico" type="image/x-icon" />
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<script type="text/javascript" src="../../clipboard.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../Logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Dark Engine<span id="projectnumber">&#160;0.0.39</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../../',true,false,'search.php','Поиск');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(1); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_55043db21ba5ddd7c561d2c5a5a38944.html">Dark Engine</a></li><li class="navelem"><a class="el" href="../../dir_e00b54220e1e1486ac9971b606d33054.html">Source</a></li><li class="navelem"><a class="el" href="../../dir_ae01c8af07818b260cc3481e8588b277.html">Runtime</a></li><li class="navelem"><a class="el" href="../../dir_69d1b7a79a04d24cd43f7c84d74c5d6d.html">D3D12RHI</a></li><li class="navelem"><a class="el" href="../../dir_975782192f4e5579da5ceb9eedcf6dc7.html">private</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">D3D12CommandList.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d6/d5e/_d3_d12_command_list_8h.html">См. документацию.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;<a class="code" href="../../d7/d20/_d3_d12_device_8h.html">D3D12Device.h</a>&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="../../d6/dd6/_d3_d12_queue_8h.html">D3D12Queue.h</a>&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="../../dc/d27/_t_unique_ptr_8h.html">Memory/TUniquePtr.h</a>&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="foldopen" id="foldopen00009" data-start="{" data-end="};">
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="../../d7/dc0/class_f_d3_d12_command_allocator.html">    9</a></span><span class="keyword">class </span><a class="code hl_class" href="../../d7/dc0/class_f_d3_d12_command_allocator.html">FD3D12CommandAllocator</a></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>{</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keyword">friend</span> <a class="code hl_class" href="../../d1/d79/class_f_d3_d12_device.html">FD3D12Device</a>;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <a class="code hl_class" href="../../d7/dc0/class_f_d3_d12_command_allocator.html">FD3D12CommandAllocator</a>(<a class="code hl_class" href="../../d1/d79/class_f_d3_d12_device.html">FD3D12Device</a>* InDevice, <a class="code hl_enumeration" href="../../d6/dd6/_d3_d12_queue_8h.html#ac3690361fe491f309cb9dbba3be17899">ED3D12QueueType</a> InQueueType);</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <a class="code hl_function" href="../../d7/dc0/class_f_d3_d12_command_allocator.html#aab45838be82d46d109496ffd008f458e">~FD3D12CommandAllocator</a>();</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="../../d7/dc0/class_f_d3_d12_command_allocator.html#ae9fd18269f84c51cf096aca0a658ce9b">   19</a></span>    <a class="code hl_class" href="../../d1/d79/class_f_d3_d12_device.html">FD3D12Device</a>* <span class="keyword">const</span> <a class="code hl_variable" href="../../d7/dc0/class_f_d3_d12_command_allocator.html#ae9fd18269f84c51cf096aca0a658ce9b">Device</a>;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="../../d7/dc0/class_f_d3_d12_command_allocator.html#af66f1547ed14c31f1a05f76b9c243c9f">   20</a></span>    <a class="code hl_enumeration" href="../../d6/dd6/_d3_d12_queue_8h.html#ac3690361fe491f309cb9dbba3be17899">ED3D12QueueType</a> <a class="code hl_variable" href="../../d7/dc0/class_f_d3_d12_command_allocator.html#af66f1547ed14c31f1a05f76b9c243c9f">QueueType</a>;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d7/dc0/class_f_d3_d12_command_allocator.html#adb2dedf63619a4057713753c20dc2b90">Reset</a>();</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="../../d7/dc0/class_f_d3_d12_command_allocator.html#a5190b0a173e4fa59cd1ae1935dc29e0b">   24</a></span>    <span class="keyword">operator</span> ID3D12CommandAllocator* () { <span class="keywordflow">return</span> CommandAllocator.Get(); }</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    TRefCountPtr&lt;ID3D12CommandAllocator&gt; CommandAllocator;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>};</div>
+</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="foldopen" id="foldopen00032" data-start="{" data-end="};">
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="../../d5/d3e/class_f_d3_d12_command_list.html">   32</a></span><span class="keyword">class </span><a class="code hl_class" href="../../d5/d3e/class_f_d3_d12_command_list.html">FD3D12CommandList</a></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>{</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keyword">friend</span> <a class="code hl_class" href="../../d1/d79/class_f_d3_d12_device.html">FD3D12Device</a>;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="../../d5/d3e/class_f_d3_d12_command_list.html#a3930a592295136f495b8f6185d3f5655">   36</a></span>    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code hl_class" href="../../d1/d3a/class_f_d3_d12_context_common.html">FD3D12ContextCommon</a>;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <a class="code hl_class" href="../../d5/d3e/class_f_d3_d12_command_list.html">FD3D12CommandList</a>(<a class="code hl_class" href="../../d7/dc0/class_f_d3_d12_command_allocator.html">FD3D12CommandAllocator</a>* CommandAllocator);</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <a class="code hl_function" href="../../d5/d3e/class_f_d3_d12_command_list.html#abc2fd2e9b40b23e9fa976c3b26824640">~FD3D12CommandList</a>();</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="../../d5/d3e/class_f_d3_d12_command_list.html#ac5db28bc644cee476eb377317e11b736">   43</a></span>    <a class="code hl_class" href="../../d1/d79/class_f_d3_d12_device.html">FD3D12Device</a>* <span class="keyword">const</span> <a class="code hl_variable" href="../../d5/d3e/class_f_d3_d12_command_list.html#ac5db28bc644cee476eb377317e11b736">Device</a>;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="../../d5/d3e/class_f_d3_d12_command_list.html#a7842a32d9dca2d881e9b12fa3cf17196">   44</a></span>    <a class="code hl_enumeration" href="../../d6/dd6/_d3_d12_queue_8h.html#ac3690361fe491f309cb9dbba3be17899">ED3D12QueueType</a> <span class="keyword">const</span> <a class="code hl_variable" href="../../d5/d3e/class_f_d3_d12_command_list.html#a7842a32d9dca2d881e9b12fa3cf17196">QueueType</a>;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d5/d3e/class_f_d3_d12_command_list.html#a498c45790050be50c374d813c04a8907">Reset</a>(<a class="code hl_class" href="../../d7/dc0/class_f_d3_d12_command_allocator.html">FD3D12CommandAllocator</a>* NewCommandAllocator);</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d5/d3e/class_f_d3_d12_command_list.html#a46825530d36ee1cd620f30abde522d74">Close</a>();</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="../../d5/d3e/class_f_d3_d12_command_list.html#a48b5c724d29fe0d16b54a8c7cf37e8d8">   49</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d5/d3e/class_f_d3_d12_command_list.html#a48b5c724d29fe0d16b54a8c7cf37e8d8">IsClosed</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> State.bIsClosed; }</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="../../d5/d3e/class_f_d3_d12_command_list.html#a7d57d1b78afdb45ab43b96dc4e7145aa">   52</a></span>    ID3D12GraphicsCommandList* <a class="code hl_function" href="../../d5/d3e/class_f_d3_d12_command_list.html#a7d57d1b78afdb45ab43b96dc4e7145aa">GetGraphicsCommandList</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d5/d3e/class_f_d3_d12_command_list.html#a33ac2e86a6bb5a6c6d8fb03f08e6a8c3">GraphicsCommandList</a>.Get(); }</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="../../d5/d3e/class_f_d3_d12_command_list.html#a8ae96c032d8e9e0505ac48a39637a23f">   53</a></span>    ID3D12GraphicsCommandList4* <a class="code hl_function" href="../../d5/d3e/class_f_d3_d12_command_list.html#a8ae96c032d8e9e0505ac48a39637a23f">GetGraphicsCommandList4</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d5/d3e/class_f_d3_d12_command_list.html#a86b87e8c055171d14c3e80cfe95724f4">GraphicsCommandList4</a>.Get(); }</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keyword">struct</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    {</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="../../d5/d3e/class_f_d3_d12_command_list.html#a550057726597752d4e1041faca8ecf76">   60</a></span>        TRefCountPtr&lt;ID3D12CommandList&gt; <a class="code hl_variable" href="../../d5/d3e/class_f_d3_d12_command_list.html#a550057726597752d4e1041faca8ecf76">CommandList</a>;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="../../d5/d3e/class_f_d3_d12_command_list.html#a5c9e16fc1ffae6c04151bbcb6a550f92">   61</a></span>        TRefCountPtr&lt;ID3D12GraphicsCommandList&gt; <a class="code hl_variable" href="../../d5/d3e/class_f_d3_d12_command_list.html#a5c9e16fc1ffae6c04151bbcb6a550f92">CopyCommandList</a>;</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="../../d5/d3e/class_f_d3_d12_command_list.html#a33ac2e86a6bb5a6c6d8fb03f08e6a8c3">   62</a></span>        TRefCountPtr&lt;ID3D12GraphicsCommandList&gt; <a class="code hl_variable" href="../../d5/d3e/class_f_d3_d12_command_list.html#a33ac2e86a6bb5a6c6d8fb03f08e6a8c3">GraphicsCommandList</a>;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="../../d5/d3e/class_f_d3_d12_command_list.html#a86b87e8c055171d14c3e80cfe95724f4">   63</a></span>        TRefCountPtr&lt;ID3D12GraphicsCommandList4&gt;    <a class="code hl_variable" href="../../d5/d3e/class_f_d3_d12_command_list.html#a86b87e8c055171d14c3e80cfe95724f4">GraphicsCommandList4</a>;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="../../d5/d3e/class_f_d3_d12_command_list.html#a5f6bea109cbdccf1de82754bca038c2e">   64</a></span>        TRefCountPtr&lt;ID3D12DebugCommandList&gt;    <a class="code hl_variable" href="../../d5/d3e/class_f_d3_d12_command_list.html#a5f6bea109cbdccf1de82754bca038c2e">DebugCommandList</a>;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    };</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="keyword">struct </span>FState</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    {</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        <span class="keyword">static</span> <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#afddf25cca147311c233b23a9d3329bb4">uint64</a> NextCommandListID;</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        FState(<a class="code hl_class" href="../../d7/dc0/class_f_d3_d12_command_allocator.html">FD3D12CommandAllocator</a>* CommandAllocator);</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        <a class="code hl_class" href="../../d7/dc0/class_f_d3_d12_command_allocator.html">FD3D12CommandAllocator</a>* CommandAllocator;</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#afddf25cca147311c233b23a9d3329bb4">uint64</a> CommandListID;</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> NumCommands;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        <span class="keywordtype">bool</span> bIsClosed = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    } State;</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>};</div>
+</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="ttc" id="a_d3_d12_device_8h_html"><div class="ttname"><a href="../../d7/d20/_d3_d12_device_8h.html">D3D12Device.h</a></div></div>
+<div class="ttc" id="a_d3_d12_queue_8h_html"><div class="ttname"><a href="../../d6/dd6/_d3_d12_queue_8h.html">D3D12Queue.h</a></div></div>
+<div class="ttc" id="a_d3_d12_queue_8h_html_ac3690361fe491f309cb9dbba3be17899"><div class="ttname"><a href="../../d6/dd6/_d3_d12_queue_8h.html#ac3690361fe491f309cb9dbba3be17899">ED3D12QueueType</a></div><div class="ttdeci">ED3D12QueueType</div><div class="ttdef"><b>Definition</b> D3D12Queue.h:8</div></div>
+<div class="ttc" id="a_platform_8h_html_a8c7a127091efbdfc5a16939041653e05"><div class="ttname"><a href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a></div><div class="ttdeci">FPlatformTypes::uint32 uint32</div><div class="ttdef"><b>Definition</b> Platform.h:43</div></div>
+<div class="ttc" id="a_platform_8h_html_afddf25cca147311c233b23a9d3329bb4"><div class="ttname"><a href="../../d2/dc9/_platform_8h.html#afddf25cca147311c233b23a9d3329bb4">uint64</a></div><div class="ttdeci">FPlatformTypes::uint64 uint64</div><div class="ttdef"><b>Definition</b> Platform.h:45</div></div>
+<div class="ttc" id="a_t_unique_ptr_8h_html"><div class="ttname"><a href="../../dc/d27/_t_unique_ptr_8h.html">TUniquePtr.h</a></div></div>
+<div class="ttc" id="aclass_f_d3_d12_command_allocator_html"><div class="ttname"><a href="../../d7/dc0/class_f_d3_d12_command_allocator.html">FD3D12CommandAllocator</a></div><div class="ttdef"><b>Definition</b> D3D12CommandList.h:10</div></div>
+<div class="ttc" id="aclass_f_d3_d12_command_allocator_html_aab45838be82d46d109496ffd008f458e"><div class="ttname"><a href="../../d7/dc0/class_f_d3_d12_command_allocator.html#aab45838be82d46d109496ffd008f458e">FD3D12CommandAllocator::~FD3D12CommandAllocator</a></div><div class="ttdeci">~FD3D12CommandAllocator()</div><div class="ttdef"><b>Definition</b> D3D12CommandList.cpp:20</div></div>
+<div class="ttc" id="aclass_f_d3_d12_command_allocator_html_adb2dedf63619a4057713753c20dc2b90"><div class="ttname"><a href="../../d7/dc0/class_f_d3_d12_command_allocator.html#adb2dedf63619a4057713753c20dc2b90">FD3D12CommandAllocator::Reset</a></div><div class="ttdeci">void Reset()</div><div class="ttdef"><b>Definition</b> D3D12CommandList.cpp:25</div></div>
+<div class="ttc" id="aclass_f_d3_d12_command_allocator_html_ae9fd18269f84c51cf096aca0a658ce9b"><div class="ttname"><a href="../../d7/dc0/class_f_d3_d12_command_allocator.html#ae9fd18269f84c51cf096aca0a658ce9b">FD3D12CommandAllocator::Device</a></div><div class="ttdeci">FD3D12Device *const Device</div><div class="ttdef"><b>Definition</b> D3D12CommandList.h:19</div></div>
+<div class="ttc" id="aclass_f_d3_d12_command_allocator_html_af66f1547ed14c31f1a05f76b9c243c9f"><div class="ttname"><a href="../../d7/dc0/class_f_d3_d12_command_allocator.html#af66f1547ed14c31f1a05f76b9c243c9f">FD3D12CommandAllocator::QueueType</a></div><div class="ttdeci">ED3D12QueueType QueueType</div><div class="ttdef"><b>Definition</b> D3D12CommandList.h:20</div></div>
+<div class="ttc" id="aclass_f_d3_d12_command_list_html"><div class="ttname"><a href="../../d5/d3e/class_f_d3_d12_command_list.html">FD3D12CommandList</a></div><div class="ttdef"><b>Definition</b> D3D12CommandList.h:33</div></div>
+<div class="ttc" id="aclass_f_d3_d12_command_list_html_a33ac2e86a6bb5a6c6d8fb03f08e6a8c3"><div class="ttname"><a href="../../d5/d3e/class_f_d3_d12_command_list.html#a33ac2e86a6bb5a6c6d8fb03f08e6a8c3">FD3D12CommandList::GraphicsCommandList</a></div><div class="ttdeci">TRefCountPtr&lt; ID3D12GraphicsCommandList &gt; GraphicsCommandList</div><div class="ttdef"><b>Definition</b> D3D12CommandList.h:62</div></div>
+<div class="ttc" id="aclass_f_d3_d12_command_list_html_a46825530d36ee1cd620f30abde522d74"><div class="ttname"><a href="../../d5/d3e/class_f_d3_d12_command_list.html#a46825530d36ee1cd620f30abde522d74">FD3D12CommandList::Close</a></div><div class="ttdeci">void Close()</div><div class="ttdef"><b>Definition</b> D3D12CommandList.cpp:81</div></div>
+<div class="ttc" id="aclass_f_d3_d12_command_list_html_a48b5c724d29fe0d16b54a8c7cf37e8d8"><div class="ttname"><a href="../../d5/d3e/class_f_d3_d12_command_list.html#a48b5c724d29fe0d16b54a8c7cf37e8d8">FD3D12CommandList::IsClosed</a></div><div class="ttdeci">bool IsClosed() const</div><div class="ttdef"><b>Definition</b> D3D12CommandList.h:49</div></div>
+<div class="ttc" id="aclass_f_d3_d12_command_list_html_a498c45790050be50c374d813c04a8907"><div class="ttname"><a href="../../d5/d3e/class_f_d3_d12_command_list.html#a498c45790050be50c374d813c04a8907">FD3D12CommandList::Reset</a></div><div class="ttdeci">void Reset(FD3D12CommandAllocator *NewCommandAllocator)</div><div class="ttdef"><b>Definition</b> D3D12CommandList.cpp:62</div></div>
+<div class="ttc" id="aclass_f_d3_d12_command_list_html_a550057726597752d4e1041faca8ecf76"><div class="ttname"><a href="../../d5/d3e/class_f_d3_d12_command_list.html#a550057726597752d4e1041faca8ecf76">FD3D12CommandList::CommandList</a></div><div class="ttdeci">TRefCountPtr&lt; ID3D12CommandList &gt; CommandList</div><div class="ttdef"><b>Definition</b> D3D12CommandList.h:60</div></div>
+<div class="ttc" id="aclass_f_d3_d12_command_list_html_a5c9e16fc1ffae6c04151bbcb6a550f92"><div class="ttname"><a href="../../d5/d3e/class_f_d3_d12_command_list.html#a5c9e16fc1ffae6c04151bbcb6a550f92">FD3D12CommandList::CopyCommandList</a></div><div class="ttdeci">TRefCountPtr&lt; ID3D12GraphicsCommandList &gt; CopyCommandList</div><div class="ttdef"><b>Definition</b> D3D12CommandList.h:61</div></div>
+<div class="ttc" id="aclass_f_d3_d12_command_list_html_a5f6bea109cbdccf1de82754bca038c2e"><div class="ttname"><a href="../../d5/d3e/class_f_d3_d12_command_list.html#a5f6bea109cbdccf1de82754bca038c2e">FD3D12CommandList::DebugCommandList</a></div><div class="ttdeci">TRefCountPtr&lt; ID3D12DebugCommandList &gt; DebugCommandList</div><div class="ttdef"><b>Definition</b> D3D12CommandList.h:64</div></div>
+<div class="ttc" id="aclass_f_d3_d12_command_list_html_a7842a32d9dca2d881e9b12fa3cf17196"><div class="ttname"><a href="../../d5/d3e/class_f_d3_d12_command_list.html#a7842a32d9dca2d881e9b12fa3cf17196">FD3D12CommandList::QueueType</a></div><div class="ttdeci">ED3D12QueueType const QueueType</div><div class="ttdef"><b>Definition</b> D3D12CommandList.h:44</div></div>
+<div class="ttc" id="aclass_f_d3_d12_command_list_html_a7d57d1b78afdb45ab43b96dc4e7145aa"><div class="ttname"><a href="../../d5/d3e/class_f_d3_d12_command_list.html#a7d57d1b78afdb45ab43b96dc4e7145aa">FD3D12CommandList::GetGraphicsCommandList</a></div><div class="ttdeci">ID3D12GraphicsCommandList * GetGraphicsCommandList() const</div><div class="ttdef"><b>Definition</b> D3D12CommandList.h:52</div></div>
+<div class="ttc" id="aclass_f_d3_d12_command_list_html_a86b87e8c055171d14c3e80cfe95724f4"><div class="ttname"><a href="../../d5/d3e/class_f_d3_d12_command_list.html#a86b87e8c055171d14c3e80cfe95724f4">FD3D12CommandList::GraphicsCommandList4</a></div><div class="ttdeci">TRefCountPtr&lt; ID3D12GraphicsCommandList4 &gt; GraphicsCommandList4</div><div class="ttdef"><b>Definition</b> D3D12CommandList.h:63</div></div>
+<div class="ttc" id="aclass_f_d3_d12_command_list_html_a8ae96c032d8e9e0505ac48a39637a23f"><div class="ttname"><a href="../../d5/d3e/class_f_d3_d12_command_list.html#a8ae96c032d8e9e0505ac48a39637a23f">FD3D12CommandList::GetGraphicsCommandList4</a></div><div class="ttdeci">ID3D12GraphicsCommandList4 * GetGraphicsCommandList4() const</div><div class="ttdef"><b>Definition</b> D3D12CommandList.h:53</div></div>
+<div class="ttc" id="aclass_f_d3_d12_command_list_html_abc2fd2e9b40b23e9fa976c3b26824640"><div class="ttname"><a href="../../d5/d3e/class_f_d3_d12_command_list.html#abc2fd2e9b40b23e9fa976c3b26824640">FD3D12CommandList::~FD3D12CommandList</a></div><div class="ttdeci">~FD3D12CommandList()</div><div class="ttdef"><b>Definition</b> D3D12CommandList.cpp:57</div></div>
+<div class="ttc" id="aclass_f_d3_d12_command_list_html_ac5db28bc644cee476eb377317e11b736"><div class="ttname"><a href="../../d5/d3e/class_f_d3_d12_command_list.html#ac5db28bc644cee476eb377317e11b736">FD3D12CommandList::Device</a></div><div class="ttdeci">FD3D12Device *const Device</div><div class="ttdef"><b>Definition</b> D3D12CommandList.h:43</div></div>
+<div class="ttc" id="aclass_f_d3_d12_context_common_html"><div class="ttname"><a href="../../d1/d3a/class_f_d3_d12_context_common.html">FD3D12ContextCommon</a></div><div class="ttdef"><b>Definition</b> D3D12CommandContext.h:26</div></div>
+<div class="ttc" id="aclass_f_d3_d12_device_html"><div class="ttname"><a href="../../d1/d79/class_f_d3_d12_device.html">FD3D12Device</a></div><div class="ttdoc">Main D3D12Device.</div><div class="ttdef"><b>Definition</b> D3D12Device.h:60</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
+</body>
+</html>

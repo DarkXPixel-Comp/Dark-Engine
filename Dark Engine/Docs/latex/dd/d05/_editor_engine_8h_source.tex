@@ -1,0 +1,43 @@
+\doxysection{Editor\+Engine.\+h}
+\hypertarget{_editor_engine_8h_source}{}\label{_editor_engine_8h_source}\index{Dark Engine/Source/Runtime/Engine/Classes/Engine/EditorEngine.h@{Dark Engine/Source/Runtime/Engine/Classes/Engine/EditorEngine.h}}
+\mbox{\hyperlink{_editor_engine_8h}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_engine_8h}{Engine/Engine.h}}"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_u_i_window_8h}{Widgets/UIWindow.h}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_editor_viewport_client_8h}{EditorViewportClient.h}}"{}}\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_array_8h}{Containers/Array.h}}"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_d_editor_engine}{DEditorEngine}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_d_ed_engine}{DEdEngine}}}
+\DoxyCodeLine{00009\ \{}
+\DoxyCodeLine{00010\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{static}\ TSharedPtr<UIWindow>\ \mbox{\hyperlink{class_d_editor_engine_ac07bd1885be615dabdf3d232a572dc76}{CreateGameWindow}}();}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_d_editor_engine_aaa6c3e267a65d7599130293f7115b49b}{Tick}}(\textcolor{keywordtype}{float}\ DeltaTime);}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_d_editor_engine_a3f1fdc5a488bb4901609160aacda13d5}{Shutdown}}();}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_d_editor_engine_a3d0cda8c1f9bd76d8276b10d327f0e9c}{AddViewportClient}}(\mbox{\hyperlink{class_f_viewport_client}{FViewportClient}}*\ ViewportClient)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \mbox{\hyperlink{class_f_world}{FWorld}}*\ \mbox{\hyperlink{class_d_editor_engine_a257c1c3cb904e385f43543986eaef78d}{NewMap}}();}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{void}\ UpdateViewportClient(\mbox{\hyperlink{class_f_editor_viewport_client}{FEditorViewportClient}}*\ InViewportClient);}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{void}\ UpdateViewportClient();}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00028\ \ \ \ \ TArray<FEditorViewportClient*>\ AllViewportClients;}
+\DoxyCodeLine{00029\ \ \ \ \ \mbox{\hyperlink{class_f_editor_viewport_client}{FEditorViewportClient}}*\ CurrentViewportClient;}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \};}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ }
+
+\end{DoxyCode}

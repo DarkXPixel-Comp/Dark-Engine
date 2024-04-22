@@ -1,0 +1,68 @@
+\doxysection{Класс FModule\+Manager}
+\hypertarget{class_f_module_manager}{}\label{class_f_module_manager}\index{FModuleManager@{FModuleManager}}
+
+
+{\ttfamily \#include $<$Module\+Manager.\+h$>$}
+
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_f_module_manager_a133420371247d3a8ab9c663b10edd5e6}{Add\+Module}} (const \mbox{\hyperlink{class_f_string}{FString}} Module\+Name)
+\item 
+\mbox{\hyperlink{class_i_module_interface}{IModule\+Interface}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_f_module_manager_af91dd6326f3cf69ceb42caa1e63f708a}{Get\+Module}} (const \mbox{\hyperlink{class_f_string}{FString}} Module\+Name)
+\item 
+bool \mbox{\hyperlink{class_f_module_manager_a4594d035269a646c6ccbbd129274fcc1}{Is\+Module\+Loaded}} (const \mbox{\hyperlink{class_f_string}{FString}} Module\+Name)
+\item 
+\mbox{\hyperlink{class_i_module_interface}{IModule\+Interface}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_f_module_manager_a3da2f2adeac19689304839b4bc1c2498}{Load\+Module}} (const \mbox{\hyperlink{class_f_string}{FString}} Module\+Name)
+\item 
+\mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}} \mbox{\hyperlink{class_f_module_manager_a91ec9a062d024f8a53b7867ec550e009}{Get\+Module\+Count}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Открытые статические члены}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_f_module_manager}{FModule\+Manager}} \& \mbox{\hyperlink{class_f_module_manager_a4035f1cd1c863f7efb0cac6fef1e0706}{Get}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Методы}
+\Hypertarget{class_f_module_manager_a133420371247d3a8ab9c663b10edd5e6}\label{class_f_module_manager_a133420371247d3a8ab9c663b10edd5e6} 
+\index{FModuleManager@{FModuleManager}!AddModule@{AddModule}}
+\index{AddModule@{AddModule}!FModuleManager@{FModuleManager}}
+\doxysubsubsection{\texorpdfstring{AddModule()}{AddModule()}}
+{\footnotesize\ttfamily void FModule\+Manager\+::\+Add\+Module (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_f_string}{FString}}}]{Module\+Name }\end{DoxyParamCaption})}
+
+\Hypertarget{class_f_module_manager_a4035f1cd1c863f7efb0cac6fef1e0706}\label{class_f_module_manager_a4035f1cd1c863f7efb0cac6fef1e0706} 
+\index{FModuleManager@{FModuleManager}!Get@{Get}}
+\index{Get@{Get}!FModuleManager@{FModuleManager}}
+\doxysubsubsection{\texorpdfstring{Get()}{Get()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_f_module_manager}{FModule\+Manager}} \& FModule\+Manager\+::\+Get (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{class_f_module_manager_af91dd6326f3cf69ceb42caa1e63f708a}\label{class_f_module_manager_af91dd6326f3cf69ceb42caa1e63f708a} 
+\index{FModuleManager@{FModuleManager}!GetModule@{GetModule}}
+\index{GetModule@{GetModule}!FModuleManager@{FModuleManager}}
+\doxysubsubsection{\texorpdfstring{GetModule()}{GetModule()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_i_module_interface}{IModule\+Interface}} \texorpdfstring{$\ast$}{*} FModule\+Manager\+::\+Get\+Module (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_f_string}{FString}}}]{Module\+Name }\end{DoxyParamCaption})}
+
+\Hypertarget{class_f_module_manager_a91ec9a062d024f8a53b7867ec550e009}\label{class_f_module_manager_a91ec9a062d024f8a53b7867ec550e009} 
+\index{FModuleManager@{FModuleManager}!GetModuleCount@{GetModuleCount}}
+\index{GetModuleCount@{GetModuleCount}!FModuleManager@{FModuleManager}}
+\doxysubsubsection{\texorpdfstring{GetModuleCount()}{GetModuleCount()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}} FModule\+Manager\+::\+Get\+Module\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{class_f_module_manager_a4594d035269a646c6ccbbd129274fcc1}\label{class_f_module_manager_a4594d035269a646c6ccbbd129274fcc1} 
+\index{FModuleManager@{FModuleManager}!IsModuleLoaded@{IsModuleLoaded}}
+\index{IsModuleLoaded@{IsModuleLoaded}!FModuleManager@{FModuleManager}}
+\doxysubsubsection{\texorpdfstring{IsModuleLoaded()}{IsModuleLoaded()}}
+{\footnotesize\ttfamily bool FModule\+Manager\+::\+Is\+Module\+Loaded (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_f_string}{FString}}}]{Module\+Name }\end{DoxyParamCaption})}
+
+\Hypertarget{class_f_module_manager_a3da2f2adeac19689304839b4bc1c2498}\label{class_f_module_manager_a3da2f2adeac19689304839b4bc1c2498} 
+\index{FModuleManager@{FModuleManager}!LoadModule@{LoadModule}}
+\index{LoadModule@{LoadModule}!FModuleManager@{FModuleManager}}
+\doxysubsubsection{\texorpdfstring{LoadModule()}{LoadModule()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_i_module_interface}{IModule\+Interface}} \texorpdfstring{$\ast$}{*} FModule\+Manager\+::\+Load\+Module (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_f_string}{FString}}}]{Module\+Name }\end{DoxyParamCaption})}
+
+
+
+Объявления и описания членов класса находятся в файле\+:\begin{DoxyCompactItemize}
+\item 
+Dark Engine/\+Source/\+Runtime/\+Core/\+Public/\+Modules/\mbox{\hyperlink{_module_manager_8h}{Module\+Manager.\+h}}\end{DoxyCompactItemize}

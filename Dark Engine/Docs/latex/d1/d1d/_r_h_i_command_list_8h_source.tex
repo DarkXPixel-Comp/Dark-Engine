@@ -1,0 +1,186 @@
+\doxysection{RHICommand\+List.\+h}
+\hypertarget{_r_h_i_command_list_8h_source}{}\label{_r_h_i_command_list_8h_source}\index{Dark Engine/Source/Runtime/RHI/public/RHICommandList.h@{Dark Engine/Source/Runtime/RHI/public/RHICommandList.h}}
+\mbox{\hyperlink{_r_h_i_command_list_8h}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_dark_template_8h}{Templates/DarkTemplate.h}}"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_core_types_8h}{CoreTypes.h}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_r_h_i_resources_8h}{RHIResources.h}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_r_h_i_context_8h}{RHIContext.h}}"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_dynamic_r_h_i_8h}{DynamicRHI.h}}"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }FGraphEventRef;}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_f_r_h_i_command_list_base}{FRHICommandListBase}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_f_noncopyble}{FNoncopyble}}}
+\DoxyCodeLine{00011\ \{}
+\DoxyCodeLine{00012\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{class_f_r_h_i_command_list_base_a11ce7c99aa7331e71a7f0193c5135292}{ERecordingThread}}}
+\DoxyCodeLine{00014\ \ \ \ \ \{}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_f_r_h_i_command_list_base_a11ce7c99aa7331e71a7f0193c5135292a5e520da5341f2fec6d3bbfe7ef357922}{Render}},}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_f_r_h_i_command_list_base_a11ce7c99aa7331e71a7f0193c5135292aed36a1ef76a59ee3f15180e0441188ad}{Any}}}
+\DoxyCodeLine{00017\ \ \ \ \ \};}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00020\ \ \ \ \ \mbox{\hyperlink{class_f_r_h_i_command_list_base_a4ea3171cc9487ac22e2a88ec5e58dfad}{FRHICommandListBase}}()\ \{\}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00023\ \ \ \ \ \mbox{\hyperlink{class_f_r_h_i_command_list_base_ae50c16008cdd6575e7fb56ab55fb2d87}{FRHICommandListBase}}(\mbox{\hyperlink{class_f_r_h_i_command_list_base}{FRHICommandListBase}}\&\&\ Other)\ \{\}}
+\DoxyCodeLine{00024\ \ \ \ \ \mbox{\hyperlink{class_f_r_h_i_command_list_base_a6a96d351cab4df7a05aed6f53f8233cb}{\string~FRHICommandListBase}}()\ \{\}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_f_r_h_i_command_list_base_a7bf304af308aa3072aca59aab1f88f0c}{IsImmediate}}();}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_f_r_h_i_command_list_immediate}{FRHICommandListImmediate}}\&\ \mbox{\hyperlink{class_f_r_h_i_command_list_base_a2c2d7709be18fccb197adb52f109481c}{GetAsImmediate}}();}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}\ \mbox{\hyperlink{class_f_r_h_i_command_list_base_ad73bfcd91f4330ac623b5dcc3b6b7102}{GetUsedMemory}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_r_h_i_command_list_base_a84c1086a66dadaa9d21affb3c43b2da6}{SwitchPipeline}}()}
+\DoxyCodeLine{00032\ \ \ \ \ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_i_r_h_i_compute_context}{IRHIComputeContext}}*\ Context\ =\ \mbox{\hyperlink{_dynamic_r_h_i_8cpp_a7f476220c09bed9c45bc8cdcfde73e72}{GDynamicRHI}}-\/>\mbox{\hyperlink{class_f_dynamic_r_h_i_a416befd9929970c468352fca1cec71df}{RHIGetDefaultContext}}();}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ GraphicsContext\ =\ \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{class_i_r_h_i_command_context}{IRHICommandContext}}*\textcolor{keyword}{>}(Context);}
+\DoxyCodeLine{00035\ \ \ \ \ \}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_r_h_i_command_list_base_a2e369d3f827a07e6d2c7e15aeaf1c6e0}{AddDispatchPrerequisite}}(\textcolor{keyword}{const}\ FGraphEventRef\&\ InPrereq);}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_r_h_i_command_list_base_a7b4a70d0a4452f7b3f66e0eaa939c095}{FinishRecording}}();}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{class_f_r_h_i_command_list_base_a1a2ae72ef7510739e936a6ead4d2411c}{Alloc}}(\mbox{\hyperlink{_platform_8h_a89241ea7101f26f05a4f1efd6be26b32}{int64}}\ InAlocSize,\ \mbox{\hyperlink{_platform_8h_a89241ea7101f26f05a4f1efd6be26b32}{int64}}\ InAllignment);}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ \mbox{\hyperlink{class_i_r_h_i_command_context}{IRHICommandContext}}\&\ \mbox{\hyperlink{class_f_r_h_i_command_list_base_aba7acf76251af0ace18084cd78b58170}{GetContext}}()}
+\DoxyCodeLine{00044\ \ \ \ \ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *GraphicsContext;}
+\DoxyCodeLine{00046\ \ \ \ \ \}}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00051\ \ \ \ \ \mbox{\hyperlink{class_i_r_h_i_command_context}{IRHICommandContext}}*\ GraphicsContext\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \};}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_f_r_h_i_compute_command_list}{FRHIComputeCommandList}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_f_r_h_i_command_list_base}{FRHICommandListBase}}}
+\DoxyCodeLine{00057\ \{}
+\DoxyCodeLine{00058\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00059\ \ \ \ \ \mbox{\hyperlink{class_f_r_h_i_compute_command_list_a4ff96a1a8d2888ba1c983721355e7374}{FRHIComputeCommandList}}()}
+\DoxyCodeLine{00060\ \ \ \ \ \{}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ \}}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \};}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_f_r_h_i_command_list}{FRHICommandList}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_f_r_h_i_compute_command_list}{FRHIComputeCommandList}}}
+\DoxyCodeLine{00070\ \{}
+\DoxyCodeLine{00071\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00072\ \ \ \ \ \mbox{\hyperlink{class_f_r_h_i_command_list_a1e880b04daedc67b72320ae4fc82033c}{FRHICommandList}}()}
+\DoxyCodeLine{00073\ \ \ \ \ \{}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ \}}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_r_h_i_command_list_a5caa8253a4db2fba6f42212088216b72}{RHISetViewport}}(\textcolor{keywordtype}{float}\ MinX,\ \textcolor{keywordtype}{float}\ MinY,\ \textcolor{keywordtype}{float}\ MinZ,\ \textcolor{keywordtype}{float}\ MaxX,\ \textcolor{keywordtype}{float}\ MaxY,\ \textcolor{keywordtype}{float}\ MaxZ)}
+\DoxyCodeLine{00080\ \ \ \ \ \{}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_f_r_h_i_command_list_base_aba7acf76251af0ace18084cd78b58170}{GetContext}}().\mbox{\hyperlink{class_i_r_h_i_command_context_ae672c0454fad64b877f50c8fe7661f77}{RHISetViewport}}(MinX,\ MinY,\ MinZ,\ MaxX,\ MaxY,\ MaxZ);}
+\DoxyCodeLine{00082\ \ \ \ \ \}}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_r_h_i_command_list_abba29d30a36401d05482a57f69b5aeb4}{SetGraphicsPipelineState}}(\textcolor{keyword}{class}\ \mbox{\hyperlink{class_f_r_h_i_graphics_pipeline_state}{FRHIGraphicsPipelineState}}*\ PipelineState,\ \textcolor{keyword}{class}\ \mbox{\hyperlink{struct_f_bound_shader_state_input}{FBoundShaderStateInput}}\&\ ShaderInput)}
+\DoxyCodeLine{00086\ \ \ \ \ \{}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_f_r_h_i_command_list_base_aba7acf76251af0ace18084cd78b58170}{GetContext}}().\mbox{\hyperlink{class_i_r_h_i_command_context_a3a90c2d8763f94ca834b2e8d3a4fa1c5}{RHISetGraphicsPipelineState}}(PipelineState,\ ShaderInput);}
+\DoxyCodeLine{00088\ \ \ \ \ \}}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_r_h_i_command_list_ab4cb1485eec439e0eb703f6f17763aaf}{SetStreamSource}}(\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ StreamIndex,\ \mbox{\hyperlink{class_f_r_h_i_buffer}{FRHIBuffer}}*\ VertexBuffer,\ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ Offset,\ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ Stride)}
+\DoxyCodeLine{00091\ \ \ \ \ \{}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_f_r_h_i_command_list_base_aba7acf76251af0ace18084cd78b58170}{GetContext}}().\mbox{\hyperlink{class_i_r_h_i_command_context_a3a39de659290f300dc94d04fea9c47d3}{RHISetStreamSource}}(StreamIndex,\ VertexBuffer,\ Offset,\ Stride);}
+\DoxyCodeLine{00093\ \ \ \ \ \}}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \};}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_f_r_h_i_command_list_immediate}{FRHICommandListImmediate}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_f_r_h_i_command_list}{FRHICommandList}}}
+\DoxyCodeLine{00102\ \{}
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_f_r_h_i_command_list_executor}{FRHICommandListExecutor}};}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \ \ \ \ \mbox{\hyperlink{class_f_r_h_i_command_list_immediate}{FRHICommandListImmediate}}()}
+\DoxyCodeLine{00106\ \ \ \ \ \{}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \ \ \ \ \}}
+\DoxyCodeLine{00109\ \ \ \ \ }
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keywordtype}{void}\ ExecuteAndReset();}
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keywordtype}{void}\ Reset();}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_r_h_i_command_list_immediate_addd243555a2c821969b7fed9e0743836}{BeginScene}}();}
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_r_h_i_command_list_immediate_ab03ab0911ce54428fa0afeb80a8eec8f}{EndScene}}();}
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_r_h_i_command_list_immediate_a7e7e2ae2bac88331a32e2fd26464522e}{BeginRenderPass}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_f_r_h_i_render_pass_info}{FRHIRenderPassInfo}}\&\ InInfo)}
+\DoxyCodeLine{00119\ \ \ \ \ \{}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_f_r_h_i_command_list_base_aba7acf76251af0ace18084cd78b58170}{GetContext}}().\mbox{\hyperlink{class_i_r_h_i_command_context_a2386d2f02841a5684468d7beb7a1fc7c}{RHIBeginRenderPass}}(InInfo);}
+\DoxyCodeLine{00121\ \ \ \ \ \}}
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_r_h_i_command_list_immediate_a5f324700e39e9b90ee68097200bf7dc4}{BeginDrawingViewport}}(\mbox{\hyperlink{class_f_r_h_i_viewport}{FRHIViewport}}*\ \mbox{\hyperlink{struct_viewport}{Viewport}},\ \mbox{\hyperlink{class_f_r_h_i_texture}{FRHITexture}}*\ RenderTargetRHI)}
+\DoxyCodeLine{00123\ \ \ \ \ \{}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_f_r_h_i_command_list_base_aba7acf76251af0ace18084cd78b58170}{GetContext}}().\mbox{\hyperlink{class_i_r_h_i_command_context_a7d0aa131ee738047cab127901d55f9f8}{RHIBeginDrawingViewport}}(\mbox{\hyperlink{struct_viewport}{Viewport}},\ RenderTargetRHI);}
+\DoxyCodeLine{00125\ \ \ \ \ \}}
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_r_h_i_command_list_immediate_a81c96110598f73f030b7c3a808938347}{EndDrawingViewport}}(\mbox{\hyperlink{class_f_r_h_i_viewport}{FRHIViewport}}*\ \mbox{\hyperlink{struct_viewport}{Viewport}},\ \textcolor{keywordtype}{bool}\ bPresent,\ \mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}\ bVsync)}
+\DoxyCodeLine{00127\ \ \ \ \ \{}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_f_r_h_i_command_list_base_aba7acf76251af0ace18084cd78b58170}{GetContext}}().\mbox{\hyperlink{class_i_r_h_i_command_context_a436ec235e25ad15f4a4cdd4ae0dc13be}{RHIEndDrawingViewport}}(\mbox{\hyperlink{struct_viewport}{Viewport}},\ bPresent,\ bVsync);}
+\DoxyCodeLine{00129\ \ \ \ \ \}}
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_r_h_i_command_list_immediate_a7d178fdbe27d52405a21dd567c5047e3}{BeginFrame}}();}
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_r_h_i_command_list_immediate_a1f09e2999a3d5f5ebedeb5d251e745cb}{EndFrame}}()}
+\DoxyCodeLine{00132\ \ \ \ \ \{}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_f_r_h_i_command_list_base_aba7acf76251af0ace18084cd78b58170}{GetContext}}().\mbox{\hyperlink{class_i_r_h_i_command_context_a9c270bca1093d983140d6621816b34c4}{RHIEndFrame}}();}
+\DoxyCodeLine{00134\ \ \ \ \ \}}
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_r_h_i_command_list_immediate_adb83c512eaf67a2d6d49037d83bc6895}{BeginImGui}}()}
+\DoxyCodeLine{00136\ \ \ \ \ \{}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_f_r_h_i_command_list_base_aba7acf76251af0ace18084cd78b58170}{GetContext}}().\mbox{\hyperlink{class_i_r_h_i_command_context_abdc8d79607cb9a68c6d79d6a7116f57c}{RHIBeginImGui}}();}
+\DoxyCodeLine{00138\ \ \ \ \ \}}
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_r_h_i_command_list_immediate_a50f9e7b35ab88a869506da4bd537d610}{EndImGui}}()}
+\DoxyCodeLine{00140\ \ \ \ \ \{}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_f_r_h_i_command_list_base_aba7acf76251af0ace18084cd78b58170}{GetContext}}().\mbox{\hyperlink{class_i_r_h_i_command_context_a2e14b0f1f38950719884854721ecfb51}{RHIEndImGui}}();}
+\DoxyCodeLine{00142\ \ \ \ \ \}}
+\DoxyCodeLine{00143\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_r_h_i_command_list_immediate_acaea61b77d043d0b9dfeebdb8312f93c}{InitializeContexts}}();}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00145\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_r_h_i_command_list_immediate_adc5a701d267391d05ce4bb6fc3c82de1}{ClearTextureColor}}(\mbox{\hyperlink{class_f_r_h_i_texture}{FRHITexture}}*\ InTexture,\ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector}{FVector}}\ InColor)}
+\DoxyCodeLine{00146\ \ \ \ \ \{}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_f_r_h_i_command_list_base_aba7acf76251af0ace18084cd78b58170}{GetContext}}().\mbox{\hyperlink{class_i_r_h_i_command_context_a5214f20c38de1bfbf9e69435142156a1}{RHIClearTextureColor}}(InTexture,\ InColor);}
+\DoxyCodeLine{00148\ \ \ \ \ \}}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00153\ \};}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00155\ }
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00158\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_f_r_h_i_command_list_executor}{FRHICommandListExecutor}}}
+\DoxyCodeLine{00159\ \{}
+\DoxyCodeLine{00160\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00161\ \ \ \ \ \mbox{\hyperlink{class_f_r_h_i_command_list_executor_a3fe631e7255e3ecf10d2e36567aeee64}{FRHICommandListExecutor}}()}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ :\ bLatchedByPass(false)}
+\DoxyCodeLine{00163\ \ \ \ \ \{}
+\DoxyCodeLine{00164\ }
+\DoxyCodeLine{00165\ \ \ \ \ \}}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00167\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_f_r_h_i_command_list_immediate}{FRHICommandListImmediate}}\&\ \mbox{\hyperlink{class_f_r_h_i_command_list_executor_a5ae612979d49a56daaa48327342fc24d}{GetImmediateCommandList}}();}
+\DoxyCodeLine{00168\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_r_h_i_command_list_executor_ae1fad828e378013f5c4a5f1a24079653}{LatchByPass}}()\ \{\}}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00173\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00174\ \ \ \ \ \mbox{\hyperlink{class_f_r_h_i_command_list_immediate}{FRHICommandListImmediate}}\ CommandListImmediate;}
+\DoxyCodeLine{00175\ \ \ \ \ \textcolor{keywordtype}{bool}\ bLatchedByPass;}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00177\ }
+\DoxyCodeLine{00178\ \};}
+\DoxyCodeLine{00179\ }
+\DoxyCodeLine{00180\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_f_r_h_i_command_list_executor}{FRHICommandListExecutor}}\ \mbox{\hyperlink{_r_h_i_command_list_8h_a2087ac53276a37382721a9fec51b4a37}{GRHICommandList}};}
+
+\end{DoxyCode}

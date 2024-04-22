@@ -1,0 +1,176 @@
+\doxysection{D3\+D12\+Utils.\+h}
+\hypertarget{_d3_d12_utils_8h_source}{}\label{_d3_d12_utils_8h_source}\index{Dark Engine/Source/Runtime/Render/D3D12/D3D12Utils.h@{Dark Engine/Source/Runtime/Render/D3D12/D3D12Utils.h}}
+\mbox{\hyperlink{_d3_d12_utils_8h}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{_dark_string_8h}{Containers/DarkString.h}}>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <Windows.h>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{_t_unique_ptr_8h}{Memory/TUniquePtr.h}}>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{_core_8h}{Core.h}}>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_d3_d12_main_8h}{D3D12Main.h}}"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_d3_d12_camera_8h}{D3D12Camera.h}}"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_render_2_d3_d12_2_d3_d12_texture_8h}{D3D12Texture.h}}"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_platform_8h}{HAL/Platform.h}}"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_array_8h}{Containers/Array.h}}"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <dxcapi.h>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{_render_2_d3_d12_2_d3_d12_shader_8h}{d3d12shader.h}}>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_paths_8h}{Misc/Paths.h}}"{}}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#define\ D3D\_DEFAULT\_TEXTURE\ \ FPaths::CombineDir(FPaths::EngineContentDir(),\ "{}Textures/uv.dds"{})}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ D3D\_DEFAULT\_SKYBOX\ \ FPaths::CombineDir(FPaths::EngineContentDir(),\ "{}Textures/cubemap.dds"{})}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{_d3_d12_utils_8h_a49802c782fb40bd8e79835ef12871dde}{eShaderType}}}
+\DoxyCodeLine{00023\ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \mbox{\hyperlink{_d3_d12_utils_8h_a49802c782fb40bd8e79835ef12871ddea79935518a3889663d8688b6b01fff051}{Default}}\ =\ 0,}
+\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{_d3_d12_utils_8h_a49802c782fb40bd8e79835ef12871ddea40f3b2e02173a504f9b3720d1dcede51}{Light}},}
+\DoxyCodeLine{00026\ \ \ \ \ \mbox{\hyperlink{_d3_d12_utils_8h_a49802c782fb40bd8e79835ef12871ddeaff9abf2b1a689f70a77a18da50c01d9f}{Size}}}
+\DoxyCodeLine{00027\ \};}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_d3_d12_pipeline_shader_root_signature}{D3D12PipelineShaderRootSignature}};}
+\DoxyCodeLine{00030\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_f_d3_d12_mesh}{FD3D12Mesh}};}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{keyword}{class\ }\mbox{\hyperlink{_core_platform_8h_a94070b76c7d4ff7927f14814f3f53e40}{DENGINE\_API}}\ \mbox{\hyperlink{class_d3_d_util}{D3DUtil}}}
+\DoxyCodeLine{00034\ \{}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keyword}{static}\ std::unordered\_map<UINT,\ TUniquePtr<D3D12PipelineShaderRootSignature>>\ Pipelines;}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keyword}{static}\ std::unordered\_map<std::string,\ TUniquePtr<FD3D12Mesh>>\ m\_meshes;}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keyword}{static}\ std::unordered\_map<std::string,\ TUniquePtr<D3D12Texture>>\ m\_textures;}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keyword}{static}\ TArray<CD3DX12\_STATIC\_SAMPLER\_DESC>\ m\_samplers;}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keyword}{static}\ ComPtr<IDxcCompiler3>\ \mbox{\hyperlink{class_d3_d_util_a2f763111c1fc718b6063cce196946187}{m\_ShaderCompiler}};}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keyword}{static}\ ComPtr<IDxcUtils>\ \mbox{\hyperlink{class_d3_d_util_abfaeb1ad0f86ea2c404eeba39e8bca91}{m\_Utils}};}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keyword}{static}\ UINT\ \mbox{\hyperlink{class_d3_d_util_aef1e7718db784bdb00d4aedfdbac24ab}{CalcConstantBufferByteSize}}(UINT\ byteSize)}
+\DoxyCodeLine{00047\ \ \ \ \ \{}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (byteSize\ +\ 255)\ \&\ \string~255;}
+\DoxyCodeLine{00049\ \ \ \ \ \}}
+\DoxyCodeLine{00050\ \ \ \ \ }
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ \mbox{\hyperlink{class_d3_d_util_ae3b69b0425bd109fd036f8cf3fb8249a}{GetCountPipelines}}()\ \{\ \textcolor{keywordflow}{return}\ Pipelines.size();\ \}}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ TArray<CD3DX12\_STATIC\_SAMPLER\_DESC>\ \mbox{\hyperlink{class_d3_d_util_a33ddf7ded682c80de6a9b16ecd4b4d1e}{GetStaticSamples}}()\ \{\ \textcolor{keywordflow}{return}\ m\_samplers;\ \}}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_d3_d_util_ae11a6e03fd4ff48953784d35c268cde8}{Init}}();}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_d3_d_util_a5e5e4f3fd97abca9372dd37edb1cd9cb}{Shutdown}}();}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_d3_d_util_a6f655b95bb30aa7312420cd9c4936f5c}{InitPipelines}}()}
+\DoxyCodeLine{00057\ \ \ \ \ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{_d3_d12_utils_8h_a49802c782fb40bd8e79835ef12871ddeaff9abf2b1a689f70a77a18da50c01d9f}{eShaderType::Size}};\ i++)}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ CreatePipeline(\textcolor{keyword}{static\_cast<}\mbox{\hyperlink{_d3_d12_utils_8h_a49802c782fb40bd8e79835ef12871dde}{eShaderType}}\textcolor{keyword}{>}(i));}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00062\ \ \ \ \ \}}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keyword}{static}\ std::unordered\_map<std::string,\ TUniquePtr<D3D12Texture>>*\ \mbox{\hyperlink{class_d3_d_util_ad6323fc17a1ee4d058a2817add5339f7}{GetTextures}}()}
+\DoxyCodeLine{00065\ \ \ \ \ \{}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \&m\_textures;}
+\DoxyCodeLine{00067\ \ \ \ \ \}}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_d3_d_util_a55b53d24240c273eabd3faf5142a67c5}{InitStaticSamples}}();}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_d3_d12_pipeline_shader_root_signature}{D3D12PipelineShaderRootSignature}}*\ \mbox{\hyperlink{class_d3_d_util_abfe37b74c81658bf63952ea7a36ab103}{GetPipeline}}(UINT\ \textcolor{keywordtype}{id})\ \{\ \textcolor{keywordflow}{return}\ Pipelines.find(\textcolor{keywordtype}{id})-\/>second.get();\ \}}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ \mbox{\hyperlink{class_d3_d_util_a85c4db17827bb80a73946f5d9935bb1a}{CreatePipeline}}(\mbox{\hyperlink{_d3_d12_utils_8h_a49802c782fb40bd8e79835ef12871dde}{eShaderType}}\ type);}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keyword}{static}\ ID3D12Device8*\ \mbox{\hyperlink{class_d3_d_util_a6d6fbe58e6bfe94e0b7381ea7742f43f}{GetDevice}}();\ }
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keyword}{static}\ ID3D12CommandQueue*\ \mbox{\hyperlink{class_d3_d_util_ad95fc1ff872ecc676b7477afea9d3bb1}{GetCommandQueue}}();}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_f_d3_d12_mesh}{FD3D12Mesh}}*\ \mbox{\hyperlink{class_d3_d_util_a766b593253e81c03df3dec3b72c086be}{LoadMesh}}(\mbox{\hyperlink{class_f_string}{FString}}\ path);}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_d3_d_util_a613c2354ad559a093ced162f460fccb0}{DeleteMesh}}(\mbox{\hyperlink{class_f_d3_d12_mesh}{FD3D12Mesh}}*\ mesh);}
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_d3_d12_texture}{D3D12Texture}}*\ \mbox{\hyperlink{class_d3_d_util_aadcf6776485bb17d28739e93532b3356}{LoadTexture}}(\mbox{\hyperlink{class_f_string}{FString}}\ path,\ \textcolor{keywordtype}{bool}\ isCubeMap\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keyword}{static}\ TArray<FD3D12Mesh*>\ \mbox{\hyperlink{class_d3_d_util_af2065332bc653658ea42c8e912aae966}{LoadMeshes}}(std::string\ path,\ \textcolor{keywordtype}{bool}\ bCombineMeshes);}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keyword}{static}\ XMMATRIX\ \mbox{\hyperlink{class_d3_d_util_afae814ef3ed8046a5c2d117688518e2e}{CalcMVP}}()}
+\DoxyCodeLine{00080\ \ \ \ \ \{}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ XMMATRIX\ MVPMatrix\ =\ XMMatrixTranslation(0,\ 0,\ 3);}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ XMVECTOR\ EyePos\ =\ XMVectorSet(0,\ 0,\ 0,\ 1);}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ XMVECTOR\ FocusPos\ =\ XMVectorSet(0,\ 0,\ 3,\ 1);}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ XMVECTOR\ UpDir\ =\ XMVectorSet(0,\ 1,\ 0,\ 0);}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ MVPMatrix\ =\ XMMatrixMultiply(MVPMatrix,\ XMMatrixLookAtLH(EyePos,\ FocusPos,\ UpDir));}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ MVPMatrix\ =\ XMMatrixMultiply(MVPMatrix,\ XMMatrixPerspectiveFovLH(90,\ 16\ /\ 9,\ 0.1,\ 1000));}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ MVPMatrix;}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \ \ \ \ \}}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_d3_d_util_aaf8b06b3d82a839f29a44a39a9137ae5}{CalcFovY}}(\textcolor{keywordtype}{float}\ fov\_x,\ \textcolor{keywordtype}{float}\ w,\ \textcolor{keywordtype}{float}\ h)}
+\DoxyCodeLine{00094\ \ \ \ \ \{}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ a;}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ x;}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (fov\_x\ <\ 1)}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ fov\_x\ =\ 1;}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (fov\_x\ >\ 179)}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ fov\_x\ =\ 179;}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ x\ =\ w\ /\ tan(fov\_x\ /\ 360\ *\ XM\_PI);}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ a\ =\ atan(h\ /\ x);}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ a\ =\ a\ *\ 360\ /\ XM\_PI;}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ a;}
+\DoxyCodeLine{00105\ \ \ \ \ \}}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keyword}{static}\ XMFLOAT4X4\ \mbox{\hyperlink{class_d3_d_util_afb195463bf6f2dcf9f06026a5a92c84c}{GetViewProjMatrix}}(\mbox{\hyperlink{struct_d3_d12_camera}{D3D12Camera}}*\ camera)}
+\DoxyCodeLine{00108\ \ \ \ \ \{}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ XMFLOAT4X4\ ViewProj\ =\ \{\};}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!camera)}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ViewProj;}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \textcolor{comment}{//camera-\/>m\_rotation.z\ =\ 130.f;}}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ XMFLOAT3\ front;}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ front.x\ =\ -\/(cos(XMConvertToRadians(camera-\/>m\_rotation.z))\ *\ cos(XMConvertToRadians(camera-\/>m\_rotation.y)));}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ front.y\ =\ -\/sin(XMConvertToRadians(camera-\/>m\_rotation.y));}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ front.z\ =\ sin(XMConvertToRadians(camera-\/>m\_rotation.z))}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ *\ cos(XMConvertToRadians(camera-\/>m\_rotation.y));}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ XMVECTOR\ position\ =\ XMLoadFloat3(\&camera-\/>m\_position);}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ XMVECTOR\ direction\ =\ XMLoadFloat3(\&front);}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ XMMATRIX\ ViewMatrix\ =\ XMMatrixLookToLH(position,\ direction,\ XMVectorSet(0,\ 1,\ 0,\ 0));}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ XMMATRIX\ ProjectionMatrix\ =\ XMMatrixPerspectiveFovLH(1.48,\ camera-\/>m\_aspectRatio,}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ 0.1f,\ 100.f);}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ XMMATRIX\ VP\ =\ XMMatrixMultiply(ViewMatrix,\ ProjectionMatrix);}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ XMStoreFloat4x4(\&ViewProj,\ VP);}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ViewProj;}
+\DoxyCodeLine{00131\ \ \ \ \ \}}
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{comment}{//static\ float\ GetDistanceBetweenPoints(XMFLOAT3\ x1,\ XMFLOAT3\ x2)}}
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{comment}{//\{}}
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{comment}{//\ \ XMVECTOR\ v1\ =\ XMLoadFloat3(\&x1);}}
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{comment}{//\}}}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ \};}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \textcolor{keyword}{static}\ XMFLOAT3\ \mbox{\hyperlink{_d3_d12_utils_8h_a00d0913d92e5c24df80e174b7cd0f732}{operator-\/}}(\textcolor{keyword}{const}\ XMFLOAT3\&\ v1,\ \textcolor{keyword}{const}\ XMFLOAT3\&\ v2)}
+\DoxyCodeLine{00140\ \{}
+\DoxyCodeLine{00141\ \ \ \ \ XMFLOAT3\ result;}
+\DoxyCodeLine{00142\ \ \ \ \ result.x\ =\ v1.x\ -\/\ v2.x;}
+\DoxyCodeLine{00143\ \ \ \ \ result.y\ =\ v1.y\ -\/\ v2.y;}
+\DoxyCodeLine{00144\ \ \ \ \ result.z\ =\ v1.z\ -\/\ v2.z;}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00146\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00147\ \}}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00150\ \textcolor{keyword}{static}\ XMFLOAT2\ \mbox{\hyperlink{_d3_d12_utils_8h_a00d0913d92e5c24df80e174b7cd0f732}{operator-\/}}(\textcolor{keyword}{const}\ XMFLOAT2\&\ v1,\ \textcolor{keyword}{const}\ XMFLOAT2\&\ v2)}
+\DoxyCodeLine{00151\ \{}
+\DoxyCodeLine{00152\ \ \ \ \ XMFLOAT2\ result;}
+\DoxyCodeLine{00153\ \ \ \ \ result.x\ =\ v1.x\ -\/\ v2.x;}
+\DoxyCodeLine{00154\ \ \ \ \ result.y\ =\ v1.y\ -\/\ v2.y;}
+\DoxyCodeLine{00155\ }
+\DoxyCodeLine{00156\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00157\ \}}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00160\ \textcolor{keyword}{static}\ XMFLOAT3\ \mbox{\hyperlink{_d3_d12_utils_8h_a08114d2ff3fc96a14a1eb83d0d60f684}{operator*}}(\textcolor{keyword}{const}\ XMFLOAT3\&\ v1,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ f2)}
+\DoxyCodeLine{00161\ \{}
+\DoxyCodeLine{00162\ \ \ \ \ XMFLOAT3\ result;}
+\DoxyCodeLine{00163\ \ \ \ \ result.x\ =\ v1.x\ *\ f2;}
+\DoxyCodeLine{00164\ \ \ \ \ result.y\ =\ v1.y\ *\ f2;}
+\DoxyCodeLine{00165\ \ \ \ \ result.z\ =\ v1.z\ *\ f2;}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00167\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00168\ \}}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00170\ }
+
+\end{DoxyCode}

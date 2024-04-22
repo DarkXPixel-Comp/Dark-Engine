@@ -1,0 +1,148 @@
+\doxysection{Класс FGlobal\+Input\+Out\+Console}
+\hypertarget{class_f_global_input_out_console}{}\label{class_f_global_input_out_console}\index{FGlobalInputOutConsole@{FGlobalInputOutConsole}}
+
+
+{\ttfamily \#include $<$Global\+Input\+Out\+Console.\+h$>$}
+
+Граф наследования\+:FGlobal\+Input\+Out\+Console\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{db/d6e/class_f_global_input_out_console}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_f_global_input_out_console_a0cfa43916bcd3b0c84804b1828c6e519}{FGlobal\+Input\+Out\+Console}} ()=default
+\item 
+\mbox{\hyperlink{class_f_global_input_out_console_a6622dc5224f44f210cb92a098a3aab12}{\texorpdfstring{$\sim$}{\string~}\+FGlobal\+Input\+Out\+Console}} ()
+\item 
+void \mbox{\hyperlink{class_f_global_input_out_console_a219b31c341148e1814729f886115e760}{Initialize}} (bool b\+Create\+Os\+Console=false)
+\item 
+void \mbox{\hyperlink{class_f_global_input_out_console_a15c1b8f8c7202a31fe7e3b9f168d9bd1}{Destroy}} ()
+\item 
+virtual void \mbox{\hyperlink{class_f_global_input_out_console_a1fd9e3df80c8a1834641a5148929cab3}{Add\+Log}} (const \mbox{\hyperlink{class_f_string}{FString}} \&Text, \mbox{\hyperlink{_math_fwd_8h_a97a4aa8e6391e1665580cd373848baff}{FVector3f}} Color=\mbox{\hyperlink{_math_fwd_8h_a97a4aa8e6391e1665580cd373848baff}{FVector3f}}(1, 1, 1), float Time=0.f) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Открытые члены унаследованные от \mbox{\hyperlink{class_f_console_std}{FConsole\+Std}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_f_console_std_a9f34f9e68cbff846fb139da2b60ee012}{FConsole\+Std}} ()=default
+\item 
+\mbox{\hyperlink{class_f_console_std_a5318243f523520c33534be18abff9867}{\texorpdfstring{$\sim$}{\string~}\+FConsole\+Std}} ()
+\item 
+void \mbox{\hyperlink{class_f_console_std_aa312bce1f94cf9ef98d7acff9d0a4868}{Create\+Console\+OS}} (const \mbox{\hyperlink{class_f_string}{FString}} \&Label)
+\item 
+void \mbox{\hyperlink{class_f_console_std_a8b69d1b5f17a7f85d078bd7660f92d33}{Destroy\+Console}} ()
+\item 
+void \mbox{\hyperlink{class_f_console_std_a7ec4b32af901495e43f56ce16079a2b8}{Set\+Auto\+Close}} (bool Inb\+Auto\+Close)
+\end{DoxyCompactItemize}
+\doxysubsection*{Открытые члены унаследованные от \mbox{\hyperlink{class_f_base_console}{FBase\+Console}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_f_base_console_ab2051fda4e33461e404af772bff4e080}{FBase\+Console}} ()
+\item 
+\mbox{\hyperlink{class_f_base_console_ae5a9975fe8113456fbbab6069ef6dc10}{\texorpdfstring{$\sim$}{\string~}\+FBase\+Console}} ()
+\item 
+void \mbox{\hyperlink{class_f_base_console_a6313ede0b57806b2f5c965e7139056f1}{Update}} (float Delta\+Time)
+\item 
+void \mbox{\hyperlink{class_f_base_console_a9e6443966a961d5c4283f390e12ce8f5}{Remove\+Log}} ()
+\item 
+void \mbox{\hyperlink{class_f_base_console_a8ae273e89ecf09a34908471f7a6c73fc}{Input\+Text}} (const \mbox{\hyperlink{class_f_string}{FString}} \&Text)
+\item 
+\mbox{\hyperlink{class_i_console_object}{IConsole\+Object}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_f_base_console_a393ae6d421cff7ebcabdda4e04ed4b98}{Add\+Console\+Object}} (const \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}} \texorpdfstring{$\ast$}{*}Name, \mbox{\hyperlink{class_i_console_object}{IConsole\+Object}} \texorpdfstring{$\ast$}{*}Obj, const \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}} \texorpdfstring{$\ast$}{*}Description=\mbox{\hyperlink{_platform_8h_a2978f60d40d64f3605b5a99f66f292a9}{TEXT}}("{}"{}))
+\item 
+class \mbox{\hyperlink{class_i_console_command}{IConsole\+Command}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_f_base_console_a1ed1badb13464da64adee8cf50c6e999}{Register\+Console\+Command}} (const \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}} \texorpdfstring{$\ast$}{*}Name, const \mbox{\hyperlink{_base_console_8h_ab77b9320a72802c1194ebc9837b225d1}{FConsole\+Command\+With\+Args\+Delegate}} \&Command, const \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}} \texorpdfstring{$\ast$}{*}Description=\mbox{\hyperlink{_platform_8h_a2978f60d40d64f3605b5a99f66f292a9}{TEXT}}("{}"{}))
+\item 
+class \mbox{\hyperlink{class_i_console_command}{IConsole\+Command}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_f_base_console_acad0ce51bbb7a4d6a0dcdb0ff85b5f54}{Register\+Console\+Command}} (const \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}} \texorpdfstring{$\ast$}{*}Name, \mbox{\hyperlink{_base_console_8h_a0886a2931f781b536b1634839c82ee3a}{FConsole\+Solo\+Command\+With\+Args\+Delegate}} Command, const \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}} \texorpdfstring{$\ast$}{*}Description=\mbox{\hyperlink{_platform_8h_a2978f60d40d64f3605b5a99f66f292a9}{TEXT}}("{}"{}))
+\item 
+class \mbox{\hyperlink{class_i_console_variable}{IConsole\+Variable}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_f_base_console_a091e6c76b658107e92c9f0fdc4c1f0c9}{Register\+Console\+Variable}} (const \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}} \texorpdfstring{$\ast$}{*}Name, const \mbox{\hyperlink{class_f_string}{FString}} \&Default\+Value, const \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}} \texorpdfstring{$\ast$}{*}Description=\mbox{\hyperlink{_platform_8h_a2978f60d40d64f3605b5a99f66f292a9}{TEXT}}("{}"{}))
+\item 
+class \mbox{\hyperlink{class_i_console_variable}{IConsole\+Variable}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_f_base_console_ae1dc3f4ad6471318207d1435e829ca9f}{Register\+Console\+Variable}} (const \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}} \texorpdfstring{$\ast$}{*}Name, float Default\+Value, const \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}} \texorpdfstring{$\ast$}{*}Description=\mbox{\hyperlink{_platform_8h_a2978f60d40d64f3605b5a99f66f292a9}{TEXT}}("{}"{}))
+\item 
+class \mbox{\hyperlink{class_i_console_variable}{IConsole\+Variable}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_f_base_console_ac3a21a26ea9d8efa315f1d5d5c75180d}{Register\+Console\+Variable}} (const \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}} \texorpdfstring{$\ast$}{*}Name, \mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}} Default\+Value, const \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}} \texorpdfstring{$\ast$}{*}Description=\mbox{\hyperlink{_platform_8h_a2978f60d40d64f3605b5a99f66f292a9}{TEXT}}("{}"{}))
+\item 
+class \mbox{\hyperlink{class_i_console_variable}{IConsole\+Variable}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_f_base_console_a8f8e0165efc4c25252791b2673b6e462}{Register\+Console\+Variable}} (const \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}} \texorpdfstring{$\ast$}{*}Name, bool Default\+Value, const \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}} \texorpdfstring{$\ast$}{*}Description=\mbox{\hyperlink{_platform_8h_a2978f60d40d64f3605b5a99f66f292a9}{TEXT}}("{}"{}))
+\item 
+class \mbox{\hyperlink{class_i_console_variable}{IConsole\+Variable}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_f_base_console_a5ae0733abf3a847b5779b8c3e22d5e3c}{Register\+Console\+Variable\+Ref}} (const \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}} \texorpdfstring{$\ast$}{*}Name, \mbox{\hyperlink{class_f_string}{FString}} \&Ref\+Value, const \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}} \texorpdfstring{$\ast$}{*}Description=\mbox{\hyperlink{_platform_8h_a2978f60d40d64f3605b5a99f66f292a9}{TEXT}}("{}"{}))
+\item 
+class \mbox{\hyperlink{class_i_console_variable}{IConsole\+Variable}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_f_base_console_a28e9ea85caf2129e92d947f3cffce84f}{Register\+Console\+Variable\+Ref}} (const \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}} \texorpdfstring{$\ast$}{*}Name, float \&Ref\+Value, const \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}} \texorpdfstring{$\ast$}{*}Description=\mbox{\hyperlink{_platform_8h_a2978f60d40d64f3605b5a99f66f292a9}{TEXT}}("{}"{}))
+\item 
+class \mbox{\hyperlink{class_i_console_variable}{IConsole\+Variable}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_f_base_console_a1512dfbc8e480eda79998e004fab074a}{Register\+Console\+Variable\+Ref}} (const \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}} \texorpdfstring{$\ast$}{*}Name, \mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}} \&Ref\+Value, const \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}} \texorpdfstring{$\ast$}{*}Description=\mbox{\hyperlink{_platform_8h_a2978f60d40d64f3605b5a99f66f292a9}{TEXT}}("{}"{}))
+\item 
+class \mbox{\hyperlink{class_i_console_variable}{IConsole\+Variable}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_f_base_console_a2b29465f197f9b2f39e734d5ecbd7743}{Register\+Console\+Variable\+Ref}} (const \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}} \texorpdfstring{$\ast$}{*}Name, bool \&Ref\+Value, const \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}} \texorpdfstring{$\ast$}{*}Description=\mbox{\hyperlink{_platform_8h_a2978f60d40d64f3605b5a99f66f292a9}{TEXT}}("{}"{}))
+\item 
+const \mbox{\hyperlink{class_t_array}{TArray}}$<$ \mbox{\hyperlink{struct_f_console_log}{FConsole\+Log}} $>$ \& \mbox{\hyperlink{class_f_base_console_a6ff0f9e823aa748b043aade6e1d8d9aa}{Get\+Logs}} () const
+\item 
+const \mbox{\hyperlink{_unordored_map_8h_a92bf7bcdbfe4ad5e7f9d970ac79a487d}{TUnordored\+Map}}$<$ \mbox{\hyperlink{class_f_string}{FString}}, \mbox{\hyperlink{class_i_console_object}{IConsole\+Object}} \texorpdfstring{$\ast$}{*} $>$ \& \mbox{\hyperlink{class_f_base_console_a9f9913c82c7953ac872353b6ae83c549}{Get\+Console\+Objects}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Дополнительные унаследованные члены}
+\doxysubsection*{Открытые атрибуты унаследованные от \mbox{\hyperlink{class_f_console_std}{FConsole\+Std}}}
+\begin{DoxyCompactItemize}
+\item 
+std\+::thread \mbox{\hyperlink{class_f_console_std_ae92d37ad7ece813360b04cdb379e8e91}{Thread}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Открытые атрибуты унаследованные от \mbox{\hyperlink{class_f_base_console}{FBase\+Console}}}
+\begin{DoxyCompactItemize}
+\item 
+FOn\+Add\+Console\+Input \mbox{\hyperlink{class_f_base_console_a33aad924bf0bb991d4b26e2279a7d6bd}{On\+Add\+Console\+Input}}
+\item 
+FOn\+Add\+Console\+Message \mbox{\hyperlink{class_f_base_console_ae6a7b4f68cf3a26faa7e7c45e005073c}{On\+Add\+Console\+Message}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Защищенные данные унаследованные от \mbox{\hyperlink{class_f_base_console}{FBase\+Console}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_t_array}{TArray}}$<$ \mbox{\hyperlink{struct_f_console_log}{FConsole\+Log}} $>$ \mbox{\hyperlink{class_f_base_console_a9594533192119ae6d6ba23b12b2ced39}{Cache}}
+\item 
+\mbox{\hyperlink{class_t_array}{TArray}}$<$ \mbox{\hyperlink{class_f_string}{FString}} $>$ \mbox{\hyperlink{class_f_base_console_a0ca0e8cfab2c3347ee0ac08f4f1ce9cf}{Inputs}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Статические защищенные данные унаследованные от \mbox{\hyperlink{class_f_base_console}{FBase\+Console}}}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{_platform_8h_afddf25cca147311c233b23a9d3329bb4}{uint64}} \mbox{\hyperlink{class_f_base_console_a69f1545caac45ed1d329120ef7a7e33a}{Static\+ID}} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Конструктор(ы)}
+\Hypertarget{class_f_global_input_out_console_a0cfa43916bcd3b0c84804b1828c6e519}\label{class_f_global_input_out_console_a0cfa43916bcd3b0c84804b1828c6e519} 
+\index{FGlobalInputOutConsole@{FGlobalInputOutConsole}!FGlobalInputOutConsole@{FGlobalInputOutConsole}}
+\index{FGlobalInputOutConsole@{FGlobalInputOutConsole}!FGlobalInputOutConsole@{FGlobalInputOutConsole}}
+\doxysubsubsection{\texorpdfstring{FGlobalInputOutConsole()}{FGlobalInputOutConsole()}}
+{\footnotesize\ttfamily FGlobal\+Input\+Out\+Console\+::\+FGlobal\+Input\+Out\+Console (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\Hypertarget{class_f_global_input_out_console_a6622dc5224f44f210cb92a098a3aab12}\label{class_f_global_input_out_console_a6622dc5224f44f210cb92a098a3aab12} 
+\index{FGlobalInputOutConsole@{FGlobalInputOutConsole}!````~FGlobalInputOutConsole@{\texorpdfstring{$\sim$}{\string~}FGlobalInputOutConsole}}
+\index{````~FGlobalInputOutConsole@{\texorpdfstring{$\sim$}{\string~}FGlobalInputOutConsole}!FGlobalInputOutConsole@{FGlobalInputOutConsole}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}FGlobalInputOutConsole()}{\string~FGlobalInputOutConsole()}}
+{\footnotesize\ttfamily FGlobal\+Input\+Out\+Console\+::\texorpdfstring{$\sim$}{\string~}\+FGlobal\+Input\+Out\+Console (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Методы}
+\Hypertarget{class_f_global_input_out_console_a1fd9e3df80c8a1834641a5148929cab3}\label{class_f_global_input_out_console_a1fd9e3df80c8a1834641a5148929cab3} 
+\index{FGlobalInputOutConsole@{FGlobalInputOutConsole}!AddLog@{AddLog}}
+\index{AddLog@{AddLog}!FGlobalInputOutConsole@{FGlobalInputOutConsole}}
+\doxysubsubsection{\texorpdfstring{AddLog()}{AddLog()}}
+{\footnotesize\ttfamily void FGlobal\+Input\+Out\+Console\+::\+Add\+Log (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_f_string}{FString}} \&}]{Text,  }\item[{\mbox{\hyperlink{_math_fwd_8h_a97a4aa8e6391e1665580cd373848baff}{FVector3f}}}]{Color = {\ttfamily \mbox{\hyperlink{_math_fwd_8h_a97a4aa8e6391e1665580cd373848baff}{FVector3f}}(1,~1,~1)},  }\item[{float}]{Time = {\ttfamily 0.f} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Переопределяет метод предка \mbox{\hyperlink{class_f_console_std_a11bbba692f0be992736ddf76158a3465}{FConsole\+Std}}.
+
+\Hypertarget{class_f_global_input_out_console_a15c1b8f8c7202a31fe7e3b9f168d9bd1}\label{class_f_global_input_out_console_a15c1b8f8c7202a31fe7e3b9f168d9bd1} 
+\index{FGlobalInputOutConsole@{FGlobalInputOutConsole}!Destroy@{Destroy}}
+\index{Destroy@{Destroy}!FGlobalInputOutConsole@{FGlobalInputOutConsole}}
+\doxysubsubsection{\texorpdfstring{Destroy()}{Destroy()}}
+{\footnotesize\ttfamily void FGlobal\+Input\+Out\+Console\+::\+Destroy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{class_f_global_input_out_console_a219b31c341148e1814729f886115e760}\label{class_f_global_input_out_console_a219b31c341148e1814729f886115e760} 
+\index{FGlobalInputOutConsole@{FGlobalInputOutConsole}!Initialize@{Initialize}}
+\index{Initialize@{Initialize}!FGlobalInputOutConsole@{FGlobalInputOutConsole}}
+\doxysubsubsection{\texorpdfstring{Initialize()}{Initialize()}}
+{\footnotesize\ttfamily void FGlobal\+Input\+Out\+Console\+::\+Initialize (\begin{DoxyParamCaption}\item[{bool}]{b\+Create\+Os\+Console = {\ttfamily false} }\end{DoxyParamCaption})}
+
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+Dark Engine/\+Source/\+Runtime/\+Core/\+Public/\+Console/\mbox{\hyperlink{_global_input_out_console_8h}{Global\+Input\+Out\+Console.\+h}}\item 
+Dark Engine/\+Source/\+Runtime/\+Core/\+Private/\+Console/\mbox{\hyperlink{_global_input_out_console_8cpp}{Global\+Input\+Out\+Console.\+cpp}}\end{DoxyCompactItemize}

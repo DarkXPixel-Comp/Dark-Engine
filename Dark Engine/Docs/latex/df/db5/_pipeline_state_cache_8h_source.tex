@@ -1,0 +1,20 @@
+\doxysection{Pipeline\+State\+Cache.\+h}
+\hypertarget{_pipeline_state_cache_8h_source}{}\label{_pipeline_state_cache_8h_source}\index{Dark Engine/Source/Runtime/RHI/public/PipelineStateCache.h@{Dark Engine/Source/Runtime/RHI/public/PipelineStateCache.h}}
+\mbox{\hyperlink{_pipeline_state_cache_8h}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_r_h_i_resources_8h}{RHIResources.h}}"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_unordored_map_8h}{Containers/UnordoredMap.h}}"{}}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_f_pipeline_state_cache}{FPipelineStateCache}}}
+\DoxyCodeLine{00006\ \{}
+\DoxyCodeLine{00007\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00008\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_f_graphics_pipeline_state_initializer}{FGraphicsPipelineStateInitializer}}*\ \mbox{\hyperlink{class_f_pipeline_state_cache_a3365d44614878793b9c19f71fd9de852}{GetAndOrCreateGraphicsPipelineState}}(}
+\DoxyCodeLine{00009\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class}\ \mbox{\hyperlink{class_f_r_h_i_command_list}{FRHICommandList}}\&\ RHICmdList,}
+\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_f_graphics_pipeline_state_initializer}{FGraphicsPipelineStateInitializer}}\&\ Initializer);}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{static}\ TUnordoredMap<FGraphicsPipelineStateInitializer,\ class\ FGraphicsPipelineState*>\ GGraphicsPipelineMap;}
+\DoxyCodeLine{00014\ \};}
+
+\end{DoxyCode}

@@ -1,0 +1,615 @@
+\doxysection{Класс D3\+D12\+Renderer}
+\hypertarget{class_d3_d12_renderer}{}\label{class_d3_d12_renderer}\index{D3D12Renderer@{D3D12Renderer}}
+
+
+{\ttfamily \#include $<$D3\+D12\+Render.\+h$>$}
+
+Граф наследования\+:D3\+D12\+Renderer\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{df/d68/class_d3_d12_renderer}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Классы}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_d3_d12_renderer_1_1_f_acceleration_buffers}{FAcceleration\+Buffers}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_d3_d12_renderer_a3b662b2f33d792bcffdc9269ea1f3997}{D3\+D12\+Renderer}} ()
+\item 
+int32\+\_\+t \mbox{\hyperlink{class_d3_d12_renderer_ab9aebeda48bf3b095c7fda28c84f4b09}{Init}} () override
+\item 
+void \mbox{\hyperlink{class_d3_d12_renderer_aa790f82fc4e39cfd34ab6634bc01f673}{Shutdown}} () override
+\item 
+void \mbox{\hyperlink{class_d3_d12_renderer_a44cd26e6339e136920b9306ae3a34e27}{Begin\+Frame}} (\mbox{\hyperlink{class_d3_d12_scene}{D3\+D12\+Scene}} \texorpdfstring{$\ast$}{*}scene)
+\item 
+void \mbox{\hyperlink{class_d3_d12_renderer_ab1556e63e2387463850524658851c53f}{Render}} (\mbox{\hyperlink{class_d3_d12_scene}{D3\+D12\+Scene}} \texorpdfstring{$\ast$}{*}) override
+\item 
+void \mbox{\hyperlink{class_d3_d12_renderer_aa7fafefbe67ebe0c63a35a6160038566}{Set\+Resolution}} (\mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}} Width, \mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}} Height, bool Is\+Full\+Screen) override
+\item 
+void \mbox{\hyperlink{class_d3_d12_renderer_a03368877dd51fe0103b72c9f42c51a3e}{Render\+Obj}} ()
+\item 
+void \mbox{\hyperlink{class_d3_d12_renderer_ae0eee51bbb0285af74be4c4de1d254d0}{Render\+Scene}} ()
+\item 
+void \mbox{\hyperlink{class_d3_d12_renderer_ae29df92539415bc7898caef586a5d468}{End\+Frame}} () override
+\item 
+void \mbox{\hyperlink{class_d3_d12_renderer_aa1a3d4c026b031dc83192f48d8784e99}{On\+Resize}} (long x, long y)
+\item 
+void \mbox{\hyperlink{class_d3_d12_renderer_a8219c07fe09a952427df655b221b21b5}{On\+Input}} (\mbox{\hyperlink{_input_core_8h_af20302d31e77274d05d1998475591a5a}{e\+Input\+Action\+State}} action)
+\item 
+void \mbox{\hyperlink{class_d3_d12_renderer_a8a4e62d84cd6c2a97c7e815465e2e8e3}{On\+Interface}} ()
+\item 
+void \mbox{\hyperlink{class_d3_d12_renderer_a37648d96444c526f6c3d07f6e589ab52}{Post\+Processing}} (D3\+D12\+\_\+\+GPU\+\_\+\+DESCRIPTOR\+\_\+\+HANDLE render\+Handle, ID3\+D12\+Resource \texorpdfstring{$\ast$}{*}output\+Handle)
+\item 
+\mbox{\hyperlink{class_t_array}{TArray}}$<$ D3\+D12\+Mesh1 \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_d3_d12_renderer_a992a3322c9b03e5a68028abb30fe4df8}{Load\+Mesh}} (\mbox{\hyperlink{class_f_string}{FString}} path="{}"{})
+\item 
+void \mbox{\hyperlink{class_d3_d12_renderer_adb307fd9d8a57d3ab547a828809024f1}{Update}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Открытые члены унаследованные от \mbox{\hyperlink{class_renderer}{Renderer}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_renderer_a9f9b1b821275a8e2fe83cc7123120501}{Set\+Vsync}} (int vsync)
+\item 
+\mbox{\hyperlink{class_renderer_a7ebf46f54dab9905f79b80f7fddb76a6}{Renderer}} ()
+\item 
+override void \mbox{\hyperlink{class_renderer_a5dcd7f77ab2120faf76bd05609cfbb40}{Configure}} (Project.\+Configuration config, Target target)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Открытые атрибуты}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_d3_d12_renderer_a15e89b621a8ba339d1e7cdadfbb50a61}{Is\+Raster}} = true
+\item 
+bool \mbox{\hyperlink{class_d3_d12_renderer_aa1286f15bb9f0d764af42c5f580cdcd1}{is\+Default\+Tex\+Loaded}} = false
+\item 
+bool \mbox{\hyperlink{class_d3_d12_renderer_a308a32db755fc352c2e47eac39ff2c89}{is\+Skybox\+Tex\+Loaded}} = false
+\item 
+int \mbox{\hyperlink{class_d3_d12_renderer_a1fcbbf59f7e2d004e8e9fc05448911c6}{msaa}} = 1
+\item 
+Com\+Ptr$<$ IDXGIFactory7 $>$ \mbox{\hyperlink{class_d3_d12_renderer_a429bb8417172251a5182526816a36760}{m\+\_\+factory}}
+\item 
+Com\+Ptr$<$ ID3\+D12\+Device8 $>$ \mbox{\hyperlink{class_d3_d12_renderer_af997a5c552fe197479ed778915c4f55e}{m\+\_\+device}}
+\item 
+Com\+Ptr$<$ IDXGIAdapter1 $>$ \mbox{\hyperlink{class_d3_d12_renderer_a9e152a1f71eee5e0f196c795bcaaf664}{m\+\_\+adapter}}
+\item 
+Com\+Ptr$<$ ID3\+D12\+Resource $>$ \mbox{\hyperlink{class_d3_d12_renderer_af58c32c6b4895001d60ebfc546195e9b}{temp\+Buffer}}
+\item 
+Com\+Ptr$<$ ID3\+D12\+Command\+Allocator $>$ \mbox{\hyperlink{class_d3_d12_renderer_ae45fa4dd4ec7123c41717ed61d4a3122}{m\+\_\+command\+Allocator}}
+\item 
+Com\+Ptr$<$ ID3\+D12\+Graphics\+Command\+List6 $>$ \mbox{\hyperlink{class_d3_d12_renderer_ab847b8c9d3bdcca2acf2ced9540541a1}{m\+\_\+command\+List}}
+\item 
+Com\+Ptr$<$ ID3\+D12\+Command\+Queue $>$ \mbox{\hyperlink{class_d3_d12_renderer_ad5a99fee1c2a844ff74bf797bd021140}{m\+\_\+command\+Queue}}
+\item 
+\mbox{\hyperlink{_t_unique_ptr_8h_a6d68c36850f3343692c47cc0db1bdab6}{TUnique\+Ptr}}$<$ Descriptor\+Heap $>$ \mbox{\hyperlink{class_d3_d12_renderer_a6b951e7e941d197c80dafd905a73ac7e}{RTDescriptor\+Heap}}
+\item 
+\mbox{\hyperlink{_t_unique_ptr_8h_a6d68c36850f3343692c47cc0db1bdab6}{TUnique\+Ptr}}$<$ Descriptor\+Heap $>$ \mbox{\hyperlink{class_d3_d12_renderer_a8002e41b69af55bcbb66795a777284ef}{DSDescriptor\+Heap}}
+\item 
+\mbox{\hyperlink{_t_unique_ptr_8h_a6d68c36850f3343692c47cc0db1bdab6}{TUnique\+Ptr}}$<$ Descriptor\+Heap $>$ \mbox{\hyperlink{class_d3_d12_renderer_a687efd0d5876dfdc49cd3952bc6e70d0}{SRDescriptor\+Heap}}
+\item 
+Com\+Ptr$<$ IDXGISwap\+Chain4 $>$ \mbox{\hyperlink{class_d3_d12_renderer_a00f8bac9e1baf033e8770330c8549baa}{m\+\_\+swapchain}}
+\item 
+Com\+Ptr$<$ IDXGISwap\+Chain $>$ \mbox{\hyperlink{class_d3_d12_renderer_a02942d543fc3d336002f38a80b8dd492}{m\+\_\+swapchainT}}
+\item 
+\mbox{\hyperlink{_t_unique_ptr_8h_a6d68c36850f3343692c47cc0db1bdab6}{TUnique\+Ptr}}$<$ Basic\+Post\+Process $>$ \mbox{\hyperlink{class_d3_d12_renderer_abb5971aa7b645924128023bd99937194}{Post\+Process}}
+\item 
+\mbox{\hyperlink{_t_unique_ptr_8h_a6d68c36850f3343692c47cc0db1bdab6}{TUnique\+Ptr}}$<$ Graphics\+Memory $>$ \mbox{\hyperlink{class_d3_d12_renderer_ac84cdd66af4b18d57d294e5cfb2aa7d0}{Graph\+Memory}}
+\item 
+\mbox{\hyperlink{class_f_windows_window}{FWindows\+Window}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_d3_d12_renderer_aac9eb35c9b209c213330601088e0cff2}{m\+\_\+render\+Window}}
+\item 
+\mbox{\hyperlink{_d3_d12_main_8h_ab8eaee8f45f36954297ee6146eb6db20}{Resource}} \mbox{\hyperlink{class_d3_d12_renderer_a19869ac089a3ef7f35fbdf5204a9bffa}{m\+\_\+back\+Buffers}} \mbox{[}BACK\+\_\+\+BUFFER\+\_\+\+COUNT\mbox{]}
+\item 
+\mbox{\hyperlink{_d3_d12_main_8h_ab8eaee8f45f36954297ee6146eb6db20}{Resource}} \mbox{\hyperlink{class_d3_d12_renderer_a878e447043ae372ac86b532d17506ab6}{m\+\_\+depth\+Buffer}}
+\item 
+\mbox{\hyperlink{_d3_d12_main_8h_ab8eaee8f45f36954297ee6146eb6db20}{Resource}} \mbox{\hyperlink{class_d3_d12_renderer_a33776c460e9902c498ccae56398c3eea}{m\+\_\+back\+Vertex\+Buffer}}
+\item 
+\mbox{\hyperlink{_d3_d12_main_8h_ab8eaee8f45f36954297ee6146eb6db20}{Resource}} \mbox{\hyperlink{class_d3_d12_renderer_adb95b3800d0f7a7d1d0544275ada8741}{m\+\_\+back\+Indices\+Buffer}}
+\item 
+\mbox{\hyperlink{_d3_d12_main_8h_ab8eaee8f45f36954297ee6146eb6db20}{Resource}} \mbox{\hyperlink{class_d3_d12_renderer_a06230c36c870f59d7f739143248cc76f}{m\+\_\+\+Render\+Target}}
+\item 
+\mbox{\hyperlink{_d3_d12_main_8h_ab8eaee8f45f36954297ee6146eb6db20}{Resource}} \mbox{\hyperlink{class_d3_d12_renderer_a5f322ec4094a05c23e997e81e26c5cf6}{m\+\_\+vertex\+Sky\+Box\+Buffer}}
+\item 
+\mbox{\hyperlink{_d3_d12_main_8h_ab8eaee8f45f36954297ee6146eb6db20}{Resource}} \mbox{\hyperlink{class_d3_d12_renderer_a7602a045e653dbde77c442c83136039a}{m\+\_\+indices\+Sky\+Box\+Buffer}}
+\item 
+\mbox{\hyperlink{class_d3_d12_texture}{D3\+D12\+Texture}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_d3_d12_renderer_ad37075f99507c658cf2cb3069d8d8da0}{m\+\_\+skybox\+Texture}}
+\item 
+D3\+D12\+\_\+\+VERTEX\+\_\+\+BUFFER\+\_\+\+VIEW \mbox{\hyperlink{class_d3_d12_renderer_a164bdc157c01a30f870707ec1a08d416}{m\+\_\+back\+Vertex\+View}}
+\item 
+D3\+D12\+\_\+\+INDEX\+\_\+\+BUFFER\+\_\+\+VIEW \mbox{\hyperlink{class_d3_d12_renderer_a5608fc9e7666321c1681f741ad5c7123}{m\+\_\+back\+Index\+View}}
+\item 
+D3\+D12\+\_\+\+VERTEX\+\_\+\+BUFFER\+\_\+\+VIEW \mbox{\hyperlink{class_d3_d12_renderer_ac301c6b93f11d3c75c106afa0477ce8a}{m\+\_\+\+Sky\+Box\+Vertex\+View}}
+\item 
+D3\+D12\+\_\+\+INDEX\+\_\+\+BUFFER\+\_\+\+VIEW \mbox{\hyperlink{class_d3_d12_renderer_a6fa14398c4c42fd9a22b85d4552074da}{m\+\_\+\+Sky\+Box\+Index\+View}}
+\item 
+\mbox{\hyperlink{_t_unique_ptr_8h_a6d68c36850f3343692c47cc0db1bdab6}{TUnique\+Ptr}}$<$ \mbox{\hyperlink{class_d3_d12_upload_buffer_resource}{D3\+D12\+Upload\+Buffer\+Resource}}$<$ XMMATRIX $>$ $>$ \mbox{\hyperlink{class_d3_d12_renderer_a61cf741c0557a7a2afb14389fed73efc}{m\+\_\+cbv\+Object\+Sky\+Box}}
+\item 
+\mbox{\hyperlink{_t_unique_ptr_8h_a6d68c36850f3343692c47cc0db1bdab6}{TUnique\+Ptr}}$<$ \mbox{\hyperlink{class_d3_d12_pipeline_shader_root_signature}{D3\+D12\+Pipeline\+Shader\+Root\+Signature}} $>$ \mbox{\hyperlink{class_d3_d12_renderer_aee8cd9c1e15d0b636a075a65669bf6fd}{m\+\_\+\+Post\+Process\+PSO}}
+\item 
+\mbox{\hyperlink{_t_unique_ptr_8h_a6d68c36850f3343692c47cc0db1bdab6}{TUnique\+Ptr}}$<$ \mbox{\hyperlink{class_d3_d12_pipeline_shader_root_signature}{D3\+D12\+Pipeline\+Shader\+Root\+Signature}} $>$ \mbox{\hyperlink{class_d3_d12_renderer_af3b99f09069f5f8a00f759165f1eaad1}{m\+\_\+\+Blur}}
+\item 
+\mbox{\hyperlink{_t_unique_ptr_8h_a6d68c36850f3343692c47cc0db1bdab6}{TUnique\+Ptr}}$<$ \mbox{\hyperlink{class_d3_d12_pipeline_shader_root_signature}{D3\+D12\+Pipeline\+Shader\+Root\+Signature}} $>$ \mbox{\hyperlink{class_d3_d12_renderer_a4e376b8113dc7cc306b7568306bce54e}{m\+\_\+\+Sky\+Box\+PSO}}
+\item 
+DXGI\+\_\+\+FORMAT \mbox{\hyperlink{class_d3_d12_renderer_a9750bff5b6a3acc27f49c4fe5d1e3c45}{m\+\_\+back\+Buffer\+Format}}
+\item 
+DXGI\+\_\+\+FORMAT \mbox{\hyperlink{class_d3_d12_renderer_a13505d3d836b8c1f3850205fead3bc64}{m\+\_\+depth\+Stencil\+Format}}
+\item 
+HANDLE \mbox{\hyperlink{class_d3_d12_renderer_aa9cdbfc32a655ccd5513b252cf477e20}{m\+\_\+fence\+Event}}
+\item 
+Com\+Ptr$<$ ID3\+D12\+Fence $>$ \mbox{\hyperlink{class_d3_d12_renderer_a4e007859659b73b2fc37ce04e58678dd}{m\+\_\+fence}}
+\item 
+\mbox{\hyperlink{_platform_8h_afddf25cca147311c233b23a9d3329bb4}{uint64}} \mbox{\hyperlink{class_d3_d12_renderer_a7934cf13a00ac3e9ad8f6b5735174b9f}{m\+\_\+fence\+Value}}
+\item 
+\mbox{\hyperlink{_platform_8h_afddf25cca147311c233b23a9d3329bb4}{uint64}} \mbox{\hyperlink{class_d3_d12_renderer_a552610928ec0ea485f5248368a3eb325}{Current\+Back\+Buffer\+Index}} = 0
+\item 
+\mbox{\hyperlink{_platform_8h_a2c46f1fb01e11216aa2c983307deafb4}{SIZE\+\_\+T}} \mbox{\hyperlink{class_d3_d12_renderer_aca391d23c4a13ab64d21111251b7d169}{RTHandle\+Size}} = 0
+\item 
+\mbox{\hyperlink{_platform_8h_a2c46f1fb01e11216aa2c983307deafb4}{SIZE\+\_\+T}} \mbox{\hyperlink{class_d3_d12_renderer_a9c64562b836700c10d9640286812c634}{DSHandle\+Size}} = 0
+\item 
+\mbox{\hyperlink{_platform_8h_a2c46f1fb01e11216aa2c983307deafb4}{SIZE\+\_\+T}} \mbox{\hyperlink{class_d3_d12_renderer_a07232bdb9cb19d0f437a160b7458f6fd}{CBSRUAHandle\+Size}} = 0
+\item 
+D3\+D12\+\_\+\+VIEWPORT \mbox{\hyperlink{class_d3_d12_renderer_af73ba487a0b00f9edbf7e1493da360fd}{Viewport}}
+\item 
+D3\+D12\+\_\+\+RECT \mbox{\hyperlink{class_d3_d12_renderer_a5a2624405d85f63642a1f460948e1537}{Scissor\+Rect}}
+\item 
+float \mbox{\hyperlink{class_d3_d12_renderer_aa5200de903542bfdda6d3fc98c07ff51}{Fov}}
+\item 
+\mbox{\hyperlink{_t_unique_ptr_8h_a6d68c36850f3343692c47cc0db1bdab6}{TUnique\+Ptr}}$<$ \mbox{\hyperlink{class_d3_d12_upload_buffer_resource}{D3\+D12\+Upload\+Buffer\+Resource}}$<$ \mbox{\hyperlink{struct_d3_d12_pass_constants}{D3\+D12\+Pass\+Constants}} $>$ $>$ \mbox{\hyperlink{class_d3_d12_renderer_a4ba526261fcb17578be954cc01e841da}{m\+\_\+pass\+Buffer}}
+\item 
+Com\+Ptr$<$ ID3\+D12\+Root\+Signature $>$ \mbox{\hyperlink{class_d3_d12_renderer_a2173517f461ec6ef1e6f1f737c0e6080}{m\+\_\+\+Ray\+Tracing\+Global\+Root\+Signature}}
+\item 
+Com\+Ptr$<$ ID3\+D12\+Root\+Signature $>$ \mbox{\hyperlink{class_d3_d12_renderer_a9e00fee6777974d50983278f833904a5}{m\+\_\+\+Ray\+Tracing\+Local\+Root\+Signature}}
+\item 
+\mbox{\hyperlink{struct_ray_gen_constant_buffer}{Ray\+Gen\+Constant\+Buffer}} \mbox{\hyperlink{class_d3_d12_renderer_a42f01f02ca7c5f18efa95bcb155a5958}{m\+\_\+\+Ray\+Gen\+CB}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Друзья}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_d3_d12_renderer_a852ad225c9a1f3acf2593d4da343d2c0}{FD3\+D12\+Mesh}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Дополнительные унаследованные члены}
+\doxysubsection*{Защищенные данные унаследованные от \mbox{\hyperlink{class_renderer}{Renderer}}}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_renderer_a580f5329c344bb5ba34158392d30967d}{b\+Vsync}} = false
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Конструктор(ы)}
+\Hypertarget{class_d3_d12_renderer_a3b662b2f33d792bcffdc9269ea1f3997}\label{class_d3_d12_renderer_a3b662b2f33d792bcffdc9269ea1f3997} 
+\index{D3D12Renderer@{D3D12Renderer}!D3D12Renderer@{D3D12Renderer}}
+\index{D3D12Renderer@{D3D12Renderer}!D3D12Renderer@{D3D12Renderer}}
+\doxysubsubsection{\texorpdfstring{D3D12Renderer()}{D3D12Renderer()}}
+{\footnotesize\ttfamily D3\+D12\+Renderer\+::\+D3\+D12\+Renderer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Методы}
+\Hypertarget{class_d3_d12_renderer_a44cd26e6339e136920b9306ae3a34e27}\label{class_d3_d12_renderer_a44cd26e6339e136920b9306ae3a34e27} 
+\index{D3D12Renderer@{D3D12Renderer}!BeginFrame@{BeginFrame}}
+\index{BeginFrame@{BeginFrame}!D3D12Renderer@{D3D12Renderer}}
+\doxysubsubsection{\texorpdfstring{BeginFrame()}{BeginFrame()}}
+{\footnotesize\ttfamily void D3\+D12\+Renderer\+::\+Begin\+Frame (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_d3_d12_scene}{D3\+D12\+Scene}} \texorpdfstring{$\ast$}{*}}]{scene }\end{DoxyParamCaption})}
+
+\Hypertarget{class_d3_d12_renderer_ae29df92539415bc7898caef586a5d468}\label{class_d3_d12_renderer_ae29df92539415bc7898caef586a5d468} 
+\index{D3D12Renderer@{D3D12Renderer}!EndFrame@{EndFrame}}
+\index{EndFrame@{EndFrame}!D3D12Renderer@{D3D12Renderer}}
+\doxysubsubsection{\texorpdfstring{EndFrame()}{EndFrame()}}
+{\footnotesize\ttfamily void D3\+D12\+Renderer\+::\+End\+Frame (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Замещает \mbox{\hyperlink{class_renderer_afcfb8479da67a065b5a3590fb7a439f6}{Renderer}}.
+
+\Hypertarget{class_d3_d12_renderer_ab9aebeda48bf3b095c7fda28c84f4b09}\label{class_d3_d12_renderer_ab9aebeda48bf3b095c7fda28c84f4b09} 
+\index{D3D12Renderer@{D3D12Renderer}!Init@{Init}}
+\index{Init@{Init}!D3D12Renderer@{D3D12Renderer}}
+\doxysubsubsection{\texorpdfstring{Init()}{Init()}}
+{\footnotesize\ttfamily int32\+\_\+t D3\+D12\+Renderer\+::\+Init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Замещает \mbox{\hyperlink{class_renderer_a46a7f9e45e49bb808cf47dddda5538bc}{Renderer}}.
+
+\Hypertarget{class_d3_d12_renderer_a992a3322c9b03e5a68028abb30fe4df8}\label{class_d3_d12_renderer_a992a3322c9b03e5a68028abb30fe4df8} 
+\index{D3D12Renderer@{D3D12Renderer}!LoadMesh@{LoadMesh}}
+\index{LoadMesh@{LoadMesh}!D3D12Renderer@{D3D12Renderer}}
+\doxysubsubsection{\texorpdfstring{LoadMesh()}{LoadMesh()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_t_array}{TArray}}$<$ D3\+D12\+Mesh1 \texorpdfstring{$\ast$}{*} $>$ D3\+D12\+Renderer\+::\+Load\+Mesh (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_f_string}{FString}}}]{path = {\ttfamily "{}"{}} }\end{DoxyParamCaption})}
+
+\Hypertarget{class_d3_d12_renderer_a8219c07fe09a952427df655b221b21b5}\label{class_d3_d12_renderer_a8219c07fe09a952427df655b221b21b5} 
+\index{D3D12Renderer@{D3D12Renderer}!OnInput@{OnInput}}
+\index{OnInput@{OnInput}!D3D12Renderer@{D3D12Renderer}}
+\doxysubsubsection{\texorpdfstring{OnInput()}{OnInput()}}
+{\footnotesize\ttfamily void D3\+D12\+Renderer\+::\+On\+Input (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_input_core_8h_af20302d31e77274d05d1998475591a5a}{e\+Input\+Action\+State}}}]{action }\end{DoxyParamCaption})}
+
+\Hypertarget{class_d3_d12_renderer_a8a4e62d84cd6c2a97c7e815465e2e8e3}\label{class_d3_d12_renderer_a8a4e62d84cd6c2a97c7e815465e2e8e3} 
+\index{D3D12Renderer@{D3D12Renderer}!OnInterface@{OnInterface}}
+\index{OnInterface@{OnInterface}!D3D12Renderer@{D3D12Renderer}}
+\doxysubsubsection{\texorpdfstring{OnInterface()}{OnInterface()}}
+{\footnotesize\ttfamily void D3\+D12\+Renderer\+::\+On\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{class_d3_d12_renderer_aa1a3d4c026b031dc83192f48d8784e99}\label{class_d3_d12_renderer_aa1a3d4c026b031dc83192f48d8784e99} 
+\index{D3D12Renderer@{D3D12Renderer}!OnResize@{OnResize}}
+\index{OnResize@{OnResize}!D3D12Renderer@{D3D12Renderer}}
+\doxysubsubsection{\texorpdfstring{OnResize()}{OnResize()}}
+{\footnotesize\ttfamily void D3\+D12\+Renderer\+::\+On\+Resize (\begin{DoxyParamCaption}\item[{long}]{x,  }\item[{long}]{y }\end{DoxyParamCaption})}
+
+\Hypertarget{class_d3_d12_renderer_a37648d96444c526f6c3d07f6e589ab52}\label{class_d3_d12_renderer_a37648d96444c526f6c3d07f6e589ab52} 
+\index{D3D12Renderer@{D3D12Renderer}!PostProcessing@{PostProcessing}}
+\index{PostProcessing@{PostProcessing}!D3D12Renderer@{D3D12Renderer}}
+\doxysubsubsection{\texorpdfstring{PostProcessing()}{PostProcessing()}}
+{\footnotesize\ttfamily void D3\+D12\+Renderer\+::\+Post\+Processing (\begin{DoxyParamCaption}\item[{D3\+D12\+\_\+\+GPU\+\_\+\+DESCRIPTOR\+\_\+\+HANDLE}]{render\+Handle,  }\item[{ID3\+D12\+Resource \texorpdfstring{$\ast$}{*}}]{output\+Handle }\end{DoxyParamCaption})}
+
+\Hypertarget{class_d3_d12_renderer_ab1556e63e2387463850524658851c53f}\label{class_d3_d12_renderer_ab1556e63e2387463850524658851c53f} 
+\index{D3D12Renderer@{D3D12Renderer}!Render@{Render}}
+\index{Render@{Render}!D3D12Renderer@{D3D12Renderer}}
+\doxysubsubsection{\texorpdfstring{Render()}{Render()}}
+{\footnotesize\ttfamily void D3\+D12\+Renderer\+::\+Render (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_d3_d12_scene}{D3\+D12\+Scene}} \texorpdfstring{$\ast$}{*}}]{scene }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Замещает \mbox{\hyperlink{class_renderer_a3ee72b34a004e46c4c544596acc09289}{Renderer}}.
+
+\Hypertarget{class_d3_d12_renderer_a03368877dd51fe0103b72c9f42c51a3e}\label{class_d3_d12_renderer_a03368877dd51fe0103b72c9f42c51a3e} 
+\index{D3D12Renderer@{D3D12Renderer}!RenderObj@{RenderObj}}
+\index{RenderObj@{RenderObj}!D3D12Renderer@{D3D12Renderer}}
+\doxysubsubsection{\texorpdfstring{RenderObj()}{RenderObj()}}
+{\footnotesize\ttfamily void D3\+D12\+Renderer\+::\+Render\+Obj (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{class_d3_d12_renderer_ae0eee51bbb0285af74be4c4de1d254d0}\label{class_d3_d12_renderer_ae0eee51bbb0285af74be4c4de1d254d0} 
+\index{D3D12Renderer@{D3D12Renderer}!RenderScene@{RenderScene}}
+\index{RenderScene@{RenderScene}!D3D12Renderer@{D3D12Renderer}}
+\doxysubsubsection{\texorpdfstring{RenderScene()}{RenderScene()}}
+{\footnotesize\ttfamily void D3\+D12\+Renderer\+::\+Render\+Scene (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{class_d3_d12_renderer_aa7fafefbe67ebe0c63a35a6160038566}\label{class_d3_d12_renderer_aa7fafefbe67ebe0c63a35a6160038566} 
+\index{D3D12Renderer@{D3D12Renderer}!SetResolution@{SetResolution}}
+\index{SetResolution@{SetResolution}!D3D12Renderer@{D3D12Renderer}}
+\doxysubsubsection{\texorpdfstring{SetResolution()}{SetResolution()}}
+{\footnotesize\ttfamily void D3\+D12\+Renderer\+::\+Set\+Resolution (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}}]{Width,  }\item[{\mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}}]{Height,  }\item[{bool}]{Is\+Full\+Screen }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Замещает \mbox{\hyperlink{class_renderer_ae6b88bc56cc6a56e14f2596bddb1fc88}{Renderer}}.
+
+\Hypertarget{class_d3_d12_renderer_aa790f82fc4e39cfd34ab6634bc01f673}\label{class_d3_d12_renderer_aa790f82fc4e39cfd34ab6634bc01f673} 
+\index{D3D12Renderer@{D3D12Renderer}!Shutdown@{Shutdown}}
+\index{Shutdown@{Shutdown}!D3D12Renderer@{D3D12Renderer}}
+\doxysubsubsection{\texorpdfstring{Shutdown()}{Shutdown()}}
+{\footnotesize\ttfamily void D3\+D12\+Renderer\+::\+Shutdown (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Замещает \mbox{\hyperlink{class_renderer_a643ecc375d2aacfa59e0e93736604bc6}{Renderer}}.
+
+\Hypertarget{class_d3_d12_renderer_adb307fd9d8a57d3ab547a828809024f1}\label{class_d3_d12_renderer_adb307fd9d8a57d3ab547a828809024f1} 
+\index{D3D12Renderer@{D3D12Renderer}!Update@{Update}}
+\index{Update@{Update}!D3D12Renderer@{D3D12Renderer}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void D3\+D12\+Renderer\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Документация по друзьям класса и функциям, относящимся к классу}
+\Hypertarget{class_d3_d12_renderer_a852ad225c9a1f3acf2593d4da343d2c0}\label{class_d3_d12_renderer_a852ad225c9a1f3acf2593d4da343d2c0} 
+\index{D3D12Renderer@{D3D12Renderer}!FD3D12Mesh@{FD3D12Mesh}}
+\index{FD3D12Mesh@{FD3D12Mesh}!D3D12Renderer@{D3D12Renderer}}
+\doxysubsubsection{\texorpdfstring{FD3D12Mesh}{FD3D12Mesh}}
+{\footnotesize\ttfamily friend class \mbox{\hyperlink{class_f_d3_d12_mesh}{FD3\+D12\+Mesh}}\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+\doxysubsection{Данные класса}
+\Hypertarget{class_d3_d12_renderer_a07232bdb9cb19d0f437a160b7458f6fd}\label{class_d3_d12_renderer_a07232bdb9cb19d0f437a160b7458f6fd} 
+\index{D3D12Renderer@{D3D12Renderer}!CBSRUAHandleSize@{CBSRUAHandleSize}}
+\index{CBSRUAHandleSize@{CBSRUAHandleSize}!D3D12Renderer@{D3D12Renderer}}
+\doxysubsubsection{\texorpdfstring{CBSRUAHandleSize}{CBSRUAHandleSize}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_platform_8h_a2c46f1fb01e11216aa2c983307deafb4}{SIZE\+\_\+T}} D3\+D12\+Renderer\+::\+CBSRUAHandle\+Size = 0}
+
+\Hypertarget{class_d3_d12_renderer_a552610928ec0ea485f5248368a3eb325}\label{class_d3_d12_renderer_a552610928ec0ea485f5248368a3eb325} 
+\index{D3D12Renderer@{D3D12Renderer}!CurrentBackBufferIndex@{CurrentBackBufferIndex}}
+\index{CurrentBackBufferIndex@{CurrentBackBufferIndex}!D3D12Renderer@{D3D12Renderer}}
+\doxysubsubsection{\texorpdfstring{CurrentBackBufferIndex}{CurrentBackBufferIndex}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_platform_8h_afddf25cca147311c233b23a9d3329bb4}{uint64}} D3\+D12\+Renderer\+::\+Current\+Back\+Buffer\+Index = 0}
+
+\Hypertarget{class_d3_d12_renderer_a8002e41b69af55bcbb66795a777284ef}\label{class_d3_d12_renderer_a8002e41b69af55bcbb66795a777284ef} 
+\index{D3D12Renderer@{D3D12Renderer}!DSDescriptorHeap@{DSDescriptorHeap}}
+\index{DSDescriptorHeap@{DSDescriptorHeap}!D3D12Renderer@{D3D12Renderer}}
+\doxysubsubsection{\texorpdfstring{DSDescriptorHeap}{DSDescriptorHeap}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_t_unique_ptr_8h_a6d68c36850f3343692c47cc0db1bdab6}{TUnique\+Ptr}}$<$Descriptor\+Heap$>$ D3\+D12\+Renderer\+::\+DSDescriptor\+Heap}
+
+\Hypertarget{class_d3_d12_renderer_a9c64562b836700c10d9640286812c634}\label{class_d3_d12_renderer_a9c64562b836700c10d9640286812c634} 
+\index{D3D12Renderer@{D3D12Renderer}!DSHandleSize@{DSHandleSize}}
+\index{DSHandleSize@{DSHandleSize}!D3D12Renderer@{D3D12Renderer}}
+\doxysubsubsection{\texorpdfstring{DSHandleSize}{DSHandleSize}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_platform_8h_a2c46f1fb01e11216aa2c983307deafb4}{SIZE\+\_\+T}} D3\+D12\+Renderer\+::\+DSHandle\+Size = 0}
+
+\Hypertarget{class_d3_d12_renderer_aa5200de903542bfdda6d3fc98c07ff51}\label{class_d3_d12_renderer_aa5200de903542bfdda6d3fc98c07ff51} 
+\index{D3D12Renderer@{D3D12Renderer}!Fov@{Fov}}
+\index{Fov@{Fov}!D3D12Renderer@{D3D12Renderer}}
+\doxysubsubsection{\texorpdfstring{Fov}{Fov}}
+{\footnotesize\ttfamily float D3\+D12\+Renderer\+::\+Fov}
+
+\Hypertarget{class_d3_d12_renderer_ac84cdd66af4b18d57d294e5cfb2aa7d0}\label{class_d3_d12_renderer_ac84cdd66af4b18d57d294e5cfb2aa7d0} 
+\index{D3D12Renderer@{D3D12Renderer}!GraphMemory@{GraphMemory}}
+\index{GraphMemory@{GraphMemory}!D3D12Renderer@{D3D12Renderer}}
+\doxysubsubsection{\texorpdfstring{GraphMemory}{GraphMemory}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_t_unique_ptr_8h_a6d68c36850f3343692c47cc0db1bdab6}{TUnique\+Ptr}}$<$Graphics\+Memory$>$ D3\+D12\+Renderer\+::\+Graph\+Memory}
+
+\Hypertarget{class_d3_d12_renderer_aa1286f15bb9f0d764af42c5f580cdcd1}\label{class_d3_d12_renderer_aa1286f15bb9f0d764af42c5f580cdcd1} 
+\index{D3D12Renderer@{D3D12Renderer}!isDefaultTexLoaded@{isDefaultTexLoaded}}
+\index{isDefaultTexLoaded@{isDefaultTexLoaded}!D3D12Renderer@{D3D12Renderer}}
+\doxysubsubsection{\texorpdfstring{isDefaultTexLoaded}{isDefaultTexLoaded}}
+{\footnotesize\ttfamily bool D3\+D12\+Renderer\+::is\+Default\+Tex\+Loaded = false}
+
+\Hypertarget{class_d3_d12_renderer_a15e89b621a8ba339d1e7cdadfbb50a61}\label{class_d3_d12_renderer_a15e89b621a8ba339d1e7cdadfbb50a61} 
+\index{D3D12Renderer@{D3D12Renderer}!IsRaster@{IsRaster}}
+\index{IsRaster@{IsRaster}!D3D12Renderer@{D3D12Renderer}}
+\doxysubsubsection{\texorpdfstring{IsRaster}{IsRaster}}
+{\footnotesize\ttfamily bool D3\+D12\+Renderer\+::\+Is\+Raster = true}
+
+\Hypertarget{class_d3_d12_renderer_a308a32db755fc352c2e47eac39ff2c89}\label{class_d3_d12_renderer_a308a32db755fc352c2e47eac39ff2c89} 
+\index{D3D12Renderer@{D3D12Renderer}!isSkyboxTexLoaded@{isSkyboxTexLoaded}}
+\index{isSkyboxTexLoaded@{isSkyboxTexLoaded}!D3D12Renderer@{D3D12Renderer}}
+\doxysubsubsection{\texorpdfstring{isSkyboxTexLoaded}{isSkyboxTexLoaded}}
+{\footnotesize\ttfamily bool D3\+D12\+Renderer\+::is\+Skybox\+Tex\+Loaded = false}
+
+\Hypertarget{class_d3_d12_renderer_a9e152a1f71eee5e0f196c795bcaaf664}\label{class_d3_d12_renderer_a9e152a1f71eee5e0f196c795bcaaf664} 
+\index{D3D12Renderer@{D3D12Renderer}!m\_adapter@{m\_adapter}}
+\index{m\_adapter@{m\_adapter}!D3D12Renderer@{D3D12Renderer}}
+\doxysubsubsection{\texorpdfstring{m\_adapter}{m\_adapter}}
+{\footnotesize\ttfamily Com\+Ptr$<$IDXGIAdapter1$>$ D3\+D12\+Renderer\+::m\+\_\+adapter}
+
+\Hypertarget{class_d3_d12_renderer_a9750bff5b6a3acc27f49c4fe5d1e3c45}\label{class_d3_d12_renderer_a9750bff5b6a3acc27f49c4fe5d1e3c45} 
+\index{D3D12Renderer@{D3D12Renderer}!m\_backBufferFormat@{m\_backBufferFormat}}
+\index{m\_backBufferFormat@{m\_backBufferFormat}!D3D12Renderer@{D3D12Renderer}}
+\doxysubsubsection{\texorpdfstring{m\_backBufferFormat}{m\_backBufferFormat}}
+{\footnotesize\ttfamily DXGI\+\_\+\+FORMAT D3\+D12\+Renderer\+::m\+\_\+back\+Buffer\+Format}
+
+\Hypertarget{class_d3_d12_renderer_a19869ac089a3ef7f35fbdf5204a9bffa}\label{class_d3_d12_renderer_a19869ac089a3ef7f35fbdf5204a9bffa} 
+\index{D3D12Renderer@{D3D12Renderer}!m\_backBuffers@{m\_backBuffers}}
+\index{m\_backBuffers@{m\_backBuffers}!D3D12Renderer@{D3D12Renderer}}
+\doxysubsubsection{\texorpdfstring{m\_backBuffers}{m\_backBuffers}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_d3_d12_main_8h_ab8eaee8f45f36954297ee6146eb6db20}{Resource}} D3\+D12\+Renderer\+::m\+\_\+back\+Buffers\mbox{[}BACK\+\_\+\+BUFFER\+\_\+\+COUNT\mbox{]}}
+
+\Hypertarget{class_d3_d12_renderer_a5608fc9e7666321c1681f741ad5c7123}\label{class_d3_d12_renderer_a5608fc9e7666321c1681f741ad5c7123} 
+\index{D3D12Renderer@{D3D12Renderer}!m\_backIndexView@{m\_backIndexView}}
+\index{m\_backIndexView@{m\_backIndexView}!D3D12Renderer@{D3D12Renderer}}
+\doxysubsubsection{\texorpdfstring{m\_backIndexView}{m\_backIndexView}}
+{\footnotesize\ttfamily D3\+D12\+\_\+\+INDEX\+\_\+\+BUFFER\+\_\+\+VIEW D3\+D12\+Renderer\+::m\+\_\+back\+Index\+View}
+
+\Hypertarget{class_d3_d12_renderer_adb95b3800d0f7a7d1d0544275ada8741}\label{class_d3_d12_renderer_adb95b3800d0f7a7d1d0544275ada8741} 
+\index{D3D12Renderer@{D3D12Renderer}!m\_backIndicesBuffer@{m\_backIndicesBuffer}}
+\index{m\_backIndicesBuffer@{m\_backIndicesBuffer}!D3D12Renderer@{D3D12Renderer}}
+\doxysubsubsection{\texorpdfstring{m\_backIndicesBuffer}{m\_backIndicesBuffer}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_d3_d12_main_8h_ab8eaee8f45f36954297ee6146eb6db20}{Resource}} D3\+D12\+Renderer\+::m\+\_\+back\+Indices\+Buffer}
+
+\Hypertarget{class_d3_d12_renderer_a33776c460e9902c498ccae56398c3eea}\label{class_d3_d12_renderer_a33776c460e9902c498ccae56398c3eea} 
+\index{D3D12Renderer@{D3D12Renderer}!m\_backVertexBuffer@{m\_backVertexBuffer}}
+\index{m\_backVertexBuffer@{m\_backVertexBuffer}!D3D12Renderer@{D3D12Renderer}}
+\doxysubsubsection{\texorpdfstring{m\_backVertexBuffer}{m\_backVertexBuffer}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_d3_d12_main_8h_ab8eaee8f45f36954297ee6146eb6db20}{Resource}} D3\+D12\+Renderer\+::m\+\_\+back\+Vertex\+Buffer}
+
+\Hypertarget{class_d3_d12_renderer_a164bdc157c01a30f870707ec1a08d416}\label{class_d3_d12_renderer_a164bdc157c01a30f870707ec1a08d416} 
+\index{D3D12Renderer@{D3D12Renderer}!m\_backVertexView@{m\_backVertexView}}
+\index{m\_backVertexView@{m\_backVertexView}!D3D12Renderer@{D3D12Renderer}}
+\doxysubsubsection{\texorpdfstring{m\_backVertexView}{m\_backVertexView}}
+{\footnotesize\ttfamily D3\+D12\+\_\+\+VERTEX\+\_\+\+BUFFER\+\_\+\+VIEW D3\+D12\+Renderer\+::m\+\_\+back\+Vertex\+View}
+
+\Hypertarget{class_d3_d12_renderer_af3b99f09069f5f8a00f759165f1eaad1}\label{class_d3_d12_renderer_af3b99f09069f5f8a00f759165f1eaad1} 
+\index{D3D12Renderer@{D3D12Renderer}!m\_Blur@{m\_Blur}}
+\index{m\_Blur@{m\_Blur}!D3D12Renderer@{D3D12Renderer}}
+\doxysubsubsection{\texorpdfstring{m\_Blur}{m\_Blur}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_t_unique_ptr_8h_a6d68c36850f3343692c47cc0db1bdab6}{TUnique\+Ptr}}$<$\mbox{\hyperlink{class_d3_d12_pipeline_shader_root_signature}{D3\+D12\+Pipeline\+Shader\+Root\+Signature}}$>$ D3\+D12\+Renderer\+::m\+\_\+\+Blur}
+
+\Hypertarget{class_d3_d12_renderer_a61cf741c0557a7a2afb14389fed73efc}\label{class_d3_d12_renderer_a61cf741c0557a7a2afb14389fed73efc} 
+\index{D3D12Renderer@{D3D12Renderer}!m\_cbvObjectSkyBox@{m\_cbvObjectSkyBox}}
+\index{m\_cbvObjectSkyBox@{m\_cbvObjectSkyBox}!D3D12Renderer@{D3D12Renderer}}
+\doxysubsubsection{\texorpdfstring{m\_cbvObjectSkyBox}{m\_cbvObjectSkyBox}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_t_unique_ptr_8h_a6d68c36850f3343692c47cc0db1bdab6}{TUnique\+Ptr}}$<$\mbox{\hyperlink{class_d3_d12_upload_buffer_resource}{D3\+D12\+Upload\+Buffer\+Resource}}$<$XMMATRIX$>$ $>$ D3\+D12\+Renderer\+::m\+\_\+cbv\+Object\+Sky\+Box}
+
+\Hypertarget{class_d3_d12_renderer_ae45fa4dd4ec7123c41717ed61d4a3122}\label{class_d3_d12_renderer_ae45fa4dd4ec7123c41717ed61d4a3122} 
+\index{D3D12Renderer@{D3D12Renderer}!m\_commandAllocator@{m\_commandAllocator}}
+\index{m\_commandAllocator@{m\_commandAllocator}!D3D12Renderer@{D3D12Renderer}}
+\doxysubsubsection{\texorpdfstring{m\_commandAllocator}{m\_commandAllocator}}
+{\footnotesize\ttfamily Com\+Ptr$<$ID3\+D12\+Command\+Allocator$>$ D3\+D12\+Renderer\+::m\+\_\+command\+Allocator}
+
+\Hypertarget{class_d3_d12_renderer_ab847b8c9d3bdcca2acf2ced9540541a1}\label{class_d3_d12_renderer_ab847b8c9d3bdcca2acf2ced9540541a1} 
+\index{D3D12Renderer@{D3D12Renderer}!m\_commandList@{m\_commandList}}
+\index{m\_commandList@{m\_commandList}!D3D12Renderer@{D3D12Renderer}}
+\doxysubsubsection{\texorpdfstring{m\_commandList}{m\_commandList}}
+{\footnotesize\ttfamily Com\+Ptr$<$ID3\+D12\+Graphics\+Command\+List6$>$ D3\+D12\+Renderer\+::m\+\_\+command\+List}
+
+\Hypertarget{class_d3_d12_renderer_ad5a99fee1c2a844ff74bf797bd021140}\label{class_d3_d12_renderer_ad5a99fee1c2a844ff74bf797bd021140} 
+\index{D3D12Renderer@{D3D12Renderer}!m\_commandQueue@{m\_commandQueue}}
+\index{m\_commandQueue@{m\_commandQueue}!D3D12Renderer@{D3D12Renderer}}
+\doxysubsubsection{\texorpdfstring{m\_commandQueue}{m\_commandQueue}}
+{\footnotesize\ttfamily Com\+Ptr$<$ID3\+D12\+Command\+Queue$>$ D3\+D12\+Renderer\+::m\+\_\+command\+Queue}
+
+\Hypertarget{class_d3_d12_renderer_a878e447043ae372ac86b532d17506ab6}\label{class_d3_d12_renderer_a878e447043ae372ac86b532d17506ab6} 
+\index{D3D12Renderer@{D3D12Renderer}!m\_depthBuffer@{m\_depthBuffer}}
+\index{m\_depthBuffer@{m\_depthBuffer}!D3D12Renderer@{D3D12Renderer}}
+\doxysubsubsection{\texorpdfstring{m\_depthBuffer}{m\_depthBuffer}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_d3_d12_main_8h_ab8eaee8f45f36954297ee6146eb6db20}{Resource}} D3\+D12\+Renderer\+::m\+\_\+depth\+Buffer}
+
+\Hypertarget{class_d3_d12_renderer_a13505d3d836b8c1f3850205fead3bc64}\label{class_d3_d12_renderer_a13505d3d836b8c1f3850205fead3bc64} 
+\index{D3D12Renderer@{D3D12Renderer}!m\_depthStencilFormat@{m\_depthStencilFormat}}
+\index{m\_depthStencilFormat@{m\_depthStencilFormat}!D3D12Renderer@{D3D12Renderer}}
+\doxysubsubsection{\texorpdfstring{m\_depthStencilFormat}{m\_depthStencilFormat}}
+{\footnotesize\ttfamily DXGI\+\_\+\+FORMAT D3\+D12\+Renderer\+::m\+\_\+depth\+Stencil\+Format}
+
+\Hypertarget{class_d3_d12_renderer_af997a5c552fe197479ed778915c4f55e}\label{class_d3_d12_renderer_af997a5c552fe197479ed778915c4f55e} 
+\index{D3D12Renderer@{D3D12Renderer}!m\_device@{m\_device}}
+\index{m\_device@{m\_device}!D3D12Renderer@{D3D12Renderer}}
+\doxysubsubsection{\texorpdfstring{m\_device}{m\_device}}
+{\footnotesize\ttfamily Com\+Ptr$<$ID3\+D12\+Device8$>$ D3\+D12\+Renderer\+::m\+\_\+device}
+
+\Hypertarget{class_d3_d12_renderer_a429bb8417172251a5182526816a36760}\label{class_d3_d12_renderer_a429bb8417172251a5182526816a36760} 
+\index{D3D12Renderer@{D3D12Renderer}!m\_factory@{m\_factory}}
+\index{m\_factory@{m\_factory}!D3D12Renderer@{D3D12Renderer}}
+\doxysubsubsection{\texorpdfstring{m\_factory}{m\_factory}}
+{\footnotesize\ttfamily Com\+Ptr$<$IDXGIFactory7$>$ D3\+D12\+Renderer\+::m\+\_\+factory}
+
+\Hypertarget{class_d3_d12_renderer_a4e007859659b73b2fc37ce04e58678dd}\label{class_d3_d12_renderer_a4e007859659b73b2fc37ce04e58678dd} 
+\index{D3D12Renderer@{D3D12Renderer}!m\_fence@{m\_fence}}
+\index{m\_fence@{m\_fence}!D3D12Renderer@{D3D12Renderer}}
+\doxysubsubsection{\texorpdfstring{m\_fence}{m\_fence}}
+{\footnotesize\ttfamily Com\+Ptr$<$ID3\+D12\+Fence$>$ D3\+D12\+Renderer\+::m\+\_\+fence}
+
+\Hypertarget{class_d3_d12_renderer_aa9cdbfc32a655ccd5513b252cf477e20}\label{class_d3_d12_renderer_aa9cdbfc32a655ccd5513b252cf477e20} 
+\index{D3D12Renderer@{D3D12Renderer}!m\_fenceEvent@{m\_fenceEvent}}
+\index{m\_fenceEvent@{m\_fenceEvent}!D3D12Renderer@{D3D12Renderer}}
+\doxysubsubsection{\texorpdfstring{m\_fenceEvent}{m\_fenceEvent}}
+{\footnotesize\ttfamily HANDLE D3\+D12\+Renderer\+::m\+\_\+fence\+Event}
+
+\Hypertarget{class_d3_d12_renderer_a7934cf13a00ac3e9ad8f6b5735174b9f}\label{class_d3_d12_renderer_a7934cf13a00ac3e9ad8f6b5735174b9f} 
+\index{D3D12Renderer@{D3D12Renderer}!m\_fenceValue@{m\_fenceValue}}
+\index{m\_fenceValue@{m\_fenceValue}!D3D12Renderer@{D3D12Renderer}}
+\doxysubsubsection{\texorpdfstring{m\_fenceValue}{m\_fenceValue}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_platform_8h_afddf25cca147311c233b23a9d3329bb4}{uint64}} D3\+D12\+Renderer\+::m\+\_\+fence\+Value}
+
+\Hypertarget{class_d3_d12_renderer_a7602a045e653dbde77c442c83136039a}\label{class_d3_d12_renderer_a7602a045e653dbde77c442c83136039a} 
+\index{D3D12Renderer@{D3D12Renderer}!m\_indicesSkyBoxBuffer@{m\_indicesSkyBoxBuffer}}
+\index{m\_indicesSkyBoxBuffer@{m\_indicesSkyBoxBuffer}!D3D12Renderer@{D3D12Renderer}}
+\doxysubsubsection{\texorpdfstring{m\_indicesSkyBoxBuffer}{m\_indicesSkyBoxBuffer}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_d3_d12_main_8h_ab8eaee8f45f36954297ee6146eb6db20}{Resource}} D3\+D12\+Renderer\+::m\+\_\+indices\+Sky\+Box\+Buffer}
+
+\Hypertarget{class_d3_d12_renderer_a4ba526261fcb17578be954cc01e841da}\label{class_d3_d12_renderer_a4ba526261fcb17578be954cc01e841da} 
+\index{D3D12Renderer@{D3D12Renderer}!m\_passBuffer@{m\_passBuffer}}
+\index{m\_passBuffer@{m\_passBuffer}!D3D12Renderer@{D3D12Renderer}}
+\doxysubsubsection{\texorpdfstring{m\_passBuffer}{m\_passBuffer}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_t_unique_ptr_8h_a6d68c36850f3343692c47cc0db1bdab6}{TUnique\+Ptr}}$<$\mbox{\hyperlink{class_d3_d12_upload_buffer_resource}{D3\+D12\+Upload\+Buffer\+Resource}}$<$\mbox{\hyperlink{struct_d3_d12_pass_constants}{D3\+D12\+Pass\+Constants}}$>$ $>$ D3\+D12\+Renderer\+::m\+\_\+pass\+Buffer}
+
+\Hypertarget{class_d3_d12_renderer_aee8cd9c1e15d0b636a075a65669bf6fd}\label{class_d3_d12_renderer_aee8cd9c1e15d0b636a075a65669bf6fd} 
+\index{D3D12Renderer@{D3D12Renderer}!m\_PostProcessPSO@{m\_PostProcessPSO}}
+\index{m\_PostProcessPSO@{m\_PostProcessPSO}!D3D12Renderer@{D3D12Renderer}}
+\doxysubsubsection{\texorpdfstring{m\_PostProcessPSO}{m\_PostProcessPSO}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_t_unique_ptr_8h_a6d68c36850f3343692c47cc0db1bdab6}{TUnique\+Ptr}}$<$\mbox{\hyperlink{class_d3_d12_pipeline_shader_root_signature}{D3\+D12\+Pipeline\+Shader\+Root\+Signature}}$>$ D3\+D12\+Renderer\+::m\+\_\+\+Post\+Process\+PSO}
+
+\Hypertarget{class_d3_d12_renderer_a42f01f02ca7c5f18efa95bcb155a5958}\label{class_d3_d12_renderer_a42f01f02ca7c5f18efa95bcb155a5958} 
+\index{D3D12Renderer@{D3D12Renderer}!m\_RayGenCB@{m\_RayGenCB}}
+\index{m\_RayGenCB@{m\_RayGenCB}!D3D12Renderer@{D3D12Renderer}}
+\doxysubsubsection{\texorpdfstring{m\_RayGenCB}{m\_RayGenCB}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_ray_gen_constant_buffer}{Ray\+Gen\+Constant\+Buffer}} D3\+D12\+Renderer\+::m\+\_\+\+Ray\+Gen\+CB}
+
+\Hypertarget{class_d3_d12_renderer_a2173517f461ec6ef1e6f1f737c0e6080}\label{class_d3_d12_renderer_a2173517f461ec6ef1e6f1f737c0e6080} 
+\index{D3D12Renderer@{D3D12Renderer}!m\_RayTracingGlobalRootSignature@{m\_RayTracingGlobalRootSignature}}
+\index{m\_RayTracingGlobalRootSignature@{m\_RayTracingGlobalRootSignature}!D3D12Renderer@{D3D12Renderer}}
+\doxysubsubsection{\texorpdfstring{m\_RayTracingGlobalRootSignature}{m\_RayTracingGlobalRootSignature}}
+{\footnotesize\ttfamily Com\+Ptr$<$ID3\+D12\+Root\+Signature$>$ D3\+D12\+Renderer\+::m\+\_\+\+Ray\+Tracing\+Global\+Root\+Signature}
+
+\Hypertarget{class_d3_d12_renderer_a9e00fee6777974d50983278f833904a5}\label{class_d3_d12_renderer_a9e00fee6777974d50983278f833904a5} 
+\index{D3D12Renderer@{D3D12Renderer}!m\_RayTracingLocalRootSignature@{m\_RayTracingLocalRootSignature}}
+\index{m\_RayTracingLocalRootSignature@{m\_RayTracingLocalRootSignature}!D3D12Renderer@{D3D12Renderer}}
+\doxysubsubsection{\texorpdfstring{m\_RayTracingLocalRootSignature}{m\_RayTracingLocalRootSignature}}
+{\footnotesize\ttfamily Com\+Ptr$<$ID3\+D12\+Root\+Signature$>$ D3\+D12\+Renderer\+::m\+\_\+\+Ray\+Tracing\+Local\+Root\+Signature}
+
+\Hypertarget{class_d3_d12_renderer_a06230c36c870f59d7f739143248cc76f}\label{class_d3_d12_renderer_a06230c36c870f59d7f739143248cc76f} 
+\index{D3D12Renderer@{D3D12Renderer}!m\_RenderTarget@{m\_RenderTarget}}
+\index{m\_RenderTarget@{m\_RenderTarget}!D3D12Renderer@{D3D12Renderer}}
+\doxysubsubsection{\texorpdfstring{m\_RenderTarget}{m\_RenderTarget}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_d3_d12_main_8h_ab8eaee8f45f36954297ee6146eb6db20}{Resource}} D3\+D12\+Renderer\+::m\+\_\+\+Render\+Target}
+
+\Hypertarget{class_d3_d12_renderer_aac9eb35c9b209c213330601088e0cff2}\label{class_d3_d12_renderer_aac9eb35c9b209c213330601088e0cff2} 
+\index{D3D12Renderer@{D3D12Renderer}!m\_renderWindow@{m\_renderWindow}}
+\index{m\_renderWindow@{m\_renderWindow}!D3D12Renderer@{D3D12Renderer}}
+\doxysubsubsection{\texorpdfstring{m\_renderWindow}{m\_renderWindow}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_f_windows_window}{FWindows\+Window}}\texorpdfstring{$\ast$}{*} D3\+D12\+Renderer\+::m\+\_\+render\+Window}
+
+\Hypertarget{class_d3_d12_renderer_a6fa14398c4c42fd9a22b85d4552074da}\label{class_d3_d12_renderer_a6fa14398c4c42fd9a22b85d4552074da} 
+\index{D3D12Renderer@{D3D12Renderer}!m\_SkyBoxIndexView@{m\_SkyBoxIndexView}}
+\index{m\_SkyBoxIndexView@{m\_SkyBoxIndexView}!D3D12Renderer@{D3D12Renderer}}
+\doxysubsubsection{\texorpdfstring{m\_SkyBoxIndexView}{m\_SkyBoxIndexView}}
+{\footnotesize\ttfamily D3\+D12\+\_\+\+INDEX\+\_\+\+BUFFER\+\_\+\+VIEW D3\+D12\+Renderer\+::m\+\_\+\+Sky\+Box\+Index\+View}
+
+\Hypertarget{class_d3_d12_renderer_a4e376b8113dc7cc306b7568306bce54e}\label{class_d3_d12_renderer_a4e376b8113dc7cc306b7568306bce54e} 
+\index{D3D12Renderer@{D3D12Renderer}!m\_SkyBoxPSO@{m\_SkyBoxPSO}}
+\index{m\_SkyBoxPSO@{m\_SkyBoxPSO}!D3D12Renderer@{D3D12Renderer}}
+\doxysubsubsection{\texorpdfstring{m\_SkyBoxPSO}{m\_SkyBoxPSO}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_t_unique_ptr_8h_a6d68c36850f3343692c47cc0db1bdab6}{TUnique\+Ptr}}$<$\mbox{\hyperlink{class_d3_d12_pipeline_shader_root_signature}{D3\+D12\+Pipeline\+Shader\+Root\+Signature}}$>$ D3\+D12\+Renderer\+::m\+\_\+\+Sky\+Box\+PSO}
+
+\Hypertarget{class_d3_d12_renderer_ad37075f99507c658cf2cb3069d8d8da0}\label{class_d3_d12_renderer_ad37075f99507c658cf2cb3069d8d8da0} 
+\index{D3D12Renderer@{D3D12Renderer}!m\_skyboxTexture@{m\_skyboxTexture}}
+\index{m\_skyboxTexture@{m\_skyboxTexture}!D3D12Renderer@{D3D12Renderer}}
+\doxysubsubsection{\texorpdfstring{m\_skyboxTexture}{m\_skyboxTexture}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_d3_d12_texture}{D3\+D12\+Texture}}\texorpdfstring{$\ast$}{*} D3\+D12\+Renderer\+::m\+\_\+skybox\+Texture}
+
+\Hypertarget{class_d3_d12_renderer_ac301c6b93f11d3c75c106afa0477ce8a}\label{class_d3_d12_renderer_ac301c6b93f11d3c75c106afa0477ce8a} 
+\index{D3D12Renderer@{D3D12Renderer}!m\_SkyBoxVertexView@{m\_SkyBoxVertexView}}
+\index{m\_SkyBoxVertexView@{m\_SkyBoxVertexView}!D3D12Renderer@{D3D12Renderer}}
+\doxysubsubsection{\texorpdfstring{m\_SkyBoxVertexView}{m\_SkyBoxVertexView}}
+{\footnotesize\ttfamily D3\+D12\+\_\+\+VERTEX\+\_\+\+BUFFER\+\_\+\+VIEW D3\+D12\+Renderer\+::m\+\_\+\+Sky\+Box\+Vertex\+View}
+
+\Hypertarget{class_d3_d12_renderer_a00f8bac9e1baf033e8770330c8549baa}\label{class_d3_d12_renderer_a00f8bac9e1baf033e8770330c8549baa} 
+\index{D3D12Renderer@{D3D12Renderer}!m\_swapchain@{m\_swapchain}}
+\index{m\_swapchain@{m\_swapchain}!D3D12Renderer@{D3D12Renderer}}
+\doxysubsubsection{\texorpdfstring{m\_swapchain}{m\_swapchain}}
+{\footnotesize\ttfamily Com\+Ptr$<$IDXGISwap\+Chain4$>$ D3\+D12\+Renderer\+::m\+\_\+swapchain}
+
+\Hypertarget{class_d3_d12_renderer_a02942d543fc3d336002f38a80b8dd492}\label{class_d3_d12_renderer_a02942d543fc3d336002f38a80b8dd492} 
+\index{D3D12Renderer@{D3D12Renderer}!m\_swapchainT@{m\_swapchainT}}
+\index{m\_swapchainT@{m\_swapchainT}!D3D12Renderer@{D3D12Renderer}}
+\doxysubsubsection{\texorpdfstring{m\_swapchainT}{m\_swapchainT}}
+{\footnotesize\ttfamily Com\+Ptr$<$IDXGISwap\+Chain$>$ D3\+D12\+Renderer\+::m\+\_\+swapchainT}
+
+\Hypertarget{class_d3_d12_renderer_a5f322ec4094a05c23e997e81e26c5cf6}\label{class_d3_d12_renderer_a5f322ec4094a05c23e997e81e26c5cf6} 
+\index{D3D12Renderer@{D3D12Renderer}!m\_vertexSkyBoxBuffer@{m\_vertexSkyBoxBuffer}}
+\index{m\_vertexSkyBoxBuffer@{m\_vertexSkyBoxBuffer}!D3D12Renderer@{D3D12Renderer}}
+\doxysubsubsection{\texorpdfstring{m\_vertexSkyBoxBuffer}{m\_vertexSkyBoxBuffer}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_d3_d12_main_8h_ab8eaee8f45f36954297ee6146eb6db20}{Resource}} D3\+D12\+Renderer\+::m\+\_\+vertex\+Sky\+Box\+Buffer}
+
+\Hypertarget{class_d3_d12_renderer_a1fcbbf59f7e2d004e8e9fc05448911c6}\label{class_d3_d12_renderer_a1fcbbf59f7e2d004e8e9fc05448911c6} 
+\index{D3D12Renderer@{D3D12Renderer}!msaa@{msaa}}
+\index{msaa@{msaa}!D3D12Renderer@{D3D12Renderer}}
+\doxysubsubsection{\texorpdfstring{msaa}{msaa}}
+{\footnotesize\ttfamily int D3\+D12\+Renderer\+::msaa = 1}
+
+\Hypertarget{class_d3_d12_renderer_abb5971aa7b645924128023bd99937194}\label{class_d3_d12_renderer_abb5971aa7b645924128023bd99937194} 
+\index{D3D12Renderer@{D3D12Renderer}!PostProcess@{PostProcess}}
+\index{PostProcess@{PostProcess}!D3D12Renderer@{D3D12Renderer}}
+\doxysubsubsection{\texorpdfstring{PostProcess}{PostProcess}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_t_unique_ptr_8h_a6d68c36850f3343692c47cc0db1bdab6}{TUnique\+Ptr}}$<$Basic\+Post\+Process$>$ D3\+D12\+Renderer\+::\+Post\+Process}
+
+\Hypertarget{class_d3_d12_renderer_a6b951e7e941d197c80dafd905a73ac7e}\label{class_d3_d12_renderer_a6b951e7e941d197c80dafd905a73ac7e} 
+\index{D3D12Renderer@{D3D12Renderer}!RTDescriptorHeap@{RTDescriptorHeap}}
+\index{RTDescriptorHeap@{RTDescriptorHeap}!D3D12Renderer@{D3D12Renderer}}
+\doxysubsubsection{\texorpdfstring{RTDescriptorHeap}{RTDescriptorHeap}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_t_unique_ptr_8h_a6d68c36850f3343692c47cc0db1bdab6}{TUnique\+Ptr}}$<$Descriptor\+Heap$>$ D3\+D12\+Renderer\+::\+RTDescriptor\+Heap}
+
+\Hypertarget{class_d3_d12_renderer_aca391d23c4a13ab64d21111251b7d169}\label{class_d3_d12_renderer_aca391d23c4a13ab64d21111251b7d169} 
+\index{D3D12Renderer@{D3D12Renderer}!RTHandleSize@{RTHandleSize}}
+\index{RTHandleSize@{RTHandleSize}!D3D12Renderer@{D3D12Renderer}}
+\doxysubsubsection{\texorpdfstring{RTHandleSize}{RTHandleSize}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_platform_8h_a2c46f1fb01e11216aa2c983307deafb4}{SIZE\+\_\+T}} D3\+D12\+Renderer\+::\+RTHandle\+Size = 0}
+
+\Hypertarget{class_d3_d12_renderer_a5a2624405d85f63642a1f460948e1537}\label{class_d3_d12_renderer_a5a2624405d85f63642a1f460948e1537} 
+\index{D3D12Renderer@{D3D12Renderer}!ScissorRect@{ScissorRect}}
+\index{ScissorRect@{ScissorRect}!D3D12Renderer@{D3D12Renderer}}
+\doxysubsubsection{\texorpdfstring{ScissorRect}{ScissorRect}}
+{\footnotesize\ttfamily D3\+D12\+\_\+\+RECT D3\+D12\+Renderer\+::\+Scissor\+Rect}
+
+\Hypertarget{class_d3_d12_renderer_a687efd0d5876dfdc49cd3952bc6e70d0}\label{class_d3_d12_renderer_a687efd0d5876dfdc49cd3952bc6e70d0} 
+\index{D3D12Renderer@{D3D12Renderer}!SRDescriptorHeap@{SRDescriptorHeap}}
+\index{SRDescriptorHeap@{SRDescriptorHeap}!D3D12Renderer@{D3D12Renderer}}
+\doxysubsubsection{\texorpdfstring{SRDescriptorHeap}{SRDescriptorHeap}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_t_unique_ptr_8h_a6d68c36850f3343692c47cc0db1bdab6}{TUnique\+Ptr}}$<$Descriptor\+Heap$>$ D3\+D12\+Renderer\+::\+SRDescriptor\+Heap}
+
+\Hypertarget{class_d3_d12_renderer_af58c32c6b4895001d60ebfc546195e9b}\label{class_d3_d12_renderer_af58c32c6b4895001d60ebfc546195e9b} 
+\index{D3D12Renderer@{D3D12Renderer}!tempBuffer@{tempBuffer}}
+\index{tempBuffer@{tempBuffer}!D3D12Renderer@{D3D12Renderer}}
+\doxysubsubsection{\texorpdfstring{tempBuffer}{tempBuffer}}
+{\footnotesize\ttfamily Com\+Ptr$<$ID3\+D12\+Resource$>$ D3\+D12\+Renderer\+::temp\+Buffer}
+
+\Hypertarget{class_d3_d12_renderer_af73ba487a0b00f9edbf7e1493da360fd}\label{class_d3_d12_renderer_af73ba487a0b00f9edbf7e1493da360fd} 
+\index{D3D12Renderer@{D3D12Renderer}!Viewport@{Viewport}}
+\index{Viewport@{Viewport}!D3D12Renderer@{D3D12Renderer}}
+\doxysubsubsection{\texorpdfstring{Viewport}{Viewport}}
+{\footnotesize\ttfamily D3\+D12\+\_\+\+VIEWPORT D3\+D12\+Renderer\+::\+Viewport}
+
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+Dark Engine/\+Source/\+Runtime/\+Render/\+D3\+D12/\mbox{\hyperlink{_d3_d12_render_8h}{D3\+D12\+Render.\+h}}\item 
+Dark Engine/\+Source/\+Runtime/\+Render/\+D3\+D12/\mbox{\hyperlink{_d3_d12_render_8cpp}{D3\+D12\+Render.\+cpp}}\end{DoxyCompactItemize}

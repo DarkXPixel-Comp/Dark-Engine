@@ -1,0 +1,22 @@
+\doxysection{Is\+Pointer.\+h}
+\hypertarget{_is_pointer_8h_source}{}\label{_is_pointer_8h_source}\index{Dark Engine/Source/Runtime/Core/Public/Templates/IsPointer.h@{Dark Engine/Source/Runtime/Core/Public/Templates/IsPointer.h}}
+\mbox{\hyperlink{_is_pointer_8h}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_core_types_8h}{CoreTypes.h}}"{}}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00006\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_t_is_pointer}{TIsPointer}}}
+\DoxyCodeLine{00007\ \{}
+\DoxyCodeLine{00008\ \ \ \ \ \textcolor{keyword}{enum}\ \{\ \mbox{\hyperlink{struct_t_is_pointer_af7b9f9be3f7e7276f5269e1b5caa8c12afb1daeefcba8868b5df321fdc4b665ef}{Value}}\ =\ \textcolor{keyword}{false}\ \};}
+\DoxyCodeLine{00009\ \};}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_t_is_pointer}{TIsPointer}}<T*>\ \{\ \textcolor{keyword}{enum}\ \{\ \mbox{\hyperlink{struct_t_is_pointer_af7b9f9be3f7e7276f5269e1b5caa8c12afb1daeefcba8868b5df321fdc4b665ef}{Value}}\ =\ \textcolor{keyword}{true}\ \};\ \};}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_t_is_pointer}{TIsPointer}}<const\ \ \ \ \ \ \ \ \ \ T>\ \{\ \textcolor{keyword}{enum}\ \{\ \mbox{\hyperlink{struct_t_is_pointer_af7b9f9be3f7e7276f5269e1b5caa8c12afb1daeefcba8868b5df321fdc4b665ef}{Value}}\ =\ \mbox{\hyperlink{struct_t_is_pointer}{TIsPointer<T>::Value}}\ \};\ \};}
+\DoxyCodeLine{00015\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_t_is_pointer}{TIsPointer}}<\ \ \ \ \ \ volatile\ T>\ \{\ \textcolor{keyword}{enum}\ \{\ \mbox{\hyperlink{struct_t_is_pointer_af7b9f9be3f7e7276f5269e1b5caa8c12afb1daeefcba8868b5df321fdc4b665ef}{Value}}\ =\ \mbox{\hyperlink{struct_t_is_pointer}{TIsPointer<T>::Value}}\ \};\ \};}
+\DoxyCodeLine{00016\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_t_is_pointer}{TIsPointer}}<const\ volatile\ T>\ \{\ \textcolor{keyword}{enum}\ \{\ \mbox{\hyperlink{struct_t_is_pointer_af7b9f9be3f7e7276f5269e1b5caa8c12afb1daeefcba8868b5df321fdc4b665ef}{Value}}\ =\ \mbox{\hyperlink{struct_t_is_pointer}{TIsPointer<T>::Value}}\ \};\ \};}
+
+\end{DoxyCode}

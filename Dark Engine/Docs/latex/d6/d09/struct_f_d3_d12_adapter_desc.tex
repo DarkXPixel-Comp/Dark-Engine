@@ -1,0 +1,86 @@
+\doxysection{Структура FD3\+D12\+Adapter\+Desc}
+\hypertarget{struct_f_d3_d12_adapter_desc}{}\label{struct_f_d3_d12_adapter_desc}\index{FD3D12AdapterDesc@{FD3D12AdapterDesc}}
+
+
+{\ttfamily \#include $<$D3\+D12\+Adapter.\+h$>$}
+
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_f_d3_d12_adapter_desc_ae3706bc5138b5d3fa84b3605ea1a41a5}{FD3\+D12\+Adapter\+Desc}} ()
+\item 
+\mbox{\hyperlink{struct_f_d3_d12_adapter_desc_ad214b0c3f20c69d258eb86fd12d8cdb4}{FD3\+D12\+Adapter\+Desc}} (const DXGI\+\_\+\+ADAPTER\+\_\+\+DESC \&In\+Desc, \mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}} In\+Adapter\+Index)
+\item 
+bool \mbox{\hyperlink{struct_f_d3_d12_adapter_desc_a5be702429d3b6ab9f52596b2c51ae515}{Is\+Valid}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Открытые статические члены}
+\begin{DoxyCompactItemize}
+\item 
+static HRESULT \mbox{\hyperlink{struct_f_d3_d12_adapter_desc_a447e4737a2e2d02ae130655be53f43d1}{Enum\+Adapters}} (\mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}} \mbox{\hyperlink{struct_f_d3_d12_adapter_desc_a26ddc1eb5b8876c139d9115ad3d3fca9}{Adapter\+Index}}, DXGI\+\_\+\+GPU\+\_\+\+PREFERENCE GPUPreference, IDXGIFactory7 \texorpdfstring{$\ast$}{*}DXGIFactory, IDXGIAdapter \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}Temp\+Adapter)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Открытые атрибуты}
+\begin{DoxyCompactItemize}
+\item 
+DXGI\+\_\+\+ADAPTER\+\_\+\+DESC \mbox{\hyperlink{struct_f_d3_d12_adapter_desc_aa6232bbe8d72c128cc9274f05c864b15}{Desc}} = \{\}
+\item 
+\mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}} \mbox{\hyperlink{struct_f_d3_d12_adapter_desc_a26ddc1eb5b8876c139d9115ad3d3fca9}{Adapter\+Index}} = -\/1
+\item 
+D3\+D\+\_\+\+FEATURE\+\_\+\+LEVEL \mbox{\hyperlink{struct_f_d3_d12_adapter_desc_a6ba668babe2476b128ef08ff36d097a2}{Max\+Support\+Feature\+Level}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Конструктор(ы)}
+\Hypertarget{struct_f_d3_d12_adapter_desc_ae3706bc5138b5d3fa84b3605ea1a41a5}\label{struct_f_d3_d12_adapter_desc_ae3706bc5138b5d3fa84b3605ea1a41a5} 
+\index{FD3D12AdapterDesc@{FD3D12AdapterDesc}!FD3D12AdapterDesc@{FD3D12AdapterDesc}}
+\index{FD3D12AdapterDesc@{FD3D12AdapterDesc}!FD3D12AdapterDesc@{FD3D12AdapterDesc}}
+\doxysubsubsection{\texorpdfstring{FD3D12AdapterDesc()}{FD3D12AdapterDesc()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily FD3\+D12\+Adapter\+Desc\+::\+FD3\+D12\+Adapter\+Desc (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\Hypertarget{struct_f_d3_d12_adapter_desc_ad214b0c3f20c69d258eb86fd12d8cdb4}\label{struct_f_d3_d12_adapter_desc_ad214b0c3f20c69d258eb86fd12d8cdb4} 
+\index{FD3D12AdapterDesc@{FD3D12AdapterDesc}!FD3D12AdapterDesc@{FD3D12AdapterDesc}}
+\index{FD3D12AdapterDesc@{FD3D12AdapterDesc}!FD3D12AdapterDesc@{FD3D12AdapterDesc}}
+\doxysubsubsection{\texorpdfstring{FD3D12AdapterDesc()}{FD3D12AdapterDesc()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily FD3\+D12\+Adapter\+Desc\+::\+FD3\+D12\+Adapter\+Desc (\begin{DoxyParamCaption}\item[{const DXGI\+\_\+\+ADAPTER\+\_\+\+DESC \&}]{In\+Desc,  }\item[{\mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}}]{In\+Adapter\+Index }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Методы}
+\Hypertarget{struct_f_d3_d12_adapter_desc_a447e4737a2e2d02ae130655be53f43d1}\label{struct_f_d3_d12_adapter_desc_a447e4737a2e2d02ae130655be53f43d1} 
+\index{FD3D12AdapterDesc@{FD3D12AdapterDesc}!EnumAdapters@{EnumAdapters}}
+\index{EnumAdapters@{EnumAdapters}!FD3D12AdapterDesc@{FD3D12AdapterDesc}}
+\doxysubsubsection{\texorpdfstring{EnumAdapters()}{EnumAdapters()}}
+{\footnotesize\ttfamily HRESULT FD3\+D12\+Adapter\+Desc\+::\+Enum\+Adapters (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}}]{Adapter\+Index,  }\item[{DXGI\+\_\+\+GPU\+\_\+\+PREFERENCE}]{GPUPreference,  }\item[{IDXGIFactory7 \texorpdfstring{$\ast$}{*}}]{DXGIFactory,  }\item[{IDXGIAdapter \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{Temp\+Adapter }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{struct_f_d3_d12_adapter_desc_a5be702429d3b6ab9f52596b2c51ae515}\label{struct_f_d3_d12_adapter_desc_a5be702429d3b6ab9f52596b2c51ae515} 
+\index{FD3D12AdapterDesc@{FD3D12AdapterDesc}!IsValid@{IsValid}}
+\index{IsValid@{IsValid}!FD3D12AdapterDesc@{FD3D12AdapterDesc}}
+\doxysubsubsection{\texorpdfstring{IsValid()}{IsValid()}}
+{\footnotesize\ttfamily bool FD3\+D12\+Adapter\+Desc\+::\+Is\+Valid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+\doxysubsection{Данные класса}
+\Hypertarget{struct_f_d3_d12_adapter_desc_a26ddc1eb5b8876c139d9115ad3d3fca9}\label{struct_f_d3_d12_adapter_desc_a26ddc1eb5b8876c139d9115ad3d3fca9} 
+\index{FD3D12AdapterDesc@{FD3D12AdapterDesc}!AdapterIndex@{AdapterIndex}}
+\index{AdapterIndex@{AdapterIndex}!FD3D12AdapterDesc@{FD3D12AdapterDesc}}
+\doxysubsubsection{\texorpdfstring{AdapterIndex}{AdapterIndex}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}} FD3\+D12\+Adapter\+Desc\+::\+Adapter\+Index = -\/1}
+
+\Hypertarget{struct_f_d3_d12_adapter_desc_aa6232bbe8d72c128cc9274f05c864b15}\label{struct_f_d3_d12_adapter_desc_aa6232bbe8d72c128cc9274f05c864b15} 
+\index{FD3D12AdapterDesc@{FD3D12AdapterDesc}!Desc@{Desc}}
+\index{Desc@{Desc}!FD3D12AdapterDesc@{FD3D12AdapterDesc}}
+\doxysubsubsection{\texorpdfstring{Desc}{Desc}}
+{\footnotesize\ttfamily DXGI\+\_\+\+ADAPTER\+\_\+\+DESC FD3\+D12\+Adapter\+Desc\+::\+Desc = \{\}}
+
+\Hypertarget{struct_f_d3_d12_adapter_desc_a6ba668babe2476b128ef08ff36d097a2}\label{struct_f_d3_d12_adapter_desc_a6ba668babe2476b128ef08ff36d097a2} 
+\index{FD3D12AdapterDesc@{FD3D12AdapterDesc}!MaxSupportFeatureLevel@{MaxSupportFeatureLevel}}
+\index{MaxSupportFeatureLevel@{MaxSupportFeatureLevel}!FD3D12AdapterDesc@{FD3D12AdapterDesc}}
+\doxysubsubsection{\texorpdfstring{MaxSupportFeatureLevel}{MaxSupportFeatureLevel}}
+{\footnotesize\ttfamily D3\+D\+\_\+\+FEATURE\+\_\+\+LEVEL FD3\+D12\+Adapter\+Desc\+::\+Max\+Support\+Feature\+Level}
+
+
+
+Объявления и описания членов структур находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+Dark Engine/\+Source/\+Runtime/\+D3\+D12\+RHI/private/\mbox{\hyperlink{_d3_d12_adapter_8h}{D3\+D12\+Adapter.\+h}}\item 
+Dark Engine/\+Source/\+Runtime/\+D3\+D12\+RHI/private/\mbox{\hyperlink{_d3_d12_adapter_8cpp}{D3\+D12\+Adapter.\+cpp}}\end{DoxyCompactItemize}

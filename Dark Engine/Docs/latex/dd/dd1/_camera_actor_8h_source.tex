@@ -1,0 +1,50 @@
+\doxysection{Camera\+Actor.\+h}
+\hypertarget{_camera_actor_8h_source}{}\label{_camera_actor_8h_source}\index{Dark Engine/Source/Runtime/Engine/Classes/Camera/CameraActor.h@{Dark Engine/Source/Runtime/Engine/Classes/Camera/CameraActor.h}}
+\mbox{\hyperlink{_camera_actor_8h}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once\ \ \ \ \ }}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_actor_8h}{../Actor/Actor.h}}"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{_d3_d12_camera_8h}{D3D12/D3D12Camera.h}}>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{_input_core_8h}{InputCore.h}}>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <DirectXMath.h>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{_rotate_component_8h}{Components/RotateComponent/RotateComponent.h}}>}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_u_camera_actor}{UCameraActor}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_a_actor}{AActor}}\ }
+\DoxyCodeLine{00010\ \{}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{class_a_actor}{AActor}}\ \mbox{\hyperlink{class_a_actor}{Super}};}
+\DoxyCodeLine{00012\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00013\ \ \ \ \ \mbox{\hyperlink{class_u_camera_actor_a2fd329b2a9e753783250b6c9c02a37fa}{UCameraActor}}();}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_u_camera_actor_aa1dea3adce1a7c62c2bc6f4e056d733e}{OnResize}}(\textcolor{keywordtype}{long},\ \textcolor{keywordtype}{long});}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_u_camera_actor_acae846100e1e68b52511bddd02aeff8f}{BeginPlay}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_u_camera_actor_a4e1aa1b3879817cd1838b6e5e7e8e5b6}{Update}}(\textcolor{keywordtype}{float}\ DeltaTime)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_u_camera_actor_a7115fdf2c7a0f193670bc60ad2ead173}{Destroy}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_u_camera_actor_aeece6bd5de3df535ba0f71942d5acc6f}{SetupPlayerController}}(\mbox{\hyperlink{class_f_input_core}{FInputCore}}*\ controller)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_u_camera_actor_a1fb13abdd45b8986cd84b54208f11adf}{MouseLook}}(\textcolor{keywordtype}{float}\ x,\ \textcolor{keywordtype}{float}\ y);}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_u_camera_actor_a3a6c9892e5d7922d7c06a44224c3bb0c}{W}}();}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_u_camera_actor_afea56d3827d25347d8028c3ff6dfaa1c}{S}}();}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_u_camera_actor_acac7682ba872fb0e3bf9cc56659fca17}{A}}();}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_u_camera_actor_a189c2b15e36a8bc815fe25bd698828b4}{D}}();}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_u_camera_actor_a32f640d8668345d74f05499b63c06b3f}{Space}}();}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_u_camera_actor_ad86b53ea26e7f1e7c5453bc693ab01f1}{Action}}(\mbox{\hyperlink{_input_core_8h_af20302d31e77274d05d1998475591a5a}{eInputActionState}}\ action);}
+\DoxyCodeLine{00028\ \ \ \ \ \mbox{\hyperlink{struct_d3_d12_camera}{D3D12Camera}}\&\ \mbox{\hyperlink{class_u_camera_actor_a50ef4e7449b93b32e5ffa97c2fa9b747}{GetCamera}}()\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_u_camera_actor_a25065da654d3ed68adf4dddd314f04c4}{m\_camera}};\ \}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00032\ \ \ \ \ \mbox{\hyperlink{class_u_rotate_component}{URotateComponent}}*\ \mbox{\hyperlink{class_u_camera_actor_aaadfde38e9c8df98e7a07fb48ebaaee2}{m\_rotateComponent}};}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00035\ \ \ \ \ \mbox{\hyperlink{struct_d3_d12_camera}{D3D12Camera}}\ \mbox{\hyperlink{class_u_camera_actor_a25065da654d3ed68adf4dddd314f04c4}{m\_camera}};}
+\DoxyCodeLine{00036\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{float}\ sensevity\ =\ 0.09;}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{float}\ mouseSensevity\ =\ 0.5;}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{float}\ Speed\ =\ 0.1f;}
+\DoxyCodeLine{00040\ \ \ \ \ DirectX::XMFLOAT2\ Controller;}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ }
+\DoxyCodeLine{00044\ \};}
+
+\end{DoxyCode}

@@ -1,0 +1,444 @@
+\doxysection{Класс FString}
+\hypertarget{class_f_string}{}\label{class_f_string}\index{FString@{FString}}
+
+
+{\ttfamily \#include $<$Dark\+String.\+h$>$}
+
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_f_string_acc6e2ac6135356e2b8b909ff61bf668c}{FString}} ()
+\item 
+\mbox{\hyperlink{class_f_string_ad1ba655e8dab2b64c0ccb2fcab5e7ed4}{FString}} (const \mbox{\hyperlink{_platform_8h_ac65a9f028228aed366b4d8f24a8ab9e9}{ANSICHAR}} \texorpdfstring{$\ast$}{*}Str)
+\item 
+\mbox{\hyperlink{class_f_string_a9b55799b5e13cb728b6a974ec95f40f5}{FString}} (const \mbox{\hyperlink{_platform_8h_a827f84d187d97e962586441ccb428bcd}{WIDECHAR}} \texorpdfstring{$\ast$}{*}Str)
+\item 
+\mbox{\hyperlink{class_f_string_a250e30d9c46e4a7e8cff47b899165e26}{FString}} (\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} \mbox{\hyperlink{_d3_d12_utils_8h_a49802c782fb40bd8e79835ef12871ddeaff9abf2b1a689f70a77a18da50c01d9f}{Size}})
+\item 
+\mbox{\hyperlink{class_f_string_a9d4adf1bd035e87ee277dc80402bf916}{FString}} (const std\+::wstring \&Str)
+\item 
+\mbox{\hyperlink{class_f_string_aad5f6131f3377ea0071a7577e1d5fde4}{FString}} (const std\+::string \&Str)
+\item 
+\mbox{\hyperlink{class_f_string_ae9fd7f4203163fe1724bc6309e5e5862}{FString}} (\mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}} \texorpdfstring{$\ast$}{*}Str)
+\item 
+\mbox{\hyperlink{class_f_string_af36b24ba13804e38ff1e8043bf41533d}{FString}} (const \mbox{\hyperlink{class_f_string}{FString}} \&Str)
+\item 
+\mbox{\hyperlink{class_f_string}{FString}} \& \mbox{\hyperlink{class_f_string_a732671533c37673d1920e0c3613a79f1}{AppendV}} (const \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}} \texorpdfstring{$\ast$}{*}Fmt, va\+\_\+list Args)
+\item 
+void \mbox{\hyperlink{class_f_string_ae1b6f73f9ba4aed66a1758bb6918bfc5}{Pop\+Back}} ()
+\item 
+void \mbox{\hyperlink{class_f_string_a01ad6a4ea5c276a9e3456fc512e6fd11}{Pop\+First}} ()
+\item 
+\mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}} \mbox{\hyperlink{class_f_string_ab097c6c342d66e45f731098ef2aff21b}{Back}} () const
+\item 
+\mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}} \mbox{\hyperlink{class_f_string_ac0cf09296184f01998d6d6577ac51209}{First}} () const
+\item 
+bool \mbox{\hyperlink{class_f_string_ad7a63cbdfe97bbe6b51f4366ff5f3575}{Contains}} (const \mbox{\hyperlink{class_f_string}{FString}} \&Other)
+\item 
+\mbox{\hyperlink{class_f_string}{FString}} \& \mbox{\hyperlink{class_f_string_adfe0dc646cb4200fe9662945b3fa9b36}{operator=}} (const \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}} \texorpdfstring{$\ast$}{*}Str)
+\item 
+\mbox{\hyperlink{class_f_string}{FString}} \& \mbox{\hyperlink{class_f_string_aa2384e02049048d5a8865f247d5f441a}{operator=}} (const \mbox{\hyperlink{class_f_string}{FString}} \&Str)
+\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_f_string_a21362d828c3e9a266a00351f2e2e81aa}{operator-\/}} () const
+\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_f_string_abc9396f8bfda870279b907c2d8e7542a}{operator!}} () const
+\item 
+\mbox{\hyperlink{class_f_string}{FString}} \mbox{\hyperlink{class_f_string_aa69f8470a02d19b32553ef327a8b5939}{operator/}} (const \mbox{\hyperlink{class_f_string}{FString}} \&Other)
+\item 
+\mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}} \& \mbox{\hyperlink{class_f_string_aa020b746f92f5f1c89c5abced2e7f716}{operator\mbox{[}$\,$\mbox{]}}} (\mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}} Index)
+\item 
+\mbox{\hyperlink{class_f_string}{FString}} \& \mbox{\hyperlink{class_f_string_a6dbc3e342038b594bae6b22f84d0839a}{Replace}} (\mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}} Str1, \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}} Str2)
+\item 
+void \mbox{\hyperlink{class_f_string_aaed73274c0a1574617872826de0f7059}{Resize}} (\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} New\+Size)
+\item 
+void \mbox{\hyperlink{class_f_string_ac19cac4f3eb926797208cce926941462}{Reserve}} (\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} New\+Reserve)
+\item 
+std\+::wstring \& \mbox{\hyperlink{class_f_string_a2c25542d19beefb05150e328d71ce0b4}{Get\+Native\+String}} ()
+\item 
+\mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}} \mbox{\hyperlink{class_f_string_acb15a1772b66f10292727b09cbd75fbe}{Len}} () const
+\item 
+decltype(auto) \mbox{\hyperlink{class_f_string_a8433547dd75c7b12467cdc367da66eb0}{Data}} () const
+\item 
+\mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_f_string_a40c63b496ffc2755dadcfc1f3327ba54}{Data}} ()
+\item 
+std\+::string \mbox{\hyperlink{class_f_string_a6a807dc7b602ae5d196c18a3e5788325}{To\+String}} () const
+\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_f_string_a07f2563a2ad7456ddf5c2c4e8a755a7f}{Get\+Str}} () const
+\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_f_string_a3b29897373b96447c3bc75a9b422f3d5}{Get\+UTF8}} () const
+\item 
+\mbox{\hyperlink{class_f_string}{FString}} \mbox{\hyperlink{class_f_string_af552fd9fbb6998705de60f9b89e9508b}{operator+}} (\mbox{\hyperlink{class_f_string}{FString}} R)
+\item 
+\mbox{\hyperlink{class_f_string}{FString}} \& \mbox{\hyperlink{class_f_string_ad6c486f39bc31cadd0774317ef8fd44d}{operator+=}} (\mbox{\hyperlink{class_f_string}{FString}} R)
+\item 
+const \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_f_string_aab60592d79f3040e22cd5af84d02ebb6}{operator\texorpdfstring{$\ast$}{*}}} () const
+\item 
+\mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_f_string_a93b3a9de90f9cc6832b86a9c6f973884}{operator\texorpdfstring{$\ast$}{*}}} ()
+\item 
+bool \mbox{\hyperlink{class_f_string_a6592520a8d399b00b121c29d66465b44}{operator==}} (const \mbox{\hyperlink{class_f_string}{FString}} \&R) const
+\item 
+bool \mbox{\hyperlink{class_f_string_aa40dd002b9847afca677bb29056d09ed}{operator$<$}} (const \mbox{\hyperlink{class_f_string}{FString}} \&R) const
+\item 
+bool \mbox{\hyperlink{class_f_string_a00242670ba5754185f1ea83d0bdbd609}{operator$>$}} (const \mbox{\hyperlink{class_f_string}{FString}} \&R) const
+\item 
+decltype(auto) \mbox{\hyperlink{class_f_string_a3c4465d298834877d08269950a63408a}{begin}} ()
+\item 
+decltype(auto) \mbox{\hyperlink{class_f_string_ade4a115f6376569e1e91019630afb654}{end}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Открытые статические члены}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}} \mbox{\hyperlink{class_f_string_a979d15c4479439b530eb444ee7fcad6d}{From\+String}} (\mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}} \&Value, const \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}} \texorpdfstring{$\ast$}{*}Buffer)
+\item 
+static float \mbox{\hyperlink{class_f_string_a5310f8669fd6c5ae47a516a7ec16d329}{From\+String}} (float \&Value, const \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}} \texorpdfstring{$\ast$}{*}Buffer)
+\item 
+static bool \mbox{\hyperlink{class_f_string_ae6cadba41b98d281e226a5193558934d}{From\+String}} (bool \&Value, const \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}} \texorpdfstring{$\ast$}{*}Buffer)
+\item 
+static \mbox{\hyperlink{class_f_string}{FString}} \mbox{\hyperlink{class_f_string_aebf682e2e5c01bd4ab069316192ab791}{From\+String}} (\mbox{\hyperlink{class_f_string}{FString}} \&Value, const \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}} \texorpdfstring{$\ast$}{*}Buffer)
+\item 
+{\footnotesize template$<$typename ... Type\+Args$>$ }\\static \mbox{\hyperlink{class_f_string}{FString}} \mbox{\hyperlink{class_f_string_a1dfcf0015234ee1810ed318e32dc6543}{PrintF}} (const \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}} \texorpdfstring{$\ast$}{*}Fmt, Type\+Args... Args)
+\item 
+static \mbox{\hyperlink{class_f_string}{FString}} \mbox{\hyperlink{class_f_string_a83898dc9e0b7882bd20f4d4164cc4182}{Print\+FInternal}} (const \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}} \texorpdfstring{$\ast$}{*}Fmt,...)
+\item 
+{\footnotesize template$<$typename T $>$ }\\static \mbox{\hyperlink{class_f_string}{FString}} \mbox{\hyperlink{class_f_string_a59ee575536fec3ddcf537da80f63978b}{Num\+To\+String}} (T Val)
+\item 
+template$<$$>$ static \mbox{\hyperlink{class_f_string}{FString}} \mbox{\hyperlink{class_f_string_a56eb3501e6c3cccfe422e7d3e446850a}{Num\+To\+String}} (\mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}} Val)
+\item 
+template$<$$>$ static \mbox{\hyperlink{class_f_string}{FString}} \mbox{\hyperlink{class_f_string_a334733e569eee432807250bfc9017b40}{Num\+To\+String}} (float Val)
+\item 
+template$<$$>$ static \mbox{\hyperlink{class_f_string}{FString}} \mbox{\hyperlink{class_f_string_af0a9da2b9c6cc8bb8117642c01774e4b}{Num\+To\+String}} (bool Val)
+\item 
+template$<$$>$ static \mbox{\hyperlink{class_f_string}{FString}} \mbox{\hyperlink{class_f_string_a2380da508872410ec5636bfed7c2e7f0}{Num\+To\+String}} (\mbox{\hyperlink{class_f_string}{FString}} Val)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Друзья}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{class_f_string_a4106e54baa3908891a572b5fd15d4455}{std\+::hash$<$ FString $>$}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Конструктор(ы)}
+\Hypertarget{class_f_string_acc6e2ac6135356e2b8b909ff61bf668c}\label{class_f_string_acc6e2ac6135356e2b8b909ff61bf668c} 
+\index{FString@{FString}!FString@{FString}}
+\index{FString@{FString}!FString@{FString}}
+\doxysubsubsection{\texorpdfstring{FString()}{FString()}\hspace{0.1cm}{\footnotesize\ttfamily [1/8]}}
+{\footnotesize\ttfamily FString\+::\+FString (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_f_string_ad1ba655e8dab2b64c0ccb2fcab5e7ed4}\label{class_f_string_ad1ba655e8dab2b64c0ccb2fcab5e7ed4} 
+\index{FString@{FString}!FString@{FString}}
+\index{FString@{FString}!FString@{FString}}
+\doxysubsubsection{\texorpdfstring{FString()}{FString()}\hspace{0.1cm}{\footnotesize\ttfamily [2/8]}}
+{\footnotesize\ttfamily FString\+::\+FString (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{_platform_8h_ac65a9f028228aed366b4d8f24a8ab9e9}{ANSICHAR}} \texorpdfstring{$\ast$}{*}}]{Str }\end{DoxyParamCaption})}
+
+\Hypertarget{class_f_string_a9b55799b5e13cb728b6a974ec95f40f5}\label{class_f_string_a9b55799b5e13cb728b6a974ec95f40f5} 
+\index{FString@{FString}!FString@{FString}}
+\index{FString@{FString}!FString@{FString}}
+\doxysubsubsection{\texorpdfstring{FString()}{FString()}\hspace{0.1cm}{\footnotesize\ttfamily [3/8]}}
+{\footnotesize\ttfamily FString\+::\+FString (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{_platform_8h_a827f84d187d97e962586441ccb428bcd}{WIDECHAR}} \texorpdfstring{$\ast$}{*}}]{Str }\end{DoxyParamCaption})}
+
+\Hypertarget{class_f_string_a250e30d9c46e4a7e8cff47b899165e26}\label{class_f_string_a250e30d9c46e4a7e8cff47b899165e26} 
+\index{FString@{FString}!FString@{FString}}
+\index{FString@{FString}!FString@{FString}}
+\doxysubsubsection{\texorpdfstring{FString()}{FString()}\hspace{0.1cm}{\footnotesize\ttfamily [4/8]}}
+{\footnotesize\ttfamily FString\+::\+FString (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}}]{Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_f_string_a9d4adf1bd035e87ee277dc80402bf916}\label{class_f_string_a9d4adf1bd035e87ee277dc80402bf916} 
+\index{FString@{FString}!FString@{FString}}
+\index{FString@{FString}!FString@{FString}}
+\doxysubsubsection{\texorpdfstring{FString()}{FString()}\hspace{0.1cm}{\footnotesize\ttfamily [5/8]}}
+{\footnotesize\ttfamily FString\+::\+FString (\begin{DoxyParamCaption}\item[{const std\+::wstring \&}]{Str }\end{DoxyParamCaption})}
+
+\Hypertarget{class_f_string_aad5f6131f3377ea0071a7577e1d5fde4}\label{class_f_string_aad5f6131f3377ea0071a7577e1d5fde4} 
+\index{FString@{FString}!FString@{FString}}
+\index{FString@{FString}!FString@{FString}}
+\doxysubsubsection{\texorpdfstring{FString()}{FString()}\hspace{0.1cm}{\footnotesize\ttfamily [6/8]}}
+{\footnotesize\ttfamily FString\+::\+FString (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{Str }\end{DoxyParamCaption})}
+
+\Hypertarget{class_f_string_ae9fd7f4203163fe1724bc6309e5e5862}\label{class_f_string_ae9fd7f4203163fe1724bc6309e5e5862} 
+\index{FString@{FString}!FString@{FString}}
+\index{FString@{FString}!FString@{FString}}
+\doxysubsubsection{\texorpdfstring{FString()}{FString()}\hspace{0.1cm}{\footnotesize\ttfamily [7/8]}}
+{\footnotesize\ttfamily FString\+::\+FString (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}} \texorpdfstring{$\ast$}{*}}]{Str }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_f_string_af36b24ba13804e38ff1e8043bf41533d}\label{class_f_string_af36b24ba13804e38ff1e8043bf41533d} 
+\index{FString@{FString}!FString@{FString}}
+\index{FString@{FString}!FString@{FString}}
+\doxysubsubsection{\texorpdfstring{FString()}{FString()}\hspace{0.1cm}{\footnotesize\ttfamily [8/8]}}
+{\footnotesize\ttfamily FString\+::\+FString (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_f_string}{FString}} \&}]{Str }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Методы}
+\Hypertarget{class_f_string_a732671533c37673d1920e0c3613a79f1}\label{class_f_string_a732671533c37673d1920e0c3613a79f1} 
+\index{FString@{FString}!AppendV@{AppendV}}
+\index{AppendV@{AppendV}!FString@{FString}}
+\doxysubsubsection{\texorpdfstring{AppendV()}{AppendV()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_f_string}{FString}} \& FString\+::\+AppendV (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}} \texorpdfstring{$\ast$}{*}}]{Fmt,  }\item[{va\+\_\+list}]{Args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_f_string_ab097c6c342d66e45f731098ef2aff21b}\label{class_f_string_ab097c6c342d66e45f731098ef2aff21b} 
+\index{FString@{FString}!Back@{Back}}
+\index{Back@{Back}!FString@{FString}}
+\doxysubsubsection{\texorpdfstring{Back()}{Back()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}} FString\+::\+Back (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_f_string_a3c4465d298834877d08269950a63408a}\label{class_f_string_a3c4465d298834877d08269950a63408a} 
+\index{FString@{FString}!begin@{begin}}
+\index{begin@{begin}!FString@{FString}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily decltype(auto) FString\+::begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_f_string_ad7a63cbdfe97bbe6b51f4366ff5f3575}\label{class_f_string_ad7a63cbdfe97bbe6b51f4366ff5f3575} 
+\index{FString@{FString}!Contains@{Contains}}
+\index{Contains@{Contains}!FString@{FString}}
+\doxysubsubsection{\texorpdfstring{Contains()}{Contains()}}
+{\footnotesize\ttfamily bool FString\+::\+Contains (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_f_string}{FString}} \&}]{Other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_f_string_a40c63b496ffc2755dadcfc1f3327ba54}\label{class_f_string_a40c63b496ffc2755dadcfc1f3327ba54} 
+\index{FString@{FString}!Data@{Data}}
+\index{Data@{Data}!FString@{FString}}
+\doxysubsubsection{\texorpdfstring{Data()}{Data()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}} \texorpdfstring{$\ast$}{*} FString\+::\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_f_string_a8433547dd75c7b12467cdc367da66eb0}\label{class_f_string_a8433547dd75c7b12467cdc367da66eb0} 
+\index{FString@{FString}!Data@{Data}}
+\index{Data@{Data}!FString@{FString}}
+\doxysubsubsection{\texorpdfstring{Data()}{Data()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily decltype(auto) FString\+::\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_f_string_ade4a115f6376569e1e91019630afb654}\label{class_f_string_ade4a115f6376569e1e91019630afb654} 
+\index{FString@{FString}!end@{end}}
+\index{end@{end}!FString@{FString}}
+\doxysubsubsection{\texorpdfstring{end()}{end()}}
+{\footnotesize\ttfamily decltype(auto) FString\+::end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_f_string_ac0cf09296184f01998d6d6577ac51209}\label{class_f_string_ac0cf09296184f01998d6d6577ac51209} 
+\index{FString@{FString}!First@{First}}
+\index{First@{First}!FString@{FString}}
+\doxysubsubsection{\texorpdfstring{First()}{First()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}} FString\+::\+First (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_f_string_ae6cadba41b98d281e226a5193558934d}\label{class_f_string_ae6cadba41b98d281e226a5193558934d} 
+\index{FString@{FString}!FromString@{FromString}}
+\index{FromString@{FromString}!FString@{FString}}
+\doxysubsubsection{\texorpdfstring{FromString()}{FromString()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily static bool FString\+::\+From\+String (\begin{DoxyParamCaption}\item[{bool \&}]{Value,  }\item[{const \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}} \texorpdfstring{$\ast$}{*}}]{Buffer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+\Hypertarget{class_f_string_a5310f8669fd6c5ae47a516a7ec16d329}\label{class_f_string_a5310f8669fd6c5ae47a516a7ec16d329} 
+\index{FString@{FString}!FromString@{FromString}}
+\index{FromString@{FromString}!FString@{FString}}
+\doxysubsubsection{\texorpdfstring{FromString()}{FromString()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily static float FString\+::\+From\+String (\begin{DoxyParamCaption}\item[{float \&}]{Value,  }\item[{const \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}} \texorpdfstring{$\ast$}{*}}]{Buffer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+\Hypertarget{class_f_string_aebf682e2e5c01bd4ab069316192ab791}\label{class_f_string_aebf682e2e5c01bd4ab069316192ab791} 
+\index{FString@{FString}!FromString@{FromString}}
+\index{FromString@{FromString}!FString@{FString}}
+\doxysubsubsection{\texorpdfstring{FromString()}{FromString()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_f_string}{FString}} FString\+::\+From\+String (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_f_string}{FString}} \&}]{Value,  }\item[{const \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}} \texorpdfstring{$\ast$}{*}}]{Buffer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+\Hypertarget{class_f_string_a979d15c4479439b530eb444ee7fcad6d}\label{class_f_string_a979d15c4479439b530eb444ee7fcad6d} 
+\index{FString@{FString}!FromString@{FromString}}
+\index{FromString@{FromString}!FString@{FString}}
+\doxysubsubsection{\texorpdfstring{FromString()}{FromString()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}} FString\+::\+From\+String (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}} \&}]{Value,  }\item[{const \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}} \texorpdfstring{$\ast$}{*}}]{Buffer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+\Hypertarget{class_f_string_a2c25542d19beefb05150e328d71ce0b4}\label{class_f_string_a2c25542d19beefb05150e328d71ce0b4} 
+\index{FString@{FString}!GetNativeString@{GetNativeString}}
+\index{GetNativeString@{GetNativeString}!FString@{FString}}
+\doxysubsubsection{\texorpdfstring{GetNativeString()}{GetNativeString()}}
+{\footnotesize\ttfamily std\+::wstring \& FString\+::\+Get\+Native\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_f_string_a07f2563a2ad7456ddf5c2c4e8a755a7f}\label{class_f_string_a07f2563a2ad7456ddf5c2c4e8a755a7f} 
+\index{FString@{FString}!GetStr@{GetStr}}
+\index{GetStr@{GetStr}!FString@{FString}}
+\doxysubsubsection{\texorpdfstring{GetStr()}{GetStr()}}
+{\footnotesize\ttfamily const char \texorpdfstring{$\ast$}{*} FString\+::\+Get\+Str (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_f_string_a3b29897373b96447c3bc75a9b422f3d5}\label{class_f_string_a3b29897373b96447c3bc75a9b422f3d5} 
+\index{FString@{FString}!GetUTF8@{GetUTF8}}
+\index{GetUTF8@{GetUTF8}!FString@{FString}}
+\doxysubsubsection{\texorpdfstring{GetUTF8()}{GetUTF8()}}
+{\footnotesize\ttfamily const char \texorpdfstring{$\ast$}{*} FString\+::\+Get\+UTF8 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_f_string_acb15a1772b66f10292727b09cbd75fbe}\label{class_f_string_acb15a1772b66f10292727b09cbd75fbe} 
+\index{FString@{FString}!Len@{Len}}
+\index{Len@{Len}!FString@{FString}}
+\doxysubsubsection{\texorpdfstring{Len()}{Len()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}} FString\+::\+Len (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_f_string_af0a9da2b9c6cc8bb8117642c01774e4b}\label{class_f_string_af0a9da2b9c6cc8bb8117642c01774e4b} 
+\index{FString@{FString}!NumToString@{NumToString}}
+\index{NumToString@{NumToString}!FString@{FString}}
+\doxysubsubsection{\texorpdfstring{NumToString()}{NumToString()}\hspace{0.1cm}{\footnotesize\ttfamily [1/5]}}
+{\footnotesize\ttfamily template$<$$>$ \\
+static \mbox{\hyperlink{class_f_string}{FString}} FString\+::\+Num\+To\+String (\begin{DoxyParamCaption}\item[{bool}]{Val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+\Hypertarget{class_f_string_a334733e569eee432807250bfc9017b40}\label{class_f_string_a334733e569eee432807250bfc9017b40} 
+\index{FString@{FString}!NumToString@{NumToString}}
+\index{NumToString@{NumToString}!FString@{FString}}
+\doxysubsubsection{\texorpdfstring{NumToString()}{NumToString()}\hspace{0.1cm}{\footnotesize\ttfamily [2/5]}}
+{\footnotesize\ttfamily template$<$$>$ \\
+static \mbox{\hyperlink{class_f_string}{FString}} FString\+::\+Num\+To\+String (\begin{DoxyParamCaption}\item[{float}]{Val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+\Hypertarget{class_f_string_a2380da508872410ec5636bfed7c2e7f0}\label{class_f_string_a2380da508872410ec5636bfed7c2e7f0} 
+\index{FString@{FString}!NumToString@{NumToString}}
+\index{NumToString@{NumToString}!FString@{FString}}
+\doxysubsubsection{\texorpdfstring{NumToString()}{NumToString()}\hspace{0.1cm}{\footnotesize\ttfamily [3/5]}}
+{\footnotesize\ttfamily template$<$$>$ \\
+static \mbox{\hyperlink{class_f_string}{FString}} FString\+::\+Num\+To\+String (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_f_string}{FString}}}]{Val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+\Hypertarget{class_f_string_a56eb3501e6c3cccfe422e7d3e446850a}\label{class_f_string_a56eb3501e6c3cccfe422e7d3e446850a} 
+\index{FString@{FString}!NumToString@{NumToString}}
+\index{NumToString@{NumToString}!FString@{FString}}
+\doxysubsubsection{\texorpdfstring{NumToString()}{NumToString()}\hspace{0.1cm}{\footnotesize\ttfamily [4/5]}}
+{\footnotesize\ttfamily template$<$$>$ \\
+static \mbox{\hyperlink{class_f_string}{FString}} FString\+::\+Num\+To\+String (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}}]{Val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+\Hypertarget{class_f_string_a59ee575536fec3ddcf537da80f63978b}\label{class_f_string_a59ee575536fec3ddcf537da80f63978b} 
+\index{FString@{FString}!NumToString@{NumToString}}
+\index{NumToString@{NumToString}!FString@{FString}}
+\doxysubsubsection{\texorpdfstring{NumToString()}{NumToString()}\hspace{0.1cm}{\footnotesize\ttfamily [5/5]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+static \mbox{\hyperlink{class_f_string}{FString}} FString\+::\+Num\+To\+String (\begin{DoxyParamCaption}\item[{T}]{Val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+\Hypertarget{class_f_string_abc9396f8bfda870279b907c2d8e7542a}\label{class_f_string_abc9396f8bfda870279b907c2d8e7542a} 
+\index{FString@{FString}!operator"!@{operator"!}}
+\index{operator"!@{operator"!}!FString@{FString}}
+\doxysubsubsection{\texorpdfstring{operator"!()}{operator!()}}
+{\footnotesize\ttfamily const char \texorpdfstring{$\ast$}{*} FString\+::operator! (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_f_string_a93b3a9de90f9cc6832b86a9c6f973884}\label{class_f_string_a93b3a9de90f9cc6832b86a9c6f973884} 
+\index{FString@{FString}!operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}}
+\index{operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}!FString@{FString}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}} \texorpdfstring{$\ast$}{*} FString\+::operator\texorpdfstring{$\ast$}{*} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_f_string_aab60592d79f3040e22cd5af84d02ebb6}\label{class_f_string_aab60592d79f3040e22cd5af84d02ebb6} 
+\index{FString@{FString}!operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}}
+\index{operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}!FString@{FString}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}} \texorpdfstring{$\ast$}{*} FString\+::operator\texorpdfstring{$\ast$}{*} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_f_string_af552fd9fbb6998705de60f9b89e9508b}\label{class_f_string_af552fd9fbb6998705de60f9b89e9508b} 
+\index{FString@{FString}!operator+@{operator+}}
+\index{operator+@{operator+}!FString@{FString}}
+\doxysubsubsection{\texorpdfstring{operator+()}{operator+()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_f_string}{FString}} FString\+::operator+ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_f_string}{FString}}}]{R }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_f_string_ad6c486f39bc31cadd0774317ef8fd44d}\label{class_f_string_ad6c486f39bc31cadd0774317ef8fd44d} 
+\index{FString@{FString}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!FString@{FString}}
+\doxysubsubsection{\texorpdfstring{operator+=()}{operator+=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_f_string}{FString}} \& FString\+::operator+= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_f_string}{FString}}}]{R }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_f_string_a21362d828c3e9a266a00351f2e2e81aa}\label{class_f_string_a21362d828c3e9a266a00351f2e2e81aa} 
+\index{FString@{FString}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!FString@{FString}}
+\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}}
+{\footnotesize\ttfamily const char \texorpdfstring{$\ast$}{*} FString\+::operator-\/ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_f_string_aa69f8470a02d19b32553ef327a8b5939}\label{class_f_string_aa69f8470a02d19b32553ef327a8b5939} 
+\index{FString@{FString}!operator/@{operator/}}
+\index{operator/@{operator/}!FString@{FString}}
+\doxysubsubsection{\texorpdfstring{operator/()}{operator/()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_f_string}{FString}} FString\+::operator/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_f_string}{FString}} \&}]{Other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_f_string_aa40dd002b9847afca677bb29056d09ed}\label{class_f_string_aa40dd002b9847afca677bb29056d09ed} 
+\index{FString@{FString}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!FString@{FString}}
+\doxysubsubsection{\texorpdfstring{operator$<$()}{operator<()}}
+{\footnotesize\ttfamily bool FString\+::operator$<$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_f_string}{FString}} \&}]{R }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_f_string_aa2384e02049048d5a8865f247d5f441a}\label{class_f_string_aa2384e02049048d5a8865f247d5f441a} 
+\index{FString@{FString}!operator=@{operator=}}
+\index{operator=@{operator=}!FString@{FString}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_f_string}{FString}} \& FString\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_f_string}{FString}} \&}]{Str }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_f_string_adfe0dc646cb4200fe9662945b3fa9b36}\label{class_f_string_adfe0dc646cb4200fe9662945b3fa9b36} 
+\index{FString@{FString}!operator=@{operator=}}
+\index{operator=@{operator=}!FString@{FString}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_f_string}{FString}} \& FString\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}} \texorpdfstring{$\ast$}{*}}]{Str }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_f_string_a6592520a8d399b00b121c29d66465b44}\label{class_f_string_a6592520a8d399b00b121c29d66465b44} 
+\index{FString@{FString}!operator==@{operator==}}
+\index{operator==@{operator==}!FString@{FString}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool FString\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_f_string}{FString}} \&}]{R }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_f_string_a00242670ba5754185f1ea83d0bdbd609}\label{class_f_string_a00242670ba5754185f1ea83d0bdbd609} 
+\index{FString@{FString}!operator$>$@{operator$>$}}
+\index{operator$>$@{operator$>$}!FString@{FString}}
+\doxysubsubsection{\texorpdfstring{operator$>$()}{operator>()}}
+{\footnotesize\ttfamily bool FString\+::operator$>$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_f_string}{FString}} \&}]{R }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_f_string_aa020b746f92f5f1c89c5abced2e7f716}\label{class_f_string_aa020b746f92f5f1c89c5abced2e7f716} 
+\index{FString@{FString}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!FString@{FString}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}} \& FString\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}}]{Index }\end{DoxyParamCaption})}
+
+\Hypertarget{class_f_string_ae1b6f73f9ba4aed66a1758bb6918bfc5}\label{class_f_string_ae1b6f73f9ba4aed66a1758bb6918bfc5} 
+\index{FString@{FString}!PopBack@{PopBack}}
+\index{PopBack@{PopBack}!FString@{FString}}
+\doxysubsubsection{\texorpdfstring{PopBack()}{PopBack()}}
+{\footnotesize\ttfamily void FString\+::\+Pop\+Back (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_f_string_a01ad6a4ea5c276a9e3456fc512e6fd11}\label{class_f_string_a01ad6a4ea5c276a9e3456fc512e6fd11} 
+\index{FString@{FString}!PopFirst@{PopFirst}}
+\index{PopFirst@{PopFirst}!FString@{FString}}
+\doxysubsubsection{\texorpdfstring{PopFirst()}{PopFirst()}}
+{\footnotesize\ttfamily void FString\+::\+Pop\+First (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_f_string_a1dfcf0015234ee1810ed318e32dc6543}\label{class_f_string_a1dfcf0015234ee1810ed318e32dc6543} 
+\index{FString@{FString}!PrintF@{PrintF}}
+\index{PrintF@{PrintF}!FString@{FString}}
+\doxysubsubsection{\texorpdfstring{PrintF()}{PrintF()}}
+{\footnotesize\ttfamily template$<$typename ... Type\+Args$>$ \\
+static \mbox{\hyperlink{class_f_string}{FString}} FString\+::\+PrintF (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}} \texorpdfstring{$\ast$}{*}}]{Fmt,  }\item[{Type\+Args...}]{Args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+\Hypertarget{class_f_string_a83898dc9e0b7882bd20f4d4164cc4182}\label{class_f_string_a83898dc9e0b7882bd20f4d4164cc4182} 
+\index{FString@{FString}!PrintFInternal@{PrintFInternal}}
+\index{PrintFInternal@{PrintFInternal}!FString@{FString}}
+\doxysubsubsection{\texorpdfstring{PrintFInternal()}{PrintFInternal()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_f_string}{FString}} FString\+::\+Print\+FInternal (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}} \texorpdfstring{$\ast$}{*}}]{Fmt,  }\item[{}]{... }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{class_f_string_a6dbc3e342038b594bae6b22f84d0839a}\label{class_f_string_a6dbc3e342038b594bae6b22f84d0839a} 
+\index{FString@{FString}!Replace@{Replace}}
+\index{Replace@{Replace}!FString@{FString}}
+\doxysubsubsection{\texorpdfstring{Replace()}{Replace()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_f_string}{FString}} \& FString\+::\+Replace (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}}}]{Str1,  }\item[{\mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}}}]{Str2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_f_string_ac19cac4f3eb926797208cce926941462}\label{class_f_string_ac19cac4f3eb926797208cce926941462} 
+\index{FString@{FString}!Reserve@{Reserve}}
+\index{Reserve@{Reserve}!FString@{FString}}
+\doxysubsubsection{\texorpdfstring{Reserve()}{Reserve()}}
+{\footnotesize\ttfamily void FString\+::\+Reserve (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}}]{New\+Reserve }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_f_string_aaed73274c0a1574617872826de0f7059}\label{class_f_string_aaed73274c0a1574617872826de0f7059} 
+\index{FString@{FString}!Resize@{Resize}}
+\index{Resize@{Resize}!FString@{FString}}
+\doxysubsubsection{\texorpdfstring{Resize()}{Resize()}}
+{\footnotesize\ttfamily void FString\+::\+Resize (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}}]{New\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_f_string_a6a807dc7b602ae5d196c18a3e5788325}\label{class_f_string_a6a807dc7b602ae5d196c18a3e5788325} 
+\index{FString@{FString}!ToString@{ToString}}
+\index{ToString@{ToString}!FString@{FString}}
+\doxysubsubsection{\texorpdfstring{ToString()}{ToString()}}
+{\footnotesize\ttfamily std\+::string FString\+::\+To\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+\doxysubsection{Документация по друзьям класса и функциям, относящимся к классу}
+\Hypertarget{class_f_string_a4106e54baa3908891a572b5fd15d4455}\label{class_f_string_a4106e54baa3908891a572b5fd15d4455} 
+\index{FString@{FString}!std::hash$<$ FString $>$@{std::hash$<$ FString $>$}}
+\index{std::hash$<$ FString $>$@{std::hash$<$ FString $>$}!FString@{FString}}
+\doxysubsubsection{\texorpdfstring{std::hash$<$ FString $>$}{std::hash< FString >}}
+{\footnotesize\ttfamily friend struct std\+::hash$<$ \mbox{\hyperlink{class_f_string}{FString}} $>$\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+Dark Engine/\+Source/\+Runtime/\+Core/\+Public/\+Containers/\mbox{\hyperlink{_dark_string_8h}{Dark\+String.\+h}}\item 
+Dark Engine/\+Source/\+Runtime/\+Core/\+Private/\+Containers/\mbox{\hyperlink{_dark_string_8cpp}{Dark\+String.\+cpp}}\end{DoxyCompactItemize}

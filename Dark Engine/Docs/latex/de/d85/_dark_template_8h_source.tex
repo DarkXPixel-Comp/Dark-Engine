@@ -1,0 +1,39 @@
+\doxysection{Dark\+Template.\+h}
+\hypertarget{_dark_template_8h_source}{}\label{_dark_template_8h_source}\index{Dark Engine/Source/Runtime/Core/Public/Templates/DarkTemplate.h@{Dark Engine/Source/Runtime/Core/Public/Templates/DarkTemplate.h}}
+\mbox{\hyperlink{_dark_template_8h}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#define\ DE\_ARRAY\_COUNT(arr)\ (\_countof(arr))}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_t_remove_reference}{TRemoveReference}}\ \{\ \textcolor{keyword}{typedef}\ T\ \mbox{\hyperlink{struct_t_remove_reference_a75301ec0c68c6b6b13f27822d5c5f612}{Type}};\ \};}
+\DoxyCodeLine{00007\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_t_remove_reference}{TRemoveReference}}<T\&>\ \{\ \textcolor{keyword}{typedef}\ T\ \mbox{\hyperlink{struct_t_remove_reference_3_01_t_01_6_01_4_ac5fa8246ee1e753fcd5e72e21869e1a1}{Type}};\ \};}
+\DoxyCodeLine{00008\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_t_remove_reference}{TRemoveReference}}<T\&\&>\ \{\ \textcolor{keyword}{typedef}\ T\ \mbox{\hyperlink{struct_t_remove_reference_3_01_t_01_6_6_01_4_a18618b18efd23cbf98548d67b21ec3cd}{Type}};\ \};}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00013\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{struct_t_remove_reference_a75301ec0c68c6b6b13f27822d5c5f612}{TRemoveReference<T>::Type}}\&\&\ \mbox{\hyperlink{_dark_template_8h_a003eb64f2a7754a2bfdd60ab750e59ce}{MoveTemp}}(T\&\&\ Obj)}
+\DoxyCodeLine{00014\ \{}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{struct_t_remove_reference_a75301ec0c68c6b6b13f27822d5c5f612}{TRemoveReference<T>::Type}}\ CastType;}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ }
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordflow}{return}\ (CastType\&\&)Obj;}
+\DoxyCodeLine{00019\ \}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_f_noncopyble}{FNoncopyble}}}
+\DoxyCodeLine{00024\ \{}
+\DoxyCodeLine{00025\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00026\ \ \ \ \ \mbox{\hyperlink{class_f_noncopyble_addc0b38dc12de8c824553e9a4e068fd4}{FNoncopyble}}()\ \{\}}
+\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{class_f_noncopyble_a16ba73caedd4be7fc68f3011f8f1b60a}{\string~FNoncopyble}}()\ \{\}}
+\DoxyCodeLine{00028\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00029\ \ \ \ \ \mbox{\hyperlink{class_f_noncopyble_addc0b38dc12de8c824553e9a4e068fd4}{FNoncopyble}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_f_noncopyble}{FNoncopyble}}\&);}
+\DoxyCodeLine{00030\ \ \ \ \ \mbox{\hyperlink{class_f_noncopyble}{FNoncopyble}}\&\ operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_f_noncopyble}{FNoncopyble}}\&);}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \};}
+
+\end{DoxyCode}

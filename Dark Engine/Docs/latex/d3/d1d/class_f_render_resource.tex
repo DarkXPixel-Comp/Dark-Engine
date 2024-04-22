@@ -1,0 +1,58 @@
+\doxysection{Класс FRender\+Resource}
+\hypertarget{class_f_render_resource}{}\label{class_f_render_resource}\index{FRenderResource@{FRenderResource}}
+
+
+{\ttfamily \#include $<$Render\+Resource.\+h$>$}
+
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_f_render_resource_a4afb82c1ee639defd1884c4457e623c3}{Init\+RHI}} (\mbox{\hyperlink{class_f_r_h_i_command_list_base}{FRHICommand\+List\+Base}} \&RHICmd\+List)
+\item 
+virtual void \mbox{\hyperlink{class_f_render_resource_a23e1456223078c8515f0f2c08353d9e4}{Release\+RHI}} ()
+\item 
+virtual void \mbox{\hyperlink{class_f_render_resource_ab4ff6575fd0a7ac3a3569e01970f39e1}{Init\+Resource}} (\mbox{\hyperlink{class_f_r_h_i_command_list_base}{FRHICommand\+List\+Base}} \&RHICmd\+List)
+\item 
+void \mbox{\hyperlink{class_f_render_resource_a0e5fbe8e0967f62216e98161435fd80e}{Update\+RHI}} (\mbox{\hyperlink{class_f_r_h_i_command_list}{FRHICommand\+List}} \&RHICmd\+List)
+\item 
+{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{class_f_r_h_i_buffer}{FRHIBuffer}} \mbox{\hyperlink{class_f_render_resource_a48ad21f6b121dfc49ee5618792bfb18a}{Create\+RHIBuffer}} (T \&In\+Out\+Resource\+Object, const \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} Resource\+Count, const \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}} \texorpdfstring{$\ast$}{*}In\+Debug\+Name)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Методы}
+\Hypertarget{class_f_render_resource_a48ad21f6b121dfc49ee5618792bfb18a}\label{class_f_render_resource_a48ad21f6b121dfc49ee5618792bfb18a} 
+\index{FRenderResource@{FRenderResource}!CreateRHIBuffer@{CreateRHIBuffer}}
+\index{CreateRHIBuffer@{CreateRHIBuffer}!FRenderResource@{FRenderResource}}
+\doxysubsubsection{\texorpdfstring{CreateRHIBuffer()}{CreateRHIBuffer()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{class_f_r_h_i_buffer}{FRHIBuffer}} FRender\+Resource\+::\+Create\+RHIBuffer (\begin{DoxyParamCaption}\item[{T \&}]{In\+Out\+Resource\+Object,  }\item[{const \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}}]{Resource\+Count,  }\item[{const \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}} \texorpdfstring{$\ast$}{*}}]{In\+Debug\+Name }\end{DoxyParamCaption})}
+
+\Hypertarget{class_f_render_resource_ab4ff6575fd0a7ac3a3569e01970f39e1}\label{class_f_render_resource_ab4ff6575fd0a7ac3a3569e01970f39e1} 
+\index{FRenderResource@{FRenderResource}!InitResource@{InitResource}}
+\index{InitResource@{InitResource}!FRenderResource@{FRenderResource}}
+\doxysubsubsection{\texorpdfstring{InitResource()}{InitResource()}}
+{\footnotesize\ttfamily virtual void FRender\+Resource\+::\+Init\+Resource (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_f_r_h_i_command_list_base}{FRHICommand\+List\+Base}} \&}]{RHICmd\+List }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\Hypertarget{class_f_render_resource_a4afb82c1ee639defd1884c4457e623c3}\label{class_f_render_resource_a4afb82c1ee639defd1884c4457e623c3} 
+\index{FRenderResource@{FRenderResource}!InitRHI@{InitRHI}}
+\index{InitRHI@{InitRHI}!FRenderResource@{FRenderResource}}
+\doxysubsubsection{\texorpdfstring{InitRHI()}{InitRHI()}}
+{\footnotesize\ttfamily virtual void FRender\+Resource\+::\+Init\+RHI (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_f_r_h_i_command_list_base}{FRHICommand\+List\+Base}} \&}]{RHICmd\+List }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\Hypertarget{class_f_render_resource_a23e1456223078c8515f0f2c08353d9e4}\label{class_f_render_resource_a23e1456223078c8515f0f2c08353d9e4} 
+\index{FRenderResource@{FRenderResource}!ReleaseRHI@{ReleaseRHI}}
+\index{ReleaseRHI@{ReleaseRHI}!FRenderResource@{FRenderResource}}
+\doxysubsubsection{\texorpdfstring{ReleaseRHI()}{ReleaseRHI()}}
+{\footnotesize\ttfamily virtual void FRender\+Resource\+::\+Release\+RHI (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\Hypertarget{class_f_render_resource_a0e5fbe8e0967f62216e98161435fd80e}\label{class_f_render_resource_a0e5fbe8e0967f62216e98161435fd80e} 
+\index{FRenderResource@{FRenderResource}!UpdateRHI@{UpdateRHI}}
+\index{UpdateRHI@{UpdateRHI}!FRenderResource@{FRenderResource}}
+\doxysubsubsection{\texorpdfstring{UpdateRHI()}{UpdateRHI()}}
+{\footnotesize\ttfamily void FRender\+Resource\+::\+Update\+RHI (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_f_r_h_i_command_list}{FRHICommand\+List}} \&}]{RHICmd\+List }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Объявления и описания членов класса находятся в файле\+:\begin{DoxyCompactItemize}
+\item 
+Dark Engine/\+Source/\+Runtime/\+Renderer/public/\mbox{\hyperlink{_render_resource_8h}{Render\+Resource.\+h}}\end{DoxyCompactItemize}

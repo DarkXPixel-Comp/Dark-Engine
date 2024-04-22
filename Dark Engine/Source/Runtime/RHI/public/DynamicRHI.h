@@ -58,7 +58,17 @@ FDynamicRHI* PlatformCreateDynamicRHI();
 extern void DynamicRHIShutdown();
 
 
+
+/**
+*	Create FRHIViewport
+*	\param[in] WindowHandle OS handle on window
+*	\param[in] SizeX Width Viewport
+*	\param[in] SizeY Heigth Viewport
+*	\param[in] Fullscreen On
+*/
 TSharedPtr<FRHIViewport> CreateRHIViewport(void* WindowHandle, uint32 SizeX, uint32 SizeY, bool bIsFullscreen);
+
+
 FORCEINLINE FRHITexture* RHIGetViewportBackBuffer(FRHIViewport* Viewport)
 {
 	return GDynamicRHI->RHIGetViewportBackBuffer(Viewport);

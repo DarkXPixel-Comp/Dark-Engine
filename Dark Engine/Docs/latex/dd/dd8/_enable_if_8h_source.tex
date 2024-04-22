@@ -1,0 +1,25 @@
+\doxysection{Enable\+If.\+h}
+\hypertarget{_enable_if_8h_source}{}\label{_enable_if_8h_source}\index{Dark Engine/Source/Runtime/Core/Public/Templates/EnableIf.h@{Dark Engine/Source/Runtime/Core/Public/Templates/EnableIf.h}}
+\mbox{\hyperlink{_enable_if_8h}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{_core_types_8h}{CoreTypes.h}}>}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{template}\ <\textcolor{keywordtype}{bool}\ Predicate,\ \textcolor{keyword}{typename}\ Result\ =\ \textcolor{keywordtype}{void}>}
+\DoxyCodeLine{00007\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_t_enable_if}{TEnableIf}};}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Result>}
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_t_enable_if}{TEnableIf}}<true,\ Result>}
+\DoxyCodeLine{00011\ \{}
+\DoxyCodeLine{00012\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{class_t_enable_if_3_01true_00_01_result_01_4_a69d174eff78896a8fe2cabef77067db7}{type}}\ =\ Result;}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{class_t_enable_if_3_01true_00_01_result_01_4_acf0f1086205e32be18996c401d1c120a}{Type}}\ =\ Result;}
+\DoxyCodeLine{00015\ \};}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Result>}
+\DoxyCodeLine{00018\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_t_enable_if}{TEnableIf}}<false,\ Result>}
+\DoxyCodeLine{00019\ \{\ \};}
+
+\end{DoxyCode}

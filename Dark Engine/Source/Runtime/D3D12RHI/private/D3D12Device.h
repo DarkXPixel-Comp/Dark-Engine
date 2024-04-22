@@ -49,6 +49,13 @@ public:
 };
 
 
+
+
+/**
+	\brief Main D3D12Device
+
+	Storage all D3DObjects for render
+*/
 class FD3D12Device : public FD3D12AdapterChild	
 {
 public:
@@ -57,11 +64,11 @@ public:
 
 	void Destroy();
 
-	FORCEINLINE ID3D12Device* GetDevice() const { return GetParentAdapter()->GetD3DDevice(); }
+	FORCEINLINE ID3D12Device* GetDevice() const { return GetParentAdapter()->GetD3DDevice(); } ///< Get ID3D12Device
 
 
-	FD3D12CommandAllocator* GetCommandAllocator(ED3D12QueueType QueueType);
-	FD3D12CommandList* GetCommandList(FD3D12CommandAllocator* CommandAllocator);
+	FD3D12CommandAllocator* GetCommandAllocator(ED3D12QueueType QueueType);	///< Allocate CommandAllocator like QueueType
+	FD3D12CommandList* GetCommandList(FD3D12CommandAllocator* CommandAllocator); ///< Allocate Commandlist with CommandAllocator
 	FD3D12DescriptorHeapManager& GetDescriptorHeapManager() { return DescriptorHeapManager; }
 	FD3D12BindlessDescriptorManager& GetBindlessDescriptorManager() { return BindlessDescriptorManager; }
 	FD3D12CpuDescriptorManager& GetCpuDescriptorManger(ERHIDescriptorHeapType InType)

@@ -1,0 +1,34 @@
+\doxysection{UIConsole.\+h}
+\hypertarget{_u_i_console_8h_source}{}\label{_u_i_console_8h_source}\index{Dark Engine/Source/Runtime/UICore/public/Widgets/UIConsole.h@{Dark Engine/Source/Runtime/UICore/public/Widgets/UIConsole.h}}
+\mbox{\hyperlink{_u_i_console_8h}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_u_i_widget_8h}{UIWidget.h}}"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_dark_string_8h}{Containers/DarkString.h}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_array_8h}{Containers/Array.h}}"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_u_i_console}{UIConsole}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_u_i_widget}{UIWidget}}}
+\DoxyCodeLine{00009\ \{}
+\DoxyCodeLine{00010\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00011\ \ \ \ \ \mbox{\hyperlink{class_u_i_console_a3675bcbf887cd67d3596dc22f5a804a9}{UIConsole}}();}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_u_i_console_abeeb768891a7abe68b7d8958688c3a2c}{DrawImGui}}();}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_u_i_console_a22762450faf716fa33bd79fe652ec883}{OnLogAdd}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_f_console_log}{FConsoleLog}}\ InLog);}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ TArray<FString>\ \mbox{\hyperlink{class_u_i_console_af73a2d24017075b4f7d01e04a496ea47}{History}};}
+\DoxyCodeLine{00017\ \ \ \ \ \mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}\ \mbox{\hyperlink{class_u_i_console_adc575b7ee1b174ea647329dee4ee8f90}{CurrentIndex}}\ =\ 0;}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00020\ \ \ \ \ \mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}\ ScrollToBottom\ =\ 1;}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{char}\ InputText[256]\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{comment}{//TArray<struct\ FConsoleLog>\ Messages;}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \};}
+
+\end{DoxyCode}

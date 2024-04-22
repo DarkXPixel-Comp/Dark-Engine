@@ -1,0 +1,67 @@
+\doxysection{Класс FRenderer}
+\hypertarget{class_f_renderer}{}\label{class_f_renderer}\index{FRenderer@{FRenderer}}
+
+
+{\ttfamily \#include $<$Scene\+Renderer.\+h$>$}
+
+Граф наследования\+:FRenderer\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{dc/d23/class_f_renderer}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_f_renderer_ab5218952ab72a61decdfc8f5c88bbb35}{FRenderer}} ()
+\item 
+void \mbox{\hyperlink{class_f_renderer_af4ab5f099bb475a18caf185a57441952}{Begin\+Rendering\+View}} (class \mbox{\hyperlink{class_f_canvas}{FCanvas}} \texorpdfstring{$\ast$}{*}Canvas, class \mbox{\hyperlink{class_f_scene_view}{FScene\+View}} \texorpdfstring{$\ast$}{*}View)
+\item 
+virtual class \mbox{\hyperlink{class_f_scene_interface}{FScene\+Interface}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_f_renderer_a7733362a61923c802b2413d3b6b52517}{Allocate\+Scene}} (class \mbox{\hyperlink{class_f_world}{FWorld}} \texorpdfstring{$\ast$}{*}World)
+\item 
+virtual void \mbox{\hyperlink{class_f_renderer_ac114dada397a1433f10cc046ed8caa4f}{Remove\+Scene}} (class \mbox{\hyperlink{class_f_scene_interface}{FScene\+Interface}} \texorpdfstring{$\ast$}{*}Scene)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Конструктор(ы)}
+\Hypertarget{class_f_renderer_ab5218952ab72a61decdfc8f5c88bbb35}\label{class_f_renderer_ab5218952ab72a61decdfc8f5c88bbb35} 
+\index{FRenderer@{FRenderer}!FRenderer@{FRenderer}}
+\index{FRenderer@{FRenderer}!FRenderer@{FRenderer}}
+\doxysubsubsection{\texorpdfstring{FRenderer()}{FRenderer()}}
+{\footnotesize\ttfamily FRenderer\+::\+FRenderer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Методы}
+\Hypertarget{class_f_renderer_a7733362a61923c802b2413d3b6b52517}\label{class_f_renderer_a7733362a61923c802b2413d3b6b52517} 
+\index{FRenderer@{FRenderer}!AllocateScene@{AllocateScene}}
+\index{AllocateScene@{AllocateScene}!FRenderer@{FRenderer}}
+\doxysubsubsection{\texorpdfstring{AllocateScene()}{AllocateScene()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_f_scene_interface}{FScene\+Interface}} \texorpdfstring{$\ast$}{*} FRenderer\+::\+Allocate\+Scene (\begin{DoxyParamCaption}\item[{class \mbox{\hyperlink{class_f_world}{FWorld}} \texorpdfstring{$\ast$}{*}}]{World }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Замещает \mbox{\hyperlink{class_i_renderer_a70224d92849d6e3ac831aee622a1eb45}{IRenderer}}.
+
+\Hypertarget{class_f_renderer_af4ab5f099bb475a18caf185a57441952}\label{class_f_renderer_af4ab5f099bb475a18caf185a57441952} 
+\index{FRenderer@{FRenderer}!BeginRenderingView@{BeginRenderingView}}
+\index{BeginRenderingView@{BeginRenderingView}!FRenderer@{FRenderer}}
+\doxysubsubsection{\texorpdfstring{BeginRenderingView()}{BeginRenderingView()}}
+{\footnotesize\ttfamily void FRenderer\+::\+Begin\+Rendering\+View (\begin{DoxyParamCaption}\item[{class \mbox{\hyperlink{class_f_canvas}{FCanvas}} \texorpdfstring{$\ast$}{*}}]{Canvas,  }\item[{class \mbox{\hyperlink{class_f_scene_view}{FScene\+View}} \texorpdfstring{$\ast$}{*}}]{View }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Замещает \mbox{\hyperlink{class_i_renderer_ab9777896b14082b4e9f01a774a481977}{IRenderer}}.
+
+\Hypertarget{class_f_renderer_ac114dada397a1433f10cc046ed8caa4f}\label{class_f_renderer_ac114dada397a1433f10cc046ed8caa4f} 
+\index{FRenderer@{FRenderer}!RemoveScene@{RemoveScene}}
+\index{RemoveScene@{RemoveScene}!FRenderer@{FRenderer}}
+\doxysubsubsection{\texorpdfstring{RemoveScene()}{RemoveScene()}}
+{\footnotesize\ttfamily void FRenderer\+::\+Remove\+Scene (\begin{DoxyParamCaption}\item[{class \mbox{\hyperlink{class_f_scene_interface}{FScene\+Interface}} \texorpdfstring{$\ast$}{*}}]{Scene }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+Dark Engine/\+Source/\+Runtime/\+Renderer/private/\mbox{\hyperlink{_scene_renderer_8h}{Scene\+Renderer.\+h}}\item 
+Dark Engine/\+Source/\+Runtime/\+Renderer/private/\mbox{\hyperlink{_scene_renderer_8cpp}{Scene\+Renderer.\+cpp}}\end{DoxyCompactItemize}

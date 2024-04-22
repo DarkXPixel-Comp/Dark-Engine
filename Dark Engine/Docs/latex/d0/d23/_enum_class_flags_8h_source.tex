@@ -1,0 +1,38 @@
+\doxysection{Enum\+Class\+Flags.\+h}
+\hypertarget{_enum_class_flags_8h_source}{}\label{_enum_class_flags_8h_source}\index{Dark Engine/Source/Runtime/Core/Public/Misc/EnumClassFlags.h@{Dark Engine/Source/Runtime/Core/Public/Misc/EnumClassFlags.h}}
+\mbox{\hyperlink{_enum_class_flags_8h}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <type\_traits>}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{comment}{//\ Defines\ all\ bitwise\ operators\ for\ enum\ classes\ so\ it\ can\ be\ (mostly)\ used\ as\ a\ regular\ flags\ enum}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#define\ ENUM\_CLASS\_FLAGS(Enum)\ \(\backslash\)}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\ \ \ \ inline\ \ \ \ \ \ \ \ \ \ \ Enum\&\ operator|=(Enum\&\ Lhs,\ Enum\ Rhs)\ \{\ return\ Lhs\ =\ (Enum)((\_\_underlying\_type(Enum))Lhs\ |\ (\_\_underlying\_type(Enum))Rhs);\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\ \ \ \ inline\ \ \ \ \ \ \ \ \ \ \ Enum\&\ operator\&=(Enum\&\ Lhs,\ Enum\ Rhs)\ \{\ return\ Lhs\ =\ (Enum)((\_\_underlying\_type(Enum))Lhs\ \&\ (\_\_underlying\_type(Enum))Rhs);\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\ \ \ \ inline\ \ \ \ \ \ \ \ \ \ \ Enum\&\ operator\string^=(Enum\&\ Lhs,\ Enum\ Rhs)\ \{\ return\ Lhs\ =\ (Enum)((\_\_underlying\_type(Enum))Lhs\ \string^\ (\_\_underlying\_type(Enum))Rhs);\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\ \ \ \ inline\ constexpr\ Enum\ \ operator|\ (Enum\ \ Lhs,\ Enum\ Rhs)\ \{\ return\ (Enum)((\_\_underlying\_type(Enum))Lhs\ |\ (\_\_underlying\_type(Enum))Rhs);\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\ \ \ \ inline\ constexpr\ Enum\ \ operator\&\ (Enum\ \ Lhs,\ Enum\ Rhs)\ \{\ return\ (Enum)((\_\_underlying\_type(Enum))Lhs\ \&\ (\_\_underlying\_type(Enum))Rhs);\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\ \ \ \ inline\ constexpr\ Enum\ \ operator\string^\ (Enum\ \ Lhs,\ Enum\ Rhs)\ \{\ return\ (Enum)((\_\_underlying\_type(Enum))Lhs\ \string^\ (\_\_underlying\_type(Enum))Rhs);\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\ \ \ \ inline\ constexpr\ bool\ \ operator!\ (Enum\ \ E)\ \ \ \ \ \ \ \ \ \ \ \ \ \{\ return\ !(\_\_underlying\_type(Enum))E;\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\ \ \ \ inline\ constexpr\ Enum\ \ operator\string~\ (Enum\ \ E)\ \ \ \ \ \ \ \ \ \ \ \ \ \{\ return\ (Enum)\string~(\_\_underlying\_type(Enum))E;\ \}}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{comment}{//\ Friends\ all\ bitwise\ operators\ for\ enum\ classes\ so\ the\ definition\ can\ be\ kept\ private\ /\ protected.}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#define\ FRIEND\_ENUM\_CLASS\_FLAGS(Enum)\ \(\backslash\)}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\ \ \ \ friend\ \ \ \ \ \ \ \ \ \ \ Enum\&\ operator|=(Enum\&\ Lhs,\ Enum\ Rhs);\ \(\backslash\)}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\ \ \ \ friend\ \ \ \ \ \ \ \ \ \ \ Enum\&\ operator\&=(Enum\&\ Lhs,\ Enum\ Rhs);\ \(\backslash\)}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\ \ \ \ friend\ \ \ \ \ \ \ \ \ \ \ Enum\&\ operator\string^=(Enum\&\ Lhs,\ Enum\ Rhs);\ \(\backslash\)}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\ \ \ \ friend\ constexpr\ Enum\ \ operator|\ (Enum\ \ Lhs,\ Enum\ Rhs);\ \(\backslash\)}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\ \ \ \ friend\ constexpr\ Enum\ \ operator\&\ (Enum\ \ Lhs,\ Enum\ Rhs);\ \(\backslash\)}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\ \ \ \ friend\ constexpr\ Enum\ \ operator\string^\ (Enum\ \ Lhs,\ Enum\ Rhs);\ \(\backslash\)}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\ \ \ \ friend\ constexpr\ bool\ \ operator!\ (Enum\ \ E);\ \(\backslash\)}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\ \ \ \ friend\ constexpr\ Enum\ \ operator\string~\ (Enum\ \ E);}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Enum>}
+\DoxyCodeLine{00028\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{_enum_class_flags_8h_a584482cc5c314e3e8ea8d24c7adf9f6e}{EnumHasAnyFlags}}(Enum\ Flags,\ Enum\ Contains)}
+\DoxyCodeLine{00029\ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{using\ }UnderlyingType\ =\ \_\_underlying\_type(Enum);}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordflow}{return}\ ((UnderlyingType)Flags\ \&\ (UnderlyingType)Contains)\ !=\ 0;}
+\DoxyCodeLine{00032\ \}}
+
+\end{DoxyCode}

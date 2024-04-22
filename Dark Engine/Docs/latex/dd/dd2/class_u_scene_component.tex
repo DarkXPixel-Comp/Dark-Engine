@@ -1,0 +1,180 @@
+\doxysection{Класс UScene\+Component}
+\hypertarget{class_u_scene_component}{}\label{class_u_scene_component}\index{USceneComponent@{USceneComponent}}
+
+
+{\ttfamily \#include $<$UScene\+Component.\+h$>$}
+
+Граф наследования\+:UScene\+Component\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=5.000000cm]{dd/dd2/class_u_scene_component}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_u_scene_component_a1120429b1e41d008865913cc57f9b3af}{UScene\+Component}} ()
+\item 
+virtual void \mbox{\hyperlink{class_u_scene_component_ad6076994012959536e73e8ff254b32f1}{Begin\+Play}} () override
+\item 
+virtual void \mbox{\hyperlink{class_u_scene_component_aa85f48927fdf395e9ee4ef5c5693343a}{Update}} (float Delta\+Time) override
+\item 
+virtual void \mbox{\hyperlink{class_u_scene_component_afb1e9aa3c81c1fb9a57c649f103299a6}{Destroy}} () override
+\item 
+void \mbox{\hyperlink{class_u_scene_component_ae720e3caaf2dfe2293a5f9cc44edb71b}{Set\+Position}} (\mbox{\hyperlink{_math_fwd_8h_a2a5830396a4d19761fa96594e10278fa}{FVector}} pos)
+\item 
+void \mbox{\hyperlink{class_u_scene_component_a7f756dcc7c449db680d0bcca90a3e4cd}{Set\+Rotation}} (\mbox{\hyperlink{_math_fwd_8h_a2a5830396a4d19761fa96594e10278fa}{FVector}} rot)
+\item 
+void \mbox{\hyperlink{class_u_scene_component_a1d3491e936421388a8d4760e0079b458}{Set\+Scaling}} (\mbox{\hyperlink{_math_fwd_8h_a2a5830396a4d19761fa96594e10278fa}{FVector}} sc)
+\item 
+void \mbox{\hyperlink{class_u_scene_component_a880d5f7a289c701e022b3392dafe76d0}{Set\+Position\+Offset}} (\mbox{\hyperlink{_math_fwd_8h_a2a5830396a4d19761fa96594e10278fa}{FVector}} pos)
+\item 
+void \mbox{\hyperlink{class_u_scene_component_a8dd330bc7bbd1999134602dd54c9fb8a}{Set\+Rotation\+Offset}} (\mbox{\hyperlink{_math_fwd_8h_a2a5830396a4d19761fa96594e10278fa}{FVector}} rot)
+\item 
+void \mbox{\hyperlink{class_u_scene_component_ab1269d01e59c6c6ae01ae85ebd881aff}{Set\+Scaling\+Offset}} (\mbox{\hyperlink{_math_fwd_8h_a2a5830396a4d19761fa96594e10278fa}{FVector}} sc)
+\item 
+void \mbox{\hyperlink{class_u_scene_component_a5ea3d7b84f7e618853564ee2c97b4cab}{Set\+Child}} (\mbox{\hyperlink{class_u_scene_component}{UScene\+Component}} \texorpdfstring{$\ast$}{*}component)
+\end{DoxyCompactItemize}
+\doxysubsection*{Открытые члены унаследованные от \mbox{\hyperlink{class_u_actor_component}{UActor\+Component}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_u_actor_component_aa26c01d69f8e0369ab9982d01178277a}{UActor\+Component}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Открытые члены унаследованные от \mbox{\hyperlink{class_u_object}{UObject}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_u_object_ae1e8afb0b1117edf494eab22aea37761}{UObject}} ()
+\item 
+\mbox{\hyperlink{class_u_object_a1863523a3e28e4379fc28b3cc1cd582c}{\texorpdfstring{$\sim$}{\string~}\+UObject}} ()
+\item 
+virtual void \mbox{\hyperlink{class_u_object_a123d14f78b78c958cf4bfa549d6b569a}{Set\+Owner}} (\mbox{\hyperlink{class_u_object}{UObject}} \texorpdfstring{$\ast$}{*}owner) final
+\item 
+virtual \mbox{\hyperlink{class_u_object}{UObject}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_u_object_a246b663f22c3d3c1e839d11bcf203da6}{Get\+Owner}} () final
+\item 
+virtual void \mbox{\hyperlink{class_u_object_a02881df20a9e3992beae83811c3c1b5f}{Set\+Name}} (\mbox{\hyperlink{class_f_string}{FString}} In\+Name) final
+\item 
+virtual \mbox{\hyperlink{class_f_string}{FString}} \mbox{\hyperlink{class_u_object_ac25431591187c68dac89389eec1c8867}{Get\+Name}} ()
+\item 
+virtual const \mbox{\hyperlink{class_t_array}{TArray}}$<$ \mbox{\hyperlink{struct_f_object_properties}{FObject\+Properties}} $>$ \& \mbox{\hyperlink{class_u_object_a21948a4edcd0e8bcd4b25827bac096e3}{Get\+Properties}} () const
+\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{class_u_object_a26592583b62482f7dd15dc7eaf49968d}{Add\+Variable}} (\mbox{\hyperlink{class_f_string}{FString}} Name, void \texorpdfstring{$\ast$}{*}Variable)
+\item 
+\mbox{\hyperlink{class_u_object}{UObject}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_u_object_a92e09357ca4405dcd2413f44d4dbbd39}{Get\+Outer}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Дополнительные унаследованные члены}
+\doxysubsection*{Открытые атрибуты унаследованные от \mbox{\hyperlink{class_u_actor_component}{UActor\+Component}}}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_u_actor_component_a2de89ee6b4bf85ff67dea3ac1a452a61}{b\+Can\+Ever\+Tick}} = false
+\end{DoxyCompactItemize}
+\doxysubsection*{Защищенные члены унаследованные от \mbox{\hyperlink{class_u_object}{UObject}}}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_u_object_aafdc43863a8d4b55558ab1e164f1f366}{Create\+Default\+Sub\+Object}} (\mbox{\hyperlink{class_f_string}{FString}} name)
+\item 
+{\footnotesize template$<$typename T $>$ }\\T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_u_object_af8ea2fea786bcb06b31fc65fcac31ae7}{Cast}} (\mbox{\hyperlink{class_u_object}{UObject}} \texorpdfstring{$\ast$}{*})
+\item 
+void \mbox{\hyperlink{class_u_object_aa2e6cbb0b2ea66e93e148a97fc751596}{Add\+Properties}} (\mbox{\hyperlink{struct_f_object_properties}{FObject\+Properties}} Properties)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Конструктор(ы)}
+\Hypertarget{class_u_scene_component_a1120429b1e41d008865913cc57f9b3af}\label{class_u_scene_component_a1120429b1e41d008865913cc57f9b3af} 
+\index{USceneComponent@{USceneComponent}!USceneComponent@{USceneComponent}}
+\index{USceneComponent@{USceneComponent}!USceneComponent@{USceneComponent}}
+\doxysubsubsection{\texorpdfstring{USceneComponent()}{USceneComponent()}}
+{\footnotesize\ttfamily UScene\+Component\+::\+UScene\+Component (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Методы}
+\Hypertarget{class_u_scene_component_ad6076994012959536e73e8ff254b32f1}\label{class_u_scene_component_ad6076994012959536e73e8ff254b32f1} 
+\index{USceneComponent@{USceneComponent}!BeginPlay@{BeginPlay}}
+\index{BeginPlay@{BeginPlay}!USceneComponent@{USceneComponent}}
+\doxysubsubsection{\texorpdfstring{BeginPlay()}{BeginPlay()}}
+{\footnotesize\ttfamily void UScene\+Component\+::\+Begin\+Play (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Переопределяет метод предка \mbox{\hyperlink{class_u_actor_component_a1a1010d51ad1e68a4c3840af0dbbade9}{UActor\+Component}}.
+
+
+
+Переопределяется в \mbox{\hyperlink{class_u_primitive_component_a51665f20cbc69325fcef4a6b75d61023}{UPrimitive\+Component}}.
+
+\Hypertarget{class_u_scene_component_afb1e9aa3c81c1fb9a57c649f103299a6}\label{class_u_scene_component_afb1e9aa3c81c1fb9a57c649f103299a6} 
+\index{USceneComponent@{USceneComponent}!Destroy@{Destroy}}
+\index{Destroy@{Destroy}!USceneComponent@{USceneComponent}}
+\doxysubsubsection{\texorpdfstring{Destroy()}{Destroy()}}
+{\footnotesize\ttfamily void UScene\+Component\+::\+Destroy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Переопределяет метод предка \mbox{\hyperlink{class_u_actor_component_aab345011a6ca999daf9ca213227210aa}{UActor\+Component}}.
+
+
+
+Переопределяется в \mbox{\hyperlink{class_u_primitive_component_a8d0b927a1d421589cf5c09d2600fac23}{UPrimitive\+Component}}.
+
+\Hypertarget{class_u_scene_component_a5ea3d7b84f7e618853564ee2c97b4cab}\label{class_u_scene_component_a5ea3d7b84f7e618853564ee2c97b4cab} 
+\index{USceneComponent@{USceneComponent}!SetChild@{SetChild}}
+\index{SetChild@{SetChild}!USceneComponent@{USceneComponent}}
+\doxysubsubsection{\texorpdfstring{SetChild()}{SetChild()}}
+{\footnotesize\ttfamily void UScene\+Component\+::\+Set\+Child (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_u_scene_component}{UScene\+Component}} \texorpdfstring{$\ast$}{*}}]{component }\end{DoxyParamCaption})}
+
+\Hypertarget{class_u_scene_component_ae720e3caaf2dfe2293a5f9cc44edb71b}\label{class_u_scene_component_ae720e3caaf2dfe2293a5f9cc44edb71b} 
+\index{USceneComponent@{USceneComponent}!SetPosition@{SetPosition}}
+\index{SetPosition@{SetPosition}!USceneComponent@{USceneComponent}}
+\doxysubsubsection{\texorpdfstring{SetPosition()}{SetPosition()}}
+{\footnotesize\ttfamily void UScene\+Component\+::\+Set\+Position (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_math_fwd_8h_a2a5830396a4d19761fa96594e10278fa}{FVector}}}]{pos }\end{DoxyParamCaption})}
+
+\Hypertarget{class_u_scene_component_a880d5f7a289c701e022b3392dafe76d0}\label{class_u_scene_component_a880d5f7a289c701e022b3392dafe76d0} 
+\index{USceneComponent@{USceneComponent}!SetPositionOffset@{SetPositionOffset}}
+\index{SetPositionOffset@{SetPositionOffset}!USceneComponent@{USceneComponent}}
+\doxysubsubsection{\texorpdfstring{SetPositionOffset()}{SetPositionOffset()}}
+{\footnotesize\ttfamily void UScene\+Component\+::\+Set\+Position\+Offset (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_math_fwd_8h_a2a5830396a4d19761fa96594e10278fa}{FVector}}}]{pos }\end{DoxyParamCaption})}
+
+\Hypertarget{class_u_scene_component_a7f756dcc7c449db680d0bcca90a3e4cd}\label{class_u_scene_component_a7f756dcc7c449db680d0bcca90a3e4cd} 
+\index{USceneComponent@{USceneComponent}!SetRotation@{SetRotation}}
+\index{SetRotation@{SetRotation}!USceneComponent@{USceneComponent}}
+\doxysubsubsection{\texorpdfstring{SetRotation()}{SetRotation()}}
+{\footnotesize\ttfamily void UScene\+Component\+::\+Set\+Rotation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_math_fwd_8h_a2a5830396a4d19761fa96594e10278fa}{FVector}}}]{rot }\end{DoxyParamCaption})}
+
+\Hypertarget{class_u_scene_component_a8dd330bc7bbd1999134602dd54c9fb8a}\label{class_u_scene_component_a8dd330bc7bbd1999134602dd54c9fb8a} 
+\index{USceneComponent@{USceneComponent}!SetRotationOffset@{SetRotationOffset}}
+\index{SetRotationOffset@{SetRotationOffset}!USceneComponent@{USceneComponent}}
+\doxysubsubsection{\texorpdfstring{SetRotationOffset()}{SetRotationOffset()}}
+{\footnotesize\ttfamily void UScene\+Component\+::\+Set\+Rotation\+Offset (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_math_fwd_8h_a2a5830396a4d19761fa96594e10278fa}{FVector}}}]{rot }\end{DoxyParamCaption})}
+
+\Hypertarget{class_u_scene_component_a1d3491e936421388a8d4760e0079b458}\label{class_u_scene_component_a1d3491e936421388a8d4760e0079b458} 
+\index{USceneComponent@{USceneComponent}!SetScaling@{SetScaling}}
+\index{SetScaling@{SetScaling}!USceneComponent@{USceneComponent}}
+\doxysubsubsection{\texorpdfstring{SetScaling()}{SetScaling()}}
+{\footnotesize\ttfamily void UScene\+Component\+::\+Set\+Scaling (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_math_fwd_8h_a2a5830396a4d19761fa96594e10278fa}{FVector}}}]{sc }\end{DoxyParamCaption})}
+
+\Hypertarget{class_u_scene_component_ab1269d01e59c6c6ae01ae85ebd881aff}\label{class_u_scene_component_ab1269d01e59c6c6ae01ae85ebd881aff} 
+\index{USceneComponent@{USceneComponent}!SetScalingOffset@{SetScalingOffset}}
+\index{SetScalingOffset@{SetScalingOffset}!USceneComponent@{USceneComponent}}
+\doxysubsubsection{\texorpdfstring{SetScalingOffset()}{SetScalingOffset()}}
+{\footnotesize\ttfamily void UScene\+Component\+::\+Set\+Scaling\+Offset (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_math_fwd_8h_a2a5830396a4d19761fa96594e10278fa}{FVector}}}]{sc }\end{DoxyParamCaption})}
+
+\Hypertarget{class_u_scene_component_aa85f48927fdf395e9ee4ef5c5693343a}\label{class_u_scene_component_aa85f48927fdf395e9ee4ef5c5693343a} 
+\index{USceneComponent@{USceneComponent}!Update@{Update}}
+\index{Update@{Update}!USceneComponent@{USceneComponent}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void UScene\+Component\+::\+Update (\begin{DoxyParamCaption}\item[{float}]{Delta\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Переопределяет метод предка \mbox{\hyperlink{class_u_actor_component_a3c461c722a701015357b7072d2a578de}{UActor\+Component}}.
+
+
+
+Переопределяется в \mbox{\hyperlink{class_u_primitive_component_aa28a9376a51c5539757d28d739b8ba3a}{UPrimitive\+Component}}.
+
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+Dark Engine/\+Source/\+Runtime/\+Engine/\+Classes/\+Components/\+Scene\+Component/\mbox{\hyperlink{_u_scene_component_8h}{UScene\+Component.\+h}}\item 
+Dark Engine/\+Source/\+Runtime/\+Engine/\+Classes/\+Components/\+Scene\+Component/\mbox{\hyperlink{_u_scene_component_8cpp}{UScene\+Component.\+cpp}}\end{DoxyCompactItemize}

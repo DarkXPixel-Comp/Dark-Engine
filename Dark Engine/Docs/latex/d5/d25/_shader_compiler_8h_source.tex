@@ -1,0 +1,39 @@
+\doxysection{Shader\+Compiler.\+h}
+\hypertarget{_shader_compiler_8h_source}{}\label{_shader_compiler_8h_source}\index{Dark Engine/Source/Runtime/Renderer/public/ShaderCompiler.h@{Dark Engine/Source/Runtime/Renderer/public/ShaderCompiler.h}}
+\mbox{\hyperlink{_shader_compiler_8h}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_dark_string_8h}{Containers/DarkString.h}}"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_shader_core_8h}{ShaderCore.h}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_global_shader_8h}{GlobalShader.h}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_t_unique_ptr_8h}{Memory/TUniquePtr.h}}"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_array_8h}{Containers/Array.h}}"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_shader_compiler_8h_a602f95697e7cf4737deb1308b3450d6c}{CompileGlobalShaders}}();}
+\DoxyCodeLine{00010\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_shader_compiler_8h_ae7df90a651a169be4f1f5f357b2ae5a9}{VerifyGlobalShaders}}();}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_f_shader_compile_job}{FShaderCompileJob}}}
+\DoxyCodeLine{00016\ \{}
+\DoxyCodeLine{00017\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{struct_f_shader_compiler_input}{FShaderCompilerInput}}\ \mbox{\hyperlink{class_f_shader_compile_job_a8ad445aa8ddebcd9aa7b74de9adf98ed}{Input}};}
+\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{struct_f_shader_preprocess_output}{FShaderPreprocessOutput}}\ \ \mbox{\hyperlink{class_f_shader_compile_job_a52208b9a864f0a5c49e4fa4eeff17dd6}{PreprocessOutput}};}
+\DoxyCodeLine{00020\ \ \ \ \ \mbox{\hyperlink{struct_f_shader_compiler_output}{FShaderCompilerOutput}}\ \mbox{\hyperlink{class_f_shader_compile_job_aac5a6145315863865e11ea3480506783}{Output}};}
+\DoxyCodeLine{00021\ \};}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_f_global_shader_type_compiler}{FGlobalShaderTypeCompiler}}}
+\DoxyCodeLine{00025\ \{}
+\DoxyCodeLine{00026\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_global_shader_type_compiler_a35d921c7e1ef9c33b78f14a1376e5189}{BeginCompileShader}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_f_global_shader_type}{FGlobalShaderType}}*\ ShaderType,}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_t_array}{TArray}}<TSharedPtr<FShaderCompileJob>>\&\ Jobs);}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_f_shader}{FShader}}*\ \mbox{\hyperlink{class_f_global_shader_type_compiler_a5e629b719f53a053da6e30af39cf2969}{FinishCompileShader}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_f_global_shader_type}{FGlobalShaderType}}*\ ShaderType,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_f_shader_compile_job}{FShaderCompileJob}}\&\ CompileJob);}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_global_shader_type_compiler_ab144c2712b03deda776f8c4ee94e1668}{FinishCompilation}}(\mbox{\hyperlink{class_f_string}{FString}}\ MaterialName,\ \mbox{\hyperlink{class_t_array}{TArray}}<TSharedPtr<FShaderCompileJob>>\&\ Jobs);}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \};}
+
+\end{DoxyCode}

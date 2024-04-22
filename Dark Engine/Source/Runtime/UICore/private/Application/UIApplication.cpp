@@ -94,6 +94,8 @@ bool UIApplication::OnSizeChanged(const TSharedPtr<FGenericWindow>& InWindow, co
 	Renderer->Resize(Window, Width, Height, bWasMinimized);
 	Window->SetSizeViewport(FVector2f(Width, Height));
 
+	/*FGameTimer::Tick();
+	TickAndDrawWidgets(FGameTimer::DeltaTime());*/
 	DrawWindows();
 	return true;
 }
@@ -122,7 +124,15 @@ bool UIApplication::OnMouseUp(const EMouseButtons::Type Button, const FVector2D 
 
 bool UIApplication::OnMovedWindow(const TSharedPtr<FGenericWindow>& Window, FIntPoint NewPosition)
 {
-	//DrawWindows();
+	/*FGameTimer::Tick();
+	TickAndDrawWidgets(FGameTimer::DeltaTime());*/
+	return true;
+}
+
+bool UIApplication::OnMovingWindow(const TSharedPtr<FGenericWindow>& Window, FIntRect NewRect)
+{
+	/*FGameTimer::Tick();
+	TickAndDrawWidgets(FGameTimer::DeltaTime());*/
 	return true;
 }
 

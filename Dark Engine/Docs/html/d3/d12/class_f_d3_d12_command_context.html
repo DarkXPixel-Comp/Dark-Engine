@@ -1,0 +1,767 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Dark Engine: Класс FD3D12CommandContext</title>
+<link rel="icon" href="../../Logo.ico" type="image/x-icon" />
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<script type="text/javascript" src="../../clipboard.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../Logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Dark Engine<span id="projectnumber">&#160;0.0.39</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../../',true,false,'search.php','Поиск');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="#pub-attribs">Открытые атрибуты</a> &#124;
+<a href="../../dd/d99/class_f_d3_d12_command_context-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle"><div class="title">Класс FD3D12CommandContext</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="../../d8/d8b/_d3_d12_command_context_8h_source.html">D3D12CommandContext.h</a>&gt;</code></p>
+<div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Граф наследования:FD3D12CommandContext:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+ <div class="center">
+  <img src="../../d3/d12/class_f_d3_d12_command_context.png" usemap="#FD3D12CommandContext_map" alt=""/>
+  <map id="FD3D12CommandContext_map" name="FD3D12CommandContext_map">
+<area href="../../d1/d3a/class_f_d3_d12_context_common.html" alt="FD3D12ContextCommon" shape="rect" coords="0,112,184,136"/>
+<area href="../../d3/dda/class_f_d3_d12_command_context_base.html" alt="FD3D12CommandContextBase" shape="rect" coords="194,112,378,136"/>
+<area href="../../d8/d20/class_f_d3_d12_device_child.html" alt="FD3D12DeviceChild" shape="rect" coords="388,112,572,136"/>
+<area href="../../d8/d41/class_i_r_h_i_command_context.html" alt="IRHICommandContext" shape="rect" coords="97,56,281,80"/>
+<area href="../../d5/d6e/class_f_d3_d12_adapter_child.html" alt="FD3D12AdapterChild" shape="rect" coords="291,56,475,80"/>
+<area href="../../d2/db5/class_i_r_h_i_compute_context.html" alt="IRHIComputeContext" shape="rect" coords="97,0,281,24"/>
+  </map>
+</div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:a993232679d5f26074f70008c089a01f1" id="r_a993232679d5f26074f70008c089a01f1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a993232679d5f26074f70008c089a01f1">FD3D12CommandContext</a> (<a class="el" href="../../d1/d79/class_f_d3_d12_device.html">FD3D12Device</a> *InParent, <a class="el" href="../../d6/dd6/_d3_d12_queue_8h.html#ac3690361fe491f309cb9dbba3be17899">ED3D12QueueType</a> QueueType, bool InIsDefaultContext)</td></tr>
+<tr class="separator:a993232679d5f26074f70008c089a01f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15258375ae2aff554fa37ef49f3a9703" id="r_a15258375ae2aff554fa37ef49f3a9703"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a15258375ae2aff554fa37ef49f3a9703">CommitGraphicsResourceTables</a> ()</td></tr>
+<tr class="separator:a15258375ae2aff554fa37ef49f3a9703"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5b06dba9e671e88a47b9498615180e9" id="r_ab5b06dba9e671e88a47b9498615180e9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab5b06dba9e671e88a47b9498615180e9">CommitNonComputeShaderConstants</a> ()</td></tr>
+<tr class="separator:ab5b06dba9e671e88a47b9498615180e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98390fb0ed2d4f08bd1dcaa0bb7305e5" id="r_a98390fb0ed2d4f08bd1dcaa0bb7305e5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a98390fb0ed2d4f08bd1dcaa0bb7305e5">RHIBeginFrame</a> () override</td></tr>
+<tr class="separator:a98390fb0ed2d4f08bd1dcaa0bb7305e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afde160e09afa35e01fb217f8045d19f8" id="r_afde160e09afa35e01fb217f8045d19f8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afde160e09afa35e01fb217f8045d19f8">RHIEndFrame</a> () override</td></tr>
+<tr class="separator:afde160e09afa35e01fb217f8045d19f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f9830e94669916eeea679acf1f69aa1" id="r_a8f9830e94669916eeea679acf1f69aa1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8f9830e94669916eeea679acf1f69aa1">RHIBeginImGui</a> () override</td></tr>
+<tr class="separator:a8f9830e94669916eeea679acf1f69aa1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a82795462f11768c1b3dcde5b93b19fd7" id="r_a82795462f11768c1b3dcde5b93b19fd7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a82795462f11768c1b3dcde5b93b19fd7">RHIEndImGui</a> () override</td></tr>
+<tr class="separator:a82795462f11768c1b3dcde5b93b19fd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a947312537a1ee7453cea025880075a19" id="r_a947312537a1ee7453cea025880075a19"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a947312537a1ee7453cea025880075a19">RHIBeginRenderPass</a> (struct <a class="el" href="../../dc/dcb/struct_f_r_h_i_render_pass_info.html">FRHIRenderPassInfo</a> &amp;InInfo)</td></tr>
+<tr class="separator:a947312537a1ee7453cea025880075a19"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe009c1bd1a8c33196edc8478aac2368" id="r_afe009c1bd1a8c33196edc8478aac2368"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afe009c1bd1a8c33196edc8478aac2368">SetRenderTargets</a> (<a class="el" href="../../d2/dc9/_platform_8h.html#a84083085985fb180ad38b9c32e3937da">int32</a> NumRenderTargets, const <a class="el" href="../../db/d0c/class_f_r_h_i_render_target_view.html">FRHIRenderTargetView</a> *RenderTargetsRHI, const <a class="el" href="../../d1/dc4/class_f_r_h_i_depth_render_target_view.html">FRHIDepthRenderTargetView</a> *DepthStencilViewRHI, bool bClear=false)</td></tr>
+<tr class="separator:afe009c1bd1a8c33196edc8478aac2368"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5a33d9735595fdae57ba62eeb4cc6ed" id="r_ad5a33d9735595fdae57ba62eeb4cc6ed"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad5a33d9735595fdae57ba62eeb4cc6ed">SetRenderTargetsAndClear</a> (const <a class="el" href="../../d7/d1b/class_f_r_h_i_set_render_target_info.html">FRHISetRenderTargetInfo</a> &amp;RenderTargetsInfo)</td></tr>
+<tr class="separator:ad5a33d9735595fdae57ba62eeb4cc6ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e7f74f9e230d9b42e45276d47d08a8a" id="r_a6e7f74f9e230d9b42e45276d47d08a8a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6e7f74f9e230d9b42e45276d47d08a8a">RHIClearTextureColor</a> (<a class="el" href="../../d3/d6d/class_f_r_h_i_texture.html">FRHITexture</a> *InTexture, <a class="el" href="../../d0/df6/_math_fwd_8h.html#a2a5830396a4d19761fa96594e10278fa">FVector</a> InColor)</td></tr>
+<tr class="separator:a6e7f74f9e230d9b42e45276d47d08a8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28b0c9be8894b10a09a2879c13ffb4a7" id="r_a28b0c9be8894b10a09a2879c13ffb4a7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a28b0c9be8894b10a09a2879c13ffb4a7">RHISetShaderParameter</a> (<a class="el" href="../../da/d86/class_f_r_h_i_graphics_shader.html">FRHIGraphicsShader</a> *ShaderRHI, <a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> BufferIndex, <a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> Offset, <a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> NumBytes, const void *Data)</td></tr>
+<tr class="separator:a28b0c9be8894b10a09a2879c13ffb4a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac16561de7706f0cf490f09a012f65421" id="r_ac16561de7706f0cf490f09a012f65421"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac16561de7706f0cf490f09a012f65421">RHISetViewport</a> (float MinX, float MinY, float MinZ, float MaxX, float MaxY, float MaxZ)</td></tr>
+<tr class="separator:ac16561de7706f0cf490f09a012f65421"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a6decc2e64d0edaa62a21bb10329755" id="r_a2a6decc2e64d0edaa62a21bb10329755"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2a6decc2e64d0edaa62a21bb10329755">RHIDrawIndexedPrimitive</a> (<a class="el" href="../../d9/d24/class_f_r_h_i_buffer.html">FRHIBuffer</a> *IndexBuffer, <a class="el" href="../../d2/dc9/_platform_8h.html#a84083085985fb180ad38b9c32e3937da">int32</a> BaseVertexIndex, <a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> FirstInstance, <a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> NumVertices, <a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> StartIndex, <a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> NumPrimitives, <a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> NumInstances)</td></tr>
+<tr class="separator:a2a6decc2e64d0edaa62a21bb10329755"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aafe452fbbdfa0543b9027d6cce14b7ec" id="r_aafe452fbbdfa0543b9027d6cce14b7ec"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aafe452fbbdfa0543b9027d6cce14b7ec">RHISetStreamSource</a> (<a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> StreamIndex, <a class="el" href="../../d9/d24/class_f_r_h_i_buffer.html">FRHIBuffer</a> *VertexBuffer, <a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> Offset, <a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> Stride) override</td></tr>
+<tr class="separator:aafe452fbbdfa0543b9027d6cce14b7ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac6724b5dd81ab007fc88e8f1169e9f21" id="r_ac6724b5dd81ab007fc88e8f1169e9f21"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac6724b5dd81ab007fc88e8f1169e9f21">RHISetGraphicsPipelineState</a> (class <a class="el" href="../../de/dfc/class_f_r_h_i_graphics_pipeline_state.html">FRHIGraphicsPipelineState</a> *GraphicsPSO, const <a class="el" href="../../db/d5f/struct_f_bound_shader_state_input.html">FBoundShaderStateInput</a> &amp;ShaderInput) override</td></tr>
+<tr class="separator:ac6724b5dd81ab007fc88e8f1169e9f21"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_class_f_d3_d12_context_common"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_f_d3_d12_context_common')"><img src="../../closed.png" alt="-"/>&#160;Открытые члены унаследованные от <a class="el" href="../../d1/d3a/class_f_d3_d12_context_common.html">FD3D12ContextCommon</a></td></tr>
+<tr class="memitem:a50984500be0b5eda3de4547d7193717d inherit pub_methods_class_f_d3_d12_context_common" id="r_a50984500be0b5eda3de4547d7193717d"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d3a/class_f_d3_d12_context_common.html#a50984500be0b5eda3de4547d7193717d">OpenCommandList</a> ()</td></tr>
+<tr class="separator:a50984500be0b5eda3de4547d7193717d inherit pub_methods_class_f_d3_d12_context_common"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18d216ac97e7aa1f2ad8e5f0e7f07167 inherit pub_methods_class_f_d3_d12_context_common" id="r_a18d216ac97e7aa1f2ad8e5f0e7f07167"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d3a/class_f_d3_d12_context_common.html#a18d216ac97e7aa1f2ad8e5f0e7f07167">CloseCommandList</a> ()</td></tr>
+<tr class="separator:a18d216ac97e7aa1f2ad8e5f0e7f07167 inherit pub_methods_class_f_d3_d12_context_common"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abeb6ca411109c14bc7479acd73b0a940 inherit pub_methods_class_f_d3_d12_context_common" id="r_abeb6ca411109c14bc7479acd73b0a940"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d3a/class_f_d3_d12_context_common.html#abeb6ca411109c14bc7479acd73b0a940">IsOpen</a> () const</td></tr>
+<tr class="separator:abeb6ca411109c14bc7479acd73b0a940 inherit pub_methods_class_f_d3_d12_context_common"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa98a3246a1619b51f0cd735a87714eff inherit pub_methods_class_f_d3_d12_context_common" id="r_aa98a3246a1619b51f0cd735a87714eff"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d3a/class_f_d3_d12_context_common.html#aa98a3246a1619b51f0cd735a87714eff">SignalManualFence</a> (ID3D12Fence *Fence, <a class="el" href="../../d2/dc9/_platform_8h.html#afddf25cca147311c233b23a9d3329bb4">uint64</a> Value)</td></tr>
+<tr class="separator:aa98a3246a1619b51f0cd735a87714eff inherit pub_methods_class_f_d3_d12_context_common"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f0f84c99db2a8d38e68ab303766aa45 inherit pub_methods_class_f_d3_d12_context_common" id="r_a8f0f84c99db2a8d38e68ab303766aa45"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d3a/class_f_d3_d12_context_common.html#a8f0f84c99db2a8d38e68ab303766aa45">WaitManualFence</a> (ID3D12Fence *Fence, <a class="el" href="../../d2/dc9/_platform_8h.html#afddf25cca147311c233b23a9d3329bb4">uint64</a> Value)</td></tr>
+<tr class="separator:a8f0f84c99db2a8d38e68ab303766aa45 inherit pub_methods_class_f_d3_d12_context_common"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85b4bdb05556c4aa32e8e5b84af4f8d0 inherit pub_methods_class_f_d3_d12_context_common" id="r_a85b4bdb05556c4aa32e8e5b84af4f8d0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d3a/class_f_d3_d12_context_common.html#a85b4bdb05556c4aa32e8e5b84af4f8d0">Finalize</a> (<a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d6/dc1/struct_f_d3_d12_payload.html">FD3D12Payload</a> * &gt; &amp;OutPayloads)</td></tr>
+<tr class="separator:a85b4bdb05556c4aa32e8e5b84af4f8d0 inherit pub_methods_class_f_d3_d12_context_common"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87821cf9c2bb4625d4d3f5df68384875 inherit pub_methods_class_f_d3_d12_context_common" id="r_a87821cf9c2bb4625d4d3f5df68384875"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d3a/class_f_d3_d12_context_common.html#a87821cf9c2bb4625d4d3f5df68384875">isAsyncComputeContext</a> () const</td></tr>
+<tr class="separator:a87821cf9c2bb4625d4d3f5df68384875 inherit pub_methods_class_f_d3_d12_context_common"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9eb21cb994416f30a4a646daf60cb2a inherit pub_methods_class_f_d3_d12_context_common" id="r_ad9eb21cb994416f30a4a646daf60cb2a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/dc9/_platform_8h.html#afddf25cca147311c233b23a9d3329bb4">uint64</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d3a/class_f_d3_d12_context_common.html#ad9eb21cb994416f30a4a646daf60cb2a">GetCommandListID</a> ()</td></tr>
+<tr class="separator:ad9eb21cb994416f30a4a646daf60cb2a inherit pub_methods_class_f_d3_d12_context_common"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a377e4d8e8b3fc7b2aff9830201acfbaa inherit pub_methods_class_f_d3_d12_context_common" id="r_a377e4d8e8b3fc7b2aff9830201acfbaa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d3a/class_f_d3_d12_context_common.html#a377e4d8e8b3fc7b2aff9830201acfbaa">TransitionResource</a> (<a class="el" href="../../d7/d81/class_f_d3_d12_resource.html">FD3D12Resource</a> *<a class="el" href="../../dd/dce/_d3_d12_main_8h.html#ab8eaee8f45f36954297ee6146eb6db20">Resource</a>, D3D12_RESOURCE_STATES Before, D3D12_RESOURCE_STATES After, <a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> SubResource)</td></tr>
+<tr class="separator:a377e4d8e8b3fc7b2aff9830201acfbaa inherit pub_methods_class_f_d3_d12_context_common"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2476ec1acd884af7a276400d9bdbe67 inherit pub_methods_class_f_d3_d12_context_common" id="r_af2476ec1acd884af7a276400d9bdbe67"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d3a/class_f_d3_d12_context_common.html#af2476ec1acd884af7a276400d9bdbe67">TransitionResource</a> (ID3D12Resource *<a class="el" href="../../dd/dce/_d3_d12_main_8h.html#ab8eaee8f45f36954297ee6146eb6db20">Resource</a>, D3D12_RESOURCE_STATES Before, D3D12_RESOURCE_STATES After, <a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> SubResource)</td></tr>
+<tr class="separator:af2476ec1acd884af7a276400d9bdbe67 inherit pub_methods_class_f_d3_d12_context_common"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed93b41218559e0763c92d351e25bff6 inherit pub_methods_class_f_d3_d12_context_common" id="r_aed93b41218559e0763c92d351e25bff6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d3a/class_f_d3_d12_context_common.html#aed93b41218559e0763c92d351e25bff6">TransitionResource</a> (<a class="el" href="../../d7/d81/class_f_d3_d12_resource.html">FD3D12Resource</a> *<a class="el" href="../../dd/dce/_d3_d12_main_8h.html#ab8eaee8f45f36954297ee6146eb6db20">Resource</a>, D3D12_RESOURCE_STATES After, <a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> SubResource)</td></tr>
+<tr class="separator:aed93b41218559e0763c92d351e25bff6 inherit pub_methods_class_f_d3_d12_context_common"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1840b0beaae99e734c4e76657509761a inherit pub_methods_class_f_d3_d12_context_common" id="r_a1840b0beaae99e734c4e76657509761a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d5/d3e/class_f_d3_d12_command_list.html">FD3D12CommandList</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d3a/class_f_d3_d12_context_common.html#a1840b0beaae99e734c4e76657509761a">GetCommandList</a> ()</td></tr>
+<tr class="separator:a1840b0beaae99e734c4e76657509761a inherit pub_methods_class_f_d3_d12_context_common"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1be41a5c439420839df46dc57ee84059 inherit pub_methods_class_f_d3_d12_context_common" id="r_a1be41a5c439420839df46dc57ee84059"><td class="memItemLeft" align="right" valign="top">ID3D12GraphicsCommandList *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d3a/class_f_d3_d12_context_common.html#a1be41a5c439420839df46dc57ee84059">GetGraphicsList</a> ()</td></tr>
+<tr class="separator:a1be41a5c439420839df46dc57ee84059 inherit pub_methods_class_f_d3_d12_context_common"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac1e71a60156b6746d8271bbef0e53487 inherit pub_methods_class_f_d3_d12_context_common" id="r_ac1e71a60156b6746d8271bbef0e53487"><td class="memItemLeft" align="right" valign="top">ID3D12GraphicsCommandList4 *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d3a/class_f_d3_d12_context_common.html#ac1e71a60156b6746d8271bbef0e53487">GetGraphicsList4</a> ()</td></tr>
+<tr class="separator:ac1e71a60156b6746d8271bbef0e53487 inherit pub_methods_class_f_d3_d12_context_common"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9c1aff2501bf9482b27ddf1e1ea7348 inherit pub_methods_class_f_d3_d12_context_common" id="r_ab9c1aff2501bf9482b27ddf1e1ea7348"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d3a/class_f_d3_d12_context_common.html#ab9c1aff2501bf9482b27ddf1e1ea7348">FlushCommands</a> (<a class="el" href="../../d8/d8b/_d3_d12_command_context_8h.html#a2be0c079a9e00b4c27d2f20ac6b6a20d">ED3D12FlushFlags</a> Flags=<a class="el" href="../../d8/d8b/_d3_d12_command_context_8h.html#a2be0c079a9e00b4c27d2f20ac6b6a20da6adf97f83acf6453d4a6a4b1070f3754">ED3D12FlushFlags::None</a>)</td></tr>
+<tr class="separator:ab9c1aff2501bf9482b27ddf1e1ea7348 inherit pub_methods_class_f_d3_d12_context_common"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_class_f_d3_d12_command_context_base"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_f_d3_d12_command_context_base')"><img src="../../closed.png" alt="-"/>&#160;Открытые члены унаследованные от <a class="el" href="../../d3/dda/class_f_d3_d12_command_context_base.html">FD3D12CommandContextBase</a></td></tr>
+<tr class="memitem:a5406d7f8ac190ad15b80b61069a9099e inherit pub_methods_class_f_d3_d12_command_context_base" id="r_a5406d7f8ac190ad15b80b61069a9099e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dda/class_f_d3_d12_command_context_base.html#a5406d7f8ac190ad15b80b61069a9099e">FD3D12CommandContextBase</a> (<a class="el" href="../../d6/db4/class_f_d3_d12_adapter.html">FD3D12Adapter</a> *InParent)</td></tr>
+<tr class="separator:a5406d7f8ac190ad15b80b61069a9099e inherit pub_methods_class_f_d3_d12_command_context_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af89b8d4dae9b792aa6b46c60804008f1 inherit pub_methods_class_f_d3_d12_command_context_base" id="r_af89b8d4dae9b792aa6b46c60804008f1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dda/class_f_d3_d12_command_context_base.html#af89b8d4dae9b792aa6b46c60804008f1">RHIBeginDrawingViewport</a> (<a class="el" href="../../d0/d5f/class_f_r_h_i_viewport.html">FRHIViewport</a> *<a class="el" href="../../de/d02/struct_viewport.html">Viewport</a>, <a class="el" href="../../d3/d6d/class_f_r_h_i_texture.html">FRHITexture</a> *RenderTargetRHI) override</td></tr>
+<tr class="separator:af89b8d4dae9b792aa6b46c60804008f1 inherit pub_methods_class_f_d3_d12_command_context_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a9a99c903935fa755227e036d59bbe2 inherit pub_methods_class_f_d3_d12_command_context_base" id="r_a3a9a99c903935fa755227e036d59bbe2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dda/class_f_d3_d12_command_context_base.html#a3a9a99c903935fa755227e036d59bbe2">RHIEndDrawingViewport</a> (<a class="el" href="../../d0/d5f/class_f_r_h_i_viewport.html">FRHIViewport</a> *<a class="el" href="../../de/d02/struct_viewport.html">Viewport</a>, bool bPresent, <a class="el" href="../../d2/dc9/_platform_8h.html#a84083085985fb180ad38b9c32e3937da">int32</a> Vsync) override</td></tr>
+<tr class="separator:a3a9a99c903935fa755227e036d59bbe2 inherit pub_methods_class_f_d3_d12_command_context_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_class_i_r_h_i_command_context"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_i_r_h_i_command_context')"><img src="../../closed.png" alt="-"/>&#160;Открытые члены унаследованные от <a class="el" href="../../d8/d41/class_i_r_h_i_command_context.html">IRHICommandContext</a></td></tr>
+<tr class="memitem:a141c0cabae19528d1852508c70b6d9db inherit pub_methods_class_i_r_h_i_command_context" id="r_a141c0cabae19528d1852508c70b6d9db"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d41/class_i_r_h_i_command_context.html#a141c0cabae19528d1852508c70b6d9db">RHIEndRenderPass</a> ()</td></tr>
+<tr class="separator:a141c0cabae19528d1852508c70b6d9db inherit pub_methods_class_i_r_h_i_command_context"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49198de67731fe374e18ade7db8d1a9c inherit pub_methods_class_i_r_h_i_command_context" id="r_a49198de67731fe374e18ade7db8d1a9c"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d41/class_i_r_h_i_command_context.html#a49198de67731fe374e18ade7db8d1a9c">BeginScene</a> ()</td></tr>
+<tr class="separator:a49198de67731fe374e18ade7db8d1a9c inherit pub_methods_class_i_r_h_i_command_context"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90c4cf317f608a59d4523633c6d57e93 inherit pub_methods_class_i_r_h_i_command_context" id="r_a90c4cf317f608a59d4523633c6d57e93"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d41/class_i_r_h_i_command_context.html#a90c4cf317f608a59d4523633c6d57e93">EndScene</a> ()</td></tr>
+<tr class="separator:a90c4cf317f608a59d4523633c6d57e93 inherit pub_methods_class_i_r_h_i_command_context"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a061c664135960a65e5621f825c60f1a3 inherit pub_methods_class_i_r_h_i_command_context" id="r_a061c664135960a65e5621f825c60f1a3"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d41/class_i_r_h_i_command_context.html#a061c664135960a65e5621f825c60f1a3">RHISetScissorRect</a> (bool bEnable, <a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> MinX, <a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> MinY, <a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> MaxX, <a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> MaxY)</td></tr>
+<tr class="separator:a061c664135960a65e5621f825c60f1a3 inherit pub_methods_class_i_r_h_i_command_context"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb2f56473c82780610734dbe213efb29 inherit pub_methods_class_i_r_h_i_command_context" id="r_adb2f56473c82780610734dbe213efb29"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d41/class_i_r_h_i_command_context.html#adb2f56473c82780610734dbe213efb29">RHISetShaderTexture</a> (<a class="el" href="../../da/d86/class_f_r_h_i_graphics_shader.html">FRHIGraphicsShader</a> *Shader, <a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> TextureIndex, <a class="el" href="../../d3/d6d/class_f_r_h_i_texture.html">FRHITexture</a> *Texture)</td></tr>
+<tr class="separator:adb2f56473c82780610734dbe213efb29 inherit pub_methods_class_i_r_h_i_command_context"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af864f58a8b6e84873ee53bdf5bb41c9f inherit pub_methods_class_i_r_h_i_command_context" id="r_af864f58a8b6e84873ee53bdf5bb41c9f"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d41/class_i_r_h_i_command_context.html#af864f58a8b6e84873ee53bdf5bb41c9f">RHISetShaderSampler</a> (<a class="el" href="../../da/d86/class_f_r_h_i_graphics_shader.html">FRHIGraphicsShader</a> *Shader, <a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> SamplerIndex, <a class="el" href="../../d3/d38/class_f_r_h_i_sampler_state.html">FRHISamplerState</a> *State)</td></tr>
+<tr class="separator:af864f58a8b6e84873ee53bdf5bb41c9f inherit pub_methods_class_i_r_h_i_command_context"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_class_i_r_h_i_compute_context"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_i_r_h_i_compute_context')"><img src="../../closed.png" alt="-"/>&#160;Открытые члены унаследованные от <a class="el" href="../../d2/db5/class_i_r_h_i_compute_context.html">IRHIComputeContext</a></td></tr>
+<tr class="memitem:a3228620d5f77b5a095d67177f0d0a971 inherit pub_methods_class_i_r_h_i_compute_context" id="r_a3228620d5f77b5a095d67177f0d0a971"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/db5/class_i_r_h_i_compute_context.html#a3228620d5f77b5a095d67177f0d0a971">RHISetComputePipelineState</a> (<a class="el" href="../../de/d0a/class_f_r_h_i_compute_pipeline_state.html">FRHIComputePipelineState</a> *ComputePipelineState)</td></tr>
+<tr class="separator:a3228620d5f77b5a095d67177f0d0a971 inherit pub_methods_class_i_r_h_i_compute_context"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac586a014226cf3cc3534edf82f713fd5 inherit pub_methods_class_i_r_h_i_compute_context" id="r_ac586a014226cf3cc3534edf82f713fd5"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/db5/class_i_r_h_i_compute_context.html#ac586a014226cf3cc3534edf82f713fd5">RHIDispatchComputeShader</a> (<a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> ThreadGroupCountX, <a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> ThreadGroupCountY, <a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> ThreadGroupCountZ)</td></tr>
+<tr class="separator:ac586a014226cf3cc3534edf82f713fd5 inherit pub_methods_class_i_r_h_i_compute_context"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9cc5024ea20c2436f8ddc89aa24be2a inherit pub_methods_class_i_r_h_i_compute_context" id="r_aa9cc5024ea20c2436f8ddc89aa24be2a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/db5/class_i_r_h_i_compute_context.html#aa9cc5024ea20c2436f8ddc89aa24be2a">RHIDispatchIndirectComputeShader</a> (<a class="el" href="../../d9/d24/class_f_r_h_i_buffer.html">FRHIBuffer</a> *InBuffer, <a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> ArgumentOffset)</td></tr>
+<tr class="separator:aa9cc5024ea20c2436f8ddc89aa24be2a inherit pub_methods_class_i_r_h_i_compute_context"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_class_f_d3_d12_adapter_child"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_f_d3_d12_adapter_child')"><img src="../../closed.png" alt="-"/>&#160;Открытые члены унаследованные от <a class="el" href="../../d5/d6e/class_f_d3_d12_adapter_child.html">FD3D12AdapterChild</a></td></tr>
+<tr class="memitem:a5aac7f0141df6068849101d65afeafa5 inherit pub_methods_class_f_d3_d12_adapter_child" id="r_a5aac7f0141df6068849101d65afeafa5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d6e/class_f_d3_d12_adapter_child.html#a5aac7f0141df6068849101d65afeafa5">FD3D12AdapterChild</a> (<a class="el" href="../../d6/db4/class_f_d3_d12_adapter.html">FD3D12Adapter</a> *InParent)</td></tr>
+<tr class="separator:a5aac7f0141df6068849101d65afeafa5 inherit pub_methods_class_f_d3_d12_adapter_child"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a11aef509b009d364104e7d730d3cbe49 inherit pub_methods_class_f_d3_d12_adapter_child" id="r_a11aef509b009d364104e7d730d3cbe49"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/db4/class_f_d3_d12_adapter.html">FD3D12Adapter</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d6e/class_f_d3_d12_adapter_child.html#a11aef509b009d364104e7d730d3cbe49">GetParentAdapter</a> () const</td></tr>
+<tr class="separator:a11aef509b009d364104e7d730d3cbe49 inherit pub_methods_class_f_d3_d12_adapter_child"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb5e1b6b2fcf9bb306172ada964ddb9f inherit pub_methods_class_f_d3_d12_adapter_child" id="r_afb5e1b6b2fcf9bb306172ada964ddb9f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d6e/class_f_d3_d12_adapter_child.html#afb5e1b6b2fcf9bb306172ada964ddb9f">SetParentAdapter</a> (<a class="el" href="../../d6/db4/class_f_d3_d12_adapter.html">FD3D12Adapter</a> *InParent)</td></tr>
+<tr class="separator:afb5e1b6b2fcf9bb306172ada964ddb9f inherit pub_methods_class_f_d3_d12_adapter_child"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_class_f_d3_d12_device_child"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_f_d3_d12_device_child')"><img src="../../closed.png" alt="-"/>&#160;Открытые члены унаследованные от <a class="el" href="../../d8/d20/class_f_d3_d12_device_child.html">FD3D12DeviceChild</a></td></tr>
+<tr class="memitem:a10d7d8a5f5e73776f399916ed71e76a1 inherit pub_methods_class_f_d3_d12_device_child" id="r_a10d7d8a5f5e73776f399916ed71e76a1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d20/class_f_d3_d12_device_child.html#a10d7d8a5f5e73776f399916ed71e76a1">FD3D12DeviceChild</a> (<a class="el" href="../../d1/d79/class_f_d3_d12_device.html">FD3D12Device</a> *InParent)</td></tr>
+<tr class="separator:a10d7d8a5f5e73776f399916ed71e76a1 inherit pub_methods_class_f_d3_d12_device_child"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ec13e7c862c719985027e28395a2f57 inherit pub_methods_class_f_d3_d12_device_child" id="r_a1ec13e7c862c719985027e28395a2f57"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d1/d79/class_f_d3_d12_device.html">FD3D12Device</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d20/class_f_d3_d12_device_child.html#a1ec13e7c862c719985027e28395a2f57">GetParentDevice</a> () const</td></tr>
+<tr class="separator:a1ec13e7c862c719985027e28395a2f57 inherit pub_methods_class_f_d3_d12_device_child"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab64c047f38c63c5890fb361eac5f30f6 inherit pub_methods_class_f_d3_d12_device_child" id="r_ab64c047f38c63c5890fb361eac5f30f6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d20/class_f_d3_d12_device_child.html#ab64c047f38c63c5890fb361eac5f30f6">SetParentDevice</a> (<a class="el" href="../../d1/d79/class_f_d3_d12_device.html">FD3D12Device</a> *InParent)</td></tr>
+<tr class="separator:ab64c047f38c63c5890fb361eac5f30f6 inherit pub_methods_class_f_d3_d12_device_child"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Открытые атрибуты</h2></td></tr>
+<tr class="memitem:ab349905897b872f788b2c589d255e336" id="r_ab349905897b872f788b2c589d255e336"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../da/d40/class_f_d3_d12_constant_buffer.html">FD3D12ConstantBuffer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab349905897b872f788b2c589d255e336">StageConstantBuffers</a> [<a class="el" href="../../de/df7/_r_h_i_defines_8h.html#a89725d5f41ceac2e574ddc988f06775ea4fae784dad21e1f04799045f97c79662">ST_NumStandartTypes</a>]</td></tr>
+<tr class="separator:ab349905897b872f788b2c589d255e336"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a4072fd49f16e24a509e939126cb5c5" id="r_a1a4072fd49f16e24a509e939126cb5c5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/dfd/class_f_d3_d12_state_cache.html">FD3D12StateCache</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1a4072fd49f16e24a509e939126cb5c5">StateCache</a></td></tr>
+<tr class="separator:a1a4072fd49f16e24a509e939126cb5c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
+Дополнительные унаследованные члены</h2></td></tr>
+<tr class="inherit_header pro_types_class_f_d3_d12_context_common"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_types_class_f_d3_d12_context_common')"><img src="../../closed.png" alt="-"/>&#160;Защищенные типы унаследованные от <a class="el" href="../../d1/d3a/class_f_d3_d12_context_common.html">FD3D12ContextCommon</a></td></tr>
+<tr class="memitem:ae9b2e634a6c86578a8a39629148e9d2d inherit pro_types_class_f_d3_d12_context_common" id="r_ae9b2e634a6c86578a8a39629148e9d2d"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d3a/class_f_d3_d12_context_common.html#ae9b2e634a6c86578a8a39629148e9d2d">EPhase</a> { <a class="el" href="../../d1/d3a/class_f_d3_d12_context_common.html#ae9b2e634a6c86578a8a39629148e9d2da0f68101772bd5397ef8eb1b632798652">Wait</a>
+, <a class="el" href="../../d1/d3a/class_f_d3_d12_context_common.html#ae9b2e634a6c86578a8a39629148e9d2da40cd014b7b6251e3a22e6a45a73a64e1">Execute</a>
+, <a class="el" href="../../d1/d3a/class_f_d3_d12_context_common.html#ae9b2e634a6c86578a8a39629148e9d2da085fea7abdc5d904fe69a3081efd7398">Signal</a>
+ }</td></tr>
+<tr class="separator:ae9b2e634a6c86578a8a39629148e9d2d inherit pro_types_class_f_d3_d12_context_common"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_methods_class_f_d3_d12_context_common"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_methods_class_f_d3_d12_context_common')"><img src="../../closed.png" alt="-"/>&#160;Защищенные члены унаследованные от <a class="el" href="../../d1/d3a/class_f_d3_d12_context_common.html">FD3D12ContextCommon</a></td></tr>
+<tr class="memitem:a2a3433ba9fa6ee8d6e8cc47764bbe174 inherit pro_methods_class_f_d3_d12_context_common" id="r_a2a3433ba9fa6ee8d6e8cc47764bbe174"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d3a/class_f_d3_d12_context_common.html#a2a3433ba9fa6ee8d6e8cc47764bbe174">FD3D12ContextCommon</a> (<a class="el" href="../../d1/d79/class_f_d3_d12_device.html">FD3D12Device</a> *Device, <a class="el" href="../../d6/dd6/_d3_d12_queue_8h.html#ac3690361fe491f309cb9dbba3be17899">ED3D12QueueType</a> QueueType, bool bIsDefaultContext)</td></tr>
+<tr class="separator:a2a3433ba9fa6ee8d6e8cc47764bbe174 inherit pro_methods_class_f_d3_d12_context_common"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1caeed44918b70be630c0f1a38de7d5a inherit pro_methods_class_f_d3_d12_context_common" id="r_a1caeed44918b70be630c0f1a38de7d5a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/dc1/struct_f_d3_d12_payload.html">FD3D12Payload</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d3a/class_f_d3_d12_context_common.html#a1caeed44918b70be630c0f1a38de7d5a">GetPayload</a> (<a class="el" href="../../d1/d3a/class_f_d3_d12_context_common.html#ae9b2e634a6c86578a8a39629148e9d2d">EPhase</a> Phase)</td></tr>
+<tr class="separator:a1caeed44918b70be630c0f1a38de7d5a inherit pro_methods_class_f_d3_d12_context_common"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_attribs_class_f_d3_d12_context_common"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_attribs_class_f_d3_d12_context_common')"><img src="../../closed.png" alt="-"/>&#160;Защищенные данные унаследованные от <a class="el" href="../../d1/d3a/class_f_d3_d12_context_common.html">FD3D12ContextCommon</a></td></tr>
+<tr class="memitem:a815dbaa72149655272cdd288cd527318 inherit pro_attribs_class_f_d3_d12_context_common" id="r_a815dbaa72149655272cdd288cd527318"><td class="memItemLeft" align="right" valign="top">enum <a class="el" href="../../d1/d3a/class_f_d3_d12_context_common.html#ae9b2e634a6c86578a8a39629148e9d2d">FD3D12ContextCommon::EPhase</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d3a/class_f_d3_d12_context_common.html#a815dbaa72149655272cdd288cd527318">CurrentPhase</a> = <a class="el" href="../../d1/d3a/class_f_d3_d12_context_common.html#ae9b2e634a6c86578a8a39629148e9d2da0f68101772bd5397ef8eb1b632798652">EPhase::Wait</a></td></tr>
+<tr class="separator:a815dbaa72149655272cdd288cd527318 inherit pro_attribs_class_f_d3_d12_context_common"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_attribs_class_f_d3_d12_adapter_child"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_attribs_class_f_d3_d12_adapter_child')"><img src="../../closed.png" alt="-"/>&#160;Защищенные данные унаследованные от <a class="el" href="../../d5/d6e/class_f_d3_d12_adapter_child.html">FD3D12AdapterChild</a></td></tr>
+<tr class="memitem:a4429d0ade19b106a21ede6c34df5768e inherit pro_attribs_class_f_d3_d12_adapter_child" id="r_a4429d0ade19b106a21ede6c34df5768e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/db4/class_f_d3_d12_adapter.html">FD3D12Adapter</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d6e/class_f_d3_d12_adapter_child.html#a4429d0ade19b106a21ede6c34df5768e">Parent</a></td></tr>
+<tr class="separator:a4429d0ade19b106a21ede6c34df5768e inherit pro_attribs_class_f_d3_d12_adapter_child"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_attribs_class_f_d3_d12_device_child"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_attribs_class_f_d3_d12_device_child')"><img src="../../closed.png" alt="-"/>&#160;Защищенные данные унаследованные от <a class="el" href="../../d8/d20/class_f_d3_d12_device_child.html">FD3D12DeviceChild</a></td></tr>
+<tr class="memitem:afeb899a6e833b3f986e49def99db540c inherit pro_attribs_class_f_d3_d12_device_child" id="r_afeb899a6e833b3f986e49def99db540c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d1/d79/class_f_d3_d12_device.html">FD3D12Device</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d20/class_f_d3_d12_device_child.html#afeb899a6e833b3f986e49def99db540c">Parent</a></td></tr>
+<tr class="separator:afeb899a6e833b3f986e49def99db540c inherit pro_attribs_class_f_d3_d12_device_child"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Конструктор(ы)</h2>
+<a id="a993232679d5f26074f70008c089a01f1" name="a993232679d5f26074f70008c089a01f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a993232679d5f26074f70008c089a01f1">&#9670;&#160;</a></span>FD3D12CommandContext()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FD3D12CommandContext::FD3D12CommandContext </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d1/d79/class_f_d3_d12_device.html">FD3D12Device</a> *</td>          <td class="paramname"><span class="paramname"><em>InParent</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d6/dd6/_d3_d12_queue_8h.html#ac3690361fe491f309cb9dbba3be17899">ED3D12QueueType</a></td>          <td class="paramname"><span class="paramname"><em>QueueType</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>InIsDefaultContext</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Методы</h2>
+<a id="a15258375ae2aff554fa37ef49f3a9703" name="a15258375ae2aff554fa37ef49f3a9703"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a15258375ae2aff554fa37ef49f3a9703">&#9670;&#160;</a></span>CommitGraphicsResourceTables()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FD3D12CommandContext::CommitGraphicsResourceTables </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab5b06dba9e671e88a47b9498615180e9" name="ab5b06dba9e671e88a47b9498615180e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5b06dba9e671e88a47b9498615180e9">&#9670;&#160;</a></span>CommitNonComputeShaderConstants()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FD3D12CommandContext::CommitNonComputeShaderConstants </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a98390fb0ed2d4f08bd1dcaa0bb7305e5" name="a98390fb0ed2d4f08bd1dcaa0bb7305e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a98390fb0ed2d4f08bd1dcaa0bb7305e5">&#9670;&#160;</a></span>RHIBeginFrame()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FD3D12CommandContext::RHIBeginFrame </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Замещает <a class="el" href="../../d8/d41/class_i_r_h_i_command_context.html#a3b32a73d30f021c13ff4f3890d815cc6">IRHICommandContext</a>.</p>
+
+</div>
+</div>
+<a id="a8f9830e94669916eeea679acf1f69aa1" name="a8f9830e94669916eeea679acf1f69aa1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f9830e94669916eeea679acf1f69aa1">&#9670;&#160;</a></span>RHIBeginImGui()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FD3D12CommandContext::RHIBeginImGui </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Замещает <a class="el" href="../../d8/d41/class_i_r_h_i_command_context.html#abdc8d79607cb9a68c6d79d6a7116f57c">IRHICommandContext</a>.</p>
+
+</div>
+</div>
+<a id="a947312537a1ee7453cea025880075a19" name="a947312537a1ee7453cea025880075a19"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a947312537a1ee7453cea025880075a19">&#9670;&#160;</a></span>RHIBeginRenderPass()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FD3D12CommandContext::RHIBeginRenderPass </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="../../dc/dcb/struct_f_r_h_i_render_pass_info.html">FRHIRenderPassInfo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>InInfo</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Замещает <a class="el" href="../../d8/d41/class_i_r_h_i_command_context.html#a2386d2f02841a5684468d7beb7a1fc7c">IRHICommandContext</a>.</p>
+
+</div>
+</div>
+<a id="a6e7f74f9e230d9b42e45276d47d08a8a" name="a6e7f74f9e230d9b42e45276d47d08a8a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e7f74f9e230d9b42e45276d47d08a8a">&#9670;&#160;</a></span>RHIClearTextureColor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FD3D12CommandContext::RHIClearTextureColor </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d6d/class_f_r_h_i_texture.html">FRHITexture</a> *</td>          <td class="paramname"><span class="paramname"><em>InTexture</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d0/df6/_math_fwd_8h.html#a2a5830396a4d19761fa96594e10278fa">FVector</a></td>          <td class="paramname"><span class="paramname"><em>InColor</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Замещает <a class="el" href="../../d8/d41/class_i_r_h_i_command_context.html#a5214f20c38de1bfbf9e69435142156a1">IRHICommandContext</a>.</p>
+
+</div>
+</div>
+<a id="a2a6decc2e64d0edaa62a21bb10329755" name="a2a6decc2e64d0edaa62a21bb10329755"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a6decc2e64d0edaa62a21bb10329755">&#9670;&#160;</a></span>RHIDrawIndexedPrimitive()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FD3D12CommandContext::RHIDrawIndexedPrimitive </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d9/d24/class_f_r_h_i_buffer.html">FRHIBuffer</a> *</td>          <td class="paramname"><span class="paramname"><em>IndexBuffer</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d2/dc9/_platform_8h.html#a84083085985fb180ad38b9c32e3937da">int32</a></td>          <td class="paramname"><span class="paramname"><em>BaseVertexIndex</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a></td>          <td class="paramname"><span class="paramname"><em>FirstInstance</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a></td>          <td class="paramname"><span class="paramname"><em>NumVertices</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a></td>          <td class="paramname"><span class="paramname"><em>StartIndex</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a></td>          <td class="paramname"><span class="paramname"><em>NumPrimitives</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a></td>          <td class="paramname"><span class="paramname"><em>NumInstances</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afde160e09afa35e01fb217f8045d19f8" name="afde160e09afa35e01fb217f8045d19f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afde160e09afa35e01fb217f8045d19f8">&#9670;&#160;</a></span>RHIEndFrame()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FD3D12CommandContext::RHIEndFrame </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Замещает <a class="el" href="../../d8/d41/class_i_r_h_i_command_context.html#a9c270bca1093d983140d6621816b34c4">IRHICommandContext</a>.</p>
+
+</div>
+</div>
+<a id="a82795462f11768c1b3dcde5b93b19fd7" name="a82795462f11768c1b3dcde5b93b19fd7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a82795462f11768c1b3dcde5b93b19fd7">&#9670;&#160;</a></span>RHIEndImGui()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FD3D12CommandContext::RHIEndImGui </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Замещает <a class="el" href="../../d8/d41/class_i_r_h_i_command_context.html#a2e14b0f1f38950719884854721ecfb51">IRHICommandContext</a>.</p>
+
+</div>
+</div>
+<a id="ac6724b5dd81ab007fc88e8f1169e9f21" name="ac6724b5dd81ab007fc88e8f1169e9f21"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac6724b5dd81ab007fc88e8f1169e9f21">&#9670;&#160;</a></span>RHISetGraphicsPipelineState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FD3D12CommandContext::RHISetGraphicsPipelineState </td>
+          <td>(</td>
+          <td class="paramtype">class <a class="el" href="../../de/dfc/class_f_r_h_i_graphics_pipeline_state.html">FRHIGraphicsPipelineState</a> *</td>          <td class="paramname"><span class="paramname"><em>GraphicsPSO</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../db/d5f/struct_f_bound_shader_state_input.html">FBoundShaderStateInput</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>ShaderInput</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Замещает <a class="el" href="../../d8/d41/class_i_r_h_i_command_context.html#a3a90c2d8763f94ca834b2e8d3a4fa1c5">IRHICommandContext</a>.</p>
+
+</div>
+</div>
+<a id="a28b0c9be8894b10a09a2879c13ffb4a7" name="a28b0c9be8894b10a09a2879c13ffb4a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a28b0c9be8894b10a09a2879c13ffb4a7">&#9670;&#160;</a></span>RHISetShaderParameter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FD3D12CommandContext::RHISetShaderParameter </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../da/d86/class_f_r_h_i_graphics_shader.html">FRHIGraphicsShader</a> *</td>          <td class="paramname"><span class="paramname"><em>ShaderRHI</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a></td>          <td class="paramname"><span class="paramname"><em>BufferIndex</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a></td>          <td class="paramname"><span class="paramname"><em>Offset</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a></td>          <td class="paramname"><span class="paramname"><em>NumBytes</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const void *</td>          <td class="paramname"><span class="paramname"><em>Data</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aafe452fbbdfa0543b9027d6cce14b7ec" name="aafe452fbbdfa0543b9027d6cce14b7ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aafe452fbbdfa0543b9027d6cce14b7ec">&#9670;&#160;</a></span>RHISetStreamSource()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FD3D12CommandContext::RHISetStreamSource </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a></td>          <td class="paramname"><span class="paramname"><em>StreamIndex</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d9/d24/class_f_r_h_i_buffer.html">FRHIBuffer</a> *</td>          <td class="paramname"><span class="paramname"><em>VertexBuffer</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a></td>          <td class="paramname"><span class="paramname"><em>Offset</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a></td>          <td class="paramname"><span class="paramname"><em>Stride</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Замещает <a class="el" href="../../d8/d41/class_i_r_h_i_command_context.html#a3a39de659290f300dc94d04fea9c47d3">IRHICommandContext</a>.</p>
+
+</div>
+</div>
+<a id="ac16561de7706f0cf490f09a012f65421" name="ac16561de7706f0cf490f09a012f65421"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac16561de7706f0cf490f09a012f65421">&#9670;&#160;</a></span>RHISetViewport()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FD3D12CommandContext::RHISetViewport </td>
+          <td>(</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>MinX</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>MinY</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>MinZ</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>MaxX</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>MaxY</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>MaxZ</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Переопределяет метод предка <a class="el" href="../../d8/d41/class_i_r_h_i_command_context.html#ae672c0454fad64b877f50c8fe7661f77">IRHICommandContext</a>.</p>
+
+</div>
+</div>
+<a id="afe009c1bd1a8c33196edc8478aac2368" name="afe009c1bd1a8c33196edc8478aac2368"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe009c1bd1a8c33196edc8478aac2368">&#9670;&#160;</a></span>SetRenderTargets()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FD3D12CommandContext::SetRenderTargets </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d2/dc9/_platform_8h.html#a84083085985fb180ad38b9c32e3937da">int32</a></td>          <td class="paramname"><span class="paramname"><em>NumRenderTargets</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../db/d0c/class_f_r_h_i_render_target_view.html">FRHIRenderTargetView</a> *</td>          <td class="paramname"><span class="paramname"><em>RenderTargetsRHI</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d1/dc4/class_f_r_h_i_depth_render_target_view.html">FRHIDepthRenderTargetView</a> *</td>          <td class="paramname"><span class="paramname"><em>DepthStencilViewRHI</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>bClear</em><span class="paramdefsep"> = </span><span class="paramdefval">false</span></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad5a33d9735595fdae57ba62eeb4cc6ed" name="ad5a33d9735595fdae57ba62eeb4cc6ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5a33d9735595fdae57ba62eeb4cc6ed">&#9670;&#160;</a></span>SetRenderTargetsAndClear()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FD3D12CommandContext::SetRenderTargetsAndClear </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d7/d1b/class_f_r_h_i_set_render_target_info.html">FRHISetRenderTargetInfo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>RenderTargetsInfo</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Данные класса</h2>
+<a id="ab349905897b872f788b2c589d255e336" name="ab349905897b872f788b2c589d255e336"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab349905897b872f788b2c589d255e336">&#9670;&#160;</a></span>StageConstantBuffers</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../da/d40/class_f_d3_d12_constant_buffer.html">FD3D12ConstantBuffer</a> FD3D12CommandContext::StageConstantBuffers[<a class="el" href="../../de/df7/_r_h_i_defines_8h.html#a89725d5f41ceac2e574ddc988f06775ea4fae784dad21e1f04799045f97c79662">ST_NumStandartTypes</a>]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1a4072fd49f16e24a509e939126cb5c5" name="a1a4072fd49f16e24a509e939126cb5c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a4072fd49f16e24a509e939126cb5c5">&#9670;&#160;</a></span>StateCache</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d3/dfd/class_f_d3_d12_state_cache.html">FD3D12StateCache</a> FD3D12CommandContext::StateCache</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>Объявления и описания членов классов находятся в файлах:<ul>
+<li>Dark Engine/Source/Runtime/D3D12RHI/private/<a class="el" href="../../d8/d8b/_d3_d12_command_context_8h_source.html">D3D12CommandContext.h</a></li>
+<li>Dark Engine/Source/Runtime/D3D12RHI/private/<a class="el" href="../../df/d34/_d3_d12_command_context_8cpp.html">D3D12CommandContext.cpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
+</body>
+</html>

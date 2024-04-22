@@ -1,0 +1,45 @@
+\doxysection{Game\+Viewport\+Client.\+h}
+\hypertarget{_game_viewport_client_8h_source}{}\label{_game_viewport_client_8h_source}\index{Dark Engine/Source/Runtime/Engine/Classes/Engine/GameViewportClient.h@{Dark Engine/Source/Runtime/Engine/Classes/Engine/GameViewportClient.h}}
+\mbox{\hyperlink{_game_viewport_client_8h}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_t_unique_ptr_8h}{Memory/TUniquePtr.h}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_dark_client_8h}{DarkClient.h}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_engine_2_classes_2_engine_2_scene_viewport_8h}{SceneViewport.h}}"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_viewport_client_8h}{ViewportClient.h}}"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_f_viewport}{FViewport}};}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_f_game_viewport_client}{FGameViewportClient}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_f_viewport_client}{FViewportClient}}}
+\DoxyCodeLine{00014\ \{}
+\DoxyCodeLine{00015\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00016\ \ \ \ \ TSharedPtr<class\ UWorld>\ World;}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{class_f_viewport}{FViewport}}*\ \mbox{\hyperlink{class_f_game_viewport_client_ad605edfce82f299afba64b24ff7adaff}{Viewport}};}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \mbox{\hyperlink{class_f_scene_viewport}{FSceneViewport}}*\ \mbox{\hyperlink{class_f_game_viewport_client_ad67fa1a9a9e59b9d91785b35e46d561f}{CreateGameViewport}}();}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_game_viewport_client_a0fb12ea09c8db4660c95c7883b313a89}{SetViewport}}(\mbox{\hyperlink{class_f_viewport}{FViewport}}*\ InViewport);}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_game_viewport_client_a7b18687c13d00b45eccae5be6d111afb}{Draw}}(\mbox{\hyperlink{class_f_viewport}{FViewport}}*\ \mbox{\hyperlink{struct_viewport}{Viewport}})\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{virtual}\ UWorld*\ \mbox{\hyperlink{class_f_game_viewport_client_a3cff8b20d02bcb459f80deb2d21a74f9}{GetWorld}}();}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \mbox{\hyperlink{class_f_scene_viewport}{FSceneViewport}}*\ \mbox{\hyperlink{class_f_game_viewport_client_a6935dc59797c001569d75ea4256cfd84}{GetGameViewport}}();}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{comment}{//virtual\ void\ Init();}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \};}
+
+\end{DoxyCode}

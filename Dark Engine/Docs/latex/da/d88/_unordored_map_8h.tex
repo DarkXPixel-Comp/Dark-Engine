@@ -1,0 +1,38 @@
+\doxysection{Файл Dark Engine/\+Source/\+Runtime/\+Core/\+Public/\+Containers/\+Unordored\+Map.h}
+\hypertarget{_unordored_map_8h}{}\label{_unordored_map_8h}\index{Dark Engine/Source/Runtime/Core/Public/Containers/UnordoredMap.h@{Dark Engine/Source/Runtime/Core/Public/Containers/UnordoredMap.h}}
+{\ttfamily \#include $<$unordered\+\_\+map$>$}\newline
+{\ttfamily \#include $<$unordered\+\_\+set$>$}\newline
+{\ttfamily \#include "{}map"{}}\newline
+\doxysubsubsection*{Определения типов}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\using \mbox{\hyperlink{_unordored_map_8h_ae2376241f10d4ad55e3adacfcbcca4f5}{TUnordored\+Set}} = std\+::unordered\+\_\+set$<$T$>$
+\item 
+{\footnotesize template$<$typename \mbox{\hyperlink{_u_i_side_widget_8h_a26fd15ac5adf00f13048faa304d562c5a945d5e233cf7d6240f6b783b36a374ff}{Left}} , typename \mbox{\hyperlink{_u_i_side_widget_8h_a26fd15ac5adf00f13048faa304d562c5a92b09c7c48c520c3c55e497875da437c}{Right}} $>$ }\\using \mbox{\hyperlink{_unordored_map_8h_a92bf7bcdbfe4ad5e7f9d970ac79a487d}{TUnordored\+Map}} = std\+::unordered\+\_\+map$<$\mbox{\hyperlink{_u_i_side_widget_8h_a26fd15ac5adf00f13048faa304d562c5a945d5e233cf7d6240f6b783b36a374ff}{Left}}, \mbox{\hyperlink{_u_i_side_widget_8h_a26fd15ac5adf00f13048faa304d562c5a92b09c7c48c520c3c55e497875da437c}{Right}}$>$
+\item 
+{\footnotesize template$<$typename ... Args$>$ }\\using \mbox{\hyperlink{_unordored_map_8h_aa7a444facff8913aba4dfe543f2b7856}{TMap}} = std\+::map$<$Args...$>$
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Типы}
+\Hypertarget{_unordored_map_8h_aa7a444facff8913aba4dfe543f2b7856}\label{_unordored_map_8h_aa7a444facff8913aba4dfe543f2b7856} 
+\index{UnordoredMap.h@{UnordoredMap.h}!TMap@{TMap}}
+\index{TMap@{TMap}!UnordoredMap.h@{UnordoredMap.h}}
+\doxysubsubsection{\texorpdfstring{TMap}{TMap}}
+{\footnotesize\ttfamily template$<$typename ... Args$>$ \\
+using \mbox{\hyperlink{_unordored_map_8h_aa7a444facff8913aba4dfe543f2b7856}{TMap}} = std\+::map$<$Args...$>$}
+
+\Hypertarget{_unordored_map_8h_a92bf7bcdbfe4ad5e7f9d970ac79a487d}\label{_unordored_map_8h_a92bf7bcdbfe4ad5e7f9d970ac79a487d} 
+\index{UnordoredMap.h@{UnordoredMap.h}!TUnordoredMap@{TUnordoredMap}}
+\index{TUnordoredMap@{TUnordoredMap}!UnordoredMap.h@{UnordoredMap.h}}
+\doxysubsubsection{\texorpdfstring{TUnordoredMap}{TUnordoredMap}}
+{\footnotesize\ttfamily template$<$typename \mbox{\hyperlink{_u_i_side_widget_8h_a26fd15ac5adf00f13048faa304d562c5a945d5e233cf7d6240f6b783b36a374ff}{Left}} , typename \mbox{\hyperlink{_u_i_side_widget_8h_a26fd15ac5adf00f13048faa304d562c5a92b09c7c48c520c3c55e497875da437c}{Right}} $>$ \\
+using \mbox{\hyperlink{_unordored_map_8h_a92bf7bcdbfe4ad5e7f9d970ac79a487d}{TUnordored\+Map}} = std\+::unordered\+\_\+map$<$\mbox{\hyperlink{_u_i_side_widget_8h_a26fd15ac5adf00f13048faa304d562c5a945d5e233cf7d6240f6b783b36a374ff}{Left}}, \mbox{\hyperlink{_u_i_side_widget_8h_a26fd15ac5adf00f13048faa304d562c5a92b09c7c48c520c3c55e497875da437c}{Right}}$>$}
+
+\Hypertarget{_unordored_map_8h_ae2376241f10d4ad55e3adacfcbcca4f5}\label{_unordored_map_8h_ae2376241f10d4ad55e3adacfcbcca4f5} 
+\index{UnordoredMap.h@{UnordoredMap.h}!TUnordoredSet@{TUnordoredSet}}
+\index{TUnordoredSet@{TUnordoredSet}!UnordoredMap.h@{UnordoredMap.h}}
+\doxysubsubsection{\texorpdfstring{TUnordoredSet}{TUnordoredSet}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+using \mbox{\hyperlink{_unordored_map_8h_ae2376241f10d4ad55e3adacfcbcca4f5}{TUnordored\+Set}} = std\+::unordered\+\_\+set$<$T$>$}
+

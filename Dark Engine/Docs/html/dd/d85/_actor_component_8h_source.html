@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Dark Engine: Исходный файл Dark Engine/Source/Runtime/Engine/Classes/Components/ActorComponent/ActorComponent.h</title>
+<link rel="icon" href="../../Logo.ico" type="image/x-icon" />
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<script type="text/javascript" src="../../clipboard.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../Logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Dark Engine<span id="projectnumber">&#160;0.0.39</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../../',true,false,'search.php','Поиск');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(1); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_55043db21ba5ddd7c561d2c5a5a38944.html">Dark Engine</a></li><li class="navelem"><a class="el" href="../../dir_e00b54220e1e1486ac9971b606d33054.html">Source</a></li><li class="navelem"><a class="el" href="../../dir_ae01c8af07818b260cc3481e8588b277.html">Runtime</a></li><li class="navelem"><a class="el" href="../../dir_736522237f23468e79442f3fc4ecd19b.html">Engine</a></li><li class="navelem"><a class="el" href="../../dir_8e5f7f07800deb66a56f516b5eaf6fef.html">Classes</a></li><li class="navelem"><a class="el" href="../../dir_92334d4f99632d74782c833c243b26ca.html">Components</a></li><li class="navelem"><a class="el" href="../../dir_bcc77f4985549fd6373ae0c1b01ae4ef.html">ActorComponent</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">ActorComponent.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="../../dd/d85/_actor_component_8h.html">См. документацию.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &lt;<a class="code" href="../../d3/df5/_u_object_8h.html">UObject/UObject.h</a>&gt;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;<a class="code" href="../../d4/d09/_core_8h.html">Core.h</a>&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">class </span><a class="code hl_class" href="../../db/d32/class_a_actor.html">AActor</a>;</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="foldopen" id="foldopen00009" data-start="{" data-end="};">
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="../../d6/dfb/class_u_actor_component.html">    9</a></span><span class="keyword">class </span><a class="code hl_define" href="../../da/d5a/_core_platform_8h.html#a94070b76c7d4ff7927f14814f3f53e40">DENGINE_API</a> <a class="code hl_class" href="../../d6/dfb/class_u_actor_component.html">UActorComponent</a> : <span class="keyword">public</span> <a class="code hl_class" href="../../d7/d0b/class_u_object.html">UObject</a></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>{</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    <span class="keyword">typedef</span> <a class="code hl_class" href="../../d7/d0b/class_u_object.html">UObject</a> <a class="code hl_class" href="../../d7/d0b/class_u_object.html">Super</a>;</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <a class="code hl_class" href="../../d6/dfb/class_u_actor_component.html">UActorComponent</a>();</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d7/d0b/class_u_object.html#abbcb856733c322925aa7cdb82b95f22e">BeginPlay</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d7/d0b/class_u_object.html#a90045e313f786495240a5f3e9f3957c0">Update</a>(<span class="keywordtype">float</span> DeltaTime) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d7/d0b/class_u_object.html#adaf378e80341f5fb43be2b1390331873">Destroy</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="../../d6/dfb/class_u_actor_component.html#a2de89ee6b4bf85ff67dea3ac1a452a61">   21</a></span>    <span class="keywordtype">bool</span> bCanEverTick = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>};</div>
+</div>
+<div class="ttc" id="a_core_8h_html"><div class="ttname"><a href="../../d4/d09/_core_8h.html">Core.h</a></div></div>
+<div class="ttc" id="a_core_platform_8h_html_a94070b76c7d4ff7927f14814f3f53e40"><div class="ttname"><a href="../../da/d5a/_core_platform_8h.html#a94070b76c7d4ff7927f14814f3f53e40">DENGINE_API</a></div><div class="ttdeci">#define DENGINE_API</div><div class="ttdef"><b>Definition</b> CorePlatform.h:8</div></div>
+<div class="ttc" id="a_u_object_8h_html"><div class="ttname"><a href="../../d3/df5/_u_object_8h.html">UObject.h</a></div></div>
+<div class="ttc" id="aclass_a_actor_html"><div class="ttname"><a href="../../db/d32/class_a_actor.html">AActor</a></div><div class="ttdef"><b>Definition</b> Actor.h:17</div></div>
+<div class="ttc" id="aclass_u_actor_component_html"><div class="ttname"><a href="../../d6/dfb/class_u_actor_component.html">UActorComponent</a></div><div class="ttdef"><b>Definition</b> ActorComponent.h:10</div></div>
+<div class="ttc" id="aclass_u_object_html"><div class="ttname"><a href="../../d7/d0b/class_u_object.html">UObject</a></div><div class="ttdef"><b>Definition</b> UObject.h:55</div></div>
+<div class="ttc" id="aclass_u_object_html_a90045e313f786495240a5f3e9f3957c0"><div class="ttname"><a href="../../d7/d0b/class_u_object.html#a90045e313f786495240a5f3e9f3957c0">UObject::Update</a></div><div class="ttdeci">virtual void Update(float DeltaTime)</div><div class="ttdef"><b>Definition</b> UObject.cpp:13</div></div>
+<div class="ttc" id="aclass_u_object_html_abbcb856733c322925aa7cdb82b95f22e"><div class="ttname"><a href="../../d7/d0b/class_u_object.html#abbcb856733c322925aa7cdb82b95f22e">UObject::BeginPlay</a></div><div class="ttdeci">virtual void BeginPlay()</div><div class="ttdef"><b>Definition</b> UObject.cpp:5</div></div>
+<div class="ttc" id="aclass_u_object_html_adaf378e80341f5fb43be2b1390331873"><div class="ttname"><a href="../../d7/d0b/class_u_object.html#adaf378e80341f5fb43be2b1390331873">UObject::Destroy</a></div><div class="ttdeci">virtual void Destroy()</div><div class="ttdef"><b>Definition</b> UObject.cpp:21</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
+</body>
+</html>

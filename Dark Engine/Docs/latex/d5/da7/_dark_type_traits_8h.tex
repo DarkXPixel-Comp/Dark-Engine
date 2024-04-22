@@ -1,0 +1,28 @@
+\doxysection{Файл Dark Engine/\+Source/\+Runtime/\+Core/\+Public/\+Templates/\+Dark\+Type\+Traits.h}
+\hypertarget{_dark_type_traits_8h}{}\label{_dark_type_traits_8h}\index{Dark Engine/Source/Runtime/Core/Public/Templates/DarkTypeTraits.h@{Dark Engine/Source/Runtime/Core/Public/Templates/DarkTypeTraits.h}}
+{\ttfamily \#include $<$Core\+Types.\+h$>$}\newline
+{\ttfamily \#include $<$Templates/\+Enable\+If.\+h$>$}\newline
+{\ttfamily \#include $<$type\+\_\+traits$>$}\newline
+{\ttfamily \#include "{}Is\+Floating\+Point.\+h"{}}\newline
+\doxysubsubsection*{Макросы}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_dark_type_traits_8h_a9ef24b501fce52982adde50ae78cc8ba}{DE\+\_\+\+REQUIRES}}(...)~, std\+::enable\+\_\+if\+\_\+t$<$(\+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+), int$>$= 0
+\item 
+\#define \mbox{\hyperlink{_dark_type_traits_8h_aad49833beeab0ea4077979d083cee73b}{TEMPLATE\+\_\+\+REQUIRES}}(...)~typename \mbox{\hyperlink{class_t_enable_if}{TEnable\+If}}$<$\+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+, int$>$\+::type = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Макросы}
+\Hypertarget{_dark_type_traits_8h_a9ef24b501fce52982adde50ae78cc8ba}\label{_dark_type_traits_8h_a9ef24b501fce52982adde50ae78cc8ba} 
+\index{DarkTypeTraits.h@{DarkTypeTraits.h}!DE\_REQUIRES@{DE\_REQUIRES}}
+\index{DE\_REQUIRES@{DE\_REQUIRES}!DarkTypeTraits.h@{DarkTypeTraits.h}}
+\doxysubsubsection{\texorpdfstring{DE\_REQUIRES}{DE\_REQUIRES}}
+{\footnotesize\ttfamily \#define DE\+\_\+\+REQUIRES(\begin{DoxyParamCaption}\item[{}]{... }\end{DoxyParamCaption})~, std\+::enable\+\_\+if\+\_\+t$<$(\+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+), int$>$= 0}
+
+\Hypertarget{_dark_type_traits_8h_aad49833beeab0ea4077979d083cee73b}\label{_dark_type_traits_8h_aad49833beeab0ea4077979d083cee73b} 
+\index{DarkTypeTraits.h@{DarkTypeTraits.h}!TEMPLATE\_REQUIRES@{TEMPLATE\_REQUIRES}}
+\index{TEMPLATE\_REQUIRES@{TEMPLATE\_REQUIRES}!DarkTypeTraits.h@{DarkTypeTraits.h}}
+\doxysubsubsection{\texorpdfstring{TEMPLATE\_REQUIRES}{TEMPLATE\_REQUIRES}}
+{\footnotesize\ttfamily \#define TEMPLATE\+\_\+\+REQUIRES(\begin{DoxyParamCaption}\item[{}]{... }\end{DoxyParamCaption})~typename \mbox{\hyperlink{class_t_enable_if}{TEnable\+If}}$<$\+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+, int$>$\+::type = 0}
+

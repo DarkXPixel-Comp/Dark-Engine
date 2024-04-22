@@ -581,6 +581,8 @@ public:
 	EPrimitiveType PrimitiveType;
 
 
+
+
 	bool operator==(const FGraphicsPipelineStateInitializer& Other) const
 	{
 		return Other.BoundShaderState == BoundShaderState && PrimitiveType == Other.PrimitiveType;

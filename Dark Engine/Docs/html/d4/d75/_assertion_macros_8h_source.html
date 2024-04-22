@@ -1,0 +1,251 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Dark Engine: Исходный файл Dark Engine/Source/Runtime/Core/Public/Misc/AssertionMacros.h</title>
+<link rel="icon" href="../../Logo.ico" type="image/x-icon" />
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<script type="text/javascript" src="../../clipboard.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../Logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Dark Engine<span id="projectnumber">&#160;0.0.39</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../../',true,false,'search.php','Поиск');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(1); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_55043db21ba5ddd7c561d2c5a5a38944.html">Dark Engine</a></li><li class="navelem"><a class="el" href="../../dir_e00b54220e1e1486ac9971b606d33054.html">Source</a></li><li class="navelem"><a class="el" href="../../dir_ae01c8af07818b260cc3481e8588b277.html">Runtime</a></li><li class="navelem"><a class="el" href="../../dir_59f1d85f259666bc4c18ba498cded78a.html">Core</a></li><li class="navelem"><a class="el" href="../../dir_78d6767ad0aceff322a7926558f8cdbd.html">Public</a></li><li class="navelem"><a class="el" href="../../dir_cd2af2c1cc8a9ada7bc836dc80f4b249.html">Misc</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">AssertionMacros.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d4/d75/_assertion_macros_8h.html">См. документацию.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;<a class="code" href="../../d0/db9/_preprocessor_helpers_8h.html">HAL/PreprocessorHelpers.h</a>&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="../../db/d04/_core_types_8h.html">CoreTypes.h</a>&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../de/da4/namespace_e_log_verbosity.html">ELogVerbosity</a></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>{</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    <span class="keyword">enum</span> <a class="code hl_enumeration" href="../../de/da4/namespace_e_log_verbosity.html#ab6bab2e0ab6887ab14ba3dda79944252">Type</a> : <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a40bc01dd090acd02a79b5dc13e08abe6">uint8</a>;</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>}</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="foldopen" id="foldopen00014" data-start="{" data-end="};">
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="../../de/d24/struct_f_ensure_handler_args.html">   14</a></span><span class="keyword">struct </span><a class="code hl_struct" href="../../de/d24/struct_f_ensure_handler_args.html">FEnsureHandlerArgs</a></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>{</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="../../de/d24/struct_f_ensure_handler_args.html#afd9174d998305ba234a6af318cede23c">   16</a></span>    <span class="keyword">const</span> <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#ac65a9f028228aed366b4d8f24a8ab9e9">ANSICHAR</a>* <a class="code hl_variable" href="../../de/d24/struct_f_ensure_handler_args.html#afd9174d998305ba234a6af318cede23c">Expression</a>;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="../../de/d24/struct_f_ensure_handler_args.html#a092814bfee10d5782e9c94a60d4684e7">   17</a></span>    <span class="keyword">const</span> <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a74140f1ff3f7a51b1ac752f90283f3d6">TCHAR</a>* <a class="code hl_variable" href="../../de/d24/struct_f_ensure_handler_args.html#a092814bfee10d5782e9c94a60d4684e7">Message</a>;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>};</div>
+</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="../../df/de8/class_t_function.html">   20</a></span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> FuncType&gt; <span class="keyword">class </span><a class="code hl_class" href="../../df/de8/class_t_function.html">TFunction</a>;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="../../d4/d75/_assertion_macros_8h.html#a8e66319cf5655cdc033d9ee56f4319da">   22</a></span><a class="code hl_define" href="../../da/d5a/_core_platform_8h.html#a94070b76c7d4ff7927f14814f3f53e40">DENGINE_API</a> <a class="code hl_class" href="../../df/de8/class_t_function.html">TFunction</a>&lt;bool(<span class="keyword">const</span> <a class="code hl_struct" href="../../de/d24/struct_f_ensure_handler_args.html">FEnsureHandlerArgs</a>&amp; Args)&gt; <a class="code hl_variable" href="../../d4/d75/_assertion_macros_8h.html#a8e66319cf5655cdc033d9ee56f4319da">SetEnsureHandler</a>(<a class="code hl_class" href="../../df/de8/class_t_function.html">TFunction</a>&lt;<span class="keywordtype">bool</span>(<span class="keyword">const</span> <a class="code hl_struct" href="../../de/d24/struct_f_ensure_handler_args.html">FEnsureHandlerArgs</a>&amp; Args)&gt; EnsureHandler);</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="../../d4/d75/_assertion_macros_8h.html#a6c79724bb15b598c698ebe3143bb0ecc">   24</a></span><a class="code hl_define" href="../../da/d5a/_core_platform_8h.html#a94070b76c7d4ff7927f14814f3f53e40">DENGINE_API</a> <a class="code hl_class" href="../../df/de8/class_t_function.html">TFunction</a>&lt;bool(<span class="keyword">const</span> <a class="code hl_struct" href="../../de/d24/struct_f_ensure_handler_args.html">FEnsureHandlerArgs</a>&amp; Args)&gt; <a class="code hl_variable" href="../../d4/d75/_assertion_macros_8h.html#a6c79724bb15b598c698ebe3143bb0ecc">GetEnsureHandler</a>();</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="foldopen" id="foldopen00030" data-start="{" data-end="};">
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="../../d8/da0/struct_f_debug.html">   30</a></span><span class="keyword">struct </span><a class="code hl_struct" href="../../d8/da0/struct_f_debug.html">FDebug</a></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>{</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keyword">static</span> <a class="code hl_define" href="../../da/d5a/_core_platform_8h.html#a94070b76c7d4ff7927f14814f3f53e40">DENGINE_API</a> <span class="keywordtype">bool</span> <a class="code hl_define" href="../../d0/d2c/_windows_platform_8h.html#a5a3872cc14d02a851fcb9ca4ee08a81b">VARARGS</a> <a class="code hl_function" href="../../d8/da0/struct_f_debug.html#a354e0faa9aa8bba08177a191ce94a497">CheckVerifyFailedImpl</a>(<span class="keyword">const</span> <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#ac65a9f028228aed366b4d8f24a8ab9e9">ANSICHAR</a>* Expr, <span class="keyword">const</span> <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#ac65a9f028228aed366b4d8f24a8ab9e9">ANSICHAR</a>* File, <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a84083085985fb180ad38b9c32e3937da">int32</a> Line, <span class="keywordtype">void</span>* ProgramCounter, <span class="keyword">const</span> <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a74140f1ff3f7a51b1ac752f90283f3d6">TCHAR</a>* Format, ...);</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keyword">static</span> <a class="code hl_define" href="../../da/d5a/_core_platform_8h.html#a94070b76c7d4ff7927f14814f3f53e40">DENGINE_API</a> <span class="keywordtype">void</span> <a class="code hl_function" href="../../d8/da0/struct_f_debug.html#a5dfceb799b0961f8d4bb6770dfdcd92c">LogAssertFailedMessageImplV</a>(<span class="keyword">const</span> <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#ac65a9f028228aed366b4d8f24a8ab9e9">ANSICHAR</a>* Expr, <span class="keyword">const</span> <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#ac65a9f028228aed366b4d8f24a8ab9e9">ANSICHAR</a>* File, <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a84083085985fb180ad38b9c32e3937da">int32</a> Line, <span class="keywordtype">void</span>* ProgramCounter, <span class="keyword">const</span> <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a74140f1ff3f7a51b1ac752f90283f3d6">TCHAR</a>* Fmt, va_list Args);</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>};</div>
+</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="preprocessor">#ifdef DO_CHECK</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="preprocessor">#ifndef checkCode</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="preprocessor">#define checkCode( Code )       do { Code; } while ( false );</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="preprocessor">#ifndef verify</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="preprocessor">#define verify(expr)            DE_CHECK_IMPL(expr)</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="preprocessor">#ifndef check</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="preprocessor">#define check(expr)             DE_CHECK_IMPL(expr)</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="preprocessor">#ifndef checkSlow</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="preprocessor">#define checkSlow(expr)         check(expr)</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="comment">// Technically we could use just the _F version (lambda-based) for asserts</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="comment">// both with and without formatted messages. However MSVC emits extra</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="comment">// unnecessary instructions when using a lambda; hence the Exec() impl.</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="preprocessor">#define DE_CHECK_IMPL(expr) \</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="preprocessor">        { \</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="preprocessor">            if(UNLIKELY(!(expr))) \</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="preprocessor">            { \</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="preprocessor">                if (FDebug::CheckVerifyFailedImpl(#expr, __FILE__, __LINE__, PLATFORM_RETURN_ADDRESS(), TEXT(&quot;&quot;))) \</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="preprocessor">                { \</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="preprocessor">                    if(IsDebuggerPresent())\</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="preprocessor">                        {PLATFORM_BREAK();} \</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="preprocessor">                } \</span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="preprocessor">            } \</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="preprocessor">        }</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="preprocessor">#ifndef verifyf</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="preprocessor">#define verifyf(expr, format,  ...)     DE_CHECK_F_IMPL(expr, format, ##__VA_ARGS__)</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="preprocessor">#ifndef checkf</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="preprocessor">#define checkf(expr, format,  ...)      DE_CHECK_F_IMPL(expr, format, ##__VA_ARGS__)</span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="preprocessor">#define DE_CHECK_F_IMPL(expr, format, ...) \</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="preprocessor">        { \</span></div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="preprocessor">            if(UNLIKELY(!(expr))) \</span></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="preprocessor">            { \</span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="preprocessor">                if (FDebug::CheckVerifyFailedImpl(#expr, __FILE__, __LINE__, PLATFORM_RETURN_ADDRESS(), format, ##__VA_ARGS__)) \</span></div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="preprocessor">                { \</span></div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="preprocessor">                    PLATFORM_BREAK(); \</span></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="preprocessor">                } \</span></div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="preprocessor">            } \</span></div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="preprocessor">        }</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="preprocessor">#ifndef checkNoEntry</span></div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="preprocessor">#define checkNoEntry()       check(!&quot;Enclosing block should never be called&quot;)</span></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span><span class="preprocessor">#ifndef checkNoReentry</span></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="preprocessor">#define checkNoReentry()     { static bool s_beenHere##__LINE__ = false;                                         \</span></div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><span class="preprocessor">                                   check( !&quot;Enclosing block was called more than once&quot; || !s_beenHere##__LINE__ );   \</span></div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span><span class="preprocessor">                                   s_beenHere##__LINE__ = trDE; }</span></div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span><span class="keyword">class </span>FRecursionScopeMarker</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>{</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    FRecursionScopeMarker(<a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a55934b7aafc849240fa69ea0339c0ab7">uint16</a>&amp; InCounter) : Counter(InCounter) { ++Counter; }</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    ~FRecursionScopeMarker() { --Counter; }</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a55934b7aafc849240fa69ea0339c0ab7">uint16</a>&amp; Counter;</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>};</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span><span class="preprocessor">#ifndef checkNoRecursion</span></div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span><span class="preprocessor">#define checkNoRecursion()  static uint16 RecursionCounter##__LINE__ = 0;                                            \</span></div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span><span class="preprocessor">                                check( !&quot;Enclosing block was entered recursively&quot; || RecursionCounter##__LINE__ == 0 );  \</span></div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span><span class="preprocessor">                                const FRecursionScopeMarker ScopeMarker##__LINE__( RecursionCounter##__LINE__ )</span></div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span> </div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span><span class="preprocessor">#ifndef unimplemented</span></div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span><span class="preprocessor">#define unimplemented()     check(!&quot;Unimplemented function called&quot;)</span></div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span> </div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span><span class="preprocessor">#else</span></div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno"><a class="line" href="../../d4/d75/_assertion_macros_8h.html#aa3c8c9df320cec578d415dac21f34ae1">  137</a></span><span class="preprocessor">#define checkCode(...)</span></div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno"><a class="line" href="../../d4/d75/_assertion_macros_8h.html#a586e110623cde145b8a5bdefb429e144">  138</a></span><span class="preprocessor">#define check(expr)                 { }</span></div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno"><a class="line" href="../../d4/d75/_assertion_macros_8h.html#adda76c7007d2e32f3aa142897f5702a2">  139</a></span><span class="preprocessor">#define checkf(expr, format, ...)   { }</span></div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno"><a class="line" href="../../d4/d75/_assertion_macros_8h.html#aa847ed6e67067adba097796d6ce3f6f7">  140</a></span><span class="preprocessor">#define checkNoEntry()</span></div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno"><a class="line" href="../../d4/d75/_assertion_macros_8h.html#a84f3b0d45c95432c0b974e4dcf7f920a">  141</a></span><span class="preprocessor">#define checkNoReentry()</span></div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno"><a class="line" href="../../d4/d75/_assertion_macros_8h.html#a70dcc6df58f968490a1203c9b4d94e25">  142</a></span><span class="preprocessor">#define checkNoRecursion()</span></div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno"><a class="line" href="../../d4/d75/_assertion_macros_8h.html#aecaddce56c58fa07fb91249ea5de89ae">  143</a></span><span class="preprocessor">#define verify(expr)                { if(UNLIKELY(!(expr))){  } }</span></div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno"><a class="line" href="../../d4/d75/_assertion_macros_8h.html#a7e33bff2144828ab7124f2e14f233df9">  144</a></span><span class="preprocessor">#define verifyf(expr, format, ...)  { if(UNLIKELY(!(expr))){  } }</span></div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno"><a class="line" href="../../d4/d75/_assertion_macros_8h.html#ab3768d7ad059c7b54a15a9fdbdcab303">  145</a></span><span class="preprocessor">#define unimplemented()             {  }</span></div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="a_assertion_macros_8h_html_a6c79724bb15b598c698ebe3143bb0ecc"><div class="ttname"><a href="../../d4/d75/_assertion_macros_8h.html#a6c79724bb15b598c698ebe3143bb0ecc">GetEnsureHandler</a></div><div class="ttdeci">DENGINE_API TFunction&lt; bool(const FEnsureHandlerArgs &amp;Args) GetEnsureHandler)()</div></div>
+<div class="ttc" id="a_assertion_macros_8h_html_a8e66319cf5655cdc033d9ee56f4319da"><div class="ttname"><a href="../../d4/d75/_assertion_macros_8h.html#a8e66319cf5655cdc033d9ee56f4319da">SetEnsureHandler</a></div><div class="ttdeci">DENGINE_API TFunction&lt; bool(const FEnsureHandlerArgs &amp;Args) SetEnsureHandler)(TFunction&lt; bool(const FEnsureHandlerArgs &amp;Args)&gt; EnsureHandler)</div></div>
+<div class="ttc" id="a_core_platform_8h_html_a94070b76c7d4ff7927f14814f3f53e40"><div class="ttname"><a href="../../da/d5a/_core_platform_8h.html#a94070b76c7d4ff7927f14814f3f53e40">DENGINE_API</a></div><div class="ttdeci">#define DENGINE_API</div><div class="ttdef"><b>Definition</b> CorePlatform.h:8</div></div>
+<div class="ttc" id="a_core_types_8h_html"><div class="ttname"><a href="../../db/d04/_core_types_8h.html">CoreTypes.h</a></div></div>
+<div class="ttc" id="a_platform_8h_html_a40bc01dd090acd02a79b5dc13e08abe6"><div class="ttname"><a href="../../d2/dc9/_platform_8h.html#a40bc01dd090acd02a79b5dc13e08abe6">uint8</a></div><div class="ttdeci">FPlatformTypes::uint8 uint8</div><div class="ttdef"><b>Definition</b> Platform.h:39</div></div>
+<div class="ttc" id="a_platform_8h_html_a55934b7aafc849240fa69ea0339c0ab7"><div class="ttname"><a href="../../d2/dc9/_platform_8h.html#a55934b7aafc849240fa69ea0339c0ab7">uint16</a></div><div class="ttdeci">FPlatformTypes::uint16 uint16</div><div class="ttdef"><b>Definition</b> Platform.h:41</div></div>
+<div class="ttc" id="a_platform_8h_html_a74140f1ff3f7a51b1ac752f90283f3d6"><div class="ttname"><a href="../../d2/dc9/_platform_8h.html#a74140f1ff3f7a51b1ac752f90283f3d6">TCHAR</a></div><div class="ttdeci">FPlatformTypes::TCHAR TCHAR</div><div class="ttdef"><b>Definition</b> Platform.h:48</div></div>
+<div class="ttc" id="a_platform_8h_html_a84083085985fb180ad38b9c32e3937da"><div class="ttname"><a href="../../d2/dc9/_platform_8h.html#a84083085985fb180ad38b9c32e3937da">int32</a></div><div class="ttdeci">FPlatformTypes::int32 int32</div><div class="ttdef"><b>Definition</b> Platform.h:42</div></div>
+<div class="ttc" id="a_platform_8h_html_ac65a9f028228aed366b4d8f24a8ab9e9"><div class="ttname"><a href="../../d2/dc9/_platform_8h.html#ac65a9f028228aed366b4d8f24a8ab9e9">ANSICHAR</a></div><div class="ttdeci">FPlatformTypes::ANSICHAR ANSICHAR</div><div class="ttdef"><b>Definition</b> Platform.h:46</div></div>
+<div class="ttc" id="a_preprocessor_helpers_8h_html"><div class="ttname"><a href="../../d0/db9/_preprocessor_helpers_8h.html">PreprocessorHelpers.h</a></div></div>
+<div class="ttc" id="a_windows_platform_8h_html_a5a3872cc14d02a851fcb9ca4ee08a81b"><div class="ttname"><a href="../../d0/d2c/_windows_platform_8h.html#a5a3872cc14d02a851fcb9ca4ee08a81b">VARARGS</a></div><div class="ttdeci">#define VARARGS</div><div class="ttdef"><b>Definition</b> WindowsPlatform.h:124</div></div>
+<div class="ttc" id="aclass_t_function_html"><div class="ttname"><a href="../../df/de8/class_t_function.html">TFunction</a></div><div class="ttdef"><b>Definition</b> AssertionMacros.h:20</div></div>
+<div class="ttc" id="anamespace_e_log_verbosity_html"><div class="ttname"><a href="../../de/da4/namespace_e_log_verbosity.html">ELogVerbosity</a></div><div class="ttdef"><b>Definition</b> LogCategory.h:7</div></div>
+<div class="ttc" id="anamespace_e_log_verbosity_html_ab6bab2e0ab6887ab14ba3dda79944252"><div class="ttname"><a href="../../de/da4/namespace_e_log_verbosity.html#ab6bab2e0ab6887ab14ba3dda79944252">ELogVerbosity::Type</a></div><div class="ttdeci">Type</div><div class="ttdef"><b>Definition</b> LogCategory.h:9</div></div>
+<div class="ttc" id="astruct_f_debug_html"><div class="ttname"><a href="../../d8/da0/struct_f_debug.html">FDebug</a></div><div class="ttdef"><b>Definition</b> AssertionMacros.h:31</div></div>
+<div class="ttc" id="astruct_f_debug_html_a354e0faa9aa8bba08177a191ce94a497"><div class="ttname"><a href="../../d8/da0/struct_f_debug.html#a354e0faa9aa8bba08177a191ce94a497">FDebug::CheckVerifyFailedImpl</a></div><div class="ttdeci">static DENGINE_API bool VARARGS CheckVerifyFailedImpl(const ANSICHAR *Expr, const ANSICHAR *File, int32 Line, void *ProgramCounter, const TCHAR *Format,...)</div><div class="ttdef"><b>Definition</b> AssertionMacros.cpp:10</div></div>
+<div class="ttc" id="astruct_f_debug_html_a5dfceb799b0961f8d4bb6770dfdcd92c"><div class="ttname"><a href="../../d8/da0/struct_f_debug.html#a5dfceb799b0961f8d4bb6770dfdcd92c">FDebug::LogAssertFailedMessageImplV</a></div><div class="ttdeci">static DENGINE_API void LogAssertFailedMessageImplV(const ANSICHAR *Expr, const ANSICHAR *File, int32 Line, void *ProgramCounter, const TCHAR *Fmt, va_list Args)</div><div class="ttdef"><b>Definition</b> AssertionMacros.cpp:24</div></div>
+<div class="ttc" id="astruct_f_ensure_handler_args_html"><div class="ttname"><a href="../../de/d24/struct_f_ensure_handler_args.html">FEnsureHandlerArgs</a></div><div class="ttdef"><b>Definition</b> AssertionMacros.h:15</div></div>
+<div class="ttc" id="astruct_f_ensure_handler_args_html_a092814bfee10d5782e9c94a60d4684e7"><div class="ttname"><a href="../../de/d24/struct_f_ensure_handler_args.html#a092814bfee10d5782e9c94a60d4684e7">FEnsureHandlerArgs::Message</a></div><div class="ttdeci">const TCHAR * Message</div><div class="ttdef"><b>Definition</b> AssertionMacros.h:17</div></div>
+<div class="ttc" id="astruct_f_ensure_handler_args_html_afd9174d998305ba234a6af318cede23c"><div class="ttname"><a href="../../de/d24/struct_f_ensure_handler_args.html#afd9174d998305ba234a6af318cede23c">FEnsureHandlerArgs::Expression</a></div><div class="ttdeci">const ANSICHAR * Expression</div><div class="ttdef"><b>Definition</b> AssertionMacros.h:16</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
+</body>
+</html>

@@ -1,0 +1,62 @@
+\doxysection{Windows\+Critical\+Section.\+h}
+\hypertarget{_windows_critical_section_8h_source}{}\label{_windows_critical_section_8h_source}\index{Dark Engine/Source/Runtime/Core/Public/Windows/WindowsCriticalSection.h@{Dark Engine/Source/Runtime/Core/Public/Windows/WindowsCriticalSection.h}}
+\mbox{\hyperlink{_windows_critical_section_8h}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_windows_2_minimal_windows_api_8h}{Windows/MinimalWindowsApi.h}}"{}}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_f_windows_critical_section}{FWindowsCriticalSection}}}
+\DoxyCodeLine{00006\ \{}
+\DoxyCodeLine{00007\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00008\ \ \ \ \ \mbox{\hyperlink{class_f_windows_critical_section_ad72465b61a636a9ab2653123c173750a}{FWindowsCriticalSection}}()}
+\DoxyCodeLine{00009\ \ \ \ \ \{}
+\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ InitializeCriticalSectionAndSpinCount(\&CriticalSection,\ 4000);}
+\DoxyCodeLine{00011\ \ \ \ \ \}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \ \ \ \ \mbox{\hyperlink{class_f_windows_critical_section_a69880b14852219f3053a44a07bdeaa8b}{\string~FWindowsCriticalSection}}()}
+\DoxyCodeLine{00014\ \ \ \ \ \{}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ DeleteCriticalSection(\&CriticalSection);}
+\DoxyCodeLine{00016\ \ \ \ \ \}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_windows_critical_section_a90b2710ddbff0a8ba37efa7d9b1a06c0}{Lock}}()}
+\DoxyCodeLine{00019\ \ \ \ \ \{}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ EnterCriticalSection(\&CriticalSection);}
+\DoxyCodeLine{00021\ \ \ \ \ \}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_windows_critical_section_a4d041c91325cfd112c08a18f3661dfe4}{Unlock}}()}
+\DoxyCodeLine{00024\ \ \ \ \ \{}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ LeaveCriticalSection(\&CriticalSection);}
+\DoxyCodeLine{00026\ \ \ \ \ \}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_f_windows_critical_section_a4107f06658e4884f71646f2c57de11f5}{TryLock}}()}
+\DoxyCodeLine{00029\ \ \ \ \ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ TryEnterCriticalSection(\&CriticalSection);}
+\DoxyCodeLine{00031\ \ \ \ \ \}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00035\ \ \ \ \ CRITICAL\_SECTION\ CriticalSection;}
+\DoxyCodeLine{00036\ \};}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_f_windows_system_wide_critical_section}{FWindowsSystemWideCriticalSection}}}
+\DoxyCodeLine{00040\ \{}
+\DoxyCodeLine{00041\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00042\ \ \ \ \ \mbox{\hyperlink{class_f_windows_system_wide_critical_section_a7abfab667b00cc4a5d6175fed2d6e688}{FWindowsSystemWideCriticalSection}}(\textcolor{keyword}{const}\ \textcolor{keyword}{class}\ \mbox{\hyperlink{class_f_string}{FString}}\&\ InName);}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \mbox{\hyperlink{class_f_windows_system_wide_critical_section_ab15ccb13ffd431b25d286031d2a39bc5}{\string~FWindowsSystemWideCriticalSection}}();}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_f_windows_system_wide_critical_section_a93fb0e4778fc53b692b6435fdaad1c22}{IsValid}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_windows_system_wide_critical_section_a75a30b9734c5277b17f00cd6bfc57f0e}{Release}}();}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00051\ \ \ \ \ HANDLE\ Mutex;}
+\DoxyCodeLine{00052\ \};}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{class_f_windows_critical_section}{FWindowsCriticalSection}}\ \mbox{\hyperlink{_windows_critical_section_8h_a559e39f7de6971750d533ff25ee927d0}{FCriticalSection}};}
+\DoxyCodeLine{00056\ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{class_f_windows_system_wide_critical_section}{FWindowsSystemWideCriticalSection}}\ \mbox{\hyperlink{_windows_critical_section_8h_a7277cee6dfb336875e1305923e64e30e}{FSystemWideCriticalSection}};}
+
+\end{DoxyCode}

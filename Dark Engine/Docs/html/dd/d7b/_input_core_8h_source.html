@@ -1,0 +1,201 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Dark Engine: Исходный файл Dark Engine/Source/Runtime/Input/public/InputCore.h</title>
+<link rel="icon" href="../../Logo.ico" type="image/x-icon" />
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<script type="text/javascript" src="../../clipboard.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../Logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Dark Engine<span id="projectnumber">&#160;0.0.39</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../../',true,false,'search.php','Поиск');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(1); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_55043db21ba5ddd7c561d2c5a5a38944.html">Dark Engine</a></li><li class="navelem"><a class="el" href="../../dir_e00b54220e1e1486ac9971b606d33054.html">Source</a></li><li class="navelem"><a class="el" href="../../dir_ae01c8af07818b260cc3481e8588b277.html">Runtime</a></li><li class="navelem"><a class="el" href="../../dir_27fc27099f4ffafb4e9da14a3cf02ed8.html">Input</a></li><li class="navelem"><a class="el" href="../../dir_8a4295974be17e1360b29124236b8a3c.html">public</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">InputCore.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="../../dd/d7b/_input_core_8h.html">См. документацию.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &lt;<a class="code" href="../../d4/d09/_core_8h.html">Core.h</a>&gt;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;Windows.h&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;Mouse.h&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;Keyboard.h&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;<a class="code" href="../../dc/d27/_t_unique_ptr_8h.html">Memory/TUniquePtr.h</a>&gt;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;<a class="code" href="../../d9/dfd/_delegate_8h.html">Delegate/Delegate.h</a>&gt;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="foldopen" id="foldopen00011" data-start="{" data-end="};">
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="../../dd/d7b/_input_core_8h.html#af20302d31e77274d05d1998475591a5a">   11</a></span><span class="keyword">enum</span> <a class="code hl_enumeration" href="../../dd/d7b/_input_core_8h.html#af20302d31e77274d05d1998475591a5a">eInputActionState</a></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>{</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="../../dd/d7b/_input_core_8h.html#af20302d31e77274d05d1998475591a5aa5afea46882b06768ac8563d462999735">   13</a></span>    <a class="code hl_enumvalue" href="../../dd/d7b/_input_core_8h.html#af20302d31e77274d05d1998475591a5aa5afea46882b06768ac8563d462999735">F1</a> = 0,</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="../../dd/d7b/_input_core_8h.html#af20302d31e77274d05d1998475591a5aaa3c13a70de6599f4470373ec46d4f6bf">   14</a></span>    <a class="code hl_enumvalue" href="../../dd/d7b/_input_core_8h.html#af20302d31e77274d05d1998475591a5aaa3c13a70de6599f4470373ec46d4f6bf">F2</a>,</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="../../dd/d7b/_input_core_8h.html#af20302d31e77274d05d1998475591a5aa10a5417c8e696606af65ec28c5fb2495">   15</a></span>    <a class="code hl_enumvalue" href="../../dd/d7b/_input_core_8h.html#af20302d31e77274d05d1998475591a5aa10a5417c8e696606af65ec28c5fb2495">F3</a>,</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="../../dd/d7b/_input_core_8h.html#af20302d31e77274d05d1998475591a5aa8d311dd8454951b86e27873c49ff1ec5">   16</a></span>    <a class="code hl_enumvalue" href="../../dd/d7b/_input_core_8h.html#af20302d31e77274d05d1998475591a5aa8d311dd8454951b86e27873c49ff1ec5">F4</a>,</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="../../dd/d7b/_input_core_8h.html#af20302d31e77274d05d1998475591a5aa511133ad89a0a17845508efb4d47b5e2">   17</a></span>    <a class="code hl_enumvalue" href="../../dd/d7b/_input_core_8h.html#af20302d31e77274d05d1998475591a5aa511133ad89a0a17845508efb4d47b5e2">F11</a>,</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="../../dd/d7b/_input_core_8h.html#af20302d31e77274d05d1998475591a5aa18d769abada18b7ac807c82764e475cb">   18</a></span>    <a class="code hl_enumvalue" href="../../dd/d7b/_input_core_8h.html#af20302d31e77274d05d1998475591a5aa18d769abada18b7ac807c82764e475cb">LShift</a>,</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>};</div>
+</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="foldopen" id="foldopen00021" data-start="{" data-end="};">
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="../../dd/d7b/_input_core_8h.html#a9bb6593b8e9650e67b2fee51126c3b17">   21</a></span><span class="keyword">enum</span> <a class="code hl_enumeration" href="../../dd/d7b/_input_core_8h.html#a9bb6593b8e9650e67b2fee51126c3b17">eInputAxisState</a></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>{</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>};</div>
+</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="../../dd/d7b/_input_core_8h.html#a915ae1e08d25898dd2733d24d4185130">   27</a></span><a class="code hl_define" href="../../d9/dfd/_delegate_8h.html#ad677cf1f8225ce2d1bca408d3e87fcbe">DECLARE_MULTICAST_DELEGATE_OneParam</a>(FActionDelegate, <a class="code hl_enumeration" href="../../dd/d7b/_input_core_8h.html#af20302d31e77274d05d1998475591a5a">eInputActionState</a>);</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="../../dd/d7b/_input_core_8h.html#afb70acd6134712849d923ea60c81a8da">   28</a></span><a class="code hl_define" href="../../d9/dfd/_delegate_8h.html#ad627922db565f68dec22b3d95018186d">DECLARE_MULTICAST_DELEGATE_ThreeParams</a>(FAxisDelegate, <a class="code hl_enumeration" href="../../dd/d7b/_input_core_8h.html#a9bb6593b8e9650e67b2fee51126c3b17">eInputAxisState</a>, <span class="keywordtype">float</span>, <span class="keywordtype">float</span>);</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="../../dd/d7b/_input_core_8h.html#a07b0f7b5a1efcd32b7e27d8423332cd0">   29</a></span><a class="code hl_define" href="../../d9/dfd/_delegate_8h.html#a0306554b8c19e8b7f4d16b9998b8d372">DECLARE_MULTICAST_DELEGATE_TwoParams</a>(FMouseDelegate, <span class="keywordtype">float</span>, <span class="keywordtype">float</span>);</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="../../dd/d7b/_input_core_8h.html#aa125ee1de9256e41181423f1b109b4a6">   30</a></span><a class="code hl_define" href="../../d9/dfd/_delegate_8h.html#ac9633c7824fa5dcbd6d16c2adeddeb02">DECLARE_MULTICAST_DELEGATE</a>(FEscDelegate);</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="../../dd/d7b/_input_core_8h.html#ad7060127c0f2d675d4e8ca699593943e">   31</a></span><a class="code hl_define" href="../../d9/dfd/_delegate_8h.html#ac9633c7824fa5dcbd6d16c2adeddeb02">DECLARE_MULTICAST_DELEGATE</a>(FWDelegate);</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="../../dd/d7b/_input_core_8h.html#a9d1c926becc9ba66baf962410d0f942e">   32</a></span><a class="code hl_define" href="../../d9/dfd/_delegate_8h.html#ac9633c7824fa5dcbd6d16c2adeddeb02">DECLARE_MULTICAST_DELEGATE</a>(FSDelegate);</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="../../dd/d7b/_input_core_8h.html#a01d28f306b6f03aecb8f112191a4929f">   33</a></span><a class="code hl_define" href="../../d9/dfd/_delegate_8h.html#ac9633c7824fa5dcbd6d16c2adeddeb02">DECLARE_MULTICAST_DELEGATE</a>(FDDelegate);</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="../../dd/d7b/_input_core_8h.html#a7e5aefa56ecf6c1b04a40e5e951f93da">   34</a></span><a class="code hl_define" href="../../d9/dfd/_delegate_8h.html#ac9633c7824fa5dcbd6d16c2adeddeb02">DECLARE_MULTICAST_DELEGATE</a>(FADelegate);</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="../../dd/d7b/_input_core_8h.html#a370b563c593c15c8473e8e2fc7e67f32">   35</a></span><a class="code hl_define" href="../../d9/dfd/_delegate_8h.html#ac9633c7824fa5dcbd6d16c2adeddeb02">DECLARE_MULTICAST_DELEGATE</a>(FF11Delegate);</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="../../dd/d7b/_input_core_8h.html#ab87cefbef6a3d26ddc75e47b89d91852">   36</a></span><a class="code hl_define" href="../../d9/dfd/_delegate_8h.html#ac9633c7824fa5dcbd6d16c2adeddeb02">DECLARE_MULTICAST_DELEGATE</a>(FSpaceDelegate);</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="foldopen" id="foldopen00040" data-start="{" data-end="};">
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="../../d9/dc7/class_f_input_core.html">   40</a></span><span class="keyword">class </span><a class="code hl_define" href="../../da/d5a/_core_platform_8h.html#a94070b76c7d4ff7927f14814f3f53e40">DENGINE_API</a> <a class="code hl_class" href="../../d9/dc7/class_f_input_core.html">FInputCore</a></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>{</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keyword">static</span> <a class="code hl_class" href="../../d9/dc7/class_f_input_core.html">FInputCore</a>* _inst_;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <a class="code hl_class" href="../../d9/dc7/class_f_input_core.html">FInputCore</a>();</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keyword">static</span> LRESULT InputProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keywordtype">void</span> SetWindow(HWND hWnd);</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keywordtype">void</span> Update();</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    LRESULT InputCoreProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="../../d9/dc7/class_f_input_core.html#abaae07d13f1dba84a3855ef5b0803d74">   55</a></span>    FActionDelegate <a class="code hl_variable" href="../../d9/dc7/class_f_input_core.html#abaae07d13f1dba84a3855ef5b0803d74">ActionDelegate</a>;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="../../d9/dc7/class_f_input_core.html#a5dd5eea4111d9636d0fe61449584c184">   56</a></span>    FAxisDelegate <a class="code hl_variable" href="../../d9/dc7/class_f_input_core.html#a5dd5eea4111d9636d0fe61449584c184">AxisDelegate</a>;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="../../d9/dc7/class_f_input_core.html#a26dc12b4137651214fdb2665ffd2d257">   57</a></span>    FMouseDelegate <a class="code hl_variable" href="../../d9/dc7/class_f_input_core.html#a26dc12b4137651214fdb2665ffd2d257">MouseDelegate</a>;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="../../d9/dc7/class_f_input_core.html#a36a77b4507f648806c8bad2ac08baec6">   58</a></span>    FEscDelegate <a class="code hl_variable" href="../../d9/dc7/class_f_input_core.html#a36a77b4507f648806c8bad2ac08baec6">EscDelegate</a>;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="../../d9/dc7/class_f_input_core.html#a000dde3a7e8e3d2a9a46453b279d136b">   59</a></span>    FWDelegate <a class="code hl_variable" href="../../d9/dc7/class_f_input_core.html#a000dde3a7e8e3d2a9a46453b279d136b">WDelegate</a>;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="../../d9/dc7/class_f_input_core.html#ab0373a673beebb05d7add4170baaf8f3">   60</a></span>    FSDelegate <a class="code hl_variable" href="../../d9/dc7/class_f_input_core.html#ab0373a673beebb05d7add4170baaf8f3">SDelegate</a>;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="../../d9/dc7/class_f_input_core.html#af4969a671f5bafb293cb795723013ab3">   61</a></span>    FADelegate <a class="code hl_variable" href="../../d9/dc7/class_f_input_core.html#af4969a671f5bafb293cb795723013ab3">ADelegate</a>;</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="../../d9/dc7/class_f_input_core.html#ab0575f09809f4ae33d136c7f21aa3a13">   62</a></span>    FDDelegate <a class="code hl_variable" href="../../d9/dc7/class_f_input_core.html#ab0575f09809f4ae33d136c7f21aa3a13">DDelegate</a>;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="../../d9/dc7/class_f_input_core.html#a44878f8dc5530964eabad99aa8bd4f4a">   63</a></span>    FSpaceDelegate <a class="code hl_variable" href="../../d9/dc7/class_f_input_core.html#a44878f8dc5530964eabad99aa8bd4f4a">SpaceDelegate</a>;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="../../d9/dc7/class_f_input_core.html#aa9453c84232f96b6bcb1cc51d8d50413">   64</a></span>    FF11Delegate <a class="code hl_variable" href="../../d9/dc7/class_f_input_core.html#aa9453c84232f96b6bcb1cc51d8d50413">F11Delegate</a>;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    TUniquePtr&lt;DirectX::Keyboard&gt; m_keyboard;</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    TUniquePtr&lt;DirectX::Mouse&gt; m_mouse;</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    HWND m_hWnd = NULL;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <span class="keywordtype">bool</span> m_isRelative = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <span class="keywordtype">bool</span> f11 = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>};</div>
+</div>
+<div class="ttc" id="a_core_8h_html"><div class="ttname"><a href="../../d4/d09/_core_8h.html">Core.h</a></div></div>
+<div class="ttc" id="a_core_platform_8h_html_a94070b76c7d4ff7927f14814f3f53e40"><div class="ttname"><a href="../../da/d5a/_core_platform_8h.html#a94070b76c7d4ff7927f14814f3f53e40">DENGINE_API</a></div><div class="ttdeci">#define DENGINE_API</div><div class="ttdef"><b>Definition</b> CorePlatform.h:8</div></div>
+<div class="ttc" id="a_delegate_8h_html"><div class="ttname"><a href="../../d9/dfd/_delegate_8h.html">Delegate.h</a></div></div>
+<div class="ttc" id="a_delegate_8h_html_a0306554b8c19e8b7f4d16b9998b8d372"><div class="ttname"><a href="../../d9/dfd/_delegate_8h.html#a0306554b8c19e8b7f4d16b9998b8d372">DECLARE_MULTICAST_DELEGATE_TwoParams</a></div><div class="ttdeci">#define DECLARE_MULTICAST_DELEGATE_TwoParams(DelegateName, Param1Type, Param2Type)</div><div class="ttdef"><b>Definition</b> Delegate.h:21</div></div>
+<div class="ttc" id="a_delegate_8h_html_ac9633c7824fa5dcbd6d16c2adeddeb02"><div class="ttname"><a href="../../d9/dfd/_delegate_8h.html#ac9633c7824fa5dcbd6d16c2adeddeb02">DECLARE_MULTICAST_DELEGATE</a></div><div class="ttdeci">#define DECLARE_MULTICAST_DELEGATE(DelegateName)</div><div class="ttdef"><b>Definition</b> Delegate.h:15</div></div>
+<div class="ttc" id="a_delegate_8h_html_ad627922db565f68dec22b3d95018186d"><div class="ttname"><a href="../../d9/dfd/_delegate_8h.html#ad627922db565f68dec22b3d95018186d">DECLARE_MULTICAST_DELEGATE_ThreeParams</a></div><div class="ttdeci">#define DECLARE_MULTICAST_DELEGATE_ThreeParams(DelegateName, Param1Type, Param2Type, Param3Type)</div><div class="ttdef"><b>Definition</b> Delegate.h:24</div></div>
+<div class="ttc" id="a_delegate_8h_html_ad677cf1f8225ce2d1bca408d3e87fcbe"><div class="ttname"><a href="../../d9/dfd/_delegate_8h.html#ad677cf1f8225ce2d1bca408d3e87fcbe">DECLARE_MULTICAST_DELEGATE_OneParam</a></div><div class="ttdeci">#define DECLARE_MULTICAST_DELEGATE_OneParam(DelegateName, Param1Type)</div><div class="ttdef"><b>Definition</b> Delegate.h:18</div></div>
+<div class="ttc" id="a_input_core_8h_html_a9bb6593b8e9650e67b2fee51126c3b17"><div class="ttname"><a href="../../dd/d7b/_input_core_8h.html#a9bb6593b8e9650e67b2fee51126c3b17">eInputAxisState</a></div><div class="ttdeci">eInputAxisState</div><div class="ttdef"><b>Definition</b> InputCore.h:22</div></div>
+<div class="ttc" id="a_input_core_8h_html_af20302d31e77274d05d1998475591a5a"><div class="ttname"><a href="../../dd/d7b/_input_core_8h.html#af20302d31e77274d05d1998475591a5a">eInputActionState</a></div><div class="ttdeci">eInputActionState</div><div class="ttdef"><b>Definition</b> InputCore.h:12</div></div>
+<div class="ttc" id="a_input_core_8h_html_af20302d31e77274d05d1998475591a5aa10a5417c8e696606af65ec28c5fb2495"><div class="ttname"><a href="../../dd/d7b/_input_core_8h.html#af20302d31e77274d05d1998475591a5aa10a5417c8e696606af65ec28c5fb2495">F3</a></div><div class="ttdeci">@ F3</div><div class="ttdef"><b>Definition</b> InputCore.h:15</div></div>
+<div class="ttc" id="a_input_core_8h_html_af20302d31e77274d05d1998475591a5aa18d769abada18b7ac807c82764e475cb"><div class="ttname"><a href="../../dd/d7b/_input_core_8h.html#af20302d31e77274d05d1998475591a5aa18d769abada18b7ac807c82764e475cb">LShift</a></div><div class="ttdeci">@ LShift</div><div class="ttdef"><b>Definition</b> InputCore.h:18</div></div>
+<div class="ttc" id="a_input_core_8h_html_af20302d31e77274d05d1998475591a5aa511133ad89a0a17845508efb4d47b5e2"><div class="ttname"><a href="../../dd/d7b/_input_core_8h.html#af20302d31e77274d05d1998475591a5aa511133ad89a0a17845508efb4d47b5e2">F11</a></div><div class="ttdeci">@ F11</div><div class="ttdef"><b>Definition</b> InputCore.h:17</div></div>
+<div class="ttc" id="a_input_core_8h_html_af20302d31e77274d05d1998475591a5aa5afea46882b06768ac8563d462999735"><div class="ttname"><a href="../../dd/d7b/_input_core_8h.html#af20302d31e77274d05d1998475591a5aa5afea46882b06768ac8563d462999735">F1</a></div><div class="ttdeci">@ F1</div><div class="ttdef"><b>Definition</b> InputCore.h:13</div></div>
+<div class="ttc" id="a_input_core_8h_html_af20302d31e77274d05d1998475591a5aa8d311dd8454951b86e27873c49ff1ec5"><div class="ttname"><a href="../../dd/d7b/_input_core_8h.html#af20302d31e77274d05d1998475591a5aa8d311dd8454951b86e27873c49ff1ec5">F4</a></div><div class="ttdeci">@ F4</div><div class="ttdef"><b>Definition</b> InputCore.h:16</div></div>
+<div class="ttc" id="a_input_core_8h_html_af20302d31e77274d05d1998475591a5aaa3c13a70de6599f4470373ec46d4f6bf"><div class="ttname"><a href="../../dd/d7b/_input_core_8h.html#af20302d31e77274d05d1998475591a5aaa3c13a70de6599f4470373ec46d4f6bf">F2</a></div><div class="ttdeci">@ F2</div><div class="ttdef"><b>Definition</b> InputCore.h:14</div></div>
+<div class="ttc" id="a_t_unique_ptr_8h_html"><div class="ttname"><a href="../../dc/d27/_t_unique_ptr_8h.html">TUniquePtr.h</a></div></div>
+<div class="ttc" id="aclass_f_input_core_html"><div class="ttname"><a href="../../d9/dc7/class_f_input_core.html">FInputCore</a></div><div class="ttdef"><b>Definition</b> InputCore.h:41</div></div>
+<div class="ttc" id="aclass_f_input_core_html_a000dde3a7e8e3d2a9a46453b279d136b"><div class="ttname"><a href="../../d9/dc7/class_f_input_core.html#a000dde3a7e8e3d2a9a46453b279d136b">FInputCore::WDelegate</a></div><div class="ttdeci">FWDelegate WDelegate</div><div class="ttdef"><b>Definition</b> InputCore.h:59</div></div>
+<div class="ttc" id="aclass_f_input_core_html_a26dc12b4137651214fdb2665ffd2d257"><div class="ttname"><a href="../../d9/dc7/class_f_input_core.html#a26dc12b4137651214fdb2665ffd2d257">FInputCore::MouseDelegate</a></div><div class="ttdeci">FMouseDelegate MouseDelegate</div><div class="ttdef"><b>Definition</b> InputCore.h:57</div></div>
+<div class="ttc" id="aclass_f_input_core_html_a36a77b4507f648806c8bad2ac08baec6"><div class="ttname"><a href="../../d9/dc7/class_f_input_core.html#a36a77b4507f648806c8bad2ac08baec6">FInputCore::EscDelegate</a></div><div class="ttdeci">FEscDelegate EscDelegate</div><div class="ttdef"><b>Definition</b> InputCore.h:58</div></div>
+<div class="ttc" id="aclass_f_input_core_html_a44878f8dc5530964eabad99aa8bd4f4a"><div class="ttname"><a href="../../d9/dc7/class_f_input_core.html#a44878f8dc5530964eabad99aa8bd4f4a">FInputCore::SpaceDelegate</a></div><div class="ttdeci">FSpaceDelegate SpaceDelegate</div><div class="ttdef"><b>Definition</b> InputCore.h:63</div></div>
+<div class="ttc" id="aclass_f_input_core_html_a5dd5eea4111d9636d0fe61449584c184"><div class="ttname"><a href="../../d9/dc7/class_f_input_core.html#a5dd5eea4111d9636d0fe61449584c184">FInputCore::AxisDelegate</a></div><div class="ttdeci">FAxisDelegate AxisDelegate</div><div class="ttdef"><b>Definition</b> InputCore.h:56</div></div>
+<div class="ttc" id="aclass_f_input_core_html_aa9453c84232f96b6bcb1cc51d8d50413"><div class="ttname"><a href="../../d9/dc7/class_f_input_core.html#aa9453c84232f96b6bcb1cc51d8d50413">FInputCore::F11Delegate</a></div><div class="ttdeci">FF11Delegate F11Delegate</div><div class="ttdef"><b>Definition</b> InputCore.h:64</div></div>
+<div class="ttc" id="aclass_f_input_core_html_ab0373a673beebb05d7add4170baaf8f3"><div class="ttname"><a href="../../d9/dc7/class_f_input_core.html#ab0373a673beebb05d7add4170baaf8f3">FInputCore::SDelegate</a></div><div class="ttdeci">FSDelegate SDelegate</div><div class="ttdef"><b>Definition</b> InputCore.h:60</div></div>
+<div class="ttc" id="aclass_f_input_core_html_ab0575f09809f4ae33d136c7f21aa3a13"><div class="ttname"><a href="../../d9/dc7/class_f_input_core.html#ab0575f09809f4ae33d136c7f21aa3a13">FInputCore::DDelegate</a></div><div class="ttdeci">FDDelegate DDelegate</div><div class="ttdef"><b>Definition</b> InputCore.h:62</div></div>
+<div class="ttc" id="aclass_f_input_core_html_abaae07d13f1dba84a3855ef5b0803d74"><div class="ttname"><a href="../../d9/dc7/class_f_input_core.html#abaae07d13f1dba84a3855ef5b0803d74">FInputCore::ActionDelegate</a></div><div class="ttdeci">FActionDelegate ActionDelegate</div><div class="ttdef"><b>Definition</b> InputCore.h:55</div></div>
+<div class="ttc" id="aclass_f_input_core_html_af4969a671f5bafb293cb795723013ab3"><div class="ttname"><a href="../../d9/dc7/class_f_input_core.html#af4969a671f5bafb293cb795723013ab3">FInputCore::ADelegate</a></div><div class="ttdeci">FADelegate ADelegate</div><div class="ttdef"><b>Definition</b> InputCore.h:61</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
+</body>
+</html>

@@ -1,0 +1,45 @@
+\doxysection{Структура FAllocation\+Data}
+\hypertarget{struct_f_allocation_data}{}\label{struct_f_allocation_data}\index{FAllocationData@{FAllocationData}}
+\doxysubsubsection*{Открытые атрибуты}
+\begin{DoxyCompactItemize}
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_f_allocation_data_aae0715b27749d1594c136f5a9a507348}{Full\+Allocation\+Pointer}}
+\item 
+\mbox{\hyperlink{_platform_8h_a2c46f1fb01e11216aa2c983307deafb4}{SIZE\+\_\+T}} \mbox{\hyperlink{struct_f_allocation_data_a029a18ab29b9a0838bb401f6cae7c586}{Full\+Size}}
+\item 
+\mbox{\hyperlink{_platform_8h_a2c46f1fb01e11216aa2c983307deafb4}{SIZE\+\_\+T}} \mbox{\hyperlink{struct_f_allocation_data_a9dc3bec6f96c5ff2d76f21e0ee26c6e9}{Size}}
+\item 
+\mbox{\hyperlink{_platform_8h_a2c46f1fb01e11216aa2c983307deafb4}{SIZE\+\_\+T}} \mbox{\hyperlink{struct_f_allocation_data_a6abb9f4546ee0328c05873d303ba386f}{Sentinel}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Данные класса}
+\Hypertarget{struct_f_allocation_data_aae0715b27749d1594c136f5a9a507348}\label{struct_f_allocation_data_aae0715b27749d1594c136f5a9a507348} 
+\index{FAllocationData@{FAllocationData}!FullAllocationPointer@{FullAllocationPointer}}
+\index{FullAllocationPointer@{FullAllocationPointer}!FAllocationData@{FAllocationData}}
+\doxysubsubsection{\texorpdfstring{FullAllocationPointer}{FullAllocationPointer}}
+{\footnotesize\ttfamily void\texorpdfstring{$\ast$}{*} FAllocation\+Data\+::\+Full\+Allocation\+Pointer}
+
+Pointer to the full allocation. Needed so the OS knows what to free. \Hypertarget{struct_f_allocation_data_a029a18ab29b9a0838bb401f6cae7c586}\label{struct_f_allocation_data_a029a18ab29b9a0838bb401f6cae7c586} 
+\index{FAllocationData@{FAllocationData}!FullSize@{FullSize}}
+\index{FullSize@{FullSize}!FAllocationData@{FAllocationData}}
+\doxysubsubsection{\texorpdfstring{FullSize}{FullSize}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_platform_8h_a2c46f1fb01e11216aa2c983307deafb4}{SIZE\+\_\+T}} FAllocation\+Data\+::\+Full\+Size}
+
+Full size of the allocation including the extra page. \Hypertarget{struct_f_allocation_data_a6abb9f4546ee0328c05873d303ba386f}\label{struct_f_allocation_data_a6abb9f4546ee0328c05873d303ba386f} 
+\index{FAllocationData@{FAllocationData}!Sentinel@{Sentinel}}
+\index{Sentinel@{Sentinel}!FAllocationData@{FAllocationData}}
+\doxysubsubsection{\texorpdfstring{Sentinel}{Sentinel}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_platform_8h_a2c46f1fb01e11216aa2c983307deafb4}{SIZE\+\_\+T}} FAllocation\+Data\+::\+Sentinel}
+
+\Hypertarget{struct_f_allocation_data_a9dc3bec6f96c5ff2d76f21e0ee26c6e9}\label{struct_f_allocation_data_a9dc3bec6f96c5ff2d76f21e0ee26c6e9} 
+\index{FAllocationData@{FAllocationData}!Size@{Size}}
+\index{Size@{Size}!FAllocationData@{FAllocationData}}
+\doxysubsubsection{\texorpdfstring{Size}{Size}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_platform_8h_a2c46f1fb01e11216aa2c983307deafb4}{SIZE\+\_\+T}} FAllocation\+Data\+::\+Size}
+
+Size of the allocation requested. 
+
+Объявления и описания членов структуры находятся в файле\+:\begin{DoxyCompactItemize}
+\item 
+Dark Engine/\+Source/\+Runtime/\+Core/\+Public/\+HAL/\mbox{\hyperlink{_f_memory_8inl}{FMemory.\+inl}}\end{DoxyCompactItemize}

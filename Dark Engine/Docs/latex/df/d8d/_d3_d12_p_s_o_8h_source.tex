@@ -1,0 +1,228 @@
+\doxysection{D3\+D12\+PSO.\+h}
+\hypertarget{_d3_d12_p_s_o_8h_source}{}\label{_d3_d12_p_s_o_8h_source}\index{Dark Engine/Source/Runtime/Render/D3D12/D3D12PSO.h@{Dark Engine/Source/Runtime/Render/D3D12/D3D12PSO.h}}
+\mbox{\hyperlink{_d3_d12_p_s_o_8h}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <Windows.h>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_d3_d12_main_8h}{D3D12Main.h}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{_array_8h}{Containers/Array.h}}>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{_dark_string_8h}{Containers/DarkString.h}}>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{_core_defines_8h}{CoreDefines.h}}>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_d3_d12_mesh_8h}{D3D12Mesh.h}}"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_d3_d12_utils_8h}{D3D12Utils.h}}"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}string"{}}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_d3_d12_shader_desc}{D3D12ShaderDesc}}}
+\DoxyCodeLine{00016\ \{}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \ \ \ \ }
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \};}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_d3_d12_pipeline_shader_root_signature}{D3D12PipelineShaderRootSignature}}}
+\DoxyCodeLine{00025\ \{}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_d3_d12_renderer}{D3D12Renderer}};}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_d3_d_util}{D3DUtil}};}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{static}\ UINT\ \_idCounter;}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ ComPtr<ID3D12PipelineState>\ m\_pipelineState;}
+\DoxyCodeLine{00031\ \ \ \ \ ComPtr<ID3D12RootSignature>\ m\_rootSignature;}
+\DoxyCodeLine{00032\ \ \ \ \ D3D12\_INPUT\_LAYOUT\_DESC\ m\_inputLayout;}
+\DoxyCodeLine{00033\ \ \ \ \ UINT\ id;}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00039\ \ \ \ \ \mbox{\hyperlink{class_d3_d12_pipeline_shader_root_signature_aeaa6037968153462e21578eff07a6a77}{D3D12PipelineShaderRootSignature}}(ID3D12Device8*\ device,}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_f_string}{FString}}\ vertexShaderPath,}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_f_string}{FString}}\ pixelShaderPath,}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ TArray<D3D12\_ROOT\_PARAMETER1>\ rootParametrs,\ D3D12\_INPUT\_LAYOUT\_DESC\ layout\ =\ Vertex::InputLayout,}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ depth\ =\ \textcolor{keyword}{true},}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ D3D12\_CULL\_MODE\ CullMode\ =\ D3D12\_CULL\_MODE\_BACK,\ D3D12\_COMPARISON\_FUNC\ depthFunc\ =\ D3D12\_COMPARISON\_FUNC\_LESS)}
+\DoxyCodeLine{00045\ \ \ \ \ \{}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{comment}{//CD3DX12\_ROOT\_PARAMETER1\ parametrs[1];}}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{comment}{//CD3DX12\_DESCRIPTOR\_RANGE1\ cbvTable;}}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ staticSamplers\ =\ \mbox{\hyperlink{class_d3_d_util_a33ddf7ded682c80de6a9b16ecd4b4d1e}{D3DUtil::GetStaticSamples}}();}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{comment}{//cbvTable.Init(D3D12\_DESCRIPTOR\_RANGE\_TYPE\_CBV,\ 1,\ 0);}}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{comment}{//parametrs[0].InitAsDescriptorTable(1,\ \&cbvTable);}}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ CD3DX12\_VERSIONED\_ROOT\_SIGNATURE\_DESC\ rootSigDescVers(}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ rootParametrs.GetSize(),}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ rootParametrs.GetData(),}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ staticSamplers.GetSize(),}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ staticSamplers.GetData(),}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ D3D12\_ROOT\_SIGNATURE\_FLAG\_ALLOW\_INPUT\_ASSEMBLER\_INPUT\_LAYOUT);}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ ComPtr<ID3DBlob>\ rootSignatureBlob;}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ ComPtr<ID3DBlob>\ errorBlob;}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \textcolor{comment}{//D3D12SerializeRootSignature(\&rootSigDesc,\ D3D\_ROOT\_SIGNATURE\_VERSION\_1,\ \&rootSignatureBlob,\ \&errorBlob);}}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ D3D12SerializeVersionedRootSignature(\&rootSigDescVers,\ \&rootSignatureBlob,\ \&errorBlob);}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (errorBlob)}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_f_string}{FString}}\ err\ =\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*)errorBlob-\/>GetBufferPointer();}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_d3_d12_util_8h_a52cef664847e6cd74140a15d4fad3108}{DXCall}}(device-\/>CreateRootSignature(0,\ rootSignatureBlob-\/>GetBufferPointer(),}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ rootSignatureBlob-\/>GetBufferSize(),\ IID\_PPV\_ARGS(\&m\_rootSignature)));}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ pUtils\ =\ \mbox{\hyperlink{class_d3_d_util_abfaeb1ad0f86ea2c404eeba39e8bca91}{D3DUtil::m\_Utils}}.Get();}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ pCompiler\ =\ \mbox{\hyperlink{class_d3_d_util_a2f763111c1fc718b6063cce196946187}{D3DUtil::m\_ShaderCompiler}}.Get();}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ ComPtr<IDxcBlob>\ pVertexShader;}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ ComPtr<IDxcBlob>\ pPixelShader;}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ ComPtr<IDxcIncludeHandler>\ pIncludeHandler;}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_d3_d_util_abfaeb1ad0f86ea2c404eeba39e8bca91}{D3DUtil::m\_Utils}}-\/>CreateDefaultIncludeHandler(\&pIncludeHandler);}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*int\ len\ =\ MultiByteToWideChar(CP\_ACP,\ 0,\ vertexShaderPath.c\_str(),\ -\/1,\ NULL,\ 0);}}
+\DoxyCodeLine{00091\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ wstring\ wPathShader(L"{}\ "{},\ len);}}
+\DoxyCodeLine{00092\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ MultiByteToWideChar(CP\_ACP,\ 0,\ vertexShaderPath.c\_str(),\ -\/1,\ wPathShader.data(),\ len);*/}}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ LPCWSTR\ pszArgs[]\ =}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ L\textcolor{stringliteral}{"{}-\/E\ main"{}},}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ L\textcolor{stringliteral}{"{}-\/T\ vs\_6\_6"{}},}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ L\textcolor{stringliteral}{"{}Zi"{}},}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vertexShaderPath.Data()}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//L"{}-\/E"{},\ L"{}main"{},\ \ \ \ \ \ \ \ \ \ \ \ \ \ //\ Entry\ point.}}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//L"{}-\/T"{},\ L"{}vs\_6\_6"{},\ \ \ \ \ \ \ \ \ \ \ \ //\ Target.}}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ ComPtr<IDxcBlobEncoding>\ pSource\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ pUtils-\/>LoadFile(vertexShaderPath.Data(),\ \textcolor{keyword}{nullptr},\ \&pSource);}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ DxcBuffer\ Source;}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ Source.Ptr\ =\ pSource-\/>GetBufferPointer();}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ Source.Size\ =\ pSource-\/>GetBufferSize();}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ Source.Encoding\ =\ DXC\_CP\_ACP;}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ std::wstring\ ws\ =\ (\textcolor{keywordtype}{wchar\_t}*)pSource-\/>GetBufferPointer();}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ ComPtr<IDxcResult>\ \ pResult;}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_d3_d_util_a2f763111c1fc718b6063cce196946187}{D3DUtil::m\_ShaderCompiler}}-\/>Compile(\&Source,\ pszArgs,\ \_countof(pszArgs),\ pIncludeHandler.Get(),\ IID\_PPV\_ARGS(\&pResult));}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ pResult-\/>GetOutput(DXC\_OUT\_OBJECT,\ IID\_PPV\_ARGS(\&pVertexShader),\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ ComPtr<IDxcIncludeHandler>\ pIncludeHandler;}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_d3_d_util_abfaeb1ad0f86ea2c404eeba39e8bca91}{D3DUtil::m\_Utils}}-\/>CreateDefaultIncludeHandler(\&pIncludeHandler);}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*int\ len\ =\ MultiByteToWideChar(CP\_ACP,\ 0,\ pixelShaderPath.c\_str(),\ -\/1,\ NULL,\ 0);}}
+\DoxyCodeLine{00130\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ wstring\ wPathShader(L"{}\ "{},\ len);}}
+\DoxyCodeLine{00131\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ MultiByteToWideChar(CP\_ACP,\ 0,\ pixelShaderPath.c\_str(),\ -\/1,\ wPathShader.data(),\ len);*/}}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ LPCWSTR\ pszArgs[]\ =}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ L\textcolor{stringliteral}{"{}-\/E\ main"{}},}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ L\textcolor{stringliteral}{"{}-\/T\ ps\_6\_6"{}},}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ L\textcolor{stringliteral}{"{}Zi"{}},}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vertexShaderPath.Data()}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//L"{}-\/E"{},\ L"{}main"{},\ \ \ \ \ \ \ \ \ \ \ \ \ \ //\ Entry\ point.}}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//L"{}-\/T"{},\ L"{}vs\_6\_6"{},\ \ \ \ \ \ \ \ \ \ \ \ //\ Target.}}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ ComPtr<IDxcBlobEncoding>\ pSource\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ pUtils-\/>LoadFile(vertexShaderPath.Data(),\ \textcolor{keyword}{nullptr},\ \&pSource);}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ DxcBuffer\ Source;}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ Source.Ptr\ =\ pSource-\/>GetBufferPointer();}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ \ \ Source.Size\ =\ pSource-\/>GetBufferSize();}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \ \ \ \ Source.Encoding\ =\ DXC\_CP\_ACP;}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \ \ \ \ std::wstring\ ws\ =\ (\textcolor{keywordtype}{wchar\_t}*)pSource-\/>GetBufferPointer();}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \ \ \ \ ComPtr<IDxcResult>\ \ pResult;}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_d3_d_util_a2f763111c1fc718b6063cce196946187}{D3DUtil::m\_ShaderCompiler}}-\/>Compile(\&Source,\ pszArgs,\ \_countof(pszArgs),\ pIncludeHandler.Get(),\ IID\_PPV\_ARGS(\&pResult));}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ pResult-\/>GetOutput(DXC\_OUT\_OBJECT,\ IID\_PPV\_ARGS(\&pPixelShader),\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00162\ }
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00164\ }
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \textcolor{comment}{//ComPtr<ID3DBlob>\ vertexShader;}}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \textcolor{comment}{//ComPtr<ID3DBlob>\ pixelShader;}}
+\DoxyCodeLine{00167\ }
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00175\ }
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \textcolor{comment}{//D3DReadFileToBlob(strw(vertexShaderPath).c\_str(),\ \&vertexShader);}}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \textcolor{comment}{//D3DReadFileToBlob(strw(pixelShaderPath).c\_str(),\ \&pixelShader);}}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00179\ }
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ D3D12\_RASTERIZER\_DESC\ rasterDesc\ =\ \{\};}
+\DoxyCodeLine{00181\ }
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ rasterDesc\ =\ CD3DX12\_RASTERIZER\_DESC(D3D12\_DEFAULT);}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \textcolor{comment}{//rasterDesc.FillMode\ =\ D3D12\_FILL\_MODE\_WIREFRAME;}}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ rasterDesc.CullMode\ =\ CullMode;}
+\DoxyCodeLine{00185\ }
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ D3D12\_GRAPHICS\_PIPELINE\_STATE\_DESC\ pipelineStateDesc\ =\ \{\};}
+\DoxyCodeLine{00188\ }
+\DoxyCodeLine{00189\ }
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ pipelineStateDesc.InputLayout\ =\ layout;}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ pipelineStateDesc.pRootSignature\ =\ m\_rootSignature.Get();}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ pipelineStateDesc.VS\ =\ \{\ pVertexShader-\/>GetBufferPointer(),\ pVertexShader-\/>GetBufferSize()\ \};}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ pipelineStateDesc.PS\ =\ \{\ pPixelShader-\/>GetBufferPointer(),\ pPixelShader-\/>GetBufferSize()\ \};}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ pipelineStateDesc.RasterizerState\ =\ rasterDesc;}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ pipelineStateDesc.BlendState\ =\ CD3DX12\_BLEND\_DESC(CD3DX12\_DEFAULT());}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(depth)}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \ \ \ \ pipelineStateDesc.DepthStencilState\ =\ CD3DX12\_DEPTH\_STENCIL\_DESC(CD3DX12\_DEFAULT());}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \ \ \ \ pipelineStateDesc.DepthStencilState.DepthFunc\ =\ depthFunc;}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \ \ \ \ pipelineStateDesc.DepthStencilState.DepthEnable\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ pipelineStateDesc.SampleMask\ =\ UINT\_MAX;}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ pipelineStateDesc.PrimitiveTopologyType\ =\ D3D12\_PRIMITIVE\_TOPOLOGY\_TYPE\_TRIANGLE;}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ pipelineStateDesc.NumRenderTargets\ =\ 1;}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ pipelineStateDesc.RTVFormats[0]\ =\ DXGI\_FORMAT\_R8G8B8A8\_UNORM;}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ pipelineStateDesc.SampleDesc\ =\ \{\ 1,\ 0\ \};}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ pipelineStateDesc.DSVFormat\ =\ DXGI\_FORMAT\_D32\_FLOAT;}
+\DoxyCodeLine{00212\ }
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ er\ =\ (device-\/>CreateGraphicsPipelineState(\&pipelineStateDesc,\ IID\_PPV\_ARGS(\&m\_pipelineState)));}
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00216\ }
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{id}\ =\ \_idCounter++;}
+\DoxyCodeLine{00218\ }
+\DoxyCodeLine{00219\ \ \ \ \ \}}
+\DoxyCodeLine{00220\ }
+\DoxyCodeLine{00221\ \ \ \ \ UINT\ \mbox{\hyperlink{class_d3_d12_pipeline_shader_root_signature_a40e902b7ebc23c403628b46e1665cb3a}{GetID}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ id;\ \}}
+\DoxyCodeLine{00222\ }
+\DoxyCodeLine{00223\ }
+\DoxyCodeLine{00224\ }
+\DoxyCodeLine{00225\ }
+\DoxyCodeLine{00226\ \};}
+
+\end{DoxyCode}

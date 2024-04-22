@@ -1,0 +1,272 @@
+\doxysection{Dark\+String.\+h}
+\hypertarget{_dark_string_8h_source}{}\label{_dark_string_8h_source}\index{Dark Engine/Source/Runtime/Core/Public/Containers/DarkString.h@{Dark Engine/Source/Runtime/Core/Public/Containers/DarkString.h}}
+\mbox{\hyperlink{_dark_string_8h}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{_platform_8h}{HAL/Platform.h}}>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_var_args_8h}{Misc/VarArgs.h}}"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_f_string}{FString}}}
+\DoxyCodeLine{00017\ \{}
+\DoxyCodeLine{00018\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{class_f_string_acc6e2ac6135356e2b8b909ff61bf668c}{FString}}()\ :\ \_string(L\textcolor{stringliteral}{"{}"{}})\ \{\}}
+\DoxyCodeLine{00020\ \ \ \ \ \mbox{\hyperlink{class_f_string_acc6e2ac6135356e2b8b909ff61bf668c}{FString}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{_platform_8h_ac65a9f028228aed366b4d8f24a8ab9e9}{ANSICHAR}}*\ Str);}
+\DoxyCodeLine{00021\ \ \ \ \ \mbox{\hyperlink{class_f_string_acc6e2ac6135356e2b8b909ff61bf668c}{FString}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{_platform_8h_a827f84d187d97e962586441ccb428bcd}{WIDECHAR}}*\ Str);}
+\DoxyCodeLine{00022\ \ \ \ \ \mbox{\hyperlink{class_f_string_a250e30d9c46e4a7e8cff47b899165e26}{FString}}(\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ \mbox{\hyperlink{_d3_d12_utils_8h_a49802c782fb40bd8e79835ef12871ddeaff9abf2b1a689f70a77a18da50c01d9f}{Size}})\ :\ \_string(\mbox{\hyperlink{_d3_d12_utils_8h_a49802c782fb40bd8e79835ef12871ddeaff9abf2b1a689f70a77a18da50c01d9f}{Size}}\ ,L\textcolor{stringliteral}{'\(\backslash\)0'})\ \{\}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \mbox{\hyperlink{class_f_string_acc6e2ac6135356e2b8b909ff61bf668c}{FString}}(\textcolor{keyword}{const}\ std::wstring\&\ Str);}
+\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{class_f_string_acc6e2ac6135356e2b8b909ff61bf668c}{FString}}(\textcolor{keyword}{const}\ std::string\&\ Str);}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{class_f_string_ae9fd7f4203163fe1724bc6309e5e5862}{FString}}(\mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}}*\ Str)\ :\ \_string(Str)\ \{\}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \mbox{\hyperlink{class_f_string_af36b24ba13804e38ff1e8043bf41533d}{FString}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_f_string}{FString}}\&\ Str)}
+\DoxyCodeLine{00030\ \ \ \ \ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \_string\ =\ Str.\_string;}
+\DoxyCodeLine{00032\ \ \ \ \ \}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \mbox{\hyperlink{class_f_string}{FString}}\&\ \mbox{\hyperlink{class_f_string_a732671533c37673d1920e0c3613a79f1}{AppendV}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}}*\ Fmt,\ va\_list\ Args)}
+\DoxyCodeLine{00035\ \ \ \ \ \{}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}}\ Buf[512];}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}\ Res\ =\ \_vsnwprintf(Buf,\ 512,\ Fmt,\ Args);}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (Res\ >=\ 0\ \&\&\ Res\ <\ \textcolor{keyword}{sizeof}(Buf))}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ *\textcolor{keyword}{this}\ +=\ Buf;}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ bChangedString\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00044\ \ \ \ \ \}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_string_ae1b6f73f9ba4aed66a1758bb6918bfc5}{PopBack}}()}
+\DoxyCodeLine{00047\ \ \ \ \ \{}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \_string.erase(\_string.begin()\ +\ \_string.size()\ -\/\ 1);}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ bChangedString\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00050\ \ \ \ \ \}}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_string_a01ad6a4ea5c276a9e3456fc512e6fd11}{PopFirst}}()}
+\DoxyCodeLine{00053\ \ \ \ \ \{}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \_string.erase(\_string.begin());}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ bChangedString\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00056\ \ \ \ \ \}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}}\ \mbox{\hyperlink{class_f_string_ab097c6c342d66e45f731098ef2aff21b}{Back}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00059\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \_string.size()\ !=\ 0\ ?\ \_string.back()\ :\ \mbox{\hyperlink{_platform_8h_a2978f60d40d64f3605b5a99f66f292a9}{TEXT}}(\textcolor{charliteral}{'\(\backslash\)0'});}
+\DoxyCodeLine{00061\ \ \ \ \ \}}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}}\ \mbox{\hyperlink{class_f_string_ac0cf09296184f01998d6d6577ac51209}{First}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00064\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \_string.size()\ !=\ 0\ ?\ \_string.front()\ :\ \mbox{\hyperlink{_platform_8h_a2978f60d40d64f3605b5a99f66f292a9}{TEXT}}(\textcolor{charliteral}{'\(\backslash\)0'});}
+\DoxyCodeLine{00066\ \ \ \ \ \}}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_f_string_ad7a63cbdfe97bbe6b51f4366ff5f3575}{Contains}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_f_string}{FString}}\&\ Other)}
+\DoxyCodeLine{00069\ \ \ \ \ \{}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \_string.find(Other.\_string)\ !=\ std::wstring::npos;}
+\DoxyCodeLine{00071\ \ \ \ \ \}}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}\ \mbox{\hyperlink{class_f_string_a979d15c4479439b530eb444ee7fcad6d}{FromString}}(\mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}\&\ Value,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}}*\ Buffer)}
+\DoxyCodeLine{00074\ \ \ \ \ \{}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Value\ =\ std::stoi(Buffer);}}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ Value\ =\ wcstol(Buffer,\ \textcolor{keyword}{nullptr},\ 10);}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Value;}
+\DoxyCodeLine{00078\ \ \ \ \ \}}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_f_string_a5310f8669fd6c5ae47a516a7ec16d329}{FromString}}(\textcolor{keywordtype}{float}\&\ Value,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}}*\ Buffer)}
+\DoxyCodeLine{00081\ \ \ \ \ \{}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Value\ =\ std::stof(Buffer);}}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ Value\ =\ wcstof(Buffer,\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Value;}
+\DoxyCodeLine{00085\ \ \ \ \ \}}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_f_string_ae6cadba41b98d281e226a5193558934d}{FromString}}(\textcolor{keywordtype}{bool}\&\ Value,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}}*\ Buffer)}
+\DoxyCodeLine{00087\ \ \ \ \ \{}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Value\ =\ std::stoi(Buffer);}}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ Value\ =\ wcstol(Buffer,\ \textcolor{keyword}{nullptr},\ 10);}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Value;}
+\DoxyCodeLine{00091\ \ \ \ \ \}}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_f_string}{FString}}\ \mbox{\hyperlink{class_f_string_aebf682e2e5c01bd4ab069316192ab791}{FromString}}(\mbox{\hyperlink{class_f_string}{FString}}\&\ Value,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}}*\ Buffer)}
+\DoxyCodeLine{00093\ \ \ \ \ \{}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ Value\ =\ Buffer;}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Value;}
+\DoxyCodeLine{00096\ \ \ \ \ \}}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ ...TypeArgs>}
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_f_string}{FString}}\ \mbox{\hyperlink{class_f_string_a1dfcf0015234ee1810ed318e32dc6543}{PrintF}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}}*\ Fmt,\ TypeArgs...\ Args)}
+\DoxyCodeLine{00104\ \ \ \ \ \{}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_f_string_a83898dc9e0b7882bd20f4d4164cc4182}{PrintFInternal}}(Fmt,\ Args...);}
+\DoxyCodeLine{00106\ \ \ \ \ \}}
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_f_string}{FString}}\ \mbox{\hyperlink{class_f_string_a83898dc9e0b7882bd20f4d4164cc4182}{PrintFInternal}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}}*\ Fmt,\ ...);}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \ \ \ \ \mbox{\hyperlink{class_f_string}{FString}}\&\ \mbox{\hyperlink{class_f_string_adfe0dc646cb4200fe9662945b3fa9b36}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}}*\ Str)\ \{\ \_string\ =\ Str;\ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};\ \}}
+\DoxyCodeLine{00111\ \ \ \ \ \mbox{\hyperlink{class_f_string}{FString}}\&\ \mbox{\hyperlink{class_f_string_aa2384e02049048d5a8865f247d5f441a}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_f_string}{FString}}\&\ Str)\ \{\ \_string\ =\ Str.\_string;\ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};\ \}}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_f_string_a21362d828c3e9a266a00351f2e2e81aa}{operator-\/}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00114\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_f_string_a07f2563a2ad7456ddf5c2c4e8a755a7f}{GetStr}}();}
+\DoxyCodeLine{00116\ \ \ \ \ \}}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_f_string_abc9396f8bfda870279b907c2d8e7542a}{operator!}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00119\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_f_string_a3b29897373b96447c3bc75a9b422f3d5}{GetUTF8}}();}
+\DoxyCodeLine{00121\ \ \ \ \ \}}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00123\ \ \ \ \ \mbox{\hyperlink{class_f_string}{FString}}\ \mbox{\hyperlink{class_f_string_aa69f8470a02d19b32553ef327a8b5939}{operator/}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_f_string}{FString}}\&\ Other)}
+\DoxyCodeLine{00124\ \ \ \ \ \{}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_f_string_a1dfcf0015234ee1810ed318e32dc6543}{FString::PrintF}}(\mbox{\hyperlink{_platform_8h_a2978f60d40d64f3605b5a99f66f292a9}{TEXT}}(\textcolor{stringliteral}{"{}\%s/\%s"{}}),\ \_string.data(),\ *Other);}
+\DoxyCodeLine{00126\ \ \ \ \ \}}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00129\ \ \ \ \ \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}}\&\ \mbox{\hyperlink{class_f_string_aa020b746f92f5f1c89c5abced2e7f716}{operator[]}}(\mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}\ Index);}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \ \ \ \ \mbox{\hyperlink{class_f_string}{FString}}\&\ \mbox{\hyperlink{class_f_string_a6dbc3e342038b594bae6b22f84d0839a}{Replace}}(\mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}}\ Str1,\ \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}}\ Str2)}
+\DoxyCodeLine{00133\ \ \ \ \ \{}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ std::replace(\_string.begin(),\ \_string.end(),\ Str1,\ Str2);}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00136\ \ \ \ \ \}}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_string_aaed73274c0a1574617872826de0f7059}{Resize}}(\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ NewSize)}
+\DoxyCodeLine{00140\ \ \ \ \ \{}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \_string.resize(NewSize);}
+\DoxyCodeLine{00142\ \ \ \ \ \}}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00144\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_string_ac19cac4f3eb926797208cce926941462}{Reserve}}(\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ NewReserve)}
+\DoxyCodeLine{00145\ \ \ \ \ \{}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \_string.reserve(NewReserve);}
+\DoxyCodeLine{00147\ \ \ \ \ \}}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00149\ \ \ \ \ std::wstring\&\ \mbox{\hyperlink{class_f_string_a2c25542d19beefb05150e328d71ce0b4}{GetNativeString}}()}
+\DoxyCodeLine{00150\ \ \ \ \ \{}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \_string;}
+\DoxyCodeLine{00152\ \ \ \ \ \}}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00155\ \ \ \ \ \mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}\ \mbox{\hyperlink{class_f_string_acb15a1772b66f10292727b09cbd75fbe}{Len}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00156\ \ \ \ \ \textcolor{keyword}{decltype}(\textcolor{keyword}{auto})\ \mbox{\hyperlink{class_f_string_a8433547dd75c7b12467cdc367da66eb0}{Data}}()\ \textcolor{keyword}{const}\ \{\ \textcolor{keywordflow}{return}\ \_string.c\_str();\ \}}
+\DoxyCodeLine{00157\ \ \ \ \ \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}}*\ \mbox{\hyperlink{class_f_string_a40c63b496ffc2755dadcfc1f3327ba54}{Data}}()\ \{\ \textcolor{keywordflow}{return}\ \_string.data();\ \}}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00159\ \ \ \ \ std::string\ \mbox{\hyperlink{class_f_string_a6a807dc7b602ae5d196c18a3e5788325}{ToString}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00162\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00163\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_f_string}{FString}}\ \mbox{\hyperlink{class_f_string_a59ee575536fec3ddcf537da80f63978b}{NumToString}}(T\ Val)}
+\DoxyCodeLine{00164\ \ \ \ \ \{}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::to\_wstring(Val);}
+\DoxyCodeLine{00166\ \ \ \ \ \}}
+\DoxyCodeLine{00167\ }
+\DoxyCodeLine{00168\ \ \ \ \ \textcolor{keyword}{template}<>}
+\DoxyCodeLine{00169\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_f_string}{FString}}\ \mbox{\hyperlink{class_f_string_a56eb3501e6c3cccfe422e7d3e446850a}{NumToString}}(\mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}\ Val)}
+\DoxyCodeLine{00170\ \ \ \ \ \{}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::to\_wstring(Val);}
+\DoxyCodeLine{00172\ \ \ \ \ \}}
+\DoxyCodeLine{00173\ \ \ \ \ \textcolor{keyword}{template}<>}
+\DoxyCodeLine{00174\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_f_string}{FString}}\ \mbox{\hyperlink{class_f_string_a334733e569eee432807250bfc9017b40}{NumToString}}(\textcolor{keywordtype}{float}\ Val)}
+\DoxyCodeLine{00175\ \ \ \ \ \{}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::to\_wstring(Val);}
+\DoxyCodeLine{00177\ \ \ \ \ \}}
+\DoxyCodeLine{00178\ \ \ \ \ \textcolor{keyword}{template}<>}
+\DoxyCodeLine{00179\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_f_string}{FString}}\ \mbox{\hyperlink{class_f_string_af0a9da2b9c6cc8bb8117642c01774e4b}{NumToString}}(\textcolor{keywordtype}{bool}\ Val)}
+\DoxyCodeLine{00180\ \ \ \ \ \{}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::to\_wstring(Val);}
+\DoxyCodeLine{00182\ \ \ \ \ \}}
+\DoxyCodeLine{00183\ \ \ \ \ \textcolor{keyword}{template}<>}
+\DoxyCodeLine{00184\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_f_string}{FString}}\ \mbox{\hyperlink{class_f_string_a2380da508872410ec5636bfed7c2e7f0}{NumToString}}(\mbox{\hyperlink{class_f_string}{FString}}\ Val)}
+\DoxyCodeLine{00185\ \ \ \ \ \{}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Val;}
+\DoxyCodeLine{00187\ \ \ \ \ \}}
+\DoxyCodeLine{00188\ }
+\DoxyCodeLine{00189\ }
+\DoxyCodeLine{00190\ \ \ \ \ }
+\DoxyCodeLine{00191\ }
+\DoxyCodeLine{00192\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_f_string_a07f2563a2ad7456ddf5c2c4e8a755a7f}{GetStr}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00193\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \_tempString\ =\ \mbox{\hyperlink{class_f_string_a6a807dc7b602ae5d196c18a3e5788325}{ToString}}();}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \_tempString.c\_str();}
+\DoxyCodeLine{00196\ \ \ \ \ \}}
+\DoxyCodeLine{00197\ }
+\DoxyCodeLine{00198\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_f_string_a3b29897373b96447c3bc75a9b422f3d5}{GetUTF8}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00199\ }
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00201\ }
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00203\ \ \ \ \ \mbox{\hyperlink{class_f_string}{FString}}\ \mbox{\hyperlink{class_f_string_af552fd9fbb6998705de60f9b89e9508b}{operator+}}(\mbox{\hyperlink{class_f_string}{FString}}\ R)}
+\DoxyCodeLine{00204\ \ \ \ \ \{}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ std::wstring\ Result;}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ Result.resize(\_string.size()\ +\ R.\_string.size());}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ wcscat(Result.data(),\ \_string.c\_str());}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ wcscat(Result.data(),\ R.\_string.c\_str());}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Result;}
+\DoxyCodeLine{00211\ }
+\DoxyCodeLine{00212\ \ \ \ \ \}}
+\DoxyCodeLine{00213\ \ \ \ \ \mbox{\hyperlink{class_f_string}{FString}}\&\ \mbox{\hyperlink{class_f_string_ad6c486f39bc31cadd0774317ef8fd44d}{operator+=}}(\mbox{\hyperlink{class_f_string}{FString}}\ R)}
+\DoxyCodeLine{00214\ \ \ \ \ \{}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \_string\ +=\ R.\_string;}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00217\ \ \ \ \ \}}
+\DoxyCodeLine{00218\ }
+\DoxyCodeLine{00219\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}}*\ \mbox{\hyperlink{class_f_string_aab60592d79f3040e22cd5af84d02ebb6}{operator*}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \_string.data();\ \}}
+\DoxyCodeLine{00220\ \ \ \ \ \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}}*\ \mbox{\hyperlink{class_f_string_a93b3a9de90f9cc6832b86a9c6f973884}{operator*}}()\ \{\ \textcolor{keywordflow}{return}\ \_string.data();\ \}}
+\DoxyCodeLine{00221\ }
+\DoxyCodeLine{00222\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_f_string_a6592520a8d399b00b121c29d66465b44}{operator==}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_f_string}{FString}}\&\ R)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00223\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \_string.compare(R.\_string)\ ==\ 0;}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \textcolor{comment}{//return\ \_string\ ==\ R.\_string;}}
+\DoxyCodeLine{00226\ \ \ \ \ \}}
+\DoxyCodeLine{00227\ }
+\DoxyCodeLine{00228\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_f_string_aa40dd002b9847afca677bb29056d09ed}{operator<}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_f_string}{FString}}\&\ R)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00229\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \_string\ <\ R.\_string;}
+\DoxyCodeLine{00231\ \ \ \ \ \}}
+\DoxyCodeLine{00232\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_f_string_a00242670ba5754185f1ea83d0bdbd609}{operator>}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_f_string}{FString}}\&\ R)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00233\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \_string\ >\ R.\_string;}
+\DoxyCodeLine{00235\ \ \ \ \ \}}
+\DoxyCodeLine{00236\ }
+\DoxyCodeLine{00237\ }
+\DoxyCodeLine{00238\ \ \ \ \ \textcolor{keyword}{decltype}(\textcolor{keyword}{auto})\ \mbox{\hyperlink{class_f_string_a3c4465d298834877d08269950a63408a}{begin}}()\ \{\ \textcolor{keywordflow}{return}\ \_string.begin();\ \}}
+\DoxyCodeLine{00239\ \ \ \ \ \textcolor{keyword}{decltype}(\textcolor{keyword}{auto})\ \mbox{\hyperlink{class_f_string_ade4a115f6376569e1e91019630afb654}{end}}()\ \{\ \textcolor{keywordflow}{return}\ \_string.end();\ \}}
+\DoxyCodeLine{00240\ }
+\DoxyCodeLine{00241\ }
+\DoxyCodeLine{00242\ }
+\DoxyCodeLine{00243\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00244\ \ \ \ \ std::wstring\ \_string;}
+\DoxyCodeLine{00245\ }
+\DoxyCodeLine{00246\ \ \ \ \ \textcolor{keyword}{mutable}\ std::string\ \_tempString;}
+\DoxyCodeLine{00247\ \ \ \ \ \textcolor{keyword}{mutable}\ \textcolor{keywordtype}{bool}\ bChangedString\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00248\ }
+\DoxyCodeLine{00249\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00250\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{struct\ }std::hash<\mbox{\hyperlink{class_f_string}{FString}}>;}
+\DoxyCodeLine{00251\ }
+\DoxyCodeLine{00252\ \};}
+\DoxyCodeLine{00253\ }
+\DoxyCodeLine{00254\ }
+\DoxyCodeLine{00255\ \textcolor{keyword}{template}<>}
+\DoxyCodeLine{00256\ \textcolor{keyword}{struct\ }std::hash<\mbox{\hyperlink{class_f_string}{FString}}>}
+\DoxyCodeLine{00257\ \{}
+\DoxyCodeLine{00258\ \ \ \ \ std::size\_t\ \mbox{\hyperlink{structstd_1_1hash_3_01_f_string_01_4_aaafc064c14175f7bec70981aff8583c6}{operator()}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_f_string}{FString}}\&\ Key)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00259\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }std::size\_t;}
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }std::hash;}
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }std::wstring;}
+\DoxyCodeLine{00263\ }
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ hash<wstring>()(Key.\_string);}
+\DoxyCodeLine{00265\ \ \ \ \ \}}
+\DoxyCodeLine{00266\ \};}
+
+\end{DoxyCode}

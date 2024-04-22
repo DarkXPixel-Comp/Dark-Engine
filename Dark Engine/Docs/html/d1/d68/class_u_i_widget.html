@@ -1,0 +1,815 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Dark Engine: Класс UIWidget</title>
+<link rel="icon" href="../../Logo.ico" type="image/x-icon" />
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<script type="text/javascript" src="../../clipboard.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../Logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Dark Engine<span id="projectnumber">&#160;0.0.39</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../../',true,false,'search.php','Поиск');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="#pub-attribs">Открытые атрибуты</a> &#124;
+<a href="#pro-methods">Защищенные члены</a> &#124;
+<a href="#pro-attribs">Защищенные данные</a> &#124;
+<a href="#friends">Друзья</a> &#124;
+<a href="../../d2/d60/class_u_i_widget-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle"><div class="title">Класс UIWidget</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="../../d5/dc2/_u_i_widget_8h_source.html">UIWidget.h</a>&gt;</code></p>
+<div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Граф наследования:UIWidget:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+ <div class="center">
+  <img src="../../d1/d68/class_u_i_widget.png" usemap="#UIWidget_map" alt=""/>
+  <map id="UIWidget_map" name="UIWidget_map">
+<area href="../../da/d03/class_u_i_button.html" alt="UIButton" shape="rect" coords="113,56,216,80"/>
+<area href="../../d7/d40/class_u_i_console.html" alt="UIConsole" shape="rect" coords="113,112,216,136"/>
+<area href="../../d6/d82/class_u_i_dock.html" alt="UIDock" shape="rect" coords="113,168,216,192"/>
+<area href="../../db/dad/class_u_i_editor_settings.html" alt="UIEditorSettings" shape="rect" coords="113,224,216,248"/>
+<area href="../../d6/df1/class_u_i_logs.html" alt="UILogs" shape="rect" coords="113,280,216,304"/>
+<area href="../../d4/dcf/class_u_i_main_menu_bar.html" alt="UIMainMenuBar" shape="rect" coords="113,336,216,360"/>
+<area href="../../dc/d54/class_u_i_menu.html" alt="UIMenu" shape="rect" coords="113,392,216,416"/>
+<area href="../../de/d77/class_u_i_menu_item.html" alt="UIMenuItem" shape="rect" coords="113,448,216,472"/>
+<area href="../../d0/d04/class_u_i_side_widget.html" alt="UISideWidget" shape="rect" coords="113,504,216,528"/>
+<area href="../../d1/d5e/class_u_i_viewport.html" alt="UIViewport" shape="rect" coords="113,560,216,584"/>
+<area href="../../d6/d77/class_u_i_widget_test.html" alt="UIWidgetTest" shape="rect" coords="113,616,216,640"/>
+  </map>
+</div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:a5623518110f7f05db0406185c4da42a4" id="r_a5623518110f7f05db0406185c4da42a4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5623518110f7f05db0406185c4da42a4">UIWidget</a> (<a class="el" href="../../d9/dcb/class_f_string.html">FString</a> InName=<a class="el" href="../../d2/dc9/_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;UIWidget&quot;))</td></tr>
+<tr class="separator:a5623518110f7f05db0406185c4da42a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43b6fe57530ebd0e67249a595e6136bc" id="r_a43b6fe57530ebd0e67249a595e6136bc"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a43b6fe57530ebd0e67249a595e6136bc">Update</a> (float DeltaTime)</td></tr>
+<tr class="separator:a43b6fe57530ebd0e67249a595e6136bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60e727936071f8591945beb85539ed8b" id="r_a60e727936071f8591945beb85539ed8b"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a60e727936071f8591945beb85539ed8b">DrawImGui</a> ()</td></tr>
+<tr class="separator:a60e727936071f8591945beb85539ed8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ffdf553d2218751fbd1f587edec81a4" id="r_a5ffdf553d2218751fbd1f587edec81a4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5ffdf553d2218751fbd1f587edec81a4">SetSize</a> (<a class="el" href="../../d0/df6/_math_fwd_8h.html#af5577845559ff81e49036ff088d51cbf">FIntPoint</a> InSize)</td></tr>
+<tr class="separator:a5ffdf553d2218751fbd1f587edec81a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf5c17fb911bcf9e859439bd7cd30da7" id="r_abf5c17fb911bcf9e859439bd7cd30da7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abf5c17fb911bcf9e859439bd7cd30da7">SetPostion</a> (<a class="el" href="../../d0/df6/_math_fwd_8h.html#af5577845559ff81e49036ff088d51cbf">FIntPoint</a> InPosition)</td></tr>
+<tr class="separator:abf5c17fb911bcf9e859439bd7cd30da7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a02aeea95baeeca04332cde6ab99adc8d" id="r_a02aeea95baeeca04332cde6ab99adc8d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d9/dcb/class_f_string.html">FString</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a02aeea95baeeca04332cde6ab99adc8d">GetName</a> () const</td></tr>
+<tr class="separator:a02aeea95baeeca04332cde6ab99adc8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a865a73a1fcb2419f72a22598568a13a7" id="r_a865a73a1fcb2419f72a22598568a13a7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a865a73a1fcb2419f72a22598568a13a7">SetName</a> (<a class="el" href="../../d9/dcb/class_f_string.html">FString</a> InName)</td></tr>
+<tr class="separator:a865a73a1fcb2419f72a22598568a13a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c05fb389d601d29abebd8605ee9f659" id="r_a4c05fb389d601d29abebd8605ee9f659"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4c05fb389d601d29abebd8605ee9f659">AddChild</a> (<a class="el" href="../../dc/d27/_t_unique_ptr_8h.html#ab7a7d47ba593c2489fecf3f003f56c53">TSharedPtr</a>&lt; <a class="el" href="../../d1/d68/class_u_i_widget.html">UIWidget</a> &gt; Child)</td></tr>
+<tr class="separator:a4c05fb389d601d29abebd8605ee9f659"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a008692757903d765689b5f8436a2cf" id="r_a3a008692757903d765689b5f8436a2cf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3a008692757903d765689b5f8436a2cf">RemoveChild</a> (<a class="el" href="../../dc/d27/_t_unique_ptr_8h.html#ab7a7d47ba593c2489fecf3f003f56c53">TSharedPtr</a>&lt; <a class="el" href="../../d1/d68/class_u_i_widget.html">UIWidget</a> &gt; Child)</td></tr>
+<tr class="separator:a3a008692757903d765689b5f8436a2cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa79699d3397fd8d66d977ce35c997af" id="r_aaa79699d3397fd8d66d977ce35c997af"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaa79699d3397fd8d66d977ce35c997af">DefferedRemoveChild</a> (<a class="el" href="../../d1/d68/class_u_i_widget.html">UIWidget</a> *Child)</td></tr>
+<tr class="separator:aaa79699d3397fd8d66d977ce35c997af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef97c41756a26225c09c04363178abf3" id="r_aef97c41756a26225c09c04363178abf3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aef97c41756a26225c09c04363178abf3">IsOpen</a> () const</td></tr>
+<tr class="separator:aef97c41756a26225c09c04363178abf3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9cb11697c2cbc808e32cd0571b1c845e" id="r_a9cb11697c2cbc808e32cd0571b1c845e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9cb11697c2cbc808e32cd0571b1c845e">SetOpen</a> (bool InbOpen)</td></tr>
+<tr class="separator:a9cb11697c2cbc808e32cd0571b1c845e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9eade48c629f9112148199da9033809b" id="r_a9eade48c629f9112148199da9033809b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/df6/_math_fwd_8h.html#a64ca0e56e182799ed5a0fbfc0abacc30">FIntRect</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9eade48c629f9112148199da9033809b">GetRect</a> ()</td></tr>
+<tr class="separator:a9eade48c629f9112148199da9033809b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Открытые атрибуты</h2></td></tr>
+<tr class="memitem:ae831439d8e4c9a3cd556ff54f167668c" id="r_ae831439d8e4c9a3cd556ff54f167668c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/dab/class_u_i_window.html">UIWindow</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae831439d8e4c9a3cd556ff54f167668c">Window</a> = nullptr</td></tr>
+<tr class="separator:ae831439d8e4c9a3cd556ff54f167668c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62395be13ea933dee219a9cd2dea0487" id="r_a62395be13ea933dee219a9cd2dea0487"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d1/d68/class_u_i_widget.html">UIWidget</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a62395be13ea933dee219a9cd2dea0487">Owner</a> = nullptr</td></tr>
+<tr class="separator:a62395be13ea933dee219a9cd2dea0487"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9acaa197c5fb4b7fbe0c7710d709f04" id="r_ad9acaa197c5fb4b7fbe0c7710d709f04"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad9acaa197c5fb4b7fbe0c7710d709f04">bHaveCloseButton</a> = false</td></tr>
+<tr class="separator:ad9acaa197c5fb4b7fbe0c7710d709f04"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Защищенные члены</h2></td></tr>
+<tr class="memitem:a76c75e697083f965cd3d1c27d31c722f" id="r_a76c75e697083f965cd3d1c27d31c722f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a76c75e697083f965cd3d1c27d31c722f">ForEachChild</a> (std::function&lt; void(<a class="el" href="../../d1/d68/class_u_i_widget.html">UIWidget</a> *)&gt; Func)</td></tr>
+<tr class="separator:a76c75e697083f965cd3d1c27d31c722f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac670f7f42d80cea678453aff5089e988" id="r_ac670f7f42d80cea678453aff5089e988"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac670f7f42d80cea678453aff5089e988">CloseWidget</a> ()</td></tr>
+<tr class="separator:ac670f7f42d80cea678453aff5089e988"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad63852d58411923c525dbf0a04841cf5" id="r_ad63852d58411923c525dbf0a04841cf5"><td class="memItemLeft" align="right" valign="top">bool *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad63852d58411923c525dbf0a04841cf5">IsWidgetClose</a> ()</td></tr>
+<tr class="separator:ad63852d58411923c525dbf0a04841cf5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+Защищенные данные</h2></td></tr>
+<tr class="memitem:a50774a40c2d9e05a1861f1b340e0ea5a" id="r_a50774a40c2d9e05a1861f1b340e0ea5a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/df6/_math_fwd_8h.html#af5577845559ff81e49036ff088d51cbf">FIntPoint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a50774a40c2d9e05a1861f1b340e0ea5a">Position</a></td></tr>
+<tr class="separator:a50774a40c2d9e05a1861f1b340e0ea5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28c927012f676e66a02f8af450e2d275" id="r_a28c927012f676e66a02f8af450e2d275"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/df6/_math_fwd_8h.html#a64ca0e56e182799ed5a0fbfc0abacc30">FIntRect</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a28c927012f676e66a02f8af450e2d275">Rect</a></td></tr>
+<tr class="separator:a28c927012f676e66a02f8af450e2d275"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad73df333b6e120abef060bbad441b9c" id="r_aad73df333b6e120abef060bbad441b9c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/df6/_math_fwd_8h.html#af5577845559ff81e49036ff088d51cbf">FIntPoint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aad73df333b6e120abef060bbad441b9c">Size</a></td></tr>
+<tr class="separator:aad73df333b6e120abef060bbad441b9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f093ba7a489ca144ab6d1647d3f683f" id="r_a8f093ba7a489ca144ab6d1647d3f683f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../dc/d27/_t_unique_ptr_8h.html#ab7a7d47ba593c2489fecf3f003f56c53">TSharedPtr</a>&lt; <a class="el" href="../../d1/d68/class_u_i_widget.html">UIWidget</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8f093ba7a489ca144ab6d1647d3f683f">ChildWidgets</a></td></tr>
+<tr class="separator:a8f093ba7a489ca144ab6d1647d3f683f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63d8d27e5fa60417b3717fd580ac4715" id="r_a63d8d27e5fa60417b3717fd580ac4715"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d9/dcb/class_f_string.html">FString</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a63d8d27e5fa60417b3717fd580ac4715">Name</a></td></tr>
+<tr class="separator:a63d8d27e5fa60417b3717fd580ac4715"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93b049ac89ded704797806d62b5d288e" id="r_a93b049ac89ded704797806d62b5d288e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/dc9/_platform_8h.html#afddf25cca147311c233b23a9d3329bb4">uint64</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a93b049ac89ded704797806d62b5d288e">Index</a> = 0</td></tr>
+<tr class="separator:a93b049ac89ded704797806d62b5d288e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a193457cd24eb4f0ada8e0c37a4322691" id="r_a193457cd24eb4f0ada8e0c37a4322691"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a193457cd24eb4f0ada8e0c37a4322691">bOpen</a> = true</td></tr>
+<tr class="separator:a193457cd24eb4f0ada8e0c37a4322691"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="friends" name="friends"></a>
+Друзья</h2></td></tr>
+<tr class="memitem:ac0a247b0358b824309714b4e67d9bc51" id="r_ac0a247b0358b824309714b4e67d9bc51"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac0a247b0358b824309714b4e67d9bc51">UIWindow</a></td></tr>
+<tr class="separator:ac0a247b0358b824309714b4e67d9bc51"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Конструктор(ы)</h2>
+<a id="a5623518110f7f05db0406185c4da42a4" name="a5623518110f7f05db0406185c4da42a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5623518110f7f05db0406185c4da42a4">&#9670;&#160;</a></span>UIWidget()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">UIWidget::UIWidget </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d9/dcb/class_f_string.html">FString</a></td>          <td class="paramname"><span class="paramname"><em>InName</em><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="../../d2/dc9/_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;UIWidget&quot;)</span></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Методы</h2>
+<a id="a4c05fb389d601d29abebd8605ee9f659" name="a4c05fb389d601d29abebd8605ee9f659"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c05fb389d601d29abebd8605ee9f659">&#9670;&#160;</a></span>AddChild()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void UIWidget::AddChild </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../dc/d27/_t_unique_ptr_8h.html#ab7a7d47ba593c2489fecf3f003f56c53">TSharedPtr</a>&lt; <a class="el" href="../../d1/d68/class_u_i_widget.html">UIWidget</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>Child</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac670f7f42d80cea678453aff5089e988" name="ac670f7f42d80cea678453aff5089e988"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac670f7f42d80cea678453aff5089e988">&#9670;&#160;</a></span>CloseWidget()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void UIWidget::CloseWidget </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aaa79699d3397fd8d66d977ce35c997af" name="aaa79699d3397fd8d66d977ce35c997af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa79699d3397fd8d66d977ce35c997af">&#9670;&#160;</a></span>DefferedRemoveChild()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void UIWidget::DefferedRemoveChild </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d1/d68/class_u_i_widget.html">UIWidget</a> *</td>          <td class="paramname"><span class="paramname"><em>Child</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a60e727936071f8591945beb85539ed8b" name="a60e727936071f8591945beb85539ed8b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a60e727936071f8591945beb85539ed8b">&#9670;&#160;</a></span>DrawImGui()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void UIWidget::DrawImGui </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Переопределяется в <a class="el" href="../../da/d03/class_u_i_button.html#a114374be36e9c7776ec66b20de1d0ea6">UIButton</a>, <a class="el" href="../../d7/d40/class_u_i_console.html#abeeb768891a7abe68b7d8958688c3a2c">UIConsole</a>, <a class="el" href="../../d6/d82/class_u_i_dock.html#a762023935beb5165c5c3f6720f99492b">UIDock</a>, <a class="el" href="../../db/dad/class_u_i_editor_settings.html#a6581e28d6d602826b4207ce5b5cdfba6">UIEditorSettings</a>, <a class="el" href="../../d6/d8f/class_u_i_editor_viewport.html#a4bbd45703ad3375b758d7bae180be59e">UIEditorViewport</a>, <a class="el" href="../../d6/df1/class_u_i_logs.html#a3e0f5b818bfb4d40b51730b85e99679d">UILogs</a>, <a class="el" href="../../d4/dcf/class_u_i_main_menu_bar.html#a09066d20622ed8d2546b3ed4acfafe52">UIMainMenuBar</a>, <a class="el" href="../../dc/d54/class_u_i_menu.html#a15b2bcf8f20287b8535a9d13b9123e73">UIMenu</a>, <a class="el" href="../../de/d77/class_u_i_menu_item.html#a216208cb41b72fa9d91e7d7d6d83b36b">UIMenuItem</a>, <a class="el" href="../../d1/d5e/class_u_i_viewport.html#a8c997005f9d43dedb65e1edee9d99218">UIViewport</a>, <a class="el" href="../../d6/d77/class_u_i_widget_test.html#afbe5da8458ef405adbe0e33f017bbd85">UIWidgetTest</a> и <a class="el" href="../../d0/d04/class_u_i_side_widget.html#af714afc20632b43c61538e317527dc82">UISideWidget</a>.</p>
+
+</div>
+</div>
+<a id="a76c75e697083f965cd3d1c27d31c722f" name="a76c75e697083f965cd3d1c27d31c722f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a76c75e697083f965cd3d1c27d31c722f">&#9670;&#160;</a></span>ForEachChild()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void UIWidget::ForEachChild </td>
+          <td>(</td>
+          <td class="paramtype">std::function&lt; void(<a class="el" href="../../d1/d68/class_u_i_widget.html">UIWidget</a> *)&gt;</td>          <td class="paramname"><span class="paramname"><em>Func</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a02aeea95baeeca04332cde6ab99adc8d" name="a02aeea95baeeca04332cde6ab99adc8d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a02aeea95baeeca04332cde6ab99adc8d">&#9670;&#160;</a></span>GetName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d9/dcb/class_f_string.html">FString</a> UIWidget::GetName </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9eade48c629f9112148199da9033809b" name="a9eade48c629f9112148199da9033809b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9eade48c629f9112148199da9033809b">&#9670;&#160;</a></span>GetRect()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d0/df6/_math_fwd_8h.html#a64ca0e56e182799ed5a0fbfc0abacc30">FIntRect</a> UIWidget::GetRect </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aef97c41756a26225c09c04363178abf3" name="aef97c41756a26225c09c04363178abf3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef97c41756a26225c09c04363178abf3">&#9670;&#160;</a></span>IsOpen()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool UIWidget::IsOpen </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad63852d58411923c525dbf0a04841cf5" name="ad63852d58411923c525dbf0a04841cf5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad63852d58411923c525dbf0a04841cf5">&#9670;&#160;</a></span>IsWidgetClose()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool * UIWidget::IsWidgetClose </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3a008692757903d765689b5f8436a2cf" name="a3a008692757903d765689b5f8436a2cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a008692757903d765689b5f8436a2cf">&#9670;&#160;</a></span>RemoveChild()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void UIWidget::RemoveChild </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../dc/d27/_t_unique_ptr_8h.html#ab7a7d47ba593c2489fecf3f003f56c53">TSharedPtr</a>&lt; <a class="el" href="../../d1/d68/class_u_i_widget.html">UIWidget</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>Child</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a865a73a1fcb2419f72a22598568a13a7" name="a865a73a1fcb2419f72a22598568a13a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a865a73a1fcb2419f72a22598568a13a7">&#9670;&#160;</a></span>SetName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void UIWidget::SetName </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d9/dcb/class_f_string.html">FString</a></td>          <td class="paramname"><span class="paramname"><em>InName</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9cb11697c2cbc808e32cd0571b1c845e" name="a9cb11697c2cbc808e32cd0571b1c845e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9cb11697c2cbc808e32cd0571b1c845e">&#9670;&#160;</a></span>SetOpen()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void UIWidget::SetOpen </td>
+          <td>(</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>InbOpen</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abf5c17fb911bcf9e859439bd7cd30da7" name="abf5c17fb911bcf9e859439bd7cd30da7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf5c17fb911bcf9e859439bd7cd30da7">&#9670;&#160;</a></span>SetPostion()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void UIWidget::SetPostion </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d0/df6/_math_fwd_8h.html#af5577845559ff81e49036ff088d51cbf">FIntPoint</a></td>          <td class="paramname"><span class="paramname"><em>InPosition</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5ffdf553d2218751fbd1f587edec81a4" name="a5ffdf553d2218751fbd1f587edec81a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ffdf553d2218751fbd1f587edec81a4">&#9670;&#160;</a></span>SetSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void UIWidget::SetSize </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d0/df6/_math_fwd_8h.html#af5577845559ff81e49036ff088d51cbf">FIntPoint</a></td>          <td class="paramname"><span class="paramname"><em>InSize</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a43b6fe57530ebd0e67249a595e6136bc" name="a43b6fe57530ebd0e67249a595e6136bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a43b6fe57530ebd0e67249a595e6136bc">&#9670;&#160;</a></span>Update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void UIWidget::Update </td>
+          <td>(</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>DeltaTime</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Переопределяется в <a class="el" href="../../da/d03/class_u_i_button.html#abec373592f18694cdbcbd7c07484ecf0">UIButton</a>, <a class="el" href="../../d6/d82/class_u_i_dock.html#a64590d60563281fa82e58fbec75c6c90">UIDock</a>, <a class="el" href="../../db/dad/class_u_i_editor_settings.html#a3ea29998062a4e9fef0acdcd19c37992">UIEditorSettings</a>, <a class="el" href="../../d6/d8f/class_u_i_editor_viewport.html#a6ecd465cb95d1b666c1a39944f967a8a">UIEditorViewport</a>, <a class="el" href="../../d4/dcf/class_u_i_main_menu_bar.html#aabb037cfe322b9dc8fd89f92254bae56">UIMainMenuBar</a>, <a class="el" href="../../de/d77/class_u_i_menu_item.html#a4bcf5185c79af3e326e10e4b99fd85db">UIMenuItem</a>, <a class="el" href="../../d1/d5e/class_u_i_viewport.html#a04018c3f008a9cfcaa804c6874a3a9d9">UIViewport</a>, <a class="el" href="../../d6/d77/class_u_i_widget_test.html#a7710ce2ecf3f0c68944839eba74fe1ef">UIWidgetTest</a> и <a class="el" href="../../dc/d54/class_u_i_menu.html#a5b01a2829aa902909d048295e91b5276">UIMenu</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Документация по друзьям класса и функциям, относящимся к классу</h2>
+<a id="ac0a247b0358b824309714b4e67d9bc51" name="ac0a247b0358b824309714b4e67d9bc51"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0a247b0358b824309714b4e67d9bc51">&#9670;&#160;</a></span>UIWindow</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend class <a class="el" href="../../df/dab/class_u_i_window.html">UIWindow</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Данные класса</h2>
+<a id="ad9acaa197c5fb4b7fbe0c7710d709f04" name="ad9acaa197c5fb4b7fbe0c7710d709f04"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad9acaa197c5fb4b7fbe0c7710d709f04">&#9670;&#160;</a></span>bHaveCloseButton</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool UIWidget::bHaveCloseButton = false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a193457cd24eb4f0ada8e0c37a4322691" name="a193457cd24eb4f0ada8e0c37a4322691"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a193457cd24eb4f0ada8e0c37a4322691">&#9670;&#160;</a></span>bOpen</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool UIWidget::bOpen = true</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8f093ba7a489ca144ab6d1647d3f683f" name="a8f093ba7a489ca144ab6d1647d3f683f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f093ba7a489ca144ab6d1647d3f683f">&#9670;&#160;</a></span>ChildWidgets</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt;<a class="el" href="../../dc/d27/_t_unique_ptr_8h.html#ab7a7d47ba593c2489fecf3f003f56c53">TSharedPtr</a>&lt;<a class="el" href="../../d1/d68/class_u_i_widget.html">UIWidget</a>&gt; &gt; UIWidget::ChildWidgets</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a93b049ac89ded704797806d62b5d288e" name="a93b049ac89ded704797806d62b5d288e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a93b049ac89ded704797806d62b5d288e">&#9670;&#160;</a></span>Index</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/dc9/_platform_8h.html#afddf25cca147311c233b23a9d3329bb4">uint64</a> UIWidget::Index = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a63d8d27e5fa60417b3717fd580ac4715" name="a63d8d27e5fa60417b3717fd580ac4715"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63d8d27e5fa60417b3717fd580ac4715">&#9670;&#160;</a></span>Name</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d9/dcb/class_f_string.html">FString</a> UIWidget::Name</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a62395be13ea933dee219a9cd2dea0487" name="a62395be13ea933dee219a9cd2dea0487"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62395be13ea933dee219a9cd2dea0487">&#9670;&#160;</a></span>Owner</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d1/d68/class_u_i_widget.html">UIWidget</a>* UIWidget::Owner = nullptr</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a50774a40c2d9e05a1861f1b340e0ea5a" name="a50774a40c2d9e05a1861f1b340e0ea5a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a50774a40c2d9e05a1861f1b340e0ea5a">&#9670;&#160;</a></span>Position</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d0/df6/_math_fwd_8h.html#af5577845559ff81e49036ff088d51cbf">FIntPoint</a> UIWidget::Position</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a28c927012f676e66a02f8af450e2d275" name="a28c927012f676e66a02f8af450e2d275"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a28c927012f676e66a02f8af450e2d275">&#9670;&#160;</a></span>Rect</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d0/df6/_math_fwd_8h.html#a64ca0e56e182799ed5a0fbfc0abacc30">FIntRect</a> UIWidget::Rect</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aad73df333b6e120abef060bbad441b9c" name="aad73df333b6e120abef060bbad441b9c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad73df333b6e120abef060bbad441b9c">&#9670;&#160;</a></span>Size</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d0/df6/_math_fwd_8h.html#af5577845559ff81e49036ff088d51cbf">FIntPoint</a> UIWidget::Size</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae831439d8e4c9a3cd556ff54f167668c" name="ae831439d8e4c9a3cd556ff54f167668c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae831439d8e4c9a3cd556ff54f167668c">&#9670;&#160;</a></span>Window</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/dab/class_u_i_window.html">UIWindow</a>* UIWidget::Window = nullptr</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>Объявления и описания членов классов находятся в файлах:<ul>
+<li>Dark Engine/Source/Runtime/UICore/public/Widgets/<a class="el" href="../../d5/dc2/_u_i_widget_8h_source.html">UIWidget.h</a></li>
+<li>Dark Engine/Source/Runtime/UICore/private/Widgets/<a class="el" href="../../dd/da3/_u_i_widget_8cpp.html">UIWidget.cpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
+</body>
+</html>

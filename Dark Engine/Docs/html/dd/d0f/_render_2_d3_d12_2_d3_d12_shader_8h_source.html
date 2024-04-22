@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Dark Engine: Исходный файл Dark Engine/Source/Runtime/Render/D3D12/D3D12Shader.h</title>
+<link rel="icon" href="../../Logo.ico" type="image/x-icon" />
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<script type="text/javascript" src="../../clipboard.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../Logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Dark Engine<span id="projectnumber">&#160;0.0.39</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../../',true,false,'search.php','Поиск');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(1); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_55043db21ba5ddd7c561d2c5a5a38944.html">Dark Engine</a></li><li class="navelem"><a class="el" href="../../dir_e00b54220e1e1486ac9971b606d33054.html">Source</a></li><li class="navelem"><a class="el" href="../../dir_ae01c8af07818b260cc3481e8588b277.html">Runtime</a></li><li class="navelem"><a class="el" href="../../dir_1b0bffc8d096929f17ecae6ef7b4b529.html">Render</a></li><li class="navelem"><a class="el" href="../../dir_d93dc1c13639dc0a8989b4ca7595d959.html">D3D12</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">D3D12Shader.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="../../dd/d0f/_render_2_d3_d12_2_d3_d12_shader_8h.html">См. документацию.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &lt;<a class="code" href="../../d4/d09/_core_8h.html">Core.h</a>&gt;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;<a class="code" href="../../de/d45/_dark_string_8h.html">Containers/DarkString.h</a>&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="../../dd/dce/_d3_d12_main_8h.html">D3D12Main.h</a>&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="foldopen" id="foldopen00007" data-start="{" data-end="};">
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="../../dd/d0f/_render_2_d3_d12_2_d3_d12_shader_8h.html#a7718c1d3b1315fce42b8485ad39d91be">    7</a></span><span class="keyword">enum</span> <a class="code hl_enumeration" href="../../dd/d0f/_render_2_d3_d12_2_d3_d12_shader_8h.html#a7718c1d3b1315fce42b8485ad39d91be">eD3D12ShaderType</a></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>{</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="../../dd/d0f/_render_2_d3_d12_2_d3_d12_shader_8h.html#a7718c1d3b1315fce42b8485ad39d91bea6eb023d1289ce9348aaedfa240ec8ce9">    9</a></span>    <a class="code hl_enumvalue" href="../../dd/d0f/_render_2_d3_d12_2_d3_d12_shader_8h.html#a7718c1d3b1315fce42b8485ad39d91bea6eb023d1289ce9348aaedfa240ec8ce9">D3D12_SHADER_TYPE_VERTEX</a>,</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="../../dd/d0f/_render_2_d3_d12_2_d3_d12_shader_8h.html#a7718c1d3b1315fce42b8485ad39d91bea373ffd4dd3bab8697a51f90b5724d344">   10</a></span>    <a class="code hl_enumvalue" href="../../dd/d0f/_render_2_d3_d12_2_d3_d12_shader_8h.html#a7718c1d3b1315fce42b8485ad39d91bea373ffd4dd3bab8697a51f90b5724d344">D3D12_SHADER_TYPE_PIXEL</a>,</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="../../dd/d0f/_render_2_d3_d12_2_d3_d12_shader_8h.html#a7718c1d3b1315fce42b8485ad39d91bea11fbead83ba23d9a08933b756d522a3c">   11</a></span>    <a class="code hl_enumvalue" href="../../dd/d0f/_render_2_d3_d12_2_d3_d12_shader_8h.html#a7718c1d3b1315fce42b8485ad39d91bea11fbead83ba23d9a08933b756d522a3c">D3D12_SHADER_TYPE_GEOMETRY</a>,</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="../../dd/d0f/_render_2_d3_d12_2_d3_d12_shader_8h.html#a7718c1d3b1315fce42b8485ad39d91beac2c87887cfef4d195e9e983a3041d0b7">   12</a></span>    <a class="code hl_enumvalue" href="../../dd/d0f/_render_2_d3_d12_2_d3_d12_shader_8h.html#a7718c1d3b1315fce42b8485ad39d91beac2c87887cfef4d195e9e983a3041d0b7">D3D12_SHADER_TYPE_DOMEN</a>,</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="../../dd/d0f/_render_2_d3_d12_2_d3_d12_shader_8h.html#a7718c1d3b1315fce42b8485ad39d91bea3515b8da83ee16e823e0273ef2bf3ad9">   13</a></span>    <a class="code hl_enumvalue" href="../../dd/d0f/_render_2_d3_d12_2_d3_d12_shader_8h.html#a7718c1d3b1315fce42b8485ad39d91bea3515b8da83ee16e823e0273ef2bf3ad9">D3D12_SHADER_TYPE_TESSELLATION</a>,</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <a class="code hl_enumvalue" href="../../dd/d0f/_render_2_d3_d12_2_d3_d12_shader_8h.html#a7718c1d3b1315fce42b8485ad39d91bea7e43ae8a854f7ee79cbe90813b999b9f">D3D12_SHADER_TYPE_RAY_TRACING</a></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="../../dd/d0f/_render_2_d3_d12_2_d3_d12_shader_8h.html#a7718c1d3b1315fce42b8485ad39d91bea7e43ae8a854f7ee79cbe90813b999b9f">   15</a></span>};</div>
+</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="foldopen" id="foldopen00018" data-start="{" data-end="};">
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="../../d1/d40/class_d3_d12_shader.html">   18</a></span><span class="keyword">class </span><a class="code hl_define" href="../../da/d5a/_core_platform_8h.html#a94070b76c7d4ff7927f14814f3f53e40">DENGINE_API</a> <a class="code hl_class" href="../../d1/d40/class_d3_d12_shader.html">D3D12Shader</a> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>{</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="../../d1/d40/class_d3_d12_shader.html#a971dd6c6b874a2c4fc5740bc6c9ee537">   21</a></span>    <a class="code hl_function" href="../../d1/d40/class_d3_d12_shader.html#a971dd6c6b874a2c4fc5740bc6c9ee537">D3D12Shader</a>();</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <a class="code hl_class" href="../../d1/d40/class_d3_d12_shader.html">D3D12Shader</a>(<a class="code hl_enumeration" href="../../dd/d0f/_render_2_d3_d12_2_d3_d12_shader_8h.html#a7718c1d3b1315fce42b8485ad39d91be">eD3D12ShaderType</a> type, <a class="code hl_class" href="../../d9/dcb/class_f_string.html">FString</a> path);</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <a class="code hl_class" href="../../d1/d40/class_d3_d12_shader.html">D3D12Shader</a>(<a class="code hl_enumeration" href="../../dd/d0f/_render_2_d3_d12_2_d3_d12_shader_8h.html#a7718c1d3b1315fce42b8485ad39d91be">eD3D12ShaderType</a> type, ID3DBlob* shaderBlob);</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d5/d7e/_shader_compiler_8cpp.html#aa7e838ee45e39746bda8c3de8a15f1a7">CompileShader</a>(<a class="code hl_enumeration" href="../../dd/d0f/_render_2_d3_d12_2_d3_d12_shader_8h.html#a7718c1d3b1315fce42b8485ad39d91be">eD3D12ShaderType</a> type, <a class="code hl_class" href="../../d9/dcb/class_f_string.html">FString</a> path);</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keywordtype">bool</span> LoadShader(<a class="code hl_enumeration" href="../../dd/d0f/_render_2_d3_d12_2_d3_d12_shader_8h.html#a7718c1d3b1315fce42b8485ad39d91be">eD3D12ShaderType</a> type, ID3DBlob* shaderBlob);</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    ComPtr&lt;ID3DBlob&gt; m_shaderBlob;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <a class="code hl_class" href="../../d9/dcb/class_f_string.html">FString</a> m_shaderPath;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <a class="code hl_class" href="../../d9/dcb/class_f_string.html">FString</a> m_shaderName;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <a class="code hl_enumeration" href="../../dd/d0f/_render_2_d3_d12_2_d3_d12_shader_8h.html#a7718c1d3b1315fce42b8485ad39d91be">eD3D12ShaderType</a> m_shaderType;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>};</div>
+</div>
+<div class="ttc" id="a_core_8h_html"><div class="ttname"><a href="../../d4/d09/_core_8h.html">Core.h</a></div></div>
+<div class="ttc" id="a_core_platform_8h_html_a94070b76c7d4ff7927f14814f3f53e40"><div class="ttname"><a href="../../da/d5a/_core_platform_8h.html#a94070b76c7d4ff7927f14814f3f53e40">DENGINE_API</a></div><div class="ttdeci">#define DENGINE_API</div><div class="ttdef"><b>Definition</b> CorePlatform.h:8</div></div>
+<div class="ttc" id="a_d3_d12_main_8h_html"><div class="ttname"><a href="../../dd/dce/_d3_d12_main_8h.html">D3D12Main.h</a></div></div>
+<div class="ttc" id="a_dark_string_8h_html"><div class="ttname"><a href="../../de/d45/_dark_string_8h.html">DarkString.h</a></div></div>
+<div class="ttc" id="a_render_2_d3_d12_2_d3_d12_shader_8h_html_a7718c1d3b1315fce42b8485ad39d91be"><div class="ttname"><a href="../../dd/d0f/_render_2_d3_d12_2_d3_d12_shader_8h.html#a7718c1d3b1315fce42b8485ad39d91be">eD3D12ShaderType</a></div><div class="ttdeci">eD3D12ShaderType</div><div class="ttdef"><b>Definition</b> D3D12Shader.h:8</div></div>
+<div class="ttc" id="a_render_2_d3_d12_2_d3_d12_shader_8h_html_a7718c1d3b1315fce42b8485ad39d91bea11fbead83ba23d9a08933b756d522a3c"><div class="ttname"><a href="../../dd/d0f/_render_2_d3_d12_2_d3_d12_shader_8h.html#a7718c1d3b1315fce42b8485ad39d91bea11fbead83ba23d9a08933b756d522a3c">D3D12_SHADER_TYPE_GEOMETRY</a></div><div class="ttdeci">@ D3D12_SHADER_TYPE_GEOMETRY</div><div class="ttdef"><b>Definition</b> D3D12Shader.h:11</div></div>
+<div class="ttc" id="a_render_2_d3_d12_2_d3_d12_shader_8h_html_a7718c1d3b1315fce42b8485ad39d91bea3515b8da83ee16e823e0273ef2bf3ad9"><div class="ttname"><a href="../../dd/d0f/_render_2_d3_d12_2_d3_d12_shader_8h.html#a7718c1d3b1315fce42b8485ad39d91bea3515b8da83ee16e823e0273ef2bf3ad9">D3D12_SHADER_TYPE_TESSELLATION</a></div><div class="ttdeci">@ D3D12_SHADER_TYPE_TESSELLATION</div><div class="ttdef"><b>Definition</b> D3D12Shader.h:13</div></div>
+<div class="ttc" id="a_render_2_d3_d12_2_d3_d12_shader_8h_html_a7718c1d3b1315fce42b8485ad39d91bea373ffd4dd3bab8697a51f90b5724d344"><div class="ttname"><a href="../../dd/d0f/_render_2_d3_d12_2_d3_d12_shader_8h.html#a7718c1d3b1315fce42b8485ad39d91bea373ffd4dd3bab8697a51f90b5724d344">D3D12_SHADER_TYPE_PIXEL</a></div><div class="ttdeci">@ D3D12_SHADER_TYPE_PIXEL</div><div class="ttdef"><b>Definition</b> D3D12Shader.h:10</div></div>
+<div class="ttc" id="a_render_2_d3_d12_2_d3_d12_shader_8h_html_a7718c1d3b1315fce42b8485ad39d91bea6eb023d1289ce9348aaedfa240ec8ce9"><div class="ttname"><a href="../../dd/d0f/_render_2_d3_d12_2_d3_d12_shader_8h.html#a7718c1d3b1315fce42b8485ad39d91bea6eb023d1289ce9348aaedfa240ec8ce9">D3D12_SHADER_TYPE_VERTEX</a></div><div class="ttdeci">@ D3D12_SHADER_TYPE_VERTEX</div><div class="ttdef"><b>Definition</b> D3D12Shader.h:9</div></div>
+<div class="ttc" id="a_render_2_d3_d12_2_d3_d12_shader_8h_html_a7718c1d3b1315fce42b8485ad39d91bea7e43ae8a854f7ee79cbe90813b999b9f"><div class="ttname"><a href="../../dd/d0f/_render_2_d3_d12_2_d3_d12_shader_8h.html#a7718c1d3b1315fce42b8485ad39d91bea7e43ae8a854f7ee79cbe90813b999b9f">D3D12_SHADER_TYPE_RAY_TRACING</a></div><div class="ttdeci">@ D3D12_SHADER_TYPE_RAY_TRACING</div><div class="ttdef"><b>Definition</b> D3D12Shader.h:14</div></div>
+<div class="ttc" id="a_render_2_d3_d12_2_d3_d12_shader_8h_html_a7718c1d3b1315fce42b8485ad39d91beac2c87887cfef4d195e9e983a3041d0b7"><div class="ttname"><a href="../../dd/d0f/_render_2_d3_d12_2_d3_d12_shader_8h.html#a7718c1d3b1315fce42b8485ad39d91beac2c87887cfef4d195e9e983a3041d0b7">D3D12_SHADER_TYPE_DOMEN</a></div><div class="ttdeci">@ D3D12_SHADER_TYPE_DOMEN</div><div class="ttdef"><b>Definition</b> D3D12Shader.h:12</div></div>
+<div class="ttc" id="a_shader_compiler_8cpp_html_aa7e838ee45e39746bda8c3de8a15f1a7"><div class="ttname"><a href="../../d5/d7e/_shader_compiler_8cpp.html#aa7e838ee45e39746bda8c3de8a15f1a7">CompileShader</a></div><div class="ttdeci">void CompileShader(FShaderCompileJob &amp;Job)</div><div class="ttdef"><b>Definition</b> ShaderCompiler.cpp:84</div></div>
+<div class="ttc" id="aclass_d3_d12_shader_html"><div class="ttname"><a href="../../d1/d40/class_d3_d12_shader.html">D3D12Shader</a></div><div class="ttdef"><b>Definition</b> D3D12Shader.h:19</div></div>
+<div class="ttc" id="aclass_d3_d12_shader_html_a971dd6c6b874a2c4fc5740bc6c9ee537"><div class="ttname"><a href="../../d1/d40/class_d3_d12_shader.html#a971dd6c6b874a2c4fc5740bc6c9ee537">D3D12Shader::D3D12Shader</a></div><div class="ttdeci">D3D12Shader()</div></div>
+<div class="ttc" id="aclass_f_string_html"><div class="ttname"><a href="../../d9/dcb/class_f_string.html">FString</a></div><div class="ttdef"><b>Definition</b> DarkString.h:17</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
+</body>
+</html>

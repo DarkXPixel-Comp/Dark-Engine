@@ -1,0 +1,621 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Dark Engine: Структура FMemory</title>
+<link rel="icon" href="../../Logo.ico" type="image/x-icon" />
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<script type="text/javascript" src="../../clipboard.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../Logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Dark Engine<span id="projectnumber">&#160;0.0.39</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../../',true,false,'search.php','Поиск');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-types">Открытые типы</a> &#124;
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="#pub-static-methods">Открытые статические члены</a> &#124;
+<a href="../../d5/d40/struct_f_memory-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle"><div class="title">Структура FMemory</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="../../da/d8b/_dark_memory_8h_source.html">DarkMemory.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
+Открытые типы</h2></td></tr>
+<tr class="memitem:a19c0c3ed7ccdca52860462acb69602c8" id="r_a19c0c3ed7ccdca52860462acb69602c8"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a19c0c3ed7ccdca52860462acb69602c8">AllocationHints</a> { <br />
+&#160;&#160;<a class="el" href="#a19c0c3ed7ccdca52860462acb69602c8a900233ff4139a4d249d9f5c78b590940">None</a> = -1
+, <a class="el" href="#a19c0c3ed7ccdca52860462acb69602c8a978133ac6c313676bcbba756ed35c238">Default</a>
+, <a class="el" href="#a19c0c3ed7ccdca52860462acb69602c8a58f3e9b63ba6242ab6958376b810ec9f">Temporary</a>
+, <a class="el" href="#a19c0c3ed7ccdca52860462acb69602c8a1a9d8b19166b59160ba657696ab90fad">SmallPool</a>
+, <br />
+&#160;&#160;<a class="el" href="#a19c0c3ed7ccdca52860462acb69602c8aa825de3f99f1c3ae6b263934e2811876">Max</a>
+<br />
+ }</td></tr>
+<tr class="separator:a19c0c3ed7ccdca52860462acb69602c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:ac20407ee38986c991732696065b52f50" id="r_ac20407ee38986c991732696065b52f50"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac20407ee38986c991732696065b52f50">MemIsZero</a> (const void *Ptr, <a class="el" href="../../d2/dc9/_platform_8h.html#a2c46f1fb01e11216aa2c983307deafb4">SIZE_T</a> <a class="el" href="../../d5/db6/_pixel_format_8h.html#afb559e26bc610db43ba605230a142898a928f33270be19855038d0245a0fa06a1">Count</a>)</td></tr>
+<tr class="separator:ac20407ee38986c991732696065b52f50"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Открытые статические члены</h2></td></tr>
+<tr class="memitem:a153a731cbc9f2dd08fc908289817ae9f" id="r_a153a731cbc9f2dd08fc908289817ae9f"><td class="memItemLeft" align="right" valign="top">static void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a153a731cbc9f2dd08fc908289817ae9f">Memmove</a> (void *Dest, const void *Src, <a class="el" href="../../d2/dc9/_platform_8h.html#a2c46f1fb01e11216aa2c983307deafb4">SIZE_T</a> <a class="el" href="../../d5/db6/_pixel_format_8h.html#afb559e26bc610db43ba605230a142898a928f33270be19855038d0245a0fa06a1">Count</a>)</td></tr>
+<tr class="separator:a153a731cbc9f2dd08fc908289817ae9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37e12f1032ba2c84ffa3caf4191dc69b" id="r_a37e12f1032ba2c84ffa3caf4191dc69b"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../d2/dc9/_platform_8h.html#a84083085985fb180ad38b9c32e3937da">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a37e12f1032ba2c84ffa3caf4191dc69b">Memcmp</a> (const void *Buf1, const void *Buf2, <a class="el" href="../../d2/dc9/_platform_8h.html#a2c46f1fb01e11216aa2c983307deafb4">SIZE_T</a> <a class="el" href="../../d5/db6/_pixel_format_8h.html#afb559e26bc610db43ba605230a142898a928f33270be19855038d0245a0fa06a1">Count</a>)</td></tr>
+<tr class="separator:a37e12f1032ba2c84ffa3caf4191dc69b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aedf1c48c1db4dc9f050e7efed5e8a9c9" id="r_aedf1c48c1db4dc9f050e7efed5e8a9c9"><td class="memItemLeft" align="right" valign="top">static void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aedf1c48c1db4dc9f050e7efed5e8a9c9">Memset</a> (void *Dest, <a class="el" href="../../d2/dc9/_platform_8h.html#a40bc01dd090acd02a79b5dc13e08abe6">uint8</a> Char, <a class="el" href="../../d2/dc9/_platform_8h.html#a2c46f1fb01e11216aa2c983307deafb4">SIZE_T</a> <a class="el" href="../../d5/db6/_pixel_format_8h.html#afb559e26bc610db43ba605230a142898a928f33270be19855038d0245a0fa06a1">Count</a>)</td></tr>
+<tr class="separator:aedf1c48c1db4dc9f050e7efed5e8a9c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c994a83497975531144f346a25bf43f" id="r_a0c994a83497975531144f346a25bf43f"><td class="memItemLeft" align="right" valign="top">static void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0c994a83497975531144f346a25bf43f">Memzero</a> (void *Dest, <a class="el" href="../../d2/dc9/_platform_8h.html#a2c46f1fb01e11216aa2c983307deafb4">SIZE_T</a> <a class="el" href="../../d5/db6/_pixel_format_8h.html#afb559e26bc610db43ba605230a142898a928f33270be19855038d0245a0fa06a1">Count</a>)</td></tr>
+<tr class="separator:a0c994a83497975531144f346a25bf43f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6bfb397a8ea2e226f6fe27664c9880ca" id="r_a6bfb397a8ea2e226f6fe27664c9880ca"><td class="memItemLeft" align="right" valign="top">static void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6bfb397a8ea2e226f6fe27664c9880ca">Memcpy</a> (void *Dest, const void *Src, <a class="el" href="../../d2/dc9/_platform_8h.html#a2c46f1fb01e11216aa2c983307deafb4">SIZE_T</a> <a class="el" href="../../d5/db6/_pixel_format_8h.html#afb559e26bc610db43ba605230a142898a928f33270be19855038d0245a0fa06a1">Count</a>)</td></tr>
+<tr class="separator:a6bfb397a8ea2e226f6fe27664c9880ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad19fe81e8fe897415bdca522abd4a2cc" id="r_ad19fe81e8fe897415bdca522abd4a2cc"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ad19fe81e8fe897415bdca522abd4a2cc"><td class="memTemplItemLeft" align="right" valign="top">static void *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ad19fe81e8fe897415bdca522abd4a2cc">Memcpy</a> (T &amp;Dest, const T &amp;Src)</td></tr>
+<tr class="separator:ad19fe81e8fe897415bdca522abd4a2cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c4dd05bfa67a28e5ab70aaafdfec1f0" id="r_a7c4dd05bfa67a28e5ab70aaafdfec1f0"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7c4dd05bfa67a28e5ab70aaafdfec1f0">Memswap</a> (void *Ptr1, void *Ptr2, <a class="el" href="../../d2/dc9/_platform_8h.html#a2c46f1fb01e11216aa2c983307deafb4">SIZE_T</a> <a class="el" href="../../d5/db6/_pixel_format_8h.html#afb559e26bc610db43ba605230a142898a928f33270be19855038d0245a0fa06a1">Count</a>)</td></tr>
+<tr class="separator:a7c4dd05bfa67a28e5ab70aaafdfec1f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33c6f3e0dbaae261c483ae90c2f9aea7" id="r_a33c6f3e0dbaae261c483ae90c2f9aea7"><td class="memItemLeft" align="right" valign="top">static void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a33c6f3e0dbaae261c483ae90c2f9aea7">SystemMalloc</a> (<a class="el" href="../../d2/dc9/_platform_8h.html#a2c46f1fb01e11216aa2c983307deafb4">SIZE_T</a> <a class="el" href="../../d5/dc5/_d3_d12_utils_8h.html#a49802c782fb40bd8e79835ef12871ddeaff9abf2b1a689f70a77a18da50c01d9f">Size</a>)</td></tr>
+<tr class="separator:a33c6f3e0dbaae261c483ae90c2f9aea7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a457fe87c3d2d2e747d73d3157dc128a2" id="r_a457fe87c3d2d2e747d73d3157dc128a2"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a457fe87c3d2d2e747d73d3157dc128a2">SystemFree</a> (void *Ptr)</td></tr>
+<tr class="separator:a457fe87c3d2d2e747d73d3157dc128a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53fdf955abe05c2862e76be5e8b314b4" id="r_a53fdf955abe05c2862e76be5e8b314b4"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../d6/d5e/_definitions_8h.html#afea66f9a6812c2354b544f31910fd72f">CORE_API</a> void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a53fdf955abe05c2862e76be5e8b314b4">Malloc</a> (<a class="el" href="../../d2/dc9/_platform_8h.html#a2c46f1fb01e11216aa2c983307deafb4">SIZE_T</a> <a class="el" href="../../d5/db6/_pixel_format_8h.html#afb559e26bc610db43ba605230a142898a928f33270be19855038d0245a0fa06a1">Count</a>, <a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> Alignment=<a class="el" href="../../da/d8b/_dark_memory_8h.html#a99fb83031ce9923c84392b4e92f956b5a7d69a1ccda7665d7a6f494085b91f410">DEFAULT_ALIGNMENT</a>)</td></tr>
+<tr class="separator:a53fdf955abe05c2862e76be5e8b314b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb9f5f7d85bed269e0dcda7b507cffbd" id="r_adb9f5f7d85bed269e0dcda7b507cffbd"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../d6/d5e/_definitions_8h.html#afea66f9a6812c2354b544f31910fd72f">CORE_API</a> void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adb9f5f7d85bed269e0dcda7b507cffbd">Realloc</a> (void *Ptr, <a class="el" href="../../d2/dc9/_platform_8h.html#a2c46f1fb01e11216aa2c983307deafb4">SIZE_T</a> <a class="el" href="../../d5/db6/_pixel_format_8h.html#afb559e26bc610db43ba605230a142898a928f33270be19855038d0245a0fa06a1">Count</a>, <a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> Alignment=<a class="el" href="../../da/d8b/_dark_memory_8h.html#a99fb83031ce9923c84392b4e92f956b5a7d69a1ccda7665d7a6f494085b91f410">DEFAULT_ALIGNMENT</a>)</td></tr>
+<tr class="separator:adb9f5f7d85bed269e0dcda7b507cffbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21e36adb156ba271a56a1a38032f62e5" id="r_a21e36adb156ba271a56a1a38032f62e5"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../d6/d5e/_definitions_8h.html#afea66f9a6812c2354b544f31910fd72f">CORE_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a21e36adb156ba271a56a1a38032f62e5">Free</a> (void *Ptr)</td></tr>
+<tr class="separator:a21e36adb156ba271a56a1a38032f62e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa36d582779fbd658277d6787e7286fb6" id="r_aa36d582779fbd658277d6787e7286fb6"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../d6/d5e/_definitions_8h.html#afea66f9a6812c2354b544f31910fd72f">CORE_API</a> <a class="el" href="../../d2/dc9/_platform_8h.html#a2c46f1fb01e11216aa2c983307deafb4">SIZE_T</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa36d582779fbd658277d6787e7286fb6">GetAllocSize</a> (void *Ptr)</td></tr>
+<tr class="separator:aa36d582779fbd658277d6787e7286fb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a09e208867b69e5bffc98108594de24ca" id="r_a09e208867b69e5bffc98108594de24ca"><td class="memItemLeft" align="right" valign="top">static void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a09e208867b69e5bffc98108594de24ca">MallocZero</a> (<a class="el" href="../../d2/dc9/_platform_8h.html#a2c46f1fb01e11216aa2c983307deafb4">SIZE_T</a> <a class="el" href="../../d5/db6/_pixel_format_8h.html#afb559e26bc610db43ba605230a142898a928f33270be19855038d0245a0fa06a1">Count</a>, <a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> Alignment=<a class="el" href="../../da/d8b/_dark_memory_8h.html#a99fb83031ce9923c84392b4e92f956b5a7d69a1ccda7665d7a6f494085b91f410">DEFAULT_ALIGNMENT</a>)</td></tr>
+<tr class="separator:a09e208867b69e5bffc98108594de24ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Перечисления</h2>
+<a id="a19c0c3ed7ccdca52860462acb69602c8" name="a19c0c3ed7ccdca52860462acb69602c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a19c0c3ed7ccdca52860462acb69602c8">&#9670;&#160;</a></span>AllocationHints</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#a19c0c3ed7ccdca52860462acb69602c8">FMemory::AllocationHints</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Элементы перечислений</th></tr><tr><td class="fieldname"><a id="a19c0c3ed7ccdca52860462acb69602c8a900233ff4139a4d249d9f5c78b590940" name="a19c0c3ed7ccdca52860462acb69602c8a900233ff4139a4d249d9f5c78b590940"></a>None&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a19c0c3ed7ccdca52860462acb69602c8a978133ac6c313676bcbba756ed35c238" name="a19c0c3ed7ccdca52860462acb69602c8a978133ac6c313676bcbba756ed35c238"></a>Default&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a19c0c3ed7ccdca52860462acb69602c8a58f3e9b63ba6242ab6958376b810ec9f" name="a19c0c3ed7ccdca52860462acb69602c8a58f3e9b63ba6242ab6958376b810ec9f"></a>Temporary&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a19c0c3ed7ccdca52860462acb69602c8a1a9d8b19166b59160ba657696ab90fad" name="a19c0c3ed7ccdca52860462acb69602c8a1a9d8b19166b59160ba657696ab90fad"></a>SmallPool&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a19c0c3ed7ccdca52860462acb69602c8aa825de3f99f1c3ae6b263934e2811876" name="a19c0c3ed7ccdca52860462acb69602c8aa825de3f99f1c3ae6b263934e2811876"></a>Max&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Методы</h2>
+<a id="a21e36adb156ba271a56a1a38032f62e5" name="a21e36adb156ba271a56a1a38032f62e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a21e36adb156ba271a56a1a38032f62e5">&#9670;&#160;</a></span>Free()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FMemory::Free </td>
+          <td>(</td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>Ptr</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa36d582779fbd658277d6787e7286fb6" name="aa36d582779fbd658277d6787e7286fb6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa36d582779fbd658277d6787e7286fb6">&#9670;&#160;</a></span>GetAllocSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/d5e/_definitions_8h.html#afea66f9a6812c2354b544f31910fd72f">CORE_API</a> <a class="el" href="../../d2/dc9/_platform_8h.html#a2c46f1fb01e11216aa2c983307deafb4">SIZE_T</a> FMemory::GetAllocSize </td>
+          <td>(</td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>Ptr</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a53fdf955abe05c2862e76be5e8b314b4" name="a53fdf955abe05c2862e76be5e8b314b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a53fdf955abe05c2862e76be5e8b314b4">&#9670;&#160;</a></span>Malloc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="../../d6/d5e/_definitions_8h.html#afea66f9a6812c2354b544f31910fd72f">CORE_API</a> void * FMemory::Malloc </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d2/dc9/_platform_8h.html#a2c46f1fb01e11216aa2c983307deafb4">SIZE_T</a></td>          <td class="paramname"><span class="paramname"><em>Count</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a></td>          <td class="paramname"><span class="paramname"><em>Alignment</em><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="../../da/d8b/_dark_memory_8h.html#a99fb83031ce9923c84392b4e92f956b5a7d69a1ccda7665d7a6f494085b91f410">DEFAULT_ALIGNMENT</a></span></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a09e208867b69e5bffc98108594de24ca" name="a09e208867b69e5bffc98108594de24ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a09e208867b69e5bffc98108594de24ca">&#9670;&#160;</a></span>MallocZero()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void * FMemory::MallocZero </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d2/dc9/_platform_8h.html#a2c46f1fb01e11216aa2c983307deafb4">SIZE_T</a></td>          <td class="paramname"><span class="paramname"><em>Count</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a></td>          <td class="paramname"><span class="paramname"><em>Alignment</em><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="../../da/d8b/_dark_memory_8h.html#a99fb83031ce9923c84392b4e92f956b5a7d69a1ccda7665d7a6f494085b91f410">DEFAULT_ALIGNMENT</a></span></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a37e12f1032ba2c84ffa3caf4191dc69b" name="a37e12f1032ba2c84ffa3caf4191dc69b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a37e12f1032ba2c84ffa3caf4191dc69b">&#9670;&#160;</a></span>Memcmp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="../../d2/dc9/_platform_8h.html#a84083085985fb180ad38b9c32e3937da">int32</a> FMemory::Memcmp </td>
+          <td>(</td>
+          <td class="paramtype">const void *</td>          <td class="paramname"><span class="paramname"><em>Buf1</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const void *</td>          <td class="paramname"><span class="paramname"><em>Buf2</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d2/dc9/_platform_8h.html#a2c46f1fb01e11216aa2c983307deafb4">SIZE_T</a></td>          <td class="paramname"><span class="paramname"><em>Count</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad19fe81e8fe897415bdca522abd4a2cc" name="ad19fe81e8fe897415bdca522abd4a2cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad19fe81e8fe897415bdca522abd4a2cc">&#9670;&#160;</a></span>Memcpy() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void * FMemory::Memcpy </td>
+          <td>(</td>
+          <td class="paramtype">T &amp;</td>          <td class="paramname"><span class="paramname"><em>Dest</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const T &amp;</td>          <td class="paramname"><span class="paramname"><em>Src</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6bfb397a8ea2e226f6fe27664c9880ca" name="a6bfb397a8ea2e226f6fe27664c9880ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6bfb397a8ea2e226f6fe27664c9880ca">&#9670;&#160;</a></span>Memcpy() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void * FMemory::Memcpy </td>
+          <td>(</td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>Dest</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const void *</td>          <td class="paramname"><span class="paramname"><em>Src</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d2/dc9/_platform_8h.html#a2c46f1fb01e11216aa2c983307deafb4">SIZE_T</a></td>          <td class="paramname"><span class="paramname"><em>Count</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac20407ee38986c991732696065b52f50" name="ac20407ee38986c991732696065b52f50"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac20407ee38986c991732696065b52f50">&#9670;&#160;</a></span>MemIsZero()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool FMemory::MemIsZero </td>
+          <td>(</td>
+          <td class="paramtype">const void *</td>          <td class="paramname"><span class="paramname"><em>Ptr</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d2/dc9/_platform_8h.html#a2c46f1fb01e11216aa2c983307deafb4">SIZE_T</a></td>          <td class="paramname"><span class="paramname"><em>Count</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a153a731cbc9f2dd08fc908289817ae9f" name="a153a731cbc9f2dd08fc908289817ae9f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a153a731cbc9f2dd08fc908289817ae9f">&#9670;&#160;</a></span>Memmove()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void * FMemory::Memmove </td>
+          <td>(</td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>Dest</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const void *</td>          <td class="paramname"><span class="paramname"><em>Src</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d2/dc9/_platform_8h.html#a2c46f1fb01e11216aa2c983307deafb4">SIZE_T</a></td>          <td class="paramname"><span class="paramname"><em>Count</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aedf1c48c1db4dc9f050e7efed5e8a9c9" name="aedf1c48c1db4dc9f050e7efed5e8a9c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aedf1c48c1db4dc9f050e7efed5e8a9c9">&#9670;&#160;</a></span>Memset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void * FMemory::Memset </td>
+          <td>(</td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>Dest</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d2/dc9/_platform_8h.html#a40bc01dd090acd02a79b5dc13e08abe6">uint8</a></td>          <td class="paramname"><span class="paramname"><em>Char</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d2/dc9/_platform_8h.html#a2c46f1fb01e11216aa2c983307deafb4">SIZE_T</a></td>          <td class="paramname"><span class="paramname"><em>Count</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7c4dd05bfa67a28e5ab70aaafdfec1f0" name="a7c4dd05bfa67a28e5ab70aaafdfec1f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c4dd05bfa67a28e5ab70aaafdfec1f0">&#9670;&#160;</a></span>Memswap()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void FMemory::Memswap </td>
+          <td>(</td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>Ptr1</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>Ptr2</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d2/dc9/_platform_8h.html#a2c46f1fb01e11216aa2c983307deafb4">SIZE_T</a></td>          <td class="paramname"><span class="paramname"><em>Count</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0c994a83497975531144f346a25bf43f" name="a0c994a83497975531144f346a25bf43f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c994a83497975531144f346a25bf43f">&#9670;&#160;</a></span>Memzero()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void * FMemory::Memzero </td>
+          <td>(</td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>Dest</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d2/dc9/_platform_8h.html#a2c46f1fb01e11216aa2c983307deafb4">SIZE_T</a></td>          <td class="paramname"><span class="paramname"><em>Count</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adb9f5f7d85bed269e0dcda7b507cffbd" name="adb9f5f7d85bed269e0dcda7b507cffbd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adb9f5f7d85bed269e0dcda7b507cffbd">&#9670;&#160;</a></span>Realloc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void * FMemory::Realloc </td>
+          <td>(</td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>Ptr</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d2/dc9/_platform_8h.html#a2c46f1fb01e11216aa2c983307deafb4">SIZE_T</a></td>          <td class="paramname"><span class="paramname"><em>Count</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a></td>          <td class="paramname"><span class="paramname"><em>Alignment</em><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="../../da/d8b/_dark_memory_8h.html#a99fb83031ce9923c84392b4e92f956b5a7d69a1ccda7665d7a6f494085b91f410">DEFAULT_ALIGNMENT</a></span></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a457fe87c3d2d2e747d73d3157dc128a2" name="a457fe87c3d2d2e747d73d3157dc128a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a457fe87c3d2d2e747d73d3157dc128a2">&#9670;&#160;</a></span>SystemFree()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void FMemory::SystemFree </td>
+          <td>(</td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>Ptr</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a33c6f3e0dbaae261c483ae90c2f9aea7" name="a33c6f3e0dbaae261c483ae90c2f9aea7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a33c6f3e0dbaae261c483ae90c2f9aea7">&#9670;&#160;</a></span>SystemMalloc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void * FMemory::SystemMalloc </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d2/dc9/_platform_8h.html#a2c46f1fb01e11216aa2c983307deafb4">SIZE_T</a></td>          <td class="paramname"><span class="paramname"><em>Size</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>Объявления и описания членов структур находятся в файлах:<ul>
+<li>Dark Engine/Source/Runtime/Core/Public/HAL/<a class="el" href="../../da/d8b/_dark_memory_8h_source.html">DarkMemory.h</a></li>
+<li>Dark Engine/Source/Runtime/Core/Public/HAL/<a class="el" href="../../dc/d2b/_f_memory_8inl.html">FMemory.inl</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
+</body>
+</html>

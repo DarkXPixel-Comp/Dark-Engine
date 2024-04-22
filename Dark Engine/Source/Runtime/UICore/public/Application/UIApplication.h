@@ -41,6 +41,8 @@ public:
 		const FVector2D CursorPos) override;
 	virtual bool OnMovedWindow(const TSharedPtr<FGenericWindow>& Window, FIntPoint NewPosition) override;
 
+	virtual bool OnMovingWindow(const TSharedPtr<FGenericWindow>& Window, FIntRect NewRect) override;
+
 public:
 	void InitializeRenderer(TSharedPtr<FUIRenderer> InRenderer);
 	TSharedPtr<UIWindow> AddWindow(TSharedPtr<UIWindow> InWindow);

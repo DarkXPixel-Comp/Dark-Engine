@@ -1,0 +1,287 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Dark Engine: Класс FShader</title>
+<link rel="icon" href="../../Logo.ico" type="image/x-icon" />
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<script type="text/javascript" src="../../clipboard.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../Logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Dark Engine<span id="projectnumber">&#160;0.0.39</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../../',true,false,'search.php','Поиск');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="#pub-static-methods">Открытые статические члены</a> &#124;
+<a href="#pub-attribs">Открытые атрибуты</a> &#124;
+<a href="../../dd/d73/class_f_shader-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle"><div class="title">Класс FShader</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="../../d8/d34/_shader_8h_source.html">Shader.h</a>&gt;</code></p>
+<div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Граф наследования:FShader:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+ <div class="center">
+  <img src="../../dd/d3a/class_f_shader.png" usemap="#FShader_map" alt=""/>
+  <map id="FShader_map" name="FShader_map">
+<area href="../../de/dcc/class_f_global_shader.html" alt="FGlobalShader" shape="rect" coords="187,56,364,80"/>
+<area href="../../d0/d42/class_f_material_shader.html" alt="FMaterialShader" shape="rect" coords="561,56,738,80"/>
+<area href="../../df/da8/class_f_diffuse_indirect_composite_p_s.html" alt="FDiffuseIndirectCompositePS" shape="rect" coords="0,112,177,136"/>
+<area href="../../d0/d36/class_f_diffuse_indirect_composite_v_s.html" alt="FDiffuseIndirectCompositeVS" shape="rect" coords="187,112,364,136"/>
+<area href="../../d8/de7/class_f_one_color_v_s.html" alt="FOneColorVS" shape="rect" coords="374,112,551,136"/>
+<area href="../../d8/dfc/class_f_mesh_material_shader.html" alt="FMeshMaterialShader" shape="rect" coords="561,112,738,136"/>
+  </map>
+</div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:a6d5c40053199a7841c6b88f51965fb29" id="r_a6d5c40053199a7841c6b88f51965fb29"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6d5c40053199a7841c6b88f51965fb29">FShader</a> ()</td></tr>
+<tr class="separator:a6d5c40053199a7841c6b88f51965fb29"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a68491ff5b276562434314acd02ef49" id="r_a6a68491ff5b276562434314acd02ef49"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6a68491ff5b276562434314acd02ef49">FShader</a> (const <a class="el" href="../../d3/d35/struct_f_shader_compiled_initializer_type.html">FShaderCompiledInitializerType</a> &amp;Initializer)</td></tr>
+<tr class="separator:a6a68491ff5b276562434314acd02ef49"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88853835ee35fd41d7f6cf4961ad0f16" id="r_a88853835ee35fd41d7f6cf4961ad0f16"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a88853835ee35fd41d7f6cf4961ad0f16">~FShader</a> ()</td></tr>
+<tr class="separator:a88853835ee35fd41d7f6cf4961ad0f16"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac17745d24db91dadcd0dfb302124045" id="r_aac17745d24db91dadcd0dfb302124045"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/d27/_t_unique_ptr_8h.html#a0e0f00349c59b03cfd84d025bb3d6d91">TRefCountPtr</a>&lt; <a class="el" href="../../db/d66/class_f_r_h_i_shader.html">FRHIShader</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aac17745d24db91dadcd0dfb302124045">GetRHIShader</a> ()</td></tr>
+<tr class="separator:aac17745d24db91dadcd0dfb302124045"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad08650d94759ac2a67112a3b90f83286" id="r_ad08650d94759ac2a67112a3b90f83286"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad08650d94759ac2a67112a3b90f83286">SetShaderBounds</a> (const <a class="el" href="../../d8/df6/struct_f_shader_bounds.html">FShaderBounds</a> &amp;ShaderBounds)</td></tr>
+<tr class="separator:ad08650d94759ac2a67112a3b90f83286"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Открытые статические члены</h2></td></tr>
+<tr class="memitem:a90eb1d139c8374cc95a8c8a9819c1583" id="r_a90eb1d139c8374cc95a8c8a9819c1583"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a90eb1d139c8374cc95a8c8a9819c1583">GetShaderBounds</a> (<a class="el" href="../../d8/df6/struct_f_shader_bounds.html">FShaderBounds</a> &amp;ShaderBounds)</td></tr>
+<tr class="separator:a90eb1d139c8374cc95a8c8a9819c1583"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Открытые атрибуты</h2></td></tr>
+<tr class="memitem:abbe2fe702ed953e581982b4d4d7e8537" id="r_abbe2fe702ed953e581982b4d4d7e8537"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/dc9/_platform_8h.html#afddf25cca147311c233b23a9d3329bb4">uint64</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abbe2fe702ed953e581982b4d4d7e8537">HashShader</a> = 0</td></tr>
+<tr class="separator:abbe2fe702ed953e581982b4d4d7e8537"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Конструктор(ы)</h2>
+<a id="a6d5c40053199a7841c6b88f51965fb29" name="a6d5c40053199a7841c6b88f51965fb29"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d5c40053199a7841c6b88f51965fb29">&#9670;&#160;</a></span>FShader() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">FShader::FShader </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6a68491ff5b276562434314acd02ef49" name="a6a68491ff5b276562434314acd02ef49"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a68491ff5b276562434314acd02ef49">&#9670;&#160;</a></span>FShader() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FShader::FShader </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d3/d35/struct_f_shader_compiled_initializer_type.html">FShaderCompiledInitializerType</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Initializer</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a88853835ee35fd41d7f6cf4961ad0f16" name="a88853835ee35fd41d7f6cf4961ad0f16"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a88853835ee35fd41d7f6cf4961ad0f16">&#9670;&#160;</a></span>~FShader()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">FShader::~FShader </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Методы</h2>
+<a id="aac17745d24db91dadcd0dfb302124045" name="aac17745d24db91dadcd0dfb302124045"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac17745d24db91dadcd0dfb302124045">&#9670;&#160;</a></span>GetRHIShader()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../dc/d27/_t_unique_ptr_8h.html#a0e0f00349c59b03cfd84d025bb3d6d91">TRefCountPtr</a>&lt; <a class="el" href="../../db/d66/class_f_r_h_i_shader.html">FRHIShader</a> &gt; FShader::GetRHIShader </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a90eb1d139c8374cc95a8c8a9819c1583" name="a90eb1d139c8374cc95a8c8a9819c1583"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90eb1d139c8374cc95a8c8a9819c1583">&#9670;&#160;</a></span>GetShaderBounds()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void FShader::GetShaderBounds </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d8/df6/struct_f_shader_bounds.html">FShaderBounds</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>ShaderBounds</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad08650d94759ac2a67112a3b90f83286" name="ad08650d94759ac2a67112a3b90f83286"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad08650d94759ac2a67112a3b90f83286">&#9670;&#160;</a></span>SetShaderBounds()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FShader::SetShaderBounds </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d8/df6/struct_f_shader_bounds.html">FShaderBounds</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>ShaderBounds</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Данные класса</h2>
+<a id="abbe2fe702ed953e581982b4d4d7e8537" name="abbe2fe702ed953e581982b4d4d7e8537"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abbe2fe702ed953e581982b4d4d7e8537">&#9670;&#160;</a></span>HashShader</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/dc9/_platform_8h.html#afddf25cca147311c233b23a9d3329bb4">uint64</a> FShader::HashShader = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>Объявления и описания членов классов находятся в файлах:<ul>
+<li>Dark Engine/Source/Runtime/Renderer/public/<a class="el" href="../../d8/d34/_shader_8h_source.html">Shader.h</a></li>
+<li>Dark Engine/Source/Runtime/Renderer/private/<a class="el" href="../../d5/d16/_shader_8cpp.html">Shader.cpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
+</body>
+</html>

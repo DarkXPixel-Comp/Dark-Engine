@@ -1,0 +1,206 @@
+\doxysection{Base\+Console.\+h}
+\hypertarget{_base_console_8h_source}{}\label{_base_console_8h_source}\index{Dark Engine/Source/Runtime/Core/Public/Console/BaseConsole.h@{Dark Engine/Source/Runtime/Core/Public/Console/BaseConsole.h}}
+\mbox{\hyperlink{_base_console_8h}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_dark_string_8h}{Containers/DarkString.h}}"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_array_8h}{Containers/Array.h}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_unordored_map_8h}{Containers/UnordoredMap.h}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_delegate_8h}{Delegate/Delegate.h}}"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_scope_lock_8h}{Misc/ScopeLock.h}}"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \mbox{\hyperlink{_delegate_8h_a74b6271cb85a7fa325e5fa753fcf79c5}{DECLARE\_DELEGATE\_OneParam}}(FOnAddConsoleInput,\ \mbox{\hyperlink{class_f_string}{FString}});}
+\DoxyCodeLine{00010\ \mbox{\hyperlink{_delegate_8h_a74b6271cb85a7fa325e5fa753fcf79c5}{DECLARE\_DELEGATE\_OneParam}}(FOnAddConsoleMessage,\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_f_console_log}{FConsoleLog}});}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{typedef}\ std::function<void(\textcolor{keyword}{const}\ TArray<FString>\&)>\ \mbox{\hyperlink{_base_console_8h_a0886a2931f781b536b1634839c82ee3a}{FConsoleSoloCommandWithArgsDelegate}};}
+\DoxyCodeLine{00014\ \textcolor{keyword}{typedef}\ std::function<void(\textcolor{keyword}{class}\ \mbox{\hyperlink{class_i_console_variable}{IConsoleVariable}}*)>\ \mbox{\hyperlink{_base_console_8h_ae26911fde2b2d2265a98cdf95ef33044}{FConsoleSoloVariableDelegate}};}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{typedef}\ TMultiCastDelegate<void,\ class\ IConsoleVariable*>\ \mbox{\hyperlink{_base_console_8h_a9744fe37fe954a806a485fcc5a6856d1}{FConsoleVariableDelegate}};}
+\DoxyCodeLine{00019\ \textcolor{keyword}{typedef}\ TMultiCastDelegate<void,\ const\ TArray<FString>\&>\ \mbox{\hyperlink{_base_console_8h_ab77b9320a72802c1194ebc9837b225d1}{FConsoleCommandWithArgsDelegate}};}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_f_console_log}{FConsoleLog}}}
+\DoxyCodeLine{00023\ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \mbox{\hyperlink{_platform_8h_afddf25cca147311c233b23a9d3329bb4}{uint64}}\ \mbox{\hyperlink{struct_f_console_log_a5154aa6f1b9d1901d38c201c625cdb5e}{Id}};}
+\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{class_f_string}{FString}}\ \mbox{\hyperlink{struct_f_console_log_a17af02052888cb06293c4ea6eb35bc8d}{Log}};}
+\DoxyCodeLine{00026\ \ \ \ \ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector}{FVector3f}}\ \mbox{\hyperlink{struct_f_console_log_aed3f9c25b2a3908a944dec300b50675b}{Color}};}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_f_console_log_af7b5ddbcb020b65d5d427a557a5c2d4f}{Time}};}
+\DoxyCodeLine{00028\ \};}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{00032\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_t_console_variable_data}{TConsoleVariableData}}}
+\DoxyCodeLine{00033\ \{}
+\DoxyCodeLine{00034\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00035\ \ \ \ \ \mbox{\hyperlink{class_t_console_variable_data_a8fabafc751f342ba9b2140c9618a1a3f}{TConsoleVariableData}}(\textcolor{keyword}{const}\ T\ DefaultValue):}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ Data(DefaultValue)}
+\DoxyCodeLine{00037\ \ \ \ \ \{}
+\DoxyCodeLine{00038\ \ \ \ \ \}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ T\ \mbox{\hyperlink{class_t_console_variable_data_a09fc3a1ddd6a815d17c83499f2f43bf7}{GetValue}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00041\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Data;}
+\DoxyCodeLine{00043\ \ \ \ \ \}}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00047\ \ \ \ \ T\ Data;}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \};}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_i_console_object}{IConsoleObject}}}
+\DoxyCodeLine{00053\ \{}
+\DoxyCodeLine{00054\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_i_console_variable}{IConsoleVariable}}*\ \mbox{\hyperlink{class_i_console_object_a7101238140f350114d2c2eb250c3e4ee}{AsVariable}}()}
+\DoxyCodeLine{00056\ \ \ \ \ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00058\ \ \ \ \ \}}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_i_console_object_a093cb564193cf09f0012be5531c24093}{IsVariableBool}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};\ \}}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_i_console_object_ad15b8f9e4949cbec304323ca1acd54cb}{IsVariableInt}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};\ \}}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_i_console_object_a1475373dce3a7b2ce7a3c5bc3d68f561}{IsVariableFloat}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};\ \}}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_i_console_object_acf10037995757f16cb5864b412147fd6}{IsVariableString}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};\ \}}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keyword}{virtual}\ TConsoleVariableData<bool>*\ \mbox{\hyperlink{class_i_console_object_a65b7510e4000b8a370c82e4dceb82d69}{AsVariableBool}}()}
+\DoxyCodeLine{00066\ \ \ \ \ \{}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00068\ \ \ \ \ \}}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keyword}{virtual}\ TConsoleVariableData<int32>*\ \mbox{\hyperlink{class_i_console_object_a4cedcdbb48247c346061309c090949df}{AsVariableInt}}()}
+\DoxyCodeLine{00070\ \ \ \ \ \{}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00072\ \ \ \ \ \}}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keyword}{virtual}\ TConsoleVariableData<float>*\ \mbox{\hyperlink{class_i_console_object_ad7b88eaa812093cacf2cd814473e7fc0}{AsVariableFloat}}()}
+\DoxyCodeLine{00074\ \ \ \ \ \{}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00076\ \ \ \ \ \}}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keyword}{virtual}\ TConsoleVariableData<FString>*\ \mbox{\hyperlink{class_i_console_object_a47a210960116bf1330327a6110a80464}{AsVariableString}}()}
+\DoxyCodeLine{00078\ \ \ \ \ \{}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00080\ \ \ \ \ \}}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_i_console_command}{IConsoleCommand}}*\ \mbox{\hyperlink{class_i_console_object_a65f16f7e6ff35313d7a3d13f65708328}{AsCommand}}()}
+\DoxyCodeLine{00083\ \ \ \ \ \{}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00085\ \ \ \ \ \}}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \ \ \ \ \mbox{\hyperlink{class_f_string}{FString}}\ \mbox{\hyperlink{class_i_console_object_a8ca6a8ffbb0d2b7b07fbd341cebbd0f5}{Description}};}
+\DoxyCodeLine{00088\ \};}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_i_console_variable}{IConsoleVariable}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_i_console_object}{IConsoleObject}}}
+\DoxyCodeLine{00091\ \{}
+\DoxyCodeLine{00092\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_i_console_variable_a9e43b6b5d5dc7b550f7e74d24b2ba185}{Set}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}}*\ InValue)\ =\ 0;}
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_i_console_variable_a17b0b12bd6b2ebd0516e6a0f2d8b9981}{GetBool}}()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}\ \mbox{\hyperlink{class_i_console_variable_afa03a84041176328439fca27e786d5af}{GetInt}}()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_i_console_variable_a831b7af810ff77844b48eec5a0d706fc}{GetFloat}}()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_f_string}{FString}}\ \mbox{\hyperlink{class_i_console_variable_a69e716aa9274f68f57d71b1404132abb}{GetString}}()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_i_console_variable_af70e4e536fc6ca1823d6650e67a1cb27}{GetValue}}(\mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}\&\ OutValue)}
+\DoxyCodeLine{00100\ \ \ \ \ \{}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ OutValue\ =\ \mbox{\hyperlink{class_i_console_variable_afa03a84041176328439fca27e786d5af}{GetInt}}();}
+\DoxyCodeLine{00102\ \ \ \ \ \}}
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_i_console_variable_a43d62223e0d2e829bf7124d8b35c8ed3}{GetValue}}(\textcolor{keywordtype}{bool}\&\ OutValue)}
+\DoxyCodeLine{00104\ \ \ \ \ \{}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ OutValue\ =\ \mbox{\hyperlink{class_i_console_variable_a17b0b12bd6b2ebd0516e6a0f2d8b9981}{GetBool}}();}
+\DoxyCodeLine{00106\ \ \ \ \ \}}
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_i_console_variable_adfd819da93de113dbbdbc6f375395a7f}{GetValue}}(\textcolor{keywordtype}{float}\&\ OutValue)}
+\DoxyCodeLine{00108\ \ \ \ \ \{}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ OutValue\ =\ \mbox{\hyperlink{class_i_console_variable_a831b7af810ff77844b48eec5a0d706fc}{GetFloat}}();}
+\DoxyCodeLine{00110\ \ \ \ \ \}}
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_i_console_variable_aec9ab9a1527f7489feb94f5a425e2210}{GetValue}}(\mbox{\hyperlink{class_f_string}{FString}}\&\ OutValue)}
+\DoxyCodeLine{00112\ \ \ \ \ \{}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ OutValue\ =\ \mbox{\hyperlink{class_i_console_variable_a69e716aa9274f68f57d71b1404132abb}{GetString}}();}
+\DoxyCodeLine{00114\ \ \ \ \ \}}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_f_string}{FString}}\ \mbox{\hyperlink{class_i_console_variable_aa7be4ac7c3be83c5a5b2c42a7e7e8b41}{ToString}}()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_i_console_variable_af38e30a22e47de49ee941573b5ede88f}{SetOnChangedCallback}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_t_multi_cast_delegate}{FConsoleVariableDelegate}}\&\ Callback)\ =\ 0;}
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_i_console_variable_a7578b065757fb537521d6ef28f4352bc}{SetOnChangedCallback}}(\mbox{\hyperlink{_base_console_8h_ae26911fde2b2d2265a98cdf95ef33044}{FConsoleSoloVariableDelegate}}\ Callback)\ =\ 0;}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_i_console_variable_aca5846b6c66ce8166ba38f67f47a39c2}{Set}}(\textcolor{keywordtype}{bool}\ InValue)}
+\DoxyCodeLine{00122\ \ \ \ \ \{}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_i_console_variable_a9e43b6b5d5dc7b550f7e74d24b2ba185}{Set}}(InValue\ ?\ \mbox{\hyperlink{_platform_8h_a2978f60d40d64f3605b5a99f66f292a9}{TEXT}}(\textcolor{stringliteral}{"{}1"{}})\ :\ \mbox{\hyperlink{_platform_8h_a2978f60d40d64f3605b5a99f66f292a9}{TEXT}}(\textcolor{stringliteral}{"{}0"{}}));}
+\DoxyCodeLine{00124\ \ \ \ \ \}}
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_i_console_variable_a19a0a785074cd184e999d2d0851ce715}{Set}}(\mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}\ InValue)}
+\DoxyCodeLine{00126\ \ \ \ \ \{}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_i_console_variable_a9e43b6b5d5dc7b550f7e74d24b2ba185}{Set}}(*\mbox{\hyperlink{class_f_string_a1dfcf0015234ee1810ed318e32dc6543}{FString::PrintF}}(\mbox{\hyperlink{_platform_8h_a2978f60d40d64f3605b5a99f66f292a9}{TEXT}}(\textcolor{stringliteral}{"{}\%i"{}}),\ InValue));}
+\DoxyCodeLine{00128\ \ \ \ \ \}}
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_i_console_variable_a21e572d6e13cf221b109881891f3ad7f}{Set}}(\textcolor{keywordtype}{float}\ InValue)}
+\DoxyCodeLine{00130\ \ \ \ \ \{}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_i_console_variable_a9e43b6b5d5dc7b550f7e74d24b2ba185}{Set}}(*\mbox{\hyperlink{class_f_string_a1dfcf0015234ee1810ed318e32dc6543}{FString::PrintF}}(\mbox{\hyperlink{_platform_8h_a2978f60d40d64f3605b5a99f66f292a9}{TEXT}}(\textcolor{stringliteral}{"{}\%f"{}}),\ InValue));}
+\DoxyCodeLine{00132\ \ \ \ \ \}}
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_i_console_variable_ad081b365133d0240ef788d5d213329b7}{Set}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_f_string}{FString}}\&\ InValue)}
+\DoxyCodeLine{00134\ \ \ \ \ \{}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_i_console_variable_a9e43b6b5d5dc7b550f7e74d24b2ba185}{Set}}(*InValue);}
+\DoxyCodeLine{00136\ \ \ \ \ \}}
+\DoxyCodeLine{00137\ \};}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_i_console_command}{IConsoleCommand}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_i_console_object}{IConsoleObject}}}
+\DoxyCodeLine{00140\ \{}
+\DoxyCodeLine{00141\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00142\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_i_console_command_a386c44fcc3975345cc4b8c6789be79de}{Execute}}(\textcolor{keyword}{const}\ TArray<FString>\&\ Args)\ =\ 0;}
+\DoxyCodeLine{00143\ \};}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00147\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_f_base_console}{FBaseConsole}}}
+\DoxyCodeLine{00148\ \{}
+\DoxyCodeLine{00149\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00150\ \ \ \ \ \mbox{\hyperlink{class_f_base_console_ab2051fda4e33461e404af772bff4e080}{FBaseConsole}}();\ }
+\DoxyCodeLine{00151\ \ \ \ \ \mbox{\hyperlink{class_f_base_console_ae5a9975fe8113456fbbab6069ef6dc10}{\string~FBaseConsole}}();}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00153\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_base_console_a05faf83877b1405c2b84173993508fc2}{AddLog}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_f_string}{FString}}\&\ Text,\ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector}{FVector3f}}\ Color\ =\ \mbox{\hyperlink{_math_fwd_8h_a97a4aa8e6391e1665580cd373848baff}{FVector3f}}(1,\ 1,\ 1),\ \textcolor{keywordtype}{float}\ Time\ =\ 0.f);}
+\DoxyCodeLine{00154\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_base_console_a6313ede0b57806b2f5c965e7139056f1}{Update}}(\textcolor{keywordtype}{float}\ DeltaTime);}
+\DoxyCodeLine{00155\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_base_console_a9e6443966a961d5c4283f390e12ce8f5}{RemoveLog}}();}
+\DoxyCodeLine{00156\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_base_console_a8ae273e89ecf09a34908471f7a6c73fc}{InputText}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_f_string}{FString}}\&\ Text);}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00159\ \ \ \ \ \mbox{\hyperlink{class_i_console_object}{IConsoleObject}}*\ \mbox{\hyperlink{class_f_base_console_a393ae6d421cff7ebcabdda4e04ed4b98}{AddConsoleObject}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}}*\ Name,\ \mbox{\hyperlink{class_i_console_object}{IConsoleObject}}*\ Obj,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}}*\ Description\ =\ \mbox{\hyperlink{_platform_8h_a2978f60d40d64f3605b5a99f66f292a9}{TEXT}}(\textcolor{stringliteral}{"{}"{}}));}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00161\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_i_console_command}{IConsoleCommand}}*\ \mbox{\hyperlink{class_f_base_console_a1ed1badb13464da64adee8cf50c6e999}{RegisterConsoleCommand}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}}*\ Name,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_t_multi_cast_delegate}{FConsoleCommandWithArgsDelegate}}\&\ Command,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}}*\ Description\ =\ \mbox{\hyperlink{_platform_8h_a2978f60d40d64f3605b5a99f66f292a9}{TEXT}}(\textcolor{stringliteral}{"{}"{}}));}
+\DoxyCodeLine{00162\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_i_console_command}{IConsoleCommand}}*\ \mbox{\hyperlink{class_f_base_console_a1ed1badb13464da64adee8cf50c6e999}{RegisterConsoleCommand}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}}*\ Name,\ \mbox{\hyperlink{_base_console_8h_a0886a2931f781b536b1634839c82ee3a}{FConsoleSoloCommandWithArgsDelegate}}\ Command,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}}*\ Description\ =\ \mbox{\hyperlink{_platform_8h_a2978f60d40d64f3605b5a99f66f292a9}{TEXT}}(\textcolor{stringliteral}{"{}"{}}));}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00164\ }
+\DoxyCodeLine{00165\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_i_console_variable}{IConsoleVariable}}*\ \mbox{\hyperlink{class_f_base_console_a091e6c76b658107e92c9f0fdc4c1f0c9}{RegisterConsoleVariable}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}}*\ Name,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_f_string}{FString}}\&\ DefaultValue,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}}*\ Description\ =\ \mbox{\hyperlink{_platform_8h_a2978f60d40d64f3605b5a99f66f292a9}{TEXT}}(\textcolor{stringliteral}{"{}"{}}));}
+\DoxyCodeLine{00166\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_i_console_variable}{IConsoleVariable}}*\ \mbox{\hyperlink{class_f_base_console_ae1dc3f4ad6471318207d1435e829ca9f}{RegisterConsoleVariable}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}}*\ Name,\ \textcolor{keywordtype}{float}\ DefaultValue,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}}*\ Description\ =\ \mbox{\hyperlink{_platform_8h_a2978f60d40d64f3605b5a99f66f292a9}{TEXT}}(\textcolor{stringliteral}{"{}"{}}));}
+\DoxyCodeLine{00167\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_i_console_variable}{IConsoleVariable}}*\ \mbox{\hyperlink{class_f_base_console_ac3a21a26ea9d8efa315f1d5d5c75180d}{RegisterConsoleVariable}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}}*\ Name,\ \mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}\ DefaultValue,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}}*\ Description\ =\ \mbox{\hyperlink{_platform_8h_a2978f60d40d64f3605b5a99f66f292a9}{TEXT}}(\textcolor{stringliteral}{"{}"{}}));}
+\DoxyCodeLine{00168\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_i_console_variable}{IConsoleVariable}}*\ \mbox{\hyperlink{class_f_base_console_a8f8e0165efc4c25252791b2673b6e462}{RegisterConsoleVariable}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}}*\ Name,\ \textcolor{keywordtype}{bool}\ DefaultValue,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}}*\ Description\ =\ \mbox{\hyperlink{_platform_8h_a2978f60d40d64f3605b5a99f66f292a9}{TEXT}}(\textcolor{stringliteral}{"{}"{}}));}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00170\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_i_console_variable}{IConsoleVariable}}*\ \mbox{\hyperlink{class_f_base_console_a5ae0733abf3a847b5779b8c3e22d5e3c}{RegisterConsoleVariableRef}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}}*\ Name,\ \mbox{\hyperlink{class_f_string}{FString}}\&\ RefValue,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}}*\ Description\ =\ \mbox{\hyperlink{_platform_8h_a2978f60d40d64f3605b5a99f66f292a9}{TEXT}}(\textcolor{stringliteral}{"{}"{}}));}
+\DoxyCodeLine{00171\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_i_console_variable}{IConsoleVariable}}*\ \mbox{\hyperlink{class_f_base_console_a28e9ea85caf2129e92d947f3cffce84f}{RegisterConsoleVariableRef}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}}*\ Name,\ \textcolor{keywordtype}{float}\&\ RefValue,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}}*\ Description\ =\ \mbox{\hyperlink{_platform_8h_a2978f60d40d64f3605b5a99f66f292a9}{TEXT}}(\textcolor{stringliteral}{"{}"{}}));}
+\DoxyCodeLine{00172\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_i_console_variable}{IConsoleVariable}}*\ \mbox{\hyperlink{class_f_base_console_a5ae0733abf3a847b5779b8c3e22d5e3c}{RegisterConsoleVariableRef}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}}*\ Name,\ \mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}\&\ RefValue,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}}*\ Description\ =\ \mbox{\hyperlink{_platform_8h_a2978f60d40d64f3605b5a99f66f292a9}{TEXT}}(\textcolor{stringliteral}{"{}"{}}));}
+\DoxyCodeLine{00173\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_i_console_variable}{IConsoleVariable}}*\ \mbox{\hyperlink{class_f_base_console_a2b29465f197f9b2f39e734d5ecbd7743}{RegisterConsoleVariableRef}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}}*\ Name,\ \textcolor{keywordtype}{bool}\&\ RefValue,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}}*\ Description\ =\ \mbox{\hyperlink{_platform_8h_a2978f60d40d64f3605b5a99f66f292a9}{TEXT}}(\textcolor{stringliteral}{"{}"{}}));}
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00175\ }
+\DoxyCodeLine{00176\ \ \ \ \ \textcolor{keyword}{const}\ TArray<FConsoleLog>\&\ \mbox{\hyperlink{class_f_base_console_a6ff0f9e823aa748b043aade6e1d8d9aa}{GetLogs}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_f_base_console_a9594533192119ae6d6ba23b12b2ced39}{Cache}};\ \}}
+\DoxyCodeLine{00177\ }
+\DoxyCodeLine{00178\ \ \ \ \ FOnAddConsoleInput\ \mbox{\hyperlink{class_f_base_console_a33aad924bf0bb991d4b26e2279a7d6bd}{OnAddConsoleInput}};\ \ }
+\DoxyCodeLine{00179\ \ \ \ \ FOnAddConsoleMessage\ \mbox{\hyperlink{class_f_base_console_ae6a7b4f68cf3a26faa7e7c45e005073c}{OnAddConsoleMessage}};}
+\DoxyCodeLine{00180\ }
+\DoxyCodeLine{00181\ \ \ \ \ \textcolor{keyword}{const}\ TUnordoredMap<FString,\ IConsoleObject*>\&\ \mbox{\hyperlink{class_f_base_console_a9f9913c82c7953ac872353b6ae83c549}{GetConsoleObjects}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00182\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ConsoleObjects;}
+\DoxyCodeLine{00184\ \ \ \ \ \}}
+\DoxyCodeLine{00185\ }
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00187\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00188\ \ \ \ \ \textcolor{keywordtype}{void}\ ParseInput(\mbox{\hyperlink{class_f_string}{FString}}\&\ InputOutCommands,\ TArray<FString>\&\ OutArgs);}
+\DoxyCodeLine{00189\ }
+\DoxyCodeLine{00190\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00191\ \ \ \ \ TArray<FConsoleLog>\ \mbox{\hyperlink{class_f_base_console_a9594533192119ae6d6ba23b12b2ced39}{Cache}};}
+\DoxyCodeLine{00192\ \ \ \ \ TArray<FString>\ \mbox{\hyperlink{class_f_base_console_a0ca0e8cfab2c3347ee0ac08f4f1ce9cf}{Inputs}};}
+\DoxyCodeLine{00193\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{_platform_8h_afddf25cca147311c233b23a9d3329bb4}{uint64}}\ \mbox{\hyperlink{class_f_base_console_a69f1545caac45ed1d329120ef7a7e33a}{StaticID}};}
+\DoxyCodeLine{00194\ }
+\DoxyCodeLine{00195\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00196\ \ \ \ \ \textcolor{keyword}{mutable}\ \mbox{\hyperlink{class_f_windows_critical_section}{FCriticalSection}}\ AddLogCriticalSection;}
+\DoxyCodeLine{00197\ }
+\DoxyCodeLine{00198\ \ \ \ \ \textcolor{keywordtype}{bool}\ bInit\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00199\ \ \ \ \ TUnordoredMap<FString,\ IConsoleObject*>\ ConsoleObjects;}
+\DoxyCodeLine{00200\ \};}
+
+\end{DoxyCode}

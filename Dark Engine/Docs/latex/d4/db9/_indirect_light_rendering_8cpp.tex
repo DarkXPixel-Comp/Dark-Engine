@@ -1,0 +1,44 @@
+\doxysection{Файл Dark Engine/\+Source/\+Runtime/\+Renderer/private/\+Indirect\+Light\+Rendering.cpp}
+\hypertarget{_indirect_light_rendering_8cpp}{}\label{_indirect_light_rendering_8cpp}\index{Dark Engine/Source/Runtime/Renderer/private/IndirectLightRendering.cpp@{Dark Engine/Source/Runtime/Renderer/private/IndirectLightRendering.cpp}}
+{\ttfamily \#include "{}Global\+Shader.\+h"{}}\newline
+{\ttfamily \#include "{}Misc/\+Paths.\+h"{}}\newline
+{\ttfamily \#include "{}Dynamic\+RHI.\+h"{}}\newline
+{\ttfamily \#include $<$RHICommand\+List.\+h$>$}\newline
+{\ttfamily \#include "{}Common\+Render\+Resources.\+h"{}}\newline
+\doxysubsubsection*{Классы}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_f_diffuse_indirect_composite_v_s}{FDiffuse\+Indirect\+Composite\+VS}}
+\item 
+class \mbox{\hyperlink{class_f_diffuse_indirect_composite_p_s}{FDiffuse\+Indirect\+Composite\+PS}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Функции}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_indirect_light_rendering_8cpp_a789c6a3c3fe2e469f7ad62f0c94a374d}{IMPLEMENT\+\_\+\+GLOBAL\+\_\+\+SHADER}} (\mbox{\hyperlink{class_f_diffuse_indirect_composite_v_s}{FDiffuse\+Indirect\+Composite\+VS}}, "{}Vertex\+Shader.\+hlsl"{}, "{}main"{}, \mbox{\hyperlink{_r_h_i_defines_8h_a89725d5f41ceac2e574ddc988f06775ea051ebc9c5c563958123bdbdc3bb9330d}{ST\+\_\+\+Vertex}})
+\item 
+\mbox{\hyperlink{_indirect_light_rendering_8cpp_ad725bec3e60af01b54c10ab291be9e75}{IMPLEMENT\+\_\+\+GLOBAL\+\_\+\+SHADER}} (\mbox{\hyperlink{class_f_diffuse_indirect_composite_p_s}{FDiffuse\+Indirect\+Composite\+PS}}, "{}Pixel\+Shader.\+hlsl"{}, "{}main"{}, \mbox{\hyperlink{_r_h_i_defines_8h_a89725d5f41ceac2e574ddc988f06775ea135f8248df527333f4407f04072fdf74}{ST\+\_\+\+Pixel}})
+\item 
+void \mbox{\hyperlink{_indirect_light_rendering_8cpp_a26355850ae7b3d45a950f2ddb7b3d52b}{Render\+Light}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Функции}
+\Hypertarget{_indirect_light_rendering_8cpp_ad725bec3e60af01b54c10ab291be9e75}\label{_indirect_light_rendering_8cpp_ad725bec3e60af01b54c10ab291be9e75} 
+\index{IndirectLightRendering.cpp@{IndirectLightRendering.cpp}!IMPLEMENT\_GLOBAL\_SHADER@{IMPLEMENT\_GLOBAL\_SHADER}}
+\index{IMPLEMENT\_GLOBAL\_SHADER@{IMPLEMENT\_GLOBAL\_SHADER}!IndirectLightRendering.cpp@{IndirectLightRendering.cpp}}
+\doxysubsubsection{\texorpdfstring{IMPLEMENT\_GLOBAL\_SHADER()}{IMPLEMENT\_GLOBAL\_SHADER()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily IMPLEMENT\+\_\+\+GLOBAL\+\_\+\+SHADER (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_f_diffuse_indirect_composite_p_s}{FDiffuse\+Indirect\+Composite\+PS}}}]{,  }\item[{"{}Pixel\+Shader.\+hlsl"{}}]{,  }\item[{"{}main"{}}]{,  }\item[{\mbox{\hyperlink{_r_h_i_defines_8h_a89725d5f41ceac2e574ddc988f06775ea135f8248df527333f4407f04072fdf74}{ST\+\_\+\+Pixel}}}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{_indirect_light_rendering_8cpp_a789c6a3c3fe2e469f7ad62f0c94a374d}\label{_indirect_light_rendering_8cpp_a789c6a3c3fe2e469f7ad62f0c94a374d} 
+\index{IndirectLightRendering.cpp@{IndirectLightRendering.cpp}!IMPLEMENT\_GLOBAL\_SHADER@{IMPLEMENT\_GLOBAL\_SHADER}}
+\index{IMPLEMENT\_GLOBAL\_SHADER@{IMPLEMENT\_GLOBAL\_SHADER}!IndirectLightRendering.cpp@{IndirectLightRendering.cpp}}
+\doxysubsubsection{\texorpdfstring{IMPLEMENT\_GLOBAL\_SHADER()}{IMPLEMENT\_GLOBAL\_SHADER()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily IMPLEMENT\+\_\+\+GLOBAL\+\_\+\+SHADER (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_f_diffuse_indirect_composite_v_s}{FDiffuse\+Indirect\+Composite\+VS}}}]{,  }\item[{"{}Vertex\+Shader.\+hlsl"{}}]{,  }\item[{"{}main"{}}]{,  }\item[{\mbox{\hyperlink{_r_h_i_defines_8h_a89725d5f41ceac2e574ddc988f06775ea051ebc9c5c563958123bdbdc3bb9330d}{ST\+\_\+\+Vertex}}}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{_indirect_light_rendering_8cpp_a26355850ae7b3d45a950f2ddb7b3d52b}\label{_indirect_light_rendering_8cpp_a26355850ae7b3d45a950f2ddb7b3d52b} 
+\index{IndirectLightRendering.cpp@{IndirectLightRendering.cpp}!RenderLight@{RenderLight}}
+\index{RenderLight@{RenderLight}!IndirectLightRendering.cpp@{IndirectLightRendering.cpp}}
+\doxysubsubsection{\texorpdfstring{RenderLight()}{RenderLight()}}
+{\footnotesize\ttfamily void Render\+Light (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+

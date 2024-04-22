@@ -5,8 +5,9 @@
 #include "D3D12Resources.h"
 #include "RHIResources.h"
 #include "D3D12Texture.h"
+#include "D3D12Util.h"
 
-DXGI_FORMAT GetDXGIFormat(EPixelFormat PixelFormat);
+//DXGI_FORMAT GetDXGIFormat(EPixelFormat PixelFormat);
 
 class FD3D12Viewport : public FRHIViewport , public FD3D12AdapterChild
 {
@@ -33,6 +34,9 @@ public:
 	}
 
 	FD3D12Texture* GetCurrentBackBuffer() const { return BackBuffers[CurrentBackBufferIndex].Get(); }
+
+	virtual void* GetNativeSwapChain() const override 
+	{ return SwapChain1.Get(); }
 
 private:
 	void CalculateSwapchainNum(int32 SwapchainNum);

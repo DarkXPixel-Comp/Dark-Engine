@@ -1,0 +1,54 @@
+\doxysection{Файл Dark Engine/\+Source/\+Runtime/\+Render/\+D3\+D12/\+D3\+D12\+Main.h}
+\hypertarget{_d3_d12_main_8h}{}\label{_d3_d12_main_8h}\index{Dark Engine/Source/Runtime/Render/D3D12/D3D12Main.h@{Dark Engine/Source/Runtime/Render/D3D12/D3D12Main.h}}
+{\ttfamily \#include $<$dxgi1\+\_\+6.\+h$>$}\newline
+{\ttfamily \#include $<$Direct\+XMath.\+h$>$}\newline
+{\ttfamily \#include $<$d3dcompiler.\+h$>$}\newline
+{\ttfamily \#include $<$wrl.\+h$>$}\newline
+{\ttfamily \#include "{}Core\+Types.\+h"{}}\newline
+{\ttfamily \#include "{}Containers/\+Dark\+String.\+h"{}}\newline
+{\ttfamily \#include $<$d3d12.\+h$>$}\newline
+{\ttfamily \#include "{}d3dx12.\+h"{}}\newline
+\doxysubsubsection*{Макросы}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_d3_d12_main_8h_a52cef664847e6cd74140a15d4fad3108}{DXCall}}(x)~x
+\item 
+\#define \mbox{\hyperlink{_d3_d12_main_8h_a16515101b46b583c7d204ca3c7dda8d9}{checked}}(x)~if(!x) \{ throw; \}
+\item 
+\#define \mbox{\hyperlink{_d3_d12_main_8h_aa5426ecdfdf4d0d47cc9dfa4f4b69772}{DXAlloc}}(x,  y)~new x(y)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Определения типов}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_logger_8h_a182e58c72146010abacd09e1d1f7ed0e}{typedef}} Com\+Ptr$<$ ID3\+D12\+Resource $>$ \mbox{\hyperlink{_d3_d12_main_8h_ab8eaee8f45f36954297ee6146eb6db20}{Resource}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Макросы}
+\Hypertarget{_d3_d12_main_8h_a16515101b46b583c7d204ca3c7dda8d9}\label{_d3_d12_main_8h_a16515101b46b583c7d204ca3c7dda8d9} 
+\index{D3D12Main.h@{D3D12Main.h}!checked@{checked}}
+\index{checked@{checked}!D3D12Main.h@{D3D12Main.h}}
+\doxysubsubsection{\texorpdfstring{checked}{checked}}
+{\footnotesize\ttfamily \#define checked(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~if(!x) \{ throw; \}}
+
+\Hypertarget{_d3_d12_main_8h_aa5426ecdfdf4d0d47cc9dfa4f4b69772}\label{_d3_d12_main_8h_aa5426ecdfdf4d0d47cc9dfa4f4b69772} 
+\index{D3D12Main.h@{D3D12Main.h}!DXAlloc@{DXAlloc}}
+\index{DXAlloc@{DXAlloc}!D3D12Main.h@{D3D12Main.h}}
+\doxysubsubsection{\texorpdfstring{DXAlloc}{DXAlloc}}
+{\footnotesize\ttfamily \#define DXAlloc(\begin{DoxyParamCaption}\item[{}]{x,  }\item[{}]{y }\end{DoxyParamCaption})~new x(y)}
+
+\Hypertarget{_d3_d12_main_8h_a52cef664847e6cd74140a15d4fad3108}\label{_d3_d12_main_8h_a52cef664847e6cd74140a15d4fad3108} 
+\index{D3D12Main.h@{D3D12Main.h}!DXCall@{DXCall}}
+\index{DXCall@{DXCall}!D3D12Main.h@{D3D12Main.h}}
+\doxysubsubsection{\texorpdfstring{DXCall}{DXCall}}
+{\footnotesize\ttfamily \#define DXCall(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~x}
+
+
+
+\doxysubsection{Типы}
+\Hypertarget{_d3_d12_main_8h_ab8eaee8f45f36954297ee6146eb6db20}\label{_d3_d12_main_8h_ab8eaee8f45f36954297ee6146eb6db20} 
+\index{D3D12Main.h@{D3D12Main.h}!Resource@{Resource}}
+\index{Resource@{Resource}!D3D12Main.h@{D3D12Main.h}}
+\doxysubsubsection{\texorpdfstring{Resource}{Resource}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_logger_8h_a182e58c72146010abacd09e1d1f7ed0e}{typedef}} Com\+Ptr$<$ID3\+D12\+Resource$>$ \mbox{\hyperlink{_d3_d12_main_8h_ab8eaee8f45f36954297ee6146eb6db20}{Resource}}}
+

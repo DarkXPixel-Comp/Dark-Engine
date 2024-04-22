@@ -1,0 +1,90 @@
+\doxysection{Файл Dark Engine/\+Source/\+Runtime/\+RHI/public/\+RHIResources.h}
+\hypertarget{_r_h_i_resources_8h}{}\label{_r_h_i_resources_8h}\index{Dark Engine/Source/Runtime/RHI/public/RHIResources.h@{Dark Engine/Source/Runtime/RHI/public/RHIResources.h}}
+{\ttfamily \#include "{}RHIDefines.\+h"{}}\newline
+{\ttfamily \#include "{}Containers/\+Dark\+String.\+h"{}}\newline
+{\ttfamily \#include "{}Containers/\+Array.\+h"{}}\newline
+{\ttfamily \#include "{}Containers/\+Static\+Array.\+h"{}}\newline
+{\ttfamily \#include "{}Misc/\+Assertion\+Macros.\+h"{}}\newline
+{\ttfamily \#include "{}Math/\+Math\+Fwd.\+h"{}}\newline
+{\ttfamily \#include "{}Templates/\+Ref\+Counting.\+h"{}}\newline
+\doxysubsubsection*{Классы}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_f_r_h_i_view_desc}{FRHIView\+Desc}}
+\item 
+class \mbox{\hyperlink{class_f_r_h_i_resource}{FRHIResource}}
+\item 
+class \mbox{\hyperlink{class_f_r_h_i_viewable_resource}{FRHIViewable\+Resource}}
+\item 
+class \mbox{\hyperlink{class_f_r_h_i_view}{FRHIView}}
+\item 
+class \mbox{\hyperlink{class_f_r_h_i_graphics_pipeline_state}{FRHIGraphics\+Pipeline\+State}}
+\item 
+class \mbox{\hyperlink{class_f_r_h_i_compute_pipeline_state}{FRHICompute\+Pipeline\+State}}
+\item 
+struct \mbox{\hyperlink{struct_f_r_h_i_buffer_desc}{FRHIBuffer\+Desc}}
+\item 
+class \mbox{\hyperlink{class_f_r_h_i_buffer}{FRHIBuffer}}
+\item 
+struct \mbox{\hyperlink{struct_f_r_h_i_texture_desc}{FRHITexture\+Desc}}
+\item 
+struct \mbox{\hyperlink{struct_f_r_h_i_texture_create_desc}{FRHITexture\+Create\+Desc}}
+\item 
+class \mbox{\hyperlink{class_f_r_h_i_texture}{FRHITexture}}
+\item 
+class \mbox{\hyperlink{class_f_r_h_i_viewport}{FRHIViewport}}
+\item 
+class \mbox{\hyperlink{class_f_r_h_i_shader}{FRHIShader}}
+\item 
+class \mbox{\hyperlink{class_f_r_h_i_graphics_shader}{FRHIGraphics\+Shader}}
+\item 
+struct \mbox{\hyperlink{struct_f_vertex_element}{FVertex\+Element}}
+\item 
+struct \mbox{\hyperlink{structstd_1_1hash_3_01_f_vertex_element_01_4}{std\+::hash$<$ FVertex\+Element $>$}}
+\item 
+class \mbox{\hyperlink{class_f_r_h_i_vertex_declaration}{FRHIVertex\+Declaration}}
+\item 
+class \mbox{\hyperlink{class_f_r_h_i_vertex_shader}{FRHIVertex\+Shader}}
+\item 
+class \mbox{\hyperlink{class_f_r_h_i_pixel_shader}{FRHIPixel\+Shader}}
+\item 
+class \mbox{\hyperlink{class_f_r_h_i_geometry_shader}{FRHIGeometry\+Shader}}
+\item 
+class \mbox{\hyperlink{class_f_r_h_i_compute_shader}{FRHICompute\+Shader}}
+\item 
+class \mbox{\hyperlink{class_f_r_h_i_sampler_state}{FRHISampler\+State}}
+\item 
+class \mbox{\hyperlink{class_f_r_h_i_render_target_view}{FRHIRender\+Target\+View}}
+\item 
+class \mbox{\hyperlink{class_f_r_h_i_depth_render_target_view}{FRHIDepth\+Render\+Target\+View}}
+\item 
+struct \mbox{\hyperlink{struct_f_r_h_i_render_pass_info}{FRHIRender\+Pass\+Info}}
+\item 
+struct \mbox{\hyperlink{struct_f_r_h_i_render_pass_info_1_1_f_color_entry}{FRHIRender\+Pass\+Info\+::\+FColor\+Entry}}
+\item 
+struct \mbox{\hyperlink{struct_f_r_h_i_render_pass_info_1_1_f_depth_stencil_entry}{FRHIRender\+Pass\+Info\+::\+FDepth\+Stencil\+Entry}}
+\item 
+class \mbox{\hyperlink{class_f_r_h_i_set_render_target_info}{FRHISet\+Render\+Target\+Info}}
+\item 
+struct \mbox{\hyperlink{struct_f_bound_shader_state_input}{FBound\+Shader\+State\+Input}}
+\item 
+class \mbox{\hyperlink{class_f_graphics_pipeline_state_initializer}{FGraphics\+Pipeline\+State\+Initializer}}
+\item 
+struct \mbox{\hyperlink{structstd_1_1hash_3_01_f_bound_shader_state_input_01_4}{std\+::hash$<$ FBound\+Shader\+State\+Input $>$}}
+\item 
+struct \mbox{\hyperlink{structstd_1_1hash_3_01_f_graphics_pipeline_state_initializer_01_4}{std\+::hash$<$ FGraphics\+Pipeline\+State\+Initializer $>$}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Определения типов}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_logger_8h_a182e58c72146010abacd09e1d1f7ed0e}{typedef}} \mbox{\hyperlink{class_t_array}{TArray}}$<$ \mbox{\hyperlink{struct_f_vertex_element}{FVertex\+Element}} $>$ \mbox{\hyperlink{_r_h_i_resources_8h_aa77d5af5631a2f543ab68862f67d6f93}{FVertex\+Declaration\+Element\+List}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Типы}
+\Hypertarget{_r_h_i_resources_8h_aa77d5af5631a2f543ab68862f67d6f93}\label{_r_h_i_resources_8h_aa77d5af5631a2f543ab68862f67d6f93} 
+\index{RHIResources.h@{RHIResources.h}!FVertexDeclarationElementList@{FVertexDeclarationElementList}}
+\index{FVertexDeclarationElementList@{FVertexDeclarationElementList}!RHIResources.h@{RHIResources.h}}
+\doxysubsubsection{\texorpdfstring{FVertexDeclarationElementList}{FVertexDeclarationElementList}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_logger_8h_a182e58c72146010abacd09e1d1f7ed0e}{typedef}} \mbox{\hyperlink{class_t_array}{TArray}}$<$\mbox{\hyperlink{struct_f_vertex_element}{FVertex\+Element}}$>$ \mbox{\hyperlink{_r_h_i_resources_8h_aa77d5af5631a2f543ab68862f67d6f93}{FVertex\+Declaration\+Element\+List}}}
+

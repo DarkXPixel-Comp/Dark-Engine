@@ -40,6 +40,7 @@ public:
 	uint64 GetCommandListID() { return GetCommandList().State.CommandListID; }
 	void TransitionResource(FD3D12Resource* Resource, D3D12_RESOURCE_STATES Before, D3D12_RESOURCE_STATES After, uint32 SubResource);
 	void TransitionResource(ID3D12Resource* Resource, D3D12_RESOURCE_STATES Before, D3D12_RESOURCE_STATES After, uint32 SubResource);
+	void TransitionResource(FD3D12Resource* Resource, D3D12_RESOURCE_STATES After, uint32 SubResource);
 
 	FD3D12CommandList& GetCommandList()
 	{
@@ -48,6 +49,16 @@ public:
 			OpenCommandList();
 		}
 		return *CommandList;
+	}
+
+	ID3D12GraphicsCommandList* GetGraphicsList()
+	{
+		return GetCommandList().GetGraphicsCommandList();
+	}
+
+	ID3D12GraphicsCommandList4* GetGraphicsList4()
+	{
+		return GetCommandList().GetGraphicsCommandList4();
 	}
 
 protected:

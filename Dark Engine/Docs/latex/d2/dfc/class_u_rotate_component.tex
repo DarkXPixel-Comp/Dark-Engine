@@ -1,0 +1,142 @@
+\doxysection{Класс URotate\+Component}
+\hypertarget{class_u_rotate_component}{}\label{class_u_rotate_component}\index{URotateComponent@{URotateComponent}}
+
+
+{\ttfamily \#include $<$Rotate\+Component.\+h$>$}
+
+Граф наследования\+:URotate\+Component\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{d2/dfc/class_u_rotate_component}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_u_rotate_component_a91fa20877cdcb8ca79ab2d0ba42b4800}{URotate\+Component}} ()
+\item 
+void \mbox{\hyperlink{class_u_rotate_component_a84aaa91eb5faaf3c07ea49c56e5dd701}{Begin\+Play}} () override
+\item 
+void \mbox{\hyperlink{class_u_rotate_component_ab0aee8903b7a088892aaf71356bc3917}{Update}} (float Delta\+Time) override
+\item 
+void \mbox{\hyperlink{class_u_rotate_component_a3857ffebfda4f328e935f4e5d7f9579e}{Destroy}} () override
+\item 
+void \mbox{\hyperlink{class_u_rotate_component_ade1d24b22870f7051cc8b10ab310526b}{Set\+Rotate\+On\+Tick}} (XMFLOAT3 rot)
+\item 
+XMFLOAT3 \mbox{\hyperlink{class_u_rotate_component_a42c362a8b40ef6557ac48e6aa7f32130}{Get\+Rotation}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Открытые члены унаследованные от \mbox{\hyperlink{class_u_actor_component}{UActor\+Component}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_u_actor_component_aa26c01d69f8e0369ab9982d01178277a}{UActor\+Component}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Открытые члены унаследованные от \mbox{\hyperlink{class_u_object}{UObject}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_u_object_ae1e8afb0b1117edf494eab22aea37761}{UObject}} ()
+\item 
+\mbox{\hyperlink{class_u_object_a1863523a3e28e4379fc28b3cc1cd582c}{\texorpdfstring{$\sim$}{\string~}\+UObject}} ()
+\item 
+virtual void \mbox{\hyperlink{class_u_object_a123d14f78b78c958cf4bfa549d6b569a}{Set\+Owner}} (\mbox{\hyperlink{class_u_object}{UObject}} \texorpdfstring{$\ast$}{*}owner) final
+\item 
+virtual \mbox{\hyperlink{class_u_object}{UObject}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_u_object_a246b663f22c3d3c1e839d11bcf203da6}{Get\+Owner}} () final
+\item 
+virtual void \mbox{\hyperlink{class_u_object_a02881df20a9e3992beae83811c3c1b5f}{Set\+Name}} (\mbox{\hyperlink{class_f_string}{FString}} In\+Name) final
+\item 
+virtual \mbox{\hyperlink{class_f_string}{FString}} \mbox{\hyperlink{class_u_object_ac25431591187c68dac89389eec1c8867}{Get\+Name}} ()
+\item 
+virtual const \mbox{\hyperlink{class_t_array}{TArray}}$<$ \mbox{\hyperlink{struct_f_object_properties}{FObject\+Properties}} $>$ \& \mbox{\hyperlink{class_u_object_a21948a4edcd0e8bcd4b25827bac096e3}{Get\+Properties}} () const
+\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{class_u_object_a26592583b62482f7dd15dc7eaf49968d}{Add\+Variable}} (\mbox{\hyperlink{class_f_string}{FString}} Name, void \texorpdfstring{$\ast$}{*}Variable)
+\item 
+\mbox{\hyperlink{class_u_object}{UObject}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_u_object_a92e09357ca4405dcd2413f44d4dbbd39}{Get\+Outer}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Защищенные данные}
+\begin{DoxyCompactItemize}
+\item 
+XMFLOAT3 \mbox{\hyperlink{class_u_rotate_component_a29cd3ead242a308476d5362f414e4f21}{m\+\_\+rotation}} = \{ 0, 0, 0 \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Дополнительные унаследованные члены}
+\doxysubsection*{Открытые атрибуты унаследованные от \mbox{\hyperlink{class_u_actor_component}{UActor\+Component}}}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_u_actor_component_a2de89ee6b4bf85ff67dea3ac1a452a61}{b\+Can\+Ever\+Tick}} = false
+\end{DoxyCompactItemize}
+\doxysubsection*{Защищенные члены унаследованные от \mbox{\hyperlink{class_u_object}{UObject}}}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_u_object_aafdc43863a8d4b55558ab1e164f1f366}{Create\+Default\+Sub\+Object}} (\mbox{\hyperlink{class_f_string}{FString}} name)
+\item 
+{\footnotesize template$<$typename T $>$ }\\T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_u_object_af8ea2fea786bcb06b31fc65fcac31ae7}{Cast}} (\mbox{\hyperlink{class_u_object}{UObject}} \texorpdfstring{$\ast$}{*})
+\item 
+void \mbox{\hyperlink{class_u_object_aa2e6cbb0b2ea66e93e148a97fc751596}{Add\+Properties}} (\mbox{\hyperlink{struct_f_object_properties}{FObject\+Properties}} Properties)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Конструктор(ы)}
+\Hypertarget{class_u_rotate_component_a91fa20877cdcb8ca79ab2d0ba42b4800}\label{class_u_rotate_component_a91fa20877cdcb8ca79ab2d0ba42b4800} 
+\index{URotateComponent@{URotateComponent}!URotateComponent@{URotateComponent}}
+\index{URotateComponent@{URotateComponent}!URotateComponent@{URotateComponent}}
+\doxysubsubsection{\texorpdfstring{URotateComponent()}{URotateComponent()}}
+{\footnotesize\ttfamily URotate\+Component\+::\+URotate\+Component (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Методы}
+\Hypertarget{class_u_rotate_component_a84aaa91eb5faaf3c07ea49c56e5dd701}\label{class_u_rotate_component_a84aaa91eb5faaf3c07ea49c56e5dd701} 
+\index{URotateComponent@{URotateComponent}!BeginPlay@{BeginPlay}}
+\index{BeginPlay@{BeginPlay}!URotateComponent@{URotateComponent}}
+\doxysubsubsection{\texorpdfstring{BeginPlay()}{BeginPlay()}}
+{\footnotesize\ttfamily void URotate\+Component\+::\+Begin\+Play (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Переопределяет метод предка \mbox{\hyperlink{class_u_actor_component_a1a1010d51ad1e68a4c3840af0dbbade9}{UActor\+Component}}.
+
+\Hypertarget{class_u_rotate_component_a3857ffebfda4f328e935f4e5d7f9579e}\label{class_u_rotate_component_a3857ffebfda4f328e935f4e5d7f9579e} 
+\index{URotateComponent@{URotateComponent}!Destroy@{Destroy}}
+\index{Destroy@{Destroy}!URotateComponent@{URotateComponent}}
+\doxysubsubsection{\texorpdfstring{Destroy()}{Destroy()}}
+{\footnotesize\ttfamily void URotate\+Component\+::\+Destroy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Переопределяет метод предка \mbox{\hyperlink{class_u_actor_component_aab345011a6ca999daf9ca213227210aa}{UActor\+Component}}.
+
+\Hypertarget{class_u_rotate_component_a42c362a8b40ef6557ac48e6aa7f32130}\label{class_u_rotate_component_a42c362a8b40ef6557ac48e6aa7f32130} 
+\index{URotateComponent@{URotateComponent}!GetRotation@{GetRotation}}
+\index{GetRotation@{GetRotation}!URotateComponent@{URotateComponent}}
+\doxysubsubsection{\texorpdfstring{GetRotation()}{GetRotation()}}
+{\footnotesize\ttfamily XMFLOAT3 URotate\+Component\+::\+Get\+Rotation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_u_rotate_component_ade1d24b22870f7051cc8b10ab310526b}\label{class_u_rotate_component_ade1d24b22870f7051cc8b10ab310526b} 
+\index{URotateComponent@{URotateComponent}!SetRotateOnTick@{SetRotateOnTick}}
+\index{SetRotateOnTick@{SetRotateOnTick}!URotateComponent@{URotateComponent}}
+\doxysubsubsection{\texorpdfstring{SetRotateOnTick()}{SetRotateOnTick()}}
+{\footnotesize\ttfamily void URotate\+Component\+::\+Set\+Rotate\+On\+Tick (\begin{DoxyParamCaption}\item[{XMFLOAT3}]{rot }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_u_rotate_component_ab0aee8903b7a088892aaf71356bc3917}\label{class_u_rotate_component_ab0aee8903b7a088892aaf71356bc3917} 
+\index{URotateComponent@{URotateComponent}!Update@{Update}}
+\index{Update@{Update}!URotateComponent@{URotateComponent}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void URotate\+Component\+::\+Update (\begin{DoxyParamCaption}\item[{float}]{Delta\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Переопределяет метод предка \mbox{\hyperlink{class_u_actor_component_a3c461c722a701015357b7072d2a578de}{UActor\+Component}}.
+
+
+
+\doxysubsection{Данные класса}
+\Hypertarget{class_u_rotate_component_a29cd3ead242a308476d5362f414e4f21}\label{class_u_rotate_component_a29cd3ead242a308476d5362f414e4f21} 
+\index{URotateComponent@{URotateComponent}!m\_rotation@{m\_rotation}}
+\index{m\_rotation@{m\_rotation}!URotateComponent@{URotateComponent}}
+\doxysubsubsection{\texorpdfstring{m\_rotation}{m\_rotation}}
+{\footnotesize\ttfamily XMFLOAT3 URotate\+Component\+::m\+\_\+rotation = \{ 0, 0, 0 \}\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+Dark Engine/\+Source/\+Runtime/\+Engine/\+Classes/\+Components/\+Rotate\+Component/\mbox{\hyperlink{_rotate_component_8h}{Rotate\+Component.\+h}}\item 
+Dark Engine/\+Source/\+Runtime/\+Engine/\+Classes/\+Components/\+Rotate\+Component/\mbox{\hyperlink{_rotate_component_8cpp}{Rotate\+Component.\+cpp}}\end{DoxyCompactItemize}

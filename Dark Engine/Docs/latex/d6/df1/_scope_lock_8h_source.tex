@@ -1,0 +1,38 @@
+\doxysection{Scope\+Lock.\+h}
+\hypertarget{_scope_lock_8h_source}{}\label{_scope_lock_8h_source}\index{Dark Engine/Source/Runtime/Core/Public/Misc/ScopeLock.h@{Dark Engine/Source/Runtime/Core/Public/Misc/ScopeLock.h}}
+\mbox{\hyperlink{_scope_lock_8h}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_critical_section_8h}{HAL/CriticalSection.h}}"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_assertion_macros_8h}{AssertionMacros.h}}"{}}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_f_scope_lock}{FScopeLock}}}
+\DoxyCodeLine{00007\ \{}
+\DoxyCodeLine{00008\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00009\ \ \ \ \ \mbox{\hyperlink{class_f_scope_lock_ad819020b042c6e2f05b223fef1ba94c6}{FScopeLock}}(\mbox{\hyperlink{class_f_windows_critical_section}{FCriticalSection}}*\ InCriticalSection):}
+\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ CriticalSection(InCriticalSection)}
+\DoxyCodeLine{00011\ \ \ \ \ \{}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_assertion_macros_8h_a586e110623cde145b8a5bdefb429e144}{check}}(CriticalSection);}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ CriticalSection-\/>\mbox{\hyperlink{class_f_windows_critical_section_a90b2710ddbff0a8ba37efa7d9b1a06c0}{Lock}}();}
+\DoxyCodeLine{00014\ \ \ \ \ \}}
+\DoxyCodeLine{00015\ \ \ \ \ \mbox{\hyperlink{class_f_scope_lock_a12356dc24a49ee856c30b71e556a5b6d}{\string~FScopeLock}}()}
+\DoxyCodeLine{00016\ \ \ \ \ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_f_scope_lock_a4f09150a13bc68e82bc2f402fba583e6}{Unlock}}();}
+\DoxyCodeLine{00018\ \ \ \ \ \}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_scope_lock_a4f09150a13bc68e82bc2f402fba583e6}{Unlock}}()}
+\DoxyCodeLine{00021\ \ \ \ \ \{}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (CriticalSection)}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ CriticalSection-\/>\mbox{\hyperlink{class_f_windows_critical_section_a4d041c91325cfd112c08a18f3661dfe4}{Unlock}}();}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ CriticalSection\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00027\ \ \ \ \ \}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00030\ \ \ \ \ \mbox{\hyperlink{class_f_windows_critical_section}{FCriticalSection}}*\ CriticalSection;}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \};}
+
+\end{DoxyCode}

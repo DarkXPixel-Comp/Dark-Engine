@@ -1,0 +1,194 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Dark Engine: Исходный файл Dark Engine/Source/Runtime/D3D12RHI/private/D3D12Viewport.h</title>
+<link rel="icon" href="../../Logo.ico" type="image/x-icon" />
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<script type="text/javascript" src="../../clipboard.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../Logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Dark Engine<span id="projectnumber">&#160;0.0.39</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../../',true,false,'search.php','Поиск');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(1); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_55043db21ba5ddd7c561d2c5a5a38944.html">Dark Engine</a></li><li class="navelem"><a class="el" href="../../dir_e00b54220e1e1486ac9971b606d33054.html">Source</a></li><li class="navelem"><a class="el" href="../../dir_ae01c8af07818b260cc3481e8588b277.html">Runtime</a></li><li class="navelem"><a class="el" href="../../dir_69d1b7a79a04d24cd43f7c84d74c5d6d.html">D3D12RHI</a></li><li class="navelem"><a class="el" href="../../dir_975782192f4e5579da5ceb9eedcf6dc7.html">private</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">D3D12Viewport.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d6/d14/_d3_d12_viewport_8h.html">См. документацию.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="../../dc/d5e/_core_minimal_8h.html">CoreMinimal.h</a>&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="../../d7/d2e/_d3_d12_r_h_i_common_8h.html">D3D12RHICommon.h</a>&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="../../d2/d22/_d3_d12_resources_8h.html">D3D12Resources.h</a>&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="../../db/dec/_r_h_i_resources_8h.html">RHIResources.h</a>&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;<a class="code" href="../../d6/d48/_d3_d12_r_h_i_2private_2_d3_d12_texture_8h.html">D3D12Texture.h</a>&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="../../d9/d88/_d3_d12_util_8h.html">D3D12Util.h</a>&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment">//DXGI_FORMAT GetDXGIFormat(EPixelFormat PixelFormat);</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="foldopen" id="foldopen00012" data-start="{" data-end="};">
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="../../d3/d1d/class_f_d3_d12_viewport.html">   12</a></span><span class="keyword">class </span><a class="code hl_class" href="../../d3/d1d/class_f_d3_d12_viewport.html">FD3D12Viewport</a> : <span class="keyword">public</span> <a class="code hl_class" href="../../d0/d5f/class_f_r_h_i_viewport.html">FRHIViewport</a> , <span class="keyword">public</span> <a class="code hl_class" href="../../d5/d6e/class_f_d3_d12_adapter_child.html">FD3D12AdapterChild</a></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>{</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <a class="code hl_function" href="../../d3/d1d/class_f_d3_d12_viewport.html#a16f5b24bd72443cfa45241902b81c5d5">FD3D12Viewport</a>(<a class="code hl_class" href="../../d6/db4/class_f_d3_d12_adapter.html">FD3D12Adapter</a>* InParent, HWND InWindowHandle, <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> InSizeX, <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> InSizeY,</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>        <span class="keywordtype">bool</span> bInIsFullscreen, <a class="code hl_enumeration" href="../../d5/db6/_pixel_format_8h.html#afb559e26bc610db43ba605230a142898">EPixelFormat</a> InPixelFormat);</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d3/d1d/class_f_d3_d12_viewport.html#a6c99e760324a43284f30585a0f27f730">Init</a>();</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d3/d1d/class_f_d3_d12_viewport.html#a1ff5539ee368828caa1c3f6b7e3f9ca5">Resize</a>(<a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> InSizeX, <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> InSizeY, <span class="keywordtype">bool</span> bInIsFullscreen, <a class="code hl_enumeration" href="../../d5/db6/_pixel_format_8h.html#afb559e26bc610db43ba605230a142898">EPixelFormat</a> InPixelFormat);</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keywordtype">bool</span> <a class="code hl_enumvalue" href="../../de/df7/_r_h_i_defines_8h.html#a790a925a3358fc56173b2ffb0f607c5fadd058df87f5c88e3285a28ad7406a3c6">Present</a>(<a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a84083085985fb180ad38b9c32e3937da">int32</a> bVsync);</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="../../d3/d1d/class_f_d3_d12_viewport.html#afe2a33f66da0a8ab90cb8404cee80095">   24</a></span>    <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> <a class="code hl_function" href="../../d3/d1d/class_f_d3_d12_viewport.html#afe2a33f66da0a8ab90cb8404cee80095">GetCountBackBuffers</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> NumBackBuffers; }</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d3/d1d/class_f_d3_d12_viewport.html#a8f594d696d29adf199c198afb8ad814b">WaitForFrameEventCompletion</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../d3/d1d/class_f_d3_d12_viewport.html#a1ff5539ee368828caa1c3f6b7e3f9ca5">Resize</a>(<a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a84083085985fb180ad38b9c32e3937da">int32</a> Width, <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a84083085985fb180ad38b9c32e3937da">int32</a> Height, <span class="keywordtype">bool</span> bWasMinimized) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="foldopen" id="foldopen00031" data-start="{" data-end="}">
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="../../d3/d1d/class_f_d3_d12_viewport.html#aa6702f82289a536a9f67f30d0279bff6">   31</a></span>    FORCEINLINE <span class="keyword">static</span> DXGI_FORMAT <a class="code hl_function" href="../../d3/d1d/class_f_d3_d12_viewport.html#aa6702f82289a536a9f67f30d0279bff6">GetRenderTargetFormat</a>(<a class="code hl_enumeration" href="../../d5/db6/_pixel_format_8h.html#afb559e26bc610db43ba605230a142898">EPixelFormat</a> PixelFormat)</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    {</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="../../d9/d88/_d3_d12_util_8h.html#ac028dbc41e6752d17b317a83da786425">GetDXGIFormat</a>(PixelFormat);</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    }</div>
+</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="../../d3/d1d/class_f_d3_d12_viewport.html#aedc8c11d58df4ebece6899b1549ef46c">   36</a></span>    <a class="code hl_class" href="../../d6/d36/class_f_d3_d12_texture.html">FD3D12Texture</a>* <a class="code hl_function" href="../../d3/d1d/class_f_d3_d12_viewport.html#aedc8c11d58df4ebece6899b1549ef46c">GetCurrentBackBuffer</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> BackBuffers[CurrentBackBufferIndex].Get(); }</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="foldopen" id="foldopen00038" data-start="{" data-end="}">
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="../../d3/d1d/class_f_d3_d12_viewport.html#a6c18be1c6ac53b8a37baff9fa5fca5c1">   38</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span>* <a class="code hl_function" href="../../d3/d1d/class_f_d3_d12_viewport.html#a6c18be1c6ac53b8a37baff9fa5fca5c1">GetNativeSwapChain</a>()<span class="keyword"> const override </span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="keyword">    </span>{ <span class="keywordflow">return</span> SwapChain1.Get(); }</div>
+</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keywordtype">void</span> CalculateSwapchainNum(<a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a84083085985fb180ad38b9c32e3937da">int32</a> SwapchainNum);</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    DXGI_MODE_DESC SetupDXGI_MODE_DESC() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <a class="code hl_class" href="../../d6/d36/class_f_d3_d12_texture.html">FD3D12Texture</a>* GetSwapChainSurface( <a class="code hl_enumeration" href="../../d5/db6/_pixel_format_8h.html#afb559e26bc610db43ba605230a142898">EPixelFormat</a> PixelFormat, <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> SizeX, <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> SizeY,</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        IDXGISwapChain* SwapChain, <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> BackBufferIndex, TRefCountPtr&lt;ID3D12Resource&gt; BackBufferResourceOverride);</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    HWND WindowHandle;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> SizeX;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> SizeY;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="keywordtype">bool</span> bIsFullscreen;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <a class="code hl_enumeration" href="../../d5/db6/_pixel_format_8h.html#afb559e26bc610db43ba605230a142898">EPixelFormat</a> PixelFormat;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keywordtype">bool</span> bIsValid;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> CurrentBackBufferIndex;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    TArray&lt;TRefCountPtr&lt;FD3D12Texture&gt;&gt; BackBuffers;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> NumBackBuffers;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    TRefCountPtr&lt;IDXGISwapChain1&gt; SwapChain1;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    TRefCountPtr&lt;IDXGISwapChain2&gt; SwapChain2;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    TRefCountPtr&lt;IDXGISwapChain3&gt; SwapChain3;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    TRefCountPtr&lt;IDXGISwapChain4&gt; SwapChain4;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>};</div>
+</div>
+<div class="ttc" id="a_core_minimal_8h_html"><div class="ttname"><a href="../../dc/d5e/_core_minimal_8h.html">CoreMinimal.h</a></div></div>
+<div class="ttc" id="a_d3_d12_r_h_i_2private_2_d3_d12_texture_8h_html"><div class="ttname"><a href="../../d6/d48/_d3_d12_r_h_i_2private_2_d3_d12_texture_8h.html">D3D12Texture.h</a></div></div>
+<div class="ttc" id="a_d3_d12_r_h_i_common_8h_html"><div class="ttname"><a href="../../d7/d2e/_d3_d12_r_h_i_common_8h.html">D3D12RHICommon.h</a></div></div>
+<div class="ttc" id="a_d3_d12_resources_8h_html"><div class="ttname"><a href="../../d2/d22/_d3_d12_resources_8h.html">D3D12Resources.h</a></div></div>
+<div class="ttc" id="a_d3_d12_util_8h_html"><div class="ttname"><a href="../../d9/d88/_d3_d12_util_8h.html">D3D12Util.h</a></div></div>
+<div class="ttc" id="a_d3_d12_util_8h_html_ac028dbc41e6752d17b317a83da786425"><div class="ttname"><a href="../../d9/d88/_d3_d12_util_8h.html#ac028dbc41e6752d17b317a83da786425">GetDXGIFormat</a></div><div class="ttdeci">FORCEINLINE DXGI_FORMAT GetDXGIFormat(EPixelFormat InFormat)</div><div class="ttdef"><b>Definition</b> D3D12Util.h:64</div></div>
+<div class="ttc" id="a_pixel_format_8h_html_afb559e26bc610db43ba605230a142898"><div class="ttname"><a href="../../d5/db6/_pixel_format_8h.html#afb559e26bc610db43ba605230a142898">EPixelFormat</a></div><div class="ttdeci">EPixelFormat</div><div class="ttdef"><b>Definition</b> PixelFormat.h:8</div></div>
+<div class="ttc" id="a_platform_8h_html_a84083085985fb180ad38b9c32e3937da"><div class="ttname"><a href="../../d2/dc9/_platform_8h.html#a84083085985fb180ad38b9c32e3937da">int32</a></div><div class="ttdeci">FPlatformTypes::int32 int32</div><div class="ttdef"><b>Definition</b> Platform.h:42</div></div>
+<div class="ttc" id="a_platform_8h_html_a8c7a127091efbdfc5a16939041653e05"><div class="ttname"><a href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a></div><div class="ttdeci">FPlatformTypes::uint32 uint32</div><div class="ttdef"><b>Definition</b> Platform.h:43</div></div>
+<div class="ttc" id="a_r_h_i_defines_8h_html_a790a925a3358fc56173b2ffb0f607c5fadd058df87f5c88e3285a28ad7406a3c6"><div class="ttname"><a href="../../de/df7/_r_h_i_defines_8h.html#a790a925a3358fc56173b2ffb0f607c5fadd058df87f5c88e3285a28ad7406a3c6">ERHIAccess::Present</a></div><div class="ttdeci">@ Present</div></div>
+<div class="ttc" id="a_r_h_i_resources_8h_html"><div class="ttname"><a href="../../db/dec/_r_h_i_resources_8h.html">RHIResources.h</a></div></div>
+<div class="ttc" id="aclass_f_d3_d12_adapter_child_html"><div class="ttname"><a href="../../d5/d6e/class_f_d3_d12_adapter_child.html">FD3D12AdapterChild</a></div><div class="ttdef"><b>Definition</b> D3D12RHICommon.h:19</div></div>
+<div class="ttc" id="aclass_f_d3_d12_adapter_html"><div class="ttname"><a href="../../d6/db4/class_f_d3_d12_adapter.html">FD3D12Adapter</a></div><div class="ttdef"><b>Definition</b> D3D12Adapter.h:50</div></div>
+<div class="ttc" id="aclass_f_d3_d12_texture_html"><div class="ttname"><a href="../../d6/d36/class_f_d3_d12_texture.html">FD3D12Texture</a></div><div class="ttdef"><b>Definition</b> D3D12Texture.h:13</div></div>
+<div class="ttc" id="aclass_f_d3_d12_viewport_html"><div class="ttname"><a href="../../d3/d1d/class_f_d3_d12_viewport.html">FD3D12Viewport</a></div><div class="ttdef"><b>Definition</b> D3D12Viewport.h:13</div></div>
+<div class="ttc" id="aclass_f_d3_d12_viewport_html_a16f5b24bd72443cfa45241902b81c5d5"><div class="ttname"><a href="../../d3/d1d/class_f_d3_d12_viewport.html#a16f5b24bd72443cfa45241902b81c5d5">FD3D12Viewport::FD3D12Viewport</a></div><div class="ttdeci">FD3D12Viewport(FD3D12Adapter *InParent, HWND InWindowHandle, uint32 InSizeX, uint32 InSizeY, bool bInIsFullscreen, EPixelFormat InPixelFormat)</div><div class="ttdef"><b>Definition</b> D3D12Viewport.cpp:12</div></div>
+<div class="ttc" id="aclass_f_d3_d12_viewport_html_a1ff5539ee368828caa1c3f6b7e3f9ca5"><div class="ttname"><a href="../../d3/d1d/class_f_d3_d12_viewport.html#a1ff5539ee368828caa1c3f6b7e3f9ca5">FD3D12Viewport::Resize</a></div><div class="ttdeci">void Resize(uint32 InSizeX, uint32 InSizeY, bool bInIsFullscreen, EPixelFormat InPixelFormat)</div><div class="ttdef"><b>Definition</b> D3D12Viewport.cpp:199</div></div>
+<div class="ttc" id="aclass_f_d3_d12_viewport_html_a6c18be1c6ac53b8a37baff9fa5fca5c1"><div class="ttname"><a href="../../d3/d1d/class_f_d3_d12_viewport.html#a6c18be1c6ac53b8a37baff9fa5fca5c1">FD3D12Viewport::GetNativeSwapChain</a></div><div class="ttdeci">virtual void * GetNativeSwapChain() const override</div><div class="ttdef"><b>Definition</b> D3D12Viewport.h:38</div></div>
+<div class="ttc" id="aclass_f_d3_d12_viewport_html_a6c99e760324a43284f30585a0f27f730"><div class="ttname"><a href="../../d3/d1d/class_f_d3_d12_viewport.html#a6c99e760324a43284f30585a0f27f730">FD3D12Viewport::Init</a></div><div class="ttdeci">void Init()</div><div class="ttdef"><b>Definition</b> D3D12Viewport.cpp:138</div></div>
+<div class="ttc" id="aclass_f_d3_d12_viewport_html_a8f594d696d29adf199c198afb8ad814b"><div class="ttname"><a href="../../d3/d1d/class_f_d3_d12_viewport.html#a8f594d696d29adf199c198afb8ad814b">FD3D12Viewport::WaitForFrameEventCompletion</a></div><div class="ttdeci">void WaitForFrameEventCompletion() override</div><div class="ttdef"><b>Definition</b> D3D12Viewport.cpp:280</div></div>
+<div class="ttc" id="aclass_f_d3_d12_viewport_html_aa6702f82289a536a9f67f30d0279bff6"><div class="ttname"><a href="../../d3/d1d/class_f_d3_d12_viewport.html#aa6702f82289a536a9f67f30d0279bff6">FD3D12Viewport::GetRenderTargetFormat</a></div><div class="ttdeci">static FORCEINLINE DXGI_FORMAT GetRenderTargetFormat(EPixelFormat PixelFormat)</div><div class="ttdef"><b>Definition</b> D3D12Viewport.h:31</div></div>
+<div class="ttc" id="aclass_f_d3_d12_viewport_html_aedc8c11d58df4ebece6899b1549ef46c"><div class="ttname"><a href="../../d3/d1d/class_f_d3_d12_viewport.html#aedc8c11d58df4ebece6899b1549ef46c">FD3D12Viewport::GetCurrentBackBuffer</a></div><div class="ttdeci">FD3D12Texture * GetCurrentBackBuffer() const</div><div class="ttdef"><b>Definition</b> D3D12Viewport.h:36</div></div>
+<div class="ttc" id="aclass_f_d3_d12_viewport_html_afe2a33f66da0a8ab90cb8404cee80095"><div class="ttname"><a href="../../d3/d1d/class_f_d3_d12_viewport.html#afe2a33f66da0a8ab90cb8404cee80095">FD3D12Viewport::GetCountBackBuffers</a></div><div class="ttdeci">uint32 GetCountBackBuffers() const</div><div class="ttdef"><b>Definition</b> D3D12Viewport.h:24</div></div>
+<div class="ttc" id="aclass_f_r_h_i_viewport_html"><div class="ttname"><a href="../../d0/d5f/class_f_r_h_i_viewport.html">FRHIViewport</a></div><div class="ttdef"><b>Definition</b> RHIResources.h:326</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
+</body>
+</html>

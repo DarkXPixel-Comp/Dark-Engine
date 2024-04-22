@@ -265,6 +265,14 @@ int32 FWindowsApplication::ProcessMessage(HWND hWnd, uint32 Msg, WPARAM wParam, 
 		}
 		break;
 
+		case WM_MOVING:
+		{
+			RECT* Rect = (RECT*)lParam;
+
+			MessageHandler->OnMovingWindow(CurrentWindow, FIntRect(Rect->left, Rect->top, Rect->right, Rect->bottom));
+		}
+		break;
+
 		case WM_SIZE:
 		{
 			if (CurrentWindow)

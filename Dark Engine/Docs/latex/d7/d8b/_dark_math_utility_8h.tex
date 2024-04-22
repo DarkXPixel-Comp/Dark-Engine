@@ -1,0 +1,601 @@
+\doxysection{Файл Dark Engine/\+Source/\+Runtime/\+Core/\+Public/\+Math/\+Dark\+Math\+Utility.h}
+\hypertarget{_dark_math_utility_8h}{}\label{_dark_math_utility_8h}\index{Dark Engine/Source/Runtime/Core/Public/Math/DarkMathUtility.h@{Dark Engine/Source/Runtime/Core/Public/Math/DarkMathUtility.h}}
+{\ttfamily \#include "{}Core\+Types.\+h"{}}\newline
+{\ttfamily \#include "{}HAL/\+Platform\+Math.\+h"{}}\newline
+{\ttfamily \#include "{}Math/\+Math\+Fwd.\+h"{}}\newline
+{\ttfamily \#include "{}Dark\+Platform\+Math\+SSE.\+h"{}}\newline
+\doxysubsubsection*{Классы}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_f_math}{FMath}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Макросы}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_dark_math_utility_8h_a0e169f0214f13b7499f826190272bed6}{DE\+\_\+\+PI}}~(3.\+1415926535897932f) /\texorpdfstring{$\ast$}{*} Extra digits if needed\+: 3.\+1415926535897932384626433832795f \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{_dark_math_utility_8h_a6b8547d1f71738e3e0c252789d22d3d1}{DE\+\_\+\+SMALL\+\_\+\+NUMBER}}~(1.e-\/8f)
+\item 
+\#define \mbox{\hyperlink{_dark_math_utility_8h_af164f5a3286e027ba25121e9f81cd1f7}{DE\+\_\+\+KINDA\+\_\+\+SMALL\+\_\+\+NUMBER}}~(1.e-\/4f)
+\item 
+\#define \mbox{\hyperlink{_dark_math_utility_8h_adc4fed04e75c577def9ff157bdf7a75a}{DE\+\_\+\+BIG\+\_\+\+NUMBER}}~(3.\+4e+38f)
+\item 
+\#define \mbox{\hyperlink{_dark_math_utility_8h_a05cc3f00497d10c89dbf254b3223c5a9}{DE\+\_\+\+EULERS\+\_\+\+NUMBER}}~(2.\+71828182845904523536f)
+\item 
+\#define \mbox{\hyperlink{_dark_math_utility_8h_adc4a25316667511cfb53b808de32fef2}{DE\+\_\+\+GOLDEN\+\_\+\+RATIO}}~(1.\+6180339887498948482045868343656381f) /\texorpdfstring{$\ast$}{*} Also known as divine proportion, golden mean, or golden section -\/ related to the Fibonacci Seq\+DEnce = (1 + sqrt(5)) / 2 \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{_dark_math_utility_8h_a7abae044542a31caea7b48b18618ad90}{DE\+\_\+\+FLOAT\+\_\+\+NON\+\_\+\+FRACTIONAL}}~(8388608.f) /\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{_r_h_i_pipeline_8h_a7897373e689a9d0a3e71d78c0e898407ab1c94ca2fbc3e78fc30069c8d0f01680}{All}} single-\/precision floating point numbers greater than or equal to this have no fractional val\+DE. \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{_dark_math_utility_8h_af79df9d5140a0101653bb7ef52e56e63}{DE\+\_\+\+DOUBLE\+\_\+\+PI}}~(3.\+141592653589793238462643383279502884197169399)
+\item 
+\#define \mbox{\hyperlink{_dark_math_utility_8h_aefb7c40a26b0a7e8bf5a97e198f09f96}{DE\+\_\+\+DOUBLE\+\_\+\+SMALL\+\_\+\+NUMBER}}~(1.e-\/8)
+\item 
+\#define \mbox{\hyperlink{_dark_math_utility_8h_ae9fd812517838104538909e98c5aa382}{DE\+\_\+\+DOUBLE\+\_\+\+KINDA\+\_\+\+SMALL\+\_\+\+NUMBER}}~(1.e-\/4)
+\item 
+\#define \mbox{\hyperlink{_dark_math_utility_8h_a3bc48e7341e7cbaa2d91ff079f677a06}{DE\+\_\+\+DOUBLE\+\_\+\+BIG\+\_\+\+NUMBER}}~(3.\+4e+38)
+\item 
+\#define \mbox{\hyperlink{_dark_math_utility_8h_abb25b3035b9f2cae444202a6fb5776d0}{DE\+\_\+\+DOUBLE\+\_\+\+EULERS\+\_\+\+NUMBER}}~(2.\+7182818284590452353602874713526624977572)
+\item 
+\#define \mbox{\hyperlink{_dark_math_utility_8h_a9d3c01aaea4316aedbc59cd27e58fd36}{DE\+\_\+\+DOUBLE\+\_\+\+GOLDEN\+\_\+\+RATIO}}~(1.\+6180339887498948482045868343656381) /\texorpdfstring{$\ast$}{*} Also known as divine proportion, golden mean, or golden section -\/ related to the Fibonacci Seq\+DEnce = (1 + sqrt(5)) / 2 \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{_dark_math_utility_8h_add0a0dcbb25212e5e215115745cb621f}{DE\+\_\+\+DOUBLE\+\_\+\+NON\+\_\+\+FRACTIONAL}}~(4503599627370496.\+0) /\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{_r_h_i_pipeline_8h_a7897373e689a9d0a3e71d78c0e898407ab1c94ca2fbc3e78fc30069c8d0f01680}{All}} double-\/precision floating point numbers greater than or equal to this have no fractional val\+DE. 2\texorpdfstring{$^\wedge$}{\string^}52 \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{_dark_math_utility_8h_a3ab02a1bee9ab01f4164405b2ccde0ed}{DE\+\_\+\+MAX\+\_\+\+FLT}}~3.\+402823466e+38F
+\item 
+\#define \mbox{\hyperlink{_dark_math_utility_8h_a70f7cfee679c1cf9dbc7233d429f8e9b}{DE\+\_\+\+INV\+\_\+\+PI}}~(0.\+31830988618f)
+\item 
+\#define \mbox{\hyperlink{_dark_math_utility_8h_a26978e18b776dd3a3577208c5c4cc1dc}{DE\+\_\+\+HALF\+\_\+\+PI}}~(1.\+57079632679f)
+\item 
+\#define \mbox{\hyperlink{_dark_math_utility_8h_a433bc59db55c3a0f36a2dcd44fcb52b2}{DE\+\_\+\+TWO\+\_\+\+PI}}~(6.\+28318530717f)
+\item 
+\#define \mbox{\hyperlink{_dark_math_utility_8h_a95091a3b8da76db8d9bcb0a31ae43165}{DE\+\_\+\+PI\+\_\+\+SQUARED}}~(9.\+86960440108f)
+\item 
+\#define \mbox{\hyperlink{_dark_math_utility_8h_ae6de73ab6d905edf05d6b353704a20ac}{DE\+\_\+\+DOUBLE\+\_\+\+INV\+\_\+\+PI}}~(0.\+31830988618379067154)
+\item 
+\#define \mbox{\hyperlink{_dark_math_utility_8h_a5a8ad2e56747442049a5fc07c2c9eed9}{DE\+\_\+\+DOUBLE\+\_\+\+HALF\+\_\+\+PI}}~(1.\+57079632679489661923)
+\item 
+\#define \mbox{\hyperlink{_dark_math_utility_8h_a13e81dae115c4cc618b6e99a96f73b18}{DE\+\_\+\+DOUBLE\+\_\+\+TWO\+\_\+\+PI}}~(6.\+28318530717958647692)
+\item 
+\#define \mbox{\hyperlink{_dark_math_utility_8h_a74f0db9a80f10a4cde25ee7e5d3b1a95}{DE\+\_\+\+DOUBLE\+\_\+\+PI\+\_\+\+SQUARED}}~(9.\+86960440108935861883)
+\item 
+\#define \mbox{\hyperlink{_dark_math_utility_8h_ae74a37a15d0713d969c2a51d2d603aca}{DE\+\_\+\+SQRT\+\_\+2}}~(1.\+4142135623730950488016887242097f)
+\item 
+\#define \mbox{\hyperlink{_dark_math_utility_8h_a3611dbbf4f12698ac597b698faef80db}{DE\+\_\+\+SQRT\+\_\+3}}~(1.\+7320508075688772935274463415059f)
+\item 
+\#define \mbox{\hyperlink{_dark_math_utility_8h_a9eb86b16134d76dd46bf3727aa249305}{DE\+\_\+\+INV\+\_\+\+SQRT\+\_\+2}}~(0.\+70710678118654752440084436210485f)
+\item 
+\#define \mbox{\hyperlink{_dark_math_utility_8h_abfaa618fa3dadeab789e59dfc1d0463c}{DE\+\_\+\+INV\+\_\+\+SQRT\+\_\+3}}~(0.\+57735026918962576450914878050196f)
+\item 
+\#define \mbox{\hyperlink{_dark_math_utility_8h_afd52be4a678d9072e84c27a8f84cbaa9}{DE\+\_\+\+HALF\+\_\+\+SQRT\+\_\+2}}~(0.\+70710678118654752440084436210485f)
+\item 
+\#define \mbox{\hyperlink{_dark_math_utility_8h_a1eeb3d1e28fefb5c12d3746e23afb357}{DE\+\_\+\+HALF\+\_\+\+SQRT\+\_\+3}}~(0.\+86602540378443864676372317075294f)
+\item 
+\#define \mbox{\hyperlink{_dark_math_utility_8h_a17800868a22f97f658a9e234335f5437}{DE\+\_\+\+DOUBLE\+\_\+\+SQRT\+\_\+2}}~(1.\+4142135623730950488016887242097)
+\item 
+\#define \mbox{\hyperlink{_dark_math_utility_8h_a79e7ceaf34da00968dc1bd647caeb194}{DE\+\_\+\+DOUBLE\+\_\+\+SQRT\+\_\+3}}~(1.\+7320508075688772935274463415059)
+\item 
+\#define \mbox{\hyperlink{_dark_math_utility_8h_a39ab4740092d644206e1811f2d6dacda}{DE\+\_\+\+DOUBLE\+\_\+\+INV\+\_\+\+SQRT\+\_\+2}}~(0.\+70710678118654752440084436210485)
+\item 
+\#define \mbox{\hyperlink{_dark_math_utility_8h_ac6e5256c2bcbfbc43949c669081266c7}{DE\+\_\+\+DOUBLE\+\_\+\+INV\+\_\+\+SQRT\+\_\+3}}~(0.\+57735026918962576450914878050196)
+\item 
+\#define \mbox{\hyperlink{_dark_math_utility_8h_ab6880b270d4c63b0fcd5df8ac25a993c}{DE\+\_\+\+DOUBLE\+\_\+\+HALF\+\_\+\+SQRT\+\_\+2}}~(0.\+70710678118654752440084436210485)
+\item 
+\#define \mbox{\hyperlink{_dark_math_utility_8h_af1494f1ca935d3abfe35580ce225187f}{DE\+\_\+\+DOUBLE\+\_\+\+HALF\+\_\+\+SQRT\+\_\+3}}~(0.\+86602540378443864676372317075294)
+\item 
+\#define \mbox{\hyperlink{_dark_math_utility_8h_a8961cb36ba865d0374e90ad33e8673f0}{DE\+\_\+\+KM\+\_\+\+TO\+\_\+M}}~(1000.f)
+\item 
+\#define \mbox{\hyperlink{_dark_math_utility_8h_a019400e559ed0ed979b699ba7dec0978}{DE\+\_\+\+M\+\_\+\+TO\+\_\+\+KM}}~(0.\+001f)
+\item 
+\#define \mbox{\hyperlink{_dark_math_utility_8h_a14be898efc57b7e3f857f4ace9431504}{DE\+\_\+\+CM\+\_\+\+TO\+\_\+M}}~(0.\+01f)
+\item 
+\#define \mbox{\hyperlink{_dark_math_utility_8h_abba1b505cda9b7e88f8503139d36455d}{DE\+\_\+\+M\+\_\+\+TO\+\_\+\+CM}}~(100.f)
+\item 
+\#define \mbox{\hyperlink{_dark_math_utility_8h_a4f34362102ab7eef8e3fef1dee57d013}{DE\+\_\+\+CM2\+\_\+\+TO\+\_\+\+M2}}~(0.\+0001f)
+\item 
+\#define \mbox{\hyperlink{_dark_math_utility_8h_a24e14522d1825f625d510feeb8396200}{DE\+\_\+\+M2\+\_\+\+TO\+\_\+\+CM2}}~(10000.f)
+\item 
+\#define \mbox{\hyperlink{_dark_math_utility_8h_aea4d81f9d079d63f8821429f5b6ddb33}{DE\+\_\+\+DELTA}}~(0.\+00001f)
+\item 
+\#define \mbox{\hyperlink{_dark_math_utility_8h_a5b83f475b2d44dfa540468836255f6ab}{DE\+\_\+\+DOUBLE\+\_\+\+DELTA}}~(0.\+00001 )
+\item 
+\#define \mbox{\hyperlink{_dark_math_utility_8h_ac7c0c3f42496216225eb49f8319be021}{DE\+\_\+\+FLOAT\+\_\+\+NORMAL\+\_\+\+THRESH}}~(0.\+0001f)
+\item 
+\#define \mbox{\hyperlink{_dark_math_utility_8h_a233496b24d62486501214ee68541559c}{DE\+\_\+\+DOUBLE\+\_\+\+NORMAL\+\_\+\+THRESH}}~(0.\+0001)
+\item 
+\#define \mbox{\hyperlink{_dark_math_utility_8h_a7a1036580fa021f2d503599a9d3947bc}{DE\+\_\+\+THRESH\+\_\+\+POINT\+\_\+\+ON\+\_\+\+PLANE}}~(0.\+10f)  /\texorpdfstring{$\ast$}{*} Thickness of plane for front/back/inside test \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{_dark_math_utility_8h_aca4e1b95e6c3627bc88717883e706d6b}{DE\+\_\+\+THRESH\+\_\+\+POINT\+\_\+\+ON\+\_\+\+SIDE}}~(0.\+20f)  /\texorpdfstring{$\ast$}{*} Thickness of polygon side\textquotesingle{}s side-\/plane for point-\/inside/outside/on side test \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{_dark_math_utility_8h_ae410cfb76aa2ff1067b70f76e52bed17}{DE\+\_\+\+THRESH\+\_\+\+POINTS\+\_\+\+ARE\+\_\+\+SAME}}~(0.\+00002f) /\texorpdfstring{$\ast$}{*} Two points are same if within this distance \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{_dark_math_utility_8h_af6fc950ad8f44894f09270ebf06bc3b6}{DE\+\_\+\+THRESH\+\_\+\+POINTS\+\_\+\+ARE\+\_\+\+NEAR}}~(0.\+015f) /\texorpdfstring{$\ast$}{*} Two points are near if within this distance and can be combined if imprecise math is ok \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{_dark_math_utility_8h_ab256fa59f1ce4775a78d5abe4eaa031d}{DE\+\_\+\+THRESH\+\_\+\+NORMALS\+\_\+\+ARE\+\_\+\+SAME}}~(0.\+00002f) /\texorpdfstring{$\ast$}{*} Two normal points are same if within this distance \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{_dark_math_utility_8h_ac713701f42a5ba006fb9c0b0dbe66e2b}{DE\+\_\+\+THRESH\+\_\+\+UVS\+\_\+\+ARE\+\_\+\+SAME}}~(0.\+0009765625f)/\texorpdfstring{$\ast$}{*} Two UV are same if within this threshold (1.\+0f/1024f) \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{_dark_math_utility_8h_abe7107b3e51f5e7a0d9c7489fb7acb85}{DE\+\_\+\+THRESH\+\_\+\+VECTORS\+\_\+\+ARE\+\_\+\+NEAR}}~(0.\+0004f) /\texorpdfstring{$\ast$}{*} Two vectors are near if within this distance and can be combined if imprecise math is ok \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{_dark_math_utility_8h_a5e8dbcf67e7771b9ed14b5136f1a41f6}{DE\+\_\+\+THRESH\+\_\+\+SPLIT\+\_\+\+POLY\+\_\+\+WITH\+\_\+\+PLANE}}~(0.\+25f)  /\texorpdfstring{$\ast$}{*} A plane splits a polygon in half \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{_dark_math_utility_8h_a5520942bd103048801e1ae6d65731ecd}{DE\+\_\+\+THRESH\+\_\+\+SPLIT\+\_\+\+POLY\+\_\+\+PRECISELY}}~(0.\+01f)  /\texorpdfstring{$\ast$}{*} A plane exactly splits a polygon \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{_dark_math_utility_8h_a5c251cbbdcca554d3b1284c166817736}{DE\+\_\+\+THRESH\+\_\+\+ZERO\+\_\+\+NORM\+\_\+\+SQUARED}}~(0.\+0001f) /\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{_d3_d12_utils_8h_a49802c782fb40bd8e79835ef12871ddeaff9abf2b1a689f70a77a18da50c01d9f}{Size}} of a unit normal that is considered "{}zero"{}, squared \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{_dark_math_utility_8h_a2cea68d728129bf42876cc5e4c61ff53}{DE\+\_\+\+THRESH\+\_\+\+NORMALS\+\_\+\+ARE\+\_\+\+PARALLEL}}~(0.\+999845f) /\texorpdfstring{$\ast$}{*} Two unit vectors are parallel if abs(A dot B) is greater than or equal to this. This is roughly cosine(1.\+0 degrees). \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{_dark_math_utility_8h_a98aa6652e3d2293d768651a31a0f8454}{DE\+\_\+\+THRESH\+\_\+\+NORMALS\+\_\+\+ARE\+\_\+\+ORTHOGONAL}}~(0.\+017455f) /\texorpdfstring{$\ast$}{*} Two unit vectors are orthogonal (perpendicular) if abs(A dot B) is less than or equal this. This is roughly cosine(89.\+0 degrees). \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{_dark_math_utility_8h_a1a82eee3544e7a4a4c2dda9d7bcaad0b}{DE\+\_\+\+THRESH\+\_\+\+VECTOR\+\_\+\+NORMALIZED}}~(0.\+01f)  /\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} Allowed error for a normalized vector (against squared magnitude) \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{_dark_math_utility_8h_a004f7b9b0357bf51e3cb8c1bc964ae11}{DE\+\_\+\+THRESH\+\_\+\+QUAT\+\_\+\+NORMALIZED}}~(0.\+01f)  /\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} Allowed error for a normalized quaternion (against squared magnitude) \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{_dark_math_utility_8h_aaaeeb1f2cbd2260bbd0f97c89d913a0b}{DE\+\_\+\+DOUBLE\+\_\+\+THRESH\+\_\+\+POINT\+\_\+\+ON\+\_\+\+PLANE}}~(0.\+10)  /\texorpdfstring{$\ast$}{*} Thickness of plane for front/back/inside test \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{_dark_math_utility_8h_a5379e225125d911da296e5a66d7de214}{DE\+\_\+\+DOUBLE\+\_\+\+THRESH\+\_\+\+POINT\+\_\+\+ON\+\_\+\+SIDE}}~(0.\+20)  /\texorpdfstring{$\ast$}{*} Thickness of polygon side\textquotesingle{}s side-\/plane for point-\/inside/outside/on side test \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{_dark_math_utility_8h_a740bb0d02d40e866cebf9e18a918f557}{DE\+\_\+\+DOUBLE\+\_\+\+THRESH\+\_\+\+POINTS\+\_\+\+ARE\+\_\+\+SAME}}~(0.\+00002) /\texorpdfstring{$\ast$}{*} Two points are same if within this distance \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{_dark_math_utility_8h_a1e30c17c448056bebf62d32227a68c8f}{DE\+\_\+\+DOUBLE\+\_\+\+THRESH\+\_\+\+POINTS\+\_\+\+ARE\+\_\+\+NEAR}}~(0.\+015)  /\texorpdfstring{$\ast$}{*} Two points are near if within this distance and can be combined if imprecise math is ok \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{_dark_math_utility_8h_acc6d6456b75d95816bcdabcd38c724f2}{DE\+\_\+\+DOUBLE\+\_\+\+THRESH\+\_\+\+NORMALS\+\_\+\+ARE\+\_\+\+SAME}}~(0.\+00002) /\texorpdfstring{$\ast$}{*} Two normal points are same if within this distance \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{_dark_math_utility_8h_a2e73a1aee6329172aac1e3201573d8ae}{DE\+\_\+\+DOUBLE\+\_\+\+THRESH\+\_\+\+UVS\+\_\+\+ARE\+\_\+\+SAME}}~(0.\+0009765625)/\texorpdfstring{$\ast$}{*} Two UV are same if within this threshold (1.\+0/1024.\+0) \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{_dark_math_utility_8h_a91ecfe29f8d97c16dcfabfe707885b68}{DE\+\_\+\+DOUBLE\+\_\+\+THRESH\+\_\+\+VECTORS\+\_\+\+ARE\+\_\+\+NEAR}}~(0.\+0004) /\texorpdfstring{$\ast$}{*} Two vectors are near if within this distance and can be combined if imprecise math is ok \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{_dark_math_utility_8h_ab0b4646ce1c1f95dbc4c47ee274b3bcb}{DE\+\_\+\+DOUBLE\+\_\+\+THRESH\+\_\+\+SPLIT\+\_\+\+POLY\+\_\+\+WITH\+\_\+\+PLANE}}~(0.\+25)  /\texorpdfstring{$\ast$}{*} A plane splits a polygon in half \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{_dark_math_utility_8h_a1c99df28a4870e45f44a73f75cd08b9d}{DE\+\_\+\+DOUBLE\+\_\+\+THRESH\+\_\+\+SPLIT\+\_\+\+POLY\+\_\+\+PRECISELY}}~(0.\+01)  /\texorpdfstring{$\ast$}{*} A plane exactly splits a polygon \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{_dark_math_utility_8h_ade0d4a3edd393b9daaf1b0467fb6fb8f}{DE\+\_\+\+DOUBLE\+\_\+\+THRESH\+\_\+\+ZERO\+\_\+\+NORM\+\_\+\+SQUARED}}~(0.\+0001) /\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{_d3_d12_utils_8h_a49802c782fb40bd8e79835ef12871ddeaff9abf2b1a689f70a77a18da50c01d9f}{Size}} of a unit normal that is considered "{}zero"{}, squared \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{_dark_math_utility_8h_a5a245f45a0d98e43e142b2ef40b518dd}{DE\+\_\+\+DOUBLE\+\_\+\+THRESH\+\_\+\+NORMALS\+\_\+\+ARE\+\_\+\+PARALLEL}}~(0.\+999845) /\texorpdfstring{$\ast$}{*} Two unit vectors are parallel if abs(A dot B) is greater than or equal to this. This is roughly cosine(1.\+0 degrees). \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{_dark_math_utility_8h_a200e17eaad53fd36270fc86862edf44c}{DE\+\_\+\+DOUBLE\+\_\+\+THRESH\+\_\+\+NORMALS\+\_\+\+ARE\+\_\+\+ORTHOGONAL}}~(0.\+017455) /\texorpdfstring{$\ast$}{*} Two unit vectors are orthogonal (perpendicular) if abs(A dot B) is less than or equal this. This is roughly cosine(89.\+0 degrees). \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{_dark_math_utility_8h_a6e7f151e7d0fe95ee2cbf034e290af7f}{DE\+\_\+\+DOUBLE\+\_\+\+THRESH\+\_\+\+VECTOR\+\_\+\+NORMALIZED}}~(0.\+01)  /\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} Allowed error for a normalized vector (against squared magnitude) \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{_dark_math_utility_8h_a74c3b2f5c36ae536fc31b4e3ef883db7}{DE\+\_\+\+DOUBLE\+\_\+\+THRESH\+\_\+\+QUAT\+\_\+\+NORMALIZED}}~(0.\+01)  /\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} Allowed error for a normalized quaternion (against squared magnitude) \texorpdfstring{$\ast$}{*}/
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Макросы}
+\Hypertarget{_dark_math_utility_8h_adc4fed04e75c577def9ff157bdf7a75a}\label{_dark_math_utility_8h_adc4fed04e75c577def9ff157bdf7a75a} 
+\index{DarkMathUtility.h@{DarkMathUtility.h}!DE\_BIG\_NUMBER@{DE\_BIG\_NUMBER}}
+\index{DE\_BIG\_NUMBER@{DE\_BIG\_NUMBER}!DarkMathUtility.h@{DarkMathUtility.h}}
+\doxysubsubsection{\texorpdfstring{DE\_BIG\_NUMBER}{DE\_BIG\_NUMBER}}
+{\footnotesize\ttfamily \#define DE\+\_\+\+BIG\+\_\+\+NUMBER~(3.\+4e+38f)}
+
+\Hypertarget{_dark_math_utility_8h_a4f34362102ab7eef8e3fef1dee57d013}\label{_dark_math_utility_8h_a4f34362102ab7eef8e3fef1dee57d013} 
+\index{DarkMathUtility.h@{DarkMathUtility.h}!DE\_CM2\_TO\_M2@{DE\_CM2\_TO\_M2}}
+\index{DE\_CM2\_TO\_M2@{DE\_CM2\_TO\_M2}!DarkMathUtility.h@{DarkMathUtility.h}}
+\doxysubsubsection{\texorpdfstring{DE\_CM2\_TO\_M2}{DE\_CM2\_TO\_M2}}
+{\footnotesize\ttfamily \#define DE\+\_\+\+CM2\+\_\+\+TO\+\_\+\+M2~(0.\+0001f)}
+
+\Hypertarget{_dark_math_utility_8h_a14be898efc57b7e3f857f4ace9431504}\label{_dark_math_utility_8h_a14be898efc57b7e3f857f4ace9431504} 
+\index{DarkMathUtility.h@{DarkMathUtility.h}!DE\_CM\_TO\_M@{DE\_CM\_TO\_M}}
+\index{DE\_CM\_TO\_M@{DE\_CM\_TO\_M}!DarkMathUtility.h@{DarkMathUtility.h}}
+\doxysubsubsection{\texorpdfstring{DE\_CM\_TO\_M}{DE\_CM\_TO\_M}}
+{\footnotesize\ttfamily \#define DE\+\_\+\+CM\+\_\+\+TO\+\_\+M~(0.\+01f)}
+
+\Hypertarget{_dark_math_utility_8h_aea4d81f9d079d63f8821429f5b6ddb33}\label{_dark_math_utility_8h_aea4d81f9d079d63f8821429f5b6ddb33} 
+\index{DarkMathUtility.h@{DarkMathUtility.h}!DE\_DELTA@{DE\_DELTA}}
+\index{DE\_DELTA@{DE\_DELTA}!DarkMathUtility.h@{DarkMathUtility.h}}
+\doxysubsubsection{\texorpdfstring{DE\_DELTA}{DE\_DELTA}}
+{\footnotesize\ttfamily \#define DE\+\_\+\+DELTA~(0.\+00001f)}
+
+\Hypertarget{_dark_math_utility_8h_a3bc48e7341e7cbaa2d91ff079f677a06}\label{_dark_math_utility_8h_a3bc48e7341e7cbaa2d91ff079f677a06} 
+\index{DarkMathUtility.h@{DarkMathUtility.h}!DE\_DOUBLE\_BIG\_NUMBER@{DE\_DOUBLE\_BIG\_NUMBER}}
+\index{DE\_DOUBLE\_BIG\_NUMBER@{DE\_DOUBLE\_BIG\_NUMBER}!DarkMathUtility.h@{DarkMathUtility.h}}
+\doxysubsubsection{\texorpdfstring{DE\_DOUBLE\_BIG\_NUMBER}{DE\_DOUBLE\_BIG\_NUMBER}}
+{\footnotesize\ttfamily \#define DE\+\_\+\+DOUBLE\+\_\+\+BIG\+\_\+\+NUMBER~(3.\+4e+38)}
+
+\Hypertarget{_dark_math_utility_8h_a5b83f475b2d44dfa540468836255f6ab}\label{_dark_math_utility_8h_a5b83f475b2d44dfa540468836255f6ab} 
+\index{DarkMathUtility.h@{DarkMathUtility.h}!DE\_DOUBLE\_DELTA@{DE\_DOUBLE\_DELTA}}
+\index{DE\_DOUBLE\_DELTA@{DE\_DOUBLE\_DELTA}!DarkMathUtility.h@{DarkMathUtility.h}}
+\doxysubsubsection{\texorpdfstring{DE\_DOUBLE\_DELTA}{DE\_DOUBLE\_DELTA}}
+{\footnotesize\ttfamily \#define DE\+\_\+\+DOUBLE\+\_\+\+DELTA~(0.\+00001 )}
+
+\Hypertarget{_dark_math_utility_8h_abb25b3035b9f2cae444202a6fb5776d0}\label{_dark_math_utility_8h_abb25b3035b9f2cae444202a6fb5776d0} 
+\index{DarkMathUtility.h@{DarkMathUtility.h}!DE\_DOUBLE\_EULERS\_NUMBER@{DE\_DOUBLE\_EULERS\_NUMBER}}
+\index{DE\_DOUBLE\_EULERS\_NUMBER@{DE\_DOUBLE\_EULERS\_NUMBER}!DarkMathUtility.h@{DarkMathUtility.h}}
+\doxysubsubsection{\texorpdfstring{DE\_DOUBLE\_EULERS\_NUMBER}{DE\_DOUBLE\_EULERS\_NUMBER}}
+{\footnotesize\ttfamily \#define DE\+\_\+\+DOUBLE\+\_\+\+EULERS\+\_\+\+NUMBER~(2.\+7182818284590452353602874713526624977572)}
+
+\Hypertarget{_dark_math_utility_8h_a9d3c01aaea4316aedbc59cd27e58fd36}\label{_dark_math_utility_8h_a9d3c01aaea4316aedbc59cd27e58fd36} 
+\index{DarkMathUtility.h@{DarkMathUtility.h}!DE\_DOUBLE\_GOLDEN\_RATIO@{DE\_DOUBLE\_GOLDEN\_RATIO}}
+\index{DE\_DOUBLE\_GOLDEN\_RATIO@{DE\_DOUBLE\_GOLDEN\_RATIO}!DarkMathUtility.h@{DarkMathUtility.h}}
+\doxysubsubsection{\texorpdfstring{DE\_DOUBLE\_GOLDEN\_RATIO}{DE\_DOUBLE\_GOLDEN\_RATIO}}
+{\footnotesize\ttfamily \#define DE\+\_\+\+DOUBLE\+\_\+\+GOLDEN\+\_\+\+RATIO~(1.\+6180339887498948482045868343656381) /\texorpdfstring{$\ast$}{*} Also known as divine proportion, golden mean, or golden section -\/ related to the Fibonacci Seq\+DEnce = (1 + sqrt(5)) / 2 \texorpdfstring{$\ast$}{*}/}
+
+\Hypertarget{_dark_math_utility_8h_a5a8ad2e56747442049a5fc07c2c9eed9}\label{_dark_math_utility_8h_a5a8ad2e56747442049a5fc07c2c9eed9} 
+\index{DarkMathUtility.h@{DarkMathUtility.h}!DE\_DOUBLE\_HALF\_PI@{DE\_DOUBLE\_HALF\_PI}}
+\index{DE\_DOUBLE\_HALF\_PI@{DE\_DOUBLE\_HALF\_PI}!DarkMathUtility.h@{DarkMathUtility.h}}
+\doxysubsubsection{\texorpdfstring{DE\_DOUBLE\_HALF\_PI}{DE\_DOUBLE\_HALF\_PI}}
+{\footnotesize\ttfamily \#define DE\+\_\+\+DOUBLE\+\_\+\+HALF\+\_\+\+PI~(1.\+57079632679489661923)}
+
+\Hypertarget{_dark_math_utility_8h_ab6880b270d4c63b0fcd5df8ac25a993c}\label{_dark_math_utility_8h_ab6880b270d4c63b0fcd5df8ac25a993c} 
+\index{DarkMathUtility.h@{DarkMathUtility.h}!DE\_DOUBLE\_HALF\_SQRT\_2@{DE\_DOUBLE\_HALF\_SQRT\_2}}
+\index{DE\_DOUBLE\_HALF\_SQRT\_2@{DE\_DOUBLE\_HALF\_SQRT\_2}!DarkMathUtility.h@{DarkMathUtility.h}}
+\doxysubsubsection{\texorpdfstring{DE\_DOUBLE\_HALF\_SQRT\_2}{DE\_DOUBLE\_HALF\_SQRT\_2}}
+{\footnotesize\ttfamily \#define DE\+\_\+\+DOUBLE\+\_\+\+HALF\+\_\+\+SQRT\+\_\+2~(0.\+70710678118654752440084436210485)}
+
+\Hypertarget{_dark_math_utility_8h_af1494f1ca935d3abfe35580ce225187f}\label{_dark_math_utility_8h_af1494f1ca935d3abfe35580ce225187f} 
+\index{DarkMathUtility.h@{DarkMathUtility.h}!DE\_DOUBLE\_HALF\_SQRT\_3@{DE\_DOUBLE\_HALF\_SQRT\_3}}
+\index{DE\_DOUBLE\_HALF\_SQRT\_3@{DE\_DOUBLE\_HALF\_SQRT\_3}!DarkMathUtility.h@{DarkMathUtility.h}}
+\doxysubsubsection{\texorpdfstring{DE\_DOUBLE\_HALF\_SQRT\_3}{DE\_DOUBLE\_HALF\_SQRT\_3}}
+{\footnotesize\ttfamily \#define DE\+\_\+\+DOUBLE\+\_\+\+HALF\+\_\+\+SQRT\+\_\+3~(0.\+86602540378443864676372317075294)}
+
+\Hypertarget{_dark_math_utility_8h_ae6de73ab6d905edf05d6b353704a20ac}\label{_dark_math_utility_8h_ae6de73ab6d905edf05d6b353704a20ac} 
+\index{DarkMathUtility.h@{DarkMathUtility.h}!DE\_DOUBLE\_INV\_PI@{DE\_DOUBLE\_INV\_PI}}
+\index{DE\_DOUBLE\_INV\_PI@{DE\_DOUBLE\_INV\_PI}!DarkMathUtility.h@{DarkMathUtility.h}}
+\doxysubsubsection{\texorpdfstring{DE\_DOUBLE\_INV\_PI}{DE\_DOUBLE\_INV\_PI}}
+{\footnotesize\ttfamily \#define DE\+\_\+\+DOUBLE\+\_\+\+INV\+\_\+\+PI~(0.\+31830988618379067154)}
+
+\Hypertarget{_dark_math_utility_8h_a39ab4740092d644206e1811f2d6dacda}\label{_dark_math_utility_8h_a39ab4740092d644206e1811f2d6dacda} 
+\index{DarkMathUtility.h@{DarkMathUtility.h}!DE\_DOUBLE\_INV\_SQRT\_2@{DE\_DOUBLE\_INV\_SQRT\_2}}
+\index{DE\_DOUBLE\_INV\_SQRT\_2@{DE\_DOUBLE\_INV\_SQRT\_2}!DarkMathUtility.h@{DarkMathUtility.h}}
+\doxysubsubsection{\texorpdfstring{DE\_DOUBLE\_INV\_SQRT\_2}{DE\_DOUBLE\_INV\_SQRT\_2}}
+{\footnotesize\ttfamily \#define DE\+\_\+\+DOUBLE\+\_\+\+INV\+\_\+\+SQRT\+\_\+2~(0.\+70710678118654752440084436210485)}
+
+\Hypertarget{_dark_math_utility_8h_ac6e5256c2bcbfbc43949c669081266c7}\label{_dark_math_utility_8h_ac6e5256c2bcbfbc43949c669081266c7} 
+\index{DarkMathUtility.h@{DarkMathUtility.h}!DE\_DOUBLE\_INV\_SQRT\_3@{DE\_DOUBLE\_INV\_SQRT\_3}}
+\index{DE\_DOUBLE\_INV\_SQRT\_3@{DE\_DOUBLE\_INV\_SQRT\_3}!DarkMathUtility.h@{DarkMathUtility.h}}
+\doxysubsubsection{\texorpdfstring{DE\_DOUBLE\_INV\_SQRT\_3}{DE\_DOUBLE\_INV\_SQRT\_3}}
+{\footnotesize\ttfamily \#define DE\+\_\+\+DOUBLE\+\_\+\+INV\+\_\+\+SQRT\+\_\+3~(0.\+57735026918962576450914878050196)}
+
+\Hypertarget{_dark_math_utility_8h_ae9fd812517838104538909e98c5aa382}\label{_dark_math_utility_8h_ae9fd812517838104538909e98c5aa382} 
+\index{DarkMathUtility.h@{DarkMathUtility.h}!DE\_DOUBLE\_KINDA\_SMALL\_NUMBER@{DE\_DOUBLE\_KINDA\_SMALL\_NUMBER}}
+\index{DE\_DOUBLE\_KINDA\_SMALL\_NUMBER@{DE\_DOUBLE\_KINDA\_SMALL\_NUMBER}!DarkMathUtility.h@{DarkMathUtility.h}}
+\doxysubsubsection{\texorpdfstring{DE\_DOUBLE\_KINDA\_SMALL\_NUMBER}{DE\_DOUBLE\_KINDA\_SMALL\_NUMBER}}
+{\footnotesize\ttfamily \#define DE\+\_\+\+DOUBLE\+\_\+\+KINDA\+\_\+\+SMALL\+\_\+\+NUMBER~(1.e-\/4)}
+
+\Hypertarget{_dark_math_utility_8h_add0a0dcbb25212e5e215115745cb621f}\label{_dark_math_utility_8h_add0a0dcbb25212e5e215115745cb621f} 
+\index{DarkMathUtility.h@{DarkMathUtility.h}!DE\_DOUBLE\_NON\_FRACTIONAL@{DE\_DOUBLE\_NON\_FRACTIONAL}}
+\index{DE\_DOUBLE\_NON\_FRACTIONAL@{DE\_DOUBLE\_NON\_FRACTIONAL}!DarkMathUtility.h@{DarkMathUtility.h}}
+\doxysubsubsection{\texorpdfstring{DE\_DOUBLE\_NON\_FRACTIONAL}{DE\_DOUBLE\_NON\_FRACTIONAL}}
+{\footnotesize\ttfamily \#define DE\+\_\+\+DOUBLE\+\_\+\+NON\+\_\+\+FRACTIONAL~(4503599627370496.\+0) /\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{_r_h_i_pipeline_8h_a7897373e689a9d0a3e71d78c0e898407ab1c94ca2fbc3e78fc30069c8d0f01680}{All}} double-\/precision floating point numbers greater than or equal to this have no fractional val\+DE. 2\texorpdfstring{$^\wedge$}{\string^}52 \texorpdfstring{$\ast$}{*}/}
+
+\Hypertarget{_dark_math_utility_8h_a233496b24d62486501214ee68541559c}\label{_dark_math_utility_8h_a233496b24d62486501214ee68541559c} 
+\index{DarkMathUtility.h@{DarkMathUtility.h}!DE\_DOUBLE\_NORMAL\_THRESH@{DE\_DOUBLE\_NORMAL\_THRESH}}
+\index{DE\_DOUBLE\_NORMAL\_THRESH@{DE\_DOUBLE\_NORMAL\_THRESH}!DarkMathUtility.h@{DarkMathUtility.h}}
+\doxysubsubsection{\texorpdfstring{DE\_DOUBLE\_NORMAL\_THRESH}{DE\_DOUBLE\_NORMAL\_THRESH}}
+{\footnotesize\ttfamily \#define DE\+\_\+\+DOUBLE\+\_\+\+NORMAL\+\_\+\+THRESH~(0.\+0001)}
+
+\Hypertarget{_dark_math_utility_8h_af79df9d5140a0101653bb7ef52e56e63}\label{_dark_math_utility_8h_af79df9d5140a0101653bb7ef52e56e63} 
+\index{DarkMathUtility.h@{DarkMathUtility.h}!DE\_DOUBLE\_PI@{DE\_DOUBLE\_PI}}
+\index{DE\_DOUBLE\_PI@{DE\_DOUBLE\_PI}!DarkMathUtility.h@{DarkMathUtility.h}}
+\doxysubsubsection{\texorpdfstring{DE\_DOUBLE\_PI}{DE\_DOUBLE\_PI}}
+{\footnotesize\ttfamily \#define DE\+\_\+\+DOUBLE\+\_\+\+PI~(3.\+141592653589793238462643383279502884197169399)}
+
+\Hypertarget{_dark_math_utility_8h_a74f0db9a80f10a4cde25ee7e5d3b1a95}\label{_dark_math_utility_8h_a74f0db9a80f10a4cde25ee7e5d3b1a95} 
+\index{DarkMathUtility.h@{DarkMathUtility.h}!DE\_DOUBLE\_PI\_SQUARED@{DE\_DOUBLE\_PI\_SQUARED}}
+\index{DE\_DOUBLE\_PI\_SQUARED@{DE\_DOUBLE\_PI\_SQUARED}!DarkMathUtility.h@{DarkMathUtility.h}}
+\doxysubsubsection{\texorpdfstring{DE\_DOUBLE\_PI\_SQUARED}{DE\_DOUBLE\_PI\_SQUARED}}
+{\footnotesize\ttfamily \#define DE\+\_\+\+DOUBLE\+\_\+\+PI\+\_\+\+SQUARED~(9.\+86960440108935861883)}
+
+\Hypertarget{_dark_math_utility_8h_aefb7c40a26b0a7e8bf5a97e198f09f96}\label{_dark_math_utility_8h_aefb7c40a26b0a7e8bf5a97e198f09f96} 
+\index{DarkMathUtility.h@{DarkMathUtility.h}!DE\_DOUBLE\_SMALL\_NUMBER@{DE\_DOUBLE\_SMALL\_NUMBER}}
+\index{DE\_DOUBLE\_SMALL\_NUMBER@{DE\_DOUBLE\_SMALL\_NUMBER}!DarkMathUtility.h@{DarkMathUtility.h}}
+\doxysubsubsection{\texorpdfstring{DE\_DOUBLE\_SMALL\_NUMBER}{DE\_DOUBLE\_SMALL\_NUMBER}}
+{\footnotesize\ttfamily \#define DE\+\_\+\+DOUBLE\+\_\+\+SMALL\+\_\+\+NUMBER~(1.e-\/8)}
+
+\Hypertarget{_dark_math_utility_8h_a17800868a22f97f658a9e234335f5437}\label{_dark_math_utility_8h_a17800868a22f97f658a9e234335f5437} 
+\index{DarkMathUtility.h@{DarkMathUtility.h}!DE\_DOUBLE\_SQRT\_2@{DE\_DOUBLE\_SQRT\_2}}
+\index{DE\_DOUBLE\_SQRT\_2@{DE\_DOUBLE\_SQRT\_2}!DarkMathUtility.h@{DarkMathUtility.h}}
+\doxysubsubsection{\texorpdfstring{DE\_DOUBLE\_SQRT\_2}{DE\_DOUBLE\_SQRT\_2}}
+{\footnotesize\ttfamily \#define DE\+\_\+\+DOUBLE\+\_\+\+SQRT\+\_\+2~(1.\+4142135623730950488016887242097)}
+
+\Hypertarget{_dark_math_utility_8h_a79e7ceaf34da00968dc1bd647caeb194}\label{_dark_math_utility_8h_a79e7ceaf34da00968dc1bd647caeb194} 
+\index{DarkMathUtility.h@{DarkMathUtility.h}!DE\_DOUBLE\_SQRT\_3@{DE\_DOUBLE\_SQRT\_3}}
+\index{DE\_DOUBLE\_SQRT\_3@{DE\_DOUBLE\_SQRT\_3}!DarkMathUtility.h@{DarkMathUtility.h}}
+\doxysubsubsection{\texorpdfstring{DE\_DOUBLE\_SQRT\_3}{DE\_DOUBLE\_SQRT\_3}}
+{\footnotesize\ttfamily \#define DE\+\_\+\+DOUBLE\+\_\+\+SQRT\+\_\+3~(1.\+7320508075688772935274463415059)}
+
+\Hypertarget{_dark_math_utility_8h_a200e17eaad53fd36270fc86862edf44c}\label{_dark_math_utility_8h_a200e17eaad53fd36270fc86862edf44c} 
+\index{DarkMathUtility.h@{DarkMathUtility.h}!DE\_DOUBLE\_THRESH\_NORMALS\_ARE\_ORTHOGONAL@{DE\_DOUBLE\_THRESH\_NORMALS\_ARE\_ORTHOGONAL}}
+\index{DE\_DOUBLE\_THRESH\_NORMALS\_ARE\_ORTHOGONAL@{DE\_DOUBLE\_THRESH\_NORMALS\_ARE\_ORTHOGONAL}!DarkMathUtility.h@{DarkMathUtility.h}}
+\doxysubsubsection{\texorpdfstring{DE\_DOUBLE\_THRESH\_NORMALS\_ARE\_ORTHOGONAL}{DE\_DOUBLE\_THRESH\_NORMALS\_ARE\_ORTHOGONAL}}
+{\footnotesize\ttfamily \#define DE\+\_\+\+DOUBLE\+\_\+\+THRESH\+\_\+\+NORMALS\+\_\+\+ARE\+\_\+\+ORTHOGONAL~(0.\+017455) /\texorpdfstring{$\ast$}{*} Two unit vectors are orthogonal (perpendicular) if abs(A dot B) is less than or equal this. This is roughly cosine(89.\+0 degrees). \texorpdfstring{$\ast$}{*}/}
+
+\Hypertarget{_dark_math_utility_8h_a5a245f45a0d98e43e142b2ef40b518dd}\label{_dark_math_utility_8h_a5a245f45a0d98e43e142b2ef40b518dd} 
+\index{DarkMathUtility.h@{DarkMathUtility.h}!DE\_DOUBLE\_THRESH\_NORMALS\_ARE\_PARALLEL@{DE\_DOUBLE\_THRESH\_NORMALS\_ARE\_PARALLEL}}
+\index{DE\_DOUBLE\_THRESH\_NORMALS\_ARE\_PARALLEL@{DE\_DOUBLE\_THRESH\_NORMALS\_ARE\_PARALLEL}!DarkMathUtility.h@{DarkMathUtility.h}}
+\doxysubsubsection{\texorpdfstring{DE\_DOUBLE\_THRESH\_NORMALS\_ARE\_PARALLEL}{DE\_DOUBLE\_THRESH\_NORMALS\_ARE\_PARALLEL}}
+{\footnotesize\ttfamily \#define DE\+\_\+\+DOUBLE\+\_\+\+THRESH\+\_\+\+NORMALS\+\_\+\+ARE\+\_\+\+PARALLEL~(0.\+999845) /\texorpdfstring{$\ast$}{*} Two unit vectors are parallel if abs(A dot B) is greater than or equal to this. This is roughly cosine(1.\+0 degrees). \texorpdfstring{$\ast$}{*}/}
+
+\Hypertarget{_dark_math_utility_8h_acc6d6456b75d95816bcdabcd38c724f2}\label{_dark_math_utility_8h_acc6d6456b75d95816bcdabcd38c724f2} 
+\index{DarkMathUtility.h@{DarkMathUtility.h}!DE\_DOUBLE\_THRESH\_NORMALS\_ARE\_SAME@{DE\_DOUBLE\_THRESH\_NORMALS\_ARE\_SAME}}
+\index{DE\_DOUBLE\_THRESH\_NORMALS\_ARE\_SAME@{DE\_DOUBLE\_THRESH\_NORMALS\_ARE\_SAME}!DarkMathUtility.h@{DarkMathUtility.h}}
+\doxysubsubsection{\texorpdfstring{DE\_DOUBLE\_THRESH\_NORMALS\_ARE\_SAME}{DE\_DOUBLE\_THRESH\_NORMALS\_ARE\_SAME}}
+{\footnotesize\ttfamily \#define DE\+\_\+\+DOUBLE\+\_\+\+THRESH\+\_\+\+NORMALS\+\_\+\+ARE\+\_\+\+SAME~(0.\+00002) /\texorpdfstring{$\ast$}{*} Two normal points are same if within this distance \texorpdfstring{$\ast$}{*}/}
+
+\Hypertarget{_dark_math_utility_8h_aaaeeb1f2cbd2260bbd0f97c89d913a0b}\label{_dark_math_utility_8h_aaaeeb1f2cbd2260bbd0f97c89d913a0b} 
+\index{DarkMathUtility.h@{DarkMathUtility.h}!DE\_DOUBLE\_THRESH\_POINT\_ON\_PLANE@{DE\_DOUBLE\_THRESH\_POINT\_ON\_PLANE}}
+\index{DE\_DOUBLE\_THRESH\_POINT\_ON\_PLANE@{DE\_DOUBLE\_THRESH\_POINT\_ON\_PLANE}!DarkMathUtility.h@{DarkMathUtility.h}}
+\doxysubsubsection{\texorpdfstring{DE\_DOUBLE\_THRESH\_POINT\_ON\_PLANE}{DE\_DOUBLE\_THRESH\_POINT\_ON\_PLANE}}
+{\footnotesize\ttfamily \#define DE\+\_\+\+DOUBLE\+\_\+\+THRESH\+\_\+\+POINT\+\_\+\+ON\+\_\+\+PLANE~(0.\+10)  /\texorpdfstring{$\ast$}{*} Thickness of plane for front/back/inside test \texorpdfstring{$\ast$}{*}/}
+
+\Hypertarget{_dark_math_utility_8h_a5379e225125d911da296e5a66d7de214}\label{_dark_math_utility_8h_a5379e225125d911da296e5a66d7de214} 
+\index{DarkMathUtility.h@{DarkMathUtility.h}!DE\_DOUBLE\_THRESH\_POINT\_ON\_SIDE@{DE\_DOUBLE\_THRESH\_POINT\_ON\_SIDE}}
+\index{DE\_DOUBLE\_THRESH\_POINT\_ON\_SIDE@{DE\_DOUBLE\_THRESH\_POINT\_ON\_SIDE}!DarkMathUtility.h@{DarkMathUtility.h}}
+\doxysubsubsection{\texorpdfstring{DE\_DOUBLE\_THRESH\_POINT\_ON\_SIDE}{DE\_DOUBLE\_THRESH\_POINT\_ON\_SIDE}}
+{\footnotesize\ttfamily \#define DE\+\_\+\+DOUBLE\+\_\+\+THRESH\+\_\+\+POINT\+\_\+\+ON\+\_\+\+SIDE~(0.\+20)  /\texorpdfstring{$\ast$}{*} Thickness of polygon side\textquotesingle{}s side-\/plane for point-\/inside/outside/on side test \texorpdfstring{$\ast$}{*}/}
+
+\Hypertarget{_dark_math_utility_8h_a1e30c17c448056bebf62d32227a68c8f}\label{_dark_math_utility_8h_a1e30c17c448056bebf62d32227a68c8f} 
+\index{DarkMathUtility.h@{DarkMathUtility.h}!DE\_DOUBLE\_THRESH\_POINTS\_ARE\_NEAR@{DE\_DOUBLE\_THRESH\_POINTS\_ARE\_NEAR}}
+\index{DE\_DOUBLE\_THRESH\_POINTS\_ARE\_NEAR@{DE\_DOUBLE\_THRESH\_POINTS\_ARE\_NEAR}!DarkMathUtility.h@{DarkMathUtility.h}}
+\doxysubsubsection{\texorpdfstring{DE\_DOUBLE\_THRESH\_POINTS\_ARE\_NEAR}{DE\_DOUBLE\_THRESH\_POINTS\_ARE\_NEAR}}
+{\footnotesize\ttfamily \#define DE\+\_\+\+DOUBLE\+\_\+\+THRESH\+\_\+\+POINTS\+\_\+\+ARE\+\_\+\+NEAR~(0.\+015)  /\texorpdfstring{$\ast$}{*} Two points are near if within this distance and can be combined if imprecise math is ok \texorpdfstring{$\ast$}{*}/}
+
+\Hypertarget{_dark_math_utility_8h_a740bb0d02d40e866cebf9e18a918f557}\label{_dark_math_utility_8h_a740bb0d02d40e866cebf9e18a918f557} 
+\index{DarkMathUtility.h@{DarkMathUtility.h}!DE\_DOUBLE\_THRESH\_POINTS\_ARE\_SAME@{DE\_DOUBLE\_THRESH\_POINTS\_ARE\_SAME}}
+\index{DE\_DOUBLE\_THRESH\_POINTS\_ARE\_SAME@{DE\_DOUBLE\_THRESH\_POINTS\_ARE\_SAME}!DarkMathUtility.h@{DarkMathUtility.h}}
+\doxysubsubsection{\texorpdfstring{DE\_DOUBLE\_THRESH\_POINTS\_ARE\_SAME}{DE\_DOUBLE\_THRESH\_POINTS\_ARE\_SAME}}
+{\footnotesize\ttfamily \#define DE\+\_\+\+DOUBLE\+\_\+\+THRESH\+\_\+\+POINTS\+\_\+\+ARE\+\_\+\+SAME~(0.\+00002) /\texorpdfstring{$\ast$}{*} Two points are same if within this distance \texorpdfstring{$\ast$}{*}/}
+
+\Hypertarget{_dark_math_utility_8h_a74c3b2f5c36ae536fc31b4e3ef883db7}\label{_dark_math_utility_8h_a74c3b2f5c36ae536fc31b4e3ef883db7} 
+\index{DarkMathUtility.h@{DarkMathUtility.h}!DE\_DOUBLE\_THRESH\_QUAT\_NORMALIZED@{DE\_DOUBLE\_THRESH\_QUAT\_NORMALIZED}}
+\index{DE\_DOUBLE\_THRESH\_QUAT\_NORMALIZED@{DE\_DOUBLE\_THRESH\_QUAT\_NORMALIZED}!DarkMathUtility.h@{DarkMathUtility.h}}
+\doxysubsubsection{\texorpdfstring{DE\_DOUBLE\_THRESH\_QUAT\_NORMALIZED}{DE\_DOUBLE\_THRESH\_QUAT\_NORMALIZED}}
+{\footnotesize\ttfamily \#define DE\+\_\+\+DOUBLE\+\_\+\+THRESH\+\_\+\+QUAT\+\_\+\+NORMALIZED~(0.\+01)  /\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} Allowed error for a normalized quaternion (against squared magnitude) \texorpdfstring{$\ast$}{*}/}
+
+\Hypertarget{_dark_math_utility_8h_a1c99df28a4870e45f44a73f75cd08b9d}\label{_dark_math_utility_8h_a1c99df28a4870e45f44a73f75cd08b9d} 
+\index{DarkMathUtility.h@{DarkMathUtility.h}!DE\_DOUBLE\_THRESH\_SPLIT\_POLY\_PRECISELY@{DE\_DOUBLE\_THRESH\_SPLIT\_POLY\_PRECISELY}}
+\index{DE\_DOUBLE\_THRESH\_SPLIT\_POLY\_PRECISELY@{DE\_DOUBLE\_THRESH\_SPLIT\_POLY\_PRECISELY}!DarkMathUtility.h@{DarkMathUtility.h}}
+\doxysubsubsection{\texorpdfstring{DE\_DOUBLE\_THRESH\_SPLIT\_POLY\_PRECISELY}{DE\_DOUBLE\_THRESH\_SPLIT\_POLY\_PRECISELY}}
+{\footnotesize\ttfamily \#define DE\+\_\+\+DOUBLE\+\_\+\+THRESH\+\_\+\+SPLIT\+\_\+\+POLY\+\_\+\+PRECISELY~(0.\+01)  /\texorpdfstring{$\ast$}{*} A plane exactly splits a polygon \texorpdfstring{$\ast$}{*}/}
+
+\Hypertarget{_dark_math_utility_8h_ab0b4646ce1c1f95dbc4c47ee274b3bcb}\label{_dark_math_utility_8h_ab0b4646ce1c1f95dbc4c47ee274b3bcb} 
+\index{DarkMathUtility.h@{DarkMathUtility.h}!DE\_DOUBLE\_THRESH\_SPLIT\_POLY\_WITH\_PLANE@{DE\_DOUBLE\_THRESH\_SPLIT\_POLY\_WITH\_PLANE}}
+\index{DE\_DOUBLE\_THRESH\_SPLIT\_POLY\_WITH\_PLANE@{DE\_DOUBLE\_THRESH\_SPLIT\_POLY\_WITH\_PLANE}!DarkMathUtility.h@{DarkMathUtility.h}}
+\doxysubsubsection{\texorpdfstring{DE\_DOUBLE\_THRESH\_SPLIT\_POLY\_WITH\_PLANE}{DE\_DOUBLE\_THRESH\_SPLIT\_POLY\_WITH\_PLANE}}
+{\footnotesize\ttfamily \#define DE\+\_\+\+DOUBLE\+\_\+\+THRESH\+\_\+\+SPLIT\+\_\+\+POLY\+\_\+\+WITH\+\_\+\+PLANE~(0.\+25)  /\texorpdfstring{$\ast$}{*} A plane splits a polygon in half \texorpdfstring{$\ast$}{*}/}
+
+\Hypertarget{_dark_math_utility_8h_a2e73a1aee6329172aac1e3201573d8ae}\label{_dark_math_utility_8h_a2e73a1aee6329172aac1e3201573d8ae} 
+\index{DarkMathUtility.h@{DarkMathUtility.h}!DE\_DOUBLE\_THRESH\_UVS\_ARE\_SAME@{DE\_DOUBLE\_THRESH\_UVS\_ARE\_SAME}}
+\index{DE\_DOUBLE\_THRESH\_UVS\_ARE\_SAME@{DE\_DOUBLE\_THRESH\_UVS\_ARE\_SAME}!DarkMathUtility.h@{DarkMathUtility.h}}
+\doxysubsubsection{\texorpdfstring{DE\_DOUBLE\_THRESH\_UVS\_ARE\_SAME}{DE\_DOUBLE\_THRESH\_UVS\_ARE\_SAME}}
+{\footnotesize\ttfamily \#define DE\+\_\+\+DOUBLE\+\_\+\+THRESH\+\_\+\+UVS\+\_\+\+ARE\+\_\+\+SAME~(0.\+0009765625)/\texorpdfstring{$\ast$}{*} Two UV are same if within this threshold (1.\+0/1024.\+0) \texorpdfstring{$\ast$}{*}/}
+
+\Hypertarget{_dark_math_utility_8h_a6e7f151e7d0fe95ee2cbf034e290af7f}\label{_dark_math_utility_8h_a6e7f151e7d0fe95ee2cbf034e290af7f} 
+\index{DarkMathUtility.h@{DarkMathUtility.h}!DE\_DOUBLE\_THRESH\_VECTOR\_NORMALIZED@{DE\_DOUBLE\_THRESH\_VECTOR\_NORMALIZED}}
+\index{DE\_DOUBLE\_THRESH\_VECTOR\_NORMALIZED@{DE\_DOUBLE\_THRESH\_VECTOR\_NORMALIZED}!DarkMathUtility.h@{DarkMathUtility.h}}
+\doxysubsubsection{\texorpdfstring{DE\_DOUBLE\_THRESH\_VECTOR\_NORMALIZED}{DE\_DOUBLE\_THRESH\_VECTOR\_NORMALIZED}}
+{\footnotesize\ttfamily \#define DE\+\_\+\+DOUBLE\+\_\+\+THRESH\+\_\+\+VECTOR\+\_\+\+NORMALIZED~(0.\+01)  /\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} Allowed error for a normalized vector (against squared magnitude) \texorpdfstring{$\ast$}{*}/}
+
+\Hypertarget{_dark_math_utility_8h_a91ecfe29f8d97c16dcfabfe707885b68}\label{_dark_math_utility_8h_a91ecfe29f8d97c16dcfabfe707885b68} 
+\index{DarkMathUtility.h@{DarkMathUtility.h}!DE\_DOUBLE\_THRESH\_VECTORS\_ARE\_NEAR@{DE\_DOUBLE\_THRESH\_VECTORS\_ARE\_NEAR}}
+\index{DE\_DOUBLE\_THRESH\_VECTORS\_ARE\_NEAR@{DE\_DOUBLE\_THRESH\_VECTORS\_ARE\_NEAR}!DarkMathUtility.h@{DarkMathUtility.h}}
+\doxysubsubsection{\texorpdfstring{DE\_DOUBLE\_THRESH\_VECTORS\_ARE\_NEAR}{DE\_DOUBLE\_THRESH\_VECTORS\_ARE\_NEAR}}
+{\footnotesize\ttfamily \#define DE\+\_\+\+DOUBLE\+\_\+\+THRESH\+\_\+\+VECTORS\+\_\+\+ARE\+\_\+\+NEAR~(0.\+0004) /\texorpdfstring{$\ast$}{*} Two vectors are near if within this distance and can be combined if imprecise math is ok \texorpdfstring{$\ast$}{*}/}
+
+\Hypertarget{_dark_math_utility_8h_ade0d4a3edd393b9daaf1b0467fb6fb8f}\label{_dark_math_utility_8h_ade0d4a3edd393b9daaf1b0467fb6fb8f} 
+\index{DarkMathUtility.h@{DarkMathUtility.h}!DE\_DOUBLE\_THRESH\_ZERO\_NORM\_SQUARED@{DE\_DOUBLE\_THRESH\_ZERO\_NORM\_SQUARED}}
+\index{DE\_DOUBLE\_THRESH\_ZERO\_NORM\_SQUARED@{DE\_DOUBLE\_THRESH\_ZERO\_NORM\_SQUARED}!DarkMathUtility.h@{DarkMathUtility.h}}
+\doxysubsubsection{\texorpdfstring{DE\_DOUBLE\_THRESH\_ZERO\_NORM\_SQUARED}{DE\_DOUBLE\_THRESH\_ZERO\_NORM\_SQUARED}}
+{\footnotesize\ttfamily \#define DE\+\_\+\+DOUBLE\+\_\+\+THRESH\+\_\+\+ZERO\+\_\+\+NORM\+\_\+\+SQUARED~(0.\+0001) /\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{_d3_d12_utils_8h_a49802c782fb40bd8e79835ef12871ddeaff9abf2b1a689f70a77a18da50c01d9f}{Size}} of a unit normal that is considered "{}zero"{}, squared \texorpdfstring{$\ast$}{*}/}
+
+\Hypertarget{_dark_math_utility_8h_a13e81dae115c4cc618b6e99a96f73b18}\label{_dark_math_utility_8h_a13e81dae115c4cc618b6e99a96f73b18} 
+\index{DarkMathUtility.h@{DarkMathUtility.h}!DE\_DOUBLE\_TWO\_PI@{DE\_DOUBLE\_TWO\_PI}}
+\index{DE\_DOUBLE\_TWO\_PI@{DE\_DOUBLE\_TWO\_PI}!DarkMathUtility.h@{DarkMathUtility.h}}
+\doxysubsubsection{\texorpdfstring{DE\_DOUBLE\_TWO\_PI}{DE\_DOUBLE\_TWO\_PI}}
+{\footnotesize\ttfamily \#define DE\+\_\+\+DOUBLE\+\_\+\+TWO\+\_\+\+PI~(6.\+28318530717958647692)}
+
+\Hypertarget{_dark_math_utility_8h_a05cc3f00497d10c89dbf254b3223c5a9}\label{_dark_math_utility_8h_a05cc3f00497d10c89dbf254b3223c5a9} 
+\index{DarkMathUtility.h@{DarkMathUtility.h}!DE\_EULERS\_NUMBER@{DE\_EULERS\_NUMBER}}
+\index{DE\_EULERS\_NUMBER@{DE\_EULERS\_NUMBER}!DarkMathUtility.h@{DarkMathUtility.h}}
+\doxysubsubsection{\texorpdfstring{DE\_EULERS\_NUMBER}{DE\_EULERS\_NUMBER}}
+{\footnotesize\ttfamily \#define DE\+\_\+\+EULERS\+\_\+\+NUMBER~(2.\+71828182845904523536f)}
+
+\Hypertarget{_dark_math_utility_8h_a7abae044542a31caea7b48b18618ad90}\label{_dark_math_utility_8h_a7abae044542a31caea7b48b18618ad90} 
+\index{DarkMathUtility.h@{DarkMathUtility.h}!DE\_FLOAT\_NON\_FRACTIONAL@{DE\_FLOAT\_NON\_FRACTIONAL}}
+\index{DE\_FLOAT\_NON\_FRACTIONAL@{DE\_FLOAT\_NON\_FRACTIONAL}!DarkMathUtility.h@{DarkMathUtility.h}}
+\doxysubsubsection{\texorpdfstring{DE\_FLOAT\_NON\_FRACTIONAL}{DE\_FLOAT\_NON\_FRACTIONAL}}
+{\footnotesize\ttfamily \#define DE\+\_\+\+FLOAT\+\_\+\+NON\+\_\+\+FRACTIONAL~(8388608.f) /\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{_r_h_i_pipeline_8h_a7897373e689a9d0a3e71d78c0e898407ab1c94ca2fbc3e78fc30069c8d0f01680}{All}} single-\/precision floating point numbers greater than or equal to this have no fractional val\+DE. \texorpdfstring{$\ast$}{*}/}
+
+\Hypertarget{_dark_math_utility_8h_ac7c0c3f42496216225eb49f8319be021}\label{_dark_math_utility_8h_ac7c0c3f42496216225eb49f8319be021} 
+\index{DarkMathUtility.h@{DarkMathUtility.h}!DE\_FLOAT\_NORMAL\_THRESH@{DE\_FLOAT\_NORMAL\_THRESH}}
+\index{DE\_FLOAT\_NORMAL\_THRESH@{DE\_FLOAT\_NORMAL\_THRESH}!DarkMathUtility.h@{DarkMathUtility.h}}
+\doxysubsubsection{\texorpdfstring{DE\_FLOAT\_NORMAL\_THRESH}{DE\_FLOAT\_NORMAL\_THRESH}}
+{\footnotesize\ttfamily \#define DE\+\_\+\+FLOAT\+\_\+\+NORMAL\+\_\+\+THRESH~(0.\+0001f)}
+
+Lengths of normalized vectors (These are half their maximum val\+DEs to assure that dot products with normalized vectors don\textquotesingle{}t overflow). \Hypertarget{_dark_math_utility_8h_adc4a25316667511cfb53b808de32fef2}\label{_dark_math_utility_8h_adc4a25316667511cfb53b808de32fef2} 
+\index{DarkMathUtility.h@{DarkMathUtility.h}!DE\_GOLDEN\_RATIO@{DE\_GOLDEN\_RATIO}}
+\index{DE\_GOLDEN\_RATIO@{DE\_GOLDEN\_RATIO}!DarkMathUtility.h@{DarkMathUtility.h}}
+\doxysubsubsection{\texorpdfstring{DE\_GOLDEN\_RATIO}{DE\_GOLDEN\_RATIO}}
+{\footnotesize\ttfamily \#define DE\+\_\+\+GOLDEN\+\_\+\+RATIO~(1.\+6180339887498948482045868343656381f) /\texorpdfstring{$\ast$}{*} Also known as divine proportion, golden mean, or golden section -\/ related to the Fibonacci Seq\+DEnce = (1 + sqrt(5)) / 2 \texorpdfstring{$\ast$}{*}/}
+
+\Hypertarget{_dark_math_utility_8h_a26978e18b776dd3a3577208c5c4cc1dc}\label{_dark_math_utility_8h_a26978e18b776dd3a3577208c5c4cc1dc} 
+\index{DarkMathUtility.h@{DarkMathUtility.h}!DE\_HALF\_PI@{DE\_HALF\_PI}}
+\index{DE\_HALF\_PI@{DE\_HALF\_PI}!DarkMathUtility.h@{DarkMathUtility.h}}
+\doxysubsubsection{\texorpdfstring{DE\_HALF\_PI}{DE\_HALF\_PI}}
+{\footnotesize\ttfamily \#define DE\+\_\+\+HALF\+\_\+\+PI~(1.\+57079632679f)}
+
+\Hypertarget{_dark_math_utility_8h_afd52be4a678d9072e84c27a8f84cbaa9}\label{_dark_math_utility_8h_afd52be4a678d9072e84c27a8f84cbaa9} 
+\index{DarkMathUtility.h@{DarkMathUtility.h}!DE\_HALF\_SQRT\_2@{DE\_HALF\_SQRT\_2}}
+\index{DE\_HALF\_SQRT\_2@{DE\_HALF\_SQRT\_2}!DarkMathUtility.h@{DarkMathUtility.h}}
+\doxysubsubsection{\texorpdfstring{DE\_HALF\_SQRT\_2}{DE\_HALF\_SQRT\_2}}
+{\footnotesize\ttfamily \#define DE\+\_\+\+HALF\+\_\+\+SQRT\+\_\+2~(0.\+70710678118654752440084436210485f)}
+
+\Hypertarget{_dark_math_utility_8h_a1eeb3d1e28fefb5c12d3746e23afb357}\label{_dark_math_utility_8h_a1eeb3d1e28fefb5c12d3746e23afb357} 
+\index{DarkMathUtility.h@{DarkMathUtility.h}!DE\_HALF\_SQRT\_3@{DE\_HALF\_SQRT\_3}}
+\index{DE\_HALF\_SQRT\_3@{DE\_HALF\_SQRT\_3}!DarkMathUtility.h@{DarkMathUtility.h}}
+\doxysubsubsection{\texorpdfstring{DE\_HALF\_SQRT\_3}{DE\_HALF\_SQRT\_3}}
+{\footnotesize\ttfamily \#define DE\+\_\+\+HALF\+\_\+\+SQRT\+\_\+3~(0.\+86602540378443864676372317075294f)}
+
+\Hypertarget{_dark_math_utility_8h_a70f7cfee679c1cf9dbc7233d429f8e9b}\label{_dark_math_utility_8h_a70f7cfee679c1cf9dbc7233d429f8e9b} 
+\index{DarkMathUtility.h@{DarkMathUtility.h}!DE\_INV\_PI@{DE\_INV\_PI}}
+\index{DE\_INV\_PI@{DE\_INV\_PI}!DarkMathUtility.h@{DarkMathUtility.h}}
+\doxysubsubsection{\texorpdfstring{DE\_INV\_PI}{DE\_INV\_PI}}
+{\footnotesize\ttfamily \#define DE\+\_\+\+INV\+\_\+\+PI~(0.\+31830988618f)}
+
+\Hypertarget{_dark_math_utility_8h_a9eb86b16134d76dd46bf3727aa249305}\label{_dark_math_utility_8h_a9eb86b16134d76dd46bf3727aa249305} 
+\index{DarkMathUtility.h@{DarkMathUtility.h}!DE\_INV\_SQRT\_2@{DE\_INV\_SQRT\_2}}
+\index{DE\_INV\_SQRT\_2@{DE\_INV\_SQRT\_2}!DarkMathUtility.h@{DarkMathUtility.h}}
+\doxysubsubsection{\texorpdfstring{DE\_INV\_SQRT\_2}{DE\_INV\_SQRT\_2}}
+{\footnotesize\ttfamily \#define DE\+\_\+\+INV\+\_\+\+SQRT\+\_\+2~(0.\+70710678118654752440084436210485f)}
+
+\Hypertarget{_dark_math_utility_8h_abfaa618fa3dadeab789e59dfc1d0463c}\label{_dark_math_utility_8h_abfaa618fa3dadeab789e59dfc1d0463c} 
+\index{DarkMathUtility.h@{DarkMathUtility.h}!DE\_INV\_SQRT\_3@{DE\_INV\_SQRT\_3}}
+\index{DE\_INV\_SQRT\_3@{DE\_INV\_SQRT\_3}!DarkMathUtility.h@{DarkMathUtility.h}}
+\doxysubsubsection{\texorpdfstring{DE\_INV\_SQRT\_3}{DE\_INV\_SQRT\_3}}
+{\footnotesize\ttfamily \#define DE\+\_\+\+INV\+\_\+\+SQRT\+\_\+3~(0.\+57735026918962576450914878050196f)}
+
+\Hypertarget{_dark_math_utility_8h_af164f5a3286e027ba25121e9f81cd1f7}\label{_dark_math_utility_8h_af164f5a3286e027ba25121e9f81cd1f7} 
+\index{DarkMathUtility.h@{DarkMathUtility.h}!DE\_KINDA\_SMALL\_NUMBER@{DE\_KINDA\_SMALL\_NUMBER}}
+\index{DE\_KINDA\_SMALL\_NUMBER@{DE\_KINDA\_SMALL\_NUMBER}!DarkMathUtility.h@{DarkMathUtility.h}}
+\doxysubsubsection{\texorpdfstring{DE\_KINDA\_SMALL\_NUMBER}{DE\_KINDA\_SMALL\_NUMBER}}
+{\footnotesize\ttfamily \#define DE\+\_\+\+KINDA\+\_\+\+SMALL\+\_\+\+NUMBER~(1.e-\/4f)}
+
+\Hypertarget{_dark_math_utility_8h_a8961cb36ba865d0374e90ad33e8673f0}\label{_dark_math_utility_8h_a8961cb36ba865d0374e90ad33e8673f0} 
+\index{DarkMathUtility.h@{DarkMathUtility.h}!DE\_KM\_TO\_M@{DE\_KM\_TO\_M}}
+\index{DE\_KM\_TO\_M@{DE\_KM\_TO\_M}!DarkMathUtility.h@{DarkMathUtility.h}}
+\doxysubsubsection{\texorpdfstring{DE\_KM\_TO\_M}{DE\_KM\_TO\_M}}
+{\footnotesize\ttfamily \#define DE\+\_\+\+KM\+\_\+\+TO\+\_\+M~(1000.f)}
+
+\Hypertarget{_dark_math_utility_8h_a24e14522d1825f625d510feeb8396200}\label{_dark_math_utility_8h_a24e14522d1825f625d510feeb8396200} 
+\index{DarkMathUtility.h@{DarkMathUtility.h}!DE\_M2\_TO\_CM2@{DE\_M2\_TO\_CM2}}
+\index{DE\_M2\_TO\_CM2@{DE\_M2\_TO\_CM2}!DarkMathUtility.h@{DarkMathUtility.h}}
+\doxysubsubsection{\texorpdfstring{DE\_M2\_TO\_CM2}{DE\_M2\_TO\_CM2}}
+{\footnotesize\ttfamily \#define DE\+\_\+\+M2\+\_\+\+TO\+\_\+\+CM2~(10000.f)}
+
+\Hypertarget{_dark_math_utility_8h_abba1b505cda9b7e88f8503139d36455d}\label{_dark_math_utility_8h_abba1b505cda9b7e88f8503139d36455d} 
+\index{DarkMathUtility.h@{DarkMathUtility.h}!DE\_M\_TO\_CM@{DE\_M\_TO\_CM}}
+\index{DE\_M\_TO\_CM@{DE\_M\_TO\_CM}!DarkMathUtility.h@{DarkMathUtility.h}}
+\doxysubsubsection{\texorpdfstring{DE\_M\_TO\_CM}{DE\_M\_TO\_CM}}
+{\footnotesize\ttfamily \#define DE\+\_\+\+M\+\_\+\+TO\+\_\+\+CM~(100.f)}
+
+\Hypertarget{_dark_math_utility_8h_a019400e559ed0ed979b699ba7dec0978}\label{_dark_math_utility_8h_a019400e559ed0ed979b699ba7dec0978} 
+\index{DarkMathUtility.h@{DarkMathUtility.h}!DE\_M\_TO\_KM@{DE\_M\_TO\_KM}}
+\index{DE\_M\_TO\_KM@{DE\_M\_TO\_KM}!DarkMathUtility.h@{DarkMathUtility.h}}
+\doxysubsubsection{\texorpdfstring{DE\_M\_TO\_KM}{DE\_M\_TO\_KM}}
+{\footnotesize\ttfamily \#define DE\+\_\+\+M\+\_\+\+TO\+\_\+\+KM~(0.\+001f)}
+
+\Hypertarget{_dark_math_utility_8h_a3ab02a1bee9ab01f4164405b2ccde0ed}\label{_dark_math_utility_8h_a3ab02a1bee9ab01f4164405b2ccde0ed} 
+\index{DarkMathUtility.h@{DarkMathUtility.h}!DE\_MAX\_FLT@{DE\_MAX\_FLT}}
+\index{DE\_MAX\_FLT@{DE\_MAX\_FLT}!DarkMathUtility.h@{DarkMathUtility.h}}
+\doxysubsubsection{\texorpdfstring{DE\_MAX\_FLT}{DE\_MAX\_FLT}}
+{\footnotesize\ttfamily \#define DE\+\_\+\+MAX\+\_\+\+FLT~3.\+402823466e+38F}
+
+\Hypertarget{_dark_math_utility_8h_a0e169f0214f13b7499f826190272bed6}\label{_dark_math_utility_8h_a0e169f0214f13b7499f826190272bed6} 
+\index{DarkMathUtility.h@{DarkMathUtility.h}!DE\_PI@{DE\_PI}}
+\index{DE\_PI@{DE\_PI}!DarkMathUtility.h@{DarkMathUtility.h}}
+\doxysubsubsection{\texorpdfstring{DE\_PI}{DE\_PI}}
+{\footnotesize\ttfamily \#define DE\+\_\+\+PI~(3.\+1415926535897932f) /\texorpdfstring{$\ast$}{*} Extra digits if needed\+: 3.\+1415926535897932384626433832795f \texorpdfstring{$\ast$}{*}/}
+
+\Hypertarget{_dark_math_utility_8h_a95091a3b8da76db8d9bcb0a31ae43165}\label{_dark_math_utility_8h_a95091a3b8da76db8d9bcb0a31ae43165} 
+\index{DarkMathUtility.h@{DarkMathUtility.h}!DE\_PI\_SQUARED@{DE\_PI\_SQUARED}}
+\index{DE\_PI\_SQUARED@{DE\_PI\_SQUARED}!DarkMathUtility.h@{DarkMathUtility.h}}
+\doxysubsubsection{\texorpdfstring{DE\_PI\_SQUARED}{DE\_PI\_SQUARED}}
+{\footnotesize\ttfamily \#define DE\+\_\+\+PI\+\_\+\+SQUARED~(9.\+86960440108f)}
+
+\Hypertarget{_dark_math_utility_8h_a6b8547d1f71738e3e0c252789d22d3d1}\label{_dark_math_utility_8h_a6b8547d1f71738e3e0c252789d22d3d1} 
+\index{DarkMathUtility.h@{DarkMathUtility.h}!DE\_SMALL\_NUMBER@{DE\_SMALL\_NUMBER}}
+\index{DE\_SMALL\_NUMBER@{DE\_SMALL\_NUMBER}!DarkMathUtility.h@{DarkMathUtility.h}}
+\doxysubsubsection{\texorpdfstring{DE\_SMALL\_NUMBER}{DE\_SMALL\_NUMBER}}
+{\footnotesize\ttfamily \#define DE\+\_\+\+SMALL\+\_\+\+NUMBER~(1.e-\/8f)}
+
+\Hypertarget{_dark_math_utility_8h_ae74a37a15d0713d969c2a51d2d603aca}\label{_dark_math_utility_8h_ae74a37a15d0713d969c2a51d2d603aca} 
+\index{DarkMathUtility.h@{DarkMathUtility.h}!DE\_SQRT\_2@{DE\_SQRT\_2}}
+\index{DE\_SQRT\_2@{DE\_SQRT\_2}!DarkMathUtility.h@{DarkMathUtility.h}}
+\doxysubsubsection{\texorpdfstring{DE\_SQRT\_2}{DE\_SQRT\_2}}
+{\footnotesize\ttfamily \#define DE\+\_\+\+SQRT\+\_\+2~(1.\+4142135623730950488016887242097f)}
+
+\Hypertarget{_dark_math_utility_8h_a3611dbbf4f12698ac597b698faef80db}\label{_dark_math_utility_8h_a3611dbbf4f12698ac597b698faef80db} 
+\index{DarkMathUtility.h@{DarkMathUtility.h}!DE\_SQRT\_3@{DE\_SQRT\_3}}
+\index{DE\_SQRT\_3@{DE\_SQRT\_3}!DarkMathUtility.h@{DarkMathUtility.h}}
+\doxysubsubsection{\texorpdfstring{DE\_SQRT\_3}{DE\_SQRT\_3}}
+{\footnotesize\ttfamily \#define DE\+\_\+\+SQRT\+\_\+3~(1.\+7320508075688772935274463415059f)}
+
+\Hypertarget{_dark_math_utility_8h_a98aa6652e3d2293d768651a31a0f8454}\label{_dark_math_utility_8h_a98aa6652e3d2293d768651a31a0f8454} 
+\index{DarkMathUtility.h@{DarkMathUtility.h}!DE\_THRESH\_NORMALS\_ARE\_ORTHOGONAL@{DE\_THRESH\_NORMALS\_ARE\_ORTHOGONAL}}
+\index{DE\_THRESH\_NORMALS\_ARE\_ORTHOGONAL@{DE\_THRESH\_NORMALS\_ARE\_ORTHOGONAL}!DarkMathUtility.h@{DarkMathUtility.h}}
+\doxysubsubsection{\texorpdfstring{DE\_THRESH\_NORMALS\_ARE\_ORTHOGONAL}{DE\_THRESH\_NORMALS\_ARE\_ORTHOGONAL}}
+{\footnotesize\ttfamily \#define DE\+\_\+\+THRESH\+\_\+\+NORMALS\+\_\+\+ARE\+\_\+\+ORTHOGONAL~(0.\+017455f) /\texorpdfstring{$\ast$}{*} Two unit vectors are orthogonal (perpendicular) if abs(A dot B) is less than or equal this. This is roughly cosine(89.\+0 degrees). \texorpdfstring{$\ast$}{*}/}
+
+\Hypertarget{_dark_math_utility_8h_a2cea68d728129bf42876cc5e4c61ff53}\label{_dark_math_utility_8h_a2cea68d728129bf42876cc5e4c61ff53} 
+\index{DarkMathUtility.h@{DarkMathUtility.h}!DE\_THRESH\_NORMALS\_ARE\_PARALLEL@{DE\_THRESH\_NORMALS\_ARE\_PARALLEL}}
+\index{DE\_THRESH\_NORMALS\_ARE\_PARALLEL@{DE\_THRESH\_NORMALS\_ARE\_PARALLEL}!DarkMathUtility.h@{DarkMathUtility.h}}
+\doxysubsubsection{\texorpdfstring{DE\_THRESH\_NORMALS\_ARE\_PARALLEL}{DE\_THRESH\_NORMALS\_ARE\_PARALLEL}}
+{\footnotesize\ttfamily \#define DE\+\_\+\+THRESH\+\_\+\+NORMALS\+\_\+\+ARE\+\_\+\+PARALLEL~(0.\+999845f) /\texorpdfstring{$\ast$}{*} Two unit vectors are parallel if abs(A dot B) is greater than or equal to this. This is roughly cosine(1.\+0 degrees). \texorpdfstring{$\ast$}{*}/}
+
+\Hypertarget{_dark_math_utility_8h_ab256fa59f1ce4775a78d5abe4eaa031d}\label{_dark_math_utility_8h_ab256fa59f1ce4775a78d5abe4eaa031d} 
+\index{DarkMathUtility.h@{DarkMathUtility.h}!DE\_THRESH\_NORMALS\_ARE\_SAME@{DE\_THRESH\_NORMALS\_ARE\_SAME}}
+\index{DE\_THRESH\_NORMALS\_ARE\_SAME@{DE\_THRESH\_NORMALS\_ARE\_SAME}!DarkMathUtility.h@{DarkMathUtility.h}}
+\doxysubsubsection{\texorpdfstring{DE\_THRESH\_NORMALS\_ARE\_SAME}{DE\_THRESH\_NORMALS\_ARE\_SAME}}
+{\footnotesize\ttfamily \#define DE\+\_\+\+THRESH\+\_\+\+NORMALS\+\_\+\+ARE\+\_\+\+SAME~(0.\+00002f) /\texorpdfstring{$\ast$}{*} Two normal points are same if within this distance \texorpdfstring{$\ast$}{*}/}
+
+\Hypertarget{_dark_math_utility_8h_a7a1036580fa021f2d503599a9d3947bc}\label{_dark_math_utility_8h_a7a1036580fa021f2d503599a9d3947bc} 
+\index{DarkMathUtility.h@{DarkMathUtility.h}!DE\_THRESH\_POINT\_ON\_PLANE@{DE\_THRESH\_POINT\_ON\_PLANE}}
+\index{DE\_THRESH\_POINT\_ON\_PLANE@{DE\_THRESH\_POINT\_ON\_PLANE}!DarkMathUtility.h@{DarkMathUtility.h}}
+\doxysubsubsection{\texorpdfstring{DE\_THRESH\_POINT\_ON\_PLANE}{DE\_THRESH\_POINT\_ON\_PLANE}}
+{\footnotesize\ttfamily \#define DE\+\_\+\+THRESH\+\_\+\+POINT\+\_\+\+ON\+\_\+\+PLANE~(0.\+10f)  /\texorpdfstring{$\ast$}{*} Thickness of plane for front/back/inside test \texorpdfstring{$\ast$}{*}/}
+
+\Hypertarget{_dark_math_utility_8h_aca4e1b95e6c3627bc88717883e706d6b}\label{_dark_math_utility_8h_aca4e1b95e6c3627bc88717883e706d6b} 
+\index{DarkMathUtility.h@{DarkMathUtility.h}!DE\_THRESH\_POINT\_ON\_SIDE@{DE\_THRESH\_POINT\_ON\_SIDE}}
+\index{DE\_THRESH\_POINT\_ON\_SIDE@{DE\_THRESH\_POINT\_ON\_SIDE}!DarkMathUtility.h@{DarkMathUtility.h}}
+\doxysubsubsection{\texorpdfstring{DE\_THRESH\_POINT\_ON\_SIDE}{DE\_THRESH\_POINT\_ON\_SIDE}}
+{\footnotesize\ttfamily \#define DE\+\_\+\+THRESH\+\_\+\+POINT\+\_\+\+ON\+\_\+\+SIDE~(0.\+20f)  /\texorpdfstring{$\ast$}{*} Thickness of polygon side\textquotesingle{}s side-\/plane for point-\/inside/outside/on side test \texorpdfstring{$\ast$}{*}/}
+
+\Hypertarget{_dark_math_utility_8h_af6fc950ad8f44894f09270ebf06bc3b6}\label{_dark_math_utility_8h_af6fc950ad8f44894f09270ebf06bc3b6} 
+\index{DarkMathUtility.h@{DarkMathUtility.h}!DE\_THRESH\_POINTS\_ARE\_NEAR@{DE\_THRESH\_POINTS\_ARE\_NEAR}}
+\index{DE\_THRESH\_POINTS\_ARE\_NEAR@{DE\_THRESH\_POINTS\_ARE\_NEAR}!DarkMathUtility.h@{DarkMathUtility.h}}
+\doxysubsubsection{\texorpdfstring{DE\_THRESH\_POINTS\_ARE\_NEAR}{DE\_THRESH\_POINTS\_ARE\_NEAR}}
+{\footnotesize\ttfamily \#define DE\+\_\+\+THRESH\+\_\+\+POINTS\+\_\+\+ARE\+\_\+\+NEAR~(0.\+015f) /\texorpdfstring{$\ast$}{*} Two points are near if within this distance and can be combined if imprecise math is ok \texorpdfstring{$\ast$}{*}/}
+
+\Hypertarget{_dark_math_utility_8h_ae410cfb76aa2ff1067b70f76e52bed17}\label{_dark_math_utility_8h_ae410cfb76aa2ff1067b70f76e52bed17} 
+\index{DarkMathUtility.h@{DarkMathUtility.h}!DE\_THRESH\_POINTS\_ARE\_SAME@{DE\_THRESH\_POINTS\_ARE\_SAME}}
+\index{DE\_THRESH\_POINTS\_ARE\_SAME@{DE\_THRESH\_POINTS\_ARE\_SAME}!DarkMathUtility.h@{DarkMathUtility.h}}
+\doxysubsubsection{\texorpdfstring{DE\_THRESH\_POINTS\_ARE\_SAME}{DE\_THRESH\_POINTS\_ARE\_SAME}}
+{\footnotesize\ttfamily \#define DE\+\_\+\+THRESH\+\_\+\+POINTS\+\_\+\+ARE\+\_\+\+SAME~(0.\+00002f) /\texorpdfstring{$\ast$}{*} Two points are same if within this distance \texorpdfstring{$\ast$}{*}/}
+
+\Hypertarget{_dark_math_utility_8h_a004f7b9b0357bf51e3cb8c1bc964ae11}\label{_dark_math_utility_8h_a004f7b9b0357bf51e3cb8c1bc964ae11} 
+\index{DarkMathUtility.h@{DarkMathUtility.h}!DE\_THRESH\_QUAT\_NORMALIZED@{DE\_THRESH\_QUAT\_NORMALIZED}}
+\index{DE\_THRESH\_QUAT\_NORMALIZED@{DE\_THRESH\_QUAT\_NORMALIZED}!DarkMathUtility.h@{DarkMathUtility.h}}
+\doxysubsubsection{\texorpdfstring{DE\_THRESH\_QUAT\_NORMALIZED}{DE\_THRESH\_QUAT\_NORMALIZED}}
+{\footnotesize\ttfamily \#define DE\+\_\+\+THRESH\+\_\+\+QUAT\+\_\+\+NORMALIZED~(0.\+01f)  /\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} Allowed error for a normalized quaternion (against squared magnitude) \texorpdfstring{$\ast$}{*}/}
+
+\Hypertarget{_dark_math_utility_8h_a5520942bd103048801e1ae6d65731ecd}\label{_dark_math_utility_8h_a5520942bd103048801e1ae6d65731ecd} 
+\index{DarkMathUtility.h@{DarkMathUtility.h}!DE\_THRESH\_SPLIT\_POLY\_PRECISELY@{DE\_THRESH\_SPLIT\_POLY\_PRECISELY}}
+\index{DE\_THRESH\_SPLIT\_POLY\_PRECISELY@{DE\_THRESH\_SPLIT\_POLY\_PRECISELY}!DarkMathUtility.h@{DarkMathUtility.h}}
+\doxysubsubsection{\texorpdfstring{DE\_THRESH\_SPLIT\_POLY\_PRECISELY}{DE\_THRESH\_SPLIT\_POLY\_PRECISELY}}
+{\footnotesize\ttfamily \#define DE\+\_\+\+THRESH\+\_\+\+SPLIT\+\_\+\+POLY\+\_\+\+PRECISELY~(0.\+01f)  /\texorpdfstring{$\ast$}{*} A plane exactly splits a polygon \texorpdfstring{$\ast$}{*}/}
+
+\Hypertarget{_dark_math_utility_8h_a5e8dbcf67e7771b9ed14b5136f1a41f6}\label{_dark_math_utility_8h_a5e8dbcf67e7771b9ed14b5136f1a41f6} 
+\index{DarkMathUtility.h@{DarkMathUtility.h}!DE\_THRESH\_SPLIT\_POLY\_WITH\_PLANE@{DE\_THRESH\_SPLIT\_POLY\_WITH\_PLANE}}
+\index{DE\_THRESH\_SPLIT\_POLY\_WITH\_PLANE@{DE\_THRESH\_SPLIT\_POLY\_WITH\_PLANE}!DarkMathUtility.h@{DarkMathUtility.h}}
+\doxysubsubsection{\texorpdfstring{DE\_THRESH\_SPLIT\_POLY\_WITH\_PLANE}{DE\_THRESH\_SPLIT\_POLY\_WITH\_PLANE}}
+{\footnotesize\ttfamily \#define DE\+\_\+\+THRESH\+\_\+\+SPLIT\+\_\+\+POLY\+\_\+\+WITH\+\_\+\+PLANE~(0.\+25f)  /\texorpdfstring{$\ast$}{*} A plane splits a polygon in half \texorpdfstring{$\ast$}{*}/}
+
+\Hypertarget{_dark_math_utility_8h_ac713701f42a5ba006fb9c0b0dbe66e2b}\label{_dark_math_utility_8h_ac713701f42a5ba006fb9c0b0dbe66e2b} 
+\index{DarkMathUtility.h@{DarkMathUtility.h}!DE\_THRESH\_UVS\_ARE\_SAME@{DE\_THRESH\_UVS\_ARE\_SAME}}
+\index{DE\_THRESH\_UVS\_ARE\_SAME@{DE\_THRESH\_UVS\_ARE\_SAME}!DarkMathUtility.h@{DarkMathUtility.h}}
+\doxysubsubsection{\texorpdfstring{DE\_THRESH\_UVS\_ARE\_SAME}{DE\_THRESH\_UVS\_ARE\_SAME}}
+{\footnotesize\ttfamily \#define DE\+\_\+\+THRESH\+\_\+\+UVS\+\_\+\+ARE\+\_\+\+SAME~(0.\+0009765625f)/\texorpdfstring{$\ast$}{*} Two UV are same if within this threshold (1.\+0f/1024f) \texorpdfstring{$\ast$}{*}/}
+
+\Hypertarget{_dark_math_utility_8h_a1a82eee3544e7a4a4c2dda9d7bcaad0b}\label{_dark_math_utility_8h_a1a82eee3544e7a4a4c2dda9d7bcaad0b} 
+\index{DarkMathUtility.h@{DarkMathUtility.h}!DE\_THRESH\_VECTOR\_NORMALIZED@{DE\_THRESH\_VECTOR\_NORMALIZED}}
+\index{DE\_THRESH\_VECTOR\_NORMALIZED@{DE\_THRESH\_VECTOR\_NORMALIZED}!DarkMathUtility.h@{DarkMathUtility.h}}
+\doxysubsubsection{\texorpdfstring{DE\_THRESH\_VECTOR\_NORMALIZED}{DE\_THRESH\_VECTOR\_NORMALIZED}}
+{\footnotesize\ttfamily \#define DE\+\_\+\+THRESH\+\_\+\+VECTOR\+\_\+\+NORMALIZED~(0.\+01f)  /\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} Allowed error for a normalized vector (against squared magnitude) \texorpdfstring{$\ast$}{*}/}
+
+\Hypertarget{_dark_math_utility_8h_abe7107b3e51f5e7a0d9c7489fb7acb85}\label{_dark_math_utility_8h_abe7107b3e51f5e7a0d9c7489fb7acb85} 
+\index{DarkMathUtility.h@{DarkMathUtility.h}!DE\_THRESH\_VECTORS\_ARE\_NEAR@{DE\_THRESH\_VECTORS\_ARE\_NEAR}}
+\index{DE\_THRESH\_VECTORS\_ARE\_NEAR@{DE\_THRESH\_VECTORS\_ARE\_NEAR}!DarkMathUtility.h@{DarkMathUtility.h}}
+\doxysubsubsection{\texorpdfstring{DE\_THRESH\_VECTORS\_ARE\_NEAR}{DE\_THRESH\_VECTORS\_ARE\_NEAR}}
+{\footnotesize\ttfamily \#define DE\+\_\+\+THRESH\+\_\+\+VECTORS\+\_\+\+ARE\+\_\+\+NEAR~(0.\+0004f) /\texorpdfstring{$\ast$}{*} Two vectors are near if within this distance and can be combined if imprecise math is ok \texorpdfstring{$\ast$}{*}/}
+
+\Hypertarget{_dark_math_utility_8h_a5c251cbbdcca554d3b1284c166817736}\label{_dark_math_utility_8h_a5c251cbbdcca554d3b1284c166817736} 
+\index{DarkMathUtility.h@{DarkMathUtility.h}!DE\_THRESH\_ZERO\_NORM\_SQUARED@{DE\_THRESH\_ZERO\_NORM\_SQUARED}}
+\index{DE\_THRESH\_ZERO\_NORM\_SQUARED@{DE\_THRESH\_ZERO\_NORM\_SQUARED}!DarkMathUtility.h@{DarkMathUtility.h}}
+\doxysubsubsection{\texorpdfstring{DE\_THRESH\_ZERO\_NORM\_SQUARED}{DE\_THRESH\_ZERO\_NORM\_SQUARED}}
+{\footnotesize\ttfamily \#define DE\+\_\+\+THRESH\+\_\+\+ZERO\+\_\+\+NORM\+\_\+\+SQUARED~(0.\+0001f) /\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{_d3_d12_utils_8h_a49802c782fb40bd8e79835ef12871ddeaff9abf2b1a689f70a77a18da50c01d9f}{Size}} of a unit normal that is considered "{}zero"{}, squared \texorpdfstring{$\ast$}{*}/}
+
+\Hypertarget{_dark_math_utility_8h_a433bc59db55c3a0f36a2dcd44fcb52b2}\label{_dark_math_utility_8h_a433bc59db55c3a0f36a2dcd44fcb52b2} 
+\index{DarkMathUtility.h@{DarkMathUtility.h}!DE\_TWO\_PI@{DE\_TWO\_PI}}
+\index{DE\_TWO\_PI@{DE\_TWO\_PI}!DarkMathUtility.h@{DarkMathUtility.h}}
+\doxysubsubsection{\texorpdfstring{DE\_TWO\_PI}{DE\_TWO\_PI}}
+{\footnotesize\ttfamily \#define DE\+\_\+\+TWO\+\_\+\+PI~(6.\+28318530717f)}
+

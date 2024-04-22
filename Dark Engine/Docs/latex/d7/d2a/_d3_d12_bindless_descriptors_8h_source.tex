@@ -1,0 +1,86 @@
+\doxysection{D3\+D12\+Bindless\+Descriptors.\+h}
+\hypertarget{_d3_d12_bindless_descriptors_8h_source}{}\label{_d3_d12_bindless_descriptors_8h_source}\index{Dark Engine/Source/Runtime/D3D12RHI/private/D3D12BindlessDescriptors.h@{Dark Engine/Source/Runtime/D3D12RHI/private/D3D12BindlessDescriptors.h}}
+\mbox{\hyperlink{_d3_d12_bindless_descriptors_8h}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_d3_d12_r_h_i_common_8h}{D3D12RHICommon.h}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_r_h_i_defines_8h}{RHIDefines.h}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_bit_array_8h}{Containers/BitArray.h}}"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_f_d3_d12_descriptor_heap}{FD3D12DescriptorHeap}};}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_f_d3_d12_bindless_descriptor_heap_manager}{FD3D12BindlessDescriptorHeapManager}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_f_d3_d12_device_child}{FD3D12DeviceChild}}}
+\DoxyCodeLine{00010\ \{}
+\DoxyCodeLine{00011\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00012\ \ \ \ \ \mbox{\hyperlink{class_f_d3_d12_bindless_descriptor_heap_manager_a7c5b3edf2a466d2d9eb7f404d7d849b3}{FD3D12BindlessDescriptorHeapManager}}(\mbox{\hyperlink{class_f_d3_d12_device}{FD3D12Device}}*\ InDevice,\ \mbox{\hyperlink{_r_h_i_defines_8h_a9457a748b9d30acc00348bdc63f5de4e}{ERHIDescriptorHeapType}}\ InType,}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_r_h_i_defines_8h_a901385acc26a3c55dfee19fccdc73b1b}{ERHIBindlessConfiguration}}\ InConfiguration,\ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ InNumDescriptorsPerHeap);}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \ \ \mbox{\hyperlink{struct_f_r_h_i_descriptor_handle}{FRHIDescriptorHandle}}\ \mbox{\hyperlink{class_f_d3_d12_bindless_descriptor_heap_manager_a904ca3aabb2e7c3f474f8138cab724a5}{Allocate}}();}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_d3_d12_bindless_descriptor_heap_manager_ae06431f63edaf9036299ec1aaf3e415e}{Free}}(\mbox{\hyperlink{struct_f_r_h_i_descriptor_handle}{FRHIDescriptorHandle}}\ InHandle);}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \mbox{\hyperlink{class_f_d3_d12_descriptor_heap}{FD3D12DescriptorHeap}}*\ \mbox{\hyperlink{class_f_d3_d12_bindless_descriptor_heap_manager_aa45ba7497d27b81dc0bc81385069c677}{GetHeap}}();}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_f_d3_d12_descriptor_heap}{FD3D12DescriptorHeap}}*\ \mbox{\hyperlink{class_f_d3_d12_bindless_descriptor_heap_manager_aa45ba7497d27b81dc0bc81385069c677}{GetHeap}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \mbox{\hyperlink{_r_h_i_defines_8h_a9457a748b9d30acc00348bdc63f5de4e}{ERHIDescriptorHeapType}}\ \mbox{\hyperlink{class_f_d3_d12_bindless_descriptor_heap_manager_a2dadf29f5bc9ba9c0a89a96e786010b3}{GetType}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ Type;\ \}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_d3_d12_bindless_descriptor_heap_manager_a4c7873bbed453363f8780568121a751a}{UpdateImmediate}}(\mbox{\hyperlink{struct_f_r_h_i_descriptor_handle}{FRHIDescriptorHandle}}\ InHandle,\ D3D12\_CPU\_DESCRIPTOR\_HANDLE\ InSourceCpuHandle);}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{void}\ SetupInitialState(\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ InNumDescriptorsPerHeap);}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{void}\ ResizeHeaps(\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ InNumDescriptorsPerHeap);}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \mbox{\hyperlink{class_f_d3_d12_descriptor_heap}{FD3D12DescriptorHeap}}*\ CreateCpuHeapImpl(\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ InNumDescriptorsPerHeap);}
+\DoxyCodeLine{00034\ \ \ \ \ \mbox{\hyperlink{class_f_d3_d12_descriptor_heap}{FD3D12DescriptorHeap}}*\ CreateGpuHeapImpl(\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ InNumDescriptorsPerHeap);}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{_r_h_i_defines_8h_a9457a748b9d30acc00348bdc63f5de4e}{ERHIDescriptorHeapType}}\ Type;}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{_r_h_i_defines_8h_a901385acc26a3c55dfee19fccdc73b1b}{ERHIBindlessConfiguration}}\ Configuration;}
+\DoxyCodeLine{00039\ \ \ \ \ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ NumDescriptorsPerHeap;}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}\ NumAllocations\ =\ 0;}
+\DoxyCodeLine{00042\ \ \ \ \ \mbox{\hyperlink{class_t_bit_array}{TBitArray}}\ Allocations;}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ TRefCountPtr<FD3D12DescriptorHeap>\ CpuHeap\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00046\ \ \ \ \ TRefCountPtr<FD3D12DescriptorHeap>\ GpuHeap\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00047\ \ \ \ \ }
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \};}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_f_d3_d12_bindless_descriptor_manager}{FD3D12BindlessDescriptorManager}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_f_d3_d12_device_child}{FD3D12DeviceChild}}}
+\DoxyCodeLine{00055\ \{}
+\DoxyCodeLine{00056\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00057\ \ \ \ \ \mbox{\hyperlink{class_f_d3_d12_bindless_descriptor_manager_a5590ee241b3f0b3635cc4f507c2ee971}{FD3D12BindlessDescriptorManager}}(\mbox{\hyperlink{class_f_d3_d12_device}{FD3D12Device}}*\ InDevice);}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_d3_d12_bindless_descriptor_manager_a37a1d7da9cd2fd4826137e1daf78b5f2}{Init}}();}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ \mbox{\hyperlink{struct_f_r_h_i_descriptor_handle}{FRHIDescriptorHandle}}\ \mbox{\hyperlink{class_f_d3_d12_bindless_descriptor_manager_aff807cffeefcb599e61a0f8c8d3c9a48}{Allocate}}(\mbox{\hyperlink{_r_h_i_defines_8h_a9457a748b9d30acc00348bdc63f5de4e}{ERHIDescriptorHeapType}}\ InType);}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_d3_d12_bindless_descriptor_manager_aa2b2b59cfe9b746136e15a205b44d60e}{ImmediateFree}}(\mbox{\hyperlink{struct_f_r_h_i_descriptor_handle}{FRHIDescriptorHandle}}\ InHandle);}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_d3_d12_bindless_descriptor_manager_aa34b99834bed9d5ed2079323f12a1da7}{UpdateImmediate}}(\mbox{\hyperlink{struct_f_r_h_i_descriptor_handle}{FRHIDescriptorHandle}}\ InHandle,\ D3D12\_CPU\_DESCRIPTOR\_HANDLE\ InSourceCpuHandle);}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ \mbox{\hyperlink{class_f_d3_d12_descriptor_heap}{FD3D12DescriptorHeap}}*\ \mbox{\hyperlink{class_f_d3_d12_bindless_descriptor_manager_a5901cef7e64dea5f80a35a869b0d4772}{GetHeap}}(\mbox{\hyperlink{_r_h_i_defines_8h_a9457a748b9d30acc00348bdc63f5de4e}{ERHIDescriptorHeapType}}\ InType);}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ \ \ D3D12\_GPU\_DESCRIPTOR\_HANDLE\ \mbox{\hyperlink{class_f_d3_d12_bindless_descriptor_manager_a9544910eab34cf7b77871cf5cf5faad7}{GetGpuHandle}}(\mbox{\hyperlink{struct_f_r_h_i_descriptor_handle}{FRHIDescriptorHandle}}\ InHandle)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{comment}{//D3D12\_GPU\_DESCRIPTOR\_HANDLE\ GetGpuHandle(FRHIDescriptorHandle\ InHandle)\ const;}}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00074\ \ \ \ \ \mbox{\hyperlink{_r_h_i_defines_8h_a901385acc26a3c55dfee19fccdc73b1b}{ERHIBindlessConfiguration}}\ ResourcesConfiguration;}
+\DoxyCodeLine{00075\ \ \ \ \ \mbox{\hyperlink{_r_h_i_defines_8h_a901385acc26a3c55dfee19fccdc73b1b}{ERHIBindlessConfiguration}}\ SamplersConfiguration;}
+\DoxyCodeLine{00076\ \ \ \ \ }
+\DoxyCodeLine{00077\ \ \ \ \ TArray<FD3D12BindlessDescriptorHeapManager>\ Managers;}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \};}
+
+\end{DoxyCode}

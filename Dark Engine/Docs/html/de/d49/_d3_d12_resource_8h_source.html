@@ -1,0 +1,181 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Dark Engine: Исходный файл Dark Engine/Source/Runtime/Render/D3D12/D3D12Resource.h</title>
+<link rel="icon" href="../../Logo.ico" type="image/x-icon" />
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<script type="text/javascript" src="../../clipboard.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../Logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Dark Engine<span id="projectnumber">&#160;0.0.39</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../../',true,false,'search.php','Поиск');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(1); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_55043db21ba5ddd7c561d2c5a5a38944.html">Dark Engine</a></li><li class="navelem"><a class="el" href="../../dir_e00b54220e1e1486ac9971b606d33054.html">Source</a></li><li class="navelem"><a class="el" href="../../dir_ae01c8af07818b260cc3481e8588b277.html">Runtime</a></li><li class="navelem"><a class="el" href="../../dir_1b0bffc8d096929f17ecae6ef7b4b529.html">Render</a></li><li class="navelem"><a class="el" href="../../dir_d93dc1c13639dc0a8989b4ca7595d959.html">D3D12</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">D3D12Resource.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="../../de/d49/_d3_d12_resource_8h.html">См. документацию.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;<a class="code" href="../../d5/dc5/_d3_d12_utils_8h.html">D3D12Utils.h</a>&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="../../dd/dce/_d3_d12_main_8h.html">D3D12Main.h</a>&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;<a class="code" href="../../d3/dc5/_array_8h.html">Containers/Array.h</a>&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="foldopen" id="foldopen00007" data-start="{" data-end="};">
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="../../d8/d57/class_d3_d12_upload_buffer_resource.html">    7</a></span><span class="keyword">class </span><a class="code hl_class" href="../../d8/d57/class_d3_d12_upload_buffer_resource.html">D3D12UploadBufferResource</a></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>{</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    TArray&lt;T&gt; m_dataBuffer;</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    UINT m_elementByteSize;</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    UINT m_elementsByteSize;</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    ID3D12Device8* m_device;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    ComPtr&lt;ID3D12Resource&gt; m_uploadBuffer;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    BYTE* m_mappedData;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00018" data-start="{" data-end="}">
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="../../d8/d57/class_d3_d12_upload_buffer_resource.html#a1071a84d92864a1ea436c674f32c10c2">   18</a></span>    <a class="code hl_function" href="../../d8/d57/class_d3_d12_upload_buffer_resource.html#a1071a84d92864a1ea436c674f32c10c2">D3D12UploadBufferResource</a>(UINT elementCount, <span class="keywordtype">bool</span> isConstantBuffer = <span class="keyword">false</span>) ;</div>
+<div class="foldopen" id="foldopen00019" data-start="{" data-end="}">
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="../../d8/d57/class_d3_d12_upload_buffer_resource.html#aa53f47e3165edf02d0691e84ffbd706b">   19</a></span>    <a class="code hl_function" href="../../d8/d57/class_d3_d12_upload_buffer_resource.html#aa53f47e3165edf02d0691e84ffbd706b">~D3D12UploadBufferResource</a>();</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="foldopen" id="foldopen00021" data-start="{" data-end="}">
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="../../d8/d57/class_d3_d12_upload_buffer_resource.html#ab29f4d6f8a74bbf0044743c791e935b1">   21</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d8/d57/class_d3_d12_upload_buffer_resource.html#ab29f4d6f8a74bbf0044743c791e935b1">CopyData</a>(UINT elementIndex, <span class="keyword">const</span> T&amp; data);</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="../../d8/d57/class_d3_d12_upload_buffer_resource.html#a16616304c9feb505a67ddc0e94c20f8c">   22</a></span>    T <a class="code hl_function" href="../../d8/d57/class_d3_d12_upload_buffer_resource.html#a16616304c9feb505a67ddc0e94c20f8c">ReadData</a>(UINT elementIndex) { <span class="keywordflow">return</span> m_dataBuffer[elementIndex]; }</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="../../d8/d57/class_d3_d12_upload_buffer_resource.html#a5b80659dc1e73899f021eddf4cd3356a">   23</a></span>    ID3D12Resource* <a class="code hl_function" href="../../d8/d57/class_d3_d12_upload_buffer_resource.html#a5b80659dc1e73899f021eddf4cd3356a">GetResource</a>() { <span class="keywordflow">return</span> m_uploadBuffer.Get(); }</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="../../d8/d57/class_d3_d12_upload_buffer_resource.html#a7b0fb7af22af6731173761f6077c2dd9">   24</a></span>    UINT <a class="code hl_function" href="../../d8/d57/class_d3_d12_upload_buffer_resource.html#a7b0fb7af22af6731173761f6077c2dd9">GetElementByteSize</a>() { <span class="keywordflow">return</span> m_elementByteSize; }</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="../../d8/d57/class_d3_d12_upload_buffer_resource.html#ac8ca63c524f88a87e15ba73f631b1cdb">   25</a></span>    UINT <a class="code hl_function" href="../../d8/d57/class_d3_d12_upload_buffer_resource.html#ac8ca63c524f88a87e15ba73f631b1cdb">GetElementsByteSize</a>() { <span class="keywordflow">return</span> m_elementsByteSize; }</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>};</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="foldopen" id="foldopen00030" data-start="{" data-end="}">
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="../../d8/d57/class_d3_d12_upload_buffer_resource.html#a1071a84d92864a1ea436c674f32c10c2">   30</a></span><a class="code hl_function" href="../../d8/d57/class_d3_d12_upload_buffer_resource.html#a1071a84d92864a1ea436c674f32c10c2">D3D12UploadBufferResource&lt;T&gt;::D3D12UploadBufferResource</a>(UINT elementCount, <span class="keywordtype">bool</span> isConstantBuffer)</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>{</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    m_device = <a class="code hl_function" href="../../df/d45/class_d3_d_util.html#a6d6fbe58e6bfe94e0b7381ea7742f43f">D3DUtil::GetDevice</a>();</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    m_dataBuffer.Resize(elementCount);</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    m_elementByteSize = isConstantBuffer ? <a class="code hl_function" href="../../df/d45/class_d3_d_util.html#aef1e7718db784bdb00d4aedfdbac24ab">D3DUtil::CalcConstantBufferByteSize</a>(<span class="keyword">sizeof</span>(T)) : <span class="keyword">sizeof</span>(T);</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    m_elementsByteSize = elementCount * m_elementByteSize;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    D3D12_HEAP_PROPERTIES heapProperties = CD3DX12_HEAP_PROPERTIES(D3D12_HEAP_TYPE_UPLOAD);</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    D3D12_RESOURCE_DESC resourceDesc = CD3DX12_RESOURCE_DESC::Buffer(m_elementsByteSize);</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    m_device-&gt;CreateCommittedResource(&amp;heapProperties, D3D12_HEAP_FLAG_NONE, &amp;resourceDesc,</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        D3D12_RESOURCE_STATE_GENERIC_READ, <span class="keyword">nullptr</span>, IID_PPV_ARGS(&amp;m_uploadBuffer));</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    m_uploadBuffer-&gt;Map(0, 0, <span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">void</span>**<span class="keyword">&gt;</span>(&amp;m_mappedData));</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>}</div>
+</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="foldopen" id="foldopen00046" data-start="{" data-end="}">
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="../../d8/d57/class_d3_d12_upload_buffer_resource.html#aa53f47e3165edf02d0691e84ffbd706b">   46</a></span><span class="keyword">inline</span> <a class="code hl_function" href="../../d8/d57/class_d3_d12_upload_buffer_resource.html#aa53f47e3165edf02d0691e84ffbd706b">D3D12UploadBufferResource&lt;T&gt;::~D3D12UploadBufferResource</a>()</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>{</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    m_uploadBuffer-&gt;Unmap(0, 0);</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="comment">//m_uploadBuffer-&gt;Release();</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>}</div>
+</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="foldopen" id="foldopen00054" data-start="{" data-end="}">
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="../../d8/d57/class_d3_d12_upload_buffer_resource.html#ab29f4d6f8a74bbf0044743c791e935b1">   54</a></span><span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../d8/d57/class_d3_d12_upload_buffer_resource.html#ab29f4d6f8a74bbf0044743c791e935b1">D3D12UploadBufferResource&lt;T&gt;::CopyData</a>(UINT elementIndex, <span class="keyword">const</span> T&amp; data)</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>{</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    memcpy(<span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">void</span>*<span class="keyword">&gt;</span>(&amp;m_mappedData[elementIndex * m_elementByteSize]), &amp;data, <span class="keyword">sizeof</span>(T));</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    m_dataBuffer[elementIndex] = data;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>}</div>
+</div>
+</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+</div>
+</div>
+</div>
+<div class="ttc" id="a_array_8h_html"><div class="ttname"><a href="../../d3/dc5/_array_8h.html">Array.h</a></div></div>
+<div class="ttc" id="a_d3_d12_main_8h_html"><div class="ttname"><a href="../../dd/dce/_d3_d12_main_8h.html">D3D12Main.h</a></div></div>
+<div class="ttc" id="a_d3_d12_utils_8h_html"><div class="ttname"><a href="../../d5/dc5/_d3_d12_utils_8h.html">D3D12Utils.h</a></div></div>
+<div class="ttc" id="aclass_d3_d12_upload_buffer_resource_html"><div class="ttname"><a href="../../d8/d57/class_d3_d12_upload_buffer_resource.html">D3D12UploadBufferResource</a></div><div class="ttdef"><b>Definition</b> D3D12Resource.h:8</div></div>
+<div class="ttc" id="aclass_d3_d12_upload_buffer_resource_html_a1071a84d92864a1ea436c674f32c10c2"><div class="ttname"><a href="../../d8/d57/class_d3_d12_upload_buffer_resource.html#a1071a84d92864a1ea436c674f32c10c2">D3D12UploadBufferResource::D3D12UploadBufferResource</a></div><div class="ttdeci">D3D12UploadBufferResource(UINT elementCount, bool isConstantBuffer=false)</div><div class="ttdef"><b>Definition</b> D3D12Resource.h:30</div></div>
+<div class="ttc" id="aclass_d3_d12_upload_buffer_resource_html_a16616304c9feb505a67ddc0e94c20f8c"><div class="ttname"><a href="../../d8/d57/class_d3_d12_upload_buffer_resource.html#a16616304c9feb505a67ddc0e94c20f8c">D3D12UploadBufferResource::ReadData</a></div><div class="ttdeci">T ReadData(UINT elementIndex)</div><div class="ttdef"><b>Definition</b> D3D12Resource.h:22</div></div>
+<div class="ttc" id="aclass_d3_d12_upload_buffer_resource_html_a5b80659dc1e73899f021eddf4cd3356a"><div class="ttname"><a href="../../d8/d57/class_d3_d12_upload_buffer_resource.html#a5b80659dc1e73899f021eddf4cd3356a">D3D12UploadBufferResource::GetResource</a></div><div class="ttdeci">ID3D12Resource * GetResource()</div><div class="ttdef"><b>Definition</b> D3D12Resource.h:23</div></div>
+<div class="ttc" id="aclass_d3_d12_upload_buffer_resource_html_a7b0fb7af22af6731173761f6077c2dd9"><div class="ttname"><a href="../../d8/d57/class_d3_d12_upload_buffer_resource.html#a7b0fb7af22af6731173761f6077c2dd9">D3D12UploadBufferResource::GetElementByteSize</a></div><div class="ttdeci">UINT GetElementByteSize()</div><div class="ttdef"><b>Definition</b> D3D12Resource.h:24</div></div>
+<div class="ttc" id="aclass_d3_d12_upload_buffer_resource_html_aa53f47e3165edf02d0691e84ffbd706b"><div class="ttname"><a href="../../d8/d57/class_d3_d12_upload_buffer_resource.html#aa53f47e3165edf02d0691e84ffbd706b">D3D12UploadBufferResource::~D3D12UploadBufferResource</a></div><div class="ttdeci">~D3D12UploadBufferResource()</div><div class="ttdef"><b>Definition</b> D3D12Resource.h:46</div></div>
+<div class="ttc" id="aclass_d3_d12_upload_buffer_resource_html_ab29f4d6f8a74bbf0044743c791e935b1"><div class="ttname"><a href="../../d8/d57/class_d3_d12_upload_buffer_resource.html#ab29f4d6f8a74bbf0044743c791e935b1">D3D12UploadBufferResource::CopyData</a></div><div class="ttdeci">void CopyData(UINT elementIndex, const T &amp;data)</div><div class="ttdef"><b>Definition</b> D3D12Resource.h:54</div></div>
+<div class="ttc" id="aclass_d3_d12_upload_buffer_resource_html_ac8ca63c524f88a87e15ba73f631b1cdb"><div class="ttname"><a href="../../d8/d57/class_d3_d12_upload_buffer_resource.html#ac8ca63c524f88a87e15ba73f631b1cdb">D3D12UploadBufferResource::GetElementsByteSize</a></div><div class="ttdeci">UINT GetElementsByteSize()</div><div class="ttdef"><b>Definition</b> D3D12Resource.h:25</div></div>
+<div class="ttc" id="aclass_d3_d_util_html_a6d6fbe58e6bfe94e0b7381ea7742f43f"><div class="ttname"><a href="../../df/d45/class_d3_d_util.html#a6d6fbe58e6bfe94e0b7381ea7742f43f">D3DUtil::GetDevice</a></div><div class="ttdeci">static ID3D12Device8 * GetDevice()</div></div>
+<div class="ttc" id="aclass_d3_d_util_html_aef1e7718db784bdb00d4aedfdbac24ab"><div class="ttname"><a href="../../df/d45/class_d3_d_util.html#aef1e7718db784bdb00d4aedfdbac24ab">D3DUtil::CalcConstantBufferByteSize</a></div><div class="ttdeci">static UINT CalcConstantBufferByteSize(UINT byteSize)</div><div class="ttdef"><b>Definition</b> D3D12Utils.h:46</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
+</body>
+</html>

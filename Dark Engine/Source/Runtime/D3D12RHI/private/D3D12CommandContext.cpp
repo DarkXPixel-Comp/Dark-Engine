@@ -94,6 +94,19 @@ void FD3D12ContextCommon::TransitionResource(ID3D12Resource* Resource, D3D12_RES
 	GetCommandList().GetGraphicsCommandList()->ResourceBarrier(1, &Barrier);
 }
 
+void FD3D12ContextCommon::TransitionResource(FD3D12Resource* Resource, D3D12_RESOURCE_STATES After, uint32 SubResource)
+{
+	D3D12_RESOURCE_STATES Before = Resource->GetCurrentState();
+	if (Before == After)
+	{
+		Resource->SetState(After);
+		return;
+	}
+	CD3DX12_RESOURCE_BARRIER Barrier = CD3DX12_RESOURCE_BARRIER::Transition(Resource->GetResource(), Before, After);
+	GetCommandList().GetGraphicsCommandList()->ResourceBarrier(1, &Barrier);
+	Resource->SetState(After);
+}
+
 void FD3D12ContextCommon::FlushCommands(ED3D12FlushFlags Flags)
 {
 	check(bIsDefualtContext);
@@ -228,6 +241,7 @@ void FD3D12CommandContext::SetRenderTargets(int32 NumRenderTargets, const FRHIRe
 	}
 
 
+	StateCache.SetRenderTargets(NumRenderTargets, NewRenderTargets, nullptr);
 	GetCommandList().GetGraphicsCommandList()->OMSetRenderTargets(NumRenderTargets, RTVDescriptors.GetData(), FALSE, nullptr);
 
 }
@@ -291,6 +305,9 @@ void FD3D12CommandContext::RHIDrawIndexedPrimitive(FRHIBuffer* IndexBufferRHI, i
 	NumInstances = FMath::Max<uint32>(1, NumInstances);
 
 	uint32 IndexCount = StateCache.GetVertexCount(NumPrimitives);
+	const DXGI_FORMAT Format = IndexBuffer->GetStride() == sizeof(uint16) ? DXGI_FORMAT_R16_UINT : DXGI_FORMAT_R32_UINT;
+	StateCache.SetIndexBuffer(&IndexBuffer->ResourceLocation, Format, 0);
+	StateCache.ApplyState(false);
 
 
 

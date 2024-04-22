@@ -1,0 +1,29 @@
+\doxysection{Windows\+D3\+D12\+Third\+Party.\+h}
+\hypertarget{_windows_d3_d12_third_party_8h_source}{}\label{_windows_d3_d12_third_party_8h_source}\index{Dark Engine/Source/Runtime/D3D12RHI/public/Windows/WindowsD3D12ThirdParty.h@{Dark Engine/Source/Runtime/D3D12RHI/public/Windows/WindowsD3D12ThirdParty.h}}
+\mbox{\hyperlink{_windows_d3_d12_third_party_8h}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_platform_8h}{HAL/Platform.h}}"{}}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#if\ PLATFORM\_64BITS}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#pragma\ pack(push,\ 16)}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#pragma\ pack(push,\ 8)}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#define\ INITGUID}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{_d3_d12_8h}{d3d12.h}}>}}
+\DoxyCodeLine{00014\ \textcolor{comment}{//\#include\ <>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <dxgi1\_6.h>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <dxgidebug.h>}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}d3dx12.h"{}}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ "{}WinPixEventRuntime/pix3.h"{}}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#undef\ DrawText}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#pragma\ pack(pop)}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#pragma\ warning(pop)}}
+
+\end{DoxyCode}

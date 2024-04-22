@@ -1,0 +1,163 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Dark Engine: Файл Dark Engine/Source/Runtime/D3D12RHI/private/D3D12Adapter.cpp</title>
+<link rel="icon" href="../../Logo.ico" type="image/x-icon" />
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<script type="text/javascript" src="../../clipboard.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../Logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Dark Engine<span id="projectnumber">&#160;0.0.39</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../../',true,false,'search.php','Поиск');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_55043db21ba5ddd7c561d2c5a5a38944.html">Dark Engine</a></li><li class="navelem"><a class="el" href="../../dir_e00b54220e1e1486ac9971b606d33054.html">Source</a></li><li class="navelem"><a class="el" href="../../dir_ae01c8af07818b260cc3481e8588b277.html">Runtime</a></li><li class="navelem"><a class="el" href="../../dir_69d1b7a79a04d24cd43f7c84d74c5d6d.html">D3D12RHI</a></li><li class="navelem"><a class="el" href="../../dir_975782192f4e5579da5ceb9eedcf6dc7.html">private</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Функции</a>  </div>
+  <div class="headertitle"><div class="title">Файл D3D12Adapter.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="../../db/d73/_d3_d12_adapter_8h_source.html">D3D12Adapter.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d7/d20/_d3_d12_device_8h_source.html">D3D12Device.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d7/dcd/_log_macros_8h_source.html">Logging/LogMacros.h</a>&quot;</code><br />
+<code>#include &lt;<a class="el" href="../../d9/d88/_d3_d12_util_8h_source.html">D3D12Util.h</a>&gt;</code><br />
+<code>#include &quot;<a class="el" href="../../df/d0f/_d3_d12_root_signature_8h_source.html">D3D12RootSignature.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dc/dc8/_d3_d12_pipeline_state_8h_source.html">D3D12PipelineState.h</a>&quot;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Функции</h2></td></tr>
+<tr class="memitem:af232fc5de66cecd5426990e84bafaa4c" id="r_af232fc5de66cecd5426990e84bafaa4c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af232fc5de66cecd5426990e84bafaa4c">DECLARE_LOG_CATEGORY</a> (D3D12Callback, Display)</td></tr>
+<tr class="separator:af232fc5de66cecd5426990e84bafaa4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a03f335c697b67a1c1a74e4e40cb81892" id="r_a03f335c697b67a1c1a74e4e40cb81892"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a03f335c697b67a1c1a74e4e40cb81892">D3D12MessageCallBack</a> (D3D12_MESSAGE_CATEGORY Category, D3D12_MESSAGE_SEVERITY Severity, D3D12_MESSAGE_ID ID, LPCSTR Description, void *pContext)</td></tr>
+<tr class="separator:a03f335c697b67a1c1a74e4e40cb81892"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Функции</h2>
+<a id="a03f335c697b67a1c1a74e4e40cb81892" name="a03f335c697b67a1c1a74e4e40cb81892"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a03f335c697b67a1c1a74e4e40cb81892">&#9670;&#160;</a></span>D3D12MessageCallBack()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void D3D12MessageCallBack </td>
+          <td>(</td>
+          <td class="paramtype">D3D12_MESSAGE_CATEGORY</td>          <td class="paramname"><span class="paramname"><em>Category</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">D3D12_MESSAGE_SEVERITY</td>          <td class="paramname"><span class="paramname"><em>Severity</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">D3D12_MESSAGE_ID</td>          <td class="paramname"><span class="paramname"><em>ID</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">LPCSTR</td>          <td class="paramname"><span class="paramname"><em>Description</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>pContext</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af232fc5de66cecd5426990e84bafaa4c" name="af232fc5de66cecd5426990e84bafaa4c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af232fc5de66cecd5426990e84bafaa4c">&#9670;&#160;</a></span>DECLARE_LOG_CATEGORY()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_LOG_CATEGORY </td>
+          <td>(</td>
+          <td class="paramtype">D3D12Callback</td>          <td class="paramname"><span class="paramname">, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Display</td>          <td class="paramname"><span class="paramname"></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
+</body>
+</html>

@@ -1,0 +1,98 @@
+\doxysection{Класс FD3\+D12\+Render\+Target\+View}
+\hypertarget{class_f_d3_d12_render_target_view}{}\label{class_f_d3_d12_render_target_view}\index{FD3D12RenderTargetView@{FD3D12RenderTargetView}}
+
+
+{\ttfamily \#include $<$D3\+D12\+View.\+h$>$}
+
+Граф наследования\+:FD3\+D12\+Render\+Target\+View\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{d5/d25/class_f_d3_d12_render_target_view}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_f_d3_d12_render_target_view_a48485c8c4baa65cfb4127b2c2beda4f6}{FD3\+D12\+Render\+Target\+View}} (\mbox{\hyperlink{class_f_d3_d12_device}{FD3\+D12\+Device}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{class_f_d3_d12_device_child_afeb899a6e833b3f986e49def99db540c}{Parent}})
+\item 
+void \mbox{\hyperlink{class_f_d3_d12_render_target_view_a65cd4f6aa440062e5a6808c81c517cb9}{Crete\+View}} (const D3\+D12\+\_\+\+RENDER\+\_\+\+TARGET\+\_\+\+VIEW\+\_\+\+DESC \&In\+Desc, class \mbox{\hyperlink{class_f_d3_d12_resource}{FD3\+D12\+Resource}} \texorpdfstring{$\ast$}{*}In\+Resource)
+\item 
+\mbox{\hyperlink{class_f_d3_d12_resource}{FD3\+D12\+Resource}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_f_d3_d12_render_target_view_a3ee91a962e8e8c468962a355d78ded2e}{Get\+Resource}} () const
+\item 
+D3\+D12\+\_\+\+RENDER\+\_\+\+TARGET\+\_\+\+VIEW\+\_\+\+DESC \mbox{\hyperlink{class_f_d3_d12_render_target_view_a8edcebb7e49beb9bfafb6005857b2d3b}{Get\+Desc}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Открытые члены унаследованные от \mbox{\hyperlink{class_f_d3_d12_view}{FD3\+D12\+View}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_f_d3_d12_view_aaede394124fed49472158bcd77fb0c5a}{FD3\+D12\+View}} (\mbox{\hyperlink{class_f_d3_d12_device}{FD3\+D12\+Device}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{class_f_d3_d12_device_child_afeb899a6e833b3f986e49def99db540c}{Parent}}, \mbox{\hyperlink{_r_h_i_defines_8h_a9457a748b9d30acc00348bdc63f5de4e}{ERHIDescriptor\+Heap\+Type}} In\+Heap\+Type)
+\item 
+virtual \mbox{\hyperlink{class_f_d3_d12_view_a20635c5ebb16716d3929791200482cd0}{\texorpdfstring{$\sim$}{\string~}\+FD3\+D12\+View}} ()
+\item 
+\mbox{\hyperlink{struct_f_d3_d12_cpu_descriptor}{FD3\+D12\+Cpu\+Descriptor}} \mbox{\hyperlink{class_f_d3_d12_view_a1ac0e296001119f749bdd4cba3a88828}{Get\+Cpu\+Handle}} () const
+\item 
+\mbox{\hyperlink{struct_f_r_h_i_descriptor_handle}{FRHIDescriptor\+Handle}} \mbox{\hyperlink{class_f_d3_d12_view_a732c77b465aa2e77c3c569d7601946d7}{Get\+Bindless\+Handle}} () const
+\item 
+virtual void \mbox{\hyperlink{class_f_d3_d12_view_ab9874124be35475bbb20015bd6192b66}{Update\+Descriptor}} ()
+\item 
+void \mbox{\hyperlink{class_f_d3_d12_view_a29650c8b034d1078a35edbebfe151be0}{Update\+Bindless\+Slot}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Открытые члены унаследованные от \mbox{\hyperlink{class_f_d3_d12_device_child}{FD3\+D12\+Device\+Child}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_f_d3_d12_device_child_a10d7d8a5f5e73776f399916ed71e76a1}{FD3\+D12\+Device\+Child}} (\mbox{\hyperlink{class_f_d3_d12_device}{FD3\+D12\+Device}} \texorpdfstring{$\ast$}{*}In\+Parent)
+\item 
+\mbox{\hyperlink{class_f_d3_d12_device}{FD3\+D12\+Device}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_f_d3_d12_device_child_a1ec13e7c862c719985027e28395a2f57}{Get\+Parent\+Device}} () const
+\item 
+void \mbox{\hyperlink{class_f_d3_d12_device_child_ab64c047f38c63c5890fb361eac5f30f6}{Set\+Parent\+Device}} (\mbox{\hyperlink{class_f_d3_d12_device}{FD3\+D12\+Device}} \texorpdfstring{$\ast$}{*}In\+Parent)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Дополнительные унаследованные члены}
+\doxysubsection*{Защищенные данные унаследованные от \mbox{\hyperlink{class_f_d3_d12_view}{FD3\+D12\+View}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_f_d3_d12_cpu_descriptor}{FD3\+D12\+Cpu\+Descriptor}} \mbox{\hyperlink{class_f_d3_d12_view_ac67249d81b5a5d4ab5adc88c287ae70c}{Cpu\+Handle}}
+\item 
+\mbox{\hyperlink{struct_f_r_h_i_descriptor_handle}{FRHIDescriptor\+Handle}} \mbox{\hyperlink{class_f_d3_d12_view_a78db449a9f8f1c4950c57617cc3a58d3}{Bindless\+Handle}}
+\item 
+\mbox{\hyperlink{_r_h_i_defines_8h_a9457a748b9d30acc00348bdc63f5de4e}{ERHIDescriptor\+Heap\+Type}} \mbox{\hyperlink{class_f_d3_d12_view_a927604391872870901f7a0036e5694fe}{Heap\+Type}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Защищенные данные унаследованные от \mbox{\hyperlink{class_f_d3_d12_device_child}{FD3\+D12\+Device\+Child}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_f_d3_d12_device}{FD3\+D12\+Device}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_f_d3_d12_device_child_afeb899a6e833b3f986e49def99db540c}{Parent}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Конструктор(ы)}
+\Hypertarget{class_f_d3_d12_render_target_view_a48485c8c4baa65cfb4127b2c2beda4f6}\label{class_f_d3_d12_render_target_view_a48485c8c4baa65cfb4127b2c2beda4f6} 
+\index{FD3D12RenderTargetView@{FD3D12RenderTargetView}!FD3D12RenderTargetView@{FD3D12RenderTargetView}}
+\index{FD3D12RenderTargetView@{FD3D12RenderTargetView}!FD3D12RenderTargetView@{FD3D12RenderTargetView}}
+\doxysubsubsection{\texorpdfstring{FD3D12RenderTargetView()}{FD3D12RenderTargetView()}}
+{\footnotesize\ttfamily FD3\+D12\+Render\+Target\+View\+::\+FD3\+D12\+Render\+Target\+View (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_f_d3_d12_device}{FD3\+D12\+Device}} \texorpdfstring{$\ast$}{*}}]{Parent }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Методы}
+\Hypertarget{class_f_d3_d12_render_target_view_a65cd4f6aa440062e5a6808c81c517cb9}\label{class_f_d3_d12_render_target_view_a65cd4f6aa440062e5a6808c81c517cb9} 
+\index{FD3D12RenderTargetView@{FD3D12RenderTargetView}!CreteView@{CreteView}}
+\index{CreteView@{CreteView}!FD3D12RenderTargetView@{FD3D12RenderTargetView}}
+\doxysubsubsection{\texorpdfstring{CreteView()}{CreteView()}}
+{\footnotesize\ttfamily void FD3\+D12\+Render\+Target\+View\+::\+Crete\+View (\begin{DoxyParamCaption}\item[{const D3\+D12\+\_\+\+RENDER\+\_\+\+TARGET\+\_\+\+VIEW\+\_\+\+DESC \&}]{In\+Desc,  }\item[{class \mbox{\hyperlink{class_f_d3_d12_resource}{FD3\+D12\+Resource}} \texorpdfstring{$\ast$}{*}}]{In\+Resource }\end{DoxyParamCaption})}
+
+\Hypertarget{class_f_d3_d12_render_target_view_a8edcebb7e49beb9bfafb6005857b2d3b}\label{class_f_d3_d12_render_target_view_a8edcebb7e49beb9bfafb6005857b2d3b} 
+\index{FD3D12RenderTargetView@{FD3D12RenderTargetView}!GetDesc@{GetDesc}}
+\index{GetDesc@{GetDesc}!FD3D12RenderTargetView@{FD3D12RenderTargetView}}
+\doxysubsubsection{\texorpdfstring{GetDesc()}{GetDesc()}}
+{\footnotesize\ttfamily D3\+D12\+\_\+\+RENDER\+\_\+\+TARGET\+\_\+\+VIEW\+\_\+\+DESC FD3\+D12\+Render\+Target\+View\+::\+Get\+Desc (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_f_d3_d12_render_target_view_a3ee91a962e8e8c468962a355d78ded2e}\label{class_f_d3_d12_render_target_view_a3ee91a962e8e8c468962a355d78ded2e} 
+\index{FD3D12RenderTargetView@{FD3D12RenderTargetView}!GetResource@{GetResource}}
+\index{GetResource@{GetResource}!FD3D12RenderTargetView@{FD3D12RenderTargetView}}
+\doxysubsubsection{\texorpdfstring{GetResource()}{GetResource()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_f_d3_d12_resource}{FD3\+D12\+Resource}} \texorpdfstring{$\ast$}{*} FD3\+D12\+Render\+Target\+View\+::\+Get\+Resource (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+Dark Engine/\+Source/\+Runtime/\+D3\+D12\+RHI/private/\mbox{\hyperlink{_d3_d12_view_8h}{D3\+D12\+View.\+h}}\item 
+Dark Engine/\+Source/\+Runtime/\+D3\+D12\+RHI/private/\mbox{\hyperlink{_d3_d12_view_8cpp}{D3\+D12\+View.\+cpp}}\end{DoxyCompactItemize}

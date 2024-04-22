@@ -1,0 +1,165 @@
+\doxysection{Класс UObject}
+\hypertarget{class_u_object}{}\label{class_u_object}\index{UObject@{UObject}}
+
+
+{\ttfamily \#include $<$UObject.\+h$>$}
+
+Граф наследования\+:UObject\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=5.000000cm]{d7/d0b/class_u_object}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_u_object_ae1e8afb0b1117edf494eab22aea37761}{UObject}} ()
+\item 
+\mbox{\hyperlink{class_u_object_a1863523a3e28e4379fc28b3cc1cd582c}{\texorpdfstring{$\sim$}{\string~}\+UObject}} ()
+\item 
+virtual void \mbox{\hyperlink{class_u_object_abbcb856733c322925aa7cdb82b95f22e}{Begin\+Play}} ()
+\item 
+virtual void \mbox{\hyperlink{class_u_object_a90045e313f786495240a5f3e9f3957c0}{Update}} (float Delta\+Time)
+\item 
+virtual void \mbox{\hyperlink{class_u_object_adaf378e80341f5fb43be2b1390331873}{Destroy}} ()
+\item 
+virtual void \mbox{\hyperlink{class_u_object_a123d14f78b78c958cf4bfa549d6b569a}{Set\+Owner}} (\mbox{\hyperlink{class_u_object}{UObject}} \texorpdfstring{$\ast$}{*}owner) final
+\item 
+virtual \mbox{\hyperlink{class_u_object}{UObject}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_u_object_a246b663f22c3d3c1e839d11bcf203da6}{Get\+Owner}} () final
+\item 
+virtual void \mbox{\hyperlink{class_u_object_a02881df20a9e3992beae83811c3c1b5f}{Set\+Name}} (\mbox{\hyperlink{class_f_string}{FString}} In\+Name) final
+\item 
+virtual \mbox{\hyperlink{class_f_string}{FString}} \mbox{\hyperlink{class_u_object_ac25431591187c68dac89389eec1c8867}{Get\+Name}} ()
+\item 
+virtual const \mbox{\hyperlink{class_t_array}{TArray}}$<$ \mbox{\hyperlink{struct_f_object_properties}{FObject\+Properties}} $>$ \& \mbox{\hyperlink{class_u_object_a21948a4edcd0e8bcd4b25827bac096e3}{Get\+Properties}} () const
+\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{class_u_object_a26592583b62482f7dd15dc7eaf49968d}{Add\+Variable}} (\mbox{\hyperlink{class_f_string}{FString}} Name, void \texorpdfstring{$\ast$}{*}Variable)
+\item 
+\mbox{\hyperlink{class_u_object}{UObject}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_u_object_a92e09357ca4405dcd2413f44d4dbbd39}{Get\+Outer}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Защищенные члены}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_u_object_aafdc43863a8d4b55558ab1e164f1f366}{Create\+Default\+Sub\+Object}} (\mbox{\hyperlink{class_f_string}{FString}} name)
+\item 
+{\footnotesize template$<$typename T $>$ }\\T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_u_object_af8ea2fea786bcb06b31fc65fcac31ae7}{Cast}} (\mbox{\hyperlink{class_u_object}{UObject}} \texorpdfstring{$\ast$}{*})
+\item 
+void \mbox{\hyperlink{class_u_object_aa2e6cbb0b2ea66e93e148a97fc751596}{Add\+Properties}} (\mbox{\hyperlink{struct_f_object_properties}{FObject\+Properties}} Properties)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Конструктор(ы)}
+\Hypertarget{class_u_object_ae1e8afb0b1117edf494eab22aea37761}\label{class_u_object_ae1e8afb0b1117edf494eab22aea37761} 
+\index{UObject@{UObject}!UObject@{UObject}}
+\index{UObject@{UObject}!UObject@{UObject}}
+\doxysubsubsection{\texorpdfstring{UObject()}{UObject()}}
+{\footnotesize\ttfamily UObject\+::\+UObject (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_u_object_a1863523a3e28e4379fc28b3cc1cd582c}\label{class_u_object_a1863523a3e28e4379fc28b3cc1cd582c} 
+\index{UObject@{UObject}!````~UObject@{\texorpdfstring{$\sim$}{\string~}UObject}}
+\index{````~UObject@{\texorpdfstring{$\sim$}{\string~}UObject}!UObject@{UObject}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}UObject()}{\string~UObject()}}
+{\footnotesize\ttfamily UObject\+::\texorpdfstring{$\sim$}{\string~}\+UObject (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Методы}
+\Hypertarget{class_u_object_aa2e6cbb0b2ea66e93e148a97fc751596}\label{class_u_object_aa2e6cbb0b2ea66e93e148a97fc751596} 
+\index{UObject@{UObject}!AddProperties@{AddProperties}}
+\index{AddProperties@{AddProperties}!UObject@{UObject}}
+\doxysubsubsection{\texorpdfstring{AddProperties()}{AddProperties()}}
+{\footnotesize\ttfamily void UObject\+::\+Add\+Properties (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_f_object_properties}{FObject\+Properties}}}]{Properties }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_u_object_a26592583b62482f7dd15dc7eaf49968d}\label{class_u_object_a26592583b62482f7dd15dc7eaf49968d} 
+\index{UObject@{UObject}!AddVariable@{AddVariable}}
+\index{AddVariable@{AddVariable}!UObject@{UObject}}
+\doxysubsubsection{\texorpdfstring{AddVariable()}{AddVariable()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void UObject\+::\+Add\+Variable (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_f_string}{FString}}}]{Name,  }\item[{void \texorpdfstring{$\ast$}{*}}]{Variable }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_u_object_abbcb856733c322925aa7cdb82b95f22e}\label{class_u_object_abbcb856733c322925aa7cdb82b95f22e} 
+\index{UObject@{UObject}!BeginPlay@{BeginPlay}}
+\index{BeginPlay@{BeginPlay}!UObject@{UObject}}
+\doxysubsubsection{\texorpdfstring{BeginPlay()}{BeginPlay()}}
+{\footnotesize\ttfamily void UObject\+::\+Begin\+Play (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Переопределяется в \mbox{\hyperlink{class_a_actor_a753948cef6c6867fb8ae050491a5fce6}{AActor}}, \mbox{\hyperlink{class_u_camera_actor_acae846100e1e68b52511bddd02aeff8f}{UCamera\+Actor}}, \mbox{\hyperlink{class_u_actor_component_a1a1010d51ad1e68a4c3840af0dbbade9}{UActor\+Component}}, \mbox{\hyperlink{class_u_primitive_component_a51665f20cbc69325fcef4a6b75d61023}{UPrimitive\+Component}}, \mbox{\hyperlink{class_u_rotate_component_a84aaa91eb5faaf3c07ea49c56e5dd701}{URotate\+Component}}, \mbox{\hyperlink{class_u_scene_component_ad6076994012959536e73e8ff254b32f1}{UScene\+Component}} и \mbox{\hyperlink{class_a_test_actor_ad3b49a51b8557b890f1c74d5c66de2b2}{ATest\+Actor}}.
+
+\Hypertarget{class_u_object_af8ea2fea786bcb06b31fc65fcac31ae7}\label{class_u_object_af8ea2fea786bcb06b31fc65fcac31ae7} 
+\index{UObject@{UObject}!Cast@{Cast}}
+\index{Cast@{Cast}!UObject@{UObject}}
+\doxysubsubsection{\texorpdfstring{Cast()}{Cast()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T \texorpdfstring{$\ast$}{*} UObject\+::\+Cast (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_u_object}{UObject}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+\Hypertarget{class_u_object_aafdc43863a8d4b55558ab1e164f1f366}\label{class_u_object_aafdc43863a8d4b55558ab1e164f1f366} 
+\index{UObject@{UObject}!CreateDefaultSubObject@{CreateDefaultSubObject}}
+\index{CreateDefaultSubObject@{CreateDefaultSubObject}!UObject@{UObject}}
+\doxysubsubsection{\texorpdfstring{CreateDefaultSubObject()}{CreateDefaultSubObject()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T \texorpdfstring{$\ast$}{*} UObject\+::\+Create\+Default\+Sub\+Object (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_f_string}{FString}}}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+\Hypertarget{class_u_object_adaf378e80341f5fb43be2b1390331873}\label{class_u_object_adaf378e80341f5fb43be2b1390331873} 
+\index{UObject@{UObject}!Destroy@{Destroy}}
+\index{Destroy@{Destroy}!UObject@{UObject}}
+\doxysubsubsection{\texorpdfstring{Destroy()}{Destroy()}}
+{\footnotesize\ttfamily void UObject\+::\+Destroy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Переопределяется в \mbox{\hyperlink{class_a_actor_a1f2a072782663caed1251930a8f260d4}{AActor}}, \mbox{\hyperlink{class_u_camera_actor_a7115fdf2c7a0f193670bc60ad2ead173}{UCamera\+Actor}}, \mbox{\hyperlink{class_u_actor_component_aab345011a6ca999daf9ca213227210aa}{UActor\+Component}}, \mbox{\hyperlink{class_u_primitive_component_a8d0b927a1d421589cf5c09d2600fac23}{UPrimitive\+Component}}, \mbox{\hyperlink{class_u_rotate_component_a3857ffebfda4f328e935f4e5d7f9579e}{URotate\+Component}}, \mbox{\hyperlink{class_u_scene_component_afb1e9aa3c81c1fb9a57c649f103299a6}{UScene\+Component}} и \mbox{\hyperlink{class_a_test_actor_a0fca9791aed3a5a9e75debff71bb26dd}{ATest\+Actor}}.
+
+\Hypertarget{class_u_object_ac25431591187c68dac89389eec1c8867}\label{class_u_object_ac25431591187c68dac89389eec1c8867} 
+\index{UObject@{UObject}!GetName@{GetName}}
+\index{GetName@{GetName}!UObject@{UObject}}
+\doxysubsubsection{\texorpdfstring{GetName()}{GetName()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{class_f_string}{FString}} UObject\+::\+Get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\Hypertarget{class_u_object_a92e09357ca4405dcd2413f44d4dbbd39}\label{class_u_object_a92e09357ca4405dcd2413f44d4dbbd39} 
+\index{UObject@{UObject}!GetOuter@{GetOuter}}
+\index{GetOuter@{GetOuter}!UObject@{UObject}}
+\doxysubsubsection{\texorpdfstring{GetOuter()}{GetOuter()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_u_object}{UObject}} \texorpdfstring{$\ast$}{*} UObject\+::\+Get\+Outer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_u_object_a246b663f22c3d3c1e839d11bcf203da6}\label{class_u_object_a246b663f22c3d3c1e839d11bcf203da6} 
+\index{UObject@{UObject}!GetOwner@{GetOwner}}
+\index{GetOwner@{GetOwner}!UObject@{UObject}}
+\doxysubsubsection{\texorpdfstring{GetOwner()}{GetOwner()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_u_object}{UObject}} \texorpdfstring{$\ast$}{*} UObject\+::\+Get\+Owner (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [virtual]}}
+
+\Hypertarget{class_u_object_a21948a4edcd0e8bcd4b25827bac096e3}\label{class_u_object_a21948a4edcd0e8bcd4b25827bac096e3} 
+\index{UObject@{UObject}!GetProperties@{GetProperties}}
+\index{GetProperties@{GetProperties}!UObject@{UObject}}
+\doxysubsubsection{\texorpdfstring{GetProperties()}{GetProperties()}}
+{\footnotesize\ttfamily virtual const \mbox{\hyperlink{class_t_array}{TArray}}$<$ \mbox{\hyperlink{struct_f_object_properties}{FObject\+Properties}} $>$ \& UObject\+::\+Get\+Properties (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\Hypertarget{class_u_object_a02881df20a9e3992beae83811c3c1b5f}\label{class_u_object_a02881df20a9e3992beae83811c3c1b5f} 
+\index{UObject@{UObject}!SetName@{SetName}}
+\index{SetName@{SetName}!UObject@{UObject}}
+\doxysubsubsection{\texorpdfstring{SetName()}{SetName()}}
+{\footnotesize\ttfamily virtual void UObject\+::\+Set\+Name (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_f_string}{FString}}}]{In\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [final]}, {\ttfamily [virtual]}}
+
+\Hypertarget{class_u_object_a123d14f78b78c958cf4bfa549d6b569a}\label{class_u_object_a123d14f78b78c958cf4bfa549d6b569a} 
+\index{UObject@{UObject}!SetOwner@{SetOwner}}
+\index{SetOwner@{SetOwner}!UObject@{UObject}}
+\doxysubsubsection{\texorpdfstring{SetOwner()}{SetOwner()}}
+{\footnotesize\ttfamily void UObject\+::\+Set\+Owner (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_u_object}{UObject}} \texorpdfstring{$\ast$}{*}}]{owner }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [virtual]}}
+
+\Hypertarget{class_u_object_a90045e313f786495240a5f3e9f3957c0}\label{class_u_object_a90045e313f786495240a5f3e9f3957c0} 
+\index{UObject@{UObject}!Update@{Update}}
+\index{Update@{Update}!UObject@{UObject}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void UObject\+::\+Update (\begin{DoxyParamCaption}\item[{float}]{Delta\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Переопределяется в \mbox{\hyperlink{class_a_actor_a035164ba28264d3321e96097f51ee846}{AActor}}, \mbox{\hyperlink{class_u_camera_actor_a4e1aa1b3879817cd1838b6e5e7e8e5b6}{UCamera\+Actor}}, \mbox{\hyperlink{class_u_actor_component_a3c461c722a701015357b7072d2a578de}{UActor\+Component}}, \mbox{\hyperlink{class_u_primitive_component_aa28a9376a51c5539757d28d739b8ba3a}{UPrimitive\+Component}}, \mbox{\hyperlink{class_u_rotate_component_ab0aee8903b7a088892aaf71356bc3917}{URotate\+Component}}, \mbox{\hyperlink{class_u_scene_component_aa85f48927fdf395e9ee4ef5c5693343a}{UScene\+Component}} и \mbox{\hyperlink{class_a_test_actor_ab8ed9ca0e2dde75771650de0156c8418}{ATest\+Actor}}.
+
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+Dark Engine/\+Source/\+Runtime/\+Engine/\+Classes/\+UObject/\mbox{\hyperlink{_u_object_8h}{UObject.\+h}}\item 
+Dark Engine/\+Source/\+Runtime/\+Engine/\+Classes/\+UObject/\mbox{\hyperlink{_u_object_8cpp}{UObject.\+cpp}}\end{DoxyCompactItemize}

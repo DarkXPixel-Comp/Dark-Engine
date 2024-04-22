@@ -1,0 +1,205 @@
+\doxysection{Delegate.\+h}
+\hypertarget{_delegate_8h_source}{}\label{_delegate_8h_source}\index{Dark Engine/Source/Runtime/Core/Delegate/Delegate.h@{Dark Engine/Source/Runtime/Core/Delegate/Delegate.h}}
+\mbox{\hyperlink{_delegate_8h}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{comment}{//\#include\ <assert.h>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{_array_8h}{Containers/Array.h}}>}\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_core_8h}{Core.h}}"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}type\_traits"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <functional>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#define\ FUNC\_DECLARE\_MULTICAST\_DELEGATE(DelegateName,\ ReturnType,\ ...)\ typedef\ TMultiCastDelegate<ReturnType,\ \_\_VA\_ARGS\_\_>\ DelegateName}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#define\ FUNC\_DECLARE\_DELEGATE(DelegateName,\ ReturnType,\ ...)\ typedef\ TDelegate<ReturnType,\ \_\_VA\_ARGS\_\_>\ DelegateName}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ DECLARE\_DELEGATE(\ DelegateName\ )\ FUNC\_DECLARE\_DELEGATE(\ DelegateName,\ void\ )}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#define\ DECLARE\_MULTICAST\_DELEGATE(\ DelegateName\ )\ FUNC\_DECLARE\_MULTICAST\_DELEGATE(\ DelegateName,\ void\ )}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#define\ DECLARE\_DELEGATE\_OneParam(\ DelegateName,\ Param1Type\ )\ FUNC\_DECLARE\_DELEGATE(\ DelegateName,\ void,\ Param1Type\ )}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#define\ DECLARE\_MULTICAST\_DELEGATE\_OneParam(\ DelegateName,\ Param1Type\ )\ FUNC\_DECLARE\_MULTICAST\_DELEGATE(\ DelegateName,\ void,\ Param1Type\ )}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ DECLARE\_DELEGATE\_TwoParams(\ DelegateName,\ Param1Type,\ Param2Type\ )\ FUNC\_DECLARE\_DELEGATE(\ DelegateName,\ void,\ Param1Type,\ Param2Type\ )}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ DECLARE\_MULTICAST\_DELEGATE\_TwoParams(\ DelegateName,\ Param1Type,\ Param2Type\ )\ FUNC\_DECLARE\_MULTICAST\_DELEGATE(\ DelegateName,\ void,\ Param1Type,\ Param2Type\ )}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ DECLARE\_DELEGATE\_ThreeParams(\ DelegateName,\ Param1Type,\ Param2Type,\ Param3Type\ )\ FUNC\_DECLARE\_DELEGATE(\ DelegateName,\ void,\ Param1Type,\ Param2Type,\ Param3Type\ )}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#define\ DECLARE\_MULTICAST\_DELEGATE\_ThreeParams(\ DelegateName,\ Param1Type,\ Param2Type,\ Param3Type\ )\ FUNC\_DECLARE\_MULTICAST\_DELEGATE(\ DelegateName,\ void,\ Param1Type,\ Param2Type,\ Param3Type\ )}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#define\ DECLARE\_DELEGATE\_FourParams(\ DelegateName,\ Param1Type,\ Param2Type,\ Param3Type,\ Param4Type\ )\ FUNC\_DECLARE\_DELEGATE(\ DelegateName,\ void,\ Param1Type,\ Param2Type,\ Param3Type,\ Param4Type\ )}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#define\ DECLARE\_MULTICAST\_DELEGATE\_FourParams(\ DelegateName,\ Param1Type,\ Param2Type,\ Param3Type,\ Param4Type\ )\ FUNC\_DECLARE\_MULTICAST\_DELEGATE(\ DelegateName,\ void,\ Param1Type,\ Param2Type,\ Param3Type,\ Param4Type\ )}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#define\ DECLARE\_DELEGATE\_FiveParams(\ DelegateName,\ Param1Type,\ Param2Type,\ Param3Type,\ Param4Type,\ Param5Type\ )\ FUNC\_DECLARE\_DELEGATE(\ DelegateName,\ void,\ Param1Type,\ Param2Type,\ Param3Type,\ Param4Type,\ Param5Type\ )}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#define\ DECLARE\_MULTICAST\_DELEGATE\_FiveParams(\ DelegateName,\ Param1Type,\ Param2Type,\ Param3Type,\ Param4Type,\ Param5Type\ )\ FUNC\_DECLARE\_MULTICAST\_DELEGATE(\ DelegateName,\ void,\ Param1Type,\ Param2Type,\ Param3Type,\ Param4Type,\ Param5Type\ )}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#define\ DECLARE\_DELEGATE\_SixParams(\ DelegateName,\ Param1Type,\ Param2Type,\ Param3Type,\ Param4Type,\ Param5Type,\ Param6Type\ )\ FUNC\_DECLARE\_DELEGATE(\ DelegateName,\ void,\ Param1Type,\ Param2Type,\ Param3Type,\ Param4Type,\ Param5Type,\ Param6Type\ )}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#define\ DECLARE\_MULTICAST\_DELEGATE\_SixParams(\ DelegateName,\ Param1Type,\ Param2Type,\ Param3Type,\ Param4Type,\ Param5Type,\ Param6Type\ )\ FUNC\_DECLARE\_MULTICAST\_DELEGATE(\ DelegateName,\ void,\ Param1Type,\ Param2Type,\ Param3Type,\ Param4Type,\ Param5Type,\ Param6Type\ )}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#define\ DECLARE\_DELEGATE\_SevenParams(\ DelegateName,\ Param1Type,\ Param2Type,\ Param3Type,\ Param4Type,\ Param5Type,\ Param6Type,\ Param7Type\ )\ FUNC\_DECLARE\_DELEGATE(\ DelegateName,\ void,\ Param1Type,\ Param2Type,\ Param3Type,\ Param4Type,\ Param5Type,\ Param6Type,\ Param7Type\ )}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#define\ DECLARE\_MULTICAST\_DELEGATE\_SevenParams(\ DelegateName,\ Param1Type,\ Param2Type,\ Param3Type,\ Param4Type,\ Param5Type,\ Param6Type,\ Param7Type\ )\ FUNC\_DECLARE\_MULTICAST\_DELEGATE(\ DelegateName,\ void,\ Param1Type,\ Param2Type,\ Param3Type,\ Param4Type,\ Param5Type,\ Param6Type,\ Param7Type\ )}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#define\ DECLARE\_DELEGATE\_EightParams(\ DelegateName,\ Param1Type,\ Param2Type,\ Param3Type,\ Param4Type,\ Param5Type,\ Param6Type,\ Param7Type,\ Param8Type\ )\ FUNC\_DECLARE\_DELEGATE(\ DelegateName,\ void,\ Param1Type,\ Param2Type,\ Param3Type,\ Param4Type,\ Param5Type,\ Param6Type,\ Param7Type,\ Param8Type\ )}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#define\ DECLARE\_MULTICAST\_DELEGATE\_EightParams(\ DelegateName,\ Param1Type,\ Param2Type,\ Param3Type,\ Param4Type,\ Param5Type,\ Param6Type,\ Param7Type,\ Param8Type\ )\ FUNC\_DECLARE\_MULTICAST\_DELEGATE(\ DelegateName,\ void,\ Param1Type,\ Param2Type,\ Param3Type,\ Param4Type,\ Param5Type,\ Param6Type,\ Param7Type,\ Param8Type\ )}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#define\ DECLARE\_DELEGATE\_NineParams(\ DelegateName,\ Param1Type,\ Param2Type,\ Param3Type,\ Param4Type,\ Param5Type,\ Param6Type,\ Param7Type,\ Param8Type,\ Param9Type\ )\ FUNC\_DECLARE\_DELEGATE(\ DelegateName,\ void,\ Param1Type,\ Param2Type,\ Param3Type,\ Param4Type,\ Param5Type,\ Param6Type,\ Param7Type,\ Param8Type,\ Param9Type\ )}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#define\ DECLARE\_MULTICAST\_DELEGATE\_NineParams(\ DelegateName,\ Param1Type,\ Param2Type,\ Param3Type,\ Param4Type,\ Param5Type,\ Param6Type,\ Param7Type,\ Param8Type,\ Param9Type\ )\ FUNC\_DECLARE\_MULTICAST\_DELEGATE(\ DelegateName,\ void,\ Param1Type,\ Param2Type,\ Param3Type,\ Param4Type,\ Param5Type,\ Param6Type,\ Param7Type,\ Param8Type,\ Param9Type\ )}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_i_container}{IContainer}}\ \{}
+\DoxyCodeLine{00051\ \textcolor{keyword}{public}:\ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_i_container_a59551406872307de99d4b4a6362932c2}{Call}}()\ =\ 0;}
+\DoxyCodeLine{00052\ \};}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ InRetValType,\ \textcolor{keyword}{typename}\ ...ParamTypes>}
+\DoxyCodeLine{00056\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_i_i_container}{IIContainer}}}
+\DoxyCodeLine{00057\ \{}
+\DoxyCodeLine{00058\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keyword}{virtual}\ InRetValType\ \mbox{\hyperlink{class_i_i_container_aeed7079187431cdb97c965f7a65e7ccd}{Call}}(ParamTypes...)\ =\ 0;}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \};}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ UserClass,\ \textcolor{keyword}{typename}\ InRetValType,\ \textcolor{keyword}{typename}...\ ParamTypes>}
+\DoxyCodeLine{00067\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_t_method_containter}{TMethodContainter}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_i_i_container}{IIContainer}}<InRetValType,\ ParamTypes...>}
+\DoxyCodeLine{00068\ \{}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keyword}{using\ }FFuncPtr\ =\ InRetValType(UserClass::*)(ParamTypes...);}
+\DoxyCodeLine{00070\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00071\ \ \ \ \ \mbox{\hyperlink{class_t_method_containter_a0123776851085a4bce088794b2cd4a74}{TMethodContainter}}(UserClass*\ cl,\ FFuncPtr\ func)\ :\ uClass(cl),\ pFunc(func)}
+\DoxyCodeLine{00072\ \ \ \ \ \{}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \ \ \ \ \}}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \ \ InRetValType\ \mbox{\hyperlink{class_t_method_containter_aea00c34adb704f69e6022d3c9b8f80e8}{Call}}(ParamTypes...\ params)}
+\DoxyCodeLine{00078\ \ \ \ \ \{}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (uClass-\/>*pFunc)(params...);}
+\DoxyCodeLine{00080\ \ \ \ \ \}}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \ \ \ \ FFuncPtr\ pFunc;}
+\DoxyCodeLine{00086\ \ \ \ \ UserClass*\ uClass;}
+\DoxyCodeLine{00087\ \};}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ InRetValType,\ \textcolor{keyword}{typename}...\ ParamTypes>}
+\DoxyCodeLine{00090\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_t_func_container}{TFuncContainer}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_i_i_container}{IIContainer}}<InRetValType,\ ParamTypes...>}
+\DoxyCodeLine{00091\ \{}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keyword}{using\ }FFuncPtr\ =\ InRetValType(*)(ParamTypes...);}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keyword}{using\ }FuncPtr\ =\ std::function<InRetValType(ParamTypes...)>;}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00096\ \ \ \ \ \mbox{\hyperlink{class_t_func_container_a065586071b30e6b4b73b130e684cef45}{TFuncContainer}}(FFuncPtr\ func)\ :\ pFunc(func)\ \{\}}
+\DoxyCodeLine{00097\ \ \ \ \ \mbox{\hyperlink{class_t_func_container_aca1cfefe7be220d95e82f3d628774dd7}{TFuncContainer}}(FuncPtr\ func)\ :\ ppFunc(func)\ \ \ \{\}}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \ \ \ \ InRetValType\ \mbox{\hyperlink{class_t_func_container_a38436596b6e89a150d96ef7948b2a7a7}{Call}}(ParamTypes...\ params)}
+\DoxyCodeLine{00100\ \ \ \ \ \{}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ pFunc\ ?\ pFunc(params...)\ :\ ppFunc(params...);}
+\DoxyCodeLine{00102\ \ \ \ \ \}}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00105\ \ \ \ \ FFuncPtr\ pFunc\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00106\ \ \ \ \ FuncPtr\ ppFunc;}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \};}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ InRetValType,\ \textcolor{keyword}{typename}...\ ParamTypes>}
+\DoxyCodeLine{00111\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_t_delegate}{TDelegate}}}
+\DoxyCodeLine{00112\ \{}
+\DoxyCodeLine{00113\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_t_delegate_ae1242fcad67d706f54c5be327bf66e3f}{Bind}}(InRetValType(*func)(ParamTypes...))}
+\DoxyCodeLine{00115\ \ \ \ \ \{}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_t_delegate_a607de7bc91a3e7b556428126c70e15b5}{container}}\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_t_func_container}{TFuncContainer}}<InRetValType,\ ParamTypes...>(func);}
+\DoxyCodeLine{00117\ \ \ \ \ \}}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_t_delegate_a3f9d90f70b7a6e7d9e32265503a3ba01}{Bind}}(std::function<InRetValType(ParamTypes...)>\ func)}
+\DoxyCodeLine{00120\ \ \ \ \ \{}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \textcolor{comment}{//container\ =\ new\ TFuncContainer<InRetValType,\ ParamTypes...>(std::forward<InRetValType(*)(ParamTypes...)>(Lambda));}}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_t_delegate_a607de7bc91a3e7b556428126c70e15b5}{container}}\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_t_func_container}{TFuncContainer}}<InRetValType,\ ParamTypes...>(func);}
+\DoxyCodeLine{00123\ \ \ \ \ \}}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ UserClass>}
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_t_delegate_ac446c0ae3a2d4174c8c53f9e2db01aea}{Bind}}(UserClass*\ inUserObject,\ InRetValType(UserClass::*\ func)(ParamTypes...))}
+\DoxyCodeLine{00127\ \ \ \ \ \{}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_t_delegate_a607de7bc91a3e7b556428126c70e15b5}{container}}\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_t_method_containter}{TMethodContainter}}<UserClass,\ InRetValType,\ ParamTypes...>(inUserObject,\ func);}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \ \ \ \ \}}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00135\ \ \ \ \ InRetValType\ \mbox{\hyperlink{class_t_delegate_a682855548c3b489bb5a74b2951d240f6}{BroadCast}}(ParamTypes...\ params)}
+\DoxyCodeLine{00136\ \ \ \ \ \{}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_t_delegate_a607de7bc91a3e7b556428126c70e15b5}{container}})}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_t_delegate_a607de7bc91a3e7b556428126c70e15b5}{container}}-\/>\mbox{\hyperlink{class_i_i_container_aeed7079187431cdb97c965f7a65e7ccd}{Call}}(params...);}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00141\ \ \ \ \ \}}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00143\ \ \ \ \ \mbox{\hyperlink{class_i_i_container}{IIContainer}}<InRetValType,\ ParamTypes...>*\ \mbox{\hyperlink{class_t_delegate_a607de7bc91a3e7b556428126c70e15b5}{container}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00145\ \};}
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00147\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ InRetValType,\ \textcolor{keyword}{typename}...\ ParamTypes>}
+\DoxyCodeLine{00148\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_t_multi_cast_delegate}{TMultiCastDelegate}}}
+\DoxyCodeLine{00149\ \{}
+\DoxyCodeLine{00150\ \ \ \ \ \textcolor{keyword}{using\ }FFuncPtr\ =\ InRetValType(*)(ParamTypes...);}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00152\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00153\ \ \ \ \ \mbox{\hyperlink{class_t_multi_cast_delegate_acadf8655f8dbcd7366a655486780e690}{TMultiCastDelegate}}()\ \{\ \mbox{\hyperlink{class_t_multi_cast_delegate_aac6e06c2ac2fd74fb401c4106cc722f6}{containers}}\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_t_array}{TArray}}<\mbox{\hyperlink{class_i_i_container}{IIContainer}}<InRetValType,\ ParamTypes...>*>();\ \}}
+\DoxyCodeLine{00154\ \ \ \ \ \mbox{\hyperlink{class_t_multi_cast_delegate_ab9e8ed7b6e7482fe4b9bad5897db3c86}{\string~TMultiCastDelegate}}()\ \{\ \textcolor{keyword}{delete}\ \mbox{\hyperlink{class_t_multi_cast_delegate_aac6e06c2ac2fd74fb401c4106cc722f6}{containers}};\ \}}
+\DoxyCodeLine{00155\ \ \ \ \ \textcolor{comment}{//const\ void\ Bind(InRetValType(*func)(ParamTypes...))}}
+\DoxyCodeLine{00156\ \ \ \ \ \textcolor{comment}{//\{}}
+\DoxyCodeLine{00157\ \ \ \ \ \textcolor{comment}{//\ \ IIContainer<InRetValType,\ ParamTypes...>*\ temp\ =\ new\ TFuncContainer<InRetValType,\ ParamTypes...>(func);}}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00159\ \ \ \ \ \textcolor{comment}{//\ \ containers-\/>Push(temp);}}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00161\ \ \ \ \ \textcolor{comment}{//\ \ pFunc\ =\ func;}}
+\DoxyCodeLine{00162\ \ \ \ \ \textcolor{comment}{//\}}}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00164\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_t_multi_cast_delegate_a30b22e637b7ef2b142a0688de358b034}{Bind}}(std::function<InRetValType(ParamTypes...)>\ func)}
+\DoxyCodeLine{00165\ \ \ \ \ \{}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_i_i_container}{IIContainer}}<InRetValType,\ ParamTypes...>*\ temp\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_t_func_container}{TFuncContainer}}<InRetValType,\ ParamTypes...>(func);}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_t_multi_cast_delegate_aac6e06c2ac2fd74fb401c4106cc722f6}{containers}}-\/>\mbox{\hyperlink{class_t_array_a1ff4111c486311331676699d06bbdae0}{Push}}(temp);}
+\DoxyCodeLine{00168\ \ \ \ \ \}}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00170\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ UserClass>}
+\DoxyCodeLine{00171\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_t_multi_cast_delegate_a37ae685a9798ad3a295b4f86d2bc002d}{Bind}}(UserClass*\ inUserObject,\ InRetValType(UserClass::*\ func)(ParamTypes...))}
+\DoxyCodeLine{00172\ \ \ \ \ \{}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_i_i_container}{IIContainer}}<InRetValType,\ ParamTypes...>*\ temp\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_t_method_containter}{TMethodContainter}}<UserClass,\ InRetValType,\ ParamTypes...>(inUserObject,\ func);}
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_t_multi_cast_delegate_aac6e06c2ac2fd74fb401c4106cc722f6}{containers}}-\/>\mbox{\hyperlink{class_t_array_a1ff4111c486311331676699d06bbdae0}{Push}}(temp);}
+\DoxyCodeLine{00176\ \ \ \ \ \}}
+\DoxyCodeLine{00177\ }
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00179\ }
+\DoxyCodeLine{00180\ }
+\DoxyCodeLine{00181\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_t_multi_cast_delegate_ae29c413847a56e9aa2ff6a3b1b2afa92}{BroadCast}}(ParamTypes...\ params)}
+\DoxyCodeLine{00182\ \ \ \ \ \{}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\&\ i\ :\ *\mbox{\hyperlink{class_t_multi_cast_delegate_aac6e06c2ac2fd74fb401c4106cc722f6}{containers}})}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \ \ \ \ i-\/>Call(params...);}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00187\ }
+\DoxyCodeLine{00188\ \ \ \ \ \}}
+\DoxyCodeLine{00189\ }
+\DoxyCodeLine{00190\ \ \ \ \ \mbox{\hyperlink{class_t_array}{TArray}}<\mbox{\hyperlink{class_i_i_container}{IIContainer}}<InRetValType,\ ParamTypes...>*>*\ \mbox{\hyperlink{class_t_multi_cast_delegate_aac6e06c2ac2fd74fb401c4106cc722f6}{containers}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00191\ }
+\DoxyCodeLine{00192\ \ \ \ \ \textcolor{comment}{//IIContainer<InRetValType,\ ParamTypes...>*\ container;}}
+\DoxyCodeLine{00193\ \ \ \ \ FFuncPtr\ \mbox{\hyperlink{class_t_multi_cast_delegate_a6f2fb247ea1d5965fd7e60ec16310079}{pFunc}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00194\ \};}
+\DoxyCodeLine{00195\ }
+\DoxyCodeLine{00196\ }
+\DoxyCodeLine{00197\ }
+\DoxyCodeLine{00198\ }
+\DoxyCodeLine{00199\ }
+
+\end{DoxyCode}

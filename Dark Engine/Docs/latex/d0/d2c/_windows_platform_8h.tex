@@ -1,0 +1,381 @@
+\doxysection{Файл Dark Engine/\+Source/\+Runtime/\+Core/\+Public/\+Windows/\+Windows\+Platform.h}
+\hypertarget{_windows_platform_8h}{}\label{_windows_platform_8h}\index{Dark Engine/Source/Runtime/Core/Public/Windows/WindowsPlatform.h@{Dark Engine/Source/Runtime/Core/Public/Windows/WindowsPlatform.h}}
+{\ttfamily \#include "{}Generic\+Platform/\+Generic\+Platform.\+h"{}}\newline
+{\ttfamily \#include "{}MSVC/\+MSVCPlatform.\+h"{}}\newline
+\doxysubsubsection*{Классы}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_f_windows_platform_types}{FWindows\+Platform\+Types}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Макросы}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_windows_platform_8h_a42ab1ab324f6bf6534a814065a1cb053}{PLATFORM\+\_\+\+DESKTOP}}~1
+\item 
+\#define \mbox{\hyperlink{_windows_platform_8h_ad4055879ef01a64d8cdb03da96f1e4e1}{PLATFORM\+\_\+64\+BITS}}~0
+\item 
+\#define \mbox{\hyperlink{_windows_platform_8h_ac75e699fef3a40136d8b0b0c2821eed7}{PLATFORM\+\_\+\+CAN\+\_\+\+SUPPORT\+\_\+\+EDITORONLY\+\_\+\+DATA}}~1
+\item 
+\#define \mbox{\hyperlink{_windows_platform_8h_a1c8de50aef39e99591c9e931dc5dacb6}{PLATFORM\+\_\+\+LITTLE\+\_\+\+ENDIAN}}~1
+\item 
+\#define \mbox{\hyperlink{_windows_platform_8h_a81eac6bfbc96c7ea5f8c50f24bf01056}{PLATFORM\+\_\+\+SUPPORTS\+\_\+\+UNALIGNED\+\_\+\+LOADS}}~1
+\item 
+\#define \mbox{\hyperlink{_windows_platform_8h_ac7e23682dd8f2f1f80bde23b4f31eb8d}{PLATFORM\+\_\+\+SUPPORTS\+\_\+\+PRAGMA\+\_\+\+PACK}}~1
+\item 
+\#define \mbox{\hyperlink{_windows_platform_8h_a7ff4d28aaf1bd3dc5f497719e70c8197}{PLATFORM\+\_\+\+ALWAYS\+\_\+\+HAS\+\_\+\+FMA3}}~0
+\item 
+\#define \mbox{\hyperlink{_windows_platform_8h_a612378333c765a7b0cb759118840cabb}{PLATFORM\+\_\+\+USE\+\_\+\+LS\+\_\+\+SPEC\+\_\+\+FOR\+\_\+\+WIDECHAR}}~0
+\item 
+\#define \mbox{\hyperlink{_windows_platform_8h_adedeaee910367b7fe0f41a7eb6c617bc}{PLATFORM\+\_\+\+HAS\+\_\+\+BSD\+\_\+\+TIME}}~0
+\item 
+\#define \mbox{\hyperlink{_windows_platform_8h_a54544e220c18f8df9d6c00df25745d3f}{PLATFORM\+\_\+\+USE\+\_\+\+PTHREADS}}~0
+\item 
+\#define \mbox{\hyperlink{_windows_platform_8h_a55eca581e68e6784abafbe91e45c4e7b}{PLATFORM\+\_\+\+USES\+\_\+\+UNFAIR\+\_\+\+LOCKS}}~1
+\item 
+\#define \mbox{\hyperlink{_windows_platform_8h_a39e6db14fad8511f07272d254d44513c}{PLATFORM\+\_\+\+MAX\+\_\+\+FILEPATH\+\_\+\+LENGTH\+\_\+\+DEPRECATED}}~WINDOWS\+\_\+\+MAX\+\_\+\+PATH
+\item 
+\#define \mbox{\hyperlink{_windows_platform_8h_ab1d7b392fa1e91d59756fc34ed91c049}{PLATFORM\+\_\+\+HAS\+\_\+\+BSD\+\_\+\+IPV6\+\_\+\+SOCKETS}}~1
+\item 
+\#define \mbox{\hyperlink{_windows_platform_8h_a21053d86427a342654a9b8e3fba5d2fa}{PLATFORM\+\_\+\+HAS\+\_\+\+BSD\+\_\+\+SOCKET\+\_\+\+FEATURE\+\_\+\+WINSOCKETS}}~1
+\item 
+\#define \mbox{\hyperlink{_windows_platform_8h_a2a8e24555aad37159ea545b33e3b1f3d}{PLATFORM\+\_\+\+USES\+\_\+\+MICROSOFT\+\_\+\+LIBC\+\_\+\+FUNCTIONS}}~1
+\item 
+\#define \mbox{\hyperlink{_windows_platform_8h_a2c48336f4f6eed6c8818a2c6315a9e71}{PLATFORM\+\_\+\+IS\+\_\+\+ANSI\+\_\+\+MALLOC\+\_\+\+THREADSAFE}}~1
+\item 
+\#define \mbox{\hyperlink{_windows_platform_8h_aba5385d03286911b26d98ca261a6aec7}{PLATFORM\+\_\+\+SUPPORTS\+\_\+\+TBB}}~1
+\item 
+\#define \mbox{\hyperlink{_windows_platform_8h_aab0718a2a823d289b70067c2da3ac2c0}{PLATFORM\+\_\+\+SUPPORTS\+\_\+\+MIMALLOC}}~\mbox{\hyperlink{_windows_platform_8h_ad4055879ef01a64d8cdb03da96f1e4e1}{PLATFORM\+\_\+64\+BITS}}
+\item 
+\#define \mbox{\hyperlink{_windows_platform_8h_aeb3af3ea519ab41ef21cadb74e76a08a}{PLATFORM\+\_\+\+SUPPORTS\+\_\+\+NAMED\+\_\+\+PIPES}}~1
+\item 
+\#define \mbox{\hyperlink{_windows_platform_8h_af9d75979774d60e611d7ff2a1fa287c0}{PLATFORM\+\_\+\+COMPILER\+\_\+\+HAS\+\_\+\+TCHAR\+\_\+\+WMAIN}}~1
+\item 
+\#define \mbox{\hyperlink{_windows_platform_8h_a671fb4ede5d83771f355fcfcc3fe2559}{PLATFORM\+\_\+\+SUPPORTS\+\_\+\+EARLY\+\_\+\+MOVIE\+\_\+\+PLAYBACK}}~(!\mbox{\hyperlink{_definitions_8h_ac54688a3e577b2c6db610dbe98e8f3d4}{WITH\+\_\+\+EDITOR}})
+\item 
+\#define \mbox{\hyperlink{_windows_platform_8h_a1e0d48b841f39b287a1cfbf46678ff57}{PLATFORM\+\_\+\+USE\+\_\+\+GENERIC\+\_\+\+STRING\+\_\+\+IMPLEMENTATION}}~0
+\item 
+\#define \mbox{\hyperlink{_windows_platform_8h_a6b05f411066ffd88ea52c6abe12047bb}{PLATFORM\+\_\+\+SUPPORTS\+\_\+\+VIRTUAL\+\_\+\+TEXTURE\+\_\+\+STREAMING}}~1
+\item 
+\#define \mbox{\hyperlink{_windows_platform_8h_a21aaa14ef97f959e61642cb8273a6694}{PLATFORM\+\_\+\+SUPPORTS\+\_\+\+VARIABLE\+\_\+\+RATE\+\_\+\+SHADING}}~1
+\item 
+\#define \mbox{\hyperlink{_windows_platform_8h_a178d1c2b6de864d6a5af1701cf527ab9}{PLATFORM\+\_\+\+SUPPORTS\+\_\+\+MESH\+\_\+\+SHADERS}}~1
+\item 
+\#define \mbox{\hyperlink{_windows_platform_8h_ad3f2e597f7fcf2b4c1fb1790d06eb302}{PLATFORM\+\_\+\+SUPPORTS\+\_\+\+BINDLESS\+\_\+\+RENDERING}}~1
+\item 
+\#define \mbox{\hyperlink{_windows_platform_8h_a06a2eb71d9010683ad60b4bd7a2bb12f}{PLATFORM\+\_\+\+USES\+\_\+\+\_\+\+ALIGNED\+\_\+\+MALLOC}}~1
+\item 
+\#define \mbox{\hyperlink{_windows_platform_8h_a9d75835512014c7d83ca27ca2bbe8312}{PLATFORM\+\_\+\+SUPPORTS\+\_\+\+STACK\+\_\+\+SYMBOLS}}~1
+\item 
+\#define \mbox{\hyperlink{_windows_platform_8h_a15ab5a538d0a4080d9fff4e424e1a971}{PLATFORM\+\_\+\+COMPILER\+\_\+\+HAS\+\_\+\+DECLTYPE\+\_\+\+AUTO}}~1
+\item 
+\#define \mbox{\hyperlink{_windows_platform_8h_a5472f83c79bac6255c7c153bb4afff39}{PLATFORM\+\_\+\+GLOBAL\+\_\+\+LOG\+\_\+\+CATEGORY}}~Log\+Windows
+\item 
+\#define \mbox{\hyperlink{_windows_platform_8h_a93d0657d88ad46a9395e1414f61a7196}{PLATFORM\+\_\+\+SUPPORTS\+\_\+\+BORDERLESS\+\_\+\+WINDOW}}~1
+\item 
+\#define \mbox{\hyperlink{_windows_platform_8h_a32d031a05a59fc4d050525d5ff6ff724}{PLATFORM\+\_\+\+RETURN\+\_\+\+ADDRESS\+\_\+\+FOR\+\_\+\+CALLSTACKTRACING}}~\mbox{\hyperlink{_m_s_v_c_platform_8h_a31b3cdca1d7daf4ca512176dcf0ac0ae}{PLATFORM\+\_\+\+RETURN\+\_\+\+ADDRESS\+\_\+\+POINTER}}
+\item 
+\#define \mbox{\hyperlink{_windows_platform_8h_a3c01760986b1963076ad893f8245786c}{WINDOWS\+\_\+\+USE\+\_\+\+FEATURE\+\_\+\+APPLICATIONMISC\+\_\+\+CLASS}}~1
+\item 
+\#define \mbox{\hyperlink{_windows_platform_8h_a0183d248f099caae457b4eb3c71eecad}{WINDOWS\+\_\+\+USE\+\_\+\+FEATURE\+\_\+\+PLATFORMMISC\+\_\+\+CLASS}}~1
+\item 
+\#define \mbox{\hyperlink{_windows_platform_8h_ad187d48828619ad0c75d86b3aa3a8110}{WINDOWS\+\_\+\+USE\+\_\+\+FEATURE\+\_\+\+PLATFORMHTTP\+\_\+\+CLASS}}~1
+\item 
+\#define \mbox{\hyperlink{_windows_platform_8h_a546e0327a4f0df2717b56e8d8055cf6f}{PLATFORM\+\_\+\+BREAK}}()~(\+\_\+\+\_\+nop(), \+\_\+\+\_\+debugbreak())
+\item 
+\#define \mbox{\hyperlink{_windows_platform_8h_a8c8faee7703cb6ffb73d907671a7c2e7}{PLATFORM\+\_\+\+HAS\+\_\+128\+BIT\+\_\+\+ATOMICS}}~(\mbox{\hyperlink{_windows_platform_8h_ad4055879ef01a64d8cdb03da96f1e4e1}{PLATFORM\+\_\+64\+BITS}} \&\& (\mbox{\hyperlink{_definitions_8h_a966cd377b9f3fdeb1432460c33352af1}{WINVER}} $>$= 0x602))
+\item 
+\#define \mbox{\hyperlink{_windows_platform_8h_a5a3872cc14d02a851fcb9ca4ee08a81b}{VARARGS}}~\+\_\+\+\_\+cdecl           /\texorpdfstring{$\ast$}{*} Functions with variable arguments \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{_windows_platform_8h_a01bfeee9d19b264d794d5afa46be9581}{CDECL}}~\+\_\+\+\_\+cdecl           /\texorpdfstring{$\ast$}{*} Standard C function \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{_windows_platform_8h_a446cf449a6234c9b177309d5ba0852c0}{STDCALL}}~\+\_\+\+\_\+stdcall          /\texorpdfstring{$\ast$}{*} Standard calling convention \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{_windows_platform_8h_a6246b9cb4bb2454b32029a5fe3d4c3bd}{FORCENOINLINE}}~\+\_\+\+\_\+declspec(noinline)       /\texorpdfstring{$\ast$}{*} Force code to NOT be inline \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{_windows_platform_8h_af45814a89c20e80027b441f47bc88061}{FUNCTION\+\_\+\+NON\+\_\+\+NULL\+\_\+\+RETURN\+\_\+\+START}}~\+\_\+\+Ret\+\_\+notnull\+\_\+    /\texorpdfstring{$\ast$}{*} Indicate that the function never returns nullptr. \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{_windows_platform_8h_a808e08638be3cba36e36759e5b150de0}{DLLEXPORT}}~\+\_\+\+\_\+declspec(dllexport)
+\item 
+\#define \mbox{\hyperlink{_windows_platform_8h_aae8fdf6bcc88c172ca8a75ad80f17a95}{DLLIMPORT}}~\+\_\+\+\_\+declspec(dllimport)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Определения типов}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_logger_8h_a182e58c72146010abacd09e1d1f7ed0e}{typedef}} \mbox{\hyperlink{struct_f_windows_platform_types}{FWindows\+Platform\+Types}} \mbox{\hyperlink{_windows_platform_8h_a19df676521ece5797288fd2ec15bfccb}{FPlatform\+Types}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Макросы}
+\Hypertarget{_windows_platform_8h_a01bfeee9d19b264d794d5afa46be9581}\label{_windows_platform_8h_a01bfeee9d19b264d794d5afa46be9581} 
+\index{WindowsPlatform.h@{WindowsPlatform.h}!CDECL@{CDECL}}
+\index{CDECL@{CDECL}!WindowsPlatform.h@{WindowsPlatform.h}}
+\doxysubsubsection{\texorpdfstring{CDECL}{CDECL}}
+{\footnotesize\ttfamily \#define CDECL~\+\_\+\+\_\+cdecl           /\texorpdfstring{$\ast$}{*} Standard C function \texorpdfstring{$\ast$}{*}/}
+
+\Hypertarget{_windows_platform_8h_a808e08638be3cba36e36759e5b150de0}\label{_windows_platform_8h_a808e08638be3cba36e36759e5b150de0} 
+\index{WindowsPlatform.h@{WindowsPlatform.h}!DLLEXPORT@{DLLEXPORT}}
+\index{DLLEXPORT@{DLLEXPORT}!WindowsPlatform.h@{WindowsPlatform.h}}
+\doxysubsubsection{\texorpdfstring{DLLEXPORT}{DLLEXPORT}}
+{\footnotesize\ttfamily \#define DLLEXPORT~\+\_\+\+\_\+declspec(dllexport)}
+
+\Hypertarget{_windows_platform_8h_aae8fdf6bcc88c172ca8a75ad80f17a95}\label{_windows_platform_8h_aae8fdf6bcc88c172ca8a75ad80f17a95} 
+\index{WindowsPlatform.h@{WindowsPlatform.h}!DLLIMPORT@{DLLIMPORT}}
+\index{DLLIMPORT@{DLLIMPORT}!WindowsPlatform.h@{WindowsPlatform.h}}
+\doxysubsubsection{\texorpdfstring{DLLIMPORT}{DLLIMPORT}}
+{\footnotesize\ttfamily \#define DLLIMPORT~\+\_\+\+\_\+declspec(dllimport)}
+
+\Hypertarget{_windows_platform_8h_a6246b9cb4bb2454b32029a5fe3d4c3bd}\label{_windows_platform_8h_a6246b9cb4bb2454b32029a5fe3d4c3bd} 
+\index{WindowsPlatform.h@{WindowsPlatform.h}!FORCENOINLINE@{FORCENOINLINE}}
+\index{FORCENOINLINE@{FORCENOINLINE}!WindowsPlatform.h@{WindowsPlatform.h}}
+\doxysubsubsection{\texorpdfstring{FORCENOINLINE}{FORCENOINLINE}}
+{\footnotesize\ttfamily \#define FORCENOINLINE~\+\_\+\+\_\+declspec(noinline)       /\texorpdfstring{$\ast$}{*} Force code to NOT be inline \texorpdfstring{$\ast$}{*}/}
+
+\Hypertarget{_windows_platform_8h_af45814a89c20e80027b441f47bc88061}\label{_windows_platform_8h_af45814a89c20e80027b441f47bc88061} 
+\index{WindowsPlatform.h@{WindowsPlatform.h}!FUNCTION\_NON\_NULL\_RETURN\_START@{FUNCTION\_NON\_NULL\_RETURN\_START}}
+\index{FUNCTION\_NON\_NULL\_RETURN\_START@{FUNCTION\_NON\_NULL\_RETURN\_START}!WindowsPlatform.h@{WindowsPlatform.h}}
+\doxysubsubsection{\texorpdfstring{FUNCTION\_NON\_NULL\_RETURN\_START}{FUNCTION\_NON\_NULL\_RETURN\_START}}
+{\footnotesize\ttfamily \#define FUNCTION\+\_\+\+NON\+\_\+\+NULL\+\_\+\+RETURN\+\_\+\+START~\+\_\+\+Ret\+\_\+notnull\+\_\+    /\texorpdfstring{$\ast$}{*} Indicate that the function never returns nullptr. \texorpdfstring{$\ast$}{*}/}
+
+\Hypertarget{_windows_platform_8h_ad4055879ef01a64d8cdb03da96f1e4e1}\label{_windows_platform_8h_ad4055879ef01a64d8cdb03da96f1e4e1} 
+\index{WindowsPlatform.h@{WindowsPlatform.h}!PLATFORM\_64BITS@{PLATFORM\_64BITS}}
+\index{PLATFORM\_64BITS@{PLATFORM\_64BITS}!WindowsPlatform.h@{WindowsPlatform.h}}
+\doxysubsubsection{\texorpdfstring{PLATFORM\_64BITS}{PLATFORM\_64BITS}}
+{\footnotesize\ttfamily \#define PLATFORM\+\_\+64\+BITS~0}
+
+\Hypertarget{_windows_platform_8h_a7ff4d28aaf1bd3dc5f497719e70c8197}\label{_windows_platform_8h_a7ff4d28aaf1bd3dc5f497719e70c8197} 
+\index{WindowsPlatform.h@{WindowsPlatform.h}!PLATFORM\_ALWAYS\_HAS\_FMA3@{PLATFORM\_ALWAYS\_HAS\_FMA3}}
+\index{PLATFORM\_ALWAYS\_HAS\_FMA3@{PLATFORM\_ALWAYS\_HAS\_FMA3}!WindowsPlatform.h@{WindowsPlatform.h}}
+\doxysubsubsection{\texorpdfstring{PLATFORM\_ALWAYS\_HAS\_FMA3}{PLATFORM\_ALWAYS\_HAS\_FMA3}}
+{\footnotesize\ttfamily \#define PLATFORM\+\_\+\+ALWAYS\+\_\+\+HAS\+\_\+\+FMA3~0}
+
+\Hypertarget{_windows_platform_8h_a546e0327a4f0df2717b56e8d8055cf6f}\label{_windows_platform_8h_a546e0327a4f0df2717b56e8d8055cf6f} 
+\index{WindowsPlatform.h@{WindowsPlatform.h}!PLATFORM\_BREAK@{PLATFORM\_BREAK}}
+\index{PLATFORM\_BREAK@{PLATFORM\_BREAK}!WindowsPlatform.h@{WindowsPlatform.h}}
+\doxysubsubsection{\texorpdfstring{PLATFORM\_BREAK}{PLATFORM\_BREAK}}
+{\footnotesize\ttfamily \#define PLATFORM\+\_\+\+BREAK(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~(\+\_\+\+\_\+nop(), \+\_\+\+\_\+debugbreak())}
+
+\Hypertarget{_windows_platform_8h_ac75e699fef3a40136d8b0b0c2821eed7}\label{_windows_platform_8h_ac75e699fef3a40136d8b0b0c2821eed7} 
+\index{WindowsPlatform.h@{WindowsPlatform.h}!PLATFORM\_CAN\_SUPPORT\_EDITORONLY\_DATA@{PLATFORM\_CAN\_SUPPORT\_EDITORONLY\_DATA}}
+\index{PLATFORM\_CAN\_SUPPORT\_EDITORONLY\_DATA@{PLATFORM\_CAN\_SUPPORT\_EDITORONLY\_DATA}!WindowsPlatform.h@{WindowsPlatform.h}}
+\doxysubsubsection{\texorpdfstring{PLATFORM\_CAN\_SUPPORT\_EDITORONLY\_DATA}{PLATFORM\_CAN\_SUPPORT\_EDITORONLY\_DATA}}
+{\footnotesize\ttfamily \#define PLATFORM\+\_\+\+CAN\+\_\+\+SUPPORT\+\_\+\+EDITORONLY\+\_\+\+DATA~1}
+
+\Hypertarget{_windows_platform_8h_a15ab5a538d0a4080d9fff4e424e1a971}\label{_windows_platform_8h_a15ab5a538d0a4080d9fff4e424e1a971} 
+\index{WindowsPlatform.h@{WindowsPlatform.h}!PLATFORM\_COMPILER\_HAS\_DECLTYPE\_AUTO@{PLATFORM\_COMPILER\_HAS\_DECLTYPE\_AUTO}}
+\index{PLATFORM\_COMPILER\_HAS\_DECLTYPE\_AUTO@{PLATFORM\_COMPILER\_HAS\_DECLTYPE\_AUTO}!WindowsPlatform.h@{WindowsPlatform.h}}
+\doxysubsubsection{\texorpdfstring{PLATFORM\_COMPILER\_HAS\_DECLTYPE\_AUTO}{PLATFORM\_COMPILER\_HAS\_DECLTYPE\_AUTO}}
+{\footnotesize\ttfamily \#define PLATFORM\+\_\+\+COMPILER\+\_\+\+HAS\+\_\+\+DECLTYPE\+\_\+\+AUTO~1}
+
+\Hypertarget{_windows_platform_8h_af9d75979774d60e611d7ff2a1fa287c0}\label{_windows_platform_8h_af9d75979774d60e611d7ff2a1fa287c0} 
+\index{WindowsPlatform.h@{WindowsPlatform.h}!PLATFORM\_COMPILER\_HAS\_TCHAR\_WMAIN@{PLATFORM\_COMPILER\_HAS\_TCHAR\_WMAIN}}
+\index{PLATFORM\_COMPILER\_HAS\_TCHAR\_WMAIN@{PLATFORM\_COMPILER\_HAS\_TCHAR\_WMAIN}!WindowsPlatform.h@{WindowsPlatform.h}}
+\doxysubsubsection{\texorpdfstring{PLATFORM\_COMPILER\_HAS\_TCHAR\_WMAIN}{PLATFORM\_COMPILER\_HAS\_TCHAR\_WMAIN}}
+{\footnotesize\ttfamily \#define PLATFORM\+\_\+\+COMPILER\+\_\+\+HAS\+\_\+\+TCHAR\+\_\+\+WMAIN~1}
+
+\Hypertarget{_windows_platform_8h_a42ab1ab324f6bf6534a814065a1cb053}\label{_windows_platform_8h_a42ab1ab324f6bf6534a814065a1cb053} 
+\index{WindowsPlatform.h@{WindowsPlatform.h}!PLATFORM\_DESKTOP@{PLATFORM\_DESKTOP}}
+\index{PLATFORM\_DESKTOP@{PLATFORM\_DESKTOP}!WindowsPlatform.h@{WindowsPlatform.h}}
+\doxysubsubsection{\texorpdfstring{PLATFORM\_DESKTOP}{PLATFORM\_DESKTOP}}
+{\footnotesize\ttfamily \#define PLATFORM\+\_\+\+DESKTOP~1}
+
+\Hypertarget{_windows_platform_8h_a5472f83c79bac6255c7c153bb4afff39}\label{_windows_platform_8h_a5472f83c79bac6255c7c153bb4afff39} 
+\index{WindowsPlatform.h@{WindowsPlatform.h}!PLATFORM\_GLOBAL\_LOG\_CATEGORY@{PLATFORM\_GLOBAL\_LOG\_CATEGORY}}
+\index{PLATFORM\_GLOBAL\_LOG\_CATEGORY@{PLATFORM\_GLOBAL\_LOG\_CATEGORY}!WindowsPlatform.h@{WindowsPlatform.h}}
+\doxysubsubsection{\texorpdfstring{PLATFORM\_GLOBAL\_LOG\_CATEGORY}{PLATFORM\_GLOBAL\_LOG\_CATEGORY}}
+{\footnotesize\ttfamily \#define PLATFORM\+\_\+\+GLOBAL\+\_\+\+LOG\+\_\+\+CATEGORY~Log\+Windows}
+
+\Hypertarget{_windows_platform_8h_a8c8faee7703cb6ffb73d907671a7c2e7}\label{_windows_platform_8h_a8c8faee7703cb6ffb73d907671a7c2e7} 
+\index{WindowsPlatform.h@{WindowsPlatform.h}!PLATFORM\_HAS\_128BIT\_ATOMICS@{PLATFORM\_HAS\_128BIT\_ATOMICS}}
+\index{PLATFORM\_HAS\_128BIT\_ATOMICS@{PLATFORM\_HAS\_128BIT\_ATOMICS}!WindowsPlatform.h@{WindowsPlatform.h}}
+\doxysubsubsection{\texorpdfstring{PLATFORM\_HAS\_128BIT\_ATOMICS}{PLATFORM\_HAS\_128BIT\_ATOMICS}}
+{\footnotesize\ttfamily \#define PLATFORM\+\_\+\+HAS\+\_\+128\+BIT\+\_\+\+ATOMICS~(\mbox{\hyperlink{_windows_platform_8h_ad4055879ef01a64d8cdb03da96f1e4e1}{PLATFORM\+\_\+64\+BITS}} \&\& (\mbox{\hyperlink{_definitions_8h_a966cd377b9f3fdeb1432460c33352af1}{WINVER}} $>$= 0x602))}
+
+\Hypertarget{_windows_platform_8h_ab1d7b392fa1e91d59756fc34ed91c049}\label{_windows_platform_8h_ab1d7b392fa1e91d59756fc34ed91c049} 
+\index{WindowsPlatform.h@{WindowsPlatform.h}!PLATFORM\_HAS\_BSD\_IPV6\_SOCKETS@{PLATFORM\_HAS\_BSD\_IPV6\_SOCKETS}}
+\index{PLATFORM\_HAS\_BSD\_IPV6\_SOCKETS@{PLATFORM\_HAS\_BSD\_IPV6\_SOCKETS}!WindowsPlatform.h@{WindowsPlatform.h}}
+\doxysubsubsection{\texorpdfstring{PLATFORM\_HAS\_BSD\_IPV6\_SOCKETS}{PLATFORM\_HAS\_BSD\_IPV6\_SOCKETS}}
+{\footnotesize\ttfamily \#define PLATFORM\+\_\+\+HAS\+\_\+\+BSD\+\_\+\+IPV6\+\_\+\+SOCKETS~1}
+
+\Hypertarget{_windows_platform_8h_a21053d86427a342654a9b8e3fba5d2fa}\label{_windows_platform_8h_a21053d86427a342654a9b8e3fba5d2fa} 
+\index{WindowsPlatform.h@{WindowsPlatform.h}!PLATFORM\_HAS\_BSD\_SOCKET\_FEATURE\_WINSOCKETS@{PLATFORM\_HAS\_BSD\_SOCKET\_FEATURE\_WINSOCKETS}}
+\index{PLATFORM\_HAS\_BSD\_SOCKET\_FEATURE\_WINSOCKETS@{PLATFORM\_HAS\_BSD\_SOCKET\_FEATURE\_WINSOCKETS}!WindowsPlatform.h@{WindowsPlatform.h}}
+\doxysubsubsection{\texorpdfstring{PLATFORM\_HAS\_BSD\_SOCKET\_FEATURE\_WINSOCKETS}{PLATFORM\_HAS\_BSD\_SOCKET\_FEATURE\_WINSOCKETS}}
+{\footnotesize\ttfamily \#define PLATFORM\+\_\+\+HAS\+\_\+\+BSD\+\_\+\+SOCKET\+\_\+\+FEATURE\+\_\+\+WINSOCKETS~1}
+
+\Hypertarget{_windows_platform_8h_adedeaee910367b7fe0f41a7eb6c617bc}\label{_windows_platform_8h_adedeaee910367b7fe0f41a7eb6c617bc} 
+\index{WindowsPlatform.h@{WindowsPlatform.h}!PLATFORM\_HAS\_BSD\_TIME@{PLATFORM\_HAS\_BSD\_TIME}}
+\index{PLATFORM\_HAS\_BSD\_TIME@{PLATFORM\_HAS\_BSD\_TIME}!WindowsPlatform.h@{WindowsPlatform.h}}
+\doxysubsubsection{\texorpdfstring{PLATFORM\_HAS\_BSD\_TIME}{PLATFORM\_HAS\_BSD\_TIME}}
+{\footnotesize\ttfamily \#define PLATFORM\+\_\+\+HAS\+\_\+\+BSD\+\_\+\+TIME~0}
+
+\Hypertarget{_windows_platform_8h_a2c48336f4f6eed6c8818a2c6315a9e71}\label{_windows_platform_8h_a2c48336f4f6eed6c8818a2c6315a9e71} 
+\index{WindowsPlatform.h@{WindowsPlatform.h}!PLATFORM\_IS\_ANSI\_MALLOC\_THREADSAFE@{PLATFORM\_IS\_ANSI\_MALLOC\_THREADSAFE}}
+\index{PLATFORM\_IS\_ANSI\_MALLOC\_THREADSAFE@{PLATFORM\_IS\_ANSI\_MALLOC\_THREADSAFE}!WindowsPlatform.h@{WindowsPlatform.h}}
+\doxysubsubsection{\texorpdfstring{PLATFORM\_IS\_ANSI\_MALLOC\_THREADSAFE}{PLATFORM\_IS\_ANSI\_MALLOC\_THREADSAFE}}
+{\footnotesize\ttfamily \#define PLATFORM\+\_\+\+IS\+\_\+\+ANSI\+\_\+\+MALLOC\+\_\+\+THREADSAFE~1}
+
+\Hypertarget{_windows_platform_8h_a1c8de50aef39e99591c9e931dc5dacb6}\label{_windows_platform_8h_a1c8de50aef39e99591c9e931dc5dacb6} 
+\index{WindowsPlatform.h@{WindowsPlatform.h}!PLATFORM\_LITTLE\_ENDIAN@{PLATFORM\_LITTLE\_ENDIAN}}
+\index{PLATFORM\_LITTLE\_ENDIAN@{PLATFORM\_LITTLE\_ENDIAN}!WindowsPlatform.h@{WindowsPlatform.h}}
+\doxysubsubsection{\texorpdfstring{PLATFORM\_LITTLE\_ENDIAN}{PLATFORM\_LITTLE\_ENDIAN}}
+{\footnotesize\ttfamily \#define PLATFORM\+\_\+\+LITTLE\+\_\+\+ENDIAN~1}
+
+\Hypertarget{_windows_platform_8h_a39e6db14fad8511f07272d254d44513c}\label{_windows_platform_8h_a39e6db14fad8511f07272d254d44513c} 
+\index{WindowsPlatform.h@{WindowsPlatform.h}!PLATFORM\_MAX\_FILEPATH\_LENGTH\_DEPRECATED@{PLATFORM\_MAX\_FILEPATH\_LENGTH\_DEPRECATED}}
+\index{PLATFORM\_MAX\_FILEPATH\_LENGTH\_DEPRECATED@{PLATFORM\_MAX\_FILEPATH\_LENGTH\_DEPRECATED}!WindowsPlatform.h@{WindowsPlatform.h}}
+\doxysubsubsection{\texorpdfstring{PLATFORM\_MAX\_FILEPATH\_LENGTH\_DEPRECATED}{PLATFORM\_MAX\_FILEPATH\_LENGTH\_DEPRECATED}}
+{\footnotesize\ttfamily \#define PLATFORM\+\_\+\+MAX\+\_\+\+FILEPATH\+\_\+\+LENGTH\+\_\+\+DEPRECATED~WINDOWS\+\_\+\+MAX\+\_\+\+PATH}
+
+\Hypertarget{_windows_platform_8h_a32d031a05a59fc4d050525d5ff6ff724}\label{_windows_platform_8h_a32d031a05a59fc4d050525d5ff6ff724} 
+\index{WindowsPlatform.h@{WindowsPlatform.h}!PLATFORM\_RETURN\_ADDRESS\_FOR\_CALLSTACKTRACING@{PLATFORM\_RETURN\_ADDRESS\_FOR\_CALLSTACKTRACING}}
+\index{PLATFORM\_RETURN\_ADDRESS\_FOR\_CALLSTACKTRACING@{PLATFORM\_RETURN\_ADDRESS\_FOR\_CALLSTACKTRACING}!WindowsPlatform.h@{WindowsPlatform.h}}
+\doxysubsubsection{\texorpdfstring{PLATFORM\_RETURN\_ADDRESS\_FOR\_CALLSTACKTRACING}{PLATFORM\_RETURN\_ADDRESS\_FOR\_CALLSTACKTRACING}}
+{\footnotesize\ttfamily \#define PLATFORM\+\_\+\+RETURN\+\_\+\+ADDRESS\+\_\+\+FOR\+\_\+\+CALLSTACKTRACING~\mbox{\hyperlink{_m_s_v_c_platform_8h_a31b3cdca1d7daf4ca512176dcf0ac0ae}{PLATFORM\+\_\+\+RETURN\+\_\+\+ADDRESS\+\_\+\+POINTER}}}
+
+\Hypertarget{_windows_platform_8h_ad3f2e597f7fcf2b4c1fb1790d06eb302}\label{_windows_platform_8h_ad3f2e597f7fcf2b4c1fb1790d06eb302} 
+\index{WindowsPlatform.h@{WindowsPlatform.h}!PLATFORM\_SUPPORTS\_BINDLESS\_RENDERING@{PLATFORM\_SUPPORTS\_BINDLESS\_RENDERING}}
+\index{PLATFORM\_SUPPORTS\_BINDLESS\_RENDERING@{PLATFORM\_SUPPORTS\_BINDLESS\_RENDERING}!WindowsPlatform.h@{WindowsPlatform.h}}
+\doxysubsubsection{\texorpdfstring{PLATFORM\_SUPPORTS\_BINDLESS\_RENDERING}{PLATFORM\_SUPPORTS\_BINDLESS\_RENDERING}}
+{\footnotesize\ttfamily \#define PLATFORM\+\_\+\+SUPPORTS\+\_\+\+BINDLESS\+\_\+\+RENDERING~1}
+
+\Hypertarget{_windows_platform_8h_a93d0657d88ad46a9395e1414f61a7196}\label{_windows_platform_8h_a93d0657d88ad46a9395e1414f61a7196} 
+\index{WindowsPlatform.h@{WindowsPlatform.h}!PLATFORM\_SUPPORTS\_BORDERLESS\_WINDOW@{PLATFORM\_SUPPORTS\_BORDERLESS\_WINDOW}}
+\index{PLATFORM\_SUPPORTS\_BORDERLESS\_WINDOW@{PLATFORM\_SUPPORTS\_BORDERLESS\_WINDOW}!WindowsPlatform.h@{WindowsPlatform.h}}
+\doxysubsubsection{\texorpdfstring{PLATFORM\_SUPPORTS\_BORDERLESS\_WINDOW}{PLATFORM\_SUPPORTS\_BORDERLESS\_WINDOW}}
+{\footnotesize\ttfamily \#define PLATFORM\+\_\+\+SUPPORTS\+\_\+\+BORDERLESS\+\_\+\+WINDOW~1}
+
+\Hypertarget{_windows_platform_8h_a671fb4ede5d83771f355fcfcc3fe2559}\label{_windows_platform_8h_a671fb4ede5d83771f355fcfcc3fe2559} 
+\index{WindowsPlatform.h@{WindowsPlatform.h}!PLATFORM\_SUPPORTS\_EARLY\_MOVIE\_PLAYBACK@{PLATFORM\_SUPPORTS\_EARLY\_MOVIE\_PLAYBACK}}
+\index{PLATFORM\_SUPPORTS\_EARLY\_MOVIE\_PLAYBACK@{PLATFORM\_SUPPORTS\_EARLY\_MOVIE\_PLAYBACK}!WindowsPlatform.h@{WindowsPlatform.h}}
+\doxysubsubsection{\texorpdfstring{PLATFORM\_SUPPORTS\_EARLY\_MOVIE\_PLAYBACK}{PLATFORM\_SUPPORTS\_EARLY\_MOVIE\_PLAYBACK}}
+{\footnotesize\ttfamily \#define PLATFORM\+\_\+\+SUPPORTS\+\_\+\+EARLY\+\_\+\+MOVIE\+\_\+\+PLAYBACK~(!\mbox{\hyperlink{_definitions_8h_ac54688a3e577b2c6db610dbe98e8f3d4}{WITH\+\_\+\+EDITOR}})}
+
+\Hypertarget{_windows_platform_8h_a178d1c2b6de864d6a5af1701cf527ab9}\label{_windows_platform_8h_a178d1c2b6de864d6a5af1701cf527ab9} 
+\index{WindowsPlatform.h@{WindowsPlatform.h}!PLATFORM\_SUPPORTS\_MESH\_SHADERS@{PLATFORM\_SUPPORTS\_MESH\_SHADERS}}
+\index{PLATFORM\_SUPPORTS\_MESH\_SHADERS@{PLATFORM\_SUPPORTS\_MESH\_SHADERS}!WindowsPlatform.h@{WindowsPlatform.h}}
+\doxysubsubsection{\texorpdfstring{PLATFORM\_SUPPORTS\_MESH\_SHADERS}{PLATFORM\_SUPPORTS\_MESH\_SHADERS}}
+{\footnotesize\ttfamily \#define PLATFORM\+\_\+\+SUPPORTS\+\_\+\+MESH\+\_\+\+SHADERS~1}
+
+\Hypertarget{_windows_platform_8h_aab0718a2a823d289b70067c2da3ac2c0}\label{_windows_platform_8h_aab0718a2a823d289b70067c2da3ac2c0} 
+\index{WindowsPlatform.h@{WindowsPlatform.h}!PLATFORM\_SUPPORTS\_MIMALLOC@{PLATFORM\_SUPPORTS\_MIMALLOC}}
+\index{PLATFORM\_SUPPORTS\_MIMALLOC@{PLATFORM\_SUPPORTS\_MIMALLOC}!WindowsPlatform.h@{WindowsPlatform.h}}
+\doxysubsubsection{\texorpdfstring{PLATFORM\_SUPPORTS\_MIMALLOC}{PLATFORM\_SUPPORTS\_MIMALLOC}}
+{\footnotesize\ttfamily \#define PLATFORM\+\_\+\+SUPPORTS\+\_\+\+MIMALLOC~\mbox{\hyperlink{_windows_platform_8h_ad4055879ef01a64d8cdb03da96f1e4e1}{PLATFORM\+\_\+64\+BITS}}}
+
+\Hypertarget{_windows_platform_8h_aeb3af3ea519ab41ef21cadb74e76a08a}\label{_windows_platform_8h_aeb3af3ea519ab41ef21cadb74e76a08a} 
+\index{WindowsPlatform.h@{WindowsPlatform.h}!PLATFORM\_SUPPORTS\_NAMED\_PIPES@{PLATFORM\_SUPPORTS\_NAMED\_PIPES}}
+\index{PLATFORM\_SUPPORTS\_NAMED\_PIPES@{PLATFORM\_SUPPORTS\_NAMED\_PIPES}!WindowsPlatform.h@{WindowsPlatform.h}}
+\doxysubsubsection{\texorpdfstring{PLATFORM\_SUPPORTS\_NAMED\_PIPES}{PLATFORM\_SUPPORTS\_NAMED\_PIPES}}
+{\footnotesize\ttfamily \#define PLATFORM\+\_\+\+SUPPORTS\+\_\+\+NAMED\+\_\+\+PIPES~1}
+
+\Hypertarget{_windows_platform_8h_ac7e23682dd8f2f1f80bde23b4f31eb8d}\label{_windows_platform_8h_ac7e23682dd8f2f1f80bde23b4f31eb8d} 
+\index{WindowsPlatform.h@{WindowsPlatform.h}!PLATFORM\_SUPPORTS\_PRAGMA\_PACK@{PLATFORM\_SUPPORTS\_PRAGMA\_PACK}}
+\index{PLATFORM\_SUPPORTS\_PRAGMA\_PACK@{PLATFORM\_SUPPORTS\_PRAGMA\_PACK}!WindowsPlatform.h@{WindowsPlatform.h}}
+\doxysubsubsection{\texorpdfstring{PLATFORM\_SUPPORTS\_PRAGMA\_PACK}{PLATFORM\_SUPPORTS\_PRAGMA\_PACK}}
+{\footnotesize\ttfamily \#define PLATFORM\+\_\+\+SUPPORTS\+\_\+\+PRAGMA\+\_\+\+PACK~1}
+
+\Hypertarget{_windows_platform_8h_a9d75835512014c7d83ca27ca2bbe8312}\label{_windows_platform_8h_a9d75835512014c7d83ca27ca2bbe8312} 
+\index{WindowsPlatform.h@{WindowsPlatform.h}!PLATFORM\_SUPPORTS\_STACK\_SYMBOLS@{PLATFORM\_SUPPORTS\_STACK\_SYMBOLS}}
+\index{PLATFORM\_SUPPORTS\_STACK\_SYMBOLS@{PLATFORM\_SUPPORTS\_STACK\_SYMBOLS}!WindowsPlatform.h@{WindowsPlatform.h}}
+\doxysubsubsection{\texorpdfstring{PLATFORM\_SUPPORTS\_STACK\_SYMBOLS}{PLATFORM\_SUPPORTS\_STACK\_SYMBOLS}}
+{\footnotesize\ttfamily \#define PLATFORM\+\_\+\+SUPPORTS\+\_\+\+STACK\+\_\+\+SYMBOLS~1}
+
+\Hypertarget{_windows_platform_8h_aba5385d03286911b26d98ca261a6aec7}\label{_windows_platform_8h_aba5385d03286911b26d98ca261a6aec7} 
+\index{WindowsPlatform.h@{WindowsPlatform.h}!PLATFORM\_SUPPORTS\_TBB@{PLATFORM\_SUPPORTS\_TBB}}
+\index{PLATFORM\_SUPPORTS\_TBB@{PLATFORM\_SUPPORTS\_TBB}!WindowsPlatform.h@{WindowsPlatform.h}}
+\doxysubsubsection{\texorpdfstring{PLATFORM\_SUPPORTS\_TBB}{PLATFORM\_SUPPORTS\_TBB}}
+{\footnotesize\ttfamily \#define PLATFORM\+\_\+\+SUPPORTS\+\_\+\+TBB~1}
+
+\Hypertarget{_windows_platform_8h_a81eac6bfbc96c7ea5f8c50f24bf01056}\label{_windows_platform_8h_a81eac6bfbc96c7ea5f8c50f24bf01056} 
+\index{WindowsPlatform.h@{WindowsPlatform.h}!PLATFORM\_SUPPORTS\_UNALIGNED\_LOADS@{PLATFORM\_SUPPORTS\_UNALIGNED\_LOADS}}
+\index{PLATFORM\_SUPPORTS\_UNALIGNED\_LOADS@{PLATFORM\_SUPPORTS\_UNALIGNED\_LOADS}!WindowsPlatform.h@{WindowsPlatform.h}}
+\doxysubsubsection{\texorpdfstring{PLATFORM\_SUPPORTS\_UNALIGNED\_LOADS}{PLATFORM\_SUPPORTS\_UNALIGNED\_LOADS}}
+{\footnotesize\ttfamily \#define PLATFORM\+\_\+\+SUPPORTS\+\_\+\+UNALIGNED\+\_\+\+LOADS~1}
+
+\Hypertarget{_windows_platform_8h_a21aaa14ef97f959e61642cb8273a6694}\label{_windows_platform_8h_a21aaa14ef97f959e61642cb8273a6694} 
+\index{WindowsPlatform.h@{WindowsPlatform.h}!PLATFORM\_SUPPORTS\_VARIABLE\_RATE\_SHADING@{PLATFORM\_SUPPORTS\_VARIABLE\_RATE\_SHADING}}
+\index{PLATFORM\_SUPPORTS\_VARIABLE\_RATE\_SHADING@{PLATFORM\_SUPPORTS\_VARIABLE\_RATE\_SHADING}!WindowsPlatform.h@{WindowsPlatform.h}}
+\doxysubsubsection{\texorpdfstring{PLATFORM\_SUPPORTS\_VARIABLE\_RATE\_SHADING}{PLATFORM\_SUPPORTS\_VARIABLE\_RATE\_SHADING}}
+{\footnotesize\ttfamily \#define PLATFORM\+\_\+\+SUPPORTS\+\_\+\+VARIABLE\+\_\+\+RATE\+\_\+\+SHADING~1}
+
+\Hypertarget{_windows_platform_8h_a6b05f411066ffd88ea52c6abe12047bb}\label{_windows_platform_8h_a6b05f411066ffd88ea52c6abe12047bb} 
+\index{WindowsPlatform.h@{WindowsPlatform.h}!PLATFORM\_SUPPORTS\_VIRTUAL\_TEXTURE\_STREAMING@{PLATFORM\_SUPPORTS\_VIRTUAL\_TEXTURE\_STREAMING}}
+\index{PLATFORM\_SUPPORTS\_VIRTUAL\_TEXTURE\_STREAMING@{PLATFORM\_SUPPORTS\_VIRTUAL\_TEXTURE\_STREAMING}!WindowsPlatform.h@{WindowsPlatform.h}}
+\doxysubsubsection{\texorpdfstring{PLATFORM\_SUPPORTS\_VIRTUAL\_TEXTURE\_STREAMING}{PLATFORM\_SUPPORTS\_VIRTUAL\_TEXTURE\_STREAMING}}
+{\footnotesize\ttfamily \#define PLATFORM\+\_\+\+SUPPORTS\+\_\+\+VIRTUAL\+\_\+\+TEXTURE\+\_\+\+STREAMING~1}
+
+\Hypertarget{_windows_platform_8h_a1e0d48b841f39b287a1cfbf46678ff57}\label{_windows_platform_8h_a1e0d48b841f39b287a1cfbf46678ff57} 
+\index{WindowsPlatform.h@{WindowsPlatform.h}!PLATFORM\_USE\_GENERIC\_STRING\_IMPLEMENTATION@{PLATFORM\_USE\_GENERIC\_STRING\_IMPLEMENTATION}}
+\index{PLATFORM\_USE\_GENERIC\_STRING\_IMPLEMENTATION@{PLATFORM\_USE\_GENERIC\_STRING\_IMPLEMENTATION}!WindowsPlatform.h@{WindowsPlatform.h}}
+\doxysubsubsection{\texorpdfstring{PLATFORM\_USE\_GENERIC\_STRING\_IMPLEMENTATION}{PLATFORM\_USE\_GENERIC\_STRING\_IMPLEMENTATION}}
+{\footnotesize\ttfamily \#define PLATFORM\+\_\+\+USE\+\_\+\+GENERIC\+\_\+\+STRING\+\_\+\+IMPLEMENTATION~0}
+
+\Hypertarget{_windows_platform_8h_a612378333c765a7b0cb759118840cabb}\label{_windows_platform_8h_a612378333c765a7b0cb759118840cabb} 
+\index{WindowsPlatform.h@{WindowsPlatform.h}!PLATFORM\_USE\_LS\_SPEC\_FOR\_WIDECHAR@{PLATFORM\_USE\_LS\_SPEC\_FOR\_WIDECHAR}}
+\index{PLATFORM\_USE\_LS\_SPEC\_FOR\_WIDECHAR@{PLATFORM\_USE\_LS\_SPEC\_FOR\_WIDECHAR}!WindowsPlatform.h@{WindowsPlatform.h}}
+\doxysubsubsection{\texorpdfstring{PLATFORM\_USE\_LS\_SPEC\_FOR\_WIDECHAR}{PLATFORM\_USE\_LS\_SPEC\_FOR\_WIDECHAR}}
+{\footnotesize\ttfamily \#define PLATFORM\+\_\+\+USE\+\_\+\+LS\+\_\+\+SPEC\+\_\+\+FOR\+\_\+\+WIDECHAR~0}
+
+\Hypertarget{_windows_platform_8h_a54544e220c18f8df9d6c00df25745d3f}\label{_windows_platform_8h_a54544e220c18f8df9d6c00df25745d3f} 
+\index{WindowsPlatform.h@{WindowsPlatform.h}!PLATFORM\_USE\_PTHREADS@{PLATFORM\_USE\_PTHREADS}}
+\index{PLATFORM\_USE\_PTHREADS@{PLATFORM\_USE\_PTHREADS}!WindowsPlatform.h@{WindowsPlatform.h}}
+\doxysubsubsection{\texorpdfstring{PLATFORM\_USE\_PTHREADS}{PLATFORM\_USE\_PTHREADS}}
+{\footnotesize\ttfamily \#define PLATFORM\+\_\+\+USE\+\_\+\+PTHREADS~0}
+
+\Hypertarget{_windows_platform_8h_a06a2eb71d9010683ad60b4bd7a2bb12f}\label{_windows_platform_8h_a06a2eb71d9010683ad60b4bd7a2bb12f} 
+\index{WindowsPlatform.h@{WindowsPlatform.h}!PLATFORM\_USES\_\_ALIGNED\_MALLOC@{PLATFORM\_USES\_\_ALIGNED\_MALLOC}}
+\index{PLATFORM\_USES\_\_ALIGNED\_MALLOC@{PLATFORM\_USES\_\_ALIGNED\_MALLOC}!WindowsPlatform.h@{WindowsPlatform.h}}
+\doxysubsubsection{\texorpdfstring{PLATFORM\_USES\_\_ALIGNED\_MALLOC}{PLATFORM\_USES\_\_ALIGNED\_MALLOC}}
+{\footnotesize\ttfamily \#define PLATFORM\+\_\+\+USES\+\_\+\+\_\+\+ALIGNED\+\_\+\+MALLOC~1}
+
+\Hypertarget{_windows_platform_8h_a2a8e24555aad37159ea545b33e3b1f3d}\label{_windows_platform_8h_a2a8e24555aad37159ea545b33e3b1f3d} 
+\index{WindowsPlatform.h@{WindowsPlatform.h}!PLATFORM\_USES\_MICROSOFT\_LIBC\_FUNCTIONS@{PLATFORM\_USES\_MICROSOFT\_LIBC\_FUNCTIONS}}
+\index{PLATFORM\_USES\_MICROSOFT\_LIBC\_FUNCTIONS@{PLATFORM\_USES\_MICROSOFT\_LIBC\_FUNCTIONS}!WindowsPlatform.h@{WindowsPlatform.h}}
+\doxysubsubsection{\texorpdfstring{PLATFORM\_USES\_MICROSOFT\_LIBC\_FUNCTIONS}{PLATFORM\_USES\_MICROSOFT\_LIBC\_FUNCTIONS}}
+{\footnotesize\ttfamily \#define PLATFORM\+\_\+\+USES\+\_\+\+MICROSOFT\+\_\+\+LIBC\+\_\+\+FUNCTIONS~1}
+
+\Hypertarget{_windows_platform_8h_a55eca581e68e6784abafbe91e45c4e7b}\label{_windows_platform_8h_a55eca581e68e6784abafbe91e45c4e7b} 
+\index{WindowsPlatform.h@{WindowsPlatform.h}!PLATFORM\_USES\_UNFAIR\_LOCKS@{PLATFORM\_USES\_UNFAIR\_LOCKS}}
+\index{PLATFORM\_USES\_UNFAIR\_LOCKS@{PLATFORM\_USES\_UNFAIR\_LOCKS}!WindowsPlatform.h@{WindowsPlatform.h}}
+\doxysubsubsection{\texorpdfstring{PLATFORM\_USES\_UNFAIR\_LOCKS}{PLATFORM\_USES\_UNFAIR\_LOCKS}}
+{\footnotesize\ttfamily \#define PLATFORM\+\_\+\+USES\+\_\+\+UNFAIR\+\_\+\+LOCKS~1}
+
+\Hypertarget{_windows_platform_8h_a446cf449a6234c9b177309d5ba0852c0}\label{_windows_platform_8h_a446cf449a6234c9b177309d5ba0852c0} 
+\index{WindowsPlatform.h@{WindowsPlatform.h}!STDCALL@{STDCALL}}
+\index{STDCALL@{STDCALL}!WindowsPlatform.h@{WindowsPlatform.h}}
+\doxysubsubsection{\texorpdfstring{STDCALL}{STDCALL}}
+{\footnotesize\ttfamily \#define STDCALL~\+\_\+\+\_\+stdcall          /\texorpdfstring{$\ast$}{*} Standard calling convention \texorpdfstring{$\ast$}{*}/}
+
+\Hypertarget{_windows_platform_8h_a5a3872cc14d02a851fcb9ca4ee08a81b}\label{_windows_platform_8h_a5a3872cc14d02a851fcb9ca4ee08a81b} 
+\index{WindowsPlatform.h@{WindowsPlatform.h}!VARARGS@{VARARGS}}
+\index{VARARGS@{VARARGS}!WindowsPlatform.h@{WindowsPlatform.h}}
+\doxysubsubsection{\texorpdfstring{VARARGS}{VARARGS}}
+{\footnotesize\ttfamily \#define VARARGS~\+\_\+\+\_\+cdecl           /\texorpdfstring{$\ast$}{*} Functions with variable arguments \texorpdfstring{$\ast$}{*}/}
+
+\Hypertarget{_windows_platform_8h_a3c01760986b1963076ad893f8245786c}\label{_windows_platform_8h_a3c01760986b1963076ad893f8245786c} 
+\index{WindowsPlatform.h@{WindowsPlatform.h}!WINDOWS\_USE\_FEATURE\_APPLICATIONMISC\_CLASS@{WINDOWS\_USE\_FEATURE\_APPLICATIONMISC\_CLASS}}
+\index{WINDOWS\_USE\_FEATURE\_APPLICATIONMISC\_CLASS@{WINDOWS\_USE\_FEATURE\_APPLICATIONMISC\_CLASS}!WindowsPlatform.h@{WindowsPlatform.h}}
+\doxysubsubsection{\texorpdfstring{WINDOWS\_USE\_FEATURE\_APPLICATIONMISC\_CLASS}{WINDOWS\_USE\_FEATURE\_APPLICATIONMISC\_CLASS}}
+{\footnotesize\ttfamily \#define WINDOWS\+\_\+\+USE\+\_\+\+FEATURE\+\_\+\+APPLICATIONMISC\+\_\+\+CLASS~1}
+
+\Hypertarget{_windows_platform_8h_ad187d48828619ad0c75d86b3aa3a8110}\label{_windows_platform_8h_ad187d48828619ad0c75d86b3aa3a8110} 
+\index{WindowsPlatform.h@{WindowsPlatform.h}!WINDOWS\_USE\_FEATURE\_PLATFORMHTTP\_CLASS@{WINDOWS\_USE\_FEATURE\_PLATFORMHTTP\_CLASS}}
+\index{WINDOWS\_USE\_FEATURE\_PLATFORMHTTP\_CLASS@{WINDOWS\_USE\_FEATURE\_PLATFORMHTTP\_CLASS}!WindowsPlatform.h@{WindowsPlatform.h}}
+\doxysubsubsection{\texorpdfstring{WINDOWS\_USE\_FEATURE\_PLATFORMHTTP\_CLASS}{WINDOWS\_USE\_FEATURE\_PLATFORMHTTP\_CLASS}}
+{\footnotesize\ttfamily \#define WINDOWS\+\_\+\+USE\+\_\+\+FEATURE\+\_\+\+PLATFORMHTTP\+\_\+\+CLASS~1}
+
+\Hypertarget{_windows_platform_8h_a0183d248f099caae457b4eb3c71eecad}\label{_windows_platform_8h_a0183d248f099caae457b4eb3c71eecad} 
+\index{WindowsPlatform.h@{WindowsPlatform.h}!WINDOWS\_USE\_FEATURE\_PLATFORMMISC\_CLASS@{WINDOWS\_USE\_FEATURE\_PLATFORMMISC\_CLASS}}
+\index{WINDOWS\_USE\_FEATURE\_PLATFORMMISC\_CLASS@{WINDOWS\_USE\_FEATURE\_PLATFORMMISC\_CLASS}!WindowsPlatform.h@{WindowsPlatform.h}}
+\doxysubsubsection{\texorpdfstring{WINDOWS\_USE\_FEATURE\_PLATFORMMISC\_CLASS}{WINDOWS\_USE\_FEATURE\_PLATFORMMISC\_CLASS}}
+{\footnotesize\ttfamily \#define WINDOWS\+\_\+\+USE\+\_\+\+FEATURE\+\_\+\+PLATFORMMISC\+\_\+\+CLASS~1}
+
+
+
+\doxysubsection{Типы}
+\Hypertarget{_windows_platform_8h_a19df676521ece5797288fd2ec15bfccb}\label{_windows_platform_8h_a19df676521ece5797288fd2ec15bfccb} 
+\index{WindowsPlatform.h@{WindowsPlatform.h}!FPlatformTypes@{FPlatformTypes}}
+\index{FPlatformTypes@{FPlatformTypes}!WindowsPlatform.h@{WindowsPlatform.h}}
+\doxysubsubsection{\texorpdfstring{FPlatformTypes}{FPlatformTypes}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_logger_8h_a182e58c72146010abacd09e1d1f7ed0e}{typedef}} \mbox{\hyperlink{struct_f_windows_platform_types}{FWindows\+Platform\+Types}} \mbox{\hyperlink{_windows_platform_8h_a19df676521ece5797288fd2ec15bfccb}{FPlatform\+Types}}}
+

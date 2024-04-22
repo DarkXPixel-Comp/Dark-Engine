@@ -1,0 +1,291 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Dark Engine: Структура FD3D12GraphicsPipelineState</title>
+<link rel="icon" href="../../Logo.ico" type="image/x-icon" />
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<script type="text/javascript" src="../../clipboard.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../Logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Dark Engine<span id="projectnumber">&#160;0.0.39</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../../',true,false,'search.php','Поиск');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="#pub-attribs">Открытые атрибуты</a> &#124;
+<a href="../../d5/d85/struct_f_d3_d12_graphics_pipeline_state-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle"><div class="title">Структура FD3D12GraphicsPipelineState</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="../../dc/dc8/_d3_d12_pipeline_state_8h_source.html">D3D12PipelineState.h</a>&gt;</code></p>
+<div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Граф наследования:FD3D12GraphicsPipelineState:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+ <div class="center">
+  <img src="../../d7/de6/struct_f_d3_d12_graphics_pipeline_state.png" usemap="#FD3D12GraphicsPipelineState_map" alt=""/>
+  <map id="FD3D12GraphicsPipelineState_map" name="FD3D12GraphicsPipelineState_map">
+<area href="../../de/dfc/class_f_r_h_i_graphics_pipeline_state.html" alt="FRHIGraphicsPipelineState" shape="rect" coords="0,112,183,136"/>
+<area href="../../d2/d83/class_f_r_h_i_resource.html" alt="FRHIResource" shape="rect" coords="0,56,183,80"/>
+<area href="../../dc/dba/class_f_ref_counted_object.html" alt="FRefCountedObject" shape="rect" coords="0,0,183,24"/>
+  </map>
+</div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:ace4e16b9a01a902068e51a9eee4fa7b8" id="r_ace4e16b9a01a902068e51a9eee4fa7b8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ace4e16b9a01a902068e51a9eee4fa7b8">FD3D12GraphicsPipelineState</a> (const <a class="el" href="../../d2/d2e/class_f_graphics_pipeline_state_initializer.html">FGraphicsPipelineStateInitializer</a> &amp;Initializer, const <a class="el" href="../../d0/d1e/class_f_d3_d12_root_signature.html">FD3D12RootSignature</a> *InRootSignature, <a class="el" href="../../dc/dc1/struct_f_d3_d12_pipeline_state.html">FD3D12PipelineState</a> *InPipelineState)</td></tr>
+<tr class="separator:ace4e16b9a01a902068e51a9eee4fa7b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a524a0043814c27b50dc45bb34f4cf485" id="r_a524a0043814c27b50dc45bb34f4cf485"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../de/d35/class_f_d3_d12_vertex_shader.html">FD3D12VertexShader</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a524a0043814c27b50dc45bb34f4cf485">GetVertexShader</a> () const</td></tr>
+<tr class="separator:a524a0043814c27b50dc45bb34f4cf485"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5e075dd293314bf72e313332c4adadb" id="r_aa5e075dd293314bf72e313332c4adadb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dd/d1d/class_f_d3_d12_pixel_shader.html">FD3D12PixelShader</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa5e075dd293314bf72e313332c4adadb">GetPixelShader</a> () const</td></tr>
+<tr class="separator:aa5e075dd293314bf72e313332c4adadb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_class_f_r_h_i_graphics_pipeline_state"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_f_r_h_i_graphics_pipeline_state')"><img src="../../closed.png" alt="-"/>&#160;Открытые члены унаследованные от <a class="el" href="../../de/dfc/class_f_r_h_i_graphics_pipeline_state.html">FRHIGraphicsPipelineState</a></td></tr>
+<tr class="memitem:adddeebd5a7a65dae1e165f4e3f9a4c51 inherit pub_methods_class_f_r_h_i_graphics_pipeline_state" id="r_adddeebd5a7a65dae1e165f4e3f9a4c51"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dfc/class_f_r_h_i_graphics_pipeline_state.html#adddeebd5a7a65dae1e165f4e3f9a4c51">FRHIGraphicsPipelineState</a> ()</td></tr>
+<tr class="separator:adddeebd5a7a65dae1e165f4e3f9a4c51 inherit pub_methods_class_f_r_h_i_graphics_pipeline_state"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_class_f_r_h_i_resource"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_f_r_h_i_resource')"><img src="../../closed.png" alt="-"/>&#160;Открытые члены унаследованные от <a class="el" href="../../d2/d83/class_f_r_h_i_resource.html">FRHIResource</a></td></tr>
+<tr class="memitem:aa6ad5b29a1b8786b083f89a7b4f4f2cf inherit pub_methods_class_f_r_h_i_resource" id="r_aa6ad5b29a1b8786b083f89a7b4f4f2cf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d83/class_f_r_h_i_resource.html#aa6ad5b29a1b8786b083f89a7b4f4f2cf">FRHIResource</a> (<a class="el" href="../../de/df7/_r_h_i_defines_8h.html#ac956879f51692c0e19acc90d06b8405d">ERHIResourceType</a> InResourceType)</td></tr>
+<tr class="separator:aa6ad5b29a1b8786b083f89a7b4f4f2cf inherit pub_methods_class_f_r_h_i_resource"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43b3eb835d6770a4f0ca910ce5a9f71d inherit pub_methods_class_f_r_h_i_resource" id="r_a43b3eb835d6770a4f0ca910ce5a9f71d"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d83/class_f_r_h_i_resource.html#a43b3eb835d6770a4f0ca910ce5a9f71d">~FRHIResource</a> ()</td></tr>
+<tr class="separator:a43b3eb835d6770a4f0ca910ce5a9f71d inherit pub_methods_class_f_r_h_i_resource"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab52bf70d01e6cd87f7f85ad25415ef02 inherit pub_methods_class_f_r_h_i_resource" id="r_ab52bf70d01e6cd87f7f85ad25415ef02"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d83/class_f_r_h_i_resource.html#ab52bf70d01e6cd87f7f85ad25415ef02">IsValid</a> () const</td></tr>
+<tr class="separator:ab52bf70d01e6cd87f7f85ad25415ef02 inherit pub_methods_class_f_r_h_i_resource"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf6a7d025a3f7d093609730cae8668e9 inherit pub_methods_class_f_r_h_i_resource" id="r_acf6a7d025a3f7d093609730cae8668e9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d83/class_f_r_h_i_resource.html#acf6a7d025a3f7d093609730cae8668e9">SetValid</a> (bool InIsValid)</td></tr>
+<tr class="separator:acf6a7d025a3f7d093609730cae8668e9 inherit pub_methods_class_f_r_h_i_resource"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6628a0e931fbf79f2c3deead02a9ee8b inherit pub_methods_class_f_r_h_i_resource" id="r_a6628a0e931fbf79f2c3deead02a9ee8b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d83/class_f_r_h_i_resource.html#a6628a0e931fbf79f2c3deead02a9ee8b">Delete</a> ()</td></tr>
+<tr class="separator:a6628a0e931fbf79f2c3deead02a9ee8b inherit pub_methods_class_f_r_h_i_resource"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2aff4c7ff357ad84bb0934492a4bf893 inherit pub_methods_class_f_r_h_i_resource" id="r_a2aff4c7ff357ad84bb0934492a4bf893"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../de/df7/_r_h_i_defines_8h.html#ac956879f51692c0e19acc90d06b8405d">ERHIResourceType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d83/class_f_r_h_i_resource.html#a2aff4c7ff357ad84bb0934492a4bf893">GetResourceType</a> () const</td></tr>
+<tr class="separator:a2aff4c7ff357ad84bb0934492a4bf893 inherit pub_methods_class_f_r_h_i_resource"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4ddb4518bc615c9c64c33812db4d244 inherit pub_methods_class_f_r_h_i_resource" id="r_ac4ddb4518bc615c9c64c33812db4d244"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="../../d9/dcb/class_f_string.html">FString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d83/class_f_r_h_i_resource.html#ac4ddb4518bc615c9c64c33812db4d244">GetName</a> () const</td></tr>
+<tr class="separator:ac4ddb4518bc615c9c64c33812db4d244 inherit pub_methods_class_f_r_h_i_resource"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ced010aaca4140fe3d61a235e3cfb09 inherit pub_methods_class_f_r_h_i_resource" id="r_a7ced010aaca4140fe3d61a235e3cfb09"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d83/class_f_r_h_i_resource.html#a7ced010aaca4140fe3d61a235e3cfb09">SetName</a> (<a class="el" href="../../d9/dcb/class_f_string.html">FString</a> InName)</td></tr>
+<tr class="separator:a7ced010aaca4140fe3d61a235e3cfb09 inherit pub_methods_class_f_r_h_i_resource"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_class_f_ref_counted_object"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_f_ref_counted_object')"><img src="../../closed.png" alt="-"/>&#160;Открытые члены унаследованные от <a class="el" href="../../dc/dba/class_f_ref_counted_object.html">FRefCountedObject</a></td></tr>
+<tr class="memitem:a3ae3edbc4c5caf1b150c3b261185e9b3 inherit pub_methods_class_f_ref_counted_object" id="r_a3ae3edbc4c5caf1b150c3b261185e9b3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dba/class_f_ref_counted_object.html#a3ae3edbc4c5caf1b150c3b261185e9b3">FRefCountedObject</a> ()</td></tr>
+<tr class="separator:a3ae3edbc4c5caf1b150c3b261185e9b3 inherit pub_methods_class_f_ref_counted_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1dbde45df03ba584126c3f68883e1e2e inherit pub_methods_class_f_ref_counted_object" id="r_a1dbde45df03ba584126c3f68883e1e2e"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dba/class_f_ref_counted_object.html#a1dbde45df03ba584126c3f68883e1e2e">~FRefCountedObject</a> ()</td></tr>
+<tr class="separator:a1dbde45df03ba584126c3f68883e1e2e inherit pub_methods_class_f_ref_counted_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac92d8ab8cedefb3c5bb731a609800832 inherit pub_methods_class_f_ref_counted_object" id="r_ac92d8ab8cedefb3c5bb731a609800832"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dba/class_f_ref_counted_object.html#ac92d8ab8cedefb3c5bb731a609800832">FRefCountedObject</a> (const <a class="el" href="../../dc/dba/class_f_ref_counted_object.html">FRefCountedObject</a> &amp;Rhs)=delete</td></tr>
+<tr class="separator:ac92d8ab8cedefb3c5bb731a609800832 inherit pub_methods_class_f_ref_counted_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d0313b3999b0a7f268b76058b7c5c18 inherit pub_methods_class_f_ref_counted_object" id="r_a8d0313b3999b0a7f268b76058b7c5c18"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/dba/class_f_ref_counted_object.html">FRefCountedObject</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dba/class_f_ref_counted_object.html#a8d0313b3999b0a7f268b76058b7c5c18">operator=</a> (const <a class="el" href="../../dc/dba/class_f_ref_counted_object.html">FRefCountedObject</a> &amp;Rhs)=delete</td></tr>
+<tr class="separator:a8d0313b3999b0a7f268b76058b7c5c18 inherit pub_methods_class_f_ref_counted_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e5a493f34a64331f86fc1f69934dea0 inherit pub_methods_class_f_ref_counted_object" id="r_a8e5a493f34a64331f86fc1f69934dea0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dba/class_f_ref_counted_object.html#a8e5a493f34a64331f86fc1f69934dea0">AddRef</a> () const</td></tr>
+<tr class="separator:a8e5a493f34a64331f86fc1f69934dea0 inherit pub_methods_class_f_ref_counted_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab350f7dff1cb3cbb729c10008be874bc inherit pub_methods_class_f_ref_counted_object" id="r_ab350f7dff1cb3cbb729c10008be874bc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dba/class_f_ref_counted_object.html#ab350f7dff1cb3cbb729c10008be874bc">Release</a> () const</td></tr>
+<tr class="separator:ab350f7dff1cb3cbb729c10008be874bc inherit pub_methods_class_f_ref_counted_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2b7744952475e6be883443e2380f33e inherit pub_methods_class_f_ref_counted_object" id="r_af2b7744952475e6be883443e2380f33e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dba/class_f_ref_counted_object.html#af2b7744952475e6be883443e2380f33e">GetRefCount</a> () const</td></tr>
+<tr class="separator:af2b7744952475e6be883443e2380f33e inherit pub_methods_class_f_ref_counted_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Открытые атрибуты</h2></td></tr>
+<tr class="memitem:ad86ea7f6eb776042ba46f00fc8d5c14e" id="r_ad86ea7f6eb776042ba46f00fc8d5c14e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d2e/class_f_graphics_pipeline_state_initializer.html">FGraphicsPipelineStateInitializer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad86ea7f6eb776042ba46f00fc8d5c14e">PipelineStateInitializer</a></td></tr>
+<tr class="separator:ad86ea7f6eb776042ba46f00fc8d5c14e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9835cf8f416624e3c3598fd92c2a30b3" id="r_a9835cf8f416624e3c3598fd92c2a30b3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/dc1/struct_f_d3_d12_pipeline_state.html">FD3D12PipelineState</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9835cf8f416624e3c3598fd92c2a30b3">PipelineState</a></td></tr>
+<tr class="separator:a9835cf8f416624e3c3598fd92c2a30b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a157aa4446057b1b1bbe3ad8fa97a4632" id="r_a157aa4446057b1b1bbe3ad8fa97a4632"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="../../d0/d1e/class_f_d3_d12_root_signature.html">FD3D12RootSignature</a> *const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a157aa4446057b1b1bbe3ad8fa97a4632">RootSignature</a></td></tr>
+<tr class="separator:a157aa4446057b1b1bbe3ad8fa97a4632"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
+Дополнительные унаследованные члены</h2></td></tr>
+<tr class="inherit_header pro_attribs_class_f_r_h_i_resource"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_attribs_class_f_r_h_i_resource')"><img src="../../closed.png" alt="-"/>&#160;Защищенные данные унаследованные от <a class="el" href="../../d2/d83/class_f_r_h_i_resource.html">FRHIResource</a></td></tr>
+<tr class="memitem:a27fba66710a9c548f069a6a3cd1f53ab inherit pro_attribs_class_f_r_h_i_resource" id="r_a27fba66710a9c548f069a6a3cd1f53ab"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../de/df7/_r_h_i_defines_8h.html#ac956879f51692c0e19acc90d06b8405d">ERHIResourceType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d83/class_f_r_h_i_resource.html#a27fba66710a9c548f069a6a3cd1f53ab">ResourceType</a></td></tr>
+<tr class="separator:a27fba66710a9c548f069a6a3cd1f53ab inherit pro_attribs_class_f_r_h_i_resource"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48df619fc4822732625e1fdd081fcda9 inherit pro_attribs_class_f_r_h_i_resource" id="r_a48df619fc4822732625e1fdd081fcda9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d9/dcb/class_f_string.html">FString</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d83/class_f_r_h_i_resource.html#a48df619fc4822732625e1fdd081fcda9">Name</a> = <a class="el" href="../../d2/dc9/_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;RHIResource&quot;)</td></tr>
+<tr class="separator:a48df619fc4822732625e1fdd081fcda9 inherit pro_attribs_class_f_r_h_i_resource"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Конструктор(ы)</h2>
+<a id="ace4e16b9a01a902068e51a9eee4fa7b8" name="ace4e16b9a01a902068e51a9eee4fa7b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace4e16b9a01a902068e51a9eee4fa7b8">&#9670;&#160;</a></span>FD3D12GraphicsPipelineState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FD3D12GraphicsPipelineState::FD3D12GraphicsPipelineState </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d2/d2e/class_f_graphics_pipeline_state_initializer.html">FGraphicsPipelineStateInitializer</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Initializer</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d0/d1e/class_f_d3_d12_root_signature.html">FD3D12RootSignature</a> *</td>          <td class="paramname"><span class="paramname"><em>InRootSignature</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../dc/dc1/struct_f_d3_d12_pipeline_state.html">FD3D12PipelineState</a> *</td>          <td class="paramname"><span class="paramname"><em>InPipelineState</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Методы</h2>
+<a id="aa5e075dd293314bf72e313332c4adadb" name="aa5e075dd293314bf72e313332c4adadb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5e075dd293314bf72e313332c4adadb">&#9670;&#160;</a></span>GetPixelShader()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../dd/d1d/class_f_d3_d12_pixel_shader.html">FD3D12PixelShader</a> * FD3D12GraphicsPipelineState::GetPixelShader </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a524a0043814c27b50dc45bb34f4cf485" name="a524a0043814c27b50dc45bb34f4cf485"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a524a0043814c27b50dc45bb34f4cf485">&#9670;&#160;</a></span>GetVertexShader()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../de/d35/class_f_d3_d12_vertex_shader.html">FD3D12VertexShader</a> * FD3D12GraphicsPipelineState::GetVertexShader </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Данные класса</h2>
+<a id="a9835cf8f416624e3c3598fd92c2a30b3" name="a9835cf8f416624e3c3598fd92c2a30b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9835cf8f416624e3c3598fd92c2a30b3">&#9670;&#160;</a></span>PipelineState</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../dc/dc1/struct_f_d3_d12_pipeline_state.html">FD3D12PipelineState</a>* FD3D12GraphicsPipelineState::PipelineState</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad86ea7f6eb776042ba46f00fc8d5c14e" name="ad86ea7f6eb776042ba46f00fc8d5c14e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad86ea7f6eb776042ba46f00fc8d5c14e">&#9670;&#160;</a></span>PipelineStateInitializer</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d2e/class_f_graphics_pipeline_state_initializer.html">FGraphicsPipelineStateInitializer</a> FD3D12GraphicsPipelineState::PipelineStateInitializer</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a157aa4446057b1b1bbe3ad8fa97a4632" name="a157aa4446057b1b1bbe3ad8fa97a4632"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a157aa4446057b1b1bbe3ad8fa97a4632">&#9670;&#160;</a></span>RootSignature</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="../../d0/d1e/class_f_d3_d12_root_signature.html">FD3D12RootSignature</a>* const FD3D12GraphicsPipelineState::RootSignature</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>Объявления и описания членов структур находятся в файлах:<ul>
+<li>Dark Engine/Source/Runtime/D3D12RHI/private/<a class="el" href="../../dc/dc8/_d3_d12_pipeline_state_8h_source.html">D3D12PipelineState.h</a></li>
+<li>Dark Engine/Source/Runtime/D3D12RHI/private/<a class="el" href="../../db/d2a/_d3_d12_pipeline_state_8cpp.html">D3D12PipelineState.cpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
+</body>
+</html>

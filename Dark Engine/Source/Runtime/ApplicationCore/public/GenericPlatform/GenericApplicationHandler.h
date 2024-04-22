@@ -38,7 +38,10 @@ public:
 		return false;
 	}
 
-
+	virtual bool OnMovingWindow(const TSharedPtr<FGenericWindow>& Window, FIntRect NewRect)
+	{
+		return false;
+	}
 
 	virtual bool OnMovedWindow(const TSharedPtr<FGenericWindow>& Window, FIntPoint NewPosition)
 	{

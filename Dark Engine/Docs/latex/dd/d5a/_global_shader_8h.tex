@@ -1,0 +1,66 @@
+\doxysection{Файл Dark Engine/\+Source/\+Runtime/\+Renderer/public/\+Global\+Shader.h}
+\hypertarget{_global_shader_8h}{}\label{_global_shader_8h}\index{Dark Engine/Source/Runtime/Renderer/public/GlobalShader.h@{Dark Engine/Source/Runtime/Renderer/public/GlobalShader.h}}
+{\ttfamily \#include "{}Shader.\+h"{}}\newline
+\doxysubsubsection*{Классы}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_f_global_shader_type}{FGlobal\+Shader\+Type}}
+\item 
+class \mbox{\hyperlink{class_f_global_shader_map}{FGlobal\+Shader\+Map}}
+\item 
+class \mbox{\hyperlink{class_f_global_shader}{FGlobal\+Shader}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Макросы}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_global_shader_8h_a1f1427678250ebe1d92ed05b536f6628}{DECLARE\+\_\+\+GLOBAL\+\_\+\+SHADER}}(Shader\+Class)~\mbox{\hyperlink{_shader_8h_ab017c78ff362b54321ce914870da03f8}{DECLARE\+\_\+\+SHADER\+\_\+\+TYPE}}(Shader\+Class, Global)
+\item 
+\#define \mbox{\hyperlink{_global_shader_8h_a6d378e1de41999664ac6180e2d02680e}{IMPLEMENT\+\_\+\+GLOBAL\+\_\+\+SHADER}}(Shader\+Class,  Source\+Filename,  Function\+Name,  Shader\+Type)~\mbox{\hyperlink{_shader_8h_a4bc80fedd33a498d0c90912074a530ab}{IMPLEMENT\+\_\+\+SHADER\+\_\+\+TYPE}}(Shader\+Class, \mbox{\hyperlink{_platform_8h_a2978f60d40d64f3605b5a99f66f292a9}{TEXT}}(Source\+Filename), \mbox{\hyperlink{_platform_8h_a2978f60d40d64f3605b5a99f66f292a9}{TEXT}}(Function\+Name), Shader\+Type)
+\item 
+\#define \mbox{\hyperlink{_global_shader_8h_a7830aca734287566585242431858aa2c}{DECLARE\+\_\+\+SHADER\+\_\+\+BOUNDS}}(Samplers,  CBVs,  SRVs,  UAVs)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Переменные}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_f_global_shader_map}{FGlobal\+Shader\+Map}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{_global_shader_8h_a0bbf3f91f4fe9d99e8ec89bb7adc1eb0}{GGlobal\+Shader\+Map}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Макросы}
+\Hypertarget{_global_shader_8h_a1f1427678250ebe1d92ed05b536f6628}\label{_global_shader_8h_a1f1427678250ebe1d92ed05b536f6628} 
+\index{GlobalShader.h@{GlobalShader.h}!DECLARE\_GLOBAL\_SHADER@{DECLARE\_GLOBAL\_SHADER}}
+\index{DECLARE\_GLOBAL\_SHADER@{DECLARE\_GLOBAL\_SHADER}!GlobalShader.h@{GlobalShader.h}}
+\doxysubsubsection{\texorpdfstring{DECLARE\_GLOBAL\_SHADER}{DECLARE\_GLOBAL\_SHADER}}
+{\footnotesize\ttfamily \#define DECLARE\+\_\+\+GLOBAL\+\_\+\+SHADER(\begin{DoxyParamCaption}\item[{}]{Shader\+Class }\end{DoxyParamCaption})~\mbox{\hyperlink{_shader_8h_ab017c78ff362b54321ce914870da03f8}{DECLARE\+\_\+\+SHADER\+\_\+\+TYPE}}(Shader\+Class, Global)}
+
+\Hypertarget{_global_shader_8h_a7830aca734287566585242431858aa2c}\label{_global_shader_8h_a7830aca734287566585242431858aa2c} 
+\index{GlobalShader.h@{GlobalShader.h}!DECLARE\_SHADER\_BOUNDS@{DECLARE\_SHADER\_BOUNDS}}
+\index{DECLARE\_SHADER\_BOUNDS@{DECLARE\_SHADER\_BOUNDS}!GlobalShader.h@{GlobalShader.h}}
+\doxysubsubsection{\texorpdfstring{DECLARE\_SHADER\_BOUNDS}{DECLARE\_SHADER\_BOUNDS}}
+{\footnotesize\ttfamily \#define DECLARE\+\_\+\+SHADER\+\_\+\+BOUNDS(\begin{DoxyParamCaption}\item[{}]{Samplers,  }\item[{}]{CBVs,  }\item[{}]{SRVs,  }\item[{}]{UAVs }\end{DoxyParamCaption})}
+
+{\bfseries Макроопределение\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{public}:\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ GetShaderBounds(\mbox{\hyperlink{struct_f_shader_bounds}{FShaderBounds}}\&\ ShaderBounds)\{\(\backslash\)}
+\DoxyCodeLine{ShaderBounds.SamplerCount\ =\ Samplers;\ \ \ \(\backslash\)}
+\DoxyCodeLine{ShaderBounds.ConstantBufferCount\ =\ CBVs;\ \ \(\backslash\)}
+\DoxyCodeLine{ShaderBounds.ShaderResourceCount\ =\ SRVs;\ \(\backslash\)}
+\DoxyCodeLine{ShaderBounds.UnorderedAccessCount\ =\ UAVs;\(\backslash\)}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\Hypertarget{_global_shader_8h_a6d378e1de41999664ac6180e2d02680e}\label{_global_shader_8h_a6d378e1de41999664ac6180e2d02680e} 
+\index{GlobalShader.h@{GlobalShader.h}!IMPLEMENT\_GLOBAL\_SHADER@{IMPLEMENT\_GLOBAL\_SHADER}}
+\index{IMPLEMENT\_GLOBAL\_SHADER@{IMPLEMENT\_GLOBAL\_SHADER}!GlobalShader.h@{GlobalShader.h}}
+\doxysubsubsection{\texorpdfstring{IMPLEMENT\_GLOBAL\_SHADER}{IMPLEMENT\_GLOBAL\_SHADER}}
+{\footnotesize\ttfamily \#define IMPLEMENT\+\_\+\+GLOBAL\+\_\+\+SHADER(\begin{DoxyParamCaption}\item[{}]{Shader\+Class,  }\item[{}]{Source\+Filename,  }\item[{}]{Function\+Name,  }\item[{}]{Shader\+Type }\end{DoxyParamCaption})~\mbox{\hyperlink{_shader_8h_a4bc80fedd33a498d0c90912074a530ab}{IMPLEMENT\+\_\+\+SHADER\+\_\+\+TYPE}}(Shader\+Class, \mbox{\hyperlink{_platform_8h_a2978f60d40d64f3605b5a99f66f292a9}{TEXT}}(Source\+Filename), \mbox{\hyperlink{_platform_8h_a2978f60d40d64f3605b5a99f66f292a9}{TEXT}}(Function\+Name), Shader\+Type)}
+
+
+
+\doxysubsection{Переменные}
+\Hypertarget{_global_shader_8h_a0bbf3f91f4fe9d99e8ec89bb7adc1eb0}\label{_global_shader_8h_a0bbf3f91f4fe9d99e8ec89bb7adc1eb0} 
+\index{GlobalShader.h@{GlobalShader.h}!GGlobalShaderMap@{GGlobalShaderMap}}
+\index{GGlobalShaderMap@{GGlobalShaderMap}!GlobalShader.h@{GlobalShader.h}}
+\doxysubsubsection{\texorpdfstring{GGlobalShaderMap}{GGlobalShaderMap}}
+{\footnotesize\ttfamily class \mbox{\hyperlink{class_f_global_shader_map}{FGlobal\+Shader\+Map}}\texorpdfstring{$\ast$}{*} GGlobal\+Shader\+Map\hspace{0.3cm}{\ttfamily [extern]}}
+

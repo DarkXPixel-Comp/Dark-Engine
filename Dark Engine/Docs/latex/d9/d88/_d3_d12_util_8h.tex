@@ -1,0 +1,134 @@
+\doxysection{Файл Dark Engine/\+Source/\+Runtime/\+D3\+D12\+RHI/private/\+D3\+D12\+Util.h}
+\hypertarget{_d3_d12_util_8h}{}\label{_d3_d12_util_8h}\index{Dark Engine/Source/Runtime/D3D12RHI/private/D3D12Util.h@{Dark Engine/Source/Runtime/D3D12RHI/private/D3D12Util.h}}
+{\ttfamily \#include "{}D3\+D12\+Resources.\+h"{}}\newline
+{\ttfamily \#include $<$d3d12.\+h$>$}\newline
+{\ttfamily \#include $<$comdef.\+h$>$}\newline
+\doxysubsubsection*{Пространства имен}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespace_d_x12}{DX12}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Макросы}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_d3_d12_util_8h_a52cef664847e6cd74140a15d4fad3108}{DXCall}}(x)~\{HRESULT Result = x; if(FAILED(Result)) \{\mbox{\hyperlink{_d3_d12_util_8h_a629c58836a825b77141f59781e2082ad}{Verify\+D3\+D12\+Result}}(Result, \#x, \+\_\+\+\_\+\+FILE\+\_\+\+\_\+, \+\_\+\+\_\+\+LINE\+\_\+\+\_\+);\}\}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Функции}
+\begin{DoxyCompactItemize}
+\item 
+static FORCEINLINE D3\+D\+\_\+\+PRIMITIVE\+\_\+\+TOPOLOGY \mbox{\hyperlink{_d3_d12_util_8h_af095c73fb61404dd5508139bf2bcae61}{Get\+D3\+D12\+Primitive\+Topology}} (\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} Primitive\+Topology)
+\item 
+FORCEINLINE D3\+D12\+\_\+\+RESOURCE\+\_\+\+STATES \mbox{\hyperlink{_d3_d12_util_8h_a1148ba9d0de8a596562321bb600291f9}{Get\+D3\+D12\+Resource\+State}} (\mbox{\hyperlink{_r_h_i_defines_8h_a790a925a3358fc56173b2ffb0f607c5f}{ERHIAccess}} In\+RHIAccess)
+\item 
+FORCEINLINE DXGI\+\_\+\+FORMAT \mbox{\hyperlink{_d3_d12_util_8h_ac028dbc41e6752d17b317a83da786425}{Get\+DXGIFormat}} (\mbox{\hyperlink{_pixel_format_8h_afb559e26bc610db43ba605230a142898}{EPixel\+Format}} In\+Format)
+\item 
+FORCEINLINE \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} \mbox{\hyperlink{_d3_d12_util_8h_a5164aa89fed19dade9190cf9fcc5a4e1}{Calc\+Subresource}} (\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} Mip\+Slice, \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} Array\+Slice, \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} Mip\+Levels)
+\item 
+FORCEINLINE \mbox{\hyperlink{class_f_string}{FString}} \mbox{\hyperlink{_d3_d12_util_8h_aa05ac2760af20023246f510331b5da08}{Get\+DX12\+Error\+Message}} (HRESULT hr)
+\item 
+FORCEINLINE \mbox{\hyperlink{class_f_string}{FString}} \mbox{\hyperlink{_d3_d12_util_8h_ab1a38fafd792549c300e94db3eb331b4}{Parse\+DX12\+Error}} (HRESULT hr)
+\item 
+FORCEINLINE void \mbox{\hyperlink{_d3_d12_util_8h_a629c58836a825b77141f59781e2082ad}{Verify\+D3\+D12\+Result}} (HRESULT hr, const \mbox{\hyperlink{_platform_8h_ac65a9f028228aed366b4d8f24a8ab9e9}{ANSICHAR}} \texorpdfstring{$\ast$}{*}Code, const \mbox{\hyperlink{_platform_8h_ac65a9f028228aed366b4d8f24a8ab9e9}{ANSICHAR}} \texorpdfstring{$\ast$}{*}Filename, \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} Line)
+\item 
+FORCEINLINE void \mbox{\hyperlink{_d3_d12_util_8h_a3281f57ae673061cbf263b962e70bc86}{Set\+Name}} (ID3\+D12\+Object \texorpdfstring{$\ast$}{*}const Object, const \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}} \texorpdfstring{$\ast$}{*}const Name)
+\item 
+FORCEINLINE void \mbox{\hyperlink{_d3_d12_util_8h_a50dcae9b13765fa28b9f9eee42055097}{Set\+Name}} (\mbox{\hyperlink{class_f_d3_d12_resource}{FD3\+D12\+Resource}} \texorpdfstring{$\ast$}{*}const \mbox{\hyperlink{_d3_d12_main_8h_ab8eaee8f45f36954297ee6146eb6db20}{Resource}}, const \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}} \texorpdfstring{$\ast$}{*}const Name)
+\item 
+FORCEINLINE void \mbox{\hyperlink{namespace_d_x12_aa05665b3cc0abac0b0390387534b5867}{DX12\+::\+Set\+Name}} (ID3\+D12\+Object \texorpdfstring{$\ast$}{*}const Object, const \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}} \texorpdfstring{$\ast$}{*}const Name)
+\item 
+FORCEINLINE void \mbox{\hyperlink{namespace_d_x12_a02d6a0403c2e610b43782f493183b038}{DX12\+::\+Set\+Name}} (\mbox{\hyperlink{class_f_d3_d12_resource}{FD3\+D12\+Resource}} \texorpdfstring{$\ast$}{*}const \mbox{\hyperlink{_d3_d12_main_8h_ab8eaee8f45f36954297ee6146eb6db20}{Resource}}, const \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}} \texorpdfstring{$\ast$}{*}const Name)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Переменные}
+\begin{DoxyCompactItemize}
+\item 
+static DXGI\+\_\+\+FORMAT \mbox{\hyperlink{_d3_d12_util_8h_a4624beca62d94828692a7802f72e3ae2}{GDXGIFormats}} \mbox{[}\mbox{\hyperlink{_pixel_format_8h_afb559e26bc610db43ba605230a142898a928f33270be19855038d0245a0fa06a1}{EPixel\+Format\+::\+Count}}\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Макросы}
+\Hypertarget{_d3_d12_util_8h_a52cef664847e6cd74140a15d4fad3108}\label{_d3_d12_util_8h_a52cef664847e6cd74140a15d4fad3108} 
+\index{D3D12Util.h@{D3D12Util.h}!DXCall@{DXCall}}
+\index{DXCall@{DXCall}!D3D12Util.h@{D3D12Util.h}}
+\doxysubsubsection{\texorpdfstring{DXCall}{DXCall}}
+{\footnotesize\ttfamily \#define DXCall(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~\{HRESULT Result = x; if(FAILED(Result)) \{\mbox{\hyperlink{_d3_d12_util_8h_a629c58836a825b77141f59781e2082ad}{Verify\+D3\+D12\+Result}}(Result, \#x, \+\_\+\+\_\+\+FILE\+\_\+\+\_\+, \+\_\+\+\_\+\+LINE\+\_\+\+\_\+);\}\}}
+
+
+
+\doxysubsection{Функции}
+\Hypertarget{_d3_d12_util_8h_a5164aa89fed19dade9190cf9fcc5a4e1}\label{_d3_d12_util_8h_a5164aa89fed19dade9190cf9fcc5a4e1} 
+\index{D3D12Util.h@{D3D12Util.h}!CalcSubresource@{CalcSubresource}}
+\index{CalcSubresource@{CalcSubresource}!D3D12Util.h@{D3D12Util.h}}
+\doxysubsubsection{\texorpdfstring{CalcSubresource()}{CalcSubresource()}}
+{\footnotesize\ttfamily FORCEINLINE \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} Calc\+Subresource (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}}]{Mip\+Slice,  }\item[{\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}}]{Array\+Slice,  }\item[{\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}}]{Mip\+Levels }\end{DoxyParamCaption})}
+
+\Hypertarget{_d3_d12_util_8h_af095c73fb61404dd5508139bf2bcae61}\label{_d3_d12_util_8h_af095c73fb61404dd5508139bf2bcae61} 
+\index{D3D12Util.h@{D3D12Util.h}!GetD3D12PrimitiveTopology@{GetD3D12PrimitiveTopology}}
+\index{GetD3D12PrimitiveTopology@{GetD3D12PrimitiveTopology}!D3D12Util.h@{D3D12Util.h}}
+\doxysubsubsection{\texorpdfstring{GetD3D12PrimitiveTopology()}{GetD3D12PrimitiveTopology()}}
+{\footnotesize\ttfamily static FORCEINLINE D3\+D\+\_\+\+PRIMITIVE\+\_\+\+TOPOLOGY Get\+D3\+D12\+Primitive\+Topology (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}}]{Primitive\+Topology }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{_d3_d12_util_8h_a1148ba9d0de8a596562321bb600291f9}\label{_d3_d12_util_8h_a1148ba9d0de8a596562321bb600291f9} 
+\index{D3D12Util.h@{D3D12Util.h}!GetD3D12ResourceState@{GetD3D12ResourceState}}
+\index{GetD3D12ResourceState@{GetD3D12ResourceState}!D3D12Util.h@{D3D12Util.h}}
+\doxysubsubsection{\texorpdfstring{GetD3D12ResourceState()}{GetD3D12ResourceState()}}
+{\footnotesize\ttfamily FORCEINLINE D3\+D12\+\_\+\+RESOURCE\+\_\+\+STATES Get\+D3\+D12\+Resource\+State (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_r_h_i_defines_8h_a790a925a3358fc56173b2ffb0f607c5f}{ERHIAccess}}}]{In\+RHIAccess }\end{DoxyParamCaption})}
+
+\Hypertarget{_d3_d12_util_8h_aa05ac2760af20023246f510331b5da08}\label{_d3_d12_util_8h_aa05ac2760af20023246f510331b5da08} 
+\index{D3D12Util.h@{D3D12Util.h}!GetDX12ErrorMessage@{GetDX12ErrorMessage}}
+\index{GetDX12ErrorMessage@{GetDX12ErrorMessage}!D3D12Util.h@{D3D12Util.h}}
+\doxysubsubsection{\texorpdfstring{GetDX12ErrorMessage()}{GetDX12ErrorMessage()}}
+{\footnotesize\ttfamily FORCEINLINE \mbox{\hyperlink{class_f_string}{FString}} Get\+DX12\+Error\+Message (\begin{DoxyParamCaption}\item[{HRESULT}]{hr }\end{DoxyParamCaption})}
+
+\Hypertarget{_d3_d12_util_8h_ac028dbc41e6752d17b317a83da786425}\label{_d3_d12_util_8h_ac028dbc41e6752d17b317a83da786425} 
+\index{D3D12Util.h@{D3D12Util.h}!GetDXGIFormat@{GetDXGIFormat}}
+\index{GetDXGIFormat@{GetDXGIFormat}!D3D12Util.h@{D3D12Util.h}}
+\doxysubsubsection{\texorpdfstring{GetDXGIFormat()}{GetDXGIFormat()}}
+{\footnotesize\ttfamily FORCEINLINE DXGI\+\_\+\+FORMAT Get\+DXGIFormat (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_pixel_format_8h_afb559e26bc610db43ba605230a142898}{EPixel\+Format}}}]{In\+Format }\end{DoxyParamCaption})}
+
+\Hypertarget{_d3_d12_util_8h_ab1a38fafd792549c300e94db3eb331b4}\label{_d3_d12_util_8h_ab1a38fafd792549c300e94db3eb331b4} 
+\index{D3D12Util.h@{D3D12Util.h}!ParseDX12Error@{ParseDX12Error}}
+\index{ParseDX12Error@{ParseDX12Error}!D3D12Util.h@{D3D12Util.h}}
+\doxysubsubsection{\texorpdfstring{ParseDX12Error()}{ParseDX12Error()}}
+{\footnotesize\ttfamily FORCEINLINE \mbox{\hyperlink{class_f_string}{FString}} Parse\+DX12\+Error (\begin{DoxyParamCaption}\item[{HRESULT}]{hr }\end{DoxyParamCaption})}
+
+\Hypertarget{_d3_d12_util_8h_a50dcae9b13765fa28b9f9eee42055097}\label{_d3_d12_util_8h_a50dcae9b13765fa28b9f9eee42055097} 
+\index{D3D12Util.h@{D3D12Util.h}!SetName@{SetName}}
+\index{SetName@{SetName}!D3D12Util.h@{D3D12Util.h}}
+\doxysubsubsection{\texorpdfstring{SetName()}{SetName()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily FORCEINLINE void Set\+Name (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_f_d3_d12_resource}{FD3\+D12\+Resource}} \texorpdfstring{$\ast$}{*}const}]{Resource,  }\item[{const \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}} \texorpdfstring{$\ast$}{*}const}]{Name }\end{DoxyParamCaption})}
+
+\Hypertarget{_d3_d12_util_8h_a3281f57ae673061cbf263b962e70bc86}\label{_d3_d12_util_8h_a3281f57ae673061cbf263b962e70bc86} 
+\index{D3D12Util.h@{D3D12Util.h}!SetName@{SetName}}
+\index{SetName@{SetName}!D3D12Util.h@{D3D12Util.h}}
+\doxysubsubsection{\texorpdfstring{SetName()}{SetName()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily FORCEINLINE void Set\+Name (\begin{DoxyParamCaption}\item[{ID3\+D12\+Object \texorpdfstring{$\ast$}{*}const}]{Object,  }\item[{const \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}} \texorpdfstring{$\ast$}{*}const}]{Name }\end{DoxyParamCaption})}
+
+\Hypertarget{_d3_d12_util_8h_a629c58836a825b77141f59781e2082ad}\label{_d3_d12_util_8h_a629c58836a825b77141f59781e2082ad} 
+\index{D3D12Util.h@{D3D12Util.h}!VerifyD3D12Result@{VerifyD3D12Result}}
+\index{VerifyD3D12Result@{VerifyD3D12Result}!D3D12Util.h@{D3D12Util.h}}
+\doxysubsubsection{\texorpdfstring{VerifyD3D12Result()}{VerifyD3D12Result()}}
+{\footnotesize\ttfamily FORCEINLINE void Verify\+D3\+D12\+Result (\begin{DoxyParamCaption}\item[{HRESULT}]{hr,  }\item[{const \mbox{\hyperlink{_platform_8h_ac65a9f028228aed366b4d8f24a8ab9e9}{ANSICHAR}} \texorpdfstring{$\ast$}{*}}]{Code,  }\item[{const \mbox{\hyperlink{_platform_8h_ac65a9f028228aed366b4d8f24a8ab9e9}{ANSICHAR}} \texorpdfstring{$\ast$}{*}}]{Filename,  }\item[{\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}}]{Line }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Переменные}
+\Hypertarget{_d3_d12_util_8h_a4624beca62d94828692a7802f72e3ae2}\label{_d3_d12_util_8h_a4624beca62d94828692a7802f72e3ae2} 
+\index{D3D12Util.h@{D3D12Util.h}!GDXGIFormats@{GDXGIFormats}}
+\index{GDXGIFormats@{GDXGIFormats}!D3D12Util.h@{D3D12Util.h}}
+\doxysubsubsection{\texorpdfstring{GDXGIFormats}{GDXGIFormats}}
+{\footnotesize\ttfamily DXGI\+\_\+\+FORMAT GDXGIFormats\mbox{[}\mbox{\hyperlink{_pixel_format_8h_afb559e26bc610db43ba605230a142898a928f33270be19855038d0245a0fa06a1}{EPixel\+Format\+::\+Count}}\mbox{]}\hspace{0.3cm}{\ttfamily [static]}}
+
+{\bfseries Инициализатор}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ }
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ DXGI\_FORMAT\_UNKNOWN,}
+\DoxyCodeLine{\ \ \ \ DXGI\_FORMAT\_R32G32B32A32\_FLOAT,}
+\DoxyCodeLine{\ \ \ \ DXGI\_FORMAT\_R32\_FLOAT,}
+\DoxyCodeLine{\ \ \ \ DXGI\_FORMAT\_R8G8B8A8\_UNORM,}
+\DoxyCodeLine{\ \ \ \ DXGI\_FORMAT\_R32G32B32A32\_UINT,}
+\DoxyCodeLine{\ \ \ \ DXGI\_FORMAT\_B8G8R8A8\_UNORM}
+\DoxyCodeLine{\ \ \ \ }
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}

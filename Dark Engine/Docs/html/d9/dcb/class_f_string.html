@@ -1,0 +1,1469 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Dark Engine: Класс FString</title>
+<link rel="icon" href="../../Logo.ico" type="image/x-icon" />
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<script type="text/javascript" src="../../clipboard.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../Logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Dark Engine<span id="projectnumber">&#160;0.0.39</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../../',true,false,'search.php','Поиск');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="#pub-static-methods">Открытые статические члены</a> &#124;
+<a href="#friends">Друзья</a> &#124;
+<a href="../../de/dac/class_f_string-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle"><div class="title">Класс FString</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="../../de/d45/_dark_string_8h_source.html">DarkString.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:acc6e2ac6135356e2b8b909ff61bf668c" id="r_acc6e2ac6135356e2b8b909ff61bf668c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acc6e2ac6135356e2b8b909ff61bf668c">FString</a> ()</td></tr>
+<tr class="separator:acc6e2ac6135356e2b8b909ff61bf668c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1ba655e8dab2b64c0ccb2fcab5e7ed4" id="r_ad1ba655e8dab2b64c0ccb2fcab5e7ed4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad1ba655e8dab2b64c0ccb2fcab5e7ed4">FString</a> (const <a class="el" href="../../d2/dc9/_platform_8h.html#ac65a9f028228aed366b4d8f24a8ab9e9">ANSICHAR</a> *Str)</td></tr>
+<tr class="separator:ad1ba655e8dab2b64c0ccb2fcab5e7ed4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b55799b5e13cb728b6a974ec95f40f5" id="r_a9b55799b5e13cb728b6a974ec95f40f5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9b55799b5e13cb728b6a974ec95f40f5">FString</a> (const <a class="el" href="../../d2/dc9/_platform_8h.html#a827f84d187d97e962586441ccb428bcd">WIDECHAR</a> *Str)</td></tr>
+<tr class="separator:a9b55799b5e13cb728b6a974ec95f40f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a250e30d9c46e4a7e8cff47b899165e26" id="r_a250e30d9c46e4a7e8cff47b899165e26"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a250e30d9c46e4a7e8cff47b899165e26">FString</a> (<a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> <a class="el" href="../../d5/dc5/_d3_d12_utils_8h.html#a49802c782fb40bd8e79835ef12871ddeaff9abf2b1a689f70a77a18da50c01d9f">Size</a>)</td></tr>
+<tr class="separator:a250e30d9c46e4a7e8cff47b899165e26"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d4adf1bd035e87ee277dc80402bf916" id="r_a9d4adf1bd035e87ee277dc80402bf916"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9d4adf1bd035e87ee277dc80402bf916">FString</a> (const std::wstring &amp;Str)</td></tr>
+<tr class="separator:a9d4adf1bd035e87ee277dc80402bf916"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad5f6131f3377ea0071a7577e1d5fde4" id="r_aad5f6131f3377ea0071a7577e1d5fde4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aad5f6131f3377ea0071a7577e1d5fde4">FString</a> (const std::string &amp;Str)</td></tr>
+<tr class="separator:aad5f6131f3377ea0071a7577e1d5fde4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9fd7f4203163fe1724bc6309e5e5862" id="r_ae9fd7f4203163fe1724bc6309e5e5862"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae9fd7f4203163fe1724bc6309e5e5862">FString</a> (<a class="el" href="../../d2/dc9/_platform_8h.html#a74140f1ff3f7a51b1ac752f90283f3d6">TCHAR</a> *Str)</td></tr>
+<tr class="separator:ae9fd7f4203163fe1724bc6309e5e5862"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af36b24ba13804e38ff1e8043bf41533d" id="r_af36b24ba13804e38ff1e8043bf41533d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af36b24ba13804e38ff1e8043bf41533d">FString</a> (const <a class="el" href="../../d9/dcb/class_f_string.html">FString</a> &amp;Str)</td></tr>
+<tr class="separator:af36b24ba13804e38ff1e8043bf41533d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a732671533c37673d1920e0c3613a79f1" id="r_a732671533c37673d1920e0c3613a79f1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d9/dcb/class_f_string.html">FString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a732671533c37673d1920e0c3613a79f1">AppendV</a> (const <a class="el" href="../../d2/dc9/_platform_8h.html#a74140f1ff3f7a51b1ac752f90283f3d6">TCHAR</a> *Fmt, va_list Args)</td></tr>
+<tr class="separator:a732671533c37673d1920e0c3613a79f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae1b6f73f9ba4aed66a1758bb6918bfc5" id="r_ae1b6f73f9ba4aed66a1758bb6918bfc5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae1b6f73f9ba4aed66a1758bb6918bfc5">PopBack</a> ()</td></tr>
+<tr class="separator:ae1b6f73f9ba4aed66a1758bb6918bfc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01ad6a4ea5c276a9e3456fc512e6fd11" id="r_a01ad6a4ea5c276a9e3456fc512e6fd11"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a01ad6a4ea5c276a9e3456fc512e6fd11">PopFirst</a> ()</td></tr>
+<tr class="separator:a01ad6a4ea5c276a9e3456fc512e6fd11"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab097c6c342d66e45f731098ef2aff21b" id="r_ab097c6c342d66e45f731098ef2aff21b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/dc9/_platform_8h.html#a74140f1ff3f7a51b1ac752f90283f3d6">TCHAR</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab097c6c342d66e45f731098ef2aff21b">Back</a> () const</td></tr>
+<tr class="separator:ab097c6c342d66e45f731098ef2aff21b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0cf09296184f01998d6d6577ac51209" id="r_ac0cf09296184f01998d6d6577ac51209"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/dc9/_platform_8h.html#a74140f1ff3f7a51b1ac752f90283f3d6">TCHAR</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac0cf09296184f01998d6d6577ac51209">First</a> () const</td></tr>
+<tr class="separator:ac0cf09296184f01998d6d6577ac51209"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad7a63cbdfe97bbe6b51f4366ff5f3575" id="r_ad7a63cbdfe97bbe6b51f4366ff5f3575"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad7a63cbdfe97bbe6b51f4366ff5f3575">Contains</a> (const <a class="el" href="../../d9/dcb/class_f_string.html">FString</a> &amp;Other)</td></tr>
+<tr class="separator:ad7a63cbdfe97bbe6b51f4366ff5f3575"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adfe0dc646cb4200fe9662945b3fa9b36" id="r_adfe0dc646cb4200fe9662945b3fa9b36"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d9/dcb/class_f_string.html">FString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adfe0dc646cb4200fe9662945b3fa9b36">operator=</a> (const <a class="el" href="../../d2/dc9/_platform_8h.html#a74140f1ff3f7a51b1ac752f90283f3d6">TCHAR</a> *Str)</td></tr>
+<tr class="separator:adfe0dc646cb4200fe9662945b3fa9b36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2384e02049048d5a8865f247d5f441a" id="r_aa2384e02049048d5a8865f247d5f441a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d9/dcb/class_f_string.html">FString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa2384e02049048d5a8865f247d5f441a">operator=</a> (const <a class="el" href="../../d9/dcb/class_f_string.html">FString</a> &amp;Str)</td></tr>
+<tr class="separator:aa2384e02049048d5a8865f247d5f441a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21362d828c3e9a266a00351f2e2e81aa" id="r_a21362d828c3e9a266a00351f2e2e81aa"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a21362d828c3e9a266a00351f2e2e81aa">operator-</a> () const</td></tr>
+<tr class="separator:a21362d828c3e9a266a00351f2e2e81aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc9396f8bfda870279b907c2d8e7542a" id="r_abc9396f8bfda870279b907c2d8e7542a"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abc9396f8bfda870279b907c2d8e7542a">operator!</a> () const</td></tr>
+<tr class="separator:abc9396f8bfda870279b907c2d8e7542a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa69f8470a02d19b32553ef327a8b5939" id="r_aa69f8470a02d19b32553ef327a8b5939"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d9/dcb/class_f_string.html">FString</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa69f8470a02d19b32553ef327a8b5939">operator/</a> (const <a class="el" href="../../d9/dcb/class_f_string.html">FString</a> &amp;Other)</td></tr>
+<tr class="separator:aa69f8470a02d19b32553ef327a8b5939"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa020b746f92f5f1c89c5abced2e7f716" id="r_aa020b746f92f5f1c89c5abced2e7f716"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/dc9/_platform_8h.html#a74140f1ff3f7a51b1ac752f90283f3d6">TCHAR</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa020b746f92f5f1c89c5abced2e7f716">operator[]</a> (<a class="el" href="../../d2/dc9/_platform_8h.html#a84083085985fb180ad38b9c32e3937da">int32</a> Index)</td></tr>
+<tr class="separator:aa020b746f92f5f1c89c5abced2e7f716"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6dbc3e342038b594bae6b22f84d0839a" id="r_a6dbc3e342038b594bae6b22f84d0839a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d9/dcb/class_f_string.html">FString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6dbc3e342038b594bae6b22f84d0839a">Replace</a> (<a class="el" href="../../d2/dc9/_platform_8h.html#a74140f1ff3f7a51b1ac752f90283f3d6">TCHAR</a> Str1, <a class="el" href="../../d2/dc9/_platform_8h.html#a74140f1ff3f7a51b1ac752f90283f3d6">TCHAR</a> Str2)</td></tr>
+<tr class="separator:a6dbc3e342038b594bae6b22f84d0839a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaed73274c0a1574617872826de0f7059" id="r_aaed73274c0a1574617872826de0f7059"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaed73274c0a1574617872826de0f7059">Resize</a> (<a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> NewSize)</td></tr>
+<tr class="separator:aaed73274c0a1574617872826de0f7059"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac19cac4f3eb926797208cce926941462" id="r_ac19cac4f3eb926797208cce926941462"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac19cac4f3eb926797208cce926941462">Reserve</a> (<a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> NewReserve)</td></tr>
+<tr class="separator:ac19cac4f3eb926797208cce926941462"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c25542d19beefb05150e328d71ce0b4" id="r_a2c25542d19beefb05150e328d71ce0b4"><td class="memItemLeft" align="right" valign="top">std::wstring &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2c25542d19beefb05150e328d71ce0b4">GetNativeString</a> ()</td></tr>
+<tr class="separator:a2c25542d19beefb05150e328d71ce0b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb15a1772b66f10292727b09cbd75fbe" id="r_acb15a1772b66f10292727b09cbd75fbe"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/dc9/_platform_8h.html#a84083085985fb180ad38b9c32e3937da">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acb15a1772b66f10292727b09cbd75fbe">Len</a> () const</td></tr>
+<tr class="separator:acb15a1772b66f10292727b09cbd75fbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8433547dd75c7b12467cdc367da66eb0" id="r_a8433547dd75c7b12467cdc367da66eb0"><td class="memItemLeft" align="right" valign="top">decltype(auto)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8433547dd75c7b12467cdc367da66eb0">Data</a> () const</td></tr>
+<tr class="separator:a8433547dd75c7b12467cdc367da66eb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a40c63b496ffc2755dadcfc1f3327ba54" id="r_a40c63b496ffc2755dadcfc1f3327ba54"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/dc9/_platform_8h.html#a74140f1ff3f7a51b1ac752f90283f3d6">TCHAR</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a40c63b496ffc2755dadcfc1f3327ba54">Data</a> ()</td></tr>
+<tr class="separator:a40c63b496ffc2755dadcfc1f3327ba54"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a807dc7b602ae5d196c18a3e5788325" id="r_a6a807dc7b602ae5d196c18a3e5788325"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6a807dc7b602ae5d196c18a3e5788325">ToString</a> () const</td></tr>
+<tr class="separator:a6a807dc7b602ae5d196c18a3e5788325"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07f2563a2ad7456ddf5c2c4e8a755a7f" id="r_a07f2563a2ad7456ddf5c2c4e8a755a7f"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a07f2563a2ad7456ddf5c2c4e8a755a7f">GetStr</a> () const</td></tr>
+<tr class="separator:a07f2563a2ad7456ddf5c2c4e8a755a7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b29897373b96447c3bc75a9b422f3d5" id="r_a3b29897373b96447c3bc75a9b422f3d5"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3b29897373b96447c3bc75a9b422f3d5">GetUTF8</a> () const</td></tr>
+<tr class="separator:a3b29897373b96447c3bc75a9b422f3d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af552fd9fbb6998705de60f9b89e9508b" id="r_af552fd9fbb6998705de60f9b89e9508b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d9/dcb/class_f_string.html">FString</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af552fd9fbb6998705de60f9b89e9508b">operator+</a> (<a class="el" href="../../d9/dcb/class_f_string.html">FString</a> R)</td></tr>
+<tr class="separator:af552fd9fbb6998705de60f9b89e9508b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6c486f39bc31cadd0774317ef8fd44d" id="r_ad6c486f39bc31cadd0774317ef8fd44d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d9/dcb/class_f_string.html">FString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad6c486f39bc31cadd0774317ef8fd44d">operator+=</a> (<a class="el" href="../../d9/dcb/class_f_string.html">FString</a> R)</td></tr>
+<tr class="separator:ad6c486f39bc31cadd0774317ef8fd44d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab60592d79f3040e22cd5af84d02ebb6" id="r_aab60592d79f3040e22cd5af84d02ebb6"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="../../d2/dc9/_platform_8h.html#a74140f1ff3f7a51b1ac752f90283f3d6">TCHAR</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aab60592d79f3040e22cd5af84d02ebb6">operator*</a> () const</td></tr>
+<tr class="separator:aab60592d79f3040e22cd5af84d02ebb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93b3a9de90f9cc6832b86a9c6f973884" id="r_a93b3a9de90f9cc6832b86a9c6f973884"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/dc9/_platform_8h.html#a74140f1ff3f7a51b1ac752f90283f3d6">TCHAR</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a93b3a9de90f9cc6832b86a9c6f973884">operator*</a> ()</td></tr>
+<tr class="separator:a93b3a9de90f9cc6832b86a9c6f973884"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6592520a8d399b00b121c29d66465b44" id="r_a6592520a8d399b00b121c29d66465b44"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6592520a8d399b00b121c29d66465b44">operator==</a> (const <a class="el" href="../../d9/dcb/class_f_string.html">FString</a> &amp;R) const</td></tr>
+<tr class="separator:a6592520a8d399b00b121c29d66465b44"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa40dd002b9847afca677bb29056d09ed" id="r_aa40dd002b9847afca677bb29056d09ed"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa40dd002b9847afca677bb29056d09ed">operator&lt;</a> (const <a class="el" href="../../d9/dcb/class_f_string.html">FString</a> &amp;R) const</td></tr>
+<tr class="separator:aa40dd002b9847afca677bb29056d09ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00242670ba5754185f1ea83d0bdbd609" id="r_a00242670ba5754185f1ea83d0bdbd609"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a00242670ba5754185f1ea83d0bdbd609">operator&gt;</a> (const <a class="el" href="../../d9/dcb/class_f_string.html">FString</a> &amp;R) const</td></tr>
+<tr class="separator:a00242670ba5754185f1ea83d0bdbd609"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c4465d298834877d08269950a63408a" id="r_a3c4465d298834877d08269950a63408a"><td class="memItemLeft" align="right" valign="top">decltype(auto)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3c4465d298834877d08269950a63408a">begin</a> ()</td></tr>
+<tr class="separator:a3c4465d298834877d08269950a63408a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade4a115f6376569e1e91019630afb654" id="r_ade4a115f6376569e1e91019630afb654"><td class="memItemLeft" align="right" valign="top">decltype(auto)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ade4a115f6376569e1e91019630afb654">end</a> ()</td></tr>
+<tr class="separator:ade4a115f6376569e1e91019630afb654"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Открытые статические члены</h2></td></tr>
+<tr class="memitem:a979d15c4479439b530eb444ee7fcad6d" id="r_a979d15c4479439b530eb444ee7fcad6d"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../d2/dc9/_platform_8h.html#a84083085985fb180ad38b9c32e3937da">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a979d15c4479439b530eb444ee7fcad6d">FromString</a> (<a class="el" href="../../d2/dc9/_platform_8h.html#a84083085985fb180ad38b9c32e3937da">int32</a> &amp;Value, const <a class="el" href="../../d2/dc9/_platform_8h.html#a74140f1ff3f7a51b1ac752f90283f3d6">TCHAR</a> *Buffer)</td></tr>
+<tr class="separator:a979d15c4479439b530eb444ee7fcad6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5310f8669fd6c5ae47a516a7ec16d329" id="r_a5310f8669fd6c5ae47a516a7ec16d329"><td class="memItemLeft" align="right" valign="top">static float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5310f8669fd6c5ae47a516a7ec16d329">FromString</a> (float &amp;Value, const <a class="el" href="../../d2/dc9/_platform_8h.html#a74140f1ff3f7a51b1ac752f90283f3d6">TCHAR</a> *Buffer)</td></tr>
+<tr class="separator:a5310f8669fd6c5ae47a516a7ec16d329"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6cadba41b98d281e226a5193558934d" id="r_ae6cadba41b98d281e226a5193558934d"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae6cadba41b98d281e226a5193558934d">FromString</a> (bool &amp;Value, const <a class="el" href="../../d2/dc9/_platform_8h.html#a74140f1ff3f7a51b1ac752f90283f3d6">TCHAR</a> *Buffer)</td></tr>
+<tr class="separator:ae6cadba41b98d281e226a5193558934d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aebf682e2e5c01bd4ab069316192ab791" id="r_aebf682e2e5c01bd4ab069316192ab791"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../d9/dcb/class_f_string.html">FString</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aebf682e2e5c01bd4ab069316192ab791">FromString</a> (<a class="el" href="../../d9/dcb/class_f_string.html">FString</a> &amp;Value, const <a class="el" href="../../d2/dc9/_platform_8h.html#a74140f1ff3f7a51b1ac752f90283f3d6">TCHAR</a> *Buffer)</td></tr>
+<tr class="separator:aebf682e2e5c01bd4ab069316192ab791"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1dfcf0015234ee1810ed318e32dc6543" id="r_a1dfcf0015234ee1810ed318e32dc6543"><td class="memTemplParams" colspan="2">template&lt;typename ... TypeArgs&gt; </td></tr>
+<tr class="memitem:a1dfcf0015234ee1810ed318e32dc6543"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="../../d9/dcb/class_f_string.html">FString</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a1dfcf0015234ee1810ed318e32dc6543">PrintF</a> (const <a class="el" href="../../d2/dc9/_platform_8h.html#a74140f1ff3f7a51b1ac752f90283f3d6">TCHAR</a> *Fmt, TypeArgs... Args)</td></tr>
+<tr class="separator:a1dfcf0015234ee1810ed318e32dc6543"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a83898dc9e0b7882bd20f4d4164cc4182" id="r_a83898dc9e0b7882bd20f4d4164cc4182"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../d9/dcb/class_f_string.html">FString</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a83898dc9e0b7882bd20f4d4164cc4182">PrintFInternal</a> (const <a class="el" href="../../d2/dc9/_platform_8h.html#a74140f1ff3f7a51b1ac752f90283f3d6">TCHAR</a> *Fmt,...)</td></tr>
+<tr class="separator:a83898dc9e0b7882bd20f4d4164cc4182"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a59ee575536fec3ddcf537da80f63978b" id="r_a59ee575536fec3ddcf537da80f63978b"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a59ee575536fec3ddcf537da80f63978b"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="../../d9/dcb/class_f_string.html">FString</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a59ee575536fec3ddcf537da80f63978b">NumToString</a> (T Val)</td></tr>
+<tr class="separator:a59ee575536fec3ddcf537da80f63978b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56eb3501e6c3cccfe422e7d3e446850a" id="r_a56eb3501e6c3cccfe422e7d3e446850a"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
+<tr class="memitem:a56eb3501e6c3cccfe422e7d3e446850a"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="../../d9/dcb/class_f_string.html">FString</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a56eb3501e6c3cccfe422e7d3e446850a">NumToString</a> (<a class="el" href="../../d2/dc9/_platform_8h.html#a84083085985fb180ad38b9c32e3937da">int32</a> Val)</td></tr>
+<tr class="separator:a56eb3501e6c3cccfe422e7d3e446850a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a334733e569eee432807250bfc9017b40" id="r_a334733e569eee432807250bfc9017b40"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
+<tr class="memitem:a334733e569eee432807250bfc9017b40"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="../../d9/dcb/class_f_string.html">FString</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a334733e569eee432807250bfc9017b40">NumToString</a> (float Val)</td></tr>
+<tr class="separator:a334733e569eee432807250bfc9017b40"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0a9da2b9c6cc8bb8117642c01774e4b" id="r_af0a9da2b9c6cc8bb8117642c01774e4b"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
+<tr class="memitem:af0a9da2b9c6cc8bb8117642c01774e4b"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="../../d9/dcb/class_f_string.html">FString</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#af0a9da2b9c6cc8bb8117642c01774e4b">NumToString</a> (bool Val)</td></tr>
+<tr class="separator:af0a9da2b9c6cc8bb8117642c01774e4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2380da508872410ec5636bfed7c2e7f0" id="r_a2380da508872410ec5636bfed7c2e7f0"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
+<tr class="memitem:a2380da508872410ec5636bfed7c2e7f0"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="../../d9/dcb/class_f_string.html">FString</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a2380da508872410ec5636bfed7c2e7f0">NumToString</a> (<a class="el" href="../../d9/dcb/class_f_string.html">FString</a> Val)</td></tr>
+<tr class="separator:a2380da508872410ec5636bfed7c2e7f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="friends" name="friends"></a>
+Друзья</h2></td></tr>
+<tr class="memitem:a4106e54baa3908891a572b5fd15d4455" id="r_a4106e54baa3908891a572b5fd15d4455"><td class="memItemLeft" align="right" valign="top">struct&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4106e54baa3908891a572b5fd15d4455">std::hash&lt; FString &gt;</a></td></tr>
+<tr class="separator:a4106e54baa3908891a572b5fd15d4455"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Конструктор(ы)</h2>
+<a id="acc6e2ac6135356e2b8b909ff61bf668c" name="acc6e2ac6135356e2b8b909ff61bf668c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc6e2ac6135356e2b8b909ff61bf668c">&#9670;&#160;</a></span>FString() <span class="overload">[1/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">FString::FString </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad1ba655e8dab2b64c0ccb2fcab5e7ed4" name="ad1ba655e8dab2b64c0ccb2fcab5e7ed4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1ba655e8dab2b64c0ccb2fcab5e7ed4">&#9670;&#160;</a></span>FString() <span class="overload">[2/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FString::FString </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d2/dc9/_platform_8h.html#ac65a9f028228aed366b4d8f24a8ab9e9">ANSICHAR</a> *</td>          <td class="paramname"><span class="paramname"><em>Str</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9b55799b5e13cb728b6a974ec95f40f5" name="a9b55799b5e13cb728b6a974ec95f40f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b55799b5e13cb728b6a974ec95f40f5">&#9670;&#160;</a></span>FString() <span class="overload">[3/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FString::FString </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d2/dc9/_platform_8h.html#a827f84d187d97e962586441ccb428bcd">WIDECHAR</a> *</td>          <td class="paramname"><span class="paramname"><em>Str</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a250e30d9c46e4a7e8cff47b899165e26" name="a250e30d9c46e4a7e8cff47b899165e26"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a250e30d9c46e4a7e8cff47b899165e26">&#9670;&#160;</a></span>FString() <span class="overload">[4/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">FString::FString </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a></td>          <td class="paramname"><span class="paramname"><em>Size</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9d4adf1bd035e87ee277dc80402bf916" name="a9d4adf1bd035e87ee277dc80402bf916"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d4adf1bd035e87ee277dc80402bf916">&#9670;&#160;</a></span>FString() <span class="overload">[5/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FString::FString </td>
+          <td>(</td>
+          <td class="paramtype">const std::wstring &amp;</td>          <td class="paramname"><span class="paramname"><em>Str</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aad5f6131f3377ea0071a7577e1d5fde4" name="aad5f6131f3377ea0071a7577e1d5fde4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad5f6131f3377ea0071a7577e1d5fde4">&#9670;&#160;</a></span>FString() <span class="overload">[6/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FString::FString </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>Str</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae9fd7f4203163fe1724bc6309e5e5862" name="ae9fd7f4203163fe1724bc6309e5e5862"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9fd7f4203163fe1724bc6309e5e5862">&#9670;&#160;</a></span>FString() <span class="overload">[7/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">FString::FString </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d2/dc9/_platform_8h.html#a74140f1ff3f7a51b1ac752f90283f3d6">TCHAR</a> *</td>          <td class="paramname"><span class="paramname"><em>Str</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af36b24ba13804e38ff1e8043bf41533d" name="af36b24ba13804e38ff1e8043bf41533d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af36b24ba13804e38ff1e8043bf41533d">&#9670;&#160;</a></span>FString() <span class="overload">[8/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">FString::FString </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d9/dcb/class_f_string.html">FString</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Str</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Методы</h2>
+<a id="a732671533c37673d1920e0c3613a79f1" name="a732671533c37673d1920e0c3613a79f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a732671533c37673d1920e0c3613a79f1">&#9670;&#160;</a></span>AppendV()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d9/dcb/class_f_string.html">FString</a> &amp; FString::AppendV </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d2/dc9/_platform_8h.html#a74140f1ff3f7a51b1ac752f90283f3d6">TCHAR</a> *</td>          <td class="paramname"><span class="paramname"><em>Fmt</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">va_list</td>          <td class="paramname"><span class="paramname"><em>Args</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab097c6c342d66e45f731098ef2aff21b" name="ab097c6c342d66e45f731098ef2aff21b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab097c6c342d66e45f731098ef2aff21b">&#9670;&#160;</a></span>Back()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/dc9/_platform_8h.html#a74140f1ff3f7a51b1ac752f90283f3d6">TCHAR</a> FString::Back </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3c4465d298834877d08269950a63408a" name="a3c4465d298834877d08269950a63408a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c4465d298834877d08269950a63408a">&#9670;&#160;</a></span>begin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">decltype(auto) FString::begin </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad7a63cbdfe97bbe6b51f4366ff5f3575" name="ad7a63cbdfe97bbe6b51f4366ff5f3575"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7a63cbdfe97bbe6b51f4366ff5f3575">&#9670;&#160;</a></span>Contains()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool FString::Contains </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d9/dcb/class_f_string.html">FString</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a40c63b496ffc2755dadcfc1f3327ba54" name="a40c63b496ffc2755dadcfc1f3327ba54"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a40c63b496ffc2755dadcfc1f3327ba54">&#9670;&#160;</a></span>Data() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/dc9/_platform_8h.html#a74140f1ff3f7a51b1ac752f90283f3d6">TCHAR</a> * FString::Data </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8433547dd75c7b12467cdc367da66eb0" name="a8433547dd75c7b12467cdc367da66eb0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8433547dd75c7b12467cdc367da66eb0">&#9670;&#160;</a></span>Data() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">decltype(auto) FString::Data </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ade4a115f6376569e1e91019630afb654" name="ade4a115f6376569e1e91019630afb654"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade4a115f6376569e1e91019630afb654">&#9670;&#160;</a></span>end()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">decltype(auto) FString::end </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac0cf09296184f01998d6d6577ac51209" name="ac0cf09296184f01998d6d6577ac51209"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0cf09296184f01998d6d6577ac51209">&#9670;&#160;</a></span>First()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/dc9/_platform_8h.html#a74140f1ff3f7a51b1ac752f90283f3d6">TCHAR</a> FString::First </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae6cadba41b98d281e226a5193558934d" name="ae6cadba41b98d281e226a5193558934d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6cadba41b98d281e226a5193558934d">&#9670;&#160;</a></span>FromString() <span class="overload">[1/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static bool FString::FromString </td>
+          <td>(</td>
+          <td class="paramtype">bool &amp;</td>          <td class="paramname"><span class="paramname"><em>Value</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d2/dc9/_platform_8h.html#a74140f1ff3f7a51b1ac752f90283f3d6">TCHAR</a> *</td>          <td class="paramname"><span class="paramname"><em>Buffer</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5310f8669fd6c5ae47a516a7ec16d329" name="a5310f8669fd6c5ae47a516a7ec16d329"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5310f8669fd6c5ae47a516a7ec16d329">&#9670;&#160;</a></span>FromString() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static float FString::FromString </td>
+          <td>(</td>
+          <td class="paramtype">float &amp;</td>          <td class="paramname"><span class="paramname"><em>Value</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d2/dc9/_platform_8h.html#a74140f1ff3f7a51b1ac752f90283f3d6">TCHAR</a> *</td>          <td class="paramname"><span class="paramname"><em>Buffer</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aebf682e2e5c01bd4ab069316192ab791" name="aebf682e2e5c01bd4ab069316192ab791"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aebf682e2e5c01bd4ab069316192ab791">&#9670;&#160;</a></span>FromString() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="../../d9/dcb/class_f_string.html">FString</a> FString::FromString </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d9/dcb/class_f_string.html">FString</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Value</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d2/dc9/_platform_8h.html#a74140f1ff3f7a51b1ac752f90283f3d6">TCHAR</a> *</td>          <td class="paramname"><span class="paramname"><em>Buffer</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a979d15c4479439b530eb444ee7fcad6d" name="a979d15c4479439b530eb444ee7fcad6d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a979d15c4479439b530eb444ee7fcad6d">&#9670;&#160;</a></span>FromString() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="../../d2/dc9/_platform_8h.html#a84083085985fb180ad38b9c32e3937da">int32</a> FString::FromString </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d2/dc9/_platform_8h.html#a84083085985fb180ad38b9c32e3937da">int32</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Value</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d2/dc9/_platform_8h.html#a74140f1ff3f7a51b1ac752f90283f3d6">TCHAR</a> *</td>          <td class="paramname"><span class="paramname"><em>Buffer</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2c25542d19beefb05150e328d71ce0b4" name="a2c25542d19beefb05150e328d71ce0b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c25542d19beefb05150e328d71ce0b4">&#9670;&#160;</a></span>GetNativeString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::wstring &amp; FString::GetNativeString </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a07f2563a2ad7456ddf5c2c4e8a755a7f" name="a07f2563a2ad7456ddf5c2c4e8a755a7f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07f2563a2ad7456ddf5c2c4e8a755a7f">&#9670;&#160;</a></span>GetStr()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char * FString::GetStr </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3b29897373b96447c3bc75a9b422f3d5" name="a3b29897373b96447c3bc75a9b422f3d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b29897373b96447c3bc75a9b422f3d5">&#9670;&#160;</a></span>GetUTF8()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char * FString::GetUTF8 </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acb15a1772b66f10292727b09cbd75fbe" name="acb15a1772b66f10292727b09cbd75fbe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb15a1772b66f10292727b09cbd75fbe">&#9670;&#160;</a></span>Len()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/dc9/_platform_8h.html#a84083085985fb180ad38b9c32e3937da">int32</a> FString::Len </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af0a9da2b9c6cc8bb8117642c01774e4b" name="af0a9da2b9c6cc8bb8117642c01774e4b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af0a9da2b9c6cc8bb8117642c01774e4b">&#9670;&#160;</a></span>NumToString() <span class="overload">[1/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="../../d9/dcb/class_f_string.html">FString</a> FString::NumToString </td>
+          <td>(</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>Val</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a334733e569eee432807250bfc9017b40" name="a334733e569eee432807250bfc9017b40"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a334733e569eee432807250bfc9017b40">&#9670;&#160;</a></span>NumToString() <span class="overload">[2/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="../../d9/dcb/class_f_string.html">FString</a> FString::NumToString </td>
+          <td>(</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>Val</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2380da508872410ec5636bfed7c2e7f0" name="a2380da508872410ec5636bfed7c2e7f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2380da508872410ec5636bfed7c2e7f0">&#9670;&#160;</a></span>NumToString() <span class="overload">[3/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="../../d9/dcb/class_f_string.html">FString</a> FString::NumToString </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d9/dcb/class_f_string.html">FString</a></td>          <td class="paramname"><span class="paramname"><em>Val</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a56eb3501e6c3cccfe422e7d3e446850a" name="a56eb3501e6c3cccfe422e7d3e446850a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56eb3501e6c3cccfe422e7d3e446850a">&#9670;&#160;</a></span>NumToString() <span class="overload">[4/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="../../d9/dcb/class_f_string.html">FString</a> FString::NumToString </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d2/dc9/_platform_8h.html#a84083085985fb180ad38b9c32e3937da">int32</a></td>          <td class="paramname"><span class="paramname"><em>Val</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a59ee575536fec3ddcf537da80f63978b" name="a59ee575536fec3ddcf537da80f63978b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a59ee575536fec3ddcf537da80f63978b">&#9670;&#160;</a></span>NumToString() <span class="overload">[5/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="../../d9/dcb/class_f_string.html">FString</a> FString::NumToString </td>
+          <td>(</td>
+          <td class="paramtype">T</td>          <td class="paramname"><span class="paramname"><em>Val</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abc9396f8bfda870279b907c2d8e7542a" name="abc9396f8bfda870279b907c2d8e7542a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc9396f8bfda870279b907c2d8e7542a">&#9670;&#160;</a></span>operator!()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char * FString::operator! </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a93b3a9de90f9cc6832b86a9c6f973884" name="a93b3a9de90f9cc6832b86a9c6f973884"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a93b3a9de90f9cc6832b86a9c6f973884">&#9670;&#160;</a></span>operator*() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/dc9/_platform_8h.html#a74140f1ff3f7a51b1ac752f90283f3d6">TCHAR</a> * FString::operator* </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aab60592d79f3040e22cd5af84d02ebb6" name="aab60592d79f3040e22cd5af84d02ebb6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab60592d79f3040e22cd5af84d02ebb6">&#9670;&#160;</a></span>operator*() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="../../d2/dc9/_platform_8h.html#a74140f1ff3f7a51b1ac752f90283f3d6">TCHAR</a> * FString::operator* </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af552fd9fbb6998705de60f9b89e9508b" name="af552fd9fbb6998705de60f9b89e9508b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af552fd9fbb6998705de60f9b89e9508b">&#9670;&#160;</a></span>operator+()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d9/dcb/class_f_string.html">FString</a> FString::operator+ </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d9/dcb/class_f_string.html">FString</a></td>          <td class="paramname"><span class="paramname"><em>R</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad6c486f39bc31cadd0774317ef8fd44d" name="ad6c486f39bc31cadd0774317ef8fd44d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6c486f39bc31cadd0774317ef8fd44d">&#9670;&#160;</a></span>operator+=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d9/dcb/class_f_string.html">FString</a> &amp; FString::operator+= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d9/dcb/class_f_string.html">FString</a></td>          <td class="paramname"><span class="paramname"><em>R</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a21362d828c3e9a266a00351f2e2e81aa" name="a21362d828c3e9a266a00351f2e2e81aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a21362d828c3e9a266a00351f2e2e81aa">&#9670;&#160;</a></span>operator-()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char * FString::operator- </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa69f8470a02d19b32553ef327a8b5939" name="aa69f8470a02d19b32553ef327a8b5939"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa69f8470a02d19b32553ef327a8b5939">&#9670;&#160;</a></span>operator/()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d9/dcb/class_f_string.html">FString</a> FString::operator/ </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d9/dcb/class_f_string.html">FString</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa40dd002b9847afca677bb29056d09ed" name="aa40dd002b9847afca677bb29056d09ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa40dd002b9847afca677bb29056d09ed">&#9670;&#160;</a></span>operator&lt;()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool FString::operator&lt; </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d9/dcb/class_f_string.html">FString</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>R</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa2384e02049048d5a8865f247d5f441a" name="aa2384e02049048d5a8865f247d5f441a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2384e02049048d5a8865f247d5f441a">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d9/dcb/class_f_string.html">FString</a> &amp; FString::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d9/dcb/class_f_string.html">FString</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Str</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adfe0dc646cb4200fe9662945b3fa9b36" name="adfe0dc646cb4200fe9662945b3fa9b36"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adfe0dc646cb4200fe9662945b3fa9b36">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d9/dcb/class_f_string.html">FString</a> &amp; FString::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d2/dc9/_platform_8h.html#a74140f1ff3f7a51b1ac752f90283f3d6">TCHAR</a> *</td>          <td class="paramname"><span class="paramname"><em>Str</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6592520a8d399b00b121c29d66465b44" name="a6592520a8d399b00b121c29d66465b44"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6592520a8d399b00b121c29d66465b44">&#9670;&#160;</a></span>operator==()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool FString::operator== </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d9/dcb/class_f_string.html">FString</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>R</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a00242670ba5754185f1ea83d0bdbd609" name="a00242670ba5754185f1ea83d0bdbd609"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00242670ba5754185f1ea83d0bdbd609">&#9670;&#160;</a></span>operator&gt;()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool FString::operator&gt; </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d9/dcb/class_f_string.html">FString</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>R</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa020b746f92f5f1c89c5abced2e7f716" name="aa020b746f92f5f1c89c5abced2e7f716"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa020b746f92f5f1c89c5abced2e7f716">&#9670;&#160;</a></span>operator[]()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/dc9/_platform_8h.html#a74140f1ff3f7a51b1ac752f90283f3d6">TCHAR</a> &amp; FString::operator[] </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d2/dc9/_platform_8h.html#a84083085985fb180ad38b9c32e3937da">int32</a></td>          <td class="paramname"><span class="paramname"><em>Index</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae1b6f73f9ba4aed66a1758bb6918bfc5" name="ae1b6f73f9ba4aed66a1758bb6918bfc5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae1b6f73f9ba4aed66a1758bb6918bfc5">&#9670;&#160;</a></span>PopBack()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FString::PopBack </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a01ad6a4ea5c276a9e3456fc512e6fd11" name="a01ad6a4ea5c276a9e3456fc512e6fd11"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a01ad6a4ea5c276a9e3456fc512e6fd11">&#9670;&#160;</a></span>PopFirst()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FString::PopFirst </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1dfcf0015234ee1810ed318e32dc6543" name="a1dfcf0015234ee1810ed318e32dc6543"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1dfcf0015234ee1810ed318e32dc6543">&#9670;&#160;</a></span>PrintF()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename ... TypeArgs&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="../../d9/dcb/class_f_string.html">FString</a> FString::PrintF </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d2/dc9/_platform_8h.html#a74140f1ff3f7a51b1ac752f90283f3d6">TCHAR</a> *</td>          <td class="paramname"><span class="paramname"><em>Fmt</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TypeArgs...</td>          <td class="paramname"><span class="paramname"><em>Args</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a83898dc9e0b7882bd20f4d4164cc4182" name="a83898dc9e0b7882bd20f4d4164cc4182"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a83898dc9e0b7882bd20f4d4164cc4182">&#9670;&#160;</a></span>PrintFInternal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d9/dcb/class_f_string.html">FString</a> FString::PrintFInternal </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d2/dc9/_platform_8h.html#a74140f1ff3f7a51b1ac752f90283f3d6">TCHAR</a> *</td>          <td class="paramname"><span class="paramname"><em>Fmt</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>...</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6dbc3e342038b594bae6b22f84d0839a" name="a6dbc3e342038b594bae6b22f84d0839a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6dbc3e342038b594bae6b22f84d0839a">&#9670;&#160;</a></span>Replace()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d9/dcb/class_f_string.html">FString</a> &amp; FString::Replace </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d2/dc9/_platform_8h.html#a74140f1ff3f7a51b1ac752f90283f3d6">TCHAR</a></td>          <td class="paramname"><span class="paramname"><em>Str1</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d2/dc9/_platform_8h.html#a74140f1ff3f7a51b1ac752f90283f3d6">TCHAR</a></td>          <td class="paramname"><span class="paramname"><em>Str2</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac19cac4f3eb926797208cce926941462" name="ac19cac4f3eb926797208cce926941462"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac19cac4f3eb926797208cce926941462">&#9670;&#160;</a></span>Reserve()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FString::Reserve </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a></td>          <td class="paramname"><span class="paramname"><em>NewReserve</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aaed73274c0a1574617872826de0f7059" name="aaed73274c0a1574617872826de0f7059"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaed73274c0a1574617872826de0f7059">&#9670;&#160;</a></span>Resize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FString::Resize </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a></td>          <td class="paramname"><span class="paramname"><em>NewSize</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6a807dc7b602ae5d196c18a3e5788325" name="a6a807dc7b602ae5d196c18a3e5788325"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a807dc7b602ae5d196c18a3e5788325">&#9670;&#160;</a></span>ToString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string FString::ToString </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Документация по друзьям класса и функциям, относящимся к классу</h2>
+<a id="a4106e54baa3908891a572b5fd15d4455" name="a4106e54baa3908891a572b5fd15d4455"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4106e54baa3908891a572b5fd15d4455">&#9670;&#160;</a></span>std::hash&lt; FString &gt;</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend struct std::hash&lt; <a class="el" href="../../d9/dcb/class_f_string.html">FString</a> &gt;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>Объявления и описания членов классов находятся в файлах:<ul>
+<li>Dark Engine/Source/Runtime/Core/Public/Containers/<a class="el" href="../../de/d45/_dark_string_8h_source.html">DarkString.h</a></li>
+<li>Dark Engine/Source/Runtime/Core/Private/Containers/<a class="el" href="../../dc/de3/_dark_string_8cpp.html">DarkString.cpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
+</body>
+</html>

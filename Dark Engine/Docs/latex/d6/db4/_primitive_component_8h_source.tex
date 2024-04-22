@@ -1,0 +1,30 @@
+\doxysection{Primitive\+Component.\+h}
+\hypertarget{_primitive_component_8h_source}{}\label{_primitive_component_8h_source}\index{Dark Engine/Source/Runtime/Engine/Classes/Components/PrimitiveComponent/PrimitiveComponent.h@{Dark Engine/Source/Runtime/Engine/Classes/Components/PrimitiveComponent/PrimitiveComponent.h}}
+\mbox{\hyperlink{_primitive_component_8h}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{_u_scene_component_8h}{Components/SceneComponent/USceneComponent.h}}>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{_scene_types_8h}{SceneTypes.h}}>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{_platform_8h}{HAL/Platform.h}}>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_u_primitive_component}{UPrimitiveComponent}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_u_scene_component}{USceneComponent}}}
+\DoxyCodeLine{00008\ \{}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{class_u_scene_component}{USceneComponent}}\ \mbox{\hyperlink{class_u_scene_component}{Super}};}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00012\ \ \ \ \ \mbox{\hyperlink{class_u_primitive_component_a075c2ca1fde0bdf1e8196e399d7cc0f9}{UPrimitiveComponent}}();}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_u_primitive_component_a51665f20cbc69325fcef4a6b75d61023}{BeginPlay}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_u_primitive_component_aa28a9376a51c5539757d28d739b8ba3a}{Update}}(\textcolor{keywordtype}{float}\ DeltaTime)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_u_primitive_component_a8d0b927a1d421589cf5c09d2600fac23}{Destroy}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00016\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00017\ \ \ \ \ \mbox{\hyperlink{class_f_primitive_component_id}{FPrimitiveComponentId}}*\ \mbox{\hyperlink{class_u_primitive_component_a07d4a1966d356f30a3c0a4ac2f6405a1}{GetPrimitiveId}}()\ \{\ \textcolor{keywordflow}{return}\ \&ComponentId;\ \}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00022\ \ \ \ \ \mbox{\hyperlink{class_f_primitive_component_id}{FPrimitiveComponentId}}\ ComponentId;}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \};}
+
+\end{DoxyCode}

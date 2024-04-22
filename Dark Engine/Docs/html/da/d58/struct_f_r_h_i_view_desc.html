@@ -1,0 +1,190 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Dark Engine: Структура FRHIViewDesc</title>
+<link rel="icon" href="../../Logo.ico" type="image/x-icon" />
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<script type="text/javascript" src="../../clipboard.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../Logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Dark Engine<span id="projectnumber">&#160;0.0.39</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../../',true,false,'search.php','Поиск');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-types">Открытые типы</a> &#124;
+<a href="../../dc/dd5/struct_f_r_h_i_view_desc-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle"><div class="title">Структура FRHIViewDesc</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="../../db/dec/_r_h_i_resources_8h_source.html">RHIResources.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
+Открытые типы</h2></td></tr>
+<tr class="memitem:aefb197b205dd4dd39359a8559aed4acf" id="r_aefb197b205dd4dd39359a8559aed4acf"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aefb197b205dd4dd39359a8559aed4acf">EViewType</a> { <a class="el" href="#aefb197b205dd4dd39359a8559aed4acfa6a813f62e980c8563c5c602fa1142648">BufferSRV</a>
+, <a class="el" href="#aefb197b205dd4dd39359a8559aed4acfa270734bf73fb02a32866d9a65200c94a">BufferUAV</a>
+, <a class="el" href="#aefb197b205dd4dd39359a8559aed4acfa6aa6b719543c84ef3fcd0acd5fd67bcb">TextureUAV</a>
+, <a class="el" href="#aefb197b205dd4dd39359a8559aed4acfa1b243628dc918479a2c149f76cd616df">TextureSRV</a>
+ }</td></tr>
+<tr class="separator:aefb197b205dd4dd39359a8559aed4acf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66229ac3b58a6b28ebb4c709634af196" id="r_a66229ac3b58a6b28ebb4c709634af196"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a66229ac3b58a6b28ebb4c709634af196">EBufferType</a> </td></tr>
+<tr class="separator:a66229ac3b58a6b28ebb4c709634af196"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7186f240e3f195a65d153e155638fbb0" id="r_a7186f240e3f195a65d153e155638fbb0"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7186f240e3f195a65d153e155638fbb0">EDimension</a> { <a class="el" href="#a7186f240e3f195a65d153e155638fbb0a88183b946cc5f0e8c96b2e66e1c74a7e">Unknown</a>
+, <a class="el" href="#a7186f240e3f195a65d153e155638fbb0aa6e2bae752d3bf4e34cb392bca789995">Texture2D</a>
+, <a class="el" href="#a7186f240e3f195a65d153e155638fbb0a0a152d9f3e1df14068c5857fb3352505">TextureCube</a>
+, <a class="el" href="#a7186f240e3f195a65d153e155638fbb0a89c915587e16bcf8963be7cf41a0d9fd">Texture3D</a>
+ }</td></tr>
+<tr class="separator:a7186f240e3f195a65d153e155638fbb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Перечисления</h2>
+<a id="a66229ac3b58a6b28ebb4c709634af196" name="a66229ac3b58a6b28ebb4c709634af196"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a66229ac3b58a6b28ebb4c709634af196">&#9670;&#160;</a></span>EBufferType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#a66229ac3b58a6b28ebb4c709634af196">FRHIViewDesc::EBufferType</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7186f240e3f195a65d153e155638fbb0" name="a7186f240e3f195a65d153e155638fbb0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7186f240e3f195a65d153e155638fbb0">&#9670;&#160;</a></span>EDimension</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#a7186f240e3f195a65d153e155638fbb0">FRHIViewDesc::EDimension</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Элементы перечислений</th></tr><tr><td class="fieldname"><a id="a7186f240e3f195a65d153e155638fbb0a88183b946cc5f0e8c96b2e66e1c74a7e" name="a7186f240e3f195a65d153e155638fbb0a88183b946cc5f0e8c96b2e66e1c74a7e"></a>Unknown&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a7186f240e3f195a65d153e155638fbb0aa6e2bae752d3bf4e34cb392bca789995" name="a7186f240e3f195a65d153e155638fbb0aa6e2bae752d3bf4e34cb392bca789995"></a>Texture2D&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a7186f240e3f195a65d153e155638fbb0a0a152d9f3e1df14068c5857fb3352505" name="a7186f240e3f195a65d153e155638fbb0a0a152d9f3e1df14068c5857fb3352505"></a>TextureCube&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a7186f240e3f195a65d153e155638fbb0a89c915587e16bcf8963be7cf41a0d9fd" name="a7186f240e3f195a65d153e155638fbb0a89c915587e16bcf8963be7cf41a0d9fd"></a>Texture3D&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="aefb197b205dd4dd39359a8559aed4acf" name="aefb197b205dd4dd39359a8559aed4acf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aefb197b205dd4dd39359a8559aed4acf">&#9670;&#160;</a></span>EViewType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#aefb197b205dd4dd39359a8559aed4acf">FRHIViewDesc::EViewType</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Элементы перечислений</th></tr><tr><td class="fieldname"><a id="aefb197b205dd4dd39359a8559aed4acfa6a813f62e980c8563c5c602fa1142648" name="aefb197b205dd4dd39359a8559aed4acfa6a813f62e980c8563c5c602fa1142648"></a>BufferSRV&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aefb197b205dd4dd39359a8559aed4acfa270734bf73fb02a32866d9a65200c94a" name="aefb197b205dd4dd39359a8559aed4acfa270734bf73fb02a32866d9a65200c94a"></a>BufferUAV&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aefb197b205dd4dd39359a8559aed4acfa6aa6b719543c84ef3fcd0acd5fd67bcb" name="aefb197b205dd4dd39359a8559aed4acfa6aa6b719543c84ef3fcd0acd5fd67bcb"></a>TextureUAV&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aefb197b205dd4dd39359a8559aed4acfa1b243628dc918479a2c149f76cd616df" name="aefb197b205dd4dd39359a8559aed4acfa1b243628dc918479a2c149f76cd616df"></a>TextureSRV&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<hr/>Объявления и описания членов структуры находятся в файле:<ul>
+<li>Dark Engine/Source/Runtime/RHI/public/<a class="el" href="../../db/dec/_r_h_i_resources_8h_source.html">RHIResources.h</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
+</body>
+</html>

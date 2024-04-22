@@ -1,0 +1,277 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Dark Engine: Файл Dark Engine/Source/Runtime/Render/D3D12/D3D12Utils.h</title>
+<link rel="icon" href="../../Logo.ico" type="image/x-icon" />
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<script type="text/javascript" src="../../clipboard.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../Logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Dark Engine<span id="projectnumber">&#160;0.0.39</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../../',true,false,'search.php','Поиск');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_55043db21ba5ddd7c561d2c5a5a38944.html">Dark Engine</a></li><li class="navelem"><a class="el" href="../../dir_e00b54220e1e1486ac9971b606d33054.html">Source</a></li><li class="navelem"><a class="el" href="../../dir_ae01c8af07818b260cc3481e8588b277.html">Runtime</a></li><li class="navelem"><a class="el" href="../../dir_1b0bffc8d096929f17ecae6ef7b4b529.html">Render</a></li><li class="navelem"><a class="el" href="../../dir_d93dc1c13639dc0a8989b4ca7595d959.html">D3D12</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Классы</a> &#124;
+<a href="#define-members">Макросы</a> &#124;
+<a href="#enum-members">Перечисления</a> &#124;
+<a href="#func-members">Функции</a>  </div>
+  <div class="headertitle"><div class="title">Файл D3D12Utils.h</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;unordered_map&gt;</code><br />
+<code>#include &lt;memory&gt;</code><br />
+<code>#include &lt;<a class="el" href="../../de/d45/_dark_string_8h_source.html">Containers/DarkString.h</a>&gt;</code><br />
+<code>#include &lt;Windows.h&gt;</code><br />
+<code>#include &lt;<a class="el" href="../../dc/d27/_t_unique_ptr_8h_source.html">Memory/TUniquePtr.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="../../d4/d09/_core_8h_source.html">Core.h</a>&gt;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/dce/_d3_d12_main_8h_source.html">D3D12Main.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d1/d7f/_d3_d12_camera_8h_source.html">D3D12Camera.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d1/dae/_render_2_d3_d12_2_d3_d12_texture_8h_source.html">D3D12Texture.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d2/dc9/_platform_8h_source.html">HAL/Platform.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d3/dc5/_array_8h_source.html">Containers/Array.h</a>&quot;</code><br />
+<code>#include &lt;dxcapi.h&gt;</code><br />
+<code>#include &lt;<a class="el" href="../../dd/d0f/_render_2_d3_d12_2_d3_d12_shader_8h_source.html">d3d12shader.h</a>&gt;</code><br />
+<code>#include &quot;<a class="el" href="../../d9/d7b/_paths_8h_source.html">Misc/Paths.h</a>&quot;</code><br />
+</div>
+<p><a href="../../d5/dc5/_d3_d12_utils_8h_source.html">См. исходные тексты.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Классы</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d45/class_d3_d_util.html">D3DUtil</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Макросы</h2></td></tr>
+<tr class="memitem:afc7f7fd56b3807256bd96b9bc1e3f9da" id="r_afc7f7fd56b3807256bd96b9bc1e3f9da"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afc7f7fd56b3807256bd96b9bc1e3f9da">D3D_DEFAULT_TEXTURE</a>&#160;&#160;&#160;<a class="el" href="../../d6/dde/class_f_paths.html#aac3a3fe830f0028ebad67f39d6f66a36">FPaths::CombineDir</a>(<a class="el" href="../../d6/dde/class_f_paths.html#a3ccb5ab737ebc4a5e691e0ffc41093cd">FPaths::EngineContentDir</a>(), &quot;Textures/uv.dds&quot;)</td></tr>
+<tr class="separator:afc7f7fd56b3807256bd96b9bc1e3f9da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af93d1eeaf41ffa5637d46929baafc5cf" id="r_af93d1eeaf41ffa5637d46929baafc5cf"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af93d1eeaf41ffa5637d46929baafc5cf">D3D_DEFAULT_SKYBOX</a>&#160;&#160;&#160;<a class="el" href="../../d6/dde/class_f_paths.html#aac3a3fe830f0028ebad67f39d6f66a36">FPaths::CombineDir</a>(<a class="el" href="../../d6/dde/class_f_paths.html#a3ccb5ab737ebc4a5e691e0ffc41093cd">FPaths::EngineContentDir</a>(), &quot;Textures/cubemap.dds&quot;)</td></tr>
+<tr class="separator:af93d1eeaf41ffa5637d46929baafc5cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+Перечисления</h2></td></tr>
+<tr class="memitem:a49802c782fb40bd8e79835ef12871dde" id="r_a49802c782fb40bd8e79835ef12871dde"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a49802c782fb40bd8e79835ef12871dde">eShaderType</a> { <a class="el" href="#a49802c782fb40bd8e79835ef12871ddea79935518a3889663d8688b6b01fff051">Default</a> = 0
+, <a class="el" href="#a49802c782fb40bd8e79835ef12871ddea40f3b2e02173a504f9b3720d1dcede51">Light</a>
+, <a class="el" href="#a49802c782fb40bd8e79835ef12871ddeaff9abf2b1a689f70a77a18da50c01d9f">Size</a>
+ }</td></tr>
+<tr class="separator:a49802c782fb40bd8e79835ef12871dde"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Функции</h2></td></tr>
+<tr class="memitem:a00d0913d92e5c24df80e174b7cd0f732" id="r_a00d0913d92e5c24df80e174b7cd0f732"><td class="memItemLeft" align="right" valign="top">static XMFLOAT3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a00d0913d92e5c24df80e174b7cd0f732">operator-</a> (const XMFLOAT3 &amp;v1, const XMFLOAT3 &amp;v2)</td></tr>
+<tr class="separator:a00d0913d92e5c24df80e174b7cd0f732"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06bc949f2aaf065c57865d35f45c37e0" id="r_a06bc949f2aaf065c57865d35f45c37e0"><td class="memItemLeft" align="right" valign="top">static XMFLOAT2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a06bc949f2aaf065c57865d35f45c37e0">operator-</a> (const XMFLOAT2 &amp;v1, const XMFLOAT2 &amp;v2)</td></tr>
+<tr class="separator:a06bc949f2aaf065c57865d35f45c37e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08114d2ff3fc96a14a1eb83d0d60f684" id="r_a08114d2ff3fc96a14a1eb83d0d60f684"><td class="memItemLeft" align="right" valign="top">static XMFLOAT3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a08114d2ff3fc96a14a1eb83d0d60f684">operator*</a> (const XMFLOAT3 &amp;v1, const float f2)</td></tr>
+<tr class="separator:a08114d2ff3fc96a14a1eb83d0d60f684"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Макросы</h2>
+<a id="af93d1eeaf41ffa5637d46929baafc5cf" name="af93d1eeaf41ffa5637d46929baafc5cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af93d1eeaf41ffa5637d46929baafc5cf">&#9670;&#160;</a></span>D3D_DEFAULT_SKYBOX</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D3D_DEFAULT_SKYBOX&#160;&#160;&#160;<a class="el" href="../../d6/dde/class_f_paths.html#aac3a3fe830f0028ebad67f39d6f66a36">FPaths::CombineDir</a>(<a class="el" href="../../d6/dde/class_f_paths.html#a3ccb5ab737ebc4a5e691e0ffc41093cd">FPaths::EngineContentDir</a>(), &quot;Textures/cubemap.dds&quot;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afc7f7fd56b3807256bd96b9bc1e3f9da" name="afc7f7fd56b3807256bd96b9bc1e3f9da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc7f7fd56b3807256bd96b9bc1e3f9da">&#9670;&#160;</a></span>D3D_DEFAULT_TEXTURE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D3D_DEFAULT_TEXTURE&#160;&#160;&#160;<a class="el" href="../../d6/dde/class_f_paths.html#aac3a3fe830f0028ebad67f39d6f66a36">FPaths::CombineDir</a>(<a class="el" href="../../d6/dde/class_f_paths.html#a3ccb5ab737ebc4a5e691e0ffc41093cd">FPaths::EngineContentDir</a>(), &quot;Textures/uv.dds&quot;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Перечисления</h2>
+<a id="a49802c782fb40bd8e79835ef12871dde" name="a49802c782fb40bd8e79835ef12871dde"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49802c782fb40bd8e79835ef12871dde">&#9670;&#160;</a></span>eShaderType</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#a49802c782fb40bd8e79835ef12871dde">eShaderType</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Элементы перечислений</th></tr><tr><td class="fieldname"><a id="a49802c782fb40bd8e79835ef12871ddea79935518a3889663d8688b6b01fff051" name="a49802c782fb40bd8e79835ef12871ddea79935518a3889663d8688b6b01fff051"></a>Default&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a49802c782fb40bd8e79835ef12871ddea40f3b2e02173a504f9b3720d1dcede51" name="a49802c782fb40bd8e79835ef12871ddea40f3b2e02173a504f9b3720d1dcede51"></a>Light&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a49802c782fb40bd8e79835ef12871ddeaff9abf2b1a689f70a77a18da50c01d9f" name="a49802c782fb40bd8e79835ef12871ddeaff9abf2b1a689f70a77a18da50c01d9f"></a>Size&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Функции</h2>
+<a id="a08114d2ff3fc96a14a1eb83d0d60f684" name="a08114d2ff3fc96a14a1eb83d0d60f684"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a08114d2ff3fc96a14a1eb83d0d60f684">&#9670;&#160;</a></span>operator*()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static XMFLOAT3 operator* </td>
+          <td>(</td>
+          <td class="paramtype">const XMFLOAT3 &amp;</td>          <td class="paramname"><span class="paramname"><em>v1</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const float</td>          <td class="paramname"><span class="paramname"><em>f2</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a06bc949f2aaf065c57865d35f45c37e0" name="a06bc949f2aaf065c57865d35f45c37e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a06bc949f2aaf065c57865d35f45c37e0">&#9670;&#160;</a></span>operator-() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static XMFLOAT2 operator- </td>
+          <td>(</td>
+          <td class="paramtype">const XMFLOAT2 &amp;</td>          <td class="paramname"><span class="paramname"><em>v1</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const XMFLOAT2 &amp;</td>          <td class="paramname"><span class="paramname"><em>v2</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a00d0913d92e5c24df80e174b7cd0f732" name="a00d0913d92e5c24df80e174b7cd0f732"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00d0913d92e5c24df80e174b7cd0f732">&#9670;&#160;</a></span>operator-() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static XMFLOAT3 operator- </td>
+          <td>(</td>
+          <td class="paramtype">const XMFLOAT3 &amp;</td>          <td class="paramname"><span class="paramname"><em>v1</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const XMFLOAT3 &amp;</td>          <td class="paramname"><span class="paramname"><em>v2</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
+</body>
+</html>

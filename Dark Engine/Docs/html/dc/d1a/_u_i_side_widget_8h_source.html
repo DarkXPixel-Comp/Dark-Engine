@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Dark Engine: Исходный файл Dark Engine/Source/Runtime/UICore/public/Widgets/UISideWidget.h</title>
+<link rel="icon" href="../../Logo.ico" type="image/x-icon" />
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<script type="text/javascript" src="../../clipboard.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../Logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Dark Engine<span id="projectnumber">&#160;0.0.39</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../../',true,false,'search.php','Поиск');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(1); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_55043db21ba5ddd7c561d2c5a5a38944.html">Dark Engine</a></li><li class="navelem"><a class="el" href="../../dir_e00b54220e1e1486ac9971b606d33054.html">Source</a></li><li class="navelem"><a class="el" href="../../dir_ae01c8af07818b260cc3481e8588b277.html">Runtime</a></li><li class="navelem"><a class="el" href="../../dir_eeada408226bdd8c9ce13b8152f152c0.html">UICore</a></li><li class="navelem"><a class="el" href="../../dir_0a7389cf834aa017a133265e0c66a883.html">public</a></li><li class="navelem"><a class="el" href="../../dir_7dbaa450d4b677da97ae98b367941a25.html">Widgets</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">UISideWidget.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="../../dc/d1a/_u_i_side_widget_8h.html">См. документацию.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="../../d5/dc2/_u_i_widget_8h.html">Widgets/UIWidget.h</a>&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="foldopen" id="foldopen00005" data-start="{" data-end="};">
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno"><a class="line" href="../../dc/d1a/_u_i_side_widget_8h.html#a26fd15ac5adf00f13048faa304d562c5">    5</a></span><span class="keyword">enum class</span> <a class="code hl_enumeration" href="../../dc/d1a/_u_i_side_widget_8h.html#a26fd15ac5adf00f13048faa304d562c5">EUISide</a></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>{</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>    <a class="code hl_enumvalue" href="../../dc/d1a/_u_i_side_widget_8h.html#a26fd15ac5adf00f13048faa304d562c5a945d5e233cf7d6240f6b783b36a374ff">Left</a>,</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>    <a class="code hl_enumvalue" href="../../dc/d1a/_u_i_side_widget_8h.html#a26fd15ac5adf00f13048faa304d562c5a92b09c7c48c520c3c55e497875da437c">Right</a>,</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    <a class="code hl_enumvalue" href="../../dc/d1a/_u_i_side_widget_8h.html#a26fd15ac5adf00f13048faa304d562c5a258f49887ef8d14ac268c92b02503aaa">Up</a>,</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    <a class="code hl_enumvalue" href="../../dc/d1a/_u_i_side_widget_8h.html#a26fd15ac5adf00f13048faa304d562c5a08a38277b0309070706f6652eeae9a53">Down</a></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>};</div>
+</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="foldopen" id="foldopen00015" data-start="{" data-end="};">
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="../../d0/d04/class_u_i_side_widget.html">   15</a></span><span class="keyword">class </span><a class="code hl_class" href="../../d0/d04/class_u_i_side_widget.html">UISideWidget</a> : <span class="keyword">public</span> <a class="code hl_class" href="../../d1/d68/class_u_i_widget.html">UIWidget</a></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>{</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <a class="code hl_function" href="../../d0/d04/class_u_i_side_widget.html#a77067b4d1c50096afdfe488715160845">UISideWidget</a>(<a class="code hl_enumeration" href="../../dc/d1a/_u_i_side_widget_8h.html#a26fd15ac5adf00f13048faa304d562c5">EUISide</a> InSide);</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../d0/d04/class_u_i_side_widget.html#af714afc20632b43c61538e317527dc82">DrawImGui</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <a class="code hl_enumeration" href="../../dc/d1a/_u_i_side_widget_8h.html#a26fd15ac5adf00f13048faa304d562c5">EUISide</a> Side;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>};</div>
+</div>
+<div class="ttc" id="a_u_i_side_widget_8h_html_a26fd15ac5adf00f13048faa304d562c5"><div class="ttname"><a href="../../dc/d1a/_u_i_side_widget_8h.html#a26fd15ac5adf00f13048faa304d562c5">EUISide</a></div><div class="ttdeci">EUISide</div><div class="ttdef"><b>Definition</b> UISideWidget.h:6</div></div>
+<div class="ttc" id="a_u_i_side_widget_8h_html_a26fd15ac5adf00f13048faa304d562c5a08a38277b0309070706f6652eeae9a53"><div class="ttname"><a href="../../dc/d1a/_u_i_side_widget_8h.html#a26fd15ac5adf00f13048faa304d562c5a08a38277b0309070706f6652eeae9a53">EUISide::Down</a></div><div class="ttdeci">@ Down</div></div>
+<div class="ttc" id="a_u_i_side_widget_8h_html_a26fd15ac5adf00f13048faa304d562c5a258f49887ef8d14ac268c92b02503aaa"><div class="ttname"><a href="../../dc/d1a/_u_i_side_widget_8h.html#a26fd15ac5adf00f13048faa304d562c5a258f49887ef8d14ac268c92b02503aaa">EUISide::Up</a></div><div class="ttdeci">@ Up</div></div>
+<div class="ttc" id="a_u_i_side_widget_8h_html_a26fd15ac5adf00f13048faa304d562c5a92b09c7c48c520c3c55e497875da437c"><div class="ttname"><a href="../../dc/d1a/_u_i_side_widget_8h.html#a26fd15ac5adf00f13048faa304d562c5a92b09c7c48c520c3c55e497875da437c">EUISide::Right</a></div><div class="ttdeci">@ Right</div></div>
+<div class="ttc" id="a_u_i_side_widget_8h_html_a26fd15ac5adf00f13048faa304d562c5a945d5e233cf7d6240f6b783b36a374ff"><div class="ttname"><a href="../../dc/d1a/_u_i_side_widget_8h.html#a26fd15ac5adf00f13048faa304d562c5a945d5e233cf7d6240f6b783b36a374ff">EUISide::Left</a></div><div class="ttdeci">@ Left</div></div>
+<div class="ttc" id="a_u_i_widget_8h_html"><div class="ttname"><a href="../../d5/dc2/_u_i_widget_8h.html">UIWidget.h</a></div></div>
+<div class="ttc" id="aclass_u_i_side_widget_html"><div class="ttname"><a href="../../d0/d04/class_u_i_side_widget.html">UISideWidget</a></div><div class="ttdef"><b>Definition</b> UISideWidget.h:16</div></div>
+<div class="ttc" id="aclass_u_i_side_widget_html_a77067b4d1c50096afdfe488715160845"><div class="ttname"><a href="../../d0/d04/class_u_i_side_widget.html#a77067b4d1c50096afdfe488715160845">UISideWidget::UISideWidget</a></div><div class="ttdeci">UISideWidget(EUISide InSide)</div><div class="ttdef"><b>Definition</b> UISideWidget.cpp:21</div></div>
+<div class="ttc" id="aclass_u_i_side_widget_html_af714afc20632b43c61538e317527dc82"><div class="ttname"><a href="../../d0/d04/class_u_i_side_widget.html#af714afc20632b43c61538e317527dc82">UISideWidget::DrawImGui</a></div><div class="ttdeci">virtual void DrawImGui() override</div><div class="ttdef"><b>Definition</b> UISideWidget.cpp:25</div></div>
+<div class="ttc" id="aclass_u_i_widget_html"><div class="ttname"><a href="../../d1/d68/class_u_i_widget.html">UIWidget</a></div><div class="ttdef"><b>Definition</b> UIWidget.h:17</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
+</body>
+</html>

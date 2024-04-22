@@ -1,0 +1,43 @@
+\doxysection{Файл Dark Engine/\+Source/\+Runtime/\+Core/\+Public/\+Templates/\+Dark\+Template.h}
+\hypertarget{_dark_template_8h}{}\label{_dark_template_8h}\index{Dark Engine/Source/Runtime/Core/Public/Templates/DarkTemplate.h@{Dark Engine/Source/Runtime/Core/Public/Templates/DarkTemplate.h}}
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+\doxysubsubsection*{Классы}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_t_remove_reference}{TRemove\+Reference$<$ T $>$}}
+\item 
+struct \mbox{\hyperlink{struct_t_remove_reference_3_01_t_01_6_01_4}{TRemove\+Reference$<$ T \& $>$}}
+\item 
+struct \mbox{\hyperlink{struct_t_remove_reference_3_01_t_01_6_6_01_4}{TRemove\+Reference$<$ T \&\& $>$}}
+\item 
+class \mbox{\hyperlink{class_f_noncopyble}{FNoncopyble}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Макросы}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_dark_template_8h_a65a9a0605dd44912118be3a866b27089}{DE\+\_\+\+ARRAY\+\_\+\+COUNT}}(arr)~(\+\_\+countof(arr))
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Функции}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{struct_t_remove_reference}{TRemove\+Reference}}$<$ T $>$\+::\+Type \&\& \mbox{\hyperlink{_dark_template_8h_a003eb64f2a7754a2bfdd60ab750e59ce}{Move\+Temp}} (T \&\&Obj)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Макросы}
+\Hypertarget{_dark_template_8h_a65a9a0605dd44912118be3a866b27089}\label{_dark_template_8h_a65a9a0605dd44912118be3a866b27089} 
+\index{DarkTemplate.h@{DarkTemplate.h}!DE\_ARRAY\_COUNT@{DE\_ARRAY\_COUNT}}
+\index{DE\_ARRAY\_COUNT@{DE\_ARRAY\_COUNT}!DarkTemplate.h@{DarkTemplate.h}}
+\doxysubsubsection{\texorpdfstring{DE\_ARRAY\_COUNT}{DE\_ARRAY\_COUNT}}
+{\footnotesize\ttfamily \#define DE\+\_\+\+ARRAY\+\_\+\+COUNT(\begin{DoxyParamCaption}\item[{}]{arr }\end{DoxyParamCaption})~(\+\_\+countof(arr))}
+
+
+
+\doxysubsection{Функции}
+\Hypertarget{_dark_template_8h_a003eb64f2a7754a2bfdd60ab750e59ce}\label{_dark_template_8h_a003eb64f2a7754a2bfdd60ab750e59ce} 
+\index{DarkTemplate.h@{DarkTemplate.h}!MoveTemp@{MoveTemp}}
+\index{MoveTemp@{MoveTemp}!DarkTemplate.h@{DarkTemplate.h}}
+\doxysubsubsection{\texorpdfstring{MoveTemp()}{MoveTemp()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{struct_t_remove_reference}{TRemove\+Reference}}$<$ T $>$\+::\+Type \&\& Move\+Temp (\begin{DoxyParamCaption}\item[{T \&\&}]{Obj }\end{DoxyParamCaption})}
+

@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Dark Engine: Исходный файл Dark Engine/Source/Runtime/Core/Public/Console/ConsoleStd.h</title>
+<link rel="icon" href="../../Logo.ico" type="image/x-icon" />
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<script type="text/javascript" src="../../clipboard.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../Logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Dark Engine<span id="projectnumber">&#160;0.0.39</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../../',true,false,'search.php','Поиск');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(1); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_55043db21ba5ddd7c561d2c5a5a38944.html">Dark Engine</a></li><li class="navelem"><a class="el" href="../../dir_e00b54220e1e1486ac9971b606d33054.html">Source</a></li><li class="navelem"><a class="el" href="../../dir_ae01c8af07818b260cc3481e8588b277.html">Runtime</a></li><li class="navelem"><a class="el" href="../../dir_59f1d85f259666bc4c18ba498cded78a.html">Core</a></li><li class="navelem"><a class="el" href="../../dir_78d6767ad0aceff322a7926558f8cdbd.html">Public</a></li><li class="navelem"><a class="el" href="../../dir_e7c75a8bb17e7a937603b32b96d6fe99.html">Console</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">ConsoleStd.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d1/dc4/_console_std_8h.html">См. документацию.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;<a class="code" href="../../d6/d97/_base_console_8h.html">Console/BaseConsole.h</a>&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;thread&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="foldopen" id="foldopen00008" data-start="{" data-end="};">
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="../../da/d13/class_f_console_std.html">    8</a></span><span class="keyword">class </span><a class="code hl_class" href="../../da/d13/class_f_console_std.html">FConsoleStd</a> : <span class="keyword">public</span> <a class="code hl_class" href="../../d0/de2/class_f_base_console.html">FBaseConsole</a></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>{</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="../../da/d13/class_f_console_std.html#a9f34f9e68cbff846fb139da2b60ee012">   11</a></span>    <a class="code hl_function" href="../../da/d13/class_f_console_std.html#a9f34f9e68cbff846fb139da2b60ee012">FConsoleStd</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <a class="code hl_function" href="../../da/d13/class_f_console_std.html#a5318243f523520c33534be18abff9867">~FConsoleStd</a>();</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../da/d13/class_f_console_std.html#a11bbba692f0be992736ddf76158a3465">AddLog</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../d9/dcb/class_f_string.html">FString</a>&amp; Text, <a class="code hl_class" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">FVector3f</a> Color = <a class="code hl_typedef" href="../../d0/df6/_math_fwd_8h.html#a97a4aa8e6391e1665580cd373848baff">FVector3f</a>(0, 0, 0), <span class="keywordtype">float</span> Time = 0.f) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../da/d13/class_f_console_std.html#aa312bce1f94cf9ef98d7acff9d0a4868">CreateConsoleOS</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../d9/dcb/class_f_string.html">FString</a>&amp; Label);</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../da/d13/class_f_console_std.html#a8b69d1b5f17a7f85d078bd7660f92d33">DestroyConsole</a>();</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../da/d13/class_f_console_std.html#a7ec4b32af901495e43f56ce16079a2b8">SetAutoClose</a>(<span class="keywordtype">bool</span> InbAutoClose);</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="../../da/d13/class_f_console_std.html#ae92d37ad7ece813360b04cdb379e8e91">   20</a></span>    std::thread <a class="code hl_variable" href="../../da/d13/class_f_console_std.html#ae92d37ad7ece813360b04cdb379e8e91">Thread</a>;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keywordtype">bool</span> bInitializeConsole = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keywordtype">bool</span> bAutoClose = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>};</div>
+</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="ttc" id="a_base_console_8h_html"><div class="ttname"><a href="../../d6/d97/_base_console_8h.html">BaseConsole.h</a></div></div>
+<div class="ttc" id="a_math_fwd_8h_html_a97a4aa8e6391e1665580cd373848baff"><div class="ttname"><a href="../../d0/df6/_math_fwd_8h.html#a97a4aa8e6391e1665580cd373848baff">FVector3f</a></div><div class="ttdeci">DE::Math::TVector&lt; float &gt; FVector3f</div><div class="ttdef"><b>Definition</b> MathFwd.h:48</div></div>
+<div class="ttc" id="aclass_f_base_console_html"><div class="ttname"><a href="../../d0/de2/class_f_base_console.html">FBaseConsole</a></div><div class="ttdef"><b>Definition</b> BaseConsole.h:148</div></div>
+<div class="ttc" id="aclass_f_console_std_html"><div class="ttname"><a href="../../da/d13/class_f_console_std.html">FConsoleStd</a></div><div class="ttdef"><b>Definition</b> ConsoleStd.h:9</div></div>
+<div class="ttc" id="aclass_f_console_std_html_a11bbba692f0be992736ddf76158a3465"><div class="ttname"><a href="../../da/d13/class_f_console_std.html#a11bbba692f0be992736ddf76158a3465">FConsoleStd::AddLog</a></div><div class="ttdeci">virtual void AddLog(const FString &amp;Text, FVector3f Color=FVector3f(0, 0, 0), float Time=0.f) override</div><div class="ttdef"><b>Definition</b> ConsoleStd.cpp:169</div></div>
+<div class="ttc" id="aclass_f_console_std_html_a5318243f523520c33534be18abff9867"><div class="ttname"><a href="../../da/d13/class_f_console_std.html#a5318243f523520c33534be18abff9867">FConsoleStd::~FConsoleStd</a></div><div class="ttdeci">~FConsoleStd()</div><div class="ttdef"><b>Definition</b> ConsoleStd.cpp:124</div></div>
+<div class="ttc" id="aclass_f_console_std_html_a7ec4b32af901495e43f56ce16079a2b8"><div class="ttname"><a href="../../da/d13/class_f_console_std.html#a7ec4b32af901495e43f56ce16079a2b8">FConsoleStd::SetAutoClose</a></div><div class="ttdeci">void SetAutoClose(bool InbAutoClose)</div><div class="ttdef"><b>Definition</b> ConsoleStd.cpp:163</div></div>
+<div class="ttc" id="aclass_f_console_std_html_a8b69d1b5f17a7f85d078bd7660f92d33"><div class="ttname"><a href="../../da/d13/class_f_console_std.html#a8b69d1b5f17a7f85d078bd7660f92d33">FConsoleStd::DestroyConsole</a></div><div class="ttdeci">void DestroyConsole()</div><div class="ttdef"><b>Definition</b> ConsoleStd.cpp:154</div></div>
+<div class="ttc" id="aclass_f_console_std_html_a9f34f9e68cbff846fb139da2b60ee012"><div class="ttname"><a href="../../da/d13/class_f_console_std.html#a9f34f9e68cbff846fb139da2b60ee012">FConsoleStd::FConsoleStd</a></div><div class="ttdeci">FConsoleStd()=default</div></div>
+<div class="ttc" id="aclass_f_console_std_html_aa312bce1f94cf9ef98d7acff9d0a4868"><div class="ttname"><a href="../../da/d13/class_f_console_std.html#aa312bce1f94cf9ef98d7acff9d0a4868">FConsoleStd::CreateConsoleOS</a></div><div class="ttdeci">void CreateConsoleOS(const FString &amp;Label)</div><div class="ttdef"><b>Definition</b> ConsoleStd.cpp:132</div></div>
+<div class="ttc" id="aclass_f_console_std_html_ae92d37ad7ece813360b04cdb379e8e91"><div class="ttname"><a href="../../da/d13/class_f_console_std.html#ae92d37ad7ece813360b04cdb379e8e91">FConsoleStd::Thread</a></div><div class="ttdeci">std::thread Thread</div><div class="ttdef"><b>Definition</b> ConsoleStd.h:20</div></div>
+<div class="ttc" id="aclass_f_string_html"><div class="ttname"><a href="../../d9/dcb/class_f_string.html">FString</a></div><div class="ttdef"><b>Definition</b> DarkString.h:17</div></div>
+<div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector&lt; float &gt;</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
+</body>
+</html>

@@ -1,0 +1,79 @@
+\doxysection{Файл Dark Engine/\+Source/\+Runtime/\+Renderer/private/\+Shader\+Compiler.cpp}
+\hypertarget{_shader_compiler_8cpp}{}\label{_shader_compiler_8cpp}\index{Dark Engine/Source/Runtime/Renderer/private/ShaderCompiler.cpp@{Dark Engine/Source/Runtime/Renderer/private/ShaderCompiler.cpp}}
+{\ttfamily \#include "{}Shader\+Compiler.\+h"{}}\newline
+{\ttfamily \#include "{}Shader.\+h"{}}\newline
+{\ttfamily \#include "{}IShader\+Format.\+h"{}}\newline
+{\ttfamily \#include "{}D3\+DShader\+Format.\+h"{}}\newline
+{\ttfamily \#include "{}Global\+Shader.\+h"{}}\newline
+{\ttfamily \#include "{}Shader\+Core.\+h"{}}\newline
+{\ttfamily \#include "{}Timer/\+Game\+Timer.\+h"{}}\newline
+{\ttfamily \#include "{}Containers/\+Array.\+h"{}}\newline
+{\ttfamily \#include "{}Containers/\+Dark\+String.\+h"{}}\newline
+\doxysubsubsection*{Функции}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_shader_compiler_8cpp_a602f95697e7cf4737deb1308b3450d6c}{Compile\+Global\+Shaders}} ()
+\item 
+void \mbox{\hyperlink{_shader_compiler_8cpp_ae7df90a651a169be4f1f5f357b2ae5a9}{Verify\+Global\+Shaders}} ()
+\item 
+static bool \mbox{\hyperlink{_shader_compiler_8cpp_ab4fa5b19edd7c58d7475e578392fd584}{Preprocess\+Shader\+Internal}} (const \mbox{\hyperlink{class_i_shader_format}{IShader\+Format}} \texorpdfstring{$\ast$}{*}Compiler, \mbox{\hyperlink{class_f_shader_compile_job}{FShader\+Compile\+Job}} \&Job)
+\item 
+void \mbox{\hyperlink{_shader_compiler_8cpp_aa7e838ee45e39746bda8c3de8a15f1a7}{Compile\+Shader}} (\mbox{\hyperlink{class_f_shader_compile_job}{FShader\+Compile\+Job}} \&Job)
+\item 
+void \mbox{\hyperlink{_shader_compiler_8cpp_a6385d29419c173266bfd80bd2dc7aff8}{Process\+Compiled\+Shader\+Map}} (\mbox{\hyperlink{class_t_array}{TArray}}$<$ \mbox{\hyperlink{_t_unique_ptr_8h_ab7a7d47ba593c2489fecf3f003f56c53}{TShared\+Ptr}}$<$ \mbox{\hyperlink{class_f_shader_compile_job}{FShader\+Compile\+Job}} $>$ $>$ \&Jobs)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Переменные}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_f_global_shader_map}{FGlobal\+Shader\+Map}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{_shader_compiler_8cpp_a8688704650f31b91e4f0e7b813d4dc4d}{GGlobal\+Shader\+Map}}
+\item 
+\mbox{\hyperlink{class_i_shader_format}{IShader\+Format}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{_shader_compiler_8cpp_a09ca6b0bd0db7e79cef9f0e105ccef92}{GShader\+Format}} = nullptr
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Функции}
+\Hypertarget{_shader_compiler_8cpp_a602f95697e7cf4737deb1308b3450d6c}\label{_shader_compiler_8cpp_a602f95697e7cf4737deb1308b3450d6c} 
+\index{ShaderCompiler.cpp@{ShaderCompiler.cpp}!CompileGlobalShaders@{CompileGlobalShaders}}
+\index{CompileGlobalShaders@{CompileGlobalShaders}!ShaderCompiler.cpp@{ShaderCompiler.cpp}}
+\doxysubsubsection{\texorpdfstring{CompileGlobalShaders()}{CompileGlobalShaders()}}
+{\footnotesize\ttfamily void Compile\+Global\+Shaders (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{_shader_compiler_8cpp_aa7e838ee45e39746bda8c3de8a15f1a7}\label{_shader_compiler_8cpp_aa7e838ee45e39746bda8c3de8a15f1a7} 
+\index{ShaderCompiler.cpp@{ShaderCompiler.cpp}!CompileShader@{CompileShader}}
+\index{CompileShader@{CompileShader}!ShaderCompiler.cpp@{ShaderCompiler.cpp}}
+\doxysubsubsection{\texorpdfstring{CompileShader()}{CompileShader()}}
+{\footnotesize\ttfamily void Compile\+Shader (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_f_shader_compile_job}{FShader\+Compile\+Job}} \&}]{Job }\end{DoxyParamCaption})}
+
+\Hypertarget{_shader_compiler_8cpp_ab4fa5b19edd7c58d7475e578392fd584}\label{_shader_compiler_8cpp_ab4fa5b19edd7c58d7475e578392fd584} 
+\index{ShaderCompiler.cpp@{ShaderCompiler.cpp}!PreprocessShaderInternal@{PreprocessShaderInternal}}
+\index{PreprocessShaderInternal@{PreprocessShaderInternal}!ShaderCompiler.cpp@{ShaderCompiler.cpp}}
+\doxysubsubsection{\texorpdfstring{PreprocessShaderInternal()}{PreprocessShaderInternal()}}
+{\footnotesize\ttfamily static bool Preprocess\+Shader\+Internal (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_i_shader_format}{IShader\+Format}} \texorpdfstring{$\ast$}{*}}]{Compiler,  }\item[{\mbox{\hyperlink{class_f_shader_compile_job}{FShader\+Compile\+Job}} \&}]{Job }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{_shader_compiler_8cpp_a6385d29419c173266bfd80bd2dc7aff8}\label{_shader_compiler_8cpp_a6385d29419c173266bfd80bd2dc7aff8} 
+\index{ShaderCompiler.cpp@{ShaderCompiler.cpp}!ProcessCompiledShaderMap@{ProcessCompiledShaderMap}}
+\index{ProcessCompiledShaderMap@{ProcessCompiledShaderMap}!ShaderCompiler.cpp@{ShaderCompiler.cpp}}
+\doxysubsubsection{\texorpdfstring{ProcessCompiledShaderMap()}{ProcessCompiledShaderMap()}}
+{\footnotesize\ttfamily void Process\+Compiled\+Shader\+Map (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_t_array}{TArray}}$<$ \mbox{\hyperlink{_t_unique_ptr_8h_ab7a7d47ba593c2489fecf3f003f56c53}{TShared\+Ptr}}$<$ \mbox{\hyperlink{class_f_shader_compile_job}{FShader\+Compile\+Job}} $>$ $>$ \&}]{Jobs }\end{DoxyParamCaption})}
+
+\Hypertarget{_shader_compiler_8cpp_ae7df90a651a169be4f1f5f357b2ae5a9}\label{_shader_compiler_8cpp_ae7df90a651a169be4f1f5f357b2ae5a9} 
+\index{ShaderCompiler.cpp@{ShaderCompiler.cpp}!VerifyGlobalShaders@{VerifyGlobalShaders}}
+\index{VerifyGlobalShaders@{VerifyGlobalShaders}!ShaderCompiler.cpp@{ShaderCompiler.cpp}}
+\doxysubsubsection{\texorpdfstring{VerifyGlobalShaders()}{VerifyGlobalShaders()}}
+{\footnotesize\ttfamily void Verify\+Global\+Shaders (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Переменные}
+\Hypertarget{_shader_compiler_8cpp_a8688704650f31b91e4f0e7b813d4dc4d}\label{_shader_compiler_8cpp_a8688704650f31b91e4f0e7b813d4dc4d} 
+\index{ShaderCompiler.cpp@{ShaderCompiler.cpp}!GGlobalShaderMap@{GGlobalShaderMap}}
+\index{GGlobalShaderMap@{GGlobalShaderMap}!ShaderCompiler.cpp@{ShaderCompiler.cpp}}
+\doxysubsubsection{\texorpdfstring{GGlobalShaderMap}{GGlobalShaderMap}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_f_global_shader_map}{FGlobal\+Shader\+Map}}\texorpdfstring{$\ast$}{*} GGlobal\+Shader\+Map}
+
+\Hypertarget{_shader_compiler_8cpp_a09ca6b0bd0db7e79cef9f0e105ccef92}\label{_shader_compiler_8cpp_a09ca6b0bd0db7e79cef9f0e105ccef92} 
+\index{ShaderCompiler.cpp@{ShaderCompiler.cpp}!GShaderFormat@{GShaderFormat}}
+\index{GShaderFormat@{GShaderFormat}!ShaderCompiler.cpp@{ShaderCompiler.cpp}}
+\doxysubsubsection{\texorpdfstring{GShaderFormat}{GShaderFormat}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_i_shader_format}{IShader\+Format}}\texorpdfstring{$\ast$}{*} GShader\+Format = nullptr}
+

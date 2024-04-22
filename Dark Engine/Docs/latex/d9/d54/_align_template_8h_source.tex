@@ -1,0 +1,16 @@
+\doxysection{Align\+Template.\+h}
+\hypertarget{_align_template_8h_source}{}\label{_align_template_8h_source}\index{Dark Engine/Source/Runtime/Core/Public/Templates/AlignTemplate.h@{Dark Engine/Source/Runtime/Core/Public/Templates/AlignTemplate.h}}
+\mbox{\hyperlink{_align_template_8h}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_platform_8h}{HAL/Platform.h}}"{}}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00007\ FORCEINLINE\ \textcolor{keyword}{constexpr}\ T\ \mbox{\hyperlink{_align_template_8h_a3483acf381a22a4696a25ac42b2f3d4c}{Align}}(T\ Val,\ \mbox{\hyperlink{_platform_8h_afddf25cca147311c233b23a9d3329bb4}{uint64}}\ Alignment)}
+\DoxyCodeLine{00008\ \{}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keywordflow}{return}\ (T)(((\mbox{\hyperlink{_platform_8h_afddf25cca147311c233b23a9d3329bb4}{uint64}})Val\ +\ Alignment\ -\/\ 1)\ \&\ \string~(Alignment\ -\/\ 1));}
+\DoxyCodeLine{00010\ \}}
+
+\end{DoxyCode}

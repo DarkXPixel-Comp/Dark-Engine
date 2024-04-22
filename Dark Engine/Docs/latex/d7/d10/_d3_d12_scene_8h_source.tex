@@ -1,0 +1,26 @@
+\doxysection{D3\+D12\+Scene.\+h}
+\hypertarget{_d3_d12_scene_8h_source}{}\label{_d3_d12_scene_8h_source}\index{Dark Engine/Source/Runtime/Render/D3D12/D3D12Scene.h@{Dark Engine/Source/Runtime/Render/D3D12/D3D12Scene.h}}
+\mbox{\hyperlink{_d3_d12_scene_8h}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_d3_d12_main_8h}{D3D12Main.h}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_d3_d12_model_8h}{D3D12Model.h}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_d3_d12_camera_8h}{D3D12Camera.h}}"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_d3_d12_scene}{D3D12Scene}}}
+\DoxyCodeLine{00008\ \{}
+\DoxyCodeLine{00009\ \ \ \ \ TArray<D3D12Model*>\ m\_models;}
+\DoxyCodeLine{00010\ \ \ \ \ \mbox{\hyperlink{struct_d3_d12_camera}{D3D12Camera}}\ m\_camera;}
+\DoxyCodeLine{00011\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00012\ \ \ \ \ \mbox{\hyperlink{class_d3_d12_scene_a224dc529c09c294540985dc53725daa1}{D3D12Scene}}()\ :\ m\_camera(\{\ 0,\ 0,\ 0\ \},\ \{\ 0,\ 0,\ 0\ \})\ \{\}}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_d3_d12_scene_ab0372f02f8084ab49f8ff01b891d047a}{SetCamera}}(\mbox{\hyperlink{struct_d3_d12_camera}{D3D12Camera}}\ camera);}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_d3_d12_scene_ad8f26ba21c7754793f80a199bf7b3b68}{AddModel}}(\mbox{\hyperlink{class_d3_d12_model}{D3D12Model}}*\ model);}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_d3_d12_scene_aa48e3788f9fb97db2f83b11fb425d91d}{AddModels}}(TArray<D3D12Model*>\ models);}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_d3_d12_scene_a1f8e0ca6ee39b71376bea07d165221eb}{SetModels}}(TArray<D3D12Model*>\ models);}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_d3_d12_scene_aa14bcf25afeff260256eefd8d29e4294}{ResetModels}}();}
+\DoxyCodeLine{00018\ \ \ \ \ TArray<D3D12Model*>\ \mbox{\hyperlink{class_d3_d12_scene_ac3fa27d871e2a07d74bf9233ce738ca5}{GetModels}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_models;\ \}}
+\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{struct_d3_d12_camera}{D3D12Camera}}\&\ \mbox{\hyperlink{class_d3_d12_scene_a458e4fee3e54159e640cf28169874736}{GetCamera}}()\ \{\ \textcolor{keywordflow}{return}\ m\_camera;\ \}}
+\DoxyCodeLine{00020\ \};}
+
+\end{DoxyCode}

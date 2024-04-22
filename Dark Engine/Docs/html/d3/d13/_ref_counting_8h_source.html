@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Dark Engine: Исходный файл Dark Engine/Source/Runtime/Core/Public/Templates/RefCounting.h</title>
+<link rel="icon" href="../../Logo.ico" type="image/x-icon" />
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<script type="text/javascript" src="../../clipboard.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../Logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Dark Engine<span id="projectnumber">&#160;0.0.39</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../../',true,false,'search.php','Поиск');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(1); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_55043db21ba5ddd7c561d2c5a5a38944.html">Dark Engine</a></li><li class="navelem"><a class="el" href="../../dir_e00b54220e1e1486ac9971b606d33054.html">Source</a></li><li class="navelem"><a class="el" href="../../dir_ae01c8af07818b260cc3481e8588b277.html">Runtime</a></li><li class="navelem"><a class="el" href="../../dir_59f1d85f259666bc4c18ba498cded78a.html">Core</a></li><li class="navelem"><a class="el" href="../../dir_78d6767ad0aceff322a7926558f8cdbd.html">Public</a></li><li class="navelem"><a class="el" href="../../dir_ee57fa976d973e53893530709928e426.html">Templates</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">RefCounting.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d3/d13/_ref_counting_8h.html">См. документацию.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;<a class="code" href="../../db/d04/_core_types_8h.html">CoreTypes.h</a>&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="../../d4/d75/_assertion_macros_8h.html">Misc/AssertionMacros.h</a>&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="foldopen" id="foldopen00005" data-start="{" data-end="};">
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno"><a class="line" href="../../dc/dba/class_f_ref_counted_object.html">    5</a></span><span class="keyword">class </span><a class="code hl_class" href="../../dc/dba/class_f_ref_counted_object.html">FRefCountedObject</a></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>{</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="../../dc/dba/class_f_ref_counted_object.html#a3ae3edbc4c5caf1b150c3b261185e9b3">    8</a></span>    <a class="code hl_function" href="../../dc/dba/class_f_ref_counted_object.html#a3ae3edbc4c5caf1b150c3b261185e9b3">FRefCountedObject</a>() : NumRefs(0) {}</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="../../dc/dba/class_f_ref_counted_object.html#a1dbde45df03ba584126c3f68883e1e2e">    9</a></span>    <span class="keyword">virtual</span> <a class="code hl_function" href="../../dc/dba/class_f_ref_counted_object.html#a1dbde45df03ba584126c3f68883e1e2e">~FRefCountedObject</a>() { <a class="code hl_define" href="../../d4/d75/_assertion_macros_8h.html#a586e110623cde145b8a5bdefb429e144">check</a>(!NumRefs); }</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="../../dc/dba/class_f_ref_counted_object.html#ac92d8ab8cedefb3c5bb731a609800832">   10</a></span>    <a class="code hl_function" href="../../dc/dba/class_f_ref_counted_object.html#ac92d8ab8cedefb3c5bb731a609800832">FRefCountedObject</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../dc/dba/class_f_ref_counted_object.html">FRefCountedObject</a>&amp; Rhs) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="../../dc/dba/class_f_ref_counted_object.html#a8d0313b3999b0a7f268b76058b7c5c18">   11</a></span>    <a class="code hl_class" href="../../dc/dba/class_f_ref_counted_object.html">FRefCountedObject</a>&amp; <a class="code hl_function" href="../../dc/dba/class_f_ref_counted_object.html#a8d0313b3999b0a7f268b76058b7c5c18">operator=</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../dc/dba/class_f_ref_counted_object.html">FRefCountedObject</a>&amp; Rhs) = <span class="keyword">delete</span>;</div>
+<div class="foldopen" id="foldopen00012" data-start="{" data-end="}">
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="../../dc/dba/class_f_ref_counted_object.html#a8e5a493f34a64331f86fc1f69934dea0">   12</a></span>    <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> <a class="code hl_function" href="../../dc/dba/class_f_ref_counted_object.html#a8e5a493f34a64331f86fc1f69934dea0">AddRef</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>        <span class="keywordflow">return</span> <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a>(++NumRefs);</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    }</div>
+</div>
+<div class="foldopen" id="foldopen00016" data-start="{" data-end="}">
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="../../dc/dba/class_f_ref_counted_object.html#ab350f7dff1cb3cbb729c10008be874bc">   16</a></span>    <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> <a class="code hl_function" href="../../dc/dba/class_f_ref_counted_object.html#ab350f7dff1cb3cbb729c10008be874bc">Release</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> Refs = <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a>(--NumRefs);</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        <span class="keywordflow">if</span> (Refs == 0)</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        {</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>            <span class="keyword">delete</span> <span class="keyword">this</span>;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        }</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        <span class="keywordflow">return</span> Refs;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    }</div>
+</div>
+<div class="foldopen" id="foldopen00025" data-start="{" data-end="}">
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="../../dc/dba/class_f_ref_counted_object.html#af2b7744952475e6be883443e2380f33e">   25</a></span>    <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> <a class="code hl_function" href="../../dc/dba/class_f_ref_counted_object.html#af2b7744952475e6be883443e2380f33e">GetRefCount</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        <span class="keywordflow">return</span> <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a>(NumRefs);</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    }</div>
+</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keyword">mutable</span> <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a84083085985fb180ad38b9c32e3937da">int32</a> NumRefs;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>};</div>
+</div>
+<div class="ttc" id="a_assertion_macros_8h_html"><div class="ttname"><a href="../../d4/d75/_assertion_macros_8h.html">AssertionMacros.h</a></div></div>
+<div class="ttc" id="a_assertion_macros_8h_html_a586e110623cde145b8a5bdefb429e144"><div class="ttname"><a href="../../d4/d75/_assertion_macros_8h.html#a586e110623cde145b8a5bdefb429e144">check</a></div><div class="ttdeci">#define check(expr)</div><div class="ttdef"><b>Definition</b> AssertionMacros.h:138</div></div>
+<div class="ttc" id="a_core_types_8h_html"><div class="ttname"><a href="../../db/d04/_core_types_8h.html">CoreTypes.h</a></div></div>
+<div class="ttc" id="a_platform_8h_html_a84083085985fb180ad38b9c32e3937da"><div class="ttname"><a href="../../d2/dc9/_platform_8h.html#a84083085985fb180ad38b9c32e3937da">int32</a></div><div class="ttdeci">FPlatformTypes::int32 int32</div><div class="ttdef"><b>Definition</b> Platform.h:42</div></div>
+<div class="ttc" id="a_platform_8h_html_a8c7a127091efbdfc5a16939041653e05"><div class="ttname"><a href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a></div><div class="ttdeci">FPlatformTypes::uint32 uint32</div><div class="ttdef"><b>Definition</b> Platform.h:43</div></div>
+<div class="ttc" id="aclass_f_ref_counted_object_html"><div class="ttname"><a href="../../dc/dba/class_f_ref_counted_object.html">FRefCountedObject</a></div><div class="ttdef"><b>Definition</b> RefCounting.h:6</div></div>
+<div class="ttc" id="aclass_f_ref_counted_object_html_a1dbde45df03ba584126c3f68883e1e2e"><div class="ttname"><a href="../../dc/dba/class_f_ref_counted_object.html#a1dbde45df03ba584126c3f68883e1e2e">FRefCountedObject::~FRefCountedObject</a></div><div class="ttdeci">virtual ~FRefCountedObject()</div><div class="ttdef"><b>Definition</b> RefCounting.h:9</div></div>
+<div class="ttc" id="aclass_f_ref_counted_object_html_a3ae3edbc4c5caf1b150c3b261185e9b3"><div class="ttname"><a href="../../dc/dba/class_f_ref_counted_object.html#a3ae3edbc4c5caf1b150c3b261185e9b3">FRefCountedObject::FRefCountedObject</a></div><div class="ttdeci">FRefCountedObject()</div><div class="ttdef"><b>Definition</b> RefCounting.h:8</div></div>
+<div class="ttc" id="aclass_f_ref_counted_object_html_a8d0313b3999b0a7f268b76058b7c5c18"><div class="ttname"><a href="../../dc/dba/class_f_ref_counted_object.html#a8d0313b3999b0a7f268b76058b7c5c18">FRefCountedObject::operator=</a></div><div class="ttdeci">FRefCountedObject &amp; operator=(const FRefCountedObject &amp;Rhs)=delete</div></div>
+<div class="ttc" id="aclass_f_ref_counted_object_html_a8e5a493f34a64331f86fc1f69934dea0"><div class="ttname"><a href="../../dc/dba/class_f_ref_counted_object.html#a8e5a493f34a64331f86fc1f69934dea0">FRefCountedObject::AddRef</a></div><div class="ttdeci">uint32 AddRef() const</div><div class="ttdef"><b>Definition</b> RefCounting.h:12</div></div>
+<div class="ttc" id="aclass_f_ref_counted_object_html_ab350f7dff1cb3cbb729c10008be874bc"><div class="ttname"><a href="../../dc/dba/class_f_ref_counted_object.html#ab350f7dff1cb3cbb729c10008be874bc">FRefCountedObject::Release</a></div><div class="ttdeci">uint32 Release() const</div><div class="ttdef"><b>Definition</b> RefCounting.h:16</div></div>
+<div class="ttc" id="aclass_f_ref_counted_object_html_ac92d8ab8cedefb3c5bb731a609800832"><div class="ttname"><a href="../../dc/dba/class_f_ref_counted_object.html#ac92d8ab8cedefb3c5bb731a609800832">FRefCountedObject::FRefCountedObject</a></div><div class="ttdeci">FRefCountedObject(const FRefCountedObject &amp;Rhs)=delete</div></div>
+<div class="ttc" id="aclass_f_ref_counted_object_html_af2b7744952475e6be883443e2380f33e"><div class="ttname"><a href="../../dc/dba/class_f_ref_counted_object.html#af2b7744952475e6be883443e2380f33e">FRefCountedObject::GetRefCount</a></div><div class="ttdeci">uint32 GetRefCount() const</div><div class="ttdef"><b>Definition</b> RefCounting.h:25</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
+</body>
+</html>

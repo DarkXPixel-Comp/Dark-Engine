@@ -1,0 +1,110 @@
+\doxysection{Logger.\+h}
+\hypertarget{_logger_8h_source}{}\label{_logger_8h_source}\index{Dark Engine/Source/Runtime/Core/Logging/Logger.h@{Dark Engine/Source/Runtime/Core/Logging/Logger.h}}
+\mbox{\hyperlink{_logger_8h}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\#include\ <Core.h>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{_dark_string_8h}{Containers/DarkString.h}}>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <ctime>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <list>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <thread>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <mutex>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#ifdef\ \_WIN32}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <Windows.h>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ \_WIN32}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_command_line_8h}{../CommandLine/CommandLine.h}}"{}}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_math_fwd_8h}{Math/MathFwd.h}}"{}}}
+\DoxyCodeLine{00017\ \textcolor{comment}{//\#include\ "{}Containers/Array.h"{}}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{comment}{//\#define\ Log(...)\ Logger::logF(\_\_VA\_ARGS\_\_,\ nullptr)}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlog__}{log\_}}}
+\DoxyCodeLine{00028\ \{}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{structlog___ac73e37823089e86e0f89a38864a3744b}{severenty}}\ =\ 0;}
+\DoxyCodeLine{00030\ \ \ \ \ \mbox{\hyperlink{class_f_string}{FString}}\ \mbox{\hyperlink{structlog___a8eff77a72eae6ce488e40f5e914b1cda}{txt}}\ =\ \mbox{\hyperlink{_platform_8h_a2978f60d40d64f3605b5a99f66f292a9}{TEXT}}(\textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{00031\ \ \ \ \ time\_t\ \mbox{\hyperlink{structlog___ab10fdd5476a91f26d00e8108ccd21a88}{time}}\ =\ time\_t();}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structlog___ab668d4d838ce6a65d93700f560365610}{isConsole}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00035\ \ \ \ \ \mbox{\hyperlink{class_f_string}{FString}}\ \mbox{\hyperlink{structlog___a703e9e87e7f45ce50288903dcf3f475b}{Result}}\ =\ \mbox{\hyperlink{_platform_8h_a2978f60d40d64f3605b5a99f66f292a9}{TEXT}}(\textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{00036\ \ \ \ \ \mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}\ \mbox{\hyperlink{structlog___a8ff6a4dacf8d5416355778e0a6cb9290}{Line}}\ =\ 0;}
+\DoxyCodeLine{00037\ \ \ \ \ \mbox{\hyperlink{class_f_string}{FString}}\ \mbox{\hyperlink{structlog___ac6a22aca58e0717cf58715868db9d83d}{File}}\ =\ \mbox{\hyperlink{_platform_8h_a2978f60d40d64f3605b5a99f66f292a9}{TEXT}}(\textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structlog___ab2091b737ed2a7b400cac92596c7afe8}{ModernLog}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector}{FVector}}\ \mbox{\hyperlink{structlog___ac694dc00604aaed3a8d6f43c6565c2cd}{Color}}\ =\ \mbox{\hyperlink{_math_fwd_8h_a2a5830396a4d19761fa96594e10278fa}{FVector}}();}
+\DoxyCodeLine{00041\ \};}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{_logger_8h_a78a0e7a0f95eb2eb841806c2da3d345e}{LOGGER\_ENUM}}}
+\DoxyCodeLine{00046\ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \mbox{\hyperlink{_logger_8h_a78a0e7a0f95eb2eb841806c2da3d345ea3a56c2c000665930df74a9ebf9047316}{LOGGER\_INFO}}\ =\ \ \ \ \ 0b00000001,}
+\DoxyCodeLine{00048\ \ \ \ \ \mbox{\hyperlink{_logger_8h_a78a0e7a0f95eb2eb841806c2da3d345ea236a2401a6ed3e96611f3a14352082ad}{LOGGER\_WARNING}}\ =\ 0b00000010,}
+\DoxyCodeLine{00049\ \ \ \ \ \mbox{\hyperlink{_logger_8h_a78a0e7a0f95eb2eb841806c2da3d345ea2974dee2fa00fbf9bb4978f96bb9f543}{LOGGER\_ERROR}}\ =\ \ \ 0b00000100,}
+\DoxyCodeLine{00050\ \ \ \ \ \mbox{\hyperlink{_logger_8h_a78a0e7a0f95eb2eb841806c2da3d345ea30eb5eac34e7c2406c74fb78d9004f6c}{LOGGER\_DEBUG}}\ =\ \ \ 0b00001000,}
+\DoxyCodeLine{00051\ \ \ \ \ \mbox{\hyperlink{_logger_8h_a78a0e7a0f95eb2eb841806c2da3d345eaf94abdd89c858d16ac5713ae0da9500c}{LOGGER\_CONSOLE}}\ =\ 0b00010000}
+\DoxyCodeLine{00052\ \}\ \textcolor{keyword}{typedef};}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_logger}{Logger}};}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_logger_8h_a7b9deaca24ca9f842c548076ef1d4b69}{logging}}(\mbox{\hyperlink{class_logger}{Logger}}*);}
+\DoxyCodeLine{00059\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_logger_8h_a283ceaffb8adaa846091085b33d5a5d0}{record}}(\mbox{\hyperlink{structlog__}{log\_}}\&);}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \textcolor{keyword}{class\ }\mbox{\hyperlink{_core_platform_8h_a94070b76c7d4ff7927f14814f3f53e40}{DENGINE\_API}}\ \mbox{\hyperlink{class_logger}{Logger}}}
+\DoxyCodeLine{00062\ \{}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_logger_8cpp_a6980af36e9eb5116f3f90867fc2d2c9f}{logging}}(\mbox{\hyperlink{class_logger}{Logger}}*);}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_logger_8cpp_ad561a187000379411879e5a348308ec4}{record}}(\mbox{\hyperlink{structlog__}{log\_}}\&);}
+\DoxyCodeLine{00065\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00066\ \ \ \ \ \mbox{\hyperlink{class_logger}{Logger}}();}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ Initialize(\textcolor{keywordtype}{size\_t}\ s);}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ Exit();}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ log(\mbox{\hyperlink{class_f_string}{FString}},\ \mbox{\hyperlink{_logger_8h_a78a0e7a0f95eb2eb841806c2da3d345e}{LOGGER\_ENUM}}\ severenty\ =\ \mbox{\hyperlink{_logger_8h_a78a0e7a0f95eb2eb841806c2da3d345ea3a56c2c000665930df74a9ebf9047316}{LOGGER\_INFO}});}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ logF(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ arg,\ ...);}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ logF(\mbox{\hyperlink{class_f_string}{FString}}*\ arg,\ ...);}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ exLog(\mbox{\hyperlink{class_f_string}{FString}},\ \mbox{\hyperlink{_logger_8h_a78a0e7a0f95eb2eb841806c2da3d345e}{LOGGER\_ENUM}});}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ log(\mbox{\hyperlink{structlog__}{log\_}}\ InLog);}
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordtype}{void}\ urgLog(\mbox{\hyperlink{class_f_string}{FString}},\ \mbox{\hyperlink{_logger_8h_a78a0e7a0f95eb2eb841806c2da3d345e}{LOGGER\_ENUM}});}
+\DoxyCodeLine{00077\ \textcolor{preprocessor}{\#ifdef\ \_WIN32}}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ log(std::wstring\ str,\ \mbox{\hyperlink{_logger_8h_a78a0e7a0f95eb2eb841806c2da3d345e}{LOGGER\_ENUM}}\ severenty\ =\ \mbox{\hyperlink{_logger_8h_a78a0e7a0f95eb2eb841806c2da3d345ea3a56c2c000665930df74a9ebf9047316}{LOGGER\_INFO}});}
+\DoxyCodeLine{00079\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ \_WIN32}}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ wait();}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keyword}{static}\ std::vector<log\_>\&\ \mbox{\hyperlink{class_logger_a2476154638e0d2fe6227a1b18a30b3b5}{GetLogs}}()\ \{\ \textcolor{keywordflow}{return}\ inst-\/>Logs;\ \}}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{_platform_8h_afddf25cca147311c233b23a9d3329bb4}{uint64}}\ \mbox{\hyperlink{class_logger_a8845a28948ba3c1db2c4e50eb0b9c087}{GetMaxCountLogs}}()\ \{\ \textcolor{keywordflow}{return}\ inst-\/>MaxCountLogs;\ \}}
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{_platform_8h_afddf25cca147311c233b23a9d3329bb4}{uint64}}\ \mbox{\hyperlink{class_logger_ac77c7a84a5213c8a4d0f37b279a2b77f}{GetCurrentCountLogs}}()\ \{\ \textcolor{keywordflow}{return}\ inst-\/>CountCurrentLogs;\ \}}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{comment}{//TArray<log\_>\ Logs;}}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{comment}{//TArray<int>\ Logs;}}
+\DoxyCodeLine{00090\ \ \ \ \ std::vector<log\_>\ \mbox{\hyperlink{class_logger_ad2ba5a8801744d321712a023d8e8e92f}{Logs}};}
+\DoxyCodeLine{00091\ \ \ \ \ \mbox{\hyperlink{_platform_8h_afddf25cca147311c233b23a9d3329bb4}{uint64}}\ CountCurrentLogs\ =\ 0;}
+\DoxyCodeLine{00092\ \ \ \ \ \mbox{\hyperlink{_platform_8h_afddf25cca147311c233b23a9d3329bb4}{uint64}}\ MaxCountLogs\ =\ 0;}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ severity\ =\ 0;}
+\DoxyCodeLine{00097\ \ \ \ \ std::vector\ <log\_>\ logs;}
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keywordtype}{bool}\ isWork\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{_platform_8h_afddf25cca147311c233b23a9d3329bb4}{uint64}}\ MAX\_LOGS\ =\ 1024;}
+\DoxyCodeLine{00100\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_logger}{Logger}}*\ inst;}
+\DoxyCodeLine{00102\ \};}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ }
+
+\end{DoxyCode}

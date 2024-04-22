@@ -1,0 +1,204 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Dark Engine: Исходный файл Dark Engine/Source/Runtime/Engine/Classes/Actor/Actor.h</title>
+<link rel="icon" href="../../Logo.ico" type="image/x-icon" />
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<script type="text/javascript" src="../../clipboard.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../Logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Dark Engine<span id="projectnumber">&#160;0.0.39</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../../',true,false,'search.php','Поиск');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(1); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_55043db21ba5ddd7c561d2c5a5a38944.html">Dark Engine</a></li><li class="navelem"><a class="el" href="../../dir_e00b54220e1e1486ac9971b606d33054.html">Source</a></li><li class="navelem"><a class="el" href="../../dir_ae01c8af07818b260cc3481e8588b277.html">Runtime</a></li><li class="navelem"><a class="el" href="../../dir_736522237f23468e79442f3fc4ecd19b.html">Engine</a></li><li class="navelem"><a class="el" href="../../dir_8e5f7f07800deb66a56f516b5eaf6fef.html">Classes</a></li><li class="navelem"><a class="el" href="../../dir_e7338324f3c27fbfed792e027840daa7.html">Actor</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">Actor.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="../../de/deb/_actor_8h.html">См. документацию.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;<a class="code" href="../../d3/df5/_u_object_8h.html">../UObject/UObject.h</a>&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;<a class="code" href="../../d4/d09/_core_8h.html">Core.h</a>&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;<a class="code" href="../../dd/d85/_actor_component_8h.html">Components/ActorComponent/ActorComponent.h</a>&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;<a class="code" href="../../d5/d88/_u_scene_component_8h.html">Components/SceneComponent/USceneComponent.h</a>&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;DirectXMath.h&gt;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;<a class="code" href="../../d6/d2f/_d3_d12_model_8h.html">D3D12/D3D12Model.h</a>&gt;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;<a class="code" href="../../dd/d7b/_input_core_8h.html">InputCore.h</a>&gt;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">using namespace </span>DirectX;</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="foldopen" id="foldopen00016" data-start="{" data-end="};">
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="../../db/d32/class_a_actor.html">   16</a></span><span class="keyword">class </span><a class="code hl_define" href="../../da/d5a/_core_platform_8h.html#a94070b76c7d4ff7927f14814f3f53e40">DENGINE_API</a> <a class="code hl_class" href="../../db/d32/class_a_actor.html">AActor</a> : <span class="keyword">public</span> <a class="code hl_class" href="../../d7/d0b/class_u_object.html">UObject</a></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>{</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keyword">typedef</span> <a class="code hl_class" href="../../d7/d0b/class_u_object.html">UObject</a> <a class="code hl_class" href="../../d7/d0b/class_u_object.html">Super</a>;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <a class="code hl_class" href="../../db/d32/class_a_actor.html">AActor</a>();</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d7/d0b/class_u_object.html#abbcb856733c322925aa7cdb82b95f22e">BeginPlay</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d7/d0b/class_u_object.html#a90045e313f786495240a5f3e9f3957c0">Update</a>(<span class="keywordtype">float</span> DeltaTime) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d7/d0b/class_u_object.html#adaf378e80341f5fb43be2b1390331873">Destroy</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> SetupPlayerController(<a class="code hl_class" href="../../d9/dc7/class_f_input_core.html">FInputCore</a>* controller);</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keywordtype">void</span> SetMesh(<a class="code hl_class" href="../../d5/d41/class_f_d3_d12_mesh.html">FD3D12Mesh</a>* mesh);</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="../../db/d32/class_a_actor.html#a0e0f1aedce3f45c9eea7878c1178c43a">   27</a></span>    <a class="code hl_class" href="../../de/d21/class_d3_d12_model.html">D3D12Model</a>* <a class="code hl_function" href="../../db/d32/class_a_actor.html#a0e0f1aedce3f45c9eea7878c1178c43a">GetModel</a>() { <span class="keywordflow">return</span> m_model.get(); }</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="../../db/d32/class_a_actor.html#ae315b4881c8f0dbf155f0190445c0bac">   31</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../db/d32/class_a_actor.html#ae315b4881c8f0dbf155f0190445c0bac">SetPosition</a>(XMFLOAT3 pos) { m_position = pos; }</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="../../db/d32/class_a_actor.html#a8f4ad7193882fc41fdf46cbcb4c9a2ee">   32</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../db/d32/class_a_actor.html#a8f4ad7193882fc41fdf46cbcb4c9a2ee">SetRotation</a>(XMFLOAT3 rot) { m_rotation = rot; }</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="../../db/d32/class_a_actor.html#a2cfb2eafe4b0dddbc482c855a8a7ff40">   33</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../db/d32/class_a_actor.html#a2cfb2eafe4b0dddbc482c855a8a7ff40">SetScale</a>(XMFLOAT3 sc) { m_scale = sc; }</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keywordtype">void</span> AddRotation(XMFLOAT3 rot);</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="../../db/d32/class_a_actor.html#a992f2fbf95e1e4e3392e8e8ab034e8d9">   35</a></span>    XMFLOAT3 <a class="code hl_function" href="../../db/d32/class_a_actor.html#a992f2fbf95e1e4e3392e8e8ab034e8d9">GetPosition</a>() { <span class="keywordflow">return</span> m_position; }</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="../../db/d32/class_a_actor.html#a7fde09d6f13b3c392088d1e9cdd3c39a">   36</a></span>    XMFLOAT3 <a class="code hl_function" href="../../db/d32/class_a_actor.html#a7fde09d6f13b3c392088d1e9cdd3c39a">GetRotation</a>() { <span class="keywordflow">return</span> m_rotation; }</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="../../db/d32/class_a_actor.html#ad596fe9437beab558473068e1d361daf">   37</a></span>    XMFLOAT3 <a class="code hl_function" href="../../db/d32/class_a_actor.html#ad596fe9437beab558473068e1d361daf">GetScale</a>() { <span class="keywordflow">return</span> m_scale; }</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    XMFLOAT3 GetFrontVector();</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    XMFLOAT3 GetRightVector();</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    XMFLOAT3 GetUpVector();</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="../../db/d32/class_a_actor.html#a9466f2a1d4b1e0bfcf22f50cf5fa02a6">   41</a></span>    <a class="code hl_class" href="../../dd/dd2/class_u_scene_component.html">USceneComponent</a>* <a class="code hl_function" href="../../db/d32/class_a_actor.html#a9466f2a1d4b1e0bfcf22f50cf5fa02a6">GetRootComponent</a>() { <span class="keywordflow">return</span> m_rootComponent.get(); }</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="foldopen" id="foldopen00044" data-start="{" data-end="}">
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="../../db/d32/class_a_actor.html#aa53bd2b8190933c4dd19dd99964e72d4">   44</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../db/d32/class_a_actor.html#aa53bd2b8190933c4dd19dd99964e72d4">OnUpdateRotation</a>(<span class="keywordtype">float</span> delta)</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    {</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        m_rotation.x += delta * 0.5;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    }</div>
+</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="../../db/d32/class_a_actor.html#a06b3ec7707d407eb5f6bfa7e5c336aeb">   54</a></span>    XMFLOAT3 <a class="code hl_variable" href="../../db/d32/class_a_actor.html#a06b3ec7707d407eb5f6bfa7e5c336aeb">m_position</a>;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="../../db/d32/class_a_actor.html#acf1bdde1d0fcce7a341b0692764538fc">   55</a></span>    XMFLOAT3 <a class="code hl_variable" href="../../db/d32/class_a_actor.html#acf1bdde1d0fcce7a341b0692764538fc">m_rotation</a>;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="../../db/d32/class_a_actor.html#a9a32d48f1a21dbae942c3c3e722a604c">   56</a></span>    XMFLOAT3 <a class="code hl_variable" href="../../db/d32/class_a_actor.html#a9a32d48f1a21dbae942c3c3e722a604c">m_scale</a>;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="../../db/d32/class_a_actor.html#a23ba7aca1d74009c58bb4602fd4effaa">   57</a></span>    TUniquePtr&lt;D3D12Model&gt; <a class="code hl_variable" href="../../db/d32/class_a_actor.html#a23ba7aca1d74009c58bb4602fd4effaa">m_model</a>;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="../../db/d32/class_a_actor.html#a4c72b7797615ffb0b10aca0230707191">   59</a></span>    TUniquePtr&lt;USceneComponent&gt; <a class="code hl_variable" href="../../db/d32/class_a_actor.html#a4c72b7797615ffb0b10aca0230707191">m_rootComponent</a>;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>};</div>
+</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="comment">//template&lt;typename T&gt;</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="comment">//inline T* AActor::CreateDefaultSubObject(FString name)</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="comment">//{</span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="comment">//  UActorComponent* component = new T(this);</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="comment">//  m_ActorComponents.push_back(component);</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="comment">//  return reinterpret_cast&lt;T*&gt;(component);</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="comment">//}</span></div>
+<div class="ttc" id="a_actor_component_8h_html"><div class="ttname"><a href="../../dd/d85/_actor_component_8h.html">ActorComponent.h</a></div></div>
+<div class="ttc" id="a_core_8h_html"><div class="ttname"><a href="../../d4/d09/_core_8h.html">Core.h</a></div></div>
+<div class="ttc" id="a_core_platform_8h_html_a94070b76c7d4ff7927f14814f3f53e40"><div class="ttname"><a href="../../da/d5a/_core_platform_8h.html#a94070b76c7d4ff7927f14814f3f53e40">DENGINE_API</a></div><div class="ttdeci">#define DENGINE_API</div><div class="ttdef"><b>Definition</b> CorePlatform.h:8</div></div>
+<div class="ttc" id="a_d3_d12_model_8h_html"><div class="ttname"><a href="../../d6/d2f/_d3_d12_model_8h.html">D3D12Model.h</a></div></div>
+<div class="ttc" id="a_input_core_8h_html"><div class="ttname"><a href="../../dd/d7b/_input_core_8h.html">InputCore.h</a></div></div>
+<div class="ttc" id="a_u_object_8h_html"><div class="ttname"><a href="../../d3/df5/_u_object_8h.html">UObject.h</a></div></div>
+<div class="ttc" id="a_u_scene_component_8h_html"><div class="ttname"><a href="../../d5/d88/_u_scene_component_8h.html">USceneComponent.h</a></div></div>
+<div class="ttc" id="aclass_a_actor_html"><div class="ttname"><a href="../../db/d32/class_a_actor.html">AActor</a></div><div class="ttdef"><b>Definition</b> Actor.h:17</div></div>
+<div class="ttc" id="aclass_a_actor_html_a06b3ec7707d407eb5f6bfa7e5c336aeb"><div class="ttname"><a href="../../db/d32/class_a_actor.html#a06b3ec7707d407eb5f6bfa7e5c336aeb">AActor::m_position</a></div><div class="ttdeci">XMFLOAT3 m_position</div><div class="ttdef"><b>Definition</b> Actor.h:54</div></div>
+<div class="ttc" id="aclass_a_actor_html_a0e0f1aedce3f45c9eea7878c1178c43a"><div class="ttname"><a href="../../db/d32/class_a_actor.html#a0e0f1aedce3f45c9eea7878c1178c43a">AActor::GetModel</a></div><div class="ttdeci">D3D12Model * GetModel()</div><div class="ttdef"><b>Definition</b> Actor.h:27</div></div>
+<div class="ttc" id="aclass_a_actor_html_a23ba7aca1d74009c58bb4602fd4effaa"><div class="ttname"><a href="../../db/d32/class_a_actor.html#a23ba7aca1d74009c58bb4602fd4effaa">AActor::m_model</a></div><div class="ttdeci">TUniquePtr&lt; D3D12Model &gt; m_model</div><div class="ttdef"><b>Definition</b> Actor.h:57</div></div>
+<div class="ttc" id="aclass_a_actor_html_a2cfb2eafe4b0dddbc482c855a8a7ff40"><div class="ttname"><a href="../../db/d32/class_a_actor.html#a2cfb2eafe4b0dddbc482c855a8a7ff40">AActor::SetScale</a></div><div class="ttdeci">void SetScale(XMFLOAT3 sc)</div><div class="ttdef"><b>Definition</b> Actor.h:33</div></div>
+<div class="ttc" id="aclass_a_actor_html_a4c72b7797615ffb0b10aca0230707191"><div class="ttname"><a href="../../db/d32/class_a_actor.html#a4c72b7797615ffb0b10aca0230707191">AActor::m_rootComponent</a></div><div class="ttdeci">TUniquePtr&lt; USceneComponent &gt; m_rootComponent</div><div class="ttdef"><b>Definition</b> Actor.h:59</div></div>
+<div class="ttc" id="aclass_a_actor_html_a7fde09d6f13b3c392088d1e9cdd3c39a"><div class="ttname"><a href="../../db/d32/class_a_actor.html#a7fde09d6f13b3c392088d1e9cdd3c39a">AActor::GetRotation</a></div><div class="ttdeci">XMFLOAT3 GetRotation()</div><div class="ttdef"><b>Definition</b> Actor.h:36</div></div>
+<div class="ttc" id="aclass_a_actor_html_a8f4ad7193882fc41fdf46cbcb4c9a2ee"><div class="ttname"><a href="../../db/d32/class_a_actor.html#a8f4ad7193882fc41fdf46cbcb4c9a2ee">AActor::SetRotation</a></div><div class="ttdeci">void SetRotation(XMFLOAT3 rot)</div><div class="ttdef"><b>Definition</b> Actor.h:32</div></div>
+<div class="ttc" id="aclass_a_actor_html_a9466f2a1d4b1e0bfcf22f50cf5fa02a6"><div class="ttname"><a href="../../db/d32/class_a_actor.html#a9466f2a1d4b1e0bfcf22f50cf5fa02a6">AActor::GetRootComponent</a></div><div class="ttdeci">USceneComponent * GetRootComponent()</div><div class="ttdef"><b>Definition</b> Actor.h:41</div></div>
+<div class="ttc" id="aclass_a_actor_html_a992f2fbf95e1e4e3392e8e8ab034e8d9"><div class="ttname"><a href="../../db/d32/class_a_actor.html#a992f2fbf95e1e4e3392e8e8ab034e8d9">AActor::GetPosition</a></div><div class="ttdeci">XMFLOAT3 GetPosition()</div><div class="ttdef"><b>Definition</b> Actor.h:35</div></div>
+<div class="ttc" id="aclass_a_actor_html_a9a32d48f1a21dbae942c3c3e722a604c"><div class="ttname"><a href="../../db/d32/class_a_actor.html#a9a32d48f1a21dbae942c3c3e722a604c">AActor::m_scale</a></div><div class="ttdeci">XMFLOAT3 m_scale</div><div class="ttdef"><b>Definition</b> Actor.h:56</div></div>
+<div class="ttc" id="aclass_a_actor_html_aa53bd2b8190933c4dd19dd99964e72d4"><div class="ttname"><a href="../../db/d32/class_a_actor.html#aa53bd2b8190933c4dd19dd99964e72d4">AActor::OnUpdateRotation</a></div><div class="ttdeci">void OnUpdateRotation(float delta)</div><div class="ttdef"><b>Definition</b> Actor.h:44</div></div>
+<div class="ttc" id="aclass_a_actor_html_acf1bdde1d0fcce7a341b0692764538fc"><div class="ttname"><a href="../../db/d32/class_a_actor.html#acf1bdde1d0fcce7a341b0692764538fc">AActor::m_rotation</a></div><div class="ttdeci">XMFLOAT3 m_rotation</div><div class="ttdef"><b>Definition</b> Actor.h:55</div></div>
+<div class="ttc" id="aclass_a_actor_html_ad596fe9437beab558473068e1d361daf"><div class="ttname"><a href="../../db/d32/class_a_actor.html#ad596fe9437beab558473068e1d361daf">AActor::GetScale</a></div><div class="ttdeci">XMFLOAT3 GetScale()</div><div class="ttdef"><b>Definition</b> Actor.h:37</div></div>
+<div class="ttc" id="aclass_a_actor_html_ae315b4881c8f0dbf155f0190445c0bac"><div class="ttname"><a href="../../db/d32/class_a_actor.html#ae315b4881c8f0dbf155f0190445c0bac">AActor::SetPosition</a></div><div class="ttdeci">void SetPosition(XMFLOAT3 pos)</div><div class="ttdef"><b>Definition</b> Actor.h:31</div></div>
+<div class="ttc" id="aclass_d3_d12_model_html"><div class="ttname"><a href="../../de/d21/class_d3_d12_model.html">D3D12Model</a></div><div class="ttdef"><b>Definition</b> D3D12Model.h:9</div></div>
+<div class="ttc" id="aclass_f_d3_d12_mesh_html"><div class="ttname"><a href="../../d5/d41/class_f_d3_d12_mesh.html">FD3D12Mesh</a></div><div class="ttdef"><b>Definition</b> D3D12Mesh.h:21</div></div>
+<div class="ttc" id="aclass_f_input_core_html"><div class="ttname"><a href="../../d9/dc7/class_f_input_core.html">FInputCore</a></div><div class="ttdef"><b>Definition</b> InputCore.h:41</div></div>
+<div class="ttc" id="aclass_u_object_html"><div class="ttname"><a href="../../d7/d0b/class_u_object.html">UObject</a></div><div class="ttdef"><b>Definition</b> UObject.h:55</div></div>
+<div class="ttc" id="aclass_u_object_html_a90045e313f786495240a5f3e9f3957c0"><div class="ttname"><a href="../../d7/d0b/class_u_object.html#a90045e313f786495240a5f3e9f3957c0">UObject::Update</a></div><div class="ttdeci">virtual void Update(float DeltaTime)</div><div class="ttdef"><b>Definition</b> UObject.cpp:13</div></div>
+<div class="ttc" id="aclass_u_object_html_abbcb856733c322925aa7cdb82b95f22e"><div class="ttname"><a href="../../d7/d0b/class_u_object.html#abbcb856733c322925aa7cdb82b95f22e">UObject::BeginPlay</a></div><div class="ttdeci">virtual void BeginPlay()</div><div class="ttdef"><b>Definition</b> UObject.cpp:5</div></div>
+<div class="ttc" id="aclass_u_object_html_adaf378e80341f5fb43be2b1390331873"><div class="ttname"><a href="../../d7/d0b/class_u_object.html#adaf378e80341f5fb43be2b1390331873">UObject::Destroy</a></div><div class="ttdeci">virtual void Destroy()</div><div class="ttdef"><b>Definition</b> UObject.cpp:21</div></div>
+<div class="ttc" id="aclass_u_scene_component_html"><div class="ttname"><a href="../../dd/dd2/class_u_scene_component.html">USceneComponent</a></div><div class="ttdef"><b>Definition</b> USceneComponent.h:17</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
+</body>
+</html>

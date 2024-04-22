@@ -1,0 +1,47 @@
+\doxysection{Класс IRenderer}
+\hypertarget{class_i_renderer}{}\label{class_i_renderer}\index{IRenderer@{IRenderer}}
+
+
+{\ttfamily \#include $<$Renderer\+Interface.\+h$>$}
+
+Граф наследования\+:IRenderer\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{d7/d4c/class_i_renderer}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_i_renderer_ab9777896b14082b4e9f01a774a481977}{Begin\+Rendering\+View}} (class \mbox{\hyperlink{class_f_canvas}{FCanvas}} \texorpdfstring{$\ast$}{*}Canvas, class \mbox{\hyperlink{class_f_scene_view}{FScene\+View}} \texorpdfstring{$\ast$}{*}View)=0
+\item 
+virtual class \mbox{\hyperlink{class_f_scene_interface}{FScene\+Interface}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_i_renderer_a70224d92849d6e3ac831aee622a1eb45}{Allocate\+Scene}} (class \mbox{\hyperlink{class_f_world}{FWorld}} \texorpdfstring{$\ast$}{*}World)=0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Методы}
+\Hypertarget{class_i_renderer_a70224d92849d6e3ac831aee622a1eb45}\label{class_i_renderer_a70224d92849d6e3ac831aee622a1eb45} 
+\index{IRenderer@{IRenderer}!AllocateScene@{AllocateScene}}
+\index{AllocateScene@{AllocateScene}!IRenderer@{IRenderer}}
+\doxysubsubsection{\texorpdfstring{AllocateScene()}{AllocateScene()}}
+{\footnotesize\ttfamily virtual class \mbox{\hyperlink{class_f_scene_interface}{FScene\+Interface}} \texorpdfstring{$\ast$}{*} IRenderer\+::\+Allocate\+Scene (\begin{DoxyParamCaption}\item[{class \mbox{\hyperlink{class_f_world}{FWorld}} \texorpdfstring{$\ast$}{*}}]{World }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Замещается в \mbox{\hyperlink{class_f_renderer_a7733362a61923c802b2413d3b6b52517}{FRenderer}}.
+
+\Hypertarget{class_i_renderer_ab9777896b14082b4e9f01a774a481977}\label{class_i_renderer_ab9777896b14082b4e9f01a774a481977} 
+\index{IRenderer@{IRenderer}!BeginRenderingView@{BeginRenderingView}}
+\index{BeginRenderingView@{BeginRenderingView}!IRenderer@{IRenderer}}
+\doxysubsubsection{\texorpdfstring{BeginRenderingView()}{BeginRenderingView()}}
+{\footnotesize\ttfamily virtual void IRenderer\+::\+Begin\+Rendering\+View (\begin{DoxyParamCaption}\item[{class \mbox{\hyperlink{class_f_canvas}{FCanvas}} \texorpdfstring{$\ast$}{*}}]{Canvas,  }\item[{class \mbox{\hyperlink{class_f_scene_view}{FScene\+View}} \texorpdfstring{$\ast$}{*}}]{View }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Замещается в \mbox{\hyperlink{class_f_renderer_af4ab5f099bb475a18caf185a57441952}{FRenderer}}.
+
+
+
+Объявления и описания членов класса находятся в файле\+:\begin{DoxyCompactItemize}
+\item 
+Dark Engine/\+Source/\+Runtime/\+Renderer/public/\mbox{\hyperlink{_renderer_interface_8h}{Renderer\+Interface.\+h}}\end{DoxyCompactItemize}

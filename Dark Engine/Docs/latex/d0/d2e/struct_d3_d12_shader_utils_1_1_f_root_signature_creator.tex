@@ -1,0 +1,74 @@
+\doxysection{Структура D3\+D12\+Shader\+Utils\+::FRoot\+Signature\+Creator}
+\hypertarget{struct_d3_d12_shader_utils_1_1_f_root_signature_creator}{}\label{struct_d3_d12_shader_utils_1_1_f_root_signature_creator}\index{D3D12ShaderUtils::FRootSignatureCreator@{D3D12ShaderUtils::FRootSignatureCreator}}
+
+
+{\ttfamily \#include $<$D3\+D12\+Root\+Signature\+Definitions.\+h$>$}
+
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{struct_d3_d12_shader_utils_1_1_f_root_signature_creator_afae27c239b07127336259e2d4d0c4dff}{\texorpdfstring{$\sim$}{\string~}\+FRoot\+Signature\+Creator}} ()
+\item 
+virtual void \mbox{\hyperlink{struct_d3_d12_shader_utils_1_1_f_root_signature_creator_aa6a2a9a1e0d882e029d6e6a392993522}{Add\+Root\+Flag}} (D3\+D12\+\_\+\+ROOT\+\_\+\+SIGNATURE\+\_\+\+FLAGS Flag)=0
+\item 
+virtual void \mbox{\hyperlink{struct_d3_d12_shader_utils_1_1_f_root_signature_creator_a15d78c84df643178f2d3e9ec242e32c7}{Add\+Table}} (\mbox{\hyperlink{namespace_d3_d12_shader_utils_a30e13ceca46c1a2fbd4e98608968b691}{ERoot\+Signature\+Visibility}} Visibility, \mbox{\hyperlink{namespace_d3_d12_shader_utils_a207db8b5840313ca128578aa381db200}{ERoot\+Signature\+Range\+Type}} Type, \mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}} Num\+Descriptors, D3\+D12\+\_\+\+DESCRIPTOR\+\_\+\+RANGE\+\_\+\+FLAGS Flags\+Override=D3\+D12\+\_\+\+DESCRIPTOR\+\_\+\+RANGE\+\_\+\+FLAG\+\_\+\+NONE)=0
+\item 
+void \mbox{\hyperlink{struct_d3_d12_shader_utils_1_1_f_root_signature_creator_a2391e597828f5bb4c6363505be1ac2f2}{Set\+Flags}} (\mbox{\hyperlink{_d3_d12_root_signature_definitions_8h_a9cf79d0806d94189519c7f1860b3359d}{ED3\+D12\+Root\+Signature\+Flags}} In\+Flags)
+\item 
+bool \mbox{\hyperlink{struct_d3_d12_shader_utils_1_1_f_root_signature_creator_ae058cbf3478473cf5c9f5c23bcec5358}{Should\+Skip\+Type}} (\mbox{\hyperlink{namespace_d3_d12_shader_utils_a207db8b5840313ca128578aa381db200}{ERoot\+Signature\+Range\+Type}} Type)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Открытые атрибуты}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_d3_d12_root_signature_definitions_8h_a9cf79d0806d94189519c7f1860b3359d}{ED3\+D12\+Root\+Signature\+Flags}} \mbox{\hyperlink{struct_d3_d12_shader_utils_1_1_f_root_signature_creator_afd84f24852d8debe2cab3f745f2f2054}{Flags}} = \mbox{\hyperlink{_d3_d12_root_signature_definitions_8h_a9cf79d0806d94189519c7f1860b3359da6adf97f83acf6453d4a6a4b1070f3754}{ED3\+D12\+Root\+Signature\+Flags\+::\+None}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Конструктор(ы)}
+\Hypertarget{struct_d3_d12_shader_utils_1_1_f_root_signature_creator_afae27c239b07127336259e2d4d0c4dff}\label{struct_d3_d12_shader_utils_1_1_f_root_signature_creator_afae27c239b07127336259e2d4d0c4dff} 
+\index{D3D12ShaderUtils::FRootSignatureCreator@{D3D12ShaderUtils::FRootSignatureCreator}!````~FRootSignatureCreator@{\texorpdfstring{$\sim$}{\string~}FRootSignatureCreator}}
+\index{````~FRootSignatureCreator@{\texorpdfstring{$\sim$}{\string~}FRootSignatureCreator}!D3D12ShaderUtils::FRootSignatureCreator@{D3D12ShaderUtils::FRootSignatureCreator}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}FRootSignatureCreator()}{\string~FRootSignatureCreator()}}
+{\footnotesize\ttfamily virtual D3\+D12\+Shader\+Utils\+::\+FRoot\+Signature\+Creator\+::\texorpdfstring{$\sim$}{\string~}\+FRoot\+Signature\+Creator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+\doxysubsection{Методы}
+\Hypertarget{struct_d3_d12_shader_utils_1_1_f_root_signature_creator_aa6a2a9a1e0d882e029d6e6a392993522}\label{struct_d3_d12_shader_utils_1_1_f_root_signature_creator_aa6a2a9a1e0d882e029d6e6a392993522} 
+\index{D3D12ShaderUtils::FRootSignatureCreator@{D3D12ShaderUtils::FRootSignatureCreator}!AddRootFlag@{AddRootFlag}}
+\index{AddRootFlag@{AddRootFlag}!D3D12ShaderUtils::FRootSignatureCreator@{D3D12ShaderUtils::FRootSignatureCreator}}
+\doxysubsubsection{\texorpdfstring{AddRootFlag()}{AddRootFlag()}}
+{\footnotesize\ttfamily virtual void D3\+D12\+Shader\+Utils\+::\+FRoot\+Signature\+Creator\+::\+Add\+Root\+Flag (\begin{DoxyParamCaption}\item[{D3\+D12\+\_\+\+ROOT\+\_\+\+SIGNATURE\+\_\+\+FLAGS}]{Flag }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\Hypertarget{struct_d3_d12_shader_utils_1_1_f_root_signature_creator_a15d78c84df643178f2d3e9ec242e32c7}\label{struct_d3_d12_shader_utils_1_1_f_root_signature_creator_a15d78c84df643178f2d3e9ec242e32c7} 
+\index{D3D12ShaderUtils::FRootSignatureCreator@{D3D12ShaderUtils::FRootSignatureCreator}!AddTable@{AddTable}}
+\index{AddTable@{AddTable}!D3D12ShaderUtils::FRootSignatureCreator@{D3D12ShaderUtils::FRootSignatureCreator}}
+\doxysubsubsection{\texorpdfstring{AddTable()}{AddTable()}}
+{\footnotesize\ttfamily virtual void D3\+D12\+Shader\+Utils\+::\+FRoot\+Signature\+Creator\+::\+Add\+Table (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_d3_d12_shader_utils_a30e13ceca46c1a2fbd4e98608968b691}{ERoot\+Signature\+Visibility}}}]{Visibility,  }\item[{\mbox{\hyperlink{namespace_d3_d12_shader_utils_a207db8b5840313ca128578aa381db200}{ERoot\+Signature\+Range\+Type}}}]{Type,  }\item[{\mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}}]{Num\+Descriptors,  }\item[{D3\+D12\+\_\+\+DESCRIPTOR\+\_\+\+RANGE\+\_\+\+FLAGS}]{Flags\+Override = {\ttfamily D3D12\+\_\+DESCRIPTOR\+\_\+RANGE\+\_\+FLAG\+\_\+NONE} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\Hypertarget{struct_d3_d12_shader_utils_1_1_f_root_signature_creator_a2391e597828f5bb4c6363505be1ac2f2}\label{struct_d3_d12_shader_utils_1_1_f_root_signature_creator_a2391e597828f5bb4c6363505be1ac2f2} 
+\index{D3D12ShaderUtils::FRootSignatureCreator@{D3D12ShaderUtils::FRootSignatureCreator}!SetFlags@{SetFlags}}
+\index{SetFlags@{SetFlags}!D3D12ShaderUtils::FRootSignatureCreator@{D3D12ShaderUtils::FRootSignatureCreator}}
+\doxysubsubsection{\texorpdfstring{SetFlags()}{SetFlags()}}
+{\footnotesize\ttfamily void D3\+D12\+Shader\+Utils\+::\+FRoot\+Signature\+Creator\+::\+Set\+Flags (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_d3_d12_root_signature_definitions_8h_a9cf79d0806d94189519c7f1860b3359d}{ED3\+D12\+Root\+Signature\+Flags}}}]{In\+Flags }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{struct_d3_d12_shader_utils_1_1_f_root_signature_creator_ae058cbf3478473cf5c9f5c23bcec5358}\label{struct_d3_d12_shader_utils_1_1_f_root_signature_creator_ae058cbf3478473cf5c9f5c23bcec5358} 
+\index{D3D12ShaderUtils::FRootSignatureCreator@{D3D12ShaderUtils::FRootSignatureCreator}!ShouldSkipType@{ShouldSkipType}}
+\index{ShouldSkipType@{ShouldSkipType}!D3D12ShaderUtils::FRootSignatureCreator@{D3D12ShaderUtils::FRootSignatureCreator}}
+\doxysubsubsection{\texorpdfstring{ShouldSkipType()}{ShouldSkipType()}}
+{\footnotesize\ttfamily bool D3\+D12\+Shader\+Utils\+::\+FRoot\+Signature\+Creator\+::\+Should\+Skip\+Type (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_d3_d12_shader_utils_a207db8b5840313ca128578aa381db200}{ERoot\+Signature\+Range\+Type}}}]{Type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Данные класса}
+\Hypertarget{struct_d3_d12_shader_utils_1_1_f_root_signature_creator_afd84f24852d8debe2cab3f745f2f2054}\label{struct_d3_d12_shader_utils_1_1_f_root_signature_creator_afd84f24852d8debe2cab3f745f2f2054} 
+\index{D3D12ShaderUtils::FRootSignatureCreator@{D3D12ShaderUtils::FRootSignatureCreator}!Flags@{Flags}}
+\index{Flags@{Flags}!D3D12ShaderUtils::FRootSignatureCreator@{D3D12ShaderUtils::FRootSignatureCreator}}
+\doxysubsubsection{\texorpdfstring{Flags}{Flags}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_d3_d12_root_signature_definitions_8h_a9cf79d0806d94189519c7f1860b3359d}{ED3\+D12\+Root\+Signature\+Flags}} D3\+D12\+Shader\+Utils\+::\+FRoot\+Signature\+Creator\+::\+Flags = \mbox{\hyperlink{_d3_d12_root_signature_definitions_8h_a9cf79d0806d94189519c7f1860b3359da6adf97f83acf6453d4a6a4b1070f3754}{ED3\+D12\+Root\+Signature\+Flags\+::\+None}}}
+
+
+
+Объявления и описания членов структуры находятся в файле\+:\begin{DoxyCompactItemize}
+\item 
+Dark Engine/\+Source/\+Runtime/\+D3\+D12\+RHI/public/\mbox{\hyperlink{_d3_d12_root_signature_definitions_8h}{D3\+D12\+Root\+Signature\+Definitions.\+h}}\end{DoxyCompactItemize}

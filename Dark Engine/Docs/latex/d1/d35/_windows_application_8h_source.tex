@@ -1,0 +1,73 @@
+\doxysection{Windows\+Application.\+h}
+\hypertarget{_windows_application_8h_source}{}\label{_windows_application_8h_source}\index{Dark Engine/Source/Runtime/ApplicationCore/public/Windows/WindowsApplication.h@{Dark Engine/Source/Runtime/ApplicationCore/public/Windows/WindowsApplication.h}}
+\mbox{\hyperlink{_windows_application_8h}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_core_types_8h}{CoreTypes.h}}"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_windows_2_minimal_windows_api_8h}{Windows/MinimalWindowsApi.h}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_generic_application_8h}{GenericPlatform/GenericApplication.h}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_windows_window_8h}{Windows/WindowsWindow.h}}"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_t_unique_ptr_8h}{Memory/TUniquePtr.h}}"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#undef\ RegisterClass}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_i_windows_message_handler}{IWindowsMessageHandler}}}
+\DoxyCodeLine{00014\ \{}
+\DoxyCodeLine{00015\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}\ \mbox{\hyperlink{class_i_windows_message_handler_af6e8c61c1825e22d9e863fd487d13fc8}{ProcessMessage}}(HWND\ hwnd,\ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ msg,\ WPARAM\ wParam,\ LPARAM\ lParam)\ =\ 0;}
+\DoxyCodeLine{00017\ \};}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_f_windows_application}{FWindowsApplication}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_f_generic_application}{FGenericApplication}}}
+\DoxyCodeLine{00024\ \{}
+\DoxyCodeLine{00025\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_f_windows_application}{FWindowsApplication}}*\ \mbox{\hyperlink{class_f_windows_application_a1406bb1525d65d13dfc6a22844118e2f}{CreateWindowsApplication}}(\textcolor{keyword}{const}\ HINSTANCE\ HInstance,\ \textcolor{keyword}{const}\ HICON\ HIcon,\ \textcolor{keyword}{const}\ HCURSOR\ HCursor\ =\ NULL);}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_windows_application_abc12ea3ed10120a8b096f20345705400}{DestroyWindowsApplication}}();}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00030\ \ \ \ \ \mbox{\hyperlink{_t_unique_ptr_8h_ab7a7d47ba593c2489fecf3f003f56c53}{TSharedPtr<FGenericWindow>}}\ \mbox{\hyperlink{class_f_windows_application_a58e6431ead55bb44319fa64a9203c572}{MakeWindow}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_windows_application_a6d3a85c5a945b1212c6d4812372bfa83}{InitializeWindow}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{_t_unique_ptr_8h_ab7a7d47ba593c2489fecf3f003f56c53}{TSharedPtr<FGenericWindow>}}\&\ InWindow,}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{_t_unique_ptr_8h_ab7a7d47ba593c2489fecf3f003f56c53}{TSharedPtr<FGenericWindowDefinition>}}\&\ InDefinition)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_windows_application_a2a4358c950e598c27c9d7c1b0fd9ee78}{SetCapture}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{_t_unique_ptr_8h_ab7a7d47ba593c2489fecf3f003f56c53}{TSharedPtr<FGenericWindow>}}\&\ InWindow);}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_int_point}{FIntPoint}}\ \mbox{\hyperlink{class_f_windows_application_afdf838e0afe5591c5d673bf81096fb23}{GetMousePos}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keyword}{static}\ LRESULT\ AppWndProc(HWND\ hwnd,\ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ msg,\ WPARAM\ wParam,\ LPARAM\ lParam);}
+\DoxyCodeLine{00041\ \ \ \ \ LRESULT\ WindowsApplication\_WndProc(HWND\ hwnd,\ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ msg,\ WPARAM\ wParam,\ LPARAM\ lParam);}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ PumpMessages()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ AddMessageHandler(\mbox{\hyperlink{class_i_windows_message_handler}{IWindowsMessageHandler}}\&\ InMessageHandler)\ \{\}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}\ ProcessMessage(HWND\ hWnd,\ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ Msg,\ WPARAM\ wParam,\ LPARAM\ lParam);}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \mbox{\hyperlink{class_f_windows_application}{FWindowsApplication}}(\textcolor{keyword}{const}\ HINSTANCE\ HInstance,\ \textcolor{keyword}{const}\ HICON\ HIcon,\ \textcolor{keyword}{const}\ HCURSOR\ HCursor\ =\ NULL);}
+\DoxyCodeLine{00051\ \ \ \ \ \mbox{\hyperlink{class_f_windows_application}{\string~FWindowsApplication}}();}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ HINSTANCE\ InstanceHandle;}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ RegisterClass(\textcolor{keyword}{const}\ HINSTANCE\ HInstance,\ \textcolor{keyword}{const}\ HICON\ HIcon,\ \textcolor{keyword}{const}\ HCURSOR\ HCursor);}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \ \ \mbox{\hyperlink{class_t_array}{TArray<TSharedPtr<class\ FWindowsWindow>}}>\ Windows;}
+\DoxyCodeLine{00062\ \ \ \ \ \mbox{\hyperlink{class_t_array}{TArray<TSharedPtr<IWindowsMessageHandler>}}>\ MessageHandlers;}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \};}
+\DoxyCodeLine{00067\ }
+
+\end{DoxyCode}
