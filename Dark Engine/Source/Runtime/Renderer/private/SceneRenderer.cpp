@@ -14,7 +14,10 @@ static void RenderView(FRHICommandListImmediate& RHICmdList, FSceneRender* Scene
 	//FScene* const Scene = SceneRenderer->Scene;
 
 
+	FRHIRenderPassInfo RenderPassInfo(SceneRenderer->SceneView->RenderTarget->GetRenderTargetTexture().Get());
+	RHICmdList.BeginRenderPass(RenderPassInfo);
 	SceneRenderer->Render(RHICmdList);
+	RHICmdList.EndRenderPass(RenderPassInfo);
 	SceneRenderer->Flush();
 
 

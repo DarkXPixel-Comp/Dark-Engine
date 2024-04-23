@@ -87,6 +87,18 @@ Create \doxylink{class_f_r_h_i_viewport}{FRHIViewport}
 \doxysubsubsection{\texorpdfstring{RHICreateBuffer()}{RHICreateBuffer()}}
 {\footnotesize\ttfamily FORCEINLINE \mbox{\hyperlink{_t_unique_ptr_8h_a0e0f00349c59b03cfd84d025bb3d6d91}{TRef\+Count\+Ptr}}$<$ \mbox{\hyperlink{class_f_r_h_i_buffer}{FRHIBuffer}} $>$ RHICreate\+Buffer (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_f_r_h_i_buffer_desc}{FRHIBuffer\+Desc}} \&}]{Create\+Desc,  }\item[{const \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}} \texorpdfstring{$\ast$}{*}}]{Debug\+Name,  }\item[{\mbox{\hyperlink{_r_h_i_defines_8h_a790a925a3358fc56173b2ffb0f607c5f}{ERHIAccess}}}]{Initial\+State }\end{DoxyParamCaption})}
 
+Create \doxylink{class_f_r_h_i_buffer}{FRHIBuffer} 
+\begin{DoxyParams}[1]{Аргументы}
+\mbox{\texttt{ in}}  & {\em Create\+Desc} & Buffer\+Desc \\
+\hline
+\mbox{\texttt{ in}}  & {\em Debug\+Name} & Debug name for debugger \\
+\hline
+\mbox{\texttt{ in}}  & {\em Initial\+State} & Initial \doxylink{class_r_h_i}{RHI} state \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Ref\+Count object \doxylink{class_f_r_h_i_buffer}{FRHIBuffer} 
+\end{DoxyReturn}
 \Hypertarget{_dynamic_r_h_i_8h_a50c6da8a09f76e48d7115dde7f4cd97d}\label{_dynamic_r_h_i_8h_a50c6da8a09f76e48d7115dde7f4cd97d} 
 \index{DynamicRHI.h@{DynamicRHI.h}!RHICreateGraphicsPipelineState@{RHICreateGraphicsPipelineState}}
 \index{RHICreateGraphicsPipelineState@{RHICreateGraphicsPipelineState}!DynamicRHI.h@{DynamicRHI.h}}
@@ -105,6 +117,14 @@ Create \doxylink{class_f_r_h_i_viewport}{FRHIViewport}
 \doxysubsubsection{\texorpdfstring{RHICreateTexture()}{RHICreateTexture()}}
 {\footnotesize\ttfamily FORCEINLINE \mbox{\hyperlink{_t_unique_ptr_8h_a0e0f00349c59b03cfd84d025bb3d6d91}{TRef\+Count\+Ptr}}$<$ \mbox{\hyperlink{class_f_r_h_i_texture}{FRHITexture}} $>$ RHICreate\+Texture (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_f_r_h_i_texture_create_desc}{FRHITexture\+Create\+Desc}} \&}]{Create\+Desc }\end{DoxyParamCaption})}
 
+Create \doxylink{class_f_r_h_i_texture}{FRHITexture} 
+\begin{DoxyParams}[1]{Аргументы}
+\mbox{\texttt{ in}}  & {\em Create\+Desc} & Texture create description \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Ref\+Count object \doxylink{class_f_r_h_i_texture}{FRHITexture} 
+\end{DoxyReturn}
 \Hypertarget{_dynamic_r_h_i_8h_a7517b77b859e55ad7c2bd4b4d932faf3}\label{_dynamic_r_h_i_8h_a7517b77b859e55ad7c2bd4b4d932faf3} 
 \index{DynamicRHI.h@{DynamicRHI.h}!RHICreateVertexDeclaration@{RHICreateVertexDeclaration}}
 \index{RHICreateVertexDeclaration@{RHICreateVertexDeclaration}!DynamicRHI.h@{DynamicRHI.h}}
@@ -123,6 +143,14 @@ Create \doxylink{class_f_r_h_i_viewport}{FRHIViewport}
 \doxysubsubsection{\texorpdfstring{RHIGetViewportBackBuffer()}{RHIGetViewportBackBuffer()}}
 {\footnotesize\ttfamily FORCEINLINE \mbox{\hyperlink{class_f_r_h_i_texture}{FRHITexture}} \texorpdfstring{$\ast$}{*} RHIGet\+Viewport\+Back\+Buffer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_f_r_h_i_viewport}{FRHIViewport}} \texorpdfstring{$\ast$}{*}}]{Viewport }\end{DoxyParamCaption})}
 
+Get Back\+Buffer Texture 
+\begin{DoxyParams}[1]{Аргументы}
+\mbox{\texttt{ in}}  & {\em \doxylink{struct_viewport}{Viewport}} & \doxylink{struct_viewport}{Viewport} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+\doxylink{class_f_r_h_i_texture}{FRHITexture} back buffer 
+\end{DoxyReturn}
 \Hypertarget{_dynamic_r_h_i_8h_a4e523b52ef7c31b49d6321fae61270ba}\label{_dynamic_r_h_i_8h_a4e523b52ef7c31b49d6321fae61270ba} 
 \index{DynamicRHI.h@{DynamicRHI.h}!RHILockBuffer@{RHILockBuffer}}
 \index{RHILockBuffer@{RHILockBuffer}!DynamicRHI.h@{DynamicRHI.h}}

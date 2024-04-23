@@ -146,11 +146,7 @@ protected:
 class FShaderTypeRegistration
 {
 public:
-	FShaderTypeRegistration(std::function<FShaderType& ()> InShaderTypeAccessor):
-		ShaderTypeAccessor(InShaderTypeAccessor)
-	{
-		GetInstances().Add(this);
-	}
+	FShaderTypeRegistration(std::function<FShaderType& ()> InShaderTypeAccessor);
 
 	static TArray<const FShaderTypeRegistration*>& GetInstances();
 	static void CommitAll();
@@ -228,7 +224,7 @@ public:
 			RHIShader = ((ShaderType*)ShaderContent)->GetRHIShader().Get();
 		}
 		return RHIShader;
-	}
+	}																				
 
 	FORCEINLINE FRHIVertexShader* GetVertexShader() const
 	{
@@ -241,14 +237,10 @@ public:
 	}
 
 
-
-
 private:
 	ShaderType* ShaderContent;
 
 };
-
-
 
 
 

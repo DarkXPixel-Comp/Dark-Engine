@@ -58,6 +58,7 @@ public:
 	void SetStreamSource(FD3D12ResourceLocation* VertexBufferLocation, uint32 StreamIndex, uint32 Offset, uint32 Stride = 0);
 	void SetIndexBuffer(FD3D12ResourceLocation* IndexBufferLocation, DXGI_FORMAT Format, uint32 Offset);
 	void SetRenderTargets(uint32 NumRenderTargets, class FD3D12RenderTargetView** RTArray, class FD3D12DepthStencilView* DSTarget);
+	void SetViewport(float MinX, float MinY, float MinZ, float MaxX, float MaxY, float MaxZ);
 
 	void ApplyState(bool bIsCompute = false);
 
@@ -79,6 +80,9 @@ private:
 			FD3D12IndexBufferCache IBCache;
 			uint32 PrimitiveTypeFactor;
 			uint32 PrimitiveTypeOffset;
+
+			uint32 CurrentNumberViewports = 0;
+			D3D12_VIEWPORT CurrentViewport[16];
 
 		} Graphics;
 
@@ -107,8 +111,9 @@ private:
 	bool bNeedSetPrimitiveTopology = true;
 	bool bNeedSetVB = true;
 	bool bNeedSetRTs = true;
-
-
+	bool bNeedSetViewports = true;
+	bool bNeedSetScissorRect = true;
+	bool bNeedSetBlendFactor = true;
 
 public:
 	uint32 GetVertexCount(uint32 NumPrimitives) const

@@ -132,6 +132,7 @@ public:
 	void RHIBeginImGui() override;
 	void RHIEndImGui() override;
 	void RHIBeginRenderPass(struct FRHIRenderPassInfo& InInfo);
+	void RHIEndRenderPass(struct FRHIRenderPassInfo& InInfo);
 	void SetRenderTargets(int32 NumRenderTargets, const FRHIRenderTargetView* RenderTargetsRHI, const FRHIDepthRenderTargetView* DepthStencilViewRHI, bool bClear = false);
 	void SetRenderTargetsAndClear(const FRHISetRenderTargetInfo& RenderTargetsInfo);
 	/*void RHISetShaderParameter(FRHIGraphicsShader* ShaderRHI, uint32 BufferIndex, uint32 Offset,

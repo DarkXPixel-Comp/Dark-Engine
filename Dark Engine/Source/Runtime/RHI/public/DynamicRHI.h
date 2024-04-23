@@ -17,6 +17,10 @@ public:
 
 
 
+/**
+*	The base class of the Render Hardware Interface
+*	@see FD3D12DynamicRHI
+*/
 class FDynamicRHI
 {
 public:
@@ -61,24 +65,43 @@ extern void DynamicRHIShutdown();
 
 /**
 *	Create FRHIViewport
-*	\param[in] WindowHandle OS handle on window
-*	\param[in] SizeX Width Viewport
-*	\param[in] SizeY Heigth Viewport
-*	\param[in] Fullscreen On
+*	@param[in] WindowHandle OS handle on window
+*	@param[in] SizeX Width Viewport
+*	@param[in] SizeY Heigth Viewport
+*	@param[in] Fullscreen On
 */
 TSharedPtr<FRHIViewport> CreateRHIViewport(void* WindowHandle, uint32 SizeX, uint32 SizeY, bool bIsFullscreen);
 
 
+/**
+*	Get BackBuffer Texture
+*	@param[in] Viewport Viewport
+*	@return FRHITexture back buffer
+*/
 FORCEINLINE FRHITexture* RHIGetViewportBackBuffer(FRHIViewport* Viewport)
 {
 	return GDynamicRHI->RHIGetViewportBackBuffer(Viewport);
 }
+
+
+/**
+* Create FRHIBuffer
+* @param[in] CreateDesc BufferDesc
+* @param[in] DebugName Debug name for debugger
+* @param[in] InitialState Initial RHI state
+* @return RefCount object FRHIBuffer
+*/
 
 FORCEINLINE TRefCountPtr<FRHIBuffer> RHICreateBuffer(const FRHIBufferDesc& CreateDesc, const TCHAR* DebugName, ERHIAccess InitialState)
 {
 	return GDynamicRHI->RHICreateBuffer(CreateDesc, DebugName, InitialState);
 }
 
+/**
+* Create FRHITexture
+* @param[in] CreateDesc Texture create description
+* @return RefCount object FRHITexture
+*/
 FORCEINLINE TRefCountPtr<FRHITexture> RHICreateTexture(const FRHITextureCreateDesc& CreateDesc)
 {
 	//FRHICommandListImmediate& RHICmdList = FRHICommandListExecutor::GetImmediateCommandList();

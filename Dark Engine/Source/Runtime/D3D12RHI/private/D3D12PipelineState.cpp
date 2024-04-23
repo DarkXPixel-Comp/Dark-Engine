@@ -108,6 +108,25 @@ FD3D12PipelineState* FD3D12PipelineStateManager::GetPipelineState(const FGraphic
 	return Result;
 }
 
+
+D3D12_RT_FORMAT_ARRAY GetRTFormatArray(const EPixelFormat Formats[8])
+{
+	D3D12_RT_FORMAT_ARRAY Result{};
+	uint32 Counter = 0;
+
+	for (uint32 i = 0; i < 8; ++i)
+	{
+		if (Formats[i] != EPixelFormat::PF_Unknown)
+		{
+			Result.RTFormats[i] = GetDXGIFormat(Formats[i]);
+			++Counter;
+		}
+	}
+	Result.NumRenderTargets = Counter;
+	return Result;
+}
+
+
 D3D12_PIPELINE_STATE_STREAM_DESC FD3D12PipelineStateManager::SetPipelineDesc(const FGraphicsPipelineStateInitializer& Initializer,
 	FD3D12_GRAPHICS_PIPELINE_STATE_DESC& PipelineStateDesc, const FD3D12RootSignature* InRootSignature)
 {
@@ -129,12 +148,33 @@ D3D12_PIPELINE_STATE_STREAM_DESC FD3D12PipelineStateManager::SetPipelineDesc(con
 	PipelineStateDesc.VertexShader = Initializer.BoundShaderState.VertexShaderRHI ? static_cast<FD3D12VertexShader*>(Initializer.BoundShaderState.VertexShaderRHI)->GetShaderByteCode() : D3D12_SHADER_BYTECODE();
 	PipelineStateDesc.PixelShader = Initializer.BoundShaderState.PixelShaderRHI ? static_cast<FD3D12PixelShader*>(Initializer.BoundShaderState.PixelShaderRHI)->GetShaderByteCode() : D3D12_SHADER_BYTECODE();
 	PipelineStateDesc.BlendState = CD3DX12_BLEND_DESC(CD3DX12_DEFAULT());
-	PipelineStateDesc.RasterState = CD3DX12_RASTERIZER_DESC(CD3DX12_DEFAULT());
-	PipelineStateDesc.DepthState = CD3DX12_DEPTH_STENCIL_DESC1(CD3DX12_DEFAULT());
+	PipelineStateDesc.NodeMask = 1;
+
+	auto RasterState = CD3DX12_RASTERIZER_DESC(CD3DX12_DEFAULT());
+	auto DepthState = CD3DX12_DEPTH_STENCIL_DESC(CD3DX12_DEFAULT());
+	RasterState.CullMode = D3D12_CULL_MODE_NONE;
+	DepthState.DepthEnable = false;
+	PipelineStateDesc.RasterState = RasterState;
+	PipelineStateDesc.DepthState = DepthState;
 	PipelineStateDesc.PrimitiveTopology = D3D12_PRIMITIVE_TOPOLOGY_TYPE_TRIANGLE;
 	PipelineStateDesc.SampleDesc = { 1, 0 };
+	PipelineStateDesc.RenderTargetFormats = GetRTFormatArray(Initializer.RenderTargetFormats);
+	//PipelineStateDesc.Flags = D3D12_PIPELINE_STATE_FLAG_TOOL_DEBUG;
 
-
+	D3D12_GRAPHICS_PIPELINE_STATE_DESC Pipeline;
+	Pipeline.pRootSignature = InRootSignature->GetRootSignature();
+	Pipeline.InputLayout = Initializer.BoundShaderState.VertexDeclaration ? 
+		static_cast<FD3D12VertexDeclaration*>(Initializer.BoundShaderState.VertexDeclaration)->GetLayoutDsec()
+		: D3D12_INPUT_LAYOUT_DESC();
+	Pipeline.VS = Initializer.BoundShaderState.VertexShaderRHI ? static_cast<FD3D12VertexShader*>(Initializer.BoundShaderState.VertexShaderRHI)->GetShaderByteCode() : D3D12_SHADER_BYTECODE();
+	Pipeline.PS = Initializer.BoundShaderState.PixelShaderRHI ? static_cast<FD3D12PixelShader*>(Initializer.BoundShaderState.PixelShaderRHI)->GetShaderByteCode() : D3D12_SHADER_BYTECODE();
+	Pipeline.BlendState = CD3DX12_BLEND_DESC(CD3DX12_DEFAULT());
+	Pipeline.RasterizerState = RasterState;
+	Pipeline.DepthStencilState = DepthState;
+	Pipeline.PrimitiveTopologyType = D3D12_PRIMITIVE_TOPOLOGY_TYPE_TRIANGLE;
+	Pipeline.SampleDesc = { 1, 0 };
+	Pipeline.RTVFormats[0] = DXGI_FORMAT_R8G8B8A8_UNORM;
+	Pipeline.NumRenderTargets = 1;
 
 
 	D3D12_PIPELINE_STATE_STREAM_DESC StreamDesc = { sizeof(PipelineStateDesc), &PipelineStateDesc };

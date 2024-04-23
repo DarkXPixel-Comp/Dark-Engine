@@ -45,15 +45,15 @@ FD3D12DynamicRHI* GD3D12RHI = nullptr;
 
 FD3D12DynamicRHIModule::FD3D12DynamicRHIModule()
 {
-#if USE_PIX
+//#if USE_PIX
 	if (GetModuleHandle(TEXT("WinPixGpuCapturer.dll")) == 0)
 	{
 		if (LoadLibrary(GetLatestWinPixGpuCapturerPath_Cpp17().c_str()))
 		{
-			Logger::log("[D3D12RHIModule] WinPixGpuCapturer.dll was loaded");
+		//	Logger::log("[D3D12RHIModule] WinPixGpuCapturer.dll was loaded");
 		}
 	}
-#endif
+//#endif
 
 
 

@@ -31,7 +31,7 @@ void D3D12MessageCallBack(D3D12_MESSAGE_CATEGORY Category, D3D12_MESSAGE_SEVERIT
 		DE_LOG(D3D12Callback, Error, TEXT("%s"), *FString(Description));
 		break;
 	case D3D12_MESSAGE_SEVERITY_WARNING:
-		DE_LOG(D3D12Callback, Warning, TEXT("%s"), *FString(Description));
+		//DE_LOG(D3D12Callback, Warning, TEXT("%s"), *FString(Description));
 		break;
 	case D3D12_MESSAGE_SEVERITY_INFO:
 		DE_LOG(D3D12Callback, Log, TEXT("%s"), *FString(Description));

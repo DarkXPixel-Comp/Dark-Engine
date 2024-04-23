@@ -213,6 +213,23 @@ void FD3D12CommandContext::RHIBeginRenderPass(FRHIRenderPassInfo& InInfo)
 	SetRenderTargetsAndClear(RTInfo);
 }
 
+void FD3D12CommandContext::RHIEndRenderPass(FRHIRenderPassInfo& InInfo)
+{
+	FRHISetRenderTargetInfo RTInfo = InInfo.ConvertToRenderTargetInfo();
+
+	for (uint32 i = 0; i < MAX_RENDER_TARGETS; ++i)
+	{
+		FD3D12RenderTargetView* RenderTarget = nullptr;
+		if (i < MAX_RENDER_TARGETS && RTInfo.ColorRenderTarget[i].Texture != nullptr)
+		{
+			FD3D12Texture* D3DRenderTarget = static_cast<FD3D12Texture*>(RTInfo.ColorRenderTarget[i].Texture);
+			TransitionResource(D3DRenderTarget->GetResource(), D3D12_RESOURCE_STATE_ALL_SHADER_RESOURCE, 0);
+		}
+	}
+	
+
+}
+
 void FD3D12CommandContext::SetRenderTargets(int32 NumRenderTargets, const FRHIRenderTargetView *RenderTargetsRHI, const FRHIDepthRenderTargetView *DepthStencilViewRHI, bool bClear)
 {
 	//FD3D12Texture* NewDepthTexture = DepthStencilViewRHI ? (FD3D12Texture*)DepthStencilViewRHI->Texture : nullptr;
@@ -289,10 +306,7 @@ void FD3D12CommandContext::RHISetViewport(float MinX, float MinY, float MinZ, fl
 {
 	D3D12_VIEWPORT Viewport = { MinX, MinY, (MaxX - MinX), (MaxY - MinY), MinZ, MaxZ };
 
-
-
-
-
+	StateCache.SetViewport(MinX, MinY, MinZ, MaxX, MaxY, MaxZ);
 }
 
 void FD3D12CommandContext::RHIDrawIndexedPrimitive(FRHIBuffer* IndexBufferRHI, int32 BaseVertexIndex, uint32 FirstInstance, uint32 NumVertices, uint32 StartIndex, uint32 NumPrimitives, uint32 NumInstances)
@@ -309,10 +323,8 @@ void FD3D12CommandContext::RHIDrawIndexedPrimitive(FRHIBuffer* IndexBufferRHI, i
 	StateCache.SetIndexBuffer(&IndexBuffer->ResourceLocation, Format, 0);
 	StateCache.ApplyState(false);
 
-
-
-	
-
+	GetGraphicsList()->DrawIndexedInstanced(IndexCount, NumInstances, StartIndex, BaseVertexIndex,
+		FirstInstance);
 }
 
 void FD3D12CommandContext::RHISetStreamSource(uint32 StreamIndex, FRHIBuffer* VertexBufferRHI, uint32 Offset, uint32 Stride)
@@ -320,8 +332,6 @@ void FD3D12CommandContext::RHISetStreamSource(uint32 StreamIndex, FRHIBuffer* Ve
 	FD3D12Buffer* VertexBuffer = static_cast<FD3D12Buffer*>(VertexBufferRHI);
 
 	StateCache.SetStreamSource(&VertexBuffer->ResourceLocation, StreamIndex, Offset, Stride);
-
-
 }
 
 void FD3D12CommandContext::RHISetGraphicsPipelineState(FRHIGraphicsPipelineState* GraphicsPSO, const FBoundShaderStateInput& ShaderInput)

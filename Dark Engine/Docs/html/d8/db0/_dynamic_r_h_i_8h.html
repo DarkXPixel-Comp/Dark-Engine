@@ -25,8 +25,9 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="../../Logo.png"/></td>
   <td id="projectalign">
-   <div id="projectname">Dark Engine<span id="projectnumber">&#160;0.0.39</span>
+   <div id="projectname">Dark Engine<span id="projectnumber">&#160;0.0.40</span>
    </div>
+   <div id="projectbrief">New game engnie D3D12</div>
   </td>
  </tr>
  </tbody>
@@ -242,6 +243,15 @@ $(function() {
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Create <a class="el" href="../../d9/d24/class_f_r_h_i_buffer.html">FRHIBuffer</a> </p><dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">CreateDesc</td><td>BufferDesc </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">DebugName</td><td>Debug name for debugger </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">InitialState</td><td>Initial <a class="el" href="../../d8/d8e/class_r_h_i.html">RHI</a> state </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>RefCount object <a class="el" href="../../d9/d24/class_f_r_h_i_buffer.html">FRHIBuffer</a> </dd></dl>
 
 </div>
 </div>
@@ -297,6 +307,13 @@ $(function() {
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Create <a class="el" href="../../d3/d6d/class_f_r_h_i_texture.html">FRHITexture</a> </p><dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">CreateDesc</td><td>Texture create description </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>RefCount object <a class="el" href="../../d3/d6d/class_f_r_h_i_texture.html">FRHITexture</a> </dd></dl>
 
 </div>
 </div>
@@ -352,6 +369,13 @@ $(function() {
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Get BackBuffer Texture </p><dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname"><a class="el" href="../../de/d02/struct_viewport.html">Viewport</a></td><td><a class="el" href="../../de/d02/struct_viewport.html">Viewport</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd><a class="el" href="../../d3/d6d/class_f_r_h_i_texture.html">FRHITexture</a> back buffer </dd></dl>
 
 </div>
 </div>

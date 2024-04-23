@@ -322,207 +322,200 @@
 \DoxyCodeLine{00596\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector_a22351713c8cb9a3d3097914bdee228e3}{DiagnosticCheckNaN}}();}
 \DoxyCodeLine{00597\ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{00598\ }
-\DoxyCodeLine{00599\ \ \ \ \ \textcolor{comment}{/*\ \ template<typename\ T>}}
-\DoxyCodeLine{00600\ \textcolor{comment}{\ \ \ \ \ \ \ \ FORCEINLINE\ DE::Math::TVector<T>::TVector(const\ TVector2<T>\ V,\ T\ InZ)}}
-\DoxyCodeLine{00601\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ :\ X(V.X),\ Y(V.Y),\ Z(InZ)}}
-\DoxyCodeLine{00602\ \textcolor{comment}{\ \ \ \ \ \ \ \ \{}}
-\DoxyCodeLine{00603\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ DiagnosticCheckNaN();}}
-\DoxyCodeLine{00604\ \textcolor{comment}{\ \ \ \ \ \ \ \ \}*/}}
-\DoxyCodeLine{00605\ }
-\DoxyCodeLine{00606\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{00607\ \ \ \ \ \ \ \ \ FORCEINLINE\ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector_a8ce7b645a9e6f61192c65842d73f6929}{TVector<T>::TVector}}(std::initializer\_list<T>\ Elements)}
-\DoxyCodeLine{00608\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00609\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}\ SizeList\ =\ Elements.size()\ >\ 3\ ?\ 3\ :\ Elements.size();}
-\DoxyCodeLine{00610\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ it\ =\ Elements.begin();}
-\DoxyCodeLine{00611\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}\ i\ =\ 0;\ i\ <\ SizeList;\ ++i)}
-\DoxyCodeLine{00612\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00613\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ XYZ[i]\ =\ *(it\ +\ i);}
-\DoxyCodeLine{00614\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00615\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00616\ }
-\DoxyCodeLine{00617\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{00618\ \ \ \ \ \ \ \ \ FORCEINLINE\ TVector<T>\&\ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector_a8cb1b3d6e3e5ba60da2879045109a571}{TVector<T>::operator=}}(std::initializer\_list<T>\ Elements)}
-\DoxyCodeLine{00619\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00620\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}\ SizeList\ =\ Elements.size()\ >\ 3\ ?\ 3\ :\ Elements.size();}
-\DoxyCodeLine{00621\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ it\ =\ Elements.begin();}
-\DoxyCodeLine{00622\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}\ i\ =\ 0;\ i\ <\ SizeList;\ ++i)}
-\DoxyCodeLine{00623\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00624\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ XYZ[i]\ =\ *(it\ +\ i);}
-\DoxyCodeLine{00625\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00626\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
-\DoxyCodeLine{00627\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00628\ }
-\DoxyCodeLine{00629\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{00630\ \ \ \ \ \ \ \ \ FORCEINLINE\ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector_a8ce7b645a9e6f61192c65842d73f6929}{DE::Math::TVector<T>::TVector}}(T\ InF)}
-\DoxyCodeLine{00631\ \ \ \ \ \ \ \ \ \ \ \ \ :\ X(InF),\ Y(InF),\ Z(InF)}
-\DoxyCodeLine{00632\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00633\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00634\ }
-\DoxyCodeLine{00635\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{00636\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector_a7c5d10e996314fc4ffe92108614be524}{TVector<T>::Set}}(T\ InX,\ T\ InY,\ T\ InZ)}
-\DoxyCodeLine{00637\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00638\ \ \ \ \ \ \ \ \ \ \ \ \ X\ =\ InX;}
-\DoxyCodeLine{00639\ \ \ \ \ \ \ \ \ \ \ \ \ Y\ =\ InY;}
-\DoxyCodeLine{00640\ \ \ \ \ \ \ \ \ \ \ \ \ Z\ =\ InZ;}
-\DoxyCodeLine{00641\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00642\ }
-\DoxyCodeLine{00643\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{00644\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ T\&\ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector_a48409e88096fee8cac99a86656330839}{TVector<T>::Component}}(\mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}\ Index)}
-\DoxyCodeLine{00645\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00646\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ XYZ[Index];}
-\DoxyCodeLine{00647\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00648\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{00649\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ T\ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector_a48409e88096fee8cac99a86656330839}{TVector<T>::Component}}(\mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}\ Index)\textcolor{keyword}{\ const}}
-\DoxyCodeLine{00650\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
-\DoxyCodeLine{00651\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ XYZ[Index];}
-\DoxyCodeLine{00652\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00653\ }
-\DoxyCodeLine{00654\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{00655\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ TVector<T>\ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector_afca742f60531f30785989e29bfe894e0}{TVector<T>::GetAbs}}()\textcolor{keyword}{\ const}}
-\DoxyCodeLine{00656\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
-\DoxyCodeLine{00657\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ TVector<T>}
-\DoxyCodeLine{00658\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (}
-\DoxyCodeLine{00659\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FMath::Abs(X),}
-\DoxyCodeLine{00660\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FMath::Abs(Y),}
-\DoxyCodeLine{00661\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FMath::Abs(Z)}
-\DoxyCodeLine{00662\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ );}
-\DoxyCodeLine{00663\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00664\ }
-\DoxyCodeLine{00665\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{00666\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ T\ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector_a27af7d97a02305d0f78b11ff1bfd6eff}{TVector<T>::GetMax}}()\textcolor{keyword}{\ const}}
-\DoxyCodeLine{00667\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
-\DoxyCodeLine{00668\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ FMath::Max(FMath::Max(X,\ Y),\ Z);}
-\DoxyCodeLine{00669\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00599\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00600\ \ \ \ \ \ \ \ \ FORCEINLINE\ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector_a8ce7b645a9e6f61192c65842d73f6929}{TVector<T>::TVector}}(std::initializer\_list<T>\ Elements)}
+\DoxyCodeLine{00601\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00602\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}\ SizeList\ =\ Elements.size()\ >\ 3\ ?\ 3\ :\ Elements.size();}
+\DoxyCodeLine{00603\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ it\ =\ Elements.begin();}
+\DoxyCodeLine{00604\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}\ i\ =\ 0;\ i\ <\ SizeList;\ ++i)}
+\DoxyCodeLine{00605\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00606\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ XYZ[i]\ =\ *(it\ +\ i);}
+\DoxyCodeLine{00607\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00608\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00609\ }
+\DoxyCodeLine{00610\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00611\ \ \ \ \ \ \ \ \ FORCEINLINE\ TVector<T>\&\ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector_a8cb1b3d6e3e5ba60da2879045109a571}{TVector<T>::operator=}}(std::initializer\_list<T>\ Elements)}
+\DoxyCodeLine{00612\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00613\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}\ SizeList\ =\ Elements.size()\ >\ 3\ ?\ 3\ :\ Elements.size();}
+\DoxyCodeLine{00614\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ it\ =\ Elements.begin();}
+\DoxyCodeLine{00615\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}\ i\ =\ 0;\ i\ <\ SizeList;\ ++i)}
+\DoxyCodeLine{00616\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00617\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ XYZ[i]\ =\ *(it\ +\ i);}
+\DoxyCodeLine{00618\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00619\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00620\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00621\ }
+\DoxyCodeLine{00622\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00623\ \ \ \ \ \ \ \ \ FORCEINLINE\ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector_a8ce7b645a9e6f61192c65842d73f6929}{DE::Math::TVector<T>::TVector}}(T\ InF)}
+\DoxyCodeLine{00624\ \ \ \ \ \ \ \ \ \ \ \ \ :\ X(InF),\ Y(InF),\ Z(InF)}
+\DoxyCodeLine{00625\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00626\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00627\ }
+\DoxyCodeLine{00628\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00629\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector_a7c5d10e996314fc4ffe92108614be524}{TVector<T>::Set}}(T\ InX,\ T\ InY,\ T\ InZ)}
+\DoxyCodeLine{00630\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00631\ \ \ \ \ \ \ \ \ \ \ \ \ X\ =\ InX;}
+\DoxyCodeLine{00632\ \ \ \ \ \ \ \ \ \ \ \ \ Y\ =\ InY;}
+\DoxyCodeLine{00633\ \ \ \ \ \ \ \ \ \ \ \ \ Z\ =\ InZ;}
+\DoxyCodeLine{00634\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00635\ }
+\DoxyCodeLine{00636\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00637\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ T\&\ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector_a48409e88096fee8cac99a86656330839}{TVector<T>::Component}}(\mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}\ Index)}
+\DoxyCodeLine{00638\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00639\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ XYZ[Index];}
+\DoxyCodeLine{00640\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00641\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00642\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ T\ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector_a48409e88096fee8cac99a86656330839}{TVector<T>::Component}}(\mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}\ Index)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00643\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00644\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ XYZ[Index];}
+\DoxyCodeLine{00645\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00646\ }
+\DoxyCodeLine{00647\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00648\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ TVector<T>\ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector_afca742f60531f30785989e29bfe894e0}{TVector<T>::GetAbs}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00649\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00650\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ TVector<T>}
+\DoxyCodeLine{00651\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (}
+\DoxyCodeLine{00652\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FMath::Abs(X),}
+\DoxyCodeLine{00653\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FMath::Abs(Y),}
+\DoxyCodeLine{00654\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FMath::Abs(Z)}
+\DoxyCodeLine{00655\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{00656\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00657\ }
+\DoxyCodeLine{00658\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00659\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ T\ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector_a27af7d97a02305d0f78b11ff1bfd6eff}{TVector<T>::GetMax}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00660\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00661\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ FMath::Max(FMath::Max(X,\ Y),\ Z);}
+\DoxyCodeLine{00662\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00663\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00664\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ T\ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector_a457e1ee7dccad08d798615ea21ec026e}{TVector<T>::GetAbsMax}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00665\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00666\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ FMath::AbsMax(FMath::AbsMax(X,\ Y),\ Z);}
+\DoxyCodeLine{00667\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00668\ }
+\DoxyCodeLine{00669\ }
 \DoxyCodeLine{00670\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{00671\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ T\ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector_a457e1ee7dccad08d798615ea21ec026e}{TVector<T>::GetAbsMax}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00671\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ T\ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector_aefc3db19f933967265410f90178bd69c}{TVector<T>::GetMin}}()\textcolor{keyword}{\ const}}
 \DoxyCodeLine{00672\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
-\DoxyCodeLine{00673\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ FMath::AbsMax(FMath::AbsMax(X,\ Y),\ Z);}
+\DoxyCodeLine{00673\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ FMath::Min(FMath::Min(X,\ Y),\ Z);}
 \DoxyCodeLine{00674\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00675\ }
-\DoxyCodeLine{00676\ }
-\DoxyCodeLine{00677\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{00678\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ T\ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector_aefc3db19f933967265410f90178bd69c}{TVector<T>::GetMin}}()\textcolor{keyword}{\ const}}
-\DoxyCodeLine{00679\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
-\DoxyCodeLine{00680\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ FMath::Min(FMath::Min(X,\ Y),\ Z);}
-\DoxyCodeLine{00681\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00682\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{00683\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ T\ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector_ace9eacd4da2adc8b56f025529e356301}{TVector<T>::GetAbsMin}}()\textcolor{keyword}{\ const}}
-\DoxyCodeLine{00684\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
-\DoxyCodeLine{00685\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ FMath::AbsMin(FMath::AbsMin(X,\ Y),\ Z);}
-\DoxyCodeLine{00686\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00687\ }
-\DoxyCodeLine{00688\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{00689\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ TVector<T>\ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector_aec06673e335169e45b54d84913a8b2e6}{TVector<T>::ComponentMin}}(\textcolor{keyword}{const}\ TVector<T>\&\ Other)\textcolor{keyword}{\ const}}
-\DoxyCodeLine{00690\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
-\DoxyCodeLine{00691\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ TVector<T>}
-\DoxyCodeLine{00692\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (}
-\DoxyCodeLine{00693\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FMath::Min(X,\ Other.X),}
-\DoxyCodeLine{00694\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FMath::Min(Y,\ Other.Y),}
-\DoxyCodeLine{00695\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FMath::Min(Z,\ Other.Z)}
-\DoxyCodeLine{00696\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ );}
-\DoxyCodeLine{00697\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00698\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{00699\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ TVector<T>\ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector_a79cfdc610972c00a2ad9961a0adc34d7}{TVector<T>::ComponentMax}}(\textcolor{keyword}{const}\ TVector<T>\&\ Other)\textcolor{keyword}{\ const}}
-\DoxyCodeLine{00700\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
-\DoxyCodeLine{00701\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ TVector<T>}
-\DoxyCodeLine{00702\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (}
-\DoxyCodeLine{00703\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FMath::Max(X,\ Other.X),}
-\DoxyCodeLine{00704\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FMath::Max(Y,\ Other.Y),}
-\DoxyCodeLine{00705\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FMath::Max(Z,\ Other.Z)}
-\DoxyCodeLine{00706\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ );}
-\DoxyCodeLine{00707\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00708\ }
-\DoxyCodeLine{00709\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{00710\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector_aeb119798692f88143b3b73bb968b42b1}{TVector<T>::Equals}}(\textcolor{keyword}{const}\ TVector<T>\&\ V,\ T\ Tolerance)\textcolor{keyword}{\ const}}
-\DoxyCodeLine{00711\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
-\DoxyCodeLine{00712\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ FMath::Abs(X\ -\/\ V.X)\ <\ Tolerance\ \&\&\ FMath::Abs(Y\ -\/\ V.Y)\ <\ Tolerance\ \&\&\ FMath::Abs(Z\ -\/\ V.Z)\ <\ Tolerance;}
-\DoxyCodeLine{00713\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00714\ }
-\DoxyCodeLine{00715\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{00716\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector_a610ca38a5d3b5601e16f9a3a62828349}{TVector<T>::AllComponentEqual}}(T\ Tolerance)\textcolor{keyword}{\ const}}
-\DoxyCodeLine{00717\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
-\DoxyCodeLine{00718\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ FMath::Abs(X\ -\/\ Y)\ <\ Tolerance\ \&\&\ FMath::Abs(Y\ -\/\ Z)\ <\ Tolerance;}
-\DoxyCodeLine{00719\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00720\ }
-\DoxyCodeLine{00721\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{00722\ \ \ \ \ \ \ \ \ FORCEINLINE\ TVector<T>\ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector_aaa2fc9ca5ae7167ace53a242f89ab514}{TVector<T>::operator+}}(\textcolor{keyword}{const}\ TVector<T>\&\ V)\textcolor{keyword}{\ const}}
-\DoxyCodeLine{00723\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
-\DoxyCodeLine{00724\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ TVector<T>(X\ +\ V.X,\ Y\ +\ V.Y,\ Z\ +\ V.Z);}
-\DoxyCodeLine{00725\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00726\ }
-\DoxyCodeLine{00727\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{00728\ \ \ \ \ \ \ \ \ FORCEINLINE\ TVector<T>\ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector_a373172d05f95dab45d2c9e53dc99ede1}{TVector<T>::operator*}}(\textcolor{keyword}{const}\ TVector<T>\&\ V)\textcolor{keyword}{\ const}}
-\DoxyCodeLine{00729\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
-\DoxyCodeLine{00730\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ TVector<T>(X\ *\ V.X,\ Y\ *\ V.Y,\ Z\ *\ V.Z);}
-\DoxyCodeLine{00731\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00732\ }
-\DoxyCodeLine{00733\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{00734\ \ \ \ \ \ \ \ \ FORCEINLINE\ TVector<T>\ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector_a3fc3d0850761a457aec767de94b2e0e0}{TVector<T>::operator/}}(\textcolor{keyword}{const}\ TVector<T>\&\ V)\textcolor{keyword}{\ const}}
-\DoxyCodeLine{00735\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
-\DoxyCodeLine{00736\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ TVector<T>(X\ /\ V.X,\ Y\ /\ V.Y,\ Z\ /\ V.Z);}
-\DoxyCodeLine{00737\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00675\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00676\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ T\ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector_ace9eacd4da2adc8b56f025529e356301}{TVector<T>::GetAbsMin}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00677\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00678\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ FMath::AbsMin(FMath::AbsMin(X,\ Y),\ Z);}
+\DoxyCodeLine{00679\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00680\ }
+\DoxyCodeLine{00681\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00682\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ TVector<T>\ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector_aec06673e335169e45b54d84913a8b2e6}{TVector<T>::ComponentMin}}(\textcolor{keyword}{const}\ TVector<T>\&\ Other)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00683\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00684\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ TVector<T>}
+\DoxyCodeLine{00685\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (}
+\DoxyCodeLine{00686\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FMath::Min(X,\ Other.X),}
+\DoxyCodeLine{00687\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FMath::Min(Y,\ Other.Y),}
+\DoxyCodeLine{00688\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FMath::Min(Z,\ Other.Z)}
+\DoxyCodeLine{00689\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{00690\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00691\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00692\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ TVector<T>\ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector_a79cfdc610972c00a2ad9961a0adc34d7}{TVector<T>::ComponentMax}}(\textcolor{keyword}{const}\ TVector<T>\&\ Other)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00693\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00694\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ TVector<T>}
+\DoxyCodeLine{00695\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (}
+\DoxyCodeLine{00696\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FMath::Max(X,\ Other.X),}
+\DoxyCodeLine{00697\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FMath::Max(Y,\ Other.Y),}
+\DoxyCodeLine{00698\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FMath::Max(Z,\ Other.Z)}
+\DoxyCodeLine{00699\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{00700\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00701\ }
+\DoxyCodeLine{00702\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00703\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector_aeb119798692f88143b3b73bb968b42b1}{TVector<T>::Equals}}(\textcolor{keyword}{const}\ TVector<T>\&\ V,\ T\ Tolerance)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00704\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00705\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ FMath::Abs(X\ -\/\ V.X)\ <\ Tolerance\ \&\&\ FMath::Abs(Y\ -\/\ V.Y)\ <\ Tolerance\ \&\&\ FMath::Abs(Z\ -\/\ V.Z)\ <\ Tolerance;}
+\DoxyCodeLine{00706\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00707\ }
+\DoxyCodeLine{00708\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00709\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector_a610ca38a5d3b5601e16f9a3a62828349}{TVector<T>::AllComponentEqual}}(T\ Tolerance)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00710\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00711\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ FMath::Abs(X\ -\/\ Y)\ <\ Tolerance\ \&\&\ FMath::Abs(Y\ -\/\ Z)\ <\ Tolerance;}
+\DoxyCodeLine{00712\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00713\ }
+\DoxyCodeLine{00714\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00715\ \ \ \ \ \ \ \ \ FORCEINLINE\ TVector<T>\ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector_aaa2fc9ca5ae7167ace53a242f89ab514}{TVector<T>::operator+}}(\textcolor{keyword}{const}\ TVector<T>\&\ V)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00716\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00717\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ TVector<T>(X\ +\ V.X,\ Y\ +\ V.Y,\ Z\ +\ V.Z);}
+\DoxyCodeLine{00718\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00719\ }
+\DoxyCodeLine{00720\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00721\ \ \ \ \ \ \ \ \ FORCEINLINE\ TVector<T>\ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector_a373172d05f95dab45d2c9e53dc99ede1}{TVector<T>::operator*}}(\textcolor{keyword}{const}\ TVector<T>\&\ V)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00722\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00723\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ TVector<T>(X\ *\ V.X,\ Y\ *\ V.Y,\ Z\ *\ V.Z);}
+\DoxyCodeLine{00724\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00725\ }
+\DoxyCodeLine{00726\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00727\ \ \ \ \ \ \ \ \ FORCEINLINE\ TVector<T>\ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector_a3fc3d0850761a457aec767de94b2e0e0}{TVector<T>::operator/}}(\textcolor{keyword}{const}\ TVector<T>\&\ V)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00728\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00729\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ TVector<T>(X\ /\ V.X,\ Y\ /\ V.Y,\ Z\ /\ V.Z);}
+\DoxyCodeLine{00730\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00731\ }
+\DoxyCodeLine{00732\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00733\ \ \ \ \ \ \ \ \ FORCEINLINE\ TVector<T>\ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector_a7374b2346cb58212c2d248a98963292c}{TVector<T>::operator\string^}}(\textcolor{keyword}{const}\ TVector<T>\&V)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00734\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00735\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Cross(V);}
+\DoxyCodeLine{00736\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00737\ }
 \DoxyCodeLine{00738\ }
-\DoxyCodeLine{00739\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{00740\ \ \ \ \ \ \ \ \ FORCEINLINE\ TVector<T>\ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector_a7374b2346cb58212c2d248a98963292c}{TVector<T>::operator\string^}}(\textcolor{keyword}{const}\ TVector<T>\&V)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00739\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00740\ \ \ \ \ \ \ \ \ FORCEINLINE\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector_a14a39bf928491c848ad084404ce07e06}{TVector<T>::ContainsNaN}}()\textcolor{keyword}{\ const}}
 \DoxyCodeLine{00741\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
-\DoxyCodeLine{00742\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Cross(V);}
-\DoxyCodeLine{00743\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00744\ }
-\DoxyCodeLine{00745\ }
-\DoxyCodeLine{00746\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{00747\ \ \ \ \ \ \ \ \ FORCEINLINE\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector_a14a39bf928491c848ad084404ce07e06}{TVector<T>::ContainsNaN}}()\textcolor{keyword}{\ const}}
-\DoxyCodeLine{00748\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
-\DoxyCodeLine{00749\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \ (!FMath::IsFinite(X)\ ||}
-\DoxyCodeLine{00750\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ !FMath::IsFinite(Y)\ ||}
-\DoxyCodeLine{00751\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ !FMath::IsFinite(Z));}
+\DoxyCodeLine{00742\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \ (!FMath::IsFinite(X)\ ||}
+\DoxyCodeLine{00743\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ !FMath::IsFinite(Y)\ ||}
+\DoxyCodeLine{00744\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ !FMath::IsFinite(Z));}
+\DoxyCodeLine{00745\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00746\ }
+\DoxyCodeLine{00747\ }
+\DoxyCodeLine{00748\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00749\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ T\ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector_a20b060de484601e434549e0845740e17}{TVector<T>::DotProduct}}(\textcolor{keyword}{const}\ TVector<T>\&\ A,\ \textcolor{keyword}{const}\ TVector<T>\&\ B)}
+\DoxyCodeLine{00750\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00751\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ A.X\ *\ B.X\ +\ A.Y\ *\ B.Y\ +\ A.Z\ *\ B.Z;}
 \DoxyCodeLine{00752\ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{00753\ }
-\DoxyCodeLine{00754\ }
-\DoxyCodeLine{00755\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{00756\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ T\ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector_a20b060de484601e434549e0845740e17}{TVector<T>::DotProduct}}(\textcolor{keyword}{const}\ TVector<T>\&\ A,\ \textcolor{keyword}{const}\ TVector<T>\&\ B)}
-\DoxyCodeLine{00757\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00758\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ A.X\ *\ B.X\ +\ A.Y\ *\ B.Y\ +\ A.Z\ *\ B.Z;}
-\DoxyCodeLine{00759\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00754\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00755\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ T\ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector_a702d28ab0849afac4763a96134e542ea}{TVector<T>::Dot}}(\textcolor{keyword}{const}\ TVector<T>\&\ V)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00756\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00757\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ DotProduct(*\textcolor{keyword}{this},\ V);}
+\DoxyCodeLine{00758\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00759\ }
 \DoxyCodeLine{00760\ }
-\DoxyCodeLine{00761\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{00762\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ T\ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector_a702d28ab0849afac4763a96134e542ea}{TVector<T>::Dot}}(\textcolor{keyword}{const}\ TVector<T>\&\ V)\textcolor{keyword}{\ const}}
-\DoxyCodeLine{00763\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
-\DoxyCodeLine{00764\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ DotProduct(*\textcolor{keyword}{this},\ V);}
-\DoxyCodeLine{00765\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00766\ }
-\DoxyCodeLine{00767\ }
-\DoxyCodeLine{00768\ }
-\DoxyCodeLine{00769\ }
-\DoxyCodeLine{00770\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{00771\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ TVector<T>\ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector_a7350a5806e38af2a173c1afd1528aed1}{TVector<T>::CrossProduct}}(\textcolor{keyword}{const}\ TVector<T>\&\ A,\ \textcolor{keyword}{const}\ TVector<T>\&\ B)}
-\DoxyCodeLine{00772\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00773\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector}{TVector}}}
-\DoxyCodeLine{00774\ \ \ \ \ \ \ \ \ \ \ \ \ (}
-\DoxyCodeLine{00775\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ A.Y\ *\ B.Z\ -\/\ A.Z\ *\ B.Y,}
-\DoxyCodeLine{00776\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ A.Z\ *\ B.X\ -\/\ A.X\ *\ B.Z,}
-\DoxyCodeLine{00777\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ A.X\ *\ B.Y\ -\/\ A.Y\ *\ B.X}
-\DoxyCodeLine{00778\ \ \ \ \ \ \ \ \ \ \ \ \ );}
-\DoxyCodeLine{00779\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00780\ }
-\DoxyCodeLine{00781\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{00782\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ TVector<T>\ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector_afda5484b610e96346bd1b476fe4f4dbb}{TVector<T>::Cross}}(\textcolor{keyword}{const}\ TVector<T>\&\ V)\textcolor{keyword}{\ const}}
-\DoxyCodeLine{00783\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
-\DoxyCodeLine{00784\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ CrossProduct(*\textcolor{keyword}{this},\ V);}
-\DoxyCodeLine{00785\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00761\ }
+\DoxyCodeLine{00762\ }
+\DoxyCodeLine{00763\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00764\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ TVector<T>\ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector_a7350a5806e38af2a173c1afd1528aed1}{TVector<T>::CrossProduct}}(\textcolor{keyword}{const}\ TVector<T>\&\ A,\ \textcolor{keyword}{const}\ TVector<T>\&\ B)}
+\DoxyCodeLine{00765\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00766\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector}{TVector}}}
+\DoxyCodeLine{00767\ \ \ \ \ \ \ \ \ \ \ \ \ (}
+\DoxyCodeLine{00768\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ A.Y\ *\ B.Z\ -\/\ A.Z\ *\ B.Y,}
+\DoxyCodeLine{00769\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ A.Z\ *\ B.X\ -\/\ A.X\ *\ B.Z,}
+\DoxyCodeLine{00770\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ A.X\ *\ B.Y\ -\/\ A.Y\ *\ B.X}
+\DoxyCodeLine{00771\ \ \ \ \ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{00772\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00773\ }
+\DoxyCodeLine{00774\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00775\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ TVector<T>\ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector_afda5484b610e96346bd1b476fe4f4dbb}{TVector<T>::Cross}}(\textcolor{keyword}{const}\ TVector<T>\&\ V)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00776\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00777\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ CrossProduct(*\textcolor{keyword}{this},\ V);}
+\DoxyCodeLine{00778\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00779\ }
+\DoxyCodeLine{00780\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00781\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ T\ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector_a7921c278d27532b80701b0392f5eb56e}{TVector<T>::Length}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00782\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00783\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ FMath::Sqrt(X\ *\ X\ +\ Y\ *\ Y\ +\ Z\ *\ Z);}
+\DoxyCodeLine{00784\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00785\ }
 \DoxyCodeLine{00786\ }
-\DoxyCodeLine{00787\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{00788\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ T\ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector_a7921c278d27532b80701b0392f5eb56e}{TVector<T>::Length}}()\textcolor{keyword}{\ const}}
-\DoxyCodeLine{00789\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
-\DoxyCodeLine{00790\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ FMath::Sqrt(X\ *\ X\ +\ Y\ *\ Y\ +\ Z\ *\ Z);}
-\DoxyCodeLine{00791\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00787\ \ \ \ \ \}}
+\DoxyCodeLine{00788\ }
+\DoxyCodeLine{00789\ \}}
+\DoxyCodeLine{00790\ }
+\DoxyCodeLine{00791\ }
 \DoxyCodeLine{00792\ }
-\DoxyCodeLine{00793\ }
-\DoxyCodeLine{00794\ \ \ \ \ \}}
-\DoxyCodeLine{00795\ }
-\DoxyCodeLine{00796\ \}}
-\DoxyCodeLine{00797\ }
-\DoxyCodeLine{00798\ }
-\DoxyCodeLine{00799\ }
-\DoxyCodeLine{00800\ \textcolor{preprocessor}{\#pragma\ warning\ (pop)}}
+\DoxyCodeLine{00793\ \textcolor{preprocessor}{\#pragma\ warning\ (pop)}}
 
 \end{DoxyCode}

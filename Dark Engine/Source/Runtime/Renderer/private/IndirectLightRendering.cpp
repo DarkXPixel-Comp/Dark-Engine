@@ -5,47 +5,73 @@
 #include "CommonRenderResources.h"
 
 
-class FDiffuseIndirectCompositeVS : public FGlobalShader
-{
-	DECLARE_GLOBAL_SHADER(FDiffuseIndirectCompositeVS)
-	SHADER_USE_PARAMETER_STRUCT(FDiffuseIndirectCompositeVS, FGlobalShader);
+//class FDiffuseIndirectCompositeVS : public FGlobalShader
+//{
+//	DECLARE_GLOBAL_SHADER(FDiffuseIndirectCompositeVS)
+//	SHADER_USE_PARAMETER_STRUCT(FDiffuseIndirectCompositeVS, FGlobalShader);
+//
+//	DECLARE_SHADER_BOUNDS(0, 0, 0, 0);
+//};
+//
+//
+//class FDiffuseIndirectCompositePS : public FGlobalShader
+//{
+//	DECLARE_GLOBAL_SHADER(FDiffuseIndirectCompositePS)
+//	SHADER_USE_PARAMETER_STRUCT(FDiffuseIndirectCompositePS, FGlobalShader);
+//
+//	DECLARE_SHADER_BOUNDS(0, 0, 0, 0);
+//
+//};
 
-	DECLARE_SHADER_BOUNDS(0, 2, 0, 0);
+
+class FScreenRectangleVS : public FGlobalShader
+{
+	DECLARE_GLOBAL_SHADER(FScreenRectangleVS);
+	SHADER_USE_PARAMETER_STRUCT(FScreenRectangleVS, FGlobalShader);
+	DECLARE_SHADER_BOUNDS(0, 0, 0, 0);
+};
+
+class FScreenRectanglePS : public FGlobalShader
+{
+	DECLARE_GLOBAL_SHADER(FScreenRectanglePS);
+	SHADER_USE_PARAMETER_STRUCT(FScreenRectanglePS, FGlobalShader);
+	DECLARE_SHADER_BOUNDS(0, 0, 0, 0);
 };
 
 
-class FDiffuseIndirectCompositePS : public FGlobalShader
-{
-	DECLARE_GLOBAL_SHADER(FDiffuseIndirectCompositePS)
-	SHADER_USE_PARAMETER_STRUCT(FDiffuseIndirectCompositePS, FGlobalShader);
 
-	DECLARE_SHADER_BOUNDS(0, 3, 1, 0);
+//IMPLEMENT_GLOBAL_SHADER(FDiffuseIndirectCompositeVS, "VertexShader.hlsl",
+//	"VSmain", ST_Vertex);
+//IMPLEMENT_GLOBAL_SHADER(FDiffuseIndirectCompositePS, "VertexShader.hlsl",
+//	"PSmain", ST_Pixel);
 
-};
-
-
-IMPLEMENT_GLOBAL_SHADER(FDiffuseIndirectCompositeVS, "VertexShader.hlsl",
-	"main", ST_Vertex);
-IMPLEMENT_GLOBAL_SHADER(FDiffuseIndirectCompositePS, "PixelShader.hlsl",
-	"main", ST_Pixel);
+IMPLEMENT_GLOBAL_SHADER(FScreenRectangleVS, "ScreenRectangle.hlsl", "VSMain", ST_Vertex);
+IMPLEMENT_GLOBAL_SHADER(FScreenRectanglePS, "ScreenRectangle.hlsl", "PSMain", ST_Pixel);
 
 
 void RenderLight()
 {
 	FRHICommandListImmediate& RHICmdList = GRHICommandList.GetImmediateCommandList();
 
-	TShaderRefBase<FDiffuseIndirectCompositeVS> VertexShader =
-		GGlobalShaderMap->GetShader<FDiffuseIndirectCompositeVS>();
-	TShaderRefBase<FDiffuseIndirectCompositePS>	PixelShader =
-		GGlobalShaderMap->GetShader<FDiffuseIndirectCompositePS>();
+	TShaderRefBase<FScreenRectangleVS> VertexShader =
+		GGlobalShaderMap->GetShader<FScreenRectangleVS>();
+	TShaderRefBase<FScreenRectanglePS>	PixelShader =
+		GGlobalShaderMap->GetShader<FScreenRectanglePS>();
 
 	FVertexDeclarationElementList Elements;
-	Elements.Add(FVertexElement(VET_Float3, 0, 0, 0, 0));
-	Elements.Add(FVertexElement(VET_Float3, 1, 0, 0, 0));
-	Elements.Add(FVertexElement(VET_Float4, 2, 0, 0, 0));
-	Elements.Add(FVertexElement(VET_Float3, 3, 0, 0, 0));
-	Elements.Add(FVertexElement(VET_Float3, 4, 0, 0, 0));
-	Elements.Add(FVertexElement(VET_Float2, 5, 0, 0, 0));
+	Elements.Add(FVertexElement(VET_Float4, 0, 0, 0, 0));
+	Elements.Add(FVertexElement(VET_Float2, 1, 0, 0, 0));
+
+	//Elements[0].Name = "SV_POSITION";
+	//Elements[1].Name = "TEXCOORD";
+
+
+
+
+	static FScreenRectangleVertexBuffer VertexBuffer;
+	static FScreenRectangleIndexBuffer IndexBufer;
+	VertexBuffer.Init();  
+	IndexBufer.Init();
 
 
 	FRHIVertexShader* RHIVertexShader = VertexShader.GetVertexShader();
@@ -58,6 +84,7 @@ void RenderLight()
 	Initializer.BoundShaderState.VertexShaderRHI = RHIVertexShader;
 	Initializer.BoundShaderState.PixelShaderRHI = RHIPixelShader;
 	Initializer.BoundShaderState.VertexDeclaration = RHIVertexDeclaration.Get();
+	Initializer.RenderTargetFormats[0] = EPixelFormat::PF_R8G8B8A8_UNORM;
 	//RHICreateGraphicsPipelineState(Initializer);
 
 	TRefCountPtr<FRHIGraphicsPipelineState> PipelineState = RHICreateGraphicsPipelineState(Initializer);
@@ -66,14 +93,11 @@ void RenderLight()
 	
 	/*static TRefCountPtr<FRHIBuffer> VertexBuffer = RHICreateBuffer(FRHIBufferDesc(32, 0), TEXT("Cube"), ERHIAccess::VertexOrIndexBuffer);*/
 
-	static FScreenRectangleVertexBuffer VertexBuffer;
-	VertexBuffer.Init();  
+	RHICmdList.RHISetViewport(0, 0, 0.1f, 1280, 720, 100);
+	RHICmdList.SetStreamSource(0, VertexBuffer.VertexBuffer.Get(), 0, sizeof(FFilterVertex));
+	RHICmdList.DrawIndexedPrimitive(IndexBufer.IndexBuffer.Get(), 0, 0, 3, 0, 2, 1);
 
-	//void* Data = RHILockBuffer(VertexBuffer.VertexBuffer.Get(), 0, VertexBuffer.VertexBuffer->GetSize(), RLM_ReadOnly);
-	//TArray<FFilterVertex> Vertices(VertexBuffer.VertexBuffer->GetSize() / sizeof(FFilterVertex));
 
-	//FMemory::Memcpy(Vertices.GetData(), Data, VertexBuffer.VertexBuffer->GetSize());
-
-	//RHIUnlockBuffer(VertexBuffer.VertexBuffer.Get());
-	RHICmdList.SetStreamSource(0, VertexBuffer.VertexBuffer.Get(), 0, 32);
+	/*FRHIRenderPassInfo RenderPassInfo();
+	RHICmdList.BeginRenderPass();*/
 }

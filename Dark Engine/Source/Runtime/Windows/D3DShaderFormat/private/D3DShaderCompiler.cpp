@@ -11,15 +11,15 @@ const TCHAR* GetShaderProfileName(uint32 ShaderType)
 	switch (ShaderType)
 	{
 	case ST_Vertex:
-		return TEXT("vs_6_5");
+		return TEXT("vs_6_0");
 	case ST_Mesh:
-		return TEXT("ms_6_5");
+		return TEXT("ms_6_0");
 	case ST_Pixel:
-		return TEXT("ps_6_5");
+		return TEXT("ps_6_0");
 	case ST_Geometry:
-		return TEXT("gs_6_5");
+		return TEXT("gs_6_0");
 	case ST_Compute:
-		return TEXT("cs_6_5");
+		return TEXT("cs_6_0");
 	}
 
 }
@@ -45,6 +45,7 @@ public:
 
 	void GetCompilerArgs(TArray<const WCHAR*>& Out) const
 	{
+		Out.Add(TEXT("Zi"));
 		Out.Add(TEXT("-E"));
 		Out.Add(*EntryPoint);
 		Out.Add(TEXT("-T"));
@@ -121,8 +122,9 @@ void CompileD3DShader(const FShaderCompilerInput& Input, const FShaderPreprocess
 	if (SUCCEEDED(Result))
 	{
 		TRefCountPtr<IDxcBlobUtf16>	ObjectCodeNameBlob;
+		DxcShaderHash Hash;
 		check(CompileResult->HasOutput(DXC_OUT_OBJECT) && "No object code found");
-		CompileResult->GetOutput(DXC_OUT_OBJECT, IID_PPV_ARGS(&OutResult), &ObjectCodeNameBlob);		
+		CompileResult->GetOutput(DXC_OUT_OBJECT, IID_PPV_ARGS(&OutResult), &ObjectCodeNameBlob);	
 	}
 	else
 	{

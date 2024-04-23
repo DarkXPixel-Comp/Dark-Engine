@@ -92,6 +92,11 @@ public:
 		GetContext().RHISetStreamSource(StreamIndex, VertexBuffer, Offset, Stride);
 	}
 
+	void DrawIndexedPrimitive(FRHIBuffer* IndexBufferRHI, int32 BaseVertexIndex, uint32 FirstInstance, uint32 NumVertices, uint32 StartIndex, uint32 NumPrimitives, uint32 NumInstances)
+	{
+		GetContext().RHIDrawIndexedPrimitive(IndexBufferRHI, BaseVertexIndex, FirstInstance, NumVertices, StartIndex, NumPrimitives, NumInstances);
+	}
+
 };
 
 
@@ -118,6 +123,10 @@ public:
 	void BeginRenderPass(struct FRHIRenderPassInfo& InInfo)
 	{
 		GetContext().RHIBeginRenderPass(InInfo);
+	}
+	void EndRenderPass(struct FRHIRenderPassInfo& InInfo)
+	{
+		GetContext().RHIEndRenderPass(InInfo);
 	}
 	void BeginDrawingViewport(FRHIViewport* Viewport, FRHITexture* RenderTargetRHI)
 	{

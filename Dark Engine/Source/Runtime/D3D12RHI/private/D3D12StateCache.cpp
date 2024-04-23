@@ -90,7 +90,7 @@ void FD3D12StateCache::SetStreamSource(FD3D12ResourceLocation* VertexBufferLocat
 
 	if (NewView.BufferLocation != CurrentView.BufferLocation ||
 		NewView.SizeInBytes != CurrentView.SizeInBytes ||
-		NewView.StrideInBytes != CurrentView.StrideInBytes)
+		NewView.StrideInBytes != CurrentView.StrideInBytes || true)
 	{
 		bNeedSetVB = true;
 		PipelineState.Graphics.VBCache.CurrentVertexBufferResources[StreamIndex] = VertexBufferLocation;
@@ -112,7 +112,7 @@ void FD3D12StateCache::SetIndexBuffer(FD3D12ResourceLocation* IndexBufferLocatio
 
 	if (BufferLocation != CurrentView.BufferLocation ||
 		SizeInBytes != CurrentView.SizeInBytes ||
-		Format != CurrentView.Format)
+		Format != CurrentView.Format || true)
 	{
 		CurrentView.BufferLocation = BufferLocation;
 		CurrentView.SizeInBytes = SizeInBytes;
@@ -172,13 +172,25 @@ void FD3D12StateCache::SetRenderTargets(uint32 NumRenderTargets, FD3D12RenderTar
 
 	}
 
+	bNeedSetRTs = false;
+}
+
+void FD3D12StateCache::SetViewport(float MinX, float MinY, float MinZ, float MaxX, float MaxY, float MaxZ)
+{
+	D3D12_VIEWPORT Viewport = {MinX, MinY, (MaxX - MinX), (MaxY - MinY), MinZ, MaxZ};
+	
+	if (PipelineState.Graphics.CurrentViewport[0] != Viewport)
+	{
+		bNeedSetViewports = true;
+		PipelineState.Graphics.CurrentViewport[0] = Viewport;
+	}
 }
 
 void FD3D12StateCache::ApplyState(bool bIsCompute)
 {
 	if (!bIsCompute)
 	{
-		if (PipelineState.Graphics.bNeedSetRootSignature)
+		if (PipelineState.Graphics.bNeedSetRootSignature || true)
 		{
 			Context.GetCommandList().GetGraphicsCommandList()->SetGraphicsRootSignature(PipelineState.Graphics.CurrentPipelineStateObject->RootSignature->GetRootSignature());
 			PipelineState.Graphics.bNeedSetRootSignature = false;
@@ -195,7 +207,7 @@ void FD3D12StateCache::ApplyState(bool bIsCompute)
 	ID3D12PipelineState* const NewPSO = bIsCompute ? nullptr : 
 		PipelineState.Graphics.CurrentPipelineStateObject->PipelineState->PSO.Get();
 
-	if (PipelineState.Common.bNeedSetPSO || CurrentPSO == nullptr || NewPSO != CurrentPSO)
+	if (PipelineState.Common.bNeedSetPSO || CurrentPSO == nullptr || NewPSO != CurrentPSO || true)
 	{
 		PipelineState.Common.CurrentPipelineState = NewPSO;
 		Context.GetCommandList().GetGraphicsCommandList()->SetPipelineState(NewPSO);
@@ -204,18 +216,30 @@ void FD3D12StateCache::ApplyState(bool bIsCompute)
 
 	if (!bIsCompute)
 	{
-		if (bNeedSetVB)
+		if (bNeedSetVB || true)
 		{
 			bNeedSetVB = false;
 			Context.GetGraphicsList()->IASetVertexBuffers(0, PipelineState.Graphics.VBCache.NumViews,
 				PipelineState.Graphics.VBCache.CurrentVertexBufferViews);
 		}
-		if (bNeedSetPrimitiveTopology)
+		if (bNeedSetPrimitiveTopology || true)
 		{
 			bNeedSetPrimitiveTopology = false;
 			Context.GetGraphicsList()->IASetPrimitiveTopology(PipelineState.Graphics.PrimitiveTopology);
 		}
 
+		if (bNeedSetViewports || true)
+		{
+			bNeedSetViewports = false;
+			
+			Context.GetGraphicsList()->RSSetViewports(1, &PipelineState.Graphics.CurrentViewport[0]);
+			//Context.GetGraphicsList()->RSSetScissorRects(1, &Rect);
+		}
+
+		if (bNeedSetRTs || true)
+		{
+			bNeedSetRTs = false;
+		}
 
 	}
 

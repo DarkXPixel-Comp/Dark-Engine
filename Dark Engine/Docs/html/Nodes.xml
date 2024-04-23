@@ -6029,6 +6029,11 @@
               <Anchor>a205401a9ec09ae2eb2ff9fc2d0eea005</Anchor>
              </Node>
              <Node>
+              <Name>CurrentNumberViewports</Name>
+              <Path>d3/dfd/class_f_d3_d12_state_cache.html</Path>
+              <Anchor>a29572189703329cb79f129fcfad48d00</Anchor>
+             </Node>
+             <Node>
               <Name>CurrentPipelineState</Name>
               <Path>d3/dfd/class_f_d3_d12_state_cache.html</Path>
               <Anchor>a641d8d8b5a93d793740c4470e09f375e</Anchor>
@@ -6057,6 +6062,11 @@
               <Name>CurrentShaderUAVCount</Name>
               <Path>d3/dfd/class_f_d3_d12_state_cache.html</Path>
               <Anchor>aff5cac7b956ad4d5a980e7d1f401cbe7</Anchor>
+             </Node>
+             <Node>
+              <Name>CurrentViewport</Name>
+              <Path>d3/dfd/class_f_d3_d12_state_cache.html</Path>
+              <Anchor>a69240c1fbcf3468cc14c95da0e3f53bb</Anchor>
              </Node>
              <Node>
               <Name>Graphics</Name>
@@ -26430,6 +26440,11 @@
                           <Anchor>a205401a9ec09ae2eb2ff9fc2d0eea005</Anchor>
                          </Node>
                          <Node>
+                          <Name>CurrentNumberViewports</Name>
+                          <Path>d3/dfd/class_f_d3_d12_state_cache.html</Path>
+                          <Anchor>a29572189703329cb79f129fcfad48d00</Anchor>
+                         </Node>
+                         <Node>
                           <Name>CurrentPipelineState</Name>
                           <Path>d3/dfd/class_f_d3_d12_state_cache.html</Path>
                           <Anchor>a641d8d8b5a93d793740c4470e09f375e</Anchor>
@@ -26458,6 +26473,11 @@
                           <Name>CurrentShaderUAVCount</Name>
                           <Path>d3/dfd/class_f_d3_d12_state_cache.html</Path>
                           <Anchor>aff5cac7b956ad4d5a980e7d1f401cbe7</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>CurrentViewport</Name>
+                          <Path>d3/dfd/class_f_d3_d12_state_cache.html</Path>
+                          <Anchor>a69240c1fbcf3468cc14c95da0e3f53bb</Anchor>
                          </Node>
                          <Node>
                           <Name>Graphics</Name>

@@ -3,7 +3,7 @@
 #include <ShaderCompiler.h>
 #include "DynamicRHI.h"
 
-TArray<const FShaderTypeRegistration*> GShaderTypeRegistationInstances;
+TArray<const FShaderTypeRegistration*> GShaderTypeRegistationInstances = TArray<const FShaderTypeRegistration*>();
 TArray<const FShaderType*> GShaderTypes;
 TUnordoredMap<FString, FShaderType*> GNameToTypeMap;
 TArray<const FShaderPipelineType*> GShaderPipelineTypes;
@@ -52,6 +52,12 @@ FShader* FShaderType::FinishCompileShader(FShaderCompileJob& CurrentJob, const F
 	return Shader;
 }
 
+FShaderTypeRegistration::FShaderTypeRegistration(std::function<FShaderType& ()> InShaderTypeAccessor) :
+	ShaderTypeAccessor(InShaderTypeAccessor)
+{
+	GShaderTypeRegistationInstances.Add(this);
+}
+
 
 TArray<const FShaderTypeRegistration*>& FShaderTypeRegistration::GetInstances()
 {
@@ -60,7 +66,7 @@ TArray<const FShaderTypeRegistration*>& FShaderTypeRegistration::GetInstances()
 
 void FShaderTypeRegistration::CommitAll()
 {
-	for (const auto* Instance : GetInstances())
+	for (const auto* Instance : GShaderTypeRegistationInstances)
 	{
 		FShaderType& ShaderType = Instance->ShaderTypeAccessor();
 	}

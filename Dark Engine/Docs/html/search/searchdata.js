@@ -10,7 +10,8 @@ var indexSectionsWithContent =
   7: "aelt",
   8: "abcdefghijlmnprstuvw",
   9: "dflrsu",
-  10: "_abcdefgilmnoprstuvwy"
+  10: "_abcdefgilmnoprstuvwy",
+  11: "de"
 };
 
 var indexSectionNames =
@@ -25,7 +26,8 @@ var indexSectionNames =
   7: "enums",
   8: "enumvalues",
   9: "related",
-  10: "defines"
+  10: "defines",
+  11: "pages"
 };
 
 var indexSectionLabels =
@@ -40,6 +42,7 @@ var indexSectionLabels =
   7: "Перечисления",
   8: "Элементы перечислений",
   9: "Друзья",
-  10: "Макросы"
+  10: "Макросы",
+  11: "Страницы"
 };
 

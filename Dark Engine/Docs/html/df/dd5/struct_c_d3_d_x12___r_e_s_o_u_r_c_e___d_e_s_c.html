@@ -1,0 +1,1171 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Dark Engine: Структура CD3DX12_RESOURCE_DESC</title>
+<link rel="icon" href="../../Logo.ico" type="image/x-icon" />
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<script type="text/javascript" src="../../clipboard.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../Logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Dark Engine<span id="projectnumber">&#160;0.0.40</span>
+   </div>
+   <div id="projectbrief">New game engnie D3D12</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../../',true,false,'search.php','Поиск');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="#pub-static-methods">Открытые статические члены</a> &#124;
+<a href="../../d0/d01/struct_c_d3_d_x12___r_e_s_o_u_r_c_e___d_e_s_c-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle"><div class="title">Структура CD3DX12_RESOURCE_DESC</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="../../dd/d9d/_d3_d12_r_h_i_2public_2d3dx12_8h_source.html">d3dx12.h</a>&gt;</code></p>
+<div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Граф наследования:CD3DX12_RESOURCE_DESC:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+ <div class="center">
+  <img src="../../df/dd5/struct_c_d3_d_x12___r_e_s_o_u_r_c_e___d_e_s_c.png" alt=""/>
+ </div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:ab6c9932f3367f0ead0c42297e45339b8" id="r_ab6c9932f3367f0ead0c42297e45339b8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab6c9932f3367f0ead0c42297e45339b8">CD3DX12_RESOURCE_DESC</a> ()=default</td></tr>
+<tr class="separator:ab6c9932f3367f0ead0c42297e45339b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16430749aa63ca86abb927c48c390b22" id="r_a16430749aa63ca86abb927c48c390b22"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a16430749aa63ca86abb927c48c390b22">CD3DX12_RESOURCE_DESC</a> (const D3D12_RESOURCE_DESC &amp;o) noexcept</td></tr>
+<tr class="separator:a16430749aa63ca86abb927c48c390b22"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab92aadb686ff913ca380bab7e63be999" id="r_ab92aadb686ff913ca380bab7e63be999"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab92aadb686ff913ca380bab7e63be999">CD3DX12_RESOURCE_DESC</a> (D3D12_RESOURCE_DIMENSION dimension, UINT64 alignment, UINT64 width, UINT height, UINT16 depthOrArraySize, UINT16 mipLevels, DXGI_FORMAT format, UINT sampleCount, UINT sampleQuality, D3D12_TEXTURE_LAYOUT layout, D3D12_RESOURCE_FLAGS flags) noexcept</td></tr>
+<tr class="separator:ab92aadb686ff913ca380bab7e63be999"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9dc9cbcefd0645660b00f3abefb6bd9" id="r_ab9dc9cbcefd0645660b00f3abefb6bd9"><td class="memItemLeft" align="right" valign="top">UINT16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab9dc9cbcefd0645660b00f3abefb6bd9">Depth</a> () const noexcept</td></tr>
+<tr class="separator:ab9dc9cbcefd0645660b00f3abefb6bd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a36b87fc4c930d42678261882c0f76b61" id="r_a36b87fc4c930d42678261882c0f76b61"><td class="memItemLeft" align="right" valign="top">UINT16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a36b87fc4c930d42678261882c0f76b61">ArraySize</a> () const noexcept</td></tr>
+<tr class="separator:a36b87fc4c930d42678261882c0f76b61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a55ca1b860c09a9aeacc0f1487909fabd" id="r_a55ca1b860c09a9aeacc0f1487909fabd"><td class="memItemLeft" align="right" valign="top">UINT8&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a55ca1b860c09a9aeacc0f1487909fabd">PlaneCount</a> (_In_ ID3D12Device *pDevice) const noexcept</td></tr>
+<tr class="separator:a55ca1b860c09a9aeacc0f1487909fabd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ba921e5edcd9d62cdf139e3b648a216" id="r_a4ba921e5edcd9d62cdf139e3b648a216"><td class="memItemLeft" align="right" valign="top">UINT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4ba921e5edcd9d62cdf139e3b648a216">Subresources</a> (_In_ ID3D12Device *pDevice) const noexcept</td></tr>
+<tr class="separator:a4ba921e5edcd9d62cdf139e3b648a216"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a061edacdd25d5074edc1edc9ae22ffbd" id="r_a061edacdd25d5074edc1edc9ae22ffbd"><td class="memItemLeft" align="right" valign="top">UINT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a061edacdd25d5074edc1edc9ae22ffbd">CalcSubresource</a> (UINT MipSlice, UINT ArraySlice, UINT PlaneSlice) noexcept</td></tr>
+<tr class="separator:a061edacdd25d5074edc1edc9ae22ffbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6c9932f3367f0ead0c42297e45339b8" id="r_ab6c9932f3367f0ead0c42297e45339b8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab6c9932f3367f0ead0c42297e45339b8">CD3DX12_RESOURCE_DESC</a> ()=default</td></tr>
+<tr class="separator:ab6c9932f3367f0ead0c42297e45339b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16430749aa63ca86abb927c48c390b22" id="r_a16430749aa63ca86abb927c48c390b22"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a16430749aa63ca86abb927c48c390b22">CD3DX12_RESOURCE_DESC</a> (const D3D12_RESOURCE_DESC &amp;o) noexcept</td></tr>
+<tr class="separator:a16430749aa63ca86abb927c48c390b22"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab92aadb686ff913ca380bab7e63be999" id="r_ab92aadb686ff913ca380bab7e63be999"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab92aadb686ff913ca380bab7e63be999">CD3DX12_RESOURCE_DESC</a> (D3D12_RESOURCE_DIMENSION dimension, UINT64 alignment, UINT64 width, UINT height, UINT16 depthOrArraySize, UINT16 mipLevels, DXGI_FORMAT format, UINT sampleCount, UINT sampleQuality, D3D12_TEXTURE_LAYOUT layout, D3D12_RESOURCE_FLAGS flags) noexcept</td></tr>
+<tr class="separator:ab92aadb686ff913ca380bab7e63be999"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9dc9cbcefd0645660b00f3abefb6bd9" id="r_ab9dc9cbcefd0645660b00f3abefb6bd9"><td class="memItemLeft" align="right" valign="top">UINT16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab9dc9cbcefd0645660b00f3abefb6bd9">Depth</a> () const noexcept</td></tr>
+<tr class="separator:ab9dc9cbcefd0645660b00f3abefb6bd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a36b87fc4c930d42678261882c0f76b61" id="r_a36b87fc4c930d42678261882c0f76b61"><td class="memItemLeft" align="right" valign="top">UINT16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a36b87fc4c930d42678261882c0f76b61">ArraySize</a> () const noexcept</td></tr>
+<tr class="separator:a36b87fc4c930d42678261882c0f76b61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a55ca1b860c09a9aeacc0f1487909fabd" id="r_a55ca1b860c09a9aeacc0f1487909fabd"><td class="memItemLeft" align="right" valign="top">UINT8&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a55ca1b860c09a9aeacc0f1487909fabd">PlaneCount</a> (_In_ ID3D12Device *pDevice) const noexcept</td></tr>
+<tr class="separator:a55ca1b860c09a9aeacc0f1487909fabd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ba921e5edcd9d62cdf139e3b648a216" id="r_a4ba921e5edcd9d62cdf139e3b648a216"><td class="memItemLeft" align="right" valign="top">UINT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4ba921e5edcd9d62cdf139e3b648a216">Subresources</a> (_In_ ID3D12Device *pDevice) const noexcept</td></tr>
+<tr class="separator:a4ba921e5edcd9d62cdf139e3b648a216"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a061edacdd25d5074edc1edc9ae22ffbd" id="r_a061edacdd25d5074edc1edc9ae22ffbd"><td class="memItemLeft" align="right" valign="top">UINT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a061edacdd25d5074edc1edc9ae22ffbd">CalcSubresource</a> (UINT MipSlice, UINT ArraySlice, UINT PlaneSlice) noexcept</td></tr>
+<tr class="separator:a061edacdd25d5074edc1edc9ae22ffbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Открытые статические члены</h2></td></tr>
+<tr class="memitem:a5d81b58025583f778b9baede8435eb65" id="r_a5d81b58025583f778b9baede8435eb65"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../df/dd5/struct_c_d3_d_x12___r_e_s_o_u_r_c_e___d_e_s_c.html">CD3DX12_RESOURCE_DESC</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5d81b58025583f778b9baede8435eb65">Buffer</a> (const D3D12_RESOURCE_ALLOCATION_INFO &amp;resAllocInfo, D3D12_RESOURCE_FLAGS flags=D3D12_RESOURCE_FLAG_NONE) noexcept</td></tr>
+<tr class="separator:a5d81b58025583f778b9baede8435eb65"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04ad5824d1335167f20c9760d7bcaa1e" id="r_a04ad5824d1335167f20c9760d7bcaa1e"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../df/dd5/struct_c_d3_d_x12___r_e_s_o_u_r_c_e___d_e_s_c.html">CD3DX12_RESOURCE_DESC</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a04ad5824d1335167f20c9760d7bcaa1e">Buffer</a> (UINT64 width, D3D12_RESOURCE_FLAGS flags=D3D12_RESOURCE_FLAG_NONE, UINT64 alignment=0) noexcept</td></tr>
+<tr class="separator:a04ad5824d1335167f20c9760d7bcaa1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6175ebeeb27fec1157de81af81c88a5" id="r_ab6175ebeeb27fec1157de81af81c88a5"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../df/dd5/struct_c_d3_d_x12___r_e_s_o_u_r_c_e___d_e_s_c.html">CD3DX12_RESOURCE_DESC</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab6175ebeeb27fec1157de81af81c88a5">Tex1D</a> (DXGI_FORMAT format, UINT64 width, UINT16 arraySize=1, UINT16 mipLevels=0, D3D12_RESOURCE_FLAGS flags=D3D12_RESOURCE_FLAG_NONE, D3D12_TEXTURE_LAYOUT layout=D3D12_TEXTURE_LAYOUT_UNKNOWN, UINT64 alignment=0) noexcept</td></tr>
+<tr class="separator:ab6175ebeeb27fec1157de81af81c88a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b3b2aced620f998db958211781c12ad" id="r_a1b3b2aced620f998db958211781c12ad"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../df/dd5/struct_c_d3_d_x12___r_e_s_o_u_r_c_e___d_e_s_c.html">CD3DX12_RESOURCE_DESC</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1b3b2aced620f998db958211781c12ad">Tex2D</a> (DXGI_FORMAT format, UINT64 width, UINT height, UINT16 arraySize=1, UINT16 mipLevels=0, UINT sampleCount=1, UINT sampleQuality=0, D3D12_RESOURCE_FLAGS flags=D3D12_RESOURCE_FLAG_NONE, D3D12_TEXTURE_LAYOUT layout=D3D12_TEXTURE_LAYOUT_UNKNOWN, UINT64 alignment=0) noexcept</td></tr>
+<tr class="separator:a1b3b2aced620f998db958211781c12ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a36f7dc3eae3594710ccf4c2e842892a6" id="r_a36f7dc3eae3594710ccf4c2e842892a6"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../df/dd5/struct_c_d3_d_x12___r_e_s_o_u_r_c_e___d_e_s_c.html">CD3DX12_RESOURCE_DESC</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a36f7dc3eae3594710ccf4c2e842892a6">Tex3D</a> (DXGI_FORMAT format, UINT64 width, UINT height, UINT16 depth, UINT16 mipLevels=0, D3D12_RESOURCE_FLAGS flags=D3D12_RESOURCE_FLAG_NONE, D3D12_TEXTURE_LAYOUT layout=D3D12_TEXTURE_LAYOUT_UNKNOWN, UINT64 alignment=0) noexcept</td></tr>
+<tr class="separator:a36f7dc3eae3594710ccf4c2e842892a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d81b58025583f778b9baede8435eb65" id="r_a5d81b58025583f778b9baede8435eb65"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../df/dd5/struct_c_d3_d_x12___r_e_s_o_u_r_c_e___d_e_s_c.html">CD3DX12_RESOURCE_DESC</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5d81b58025583f778b9baede8435eb65">Buffer</a> (const D3D12_RESOURCE_ALLOCATION_INFO &amp;resAllocInfo, D3D12_RESOURCE_FLAGS flags=D3D12_RESOURCE_FLAG_NONE) noexcept</td></tr>
+<tr class="separator:a5d81b58025583f778b9baede8435eb65"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04ad5824d1335167f20c9760d7bcaa1e" id="r_a04ad5824d1335167f20c9760d7bcaa1e"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../df/dd5/struct_c_d3_d_x12___r_e_s_o_u_r_c_e___d_e_s_c.html">CD3DX12_RESOURCE_DESC</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a04ad5824d1335167f20c9760d7bcaa1e">Buffer</a> (UINT64 width, D3D12_RESOURCE_FLAGS flags=D3D12_RESOURCE_FLAG_NONE, UINT64 alignment=0) noexcept</td></tr>
+<tr class="separator:a04ad5824d1335167f20c9760d7bcaa1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6175ebeeb27fec1157de81af81c88a5" id="r_ab6175ebeeb27fec1157de81af81c88a5"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../df/dd5/struct_c_d3_d_x12___r_e_s_o_u_r_c_e___d_e_s_c.html">CD3DX12_RESOURCE_DESC</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab6175ebeeb27fec1157de81af81c88a5">Tex1D</a> (DXGI_FORMAT format, UINT64 width, UINT16 arraySize=1, UINT16 mipLevels=0, D3D12_RESOURCE_FLAGS flags=D3D12_RESOURCE_FLAG_NONE, D3D12_TEXTURE_LAYOUT layout=D3D12_TEXTURE_LAYOUT_UNKNOWN, UINT64 alignment=0) noexcept</td></tr>
+<tr class="separator:ab6175ebeeb27fec1157de81af81c88a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b3b2aced620f998db958211781c12ad" id="r_a1b3b2aced620f998db958211781c12ad"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../df/dd5/struct_c_d3_d_x12___r_e_s_o_u_r_c_e___d_e_s_c.html">CD3DX12_RESOURCE_DESC</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1b3b2aced620f998db958211781c12ad">Tex2D</a> (DXGI_FORMAT format, UINT64 width, UINT height, UINT16 arraySize=1, UINT16 mipLevels=0, UINT sampleCount=1, UINT sampleQuality=0, D3D12_RESOURCE_FLAGS flags=D3D12_RESOURCE_FLAG_NONE, D3D12_TEXTURE_LAYOUT layout=D3D12_TEXTURE_LAYOUT_UNKNOWN, UINT64 alignment=0) noexcept</td></tr>
+<tr class="separator:a1b3b2aced620f998db958211781c12ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a36f7dc3eae3594710ccf4c2e842892a6" id="r_a36f7dc3eae3594710ccf4c2e842892a6"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../df/dd5/struct_c_d3_d_x12___r_e_s_o_u_r_c_e___d_e_s_c.html">CD3DX12_RESOURCE_DESC</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a36f7dc3eae3594710ccf4c2e842892a6">Tex3D</a> (DXGI_FORMAT format, UINT64 width, UINT height, UINT16 depth, UINT16 mipLevels=0, D3D12_RESOURCE_FLAGS flags=D3D12_RESOURCE_FLAG_NONE, D3D12_TEXTURE_LAYOUT layout=D3D12_TEXTURE_LAYOUT_UNKNOWN, UINT64 alignment=0) noexcept</td></tr>
+<tr class="separator:a36f7dc3eae3594710ccf4c2e842892a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Конструктор(ы)</h2>
+<a id="ab6c9932f3367f0ead0c42297e45339b8" name="ab6c9932f3367f0ead0c42297e45339b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab6c9932f3367f0ead0c42297e45339b8">&#9670;&#160;</a></span>CD3DX12_RESOURCE_DESC() <span class="overload">[1/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CD3DX12_RESOURCE_DESC::CD3DX12_RESOURCE_DESC </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a16430749aa63ca86abb927c48c390b22" name="a16430749aa63ca86abb927c48c390b22"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16430749aa63ca86abb927c48c390b22">&#9670;&#160;</a></span>CD3DX12_RESOURCE_DESC() <span class="overload">[2/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CD3DX12_RESOURCE_DESC::CD3DX12_RESOURCE_DESC </td>
+          <td>(</td>
+          <td class="paramtype">const D3D12_RESOURCE_DESC &amp;</td>          <td class="paramname"><span class="paramname"><em>o</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab92aadb686ff913ca380bab7e63be999" name="ab92aadb686ff913ca380bab7e63be999"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab92aadb686ff913ca380bab7e63be999">&#9670;&#160;</a></span>CD3DX12_RESOURCE_DESC() <span class="overload">[3/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CD3DX12_RESOURCE_DESC::CD3DX12_RESOURCE_DESC </td>
+          <td>(</td>
+          <td class="paramtype">D3D12_RESOURCE_DIMENSION</td>          <td class="paramname"><span class="paramname"><em>dimension</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UINT64</td>          <td class="paramname"><span class="paramname"><em>alignment</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UINT64</td>          <td class="paramname"><span class="paramname"><em>width</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UINT</td>          <td class="paramname"><span class="paramname"><em>height</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UINT16</td>          <td class="paramname"><span class="paramname"><em>depthOrArraySize</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UINT16</td>          <td class="paramname"><span class="paramname"><em>mipLevels</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">DXGI_FORMAT</td>          <td class="paramname"><span class="paramname"><em>format</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UINT</td>          <td class="paramname"><span class="paramname"><em>sampleCount</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UINT</td>          <td class="paramname"><span class="paramname"><em>sampleQuality</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">D3D12_TEXTURE_LAYOUT</td>          <td class="paramname"><span class="paramname"><em>layout</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">D3D12_RESOURCE_FLAGS</td>          <td class="paramname"><span class="paramname"><em>flags</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab6c9932f3367f0ead0c42297e45339b8" name="ab6c9932f3367f0ead0c42297e45339b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab6c9932f3367f0ead0c42297e45339b8">&#9670;&#160;</a></span>CD3DX12_RESOURCE_DESC() <span class="overload">[4/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CD3DX12_RESOURCE_DESC::CD3DX12_RESOURCE_DESC </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a16430749aa63ca86abb927c48c390b22" name="a16430749aa63ca86abb927c48c390b22"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16430749aa63ca86abb927c48c390b22">&#9670;&#160;</a></span>CD3DX12_RESOURCE_DESC() <span class="overload">[5/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CD3DX12_RESOURCE_DESC::CD3DX12_RESOURCE_DESC </td>
+          <td>(</td>
+          <td class="paramtype">const D3D12_RESOURCE_DESC &amp;</td>          <td class="paramname"><span class="paramname"><em>o</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab92aadb686ff913ca380bab7e63be999" name="ab92aadb686ff913ca380bab7e63be999"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab92aadb686ff913ca380bab7e63be999">&#9670;&#160;</a></span>CD3DX12_RESOURCE_DESC() <span class="overload">[6/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CD3DX12_RESOURCE_DESC::CD3DX12_RESOURCE_DESC </td>
+          <td>(</td>
+          <td class="paramtype">D3D12_RESOURCE_DIMENSION</td>          <td class="paramname"><span class="paramname"><em>dimension</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UINT64</td>          <td class="paramname"><span class="paramname"><em>alignment</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UINT64</td>          <td class="paramname"><span class="paramname"><em>width</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UINT</td>          <td class="paramname"><span class="paramname"><em>height</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UINT16</td>          <td class="paramname"><span class="paramname"><em>depthOrArraySize</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UINT16</td>          <td class="paramname"><span class="paramname"><em>mipLevels</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">DXGI_FORMAT</td>          <td class="paramname"><span class="paramname"><em>format</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UINT</td>          <td class="paramname"><span class="paramname"><em>sampleCount</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UINT</td>          <td class="paramname"><span class="paramname"><em>sampleQuality</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">D3D12_TEXTURE_LAYOUT</td>          <td class="paramname"><span class="paramname"><em>layout</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">D3D12_RESOURCE_FLAGS</td>          <td class="paramname"><span class="paramname"><em>flags</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Методы</h2>
+<a id="a36b87fc4c930d42678261882c0f76b61" name="a36b87fc4c930d42678261882c0f76b61"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a36b87fc4c930d42678261882c0f76b61">&#9670;&#160;</a></span>ArraySize() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">UINT16 CD3DX12_RESOURCE_DESC::ArraySize </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a36b87fc4c930d42678261882c0f76b61" name="a36b87fc4c930d42678261882c0f76b61"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a36b87fc4c930d42678261882c0f76b61">&#9670;&#160;</a></span>ArraySize() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">UINT16 CD3DX12_RESOURCE_DESC::ArraySize </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5d81b58025583f778b9baede8435eb65" name="a5d81b58025583f778b9baede8435eb65"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d81b58025583f778b9baede8435eb65">&#9670;&#160;</a></span>Buffer() <span class="overload">[1/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="../../df/dd5/struct_c_d3_d_x12___r_e_s_o_u_r_c_e___d_e_s_c.html">CD3DX12_RESOURCE_DESC</a> CD3DX12_RESOURCE_DESC::Buffer </td>
+          <td>(</td>
+          <td class="paramtype">const D3D12_RESOURCE_ALLOCATION_INFO &amp;</td>          <td class="paramname"><span class="paramname"><em>resAllocInfo</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">D3D12_RESOURCE_FLAGS</td>          <td class="paramname"><span class="paramname"><em>flags</em><span class="paramdefsep"> = </span><span class="paramdefval">D3D12_RESOURCE_FLAG_NONE</span></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5d81b58025583f778b9baede8435eb65" name="a5d81b58025583f778b9baede8435eb65"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d81b58025583f778b9baede8435eb65">&#9670;&#160;</a></span>Buffer() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="../../df/dd5/struct_c_d3_d_x12___r_e_s_o_u_r_c_e___d_e_s_c.html">CD3DX12_RESOURCE_DESC</a> CD3DX12_RESOURCE_DESC::Buffer </td>
+          <td>(</td>
+          <td class="paramtype">const D3D12_RESOURCE_ALLOCATION_INFO &amp;</td>          <td class="paramname"><span class="paramname"><em>resAllocInfo</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">D3D12_RESOURCE_FLAGS</td>          <td class="paramname"><span class="paramname"><em>flags</em><span class="paramdefsep"> = </span><span class="paramdefval">D3D12_RESOURCE_FLAG_NONE</span></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a04ad5824d1335167f20c9760d7bcaa1e" name="a04ad5824d1335167f20c9760d7bcaa1e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a04ad5824d1335167f20c9760d7bcaa1e">&#9670;&#160;</a></span>Buffer() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="../../df/dd5/struct_c_d3_d_x12___r_e_s_o_u_r_c_e___d_e_s_c.html">CD3DX12_RESOURCE_DESC</a> CD3DX12_RESOURCE_DESC::Buffer </td>
+          <td>(</td>
+          <td class="paramtype">UINT64</td>          <td class="paramname"><span class="paramname"><em>width</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">D3D12_RESOURCE_FLAGS</td>          <td class="paramname"><span class="paramname"><em>flags</em><span class="paramdefsep"> = </span><span class="paramdefval">D3D12_RESOURCE_FLAG_NONE</span>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UINT64</td>          <td class="paramname"><span class="paramname"><em>alignment</em><span class="paramdefsep"> = </span><span class="paramdefval">0</span></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a04ad5824d1335167f20c9760d7bcaa1e" name="a04ad5824d1335167f20c9760d7bcaa1e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a04ad5824d1335167f20c9760d7bcaa1e">&#9670;&#160;</a></span>Buffer() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="../../df/dd5/struct_c_d3_d_x12___r_e_s_o_u_r_c_e___d_e_s_c.html">CD3DX12_RESOURCE_DESC</a> CD3DX12_RESOURCE_DESC::Buffer </td>
+          <td>(</td>
+          <td class="paramtype">UINT64</td>          <td class="paramname"><span class="paramname"><em>width</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">D3D12_RESOURCE_FLAGS</td>          <td class="paramname"><span class="paramname"><em>flags</em><span class="paramdefsep"> = </span><span class="paramdefval">D3D12_RESOURCE_FLAG_NONE</span>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UINT64</td>          <td class="paramname"><span class="paramname"><em>alignment</em><span class="paramdefsep"> = </span><span class="paramdefval">0</span></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a061edacdd25d5074edc1edc9ae22ffbd" name="a061edacdd25d5074edc1edc9ae22ffbd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a061edacdd25d5074edc1edc9ae22ffbd">&#9670;&#160;</a></span>CalcSubresource() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">UINT CD3DX12_RESOURCE_DESC::CalcSubresource </td>
+          <td>(</td>
+          <td class="paramtype">UINT</td>          <td class="paramname"><span class="paramname"><em>MipSlice</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UINT</td>          <td class="paramname"><span class="paramname"><em>ArraySlice</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UINT</td>          <td class="paramname"><span class="paramname"><em>PlaneSlice</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a061edacdd25d5074edc1edc9ae22ffbd" name="a061edacdd25d5074edc1edc9ae22ffbd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a061edacdd25d5074edc1edc9ae22ffbd">&#9670;&#160;</a></span>CalcSubresource() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">UINT CD3DX12_RESOURCE_DESC::CalcSubresource </td>
+          <td>(</td>
+          <td class="paramtype">UINT</td>          <td class="paramname"><span class="paramname"><em>MipSlice</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UINT</td>          <td class="paramname"><span class="paramname"><em>ArraySlice</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UINT</td>          <td class="paramname"><span class="paramname"><em>PlaneSlice</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab9dc9cbcefd0645660b00f3abefb6bd9" name="ab9dc9cbcefd0645660b00f3abefb6bd9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab9dc9cbcefd0645660b00f3abefb6bd9">&#9670;&#160;</a></span>Depth() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">UINT16 CD3DX12_RESOURCE_DESC::Depth </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab9dc9cbcefd0645660b00f3abefb6bd9" name="ab9dc9cbcefd0645660b00f3abefb6bd9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab9dc9cbcefd0645660b00f3abefb6bd9">&#9670;&#160;</a></span>Depth() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">UINT16 CD3DX12_RESOURCE_DESC::Depth </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a55ca1b860c09a9aeacc0f1487909fabd" name="a55ca1b860c09a9aeacc0f1487909fabd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a55ca1b860c09a9aeacc0f1487909fabd">&#9670;&#160;</a></span>PlaneCount() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">UINT8 CD3DX12_RESOURCE_DESC::PlaneCount </td>
+          <td>(</td>
+          <td class="paramtype">_In_ ID3D12Device *</td>          <td class="paramname"><span class="paramname"><em>pDevice</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a55ca1b860c09a9aeacc0f1487909fabd" name="a55ca1b860c09a9aeacc0f1487909fabd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a55ca1b860c09a9aeacc0f1487909fabd">&#9670;&#160;</a></span>PlaneCount() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">UINT8 CD3DX12_RESOURCE_DESC::PlaneCount </td>
+          <td>(</td>
+          <td class="paramtype">_In_ ID3D12Device *</td>          <td class="paramname"><span class="paramname"><em>pDevice</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4ba921e5edcd9d62cdf139e3b648a216" name="a4ba921e5edcd9d62cdf139e3b648a216"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ba921e5edcd9d62cdf139e3b648a216">&#9670;&#160;</a></span>Subresources() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">UINT CD3DX12_RESOURCE_DESC::Subresources </td>
+          <td>(</td>
+          <td class="paramtype">_In_ ID3D12Device *</td>          <td class="paramname"><span class="paramname"><em>pDevice</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4ba921e5edcd9d62cdf139e3b648a216" name="a4ba921e5edcd9d62cdf139e3b648a216"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ba921e5edcd9d62cdf139e3b648a216">&#9670;&#160;</a></span>Subresources() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">UINT CD3DX12_RESOURCE_DESC::Subresources </td>
+          <td>(</td>
+          <td class="paramtype">_In_ ID3D12Device *</td>          <td class="paramname"><span class="paramname"><em>pDevice</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab6175ebeeb27fec1157de81af81c88a5" name="ab6175ebeeb27fec1157de81af81c88a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab6175ebeeb27fec1157de81af81c88a5">&#9670;&#160;</a></span>Tex1D() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="../../df/dd5/struct_c_d3_d_x12___r_e_s_o_u_r_c_e___d_e_s_c.html">CD3DX12_RESOURCE_DESC</a> CD3DX12_RESOURCE_DESC::Tex1D </td>
+          <td>(</td>
+          <td class="paramtype">DXGI_FORMAT</td>          <td class="paramname"><span class="paramname"><em>format</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UINT64</td>          <td class="paramname"><span class="paramname"><em>width</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UINT16</td>          <td class="paramname"><span class="paramname"><em>arraySize</em><span class="paramdefsep"> = </span><span class="paramdefval">1</span>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UINT16</td>          <td class="paramname"><span class="paramname"><em>mipLevels</em><span class="paramdefsep"> = </span><span class="paramdefval">0</span>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">D3D12_RESOURCE_FLAGS</td>          <td class="paramname"><span class="paramname"><em>flags</em><span class="paramdefsep"> = </span><span class="paramdefval">D3D12_RESOURCE_FLAG_NONE</span>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">D3D12_TEXTURE_LAYOUT</td>          <td class="paramname"><span class="paramname"><em>layout</em><span class="paramdefsep"> = </span><span class="paramdefval">D3D12_TEXTURE_LAYOUT_UNKNOWN</span>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UINT64</td>          <td class="paramname"><span class="paramname"><em>alignment</em><span class="paramdefsep"> = </span><span class="paramdefval">0</span></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab6175ebeeb27fec1157de81af81c88a5" name="ab6175ebeeb27fec1157de81af81c88a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab6175ebeeb27fec1157de81af81c88a5">&#9670;&#160;</a></span>Tex1D() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="../../df/dd5/struct_c_d3_d_x12___r_e_s_o_u_r_c_e___d_e_s_c.html">CD3DX12_RESOURCE_DESC</a> CD3DX12_RESOURCE_DESC::Tex1D </td>
+          <td>(</td>
+          <td class="paramtype">DXGI_FORMAT</td>          <td class="paramname"><span class="paramname"><em>format</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UINT64</td>          <td class="paramname"><span class="paramname"><em>width</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UINT16</td>          <td class="paramname"><span class="paramname"><em>arraySize</em><span class="paramdefsep"> = </span><span class="paramdefval">1</span>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UINT16</td>          <td class="paramname"><span class="paramname"><em>mipLevels</em><span class="paramdefsep"> = </span><span class="paramdefval">0</span>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">D3D12_RESOURCE_FLAGS</td>          <td class="paramname"><span class="paramname"><em>flags</em><span class="paramdefsep"> = </span><span class="paramdefval">D3D12_RESOURCE_FLAG_NONE</span>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">D3D12_TEXTURE_LAYOUT</td>          <td class="paramname"><span class="paramname"><em>layout</em><span class="paramdefsep"> = </span><span class="paramdefval">D3D12_TEXTURE_LAYOUT_UNKNOWN</span>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UINT64</td>          <td class="paramname"><span class="paramname"><em>alignment</em><span class="paramdefsep"> = </span><span class="paramdefval">0</span></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1b3b2aced620f998db958211781c12ad" name="a1b3b2aced620f998db958211781c12ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b3b2aced620f998db958211781c12ad">&#9670;&#160;</a></span>Tex2D() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="../../df/dd5/struct_c_d3_d_x12___r_e_s_o_u_r_c_e___d_e_s_c.html">CD3DX12_RESOURCE_DESC</a> CD3DX12_RESOURCE_DESC::Tex2D </td>
+          <td>(</td>
+          <td class="paramtype">DXGI_FORMAT</td>          <td class="paramname"><span class="paramname"><em>format</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UINT64</td>          <td class="paramname"><span class="paramname"><em>width</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UINT</td>          <td class="paramname"><span class="paramname"><em>height</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UINT16</td>          <td class="paramname"><span class="paramname"><em>arraySize</em><span class="paramdefsep"> = </span><span class="paramdefval">1</span>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UINT16</td>          <td class="paramname"><span class="paramname"><em>mipLevels</em><span class="paramdefsep"> = </span><span class="paramdefval">0</span>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UINT</td>          <td class="paramname"><span class="paramname"><em>sampleCount</em><span class="paramdefsep"> = </span><span class="paramdefval">1</span>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UINT</td>          <td class="paramname"><span class="paramname"><em>sampleQuality</em><span class="paramdefsep"> = </span><span class="paramdefval">0</span>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">D3D12_RESOURCE_FLAGS</td>          <td class="paramname"><span class="paramname"><em>flags</em><span class="paramdefsep"> = </span><span class="paramdefval">D3D12_RESOURCE_FLAG_NONE</span>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">D3D12_TEXTURE_LAYOUT</td>          <td class="paramname"><span class="paramname"><em>layout</em><span class="paramdefsep"> = </span><span class="paramdefval">D3D12_TEXTURE_LAYOUT_UNKNOWN</span>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UINT64</td>          <td class="paramname"><span class="paramname"><em>alignment</em><span class="paramdefsep"> = </span><span class="paramdefval">0</span></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1b3b2aced620f998db958211781c12ad" name="a1b3b2aced620f998db958211781c12ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b3b2aced620f998db958211781c12ad">&#9670;&#160;</a></span>Tex2D() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="../../df/dd5/struct_c_d3_d_x12___r_e_s_o_u_r_c_e___d_e_s_c.html">CD3DX12_RESOURCE_DESC</a> CD3DX12_RESOURCE_DESC::Tex2D </td>
+          <td>(</td>
+          <td class="paramtype">DXGI_FORMAT</td>          <td class="paramname"><span class="paramname"><em>format</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UINT64</td>          <td class="paramname"><span class="paramname"><em>width</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UINT</td>          <td class="paramname"><span class="paramname"><em>height</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UINT16</td>          <td class="paramname"><span class="paramname"><em>arraySize</em><span class="paramdefsep"> = </span><span class="paramdefval">1</span>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UINT16</td>          <td class="paramname"><span class="paramname"><em>mipLevels</em><span class="paramdefsep"> = </span><span class="paramdefval">0</span>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UINT</td>          <td class="paramname"><span class="paramname"><em>sampleCount</em><span class="paramdefsep"> = </span><span class="paramdefval">1</span>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UINT</td>          <td class="paramname"><span class="paramname"><em>sampleQuality</em><span class="paramdefsep"> = </span><span class="paramdefval">0</span>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">D3D12_RESOURCE_FLAGS</td>          <td class="paramname"><span class="paramname"><em>flags</em><span class="paramdefsep"> = </span><span class="paramdefval">D3D12_RESOURCE_FLAG_NONE</span>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">D3D12_TEXTURE_LAYOUT</td>          <td class="paramname"><span class="paramname"><em>layout</em><span class="paramdefsep"> = </span><span class="paramdefval">D3D12_TEXTURE_LAYOUT_UNKNOWN</span>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UINT64</td>          <td class="paramname"><span class="paramname"><em>alignment</em><span class="paramdefsep"> = </span><span class="paramdefval">0</span></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a36f7dc3eae3594710ccf4c2e842892a6" name="a36f7dc3eae3594710ccf4c2e842892a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a36f7dc3eae3594710ccf4c2e842892a6">&#9670;&#160;</a></span>Tex3D() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="../../df/dd5/struct_c_d3_d_x12___r_e_s_o_u_r_c_e___d_e_s_c.html">CD3DX12_RESOURCE_DESC</a> CD3DX12_RESOURCE_DESC::Tex3D </td>
+          <td>(</td>
+          <td class="paramtype">DXGI_FORMAT</td>          <td class="paramname"><span class="paramname"><em>format</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UINT64</td>          <td class="paramname"><span class="paramname"><em>width</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UINT</td>          <td class="paramname"><span class="paramname"><em>height</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UINT16</td>          <td class="paramname"><span class="paramname"><em>depth</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UINT16</td>          <td class="paramname"><span class="paramname"><em>mipLevels</em><span class="paramdefsep"> = </span><span class="paramdefval">0</span>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">D3D12_RESOURCE_FLAGS</td>          <td class="paramname"><span class="paramname"><em>flags</em><span class="paramdefsep"> = </span><span class="paramdefval">D3D12_RESOURCE_FLAG_NONE</span>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">D3D12_TEXTURE_LAYOUT</td>          <td class="paramname"><span class="paramname"><em>layout</em><span class="paramdefsep"> = </span><span class="paramdefval">D3D12_TEXTURE_LAYOUT_UNKNOWN</span>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UINT64</td>          <td class="paramname"><span class="paramname"><em>alignment</em><span class="paramdefsep"> = </span><span class="paramdefval">0</span></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a36f7dc3eae3594710ccf4c2e842892a6" name="a36f7dc3eae3594710ccf4c2e842892a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a36f7dc3eae3594710ccf4c2e842892a6">&#9670;&#160;</a></span>Tex3D() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="../../df/dd5/struct_c_d3_d_x12___r_e_s_o_u_r_c_e___d_e_s_c.html">CD3DX12_RESOURCE_DESC</a> CD3DX12_RESOURCE_DESC::Tex3D </td>
+          <td>(</td>
+          <td class="paramtype">DXGI_FORMAT</td>          <td class="paramname"><span class="paramname"><em>format</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UINT64</td>          <td class="paramname"><span class="paramname"><em>width</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UINT</td>          <td class="paramname"><span class="paramname"><em>height</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UINT16</td>          <td class="paramname"><span class="paramname"><em>depth</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UINT16</td>          <td class="paramname"><span class="paramname"><em>mipLevels</em><span class="paramdefsep"> = </span><span class="paramdefval">0</span>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">D3D12_RESOURCE_FLAGS</td>          <td class="paramname"><span class="paramname"><em>flags</em><span class="paramdefsep"> = </span><span class="paramdefval">D3D12_RESOURCE_FLAG_NONE</span>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">D3D12_TEXTURE_LAYOUT</td>          <td class="paramname"><span class="paramname"><em>layout</em><span class="paramdefsep"> = </span><span class="paramdefval">D3D12_TEXTURE_LAYOUT_UNKNOWN</span>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UINT64</td>          <td class="paramname"><span class="paramname"><em>alignment</em><span class="paramdefsep"> = </span><span class="paramdefval">0</span></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>Объявления и описания членов структур находятся в файлах:<ul>
+<li>Dark Engine/Source/Runtime/D3D12RHI/public/<a class="el" href="../../dd/d9d/_d3_d12_r_h_i_2public_2d3dx12_8h_source.html">d3dx12.h</a></li>
+<li>Dark Engine/Source/Runtime/Render/D3D12/<a class="el" href="../../db/dad/_render_2_d3_d12_2d3dx12_8h_source.html">d3dx12.h</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
+</body>
+</html>

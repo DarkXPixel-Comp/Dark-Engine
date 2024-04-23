@@ -25,8 +25,9 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="../../Logo.png"/></td>
   <td id="projectalign">
-   <div id="projectname">Dark Engine<span id="projectnumber">&#160;0.0.39</span>
+   <div id="projectname">Dark Engine<span id="projectnumber">&#160;0.0.40</span>
    </div>
+   <div id="projectbrief">New game engnie D3D12</div>
   </td>
  </tr>
  </tbody>
@@ -467,260 +468,253 @@ $(function() { codefold.init(1); });
 <div class="line"><a id="l00597" name="l00597"></a><span class="lineno">  597</span>        }</div>
 </div>
 <div class="line"><a id="l00598" name="l00598"></a><span class="lineno">  598</span> </div>
-<div class="line"><a id="l00599" name="l00599"></a><span class="lineno">  599</span>    <span class="comment">/*  template&lt;typename T&gt;</span></div>
-<div class="line"><a id="l00600" name="l00600"></a><span class="lineno">  600</span><span class="comment">        FORCEINLINE DE::Math::TVector&lt;T&gt;::TVector(const TVector2&lt;T&gt; V, T InZ)</span></div>
-<div class="line"><a id="l00601" name="l00601"></a><span class="lineno">  601</span><span class="comment">            : X(V.X), Y(V.Y), Z(InZ)</span></div>
-<div class="line"><a id="l00602" name="l00602"></a><span class="lineno">  602</span><span class="comment">        {</span></div>
-<div class="line"><a id="l00603" name="l00603"></a><span class="lineno">  603</span><span class="comment">            DiagnosticCheckNaN();</span></div>
-<div class="line"><a id="l00604" name="l00604"></a><span class="lineno">  604</span><span class="comment">        }*/</span></div>
-<div class="line"><a id="l00605" name="l00605"></a><span class="lineno">  605</span> </div>
-<div class="line"><a id="l00606" name="l00606"></a><span class="lineno">  606</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="foldopen" id="foldopen00607" data-start="{" data-end="}">
-<div class="line"><a id="l00607" name="l00607"></a><span class="lineno"><a class="line" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a4a0f55d6e31128909545b2169ec09419">  607</a></span>        FORCEINLINE <a class="code hl_function" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a8ce7b645a9e6f61192c65842d73f6929">TVector&lt;T&gt;::TVector</a>(std::initializer_list&lt;T&gt; Elements)</div>
-<div class="line"><a id="l00608" name="l00608"></a><span class="lineno">  608</span>        {</div>
-<div class="line"><a id="l00609" name="l00609"></a><span class="lineno">  609</span>            <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a84083085985fb180ad38b9c32e3937da">int32</a> SizeList = Elements.size() &gt; 3 ? 3 : Elements.size();</div>
-<div class="line"><a id="l00610" name="l00610"></a><span class="lineno">  610</span>            <span class="keyword">auto</span> it = Elements.begin();</div>
-<div class="line"><a id="l00611" name="l00611"></a><span class="lineno">  611</span>            <span class="keywordflow">for</span> (<a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a84083085985fb180ad38b9c32e3937da">int32</a> i = 0; i &lt; SizeList; ++i)</div>
-<div class="line"><a id="l00612" name="l00612"></a><span class="lineno">  612</span>            {</div>
-<div class="line"><a id="l00613" name="l00613"></a><span class="lineno">  613</span>                XYZ[i] = *(it + i);</div>
-<div class="line"><a id="l00614" name="l00614"></a><span class="lineno">  614</span>            }</div>
-<div class="line"><a id="l00615" name="l00615"></a><span class="lineno">  615</span>        }</div>
+<div class="line"><a id="l00599" name="l00599"></a><span class="lineno">  599</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="foldopen" id="foldopen00600" data-start="{" data-end="}">
+<div class="line"><a id="l00600" name="l00600"></a><span class="lineno"><a class="line" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a4a0f55d6e31128909545b2169ec09419">  600</a></span>        FORCEINLINE <a class="code hl_function" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a8ce7b645a9e6f61192c65842d73f6929">TVector&lt;T&gt;::TVector</a>(std::initializer_list&lt;T&gt; Elements)</div>
+<div class="line"><a id="l00601" name="l00601"></a><span class="lineno">  601</span>        {</div>
+<div class="line"><a id="l00602" name="l00602"></a><span class="lineno">  602</span>            <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a84083085985fb180ad38b9c32e3937da">int32</a> SizeList = Elements.size() &gt; 3 ? 3 : Elements.size();</div>
+<div class="line"><a id="l00603" name="l00603"></a><span class="lineno">  603</span>            <span class="keyword">auto</span> it = Elements.begin();</div>
+<div class="line"><a id="l00604" name="l00604"></a><span class="lineno">  604</span>            <span class="keywordflow">for</span> (<a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a84083085985fb180ad38b9c32e3937da">int32</a> i = 0; i &lt; SizeList; ++i)</div>
+<div class="line"><a id="l00605" name="l00605"></a><span class="lineno">  605</span>            {</div>
+<div class="line"><a id="l00606" name="l00606"></a><span class="lineno">  606</span>                XYZ[i] = *(it + i);</div>
+<div class="line"><a id="l00607" name="l00607"></a><span class="lineno">  607</span>            }</div>
+<div class="line"><a id="l00608" name="l00608"></a><span class="lineno">  608</span>        }</div>
 </div>
-<div class="line"><a id="l00616" name="l00616"></a><span class="lineno">  616</span> </div>
-<div class="line"><a id="l00617" name="l00617"></a><span class="lineno">  617</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="foldopen" id="foldopen00618" data-start="{" data-end="}">
-<div class="line"><a id="l00618" name="l00618"></a><span class="lineno"><a class="line" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a8cb1b3d6e3e5ba60da2879045109a571">  618</a></span>        FORCEINLINE TVector&lt;T&gt;&amp; <a class="code hl_function" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a8cb1b3d6e3e5ba60da2879045109a571">TVector&lt;T&gt;::operator=</a>(std::initializer_list&lt;T&gt; Elements)</div>
-<div class="line"><a id="l00619" name="l00619"></a><span class="lineno">  619</span>        {</div>
-<div class="line"><a id="l00620" name="l00620"></a><span class="lineno">  620</span>            <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a84083085985fb180ad38b9c32e3937da">int32</a> SizeList = Elements.size() &gt; 3 ? 3 : Elements.size();</div>
-<div class="line"><a id="l00621" name="l00621"></a><span class="lineno">  621</span>            <span class="keyword">auto</span> it = Elements.begin();</div>
-<div class="line"><a id="l00622" name="l00622"></a><span class="lineno">  622</span>            <span class="keywordflow">for</span> (<a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a84083085985fb180ad38b9c32e3937da">int32</a> i = 0; i &lt; SizeList; ++i)</div>
-<div class="line"><a id="l00623" name="l00623"></a><span class="lineno">  623</span>            {</div>
-<div class="line"><a id="l00624" name="l00624"></a><span class="lineno">  624</span>                XYZ[i] = *(it + i);</div>
-<div class="line"><a id="l00625" name="l00625"></a><span class="lineno">  625</span>            }</div>
-<div class="line"><a id="l00626" name="l00626"></a><span class="lineno">  626</span>            <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a id="l00627" name="l00627"></a><span class="lineno">  627</span>        }</div>
+<div class="line"><a id="l00609" name="l00609"></a><span class="lineno">  609</span> </div>
+<div class="line"><a id="l00610" name="l00610"></a><span class="lineno">  610</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="foldopen" id="foldopen00611" data-start="{" data-end="}">
+<div class="line"><a id="l00611" name="l00611"></a><span class="lineno"><a class="line" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a8cb1b3d6e3e5ba60da2879045109a571">  611</a></span>        FORCEINLINE TVector&lt;T&gt;&amp; <a class="code hl_function" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a8cb1b3d6e3e5ba60da2879045109a571">TVector&lt;T&gt;::operator=</a>(std::initializer_list&lt;T&gt; Elements)</div>
+<div class="line"><a id="l00612" name="l00612"></a><span class="lineno">  612</span>        {</div>
+<div class="line"><a id="l00613" name="l00613"></a><span class="lineno">  613</span>            <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a84083085985fb180ad38b9c32e3937da">int32</a> SizeList = Elements.size() &gt; 3 ? 3 : Elements.size();</div>
+<div class="line"><a id="l00614" name="l00614"></a><span class="lineno">  614</span>            <span class="keyword">auto</span> it = Elements.begin();</div>
+<div class="line"><a id="l00615" name="l00615"></a><span class="lineno">  615</span>            <span class="keywordflow">for</span> (<a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a84083085985fb180ad38b9c32e3937da">int32</a> i = 0; i &lt; SizeList; ++i)</div>
+<div class="line"><a id="l00616" name="l00616"></a><span class="lineno">  616</span>            {</div>
+<div class="line"><a id="l00617" name="l00617"></a><span class="lineno">  617</span>                XYZ[i] = *(it + i);</div>
+<div class="line"><a id="l00618" name="l00618"></a><span class="lineno">  618</span>            }</div>
+<div class="line"><a id="l00619" name="l00619"></a><span class="lineno">  619</span>            <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a id="l00620" name="l00620"></a><span class="lineno">  620</span>        }</div>
 </div>
-<div class="line"><a id="l00628" name="l00628"></a><span class="lineno">  628</span> </div>
-<div class="line"><a id="l00629" name="l00629"></a><span class="lineno">  629</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="foldopen" id="foldopen00630" data-start="{" data-end="}">
-<div class="line"><a id="l00630" name="l00630"></a><span class="lineno"><a class="line" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a858c7f3418abe623f9e439dec1ca466f">  630</a></span>        FORCEINLINE <a class="code hl_function" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a8ce7b645a9e6f61192c65842d73f6929">DE::Math::TVector&lt;T&gt;::TVector</a>(T InF)</div>
-<div class="line"><a id="l00631" name="l00631"></a><span class="lineno">  631</span>            : X(InF), Y(InF), Z(InF)</div>
-<div class="line"><a id="l00632" name="l00632"></a><span class="lineno">  632</span>        {</div>
-<div class="line"><a id="l00633" name="l00633"></a><span class="lineno">  633</span>        }</div>
+<div class="line"><a id="l00621" name="l00621"></a><span class="lineno">  621</span> </div>
+<div class="line"><a id="l00622" name="l00622"></a><span class="lineno">  622</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="foldopen" id="foldopen00623" data-start="{" data-end="}">
+<div class="line"><a id="l00623" name="l00623"></a><span class="lineno"><a class="line" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a858c7f3418abe623f9e439dec1ca466f">  623</a></span>        FORCEINLINE <a class="code hl_function" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a8ce7b645a9e6f61192c65842d73f6929">DE::Math::TVector&lt;T&gt;::TVector</a>(T InF)</div>
+<div class="line"><a id="l00624" name="l00624"></a><span class="lineno">  624</span>            : X(InF), Y(InF), Z(InF)</div>
+<div class="line"><a id="l00625" name="l00625"></a><span class="lineno">  625</span>        {</div>
+<div class="line"><a id="l00626" name="l00626"></a><span class="lineno">  626</span>        }</div>
 </div>
-<div class="line"><a id="l00634" name="l00634"></a><span class="lineno">  634</span> </div>
-<div class="line"><a id="l00635" name="l00635"></a><span class="lineno">  635</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="foldopen" id="foldopen00636" data-start="{" data-end="}">
-<div class="line"><a id="l00636" name="l00636"></a><span class="lineno"><a class="line" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a7c5d10e996314fc4ffe92108614be524">  636</a></span>        <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a7c5d10e996314fc4ffe92108614be524">TVector&lt;T&gt;::Set</a>(T InX, T InY, T InZ)</div>
-<div class="line"><a id="l00637" name="l00637"></a><span class="lineno">  637</span>        {</div>
-<div class="line"><a id="l00638" name="l00638"></a><span class="lineno">  638</span>            X = InX;</div>
-<div class="line"><a id="l00639" name="l00639"></a><span class="lineno">  639</span>            Y = InY;</div>
-<div class="line"><a id="l00640" name="l00640"></a><span class="lineno">  640</span>            Z = InZ;</div>
-<div class="line"><a id="l00641" name="l00641"></a><span class="lineno">  641</span>        }</div>
+<div class="line"><a id="l00627" name="l00627"></a><span class="lineno">  627</span> </div>
+<div class="line"><a id="l00628" name="l00628"></a><span class="lineno">  628</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="foldopen" id="foldopen00629" data-start="{" data-end="}">
+<div class="line"><a id="l00629" name="l00629"></a><span class="lineno"><a class="line" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a7c5d10e996314fc4ffe92108614be524">  629</a></span>        <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a7c5d10e996314fc4ffe92108614be524">TVector&lt;T&gt;::Set</a>(T InX, T InY, T InZ)</div>
+<div class="line"><a id="l00630" name="l00630"></a><span class="lineno">  630</span>        {</div>
+<div class="line"><a id="l00631" name="l00631"></a><span class="lineno">  631</span>            X = InX;</div>
+<div class="line"><a id="l00632" name="l00632"></a><span class="lineno">  632</span>            Y = InY;</div>
+<div class="line"><a id="l00633" name="l00633"></a><span class="lineno">  633</span>            Z = InZ;</div>
+<div class="line"><a id="l00634" name="l00634"></a><span class="lineno">  634</span>        }</div>
 </div>
-<div class="line"><a id="l00642" name="l00642"></a><span class="lineno">  642</span> </div>
-<div class="line"><a id="l00643" name="l00643"></a><span class="lineno">  643</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="foldopen" id="foldopen00644" data-start="{" data-end="}">
-<div class="line"><a id="l00644" name="l00644"></a><span class="lineno"><a class="line" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a48409e88096fee8cac99a86656330839">  644</a></span>        <span class="keyword">inline</span> T&amp; <a class="code hl_function" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a48409e88096fee8cac99a86656330839">TVector&lt;T&gt;::Component</a>(<a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a84083085985fb180ad38b9c32e3937da">int32</a> Index)</div>
-<div class="line"><a id="l00645" name="l00645"></a><span class="lineno">  645</span>        {</div>
-<div class="line"><a id="l00646" name="l00646"></a><span class="lineno">  646</span>            <span class="keywordflow">return</span> XYZ[Index];</div>
-<div class="line"><a id="l00647" name="l00647"></a><span class="lineno">  647</span>        }</div>
+<div class="line"><a id="l00635" name="l00635"></a><span class="lineno">  635</span> </div>
+<div class="line"><a id="l00636" name="l00636"></a><span class="lineno">  636</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="foldopen" id="foldopen00637" data-start="{" data-end="}">
+<div class="line"><a id="l00637" name="l00637"></a><span class="lineno"><a class="line" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a48409e88096fee8cac99a86656330839">  637</a></span>        <span class="keyword">inline</span> T&amp; <a class="code hl_function" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a48409e88096fee8cac99a86656330839">TVector&lt;T&gt;::Component</a>(<a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a84083085985fb180ad38b9c32e3937da">int32</a> Index)</div>
+<div class="line"><a id="l00638" name="l00638"></a><span class="lineno">  638</span>        {</div>
+<div class="line"><a id="l00639" name="l00639"></a><span class="lineno">  639</span>            <span class="keywordflow">return</span> XYZ[Index];</div>
+<div class="line"><a id="l00640" name="l00640"></a><span class="lineno">  640</span>        }</div>
 </div>
-<div class="line"><a id="l00648" name="l00648"></a><span class="lineno">  648</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="foldopen" id="foldopen00649" data-start="{" data-end="}">
-<div class="line"><a id="l00649" name="l00649"></a><span class="lineno"><a class="line" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a5401f2f2cc03acccffad8a3e4c19b04a">  649</a></span>        <span class="keyword">inline</span> T <a class="code hl_function" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a48409e88096fee8cac99a86656330839">TVector&lt;T&gt;::Component</a>(<a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a84083085985fb180ad38b9c32e3937da">int32</a> Index)<span class="keyword"> const</span></div>
-<div class="line"><a id="l00650" name="l00650"></a><span class="lineno">  650</span><span class="keyword">        </span>{</div>
-<div class="line"><a id="l00651" name="l00651"></a><span class="lineno">  651</span>            <span class="keywordflow">return</span> XYZ[Index];</div>
-<div class="line"><a id="l00652" name="l00652"></a><span class="lineno">  652</span>        }</div>
+<div class="line"><a id="l00641" name="l00641"></a><span class="lineno">  641</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="foldopen" id="foldopen00642" data-start="{" data-end="}">
+<div class="line"><a id="l00642" name="l00642"></a><span class="lineno"><a class="line" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a5401f2f2cc03acccffad8a3e4c19b04a">  642</a></span>        <span class="keyword">inline</span> T <a class="code hl_function" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a48409e88096fee8cac99a86656330839">TVector&lt;T&gt;::Component</a>(<a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a84083085985fb180ad38b9c32e3937da">int32</a> Index)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00643" name="l00643"></a><span class="lineno">  643</span><span class="keyword">        </span>{</div>
+<div class="line"><a id="l00644" name="l00644"></a><span class="lineno">  644</span>            <span class="keywordflow">return</span> XYZ[Index];</div>
+<div class="line"><a id="l00645" name="l00645"></a><span class="lineno">  645</span>        }</div>
 </div>
-<div class="line"><a id="l00653" name="l00653"></a><span class="lineno">  653</span> </div>
-<div class="line"><a id="l00654" name="l00654"></a><span class="lineno">  654</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="foldopen" id="foldopen00655" data-start="{" data-end="}">
-<div class="line"><a id="l00655" name="l00655"></a><span class="lineno"><a class="line" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#afca742f60531f30785989e29bfe894e0">  655</a></span>        <span class="keyword">inline</span> TVector&lt;T&gt; <a class="code hl_function" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#afca742f60531f30785989e29bfe894e0">TVector&lt;T&gt;::GetAbs</a>()<span class="keyword"> const</span></div>
-<div class="line"><a id="l00656" name="l00656"></a><span class="lineno">  656</span><span class="keyword">        </span>{</div>
-<div class="line"><a id="l00657" name="l00657"></a><span class="lineno">  657</span>            <span class="keywordflow">return</span> TVector&lt;T&gt;</div>
-<div class="line"><a id="l00658" name="l00658"></a><span class="lineno">  658</span>                (</div>
-<div class="line"><a id="l00659" name="l00659"></a><span class="lineno">  659</span>                    FMath::Abs(X),</div>
-<div class="line"><a id="l00660" name="l00660"></a><span class="lineno">  660</span>                    FMath::Abs(Y),</div>
-<div class="line"><a id="l00661" name="l00661"></a><span class="lineno">  661</span>                    FMath::Abs(Z)</div>
-<div class="line"><a id="l00662" name="l00662"></a><span class="lineno">  662</span>                );</div>
-<div class="line"><a id="l00663" name="l00663"></a><span class="lineno">  663</span>        }</div>
+<div class="line"><a id="l00646" name="l00646"></a><span class="lineno">  646</span> </div>
+<div class="line"><a id="l00647" name="l00647"></a><span class="lineno">  647</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="foldopen" id="foldopen00648" data-start="{" data-end="}">
+<div class="line"><a id="l00648" name="l00648"></a><span class="lineno"><a class="line" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#afca742f60531f30785989e29bfe894e0">  648</a></span>        <span class="keyword">inline</span> TVector&lt;T&gt; <a class="code hl_function" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#afca742f60531f30785989e29bfe894e0">TVector&lt;T&gt;::GetAbs</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00649" name="l00649"></a><span class="lineno">  649</span><span class="keyword">        </span>{</div>
+<div class="line"><a id="l00650" name="l00650"></a><span class="lineno">  650</span>            <span class="keywordflow">return</span> TVector&lt;T&gt;</div>
+<div class="line"><a id="l00651" name="l00651"></a><span class="lineno">  651</span>                (</div>
+<div class="line"><a id="l00652" name="l00652"></a><span class="lineno">  652</span>                    FMath::Abs(X),</div>
+<div class="line"><a id="l00653" name="l00653"></a><span class="lineno">  653</span>                    FMath::Abs(Y),</div>
+<div class="line"><a id="l00654" name="l00654"></a><span class="lineno">  654</span>                    FMath::Abs(Z)</div>
+<div class="line"><a id="l00655" name="l00655"></a><span class="lineno">  655</span>                );</div>
+<div class="line"><a id="l00656" name="l00656"></a><span class="lineno">  656</span>        }</div>
 </div>
-<div class="line"><a id="l00664" name="l00664"></a><span class="lineno">  664</span> </div>
-<div class="line"><a id="l00665" name="l00665"></a><span class="lineno">  665</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="foldopen" id="foldopen00666" data-start="{" data-end="}">
-<div class="line"><a id="l00666" name="l00666"></a><span class="lineno"><a class="line" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a27af7d97a02305d0f78b11ff1bfd6eff">  666</a></span>        <span class="keyword">inline</span> T <a class="code hl_function" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a27af7d97a02305d0f78b11ff1bfd6eff">TVector&lt;T&gt;::GetMax</a>()<span class="keyword"> const</span></div>
-<div class="line"><a id="l00667" name="l00667"></a><span class="lineno">  667</span><span class="keyword">        </span>{</div>
-<div class="line"><a id="l00668" name="l00668"></a><span class="lineno">  668</span>            <span class="keywordflow">return</span> FMath::Max(FMath::Max(X, Y), Z);</div>
-<div class="line"><a id="l00669" name="l00669"></a><span class="lineno">  669</span>        }</div>
+<div class="line"><a id="l00657" name="l00657"></a><span class="lineno">  657</span> </div>
+<div class="line"><a id="l00658" name="l00658"></a><span class="lineno">  658</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="foldopen" id="foldopen00659" data-start="{" data-end="}">
+<div class="line"><a id="l00659" name="l00659"></a><span class="lineno"><a class="line" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a27af7d97a02305d0f78b11ff1bfd6eff">  659</a></span>        <span class="keyword">inline</span> T <a class="code hl_function" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a27af7d97a02305d0f78b11ff1bfd6eff">TVector&lt;T&gt;::GetMax</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00660" name="l00660"></a><span class="lineno">  660</span><span class="keyword">        </span>{</div>
+<div class="line"><a id="l00661" name="l00661"></a><span class="lineno">  661</span>            <span class="keywordflow">return</span> FMath::Max(FMath::Max(X, Y), Z);</div>
+<div class="line"><a id="l00662" name="l00662"></a><span class="lineno">  662</span>        }</div>
 </div>
+<div class="line"><a id="l00663" name="l00663"></a><span class="lineno">  663</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="foldopen" id="foldopen00664" data-start="{" data-end="}">
+<div class="line"><a id="l00664" name="l00664"></a><span class="lineno"><a class="line" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a457e1ee7dccad08d798615ea21ec026e">  664</a></span>        <span class="keyword">inline</span> T <a class="code hl_function" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a457e1ee7dccad08d798615ea21ec026e">TVector&lt;T&gt;::GetAbsMax</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00665" name="l00665"></a><span class="lineno">  665</span><span class="keyword">        </span>{</div>
+<div class="line"><a id="l00666" name="l00666"></a><span class="lineno">  666</span>            <span class="keywordflow">return</span> FMath::AbsMax(FMath::AbsMax(X, Y), Z);</div>
+<div class="line"><a id="l00667" name="l00667"></a><span class="lineno">  667</span>        }</div>
+</div>
+<div class="line"><a id="l00668" name="l00668"></a><span class="lineno">  668</span> </div>
+<div class="line"><a id="l00669" name="l00669"></a><span class="lineno">  669</span> </div>
 <div class="line"><a id="l00670" name="l00670"></a><span class="lineno">  670</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
 <div class="foldopen" id="foldopen00671" data-start="{" data-end="}">
-<div class="line"><a id="l00671" name="l00671"></a><span class="lineno"><a class="line" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a457e1ee7dccad08d798615ea21ec026e">  671</a></span>        <span class="keyword">inline</span> T <a class="code hl_function" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a457e1ee7dccad08d798615ea21ec026e">TVector&lt;T&gt;::GetAbsMax</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00671" name="l00671"></a><span class="lineno"><a class="line" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#aefc3db19f933967265410f90178bd69c">  671</a></span>        <span class="keyword">inline</span> T <a class="code hl_function" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#aefc3db19f933967265410f90178bd69c">TVector&lt;T&gt;::GetMin</a>()<span class="keyword"> const</span></div>
 <div class="line"><a id="l00672" name="l00672"></a><span class="lineno">  672</span><span class="keyword">        </span>{</div>
-<div class="line"><a id="l00673" name="l00673"></a><span class="lineno">  673</span>            <span class="keywordflow">return</span> FMath::AbsMax(FMath::AbsMax(X, Y), Z);</div>
+<div class="line"><a id="l00673" name="l00673"></a><span class="lineno">  673</span>            <span class="keywordflow">return</span> FMath::Min(FMath::Min(X, Y), Z);</div>
 <div class="line"><a id="l00674" name="l00674"></a><span class="lineno">  674</span>        }</div>
 </div>
-<div class="line"><a id="l00675" name="l00675"></a><span class="lineno">  675</span> </div>
-<div class="line"><a id="l00676" name="l00676"></a><span class="lineno">  676</span> </div>
-<div class="line"><a id="l00677" name="l00677"></a><span class="lineno">  677</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="foldopen" id="foldopen00678" data-start="{" data-end="}">
-<div class="line"><a id="l00678" name="l00678"></a><span class="lineno"><a class="line" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#aefc3db19f933967265410f90178bd69c">  678</a></span>        <span class="keyword">inline</span> T <a class="code hl_function" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#aefc3db19f933967265410f90178bd69c">TVector&lt;T&gt;::GetMin</a>()<span class="keyword"> const</span></div>
-<div class="line"><a id="l00679" name="l00679"></a><span class="lineno">  679</span><span class="keyword">        </span>{</div>
-<div class="line"><a id="l00680" name="l00680"></a><span class="lineno">  680</span>            <span class="keywordflow">return</span> FMath::Min(FMath::Min(X, Y), Z);</div>
-<div class="line"><a id="l00681" name="l00681"></a><span class="lineno">  681</span>        }</div>
+<div class="line"><a id="l00675" name="l00675"></a><span class="lineno">  675</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="foldopen" id="foldopen00676" data-start="{" data-end="}">
+<div class="line"><a id="l00676" name="l00676"></a><span class="lineno"><a class="line" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#ace9eacd4da2adc8b56f025529e356301">  676</a></span>        <span class="keyword">inline</span> T <a class="code hl_function" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#ace9eacd4da2adc8b56f025529e356301">TVector&lt;T&gt;::GetAbsMin</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00677" name="l00677"></a><span class="lineno">  677</span><span class="keyword">        </span>{</div>
+<div class="line"><a id="l00678" name="l00678"></a><span class="lineno">  678</span>            <span class="keywordflow">return</span> FMath::AbsMin(FMath::AbsMin(X, Y), Z);</div>
+<div class="line"><a id="l00679" name="l00679"></a><span class="lineno">  679</span>        }</div>
 </div>
-<div class="line"><a id="l00682" name="l00682"></a><span class="lineno">  682</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="foldopen" id="foldopen00683" data-start="{" data-end="}">
-<div class="line"><a id="l00683" name="l00683"></a><span class="lineno"><a class="line" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#ace9eacd4da2adc8b56f025529e356301">  683</a></span>        <span class="keyword">inline</span> T <a class="code hl_function" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#ace9eacd4da2adc8b56f025529e356301">TVector&lt;T&gt;::GetAbsMin</a>()<span class="keyword"> const</span></div>
-<div class="line"><a id="l00684" name="l00684"></a><span class="lineno">  684</span><span class="keyword">        </span>{</div>
-<div class="line"><a id="l00685" name="l00685"></a><span class="lineno">  685</span>            <span class="keywordflow">return</span> FMath::AbsMin(FMath::AbsMin(X, Y), Z);</div>
-<div class="line"><a id="l00686" name="l00686"></a><span class="lineno">  686</span>        }</div>
+<div class="line"><a id="l00680" name="l00680"></a><span class="lineno">  680</span> </div>
+<div class="line"><a id="l00681" name="l00681"></a><span class="lineno">  681</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="foldopen" id="foldopen00682" data-start="{" data-end="}">
+<div class="line"><a id="l00682" name="l00682"></a><span class="lineno"><a class="line" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#aec06673e335169e45b54d84913a8b2e6">  682</a></span>        <span class="keyword">inline</span> TVector&lt;T&gt; <a class="code hl_function" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#aec06673e335169e45b54d84913a8b2e6">TVector&lt;T&gt;::ComponentMin</a>(<span class="keyword">const</span> TVector&lt;T&gt;&amp; Other)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00683" name="l00683"></a><span class="lineno">  683</span><span class="keyword">        </span>{</div>
+<div class="line"><a id="l00684" name="l00684"></a><span class="lineno">  684</span>            <span class="keywordflow">return</span> TVector&lt;T&gt;</div>
+<div class="line"><a id="l00685" name="l00685"></a><span class="lineno">  685</span>                (</div>
+<div class="line"><a id="l00686" name="l00686"></a><span class="lineno">  686</span>                    FMath::Min(X, Other.X),</div>
+<div class="line"><a id="l00687" name="l00687"></a><span class="lineno">  687</span>                    FMath::Min(Y, Other.Y),</div>
+<div class="line"><a id="l00688" name="l00688"></a><span class="lineno">  688</span>                    FMath::Min(Z, Other.Z)</div>
+<div class="line"><a id="l00689" name="l00689"></a><span class="lineno">  689</span>                );</div>
+<div class="line"><a id="l00690" name="l00690"></a><span class="lineno">  690</span>        }</div>
 </div>
-<div class="line"><a id="l00687" name="l00687"></a><span class="lineno">  687</span> </div>
-<div class="line"><a id="l00688" name="l00688"></a><span class="lineno">  688</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="foldopen" id="foldopen00689" data-start="{" data-end="}">
-<div class="line"><a id="l00689" name="l00689"></a><span class="lineno"><a class="line" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#aec06673e335169e45b54d84913a8b2e6">  689</a></span>        <span class="keyword">inline</span> TVector&lt;T&gt; <a class="code hl_function" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#aec06673e335169e45b54d84913a8b2e6">TVector&lt;T&gt;::ComponentMin</a>(<span class="keyword">const</span> TVector&lt;T&gt;&amp; Other)<span class="keyword"> const</span></div>
-<div class="line"><a id="l00690" name="l00690"></a><span class="lineno">  690</span><span class="keyword">        </span>{</div>
-<div class="line"><a id="l00691" name="l00691"></a><span class="lineno">  691</span>            <span class="keywordflow">return</span> TVector&lt;T&gt;</div>
-<div class="line"><a id="l00692" name="l00692"></a><span class="lineno">  692</span>                (</div>
-<div class="line"><a id="l00693" name="l00693"></a><span class="lineno">  693</span>                    FMath::Min(X, Other.X),</div>
-<div class="line"><a id="l00694" name="l00694"></a><span class="lineno">  694</span>                    FMath::Min(Y, Other.Y),</div>
-<div class="line"><a id="l00695" name="l00695"></a><span class="lineno">  695</span>                    FMath::Min(Z, Other.Z)</div>
-<div class="line"><a id="l00696" name="l00696"></a><span class="lineno">  696</span>                );</div>
-<div class="line"><a id="l00697" name="l00697"></a><span class="lineno">  697</span>        }</div>
+<div class="line"><a id="l00691" name="l00691"></a><span class="lineno">  691</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="foldopen" id="foldopen00692" data-start="{" data-end="}">
+<div class="line"><a id="l00692" name="l00692"></a><span class="lineno"><a class="line" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a79cfdc610972c00a2ad9961a0adc34d7">  692</a></span>        <span class="keyword">inline</span> TVector&lt;T&gt; <a class="code hl_function" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a79cfdc610972c00a2ad9961a0adc34d7">TVector&lt;T&gt;::ComponentMax</a>(<span class="keyword">const</span> TVector&lt;T&gt;&amp; Other)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00693" name="l00693"></a><span class="lineno">  693</span><span class="keyword">        </span>{</div>
+<div class="line"><a id="l00694" name="l00694"></a><span class="lineno">  694</span>            <span class="keywordflow">return</span> TVector&lt;T&gt;</div>
+<div class="line"><a id="l00695" name="l00695"></a><span class="lineno">  695</span>                (</div>
+<div class="line"><a id="l00696" name="l00696"></a><span class="lineno">  696</span>                    FMath::Max(X, Other.X),</div>
+<div class="line"><a id="l00697" name="l00697"></a><span class="lineno">  697</span>                    FMath::Max(Y, Other.Y),</div>
+<div class="line"><a id="l00698" name="l00698"></a><span class="lineno">  698</span>                    FMath::Max(Z, Other.Z)</div>
+<div class="line"><a id="l00699" name="l00699"></a><span class="lineno">  699</span>                );</div>
+<div class="line"><a id="l00700" name="l00700"></a><span class="lineno">  700</span>        }</div>
 </div>
-<div class="line"><a id="l00698" name="l00698"></a><span class="lineno">  698</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="foldopen" id="foldopen00699" data-start="{" data-end="}">
-<div class="line"><a id="l00699" name="l00699"></a><span class="lineno"><a class="line" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a79cfdc610972c00a2ad9961a0adc34d7">  699</a></span>        <span class="keyword">inline</span> TVector&lt;T&gt; <a class="code hl_function" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a79cfdc610972c00a2ad9961a0adc34d7">TVector&lt;T&gt;::ComponentMax</a>(<span class="keyword">const</span> TVector&lt;T&gt;&amp; Other)<span class="keyword"> const</span></div>
-<div class="line"><a id="l00700" name="l00700"></a><span class="lineno">  700</span><span class="keyword">        </span>{</div>
-<div class="line"><a id="l00701" name="l00701"></a><span class="lineno">  701</span>            <span class="keywordflow">return</span> TVector&lt;T&gt;</div>
-<div class="line"><a id="l00702" name="l00702"></a><span class="lineno">  702</span>                (</div>
-<div class="line"><a id="l00703" name="l00703"></a><span class="lineno">  703</span>                    FMath::Max(X, Other.X),</div>
-<div class="line"><a id="l00704" name="l00704"></a><span class="lineno">  704</span>                    FMath::Max(Y, Other.Y),</div>
-<div class="line"><a id="l00705" name="l00705"></a><span class="lineno">  705</span>                    FMath::Max(Z, Other.Z)</div>
-<div class="line"><a id="l00706" name="l00706"></a><span class="lineno">  706</span>                );</div>
-<div class="line"><a id="l00707" name="l00707"></a><span class="lineno">  707</span>        }</div>
+<div class="line"><a id="l00701" name="l00701"></a><span class="lineno">  701</span> </div>
+<div class="line"><a id="l00702" name="l00702"></a><span class="lineno">  702</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="foldopen" id="foldopen00703" data-start="{" data-end="}">
+<div class="line"><a id="l00703" name="l00703"></a><span class="lineno"><a class="line" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#aeb119798692f88143b3b73bb968b42b1">  703</a></span>        <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#aeb119798692f88143b3b73bb968b42b1">TVector&lt;T&gt;::Equals</a>(<span class="keyword">const</span> TVector&lt;T&gt;&amp; V, T Tolerance)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00704" name="l00704"></a><span class="lineno">  704</span><span class="keyword">        </span>{</div>
+<div class="line"><a id="l00705" name="l00705"></a><span class="lineno">  705</span>            <span class="keywordflow">return</span> FMath::Abs(X - V.X) &lt; Tolerance &amp;&amp; FMath::Abs(Y - V.Y) &lt; Tolerance &amp;&amp; FMath::Abs(Z - V.Z) &lt; Tolerance;</div>
+<div class="line"><a id="l00706" name="l00706"></a><span class="lineno">  706</span>        }</div>
 </div>
-<div class="line"><a id="l00708" name="l00708"></a><span class="lineno">  708</span> </div>
-<div class="line"><a id="l00709" name="l00709"></a><span class="lineno">  709</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="foldopen" id="foldopen00710" data-start="{" data-end="}">
-<div class="line"><a id="l00710" name="l00710"></a><span class="lineno"><a class="line" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#aeb119798692f88143b3b73bb968b42b1">  710</a></span>        <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#aeb119798692f88143b3b73bb968b42b1">TVector&lt;T&gt;::Equals</a>(<span class="keyword">const</span> TVector&lt;T&gt;&amp; V, T Tolerance)<span class="keyword"> const</span></div>
-<div class="line"><a id="l00711" name="l00711"></a><span class="lineno">  711</span><span class="keyword">        </span>{</div>
-<div class="line"><a id="l00712" name="l00712"></a><span class="lineno">  712</span>            <span class="keywordflow">return</span> FMath::Abs(X - V.X) &lt; Tolerance &amp;&amp; FMath::Abs(Y - V.Y) &lt; Tolerance &amp;&amp; FMath::Abs(Z - V.Z) &lt; Tolerance;</div>
-<div class="line"><a id="l00713" name="l00713"></a><span class="lineno">  713</span>        }</div>
+<div class="line"><a id="l00707" name="l00707"></a><span class="lineno">  707</span> </div>
+<div class="line"><a id="l00708" name="l00708"></a><span class="lineno">  708</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="foldopen" id="foldopen00709" data-start="{" data-end="}">
+<div class="line"><a id="l00709" name="l00709"></a><span class="lineno"><a class="line" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a610ca38a5d3b5601e16f9a3a62828349">  709</a></span>        <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a610ca38a5d3b5601e16f9a3a62828349">TVector&lt;T&gt;::AllComponentEqual</a>(T Tolerance)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00710" name="l00710"></a><span class="lineno">  710</span><span class="keyword">        </span>{</div>
+<div class="line"><a id="l00711" name="l00711"></a><span class="lineno">  711</span>            <span class="keywordflow">return</span> FMath::Abs(X - Y) &lt; Tolerance &amp;&amp; FMath::Abs(Y - Z) &lt; Tolerance;</div>
+<div class="line"><a id="l00712" name="l00712"></a><span class="lineno">  712</span>        }</div>
 </div>
-<div class="line"><a id="l00714" name="l00714"></a><span class="lineno">  714</span> </div>
-<div class="line"><a id="l00715" name="l00715"></a><span class="lineno">  715</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="foldopen" id="foldopen00716" data-start="{" data-end="}">
-<div class="line"><a id="l00716" name="l00716"></a><span class="lineno"><a class="line" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a610ca38a5d3b5601e16f9a3a62828349">  716</a></span>        <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a610ca38a5d3b5601e16f9a3a62828349">TVector&lt;T&gt;::AllComponentEqual</a>(T Tolerance)<span class="keyword"> const</span></div>
-<div class="line"><a id="l00717" name="l00717"></a><span class="lineno">  717</span><span class="keyword">        </span>{</div>
-<div class="line"><a id="l00718" name="l00718"></a><span class="lineno">  718</span>            <span class="keywordflow">return</span> FMath::Abs(X - Y) &lt; Tolerance &amp;&amp; FMath::Abs(Y - Z) &lt; Tolerance;</div>
-<div class="line"><a id="l00719" name="l00719"></a><span class="lineno">  719</span>        }</div>
+<div class="line"><a id="l00713" name="l00713"></a><span class="lineno">  713</span> </div>
+<div class="line"><a id="l00714" name="l00714"></a><span class="lineno">  714</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="foldopen" id="foldopen00715" data-start="{" data-end="}">
+<div class="line"><a id="l00715" name="l00715"></a><span class="lineno"><a class="line" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#aaa2fc9ca5ae7167ace53a242f89ab514">  715</a></span>        FORCEINLINE TVector&lt;T&gt; <a class="code hl_function" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#aaa2fc9ca5ae7167ace53a242f89ab514">TVector&lt;T&gt;::operator+</a>(<span class="keyword">const</span> TVector&lt;T&gt;&amp; V)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00716" name="l00716"></a><span class="lineno">  716</span><span class="keyword">        </span>{</div>
+<div class="line"><a id="l00717" name="l00717"></a><span class="lineno">  717</span>            <span class="keywordflow">return</span> TVector&lt;T&gt;(X + V.X, Y + V.Y, Z + V.Z);</div>
+<div class="line"><a id="l00718" name="l00718"></a><span class="lineno">  718</span>        }</div>
 </div>
-<div class="line"><a id="l00720" name="l00720"></a><span class="lineno">  720</span> </div>
-<div class="line"><a id="l00721" name="l00721"></a><span class="lineno">  721</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="foldopen" id="foldopen00722" data-start="{" data-end="}">
-<div class="line"><a id="l00722" name="l00722"></a><span class="lineno"><a class="line" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#aaa2fc9ca5ae7167ace53a242f89ab514">  722</a></span>        FORCEINLINE TVector&lt;T&gt; <a class="code hl_function" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#aaa2fc9ca5ae7167ace53a242f89ab514">TVector&lt;T&gt;::operator+</a>(<span class="keyword">const</span> TVector&lt;T&gt;&amp; V)<span class="keyword"> const</span></div>
-<div class="line"><a id="l00723" name="l00723"></a><span class="lineno">  723</span><span class="keyword">        </span>{</div>
-<div class="line"><a id="l00724" name="l00724"></a><span class="lineno">  724</span>            <span class="keywordflow">return</span> TVector&lt;T&gt;(X + V.X, Y + V.Y, Z + V.Z);</div>
-<div class="line"><a id="l00725" name="l00725"></a><span class="lineno">  725</span>        }</div>
+<div class="line"><a id="l00719" name="l00719"></a><span class="lineno">  719</span> </div>
+<div class="line"><a id="l00720" name="l00720"></a><span class="lineno">  720</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="foldopen" id="foldopen00721" data-start="{" data-end="}">
+<div class="line"><a id="l00721" name="l00721"></a><span class="lineno"><a class="line" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#aebe109f2ca3b8d6e4e62d96c3570725f">  721</a></span>        FORCEINLINE TVector&lt;T&gt; <a class="code hl_function" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a373172d05f95dab45d2c9e53dc99ede1">TVector&lt;T&gt;::operator*</a>(<span class="keyword">const</span> TVector&lt;T&gt;&amp; V)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00722" name="l00722"></a><span class="lineno">  722</span><span class="keyword">        </span>{</div>
+<div class="line"><a id="l00723" name="l00723"></a><span class="lineno">  723</span>            <span class="keywordflow">return</span> TVector&lt;T&gt;(X * V.X, Y * V.Y, Z * V.Z);</div>
+<div class="line"><a id="l00724" name="l00724"></a><span class="lineno">  724</span>        }</div>
 </div>
-<div class="line"><a id="l00726" name="l00726"></a><span class="lineno">  726</span> </div>
-<div class="line"><a id="l00727" name="l00727"></a><span class="lineno">  727</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="foldopen" id="foldopen00728" data-start="{" data-end="}">
-<div class="line"><a id="l00728" name="l00728"></a><span class="lineno"><a class="line" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#aebe109f2ca3b8d6e4e62d96c3570725f">  728</a></span>        FORCEINLINE TVector&lt;T&gt; <a class="code hl_function" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a373172d05f95dab45d2c9e53dc99ede1">TVector&lt;T&gt;::operator*</a>(<span class="keyword">const</span> TVector&lt;T&gt;&amp; V)<span class="keyword"> const</span></div>
-<div class="line"><a id="l00729" name="l00729"></a><span class="lineno">  729</span><span class="keyword">        </span>{</div>
-<div class="line"><a id="l00730" name="l00730"></a><span class="lineno">  730</span>            <span class="keywordflow">return</span> TVector&lt;T&gt;(X * V.X, Y * V.Y, Z * V.Z);</div>
-<div class="line"><a id="l00731" name="l00731"></a><span class="lineno">  731</span>        }</div>
+<div class="line"><a id="l00725" name="l00725"></a><span class="lineno">  725</span> </div>
+<div class="line"><a id="l00726" name="l00726"></a><span class="lineno">  726</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="foldopen" id="foldopen00727" data-start="{" data-end="}">
+<div class="line"><a id="l00727" name="l00727"></a><span class="lineno"><a class="line" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a343c8f85e31dcd138bcacbb6bf48a0d6">  727</a></span>        FORCEINLINE TVector&lt;T&gt; <a class="code hl_function" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a3fc3d0850761a457aec767de94b2e0e0">TVector&lt;T&gt;::operator/</a>(<span class="keyword">const</span> TVector&lt;T&gt;&amp; V)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00728" name="l00728"></a><span class="lineno">  728</span><span class="keyword">        </span>{</div>
+<div class="line"><a id="l00729" name="l00729"></a><span class="lineno">  729</span>            <span class="keywordflow">return</span> TVector&lt;T&gt;(X / V.X, Y / V.Y, Z / V.Z);</div>
+<div class="line"><a id="l00730" name="l00730"></a><span class="lineno">  730</span>        }</div>
 </div>
-<div class="line"><a id="l00732" name="l00732"></a><span class="lineno">  732</span> </div>
-<div class="line"><a id="l00733" name="l00733"></a><span class="lineno">  733</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="foldopen" id="foldopen00734" data-start="{" data-end="}">
-<div class="line"><a id="l00734" name="l00734"></a><span class="lineno"><a class="line" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a343c8f85e31dcd138bcacbb6bf48a0d6">  734</a></span>        FORCEINLINE TVector&lt;T&gt; <a class="code hl_function" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a3fc3d0850761a457aec767de94b2e0e0">TVector&lt;T&gt;::operator/</a>(<span class="keyword">const</span> TVector&lt;T&gt;&amp; V)<span class="keyword"> const</span></div>
-<div class="line"><a id="l00735" name="l00735"></a><span class="lineno">  735</span><span class="keyword">        </span>{</div>
-<div class="line"><a id="l00736" name="l00736"></a><span class="lineno">  736</span>            <span class="keywordflow">return</span> TVector&lt;T&gt;(X / V.X, Y / V.Y, Z / V.Z);</div>
-<div class="line"><a id="l00737" name="l00737"></a><span class="lineno">  737</span>        }</div>
+<div class="line"><a id="l00731" name="l00731"></a><span class="lineno">  731</span> </div>
+<div class="line"><a id="l00732" name="l00732"></a><span class="lineno">  732</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="foldopen" id="foldopen00733" data-start="{" data-end="}">
+<div class="line"><a id="l00733" name="l00733"></a><span class="lineno"><a class="line" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a7374b2346cb58212c2d248a98963292c">  733</a></span>        FORCEINLINE TVector&lt;T&gt; <a class="code hl_function" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a7374b2346cb58212c2d248a98963292c">TVector&lt;T&gt;::operator^</a>(<span class="keyword">const</span> TVector&lt;T&gt;&amp;V)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00734" name="l00734"></a><span class="lineno">  734</span><span class="keyword">        </span>{</div>
+<div class="line"><a id="l00735" name="l00735"></a><span class="lineno">  735</span>            <span class="keywordflow">return</span> Cross(V);</div>
+<div class="line"><a id="l00736" name="l00736"></a><span class="lineno">  736</span>        }</div>
 </div>
+<div class="line"><a id="l00737" name="l00737"></a><span class="lineno">  737</span> </div>
 <div class="line"><a id="l00738" name="l00738"></a><span class="lineno">  738</span> </div>
-<div class="line"><a id="l00739" name="l00739"></a><span class="lineno">  739</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a id="l00739" name="l00739"></a><span class="lineno">  739</span>        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
 <div class="foldopen" id="foldopen00740" data-start="{" data-end="}">
-<div class="line"><a id="l00740" name="l00740"></a><span class="lineno"><a class="line" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a7374b2346cb58212c2d248a98963292c">  740</a></span>        FORCEINLINE TVector&lt;T&gt; <a class="code hl_function" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a7374b2346cb58212c2d248a98963292c">TVector&lt;T&gt;::operator^</a>(<span class="keyword">const</span> TVector&lt;T&gt;&amp;V)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00740" name="l00740"></a><span class="lineno"><a class="line" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a14a39bf928491c848ad084404ce07e06">  740</a></span>        FORCEINLINE <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a14a39bf928491c848ad084404ce07e06">TVector&lt;T&gt;::ContainsNaN</a>()<span class="keyword"> const</span></div>
 <div class="line"><a id="l00741" name="l00741"></a><span class="lineno">  741</span><span class="keyword">        </span>{</div>
-<div class="line"><a id="l00742" name="l00742"></a><span class="lineno">  742</span>            <span class="keywordflow">return</span> Cross(V);</div>
-<div class="line"><a id="l00743" name="l00743"></a><span class="lineno">  743</span>        }</div>
+<div class="line"><a id="l00742" name="l00742"></a><span class="lineno">  742</span>            <span class="keywordflow">return</span>  (!FMath::IsFinite(X) ||</div>
+<div class="line"><a id="l00743" name="l00743"></a><span class="lineno">  743</span>                     !FMath::IsFinite(Y) ||</div>
+<div class="line"><a id="l00744" name="l00744"></a><span class="lineno">  744</span>                     !FMath::IsFinite(Z));</div>
+<div class="line"><a id="l00745" name="l00745"></a><span class="lineno">  745</span>        }</div>
 </div>
-<div class="line"><a id="l00744" name="l00744"></a><span class="lineno">  744</span> </div>
-<div class="line"><a id="l00745" name="l00745"></a><span class="lineno">  745</span> </div>
-<div class="line"><a id="l00746" name="l00746"></a><span class="lineno">  746</span>        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="foldopen" id="foldopen00747" data-start="{" data-end="}">
-<div class="line"><a id="l00747" name="l00747"></a><span class="lineno"><a class="line" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a14a39bf928491c848ad084404ce07e06">  747</a></span>        FORCEINLINE <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a14a39bf928491c848ad084404ce07e06">TVector&lt;T&gt;::ContainsNaN</a>()<span class="keyword"> const</span></div>
-<div class="line"><a id="l00748" name="l00748"></a><span class="lineno">  748</span><span class="keyword">        </span>{</div>
-<div class="line"><a id="l00749" name="l00749"></a><span class="lineno">  749</span>            <span class="keywordflow">return</span>  (!FMath::IsFinite(X) ||</div>
-<div class="line"><a id="l00750" name="l00750"></a><span class="lineno">  750</span>                     !FMath::IsFinite(Y) ||</div>
-<div class="line"><a id="l00751" name="l00751"></a><span class="lineno">  751</span>                     !FMath::IsFinite(Z));</div>
+</div>
+<div class="line"><a id="l00746" name="l00746"></a><span class="lineno">  746</span> </div>
+<div class="line"><a id="l00747" name="l00747"></a><span class="lineno">  747</span> </div>
+<div class="line"><a id="l00748" name="l00748"></a><span class="lineno">  748</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="foldopen" id="foldopen00749" data-start="{" data-end="}">
+<div class="line"><a id="l00749" name="l00749"></a><span class="lineno"><a class="line" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a20b060de484601e434549e0845740e17">  749</a></span>        <span class="keyword">inline</span> T <a class="code hl_function" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a20b060de484601e434549e0845740e17">TVector&lt;T&gt;::DotProduct</a>(<span class="keyword">const</span> TVector&lt;T&gt;&amp; A, <span class="keyword">const</span> TVector&lt;T&gt;&amp; B)</div>
+<div class="line"><a id="l00750" name="l00750"></a><span class="lineno">  750</span>        {</div>
+<div class="line"><a id="l00751" name="l00751"></a><span class="lineno">  751</span>            <span class="keywordflow">return</span> A.X * B.X + A.Y * B.Y + A.Z * B.Z;</div>
 <div class="line"><a id="l00752" name="l00752"></a><span class="lineno">  752</span>        }</div>
 </div>
-</div>
 <div class="line"><a id="l00753" name="l00753"></a><span class="lineno">  753</span> </div>
-<div class="line"><a id="l00754" name="l00754"></a><span class="lineno">  754</span> </div>
-<div class="line"><a id="l00755" name="l00755"></a><span class="lineno">  755</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="foldopen" id="foldopen00756" data-start="{" data-end="}">
-<div class="line"><a id="l00756" name="l00756"></a><span class="lineno"><a class="line" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a20b060de484601e434549e0845740e17">  756</a></span>        <span class="keyword">inline</span> T <a class="code hl_function" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a20b060de484601e434549e0845740e17">TVector&lt;T&gt;::DotProduct</a>(<span class="keyword">const</span> TVector&lt;T&gt;&amp; A, <span class="keyword">const</span> TVector&lt;T&gt;&amp; B)</div>
-<div class="line"><a id="l00757" name="l00757"></a><span class="lineno">  757</span>        {</div>
-<div class="line"><a id="l00758" name="l00758"></a><span class="lineno">  758</span>            <span class="keywordflow">return</span> A.X * B.X + A.Y * B.Y + A.Z * B.Z;</div>
-<div class="line"><a id="l00759" name="l00759"></a><span class="lineno">  759</span>        }</div>
+<div class="line"><a id="l00754" name="l00754"></a><span class="lineno">  754</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="foldopen" id="foldopen00755" data-start="{" data-end="}">
+<div class="line"><a id="l00755" name="l00755"></a><span class="lineno"><a class="line" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a702d28ab0849afac4763a96134e542ea">  755</a></span>        <span class="keyword">inline</span> T <a class="code hl_function" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a702d28ab0849afac4763a96134e542ea">TVector&lt;T&gt;::Dot</a>(<span class="keyword">const</span> TVector&lt;T&gt;&amp; V)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00756" name="l00756"></a><span class="lineno">  756</span><span class="keyword">        </span>{</div>
+<div class="line"><a id="l00757" name="l00757"></a><span class="lineno">  757</span>            <span class="keywordflow">return</span> DotProduct(*<span class="keyword">this</span>, V);</div>
+<div class="line"><a id="l00758" name="l00758"></a><span class="lineno">  758</span>        }</div>
 </div>
+<div class="line"><a id="l00759" name="l00759"></a><span class="lineno">  759</span> </div>
 <div class="line"><a id="l00760" name="l00760"></a><span class="lineno">  760</span> </div>
-<div class="line"><a id="l00761" name="l00761"></a><span class="lineno">  761</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="foldopen" id="foldopen00762" data-start="{" data-end="}">
-<div class="line"><a id="l00762" name="l00762"></a><span class="lineno"><a class="line" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a702d28ab0849afac4763a96134e542ea">  762</a></span>        <span class="keyword">inline</span> T <a class="code hl_function" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a702d28ab0849afac4763a96134e542ea">TVector&lt;T&gt;::Dot</a>(<span class="keyword">const</span> TVector&lt;T&gt;&amp; V)<span class="keyword"> const</span></div>
-<div class="line"><a id="l00763" name="l00763"></a><span class="lineno">  763</span><span class="keyword">        </span>{</div>
-<div class="line"><a id="l00764" name="l00764"></a><span class="lineno">  764</span>            <span class="keywordflow">return</span> DotProduct(*<span class="keyword">this</span>, V);</div>
-<div class="line"><a id="l00765" name="l00765"></a><span class="lineno">  765</span>        }</div>
+<div class="line"><a id="l00761" name="l00761"></a><span class="lineno">  761</span> </div>
+<div class="line"><a id="l00762" name="l00762"></a><span class="lineno">  762</span> </div>
+<div class="line"><a id="l00763" name="l00763"></a><span class="lineno">  763</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="foldopen" id="foldopen00764" data-start="{" data-end="}">
+<div class="line"><a id="l00764" name="l00764"></a><span class="lineno"><a class="line" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a7350a5806e38af2a173c1afd1528aed1">  764</a></span>        <span class="keyword">inline</span> TVector&lt;T&gt; <a class="code hl_function" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a7350a5806e38af2a173c1afd1528aed1">TVector&lt;T&gt;::CrossProduct</a>(<span class="keyword">const</span> TVector&lt;T&gt;&amp; A, <span class="keyword">const</span> TVector&lt;T&gt;&amp; B)</div>
+<div class="line"><a id="l00765" name="l00765"></a><span class="lineno">  765</span>        {</div>
+<div class="line"><a id="l00766" name="l00766"></a><span class="lineno">  766</span>            <span class="keywordflow">return</span> <a class="code hl_struct" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a></div>
+<div class="line"><a id="l00767" name="l00767"></a><span class="lineno">  767</span>            (</div>
+<div class="line"><a id="l00768" name="l00768"></a><span class="lineno">  768</span>                A.Y * B.Z - A.Z * B.Y,</div>
+<div class="line"><a id="l00769" name="l00769"></a><span class="lineno">  769</span>                A.Z * B.X - A.X * B.Z,</div>
+<div class="line"><a id="l00770" name="l00770"></a><span class="lineno">  770</span>                A.X * B.Y - A.Y * B.X</div>
+<div class="line"><a id="l00771" name="l00771"></a><span class="lineno">  771</span>            );</div>
+<div class="line"><a id="l00772" name="l00772"></a><span class="lineno">  772</span>        }</div>
 </div>
-<div class="line"><a id="l00766" name="l00766"></a><span class="lineno">  766</span> </div>
-<div class="line"><a id="l00767" name="l00767"></a><span class="lineno">  767</span> </div>
-<div class="line"><a id="l00768" name="l00768"></a><span class="lineno">  768</span> </div>
-<div class="line"><a id="l00769" name="l00769"></a><span class="lineno">  769</span> </div>
-<div class="line"><a id="l00770" name="l00770"></a><span class="lineno">  770</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="foldopen" id="foldopen00771" data-start="{" data-end="}">
-<div class="line"><a id="l00771" name="l00771"></a><span class="lineno"><a class="line" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a7350a5806e38af2a173c1afd1528aed1">  771</a></span>        <span class="keyword">inline</span> TVector&lt;T&gt; <a class="code hl_function" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a7350a5806e38af2a173c1afd1528aed1">TVector&lt;T&gt;::CrossProduct</a>(<span class="keyword">const</span> TVector&lt;T&gt;&amp; A, <span class="keyword">const</span> TVector&lt;T&gt;&amp; B)</div>
-<div class="line"><a id="l00772" name="l00772"></a><span class="lineno">  772</span>        {</div>
-<div class="line"><a id="l00773" name="l00773"></a><span class="lineno">  773</span>            <span class="keywordflow">return</span> <a class="code hl_struct" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a></div>
-<div class="line"><a id="l00774" name="l00774"></a><span class="lineno">  774</span>            (</div>
-<div class="line"><a id="l00775" name="l00775"></a><span class="lineno">  775</span>                A.Y * B.Z - A.Z * B.Y,</div>
-<div class="line"><a id="l00776" name="l00776"></a><span class="lineno">  776</span>                A.Z * B.X - A.X * B.Z,</div>
-<div class="line"><a id="l00777" name="l00777"></a><span class="lineno">  777</span>                A.X * B.Y - A.Y * B.X</div>
-<div class="line"><a id="l00778" name="l00778"></a><span class="lineno">  778</span>            );</div>
-<div class="line"><a id="l00779" name="l00779"></a><span class="lineno">  779</span>        }</div>
+<div class="line"><a id="l00773" name="l00773"></a><span class="lineno">  773</span> </div>
+<div class="line"><a id="l00774" name="l00774"></a><span class="lineno">  774</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="foldopen" id="foldopen00775" data-start="{" data-end="}">
+<div class="line"><a id="l00775" name="l00775"></a><span class="lineno"><a class="line" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#afda5484b610e96346bd1b476fe4f4dbb">  775</a></span>        <span class="keyword">inline</span> TVector&lt;T&gt; <a class="code hl_function" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#afda5484b610e96346bd1b476fe4f4dbb">TVector&lt;T&gt;::Cross</a>(<span class="keyword">const</span> TVector&lt;T&gt;&amp; V)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00776" name="l00776"></a><span class="lineno">  776</span><span class="keyword">        </span>{</div>
+<div class="line"><a id="l00777" name="l00777"></a><span class="lineno">  777</span>            <span class="keywordflow">return</span> CrossProduct(*<span class="keyword">this</span>, V);</div>
+<div class="line"><a id="l00778" name="l00778"></a><span class="lineno">  778</span>        }</div>
 </div>
-<div class="line"><a id="l00780" name="l00780"></a><span class="lineno">  780</span> </div>
-<div class="line"><a id="l00781" name="l00781"></a><span class="lineno">  781</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="foldopen" id="foldopen00782" data-start="{" data-end="}">
-<div class="line"><a id="l00782" name="l00782"></a><span class="lineno"><a class="line" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#afda5484b610e96346bd1b476fe4f4dbb">  782</a></span>        <span class="keyword">inline</span> TVector&lt;T&gt; <a class="code hl_function" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#afda5484b610e96346bd1b476fe4f4dbb">TVector&lt;T&gt;::Cross</a>(<span class="keyword">const</span> TVector&lt;T&gt;&amp; V)<span class="keyword"> const</span></div>
-<div class="line"><a id="l00783" name="l00783"></a><span class="lineno">  783</span><span class="keyword">        </span>{</div>
-<div class="line"><a id="l00784" name="l00784"></a><span class="lineno">  784</span>            <span class="keywordflow">return</span> CrossProduct(*<span class="keyword">this</span>, V);</div>
-<div class="line"><a id="l00785" name="l00785"></a><span class="lineno">  785</span>        }</div>
+<div class="line"><a id="l00779" name="l00779"></a><span class="lineno">  779</span> </div>
+<div class="line"><a id="l00780" name="l00780"></a><span class="lineno">  780</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="foldopen" id="foldopen00781" data-start="{" data-end="}">
+<div class="line"><a id="l00781" name="l00781"></a><span class="lineno"><a class="line" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a7921c278d27532b80701b0392f5eb56e">  781</a></span>        <span class="keyword">inline</span> T <a class="code hl_function" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a7921c278d27532b80701b0392f5eb56e">TVector&lt;T&gt;::Length</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00782" name="l00782"></a><span class="lineno">  782</span><span class="keyword">        </span>{</div>
+<div class="line"><a id="l00783" name="l00783"></a><span class="lineno">  783</span>            <span class="keywordflow">return</span> FMath::Sqrt(X * X + Y * Y + Z * Z);</div>
+<div class="line"><a id="l00784" name="l00784"></a><span class="lineno">  784</span>        }</div>
 </div>
+</div>
+<div class="line"><a id="l00785" name="l00785"></a><span class="lineno">  785</span> </div>
 <div class="line"><a id="l00786" name="l00786"></a><span class="lineno">  786</span> </div>
-<div class="line"><a id="l00787" name="l00787"></a><span class="lineno">  787</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="foldopen" id="foldopen00788" data-start="{" data-end="}">
-<div class="line"><a id="l00788" name="l00788"></a><span class="lineno"><a class="line" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a7921c278d27532b80701b0392f5eb56e">  788</a></span>        <span class="keyword">inline</span> T <a class="code hl_function" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a7921c278d27532b80701b0392f5eb56e">TVector&lt;T&gt;::Length</a>()<span class="keyword"> const</span></div>
-<div class="line"><a id="l00789" name="l00789"></a><span class="lineno">  789</span><span class="keyword">        </span>{</div>
-<div class="line"><a id="l00790" name="l00790"></a><span class="lineno">  790</span>            <span class="keywordflow">return</span> FMath::Sqrt(X * X + Y * Y + Z * Z);</div>
-<div class="line"><a id="l00791" name="l00791"></a><span class="lineno">  791</span>        }</div>
-</div>
-</div>
+<div class="line"><a id="l00787" name="l00787"></a><span class="lineno">  787</span>    }</div>
+<div class="line"><a id="l00788" name="l00788"></a><span class="lineno">  788</span> </div>
+<div class="line"><a id="l00789" name="l00789"></a><span class="lineno">  789</span>}</div>
+<div class="line"><a id="l00790" name="l00790"></a><span class="lineno">  790</span> </div>
+<div class="line"><a id="l00791" name="l00791"></a><span class="lineno">  791</span> </div>
 <div class="line"><a id="l00792" name="l00792"></a><span class="lineno">  792</span> </div>
-<div class="line"><a id="l00793" name="l00793"></a><span class="lineno">  793</span> </div>
-<div class="line"><a id="l00794" name="l00794"></a><span class="lineno">  794</span>    }</div>
-<div class="line"><a id="l00795" name="l00795"></a><span class="lineno">  795</span> </div>
-<div class="line"><a id="l00796" name="l00796"></a><span class="lineno">  796</span>}</div>
-<div class="line"><a id="l00797" name="l00797"></a><span class="lineno">  797</span> </div>
-<div class="line"><a id="l00798" name="l00798"></a><span class="lineno">  798</span> </div>
-<div class="line"><a id="l00799" name="l00799"></a><span class="lineno">  799</span> </div>
-<div class="line"><a id="l00800" name="l00800"></a><span class="lineno">  800</span><span class="preprocessor">#pragma warning (pop)</span></div>
+<div class="line"><a id="l00793" name="l00793"></a><span class="lineno">  793</span><span class="preprocessor">#pragma warning (pop)</span></div>
 </div>
 </div>
 </div>
@@ -770,20 +764,20 @@ $(function() { codefold.init(1); });
 <div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_a0f42b95edc51120e3b537ed55c1146a0"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a0f42b95edc51120e3b537ed55c1146a0">DE::Math::TVector::BoundToBox</a></div><div class="ttdeci">TVector&lt; T &gt; BoundToBox(const TVector&lt; T &gt; &amp;Min, const TVector&lt; T &gt; &amp;Max) const</div></div>
 <div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_a0f536b156f0dd11876ed604e36d7a146"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a0f536b156f0dd11876ed604e36d7a146">DE::Math::TVector::GetSafeNormal2D</a></div><div class="ttdeci">TVector&lt; T &gt; GetSafeNormal2D(T Tolerance=DE_SMALL_NUMBER, const TVector&lt; T &gt; &amp;ResultIfZero=ZeroVector) const</div></div>
 <div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_a1308972f7210420356327e8b51e13f00"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a1308972f7210420356327e8b51e13f00">DE::Math::TVector::IsUnit</a></div><div class="ttdeci">FORCEINLINE bool IsUnit(T LengthSquaredTolerance=DE_KINDA_SMALL_NUMBER) const</div></div>
-<div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_a14a39bf928491c848ad084404ce07e06"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a14a39bf928491c848ad084404ce07e06">DE::Math::TVector::ContainsNaN</a></div><div class="ttdeci">bool ContainsNaN() const</div><div class="ttdef"><b>Definition</b> Vector.h:747</div></div>
+<div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_a14a39bf928491c848ad084404ce07e06"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a14a39bf928491c848ad084404ce07e06">DE::Math::TVector::ContainsNaN</a></div><div class="ttdeci">bool ContainsNaN() const</div><div class="ttdef"><b>Definition</b> Vector.h:740</div></div>
 <div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_a16e16df15b6a2475cdf4cd70d20e1bfa"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a16e16df15b6a2475cdf4cd70d20e1bfa">DE::Math::TVector::Z</a></div><div class="ttdeci">T Z</div><div class="ttdoc">Z Element.</div><div class="ttdef"><b>Definition</b> Vector.h:32</div></div>
 <div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_a1c3f178884d1db9c0a669edc1522a4aa"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a1c3f178884d1db9c0a669edc1522a4aa">DE::Math::TVector::DownVector</a></div><div class="ttdeci">static DENGINE_API const TVector&lt; T &gt; DownVector</div><div class="ttdef"><b>Definition</b> Vector.h:47</div></div>
 <div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_a1e09fb9afde7f29e9c2ee8bc6034265f"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a1e09fb9afde7f29e9c2ee8bc6034265f">DE::Math::TVector::TVector</a></div><div class="ttdeci">TVector(T InX, T InY, T InZ)</div><div class="ttdef"><b>Definition</b> Vector.h:593</div></div>
 <div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_a1e6f77df889bbd7f0941a6eb8faee2f3"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a1e6f77df889bbd7f0941a6eb8faee2f3">DE::Math::TVector::operator-</a></div><div class="ttdeci">FORCEINLINE TVector&lt; T &gt; operator-(const TVector&lt; T &gt; &amp;V) const</div></div>
-<div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_a20b060de484601e434549e0845740e17"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a20b060de484601e434549e0845740e17">DE::Math::TVector::DotProduct</a></div><div class="ttdeci">static FORCEINLINE T DotProduct(const TVector&lt; T &gt; &amp;A, const TVector&lt; T &gt; &amp;B)</div><div class="ttdef"><b>Definition</b> Vector.h:756</div></div>
+<div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_a20b060de484601e434549e0845740e17"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a20b060de484601e434549e0845740e17">DE::Math::TVector::DotProduct</a></div><div class="ttdeci">static FORCEINLINE T DotProduct(const TVector&lt; T &gt; &amp;A, const TVector&lt; T &gt; &amp;B)</div><div class="ttdef"><b>Definition</b> Vector.h:749</div></div>
 <div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_a212a13633b0fac2b92559254f4b5c0eb"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a212a13633b0fac2b92559254f4b5c0eb">DE::Math::TVector::operator*=</a></div><div class="ttdeci">TVector&lt; T &gt; operator*=(const TVector&lt; T &gt; &amp;V)</div></div>
 <div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_a22351713c8cb9a3d3097914bdee228e3"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a22351713c8cb9a3d3097914bdee228e3">DE::Math::TVector::DiagnosticCheckNaN</a></div><div class="ttdeci">FORCEINLINE void DiagnosticCheckNaN() const</div><div class="ttdef"><b>Definition</b> Vector.h:88</div></div>
 <div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_a2715e3398412e855e780b4e9a23cdb9e"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a2715e3398412e855e780b4e9a23cdb9e">DE::Math::TVector::SquaredLength</a></div><div class="ttdeci">T SquaredLength() const</div><div class="ttdef"><b>Definition</b> Vector.h:335</div></div>
-<div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_a27af7d97a02305d0f78b11ff1bfd6eff"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a27af7d97a02305d0f78b11ff1bfd6eff">DE::Math::TVector::GetMax</a></div><div class="ttdeci">T GetMax() const</div><div class="ttdef"><b>Definition</b> Vector.h:666</div></div>
+<div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_a27af7d97a02305d0f78b11ff1bfd6eff"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a27af7d97a02305d0f78b11ff1bfd6eff">DE::Math::TVector::GetMax</a></div><div class="ttdeci">T GetMax() const</div><div class="ttdef"><b>Definition</b> Vector.h:659</div></div>
 <div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_a2867c3b54222aef24954283622a53aac"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a2867c3b54222aef24954283622a53aac">DE::Math::TVector::operator[]</a></div><div class="ttdeci">T &amp; operator[](int32 Index)</div><div class="ttdef"><b>Definition</b> Vector.h:257</div></div>
 <div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_a2ebc6e4acd75aeeb4e796a22a6c73888"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a2ebc6e4acd75aeeb4e796a22a6c73888">DE::Math::TVector::ZeroVector</a></div><div class="ttdeci">static DENGINE_API const TVector&lt; T &gt; ZeroVector</div><div class="ttdef"><b>Definition</b> Vector.h:38</div></div>
 <div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_a2ed3888bb9461151207a97bd2f8e8fc7"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a2ed3888bb9461151207a97bd2f8e8fc7">DE::Math::TVector::MirrorByVector</a></div><div class="ttdeci">TVector&lt; T &gt; MirrorByVector(const TVector&lt; T &gt; &amp;MirrorNormal) const</div></div>
-<div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_a343c8f85e31dcd138bcacbb6bf48a0d6"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a343c8f85e31dcd138bcacbb6bf48a0d6">DE::Math::TVector::operator/</a></div><div class="ttdeci">FORCEINLINE TVector&lt; T &gt; operator/(const TVector&lt; T &gt; &amp;V) const</div><div class="ttdef"><b>Definition</b> Vector.h:734</div></div>
+<div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_a343c8f85e31dcd138bcacbb6bf48a0d6"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a343c8f85e31dcd138bcacbb6bf48a0d6">DE::Math::TVector::operator/</a></div><div class="ttdeci">FORCEINLINE TVector&lt; T &gt; operator/(const TVector&lt; T &gt; &amp;V) const</div><div class="ttdef"><b>Definition</b> Vector.h:727</div></div>
 <div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_a35753a54f2db7b4e62b5a23baf2d0e37"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a35753a54f2db7b4e62b5a23baf2d0e37">DE::Math::TVector::operator==</a></div><div class="ttdeci">bool operator==(const TVector&lt; T &gt; &amp;V) const</div><div class="ttdef"><b>Definition</b> Vector.h:217</div></div>
 <div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_a371a9209579aafb7a4feb75caf7ab06b"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a371a9209579aafb7a4feb75caf7ab06b">DE::Math::TVector::BackwardVector</a></div><div class="ttdeci">static DENGINE_API const TVector&lt; T &gt; BackwardVector</div><div class="ttdef"><b>Definition</b> Vector.h:53</div></div>
 <div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_a373172d05f95dab45d2c9e53dc99ede1"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a373172d05f95dab45d2c9e53dc99ede1">DE::Math::TVector::operator*</a></div><div class="ttdeci">FORCEINLINE TVector&lt; T &gt; operator*(FArg Scale) const</div><div class="ttdef"><b>Definition</b> Vector.h:202</div></div>
@@ -794,45 +788,45 @@ $(function() { codefold.init(1); });
 <div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_a3fc3d0850761a457aec767de94b2e0e0"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a3fc3d0850761a457aec767de94b2e0e0">DE::Math::TVector::operator/</a></div><div class="ttdeci">FORCEINLINE TVector&lt; T &gt; operator/(FArg Scale) const</div><div class="ttdef"><b>Definition</b> Vector.h:207</div></div>
 <div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_a41880ff8420d07220bdf6370c7e42a2e"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a41880ff8420d07220bdf6370c7e42a2e">DE::Math::TVector::UnitY</a></div><div class="ttdeci">static TVector&lt; T &gt; UnitY()</div><div class="ttdef"><b>Definition</b> Vector.h:74</div></div>
 <div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_a451d674f44eef427cfd46ebc8d126913"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a451d674f44eef427cfd46ebc8d126913">DE::Math::TVector::XAxisVector</a></div><div class="ttdeci">static DENGINE_API const TVector&lt; T &gt; XAxisVector</div><div class="ttdef"><b>Definition</b> Vector.h:62</div></div>
-<div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_a457e1ee7dccad08d798615ea21ec026e"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a457e1ee7dccad08d798615ea21ec026e">DE::Math::TVector::GetAbsMax</a></div><div class="ttdeci">T GetAbsMax() const</div><div class="ttdef"><b>Definition</b> Vector.h:671</div></div>
+<div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_a457e1ee7dccad08d798615ea21ec026e"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a457e1ee7dccad08d798615ea21ec026e">DE::Math::TVector::GetAbsMax</a></div><div class="ttdeci">T GetAbsMax() const</div><div class="ttdef"><b>Definition</b> Vector.h:664</div></div>
 <div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_a4651ab08dc1f033324a0f7fbd18e9ad2"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a4651ab08dc1f033324a0f7fbd18e9ad2">DE::Math::TVector::YAxisVector</a></div><div class="ttdeci">static DENGINE_API const TVector&lt; T &gt; YAxisVector</div><div class="ttdef"><b>Definition</b> Vector.h:65</div></div>
 <div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_a4793383246f109dd1d33b863d108bec9"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a4793383246f109dd1d33b863d108bec9">DE::Math::TVector::GetClampedToSize2D</a></div><div class="ttdeci">TVector&lt; T &gt; GetClampedToSize2D(T Min, T Max) const</div></div>
-<div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_a48409e88096fee8cac99a86656330839"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a48409e88096fee8cac99a86656330839">DE::Math::TVector::Component</a></div><div class="ttdeci">T &amp; Component(int32 Index)</div><div class="ttdef"><b>Definition</b> Vector.h:644</div></div>
-<div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_a4a0f55d6e31128909545b2169ec09419"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a4a0f55d6e31128909545b2169ec09419">DE::Math::TVector::TVector</a></div><div class="ttdeci">TVector(std::initializer_list&lt; T &gt; Elements)</div><div class="ttdef"><b>Definition</b> Vector.h:607</div></div>
+<div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_a48409e88096fee8cac99a86656330839"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a48409e88096fee8cac99a86656330839">DE::Math::TVector::Component</a></div><div class="ttdeci">T &amp; Component(int32 Index)</div><div class="ttdef"><b>Definition</b> Vector.h:637</div></div>
+<div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_a4a0f55d6e31128909545b2169ec09419"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a4a0f55d6e31128909545b2169ec09419">DE::Math::TVector::TVector</a></div><div class="ttdeci">TVector(std::initializer_list&lt; T &gt; Elements)</div><div class="ttdef"><b>Definition</b> Vector.h:600</div></div>
 <div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_a4addc6ae1566823670e2ba8b01429b67"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a4addc6ae1566823670e2ba8b01429b67">DE::Math::TVector::ProjectOnToNormal</a></div><div class="ttdeci">FORCEINLINE TVector&lt; T &gt; ProjectOnToNormal(const TVector&lt; T &gt; &amp;Normal) const</div></div>
 <div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_a4e24bc3dfbec527d0e5f18eabf61c200"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a4e24bc3dfbec527d0e5f18eabf61c200">DE::Math::TVector::GetClampedToMaxSize</a></div><div class="ttdeci">TVector&lt; T &gt; GetClampedToMaxSize(T MaxSize) const</div></div>
 <div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_a4ec0c65590df6ecc83ffaef39e7bcb43"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a4ec0c65590df6ecc83ffaef39e7bcb43">DE::Math::TVector::GetClampedToSize</a></div><div class="ttdeci">TVector&lt; T &gt; GetClampedToSize(T Min, T Max) const</div></div>
-<div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_a5401f2f2cc03acccffad8a3e4c19b04a"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a5401f2f2cc03acccffad8a3e4c19b04a">DE::Math::TVector::Component</a></div><div class="ttdeci">T Component(int32 Index) const</div><div class="ttdef"><b>Definition</b> Vector.h:649</div></div>
+<div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_a5401f2f2cc03acccffad8a3e4c19b04a"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a5401f2f2cc03acccffad8a3e4c19b04a">DE::Math::TVector::Component</a></div><div class="ttdeci">T Component(int32 Index) const</div><div class="ttdef"><b>Definition</b> Vector.h:642</div></div>
 <div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_a540d4969de25b79b316ef61e41d9a4ac"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a540d4969de25b79b316ef61e41d9a4ac">DE::Math::TVector::XYZ</a></div><div class="ttdeci">T XYZ[3]</div><div class="ttdoc">XYZ Array.</div><div class="ttdef"><b>Definition</b> Vector.h:34</div></div>
 <div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_a5bf33accc35da656eec3762c94bfd8c0"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a5bf33accc35da656eec3762c94bfd8c0">DE::Math::TVector::ZAxisVector</a></div><div class="ttdeci">static DENGINE_API const TVector&lt; T &gt; ZAxisVector</div><div class="ttdef"><b>Definition</b> Vector.h:68</div></div>
 <div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_a5c4098d1d387833d8bae81072d8409a9"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a5c4098d1d387833d8bae81072d8409a9">DE::Math::TVector::operator!=</a></div><div class="ttdeci">bool operator!=(const TVector&lt; T &gt; &amp;V) const</div><div class="ttdef"><b>Definition</b> Vector.h:222</div></div>
-<div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_a610ca38a5d3b5601e16f9a3a62828349"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a610ca38a5d3b5601e16f9a3a62828349">DE::Math::TVector::AllComponentEqual</a></div><div class="ttdeci">bool AllComponentEqual(T Tolerance=DE_KINDA_SMALL_NUMBER) const</div><div class="ttdef"><b>Definition</b> Vector.h:716</div></div>
+<div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_a610ca38a5d3b5601e16f9a3a62828349"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a610ca38a5d3b5601e16f9a3a62828349">DE::Math::TVector::AllComponentEqual</a></div><div class="ttdeci">bool AllComponentEqual(T Tolerance=DE_KINDA_SMALL_NUMBER) const</div><div class="ttdef"><b>Definition</b> Vector.h:709</div></div>
 <div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_a63174b4687ca98ec6cff67c5cebdc311"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a63174b4687ca98ec6cff67c5cebdc311">DE::Math::TVector::IsUniform</a></div><div class="ttdeci">bool IsUniform(T Tolerance=DE_KINDA_SMALL_NUMBER) const</div></div>
 <div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_a65027ad63c8cd8559a8fa404dba93fd9"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a65027ad63c8cd8559a8fa404dba93fd9">DE::Math::TVector::Zero</a></div><div class="ttdeci">static TVector&lt; T &gt; Zero()</div><div class="ttdef"><b>Definition</b> Vector.h:71</div></div>
 <div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_a662b9f8b92c8ba8bf243f95561d02774"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a662b9f8b92c8ba8bf243f95561d02774">DE::Math::TVector::IsNormalized</a></div><div class="ttdeci">bool IsNormalized() const</div></div>
 <div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_a6a1d65550b3d543864e833adb0cc1016"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a6a1d65550b3d543864e833adb0cc1016">DE::Math::TVector::RightVector</a></div><div class="ttdeci">static DENGINE_API const TVector&lt; T &gt; RightVector</div><div class="ttdef"><b>Definition</b> Vector.h:56</div></div>
 <div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_a6e05b987d4cb9f5ee3546a2f33c9d457"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a6e05b987d4cb9f5ee3546a2f33c9d457">DE::Math::TVector::UnitX</a></div><div class="ttdeci">static TVector&lt; T &gt; UnitX()</div><div class="ttdef"><b>Definition</b> Vector.h:73</div></div>
 <div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_a6e62827091dce61f9f3afdadd5cec58b"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a6e62827091dce61f9f3afdadd5cec58b">DE::Math::TVector::FDark</a></div><div class="ttdeci">T FDark</div><div class="ttdef"><b>Definition</b> Vector.h:25</div></div>
-<div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_a702d28ab0849afac4763a96134e542ea"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a702d28ab0849afac4763a96134e542ea">DE::Math::TVector::Dot</a></div><div class="ttdeci">FORCEINLINE T Dot(const TVector&lt; T &gt; &amp;V) const</div><div class="ttdef"><b>Definition</b> Vector.h:762</div></div>
+<div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_a702d28ab0849afac4763a96134e542ea"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a702d28ab0849afac4763a96134e542ea">DE::Math::TVector::Dot</a></div><div class="ttdeci">FORCEINLINE T Dot(const TVector&lt; T &gt; &amp;V) const</div><div class="ttdef"><b>Definition</b> Vector.h:755</div></div>
 <div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_a703dede5b1540e18960c9d1082c72956"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a703dede5b1540e18960c9d1082c72956">DE::Math::TVector::One</a></div><div class="ttdeci">static TVector&lt; T &gt; One()</div><div class="ttdef"><b>Definition</b> Vector.h:72</div></div>
-<div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_a7350a5806e38af2a173c1afd1528aed1"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a7350a5806e38af2a173c1afd1528aed1">DE::Math::TVector::CrossProduct</a></div><div class="ttdeci">static FORCEINLINE TVector&lt; T &gt; CrossProduct(const TVector&lt; T &gt; &amp;A, const TVector&lt; T &gt; &amp;B)</div><div class="ttdef"><b>Definition</b> Vector.h:771</div></div>
-<div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_a7374b2346cb58212c2d248a98963292c"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a7374b2346cb58212c2d248a98963292c">DE::Math::TVector::operator^</a></div><div class="ttdeci">FORCEINLINE TVector&lt; T &gt; operator^(const TVector&lt; T &gt; &amp;V) const</div><div class="ttdef"><b>Definition</b> Vector.h:740</div></div>
+<div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_a7350a5806e38af2a173c1afd1528aed1"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a7350a5806e38af2a173c1afd1528aed1">DE::Math::TVector::CrossProduct</a></div><div class="ttdeci">static FORCEINLINE TVector&lt; T &gt; CrossProduct(const TVector&lt; T &gt; &amp;A, const TVector&lt; T &gt; &amp;B)</div><div class="ttdef"><b>Definition</b> Vector.h:764</div></div>
+<div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_a7374b2346cb58212c2d248a98963292c"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a7374b2346cb58212c2d248a98963292c">DE::Math::TVector::operator^</a></div><div class="ttdeci">FORCEINLINE TVector&lt; T &gt; operator^(const TVector&lt; T &gt; &amp;V) const</div><div class="ttdef"><b>Definition</b> Vector.h:733</div></div>
 <div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_a77ad03c61a4ace90db1b14b5a8912e0a"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a77ad03c61a4ace90db1b14b5a8912e0a">DE::Math::TVector::OneVector</a></div><div class="ttdeci">static DENGINE_API const TVector&lt; T &gt; OneVector</div><div class="ttdef"><b>Definition</b> Vector.h:41</div></div>
 <div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_a781443e9b5c22494fb35f91a712f3a7c"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a781443e9b5c22494fb35f91a712f3a7c">DE::Math::TVector::Normalize</a></div><div class="ttdeci">bool Normalize(T Tolerance=DE_SMALL_NUMBER)</div></div>
-<div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_a7921c278d27532b80701b0392f5eb56e"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a7921c278d27532b80701b0392f5eb56e">DE::Math::TVector::Length</a></div><div class="ttdeci">T Length() const</div><div class="ttdef"><b>Definition</b> Vector.h:788</div></div>
-<div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_a79cfdc610972c00a2ad9961a0adc34d7"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a79cfdc610972c00a2ad9961a0adc34d7">DE::Math::TVector::ComponentMax</a></div><div class="ttdeci">TVector&lt; T &gt; ComponentMax(const TVector&lt; T &gt; &amp;Other) const</div><div class="ttdef"><b>Definition</b> Vector.h:699</div></div>
-<div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_a7c5d10e996314fc4ffe92108614be524"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a7c5d10e996314fc4ffe92108614be524">DE::Math::TVector::Set</a></div><div class="ttdeci">void Set(T InX, T InY, T InZ)</div><div class="ttdef"><b>Definition</b> Vector.h:636</div></div>
+<div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_a7921c278d27532b80701b0392f5eb56e"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a7921c278d27532b80701b0392f5eb56e">DE::Math::TVector::Length</a></div><div class="ttdeci">T Length() const</div><div class="ttdef"><b>Definition</b> Vector.h:781</div></div>
+<div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_a79cfdc610972c00a2ad9961a0adc34d7"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a79cfdc610972c00a2ad9961a0adc34d7">DE::Math::TVector::ComponentMax</a></div><div class="ttdeci">TVector&lt; T &gt; ComponentMax(const TVector&lt; T &gt; &amp;Other) const</div><div class="ttdef"><b>Definition</b> Vector.h:692</div></div>
+<div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_a7c5d10e996314fc4ffe92108614be524"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a7c5d10e996314fc4ffe92108614be524">DE::Math::TVector::Set</a></div><div class="ttdeci">void Set(T InX, T InY, T InZ)</div><div class="ttdef"><b>Definition</b> Vector.h:629</div></div>
 <div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_a83d8e497f3c137b464eef47d68e10cb0"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a83d8e497f3c137b464eef47d68e10cb0">DE::Math::TVector::X</a></div><div class="ttdeci">T X</div><div class="ttdoc">X Element.</div><div class="ttdef"><b>Definition</b> Vector.h:30</div></div>
-<div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_a858c7f3418abe623f9e439dec1ca466f"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a858c7f3418abe623f9e439dec1ca466f">DE::Math::TVector::TVector</a></div><div class="ttdeci">TVector(T InF)</div><div class="ttdef"><b>Definition</b> Vector.h:630</div></div>
+<div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_a858c7f3418abe623f9e439dec1ca466f"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a858c7f3418abe623f9e439dec1ca466f">DE::Math::TVector::TVector</a></div><div class="ttdeci">TVector(T InF)</div><div class="ttdef"><b>Definition</b> Vector.h:623</div></div>
 <div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_a8946faddbe37aa4fa665e5e1c232bc96"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a8946faddbe37aa4fa665e5e1c232bc96">DE::Math::TVector::IsNearlyZero</a></div><div class="ttdeci">bool IsNearlyZero(T Tolerance=DE_KINDA_SMALL_NUMBER) const</div></div>
-<div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_a8cb1b3d6e3e5ba60da2879045109a571"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a8cb1b3d6e3e5ba60da2879045109a571">DE::Math::TVector::operator=</a></div><div class="ttdeci">TVector&lt; T &gt; &amp; operator=(std::initializer_list&lt; T &gt; Elements)</div><div class="ttdef"><b>Definition</b> Vector.h:618</div></div>
+<div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_a8cb1b3d6e3e5ba60da2879045109a571"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a8cb1b3d6e3e5ba60da2879045109a571">DE::Math::TVector::operator=</a></div><div class="ttdeci">TVector&lt; T &gt; &amp; operator=(std::initializer_list&lt; T &gt; Elements)</div><div class="ttdef"><b>Definition</b> Vector.h:611</div></div>
 <div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_a8ce7b645a9e6f61192c65842d73f6929"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a8ce7b645a9e6f61192c65842d73f6929">DE::Math::TVector::TVector</a></div><div class="ttdeci">TVector()</div><div class="ttdef"><b>Definition</b> Vector.h:588</div></div>
 <div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_a8f191b248ff5011ede7a50476f640c3f"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a8f191b248ff5011ede7a50476f640c3f">DE::Math::TVector::operator-=</a></div><div class="ttdeci">FORCEINLINE TVector&lt; T &gt; operator-=(const TVector&lt; T &gt; &amp;V)</div></div>
 <div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_a9a857879501e43d77b20a9a6fb6ad5d9"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a9a857879501e43d77b20a9a6fb6ad5d9">DE::Math::TVector::Size2D</a></div><div class="ttdeci">T Size2D() const</div><div class="ttdef"><b>Definition</b> Vector.h:345</div></div>
 <div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_a9ecc8782fc2cee47cfcb72c768c61135"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a9ecc8782fc2cee47cfcb72c768c61135">DE::Math::TVector::UnitZ</a></div><div class="ttdeci">static TVector&lt; T &gt; UnitZ()</div><div class="ttdef"><b>Definition</b> Vector.h:75</div></div>
 <div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_aa44d4c3cc5f1688e42f3c039f355dbd5"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#aa44d4c3cc5f1688e42f3c039f355dbd5">DE::Math::TVector::operator/=</a></div><div class="ttdeci">FORCEINLINE TVector&lt; T &gt; operator/=(FArg Scale)</div><div class="ttdef"><b>Definition</b> Vector.h:243</div></div>
 <div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_aa5fbf250975563ae0fc7cd0b3f93441a"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#aa5fbf250975563ae0fc7cd0b3f93441a">DE::Math::TVector::GetClampedToMaxSize2D</a></div><div class="ttdeci">TVector&lt; T &gt; GetClampedToMaxSize2D(T MaxSize) const</div></div>
-<div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_aaa2fc9ca5ae7167ace53a242f89ab514"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#aaa2fc9ca5ae7167ace53a242f89ab514">DE::Math::TVector::operator+</a></div><div class="ttdeci">FORCEINLINE TVector&lt; T &gt; operator+(const TVector&lt; T &gt; &amp;V) const</div><div class="ttdef"><b>Definition</b> Vector.h:722</div></div>
+<div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_aaa2fc9ca5ae7167ace53a242f89ab514"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#aaa2fc9ca5ae7167ace53a242f89ab514">DE::Math::TVector::operator+</a></div><div class="ttdeci">FORCEINLINE TVector&lt; T &gt; operator+(const TVector&lt; T &gt; &amp;V) const</div><div class="ttdef"><b>Definition</b> Vector.h:715</div></div>
 <div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_aafc2961cf4284d8853fe1f4681d1cc17"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#aafc2961cf4284d8853fe1f4681d1cc17">DE::Math::TVector::SizeSquared2D</a></div><div class="ttdeci">T SizeSquared2D() const</div><div class="ttdef"><b>Definition</b> Vector.h:355</div></div>
 <div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_ab7ce77ef41d72cb989a439d449614f15"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#ab7ce77ef41d72cb989a439d449614f15">DE::Math::TVector::TVector</a></div><div class="ttdeci">TVector(const TVector2&lt; T &gt; V, T InZ)</div></div>
 <div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_ab8a05cc0f976a01621dfbbdb5f15eaf8"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#ab8a05cc0f976a01621dfbbdb5f15eaf8">DE::Math::TVector::operator+=</a></div><div class="ttdeci">FORCEINLINE TVector&lt; T &gt; operator+=(const TVector&lt; T &gt; &amp;V)</div></div>
@@ -846,21 +840,21 @@ $(function() { codefold.init(1); });
 <div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_ac75b9d0bc7b32e38ac6f51cc7f8485f4"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#ac75b9d0bc7b32e38ac6f51cc7f8485f4">DE::Math::TVector::GetSafeNormal</a></div><div class="ttdeci">TVector&lt; T &gt; GetSafeNormal(T Tolerance=DE_SMALL_NUMBER, const TVector&lt; T &gt; &amp;ResultIfZero=ZeroVector) const</div></div>
 <div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_aca050b5643af4c62901db1759e1ddbdb"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#aca050b5643af4c62901db1759e1ddbdb">DE::Math::TVector::LeftVector</a></div><div class="ttdeci">static DENGINE_API const TVector&lt; T &gt; LeftVector</div><div class="ttdef"><b>Definition</b> Vector.h:59</div></div>
 <div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_acda2f04cdd7edbf4ae86529a85d4e44a"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#acda2f04cdd7edbf4ae86529a85d4e44a">DE::Math::TVector::ToDirectionAndLength</a></div><div class="ttdeci">void ToDirectionAndLength(TVector&lt; T &gt; &amp;OutDir, float &amp;OutLength) const</div></div>
-<div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_ace9eacd4da2adc8b56f025529e356301"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#ace9eacd4da2adc8b56f025529e356301">DE::Math::TVector::GetAbsMin</a></div><div class="ttdeci">T GetAbsMin() const</div><div class="ttdef"><b>Definition</b> Vector.h:683</div></div>
+<div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_ace9eacd4da2adc8b56f025529e356301"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#ace9eacd4da2adc8b56f025529e356301">DE::Math::TVector::GetAbsMin</a></div><div class="ttdeci">T GetAbsMin() const</div><div class="ttdef"><b>Definition</b> Vector.h:676</div></div>
 <div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_acf4543c501854e2a4797f172d7d2a285"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#acf4543c501854e2a4797f172d7d2a285">DE::Math::TVector::operator|</a></div><div class="ttdeci">FORCEINLINE T operator|(const TVector&lt; T &gt; &amp;V) const</div><div class="ttdef"><b>Definition</b> Vector.h:169</div></div>
 <div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_add73b3246f19d91e5ee317bea8f63bda"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#add73b3246f19d91e5ee317bea8f63bda">DE::Math::TVector::AddBounded</a></div><div class="ttdeci">void AddBounded(const TVector&lt; T &gt; &amp;V, T Radius=MAX_int16)</div></div>
 <div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_addf4058d86930fdd356d52baa0ab6bad"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#addf4058d86930fdd356d52baa0ab6bad">DE::Math::TVector::ForwardVector</a></div><div class="ttdeci">static DENGINE_API const TVector&lt; T &gt; ForwardVector</div><div class="ttdef"><b>Definition</b> Vector.h:50</div></div>
 <div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_ae6759a10dc5038cfc56d60f93c4e42e2"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#ae6759a10dc5038cfc56d60f93c4e42e2">DE::Math::TVector::GridSnap</a></div><div class="ttdeci">TVector&lt; T &gt; GridSnap(const T &amp;GridSz) const</div></div>
 <div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_ae7b15ac8c8b9d01ccccab27ad302ddbf"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#ae7b15ac8c8b9d01ccccab27ad302ddbf">DE::Math::TVector::CosineAngle2D</a></div><div class="ttdeci">FORCEINLINE T CosineAngle2D(TVector&lt; T &gt; B) const</div></div>
-<div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_aeb119798692f88143b3b73bb968b42b1"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#aeb119798692f88143b3b73bb968b42b1">DE::Math::TVector::Equals</a></div><div class="ttdeci">bool Equals(const TVector&lt; T &gt; &amp;V, T Tolerance=DE_KINDA_SMALL_NUMBER) const</div><div class="ttdef"><b>Definition</b> Vector.h:710</div></div>
-<div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_aebe109f2ca3b8d6e4e62d96c3570725f"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#aebe109f2ca3b8d6e4e62d96c3570725f">DE::Math::TVector::operator*</a></div><div class="ttdeci">FORCEINLINE TVector&lt; T &gt; operator*(const TVector&lt; T &gt; &amp;V) const</div><div class="ttdef"><b>Definition</b> Vector.h:728</div></div>
-<div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_aec06673e335169e45b54d84913a8b2e6"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#aec06673e335169e45b54d84913a8b2e6">DE::Math::TVector::ComponentMin</a></div><div class="ttdeci">TVector&lt; T &gt; ComponentMin(const TVector&lt; T &gt; &amp;Other) const</div><div class="ttdef"><b>Definition</b> Vector.h:689</div></div>
+<div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_aeb119798692f88143b3b73bb968b42b1"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#aeb119798692f88143b3b73bb968b42b1">DE::Math::TVector::Equals</a></div><div class="ttdeci">bool Equals(const TVector&lt; T &gt; &amp;V, T Tolerance=DE_KINDA_SMALL_NUMBER) const</div><div class="ttdef"><b>Definition</b> Vector.h:703</div></div>
+<div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_aebe109f2ca3b8d6e4e62d96c3570725f"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#aebe109f2ca3b8d6e4e62d96c3570725f">DE::Math::TVector::operator*</a></div><div class="ttdeci">FORCEINLINE TVector&lt; T &gt; operator*(const TVector&lt; T &gt; &amp;V) const</div><div class="ttdef"><b>Definition</b> Vector.h:721</div></div>
+<div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_aec06673e335169e45b54d84913a8b2e6"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#aec06673e335169e45b54d84913a8b2e6">DE::Math::TVector::ComponentMin</a></div><div class="ttdeci">TVector&lt; T &gt; ComponentMin(const TVector&lt; T &gt; &amp;Other) const</div><div class="ttdef"><b>Definition</b> Vector.h:682</div></div>
 <div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_aee951920fcbb43c7da9658edfe4a0cc5"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#aee951920fcbb43c7da9658edfe4a0cc5">DE::Math::TVector::IsZero</a></div><div class="ttdeci">bool IsZero() const</div></div>
-<div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_aefc3db19f933967265410f90178bd69c"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#aefc3db19f933967265410f90178bd69c">DE::Math::TVector::GetMin</a></div><div class="ttdeci">T GetMin() const</div><div class="ttdef"><b>Definition</b> Vector.h:678</div></div>
+<div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_aefc3db19f933967265410f90178bd69c"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#aefc3db19f933967265410f90178bd69c">DE::Math::TVector::GetMin</a></div><div class="ttdeci">T GetMin() const</div><div class="ttdef"><b>Definition</b> Vector.h:671</div></div>
 <div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_af46b24bb7565f9a8541fcf7ede4e162c"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#af46b24bb7565f9a8541fcf7ede4e162c">DE::Math::TVector::operator*=</a></div><div class="ttdeci">FORCEINLINE TVector&lt; T &gt; operator*=(FArg Scale)</div><div class="ttdef"><b>Definition</b> Vector.h:236</div></div>
 <div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_af76901ffd7e482b4e60b61c4549f58f6"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#af76901ffd7e482b4e60b61c4549f58f6">DE::Math::TVector::ToDirectionAndLength</a></div><div class="ttdeci">void ToDirectionAndLength(TVector&lt; T &gt; &amp;OutDir, double &amp;OutLength) const</div></div>
-<div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_afca742f60531f30785989e29bfe894e0"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#afca742f60531f30785989e29bfe894e0">DE::Math::TVector::GetAbs</a></div><div class="ttdeci">TVector&lt; T &gt; GetAbs() const</div><div class="ttdef"><b>Definition</b> Vector.h:655</div></div>
-<div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_afda5484b610e96346bd1b476fe4f4dbb"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#afda5484b610e96346bd1b476fe4f4dbb">DE::Math::TVector::Cross</a></div><div class="ttdeci">FORCEINLINE TVector&lt; T &gt; Cross(const TVector&lt; T &gt; &amp;V2) const</div><div class="ttdef"><b>Definition</b> Vector.h:782</div></div>
+<div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_afca742f60531f30785989e29bfe894e0"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#afca742f60531f30785989e29bfe894e0">DE::Math::TVector::GetAbs</a></div><div class="ttdeci">TVector&lt; T &gt; GetAbs() const</div><div class="ttdef"><b>Definition</b> Vector.h:648</div></div>
+<div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html_afda5484b610e96346bd1b476fe4f4dbb"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#afda5484b610e96346bd1b476fe4f4dbb">DE::Math::TVector::Cross</a></div><div class="ttdeci">FORCEINLINE TVector&lt; T &gt; Cross(const TVector&lt; T &gt; &amp;V2) const</div><div class="ttdef"><b>Definition</b> Vector.h:775</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

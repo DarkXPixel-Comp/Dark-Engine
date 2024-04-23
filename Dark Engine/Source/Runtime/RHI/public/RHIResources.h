@@ -391,6 +391,9 @@ struct FVertexElement
 	uint8 bUseInstanceIndex;
 	EVertexElementType Type;
 
+	FString Name = TEXT("");
+
+
 	FVertexElement() {}
 
 	FVertexElement(EVertexElementType InType, uint8 InAttributeIndex, uint8 InOffset, uint8 InbUseInstanceIndex, uint8 InStride) :
@@ -579,6 +582,8 @@ class FGraphicsPipelineStateInitializer
 public:
 	FBoundShaderStateInput BoundShaderState;
 	EPrimitiveType PrimitiveType;
+	EPixelFormat RenderTargetFormats[8];
+	EPixelFormat DepthFormat;
 
 
 

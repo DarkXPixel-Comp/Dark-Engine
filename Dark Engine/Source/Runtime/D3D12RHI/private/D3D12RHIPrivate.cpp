@@ -164,7 +164,8 @@ TRefCountPtr<FRHIVertexDeclaration> FD3D12DynamicRHI::RHICreateVertexDeclaration
 		Element.InputSlotClass = Elements[i].bUseInstanceIndex ? D3D12_INPUT_CLASSIFICATION_PER_INSTANCE_DATA : D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA;
 		Element.InstanceDataStepRate = Elements[i].bUseInstanceIndex ? 1 : 0;
 		Element.AlignedByteOffset = D3D12_APPEND_ALIGNED_ELEMENT;
-		Element.SemanticName = "Attribute";
+		//Element.AlignedByteOffset = Elements[i].Offset;
+		Element.SemanticName = Elements[i].Name != TEXT("") ? !Elements[i].Name : "Attribute";
 		Element.InputSlot = 0;
 	}
 	FD3D12VertexDeclaration* VertexDeclaration = new FD3D12VertexDeclaration(D3DElements);
@@ -374,10 +375,10 @@ FD3D12Buffer* FD3D12DynamicRHI::CreateD3D12Buffer(FRHICommandListBase* RHICmdLis
 	if (BufferDesc.Size > 0)
 	{
 		DXCall(Device->GetDevice()->CreateCommittedResource(&HeapProperties, D3D12_HEAP_FLAG_NONE, &Desc, InitialState, nullptr, IID_PPV_ARGS(&D3DResource)));
-		DX12::SetName(Resource, DebugName);
 		Resource = new FD3D12Resource(Device, D3DResource.Get(), InitialState, Desc);
 		Buffer = new FD3D12Buffer(Device, BufferDesc);
 		Buffer->ResourceLocation.SetResource(Resource);
+		DX12::SetName(Resource, DebugName);
 	}
 
 	return Buffer;

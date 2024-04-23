@@ -1,0 +1,753 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Dark Engine: Структура CD3DX12_HEAP_DESC</title>
+<link rel="icon" href="../../Logo.ico" type="image/x-icon" />
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<script type="text/javascript" src="../../clipboard.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../Logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Dark Engine<span id="projectnumber">&#160;0.0.40</span>
+   </div>
+   <div id="projectbrief">New game engnie D3D12</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../../',true,false,'search.php','Поиск');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="../../d4/d46/struct_c_d3_d_x12___h_e_a_p___d_e_s_c-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle"><div class="title">Структура CD3DX12_HEAP_DESC</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="../../dd/d9d/_d3_d12_r_h_i_2public_2d3dx12_8h_source.html">d3dx12.h</a>&gt;</code></p>
+<div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Граф наследования:CD3DX12_HEAP_DESC:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+ <div class="center">
+  <img src="../../d7/db8/struct_c_d3_d_x12___h_e_a_p___d_e_s_c.png" alt=""/>
+ </div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:acf2281ddaa877031766cfaddd6d87765" id="r_acf2281ddaa877031766cfaddd6d87765"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acf2281ddaa877031766cfaddd6d87765">CD3DX12_HEAP_DESC</a> ()=default</td></tr>
+<tr class="separator:acf2281ddaa877031766cfaddd6d87765"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2b218c48a63d90f7f54b3aa3bf5afe7" id="r_ae2b218c48a63d90f7f54b3aa3bf5afe7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae2b218c48a63d90f7f54b3aa3bf5afe7">CD3DX12_HEAP_DESC</a> (const D3D12_HEAP_DESC &amp;o) noexcept</td></tr>
+<tr class="separator:ae2b218c48a63d90f7f54b3aa3bf5afe7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6dcdca98c55950d66042feeac742bf1e" id="r_a6dcdca98c55950d66042feeac742bf1e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6dcdca98c55950d66042feeac742bf1e">CD3DX12_HEAP_DESC</a> (UINT64 size, D3D12_HEAP_PROPERTIES properties, UINT64 alignment=0, D3D12_HEAP_FLAGS flags=D3D12_HEAP_FLAG_NONE) noexcept</td></tr>
+<tr class="separator:a6dcdca98c55950d66042feeac742bf1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa570611f7920edf7f18b025b7cccb881" id="r_aa570611f7920edf7f18b025b7cccb881"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa570611f7920edf7f18b025b7cccb881">CD3DX12_HEAP_DESC</a> (UINT64 size, D3D12_HEAP_TYPE type, UINT64 alignment=0, D3D12_HEAP_FLAGS flags=D3D12_HEAP_FLAG_NONE) noexcept</td></tr>
+<tr class="separator:aa570611f7920edf7f18b025b7cccb881"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acfc5b09e964e6e6dfe41d0ca68ab20b0" id="r_acfc5b09e964e6e6dfe41d0ca68ab20b0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acfc5b09e964e6e6dfe41d0ca68ab20b0">CD3DX12_HEAP_DESC</a> (UINT64 size, D3D12_CPU_PAGE_PROPERTY cpuPageProperty, D3D12_MEMORY_POOL memoryPoolPreference, UINT64 alignment=0, D3D12_HEAP_FLAGS flags=D3D12_HEAP_FLAG_NONE) noexcept</td></tr>
+<tr class="separator:acfc5b09e964e6e6dfe41d0ca68ab20b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a466a5c80244803830cc90289577253d7" id="r_a466a5c80244803830cc90289577253d7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a466a5c80244803830cc90289577253d7">CD3DX12_HEAP_DESC</a> (const D3D12_RESOURCE_ALLOCATION_INFO &amp;resAllocInfo, D3D12_HEAP_PROPERTIES properties, D3D12_HEAP_FLAGS flags=D3D12_HEAP_FLAG_NONE) noexcept</td></tr>
+<tr class="separator:a466a5c80244803830cc90289577253d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac646ed66ea94230c3c7d6bf4ae46c916" id="r_ac646ed66ea94230c3c7d6bf4ae46c916"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac646ed66ea94230c3c7d6bf4ae46c916">CD3DX12_HEAP_DESC</a> (const D3D12_RESOURCE_ALLOCATION_INFO &amp;resAllocInfo, D3D12_HEAP_TYPE type, D3D12_HEAP_FLAGS flags=D3D12_HEAP_FLAG_NONE) noexcept</td></tr>
+<tr class="separator:ac646ed66ea94230c3c7d6bf4ae46c916"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa81f631ca6026b9c23624a6a1797d441" id="r_aa81f631ca6026b9c23624a6a1797d441"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa81f631ca6026b9c23624a6a1797d441">CD3DX12_HEAP_DESC</a> (const D3D12_RESOURCE_ALLOCATION_INFO &amp;resAllocInfo, D3D12_CPU_PAGE_PROPERTY cpuPageProperty, D3D12_MEMORY_POOL memoryPoolPreference, D3D12_HEAP_FLAGS flags=D3D12_HEAP_FLAG_NONE) noexcept</td></tr>
+<tr class="separator:aa81f631ca6026b9c23624a6a1797d441"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42c5a89a7ed7aa78bc82a65dbe8cdacf" id="r_a42c5a89a7ed7aa78bc82a65dbe8cdacf"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a42c5a89a7ed7aa78bc82a65dbe8cdacf">IsCPUAccessible</a> () const noexcept</td></tr>
+<tr class="separator:a42c5a89a7ed7aa78bc82a65dbe8cdacf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf2281ddaa877031766cfaddd6d87765" id="r_acf2281ddaa877031766cfaddd6d87765"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acf2281ddaa877031766cfaddd6d87765">CD3DX12_HEAP_DESC</a> ()=default</td></tr>
+<tr class="separator:acf2281ddaa877031766cfaddd6d87765"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2b218c48a63d90f7f54b3aa3bf5afe7" id="r_ae2b218c48a63d90f7f54b3aa3bf5afe7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae2b218c48a63d90f7f54b3aa3bf5afe7">CD3DX12_HEAP_DESC</a> (const D3D12_HEAP_DESC &amp;o) noexcept</td></tr>
+<tr class="separator:ae2b218c48a63d90f7f54b3aa3bf5afe7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6dcdca98c55950d66042feeac742bf1e" id="r_a6dcdca98c55950d66042feeac742bf1e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6dcdca98c55950d66042feeac742bf1e">CD3DX12_HEAP_DESC</a> (UINT64 size, D3D12_HEAP_PROPERTIES properties, UINT64 alignment=0, D3D12_HEAP_FLAGS flags=D3D12_HEAP_FLAG_NONE) noexcept</td></tr>
+<tr class="separator:a6dcdca98c55950d66042feeac742bf1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa570611f7920edf7f18b025b7cccb881" id="r_aa570611f7920edf7f18b025b7cccb881"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa570611f7920edf7f18b025b7cccb881">CD3DX12_HEAP_DESC</a> (UINT64 size, D3D12_HEAP_TYPE type, UINT64 alignment=0, D3D12_HEAP_FLAGS flags=D3D12_HEAP_FLAG_NONE) noexcept</td></tr>
+<tr class="separator:aa570611f7920edf7f18b025b7cccb881"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acfc5b09e964e6e6dfe41d0ca68ab20b0" id="r_acfc5b09e964e6e6dfe41d0ca68ab20b0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acfc5b09e964e6e6dfe41d0ca68ab20b0">CD3DX12_HEAP_DESC</a> (UINT64 size, D3D12_CPU_PAGE_PROPERTY cpuPageProperty, D3D12_MEMORY_POOL memoryPoolPreference, UINT64 alignment=0, D3D12_HEAP_FLAGS flags=D3D12_HEAP_FLAG_NONE) noexcept</td></tr>
+<tr class="separator:acfc5b09e964e6e6dfe41d0ca68ab20b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a466a5c80244803830cc90289577253d7" id="r_a466a5c80244803830cc90289577253d7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a466a5c80244803830cc90289577253d7">CD3DX12_HEAP_DESC</a> (const D3D12_RESOURCE_ALLOCATION_INFO &amp;resAllocInfo, D3D12_HEAP_PROPERTIES properties, D3D12_HEAP_FLAGS flags=D3D12_HEAP_FLAG_NONE) noexcept</td></tr>
+<tr class="separator:a466a5c80244803830cc90289577253d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac646ed66ea94230c3c7d6bf4ae46c916" id="r_ac646ed66ea94230c3c7d6bf4ae46c916"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac646ed66ea94230c3c7d6bf4ae46c916">CD3DX12_HEAP_DESC</a> (const D3D12_RESOURCE_ALLOCATION_INFO &amp;resAllocInfo, D3D12_HEAP_TYPE type, D3D12_HEAP_FLAGS flags=D3D12_HEAP_FLAG_NONE) noexcept</td></tr>
+<tr class="separator:ac646ed66ea94230c3c7d6bf4ae46c916"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa81f631ca6026b9c23624a6a1797d441" id="r_aa81f631ca6026b9c23624a6a1797d441"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa81f631ca6026b9c23624a6a1797d441">CD3DX12_HEAP_DESC</a> (const D3D12_RESOURCE_ALLOCATION_INFO &amp;resAllocInfo, D3D12_CPU_PAGE_PROPERTY cpuPageProperty, D3D12_MEMORY_POOL memoryPoolPreference, D3D12_HEAP_FLAGS flags=D3D12_HEAP_FLAG_NONE) noexcept</td></tr>
+<tr class="separator:aa81f631ca6026b9c23624a6a1797d441"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42c5a89a7ed7aa78bc82a65dbe8cdacf" id="r_a42c5a89a7ed7aa78bc82a65dbe8cdacf"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a42c5a89a7ed7aa78bc82a65dbe8cdacf">IsCPUAccessible</a> () const noexcept</td></tr>
+<tr class="separator:a42c5a89a7ed7aa78bc82a65dbe8cdacf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Конструктор(ы)</h2>
+<a id="acf2281ddaa877031766cfaddd6d87765" name="acf2281ddaa877031766cfaddd6d87765"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf2281ddaa877031766cfaddd6d87765">&#9670;&#160;</a></span>CD3DX12_HEAP_DESC() <span class="overload">[1/16]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CD3DX12_HEAP_DESC::CD3DX12_HEAP_DESC </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae2b218c48a63d90f7f54b3aa3bf5afe7" name="ae2b218c48a63d90f7f54b3aa3bf5afe7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae2b218c48a63d90f7f54b3aa3bf5afe7">&#9670;&#160;</a></span>CD3DX12_HEAP_DESC() <span class="overload">[2/16]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CD3DX12_HEAP_DESC::CD3DX12_HEAP_DESC </td>
+          <td>(</td>
+          <td class="paramtype">const D3D12_HEAP_DESC &amp;</td>          <td class="paramname"><span class="paramname"><em>o</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6dcdca98c55950d66042feeac742bf1e" name="a6dcdca98c55950d66042feeac742bf1e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6dcdca98c55950d66042feeac742bf1e">&#9670;&#160;</a></span>CD3DX12_HEAP_DESC() <span class="overload">[3/16]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CD3DX12_HEAP_DESC::CD3DX12_HEAP_DESC </td>
+          <td>(</td>
+          <td class="paramtype">UINT64</td>          <td class="paramname"><span class="paramname"><em>size</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">D3D12_HEAP_PROPERTIES</td>          <td class="paramname"><span class="paramname"><em>properties</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UINT64</td>          <td class="paramname"><span class="paramname"><em>alignment</em><span class="paramdefsep"> = </span><span class="paramdefval">0</span>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">D3D12_HEAP_FLAGS</td>          <td class="paramname"><span class="paramname"><em>flags</em><span class="paramdefsep"> = </span><span class="paramdefval">D3D12_HEAP_FLAG_NONE</span></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa570611f7920edf7f18b025b7cccb881" name="aa570611f7920edf7f18b025b7cccb881"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa570611f7920edf7f18b025b7cccb881">&#9670;&#160;</a></span>CD3DX12_HEAP_DESC() <span class="overload">[4/16]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CD3DX12_HEAP_DESC::CD3DX12_HEAP_DESC </td>
+          <td>(</td>
+          <td class="paramtype">UINT64</td>          <td class="paramname"><span class="paramname"><em>size</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">D3D12_HEAP_TYPE</td>          <td class="paramname"><span class="paramname"><em>type</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UINT64</td>          <td class="paramname"><span class="paramname"><em>alignment</em><span class="paramdefsep"> = </span><span class="paramdefval">0</span>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">D3D12_HEAP_FLAGS</td>          <td class="paramname"><span class="paramname"><em>flags</em><span class="paramdefsep"> = </span><span class="paramdefval">D3D12_HEAP_FLAG_NONE</span></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acfc5b09e964e6e6dfe41d0ca68ab20b0" name="acfc5b09e964e6e6dfe41d0ca68ab20b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acfc5b09e964e6e6dfe41d0ca68ab20b0">&#9670;&#160;</a></span>CD3DX12_HEAP_DESC() <span class="overload">[5/16]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CD3DX12_HEAP_DESC::CD3DX12_HEAP_DESC </td>
+          <td>(</td>
+          <td class="paramtype">UINT64</td>          <td class="paramname"><span class="paramname"><em>size</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">D3D12_CPU_PAGE_PROPERTY</td>          <td class="paramname"><span class="paramname"><em>cpuPageProperty</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">D3D12_MEMORY_POOL</td>          <td class="paramname"><span class="paramname"><em>memoryPoolPreference</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UINT64</td>          <td class="paramname"><span class="paramname"><em>alignment</em><span class="paramdefsep"> = </span><span class="paramdefval">0</span>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">D3D12_HEAP_FLAGS</td>          <td class="paramname"><span class="paramname"><em>flags</em><span class="paramdefsep"> = </span><span class="paramdefval">D3D12_HEAP_FLAG_NONE</span></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a466a5c80244803830cc90289577253d7" name="a466a5c80244803830cc90289577253d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a466a5c80244803830cc90289577253d7">&#9670;&#160;</a></span>CD3DX12_HEAP_DESC() <span class="overload">[6/16]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CD3DX12_HEAP_DESC::CD3DX12_HEAP_DESC </td>
+          <td>(</td>
+          <td class="paramtype">const D3D12_RESOURCE_ALLOCATION_INFO &amp;</td>          <td class="paramname"><span class="paramname"><em>resAllocInfo</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">D3D12_HEAP_PROPERTIES</td>          <td class="paramname"><span class="paramname"><em>properties</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">D3D12_HEAP_FLAGS</td>          <td class="paramname"><span class="paramname"><em>flags</em><span class="paramdefsep"> = </span><span class="paramdefval">D3D12_HEAP_FLAG_NONE</span></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac646ed66ea94230c3c7d6bf4ae46c916" name="ac646ed66ea94230c3c7d6bf4ae46c916"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac646ed66ea94230c3c7d6bf4ae46c916">&#9670;&#160;</a></span>CD3DX12_HEAP_DESC() <span class="overload">[7/16]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CD3DX12_HEAP_DESC::CD3DX12_HEAP_DESC </td>
+          <td>(</td>
+          <td class="paramtype">const D3D12_RESOURCE_ALLOCATION_INFO &amp;</td>          <td class="paramname"><span class="paramname"><em>resAllocInfo</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">D3D12_HEAP_TYPE</td>          <td class="paramname"><span class="paramname"><em>type</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">D3D12_HEAP_FLAGS</td>          <td class="paramname"><span class="paramname"><em>flags</em><span class="paramdefsep"> = </span><span class="paramdefval">D3D12_HEAP_FLAG_NONE</span></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa81f631ca6026b9c23624a6a1797d441" name="aa81f631ca6026b9c23624a6a1797d441"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa81f631ca6026b9c23624a6a1797d441">&#9670;&#160;</a></span>CD3DX12_HEAP_DESC() <span class="overload">[8/16]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CD3DX12_HEAP_DESC::CD3DX12_HEAP_DESC </td>
+          <td>(</td>
+          <td class="paramtype">const D3D12_RESOURCE_ALLOCATION_INFO &amp;</td>          <td class="paramname"><span class="paramname"><em>resAllocInfo</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">D3D12_CPU_PAGE_PROPERTY</td>          <td class="paramname"><span class="paramname"><em>cpuPageProperty</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">D3D12_MEMORY_POOL</td>          <td class="paramname"><span class="paramname"><em>memoryPoolPreference</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">D3D12_HEAP_FLAGS</td>          <td class="paramname"><span class="paramname"><em>flags</em><span class="paramdefsep"> = </span><span class="paramdefval">D3D12_HEAP_FLAG_NONE</span></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acf2281ddaa877031766cfaddd6d87765" name="acf2281ddaa877031766cfaddd6d87765"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf2281ddaa877031766cfaddd6d87765">&#9670;&#160;</a></span>CD3DX12_HEAP_DESC() <span class="overload">[9/16]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CD3DX12_HEAP_DESC::CD3DX12_HEAP_DESC </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae2b218c48a63d90f7f54b3aa3bf5afe7" name="ae2b218c48a63d90f7f54b3aa3bf5afe7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae2b218c48a63d90f7f54b3aa3bf5afe7">&#9670;&#160;</a></span>CD3DX12_HEAP_DESC() <span class="overload">[10/16]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CD3DX12_HEAP_DESC::CD3DX12_HEAP_DESC </td>
+          <td>(</td>
+          <td class="paramtype">const D3D12_HEAP_DESC &amp;</td>          <td class="paramname"><span class="paramname"><em>o</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6dcdca98c55950d66042feeac742bf1e" name="a6dcdca98c55950d66042feeac742bf1e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6dcdca98c55950d66042feeac742bf1e">&#9670;&#160;</a></span>CD3DX12_HEAP_DESC() <span class="overload">[11/16]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CD3DX12_HEAP_DESC::CD3DX12_HEAP_DESC </td>
+          <td>(</td>
+          <td class="paramtype">UINT64</td>          <td class="paramname"><span class="paramname"><em>size</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">D3D12_HEAP_PROPERTIES</td>          <td class="paramname"><span class="paramname"><em>properties</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UINT64</td>          <td class="paramname"><span class="paramname"><em>alignment</em><span class="paramdefsep"> = </span><span class="paramdefval">0</span>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">D3D12_HEAP_FLAGS</td>          <td class="paramname"><span class="paramname"><em>flags</em><span class="paramdefsep"> = </span><span class="paramdefval">D3D12_HEAP_FLAG_NONE</span></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa570611f7920edf7f18b025b7cccb881" name="aa570611f7920edf7f18b025b7cccb881"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa570611f7920edf7f18b025b7cccb881">&#9670;&#160;</a></span>CD3DX12_HEAP_DESC() <span class="overload">[12/16]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CD3DX12_HEAP_DESC::CD3DX12_HEAP_DESC </td>
+          <td>(</td>
+          <td class="paramtype">UINT64</td>          <td class="paramname"><span class="paramname"><em>size</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">D3D12_HEAP_TYPE</td>          <td class="paramname"><span class="paramname"><em>type</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UINT64</td>          <td class="paramname"><span class="paramname"><em>alignment</em><span class="paramdefsep"> = </span><span class="paramdefval">0</span>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">D3D12_HEAP_FLAGS</td>          <td class="paramname"><span class="paramname"><em>flags</em><span class="paramdefsep"> = </span><span class="paramdefval">D3D12_HEAP_FLAG_NONE</span></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acfc5b09e964e6e6dfe41d0ca68ab20b0" name="acfc5b09e964e6e6dfe41d0ca68ab20b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acfc5b09e964e6e6dfe41d0ca68ab20b0">&#9670;&#160;</a></span>CD3DX12_HEAP_DESC() <span class="overload">[13/16]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CD3DX12_HEAP_DESC::CD3DX12_HEAP_DESC </td>
+          <td>(</td>
+          <td class="paramtype">UINT64</td>          <td class="paramname"><span class="paramname"><em>size</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">D3D12_CPU_PAGE_PROPERTY</td>          <td class="paramname"><span class="paramname"><em>cpuPageProperty</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">D3D12_MEMORY_POOL</td>          <td class="paramname"><span class="paramname"><em>memoryPoolPreference</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UINT64</td>          <td class="paramname"><span class="paramname"><em>alignment</em><span class="paramdefsep"> = </span><span class="paramdefval">0</span>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">D3D12_HEAP_FLAGS</td>          <td class="paramname"><span class="paramname"><em>flags</em><span class="paramdefsep"> = </span><span class="paramdefval">D3D12_HEAP_FLAG_NONE</span></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a466a5c80244803830cc90289577253d7" name="a466a5c80244803830cc90289577253d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a466a5c80244803830cc90289577253d7">&#9670;&#160;</a></span>CD3DX12_HEAP_DESC() <span class="overload">[14/16]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CD3DX12_HEAP_DESC::CD3DX12_HEAP_DESC </td>
+          <td>(</td>
+          <td class="paramtype">const D3D12_RESOURCE_ALLOCATION_INFO &amp;</td>          <td class="paramname"><span class="paramname"><em>resAllocInfo</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">D3D12_HEAP_PROPERTIES</td>          <td class="paramname"><span class="paramname"><em>properties</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">D3D12_HEAP_FLAGS</td>          <td class="paramname"><span class="paramname"><em>flags</em><span class="paramdefsep"> = </span><span class="paramdefval">D3D12_HEAP_FLAG_NONE</span></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac646ed66ea94230c3c7d6bf4ae46c916" name="ac646ed66ea94230c3c7d6bf4ae46c916"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac646ed66ea94230c3c7d6bf4ae46c916">&#9670;&#160;</a></span>CD3DX12_HEAP_DESC() <span class="overload">[15/16]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CD3DX12_HEAP_DESC::CD3DX12_HEAP_DESC </td>
+          <td>(</td>
+          <td class="paramtype">const D3D12_RESOURCE_ALLOCATION_INFO &amp;</td>          <td class="paramname"><span class="paramname"><em>resAllocInfo</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">D3D12_HEAP_TYPE</td>          <td class="paramname"><span class="paramname"><em>type</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">D3D12_HEAP_FLAGS</td>          <td class="paramname"><span class="paramname"><em>flags</em><span class="paramdefsep"> = </span><span class="paramdefval">D3D12_HEAP_FLAG_NONE</span></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa81f631ca6026b9c23624a6a1797d441" name="aa81f631ca6026b9c23624a6a1797d441"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa81f631ca6026b9c23624a6a1797d441">&#9670;&#160;</a></span>CD3DX12_HEAP_DESC() <span class="overload">[16/16]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CD3DX12_HEAP_DESC::CD3DX12_HEAP_DESC </td>
+          <td>(</td>
+          <td class="paramtype">const D3D12_RESOURCE_ALLOCATION_INFO &amp;</td>          <td class="paramname"><span class="paramname"><em>resAllocInfo</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">D3D12_CPU_PAGE_PROPERTY</td>          <td class="paramname"><span class="paramname"><em>cpuPageProperty</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">D3D12_MEMORY_POOL</td>          <td class="paramname"><span class="paramname"><em>memoryPoolPreference</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">D3D12_HEAP_FLAGS</td>          <td class="paramname"><span class="paramname"><em>flags</em><span class="paramdefsep"> = </span><span class="paramdefval">D3D12_HEAP_FLAG_NONE</span></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Методы</h2>
+<a id="a42c5a89a7ed7aa78bc82a65dbe8cdacf" name="a42c5a89a7ed7aa78bc82a65dbe8cdacf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a42c5a89a7ed7aa78bc82a65dbe8cdacf">&#9670;&#160;</a></span>IsCPUAccessible() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CD3DX12_HEAP_DESC::IsCPUAccessible </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a42c5a89a7ed7aa78bc82a65dbe8cdacf" name="a42c5a89a7ed7aa78bc82a65dbe8cdacf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a42c5a89a7ed7aa78bc82a65dbe8cdacf">&#9670;&#160;</a></span>IsCPUAccessible() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CD3DX12_HEAP_DESC::IsCPUAccessible </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>Объявления и описания членов структур находятся в файлах:<ul>
+<li>Dark Engine/Source/Runtime/D3D12RHI/public/<a class="el" href="../../dd/d9d/_d3_d12_r_h_i_2public_2d3dx12_8h_source.html">d3dx12.h</a></li>
+<li>Dark Engine/Source/Runtime/Render/D3D12/<a class="el" href="../../db/dad/_render_2_d3_d12_2d3dx12_8h_source.html">d3dx12.h</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
+</body>
+</html>

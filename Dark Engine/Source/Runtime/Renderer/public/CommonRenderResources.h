@@ -13,7 +13,8 @@ struct FFilterVertex
 	{}
 
 	FFilterVertex(FVector4f InPositon, FVector2f InUV) : 
-		Position(InPositon), UV(InUV)
+		Position(InPositon),
+		UV(InUV)
 	{}
 };
 
@@ -73,4 +74,32 @@ public:
 
 		RHIUnlockBuffer(VertexBuffer.Get());
 	}
+};
+
+class FScreenRectangleIndexBuffer
+{
+public:
+	TRefCountPtr<FRHIBuffer> IndexBuffer;
+	void Init()
+	{
+		if (IndexBuffer)
+		{
+			return;
+		}
+		const TArray<uint16> Indices =
+		{
+			0, 1, 3,
+			1, 3, 2
+		};
+
+		IndexBuffer = RHICreateBuffer(FRHIBufferDesc(sizeof(uint16) * Indices.GetSize(),
+			sizeof(uint16)), TEXT("FScreenRectangleIndexBuffer"),
+			ERHIAccess::VertexOrIndexBuffer);
+		
+		void* Data = RHILockBuffer(IndexBuffer.Get(), 0, sizeof(uint16) * Indices.GetSize(), RLM_WriteOnly);
+		FMemory::Memcpy(Data, Indices.GetData(), sizeof(uint16) * Indices.GetSize());
+		
+		RHIUnlockBuffer(IndexBuffer.Get());
+	}
+
 };
