@@ -257,179 +257,169 @@ $(function() { codefold.init(1); });
 <div class="line"><a id="l00146" name="l00146"></a><span class="lineno"><a class="line" href="../../d3/d0f/class_f_shader_type_registration.html">  146</a></span><span class="keyword">class </span><a class="code hl_class" href="../../d3/d0f/class_f_shader_type_registration.html">FShaderTypeRegistration</a></div>
 <div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>{</div>
 <div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span><span class="keyword">public</span>:</div>
-<div class="foldopen" id="foldopen00149" data-start="{" data-end="}">
-<div class="line"><a id="l00149" name="l00149"></a><span class="lineno"><a class="line" href="../../d3/d0f/class_f_shader_type_registration.html#a5d5f970cacd8d581959b6f05f778ed70">  149</a></span>    <a class="code hl_function" href="../../d3/d0f/class_f_shader_type_registration.html#a5d5f970cacd8d581959b6f05f778ed70">FShaderTypeRegistration</a>(std::function&lt;<a class="code hl_class" href="../../d0/d2f/class_f_shader_type.html">FShaderType</a>&amp; ()&gt; InShaderTypeAccessor):</div>
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>        ShaderTypeAccessor(InShaderTypeAccessor)</div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>    {</div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>        <a class="code hl_function" href="../../d3/d0f/class_f_shader_type_registration.html#ae64c9a29a2e7bc28bfb7fce7dd0c6407">GetInstances</a>().Add(<span class="keyword">this</span>);</div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    }</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>    <a class="code hl_function" href="../../d3/d0f/class_f_shader_type_registration.html#a5d5f970cacd8d581959b6f05f778ed70">FShaderTypeRegistration</a>(std::function&lt;<a class="code hl_class" href="../../d0/d2f/class_f_shader_type.html">FShaderType</a>&amp; ()&gt; InShaderTypeAccessor);</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span> </div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>    <span class="keyword">static</span> TArray&lt;const FShaderTypeRegistration*&gt;&amp; <a class="code hl_function" href="../../d3/d0f/class_f_shader_type_registration.html#ae64c9a29a2e7bc28bfb7fce7dd0c6407">GetInstances</a>();</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../d3/d0f/class_f_shader_type_registration.html#a0e9f0bc55c32e35018c127c9ba8f5d35">CommitAll</a>();</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span> </div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    std::function&lt;<a class="code hl_class" href="../../d0/d2f/class_f_shader_type.html">FShaderType</a>&amp; ()&gt; ShaderTypeAccessor;</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>};</div>
 </div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span> </div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    <span class="keyword">static</span> TArray&lt;const FShaderTypeRegistration*&gt;&amp; <a class="code hl_function" href="../../d3/d0f/class_f_shader_type_registration.html#ae64c9a29a2e7bc28bfb7fce7dd0c6407">GetInstances</a>();</div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../d3/d0f/class_f_shader_type_registration.html#a0e9f0bc55c32e35018c127c9ba8f5d35">CommitAll</a>();</div>
 <div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span> </div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>    std::function&lt;<a class="code hl_class" href="../../d0/d2f/class_f_shader_type.html">FShaderType</a>&amp; ()&gt; ShaderTypeAccessor;</div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>};</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span> </div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span> </div>
+<div class="foldopen" id="foldopen00160" data-start="{" data-end="};">
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno"><a class="line" href="../../db/db7/class_f_shader_map_resource_code.html">  160</a></span><span class="keyword">class </span><a class="code hl_class" href="../../db/db7/class_f_shader_map_resource_code.html">FShaderMapResourceCode</a></div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>{</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span><span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00163" data-start="{" data-end="};">
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno"><a class="line" href="../../dc/d03/struct_f_shader_map_resource_code_1_1_f_shader_entry.html">  163</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="../../dc/d03/struct_f_shader_map_resource_code_1_1_f_shader_entry.html">FShaderEntry</a></div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>    {</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno"><a class="line" href="../../dc/d03/struct_f_shader_map_resource_code_1_1_f_shader_entry.html#a2c3cadc688670864f12e41c858e86092">  165</a></span>        TArray&lt;uint8&gt; <a class="code hl_variable" href="../../dc/d03/struct_f_shader_map_resource_code_1_1_f_shader_entry.html#a2c3cadc688670864f12e41c858e86092">Code</a>;</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno"><a class="line" href="../../dc/d03/struct_f_shader_map_resource_code_1_1_f_shader_entry.html#a6a9f5f5e5cab5cfa105a26138b520c76">  166</a></span>        <a class="code hl_enumeration" href="../../de/df7/_r_h_i_defines_8h.html#a89725d5f41ceac2e574ddc988f06775e">EShaderType</a> <a class="code hl_variable" href="../../dc/d03/struct_f_shader_map_resource_code_1_1_f_shader_entry.html#a6a9f5f5e5cab5cfa105a26138b520c76">ShaderType</a>;</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>    };</div>
 </div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span> </div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span> </div>
-<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span> </div>
-<div class="foldopen" id="foldopen00164" data-start="{" data-end="};">
-<div class="line"><a id="l00164" name="l00164"></a><span class="lineno"><a class="line" href="../../db/db7/class_f_shader_map_resource_code.html">  164</a></span><span class="keyword">class </span><a class="code hl_class" href="../../db/db7/class_f_shader_map_resource_code.html">FShaderMapResourceCode</a></div>
-<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>{</div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span><span class="keyword">public</span>:</div>
-<div class="foldopen" id="foldopen00167" data-start="{" data-end="};">
-<div class="line"><a id="l00167" name="l00167"></a><span class="lineno"><a class="line" href="../../dc/d03/struct_f_shader_map_resource_code_1_1_f_shader_entry.html">  167</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="../../dc/d03/struct_f_shader_map_resource_code_1_1_f_shader_entry.html">FShaderEntry</a></div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>    {</div>
-<div class="line"><a id="l00169" name="l00169"></a><span class="lineno"><a class="line" href="../../dc/d03/struct_f_shader_map_resource_code_1_1_f_shader_entry.html#a2c3cadc688670864f12e41c858e86092">  169</a></span>        TArray&lt;uint8&gt; <a class="code hl_variable" href="../../dc/d03/struct_f_shader_map_resource_code_1_1_f_shader_entry.html#a2c3cadc688670864f12e41c858e86092">Code</a>;</div>
-<div class="line"><a id="l00170" name="l00170"></a><span class="lineno"><a class="line" href="../../dc/d03/struct_f_shader_map_resource_code_1_1_f_shader_entry.html#a6a9f5f5e5cab5cfa105a26138b520c76">  170</a></span>        <a class="code hl_enumeration" href="../../de/df7/_r_h_i_defines_8h.html#a89725d5f41ceac2e574ddc988f06775e">EShaderType</a> <a class="code hl_variable" href="../../dc/d03/struct_f_shader_map_resource_code_1_1_f_shader_entry.html#a6a9f5f5e5cab5cfa105a26138b520c76">ShaderType</a>;</div>
-<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>    };</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>};</div>
 </div>
-<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>};</div>
-</div>
-<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span> </div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span> </div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span> </div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span> </div>
+<div class="foldopen" id="foldopen00172" data-start="{" data-end="};">
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno"><a class="line" href="../../d3/dca/class_f_shader_map_content.html">  172</a></span><span class="keyword">class </span><a class="code hl_class" href="../../d3/dca/class_f_shader_map_content.html">FShaderMapContent</a></div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>{</div>
 <div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span> </div>
 <div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span> </div>
-<div class="foldopen" id="foldopen00176" data-start="{" data-end="};">
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno"><a class="line" href="../../d3/dca/class_f_shader_map_content.html">  176</a></span><span class="keyword">class </span><a class="code hl_class" href="../../d3/dca/class_f_shader_map_content.html">FShaderMapContent</a></div>
-<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>{</div>
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span> </div>
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span> </div>
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>};</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>};</div>
 </div>
-<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span> </div>
-<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span> </div>
-<div class="foldopen" id="foldopen00183" data-start="{" data-end="};">
-<div class="line"><a id="l00183" name="l00183"></a><span class="lineno"><a class="line" href="../../df/d76/class_f_shader_map_base.html">  183</a></span><span class="keyword">class </span><a class="code hl_class" href="../../df/d76/class_f_shader_map_base.html">FShaderMapBase</a></div>
-<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>{</div>
-<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00186" name="l00186"></a><span class="lineno"><a class="line" href="../../df/d76/class_f_shader_map_base.html#a134e7bcd8b003e9f961f533ba9cdb0e8">  186</a></span>    FORCEINLINE <a class="code hl_class" href="../../db/db7/class_f_shader_map_resource_code.html">FShaderMapResourceCode</a>* <a class="code hl_function" href="../../df/d76/class_f_shader_map_base.html#a134e7bcd8b003e9f961f533ba9cdb0e8">GetResourceCode</a>();</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span> </div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span> </div>
+<div class="foldopen" id="foldopen00179" data-start="{" data-end="};">
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno"><a class="line" href="../../df/d76/class_f_shader_map_base.html">  179</a></span><span class="keyword">class </span><a class="code hl_class" href="../../df/d76/class_f_shader_map_base.html">FShaderMapBase</a></div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>{</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno"><a class="line" href="../../df/d76/class_f_shader_map_base.html#a134e7bcd8b003e9f961f533ba9cdb0e8">  182</a></span>    FORCEINLINE <a class="code hl_class" href="../../db/db7/class_f_shader_map_resource_code.html">FShaderMapResourceCode</a>* <a class="code hl_function" href="../../df/d76/class_f_shader_map_base.html#a134e7bcd8b003e9f961f533ba9cdb0e8">GetResourceCode</a>();</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span> </div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span> </div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>    TSharedPtr&lt;FShaderMapResourceCode&gt; Code;</div>
 <div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span> </div>
 <div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span> </div>
-<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>    TSharedPtr&lt;FShaderMapResourceCode&gt; Code;</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>    </div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>};</div>
+</div>
 <div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span> </div>
 <div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span> </div>
-<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>    </div>
-<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>};</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> ContentType&gt;</div>
+<div class="foldopen" id="foldopen00194" data-start="{" data-end="};">
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno"><a class="line" href="../../dc/de2/class_t_shader_map.html">  194</a></span><span class="keyword">class </span><a class="code hl_class" href="../../dc/de2/class_t_shader_map.html">TShaderMap</a> : <span class="keyword">public</span> <a class="code hl_class" href="../../df/d76/class_f_shader_map_base.html">FShaderMapBase</a></div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>{</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span> </div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span> </div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>};</div>
 </div>
-<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span> </div>
-<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span> </div>
-<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> ContentType&gt;</div>
-<div class="foldopen" id="foldopen00198" data-start="{" data-end="};">
-<div class="line"><a id="l00198" name="l00198"></a><span class="lineno"><a class="line" href="../../dc/de2/class_t_shader_map.html">  198</a></span><span class="keyword">class </span><a class="code hl_class" href="../../dc/de2/class_t_shader_map.html">TShaderMap</a> : <span class="keyword">public</span> <a class="code hl_class" href="../../df/d76/class_f_shader_map_base.html">FShaderMapBase</a></div>
-<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>{</div>
-<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span> </div>
 <div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span> </div>
 <div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span> </div>
-<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>};</div>
-</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span> </div>
 <div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span> </div>
-<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span> </div>
-<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span> </div>
-<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span> </div>
-<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span> </div>
-<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> ShaderType&gt;</div>
-<div class="foldopen" id="foldopen00210" data-start="{" data-end="};">
-<div class="line"><a id="l00210" name="l00210"></a><span class="lineno"><a class="line" href="../../d5/d77/class_t_shader_ref_base.html">  210</a></span><span class="keyword">class </span><a class="code hl_class" href="../../d5/d77/class_t_shader_ref_base.html">TShaderRefBase</a></div>
-<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>{</div>
-<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00213" name="l00213"></a><span class="lineno"><a class="line" href="../../d5/d77/class_t_shader_ref_base.html#ad7b4c08a1b3a280c45109af8e7a0c112">  213</a></span>    <a class="code hl_function" href="../../d5/d77/class_t_shader_ref_base.html#ad7b4c08a1b3a280c45109af8e7a0c112">TShaderRefBase</a>() : ShaderContent(nullptr) {}</div>
-<div class="line"><a id="l00214" name="l00214"></a><span class="lineno"><a class="line" href="../../d5/d77/class_t_shader_ref_base.html#a5b7f3451d708bb638f5ea6063e3d1104">  214</a></span>    <a class="code hl_function" href="../../d5/d77/class_t_shader_ref_base.html#a5b7f3451d708bb638f5ea6063e3d1104">TShaderRefBase</a>(ShaderType* InShader) : ShaderContent(InShader) {}</div>
-<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span> </div>
-<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span> </div>
-<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>    </div>
-<div class="foldopen" id="foldopen00218" data-start="{" data-end="}">
-<div class="line"><a id="l00218" name="l00218"></a><span class="lineno"><a class="line" href="../../d5/d77/class_t_shader_ref_base.html#a9d486b354075ebe2be22bfbb1d1b53b6">  218</a></span>    FORCEINLINE ShaderType* <a class="code hl_function" href="../../d5/d77/class_t_shader_ref_base.html#a9d486b354075ebe2be22bfbb1d1b53b6">GetShader</a>()<span class="keyword"> const</span></div>
-<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span><span class="keyword">    </span>{ </div>
-<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>        <span class="keywordflow">return</span> ShaderContent;</div>
-<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>    }</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> ShaderType&gt;</div>
+<div class="foldopen" id="foldopen00206" data-start="{" data-end="};">
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno"><a class="line" href="../../d5/d77/class_t_shader_ref_base.html">  206</a></span><span class="keyword">class </span><a class="code hl_class" href="../../d5/d77/class_t_shader_ref_base.html">TShaderRefBase</a></div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>{</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno"><a class="line" href="../../d5/d77/class_t_shader_ref_base.html#ad7b4c08a1b3a280c45109af8e7a0c112">  209</a></span>    <a class="code hl_function" href="../../d5/d77/class_t_shader_ref_base.html#ad7b4c08a1b3a280c45109af8e7a0c112">TShaderRefBase</a>() : ShaderContent(nullptr) {}</div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno"><a class="line" href="../../d5/d77/class_t_shader_ref_base.html#a5b7f3451d708bb638f5ea6063e3d1104">  210</a></span>    <a class="code hl_function" href="../../d5/d77/class_t_shader_ref_base.html#a5b7f3451d708bb638f5ea6063e3d1104">TShaderRefBase</a>(ShaderType* InShader) : ShaderContent(InShader) {}</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span> </div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span> </div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>    </div>
+<div class="foldopen" id="foldopen00214" data-start="{" data-end="}">
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno"><a class="line" href="../../d5/d77/class_t_shader_ref_base.html#a9d486b354075ebe2be22bfbb1d1b53b6">  214</a></span>    FORCEINLINE ShaderType* <a class="code hl_function" href="../../d5/d77/class_t_shader_ref_base.html#a9d486b354075ebe2be22bfbb1d1b53b6">GetShader</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span><span class="keyword">    </span>{ </div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>        <span class="keywordflow">return</span> ShaderContent;</div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>    }</div>
 </div>
-<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span> </div>
-<div class="foldopen" id="foldopen00223" data-start="{" data-end="}">
-<div class="line"><a id="l00223" name="l00223"></a><span class="lineno"><a class="line" href="../../d5/d77/class_t_shader_ref_base.html#a82390a7da5282ceffafd62fb013855a5">  223</a></span>    FORCEINLINE <a class="code hl_class" href="../../db/d66/class_f_r_h_i_shader.html">FRHIShader</a>* <a class="code hl_function" href="../../d5/d77/class_t_shader_ref_base.html#a82390a7da5282ceffafd62fb013855a5">GetRHIShader</a>()<span class="keyword"> const</span></div>
-<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span><span class="keyword">    </span>{</div>
-<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>        <a class="code hl_class" href="../../db/d66/class_f_r_h_i_shader.html">FRHIShader</a>* RHIShader = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>        <span class="keywordflow">if</span> (ShaderContent)</div>
-<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>        {</div>
-<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>            RHIShader = ((ShaderType*)ShaderContent)-&gt;GetRHIShader().Get();</div>
-<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>        }</div>
-<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>        <span class="keywordflow">return</span> RHIShader;</div>
-<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>    }</div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span> </div>
+<div class="foldopen" id="foldopen00219" data-start="{" data-end="}">
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno"><a class="line" href="../../d5/d77/class_t_shader_ref_base.html#a82390a7da5282ceffafd62fb013855a5">  219</a></span>    FORCEINLINE <a class="code hl_class" href="../../db/d66/class_f_r_h_i_shader.html">FRHIShader</a>* <a class="code hl_function" href="../../d5/d77/class_t_shader_ref_base.html#a82390a7da5282ceffafd62fb013855a5">GetRHIShader</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>        <a class="code hl_class" href="../../db/d66/class_f_r_h_i_shader.html">FRHIShader</a>* RHIShader = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>        <span class="keywordflow">if</span> (ShaderContent)</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>        {</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>            RHIShader = ((ShaderType*)ShaderContent)-&gt;GetRHIShader().Get();</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>        }</div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>        <span class="keywordflow">return</span> RHIShader;</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>    }                                                                               </div>
 </div>
-<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span> </div>
-<div class="foldopen" id="foldopen00233" data-start="{" data-end="}">
-<div class="line"><a id="l00233" name="l00233"></a><span class="lineno"><a class="line" href="../../d5/d77/class_t_shader_ref_base.html#a988aa04ce39f48aa21c0f0167889d21b">  233</a></span>    FORCEINLINE <a class="code hl_class" href="../../d0/d98/class_f_r_h_i_vertex_shader.html">FRHIVertexShader</a>* <a class="code hl_function" href="../../d5/d77/class_t_shader_ref_base.html#a988aa04ce39f48aa21c0f0167889d21b">GetVertexShader</a>()<span class="keyword"> const</span></div>
-<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span><span class="keyword">    </span>{</div>
-<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>        <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><a class="code hl_class" href="../../d0/d98/class_f_r_h_i_vertex_shader.html">FRHIVertexShader</a>*<span class="keyword">&gt;</span>(<a class="code hl_function" href="../../d5/d77/class_t_shader_ref_base.html#a82390a7da5282ceffafd62fb013855a5">GetRHIShader</a>());</div>
-<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>    }</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span> </div>
+<div class="foldopen" id="foldopen00229" data-start="{" data-end="}">
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno"><a class="line" href="../../d5/d77/class_t_shader_ref_base.html#a988aa04ce39f48aa21c0f0167889d21b">  229</a></span>    FORCEINLINE <a class="code hl_class" href="../../d0/d98/class_f_r_h_i_vertex_shader.html">FRHIVertexShader</a>* <a class="code hl_function" href="../../d5/d77/class_t_shader_ref_base.html#a988aa04ce39f48aa21c0f0167889d21b">GetVertexShader</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>        <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><a class="code hl_class" href="../../d0/d98/class_f_r_h_i_vertex_shader.html">FRHIVertexShader</a>*<span class="keyword">&gt;</span>(<a class="code hl_function" href="../../d5/d77/class_t_shader_ref_base.html#a82390a7da5282ceffafd62fb013855a5">GetRHIShader</a>());</div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>    }</div>
 </div>
-<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span> </div>
-<div class="foldopen" id="foldopen00238" data-start="{" data-end="}">
-<div class="line"><a id="l00238" name="l00238"></a><span class="lineno"><a class="line" href="../../d5/d77/class_t_shader_ref_base.html#a3ecf2fe08ce1b63782cf8dd1719c3cf9">  238</a></span>    FORCEINLINE <a class="code hl_class" href="../../d4/d06/class_f_r_h_i_pixel_shader.html">FRHIPixelShader</a>* <a class="code hl_function" href="../../d5/d77/class_t_shader_ref_base.html#a3ecf2fe08ce1b63782cf8dd1719c3cf9">GetPixelShader</a>()<span class="keyword"> const</span></div>
-<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span><span class="keyword">    </span>{</div>
-<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>        <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><a class="code hl_class" href="../../d4/d06/class_f_r_h_i_pixel_shader.html">FRHIPixelShader</a>*<span class="keyword">&gt;</span>(<a class="code hl_function" href="../../d5/d77/class_t_shader_ref_base.html#a82390a7da5282ceffafd62fb013855a5">GetRHIShader</a>());</div>
-<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>    }</div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span> </div>
+<div class="foldopen" id="foldopen00234" data-start="{" data-end="}">
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno"><a class="line" href="../../d5/d77/class_t_shader_ref_base.html#a3ecf2fe08ce1b63782cf8dd1719c3cf9">  234</a></span>    FORCEINLINE <a class="code hl_class" href="../../d4/d06/class_f_r_h_i_pixel_shader.html">FRHIPixelShader</a>* <a class="code hl_function" href="../../d5/d77/class_t_shader_ref_base.html#a3ecf2fe08ce1b63782cf8dd1719c3cf9">GetPixelShader</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>        <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><a class="code hl_class" href="../../d4/d06/class_f_r_h_i_pixel_shader.html">FRHIPixelShader</a>*<span class="keyword">&gt;</span>(<a class="code hl_function" href="../../d5/d77/class_t_shader_ref_base.html#a82390a7da5282ceffafd62fb013855a5">GetRHIShader</a>());</div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>    }</div>
 </div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span> </div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span> </div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>    ShaderType* ShaderContent;</div>
 <div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span> </div>
-<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span> </div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>};</div>
+</div>
 <div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span> </div>
 <div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span> </div>
-<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>    ShaderType* ShaderContent;</div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span> </div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span> </div>
 <div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span> </div>
-<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>};</div>
-</div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span> </div>
 <div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span> </div>
 <div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span> </div>
 <div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span> </div>
 <div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span> </div>
-<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span> </div>
-<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span> </div>
-<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span> </div>
-<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span> </div>
-<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span> </div>
-<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span> </div>
-<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span> </div>
-<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span> </div>
-<div class="foldopen" id="foldopen00262" data-start="" data-end="">
-<div class="line"><a id="l00262" name="l00262"></a><span class="lineno"><a class="line" href="../../d8/d34/_shader_8h.html#ab017c78ff362b54321ce914870da03f8">  262</a></span><span class="preprocessor">#define DECLARE_SHADER_TYPE(ShaderClass, InShaderMetaType, ...) \</span></div>
-<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span><span class="preprocessor">public:\</span></div>
-<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span><span class="preprocessor">using ShaderMetaType = F##InShaderMetaType##ShaderType;\</span></div>
-<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span><span class="preprocessor"></span><span class="comment">/*using ShaderMapType = F##InShaderMetaType##ShaerMap;\*/</span><span class="preprocessor"> \</span></div>
-<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span><span class="preprocessor">static ShaderMetaType&amp; GetStaticType(); \</span></div>
-<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span><span class="preprocessor">private:\</span></div>
-<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span><span class="preprocessor">static FShaderTypeRegistration ShaderTypeRegistration;\</span></div>
-<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span><span class="preprocessor">public: static FShader* ConstructSerializedInstance() {return new ShaderClass();}\</span></div>
-<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span><span class="preprocessor">static FShader* ConstructCompiledInstance(const typename FShaderCompiledInitializerType&amp; Initializer)\</span></div>
-<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span><span class="preprocessor">{return new ShaderClass(static_cast&lt;const typename FShaderCompiledInitializerType&amp;&gt;(Initializer));}\</span></div>
-<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span><span class="preprocessor"></span> </div>
+<div class="foldopen" id="foldopen00254" data-start="" data-end="">
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno"><a class="line" href="../../d8/d34/_shader_8h.html#ab017c78ff362b54321ce914870da03f8">  254</a></span><span class="preprocessor">#define DECLARE_SHADER_TYPE(ShaderClass, InShaderMetaType, ...) \</span></div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span><span class="preprocessor">public:\</span></div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span><span class="preprocessor">using ShaderMetaType = F##InShaderMetaType##ShaderType;\</span></div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span><span class="preprocessor"></span><span class="comment">/*using ShaderMapType = F##InShaderMetaType##ShaerMap;\*/</span><span class="preprocessor"> \</span></div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span><span class="preprocessor">static ShaderMetaType&amp; GetStaticType(); \</span></div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span><span class="preprocessor">private:\</span></div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span><span class="preprocessor">static FShaderTypeRegistration ShaderTypeRegistration;\</span></div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span><span class="preprocessor">public: static FShader* ConstructSerializedInstance() {return new ShaderClass();}\</span></div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span><span class="preprocessor">static FShader* ConstructCompiledInstance(const typename FShaderCompiledInitializerType&amp; Initializer)\</span></div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span><span class="preprocessor">{return new ShaderClass(static_cast&lt;const typename FShaderCompiledInitializerType&amp;&gt;(Initializer));}\</span></div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span><span class="preprocessor"></span> </div>
 </div>
-<div class="foldopen" id="foldopen00273" data-start="" data-end="">
-<div class="line"><a id="l00273" name="l00273"></a><span class="lineno"><a class="line" href="../../d8/d34/_shader_8h.html#a4bc80fedd33a498d0c90912074a530ab">  273</a></span><span class="preprocessor">#define IMPLEMENT_SHADER_TYPE(ShaderClass, SourceFilename, FunctionName, ShaderType)\</span></div>
-<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span><span class="preprocessor">ShaderClass::ShaderMetaType&amp; ShaderClass::GetStaticType()\</span></div>
-<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span><span class="preprocessor">{\</span></div>
-<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span><span class="preprocessor">    static ShaderClass::ShaderMetaType StaticType\</span></div>
-<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span><span class="preprocessor">(\</span></div>
-<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span><span class="preprocessor">    TEXT(#ShaderClass), \</span></div>
-<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span><span class="preprocessor">    SourceFilename,\</span></div>
-<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span><span class="preprocessor">    FunctionName,\</span></div>
-<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span><span class="preprocessor">    ShaderType\</span></div>
-<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span><span class="preprocessor">);\</span></div>
-<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span><span class="preprocessor">    GetShaderBounds(StaticType.Bounds);\</span></div>
-<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span><span class="preprocessor">    return StaticType;\</span></div>
-<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span><span class="preprocessor">}\</span></div>
-<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span><span class="preprocessor">    FShaderTypeRegistration ShaderClass::ShaderTypeRegistration(ShaderClass::GetStaticType);</span></div>
+<div class="foldopen" id="foldopen00265" data-start="" data-end="">
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno"><a class="line" href="../../d8/d34/_shader_8h.html#a4bc80fedd33a498d0c90912074a530ab">  265</a></span><span class="preprocessor">#define IMPLEMENT_SHADER_TYPE(ShaderClass, SourceFilename, FunctionName, ShaderType)\</span></div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span><span class="preprocessor">ShaderClass::ShaderMetaType&amp; ShaderClass::GetStaticType()\</span></div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span><span class="preprocessor">{\</span></div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span><span class="preprocessor">    static ShaderClass::ShaderMetaType StaticType\</span></div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span><span class="preprocessor">(\</span></div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span><span class="preprocessor">    TEXT(#ShaderClass), \</span></div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span><span class="preprocessor">    SourceFilename,\</span></div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span><span class="preprocessor">    FunctionName,\</span></div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span><span class="preprocessor">    ShaderType\</span></div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span><span class="preprocessor">);\</span></div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span><span class="preprocessor">    GetShaderBounds(StaticType.Bounds);\</span></div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span><span class="preprocessor">    return StaticType;\</span></div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span><span class="preprocessor">}\</span></div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span><span class="preprocessor">    FShaderTypeRegistration ShaderClass::ShaderTypeRegistration(ShaderClass::GetStaticType);</span></div>
 </div>
-<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span> </div>
-<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span> </div>
-<div class="foldopen" id="foldopen00289" data-start="" data-end="">
-<div class="line"><a id="l00289" name="l00289"></a><span class="lineno"><a class="line" href="../../d8/d34/_shader_8h.html#a5ca6c4d5f23f4559926809e3d7cec327">  289</a></span><span class="preprocessor">#define SHADER_USE_PARAMETER_STRUCT(ShaderClass, ShaderParentClass) \</span></div>
-<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span><span class="preprocessor">ShaderClass(const FShaderCompiledInitializerType&amp; Initializer): ShaderParentClass(Initializer) {}\</span></div>
-<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span><span class="preprocessor">ShaderClass() {}</span></div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span> </div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span> </div>
+<div class="foldopen" id="foldopen00281" data-start="" data-end="">
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno"><a class="line" href="../../d8/d34/_shader_8h.html#a5ca6c4d5f23f4559926809e3d7cec327">  281</a></span><span class="preprocessor">#define SHADER_USE_PARAMETER_STRUCT(ShaderClass, ShaderParentClass) \</span></div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span><span class="preprocessor">ShaderClass(const FShaderCompiledInitializerType&amp; Initializer): ShaderParentClass(Initializer) {}\</span></div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span><span class="preprocessor">ShaderClass() {}</span></div>
 </div>
-<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span> </div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span> </div>
 <div class="ttc" id="a_array_8h_html"><div class="ttname"><a href="../../d3/dc5/_array_8h.html">Array.h</a></div></div>
 <div class="ttc" id="a_dark_string_8h_html"><div class="ttname"><a href="../../de/d45/_dark_string_8h.html">DarkString.h</a></div></div>
 <div class="ttc" id="a_platform_8h_html"><div class="ttname"><a href="../../d2/dc9/_platform_8h.html">Platform.h</a></div></div>
@@ -444,9 +434,9 @@ $(function() { codefold.init(1); });
 <div class="ttc" id="a_t_unique_ptr_8h_html"><div class="ttname"><a href="../../dc/d27/_t_unique_ptr_8h.html">TUniquePtr.h</a></div></div>
 <div class="ttc" id="a_unordored_map_8h_html"><div class="ttname"><a href="../../da/d88/_unordored_map_8h.html">UnordoredMap.h</a></div></div>
 <div class="ttc" id="aclass_f_global_shader_type_html"><div class="ttname"><a href="../../d6/d52/class_f_global_shader_type.html">FGlobalShaderType</a></div><div class="ttdef"><b>Definition</b> GlobalShader.h:8</div></div>
-<div class="ttc" id="aclass_f_r_h_i_pixel_shader_html"><div class="ttname"><a href="../../d4/d06/class_f_r_h_i_pixel_shader.html">FRHIPixelShader</a></div><div class="ttdef"><b>Definition</b> RHIResources.h:437</div></div>
+<div class="ttc" id="aclass_f_r_h_i_pixel_shader_html"><div class="ttname"><a href="../../d4/d06/class_f_r_h_i_pixel_shader.html">FRHIPixelShader</a></div><div class="ttdef"><b>Definition</b> RHIResources.h:440</div></div>
 <div class="ttc" id="aclass_f_r_h_i_shader_html"><div class="ttname"><a href="../../db/d66/class_f_r_h_i_shader.html">FRHIShader</a></div><div class="ttdef"><b>Definition</b> RHIResources.h:340</div></div>
-<div class="ttc" id="aclass_f_r_h_i_vertex_shader_html"><div class="ttname"><a href="../../d0/d98/class_f_r_h_i_vertex_shader.html">FRHIVertexShader</a></div><div class="ttdef"><b>Definition</b> RHIResources.h:431</div></div>
+<div class="ttc" id="aclass_f_r_h_i_vertex_shader_html"><div class="ttname"><a href="../../d0/d98/class_f_r_h_i_vertex_shader.html">FRHIVertexShader</a></div><div class="ttdef"><b>Definition</b> RHIResources.h:434</div></div>
 <div class="ttc" id="aclass_f_shader_compile_job_html"><div class="ttname"><a href="../../d1/d8b/class_f_shader_compile_job.html">FShaderCompileJob</a></div><div class="ttdef"><b>Definition</b> ShaderCompiler.h:16</div></div>
 <div class="ttc" id="aclass_f_shader_html"><div class="ttname"><a href="../../dd/d3a/class_f_shader.html">FShader</a></div><div class="ttdef"><b>Definition</b> Shader.h:17</div></div>
 <div class="ttc" id="aclass_f_shader_html_a6d5c40053199a7841c6b88f51965fb29"><div class="ttname"><a href="../../dd/d3a/class_f_shader.html#a6d5c40053199a7841c6b88f51965fb29">FShader::FShader</a></div><div class="ttdeci">FShader()</div><div class="ttdef"><b>Definition</b> Shader.h:20</div></div>
@@ -455,16 +445,16 @@ $(function() { codefold.init(1); });
 <div class="ttc" id="aclass_f_shader_html_aac17745d24db91dadcd0dfb302124045"><div class="ttname"><a href="../../dd/d3a/class_f_shader.html#aac17745d24db91dadcd0dfb302124045">FShader::GetRHIShader</a></div><div class="ttdeci">TRefCountPtr&lt; FRHIShader &gt; GetRHIShader()</div><div class="ttdef"><b>Definition</b> Shader.cpp:19</div></div>
 <div class="ttc" id="aclass_f_shader_html_abbe2fe702ed953e581982b4d4d7e8537"><div class="ttname"><a href="../../dd/d3a/class_f_shader.html#abbe2fe702ed953e581982b4d4d7e8537">FShader::HashShader</a></div><div class="ttdeci">uint64 HashShader</div><div class="ttdef"><b>Definition</b> Shader.h:31</div></div>
 <div class="ttc" id="aclass_f_shader_html_ad08650d94759ac2a67112a3b90f83286"><div class="ttname"><a href="../../dd/d3a/class_f_shader.html#ad08650d94759ac2a67112a3b90f83286">FShader::SetShaderBounds</a></div><div class="ttdeci">void SetShaderBounds(const FShaderBounds &amp;ShaderBounds)</div><div class="ttdef"><b>Definition</b> Shader.h:29</div></div>
-<div class="ttc" id="aclass_f_shader_map_base_html"><div class="ttname"><a href="../../df/d76/class_f_shader_map_base.html">FShaderMapBase</a></div><div class="ttdef"><b>Definition</b> Shader.h:184</div></div>
+<div class="ttc" id="aclass_f_shader_map_base_html"><div class="ttname"><a href="../../df/d76/class_f_shader_map_base.html">FShaderMapBase</a></div><div class="ttdef"><b>Definition</b> Shader.h:180</div></div>
 <div class="ttc" id="aclass_f_shader_map_base_html_a134e7bcd8b003e9f961f533ba9cdb0e8"><div class="ttname"><a href="../../df/d76/class_f_shader_map_base.html#a134e7bcd8b003e9f961f533ba9cdb0e8">FShaderMapBase::GetResourceCode</a></div><div class="ttdeci">FORCEINLINE FShaderMapResourceCode * GetResourceCode()</div></div>
-<div class="ttc" id="aclass_f_shader_map_content_html"><div class="ttname"><a href="../../d3/dca/class_f_shader_map_content.html">FShaderMapContent</a></div><div class="ttdef"><b>Definition</b> Shader.h:177</div></div>
-<div class="ttc" id="aclass_f_shader_map_resource_code_html"><div class="ttname"><a href="../../db/db7/class_f_shader_map_resource_code.html">FShaderMapResourceCode</a></div><div class="ttdef"><b>Definition</b> Shader.h:165</div></div>
+<div class="ttc" id="aclass_f_shader_map_content_html"><div class="ttname"><a href="../../d3/dca/class_f_shader_map_content.html">FShaderMapContent</a></div><div class="ttdef"><b>Definition</b> Shader.h:173</div></div>
+<div class="ttc" id="aclass_f_shader_map_resource_code_html"><div class="ttname"><a href="../../db/db7/class_f_shader_map_resource_code.html">FShaderMapResourceCode</a></div><div class="ttdef"><b>Definition</b> Shader.h:161</div></div>
 <div class="ttc" id="aclass_f_shader_pipeline_type_html"><div class="ttname"><a href="../../d9/d30/class_f_shader_pipeline_type.html">FShaderPipelineType</a></div><div class="ttdef"><b>Definition</b> Shader.h:121</div></div>
 <div class="ttc" id="aclass_f_shader_pipeline_type_html_a27a37d8cde2b23ad059d8b3936ac8d0c"><div class="ttname"><a href="../../d9/d30/class_f_shader_pipeline_type.html#a27a37d8cde2b23ad059d8b3936ac8d0c">FShaderPipelineType::Stages</a></div><div class="ttdeci">TArray&lt; const FShaderType * &gt; Stages</div><div class="ttdef"><b>Definition</b> Shader.h:140</div></div>
-<div class="ttc" id="aclass_f_shader_pipeline_type_html_a5526e08dfc422e339f8ed6a698a10dac"><div class="ttname"><a href="../../d9/d30/class_f_shader_pipeline_type.html#a5526e08dfc422e339f8ed6a698a10dac">FShaderPipelineType::FShaderPipelineType</a></div><div class="ttdeci">FShaderPipelineType(const TCHAR *InName, const FShaderType *InVertexShader, const FShaderType *InGeometryShader, const FShaderType *InPixelShader)</div><div class="ttdef"><b>Definition</b> Shader.cpp:70</div></div>
+<div class="ttc" id="aclass_f_shader_pipeline_type_html_a5526e08dfc422e339f8ed6a698a10dac"><div class="ttname"><a href="../../d9/d30/class_f_shader_pipeline_type.html#a5526e08dfc422e339f8ed6a698a10dac">FShaderPipelineType::FShaderPipelineType</a></div><div class="ttdeci">FShaderPipelineType(const TCHAR *InName, const FShaderType *InVertexShader, const FShaderType *InGeometryShader, const FShaderType *InPixelShader)</div><div class="ttdef"><b>Definition</b> Shader.cpp:76</div></div>
 <div class="ttc" id="aclass_f_shader_pipeline_type_html_a5aa6a80fa21772565a028e8929695c0b"><div class="ttname"><a href="../../d9/d30/class_f_shader_pipeline_type.html#a5aa6a80fa21772565a028e8929695c0b">FShaderPipelineType::Name</a></div><div class="ttdeci">const TCHAR *const Name</div><div class="ttdef"><b>Definition</b> Shader.h:137</div></div>
 <div class="ttc" id="aclass_f_shader_pipeline_type_html_a8d7404160f00a956c1414b6740cf716a"><div class="ttname"><a href="../../d9/d30/class_f_shader_pipeline_type.html#a8d7404160f00a956c1414b6740cf716a">FShaderPipelineType::TypeName</a></div><div class="ttdeci">const FString TypeName</div><div class="ttdef"><b>Definition</b> Shader.h:138</div></div>
-<div class="ttc" id="aclass_f_shader_pipeline_type_html_a937ec599fc795e548a3ca31a81094590"><div class="ttname"><a href="../../d9/d30/class_f_shader_pipeline_type.html#a937ec599fc795e548a3ca31a81094590">FShaderPipelineType::GetTypeList</a></div><div class="ttdeci">static TArray&lt; const FShaderPipelineType * &gt; &amp; GetTypeList()</div><div class="ttdef"><b>Definition</b> Shader.cpp:98</div></div>
+<div class="ttc" id="aclass_f_shader_pipeline_type_html_a937ec599fc795e548a3ca31a81094590"><div class="ttname"><a href="../../d9/d30/class_f_shader_pipeline_type.html#a937ec599fc795e548a3ca31a81094590">FShaderPipelineType::GetTypeList</a></div><div class="ttdeci">static TArray&lt; const FShaderPipelineType * &gt; &amp; GetTypeList()</div><div class="ttdef"><b>Definition</b> Shader.cpp:104</div></div>
 <div class="ttc" id="aclass_f_shader_pipeline_type_html_aa51979a87b6beba28dabf7454a492051"><div class="ttname"><a href="../../d9/d30/class_f_shader_pipeline_type.html#aa51979a87b6beba28dabf7454a492051">FShaderPipelineType::Initialize</a></div><div class="ttdeci">static void Initialize()</div></div>
 <div class="ttc" id="aclass_f_shader_pipeline_type_html_ad46d0656d287a1e00aaceefc14592578"><div class="ttname"><a href="../../d9/d30/class_f_shader_pipeline_type.html#ad46d0656d287a1e00aaceefc14592578">FShaderPipelineType::AllStages</a></div><div class="ttdeci">const FShaderType * AllStages[ST_NumStandartTypes]</div><div class="ttdef"><b>Definition</b> Shader.h:141</div></div>
 <div class="ttc" id="aclass_f_shader_type_1_1_f_parameters_html"><div class="ttname"><a href="../../d3/d88/class_f_shader_type_1_1_f_parameters.html">FShaderType::FParameters</a></div><div class="ttdef"><b>Definition</b> Shader.h:55</div></div>
@@ -473,7 +463,7 @@ $(function() { codefold.init(1); });
 <div class="ttc" id="aclass_f_shader_type_html_a06e2280572fc05da7e9ed646753621a6"><div class="ttname"><a href="../../d0/d2f/class_f_shader_type.html#a06e2280572fc05da7e9ed646753621a6">FShaderType::FinishCompileShader</a></div><div class="ttdeci">FShader * FinishCompileShader(class FShaderCompileJob &amp;CurrentJob, const FString &amp;InDebugDescription)</div><div class="ttdef"><b>Definition</b> Shader.cpp:46</div></div>
 <div class="ttc" id="aclass_f_shader_type_html_a36bcfeb165d10761ab7f067770255611"><div class="ttname"><a href="../../d0/d2f/class_f_shader_type.html#a36bcfeb165d10761ab7f067770255611">FShaderType::GetFunctionName</a></div><div class="ttdeci">FORCEINLINE const TCHAR * GetFunctionName() const</div><div class="ttdef"><b>Definition</b> Shader.h:93</div></div>
 <div class="ttc" id="aclass_f_shader_type_html_a531bae5492010cf3b85a8574cc3b6f45"><div class="ttname"><a href="../../d0/d2f/class_f_shader_type.html#a531bae5492010cf3b85a8574cc3b6f45">FShaderType::GetShaderFilename</a></div><div class="ttdeci">FORCEINLINE const TCHAR * GetShaderFilename() const</div><div class="ttdef"><b>Definition</b> Shader.h:89</div></div>
-<div class="ttc" id="aclass_f_shader_type_html_a65273818c00de54252e5a23fb820424e"><div class="ttname"><a href="../../d0/d2f/class_f_shader_type.html#a65273818c00de54252e5a23fb820424e">FShaderType::FShaderType</a></div><div class="ttdeci">FShaderType(EShaderTypeInternal InShaderType, const TCHAR *InName, const TCHAR *InSourceFilename, const TCHAR *InFunctionName, uint32 InType)</div><div class="ttdef"><b>Definition</b> Shader.cpp:104</div></div>
+<div class="ttc" id="aclass_f_shader_type_html_a65273818c00de54252e5a23fb820424e"><div class="ttname"><a href="../../d0/d2f/class_f_shader_type.html#a65273818c00de54252e5a23fb820424e">FShaderType::FShaderType</a></div><div class="ttdeci">FShaderType(EShaderTypeInternal InShaderType, const TCHAR *InName, const TCHAR *InSourceFilename, const TCHAR *InFunctionName, uint32 InType)</div><div class="ttdef"><b>Definition</b> Shader.cpp:110</div></div>
 <div class="ttc" id="aclass_f_shader_type_html_a71e621c2863ea5e68200bad4d65bfffd"><div class="ttname"><a href="../../d0/d2f/class_f_shader_type.html#a71e621c2863ea5e68200bad4d65bfffd">FShaderType::GetGlobalShaderType</a></div><div class="ttdeci">class FGlobalShaderType * GetGlobalShaderType() const</div><div class="ttdef"><b>Definition</b> Shader.h:72</div></div>
 <div class="ttc" id="aclass_f_shader_type_html_a73b1391be4bd99d887bc2827d380a6bc"><div class="ttname"><a href="../../d0/d2f/class_f_shader_type.html#a73b1391be4bd99d887bc2827d380a6bc">FShaderType::Bounds</a></div><div class="ttdeci">FShaderBounds Bounds</div><div class="ttdef"><b>Definition</b> Shader.h:98</div></div>
 <div class="ttc" id="aclass_f_shader_type_html_a8abc90aba16ac4cb13abd2cc2f165a2f"><div class="ttname"><a href="../../d0/d2f/class_f_shader_type.html#a8abc90aba16ac4cb13abd2cc2f165a2f">FShaderType::EShaderTypeInternal</a></div><div class="ttdeci">EShaderTypeInternal</div><div class="ttdef"><b>Definition</b> Shader.h:47</div></div>
@@ -482,30 +472,30 @@ $(function() { codefold.init(1); });
 <div class="ttc" id="aclass_f_shader_type_html_a8abc90aba16ac4cb13abd2cc2f165a2fa8a82e695be7c9d180ebfe02cda4fd7e6"><div class="ttname"><a href="../../d0/d2f/class_f_shader_type.html#a8abc90aba16ac4cb13abd2cc2f165a2fa8a82e695be7c9d180ebfe02cda4fd7e6">FShaderType::EShaderTypeInternal::NumShaderTypes</a></div><div class="ttdeci">@ NumShaderTypes</div></div>
 <div class="ttc" id="aclass_f_shader_type_html_a8abc90aba16ac4cb13abd2cc2f165a2fad92a8333dd3ccb895cc65f7455b71206"><div class="ttname"><a href="../../d0/d2f/class_f_shader_type.html#a8abc90aba16ac4cb13abd2cc2f165a2fad92a8333dd3ccb895cc65f7455b71206">FShaderType::EShaderTypeInternal::Material</a></div><div class="ttdeci">@ Material</div></div>
 <div class="ttc" id="aclass_f_shader_type_html_a99cf18da165f96ae3fe4b82feee25f68"><div class="ttname"><a href="../../d0/d2f/class_f_shader_type.html#a99cf18da165f96ae3fe4b82feee25f68">FShaderType::GetName</a></div><div class="ttdeci">FORCEINLINE const TCHAR * GetName() const</div><div class="ttdef"><b>Definition</b> Shader.h:81</div></div>
-<div class="ttc" id="aclass_f_shader_type_html_aee1f5a12c3f66b9c9701ae1f7173a6dc"><div class="ttname"><a href="../../d0/d2f/class_f_shader_type.html#aee1f5a12c3f66b9c9701ae1f7173a6dc">FShaderType::GetNameToTypeMap</a></div><div class="ttdeci">static TUnordoredMap&lt; FString, FShaderType * &gt; &amp; GetNameToTypeMap()</div><div class="ttdef"><b>Definition</b> Shader.cpp:126</div></div>
-<div class="ttc" id="aclass_f_shader_type_html_af7bbfed578dac70eb0e144cecd83eab6"><div class="ttname"><a href="../../d0/d2f/class_f_shader_type.html#af7bbfed578dac70eb0e144cecd83eab6">FShaderType::GetTypeList</a></div><div class="ttdeci">static TArray&lt; const FShaderType * &gt; &amp; GetTypeList()</div><div class="ttdef"><b>Definition</b> Shader.cpp:121</div></div>
+<div class="ttc" id="aclass_f_shader_type_html_aee1f5a12c3f66b9c9701ae1f7173a6dc"><div class="ttname"><a href="../../d0/d2f/class_f_shader_type.html#aee1f5a12c3f66b9c9701ae1f7173a6dc">FShaderType::GetNameToTypeMap</a></div><div class="ttdeci">static TUnordoredMap&lt; FString, FShaderType * &gt; &amp; GetNameToTypeMap()</div><div class="ttdef"><b>Definition</b> Shader.cpp:132</div></div>
+<div class="ttc" id="aclass_f_shader_type_html_af7bbfed578dac70eb0e144cecd83eab6"><div class="ttname"><a href="../../d0/d2f/class_f_shader_type.html#af7bbfed578dac70eb0e144cecd83eab6">FShaderType::GetTypeList</a></div><div class="ttdeci">static TArray&lt; const FShaderType * &gt; &amp; GetTypeList()</div><div class="ttdef"><b>Definition</b> Shader.cpp:127</div></div>
 <div class="ttc" id="aclass_f_shader_type_html_afa8bf63d8ca0f225c934a45cb0287e9c"><div class="ttname"><a href="../../d0/d2f/class_f_shader_type.html#afa8bf63d8ca0f225c934a45cb0287e9c">FShaderType::GetShaderType</a></div><div class="ttdeci">FORCEINLINE EShaderType GetShaderType() const</div><div class="ttdef"><b>Definition</b> Shader.h:85</div></div>
 <div class="ttc" id="aclass_f_shader_type_registration_html"><div class="ttname"><a href="../../d3/d0f/class_f_shader_type_registration.html">FShaderTypeRegistration</a></div><div class="ttdef"><b>Definition</b> Shader.h:147</div></div>
-<div class="ttc" id="aclass_f_shader_type_registration_html_a0e9f0bc55c32e35018c127c9ba8f5d35"><div class="ttname"><a href="../../d3/d0f/class_f_shader_type_registration.html#a0e9f0bc55c32e35018c127c9ba8f5d35">FShaderTypeRegistration::CommitAll</a></div><div class="ttdeci">static void CommitAll()</div><div class="ttdef"><b>Definition</b> Shader.cpp:61</div></div>
-<div class="ttc" id="aclass_f_shader_type_registration_html_a5d5f970cacd8d581959b6f05f778ed70"><div class="ttname"><a href="../../d3/d0f/class_f_shader_type_registration.html#a5d5f970cacd8d581959b6f05f778ed70">FShaderTypeRegistration::FShaderTypeRegistration</a></div><div class="ttdeci">FShaderTypeRegistration(std::function&lt; FShaderType &amp;()&gt; InShaderTypeAccessor)</div><div class="ttdef"><b>Definition</b> Shader.h:149</div></div>
-<div class="ttc" id="aclass_f_shader_type_registration_html_ae64c9a29a2e7bc28bfb7fce7dd0c6407"><div class="ttname"><a href="../../d3/d0f/class_f_shader_type_registration.html#ae64c9a29a2e7bc28bfb7fce7dd0c6407">FShaderTypeRegistration::GetInstances</a></div><div class="ttdeci">static TArray&lt; const FShaderTypeRegistration * &gt; &amp; GetInstances()</div><div class="ttdef"><b>Definition</b> Shader.cpp:56</div></div>
+<div class="ttc" id="aclass_f_shader_type_registration_html_a0e9f0bc55c32e35018c127c9ba8f5d35"><div class="ttname"><a href="../../d3/d0f/class_f_shader_type_registration.html#a0e9f0bc55c32e35018c127c9ba8f5d35">FShaderTypeRegistration::CommitAll</a></div><div class="ttdeci">static void CommitAll()</div><div class="ttdef"><b>Definition</b> Shader.cpp:67</div></div>
+<div class="ttc" id="aclass_f_shader_type_registration_html_a5d5f970cacd8d581959b6f05f778ed70"><div class="ttname"><a href="../../d3/d0f/class_f_shader_type_registration.html#a5d5f970cacd8d581959b6f05f778ed70">FShaderTypeRegistration::FShaderTypeRegistration</a></div><div class="ttdeci">FShaderTypeRegistration(std::function&lt; FShaderType &amp;()&gt; InShaderTypeAccessor)</div><div class="ttdef"><b>Definition</b> Shader.cpp:55</div></div>
+<div class="ttc" id="aclass_f_shader_type_registration_html_ae64c9a29a2e7bc28bfb7fce7dd0c6407"><div class="ttname"><a href="../../d3/d0f/class_f_shader_type_registration.html#ae64c9a29a2e7bc28bfb7fce7dd0c6407">FShaderTypeRegistration::GetInstances</a></div><div class="ttdeci">static TArray&lt; const FShaderTypeRegistration * &gt; &amp; GetInstances()</div><div class="ttdef"><b>Definition</b> Shader.cpp:62</div></div>
 <div class="ttc" id="aclass_f_string_html"><div class="ttname"><a href="../../d9/dcb/class_f_string.html">FString</a></div><div class="ttdef"><b>Definition</b> DarkString.h:17</div></div>
-<div class="ttc" id="aclass_t_shader_map_html"><div class="ttname"><a href="../../dc/de2/class_t_shader_map.html">TShaderMap</a></div><div class="ttdef"><b>Definition</b> Shader.h:199</div></div>
-<div class="ttc" id="aclass_t_shader_ref_base_html"><div class="ttname"><a href="../../d5/d77/class_t_shader_ref_base.html">TShaderRefBase</a></div><div class="ttdef"><b>Definition</b> Shader.h:211</div></div>
-<div class="ttc" id="aclass_t_shader_ref_base_html_a3ecf2fe08ce1b63782cf8dd1719c3cf9"><div class="ttname"><a href="../../d5/d77/class_t_shader_ref_base.html#a3ecf2fe08ce1b63782cf8dd1719c3cf9">TShaderRefBase::GetPixelShader</a></div><div class="ttdeci">FORCEINLINE FRHIPixelShader * GetPixelShader() const</div><div class="ttdef"><b>Definition</b> Shader.h:238</div></div>
-<div class="ttc" id="aclass_t_shader_ref_base_html_a5b7f3451d708bb638f5ea6063e3d1104"><div class="ttname"><a href="../../d5/d77/class_t_shader_ref_base.html#a5b7f3451d708bb638f5ea6063e3d1104">TShaderRefBase::TShaderRefBase</a></div><div class="ttdeci">TShaderRefBase(ShaderType *InShader)</div><div class="ttdef"><b>Definition</b> Shader.h:214</div></div>
-<div class="ttc" id="aclass_t_shader_ref_base_html_a82390a7da5282ceffafd62fb013855a5"><div class="ttname"><a href="../../d5/d77/class_t_shader_ref_base.html#a82390a7da5282ceffafd62fb013855a5">TShaderRefBase::GetRHIShader</a></div><div class="ttdeci">FORCEINLINE FRHIShader * GetRHIShader() const</div><div class="ttdef"><b>Definition</b> Shader.h:223</div></div>
-<div class="ttc" id="aclass_t_shader_ref_base_html_a988aa04ce39f48aa21c0f0167889d21b"><div class="ttname"><a href="../../d5/d77/class_t_shader_ref_base.html#a988aa04ce39f48aa21c0f0167889d21b">TShaderRefBase::GetVertexShader</a></div><div class="ttdeci">FORCEINLINE FRHIVertexShader * GetVertexShader() const</div><div class="ttdef"><b>Definition</b> Shader.h:233</div></div>
-<div class="ttc" id="aclass_t_shader_ref_base_html_a9d486b354075ebe2be22bfbb1d1b53b6"><div class="ttname"><a href="../../d5/d77/class_t_shader_ref_base.html#a9d486b354075ebe2be22bfbb1d1b53b6">TShaderRefBase::GetShader</a></div><div class="ttdeci">FORCEINLINE ShaderType * GetShader() const</div><div class="ttdef"><b>Definition</b> Shader.h:218</div></div>
-<div class="ttc" id="aclass_t_shader_ref_base_html_ad7b4c08a1b3a280c45109af8e7a0c112"><div class="ttname"><a href="../../d5/d77/class_t_shader_ref_base.html#ad7b4c08a1b3a280c45109af8e7a0c112">TShaderRefBase::TShaderRefBase</a></div><div class="ttdeci">TShaderRefBase()</div><div class="ttdef"><b>Definition</b> Shader.h:213</div></div>
+<div class="ttc" id="aclass_t_shader_map_html"><div class="ttname"><a href="../../dc/de2/class_t_shader_map.html">TShaderMap</a></div><div class="ttdef"><b>Definition</b> Shader.h:195</div></div>
+<div class="ttc" id="aclass_t_shader_ref_base_html"><div class="ttname"><a href="../../d5/d77/class_t_shader_ref_base.html">TShaderRefBase</a></div><div class="ttdef"><b>Definition</b> Shader.h:207</div></div>
+<div class="ttc" id="aclass_t_shader_ref_base_html_a3ecf2fe08ce1b63782cf8dd1719c3cf9"><div class="ttname"><a href="../../d5/d77/class_t_shader_ref_base.html#a3ecf2fe08ce1b63782cf8dd1719c3cf9">TShaderRefBase::GetPixelShader</a></div><div class="ttdeci">FORCEINLINE FRHIPixelShader * GetPixelShader() const</div><div class="ttdef"><b>Definition</b> Shader.h:234</div></div>
+<div class="ttc" id="aclass_t_shader_ref_base_html_a5b7f3451d708bb638f5ea6063e3d1104"><div class="ttname"><a href="../../d5/d77/class_t_shader_ref_base.html#a5b7f3451d708bb638f5ea6063e3d1104">TShaderRefBase::TShaderRefBase</a></div><div class="ttdeci">TShaderRefBase(ShaderType *InShader)</div><div class="ttdef"><b>Definition</b> Shader.h:210</div></div>
+<div class="ttc" id="aclass_t_shader_ref_base_html_a82390a7da5282ceffafd62fb013855a5"><div class="ttname"><a href="../../d5/d77/class_t_shader_ref_base.html#a82390a7da5282ceffafd62fb013855a5">TShaderRefBase::GetRHIShader</a></div><div class="ttdeci">FORCEINLINE FRHIShader * GetRHIShader() const</div><div class="ttdef"><b>Definition</b> Shader.h:219</div></div>
+<div class="ttc" id="aclass_t_shader_ref_base_html_a988aa04ce39f48aa21c0f0167889d21b"><div class="ttname"><a href="../../d5/d77/class_t_shader_ref_base.html#a988aa04ce39f48aa21c0f0167889d21b">TShaderRefBase::GetVertexShader</a></div><div class="ttdeci">FORCEINLINE FRHIVertexShader * GetVertexShader() const</div><div class="ttdef"><b>Definition</b> Shader.h:229</div></div>
+<div class="ttc" id="aclass_t_shader_ref_base_html_a9d486b354075ebe2be22bfbb1d1b53b6"><div class="ttname"><a href="../../d5/d77/class_t_shader_ref_base.html#a9d486b354075ebe2be22bfbb1d1b53b6">TShaderRefBase::GetShader</a></div><div class="ttdeci">FORCEINLINE ShaderType * GetShader() const</div><div class="ttdef"><b>Definition</b> Shader.h:214</div></div>
+<div class="ttc" id="aclass_t_shader_ref_base_html_ad7b4c08a1b3a280c45109af8e7a0c112"><div class="ttname"><a href="../../d5/d77/class_t_shader_ref_base.html#ad7b4c08a1b3a280c45109af8e7a0c112">TShaderRefBase::TShaderRefBase</a></div><div class="ttdeci">TShaderRefBase()</div><div class="ttdef"><b>Definition</b> Shader.h:209</div></div>
 <div class="ttc" id="astruct_f_shader_bounds_html"><div class="ttname"><a href="../../d8/df6/struct_f_shader_bounds.html">FShaderBounds</a></div><div class="ttdef"><b>Definition</b> ShaderCore.h:94</div></div>
 <div class="ttc" id="astruct_f_shader_compiled_initializer_type_html"><div class="ttname"><a href="../../d3/d35/struct_f_shader_compiled_initializer_type.html">FShaderCompiledInitializerType</a></div><div class="ttdef"><b>Definition</b> Shader.h:111</div></div>
 <div class="ttc" id="astruct_f_shader_compiled_initializer_type_html_a27b6f08364ac87c358a1bba1efaa6592"><div class="ttname"><a href="../../d3/d35/struct_f_shader_compiled_initializer_type.html#a27b6f08364ac87c358a1bba1efaa6592">FShaderCompiledInitializerType::Parameters</a></div><div class="ttdeci">const FShaderType::FParameters * Parameters</div><div class="ttdef"><b>Definition</b> Shader.h:113</div></div>
 <div class="ttc" id="astruct_f_shader_compiled_initializer_type_html_a3c34b1fe1a843c7d114361349a0cab92"><div class="ttname"><a href="../../d3/d35/struct_f_shader_compiled_initializer_type.html#a3c34b1fe1a843c7d114361349a0cab92">FShaderCompiledInitializerType::Code</a></div><div class="ttdeci">const TArray&lt; uint8 &gt; &amp; Code</div><div class="ttdef"><b>Definition</b> Shader.h:114</div></div>
 <div class="ttc" id="astruct_f_shader_compiled_initializer_type_html_a3ede4644ebedaefd624d1a19c8d9e9b4"><div class="ttname"><a href="../../d3/d35/struct_f_shader_compiled_initializer_type.html#a3ede4644ebedaefd624d1a19c8d9e9b4">FShaderCompiledInitializerType::Type</a></div><div class="ttdeci">const FShaderType * Type</div><div class="ttdef"><b>Definition</b> Shader.h:112</div></div>
-<div class="ttc" id="astruct_f_shader_map_resource_code_1_1_f_shader_entry_html"><div class="ttname"><a href="../../dc/d03/struct_f_shader_map_resource_code_1_1_f_shader_entry.html">FShaderMapResourceCode::FShaderEntry</a></div><div class="ttdef"><b>Definition</b> Shader.h:168</div></div>
-<div class="ttc" id="astruct_f_shader_map_resource_code_1_1_f_shader_entry_html_a2c3cadc688670864f12e41c858e86092"><div class="ttname"><a href="../../dc/d03/struct_f_shader_map_resource_code_1_1_f_shader_entry.html#a2c3cadc688670864f12e41c858e86092">FShaderMapResourceCode::FShaderEntry::Code</a></div><div class="ttdeci">TArray&lt; uint8 &gt; Code</div><div class="ttdef"><b>Definition</b> Shader.h:169</div></div>
-<div class="ttc" id="astruct_f_shader_map_resource_code_1_1_f_shader_entry_html_a6a9f5f5e5cab5cfa105a26138b520c76"><div class="ttname"><a href="../../dc/d03/struct_f_shader_map_resource_code_1_1_f_shader_entry.html#a6a9f5f5e5cab5cfa105a26138b520c76">FShaderMapResourceCode::FShaderEntry::ShaderType</a></div><div class="ttdeci">EShaderType ShaderType</div><div class="ttdef"><b>Definition</b> Shader.h:170</div></div>
+<div class="ttc" id="astruct_f_shader_map_resource_code_1_1_f_shader_entry_html"><div class="ttname"><a href="../../dc/d03/struct_f_shader_map_resource_code_1_1_f_shader_entry.html">FShaderMapResourceCode::FShaderEntry</a></div><div class="ttdef"><b>Definition</b> Shader.h:164</div></div>
+<div class="ttc" id="astruct_f_shader_map_resource_code_1_1_f_shader_entry_html_a2c3cadc688670864f12e41c858e86092"><div class="ttname"><a href="../../dc/d03/struct_f_shader_map_resource_code_1_1_f_shader_entry.html#a2c3cadc688670864f12e41c858e86092">FShaderMapResourceCode::FShaderEntry::Code</a></div><div class="ttdeci">TArray&lt; uint8 &gt; Code</div><div class="ttdef"><b>Definition</b> Shader.h:165</div></div>
+<div class="ttc" id="astruct_f_shader_map_resource_code_1_1_f_shader_entry_html_a6a9f5f5e5cab5cfa105a26138b520c76"><div class="ttname"><a href="../../dc/d03/struct_f_shader_map_resource_code_1_1_f_shader_entry.html#a6a9f5f5e5cab5cfa105a26138b520c76">FShaderMapResourceCode::FShaderEntry::ShaderType</a></div><div class="ttdeci">EShaderType ShaderType</div><div class="ttdef"><b>Definition</b> Shader.h:166</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

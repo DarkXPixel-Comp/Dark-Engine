@@ -62,71 +62,74 @@
 \DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_d3_d12_state_cache_a6038f875f3e2c9e2c43de1d5861a0af6}{SetStreamSource}}(\mbox{\hyperlink{class_f_d3_d12_resource_location}{FD3D12ResourceLocation}}*\ VertexBufferLocation,\ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ StreamIndex,\ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ Offset,\ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ Stride\ =\ 0);}
 \DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_d3_d12_state_cache_ac944694b740719b1a7be4f7123ff16ab}{SetIndexBuffer}}(\mbox{\hyperlink{class_f_d3_d12_resource_location}{FD3D12ResourceLocation}}*\ IndexBufferLocation,\ DXGI\_FORMAT\ Format,\ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ Offset);}
 \DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_d3_d12_state_cache_a063592e273cd58197de1e7a1c8b93309}{SetRenderTargets}}(\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ NumRenderTargets,\ \textcolor{keyword}{class}\ \mbox{\hyperlink{class_f_d3_d12_render_target_view}{FD3D12RenderTargetView}}**\ RTArray,\ \textcolor{keyword}{class}\ \mbox{\hyperlink{class_f_d3_d12_depth_stencil_view}{FD3D12DepthStencilView}}*\ DSTarget);}
-\DoxyCodeLine{00061\ }
-\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_d3_d12_state_cache_acdf0dc1386cb89f997be64ddb4cf0691}{ApplyState}}(\textcolor{keywordtype}{bool}\ bIsCompute\ =\ \textcolor{keyword}{false});}
-\DoxyCodeLine{00063\ }
-\DoxyCodeLine{00064\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keyword}{struct}}
-\DoxyCodeLine{00066\ \ \ \ \ \{}
-\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct}}
-\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ TRefCountPtr<class\ FD3D12GraphicsPipelineState>\ \mbox{\hyperlink{class_f_d3_d12_state_cache_ad8e3ea178cd7d9f07db9fc1cec5426cb}{CurrentPipelineStateObject}}\ =\ \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{00070\ }
-\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_f_d3_d12_render_target_view}{FD3D12RenderTargetView}}*\ \mbox{\hyperlink{class_f_d3_d12_state_cache_a6d20ce8969726ab333847aea8d98a924}{RenderTargetArray}}[8];}
-\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ \mbox{\hyperlink{class_f_d3_d12_state_cache_a205401a9ec09ae2eb2ff9fc2d0eea005}{CurrentNumberRenderTargets}}\ =\ 0;}
-\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_f_d3_d12_depth_stencil_view}{FD3D12DepthStencilView}}*\ \mbox{\hyperlink{class_f_d3_d12_state_cache_abd998ef83ca758b391be0ab2340def56}{CurrentDepthStencilTarget}};}
-\DoxyCodeLine{00074\ }
-\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_f_d3_d12_state_cache_a45055b8c35a73f84ec23026b465b8db5}{bNeedSetRootSignature}}\ =\ \textcolor{keyword}{true};}
-\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_r_h_i_defines_8h_af5bd84af81d7da8da271f976754778e0}{EPrimitiveType}}\ \mbox{\hyperlink{class_f_d3_d12_state_cache_ac179274088109493deda87f8a91eb911}{PrimitiveType}};}
-\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ D3D\_PRIMITIVE\_TOPOLOGY\ \mbox{\hyperlink{class_f_d3_d12_state_cache_af3adcd83cc61ba3fb00f38cde6f0d72a}{PrimitiveTopology}};}
-\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_f_d3_d12_vertex_buffer_cache}{FD3D12VertexBufferCache}}\ \mbox{\hyperlink{class_f_d3_d12_state_cache_af480dfca3926bbadf084d3e4c7a64d18}{VBCache}};}
-\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_f_d3_d12_index_buffer_cache}{FD3D12IndexBufferCache}}\ \mbox{\hyperlink{class_f_d3_d12_state_cache_a0a9d9793880ec2418704d0715fe68857}{IBCache}};}
-\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ \mbox{\hyperlink{class_f_d3_d12_state_cache_a0ce4f8978d63eaa2fb9a97ebae39ce8b}{PrimitiveTypeFactor}};}
-\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ \mbox{\hyperlink{class_f_d3_d12_state_cache_ab08f97e9ee0daf5c10b603050f03e53b}{PrimitiveTypeOffset}};}
-\DoxyCodeLine{00082\ }
-\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ \mbox{\hyperlink{class_f_d3_d12_state_cache_a29572189703329cb79f129fcfad48d00}{CurrentNumberViewports}}\ =\ 0;}
-\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ D3D12\_VIEWPORT\ \mbox{\hyperlink{class_f_d3_d12_state_cache_a69240c1fbcf3468cc14c95da0e3f53bb}{CurrentViewport}}[16];}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_d3_d12_state_cache_a33cb5e2d29d543a70a617258419928c4}{SetViewport}}(\textcolor{keywordtype}{float}\ MinX,\ \textcolor{keywordtype}{float}\ MinY,\ \textcolor{keywordtype}{float}\ MinZ,\ \textcolor{keywordtype}{float}\ MaxX,\ \textcolor{keywordtype}{float}\ MaxY,\ \textcolor{keywordtype}{float}\ MaxZ);}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_d3_d12_state_cache_acdf0dc1386cb89f997be64ddb4cf0691}{ApplyState}}(\textcolor{keywordtype}{bool}\ bIsCompute\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_d3_d12_state_cache_a6723314b3eb8675ee1504b97e8ef6e24}{DirtyStateForNewCommandList}}();}
+\DoxyCodeLine{00067\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00069\ \ \ \ \ \{}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ TRefCountPtr<class\ FD3D12GraphicsPipelineState>\ \mbox{\hyperlink{class_f_d3_d12_state_cache_ad8e3ea178cd7d9f07db9fc1cec5426cb}{CurrentPipelineStateObject}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_f_d3_d12_render_target_view}{FD3D12RenderTargetView}}*\ \mbox{\hyperlink{class_f_d3_d12_state_cache_a6d20ce8969726ab333847aea8d98a924}{RenderTargetArray}}[8];}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ \mbox{\hyperlink{class_f_d3_d12_state_cache_a205401a9ec09ae2eb2ff9fc2d0eea005}{CurrentNumberRenderTargets}}\ =\ 0;}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_f_d3_d12_depth_stencil_view}{FD3D12DepthStencilView}}*\ \mbox{\hyperlink{class_f_d3_d12_state_cache_abd998ef83ca758b391be0ab2340def56}{CurrentDepthStencilTarget}};}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_f_d3_d12_state_cache_a45055b8c35a73f84ec23026b465b8db5}{bNeedSetRootSignature}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_r_h_i_defines_8h_af5bd84af81d7da8da271f976754778e0}{EPrimitiveType}}\ \mbox{\hyperlink{class_f_d3_d12_state_cache_ac179274088109493deda87f8a91eb911}{PrimitiveType}};}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ D3D\_PRIMITIVE\_TOPOLOGY\ \mbox{\hyperlink{class_f_d3_d12_state_cache_af3adcd83cc61ba3fb00f38cde6f0d72a}{PrimitiveTopology}};}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_f_d3_d12_vertex_buffer_cache}{FD3D12VertexBufferCache}}\ \mbox{\hyperlink{class_f_d3_d12_state_cache_af480dfca3926bbadf084d3e4c7a64d18}{VBCache}};}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_f_d3_d12_index_buffer_cache}{FD3D12IndexBufferCache}}\ \mbox{\hyperlink{class_f_d3_d12_state_cache_a0a9d9793880ec2418704d0715fe68857}{IBCache}};}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ \mbox{\hyperlink{class_f_d3_d12_state_cache_a0ce4f8978d63eaa2fb9a97ebae39ce8b}{PrimitiveTypeFactor}};}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ \mbox{\hyperlink{class_f_d3_d12_state_cache_ab08f97e9ee0daf5c10b603050f03e53b}{PrimitiveTypeOffset}};}
 \DoxyCodeLine{00085\ }
-\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \}\ \mbox{\hyperlink{class_f_d3_d12_state_cache_a765df3820d70d9d559568b5518500d92}{Graphics}};}
-\DoxyCodeLine{00087\ }
-\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct}}
-\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ \mbox{\hyperlink{class_f_d3_d12_state_cache_a29572189703329cb79f129fcfad48d00}{CurrentNumberViewports}}\ =\ 0;}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ D3D12\_VIEWPORT\ \mbox{\hyperlink{class_f_d3_d12_state_cache_a69240c1fbcf3468cc14c95da0e3f53bb}{CurrentViewport}}[16];}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \}\ \mbox{\hyperlink{class_f_d3_d12_state_cache_a765df3820d70d9d559568b5518500d92}{Graphics}};}
 \DoxyCodeLine{00090\ }
-\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \}\ \mbox{\hyperlink{class_f_d3_d12_state_cache_a31b71dbd63df07b93d3dd4f4479d6934}{Compute}};}
-\DoxyCodeLine{00092\ }
-\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct}}
-\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ TRefCountPtr<ID3D12PipelineState>\ \mbox{\hyperlink{class_f_d3_d12_state_cache_a641d8d8b5a93d793740c4470e09f375e}{CurrentPipelineState}};}
-\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_f_d3_d12_state_cache_a586ebc6955e8b3e354268c418ee8fd6e}{bNeedSetPSO}};}
-\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ \mbox{\hyperlink{class_f_d3_d12_state_cache_a8890e8f1d82897e920a36b757a3654ff}{CurrentShaderSamplerCount}}[\mbox{\hyperlink{_r_h_i_defines_8h_a89725d5f41ceac2e574ddc988f06775ea4fae784dad21e1f04799045f97c79662}{ST\_NumStandartTypes}}]\ =\ \{\};}
-\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ \mbox{\hyperlink{class_f_d3_d12_state_cache_ad0f4e434817cfdf51c2d4ffba17d61ee}{CurrentShaderCBVCount}}[\mbox{\hyperlink{_r_h_i_defines_8h_a89725d5f41ceac2e574ddc988f06775ea4fae784dad21e1f04799045f97c79662}{ST\_NumStandartTypes}}]\ =\ \{\};}
-\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ \mbox{\hyperlink{class_f_d3_d12_state_cache_aaf5f64360b94f53b2d1d61dd123d17e5}{CurrentShaderSRVCount}}[\mbox{\hyperlink{_r_h_i_defines_8h_a89725d5f41ceac2e574ddc988f06775ea4fae784dad21e1f04799045f97c79662}{ST\_NumStandartTypes}}]\ =\ \{\};}
-\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ \mbox{\hyperlink{class_f_d3_d12_state_cache_aff5cac7b956ad4d5a980e7d1f401cbe7}{CurrentShaderUAVCount}}[\mbox{\hyperlink{_r_h_i_defines_8h_a89725d5f41ceac2e574ddc988f06775ea4fae784dad21e1f04799045f97c79662}{ST\_NumStandartTypes}}]\ =\ \{\};}
-\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00102\ }
-\DoxyCodeLine{00103\ }
-\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \}\ \mbox{\hyperlink{class_f_d3_d12_state_cache_a31b71dbd63df07b93d3dd4f4479d6934}{Compute}};}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ TRefCountPtr<ID3D12PipelineState>\ \mbox{\hyperlink{class_f_d3_d12_state_cache_a641d8d8b5a93d793740c4470e09f375e}{CurrentPipelineState}};}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_f_d3_d12_state_cache_a586ebc6955e8b3e354268c418ee8fd6e}{bNeedSetPSO}};}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ \mbox{\hyperlink{class_f_d3_d12_state_cache_a8890e8f1d82897e920a36b757a3654ff}{CurrentShaderSamplerCount}}[\mbox{\hyperlink{_r_h_i_defines_8h_a89725d5f41ceac2e574ddc988f06775ea4fae784dad21e1f04799045f97c79662}{ST\_NumStandartTypes}}]\ =\ \{\};}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ \mbox{\hyperlink{class_f_d3_d12_state_cache_ad0f4e434817cfdf51c2d4ffba17d61ee}{CurrentShaderCBVCount}}[\mbox{\hyperlink{_r_h_i_defines_8h_a89725d5f41ceac2e574ddc988f06775ea4fae784dad21e1f04799045f97c79662}{ST\_NumStandartTypes}}]\ =\ \{\};}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ \mbox{\hyperlink{class_f_d3_d12_state_cache_aaf5f64360b94f53b2d1d61dd123d17e5}{CurrentShaderSRVCount}}[\mbox{\hyperlink{_r_h_i_defines_8h_a89725d5f41ceac2e574ddc988f06775ea4fae784dad21e1f04799045f97c79662}{ST\_NumStandartTypes}}]\ =\ \{\};}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ \mbox{\hyperlink{class_f_d3_d12_state_cache_aff5cac7b956ad4d5a980e7d1f401cbe7}{CurrentShaderUAVCount}}[\mbox{\hyperlink{_r_h_i_defines_8h_a89725d5f41ceac2e574ddc988f06775ea4fae784dad21e1f04799045f97c79662}{ST\_NumStandartTypes}}]\ =\ \{\};}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ }
 \DoxyCodeLine{00105\ }
-\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \}\ \mbox{\hyperlink{class_f_d3_d12_state_cache_a219f7d10ea827e7b5259b62335378f56}{Common}};}
-\DoxyCodeLine{00107\ \ \ \ \ \}\ PipelineState;}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ }
 \DoxyCodeLine{00108\ }
-\DoxyCodeLine{00109\ }
-\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keywordtype}{bool}\ bNeedSetPrimitiveTopology\ =\ \textcolor{keyword}{true};}
-\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keywordtype}{bool}\ bNeedSetVB\ =\ \textcolor{keyword}{true};}
-\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keywordtype}{bool}\ bNeedSetRTs\ =\ \textcolor{keyword}{true};}
-\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keywordtype}{bool}\ bNeedSetViewports\ =\ \textcolor{keyword}{true};}
-\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keywordtype}{bool}\ bNeedSetScissorRect\ =\ \textcolor{keyword}{true};}
-\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keywordtype}{bool}\ bNeedSetBlendFactor\ =\ \textcolor{keyword}{true};}
-\DoxyCodeLine{00116\ }
-\DoxyCodeLine{00117\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00118\ \ \ \ \ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ \mbox{\hyperlink{class_f_d3_d12_state_cache_ac3cc4c1e0ee85140b5624ade92c8d42b}{GetVertexCount}}(\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ NumPrimitives)\textcolor{keyword}{\ const}}
-\DoxyCodeLine{00119\ \textcolor{keyword}{\ \ \ \ }\{}
-\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ NumPrimitives\ *\ PipelineState.Graphics.PrimitiveTypeFactor\ +\ PipelineState.Graphics.PrimitiveTypeOffset;}
-\DoxyCodeLine{00121\ \ \ \ \ \}}
-\DoxyCodeLine{00122\ }
-\DoxyCodeLine{00123\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00124\ \ \ \ \ \mbox{\hyperlink{class_f_d3_d12_command_context}{FD3D12CommandContext}}\&\ Context;}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \}\ \mbox{\hyperlink{class_f_d3_d12_state_cache_a219f7d10ea827e7b5259b62335378f56}{Common}};}
+\DoxyCodeLine{00110\ \ \ \ \ \}\ PipelineState;}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keywordtype}{bool}\ bNeedSetPrimitiveTopology\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keywordtype}{bool}\ bNeedSetVB\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keywordtype}{bool}\ bNeedSetRTs\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keywordtype}{bool}\ bNeedSetViewports\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordtype}{bool}\ bNeedSetScissorRect\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keywordtype}{bool}\ bNeedSetBlendFactor\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00121\ \ \ \ \ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ \mbox{\hyperlink{class_f_d3_d12_state_cache_ac3cc4c1e0ee85140b5624ade92c8d42b}{GetVertexCount}}(\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ NumPrimitives)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00122\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ NumPrimitives\ *\ PipelineState.Graphics.PrimitiveTypeFactor\ +\ PipelineState.Graphics.PrimitiveTypeOffset;}
+\DoxyCodeLine{00124\ \ \ \ \ \}}
 \DoxyCodeLine{00125\ }
-\DoxyCodeLine{00126\ \};}
+\DoxyCodeLine{00126\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00127\ \ \ \ \ \mbox{\hyperlink{class_f_d3_d12_command_context}{FD3D12CommandContext}}\&\ Context;}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00129\ \};}
 
 \end{DoxyCode}

@@ -360,3 +360,9 @@ FD3D12CommandContext::FD3D12CommandContext(FD3D12Device* InParent, ED3D12QueueTy
 {
 
 }
+
+void FD3D12CommandContext::CloseCommandList()
+{
+	FD3D12ContextCommon::CloseCommandList();
+	StateCache.DirtyStateForNewCommandList();
+}

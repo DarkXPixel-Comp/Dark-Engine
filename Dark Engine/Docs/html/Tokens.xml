@@ -1031,24 +1031,6 @@
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>FDiffuseIndirectCompositePS</Name>
-      <APILanguage>c</APILanguage>
-      <Type>cl</Type>
-      <Scope>FDiffuseIndirectCompositePS</Scope>
-    </TokenIdentifier>
-    <Path>df/da8/class_f_diffuse_indirect_composite_p_s.html</Path>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>FDiffuseIndirectCompositeVS</Name>
-      <APILanguage>c</APILanguage>
-      <Type>cl</Type>
-      <Scope>FDiffuseIndirectCompositeVS</Scope>
-    </TokenIdentifier>
-    <Path>d0/d36/class_f_diffuse_indirect_composite_v_s.html</Path>
-  </Token>
-  <Token>
-    <TokenIdentifier>
       <Name>FDxcArguments</Name>
       <APILanguage>c</APILanguage>
       <Type>cl</Type>
@@ -1984,6 +1966,25 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>FScreenRectangleIndexBuffer</Name>
+      <APILanguage>c</APILanguage>
+      <Type>cl</Type>
+      <Scope>FScreenRectangleIndexBuffer</Scope>
+    </TokenIdentifier>
+    <Path>d5/dcd/class_f_screen_rectangle_index_buffer.html</Path>
+    <DeclaredIn>CommonRenderResources.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>FScreenRectanglePS</Name>
+      <APILanguage>c</APILanguage>
+      <Type>cl</Type>
+      <Scope>FScreenRectanglePS</Scope>
+    </TokenIdentifier>
+    <Path>d3/df8/class_f_screen_rectangle_p_s.html</Path>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>FScreenRectangleVertexBuffer</Name>
       <APILanguage>c</APILanguage>
       <Type>cl</Type>
@@ -1991,6 +1992,15 @@
     </TokenIdentifier>
     <Path>d5/db0/class_f_screen_rectangle_vertex_buffer.html</Path>
     <DeclaredIn>CommonRenderResources.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>FScreenRectangleVS</Name>
+      <APILanguage>c</APILanguage>
+      <Type>cl</Type>
+      <Scope>FScreenRectangleVS</Scope>
+    </TokenIdentifier>
+    <Path>d6/da9/class_f_screen_rectangle_v_s.html</Path>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -5568,16 +5578,6 @@
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>AmplificationShader</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>data</Type>
-      <Scope>FD3D12_GRAPHICS_PIPELINE_STATE_DESC</Scope>
-    </TokenIdentifier>
-    <Path>d1/d3e/struct_f_d3_d12___g_r_a_p_h_i_c_s___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c.html</Path>
-    <Anchor>ac6bb20c4309f5eb707270a8793e729e5</Anchor>
-  </Token>
-  <Token>
-    <TokenIdentifier>
       <Name>Ansi</Name>
       <APILanguage>cpp</APILanguage>
       <Type>econst</Type>
@@ -8351,6 +8351,17 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>CloseCommandList</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FD3D12CommandContext</Scope>
+    </TokenIdentifier>
+    <Path>d3/d12/class_f_d3_d12_command_context.html</Path>
+    <Anchor>a556817c3c3ba75da49173a06c675f13f</Anchor>
+    <DeclaredIn>D3D12CommandContext.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>CloseWidget</Name>
       <APILanguage>cpp</APILanguage>
       <Type>instm</Type>
@@ -10119,13 +10130,23 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>DepthFormat</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>FGraphicsPipelineStateInitializer</Scope>
+    </TokenIdentifier>
+    <Path>d2/d2e/class_f_graphics_pipeline_state_initializer.html</Path>
+    <Anchor>a8d2054736e0df678696a5f0cc9267fdd</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>DepthState</Name>
       <APILanguage>cpp</APILanguage>
       <Type>data</Type>
       <Scope>FD3D12_GRAPHICS_PIPELINE_STATE_DESC</Scope>
     </TokenIdentifier>
     <Path>d1/d3e/struct_f_d3_d12___g_r_a_p_h_i_c_s___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c.html</Path>
-    <Anchor>a8258a54c3dacec693847ca5379c09701</Anchor>
+    <Anchor>a97fd1e378ccb3af180f03f5cf600d083</Anchor>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -10479,13 +10500,14 @@
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>DomainShader</Name>
+      <Name>DirtyStateForNewCommandList</Name>
       <APILanguage>cpp</APILanguage>
-      <Type>data</Type>
-      <Scope>FD3D12_GRAPHICS_PIPELINE_STATE_DESC</Scope>
+      <Type>instm</Type>
+      <Scope>FD3D12StateCache</Scope>
     </TokenIdentifier>
-    <Path>d1/d3e/struct_f_d3_d12___g_r_a_p_h_i_c_s___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c.html</Path>
-    <Anchor>abc0c87916024428491ec77bc9af676e0</Anchor>
+    <Path>d3/dfd/class_f_d3_d12_state_cache.html</Path>
+    <Anchor>a6723314b3eb8675ee1504b97e8ef6e24</Anchor>
+    <DeclaredIn>D3D12StateCache.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -10798,6 +10820,17 @@
     <Path>d6/d77/class_u_i_widget_test.html</Path>
     <Anchor>afbe5da8458ef405adbe0e33f017bbd85</Anchor>
     <DeclaredIn>UIWidgetTest.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>DrawIndexedPrimitive</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FRHICommandList</Scope>
+    </TokenIdentifier>
+    <Path>d9/dfe/class_f_r_h_i_command_list.html</Path>
+    <Anchor>aaeed696e1ebbd58d816ed4d1f5d6584f</Anchor>
+    <DeclaredIn>RHICommandList.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -13570,6 +13603,17 @@
     </TokenIdentifier>
     <Path>d3/d7d/class_f_r_h_i_command_list_immediate.html</Path>
     <Anchor>a50f9e7b35ab88a869506da4bd537d610</Anchor>
+    <DeclaredIn>RHICommandList.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>EndRenderPass</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FRHICommandListImmediate</Scope>
+    </TokenIdentifier>
+    <Path>d3/d7d/class_f_r_h_i_command_list_immediate.html</Path>
+    <Anchor>a60929be617acb368720c6e1d7b6a27e6</Anchor>
     <DeclaredIn>RHICommandList.h</DeclaredIn>
   </Token>
   <Token>
@@ -17382,16 +17426,6 @@
     <Path>d4/dee/class_f_game_timer.html</Path>
     <Anchor>adc2bb7a96c7171efb5bfdeecc4d290ee</Anchor>
     <DeclaredIn>GameTimer.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>GeometryShader</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>data</Type>
-      <Scope>FD3D12_GRAPHICS_PIPELINE_STATE_DESC</Scope>
-    </TokenIdentifier>
-    <Path>d1/d3e/struct_f_d3_d12___g_r_a_p_h_i_c_s___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c.html</Path>
-    <Anchor>a31305655e70181253a15770d8da0ab72</Anchor>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -22676,16 +22710,6 @@
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>HullShader</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>data</Type>
-      <Scope>FD3D12_GRAPHICS_PIPELINE_STATE_DESC</Scope>
-    </TokenIdentifier>
-    <Path>d1/d3e/struct_f_d3_d12___g_r_a_p_h_i_c_s___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c.html</Path>
-    <Anchor>a2783a202945e9cf79dcffcd3361efab4</Anchor>
-  </Token>
-  <Token>
-    <TokenIdentifier>
       <Name>IBCache</Name>
       <APILanguage>cpp</APILanguage>
       <Type>data</Type>
@@ -22696,16 +22720,6 @@
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>id</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>data</Type>
-      <Scope>Bucket</Scope>
-    </TokenIdentifier>
-    <Path>d7/d63/struct_bucket.html</Path>
-    <Anchor>a35bf01619bd418b5e0ef821c266c89f8</Anchor>
-  </Token>
-  <Token>
-    <TokenIdentifier>
       <Name>Id</Name>
       <APILanguage>cpp</APILanguage>
       <Type>data</Type>
@@ -22713,6 +22727,16 @@
     </TokenIdentifier>
     <Path>da/de9/struct_f_console_log.html</Path>
     <Anchor>a5154aa6f1b9d1901d38c201c625cdb5e</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>id</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>Bucket</Scope>
+    </TokenIdentifier>
+    <Path>d7/d63/struct_bucket.html</Path>
+    <Anchor>a35bf01619bd418b5e0ef821c266c89f8</Anchor>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -22777,6 +22801,16 @@
     </TokenIdentifier>
     <Path>d1/d68/class_u_i_widget.html</Path>
     <Anchor>a93b049ac89ded704797806d62b5d288e</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>IndexBuffer</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>FScreenRectangleIndexBuffer</Scope>
+    </TokenIdentifier>
+    <Path>d5/dcd/class_f_screen_rectangle_index_buffer.html</Path>
+    <Anchor>a761fe45c4c13eb4b5ee0bba3de675d9e</Anchor>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -22974,6 +23008,17 @@
     </TokenIdentifier>
     <Path>d5/db0/class_f_screen_rectangle_vertex_buffer.html</Path>
     <Anchor>af801cb25e7746578881518dc3270f6a4</Anchor>
+    <DeclaredIn>CommonRenderResources.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Init</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FScreenRectangleIndexBuffer</Scope>
+    </TokenIdentifier>
+    <Path>d5/dcd/class_f_screen_rectangle_index_buffer.html</Path>
+    <Anchor>ae41dc6d35eecc3941889ac3b46d72560</Anchor>
     <DeclaredIn>CommonRenderResources.h</DeclaredIn>
   </Token>
   <Token>
@@ -24189,6 +24234,17 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>isValid</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FPrimitiveComponentId</Scope>
+    </TokenIdentifier>
+    <Path>dd/d2a/class_f_primitive_component_id.html</Path>
+    <Anchor>a71e533c7907e428f72b6bd8d0594ed75</Anchor>
+    <DeclaredIn>SceneTypes.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>IsValid</Name>
       <APILanguage>cpp</APILanguage>
       <Type>instm</Type>
@@ -24241,17 +24297,6 @@
     <Path>d2/d83/class_f_r_h_i_resource.html</Path>
     <Anchor>ab52bf70d01e6cd87f7f85ad25415ef02</Anchor>
     <DeclaredIn>RHIResources.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>isValid</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>FPrimitiveComponentId</Scope>
-    </TokenIdentifier>
-    <Path>dd/d2a/class_f_primitive_component_id.html</Path>
-    <Anchor>a71e533c7907e428f72b6bd8d0594ed75</Anchor>
-    <DeclaredIn>SceneTypes.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -25714,16 +25759,6 @@
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>Log</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>data</Type>
-      <Scope>FConsoleLog</Scope>
-    </TokenIdentifier>
-    <Path>da/de9/struct_f_console_log.html</Path>
-    <Anchor>a17af02052888cb06293c4ea6eb35bc8d</Anchor>
-  </Token>
-  <Token>
-    <TokenIdentifier>
       <Name>log</Name>
       <APILanguage>cpp</APILanguage>
       <Type>clm</Type>
@@ -25743,6 +25778,16 @@
     <Path>d3/d42/class_logger.html</Path>
     <Anchor>aa6ede5d29daebd92ac39dd6eae6bd483</Anchor>
     <DeclaredIn>Logger.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Log</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>FConsoleLog</Scope>
+    </TokenIdentifier>
+    <Path>da/de9/struct_f_console_log.html</Path>
+    <Anchor>a17af02052888cb06293c4ea6eb35bc8d</Anchor>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -27148,16 +27193,6 @@
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>MeshShader</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>data</Type>
-      <Scope>FD3D12_GRAPHICS_PIPELINE_STATE_DESC</Scope>
-    </TokenIdentifier>
-    <Path>d1/d3e/struct_f_d3_d12___g_r_a_p_h_i_c_s___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c.html</Path>
-    <Anchor>a68d170bb6b4f6787cf148fcbca0cf88a</Anchor>
-  </Token>
-  <Token>
-    <TokenIdentifier>
       <Name>Message</Name>
       <APILanguage>cpp</APILanguage>
       <Type>data</Type>
@@ -27434,16 +27469,6 @@
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>name</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>data</Type>
-      <Scope>D3D12Texture</Scope>
-    </TokenIdentifier>
-    <Path>d3/ddd/class_d3_d12_texture.html</Path>
-    <Anchor>a4639255dd085113bb29ea46914256502</Anchor>
-  </Token>
-  <Token>
-    <TokenIdentifier>
       <Name>Name</Name>
       <APILanguage>cpp</APILanguage>
       <Type>data</Type>
@@ -27477,10 +27502,30 @@
       <Name>Name</Name>
       <APILanguage>cpp</APILanguage>
       <Type>data</Type>
+      <Scope>FVertexElement</Scope>
+    </TokenIdentifier>
+    <Path>df/de9/struct_f_vertex_element.html</Path>
+    <Anchor>a47f67035979af32b877ac404bd09f399</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Name</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
       <Scope>UIWidget</Scope>
     </TokenIdentifier>
     <Path>d1/d68/class_u_i_widget.html</Path>
     <Anchor>a63d8d27e5fa60417b3717fd580ac4715</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>name</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>D3D12Texture</Scope>
+    </TokenIdentifier>
+    <Path>d3/ddd/class_d3_d12_texture.html</Path>
+    <Anchor>a4639255dd085113bb29ea46914256502</Anchor>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -27522,6 +27567,16 @@
     <Path>d9/d94/class_d_editor_engine.html</Path>
     <Anchor>a257c1c3cb904e385f43543986eaef78d</Anchor>
     <DeclaredIn>EditorEngine.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>NodeMask</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>FD3D12_GRAPHICS_PIPELINE_STATE_DESC</Scope>
+    </TokenIdentifier>
+    <Path>d1/d3e/struct_f_d3_d12___g_r_a_p_h_i_c_s___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c.html</Path>
+    <Anchor>ac853681f0ed1ad94aa83375b3935b390</Anchor>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -29583,6 +29638,17 @@
       <Name>operator+</Name>
       <APILanguage>cpp</APILanguage>
       <Type>func</Type>
+      <Scope>DE::Math::TIntPoint</Scope>
+    </TokenIdentifier>
+    <Path>d3/def/struct_d_e_1_1_math_1_1_t_int_point.html</Path>
+    <Anchor>a728ecca521223d1c4a0ce2761a50b2d8</Anchor>
+    <DeclaredIn>IntPoint.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator+</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
       <Scope>DE::Math::TVector</Scope>
     </TokenIdentifier>
     <Path>d6/d11/struct_d_e_1_1_math_1_1_t_vector.html</Path>
@@ -30028,6 +30094,16 @@
     </TokenIdentifier>
     <Path>d6/db1/class_t_array.html</Path>
     <Anchor>a9943c562c03a099c54fc5779928999d4</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator+</Name>
+      <APILanguage>unknown</APILanguage>
+      <Type>instm</Type>
+      <Scope>DE::Math::TIntPoint&lt; int32 &gt;</Scope>
+    </TokenIdentifier>
+    <Path>d3/def/struct_d_e_1_1_math_1_1_t_int_point.html</Path>
+    <Anchor>a728ecca521223d1c4a0ce2761a50b2d8</Anchor>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -36092,6 +36168,17 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>RenderQuad</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FSceneRender</Scope>
+    </TokenIdentifier>
+    <Path>d9/d98/class_f_scene_render.html</Path>
+    <Anchor>a3b0c1052d2b6dd82336010fbcdc0b8f9</Anchor>
+    <DeclaredIn>SceneRendering.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>RenderScene</Name>
       <APILanguage>cpp</APILanguage>
       <Type>instm</Type>
@@ -36143,6 +36230,26 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>RenderTargetFormats</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>FD3D12_GRAPHICS_PIPELINE_STATE_DESC</Scope>
+    </TokenIdentifier>
+    <Path>d1/d3e/struct_f_d3_d12___g_r_a_p_h_i_c_s___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c.html</Path>
+    <Anchor>a1bc9fda01882040bf33e40b5ed29a3d5</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>RenderTargetFormats</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>FGraphicsPipelineStateInitializer</Scope>
+    </TokenIdentifier>
+    <Path>d2/d2e/class_f_graphics_pipeline_state_initializer.html</Path>
+    <Anchor>a728f03f0a7b302bd1b1fb08a0ded404c</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>RenderTargetSize</Name>
       <APILanguage>cpp</APILanguage>
       <Type>data</Type>
@@ -36170,17 +36277,6 @@
     </TokenIdentifier>
     <Path>d6/d36/class_f_d3_d12_texture.html</Path>
     <Anchor>a18c44ef899d4c6385d466dcd24cf3793</Anchor>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>RenderTriangle</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>FSceneRender</Scope>
-    </TokenIdentifier>
-    <Path>d9/d98/class_f_scene_render.html</Path>
-    <Anchor>a29520799a75ec0e4c543a87f08503244</Anchor>
-    <DeclaredIn>SceneRendering.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -37745,6 +37841,17 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>RHIDrawIndexedPrimitive</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>IRHICommandContext</Scope>
+    </TokenIdentifier>
+    <Path>d8/d41/class_i_r_h_i_command_context.html</Path>
+    <Anchor>a7defddc4d40bb54c9fae77b57b462b2c</Anchor>
+    <DeclaredIn>RHIContext.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>RHIEndDrawingViewport</Name>
       <APILanguage>cpp</APILanguage>
       <Type>instm</Type>
@@ -37814,10 +37921,21 @@
       <Name>RHIEndRenderPass</Name>
       <APILanguage>cpp</APILanguage>
       <Type>instm</Type>
+      <Scope>FD3D12CommandContext</Scope>
+    </TokenIdentifier>
+    <Path>d3/d12/class_f_d3_d12_command_context.html</Path>
+    <Anchor>afc1c11b10711d1455f434f75e14aeb06</Anchor>
+    <DeclaredIn>D3D12CommandContext.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>RHIEndRenderPass</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
       <Scope>IRHICommandContext</Scope>
     </TokenIdentifier>
     <Path>d8/d41/class_i_r_h_i_command_context.html</Path>
-    <Anchor>a141c0cabae19528d1852508c70b6d9db</Anchor>
+    <Anchor>a745a4a29a8a3692f9d268a07df2522da</Anchor>
     <DeclaredIn>RHIContext.h</DeclaredIn>
   </Token>
   <Token>
@@ -38157,7 +38275,7 @@
       <Scope>IRHICommandContext</Scope>
     </TokenIdentifier>
     <Path>d8/d41/class_i_r_h_i_command_context.html</Path>
-    <Anchor>ae672c0454fad64b877f50c8fe7661f77</Anchor>
+    <Anchor>aa0b576b0c387de3588a9137555593c74</Anchor>
     <DeclaredIn>RHIContext.h</DeclaredIn>
   </Token>
   <Token>
@@ -39784,6 +39902,17 @@
     <Path>d2/d83/class_f_r_h_i_resource.html</Path>
     <Anchor>acf6a7d025a3f7d093609730cae8668e9</Anchor>
     <DeclaredIn>RHIResources.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>SetViewport</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FD3D12StateCache</Scope>
+    </TokenIdentifier>
+    <Path>d3/dfd/class_f_d3_d12_state_cache.html</Path>
+    <Anchor>a33cb5e2d29d543a70a617258419928c4</Anchor>
+    <DeclaredIn>D3D12StateCache.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -44365,17 +44494,6 @@
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>TruncToInt64</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>FGenericPlatformMath</Scope>
-    </TokenIdentifier>
-    <Path>d9/d78/struct_f_generic_platform_math.html</Path>
-    <Anchor>a38f0dab69a3b9e33871e15f1e6704668</Anchor>
-    <DeclaredIn>GenericPlatformMath.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
       <Name>TruncToInT64</Name>
       <APILanguage>cpp</APILanguage>
       <Type>func</Type>
@@ -44394,6 +44512,17 @@
     </TokenIdentifier>
     <Path>d0/d71/struct_t_dark_platform_math_s_s_e_base.html</Path>
     <Anchor>acb1cba973da604de5cfc426ffd9b0675</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>TruncToInt64</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>FGenericPlatformMath</Scope>
+    </TokenIdentifier>
+    <Path>d9/d78/struct_f_generic_platform_math.html</Path>
+    <Anchor>a38f0dab69a3b9e33871e15f1e6704668</Anchor>
+    <DeclaredIn>GenericPlatformMath.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -44771,16 +44900,6 @@
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>type</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>tdef</Type>
-      <Scope>TEnableIf&lt; true, Result &gt;</Scope>
-    </TokenIdentifier>
-    <Path>d8/dd5/class_t_enable_if_3_01true_00_01_result_01_4.html</Path>
-    <Anchor>a69d174eff78896a8fe2cabef77067db7</Anchor>
-  </Token>
-  <Token>
-    <TokenIdentifier>
       <Name>Type</Name>
       <APILanguage>cpp</APILanguage>
       <Type>tdef</Type>
@@ -44998,6 +45117,16 @@
     </TokenIdentifier>
     <Path>df/de9/struct_f_vertex_element.html</Path>
     <Anchor>acc9f01e6db044393262c85f8f7a181f9</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>type</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>tdef</Type>
+      <Scope>TEnableIf&lt; true, Result &gt;</Scope>
+    </TokenIdentifier>
+    <Path>d8/dd5/class_t_enable_if_3_01true_00_01_result_01_4.html</Path>
+    <Anchor>a69d174eff78896a8fe2cabef77067db7</Anchor>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -45381,6 +45510,16 @@
     </TokenIdentifier>
     <Path>d8/df6/struct_f_shader_bounds.html</Path>
     <Anchor>a589a5029efee46a1ea4d5806035f597f</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>UnscaledRect</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>FSceneView</Scope>
+    </TokenIdentifier>
+    <Path>d6/d2c/class_f_scene_view.html</Path>
+    <Anchor>af9b859ae1c7565730ef01fb8aa0b919a</Anchor>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -46410,6 +46549,16 @@
       <Name>ViewportSize</Name>
       <APILanguage>cpp</APILanguage>
       <Type>data</Type>
+      <Scope>FViewport</Scope>
+    </TokenIdentifier>
+    <Path>d1/d29/class_f_viewport.html</Path>
+    <Anchor>a12011ddb1544378e270c70e71bb96a79</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>ViewportSize</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
       <Scope>UIViewport</Scope>
     </TokenIdentifier>
     <Path>d1/d5e/class_u_i_viewport.html</Path>
@@ -46444,6 +46593,16 @@
     </TokenIdentifier>
     <Path>d1/dd0/class_f_u_i_renderer.html</Path>
     <Anchor>adc125743d3af78b188f1c0946c047512</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>w</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>FColor</Scope>
+    </TokenIdentifier>
+    <Path>d8/dce/struct_f_color.html</Path>
+    <Anchor>a998a694735b84f6fbb4522df4ae25f24</Anchor>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -46485,16 +46644,6 @@
     </TokenIdentifier>
     <Path>d1/de1/struct_d_e_1_1_math_1_1_t_vector4.html</Path>
     <Anchor>a3a6a0f9d3c9fbefc416d27b9f5d5a1e9</Anchor>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>w</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>data</Type>
-      <Scope>FColor</Scope>
-    </TokenIdentifier>
-    <Path>d8/dce/struct_f_color.html</Path>
-    <Anchor>a998a694735b84f6fbb4522df4ae25f24</Anchor>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -46623,6 +46772,26 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>x</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>FColor</Scope>
+    </TokenIdentifier>
+    <Path>d8/dce/struct_f_color.html</Path>
+    <Anchor>aa8703df011a6c53bd113f76fc2c64bbe</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>x</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>FColor3</Scope>
+    </TokenIdentifier>
+    <Path>d6/d70/struct_f_color3.html</Path>
+    <Anchor>a3b7bfa688b339998094c043280ed7a80</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>X</Name>
       <APILanguage>cpp</APILanguage>
       <Type>data</Type>
@@ -46720,26 +46889,6 @@
     </TokenIdentifier>
     <Path>d1/de1/struct_d_e_1_1_math_1_1_t_vector4.html</Path>
     <Anchor>a14fe27ff8e193d0e85f14e11c6846a70</Anchor>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>x</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>data</Type>
-      <Scope>FColor</Scope>
-    </TokenIdentifier>
-    <Path>d8/dce/struct_f_color.html</Path>
-    <Anchor>aa8703df011a6c53bd113f76fc2c64bbe</Anchor>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>x</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>data</Type>
-      <Scope>FColor3</Scope>
-    </TokenIdentifier>
-    <Path>d6/d70/struct_f_color3.html</Path>
-    <Anchor>a3b7bfa688b339998094c043280ed7a80</Anchor>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -46883,26 +47032,6 @@
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>y</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>data</Type>
-      <Scope>FColor</Scope>
-    </TokenIdentifier>
-    <Path>d8/dce/struct_f_color.html</Path>
-    <Anchor>ac04b510a872b3ecf29884edd7d03d937</Anchor>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>y</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>data</Type>
-      <Scope>FColor3</Scope>
-    </TokenIdentifier>
-    <Path>d6/d70/struct_f_color3.html</Path>
-    <Anchor>a76c4d1b797e75202fc02026617be3307</Anchor>
-  </Token>
-  <Token>
-    <TokenIdentifier>
       <Name>Y</Name>
       <APILanguage>cpp</APILanguage>
       <Type>data</Type>
@@ -47003,6 +47132,26 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>y</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>FColor</Scope>
+    </TokenIdentifier>
+    <Path>d8/dce/struct_f_color.html</Path>
+    <Anchor>ac04b510a872b3ecf29884edd7d03d937</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>y</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>FColor3</Scope>
+    </TokenIdentifier>
+    <Path>d6/d70/struct_f_color3.html</Path>
+    <Anchor>a76c4d1b797e75202fc02026617be3307</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>Yaw</Name>
       <APILanguage>cpp</APILanguage>
       <Type>data</Type>
@@ -47063,6 +47212,26 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>z</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>FColor</Scope>
+    </TokenIdentifier>
+    <Path>d8/dce/struct_f_color.html</Path>
+    <Anchor>ad1874857a9dec366c4d7fb531c4d9eeb</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>z</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>FColor3</Scope>
+    </TokenIdentifier>
+    <Path>d6/d70/struct_f_color3.html</Path>
+    <Anchor>a7c5b8654d1ad8327826db4601828a5c0</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>Z</Name>
       <APILanguage>cpp</APILanguage>
       <Type>data</Type>
@@ -47110,26 +47279,6 @@
     </TokenIdentifier>
     <Path>d1/de1/struct_d_e_1_1_math_1_1_t_vector4.html</Path>
     <Anchor>adc84918d9f2c6abfd6a626d2e0fd813e</Anchor>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>z</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>data</Type>
-      <Scope>FColor</Scope>
-    </TokenIdentifier>
-    <Path>d8/dce/struct_f_color.html</Path>
-    <Anchor>ad1874857a9dec366c4d7fb531c4d9eeb</Anchor>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>z</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>data</Type>
-      <Scope>FColor3</Scope>
-    </TokenIdentifier>
-    <Path>d6/d70/struct_f_color3.html</Path>
-    <Anchor>a7c5b8654d1ad8327826db4601828a5c0</Anchor>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -47736,16 +47885,6 @@
     </TokenIdentifier>
     <Path>d6/d5e/_definitions_8h.html</Path>
     <Anchor>a78880e1abcefc90f14185aee93ad0e20</Anchor>
-    <DeclaredIn>Definitions.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>_WIN32_WINNT</Name>
-      <APILanguage>unknown</APILanguage>
-      <Type>macro</Type>
-    </TokenIdentifier>
-    <Path>d6/d5e/_definitions_8h.html</Path>
-    <Anchor>ac50762666aa00bd3a4308158510f1748</Anchor>
     <DeclaredIn>Definitions.h</DeclaredIn>
   </Token>
   <Token>
@@ -52588,22 +52727,22 @@
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>FVector2D</Name>
-      <APILanguage>c</APILanguage>
-      <Type>tdef</Type>
-    </TokenIdentifier>
-    <Path>d0/df6/_math_fwd_8h.html</Path>
-    <Anchor>a37d063b0aaf05e8e7934ce3c52b620c0</Anchor>
-    <DeclaredIn>MathFwd.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
       <Name>FVector2d</Name>
       <APILanguage>c</APILanguage>
       <Type>tdef</Type>
     </TokenIdentifier>
     <Path>d0/df6/_math_fwd_8h.html</Path>
     <Anchor>a7bf4c85bf5b046ebc35f03e0e8c2cef7</Anchor>
+    <DeclaredIn>MathFwd.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>FVector2D</Name>
+      <APILanguage>c</APILanguage>
+      <Type>tdef</Type>
+    </TokenIdentifier>
+    <Path>d0/df6/_math_fwd_8h.html</Path>
+    <Anchor>a37d063b0aaf05e8e7934ce3c52b620c0</Anchor>
     <DeclaredIn>MathFwd.h</DeclaredIn>
   </Token>
   <Token>
@@ -52999,6 +53138,16 @@
     <Path>d5/d0d/_windows_d3_d12_device_8cpp.html</Path>
     <Anchor>aa9b74deba1a2be09d8a9bb2a8ed7f1ae</Anchor>
     <DeclaredIn>WindowsD3D12Device.cpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>GetRTFormatArray</Name>
+      <APILanguage>c</APILanguage>
+      <Type>func</Type>
+    </TokenIdentifier>
+    <Path>db/d2a/_d3_d12_pipeline_state_8cpp.html</Path>
+    <Anchor>a85ecd59a21d8fccc9a01e94a617395f8</Anchor>
+    <DeclaredIn>D3D12PipelineState.cpp</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -53399,7 +53548,7 @@
       <Type>func</Type>
     </TokenIdentifier>
     <Path>d4/db9/_indirect_light_rendering_8cpp.html</Path>
-    <Anchor>a789c6a3c3fe2e469f7ad62f0c94a374d</Anchor>
+    <Anchor>a66eda68ef1dc29915ef12da2077a91a8</Anchor>
     <DeclaredIn>IndirectLightRendering.cpp</DeclaredIn>
   </Token>
   <Token>
@@ -53409,7 +53558,7 @@
       <Type>func</Type>
     </TokenIdentifier>
     <Path>d4/db9/_indirect_light_rendering_8cpp.html</Path>
-    <Anchor>ad725bec3e60af01b54c10ab291be9e75</Anchor>
+    <Anchor>a51fe408dd95db3740d6a232b6946bf58</Anchor>
     <DeclaredIn>IndirectLightRendering.cpp</DeclaredIn>
   </Token>
   <Token>
@@ -57575,16 +57724,6 @@
     <Path>d3/d0b/_launch_windows_8cpp.html</Path>
     <Anchor>ad055e7bd5639de4d6f71f59ab92f1700</Anchor>
     <DeclaredIn>LaunchWindows.cpp</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>WINVER</Name>
-      <APILanguage>unknown</APILanguage>
-      <Type>macro</Type>
-    </TokenIdentifier>
-    <Path>d6/d5e/_definitions_8h.html</Path>
-    <Anchor>a966cd377b9f3fdeb1432460c33352af1</Anchor>
-    <DeclaredIn>Definitions.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>

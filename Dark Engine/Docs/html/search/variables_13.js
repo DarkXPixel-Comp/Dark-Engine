@@ -13,7 +13,7 @@ var searchData=
   ['viewport_10',['Viewport',['../d8/d82/class_f_editor_viewport_client.html#a000326c88f744dd396b58c7d64931ad9',1,'FEditorViewportClient::Viewport'],['../d6/db2/class_f_game_viewport_client.html#ad605edfce82f299afba64b24ff7adaff',1,'FGameViewportClient::Viewport'],['../df/d68/class_d3_d12_renderer.html#af73ba487a0b00f9edbf7e1493da360fd',1,'D3D12Renderer::Viewport'],['../d1/d5e/class_u_i_viewport.html#acd0717311a06497b2007eea61c34e594',1,'UIViewport::Viewport']]],
   ['viewportclient_11',['ViewportClient',['../d1/d5e/class_u_i_viewport.html#aa5de9744a5ca277d6e8af0f954e9aa4e',1,'UIViewport']]],
   ['viewportrhi_12',['ViewportRHI',['../d5/d63/struct_f_viewport_info.html#a425624501b778a0ea559c5053d57fa00',1,'FViewportInfo']]],
-  ['viewportsize_13',['ViewportSize',['../d1/d5e/class_u_i_viewport.html#a6a3620370503cdd1984ea53d64f47d13',1,'UIViewport']]],
+  ['viewportsize_13',['ViewportSize',['../d1/d29/class_f_viewport.html#a12011ddb1544378e270c70e71bb96a79',1,'FViewport::ViewportSize'],['../d1/d5e/class_u_i_viewport.html#a6a3620370503cdd1984ea53d64f47d13',1,'UIViewport::ViewportSize']]],
   ['viewprojectionmatrix_14',['ViewProjectionMatrix',['../d6/de9/struct_d3_d12_pass_constants.html#a3f3092b1128d4d2c3b5a10aaef995070',1,'D3D12PassConstants']]],
   ['viewrect_15',['ViewRect',['../dd/d2b/class_f_view_info.html#ab6db92fc96155f130fc7a0466b9d939a',1,'FViewInfo']]],
   ['vsync_16',['Vsync',['../d1/dd0/class_f_u_i_renderer.html#adc125743d3af78b188f1c0946c047512',1,'FUIRenderer']]]

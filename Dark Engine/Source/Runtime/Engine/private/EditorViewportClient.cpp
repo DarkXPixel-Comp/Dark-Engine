@@ -33,9 +33,13 @@ void FEditorViewportClient::Draw(FViewport* InViewport, FCanvas* Canvas)
 	FWorld* World = GetWorld();
 
 	FSceneView SceneView(Canvas->GetRenderTarget(), GetScene());
-
-	
 	SceneView.CalcSceneView();
+	FIntPoint ViewportSize = Viewport->GetSizeXY();
+	FIntPoint Offset = FIntPoint(0, 0);
+	ViewportSize.X = FMath::Max(1, ViewportSize.X);
+	ViewportSize.Y = FMath::Max(1, ViewportSize.Y);
+	SceneView.UnscaledRect = FIntRect(Offset, ViewportSize + Offset);
+
 
 	GetRenderer()->BeginRenderingView(Canvas, &SceneView);
 

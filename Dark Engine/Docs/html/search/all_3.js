@@ -40,7 +40,7 @@ var searchData=
   ['cleartexturecolor_37',['ClearTextureColor',['../d3/d7d/class_f_r_h_i_command_list_immediate.html#adc5a701d267391d05ce4bb6fc3c82de1',1,'FRHICommandListImmediate']]],
   ['client_38',['Client',['../d8/d9a/_generic_window_8h.html#ad17743377374d232bd23db0b3cf58a88a577d7068826de925ea2aec01dbadf5e4',1,'GenericWindow.h']]],
   ['close_39',['Close',['../d5/d3e/class_f_d3_d12_command_list.html#a46825530d36ee1cd620f30abde522d74',1,'FD3D12CommandList::Close()'],['../d8/d9a/_generic_window_8h.html#ad17743377374d232bd23db0b3cf58a88ad3d2e617335f08df83599665eef8a418',1,'Close:&#160;GenericWindow.h']]],
-  ['closecommandlist_40',['CloseCommandList',['../d1/d3a/class_f_d3_d12_context_common.html#a18d216ac97e7aa1f2ad8e5f0e7f07167',1,'FD3D12ContextCommon']]],
+  ['closecommandlist_40',['CloseCommandList',['../d1/d3a/class_f_d3_d12_context_common.html#a18d216ac97e7aa1f2ad8e5f0e7f07167',1,'FD3D12ContextCommon::CloseCommandList()'],['../d3/d12/class_f_d3_d12_command_context.html#a556817c3c3ba75da49173a06c675f13f',1,'FD3D12CommandContext::CloseCommandList()']]],
   ['closewidget_41',['CloseWidget',['../d1/d68/class_u_i_widget.html#ac670f7f42d80cea678453aff5089e988',1,'UIWidget']]],
   ['cmdshow_42',['CmdShow',['../de/d6b/class_application.html#a5aead282cd9137a91203e4dd8f6e4628',1,'Application']]],
   ['code_43',['Code',['../dd/df1/struct_f_d3_d12_shader_data.html#ad78f20d0358aa4530005e8392abbf373',1,'FD3D12ShaderData::Code'],['../d3/d35/struct_f_shader_compiled_initializer_type.html#a3c34b1fe1a843c7d114361349a0cab92',1,'FShaderCompiledInitializerType::Code'],['../dc/d03/struct_f_shader_map_resource_code_1_1_f_shader_entry.html#a2c3cadc688670864f12e41c858e86092',1,'FShaderMapResourceCode::FShaderEntry::Code']]],

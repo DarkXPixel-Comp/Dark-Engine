@@ -213,6 +213,11 @@
                   <Anchor>a1b00dbf904eac327c32895bd4bf752f1</Anchor>
                  </Node>
                  <Node>
+                  <Name>operator+</Name>
+                  <Path>d3/def/struct_d_e_1_1_math_1_1_t_int_point.html</Path>
+                  <Anchor>a728ecca521223d1c4a0ce2761a50b2d8</Anchor>
+                 </Node>
+                 <Node>
                   <Name>operator==</Name>
                   <Path>d3/def/struct_d_e_1_1_math_1_1_t_int_point.html</Path>
                   <Anchor>a01d95e3c65483b2983988b34f6024529</Anchor>
@@ -1257,6 +1262,11 @@
                   <Name>operator!=</Name>
                   <Path>d3/def/struct_d_e_1_1_math_1_1_t_int_point.html</Path>
                   <Anchor>a1b00dbf904eac327c32895bd4bf752f1</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>operator+</Name>
+                  <Path>d3/def/struct_d_e_1_1_math_1_1_t_int_point.html</Path>
+                  <Anchor>a728ecca521223d1c4a0ce2761a50b2d8</Anchor>
                  </Node>
                  <Node>
                   <Name>operator==</Name>
@@ -4006,11 +4016,6 @@
             <Path>d1/d3e/struct_f_d3_d12___g_r_a_p_h_i_c_s___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c.html</Path>
           <Subnodes>
              <Node>
-              <Name>AmplificationShader</Name>
-              <Path>d1/d3e/struct_f_d3_d12___g_r_a_p_h_i_c_s___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c.html</Path>
-              <Anchor>ac6bb20c4309f5eb707270a8793e729e5</Anchor>
-             </Node>
-             <Node>
               <Name>BlendState</Name>
               <Path>d1/d3e/struct_f_d3_d12___g_r_a_p_h_i_c_s___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c.html</Path>
               <Anchor>af47fa6aea143c9b32aa0392b3c9e3221</Anchor>
@@ -4023,12 +4028,7 @@
              <Node>
               <Name>DepthState</Name>
               <Path>d1/d3e/struct_f_d3_d12___g_r_a_p_h_i_c_s___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c.html</Path>
-              <Anchor>a8258a54c3dacec693847ca5379c09701</Anchor>
-             </Node>
-             <Node>
-              <Name>DomainShader</Name>
-              <Path>d1/d3e/struct_f_d3_d12___g_r_a_p_h_i_c_s___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c.html</Path>
-              <Anchor>abc0c87916024428491ec77bc9af676e0</Anchor>
+              <Anchor>a97fd1e378ccb3af180f03f5cf600d083</Anchor>
              </Node>
              <Node>
               <Name>Flags</Name>
@@ -4036,24 +4036,14 @@
               <Anchor>a2985b45d1077bed3690689bb50df4d72</Anchor>
              </Node>
              <Node>
-              <Name>GeometryShader</Name>
-              <Path>d1/d3e/struct_f_d3_d12___g_r_a_p_h_i_c_s___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c.html</Path>
-              <Anchor>a31305655e70181253a15770d8da0ab72</Anchor>
-             </Node>
-             <Node>
-              <Name>HullShader</Name>
-              <Path>d1/d3e/struct_f_d3_d12___g_r_a_p_h_i_c_s___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c.html</Path>
-              <Anchor>a2783a202945e9cf79dcffcd3361efab4</Anchor>
-             </Node>
-             <Node>
               <Name>InputLayout</Name>
               <Path>d1/d3e/struct_f_d3_d12___g_r_a_p_h_i_c_s___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c.html</Path>
               <Anchor>ace18c8a3fcc5c1e19df8240e4ff6cda4</Anchor>
              </Node>
              <Node>
-              <Name>MeshShader</Name>
+              <Name>NodeMask</Name>
               <Path>d1/d3e/struct_f_d3_d12___g_r_a_p_h_i_c_s___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c.html</Path>
-              <Anchor>a68d170bb6b4f6787cf148fcbca0cf88a</Anchor>
+              <Anchor>ac853681f0ed1ad94aa83375b3935b390</Anchor>
              </Node>
              <Node>
               <Name>PixelShader</Name>
@@ -4069,6 +4059,11 @@
               <Name>RasterState</Name>
               <Path>d1/d3e/struct_f_d3_d12___g_r_a_p_h_i_c_s___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c.html</Path>
               <Anchor>ab05135c84a4e85bc780e2fbdf478e30f</Anchor>
+             </Node>
+             <Node>
+              <Name>RenderTargetFormats</Name>
+              <Path>d1/d3e/struct_f_d3_d12___g_r_a_p_h_i_c_s___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c.html</Path>
+              <Anchor>a1bc9fda01882040bf33e40b5ed29a3d5</Anchor>
              </Node>
              <Node>
               <Name>RootSignature</Name>
@@ -4435,6 +4430,11 @@
               <Anchor>a993232679d5f26074f70008c089a01f1</Anchor>
              </Node>
              <Node>
+              <Name>CloseCommandList</Name>
+              <Path>d3/d12/class_f_d3_d12_command_context.html</Path>
+              <Anchor>a556817c3c3ba75da49173a06c675f13f</Anchor>
+             </Node>
+             <Node>
               <Name>CommitGraphicsResourceTables</Name>
               <Path>d3/d12/class_f_d3_d12_command_context.html</Path>
               <Anchor>a15258375ae2aff554fa37ef49f3a9703</Anchor>
@@ -4478,6 +4478,11 @@
               <Name>RHIEndImGui</Name>
               <Path>d3/d12/class_f_d3_d12_command_context.html</Path>
               <Anchor>a82795462f11768c1b3dcde5b93b19fd7</Anchor>
+             </Node>
+             <Node>
+              <Name>RHIEndRenderPass</Name>
+              <Path>d3/d12/class_f_d3_d12_command_context.html</Path>
+              <Anchor>afc1c11b10711d1455f434f75e14aeb06</Anchor>
              </Node>
              <Node>
               <Name>RHISetGraphicsPipelineState</Name>
@@ -5969,6 +5974,11 @@
               <Anchor>acdf0dc1386cb89f997be64ddb4cf0691</Anchor>
              </Node>
              <Node>
+              <Name>DirtyStateForNewCommandList</Name>
+              <Path>d3/dfd/class_f_d3_d12_state_cache.html</Path>
+              <Anchor>a6723314b3eb8675ee1504b97e8ef6e24</Anchor>
+             </Node>
+             <Node>
               <Name>GetVertexCount</Name>
               <Path>d3/dfd/class_f_d3_d12_state_cache.html</Path>
               <Anchor>ac3cc4c1e0ee85140b5624ade92c8d42b</Anchor>
@@ -5997,6 +6007,11 @@
               <Name>SetStreamSource</Name>
               <Path>d3/dfd/class_f_d3_d12_state_cache.html</Path>
               <Anchor>a6038f875f3e2c9e2c43de1d5861a0af6</Anchor>
+             </Node>
+             <Node>
+              <Name>SetViewport</Name>
+              <Path>d3/dfd/class_f_d3_d12_state_cache.html</Path>
+              <Anchor>a33cb5e2d29d543a70a617258419928c4</Anchor>
              </Node>
              <Node>
               <Name>bNeedSetPSO</Name>
@@ -6402,18 +6417,6 @@
               <Path>d8/da0/struct_f_debug.html</Path>
               <Anchor>a5dfceb799b0961f8d4bb6770dfdcd92c</Anchor>
              </Node>
-            </Subnodes>
-           </Node>
-           <Node>
-            <Name>FDiffuseIndirectCompositePS</Name>
-            <Path>df/da8/class_f_diffuse_indirect_composite_p_s.html</Path>
-          <Subnodes>
-            </Subnodes>
-           </Node>
-           <Node>
-            <Name>FDiffuseIndirectCompositeVS</Name>
-            <Path>d0/d36/class_f_diffuse_indirect_composite_v_s.html</Path>
-          <Subnodes>
             </Subnodes>
            </Node>
            <Node>
@@ -7547,9 +7550,19 @@
               <Anchor>a24cb693a0b02762c3436638b85e8cdf5</Anchor>
              </Node>
              <Node>
+              <Name>DepthFormat</Name>
+              <Path>d2/d2e/class_f_graphics_pipeline_state_initializer.html</Path>
+              <Anchor>a8d2054736e0df678696a5f0cc9267fdd</Anchor>
+             </Node>
+             <Node>
               <Name>PrimitiveType</Name>
               <Path>d2/d2e/class_f_graphics_pipeline_state_initializer.html</Path>
               <Anchor>aedea784d5646076533504d06c3a5f211</Anchor>
+             </Node>
+             <Node>
+              <Name>RenderTargetFormats</Name>
+              <Path>d2/d2e/class_f_graphics_pipeline_state_initializer.html</Path>
+              <Anchor>a728f03f0a7b302bd1b1fb08a0ded404c</Anchor>
              </Node>
             </Subnodes>
            </Node>
@@ -8299,6 +8312,11 @@
               <Anchor>a1e880b04daedc67b72320ae4fc82033c</Anchor>
              </Node>
              <Node>
+              <Name>DrawIndexedPrimitive</Name>
+              <Path>d9/dfe/class_f_r_h_i_command_list.html</Path>
+              <Anchor>aaeed696e1ebbd58d816ed4d1f5d6584f</Anchor>
+             </Node>
+             <Node>
               <Name>RHISetViewport</Name>
               <Path>d9/dfe/class_f_r_h_i_command_list.html</Path>
               <Anchor>a5caa8253a4db2fba6f42212088216b72</Anchor>
@@ -8462,6 +8480,11 @@
               <Name>EndImGui</Name>
               <Path>d3/d7d/class_f_r_h_i_command_list_immediate.html</Path>
               <Anchor>a50f9e7b35ab88a869506da4bd537d610</Anchor>
+             </Node>
+             <Node>
+              <Name>EndRenderPass</Name>
+              <Path>d3/d7d/class_f_r_h_i_command_list_immediate.html</Path>
+              <Anchor>a60929be617acb368720c6e1d7b6a27e6</Anchor>
              </Node>
              <Node>
               <Name>EndScene</Name>
@@ -9247,9 +9270,9 @@
               <Anchor>a8f72c20a07a2133525fc127fe8fbb1b1</Anchor>
              </Node>
              <Node>
-              <Name>RenderTriangle</Name>
+              <Name>RenderQuad</Name>
               <Path>d9/d98/class_f_scene_render.html</Path>
-              <Anchor>a29520799a75ec0e4c543a87f08503244</Anchor>
+              <Anchor>a3b0c1052d2b6dd82336010fbcdc0b8f9</Anchor>
              </Node>
              <Node>
               <Name>Scene</Name>
@@ -9286,6 +9309,11 @@
               <Name>Scene</Name>
               <Path>d6/d2c/class_f_scene_view.html</Path>
               <Anchor>afed7067a6272e1505e555afdf3f45360</Anchor>
+             </Node>
+             <Node>
+              <Name>UnscaledRect</Name>
+              <Path>d6/d2c/class_f_scene_view.html</Path>
+              <Anchor>af9b859ae1c7565730ef01fb8aa0b919a</Anchor>
              </Node>
             </Subnodes>
            </Node>
@@ -9347,6 +9375,28 @@
             </Subnodes>
            </Node>
            <Node>
+            <Name>FScreenRectangleIndexBuffer</Name>
+            <Path>d5/dcd/class_f_screen_rectangle_index_buffer.html</Path>
+          <Subnodes>
+             <Node>
+              <Name>Init</Name>
+              <Path>d5/dcd/class_f_screen_rectangle_index_buffer.html</Path>
+              <Anchor>ae41dc6d35eecc3941889ac3b46d72560</Anchor>
+             </Node>
+             <Node>
+              <Name>IndexBuffer</Name>
+              <Path>d5/dcd/class_f_screen_rectangle_index_buffer.html</Path>
+              <Anchor>a761fe45c4c13eb4b5ee0bba3de675d9e</Anchor>
+             </Node>
+            </Subnodes>
+           </Node>
+           <Node>
+            <Name>FScreenRectanglePS</Name>
+            <Path>d3/df8/class_f_screen_rectangle_p_s.html</Path>
+          <Subnodes>
+            </Subnodes>
+           </Node>
+           <Node>
             <Name>FScreenRectangleVertexBuffer</Name>
             <Path>d5/db0/class_f_screen_rectangle_vertex_buffer.html</Path>
           <Subnodes>
@@ -9360,6 +9410,12 @@
               <Path>d5/db0/class_f_screen_rectangle_vertex_buffer.html</Path>
               <Anchor>a34290d187459a0ae7e0dbe088b9c5192</Anchor>
              </Node>
+            </Subnodes>
+           </Node>
+           <Node>
+            <Name>FScreenRectangleVS</Name>
+            <Path>d6/da9/class_f_screen_rectangle_v_s.html</Path>
+          <Subnodes>
             </Subnodes>
            </Node>
            <Node>
@@ -10289,6 +10345,11 @@
               <Anchor>a3003c4607fcf56d02db290ac4ec79d26</Anchor>
              </Node>
              <Node>
+              <Name>Name</Name>
+              <Path>df/de9/struct_f_vertex_element.html</Path>
+              <Anchor>a47f67035979af32b877ac404bd09f399</Anchor>
+             </Node>
+             <Node>
               <Name>Offset</Name>
               <Path>df/de9/struct_f_vertex_element.html</Path>
               <Anchor>adea3090f187f2ff915415786cb558b57</Anchor>
@@ -10369,6 +10430,11 @@
               <Name>SetSize</Name>
               <Path>d1/d29/class_f_viewport.html</Path>
               <Anchor>a5a7bca8ca78ff0f7c9dd45340b963d5e</Anchor>
+             </Node>
+             <Node>
+              <Name>ViewportSize</Name>
+              <Path>d1/d29/class_f_viewport.html</Path>
+              <Anchor>a12011ddb1544378e270c70e71bb96a79</Anchor>
              </Node>
             </Subnodes>
            </Node>
@@ -11239,6 +11305,11 @@
               <Anchor>a5214f20c38de1bfbf9e69435142156a1</Anchor>
              </Node>
              <Node>
+              <Name>RHIDrawIndexedPrimitive</Name>
+              <Path>d8/d41/class_i_r_h_i_command_context.html</Path>
+              <Anchor>a7defddc4d40bb54c9fae77b57b462b2c</Anchor>
+             </Node>
+             <Node>
               <Name>RHIEndDrawingViewport</Name>
               <Path>d8/d41/class_i_r_h_i_command_context.html</Path>
               <Anchor>a436ec235e25ad15f4a4cdd4ae0dc13be</Anchor>
@@ -11256,7 +11327,7 @@
              <Node>
               <Name>RHIEndRenderPass</Name>
               <Path>d8/d41/class_i_r_h_i_command_context.html</Path>
-              <Anchor>a141c0cabae19528d1852508c70b6d9db</Anchor>
+              <Anchor>a745a4a29a8a3692f9d268a07df2522da</Anchor>
              </Node>
              <Node>
               <Name>RHISetGraphicsPipelineState</Name>
@@ -11286,7 +11357,7 @@
              <Node>
               <Name>RHISetViewport</Name>
               <Path>d8/d41/class_i_r_h_i_command_context.html</Path>
-              <Anchor>ae672c0454fad64b877f50c8fe7661f77</Anchor>
+              <Anchor>aa0b576b0c387de3588a9137555593c74</Anchor>
              </Node>
             </Subnodes>
            </Node>
@@ -14227,9 +14298,13 @@
             <Path>de/d6b/class_application.html</Path>
            </Node>
            <Node>
-            <Name>Base</Name>
+            <Name>BASE</Name>
             <Path></Path>
           <Subnodes>
+             <Node>
+              <Name>TDarkPlatformMathSSEBase&lt; FGenericPlatformMath &gt;</Name>
+              <Path>d0/d71/struct_t_dark_platform_math_s_s_e_base.html</Path>
+             </Node>
              <Node>
               <Name>TDarkPlatformMathSSEBase&lt; Base &gt;</Name>
               <Path>d0/d71/struct_t_dark_platform_math_s_s_e_base.html</Path>
@@ -14259,13 +14334,9 @@
             </Subnodes>
            </Node>
            <Node>
-            <Name>BASE</Name>
+            <Name>Base</Name>
             <Path></Path>
           <Subnodes>
-             <Node>
-              <Name>TDarkPlatformMathSSEBase&lt; FGenericPlatformMath &gt;</Name>
-              <Path>d0/d71/struct_t_dark_platform_math_s_s_e_base.html</Path>
-             </Node>
              <Node>
               <Name>TDarkPlatformMathSSEBase&lt; Base &gt;</Name>
               <Path>d0/d71/struct_t_dark_platform_math_s_s_e_base.html</Path>
@@ -15235,6 +15306,10 @@
             <Path>d9/d99/class_f_scope_lock.html</Path>
            </Node>
            <Node>
+            <Name>FScreenRectangleIndexBuffer</Name>
+            <Path>d5/dcd/class_f_screen_rectangle_index_buffer.html</Path>
+           </Node>
+           <Node>
             <Name>FScreenRectangleVertexBuffer</Name>
             <Path>d5/db0/class_f_screen_rectangle_vertex_buffer.html</Path>
            </Node>
@@ -15251,16 +15326,16 @@
               <Path>de/dcc/class_f_global_shader.html</Path>
             <Subnodes>
                <Node>
-                <Name>FDiffuseIndirectCompositePS</Name>
-                <Path>df/da8/class_f_diffuse_indirect_composite_p_s.html</Path>
-               </Node>
-               <Node>
-                <Name>FDiffuseIndirectCompositeVS</Name>
-                <Path>d0/d36/class_f_diffuse_indirect_composite_v_s.html</Path>
-               </Node>
-               <Node>
                 <Name>FOneColorVS</Name>
                 <Path>d8/de7/class_f_one_color_v_s.html</Path>
+               </Node>
+               <Node>
+                <Name>FScreenRectanglePS</Name>
+                <Path>d3/df8/class_f_screen_rectangle_p_s.html</Path>
+               </Node>
+               <Node>
+                <Name>FScreenRectangleVS</Name>
+                <Path>d6/da9/class_f_screen_rectangle_v_s.html</Path>
                </Node>
               </Subnodes>
              </Node>
@@ -21217,6 +21292,11 @@
                             <Anchor>a1b00dbf904eac327c32895bd4bf752f1</Anchor>
                            </Node>
                            <Node>
+                            <Name>operator+</Name>
+                            <Path>d3/def/struct_d_e_1_1_math_1_1_t_int_point.html</Path>
+                            <Anchor>a728ecca521223d1c4a0ce2761a50b2d8</Anchor>
+                           </Node>
+                           <Node>
                             <Name>operator==</Name>
                             <Path>d3/def/struct_d_e_1_1_math_1_1_t_int_point.html</Path>
                             <Anchor>a01d95e3c65483b2983988b34f6024529</Anchor>
@@ -24676,6 +24756,11 @@
                           <Anchor>a993232679d5f26074f70008c089a01f1</Anchor>
                          </Node>
                          <Node>
+                          <Name>CloseCommandList</Name>
+                          <Path>d3/d12/class_f_d3_d12_command_context.html</Path>
+                          <Anchor>a556817c3c3ba75da49173a06c675f13f</Anchor>
+                         </Node>
+                         <Node>
                           <Name>CommitGraphicsResourceTables</Name>
                           <Path>d3/d12/class_f_d3_d12_command_context.html</Path>
                           <Anchor>a15258375ae2aff554fa37ef49f3a9703</Anchor>
@@ -24719,6 +24804,11 @@
                           <Name>RHIEndImGui</Name>
                           <Path>d3/d12/class_f_d3_d12_command_context.html</Path>
                           <Anchor>a82795462f11768c1b3dcde5b93b19fd7</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>RHIEndRenderPass</Name>
+                          <Path>d3/d12/class_f_d3_d12_command_context.html</Path>
+                          <Anchor>afc1c11b10711d1455f434f75e14aeb06</Anchor>
                          </Node>
                          <Node>
                           <Name>RHISetGraphicsPipelineState</Name>
@@ -25338,6 +25428,13 @@
                      <Node>
                       <Name>D3D12PipelineState.cpp</Name>
                       <Path>db/d2a/_d3_d12_pipeline_state_8cpp.html</Path>
+                    <Subnodes>
+                       <Node>
+                        <Name>GetRTFormatArray</Name>
+                        <Path>db/d2a/_d3_d12_pipeline_state_8cpp.html</Path>
+                        <Anchor>a85ecd59a21d8fccc9a01e94a617395f8</Anchor>
+                       </Node>
+                      </Subnodes>
                      </Node>
                      <Node>
                       <Name>D3D12PipelineState.h</Name>
@@ -25347,11 +25444,6 @@
                         <Name>FD3D12_GRAPHICS_PIPELINE_STATE_DESC</Name>
                         <Path>d1/d3e/struct_f_d3_d12___g_r_a_p_h_i_c_s___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c.html</Path>
                       <Subnodes>
-                         <Node>
-                          <Name>AmplificationShader</Name>
-                          <Path>d1/d3e/struct_f_d3_d12___g_r_a_p_h_i_c_s___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c.html</Path>
-                          <Anchor>ac6bb20c4309f5eb707270a8793e729e5</Anchor>
-                         </Node>
                          <Node>
                           <Name>BlendState</Name>
                           <Path>d1/d3e/struct_f_d3_d12___g_r_a_p_h_i_c_s___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c.html</Path>
@@ -25365,12 +25457,7 @@
                          <Node>
                           <Name>DepthState</Name>
                           <Path>d1/d3e/struct_f_d3_d12___g_r_a_p_h_i_c_s___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c.html</Path>
-                          <Anchor>a8258a54c3dacec693847ca5379c09701</Anchor>
-                         </Node>
-                         <Node>
-                          <Name>DomainShader</Name>
-                          <Path>d1/d3e/struct_f_d3_d12___g_r_a_p_h_i_c_s___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c.html</Path>
-                          <Anchor>abc0c87916024428491ec77bc9af676e0</Anchor>
+                          <Anchor>a97fd1e378ccb3af180f03f5cf600d083</Anchor>
                          </Node>
                          <Node>
                           <Name>Flags</Name>
@@ -25378,24 +25465,14 @@
                           <Anchor>a2985b45d1077bed3690689bb50df4d72</Anchor>
                          </Node>
                          <Node>
-                          <Name>GeometryShader</Name>
-                          <Path>d1/d3e/struct_f_d3_d12___g_r_a_p_h_i_c_s___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c.html</Path>
-                          <Anchor>a31305655e70181253a15770d8da0ab72</Anchor>
-                         </Node>
-                         <Node>
-                          <Name>HullShader</Name>
-                          <Path>d1/d3e/struct_f_d3_d12___g_r_a_p_h_i_c_s___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c.html</Path>
-                          <Anchor>a2783a202945e9cf79dcffcd3361efab4</Anchor>
-                         </Node>
-                         <Node>
                           <Name>InputLayout</Name>
                           <Path>d1/d3e/struct_f_d3_d12___g_r_a_p_h_i_c_s___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c.html</Path>
                           <Anchor>ace18c8a3fcc5c1e19df8240e4ff6cda4</Anchor>
                          </Node>
                          <Node>
-                          <Name>MeshShader</Name>
+                          <Name>NodeMask</Name>
                           <Path>d1/d3e/struct_f_d3_d12___g_r_a_p_h_i_c_s___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c.html</Path>
-                          <Anchor>a68d170bb6b4f6787cf148fcbca0cf88a</Anchor>
+                          <Anchor>ac853681f0ed1ad94aa83375b3935b390</Anchor>
                          </Node>
                          <Node>
                           <Name>PixelShader</Name>
@@ -25411,6 +25488,11 @@
                           <Name>RasterState</Name>
                           <Path>d1/d3e/struct_f_d3_d12___g_r_a_p_h_i_c_s___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c.html</Path>
                           <Anchor>ab05135c84a4e85bc780e2fbdf478e30f</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>RenderTargetFormats</Name>
+                          <Path>d1/d3e/struct_f_d3_d12___g_r_a_p_h_i_c_s___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c.html</Path>
+                          <Anchor>a1bc9fda01882040bf33e40b5ed29a3d5</Anchor>
                          </Node>
                          <Node>
                           <Name>RootSignature</Name>
@@ -26380,6 +26462,11 @@
                           <Anchor>acdf0dc1386cb89f997be64ddb4cf0691</Anchor>
                          </Node>
                          <Node>
+                          <Name>DirtyStateForNewCommandList</Name>
+                          <Path>d3/dfd/class_f_d3_d12_state_cache.html</Path>
+                          <Anchor>a6723314b3eb8675ee1504b97e8ef6e24</Anchor>
+                         </Node>
+                         <Node>
                           <Name>GetVertexCount</Name>
                           <Path>d3/dfd/class_f_d3_d12_state_cache.html</Path>
                           <Anchor>ac3cc4c1e0ee85140b5624ade92c8d42b</Anchor>
@@ -26408,6 +26495,11 @@
                           <Name>SetStreamSource</Name>
                           <Path>d3/dfd/class_f_d3_d12_state_cache.html</Path>
                           <Anchor>a6038f875f3e2c9e2c43de1d5861a0af6</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>SetViewport</Name>
+                          <Path>d3/dfd/class_f_d3_d12_state_cache.html</Path>
+                          <Anchor>a33cb5e2d29d543a70a617258419928c4</Anchor>
                          </Node>
                          <Node>
                           <Name>bNeedSetPSO</Name>
@@ -28842,6 +28934,11 @@
                           <Path>d1/d29/class_f_viewport.html</Path>
                           <Anchor>a5a7bca8ca78ff0f7c9dd45340b963d5e</Anchor>
                          </Node>
+                         <Node>
+                          <Name>ViewportSize</Name>
+                          <Path>d1/d29/class_f_viewport.html</Path>
+                          <Anchor>a12011ddb1544378e270c70e71bb96a79</Anchor>
+                         </Node>
                         </Subnodes>
                        </Node>
                       </Subnodes>
@@ -28938,6 +29035,11 @@
                           <Name>Scene</Name>
                           <Path>d6/d2c/class_f_scene_view.html</Path>
                           <Anchor>afed7067a6272e1505e555afdf3f45360</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>UnscaledRect</Name>
+                          <Path>d6/d2c/class_f_scene_view.html</Path>
+                          <Anchor>af9b859ae1c7565730ef01fb8aa0b919a</Anchor>
                          </Node>
                         </Subnodes>
                        </Node>
@@ -31017,26 +31119,26 @@
                       <Path>d4/db9/_indirect_light_rendering_8cpp.html</Path>
                     <Subnodes>
                        <Node>
-                        <Name>FDiffuseIndirectCompositeVS</Name>
-                        <Path>d0/d36/class_f_diffuse_indirect_composite_v_s.html</Path>
+                        <Name>FScreenRectangleVS</Name>
+                        <Path>d6/da9/class_f_screen_rectangle_v_s.html</Path>
                       <Subnodes>
                         </Subnodes>
                        </Node>
                        <Node>
-                        <Name>FDiffuseIndirectCompositePS</Name>
-                        <Path>df/da8/class_f_diffuse_indirect_composite_p_s.html</Path>
+                        <Name>FScreenRectanglePS</Name>
+                        <Path>d3/df8/class_f_screen_rectangle_p_s.html</Path>
                       <Subnodes>
                         </Subnodes>
                        </Node>
                        <Node>
                         <Name>IMPLEMENT_GLOBAL_SHADER</Name>
                         <Path>d4/db9/_indirect_light_rendering_8cpp.html</Path>
-                        <Anchor>ad725bec3e60af01b54c10ab291be9e75</Anchor>
+                        <Anchor>a51fe408dd95db3740d6a232b6946bf58</Anchor>
                        </Node>
                        <Node>
                         <Name>IMPLEMENT_GLOBAL_SHADER</Name>
                         <Path>d4/db9/_indirect_light_rendering_8cpp.html</Path>
-                        <Anchor>a789c6a3c3fe2e469f7ad62f0c94a374d</Anchor>
+                        <Anchor>a66eda68ef1dc29915ef12da2077a91a8</Anchor>
                        </Node>
                        <Node>
                         <Name>RenderLight</Name>
@@ -31219,9 +31321,9 @@
                           <Anchor>a8f72c20a07a2133525fc127fe8fbb1b1</Anchor>
                          </Node>
                          <Node>
-                          <Name>RenderTriangle</Name>
+                          <Name>RenderQuad</Name>
                           <Path>d9/d98/class_f_scene_render.html</Path>
-                          <Anchor>a29520799a75ec0e4c543a87f08503244</Anchor>
+                          <Anchor>a3b0c1052d2b6dd82336010fbcdc0b8f9</Anchor>
                          </Node>
                          <Node>
                           <Name>Scene</Name>
@@ -31369,6 +31471,22 @@
                           <Name>VertexBuffer</Name>
                           <Path>d5/db0/class_f_screen_rectangle_vertex_buffer.html</Path>
                           <Anchor>a34290d187459a0ae7e0dbe088b9c5192</Anchor>
+                         </Node>
+                        </Subnodes>
+                       </Node>
+                       <Node>
+                        <Name>FScreenRectangleIndexBuffer</Name>
+                        <Path>d5/dcd/class_f_screen_rectangle_index_buffer.html</Path>
+                      <Subnodes>
+                         <Node>
+                          <Name>Init</Name>
+                          <Path>d5/dcd/class_f_screen_rectangle_index_buffer.html</Path>
+                          <Anchor>ae41dc6d35eecc3941889ac3b46d72560</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>IndexBuffer</Name>
+                          <Path>d5/dcd/class_f_screen_rectangle_index_buffer.html</Path>
+                          <Anchor>a761fe45c4c13eb4b5ee0bba3de675d9e</Anchor>
                          </Node>
                         </Subnodes>
                        </Node>
@@ -32741,6 +32859,11 @@
                           <Anchor>a1e880b04daedc67b72320ae4fc82033c</Anchor>
                          </Node>
                          <Node>
+                          <Name>DrawIndexedPrimitive</Name>
+                          <Path>d9/dfe/class_f_r_h_i_command_list.html</Path>
+                          <Anchor>aaeed696e1ebbd58d816ed4d1f5d6584f</Anchor>
+                         </Node>
+                         <Node>
                           <Name>RHISetViewport</Name>
                           <Path>d9/dfe/class_f_r_h_i_command_list.html</Path>
                           <Anchor>a5caa8253a4db2fba6f42212088216b72</Anchor>
@@ -32805,6 +32928,11 @@
                           <Name>EndImGui</Name>
                           <Path>d3/d7d/class_f_r_h_i_command_list_immediate.html</Path>
                           <Anchor>a50f9e7b35ab88a869506da4bd537d610</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>EndRenderPass</Name>
+                          <Path>d3/d7d/class_f_r_h_i_command_list_immediate.html</Path>
+                          <Anchor>a60929be617acb368720c6e1d7b6a27e6</Anchor>
                          </Node>
                          <Node>
                           <Name>EndScene</Name>
@@ -32916,6 +33044,11 @@
                           <Anchor>a5214f20c38de1bfbf9e69435142156a1</Anchor>
                          </Node>
                          <Node>
+                          <Name>RHIDrawIndexedPrimitive</Name>
+                          <Path>d8/d41/class_i_r_h_i_command_context.html</Path>
+                          <Anchor>a7defddc4d40bb54c9fae77b57b462b2c</Anchor>
+                         </Node>
+                         <Node>
                           <Name>RHIEndDrawingViewport</Name>
                           <Path>d8/d41/class_i_r_h_i_command_context.html</Path>
                           <Anchor>a436ec235e25ad15f4a4cdd4ae0dc13be</Anchor>
@@ -32933,7 +33066,7 @@
                          <Node>
                           <Name>RHIEndRenderPass</Name>
                           <Path>d8/d41/class_i_r_h_i_command_context.html</Path>
-                          <Anchor>a141c0cabae19528d1852508c70b6d9db</Anchor>
+                          <Anchor>a745a4a29a8a3692f9d268a07df2522da</Anchor>
                          </Node>
                          <Node>
                           <Name>RHISetGraphicsPipelineState</Name>
@@ -32963,7 +33096,7 @@
                          <Node>
                           <Name>RHISetViewport</Name>
                           <Path>d8/d41/class_i_r_h_i_command_context.html</Path>
-                          <Anchor>ae672c0454fad64b877f50c8fe7661f77</Anchor>
+                          <Anchor>aa0b576b0c387de3588a9137555593c74</Anchor>
                          </Node>
                         </Subnodes>
                        </Node>
@@ -34058,6 +34191,11 @@
                           <Anchor>a3003c4607fcf56d02db290ac4ec79d26</Anchor>
                          </Node>
                          <Node>
+                          <Name>Name</Name>
+                          <Path>df/de9/struct_f_vertex_element.html</Path>
+                          <Anchor>a47f67035979af32b877ac404bd09f399</Anchor>
+                         </Node>
+                         <Node>
                           <Name>Offset</Name>
                           <Path>df/de9/struct_f_vertex_element.html</Path>
                           <Anchor>adea3090f187f2ff915415786cb558b57</Anchor>
@@ -34380,9 +34518,19 @@
                           <Anchor>a24cb693a0b02762c3436638b85e8cdf5</Anchor>
                          </Node>
                          <Node>
+                          <Name>DepthFormat</Name>
+                          <Path>d2/d2e/class_f_graphics_pipeline_state_initializer.html</Path>
+                          <Anchor>a8d2054736e0df678696a5f0cc9267fdd</Anchor>
+                         </Node>
+                         <Node>
                           <Name>PrimitiveType</Name>
                           <Path>d2/d2e/class_f_graphics_pipeline_state_initializer.html</Path>
                           <Anchor>aedea784d5646076533504d06c3a5f211</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>RenderTargetFormats</Name>
+                          <Path>d2/d2e/class_f_graphics_pipeline_state_initializer.html</Path>
+                          <Anchor>a728f03f0a7b302bd1b1fb08a0ded404c</Anchor>
                          </Node>
                         </Subnodes>
                        </Node>
@@ -36170,6 +36318,10 @@
                   <Path>d8/de6/_random_shader_8hlsl.html</Path>
                  </Node>
                  <Node>
+                  <Name>ScreenRectangle.hlsl</Name>
+                  <Path>d6/d14/_screen_rectangle_8hlsl.html</Path>
+                 </Node>
+                 <Node>
                   <Name>Skybox.hlsl</Name>
                   <Path>d2/d20/_skybox_8hlsl.html</Path>
                  </Node>
@@ -36213,11 +36365,6 @@
                     <Name>_UNICODE</Name>
                     <Path>d6/d5e/_definitions_8h.html</Path>
                     <Anchor>a78880e1abcefc90f14185aee93ad0e20</Anchor>
-                   </Node>
-                   <Node>
-                    <Name>_WIN32_WINNT</Name>
-                    <Path>d6/d5e/_definitions_8h.html</Path>
-                    <Anchor>ac50762666aa00bd3a4308158510f1748</Anchor>
                    </Node>
                    <Node>
                     <Name>_WIN64</Name>
@@ -36603,11 +36750,6 @@
                     <Name>WIN32</Name>
                     <Path>d6/d5e/_definitions_8h.html</Path>
                     <Anchor>a6402e8b8594280624585b8fd643bfb65</Anchor>
-                   </Node>
-                   <Node>
-                    <Name>WINVER</Name>
-                    <Path>d6/d5e/_definitions_8h.html</Path>
-                    <Anchor>a966cd377b9f3fdeb1432460c33352af1</Anchor>
                    </Node>
                    <Node>
                     <Name>WITH_ACCESSIBILITY</Name>

@@ -62,6 +62,8 @@ public:
 
 	void ApplyState(bool bIsCompute = false);
 
+
+	void DirtyStateForNewCommandList();
 private:
 	struct
 	{

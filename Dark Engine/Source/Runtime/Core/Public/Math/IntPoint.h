@@ -48,6 +48,12 @@ namespace DE
 			}
 
 			template<typename T>
+			TIntPoint<T> operator+(const TIntPoint<T>& Other)
+			{
+				return TIntPoint<T>(Other.X + X, Other.Y + Y);
+			}
+
+			template<typename T>
 			bool operator!=(const TIntPoint<T>& Val)
 			{
 				return X != Val.X || Y != Val.Y;

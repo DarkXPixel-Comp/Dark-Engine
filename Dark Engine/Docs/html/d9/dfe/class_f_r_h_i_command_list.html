@@ -107,6 +107,8 @@ $(function() {
 <tr class="separator:abba29d30a36401d05482a57f69b5aeb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab4cb1485eec439e0eb703f6f17763aaf" id="r_ab4cb1485eec439e0eb703f6f17763aaf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab4cb1485eec439e0eb703f6f17763aaf">SetStreamSource</a> (<a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> StreamIndex, <a class="el" href="../../d9/d24/class_f_r_h_i_buffer.html">FRHIBuffer</a> *VertexBuffer, <a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> Offset, <a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> Stride)</td></tr>
 <tr class="separator:ab4cb1485eec439e0eb703f6f17763aaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaeed696e1ebbd58d816ed4d1f5d6584f" id="r_aaeed696e1ebbd58d816ed4d1f5d6584f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaeed696e1ebbd58d816ed4d1f5d6584f">DrawIndexedPrimitive</a> (<a class="el" href="../../d9/d24/class_f_r_h_i_buffer.html">FRHIBuffer</a> *IndexBufferRHI, <a class="el" href="../../d2/dc9/_platform_8h.html#a84083085985fb180ad38b9c32e3937da">int32</a> BaseVertexIndex, <a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> FirstInstance, <a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> NumVertices, <a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> StartIndex, <a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> NumPrimitives, <a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> NumInstances)</td></tr>
+<tr class="separator:aaeed696e1ebbd58d816ed4d1f5d6584f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_f_r_h_i_compute_command_list"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_f_r_h_i_compute_command_list')"><img src="../../closed.png" alt="-"/>&#160;Открытые члены унаследованные от <a class="el" href="../../dd/de6/class_f_r_h_i_compute_command_list.html">FRHIComputeCommandList</a></td></tr>
 <tr class="memitem:a4ff96a1a8d2888ba1c983721355e7374 inherit pub_methods_class_f_r_h_i_compute_command_list" id="r_a4ff96a1a8d2888ba1c983721355e7374"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/de6/class_f_r_h_i_compute_command_list.html#a4ff96a1a8d2888ba1c983721355e7374">FRHIComputeCommandList</a> ()</td></tr>
 <tr class="separator:a4ff96a1a8d2888ba1c983721355e7374 inherit pub_methods_class_f_r_h_i_compute_command_list"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -175,6 +177,60 @@ $(function() {
 </div>
 </div>
 <h2 class="groupheader">Методы</h2>
+<a id="aaeed696e1ebbd58d816ed4d1f5d6584f" name="aaeed696e1ebbd58d816ed4d1f5d6584f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaeed696e1ebbd58d816ed4d1f5d6584f">&#9670;&#160;</a></span>DrawIndexedPrimitive()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FRHICommandList::DrawIndexedPrimitive </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d9/d24/class_f_r_h_i_buffer.html">FRHIBuffer</a> *</td>          <td class="paramname"><span class="paramname"><em>IndexBufferRHI</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d2/dc9/_platform_8h.html#a84083085985fb180ad38b9c32e3937da">int32</a></td>          <td class="paramname"><span class="paramname"><em>BaseVertexIndex</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a></td>          <td class="paramname"><span class="paramname"><em>FirstInstance</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a></td>          <td class="paramname"><span class="paramname"><em>NumVertices</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a></td>          <td class="paramname"><span class="paramname"><em>StartIndex</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a></td>          <td class="paramname"><span class="paramname"><em>NumPrimitives</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a></td>          <td class="paramname"><span class="paramname"><em>NumInstances</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a5caa8253a4db2fba6f42212088216b72" name="a5caa8253a4db2fba6f42212088216b72"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5caa8253a4db2fba6f42212088216b72">&#9670;&#160;</a></span>RHISetViewport()</h2>
 

@@ -16,7 +16,7 @@ var searchData=
   ['clear_13',['Clear',['../db/d19/class_command_console.html#a5716052f7805a3c12b6d1480a87cde0f',1,'CommandConsole::Clear()'],['../d3/dfd/class_f_d3_d12_resource_location.html#a924c0726731a3c09c21ce8d660fdb6ea',1,'FD3D12ResourceLocation::Clear()'],['../d6/dfd/struct_f_d3_d12_vertex_buffer_cache.html#afb364d294075eaef39619c0e8039e691',1,'FD3D12VertexBufferCache::Clear()'],['../da/dd3/struct_f_d3_d12_index_buffer_cache.html#a30ccfe18e787484b6b0d1a69dc1d256e',1,'FD3D12IndexBufferCache::Clear()']]],
   ['cleartexturecolor_14',['ClearTextureColor',['../d3/d7d/class_f_r_h_i_command_list_immediate.html#adc5a701d267391d05ce4bb6fc3c82de1',1,'FRHICommandListImmediate']]],
   ['close_15',['Close',['../d5/d3e/class_f_d3_d12_command_list.html#a46825530d36ee1cd620f30abde522d74',1,'FD3D12CommandList']]],
-  ['closecommandlist_16',['CloseCommandList',['../d1/d3a/class_f_d3_d12_context_common.html#a18d216ac97e7aa1f2ad8e5f0e7f07167',1,'FD3D12ContextCommon']]],
+  ['closecommandlist_16',['CloseCommandList',['../d1/d3a/class_f_d3_d12_context_common.html#a18d216ac97e7aa1f2ad8e5f0e7f07167',1,'FD3D12ContextCommon::CloseCommandList()'],['../d3/d12/class_f_d3_d12_command_context.html#a556817c3c3ba75da49173a06c675f13f',1,'FD3D12CommandContext::CloseCommandList()']]],
   ['closewidget_17',['CloseWidget',['../d1/d68/class_u_i_widget.html#ac670f7f42d80cea678453aff5089e988',1,'UIWidget']]],
   ['cmdshow_18',['CmdShow',['../de/d6b/class_application.html#a5aead282cd9137a91203e4dd8f6e4628',1,'Application']]],
   ['combinedir_19',['CombineDir',['../d6/dde/class_f_paths.html#aac3a3fe830f0028ebad67f39d6f66a36',1,'FPaths']]],

@@ -34,7 +34,7 @@ public:
 	//void RenderUI(class FRenderTarget* RenderTarget) {}
 
 
-	void RenderTriangle(FRHICommandListImmediate& CmdList);
+	void RenderQuad(FRHICommandListImmediate& CmdList);
 
 
 

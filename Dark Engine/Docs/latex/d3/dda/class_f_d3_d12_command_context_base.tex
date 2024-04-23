@@ -26,7 +26,7 @@ virtual void \mbox{\hyperlink{class_i_r_h_i_command_context_a3b32a73d30f021c13ff
 \item 
 virtual void \mbox{\hyperlink{class_i_r_h_i_command_context_a2386d2f02841a5684468d7beb7a1fc7c}{RHIBegin\+Render\+Pass}} (struct \mbox{\hyperlink{struct_f_r_h_i_render_pass_info}{FRHIRender\+Pass\+Info}} \&In\+Info)=0
 \item 
-virtual void \mbox{\hyperlink{class_i_r_h_i_command_context_a141c0cabae19528d1852508c70b6d9db}{RHIEnd\+Render\+Pass}} ()
+virtual void \mbox{\hyperlink{class_i_r_h_i_command_context_a745a4a29a8a3692f9d268a07df2522da}{RHIEnd\+Render\+Pass}} (struct \mbox{\hyperlink{struct_f_r_h_i_render_pass_info}{FRHIRender\+Pass\+Info}} \&In\+Info)=0
 \item 
 virtual void \mbox{\hyperlink{class_i_r_h_i_command_context_a9c270bca1093d983140d6621816b34c4}{RHIEnd\+Frame}} ()=0
 \item 
@@ -34,7 +34,7 @@ virtual void \mbox{\hyperlink{class_i_r_h_i_command_context_a49198de67731fe374e1
 \item 
 virtual void \mbox{\hyperlink{class_i_r_h_i_command_context_a90c4cf317f608a59d4523633c6d57e93}{End\+Scene}} ()
 \item 
-virtual void \mbox{\hyperlink{class_i_r_h_i_command_context_ae672c0454fad64b877f50c8fe7661f77}{RHISet\+Viewport}} (float MinX, float MinY, float MinZ, float MaxX, float MaxY, float MaxZ)
+virtual void \mbox{\hyperlink{class_i_r_h_i_command_context_aa0b576b0c387de3588a9137555593c74}{RHISet\+Viewport}} (float MinX, float MinY, float MinZ, float MaxX, float MaxY, float MaxZ)=0
 \item 
 virtual void \mbox{\hyperlink{class_i_r_h_i_command_context_a061c664135960a65e5621f825c60f1a3}{RHISet\+Scissor\+Rect}} (bool b\+Enable, \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} MinX, \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} MinY, \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} MaxX, \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} MaxY)
 \item 
@@ -51,6 +51,8 @@ virtual void \mbox{\hyperlink{class_i_r_h_i_command_context_a2e14b0f1f3895071988
 virtual void \mbox{\hyperlink{class_i_r_h_i_command_context_a5214f20c38de1bfbf9e69435142156a1}{RHIClear\+Texture\+Color}} (\mbox{\hyperlink{class_f_r_h_i_texture}{FRHITexture}} \texorpdfstring{$\ast$}{*}In\+Texture, \mbox{\hyperlink{_math_fwd_8h_a2a5830396a4d19761fa96594e10278fa}{FVector}} In\+Color)=0
 \item 
 virtual void \mbox{\hyperlink{class_i_r_h_i_command_context_a3a39de659290f300dc94d04fea9c47d3}{RHISet\+Stream\+Source}} (\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} Stream\+Index, \mbox{\hyperlink{class_f_r_h_i_buffer}{FRHIBuffer}} \texorpdfstring{$\ast$}{*}Vertex\+Buffer, \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} Offset, \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} Stride)=0
+\item 
+virtual void \mbox{\hyperlink{class_i_r_h_i_command_context_a7defddc4d40bb54c9fae77b57b462b2c}{RHIDraw\+Indexed\+Primitive}} (\mbox{\hyperlink{class_f_r_h_i_buffer}{FRHIBuffer}} \texorpdfstring{$\ast$}{*}Index\+Buffer\+RHI, \mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}} Base\+Vertex\+Index, \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} First\+Instance, \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} Num\+Vertices, \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} Start\+Index, \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} Num\+Primitives, \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} Num\+Instances)=0
 \end{DoxyCompactItemize}
 \doxysubsection*{Открытые члены унаследованные от \mbox{\hyperlink{class_i_r_h_i_compute_context}{IRHICompute\+Context}}}
 \begin{DoxyCompactItemize}

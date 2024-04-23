@@ -11,6 +11,10 @@ FSceneView::FSceneView(const FRenderTarget* InRenderTarget, FSceneInterface* InS
 
 void FSceneView::CalcSceneView()
 {	
+
+
+	//ViewRect = FIntRect(FIntPoint(0, 0), ViewportSize);
+
 	/*const FViewportCameraTransform& ViewTransform = ViewportClient->GetViewTransform();
 
 	FMinimalViewInfo& MainViewInfo = ViewportClient->MainViewInfo;

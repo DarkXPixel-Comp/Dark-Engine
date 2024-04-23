@@ -190,7 +190,7 @@ void FD3D12StateCache::ApplyState(bool bIsCompute)
 {
 	if (!bIsCompute)
 	{
-		if (PipelineState.Graphics.bNeedSetRootSignature || true)
+		if (PipelineState.Graphics.bNeedSetRootSignature)
 		{
 			Context.GetCommandList().GetGraphicsCommandList()->SetGraphicsRootSignature(PipelineState.Graphics.CurrentPipelineStateObject->RootSignature->GetRootSignature());
 			PipelineState.Graphics.bNeedSetRootSignature = false;
@@ -207,7 +207,7 @@ void FD3D12StateCache::ApplyState(bool bIsCompute)
 	ID3D12PipelineState* const NewPSO = bIsCompute ? nullptr : 
 		PipelineState.Graphics.CurrentPipelineStateObject->PipelineState->PSO.Get();
 
-	if (PipelineState.Common.bNeedSetPSO || CurrentPSO == nullptr || NewPSO != CurrentPSO || true)
+	if (PipelineState.Common.bNeedSetPSO || CurrentPSO == nullptr || NewPSO != CurrentPSO)
 	{
 		PipelineState.Common.CurrentPipelineState = NewPSO;
 		Context.GetCommandList().GetGraphicsCommandList()->SetPipelineState(NewPSO);
@@ -216,27 +216,28 @@ void FD3D12StateCache::ApplyState(bool bIsCompute)
 
 	if (!bIsCompute)
 	{
-		if (bNeedSetVB || true)
+		if (bNeedSetVB)
 		{
 			bNeedSetVB = false;
 			Context.GetGraphicsList()->IASetVertexBuffers(0, PipelineState.Graphics.VBCache.NumViews,
 				PipelineState.Graphics.VBCache.CurrentVertexBufferViews);
 		}
-		if (bNeedSetPrimitiveTopology || true)
+		if (bNeedSetPrimitiveTopology)
 		{
 			bNeedSetPrimitiveTopology = false;
 			Context.GetGraphicsList()->IASetPrimitiveTopology(PipelineState.Graphics.PrimitiveTopology);
 		}
 
-		if (bNeedSetViewports || true)
+		if (bNeedSetViewports)
 		{
 			bNeedSetViewports = false;
+			D3D12_RECT Rect = {0, 0, PipelineState.Graphics.CurrentViewport[0].Width, PipelineState.Graphics.CurrentViewport[0].Height };
 			
 			Context.GetGraphicsList()->RSSetViewports(1, &PipelineState.Graphics.CurrentViewport[0]);
-			//Context.GetGraphicsList()->RSSetScissorRects(1, &Rect);
+			Context.GetGraphicsList()->RSSetScissorRects(1, &Rect);
 		}
 
-		if (bNeedSetRTs || true)
+		if (bNeedSetRTs)
 		{
 			bNeedSetRTs = false;
 		}
@@ -246,4 +247,16 @@ void FD3D12StateCache::ApplyState(bool bIsCompute)
 
 
 
+}
+
+void FD3D12StateCache::DirtyStateForNewCommandList()
+{
+	PipelineState.Common.bNeedSetPSO = true;
+	PipelineState.Graphics.bNeedSetRootSignature = true;
+	bNeedSetPrimitiveTopology = true;
+	bNeedSetVB = true;
+	PipelineState.Graphics.IBCache.Clear();
+	bNeedSetViewports = true;
+	bNeedSetRTs = true;
+	bNeedSetBlendFactor = true;
 }

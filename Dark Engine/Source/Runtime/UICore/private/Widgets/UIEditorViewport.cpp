@@ -40,10 +40,10 @@ void UIEditorViewport::ConstructEditorViewportClient()
 void UIEditorViewport::Update(float DeltaTime)
 {
 	UIViewport::Update(DeltaTime);
-	/*if (!SceneViewport->GetRenderTargetTexture())
+	if (SceneViewport->GetRenderTargetTexture() && SceneViewport->GetSizeXY() != SceneViewport->ViewportSize)
 	{
-		SceneViewport->Resize(1280, 720);
-	}*/
+		SceneViewport->Resize(SceneViewport->ViewportSize.X, SceneViewport->ViewportSize.Y);
+	}
 }
 
 void UIEditorViewport::DrawImGui()
@@ -53,6 +53,8 @@ void UIEditorViewport::DrawImGui()
 		auto WindowPadding = Window->GetImGuiContext()->Style.DisplayWindowPadding;
 		ImVec2 ImSize = ImGui::GetWindowSize();
 		ImSize.y -= WindowPadding.y;
+		//SceneViewport->Resize(ImSize.x, ImSize.y);
+		SceneViewport->ViewportSize = FIntPoint(ImSize.x, ImSize.y);
 
 		Size = FIntPoint(ImSize.x, ImSize.y);
 

@@ -3,6 +3,7 @@
 #include "DynamicRHI.h"
 #include <RHICommandList.h>
 #include "CommonRenderResources.h"
+#include "SceneRendering.h"
 
 
 //class FDiffuseIndirectCompositeVS : public FGlobalShader
@@ -100,4 +101,53 @@ void RenderLight()
 
 	/*FRHIRenderPassInfo RenderPassInfo();
 	RHICmdList.BeginRenderPass();*/
+}
+
+void FSceneRender::RenderQuad(FRHICommandListImmediate& RHICmdList)
+{
+	TShaderRefBase<FScreenRectangleVS> VertexShader =
+		GGlobalShaderMap->GetShader<FScreenRectangleVS>();
+	TShaderRefBase<FScreenRectanglePS>	PixelShader =
+		GGlobalShaderMap->GetShader<FScreenRectanglePS>();
+
+	FVertexDeclarationElementList Elements;
+	Elements.Add(FVertexElement(VET_Float4, 0, 0, 0, 0));
+	Elements.Add(FVertexElement(VET_Float2, 1, 0, 0, 0));
+
+	//Elements[0].Name = "SV_POSITION";
+	//Elements[1].Name = "TEXCOORD";
+
+
+
+
+	static FScreenRectangleVertexBuffer VertexBuffer;
+	static FScreenRectangleIndexBuffer IndexBufer;
+	VertexBuffer.Init();
+	IndexBufer.Init();
+
+
+	FRHIVertexShader* RHIVertexShader = VertexShader.GetVertexShader();
+	FRHIPixelShader* RHIPixelShader = PixelShader.GetPixelShader();
+	TRefCountPtr<FRHIVertexDeclaration> RHIVertexDeclaration = RHICreateVertexDeclaration(Elements);
+
+
+	FGraphicsPipelineStateInitializer Initializer = {};
+	Initializer.PrimitiveType = PT_TriangleList;
+	Initializer.BoundShaderState.VertexShaderRHI = RHIVertexShader;
+	Initializer.BoundShaderState.PixelShaderRHI = RHIPixelShader;
+	Initializer.BoundShaderState.VertexDeclaration = RHIVertexDeclaration.Get();
+	Initializer.RenderTargetFormats[0] = EPixelFormat::PF_R8G8B8A8_UNORM;
+	//RHICreateGraphicsPipelineState(Initializer);
+
+	TRefCountPtr<FRHIGraphicsPipelineState> PipelineState = RHICreateGraphicsPipelineState(Initializer);
+	RHICmdList.SetGraphicsPipelineState(PipelineState.Get(), Initializer.BoundShaderState);
+
+
+	/*static TRefCountPtr<FRHIBuffer> VertexBuffer = RHICreateBuffer(FRHIBufferDesc(32, 0), TEXT("Cube"), ERHIAccess::VertexOrIndexBuffer);*/
+
+
+	RHICmdList.RHISetViewport(SceneView->ViewRect.LeftUp.X, SceneView->ViewRect.LeftUp.Y, 0.1f, SceneView->ViewRect.RightDown.X, SceneView->ViewRect.RightDown.Y, 100);
+	RHICmdList.SetStreamSource(0, VertexBuffer.VertexBuffer.Get(), 0, sizeof(FFilterVertex));
+	RHICmdList.DrawIndexedPrimitive(IndexBufer.IndexBuffer.Get(), 0, 0, 3, 0, 2, 1);
+
 }

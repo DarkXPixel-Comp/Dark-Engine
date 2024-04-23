@@ -45,8 +45,9 @@ void UIEditorSettings::DrawImGui()
 
 		ImGui::PushItemWidth(100);
 
-		if (ImGui::DragInt2("Resolution", EditorViewport->GetResoulution().XY, 5.f, 512, 16384, "%i"))
+		if (ImGui::DragInt2("Resolution", TempSettings.ResolutionViewport.XY, 5.f, 512, 16384, "%i"))
 		{
+			
 		}
 		ImGui::PopItemWidth();
 
@@ -96,7 +97,7 @@ void UIEditorSettings::Update(float DeltaTime)
 		bChangeSettings = false;
 		if (EditorViewport)
 		{
-			//EditorViewport->SetResolution(CurrentSettings.ResolutionViewport.X, CurrentSettings.ResolutionViewport.Y);
+			EditorViewport->SetResolution(CurrentSettings.ResolutionViewport.X, CurrentSettings.ResolutionViewport.Y);
 			EditorViewport->SetColorBackground(FVector(CurrentSettings.Color[0], CurrentSettings.Color[1],
 				CurrentSettings.Color[2]));
 			//EditorViewport->SetTexturePath(FString(CurrentSettings.PathTexture));

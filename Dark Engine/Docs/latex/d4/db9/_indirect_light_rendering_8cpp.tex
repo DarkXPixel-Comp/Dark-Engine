@@ -5,36 +5,37 @@
 {\ttfamily \#include "{}Dynamic\+RHI.\+h"{}}\newline
 {\ttfamily \#include $<$RHICommand\+List.\+h$>$}\newline
 {\ttfamily \#include "{}Common\+Render\+Resources.\+h"{}}\newline
+{\ttfamily \#include "{}Scene\+Rendering.\+h"{}}\newline
 \doxysubsubsection*{Классы}
 \begin{DoxyCompactItemize}
 \item 
-class \mbox{\hyperlink{class_f_diffuse_indirect_composite_v_s}{FDiffuse\+Indirect\+Composite\+VS}}
+class \mbox{\hyperlink{class_f_screen_rectangle_v_s}{FScreen\+Rectangle\+VS}}
 \item 
-class \mbox{\hyperlink{class_f_diffuse_indirect_composite_p_s}{FDiffuse\+Indirect\+Composite\+PS}}
+class \mbox{\hyperlink{class_f_screen_rectangle_p_s}{FScreen\+Rectangle\+PS}}
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Функции}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{_indirect_light_rendering_8cpp_a789c6a3c3fe2e469f7ad62f0c94a374d}{IMPLEMENT\+\_\+\+GLOBAL\+\_\+\+SHADER}} (\mbox{\hyperlink{class_f_diffuse_indirect_composite_v_s}{FDiffuse\+Indirect\+Composite\+VS}}, "{}Vertex\+Shader.\+hlsl"{}, "{}main"{}, \mbox{\hyperlink{_r_h_i_defines_8h_a89725d5f41ceac2e574ddc988f06775ea051ebc9c5c563958123bdbdc3bb9330d}{ST\+\_\+\+Vertex}})
+\mbox{\hyperlink{_indirect_light_rendering_8cpp_a66eda68ef1dc29915ef12da2077a91a8}{IMPLEMENT\+\_\+\+GLOBAL\+\_\+\+SHADER}} (\mbox{\hyperlink{class_f_screen_rectangle_v_s}{FScreen\+Rectangle\+VS}}, "{}Screen\+Rectangle.\+hlsl"{}, "{}VSMain"{}, \mbox{\hyperlink{_r_h_i_defines_8h_a89725d5f41ceac2e574ddc988f06775ea051ebc9c5c563958123bdbdc3bb9330d}{ST\+\_\+\+Vertex}})
 \item 
-\mbox{\hyperlink{_indirect_light_rendering_8cpp_ad725bec3e60af01b54c10ab291be9e75}{IMPLEMENT\+\_\+\+GLOBAL\+\_\+\+SHADER}} (\mbox{\hyperlink{class_f_diffuse_indirect_composite_p_s}{FDiffuse\+Indirect\+Composite\+PS}}, "{}Pixel\+Shader.\+hlsl"{}, "{}main"{}, \mbox{\hyperlink{_r_h_i_defines_8h_a89725d5f41ceac2e574ddc988f06775ea135f8248df527333f4407f04072fdf74}{ST\+\_\+\+Pixel}})
+\mbox{\hyperlink{_indirect_light_rendering_8cpp_a51fe408dd95db3740d6a232b6946bf58}{IMPLEMENT\+\_\+\+GLOBAL\+\_\+\+SHADER}} (\mbox{\hyperlink{class_f_screen_rectangle_p_s}{FScreen\+Rectangle\+PS}}, "{}Screen\+Rectangle.\+hlsl"{}, "{}PSMain"{}, \mbox{\hyperlink{_r_h_i_defines_8h_a89725d5f41ceac2e574ddc988f06775ea135f8248df527333f4407f04072fdf74}{ST\+\_\+\+Pixel}})
 \item 
 void \mbox{\hyperlink{_indirect_light_rendering_8cpp_a26355850ae7b3d45a950f2ddb7b3d52b}{Render\+Light}} ()
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Функции}
-\Hypertarget{_indirect_light_rendering_8cpp_ad725bec3e60af01b54c10ab291be9e75}\label{_indirect_light_rendering_8cpp_ad725bec3e60af01b54c10ab291be9e75} 
+\Hypertarget{_indirect_light_rendering_8cpp_a51fe408dd95db3740d6a232b6946bf58}\label{_indirect_light_rendering_8cpp_a51fe408dd95db3740d6a232b6946bf58} 
 \index{IndirectLightRendering.cpp@{IndirectLightRendering.cpp}!IMPLEMENT\_GLOBAL\_SHADER@{IMPLEMENT\_GLOBAL\_SHADER}}
 \index{IMPLEMENT\_GLOBAL\_SHADER@{IMPLEMENT\_GLOBAL\_SHADER}!IndirectLightRendering.cpp@{IndirectLightRendering.cpp}}
 \doxysubsubsection{\texorpdfstring{IMPLEMENT\_GLOBAL\_SHADER()}{IMPLEMENT\_GLOBAL\_SHADER()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily IMPLEMENT\+\_\+\+GLOBAL\+\_\+\+SHADER (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_f_diffuse_indirect_composite_p_s}{FDiffuse\+Indirect\+Composite\+PS}}}]{,  }\item[{"{}Pixel\+Shader.\+hlsl"{}}]{,  }\item[{"{}main"{}}]{,  }\item[{\mbox{\hyperlink{_r_h_i_defines_8h_a89725d5f41ceac2e574ddc988f06775ea135f8248df527333f4407f04072fdf74}{ST\+\_\+\+Pixel}}}]{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily IMPLEMENT\+\_\+\+GLOBAL\+\_\+\+SHADER (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_f_screen_rectangle_p_s}{FScreen\+Rectangle\+PS}}}]{,  }\item[{"{}Screen\+Rectangle.\+hlsl"{}}]{,  }\item[{"{}PSMain"{}}]{,  }\item[{\mbox{\hyperlink{_r_h_i_defines_8h_a89725d5f41ceac2e574ddc988f06775ea135f8248df527333f4407f04072fdf74}{ST\+\_\+\+Pixel}}}]{ }\end{DoxyParamCaption})}
 
-\Hypertarget{_indirect_light_rendering_8cpp_a789c6a3c3fe2e469f7ad62f0c94a374d}\label{_indirect_light_rendering_8cpp_a789c6a3c3fe2e469f7ad62f0c94a374d} 
+\Hypertarget{_indirect_light_rendering_8cpp_a66eda68ef1dc29915ef12da2077a91a8}\label{_indirect_light_rendering_8cpp_a66eda68ef1dc29915ef12da2077a91a8} 
 \index{IndirectLightRendering.cpp@{IndirectLightRendering.cpp}!IMPLEMENT\_GLOBAL\_SHADER@{IMPLEMENT\_GLOBAL\_SHADER}}
 \index{IMPLEMENT\_GLOBAL\_SHADER@{IMPLEMENT\_GLOBAL\_SHADER}!IndirectLightRendering.cpp@{IndirectLightRendering.cpp}}
 \doxysubsubsection{\texorpdfstring{IMPLEMENT\_GLOBAL\_SHADER()}{IMPLEMENT\_GLOBAL\_SHADER()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily IMPLEMENT\+\_\+\+GLOBAL\+\_\+\+SHADER (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_f_diffuse_indirect_composite_v_s}{FDiffuse\+Indirect\+Composite\+VS}}}]{,  }\item[{"{}Vertex\+Shader.\+hlsl"{}}]{,  }\item[{"{}main"{}}]{,  }\item[{\mbox{\hyperlink{_r_h_i_defines_8h_a89725d5f41ceac2e574ddc988f06775ea051ebc9c5c563958123bdbdc3bb9330d}{ST\+\_\+\+Vertex}}}]{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily IMPLEMENT\+\_\+\+GLOBAL\+\_\+\+SHADER (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_f_screen_rectangle_v_s}{FScreen\+Rectangle\+VS}}}]{,  }\item[{"{}Screen\+Rectangle.\+hlsl"{}}]{,  }\item[{"{}VSMain"{}}]{,  }\item[{\mbox{\hyperlink{_r_h_i_defines_8h_a89725d5f41ceac2e574ddc988f06775ea051ebc9c5c563958123bdbdc3bb9330d}{ST\+\_\+\+Vertex}}}]{ }\end{DoxyParamCaption})}
 
 \Hypertarget{_indirect_light_rendering_8cpp_a26355850ae7b3d45a950f2ddb7b3d52b}\label{_indirect_light_rendering_8cpp_a26355850ae7b3d45a950f2ddb7b3d52b} 
 \index{IndirectLightRendering.cpp@{IndirectLightRendering.cpp}!RenderLight@{RenderLight}}

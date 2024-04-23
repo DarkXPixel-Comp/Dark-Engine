@@ -20,6 +20,7 @@ public:
 public:
 	const class FRenderTarget* RenderTarget = nullptr;
 	FSceneInterface* Scene = nullptr;
+	FIntRect UnscaledRect;
 
 
 

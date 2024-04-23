@@ -15,21 +15,10 @@ FSceneRender::~FSceneRender()
 
 void FSceneRender::Render(FRHICommandListImmediate& CmdList)
 {
-	RenderLight();
+	//RenderLight();
 
-	//RenderTriangle(CmdList);
+	RenderQuad(CmdList);
 
-
-
-
-
-
-
-}
-
-void FSceneRender::RenderTriangle(FRHICommandListImmediate& CmdList)
-{
-	//CmdList.
 
 
 
@@ -37,9 +26,12 @@ void FSceneRender::RenderTriangle(FRHICommandListImmediate& CmdList)
 
 
 }
+
 
 void FViewInfo::Init()
 {
-	ViewRect = FIntRect(0, 0, 0, 0);
+	ViewRect = UnscaledRect;
+	ViewRect = FIntRect(FIntPoint(0, 0), RenderTarget->GetSizeXY());
+	//ViewRect = FIntRect(0, 0, 1920, 1080);
 	ShaderMap = GGlobalShaderMap;
 }

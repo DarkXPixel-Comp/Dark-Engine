@@ -82,7 +82,7 @@ struct \mbox{\hyperlink{struct_f_windows_platform_types}{FWindows\+Platform\+Typ
 \item 
 \#define \mbox{\hyperlink{_windows_platform_8h_a546e0327a4f0df2717b56e8d8055cf6f}{PLATFORM\+\_\+\+BREAK}}()~(\+\_\+\+\_\+nop(), \+\_\+\+\_\+debugbreak())
 \item 
-\#define \mbox{\hyperlink{_windows_platform_8h_a8c8faee7703cb6ffb73d907671a7c2e7}{PLATFORM\+\_\+\+HAS\+\_\+128\+BIT\+\_\+\+ATOMICS}}~(\mbox{\hyperlink{_windows_platform_8h_ad4055879ef01a64d8cdb03da96f1e4e1}{PLATFORM\+\_\+64\+BITS}} \&\& (\mbox{\hyperlink{_definitions_8h_a966cd377b9f3fdeb1432460c33352af1}{WINVER}} $>$= 0x602))
+\#define \mbox{\hyperlink{_windows_platform_8h_a8c8faee7703cb6ffb73d907671a7c2e7}{PLATFORM\+\_\+\+HAS\+\_\+128\+BIT\+\_\+\+ATOMICS}}~(\mbox{\hyperlink{_windows_platform_8h_ad4055879ef01a64d8cdb03da96f1e4e1}{PLATFORM\+\_\+64\+BITS}} \&\& (WINVER $>$= 0x602))
 \item 
 \#define \mbox{\hyperlink{_windows_platform_8h_a5a3872cc14d02a851fcb9ca4ee08a81b}{VARARGS}}~\+\_\+\+\_\+cdecl           /\texorpdfstring{$\ast$}{*} Functions with variable arguments \texorpdfstring{$\ast$}{*}/
 \item 
@@ -188,7 +188,7 @@ struct \mbox{\hyperlink{struct_f_windows_platform_types}{FWindows\+Platform\+Typ
 \index{WindowsPlatform.h@{WindowsPlatform.h}!PLATFORM\_HAS\_128BIT\_ATOMICS@{PLATFORM\_HAS\_128BIT\_ATOMICS}}
 \index{PLATFORM\_HAS\_128BIT\_ATOMICS@{PLATFORM\_HAS\_128BIT\_ATOMICS}!WindowsPlatform.h@{WindowsPlatform.h}}
 \doxysubsubsection{\texorpdfstring{PLATFORM\_HAS\_128BIT\_ATOMICS}{PLATFORM\_HAS\_128BIT\_ATOMICS}}
-{\footnotesize\ttfamily \#define PLATFORM\+\_\+\+HAS\+\_\+128\+BIT\+\_\+\+ATOMICS~(\mbox{\hyperlink{_windows_platform_8h_ad4055879ef01a64d8cdb03da96f1e4e1}{PLATFORM\+\_\+64\+BITS}} \&\& (\mbox{\hyperlink{_definitions_8h_a966cd377b9f3fdeb1432460c33352af1}{WINVER}} $>$= 0x602))}
+{\footnotesize\ttfamily \#define PLATFORM\+\_\+\+HAS\+\_\+128\+BIT\+\_\+\+ATOMICS~(\mbox{\hyperlink{_windows_platform_8h_ad4055879ef01a64d8cdb03da96f1e4e1}{PLATFORM\+\_\+64\+BITS}} \&\& (WINVER $>$= 0x602))}
 
 \Hypertarget{_windows_platform_8h_ab1d7b392fa1e91d59756fc34ed91c049}\label{_windows_platform_8h_ab1d7b392fa1e91d59756fc34ed91c049} 
 \index{WindowsPlatform.h@{WindowsPlatform.h}!PLATFORM\_HAS\_BSD\_IPV6\_SOCKETS@{PLATFORM\_HAS\_BSD\_IPV6\_SOCKETS}}

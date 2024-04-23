@@ -68,7 +68,7 @@ var searchData=
   ['setupplayercontroller_65',['SetupPlayerController',['../db/d32/class_a_actor.html#aa7b6794ee9b88cc679198e28e89fad50',1,'AActor::SetupPlayerController()'],['../dc/d9c/class_u_camera_actor.html#aeece6bd5de3df535ba0f71942d5acc6f',1,'UCameraActor::SetupPlayerController()']]],
   ['setupwindowsenviroment_66',['SetupWindowsEnviroment',['../d3/d0b/_launch_windows_8cpp.html#a789caaea7c26bd49590e370c03794f0c',1,'LaunchWindows.cpp']]],
   ['setvalid_67',['SetValid',['../d2/d83/class_f_r_h_i_resource.html#acf6a7d025a3f7d093609730cae8668e9',1,'FRHIResource']]],
-  ['setviewport_68',['SetViewport',['../d8/d82/class_f_editor_viewport_client.html#ad83dd01d7bc0bccd4a08744c4c2ce186',1,'FEditorViewportClient::SetViewport()'],['../d6/db2/class_f_game_viewport_client.html#a0fb12ea09c8db4660c95c7883b313a89',1,'FGameViewportClient::SetViewport()']]],
+  ['setviewport_68',['SetViewport',['../d3/dfd/class_f_d3_d12_state_cache.html#a33cb5e2d29d543a70a617258419928c4',1,'FD3D12StateCache::SetViewport()'],['../d8/d82/class_f_editor_viewport_client.html#ad83dd01d7bc0bccd4a08744c4c2ce186',1,'FEditorViewportClient::SetViewport()'],['../d6/db2/class_f_game_viewport_client.html#a0fb12ea09c8db4660c95c7883b313a89',1,'FGameViewportClient::SetViewport()']]],
   ['setvsync_69',['SetVsync',['../d4/d44/class_renderer.html#a9f9b1b821275a8e2fe83cc7123120501',1,'Renderer::SetVsync()'],['../d1/dd0/class_f_u_i_renderer.html#a01e5f5501ae507953a9456d11cc28993',1,'FUIRenderer::SetVsync()']]],
   ['setwindow_70',['SetWindow',['../d9/dc7/class_f_input_core.html#a427ba1ace919b340034f58d9cf3227fc',1,'FInputCore']]],
   ['setwindowfocus_71',['SetWindowFocus',['../d8/dd5/class_f_windows_window.html#a12c21addd8c9339127108fe633ddb469',1,'FWindowsWindow']]],

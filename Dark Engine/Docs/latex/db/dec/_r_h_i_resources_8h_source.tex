@@ -395,237 +395,242 @@
 \DoxyCodeLine{00391\ \ \ \ \ \mbox{\hyperlink{_platform_8h_a40bc01dd090acd02a79b5dc13e08abe6}{uint8}}\ \mbox{\hyperlink{struct_f_vertex_element_a3003c4607fcf56d02db290ac4ec79d26}{bUseInstanceIndex}};}
 \DoxyCodeLine{00392\ \ \ \ \ \mbox{\hyperlink{_r_h_i_defines_8h_a5ba013d0ba7c7b1e63e78d1b19238b1f}{EVertexElementType}}\ \mbox{\hyperlink{struct_f_vertex_element_acc9f01e6db044393262c85f8f7a181f9}{Type}};}
 \DoxyCodeLine{00393\ }
-\DoxyCodeLine{00394\ \ \ \ \ \mbox{\hyperlink{struct_f_vertex_element_a2b686929e2bf62e546a0ffc8fd783f63}{FVertexElement}}()\ \{\}}
+\DoxyCodeLine{00394\ \ \ \ \ \mbox{\hyperlink{class_f_string}{FString}}\ \mbox{\hyperlink{struct_f_vertex_element_a47f67035979af32b877ac404bd09f399}{Name}}\ =\ \mbox{\hyperlink{_platform_8h_a2978f60d40d64f3605b5a99f66f292a9}{TEXT}}(\textcolor{stringliteral}{"{}"{}});}
 \DoxyCodeLine{00395\ }
-\DoxyCodeLine{00396\ \ \ \ \ \mbox{\hyperlink{struct_f_vertex_element_af8f08749863446517217088988892520}{FVertexElement}}(\mbox{\hyperlink{_r_h_i_defines_8h_a5ba013d0ba7c7b1e63e78d1b19238b1f}{EVertexElementType}}\ InType,\ \mbox{\hyperlink{_platform_8h_a40bc01dd090acd02a79b5dc13e08abe6}{uint8}}\ InAttributeIndex,\ \mbox{\hyperlink{_platform_8h_a40bc01dd090acd02a79b5dc13e08abe6}{uint8}}\ InOffset,\ \mbox{\hyperlink{_platform_8h_a40bc01dd090acd02a79b5dc13e08abe6}{uint8}}\ InbUseInstanceIndex,\ \mbox{\hyperlink{_platform_8h_a40bc01dd090acd02a79b5dc13e08abe6}{uint8}}\ InStride)\ :}
-\DoxyCodeLine{00397\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_f_vertex_element_acc9f01e6db044393262c85f8f7a181f9}{Type}}(InType),}
-\DoxyCodeLine{00398\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_f_vertex_element_a13be8e5c06f4eda2904e40291cc8377a}{AttributeIndex}}(InAttributeIndex),}
-\DoxyCodeLine{00399\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_f_vertex_element_adea3090f187f2ff915415786cb558b57}{Offset}}(InOffset),}
-\DoxyCodeLine{00400\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_f_vertex_element_a3003c4607fcf56d02db290ac4ec79d26}{bUseInstanceIndex}}(InbUseInstanceIndex),}
-\DoxyCodeLine{00401\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_f_vertex_element_af49c0fd6285cee24afed8c38da73e3b8}{Stride}}(InStride)}
-\DoxyCodeLine{00402\ \ \ \ \ \{\}}
-\DoxyCodeLine{00403\ \};}
-\DoxyCodeLine{00404\ }
-\DoxyCodeLine{00405\ \textcolor{keyword}{template}<>}
-\DoxyCodeLine{00406\ \textcolor{keyword}{struct\ }std::hash<\mbox{\hyperlink{struct_f_vertex_element}{FVertexElement}}>}
-\DoxyCodeLine{00407\ \{}
-\DoxyCodeLine{00408\ \ \ \ \ \mbox{\hyperlink{_platform_8h_afddf25cca147311c233b23a9d3329bb4}{uint64}}\ \mbox{\hyperlink{structstd_1_1hash_3_01_f_vertex_element_01_4_a85d1a6792099877b540bb8288d69005d}{operator()}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_f_vertex_element}{FVertexElement}}\&\ Other)\textcolor{keyword}{\ const}}
-\DoxyCodeLine{00409\ \textcolor{keyword}{\ \ \ \ }\{}
-\DoxyCodeLine{00410\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_platform_8h_afddf25cca147311c233b23a9d3329bb4}{uint64}}\ Result\ =\ 0;}
-\DoxyCodeLine{00411\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_array_8h_a04cc1b733a2f4d205f13f7a59facba64}{hash\_combine}}(Result,\ Other.Offset);}
-\DoxyCodeLine{00412\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_array_8h_a04cc1b733a2f4d205f13f7a59facba64}{hash\_combine}}(Result,\ Other.Stride);}
-\DoxyCodeLine{00413\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_array_8h_a04cc1b733a2f4d205f13f7a59facba64}{hash\_combine}}(Result,\ Other.AttributeIndex);}
-\DoxyCodeLine{00414\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_array_8h_a04cc1b733a2f4d205f13f7a59facba64}{hash\_combine}}(Result,\ Other.bUseInstanceIndex);}
-\DoxyCodeLine{00415\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_array_8h_a04cc1b733a2f4d205f13f7a59facba64}{hash\_combine}}(Result,\ (\mbox{\hyperlink{_platform_8h_a40bc01dd090acd02a79b5dc13e08abe6}{uint8}})Other.Type);}
-\DoxyCodeLine{00416\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Result;}
-\DoxyCodeLine{00417\ \ \ \ \ \}}
-\DoxyCodeLine{00418\ \};}
-\DoxyCodeLine{00419\ }
-\DoxyCodeLine{00420\ }
-\DoxyCodeLine{00421\ \textcolor{keyword}{typedef}\ TArray<FVertexElement>\ \mbox{\hyperlink{_r_h_i_resources_8h_aa77d5af5631a2f543ab68862f67d6f93}{FVertexDeclarationElementList}};}
+\DoxyCodeLine{00396\ }
+\DoxyCodeLine{00397\ \ \ \ \ \mbox{\hyperlink{struct_f_vertex_element_a2b686929e2bf62e546a0ffc8fd783f63}{FVertexElement}}()\ \{\}}
+\DoxyCodeLine{00398\ }
+\DoxyCodeLine{00399\ \ \ \ \ \mbox{\hyperlink{struct_f_vertex_element_af8f08749863446517217088988892520}{FVertexElement}}(\mbox{\hyperlink{_r_h_i_defines_8h_a5ba013d0ba7c7b1e63e78d1b19238b1f}{EVertexElementType}}\ InType,\ \mbox{\hyperlink{_platform_8h_a40bc01dd090acd02a79b5dc13e08abe6}{uint8}}\ InAttributeIndex,\ \mbox{\hyperlink{_platform_8h_a40bc01dd090acd02a79b5dc13e08abe6}{uint8}}\ InOffset,\ \mbox{\hyperlink{_platform_8h_a40bc01dd090acd02a79b5dc13e08abe6}{uint8}}\ InbUseInstanceIndex,\ \mbox{\hyperlink{_platform_8h_a40bc01dd090acd02a79b5dc13e08abe6}{uint8}}\ InStride)\ :}
+\DoxyCodeLine{00400\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_f_vertex_element_acc9f01e6db044393262c85f8f7a181f9}{Type}}(InType),}
+\DoxyCodeLine{00401\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_f_vertex_element_a13be8e5c06f4eda2904e40291cc8377a}{AttributeIndex}}(InAttributeIndex),}
+\DoxyCodeLine{00402\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_f_vertex_element_adea3090f187f2ff915415786cb558b57}{Offset}}(InOffset),}
+\DoxyCodeLine{00403\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_f_vertex_element_a3003c4607fcf56d02db290ac4ec79d26}{bUseInstanceIndex}}(InbUseInstanceIndex),}
+\DoxyCodeLine{00404\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_f_vertex_element_af49c0fd6285cee24afed8c38da73e3b8}{Stride}}(InStride)}
+\DoxyCodeLine{00405\ \ \ \ \ \{\}}
+\DoxyCodeLine{00406\ \};}
+\DoxyCodeLine{00407\ }
+\DoxyCodeLine{00408\ \textcolor{keyword}{template}<>}
+\DoxyCodeLine{00409\ \textcolor{keyword}{struct\ }std::hash<\mbox{\hyperlink{struct_f_vertex_element}{FVertexElement}}>}
+\DoxyCodeLine{00410\ \{}
+\DoxyCodeLine{00411\ \ \ \ \ \mbox{\hyperlink{_platform_8h_afddf25cca147311c233b23a9d3329bb4}{uint64}}\ \mbox{\hyperlink{structstd_1_1hash_3_01_f_vertex_element_01_4_a85d1a6792099877b540bb8288d69005d}{operator()}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_f_vertex_element}{FVertexElement}}\&\ Other)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00412\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00413\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_platform_8h_afddf25cca147311c233b23a9d3329bb4}{uint64}}\ Result\ =\ 0;}
+\DoxyCodeLine{00414\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_array_8h_a04cc1b733a2f4d205f13f7a59facba64}{hash\_combine}}(Result,\ Other.Offset);}
+\DoxyCodeLine{00415\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_array_8h_a04cc1b733a2f4d205f13f7a59facba64}{hash\_combine}}(Result,\ Other.Stride);}
+\DoxyCodeLine{00416\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_array_8h_a04cc1b733a2f4d205f13f7a59facba64}{hash\_combine}}(Result,\ Other.AttributeIndex);}
+\DoxyCodeLine{00417\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_array_8h_a04cc1b733a2f4d205f13f7a59facba64}{hash\_combine}}(Result,\ Other.bUseInstanceIndex);}
+\DoxyCodeLine{00418\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_array_8h_a04cc1b733a2f4d205f13f7a59facba64}{hash\_combine}}(Result,\ (\mbox{\hyperlink{_platform_8h_a40bc01dd090acd02a79b5dc13e08abe6}{uint8}})Other.Type);}
+\DoxyCodeLine{00419\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Result;}
+\DoxyCodeLine{00420\ \ \ \ \ \}}
+\DoxyCodeLine{00421\ \};}
 \DoxyCodeLine{00422\ }
-\DoxyCodeLine{00423\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_f_r_h_i_vertex_declaration}{FRHIVertexDeclaration}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_f_r_h_i_resource}{FRHIResource}}}
-\DoxyCodeLine{00424\ \{}
-\DoxyCodeLine{00425\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00426\ \ \ \ \ \mbox{\hyperlink{class_f_r_h_i_vertex_declaration_a69d0bea6673448d7ff7a11b932190410}{FRHIVertexDeclaration}}()\ :\ \mbox{\hyperlink{class_f_r_h_i_resource}{FRHIResource}}(\mbox{\hyperlink{_r_h_i_defines_8h_ac956879f51692c0e19acc90d06b8405da94ac0f7e9f101bb8b55af84a2760f765}{RRT\_VertexDeclaration}})\ \{\}}
-\DoxyCodeLine{00427\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_f_r_h_i_vertex_declaration_a31b22a873db39b319f747ccf77891407}{GetInitializer}}(\mbox{\hyperlink{class_t_array}{FVertexDeclarationElementList}}\&\ Init)\ \{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};\ \}}
-\DoxyCodeLine{00428\ \};}
-\DoxyCodeLine{00429\ }
-\DoxyCodeLine{00430\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_f_r_h_i_vertex_shader}{FRHIVertexShader}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_f_r_h_i_graphics_shader}{FRHIGraphicsShader}}}
-\DoxyCodeLine{00431\ \{}
-\DoxyCodeLine{00432\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00433\ \ \ \ \ \mbox{\hyperlink{class_f_r_h_i_vertex_shader_aa616b4f534d04b935dbdc8c5c37f4633}{FRHIVertexShader}}()\ :\ \mbox{\hyperlink{class_f_r_h_i_graphics_shader}{FRHIGraphicsShader}}(\mbox{\hyperlink{_r_h_i_defines_8h_ac956879f51692c0e19acc90d06b8405da7d3c2a77a8acae9a89609100f0181246}{RRT\_VertexShader}},\ \mbox{\hyperlink{_r_h_i_defines_8h_a89725d5f41ceac2e574ddc988f06775ea051ebc9c5c563958123bdbdc3bb9330d}{ST\_Vertex}})}
-\DoxyCodeLine{00434\ \ \ \ \ \{\}}
-\DoxyCodeLine{00435\ \};}
-\DoxyCodeLine{00436\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_f_r_h_i_pixel_shader}{FRHIPixelShader}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_f_r_h_i_graphics_shader}{FRHIGraphicsShader}}}
-\DoxyCodeLine{00437\ \{}
-\DoxyCodeLine{00438\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00439\ \ \ \ \ \mbox{\hyperlink{class_f_r_h_i_pixel_shader_a789dbca424b336f10051bbd0c88a7586}{FRHIPixelShader}}()\ :\ \mbox{\hyperlink{class_f_r_h_i_graphics_shader}{FRHIGraphicsShader}}(\mbox{\hyperlink{_r_h_i_defines_8h_ac956879f51692c0e19acc90d06b8405da2ea581ed52fe5bf116b07af8ba1685b2}{RRT\_PixelShader}},\ \mbox{\hyperlink{_r_h_i_defines_8h_a89725d5f41ceac2e574ddc988f06775ea135f8248df527333f4407f04072fdf74}{ST\_Pixel}})}
-\DoxyCodeLine{00440\ \ \ \ \ \{\}}
-\DoxyCodeLine{00441\ \};}
-\DoxyCodeLine{00442\ }
-\DoxyCodeLine{00443\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_f_r_h_i_geometry_shader}{FRHIGeometryShader}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_f_r_h_i_graphics_shader}{FRHIGraphicsShader}}}
-\DoxyCodeLine{00444\ \{}
-\DoxyCodeLine{00445\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00446\ \ \ \ \ \mbox{\hyperlink{class_f_r_h_i_geometry_shader_a1a02b0096ee9960544eee5a519a96967}{FRHIGeometryShader}}()\ :\ \mbox{\hyperlink{class_f_r_h_i_graphics_shader}{FRHIGraphicsShader}}(\mbox{\hyperlink{_r_h_i_defines_8h_ac956879f51692c0e19acc90d06b8405daa777b95fd3d35399772791dc5f129ef2}{RRT\_GeometryShader}},\ \mbox{\hyperlink{_r_h_i_defines_8h_a89725d5f41ceac2e574ddc988f06775eae3f6fd79e0c21a0b595127fe2159e7fa}{ST\_Geometry}})}
-\DoxyCodeLine{00447\ \ \ \ \ \{\}}
-\DoxyCodeLine{00448\ \};}
-\DoxyCodeLine{00449\ }
-\DoxyCodeLine{00450\ }
-\DoxyCodeLine{00451\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_f_r_h_i_compute_shader}{FRHIComputeShader}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_f_r_h_i_shader}{FRHIShader}}}
-\DoxyCodeLine{00452\ \{}
-\DoxyCodeLine{00453\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00454\ \ \ \ \ \mbox{\hyperlink{class_f_r_h_i_compute_shader_a3314f54a7ddd06fc83d0e7f14e2c1887}{FRHIComputeShader}}()\ :\ \mbox{\hyperlink{class_f_r_h_i_shader}{FRHIShader}}(\mbox{\hyperlink{_r_h_i_defines_8h_ac956879f51692c0e19acc90d06b8405dae0226696d71f7f855298d551de320d59}{RRT\_ComputeShader}},\ \mbox{\hyperlink{_r_h_i_defines_8h_a89725d5f41ceac2e574ddc988f06775eae3f6fd79e0c21a0b595127fe2159e7fa}{ST\_Geometry}})}
-\DoxyCodeLine{00455\ \ \ \ \ \{\}}
-\DoxyCodeLine{00456\ \};}
-\DoxyCodeLine{00457\ }
-\DoxyCodeLine{00458\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_f_r_h_i_sampler_state}{FRHISamplerState}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_f_r_h_i_resource}{FRHIResource}}}
-\DoxyCodeLine{00459\ \{}
-\DoxyCodeLine{00460\ \ \ \ \ \mbox{\hyperlink{class_f_r_h_i_sampler_state}{FRHISamplerState}}()\ :\ \mbox{\hyperlink{class_f_r_h_i_resource_aa6ad5b29a1b8786b083f89a7b4f4f2cf}{FRHIResource}}(\mbox{\hyperlink{_r_h_i_defines_8h_ac956879f51692c0e19acc90d06b8405da024eb38ecf701931a1084a493f55172f}{RRT\_SamplerState}})\ \{\}}
-\DoxyCodeLine{00461\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{struct_f_r_h_i_descriptor_handle}{FRHIDescriptorHandle}}\ GetBindlessHandle()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{struct_f_r_h_i_descriptor_handle}{FRHIDescriptorHandle}}();\ \}}
-\DoxyCodeLine{00462\ \};}
-\DoxyCodeLine{00463\ }
-\DoxyCodeLine{00464\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_f_r_h_i_render_target_view}{FRHIRenderTargetView}}}
-\DoxyCodeLine{00465\ \{}
-\DoxyCodeLine{00466\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00467\ \ \ \ \ \mbox{\hyperlink{class_f_r_h_i_render_target_view_a79eba45d1404222e6c43dc0cd28cf8ee}{FRHIRenderTargetView}}()\ =\ \textcolor{keywordflow}{default};}
-\DoxyCodeLine{00468\ }
-\DoxyCodeLine{00469\ }
-\DoxyCodeLine{00470\ \ \ \ \ \mbox{\hyperlink{class_f_r_h_i_texture}{FRHITexture}}*\ \mbox{\hyperlink{class_f_r_h_i_render_target_view_a1e332d51143818e37cf08684b6b8e553}{Texture}}\ =\ \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{00471\ \ \ \ \ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ \mbox{\hyperlink{class_f_r_h_i_render_target_view_a53aeeef3b489b1104562200eff4c9e68}{MipIndex}}\ =\ 1;}
-\DoxyCodeLine{00472\ \ \ \ \ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ \mbox{\hyperlink{class_f_r_h_i_render_target_view_aa6f3d82c4b80e9b767415b5077bf7647}{ArraySlice}}\ =\ 0;}
-\DoxyCodeLine{00473\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00474\ }
-\DoxyCodeLine{00475\ }
-\DoxyCodeLine{00476\ \};}
+\DoxyCodeLine{00423\ }
+\DoxyCodeLine{00424\ \textcolor{keyword}{typedef}\ TArray<FVertexElement>\ \mbox{\hyperlink{_r_h_i_resources_8h_aa77d5af5631a2f543ab68862f67d6f93}{FVertexDeclarationElementList}};}
+\DoxyCodeLine{00425\ }
+\DoxyCodeLine{00426\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_f_r_h_i_vertex_declaration}{FRHIVertexDeclaration}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_f_r_h_i_resource}{FRHIResource}}}
+\DoxyCodeLine{00427\ \{}
+\DoxyCodeLine{00428\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00429\ \ \ \ \ \mbox{\hyperlink{class_f_r_h_i_vertex_declaration_a69d0bea6673448d7ff7a11b932190410}{FRHIVertexDeclaration}}()\ :\ \mbox{\hyperlink{class_f_r_h_i_resource}{FRHIResource}}(\mbox{\hyperlink{_r_h_i_defines_8h_ac956879f51692c0e19acc90d06b8405da94ac0f7e9f101bb8b55af84a2760f765}{RRT\_VertexDeclaration}})\ \{\}}
+\DoxyCodeLine{00430\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_f_r_h_i_vertex_declaration_a31b22a873db39b319f747ccf77891407}{GetInitializer}}(\mbox{\hyperlink{class_t_array}{FVertexDeclarationElementList}}\&\ Init)\ \{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};\ \}}
+\DoxyCodeLine{00431\ \};}
+\DoxyCodeLine{00432\ }
+\DoxyCodeLine{00433\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_f_r_h_i_vertex_shader}{FRHIVertexShader}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_f_r_h_i_graphics_shader}{FRHIGraphicsShader}}}
+\DoxyCodeLine{00434\ \{}
+\DoxyCodeLine{00435\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00436\ \ \ \ \ \mbox{\hyperlink{class_f_r_h_i_vertex_shader_aa616b4f534d04b935dbdc8c5c37f4633}{FRHIVertexShader}}()\ :\ \mbox{\hyperlink{class_f_r_h_i_graphics_shader}{FRHIGraphicsShader}}(\mbox{\hyperlink{_r_h_i_defines_8h_ac956879f51692c0e19acc90d06b8405da7d3c2a77a8acae9a89609100f0181246}{RRT\_VertexShader}},\ \mbox{\hyperlink{_r_h_i_defines_8h_a89725d5f41ceac2e574ddc988f06775ea051ebc9c5c563958123bdbdc3bb9330d}{ST\_Vertex}})}
+\DoxyCodeLine{00437\ \ \ \ \ \{\}}
+\DoxyCodeLine{00438\ \};}
+\DoxyCodeLine{00439\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_f_r_h_i_pixel_shader}{FRHIPixelShader}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_f_r_h_i_graphics_shader}{FRHIGraphicsShader}}}
+\DoxyCodeLine{00440\ \{}
+\DoxyCodeLine{00441\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00442\ \ \ \ \ \mbox{\hyperlink{class_f_r_h_i_pixel_shader_a789dbca424b336f10051bbd0c88a7586}{FRHIPixelShader}}()\ :\ \mbox{\hyperlink{class_f_r_h_i_graphics_shader}{FRHIGraphicsShader}}(\mbox{\hyperlink{_r_h_i_defines_8h_ac956879f51692c0e19acc90d06b8405da2ea581ed52fe5bf116b07af8ba1685b2}{RRT\_PixelShader}},\ \mbox{\hyperlink{_r_h_i_defines_8h_a89725d5f41ceac2e574ddc988f06775ea135f8248df527333f4407f04072fdf74}{ST\_Pixel}})}
+\DoxyCodeLine{00443\ \ \ \ \ \{\}}
+\DoxyCodeLine{00444\ \};}
+\DoxyCodeLine{00445\ }
+\DoxyCodeLine{00446\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_f_r_h_i_geometry_shader}{FRHIGeometryShader}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_f_r_h_i_graphics_shader}{FRHIGraphicsShader}}}
+\DoxyCodeLine{00447\ \{}
+\DoxyCodeLine{00448\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00449\ \ \ \ \ \mbox{\hyperlink{class_f_r_h_i_geometry_shader_a1a02b0096ee9960544eee5a519a96967}{FRHIGeometryShader}}()\ :\ \mbox{\hyperlink{class_f_r_h_i_graphics_shader}{FRHIGraphicsShader}}(\mbox{\hyperlink{_r_h_i_defines_8h_ac956879f51692c0e19acc90d06b8405daa777b95fd3d35399772791dc5f129ef2}{RRT\_GeometryShader}},\ \mbox{\hyperlink{_r_h_i_defines_8h_a89725d5f41ceac2e574ddc988f06775eae3f6fd79e0c21a0b595127fe2159e7fa}{ST\_Geometry}})}
+\DoxyCodeLine{00450\ \ \ \ \ \{\}}
+\DoxyCodeLine{00451\ \};}
+\DoxyCodeLine{00452\ }
+\DoxyCodeLine{00453\ }
+\DoxyCodeLine{00454\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_f_r_h_i_compute_shader}{FRHIComputeShader}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_f_r_h_i_shader}{FRHIShader}}}
+\DoxyCodeLine{00455\ \{}
+\DoxyCodeLine{00456\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00457\ \ \ \ \ \mbox{\hyperlink{class_f_r_h_i_compute_shader_a3314f54a7ddd06fc83d0e7f14e2c1887}{FRHIComputeShader}}()\ :\ \mbox{\hyperlink{class_f_r_h_i_shader}{FRHIShader}}(\mbox{\hyperlink{_r_h_i_defines_8h_ac956879f51692c0e19acc90d06b8405dae0226696d71f7f855298d551de320d59}{RRT\_ComputeShader}},\ \mbox{\hyperlink{_r_h_i_defines_8h_a89725d5f41ceac2e574ddc988f06775eae3f6fd79e0c21a0b595127fe2159e7fa}{ST\_Geometry}})}
+\DoxyCodeLine{00458\ \ \ \ \ \{\}}
+\DoxyCodeLine{00459\ \};}
+\DoxyCodeLine{00460\ }
+\DoxyCodeLine{00461\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_f_r_h_i_sampler_state}{FRHISamplerState}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_f_r_h_i_resource}{FRHIResource}}}
+\DoxyCodeLine{00462\ \{}
+\DoxyCodeLine{00463\ \ \ \ \ \mbox{\hyperlink{class_f_r_h_i_sampler_state}{FRHISamplerState}}()\ :\ \mbox{\hyperlink{class_f_r_h_i_resource_aa6ad5b29a1b8786b083f89a7b4f4f2cf}{FRHIResource}}(\mbox{\hyperlink{_r_h_i_defines_8h_ac956879f51692c0e19acc90d06b8405da024eb38ecf701931a1084a493f55172f}{RRT\_SamplerState}})\ \{\}}
+\DoxyCodeLine{00464\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{struct_f_r_h_i_descriptor_handle}{FRHIDescriptorHandle}}\ GetBindlessHandle()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{struct_f_r_h_i_descriptor_handle}{FRHIDescriptorHandle}}();\ \}}
+\DoxyCodeLine{00465\ \};}
+\DoxyCodeLine{00466\ }
+\DoxyCodeLine{00467\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_f_r_h_i_render_target_view}{FRHIRenderTargetView}}}
+\DoxyCodeLine{00468\ \{}
+\DoxyCodeLine{00469\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00470\ \ \ \ \ \mbox{\hyperlink{class_f_r_h_i_render_target_view_a79eba45d1404222e6c43dc0cd28cf8ee}{FRHIRenderTargetView}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00471\ }
+\DoxyCodeLine{00472\ }
+\DoxyCodeLine{00473\ \ \ \ \ \mbox{\hyperlink{class_f_r_h_i_texture}{FRHITexture}}*\ \mbox{\hyperlink{class_f_r_h_i_render_target_view_a1e332d51143818e37cf08684b6b8e553}{Texture}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00474\ \ \ \ \ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ \mbox{\hyperlink{class_f_r_h_i_render_target_view_a53aeeef3b489b1104562200eff4c9e68}{MipIndex}}\ =\ 1;}
+\DoxyCodeLine{00475\ \ \ \ \ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ \mbox{\hyperlink{class_f_r_h_i_render_target_view_aa6f3d82c4b80e9b767415b5077bf7647}{ArraySlice}}\ =\ 0;}
+\DoxyCodeLine{00476\ \textcolor{keyword}{private}:}
 \DoxyCodeLine{00477\ }
 \DoxyCodeLine{00478\ }
-\DoxyCodeLine{00479\ }
+\DoxyCodeLine{00479\ \};}
 \DoxyCodeLine{00480\ }
-\DoxyCodeLine{00481\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_f_r_h_i_set_render_target_info}{FRHISetRenderTargetInfo}};}
+\DoxyCodeLine{00481\ }
 \DoxyCodeLine{00482\ }
-\DoxyCodeLine{00483\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_f_r_h_i_depth_render_target_view}{FRHIDepthRenderTargetView}}}
-\DoxyCodeLine{00484\ \{}
-\DoxyCodeLine{00485\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00486\ \ \ \ \ \mbox{\hyperlink{class_f_r_h_i_texture}{FRHITexture}}*\ \mbox{\hyperlink{class_f_r_h_i_depth_render_target_view_ab2a707935433552662da85ce21bb6c01}{Texture}};}
-\DoxyCodeLine{00487\ }
-\DoxyCodeLine{00488\ }
-\DoxyCodeLine{00489\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00490\ \};}
+\DoxyCodeLine{00483\ }
+\DoxyCodeLine{00484\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_f_r_h_i_set_render_target_info}{FRHISetRenderTargetInfo}};}
+\DoxyCodeLine{00485\ }
+\DoxyCodeLine{00486\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_f_r_h_i_depth_render_target_view}{FRHIDepthRenderTargetView}}}
+\DoxyCodeLine{00487\ \{}
+\DoxyCodeLine{00488\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00489\ \ \ \ \ \mbox{\hyperlink{class_f_r_h_i_texture}{FRHITexture}}*\ \mbox{\hyperlink{class_f_r_h_i_depth_render_target_view_ab2a707935433552662da85ce21bb6c01}{Texture}};}
+\DoxyCodeLine{00490\ }
 \DoxyCodeLine{00491\ }
-\DoxyCodeLine{00492\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_f_r_h_i_render_pass_info}{FRHIRenderPassInfo}}}
-\DoxyCodeLine{00493\ \{}
-\DoxyCodeLine{00494\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_f_r_h_i_render_pass_info_1_1_f_color_entry}{FColorEntry}}}
-\DoxyCodeLine{00495\ \ \ \ \ \{}
-\DoxyCodeLine{00496\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_f_r_h_i_texture}{FRHITexture}}*\ \mbox{\hyperlink{struct_f_r_h_i_render_pass_info_1_1_f_color_entry_af6b81c3e7017f5f48ae24ef2c65b995d}{RenderTarget}}\ =\ \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{00497\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}\ \mbox{\hyperlink{struct_f_r_h_i_render_pass_info_1_1_f_color_entry_ae516593ead786b9b37beb567c5625b7f}{ArraySlice}}\ =\ -\/1;}
-\DoxyCodeLine{00498\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_platform_8h_a40bc01dd090acd02a79b5dc13e08abe6}{uint8}}\ \mbox{\hyperlink{struct_f_r_h_i_render_pass_info_1_1_f_color_entry_a8d266bc1cd27c36ca77c1c773decc2c0}{MipIndex}}\ =\ 0;}
-\DoxyCodeLine{00499\ \ \ \ \ \};}
-\DoxyCodeLine{00500\ \ \ \ \ TStaticArray<FColorEntry,\ 8>\ \mbox{\hyperlink{struct_f_r_h_i_render_pass_info_a5f6a77f26e1e3280dd2d12b53d6ec427}{ColorRenderTargets}};}
-\DoxyCodeLine{00501\ }
-\DoxyCodeLine{00502\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_f_r_h_i_render_pass_info_1_1_f_depth_stencil_entry}{FDepthStencilEntry}}}
-\DoxyCodeLine{00503\ \ \ \ \ \{}
-\DoxyCodeLine{00504\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_f_r_h_i_texture}{FRHITexture}}*\ \mbox{\hyperlink{struct_f_r_h_i_render_pass_info_1_1_f_depth_stencil_entry_a9798e1e7910e4a572cb27e55d6bfec40}{DepthStencilTarget}}\ =\ \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{00505\ \ \ \ \ \};}
-\DoxyCodeLine{00506\ }
-\DoxyCodeLine{00507\ \ \ \ \ \mbox{\hyperlink{struct_f_r_h_i_render_pass_info_1_1_f_depth_stencil_entry}{FDepthStencilEntry}}\ \mbox{\hyperlink{struct_f_r_h_i_render_pass_info_a02ea53a8ae550939a9dc7a1b1241c6cc}{DepthStencilEntry}};}
-\DoxyCodeLine{00508\ }
-\DoxyCodeLine{00509\ \ \ \ \ \mbox{\hyperlink{struct_f_r_h_i_render_pass_info_a471a0c6af5adc627bf777cfeded7352a}{FRHIRenderPassInfo}}()\ =\ \textcolor{keywordflow}{default};}
-\DoxyCodeLine{00510\ \ \ \ \ \mbox{\hyperlink{struct_f_r_h_i_render_pass_info_aae846e8549c10793e31eae732298ded4}{FRHIRenderPassInfo}}(\mbox{\hyperlink{class_f_r_h_i_texture}{FRHITexture}}*\ ColorRT)}
-\DoxyCodeLine{00511\ \ \ \ \ \{}
-\DoxyCodeLine{00512\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_assertion_macros_8h_a586e110623cde145b8a5bdefb429e144}{check}}(ColorRT);}
-\DoxyCodeLine{00513\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_f_r_h_i_render_pass_info_a5f6a77f26e1e3280dd2d12b53d6ec427}{ColorRenderTargets}}[0].RenderTarget\ =\ ColorRT;}
-\DoxyCodeLine{00514\ \ \ \ \ \}}
-\DoxyCodeLine{00515\ \ \ \ \ \mbox{\hyperlink{struct_f_r_h_i_render_pass_info_acea3e8076925f3d4630f241cf751eb42}{FRHIRenderPassInfo}}(\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ NumColorRT,\ \mbox{\hyperlink{class_f_r_h_i_texture}{FRHITexture}}**\ ColorRT)}
-\DoxyCodeLine{00516\ \ \ \ \ \{}
-\DoxyCodeLine{00517\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_assertion_macros_8h_a586e110623cde145b8a5bdefb429e144}{check}}(NumColorRT\ >\ 0);}
-\DoxyCodeLine{00518\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}\ i\ =\ 0;\ i\ <\ NumColorRT;\ ++i)}
-\DoxyCodeLine{00519\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00520\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_assertion_macros_8h_a586e110623cde145b8a5bdefb429e144}{check}}(ColorRT[i]);}
-\DoxyCodeLine{00521\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_f_r_h_i_render_pass_info_a5f6a77f26e1e3280dd2d12b53d6ec427}{ColorRenderTargets}}[i].RenderTarget\ =\ ColorRT[i];}
-\DoxyCodeLine{00522\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00523\ \ \ \ \ \}}
-\DoxyCodeLine{00524\ }
-\DoxyCodeLine{00525\ \ \ \ \ \mbox{\hyperlink{class_f_r_h_i_set_render_target_info}{FRHISetRenderTargetInfo}}\ \mbox{\hyperlink{struct_f_r_h_i_render_pass_info_aac3513c9c42256a3022f392803fad70d}{ConvertToRenderTargetInfo}}()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00526\ }
+\DoxyCodeLine{00492\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00493\ \};}
+\DoxyCodeLine{00494\ }
+\DoxyCodeLine{00495\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_f_r_h_i_render_pass_info}{FRHIRenderPassInfo}}}
+\DoxyCodeLine{00496\ \{}
+\DoxyCodeLine{00497\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_f_r_h_i_render_pass_info_1_1_f_color_entry}{FColorEntry}}}
+\DoxyCodeLine{00498\ \ \ \ \ \{}
+\DoxyCodeLine{00499\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_f_r_h_i_texture}{FRHITexture}}*\ \mbox{\hyperlink{struct_f_r_h_i_render_pass_info_1_1_f_color_entry_af6b81c3e7017f5f48ae24ef2c65b995d}{RenderTarget}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00500\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}\ \mbox{\hyperlink{struct_f_r_h_i_render_pass_info_1_1_f_color_entry_ae516593ead786b9b37beb567c5625b7f}{ArraySlice}}\ =\ -\/1;}
+\DoxyCodeLine{00501\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_platform_8h_a40bc01dd090acd02a79b5dc13e08abe6}{uint8}}\ \mbox{\hyperlink{struct_f_r_h_i_render_pass_info_1_1_f_color_entry_a8d266bc1cd27c36ca77c1c773decc2c0}{MipIndex}}\ =\ 0;}
+\DoxyCodeLine{00502\ \ \ \ \ \};}
+\DoxyCodeLine{00503\ \ \ \ \ TStaticArray<FColorEntry,\ 8>\ \mbox{\hyperlink{struct_f_r_h_i_render_pass_info_a5f6a77f26e1e3280dd2d12b53d6ec427}{ColorRenderTargets}};}
+\DoxyCodeLine{00504\ }
+\DoxyCodeLine{00505\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_f_r_h_i_render_pass_info_1_1_f_depth_stencil_entry}{FDepthStencilEntry}}}
+\DoxyCodeLine{00506\ \ \ \ \ \{}
+\DoxyCodeLine{00507\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_f_r_h_i_texture}{FRHITexture}}*\ \mbox{\hyperlink{struct_f_r_h_i_render_pass_info_1_1_f_depth_stencil_entry_a9798e1e7910e4a572cb27e55d6bfec40}{DepthStencilTarget}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00508\ \ \ \ \ \};}
+\DoxyCodeLine{00509\ }
+\DoxyCodeLine{00510\ \ \ \ \ \mbox{\hyperlink{struct_f_r_h_i_render_pass_info_1_1_f_depth_stencil_entry}{FDepthStencilEntry}}\ \mbox{\hyperlink{struct_f_r_h_i_render_pass_info_a02ea53a8ae550939a9dc7a1b1241c6cc}{DepthStencilEntry}};}
+\DoxyCodeLine{00511\ }
+\DoxyCodeLine{00512\ \ \ \ \ \mbox{\hyperlink{struct_f_r_h_i_render_pass_info_a471a0c6af5adc627bf777cfeded7352a}{FRHIRenderPassInfo}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00513\ \ \ \ \ \mbox{\hyperlink{struct_f_r_h_i_render_pass_info_aae846e8549c10793e31eae732298ded4}{FRHIRenderPassInfo}}(\mbox{\hyperlink{class_f_r_h_i_texture}{FRHITexture}}*\ ColorRT)}
+\DoxyCodeLine{00514\ \ \ \ \ \{}
+\DoxyCodeLine{00515\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_assertion_macros_8h_a586e110623cde145b8a5bdefb429e144}{check}}(ColorRT);}
+\DoxyCodeLine{00516\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_f_r_h_i_render_pass_info_a5f6a77f26e1e3280dd2d12b53d6ec427}{ColorRenderTargets}}[0].RenderTarget\ =\ ColorRT;}
+\DoxyCodeLine{00517\ \ \ \ \ \}}
+\DoxyCodeLine{00518\ \ \ \ \ \mbox{\hyperlink{struct_f_r_h_i_render_pass_info_acea3e8076925f3d4630f241cf751eb42}{FRHIRenderPassInfo}}(\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ NumColorRT,\ \mbox{\hyperlink{class_f_r_h_i_texture}{FRHITexture}}**\ ColorRT)}
+\DoxyCodeLine{00519\ \ \ \ \ \{}
+\DoxyCodeLine{00520\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_assertion_macros_8h_a586e110623cde145b8a5bdefb429e144}{check}}(NumColorRT\ >\ 0);}
+\DoxyCodeLine{00521\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}\ i\ =\ 0;\ i\ <\ NumColorRT;\ ++i)}
+\DoxyCodeLine{00522\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00523\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_assertion_macros_8h_a586e110623cde145b8a5bdefb429e144}{check}}(ColorRT[i]);}
+\DoxyCodeLine{00524\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_f_r_h_i_render_pass_info_a5f6a77f26e1e3280dd2d12b53d6ec427}{ColorRenderTargets}}[i].RenderTarget\ =\ ColorRT[i];}
+\DoxyCodeLine{00525\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00526\ \ \ \ \ \}}
 \DoxyCodeLine{00527\ }
-\DoxyCodeLine{00528\ \};}
+\DoxyCodeLine{00528\ \ \ \ \ \mbox{\hyperlink{class_f_r_h_i_set_render_target_info}{FRHISetRenderTargetInfo}}\ \mbox{\hyperlink{struct_f_r_h_i_render_pass_info_aac3513c9c42256a3022f392803fad70d}{ConvertToRenderTargetInfo}}()\ \textcolor{keyword}{const};}
 \DoxyCodeLine{00529\ }
 \DoxyCodeLine{00530\ }
-\DoxyCodeLine{00531\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_f_r_h_i_set_render_target_info}{FRHISetRenderTargetInfo}}}
-\DoxyCodeLine{00532\ \{}
-\DoxyCodeLine{00533\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00534\ \ \ \ \ \mbox{\hyperlink{class_f_r_h_i_render_target_view}{FRHIRenderTargetView}}\ \mbox{\hyperlink{class_f_r_h_i_set_render_target_info_a24633e5ec5c93b32746d3aaa134bb1b2}{ColorRenderTarget}}[\mbox{\hyperlink{_definitions_8h_a82dd50daf9a45fffa4e2a460c9349fb9}{MAX\_RENDER\_TARGETS}}];}
-\DoxyCodeLine{00535\ \ \ \ \ \mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}\ \mbox{\hyperlink{class_f_r_h_i_set_render_target_info_a8f7e735e5a3c13cc82bdd735531f51f0}{NumColorRenderTargets}}\ =\ 0;}
-\DoxyCodeLine{00536\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_f_r_h_i_set_render_target_info_af30154c6736b84a9ca180e2dfbcd25c0}{bClearColor}}\ =\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00537\ }
-\DoxyCodeLine{00538\ \ \ \ \ \mbox{\hyperlink{class_f_r_h_i_depth_render_target_view}{FRHIDepthRenderTargetView}}\ \mbox{\hyperlink{class_f_r_h_i_set_render_target_info_af825a8f4a91e46609a0fa7eb00a56f2b}{DepthStencilRenderTarget}};}
-\DoxyCodeLine{00539\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_f_r_h_i_set_render_target_info_aeb44fccb172e3be2ead6cd04a106a6f1}{bClearDepth}}\ =\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00540\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_f_r_h_i_set_render_target_info_ae29bbf0d086e3a11690844c3cc8bfeda}{bClearStencil}}\ =\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00541\ }
-\DoxyCodeLine{00542\ \ \ \ \ \textcolor{comment}{//...}}
-\DoxyCodeLine{00543\ \};}
+\DoxyCodeLine{00531\ \};}
+\DoxyCodeLine{00532\ }
+\DoxyCodeLine{00533\ }
+\DoxyCodeLine{00534\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_f_r_h_i_set_render_target_info}{FRHISetRenderTargetInfo}}}
+\DoxyCodeLine{00535\ \{}
+\DoxyCodeLine{00536\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00537\ \ \ \ \ \mbox{\hyperlink{class_f_r_h_i_render_target_view}{FRHIRenderTargetView}}\ \mbox{\hyperlink{class_f_r_h_i_set_render_target_info_a24633e5ec5c93b32746d3aaa134bb1b2}{ColorRenderTarget}}[\mbox{\hyperlink{_definitions_8h_a82dd50daf9a45fffa4e2a460c9349fb9}{MAX\_RENDER\_TARGETS}}];}
+\DoxyCodeLine{00538\ \ \ \ \ \mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}\ \mbox{\hyperlink{class_f_r_h_i_set_render_target_info_a8f7e735e5a3c13cc82bdd735531f51f0}{NumColorRenderTargets}}\ =\ 0;}
+\DoxyCodeLine{00539\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_f_r_h_i_set_render_target_info_af30154c6736b84a9ca180e2dfbcd25c0}{bClearColor}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00540\ }
+\DoxyCodeLine{00541\ \ \ \ \ \mbox{\hyperlink{class_f_r_h_i_depth_render_target_view}{FRHIDepthRenderTargetView}}\ \mbox{\hyperlink{class_f_r_h_i_set_render_target_info_af825a8f4a91e46609a0fa7eb00a56f2b}{DepthStencilRenderTarget}};}
+\DoxyCodeLine{00542\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_f_r_h_i_set_render_target_info_aeb44fccb172e3be2ead6cd04a106a6f1}{bClearDepth}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00543\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_f_r_h_i_set_render_target_info_ae29bbf0d086e3a11690844c3cc8bfeda}{bClearStencil}}\ =\ \textcolor{keyword}{false};}
 \DoxyCodeLine{00544\ }
-\DoxyCodeLine{00545\ }
-\DoxyCodeLine{00546\ }
+\DoxyCodeLine{00545\ \ \ \ \ \textcolor{comment}{//...}}
+\DoxyCodeLine{00546\ \};}
 \DoxyCodeLine{00547\ }
-\DoxyCodeLine{00548\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_f_bound_shader_state_input}{FBoundShaderStateInput}}}
-\DoxyCodeLine{00549\ \{}
-\DoxyCodeLine{00550\ \ \ \ \ \mbox{\hyperlink{struct_f_bound_shader_state_input_a018d8fa811281c0b6a622bec7db0df3c}{FBoundShaderStateInput}}}
-\DoxyCodeLine{00551\ \ \ \ \ (}
-\DoxyCodeLine{00552\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_f_r_h_i_vertex_shader}{FRHIVertexShader}}*\ InVertexShader,}
-\DoxyCodeLine{00553\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_f_r_h_i_pixel_shader}{FRHIPixelShader}}*\ InPixelShader,}
-\DoxyCodeLine{00554\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_f_r_h_i_geometry_shader}{FRHIGeometryShader}}*\ InGeometryShader}
-\DoxyCodeLine{00555\ \ \ \ \ ):}
-\DoxyCodeLine{00556\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_f_bound_shader_state_input_ab640379ec7f3fd9450d657a69e59be47}{VertexShaderRHI}}(InVertexShader),}
-\DoxyCodeLine{00557\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_f_bound_shader_state_input_a3ecfb26501af54101c569a3ccd266ab7}{PixelShaderRHI}}(InPixelShader),}
-\DoxyCodeLine{00558\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_f_bound_shader_state_input_a8d2263dcd8f0e076a4851833f49a5d2f}{GeometryShaderRHI}}(InGeometryShader)}
-\DoxyCodeLine{00559\ \ \ \ \ \{\}}
-\DoxyCodeLine{00560\ }
-\DoxyCodeLine{00561\ \ \ \ \ \mbox{\hyperlink{struct_f_bound_shader_state_input_abd2ded7d6018669bb5579c4604b63434}{FBoundShaderStateInput}}()}
+\DoxyCodeLine{00548\ }
+\DoxyCodeLine{00549\ }
+\DoxyCodeLine{00550\ }
+\DoxyCodeLine{00551\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_f_bound_shader_state_input}{FBoundShaderStateInput}}}
+\DoxyCodeLine{00552\ \{}
+\DoxyCodeLine{00553\ \ \ \ \ \mbox{\hyperlink{struct_f_bound_shader_state_input_a018d8fa811281c0b6a622bec7db0df3c}{FBoundShaderStateInput}}}
+\DoxyCodeLine{00554\ \ \ \ \ (}
+\DoxyCodeLine{00555\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_f_r_h_i_vertex_shader}{FRHIVertexShader}}*\ InVertexShader,}
+\DoxyCodeLine{00556\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_f_r_h_i_pixel_shader}{FRHIPixelShader}}*\ InPixelShader,}
+\DoxyCodeLine{00557\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_f_r_h_i_geometry_shader}{FRHIGeometryShader}}*\ InGeometryShader}
+\DoxyCodeLine{00558\ \ \ \ \ ):}
+\DoxyCodeLine{00559\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_f_bound_shader_state_input_ab640379ec7f3fd9450d657a69e59be47}{VertexShaderRHI}}(InVertexShader),}
+\DoxyCodeLine{00560\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_f_bound_shader_state_input_a3ecfb26501af54101c569a3ccd266ab7}{PixelShaderRHI}}(InPixelShader),}
+\DoxyCodeLine{00561\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_f_bound_shader_state_input_a8d2263dcd8f0e076a4851833f49a5d2f}{GeometryShaderRHI}}(InGeometryShader)}
 \DoxyCodeLine{00562\ \ \ \ \ \{\}}
 \DoxyCodeLine{00563\ }
-\DoxyCodeLine{00564\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_f_bound_shader_state_input_addf15446f1f24364f36c21023da2271b}{operator\ ==}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_f_bound_shader_state_input}{FBoundShaderStateInput}}\&\ Other)\textcolor{keyword}{\ const}}
-\DoxyCodeLine{00565\ \textcolor{keyword}{\ \ \ \ }\{}
-\DoxyCodeLine{00566\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{struct_f_bound_shader_state_input_ab640379ec7f3fd9450d657a69e59be47}{VertexShaderRHI}}\ ==\ Other.VertexShaderRHI\ \&\&\ \mbox{\hyperlink{struct_f_bound_shader_state_input_a3ecfb26501af54101c569a3ccd266ab7}{PixelShaderRHI}}\ ==\ Other.PixelShaderRHI\ \&\&\ \mbox{\hyperlink{struct_f_bound_shader_state_input_a8d2263dcd8f0e076a4851833f49a5d2f}{GeometryShaderRHI}}\ ==\ Other.GeometryShaderRHI\ \&\&\ \mbox{\hyperlink{struct_f_bound_shader_state_input_a1c847f10cc1ab9a97771d547e2ab0de3}{VertexDeclaration}}\ ==\ Other.VertexDeclaration;\ }
-\DoxyCodeLine{00567\ \ \ \ \ \}}
-\DoxyCodeLine{00568\ }
-\DoxyCodeLine{00569\ \ \ \ \ \mbox{\hyperlink{class_f_r_h_i_vertex_declaration}{FRHIVertexDeclaration}}*\ \mbox{\hyperlink{struct_f_bound_shader_state_input_a1c847f10cc1ab9a97771d547e2ab0de3}{VertexDeclaration}}\ =\ \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{00570\ \ \ \ \ \mbox{\hyperlink{class_f_r_h_i_vertex_shader}{FRHIVertexShader}}*\ \mbox{\hyperlink{struct_f_bound_shader_state_input_ab640379ec7f3fd9450d657a69e59be47}{VertexShaderRHI}}\ =\ \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{00571\ \ \ \ \ \mbox{\hyperlink{class_f_r_h_i_pixel_shader}{FRHIPixelShader}}*\ \mbox{\hyperlink{struct_f_bound_shader_state_input_a3ecfb26501af54101c569a3ccd266ab7}{PixelShaderRHI}}\ =\ \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{00572\ \ \ \ \ \mbox{\hyperlink{class_f_r_h_i_geometry_shader}{FRHIGeometryShader}}*\ \mbox{\hyperlink{struct_f_bound_shader_state_input_a8d2263dcd8f0e076a4851833f49a5d2f}{GeometryShaderRHI}}\ =\ \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{00573\ \};}
-\DoxyCodeLine{00574\ }
-\DoxyCodeLine{00575\ }
-\DoxyCodeLine{00576\ }
-\DoxyCodeLine{00577\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_f_graphics_pipeline_state_initializer}{FGraphicsPipelineStateInitializer}}}
-\DoxyCodeLine{00578\ \{}
-\DoxyCodeLine{00579\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00580\ \ \ \ \ \mbox{\hyperlink{struct_f_bound_shader_state_input}{FBoundShaderStateInput}}\ \mbox{\hyperlink{class_f_graphics_pipeline_state_initializer_a24cb693a0b02762c3436638b85e8cdf5}{BoundShaderState}};}
-\DoxyCodeLine{00581\ \ \ \ \ \mbox{\hyperlink{_r_h_i_defines_8h_af5bd84af81d7da8da271f976754778e0}{EPrimitiveType}}\ \mbox{\hyperlink{class_f_graphics_pipeline_state_initializer_aedea784d5646076533504d06c3a5f211}{PrimitiveType}};}
-\DoxyCodeLine{00582\ }
-\DoxyCodeLine{00583\ }
-\DoxyCodeLine{00584\ }
-\DoxyCodeLine{00585\ }
-\DoxyCodeLine{00586\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_f_graphics_pipeline_state_initializer_a12659d6a78ff4a41695e2b72aa8f0689}{operator==}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_f_graphics_pipeline_state_initializer}{FGraphicsPipelineStateInitializer}}\&\ Other)\textcolor{keyword}{\ const}}
-\DoxyCodeLine{00587\ \textcolor{keyword}{\ \ \ \ }\{}
-\DoxyCodeLine{00588\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Other.BoundShaderState\ ==\ \mbox{\hyperlink{class_f_graphics_pipeline_state_initializer_a24cb693a0b02762c3436638b85e8cdf5}{BoundShaderState}}\ \&\&\ \mbox{\hyperlink{class_f_graphics_pipeline_state_initializer_aedea784d5646076533504d06c3a5f211}{PrimitiveType}}\ ==\ Other.PrimitiveType;}
-\DoxyCodeLine{00589\ \ \ \ \ \}}
+\DoxyCodeLine{00564\ \ \ \ \ \mbox{\hyperlink{struct_f_bound_shader_state_input_abd2ded7d6018669bb5579c4604b63434}{FBoundShaderStateInput}}()}
+\DoxyCodeLine{00565\ \ \ \ \ \{\}}
+\DoxyCodeLine{00566\ }
+\DoxyCodeLine{00567\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_f_bound_shader_state_input_addf15446f1f24364f36c21023da2271b}{operator\ ==}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_f_bound_shader_state_input}{FBoundShaderStateInput}}\&\ Other)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00568\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00569\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{struct_f_bound_shader_state_input_ab640379ec7f3fd9450d657a69e59be47}{VertexShaderRHI}}\ ==\ Other.VertexShaderRHI\ \&\&\ \mbox{\hyperlink{struct_f_bound_shader_state_input_a3ecfb26501af54101c569a3ccd266ab7}{PixelShaderRHI}}\ ==\ Other.PixelShaderRHI\ \&\&\ \mbox{\hyperlink{struct_f_bound_shader_state_input_a8d2263dcd8f0e076a4851833f49a5d2f}{GeometryShaderRHI}}\ ==\ Other.GeometryShaderRHI\ \&\&\ \mbox{\hyperlink{struct_f_bound_shader_state_input_a1c847f10cc1ab9a97771d547e2ab0de3}{VertexDeclaration}}\ ==\ Other.VertexDeclaration;\ }
+\DoxyCodeLine{00570\ \ \ \ \ \}}
+\DoxyCodeLine{00571\ }
+\DoxyCodeLine{00572\ \ \ \ \ \mbox{\hyperlink{class_f_r_h_i_vertex_declaration}{FRHIVertexDeclaration}}*\ \mbox{\hyperlink{struct_f_bound_shader_state_input_a1c847f10cc1ab9a97771d547e2ab0de3}{VertexDeclaration}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00573\ \ \ \ \ \mbox{\hyperlink{class_f_r_h_i_vertex_shader}{FRHIVertexShader}}*\ \mbox{\hyperlink{struct_f_bound_shader_state_input_ab640379ec7f3fd9450d657a69e59be47}{VertexShaderRHI}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00574\ \ \ \ \ \mbox{\hyperlink{class_f_r_h_i_pixel_shader}{FRHIPixelShader}}*\ \mbox{\hyperlink{struct_f_bound_shader_state_input_a3ecfb26501af54101c569a3ccd266ab7}{PixelShaderRHI}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00575\ \ \ \ \ \mbox{\hyperlink{class_f_r_h_i_geometry_shader}{FRHIGeometryShader}}*\ \mbox{\hyperlink{struct_f_bound_shader_state_input_a8d2263dcd8f0e076a4851833f49a5d2f}{GeometryShaderRHI}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00576\ \};}
+\DoxyCodeLine{00577\ }
+\DoxyCodeLine{00578\ }
+\DoxyCodeLine{00579\ }
+\DoxyCodeLine{00580\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_f_graphics_pipeline_state_initializer}{FGraphicsPipelineStateInitializer}}}
+\DoxyCodeLine{00581\ \{}
+\DoxyCodeLine{00582\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00583\ \ \ \ \ \mbox{\hyperlink{struct_f_bound_shader_state_input}{FBoundShaderStateInput}}\ \mbox{\hyperlink{class_f_graphics_pipeline_state_initializer_a24cb693a0b02762c3436638b85e8cdf5}{BoundShaderState}};}
+\DoxyCodeLine{00584\ \ \ \ \ \mbox{\hyperlink{_r_h_i_defines_8h_af5bd84af81d7da8da271f976754778e0}{EPrimitiveType}}\ \mbox{\hyperlink{class_f_graphics_pipeline_state_initializer_aedea784d5646076533504d06c3a5f211}{PrimitiveType}};}
+\DoxyCodeLine{00585\ \ \ \ \ \mbox{\hyperlink{_pixel_format_8h_afb559e26bc610db43ba605230a142898}{EPixelFormat}}\ \mbox{\hyperlink{class_f_graphics_pipeline_state_initializer_a728f03f0a7b302bd1b1fb08a0ded404c}{RenderTargetFormats}}[8];}
+\DoxyCodeLine{00586\ \ \ \ \ \mbox{\hyperlink{_pixel_format_8h_afb559e26bc610db43ba605230a142898}{EPixelFormat}}\ \mbox{\hyperlink{class_f_graphics_pipeline_state_initializer_a8d2054736e0df678696a5f0cc9267fdd}{DepthFormat}};}
+\DoxyCodeLine{00587\ }
+\DoxyCodeLine{00588\ }
+\DoxyCodeLine{00589\ }
 \DoxyCodeLine{00590\ }
-\DoxyCodeLine{00591\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00592\ \};}
-\DoxyCodeLine{00593\ }
-\DoxyCodeLine{00594\ \textcolor{keyword}{template}<>}
-\DoxyCodeLine{00595\ \textcolor{keyword}{struct\ }std::hash<\mbox{\hyperlink{struct_f_bound_shader_state_input}{FBoundShaderStateInput}}>}
-\DoxyCodeLine{00596\ \{}
-\DoxyCodeLine{00597\ \ \ \ \ std::size\_t\ \mbox{\hyperlink{structstd_1_1hash_3_01_f_bound_shader_state_input_01_4_ab1527b892f97a0c6b5c27383631cf449}{operator()}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_f_bound_shader_state_input}{FBoundShaderStateInput}}\&\ Key)\textcolor{keyword}{\ const}}
-\DoxyCodeLine{00598\ \textcolor{keyword}{\ \ \ \ }\{}
-\DoxyCodeLine{00599\ \ \ \ \ \ \ \ \ std::size\_t\ Result\ =\ 0;}
-\DoxyCodeLine{00600\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_array_8h_ac4b95aa8f07fa2256ca3208f0b7abc15}{hash\_without\_hash\_combine}}(Result,\ Key.PixelShaderRHI\ ?\ Key.PixelShaderRHI-\/>ShaderHash\ :\ 0);}
-\DoxyCodeLine{00601\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_array_8h_ac4b95aa8f07fa2256ca3208f0b7abc15}{hash\_without\_hash\_combine}}(Result,\ Key.VertexShaderRHI\ ?\ Key.VertexShaderRHI-\/>ShaderHash\ :\ 0);}
-\DoxyCodeLine{00602\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_array_8h_ac4b95aa8f07fa2256ca3208f0b7abc15}{hash\_without\_hash\_combine}}(Result,\ Key.GeometryShaderRHI\ ?\ Key.GeometryShaderRHI-\/>ShaderHash\ :\ 0);}
-\DoxyCodeLine{00603\ \ \ \ \ \ \ \ \ \textcolor{comment}{//hash\_without\_hash\_combine(Result,\ Key.PixelShaderRHI\ ?\ Key.VertexDeclaration-\/>ShaderHash\ :\ 0);}}
-\DoxyCodeLine{00604\ }
-\DoxyCodeLine{00605\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Result;}
-\DoxyCodeLine{00606\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*return(std::hash<uint64>()((uint64)Key.VertexShaderRHI)\ <<\ 1)}}
-\DoxyCodeLine{00607\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \string^\ (std::hash<uint64>()((uint64)Key.PixelShaderRHI)\ <<\ 1)}}
-\DoxyCodeLine{00608\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \string^\ (std::hash<uint64>()((uint64)Key.GeometryShaderRHI)\ <<\ 1);*/}}
-\DoxyCodeLine{00609\ \ \ \ \ \}}
-\DoxyCodeLine{00610\ }
-\DoxyCodeLine{00611\ \};}
-\DoxyCodeLine{00612\ }
-\DoxyCodeLine{00613\ }
-\DoxyCodeLine{00614\ \textcolor{keyword}{template}<>}
-\DoxyCodeLine{00615\ \textcolor{keyword}{struct\ }std::hash<\mbox{\hyperlink{class_f_graphics_pipeline_state_initializer}{FGraphicsPipelineStateInitializer}}>}
-\DoxyCodeLine{00616\ \{}
-\DoxyCodeLine{00617\ \ \ \ \ std::size\_t\ \mbox{\hyperlink{structstd_1_1hash_3_01_f_graphics_pipeline_state_initializer_01_4_af9ee459d03e771fb0214521637e5b21a}{operator()}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_f_graphics_pipeline_state_initializer}{FGraphicsPipelineStateInitializer}}\&\ Key)\textcolor{keyword}{\ const}}
-\DoxyCodeLine{00618\ \textcolor{keyword}{\ \ \ \ }\{\ \ \ \ }
-\DoxyCodeLine{00619\ \ \ \ \ \ \ \ \ std::size\_t\ Result\ =\ 0;}
-\DoxyCodeLine{00620\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_array_8h_a04cc1b733a2f4d205f13f7a59facba64}{hash\_combine}}(Result,\ Key.BoundShaderState);}
-\DoxyCodeLine{00621\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_array_8h_a04cc1b733a2f4d205f13f7a59facba64}{hash\_combine}}(Result,\ (\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}})Key.PrimitiveType);}
-\DoxyCodeLine{00622\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Result;}
-\DoxyCodeLine{00623\ \ \ \ \ \}}
-\DoxyCodeLine{00624\ }
-\DoxyCodeLine{00625\ \};}
+\DoxyCodeLine{00591\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_f_graphics_pipeline_state_initializer_a12659d6a78ff4a41695e2b72aa8f0689}{operator==}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_f_graphics_pipeline_state_initializer}{FGraphicsPipelineStateInitializer}}\&\ Other)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00592\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00593\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Other.BoundShaderState\ ==\ \mbox{\hyperlink{class_f_graphics_pipeline_state_initializer_a24cb693a0b02762c3436638b85e8cdf5}{BoundShaderState}}\ \&\&\ \mbox{\hyperlink{class_f_graphics_pipeline_state_initializer_aedea784d5646076533504d06c3a5f211}{PrimitiveType}}\ ==\ Other.PrimitiveType;}
+\DoxyCodeLine{00594\ \ \ \ \ \}}
+\DoxyCodeLine{00595\ }
+\DoxyCodeLine{00596\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00597\ \};}
+\DoxyCodeLine{00598\ }
+\DoxyCodeLine{00599\ \textcolor{keyword}{template}<>}
+\DoxyCodeLine{00600\ \textcolor{keyword}{struct\ }std::hash<\mbox{\hyperlink{struct_f_bound_shader_state_input}{FBoundShaderStateInput}}>}
+\DoxyCodeLine{00601\ \{}
+\DoxyCodeLine{00602\ \ \ \ \ std::size\_t\ \mbox{\hyperlink{structstd_1_1hash_3_01_f_bound_shader_state_input_01_4_ab1527b892f97a0c6b5c27383631cf449}{operator()}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_f_bound_shader_state_input}{FBoundShaderStateInput}}\&\ Key)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00603\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00604\ \ \ \ \ \ \ \ \ std::size\_t\ Result\ =\ 0;}
+\DoxyCodeLine{00605\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_array_8h_ac4b95aa8f07fa2256ca3208f0b7abc15}{hash\_without\_hash\_combine}}(Result,\ Key.PixelShaderRHI\ ?\ Key.PixelShaderRHI-\/>ShaderHash\ :\ 0);}
+\DoxyCodeLine{00606\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_array_8h_ac4b95aa8f07fa2256ca3208f0b7abc15}{hash\_without\_hash\_combine}}(Result,\ Key.VertexShaderRHI\ ?\ Key.VertexShaderRHI-\/>ShaderHash\ :\ 0);}
+\DoxyCodeLine{00607\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_array_8h_ac4b95aa8f07fa2256ca3208f0b7abc15}{hash\_without\_hash\_combine}}(Result,\ Key.GeometryShaderRHI\ ?\ Key.GeometryShaderRHI-\/>ShaderHash\ :\ 0);}
+\DoxyCodeLine{00608\ \ \ \ \ \ \ \ \ \textcolor{comment}{//hash\_without\_hash\_combine(Result,\ Key.PixelShaderRHI\ ?\ Key.VertexDeclaration-\/>ShaderHash\ :\ 0);}}
+\DoxyCodeLine{00609\ }
+\DoxyCodeLine{00610\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Result;}
+\DoxyCodeLine{00611\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*return(std::hash<uint64>()((uint64)Key.VertexShaderRHI)\ <<\ 1)}}
+\DoxyCodeLine{00612\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \string^\ (std::hash<uint64>()((uint64)Key.PixelShaderRHI)\ <<\ 1)}}
+\DoxyCodeLine{00613\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \string^\ (std::hash<uint64>()((uint64)Key.GeometryShaderRHI)\ <<\ 1);*/}}
+\DoxyCodeLine{00614\ \ \ \ \ \}}
+\DoxyCodeLine{00615\ }
+\DoxyCodeLine{00616\ \};}
+\DoxyCodeLine{00617\ }
+\DoxyCodeLine{00618\ }
+\DoxyCodeLine{00619\ \textcolor{keyword}{template}<>}
+\DoxyCodeLine{00620\ \textcolor{keyword}{struct\ }std::hash<\mbox{\hyperlink{class_f_graphics_pipeline_state_initializer}{FGraphicsPipelineStateInitializer}}>}
+\DoxyCodeLine{00621\ \{}
+\DoxyCodeLine{00622\ \ \ \ \ std::size\_t\ \mbox{\hyperlink{structstd_1_1hash_3_01_f_graphics_pipeline_state_initializer_01_4_af9ee459d03e771fb0214521637e5b21a}{operator()}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_f_graphics_pipeline_state_initializer}{FGraphicsPipelineStateInitializer}}\&\ Key)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00623\ \textcolor{keyword}{\ \ \ \ }\{\ \ \ \ }
+\DoxyCodeLine{00624\ \ \ \ \ \ \ \ \ std::size\_t\ Result\ =\ 0;}
+\DoxyCodeLine{00625\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_array_8h_a04cc1b733a2f4d205f13f7a59facba64}{hash\_combine}}(Result,\ Key.BoundShaderState);}
+\DoxyCodeLine{00626\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_array_8h_a04cc1b733a2f4d205f13f7a59facba64}{hash\_combine}}(Result,\ (\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}})Key.PrimitiveType);}
+\DoxyCodeLine{00627\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Result;}
+\DoxyCodeLine{00628\ \ \ \ \ \}}
+\DoxyCodeLine{00629\ }
+\DoxyCodeLine{00630\ \};}
 
 \end{DoxyCode}

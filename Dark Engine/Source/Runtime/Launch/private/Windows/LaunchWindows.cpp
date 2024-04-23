@@ -6,6 +6,7 @@
 #include <Windows/WindowsSystemIncludes.h>
 #include "Logging/LogMacros.h"
 
+#include <Windows.h>
 
 
 
@@ -29,6 +30,7 @@ void InvalidParameterHandler(const TCHAR* Expr,
 static void SetupWindowsEnviroment()
 {
 	_set_invalid_parameter_handler(InvalidParameterHandler);
+	SetThreadDpiAwarenessContext(DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2);
 }
 
 

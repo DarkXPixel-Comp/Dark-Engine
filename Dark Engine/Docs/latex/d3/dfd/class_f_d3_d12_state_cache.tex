@@ -25,7 +25,11 @@ void \mbox{\hyperlink{class_f_d3_d12_state_cache_ac944694b740719b1a7be4f7123ff16
 \item 
 void \mbox{\hyperlink{class_f_d3_d12_state_cache_a063592e273cd58197de1e7a1c8b93309}{Set\+Render\+Targets}} (\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} Num\+Render\+Targets, class \mbox{\hyperlink{class_f_d3_d12_render_target_view}{FD3\+D12\+Render\+Target\+View}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}RTArray, class \mbox{\hyperlink{class_f_d3_d12_depth_stencil_view}{FD3\+D12\+Depth\+Stencil\+View}} \texorpdfstring{$\ast$}{*}DSTarget)
 \item 
+void \mbox{\hyperlink{class_f_d3_d12_state_cache_a33cb5e2d29d543a70a617258419928c4}{Set\+Viewport}} (float MinX, float MinY, float MinZ, float MaxX, float MaxY, float MaxZ)
+\item 
 void \mbox{\hyperlink{class_f_d3_d12_state_cache_acdf0dc1386cb89f997be64ddb4cf0691}{Apply\+State}} (bool b\+Is\+Compute=false)
+\item 
+void \mbox{\hyperlink{class_f_d3_d12_state_cache_a6723314b3eb8675ee1504b97e8ef6e24}{Dirty\+State\+For\+New\+Command\+List}} ()
 \item 
 \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} \mbox{\hyperlink{class_f_d3_d12_state_cache_ac3cc4c1e0ee85140b5624ade92c8d42b}{Get\+Vertex\+Count}} (\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} Num\+Primitives) const
 \end{DoxyCompactItemize}
@@ -62,6 +66,12 @@ void \mbox{\hyperlink{class_f_d3_d12_device_child_ab64c047f38c63c5890fb361eac5f3
 \doxysubsubsection{\texorpdfstring{ApplyState()}{ApplyState()}}
 {\footnotesize\ttfamily void FD3\+D12\+State\+Cache\+::\+Apply\+State (\begin{DoxyParamCaption}\item[{bool}]{b\+Is\+Compute = {\ttfamily false} }\end{DoxyParamCaption})}
 
+\Hypertarget{class_f_d3_d12_state_cache_a6723314b3eb8675ee1504b97e8ef6e24}\label{class_f_d3_d12_state_cache_a6723314b3eb8675ee1504b97e8ef6e24} 
+\index{FD3D12StateCache@{FD3D12StateCache}!DirtyStateForNewCommandList@{DirtyStateForNewCommandList}}
+\index{DirtyStateForNewCommandList@{DirtyStateForNewCommandList}!FD3D12StateCache@{FD3D12StateCache}}
+\doxysubsubsection{\texorpdfstring{DirtyStateForNewCommandList()}{DirtyStateForNewCommandList()}}
+{\footnotesize\ttfamily void FD3\+D12\+State\+Cache\+::\+Dirty\+State\+For\+New\+Command\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
 \Hypertarget{class_f_d3_d12_state_cache_ac3cc4c1e0ee85140b5624ade92c8d42b}\label{class_f_d3_d12_state_cache_ac3cc4c1e0ee85140b5624ade92c8d42b} 
 \index{FD3D12StateCache@{FD3D12StateCache}!GetVertexCount@{GetVertexCount}}
 \index{GetVertexCount@{GetVertexCount}!FD3D12StateCache@{FD3D12StateCache}}
@@ -97,6 +107,12 @@ void \mbox{\hyperlink{class_f_d3_d12_device_child_ab64c047f38c63c5890fb361eac5f3
 \index{SetStreamSource@{SetStreamSource}!FD3D12StateCache@{FD3D12StateCache}}
 \doxysubsubsection{\texorpdfstring{SetStreamSource()}{SetStreamSource()}}
 {\footnotesize\ttfamily void FD3\+D12\+State\+Cache\+::\+Set\+Stream\+Source (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_f_d3_d12_resource_location}{FD3\+D12\+Resource\+Location}} \texorpdfstring{$\ast$}{*}}]{Vertex\+Buffer\+Location,  }\item[{\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}}]{Stream\+Index,  }\item[{\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}}]{Offset,  }\item[{\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}}]{Stride = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+\Hypertarget{class_f_d3_d12_state_cache_a33cb5e2d29d543a70a617258419928c4}\label{class_f_d3_d12_state_cache_a33cb5e2d29d543a70a617258419928c4} 
+\index{FD3D12StateCache@{FD3D12StateCache}!SetViewport@{SetViewport}}
+\index{SetViewport@{SetViewport}!FD3D12StateCache@{FD3D12StateCache}}
+\doxysubsubsection{\texorpdfstring{SetViewport()}{SetViewport()}}
+{\footnotesize\ttfamily void FD3\+D12\+State\+Cache\+::\+Set\+Viewport (\begin{DoxyParamCaption}\item[{float}]{MinX,  }\item[{float}]{MinY,  }\item[{float}]{MinZ,  }\item[{float}]{MaxX,  }\item[{float}]{MaxY,  }\item[{float}]{MaxZ }\end{DoxyParamCaption})}
 
 
 

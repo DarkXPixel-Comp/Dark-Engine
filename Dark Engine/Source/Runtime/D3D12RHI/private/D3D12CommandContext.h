@@ -119,6 +119,7 @@ public:
 
 	FD3D12ConstantBuffer StageConstantBuffers[ST_NumStandartTypes];
 
+	virtual void CloseCommandList() override;
 
 	FD3D12StateCache StateCache;
 

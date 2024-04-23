@@ -45,7 +45,7 @@ var searchData=
   ['viewportclient_42',['ViewportClient',['../d1/d5e/class_u_i_viewport.html#aa5de9744a5ca277d6e8af0f954e9aa4e',1,'UIViewport']]],
   ['viewportclient_2eh_43',['ViewportClient.h',['../dc/d55/_viewport_client_8h.html',1,'']]],
   ['viewportrhi_44',['ViewportRHI',['../d5/d63/struct_f_viewport_info.html#a425624501b778a0ea559c5053d57fa00',1,'FViewportInfo']]],
-  ['viewportsize_45',['ViewportSize',['../d1/d5e/class_u_i_viewport.html#a6a3620370503cdd1984ea53d64f47d13',1,'UIViewport']]],
+  ['viewportsize_45',['ViewportSize',['../d1/d29/class_f_viewport.html#a12011ddb1544378e270c70e71bb96a79',1,'FViewport::ViewportSize'],['../d1/d5e/class_u_i_viewport.html#a6a3620370503cdd1984ea53d64f47d13',1,'UIViewport::ViewportSize']]],
   ['viewprojectionmatrix_46',['ViewProjectionMatrix',['../d6/de9/struct_d3_d12_pass_constants.html#a3f3092b1128d4d2c3b5a10aaef995070',1,'D3D12PassConstants']]],
   ['viewrect_47',['ViewRect',['../dd/d2b/class_f_view_info.html#ab6db92fc96155f130fc7a0466b9d939a',1,'FViewInfo']]],
   ['vsync_48',['Vsync',['../d1/dd0/class_f_u_i_renderer.html#adc125743d3af78b188f1c0946c047512',1,'FUIRenderer']]],
