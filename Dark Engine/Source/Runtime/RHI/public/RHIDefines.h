@@ -26,7 +26,9 @@ enum ERHIResourceType
 	RRT_PixelShader,
 	RRT_GeometryShader,
 	RRT_MeshShader,
-	RRT_ComputeShader
+	RRT_ComputeShader,
+	RRT_RasterizerState,
+	RRT_DepthStencilState
 };
 
 enum class ERHIDescriptorHeapType : uint8
@@ -38,6 +40,47 @@ enum class ERHIDescriptorHeapType : uint8
 	Count,
 	Invalid = MAX_uint8
 };
+
+enum ERasterizerFillMode
+{
+	RFM_Solid,
+	RFM_Wireframe,
+
+	ERasterizerFillMode_Num
+};
+
+enum ERasterizerCullMode
+{
+	RCM_None,
+	RCM_Back,
+	RCM_Forward,
+
+	ERasterizerCullMode_Num
+};
+
+enum ERasterizerDepthClipMode
+{
+	RDCM_DepthClip,
+	RDCM_DepthClamp,
+
+	ERasterizerDepthClipMode_Num
+};
+
+
+enum EDepthFunc
+{
+	DF_Never,
+	DF_Less,
+	DF_Equal,
+	DF_LessOrEqual,
+	DF_Greater,
+	DF_NotEqual,
+	DF_GreaterOrEqual,
+	DF_Always,
+	
+	EDepthFunc_Num
+};
+
 
 enum class ERHIBindlessConfiguration
 {
@@ -140,6 +183,7 @@ private:
 };
 
 
+
 enum EResourceLockMode
 {	
 	RLM_ReadOnly,
@@ -156,6 +200,44 @@ enum EPrimitiveType : uint32
 	PT_QuadList,
 	PT_PointList,
 	PT_Num
+};
+
+
+
+struct FRasterizerStateInitializer
+{
+	ERasterizerFillMode FillMode = RFM_Solid;
+	ERasterizerCullMode CullMode = RCM_None;
+	ERasterizerDepthClipMode DepthClipMode = RDCM_DepthClip;
+	float DepthBias = 0.f;
+	bool bAllowMSAA = false;
+	bool bEnableLineAA = false;
+
+	FRasterizerStateInitializer() {}
+
+	FRasterizerStateInitializer
+	(
+		ERasterizerFillMode InFillMode,
+		ERasterizerCullMode InCullMode,
+		ERasterizerDepthClipMode InDepthClipMode,
+		float InDepthBias,
+		bool InbAllowMSAA,
+		bool InbEnableLineAA
+	):
+		FillMode(InFillMode),
+		CullMode(InCullMode),
+		DepthClipMode(InDepthClipMode),
+		DepthBias(InDepthBias),
+		bAllowMSAA(InbAllowMSAA),
+		bEnableLineAA(InbEnableLineAA)
+	{}
+};
+
+struct FDepthStencilStateInitializer
+{
+	bool bEnable = false;
+	EDepthFunc Func;
+
 };
 
 

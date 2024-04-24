@@ -2,6 +2,7 @@
 #include "Math/MathFwd.h"
 #include "RHIResources.h"
 #include "DynamicRHI.h"
+#include "RenderResource.h"
 
 
 struct FFilterVertex
@@ -19,12 +20,12 @@ struct FFilterVertex
 };
 
 
-class FFilterVertexDeclaration
+class FFilterVertexDeclaration : public FRenderResource
 {
 public:
 	TRefCountPtr<FRHIVertexDeclaration>	VertexDeclaration;
 
-	void Init()
+	virtual void InitRHI(FRHICommandListImmediate& RHICmdList)
 	{
 		FVertexDeclarationElementList Elements;
 		uint16 Stride = sizeof(FFilterVertex);
@@ -32,38 +33,42 @@ public:
 		Elements.Add(FVertexElement(VET_Float2, 1, 0, 0, Stride));
 		VertexDeclaration = RHICreateVertexDeclaration(Elements);
 	}
+
+	//void Init()
+	//{
+	//	FVertexDeclarationElementList Elements;
+	//	uint16 Stride = sizeof(FFilterVertex);
+	//	Elements.Add(FVertexElement(VET_Float4, 0, 0, 0, Stride));
+	//	Elements.Add(FVertexElement(VET_Float2, 1, 0, 0, Stride));
+	//	VertexDeclaration = RHICreateVertexDeclaration(Elements);
+	//}
 };
 
-class FScreenRectangleVertexBuffer
+class FScreenRectangleVertexBuffer : public FRenderResource
 {
 public:
 	TRefCountPtr<FRHIBuffer> VertexBuffer;
-
-	void Init()
+	virtual void InitRHI(FRHICommandListImmediate& RHICmdList)
 	{
-		if (VertexBuffer)
-		{
-			return;
-		}
-		TArray<FFilterVertex> Vertices(4);
+		TArray<FFilterVertex> Vertices(6);
 
 		Vertices[0].Position = FVector4f(-1, -1, 0, 1);
-		Vertices[0].UV = FVector2f(0, 1);
+		Vertices[0].UV = FVector2f(0.f, 1.f);
 
 		Vertices[1].Position = FVector4f(-1, 1, 0, 1);
-		Vertices[1].UV = FVector2f(0, 0);
+		Vertices[1].UV = FVector2f(0.f, 0);
 
 		Vertices[2].Position = FVector4f(1, 1, 0, 1);
-		Vertices[2].UV = FVector2f(1, 0);
+		Vertices[2].UV = FVector2f(1.f, 0);
 
 		Vertices[3].Position = FVector4f(1, -1, 0, 1);
-		Vertices[3].UV = FVector2f(1, 1);
+		Vertices[3].UV = FVector2f(1.f, 1);
 
-	/*	Vertices[4].Position = FVector4f(-1, -1, 0, 1);
-		Vertices[4].UV = FVector2f(0, 1);
+		Vertices[4].Position = FVector4f(0, 1, 0, 1);
+		Vertices[4].UV = FVector2f(0.5f, 0);
 
-		Vertices[5].Position = FVector4f(-1, -1, 0, 1);
-		Vertices[5].UV = FVector2f(0, 1);*/
+		Vertices[5].Position = FVector4f(0, -1, 0, 1);
+		Vertices[5].UV = FVector2f(0.5f, 1);
 
 
 		VertexBuffer = RHICreateBuffer(FRHIBufferDesc(sizeof(FFilterVertex) * Vertices.Num(),
@@ -74,32 +79,31 @@ public:
 
 		RHIUnlockBuffer(VertexBuffer.Get());
 	}
+	
 };
 
-class FScreenRectangleIndexBuffer
+class FScreenRectangleIndexBuffer : public FRenderResource
 {
 public:
 	TRefCountPtr<FRHIBuffer> IndexBuffer;
-	void Init()
+
+	virtual void InitRHI(FRHICommandListImmediate& RHICmdList)
 	{
-		if (IndexBuffer)
-		{
-			return;
-		}
 		const TArray<uint16> Indices =
 		{
-			0, 1, 3,
-			1, 3, 2
+			0, 1, 3, 1, 2, 3, // Quad
+			0, 4, 3	// Triangle
 		};
 
 		IndexBuffer = RHICreateBuffer(FRHIBufferDesc(sizeof(uint16) * Indices.GetSize(),
 			sizeof(uint16)), TEXT("FScreenRectangleIndexBuffer"),
 			ERHIAccess::VertexOrIndexBuffer);
-		
+
 		void* Data = RHILockBuffer(IndexBuffer.Get(), 0, sizeof(uint16) * Indices.GetSize(), RLM_WriteOnly);
 		FMemory::Memcpy(Data, Indices.GetData(), sizeof(uint16) * Indices.GetSize());
-		
+
 		RHIUnlockBuffer(IndexBuffer.Get());
+
 	}
 
 };

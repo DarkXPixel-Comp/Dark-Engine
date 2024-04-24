@@ -458,6 +458,25 @@ public:
 	{}
 };
 
+
+class FRHIRasterizerState : public FRHIResource
+{
+public:
+	FRHIRasterizerState() : FRHIResource(RRT_RasterizerState) {}
+
+	FRasterizerStateInitializer Initializer;
+};
+
+
+class FRHIDepthStencilState : public FRHIResource
+{
+public:
+	FRHIDepthStencilState() : FRHIResource(RRT_DepthStencilState) {}
+
+	
+};
+
+
 class FRHISamplerState : public FRHIResource
 {
 	FRHISamplerState() : FRHIResource(RRT_SamplerState) {}
@@ -584,6 +603,7 @@ public:
 	EPrimitiveType PrimitiveType;
 	EPixelFormat RenderTargetFormats[8];
 	EPixelFormat DepthFormat;
+	TRefCountPtr<FRHIRasterizerState> RasterizerState;
 
 
 

@@ -19,6 +19,8 @@
 #include "ShaderCompiler.h"
 #include "Console/GlobalInputOutConsole.h"
 
+#include "GlobalResource.h"
+
 
 
 
@@ -167,6 +169,8 @@ int32 FEngineLoop::PreInit(const TCHAR* CmdLine)
 
 
 	CompileGlobalShaders();
+
+	InitGlobalRenderResources();
 
 	Engine = new DEditorEngine();
 

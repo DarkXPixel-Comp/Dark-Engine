@@ -79,3 +79,11 @@ struct FD3D12GraphicsPipelineState : public FRHIGraphicsPipelineState
 	FD3D12PipelineState* PipelineState;
 	const FD3D12RootSignature* const RootSignature;
 };
+
+
+
+class FD3D12RasterizerState : public FRHIRasterizerState
+{
+public:
+	D3D12_RASTERIZER_DESC Desc;
+};

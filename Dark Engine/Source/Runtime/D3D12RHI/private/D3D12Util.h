@@ -15,14 +15,27 @@ static DXGI_FORMAT GDXGIFormats[EPixelFormat::Count] =
 	//DXGI_FORMAT_DE
 };
 
+static D3D12_CULL_MODE TranslateCullMode(ERasterizerCullMode CullMode)
+{
+	switch (CullMode)
+	{
+	case RCM_Back: return D3D12_CULL_MODE_BACK;
+	case RCM_Forward: return D3D12_CULL_MODE_FRONT;
+	case RCM_None: return D3D12_CULL_MODE_NONE;
+	}
+	return D3D12_CULL_MODE_NONE;
+}
 
+static D3D12_FILL_MODE TranslateFillMode(ERasterizerFillMode FillMode)
+{
+	switch (FillMode)
+	{
+	case RFM_Solid:	return D3D12_FILL_MODE_SOLID;
+	case RFM_Wireframe:	return D3D12_FILL_MODE_WIREFRAME;
+	}
+	return D3D12_FILL_MODE_SOLID;
+}
 
-/*PT_TriangleList,
-	PT_TriangleStrip,
-	PT_LineList,
-	PT_QuadList,
-	PT_PointList,
-	PT_Num*/
 
 static FORCEINLINE D3D_PRIMITIVE_TOPOLOGY GetD3D12PrimitiveTopology(uint32 PrimitiveTopology)
 {

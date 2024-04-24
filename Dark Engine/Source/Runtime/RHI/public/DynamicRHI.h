@@ -41,6 +41,7 @@ public:
 	virtual TRefCountPtr<FRHIVertexDeclaration>	RHICreateVertexDeclaration(const FVertexDeclarationElementList& Elements) = 0;
 	virtual TRefCountPtr<FRHIVertexShader> RHICreateVertexShader(const TArray<uint8>& Code, const struct FShaderBounds& Bounds) = 0;
 	virtual TRefCountPtr<FRHIPixelShader> RHICreatePixelShader(const TArray<uint8>& Code, const struct FShaderBounds& Bounds) = 0;
+	virtual TRefCountPtr<FRHIRasterizerState> RHICreateRasterizerState(const FRasterizerStateInitializer& Initializer) = 0;
 
 	virtual void RHIUnlockTexture2D(FRHITexture* TextureRHI, uint32 MipIndex, bool bLockWithinMiptail) = 0;
 	virtual ERHIInterfaceType GetInterfaceType() const { return ERHIInterfaceType::Hidden; }
@@ -107,6 +108,11 @@ FORCEINLINE TRefCountPtr<FRHITexture> RHICreateTexture(const FRHITextureCreateDe
 	//FRHICommandListImmediate& RHICmdList = FRHICommandListExecutor::GetImmediateCommandList();
 
 	return GDynamicRHI->RHICreateTexture(CreateDesc);
+}
+
+FORCEINLINE TRefCountPtr<FRHIRasterizerState> RHICreateRasterizerState(const FRasterizerStateInitializer& Initializer)
+{
+	return GDynamicRHI->RHICreateRasterizerState(Initializer);
 }
 
 

@@ -190,6 +190,25 @@ TRefCountPtr<FRHIPixelShader> FD3D12DynamicRHI::RHICreatePixelShader(const TArra
 	return Result;
 }
 
+TRefCountPtr<FRHIRasterizerState> FD3D12DynamicRHI::RHICreateRasterizerState(const FRasterizerStateInitializer& Initializer)
+{
+	FD3D12RasterizerState* RasterizerState = new FD3D12RasterizerState();
+	RasterizerState->Initializer = Initializer;
+
+	D3D12_RASTERIZER_DESC& RasterizerDesc = RasterizerState->Desc;
+	RasterizerDesc = {};
+	RasterizerDesc.CullMode = TranslateCullMode(Initializer.CullMode);
+	RasterizerDesc.FillMode = TranslateFillMode(Initializer.FillMode);
+	RasterizerDesc.AntialiasedLineEnable = Initializer.bEnableLineAA;
+	RasterizerDesc.MultisampleEnable = Initializer.bAllowMSAA;
+	RasterizerDesc.DepthBias = Initializer.DepthBias;
+	RasterizerDesc.FrontCounterClockwise = false;
+	RasterizerDesc.DepthClipEnable = Initializer.DepthClipMode == RDCM_DepthClip;
+
+
+	return RasterizerState;
+}
+
 TRefCountPtr<FRHIBuffer> FD3D12DynamicRHI::RHICreateBuffer(const FRHIBufferDesc& CreateDesc, const TCHAR* DebugName, ERHIAccess InitialState)
 {
 	return CreateD3D12Buffer(nullptr, CreateDesc, InitialState, DebugName);
