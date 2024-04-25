@@ -7,6 +7,7 @@
 #include "RHIResources.h"
 #include "D3D12ConstantBuffer.h"
 #include "D3D12StateCache.h"
+#include "RHIShaderParameters.h"
 
 
 
@@ -147,6 +148,11 @@ public:
 	virtual void RHIDrawIndexedPrimitive(FRHIBuffer* IndexBuffer, int32 BaseVertexIndex,
 		uint32 FirstInstance, uint32 NumVertices, uint32 StartIndex, uint32 NumPrimitives, uint32 NumInstances);
 
+	virtual void RHISetShaderParameters(
+		FRHIGraphicsShader* Shader,
+		TArray<uint8>& InParameters,
+		TArray<FRHIShaderParameterResource>& InBindlessParameters,
+		TArray<FRHIShaderParameterResource>& InResourceParameters);
 
 	virtual void RHISetStreamSource(uint32 StreamIndex, FRHIBuffer* VertexBuffer, uint32 Offset, uint32 Stride) override;
 	virtual void RHISetGraphicsPipelineState(class FRHIGraphicsPipelineState* GraphicsPSO, const FBoundShaderStateInput& ShaderInput) override;

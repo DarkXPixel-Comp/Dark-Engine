@@ -1,5 +1,6 @@
 #pragma once
 #include <stdlib.h>
+#include "Misc/AssertionMacros.h"
 
 #define DE_ARRAY_COUNT(arr) (_countof(arr))
 
@@ -28,6 +29,34 @@ protected:
 private:
 	FNoncopyble(const FNoncopyble&);
 	FNoncopyble& operator=(const FNoncopyble&);
-
-
 };
+
+
+
+template <typename T>
+FORCEINLINE T BitMask(uint32 Count);
+
+template <>
+FORCEINLINE uint64 BitMask<uint64>(uint32 Count)
+{
+	return (uint64(Count < 64) << Count) - 1;
+}
+
+template <>
+FORCEINLINE uint32 BitMask<uint32>(uint32 Count)
+{
+	return uint32(uint64(1) << Count) - 1;
+}
+
+template <>
+FORCEINLINE uint16 BitMask<uint16>(uint32 Count)
+{
+	return uint16((uint32(1) << Count) - 1);
+}
+
+template <>
+FORCEINLINE uint8 BitMask<uint8>(uint32 Count)
+{
+	return uint8((uint32(1) << Count) - 1);
+}
+

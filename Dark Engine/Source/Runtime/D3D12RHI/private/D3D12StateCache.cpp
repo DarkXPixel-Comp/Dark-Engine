@@ -4,6 +4,7 @@
 #include "D3D12Util.h"
 #include "D3D12CommandContext.h"
 #include <D3D12View.h>
+#include "Templates/DarkTemplate.h"
 
 FD3D12StateCache::FD3D12StateCache(FD3D12CommandContext& CmdContext):
 	FD3D12DeviceChild(CmdContext.GetParentDevice()),
@@ -12,6 +13,22 @@ FD3D12StateCache::FD3D12StateCache(FD3D12CommandContext& CmdContext):
 
 
 
+
+}
+
+void FD3D12StateCache::SetConstantBuffer(EShaderType ShaderType, FD3D12ConstantBuffer& Buffer, bool bDiscardConstants)
+{
+	FD3D12ResourceLocation* Location;
+
+	if (Buffer.Version(Location, bDiscardConstants))
+	{
+		const uint32 SlotIndex = 0;
+
+		FD3D12ConstantBufferCache& CBVCache = PipelineState.Common.CBVCache;
+		D3D12_GPU_VIRTUAL_ADDRESS& CurrentGPUVirtualAddress = CBVCache.CurrentGPUVirtualAddress[ShaderType][SlotIndex];
+		CurrentGPUVirtualAddress = Location->GetGPUVirtualAddress();
+		FD3D12ConstantBufferCache::DirtySlot(CBVCache.DirtySlotMask[ShaderType], SlotIndex);
+	}
 
 }
 
@@ -244,9 +261,52 @@ void FD3D12StateCache::ApplyState(bool bIsCompute)
 
 	}
 
+	ApplyConstants(0, ST_Compute,
+		PipelineState.Graphics.CurrentPipelineStateObject->RootSignature);
 
 
 
+}
+
+void FD3D12StateCache::ApplyConstants(uint32 StartStage, uint32 EndStage, const FD3D12RootSignature* RootSignature)
+{
+	uint16 CurrentShaderDirtyCBVSlots[ST_NumStandartTypes] = {};
+
+	for (uint32 Stage = StartStage; Stage < EndStage; ++Stage)
+	{
+		const uint16 CurrentShaderCBVRegisterMask = BitMask<uint16>(PipelineState.Common.CurrentShaderCBVCount[Stage]);
+		CurrentShaderDirtyCBVSlots[Stage] = CurrentShaderCBVRegisterMask & PipelineState.Common.CBVCache.DirtySlotMask[Stage];
+	}
+
+
+	FD3D12ConstantBufferCache& CBVCache = PipelineState.Common.CBVCache;
+
+	for (uint32 Stage = StartStage; Stage < EndStage; ++Stage)
+	{
+		if (CurrentShaderDirtyCBVSlots[Stage])
+		{
+			uint16& CurrentDirtyMask = CBVCache.DirtySlotMask[Stage];
+			const uint32 CBVDirty = FMath::FloorLog2(CurrentShaderDirtyCBVSlots[Stage]) + 1;
+
+			const uint32 BaseIndex = RootSignature->GetCBVDBindSlot((EShaderType)Stage);
+
+			for (uint32 SlotIndex = 0; SlotIndex < CBVDirty; ++SlotIndex)
+			{
+				if((CBVDirty & (1 << SlotIndex)) != 0)
+				{
+					const D3D12_GPU_VIRTUAL_ADDRESS CurrentGPUVirtualAddress = CBVCache.CurrentGPUVirtualAddress[Stage][SlotIndex];
+
+					if (Stage != ST_Compute)
+					{
+						Context.GetGraphicsList()->SetGraphicsRootConstantBufferView(BaseIndex + SlotIndex, CurrentGPUVirtualAddress);
+					}
+
+					CurrentDirtyMask &= ~(1 << SlotIndex);
+				}
+			}
+
+		}
+	}
 }
 
 void FD3D12StateCache::DirtyStateForNewCommandList()
@@ -259,4 +319,9 @@ void FD3D12StateCache::DirtyStateForNewCommandList()
 	bNeedSetViewports = true;
 	bNeedSetRTs = true;
 	bNeedSetBlendFactor = true;
+}
+
+void FD3D12StateCache::QueueBindlessSRV(EShaderType Type, FD3D12ShaderResourceView* SRV)
+{
+	PipelineState.Common.QueuedBindlessSRVs[Type].Emplace(SRV);
 }

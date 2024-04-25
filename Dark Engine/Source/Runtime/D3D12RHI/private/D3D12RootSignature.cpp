@@ -46,10 +46,95 @@ void FD3D12RootSignature::Init(const D3D12_VERSIONED_ROOT_SIGNATURE_DESC& InDesc
 	DXCall(D3DX12SerializeVersionedRootSignature(&InDesc, MaxRootSignatureVersion,
 		&RootSignatureBlob, &Error));
 
+
+	if (Error)
+	{
+		FString StringError = (ANSICHAR*)Error->GetBufferPointer();
+		DE_LOG(D3D12RHI, Fatal, TEXT("Error create root signature: %s"), *StringError);
+		return;
+	}
 	DXCall(Device->CreateRootSignature(0, RootSignatureBlob->GetBufferPointer(), RootSignatureBlob->GetBufferSize(),
 		IID_PPV_ARGS(&RootSignature)));
+
+	AnalyzeSinature(InDesc.Desc_1_1, 0);
 }
 
+void FD3D12RootSignature::AnalyzeSinature(const D3D12_ROOT_SIGNATURE_DESC1& Desc, uint32 BindingSpace)
+{
+	FMemory::Memzero(BindSlotMap, sizeof(BindSlotMap));
+
+
+	for (uint32 i = 0; i < Desc.NumParameters; ++i)
+	{
+		const auto& CurrentParameter = Desc.pParameters[i];
+
+		EShaderType CurrentShaderType = ST_NumStandartTypes;
+
+		switch (CurrentParameter.ShaderVisibility)
+		{
+		case D3D12_SHADER_VISIBILITY_ALL:
+			CurrentShaderType = ST_NumTypes;
+			break;
+		case D3D12_SHADER_VISIBILITY_VERTEX:
+			CurrentShaderType = ST_Vertex;
+			break;
+		case D3D12_SHADER_VISIBILITY_HULL:
+			break;
+		case D3D12_SHADER_VISIBILITY_DOMAIN:
+			break;
+		case D3D12_SHADER_VISIBILITY_GEOMETRY:
+			CurrentShaderType = ST_Geometry;
+			break;
+		case D3D12_SHADER_VISIBILITY_PIXEL:	
+			CurrentShaderType = ST_Pixel;
+			break;
+		case D3D12_SHADER_VISIBILITY_AMPLIFICATION:
+			break;
+		case D3D12_SHADER_VISIBILITY_MESH:
+			break;
+		default:
+			break;
+		}
+
+		switch (CurrentParameter.ParameterType)
+		{
+		case D3D12_ROOT_PARAMETER_TYPE_DESCRIPTOR_TABLE:
+		{
+			const auto& CurrentRange = CurrentParameter.DescriptorTable.pDescriptorRanges[0];
+			switch (CurrentRange.RangeType)
+			{
+			case D3D12_DESCRIPTOR_RANGE_TYPE_SRV:
+				SetSRVDTBindSlot(CurrentShaderType, i);
+				break;
+			case D3D12_DESCRIPTOR_RANGE_TYPE_CBV:
+				SetCBVDTBindSlot(CurrentShaderType, i);
+				break;
+			default:
+				break;
+			}
+			break;
+		}
+
+		case D3D12_ROOT_PARAMETER_TYPE_CBV:
+			if (CurrentParameter.Descriptor.ShaderRegister == 0)
+			{
+				SetCBVDBindSlot(CurrentShaderType, i);
+			}
+
+			break;
+		default:
+			break;
+		}
+	}
+
+
+
+}
+
+
+/**
+* @todo Rewrite THIS!!
+*/
 FD3D12RootSignatureDesc::FD3D12RootSignatureDesc(const FBoundShaderStateInput& BSS)
 {
 	uint32 RootParameterCount = 0;
@@ -67,11 +152,20 @@ FD3D12RootSignatureDesc::FD3D12RootSignatureDesc(const FBoundShaderStateInput& B
 		}
 		if (VertexShader->ResourceCounts.NumCBVs > 0)
 		{
-			DescriptorRanges[RootParameterCount].Init(D3D12_DESCRIPTOR_RANGE_TYPE_CBV, VertexShader->ResourceCounts.NumCBVs, 0, 0);
-			TableSlots[RootParameterCount].InitAsDescriptorTable(1, &DescriptorRanges[RootParameterCount], D3D12_SHADER_VISIBILITY_VERTEX);
-			++RootParameterCount;
-			RootParameterSize += 1;
-			hash_combine(Hash, VertexShader->ResourceCounts.NumCBVs);
+			for (uint32 ShaderRegister = 0; (ShaderRegister < VertexShader->ResourceCounts.NumCBVs) && (ShaderRegister < 16); ++ShaderRegister)
+			{
+				TableSlots[RootParameterCount].InitAsConstantBufferView(ShaderRegister, 0, D3D12_ROOT_DESCRIPTOR_FLAG_NONE, D3D12_SHADER_VISIBILITY_VERTEX);
+				++RootParameterCount;
+				RootParameterSize += 2;
+			}
+			if (VertexShader->ResourceCounts.NumCBVs > 16)
+			{
+				DescriptorRanges[RootParameterCount].Init(D3D12_DESCRIPTOR_RANGE_TYPE_CBV, VertexShader->ResourceCounts.NumCBVs - 16, 16, 0);
+				TableSlots[RootParameterCount].InitAsDescriptorTable(1, &DescriptorRanges[RootParameterCount], D3D12_SHADER_VISIBILITY_VERTEX);
+				++RootParameterCount;
+				RootParameterSize += 1;
+				hash_combine(Hash, VertexShader->ResourceCounts.NumCBVs);
+			}
 		}
 		if (VertexShader->ResourceCounts.NumSamplers > 0)
 		{
@@ -84,7 +178,7 @@ FD3D12RootSignatureDesc::FD3D12RootSignatureDesc(const FBoundShaderStateInput& B
 	}
 
 
-	FD3D12VertexShader* PixelShader = (FD3D12VertexShader*)BSS.PixelShaderRHI;
+	FD3D12PixelShader* PixelShader = (FD3D12PixelShader*)BSS.PixelShaderRHI;
 	if (PixelShader)
 	{
 		if (PixelShader->ResourceCounts.NumSRVs > 0)
@@ -97,11 +191,20 @@ FD3D12RootSignatureDesc::FD3D12RootSignatureDesc(const FBoundShaderStateInput& B
 		}
 		if (PixelShader->ResourceCounts.NumCBVs > 0)
 		{
-			DescriptorRanges[RootParameterCount].Init(D3D12_DESCRIPTOR_RANGE_TYPE_CBV, PixelShader->ResourceCounts.NumCBVs, 0, 0);
-			TableSlots[RootParameterCount].InitAsDescriptorTable(1, &DescriptorRanges[RootParameterCount], D3D12_SHADER_VISIBILITY_PIXEL);
-			++RootParameterCount;
-			RootParameterSize += 1;
-			hash_combine(Hash, PixelShader->ResourceCounts.NumCBVs);
+			for (uint32 ShaderRegister = 0; (ShaderRegister < PixelShader->ResourceCounts.NumCBVs) && (ShaderRegister < 16); ++ShaderRegister)
+			{
+				TableSlots[RootParameterCount].InitAsConstantBufferView(ShaderRegister, 0, D3D12_ROOT_DESCRIPTOR_FLAG_NONE, D3D12_SHADER_VISIBILITY_PIXEL);
+				++RootParameterCount;
+				RootParameterSize += 2;
+			}
+			if (PixelShader->ResourceCounts.NumCBVs > 16)
+			{
+				DescriptorRanges[RootParameterCount].Init(D3D12_DESCRIPTOR_RANGE_TYPE_CBV, PixelShader->ResourceCounts.NumCBVs - 16, 16, 0);
+				TableSlots[RootParameterCount].InitAsDescriptorTable(1, &DescriptorRanges[RootParameterCount], D3D12_SHADER_VISIBILITY_PIXEL);
+				++RootParameterCount;
+				RootParameterSize += 1;
+				hash_combine(Hash, PixelShader->ResourceCounts.NumCBVs);
+			}
 		}
 		if (PixelShader->ResourceCounts.NumSamplers > 0)
 		{
@@ -114,6 +217,6 @@ FD3D12RootSignatureDesc::FD3D12RootSignatureDesc(const FBoundShaderStateInput& B
 	}
 
 
-	RootDesc.Init_1_1(RootParameterCount, TableSlots, 0, nullptr, D3D12_ROOT_SIGNATURE_FLAG_ALLOW_INPUT_ASSEMBLER_INPUT_LAYOUT);
+	RootDesc.Init_1_1(RootParameterCount, TableSlots, 0, nullptr, D3D12_ROOT_SIGNATURE_FLAG_ALLOW_INPUT_ASSEMBLER_INPUT_LAYOUT | D3D12_ROOT_SIGNATURE_FLAG_CBV_SRV_UAV_HEAP_DIRECTLY_INDEXED | D3D12_ROOT_SIGNATURE_FLAG_SAMPLER_HEAP_DIRECTLY_INDEXED);
 
 }

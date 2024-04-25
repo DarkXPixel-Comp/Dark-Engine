@@ -1,6 +1,7 @@
 #pragma once
 #include "RHIResources.h"
 #include "Containers/Array.h"
+#include "RHIShaderParameters.h"
 
 
 class IRHIComputeContext
@@ -48,5 +49,10 @@ public:
 	virtual void RHIClearTextureColor(FRHITexture* InTexture, FVector InColor) = 0;
 	virtual void RHISetStreamSource(uint32 StreamIndex, FRHIBuffer* VertexBuffer, uint32 Offset, uint32 Stride) = 0;
 	virtual void RHIDrawIndexedPrimitive(FRHIBuffer* IndexBufferRHI, int32 BaseVertexIndex, uint32 FirstInstance, uint32 NumVertices, uint32 StartIndex, uint32 NumPrimitives, uint32 NumInstances) = 0;
+	virtual void RHISetShaderParameters(
+		FRHIGraphicsShader* Shader,
+		TArray<uint8>& InParameters,
+		TArray<FRHIShaderParameterResource>& InBindlessParameters,
+		TArray<FRHIShaderParameterResource>& InResourceParameters) = 0;
 
 };

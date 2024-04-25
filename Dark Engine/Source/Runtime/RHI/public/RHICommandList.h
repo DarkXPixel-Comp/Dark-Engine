@@ -156,6 +156,14 @@ public:
 		GetContext().RHIClearTextureColor(InTexture, InColor);
 	}
 
+	void SetShaderParameters(
+		FRHIGraphicsShader* Shader,
+		TArray<uint8>& InParameters,
+		TArray<FRHIShaderParameterResource>& InBindlessParameters,
+		TArray<FRHIShaderParameterResource>& InResourceParameters)
+	{
+		GetContext().RHISetShaderParameters(Shader, InParameters, InBindlessParameters, InResourceParameters);
+	}
 
 
 

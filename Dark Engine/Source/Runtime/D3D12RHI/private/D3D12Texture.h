@@ -36,6 +36,10 @@ public:
 	virtual FIntPoint GetSize() const override;
 	virtual void* GetNativeShaderResourceView() const override;
 
+	FRHIDescriptorHandle GetBindlessHandle() const { return FRHIDescriptorHandle(); }
+
+	class FD3D12ShaderResourceView* GetShaderResourceView() const { return ShaderResourceView.get(); }
+
 	void* Lock(class FRHICommandListImmediate* RHICmdList, uint32 MipIndex, uint32 ArrayIndex, EResourceLockMode LockMode,
 		uint32& DestStride, uint64* OutLockedByteCount = nullptr);
 	void Unlock(class FRHICommandListImmediate* RHICmdList, uint32 MipIndex, uint32 ArrayIndex);

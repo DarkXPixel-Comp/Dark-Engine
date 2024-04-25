@@ -12,14 +12,14 @@ class FScreenRectangleVS : public FGlobalShader
 {
 	DECLARE_GLOBAL_SHADER(FScreenRectangleVS);
 	SHADER_USE_PARAMETER_STRUCT(FScreenRectangleVS, FGlobalShader);
-	DECLARE_SHADER_BOUNDS(0, 0, 0, 0);
+	DECLARE_SHADER_BOUNDS(0, 1, 0, 0);
 };
 
 class FScreenRectanglePS : public FGlobalShader
 {
 	DECLARE_GLOBAL_SHADER(FScreenRectanglePS);
 	SHADER_USE_PARAMETER_STRUCT(FScreenRectanglePS, FGlobalShader);
-	DECLARE_SHADER_BOUNDS(0, 0, 0, 0);
+	DECLARE_SHADER_BOUNDS(0, 1, 0, 0);
 };
 
 

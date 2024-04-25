@@ -13,7 +13,7 @@ if(MSVC AND WIN32)
 endif()
 
 #set(RHI_Sources ${RHI_Sources} "private/DynamicRHI.cpp" "private/RHI.cpp" "private/RHICommandList.cpp" "public/RHIResources.h")
-target_sources(RHI PRIVATE "private/DynamicRHI.cpp" "private/RHI.cpp" "private/RHICommandList.cpp" "public/RHIResources.h" "public/PixelFormat.h" "public/RHIContext.h" "public/RHIPipeline.h" "private/RHIResources.cpp" "private/PipelineStateCache.cpp" "public/PipelineStateCache.h")
+target_sources(RHI PRIVATE "private/DynamicRHI.cpp" "private/RHI.cpp" "private/RHICommandList.cpp" "public/RHIResources.h" "public/PixelFormat.h" "public/RHIContext.h" "public/RHIPipeline.h" "private/RHIResources.cpp" "private/PipelineStateCache.cpp" "public/PipelineStateCache.h" "public/RHIShaderParameters.h")
 target_include_directories(RHI PUBLIC "public")
 
 SettingProject(RHI)

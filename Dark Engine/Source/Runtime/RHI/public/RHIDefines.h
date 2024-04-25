@@ -132,6 +132,7 @@ enum EShaderType : uint8
 	ST_RayMiss,
 	ST_RayHitGroup,
 	ST_RayCallable,
+	ST_NumTypes,
 
 	ST_NumStandartTypes = 6
 };

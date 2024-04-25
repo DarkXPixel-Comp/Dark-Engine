@@ -131,7 +131,7 @@ namespace DE
 			*
 			* \param[in] Elements Elements to copy from.
 			*/
-			explicit TVector(std::initializer_list<T> Elements);
+			TVector(std::initializer_list<T> Elements);
 
 			TVector<T>& operator=(std::initializer_list<T> Elements);
 

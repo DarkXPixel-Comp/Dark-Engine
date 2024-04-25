@@ -1,13 +1,31 @@
+struct RenderResources
+{
+	uint PositionBufferIndex;
+	uint SceneBufferIndoex;
+	uint TextureBufferIndex;
+};
+
+
+//ConstantBuffer<RenderResources> RenderResource : register(b0);
+
+
+float3 Test : register(b0);
+float Offset : register(b0);
+
 
 
 void VSMain(in float4 Position : Attribute0, in float2 UV : Attribute1, out float4 InPosition : SV_POSITION, out float2 uv : TEXCOORD)
 {
+	//StructuredBuffer<float3> PositionBuffer = ResourceDescriptorHeap[0];
 	InPosition = Position;
 	uv = UV;
 }
 
 void PSMain(in float4 InPosition : SV_POSITION, in float2 uv : TEXCOORD, out float4 Color : SV_Target)
 {
-	Color = float4(InPosition.x * 0.001, 0, 0, 1);
+	//StructuredBuffer<float3> PositionBuffer = ResourceDescriptorHeap[0];
+	//Color = float4(InPosition.x * 0.001, 0, 0, 1);
 	Color = float4(uv.xy, InPosition.x, 1);
+	//Color = float4(Test, 1);
+	//Color = float4(Test, 1.f);
 }

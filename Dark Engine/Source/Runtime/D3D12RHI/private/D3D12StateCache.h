@@ -1,8 +1,37 @@
 #pragma once
 #include "D3D12RHICommon.h"
+#include "D3D12ConstantBuffer.h"
+#include "RHIDefines.h"
 //#include "D3D12CommandContext.h"
 
 class FD3D12CommandContext;
+
+template<typename ResourceSlotMask>
+struct FD3D12ResourceCache
+{
+	static FORCEINLINE void CleanSlot(ResourceSlotMask& SlotMask, uint32 SlotIndex)
+	{
+		SlotMask &= ~((ResourceSlotMask)1 << SlotIndex);
+	}
+
+	static FORCEINLINE void CleanSlots(ResourceSlotMask& SlotMask, uint32 NumSlots)
+	{
+		SlotMask &= ~(((ResourceSlotMask)1 << NumSlots) - 1);
+	}
+
+	static FORCEINLINE void DirtySlot(ResourceSlotMask& SlotMask, uint32 SlotIndex)
+	{
+		SlotMask |= ((ResourceSlotMask)1 << SlotIndex);
+	}
+
+	static FORCEINLINE bool IsSlotDirty(const ResourceSlotMask& SlotMask, uint32 SlotIndex)
+	{
+		return (SlotMask & ((ResourceSlotMask)1 << SlotIndex)) != 0;
+	}
+
+
+	ResourceSlotMask DirtySlotMask[ST_NumStandartTypes] = {};
+};
 
 
 struct FD3D12VertexBufferCache
@@ -45,12 +74,31 @@ struct FD3D12IndexBufferCache
 };
 
 
+struct FD3D12ConstantBufferCache : FD3D12ResourceCache<uint16>
+{
+	FD3D12ConstantBufferCache()
+	{
+		Clear();
+	}
+
+	void Clear()
+	{
+		FMemory::Memzero(CurrentGPUVirtualAddress, sizeof(CurrentGPUVirtualAddress));
+	}
+
+	D3D12_GPU_VIRTUAL_ADDRESS CurrentGPUVirtualAddress[ST_NumStandartTypes][16];
+
+//	uint16 DirtySlotMask[ST_NumStandartTypes];
+};
+
+
 
 class FD3D12StateCache : public FD3D12DeviceChild
 {
 public:
 	FD3D12StateCache(FD3D12CommandContext& CmdContext);
 
+	void SetConstantBuffer(EShaderType ShaderType, FD3D12ConstantBuffer& Buffer, bool bDiscardConstants);
 
 
 	void SetGrapicsPipelineState(class FD3D12GraphicsPipelineState* GraphicsPipelineState);
@@ -62,8 +110,13 @@ public:
 
 	void ApplyState(bool bIsCompute = false);
 
+	void ApplyConstants(uint32 StartStage, uint32 EndStage, const class FD3D12RootSignature* RootSignature);
+
+
 
 	void DirtyStateForNewCommandList();
+
+	void QueueBindlessSRV(EShaderType Type, class FD3D12ShaderResourceView* SRV);
 private:
 	struct
 	{
@@ -101,11 +154,9 @@ private:
 			uint32 CurrentShaderCBVCount[ST_NumStandartTypes] = {};
 			uint32 CurrentShaderSRVCount[ST_NumStandartTypes] = {};
 			uint32 CurrentShaderUAVCount[ST_NumStandartTypes] = {};
-			
 
-
-
-
+			FD3D12ConstantBufferCache CBVCache = {};
+			TArray<FD3D12ShaderResourceView*> QueuedBindlessSRVs[ST_NumStandartTypes];
 		} Common;
 	} PipelineState;
 

@@ -6,6 +6,24 @@
 
 
 
+enum ERootParameterKeys
+{
+	PS_SRVs,
+	PS_CBVs,
+	PS_RootCBVs,
+	PS_Samplers,
+	VS_SRVs,
+	VS_CBVs,
+	VS_RootCBVs,
+	VS_Samplers,
+
+
+
+	RPK_Count
+};
+
+
+
 class FD3D12RootSignatureDesc
 {
 public:
@@ -17,7 +35,7 @@ public:
 
 	uint64 Hash = 0;
 private:
-	uint32 RootParameterSize;
+	uint32 RootParameterSize = 0;
 	CD3DX12_ROOT_PARAMETER1 TableSlots[MaxRootParameters];
 	CD3DX12_DESCRIPTOR_RANGE1 DescriptorRanges[MaxRootParameters];
 	CD3DX12_VERSIONED_ROOT_SIGNATURE_DESC RootDesc;
@@ -43,9 +61,78 @@ public:
 
 	uint64 Hash = 0;
 
+
+
+	FORCEINLINE uint8 GetCBVDBindSlot(EShaderType Type) const
+	{
+		switch (Type)
+		{
+		case ST_Vertex: return BindSlotMap[VS_RootCBVs];
+		case ST_Pixel: return BindSlotMap[PS_RootCBVs];
+		}
+	}
+	FORCEINLINE uint8 GetCBVDTBindSlot(EShaderType Type) const
+	{
+		switch (Type)
+		{
+		case ST_Vertex: return BindSlotMap[VS_CBVs];
+		case ST_Pixel: return BindSlotMap[PS_CBVs];
+		}
+	}
+	FORCEINLINE uint8 GetSRVDTBindSlot(EShaderType Type) const
+	{
+		switch (Type)
+		{
+		case ST_Vertex: return BindSlotMap[VS_SRVs];
+		case ST_Pixel: return BindSlotMap[PS_SRVs];
+		}
+	}
+
+private:
+	void AnalyzeSinature(const D3D12_ROOT_SIGNATURE_DESC1& Desc, uint32 BindingSpace);
+
+	FORCEINLINE void SetCBVDTBindSlot(EShaderType Type, uint8 RootParameterIndex)
+	{
+		switch (Type)
+		{
+		case ST_Vertex:
+			BindSlotMap[VS_CBVs] = RootParameterIndex;
+			break;
+		case ST_Pixel:
+			BindSlotMap[PS_CBVs] = RootParameterIndex;
+			break;
+		}
+	}
+	FORCEINLINE void SetSRVDTBindSlot(EShaderType Type, uint8 RootParameterIndex)
+	{
+		switch (Type)
+		{
+		case ST_Vertex:
+			BindSlotMap[VS_SRVs] = RootParameterIndex;
+			break;
+		case ST_Pixel:
+			BindSlotMap[PS_SRVs] = RootParameterIndex;
+			break;
+		}
+	}
+	FORCEINLINE void SetCBVDBindSlot(EShaderType Type, uint8 RootParameterIndex)
+	{
+		switch (Type)
+		{
+		case ST_Vertex:
+			BindSlotMap[VS_RootCBVs] = RootParameterIndex;
+			break;
+		case ST_Pixel:
+			BindSlotMap[PS_RootCBVs] = RootParameterIndex;
+			break;
+		}
+	}
+
 private:
 	TRefCountPtr<ID3DBlob> RootSignatureBlob;
 	TRefCountPtr<ID3D12RootSignature> RootSignature;
+
+	uint8 BindSlotMap[RPK_Count];
 };
 
 

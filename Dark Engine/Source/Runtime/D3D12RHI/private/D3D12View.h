@@ -23,7 +23,7 @@ public:
 	virtual ~FD3D12View();
 
 	FD3D12CpuDescriptor GetCpuHandle() const { return CpuHandle; }
-	FRHIDescriptorHandle GetBindlessHandle() const { return BindlessHandle; }
+	FORCEINLINE FRHIDescriptorHandle GetBindlessHandle() const { return BindlessHandle; }
 
 	virtual void UpdateDescriptor() {}
 	

@@ -99,8 +99,7 @@ void FD3D12BindlessDescriptorHeapManager::ResizeHeaps(uint32 InNumDescriptorsPer
 
 		HeapManager.ImmediateFreeHeap(OldCpuHeap.Get());
 		HeapManager.ImmediateFreeHeap(OldGpuHeap.Get());
-
-
+		
 	}
 
 

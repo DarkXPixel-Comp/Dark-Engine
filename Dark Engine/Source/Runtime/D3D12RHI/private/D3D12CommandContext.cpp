@@ -163,6 +163,17 @@ void FD3D12CommandContextBase::RHIEndDrawingViewport(FRHIViewport *Viewport, boo
 	ViewportRHI->Present(Vsync);
 }
 
+void FD3D12CommandContext::CommitNonComputeShaderConstants()
+{
+	//const FD3D12GraphicsPipelineState* const GraphicPSO = StateCache.Ge
+
+	for (int32 Index = 0; Index < ST_NumStandartTypes; ++Index)
+	{
+		StateCache.SetConstantBuffer(static_cast<EShaderType>(Index), StageConstantBuffers[Index], false);
+	}
+
+}
+
 void FD3D12CommandContext::RHIBeginFrame()
 {	
 	FD3D12CommandList& List = GetCommandList();
@@ -316,6 +327,8 @@ void FD3D12CommandContext::RHIDrawIndexedPrimitive(FRHIBuffer* IndexBufferRHI, i
 	check(IndexBuffer->GetSize() > 0);
 	check(IndexBuffer->ResourceLocation.GetResource());
 
+	CommitNonComputeShaderConstants();
+
 	NumInstances = FMath::Max<uint32>(1, NumInstances);
 
 	uint32 IndexCount = StateCache.GetVertexCount(NumPrimitives);
@@ -325,6 +338,53 @@ void FD3D12CommandContext::RHIDrawIndexedPrimitive(FRHIBuffer* IndexBufferRHI, i
 
 	GetGraphicsList()->DrawIndexedInstanced(IndexCount, NumInstances, StartIndex, BaseVertexIndex,
 		FirstInstance);
+}
+
+void FD3D12CommandContext::RHISetShaderParameters(FRHIGraphicsShader* Shader, TArray<uint8>& InParameters, TArray<FRHIShaderParameterResource>& InBindlessParameters, TArray<FRHIShaderParameterResource>& InResourceParameters)
+{
+	EShaderType ShaderType = Shader->GetType();
+	FD3D12ConstantBuffer& ConstantBuffer = StageConstantBuffers[ShaderType];
+
+	for (FRHIShaderParameterResource& Parameter : InBindlessParameters)
+	{
+		if (FRHIResource* Resource = Parameter.Resource)
+		{
+			FRHIDescriptorHandle Handle;
+
+			switch (Parameter.Type)
+			{
+			case FRHIShaderParameterResource::EType::Texture:
+			{
+				FD3D12Texture* Texture = static_cast<FD3D12Texture*>(Resource);
+				StateCache.QueueBindlessSRV(ShaderType, Texture->GetShaderResourceView());
+				Handle = Texture->GetBindlessHandle();
+				break;
+			}
+			case FRHIShaderParameterResource::EType::ResourceView:
+			{
+				FD3D12ShaderResourceView* ResourceView = reinterpret_cast<FD3D12ShaderResourceView*>(Resource);
+				StateCache.QueueBindlessSRV(ShaderType, ResourceView);
+				Handle = ResourceView->GetBindlessHandle();
+				break;
+			}
+			case FRHIShaderParameterResource::EType::UAV:
+				break;
+			case FRHIShaderParameterResource::EType::Sampler:
+				break;
+			}
+
+			if (Handle.IsValid())
+			{
+				const uint32 BindlessIndex = Handle.GetIndex();
+				ConstantBuffer.UpdateConstant(reinterpret_cast<const uint8*>(&BindlessIndex), Parameter.Index, 4);
+			}
+		}
+
+	}
+
+
+
+
 }
 
 void FD3D12CommandContext::RHISetStreamSource(uint32 StreamIndex, FRHIBuffer* VertexBufferRHI, uint32 Offset, uint32 Stride)
@@ -338,9 +398,14 @@ void FD3D12CommandContext::RHISetGraphicsPipelineState(FRHIGraphicsPipelineState
 {
 	FD3D12GraphicsPipelineState* GraphicsPipelineState = static_cast<FD3D12GraphicsPipelineState*>(GraphicsPSO);
 
+
+	for (uint32 Index = 0; Index < ST_NumStandartTypes; ++Index)
+	{
+		StageConstantBuffers[Index].Reset();
+	}
+
 	StateCache.SetGrapicsPipelineState(GraphicsPipelineState);
 }
-
 
 
 FD3D12CommandContext::FD3D12CommandContext(FD3D12Device* InParent, ED3D12QueueType QueueType, bool InIsDefaultContext):

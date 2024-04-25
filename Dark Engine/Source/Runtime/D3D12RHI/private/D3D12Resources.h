@@ -119,7 +119,22 @@ public:
 
 	void SetSize(uint64 InValue) { Size = InValue; }
 
-	void Clear();
+	void Clear()
+	{
+		if (Resource)
+		{
+			GPUVirtualAddress = D3D12_GPU_VIRTUAL_ADDRESS();
+			if (MappedAddress)
+			{
+				D3D12_RANGE Range = { 0, 0 };
+				Resource->GetResource()->Unmap(0, &Range);
+				MappedAddress = nullptr;
+			}
+			Owner = nullptr;
+			Size = 0;
+			Resource.Reset();
+		}
+	}
 
 	void SetGPUVirtualAddress(D3D12_GPU_VIRTUAL_ADDRESS InAddress) { GPUVirtualAddress = InAddress; }
 																  
@@ -172,7 +187,6 @@ public:
 	}
 	~FD3D12BaseShaderResource()
 	{
-
 	}
 	
 public:
