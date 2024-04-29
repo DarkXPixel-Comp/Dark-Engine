@@ -319,6 +319,12 @@ protected:
 };
 
 
+class FRHIUniformBuffer : public FRHIResource
+{
+public:
+
+};
+
 
 
 
@@ -487,6 +493,8 @@ class FRHIRenderTargetView
 {
 public:
 	FRHIRenderTargetView() = default;
+	FRHIRenderTargetView(FRHITexture* InTexture): Texture(InTexture)
+	{}
 
 
 	FRHITexture* Texture = nullptr;

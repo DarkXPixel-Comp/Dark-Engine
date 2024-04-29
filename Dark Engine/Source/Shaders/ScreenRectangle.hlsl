@@ -1,16 +1,16 @@
+#include "Common.hlsl"
 struct RenderResources
 {
-	uint PositionBufferIndex;
-	uint SceneBufferIndoex;
-	uint TextureBufferIndex;
+	uint TextureIndex;
+	uint Test;
 };
 
 
-//ConstantBuffer<RenderResources> RenderResource : register(b0);
+ConstantBuffer<RenderResources> RenderResource : register(b0, space0);
+
+//SamplerState DefaultSampler = GetGlobalSampler(Anisotropic16, Wrapped);
 
 
-float3 Test : register(b0);
-float Offset : register(b0);
 
 
 
@@ -25,7 +25,12 @@ void PSMain(in float4 InPosition : SV_POSITION, in float2 uv : TEXCOORD, out flo
 {
 	//StructuredBuffer<float3> PositionBuffer = ResourceDescriptorHeap[0];
 	//Color = float4(InPosition.x * 0.001, 0, 0, 1);
+	Texture2D Texture = ResourceDescriptorHeap[RenderResource.Test];
+	//float4 Col = Texture.Load(int3(0, 0, 0));
 	Color = float4(uv.xy, InPosition.x, 1);
+	Color = Texture.Sample(GetGlobalSampler(Anisotropic16, Wrapped), uv);
+	//Color = float4(Col.x, 0, 0, 1);
+	//Color = float4(1, 1, 1, 1);
 	//Color = float4(Test, 1);
 	//Color = float4(Test, 1.f);
 }

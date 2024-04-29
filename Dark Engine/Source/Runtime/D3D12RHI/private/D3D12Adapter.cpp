@@ -31,7 +31,7 @@ void D3D12MessageCallBack(D3D12_MESSAGE_CATEGORY Category, D3D12_MESSAGE_SEVERIT
 		DE_LOG(D3D12Callback, Error, TEXT("%s"), *FString(Description));
 		break;
 	case D3D12_MESSAGE_SEVERITY_WARNING:
-		//DE_LOG(D3D12Callback, Warning, TEXT("%s"), *FString(Description));
+		DE_LOG(D3D12Callback, Warning, TEXT("%s"), *FString(Description));
 		break;
 	case D3D12_MESSAGE_SEVERITY_INFO:
 		DE_LOG(D3D12Callback, Log, TEXT("%s"), *FString(Description));
@@ -152,7 +152,7 @@ void FD3D12Adapter::CreateRootDevice(bool bWithDebug)
 
 	if (!bDeviceCreated)
 	{
-		DXCall(D3D12CreateDevice(NULL, D3D_FEATURE_LEVEL_11_0,
+		DXCall(D3D12CreateDevice(NULL, D3D_FEATURE_LEVEL_12_0,
 			IID_PPV_ARGS(&RootDevice)));
 
 		RootDevice->QueryInterface(IID_PPV_ARGS(&RootDevice2));
@@ -170,11 +170,7 @@ void FD3D12Adapter::CreateRootDevice(bool bWithDebug)
 
 		InfoQueue->RegisterMessageCallback(D3D12MessageCallBack, D3D12_MESSAGE_CALLBACK_FLAG_NONE,
 			nullptr, &Out);
-		//InfoQueue->AddMessage(D3D12_MESSAGE_CATEGORY_INITIALIZATION, D3D12_MESSAGE_SEVERITY_INFO, D3D12_MESSAGE_ID_COPYRESOURCE_NULLDST, "TEST");
-
 	}
-
-
 }
 
 

@@ -166,7 +166,13 @@ public:
 	}
 
 
-
+	void SetRenderTargets(int32 NumRenderTargets,
+		const FRHIRenderTargetView* RenderTargetsRHI,
+		const FRHIDepthRenderTargetView* DepthStencilViewRHI,
+		bool bClear = false)
+	{
+		GetContext().SetRenderTargets(NumRenderTargets, RenderTargetsRHI, DepthStencilViewRHI, bClear);
+	}
 };
 
 

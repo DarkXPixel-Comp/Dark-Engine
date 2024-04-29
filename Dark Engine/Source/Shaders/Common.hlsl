@@ -1,30 +1,12 @@
-struct PSInput
-{
-	float4 position : SV_POSITION;
-	float3 normal : NORMAL;
-	float4 color : COLOR;
-	float2 uv : TEXCOORD;
-	float3 posW : POSITION;
-	float3 normalW : WNORMAL;
-	float3 tangentW : TANGENT;
-	float3 bitangentW : BITANGENT;
-};
+SamplerState StaticPointWrappedSampler : register(s0, space100);
+SamplerState StaticPointClampedSampler : register(s1, space100);
+SamplerState StaticBilinearWrappedSampler : register(s2, space100);
+SamplerState StaticBilinearClampedSampler : register(s3, space100);
+SamplerState StaticTrilinearWrappedSampler : register(s4, space100);
+SamplerState StaticTrilinearClampedSampler : register(s5, space100);
+SamplerState StaticAnisotropic16WrappedSampler : register(s6, space100);
+SamplerState StaticAnisotropic16ClampedSampler : register(s7, space100);
+
+#define GetGlobalSampler(Filter, WrapMode) Static##Filter##WrapMode##Sampler
 
 
-float3 NormalSampleToWorldSpace(float3 normalMapSample, float3 unitNormalW, float3 tangentW)
-{
-	// Uncompress each component from [0,1] to [-1,1].
-	float3 normalT = 2.0f * normalMapSample - 1.0f;
-
-	// Build orthonormal basis.
-	float3 N = unitNormalW;
-	float3 T = normalize(tangentW - dot(tangentW, N) * N);
-	float3 B = cross(N, T);
-
-	float3x3 TBN = float3x3(T, B, N);
-
-	// Transform from tangent space to world space.
-	float3 bumpedNormalW = mul(normalT, TBN);
-
-	return bumpedNormalW;
-}

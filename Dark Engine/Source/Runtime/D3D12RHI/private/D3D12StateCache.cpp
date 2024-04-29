@@ -263,9 +263,6 @@ void FD3D12StateCache::ApplyState(bool bIsCompute)
 
 	ApplyConstants(0, ST_Compute,
 		PipelineState.Graphics.CurrentPipelineStateObject->RootSignature);
-
-
-
 }
 
 void FD3D12StateCache::ApplyConstants(uint32 StartStage, uint32 EndStage, const FD3D12RootSignature* RootSignature)

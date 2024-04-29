@@ -36,7 +36,7 @@ public:
 	virtual FIntPoint GetSize() const override;
 	virtual void* GetNativeShaderResourceView() const override;
 
-	FRHIDescriptorHandle GetBindlessHandle() const { return FRHIDescriptorHandle(); }
+	FRHIDescriptorHandle GetBindlessHandle() const;
 
 	class FD3D12ShaderResourceView* GetShaderResourceView() const { return ShaderResourceView.get(); }
 

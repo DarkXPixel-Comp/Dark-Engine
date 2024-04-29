@@ -24,6 +24,11 @@ void FD3D12ConstantBuffer::UpdateConstant(const uint8* InData, uint16 Offset, ui
 	bDirty = true;
 }
 
+void FD3D12ConstantBuffer::UpdateConstant(const void* Data, uint16 Offset, uint16 InSize)
+{
+	UpdateConstant((uint8*)Data, Offset, InSize);
+}
+
 bool FD3D12ConstantBuffer::Version(FD3D12ResourceLocation*& BufferOut, bool bDiscardConstants)
 {
 	if (CurrentUpdateSize == 0)

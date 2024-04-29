@@ -154,6 +154,8 @@ public:
 		TArray<FRHIShaderParameterResource>& InBindlessParameters,
 		TArray<FRHIShaderParameterResource>& InResourceParameters);
 
+	//virtual void RHISetShaderUniformBuffer(FRHIGraphicsShader* Shader, uint32 BufferIndex, FRHIUn)
+
 	virtual void RHISetStreamSource(uint32 StreamIndex, FRHIBuffer* VertexBuffer, uint32 Offset, uint32 Stride) override;
 	virtual void RHISetGraphicsPipelineState(class FRHIGraphicsPipelineState* GraphicsPSO, const FBoundShaderStateInput& ShaderInput) override;
 

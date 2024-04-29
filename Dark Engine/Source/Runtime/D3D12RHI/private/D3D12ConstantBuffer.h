@@ -11,6 +11,8 @@ public:
 
 	void UpdateConstant(const uint8* Data, uint16 Offset, uint16 InSize);
 
+	void UpdateConstant(const void* Data, uint16 Offset, uint16 InSize);
+
 	bool Version(class FD3D12ResourceLocation*& BufferOut, bool bDiscardConstants);
 
 	void Reset() { CurrentUpdateSize = 0; }

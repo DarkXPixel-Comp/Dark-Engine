@@ -55,4 +55,8 @@ public:
 		TArray<FRHIShaderParameterResource>& InBindlessParameters,
 		TArray<FRHIShaderParameterResource>& InResourceParameters) = 0;
 
+	virtual void SetRenderTargets(int32 NumRenderTargets,
+		const FRHIRenderTargetView* RenderTargetsRHI,
+		const FRHIDepthRenderTargetView* DepthStencilViewRHI,
+		bool bClear = false) = 0;
 };

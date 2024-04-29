@@ -15,10 +15,18 @@ public:
 		Resource = new T();	   
 		GetInitArray().Add(Resource);
 	}
+	~TGlobalRenderResource()
+	{
+		if (IsValid())
+		{
+			delete Resource;
+			Resource = nullptr;
+		}
+	}
 
 	bool IsValid() const
 	{
-		Resource != nullptr;
+		return Resource != nullptr;
 	}
 
 	static TArray<FRenderResource*>& GetInitArray()

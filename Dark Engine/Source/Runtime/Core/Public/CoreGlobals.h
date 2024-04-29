@@ -6,8 +6,9 @@
 #include "CorePlatform.h"
 
 
-extern DENGINE_API bool GIsRequestingExit;
+extern bool GIsRequestingExit;
 extern bool GIsTitleBarHovered;
+extern class FConfigCache* GConfig;
 
 FORCEINLINE bool IsExitRequested()
 {

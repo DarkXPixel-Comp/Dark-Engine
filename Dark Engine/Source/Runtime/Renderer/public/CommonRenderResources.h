@@ -53,7 +53,7 @@ public:
 		TArray<FFilterVertex> Vertices(6);
 
 		Vertices[0].Position = FVector4f(-1, -1, 0, 1);
-		Vertices[0].UV = FVector2f(0.f, 1.f);
+		Vertices[0].UV = FVector2f(0.f, 0.5f);
 
 		Vertices[1].Position = FVector4f(-1, 1, 0, 1);
 		Vertices[1].UV = FVector2f(0.f, 0);

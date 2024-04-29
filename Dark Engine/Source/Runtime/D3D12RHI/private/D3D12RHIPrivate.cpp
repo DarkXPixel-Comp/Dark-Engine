@@ -363,11 +363,13 @@ FD3D12Texture* FD3D12DynamicRHI::CreateD3D12Texture(const FRHITextureCreateDesc&
 
 	D3D12_RESOURCE_DESC TextureDesc = FD3D12Texture::GetResourceDescFromTextureDesc(CreateDesc);
 
+	bool bAllowClearValue = TextureDesc.Dimension != D3D12_RESOURCE_DIMENSION_BUFFER && (EnumHasAnyFlags(CreateDesc.Flags, ETextureCreateFlags::RenderTargetable) || EnumHasAnyFlags(CreateDesc.Flags, ETextureCreateFlags::DepthStencilTargetable));
+
 
 	TRefCountPtr<ID3D12Resource> D3DTextureResource;
 
 	DXCall(Device->GetDevice()->CreateCommittedResource(&TextureHeapProperties, D3D12_HEAP_FLAG_NONE, &TextureDesc,
-		D3D12_RESOURCE_STATE_COMMON, nullptr, IID_PPV_ARGS(&D3DTextureResource)));
+		D3D12_RESOURCE_STATE_COMMON, bAllowClearValue ? &ClearValue : nullptr, IID_PPV_ARGS(&D3DTextureResource)));
 
 	FD3D12Resource* TextureResource = new FD3D12Resource(Device, D3DTextureResource.Get(),
 		D3D12_RESOURCE_STATE_COMMON, TextureDesc);

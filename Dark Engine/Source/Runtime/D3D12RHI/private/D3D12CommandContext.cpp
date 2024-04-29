@@ -251,7 +251,7 @@ void FD3D12CommandContext::SetRenderTargets(int32 NumRenderTargets, const FRHIRe
 	for (uint32 i = 0; i < MAX_RENDER_TARGETS; ++i)
 	{
 		FD3D12RenderTargetView* RenderTarget = nullptr;
-		if (i < MAX_RENDER_TARGETS && RenderTargetsRHI[i].Texture != nullptr)
+		if (NumRenderTargets > i && i < MAX_RENDER_TARGETS && RenderTargetsRHI[i].Texture != nullptr)
 		{
 			FD3D12Texture* NewRenderTarget = static_cast<FD3D12Texture*>(RenderTargetsRHI[i].Texture);
 			RenderTarget = NewRenderTarget->RenderTargetViews[0].get();
@@ -376,7 +376,7 @@ void FD3D12CommandContext::RHISetShaderParameters(FRHIGraphicsShader* Shader, TA
 			if (Handle.IsValid())
 			{
 				const uint32 BindlessIndex = Handle.GetIndex();
-				ConstantBuffer.UpdateConstant(reinterpret_cast<const uint8*>(&BindlessIndex), Parameter.Index, 4);
+				ConstantBuffer.UpdateConstant(reinterpret_cast<const uint8*>(&BindlessIndex), Parameter.Index * 4, 4);
 			}
 		}
 

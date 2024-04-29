@@ -272,6 +272,11 @@ void* FD3D12Texture::GetNativeShaderResourceView() const
 	return Result;
 }
 
+FRHIDescriptorHandle FD3D12Texture::GetBindlessHandle() const
+{
+	return ShaderResourceView->GetBindlessHandle();
+}
+
 template <typename T>
 FORCEINLINE constexpr T Align(T Val, uint64 Alignment)
 {
@@ -324,7 +329,6 @@ void* FD3D12Texture::Lock(FRHICommandListImmediate* RHICmdList, uint32 MipIndex,
 
 		DestStride = XBytesAligned;
 		LockedResource->LockedPitch = XBytesAligned;
-
 
 		LockedResource->Resource->Map(0, &Range, &Data);
 		LockedResource->MappedAddress = Data;
