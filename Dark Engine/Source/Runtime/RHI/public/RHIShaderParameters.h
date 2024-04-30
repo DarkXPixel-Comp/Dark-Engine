@@ -16,7 +16,8 @@ struct FRHIShaderParameterResource
 		Texture,
 		ResourceView,
 		UAV,
-		Sampler
+		Sampler,
+		UniformBuffer
 	};
 
 	FRHIResource* Resource = nullptr;

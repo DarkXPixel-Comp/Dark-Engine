@@ -19,7 +19,7 @@ class FScreenRectanglePS : public FGlobalShader
 {
 	DECLARE_GLOBAL_SHADER(FScreenRectanglePS);
 	SHADER_USE_PARAMETER_STRUCT(FScreenRectanglePS, FGlobalShader);
-	DECLARE_SHADER_BOUNDS(0, 1, 0, 0);
+	DECLARE_SHADER_BOUNDS(0, 2, 0, 0);
 };
 
 
@@ -50,10 +50,10 @@ void FSceneRender::RenderQuad(FRHICommandListImmediate& RHICmdList)
 
 	FRHIVertexShader* RHIVertexShader = VertexShader.GetVertexShader();
 	FRHIPixelShader* RHIPixelShader = PixelShader.GetPixelShader();
-	TRefCountPtr<FRHIVertexDeclaration> RHIVertexDeclaration = RHICreateVertexDeclaration(Elements);
+	TRefCountPtr<FRHIVertexDeclaration> RHIVertexDeclaration = GFilterVertexDeclaration->VertexDeclaration;//RHICreateVertexDeclaration(Elements);
 
 	FRHITextureCreateDesc Test(TEXT("TEST"), ETextureDimension::Texture2D);
-	Test.Extent = FIntPoint(32, 32);
+	Test.Extent = FIntPoint(1024, 1023);
 	Test.SetFormat(EPixelFormat::PF_B8G8R8A8_UNORM);
 
 
@@ -96,6 +96,9 @@ void FSceneRender::RenderQuad(FRHICommandListImmediate& RHICmdList)
 	Initializer.RasterizerState = RHICreateRasterizerState(RasterState);
 
 
+	float TestFloat = 0.7;
+	static TRefCountPtr<FRHIUniformBuffer> UniformBuffer = RHICreateUniformBuffer(&TestFloat, sizeof(TestFloat), EUniformBufferUsage::UniformBuffer_SingleDraw);
+
 	TArray<uint8> Parameters;
 	TArray<FRHIShaderParameterResource>	BindlessParameters;
 	TArray<FRHIShaderParameterResource>	ResourceParameters;
@@ -103,9 +106,15 @@ void FSceneRender::RenderQuad(FRHICommandListImmediate& RHICmdList)
 	FRHIShaderParameterResource BindlessTexture;
 	BindlessTexture.Resource = Texture.Get();
 
+	FRHIShaderParameterResource ResourceFloat;
+	ResourceFloat.Type = FRHIShaderParameterResource::EType::UniformBuffer;
+	ResourceFloat.Resource = UniformBuffer.Get();
+	ResourceFloat.Index = 1;
+
+	ResourceParameters.Add(ResourceFloat);
+
 	BindlessParameters.Add(BindlessTexture);
-	BindlessTexture.Index = 1;
-	BindlessParameters.Add(BindlessTexture);
+
 
 	//FRHIRenderTargetView RenderTarget(SceneView->RenderTarget->GetRenderTargetTexture().Get());
 

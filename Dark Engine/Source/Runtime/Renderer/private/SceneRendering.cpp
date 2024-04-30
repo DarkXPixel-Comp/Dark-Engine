@@ -17,7 +17,8 @@ void FSceneRender::Render(FRHICommandListImmediate& CmdList)
 {
 	//RenderLight();
 
-	RenderQuad(CmdList);
+	//RenderQuad(CmdList);
+	RenderFractal(CmdList);
 
 
 

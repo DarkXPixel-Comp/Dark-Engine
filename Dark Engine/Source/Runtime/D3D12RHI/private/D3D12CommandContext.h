@@ -123,6 +123,8 @@ public:
 	virtual void CloseCommandList() override;
 
 	FD3D12StateCache StateCache;
+	FD3D12UniformBuffer* BoundUniformBuffers[ST_NumStandartTypes][16] = {};
+	uint16 DirtyUniformBuffers[ST_NumStandartTypes] = {};
 
 
 	void CommitGraphicsResourceTables();
@@ -161,4 +163,5 @@ public:
 
 private:
 	void SettingRenderPass();
+	void BindUniformBuffer(FRHIShader* Shader, EShaderType ShaderType, uint32 BufferIndex, FD3D12UniformBuffer* InBuffer);
 };

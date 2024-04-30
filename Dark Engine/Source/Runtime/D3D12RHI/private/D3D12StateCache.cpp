@@ -32,6 +32,27 @@ void FD3D12StateCache::SetConstantBuffer(EShaderType ShaderType, FD3D12ConstantB
 
 }
 
+void FD3D12StateCache::SetConstantsFromUniformBuffer(EShaderType ShaderType, uint32 SlotIndex, FD3D12UniformBuffer* InBuffer)
+{
+	FD3D12ConstantBufferCache& CBVCache = PipelineState.Common.CBVCache;
+	D3D12_GPU_VIRTUAL_ADDRESS& CurrentGPUVirtualAddress = CBVCache.CurrentGPUVirtualAddress[ShaderType][SlotIndex];
+	if (InBuffer && InBuffer->ResourceLocation.GetGPUVirtualAddress())
+	{
+		const FD3D12ResourceLocation ResourceLocation = InBuffer->ResourceLocation;
+		if (ResourceLocation.GetGPUVirtualAddress() != CurrentGPUVirtualAddress)
+		{
+			CurrentGPUVirtualAddress = ResourceLocation.GetGPUVirtualAddress();
+			FD3D12ConstantBufferCache::DirtySlot(CBVCache.DirtySlotMask[ShaderType], SlotIndex);
+		}
+	}
+	else if (CurrentGPUVirtualAddress != 0)
+	{
+		CurrentGPUVirtualAddress = 0;
+		FD3D12ConstantBufferCache::DirtySlot(CBVCache.DirtySlotMask[ShaderType], SlotIndex);
+	}
+
+}
+
 void FD3D12StateCache::SetGrapicsPipelineState(FD3D12GraphicsPipelineState* GraphicsPipelineState)
 {
 	check(GraphicsPipelineState);
@@ -289,7 +310,7 @@ void FD3D12StateCache::ApplyConstants(uint32 StartStage, uint32 EndStage, const 
 
 			for (uint32 SlotIndex = 0; SlotIndex < CBVDirty; ++SlotIndex)
 			{
-				if((CBVDirty & (1 << SlotIndex)) != 0)
+				if(FD3D12ConstantBufferCache::IsSlotDirty(CurrentShaderDirtyCBVSlots[Stage], SlotIndex))
 				{
 					const D3D12_GPU_VIRTUAL_ADDRESS CurrentGPUVirtualAddress = CBVCache.CurrentGPUVirtualAddress[Stage][SlotIndex];
 
@@ -309,6 +330,7 @@ void FD3D12StateCache::ApplyConstants(uint32 StartStage, uint32 EndStage, const 
 void FD3D12StateCache::DirtyStateForNewCommandList()
 {
 	PipelineState.Common.bNeedSetPSO = true;
+	PipelineState.Common.CBVCache.Clear();
 	PipelineState.Graphics.bNeedSetRootSignature = true;
 	bNeedSetPrimitiveTopology = true;
 	bNeedSetVB = true;
@@ -316,6 +338,7 @@ void FD3D12StateCache::DirtyStateForNewCommandList()
 	bNeedSetViewports = true;
 	bNeedSetRTs = true;
 	bNeedSetBlendFactor = true;
+
 }
 
 void FD3D12StateCache::QueueBindlessSRV(EShaderType Type, FD3D12ShaderResourceView* SRV)

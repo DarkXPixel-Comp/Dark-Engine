@@ -9,4 +9,6 @@ SamplerState StaticAnisotropic16ClampedSampler : register(s7, space100);
 
 #define GetGlobalSampler(Filter, WrapMode) Static##Filter##WrapMode##Sampler
 
+#define REGISTER_BINDLESS_BUFFER register(b0, space0)
+
 

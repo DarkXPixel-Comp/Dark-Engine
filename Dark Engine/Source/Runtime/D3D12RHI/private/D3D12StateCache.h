@@ -99,6 +99,7 @@ public:
 	FD3D12StateCache(FD3D12CommandContext& CmdContext);
 
 	void SetConstantBuffer(EShaderType ShaderType, FD3D12ConstantBuffer& Buffer, bool bDiscardConstants);
+	void SetConstantsFromUniformBuffer(EShaderType ShaderType, uint32 SlotIndex, FD3D12UniformBuffer* InBuffer);
 
 
 	void SetGrapicsPipelineState(class FD3D12GraphicsPipelineState* GraphicsPipelineState);
@@ -159,6 +160,8 @@ private:
 			TArray<FD3D12ShaderResourceView*> QueuedBindlessSRVs[ST_NumStandartTypes];
 		} Common;
 	} PipelineState;
+
+
 
 
 	bool bNeedSetPrimitiveTopology = true;

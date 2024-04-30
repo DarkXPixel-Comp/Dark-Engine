@@ -345,6 +345,7 @@ void FD3D12CommandContext::RHISetShaderParameters(FRHIGraphicsShader* Shader, TA
 	EShaderType ShaderType = Shader->GetType();
 	FD3D12ConstantBuffer& ConstantBuffer = StageConstantBuffers[ShaderType];
 
+
 	for (FRHIShaderParameterResource& Parameter : InBindlessParameters)
 	{
 		if (FRHIResource* Resource = Parameter.Resource)
@@ -383,8 +384,18 @@ void FD3D12CommandContext::RHISetShaderParameters(FRHIGraphicsShader* Shader, TA
 	}
 
 
-
-
+	for (FRHIShaderParameterResource& Parameter : InResourceParameters)
+	{
+		if (FRHIResource* Resource = Parameter.Resource)
+		{
+			switch (Parameter.Type)
+			{
+				case FRHIShaderParameterResource::EType::UniformBuffer:
+					BindUniformBuffer(Shader, ShaderType, Parameter.Index, static_cast<FD3D12UniformBuffer*>(Parameter.Resource));
+					break;
+			}
+		}
+	}
 }
 
 void FD3D12CommandContext::RHISetStreamSource(uint32 StreamIndex, FRHIBuffer* VertexBufferRHI, uint32 Offset, uint32 Stride)
@@ -405,6 +416,13 @@ void FD3D12CommandContext::RHISetGraphicsPipelineState(FRHIGraphicsPipelineState
 	}
 
 	StateCache.SetGrapicsPipelineState(GraphicsPipelineState);
+}
+
+void FD3D12CommandContext::BindUniformBuffer(FRHIShader* Shader, EShaderType ShaderType, uint32 BufferIndex, FD3D12UniformBuffer* InBuffer)
+{
+	StateCache.SetConstantsFromUniformBuffer(ShaderType, BufferIndex, InBuffer);
+	BoundUniformBuffers[ShaderType][BufferIndex] = InBuffer;
+	DirtyUniformBuffers[ShaderType] |= (1 << BufferIndex);
 }
 
 

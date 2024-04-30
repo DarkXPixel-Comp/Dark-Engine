@@ -274,3 +274,19 @@ private:
 
 
 };
+
+
+class FD3D12UniformBuffer : public FRHIUniformBuffer, public FD3D12DeviceChild
+{
+public:
+	FD3D12UniformBuffer(class FD3D12Device* InParent, EUniformBufferUsage InUniformBufferUsage):
+		FD3D12DeviceChild(InParent),
+		ResourceLocation(InParent),
+		UniformBufferUsage(InUniformBufferUsage)
+	{}
+
+	FD3D12ResourceLocation ResourceLocation;
+
+	EUniformBufferUsage UniformBufferUsage;
+
+};

@@ -34,7 +34,8 @@ public:
 	virtual TRefCountPtr<FRHIBuffer> RHICreateBuffer(const FRHIBufferDesc& CreateDesc, const TCHAR* DebugName, ERHIAccess InitialState) = 0;
 	virtual TRefCountPtr<FRHITexture> RHICreateTexture(const FRHITextureCreateDesc& CreateDesc) = 0;
 	virtual void* RHILockTexture2D(FRHITexture* TextureRHI, uint32 MipIndex, EResourceLockMode LockMode, uint32& DestStride, bool bLockWithinMiptail, uint64* OutLockedByteCount) = 0;
-	//virtual TRefCountPtr<FRHIBuffer> RHICreateBuffer(const FRHIBufferDesc& CreateDesc, const TCHAR* DebugName, ERHIAccess InitialState) = 0;
+	virtual TRefCountPtr<FRHIUniformBuffer>	RHICreateUniformBuffer(const void* Contents, uint32 Size, EUniformBufferUsage Usage) = 0;
+	virtual void RHIUpdateUniformBuffer(FRHIUniformBuffer* BufferRHI, const void* Contents, uint32 Size) = 0;
 	virtual void* RHILockBuffer(FRHIBuffer* BufferRHI, uint32 Offset, uint32 Size, EResourceLockMode LockMode) = 0;
 	virtual void  RHIUnlockBuffer(FRHIBuffer* BufferRHI) = 0;
 	virtual TRefCountPtr<FRHIGraphicsPipelineState> RHICreateGraphicsPipelineState(const class FGraphicsPipelineStateInitializer& Initializer) = 0;
@@ -114,6 +115,18 @@ FORCEINLINE TRefCountPtr<FRHIRasterizerState> RHICreateRasterizerState(const FRa
 {
 	return GDynamicRHI->RHICreateRasterizerState(Initializer);
 }
+
+FORCEINLINE TRefCountPtr<FRHIUniformBuffer>	RHICreateUniformBuffer(const void* Contents, uint32 Size, EUniformBufferUsage Usage)
+{
+	return GDynamicRHI->RHICreateUniformBuffer(Contents, Size, Usage);
+}
+
+FORCEINLINE void RHIUpdateUniformBuffer(FRHIUniformBuffer* BufferRHI, const void* Contents, uint32 Size)
+{
+	GDynamicRHI->RHIUpdateUniformBuffer(BufferRHI, Contents, Size);
+}
+
+
 
 
 FORCEINLINE void* RHILockTexture2D(FRHITexture* TextureRHI, uint32 MipIndex, EResourceLockMode LockMode,

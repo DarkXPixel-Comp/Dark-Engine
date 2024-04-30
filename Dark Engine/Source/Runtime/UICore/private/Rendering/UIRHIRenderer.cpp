@@ -105,7 +105,7 @@ void FUIRHIRenderer::DrawWindows(const TArray<TSharedPtr<UIWindow>>& InWindows)
 				}
 #endif
 
-				RHICmdList->EndFrame();
+				//RHICmdList->EndFrame();
 				RHICmdList->EndDrawingViewport(ViewInfo->ViewportRHI.get(), true, Vsync);
 
 

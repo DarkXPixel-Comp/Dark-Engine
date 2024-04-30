@@ -321,6 +321,49 @@ void FD3D12DynamicRHI::RHIUnlockBuffer(FRHIBuffer* BufferRHI)
 
 }
 
+TRefCountPtr<FRHIUniformBuffer> FD3D12DynamicRHI::RHICreateUniformBuffer(const void* Contents, uint32 Size,EUniformBufferUsage Usage)
+{
+	FD3D12UniformBuffer* Result = new FD3D12UniformBuffer(GetAdapter().GetDevice(), Usage);
+
+
+	if (Size > 0)
+	{
+		if (Contents)
+		{
+			void* MappedData = nullptr;
+			TRefCountPtr<ID3D12Resource> NewResource;
+			const D3D12_RESOURCE_DESC BufferDesc = CD3DX12_RESOURCE_DESC::Buffer(Size, D3D12_RESOURCE_FLAG_NONE);
+			const D3D12_HEAP_PROPERTIES HeapProperties = CD3DX12_HEAP_PROPERTIES(D3D12_HEAP_TYPE_UPLOAD);
+			DXCall(GetAdapter().GetD3DDevice()->CreateCommittedResource(&HeapProperties, D3D12_HEAP_FLAG_NONE,
+				&BufferDesc, D3D12_RESOURCE_STATE_GENERIC_READ, nullptr, IID_PPV_ARGS(&NewResource)));
+			Result->ResourceLocation.AsStandAlone(new FD3D12Resource(GetAdapter().GetDevice(), NewResource.Get(), D3D12_RESOURCE_STATE_GENERIC_READ, BufferDesc, nullptr, D3D12_HEAP_TYPE_UPLOAD), Size, &HeapProperties);
+			MappedData = Result->ResourceLocation.GetMappedBaseAddress();
+
+			FMemory::Memcpy(MappedData, Contents, Size);
+		}
+	}
+
+	return Result;
+}
+
+void FD3D12DynamicRHI::RHIUpdateUniformBuffer(FRHIUniformBuffer* BufferRHI, const void* Contents, uint32 Size)
+{
+	FD3D12UniformBuffer* D3DBuffer = static_cast<FD3D12UniformBuffer*>(BufferRHI);
+
+	if (Size > 0 && Contents)
+	{
+		if (Size > D3DBuffer->ResourceLocation.GetSize())
+		{
+
+		}
+		else
+		{
+			void* MappedData = D3DBuffer->ResourceLocation.GetMappedBaseAddress();
+			FMemory::Memcpy(MappedData, Contents, Size);
+		}
+	}
+}
+
 TRefCountPtr<FRHITexture> FD3D12DynamicRHI::RHICreateTexture(const FRHITextureCreateDesc& CreateDesc)
 {
 	return CreateD3D12Texture(CreateDesc, GetAdapter().GetDevice());

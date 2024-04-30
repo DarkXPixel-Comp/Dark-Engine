@@ -13,7 +13,7 @@ target_link_libraries(Renderer PUBLIC Core RHI Engine D3DShaderFormat)
 #"private/RenderResource.cpp" "public/RendererInterface.h" "private/RenderGlobals.cpp" "private/SceneRenderer.h" "private/SceneRenderer.cpp" "private/SceneRendering.cpp")
 
 SETTINGFILES(RendererSrc)
-target_sources(Renderer PRIVATE ${RendererSrc})
+target_sources(Renderer PRIVATE ${RendererSrc} "private/FractalRender.cpp")
 
 SettingProject(Renderer)
 

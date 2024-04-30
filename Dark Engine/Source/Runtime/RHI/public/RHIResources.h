@@ -319,13 +319,6 @@ protected:
 };
 
 
-class FRHIUniformBuffer : public FRHIResource
-{
-public:
-
-};
-
-
 
 
 class FRHIViewport : public FRHIResource
@@ -485,8 +478,16 @@ public:
 
 class FRHISamplerState : public FRHIResource
 {
+public:
 	FRHISamplerState() : FRHIResource(RRT_SamplerState) {}
 	virtual FRHIDescriptorHandle GetBindlessHandle() const { return FRHIDescriptorHandle(); }
+};
+
+class FRHIUniformBuffer : public FRHIResource
+{
+public:
+	FRHIUniformBuffer() : FRHIResource(RRT_UniformBuffer)
+	{}
 };
 
 class FRHIRenderTargetView

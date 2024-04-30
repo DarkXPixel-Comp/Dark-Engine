@@ -60,6 +60,9 @@ public:
 	virtual void* RHILockBuffer(FRHIBuffer* BufferRHI, uint32 Offset, uint32 Size, EResourceLockMode LockMode);
 	virtual void RHIUnlockBuffer(FRHIBuffer* BufferRHI);
 
+	virtual TRefCountPtr<FRHIUniformBuffer>	RHICreateUniformBuffer(const void* Contents, uint32 Size, EUniformBufferUsage Usage);
+	virtual void RHIUpdateUniformBuffer(FRHIUniformBuffer* BufferRHI, const void* Contents, uint32 Size);
+
 	virtual TRefCountPtr<FRHITexture> RHICreateTexture(const FRHITextureCreateDesc& CreateDesc);
 	virtual void* RHILockTexture2D(FRHITexture* TextureRHI, uint32 MipIndex, EResourceLockMode LockMode,
 		uint32& DestStride, bool bLockWithinMiptail, uint64* OutLockedByteCount);

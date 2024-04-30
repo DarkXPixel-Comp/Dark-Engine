@@ -28,7 +28,8 @@ enum ERHIResourceType
 	RRT_MeshShader,
 	RRT_ComputeShader,
 	RRT_RasterizerState,
-	RRT_DepthStencilState
+	RRT_DepthStencilState,
+	RRT_UniformBuffer
 };
 
 enum class ERHIDescriptorHeapType : uint8
@@ -162,6 +163,12 @@ enum class ETextureCreateFlags : uint64
 
 ENUM_CLASS_FLAGS(ETextureCreateFlags);
 
+enum EUniformBufferUsage
+{
+	UniformBuffer_SingleDraw,
+	UniformBuffer_SingleFrame,
+	UniformBuffer_MultiFrame
+};
 
 
 struct FRHIDescriptorHandle
