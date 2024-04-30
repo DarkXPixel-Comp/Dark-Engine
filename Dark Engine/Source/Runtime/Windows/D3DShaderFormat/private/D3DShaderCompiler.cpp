@@ -45,7 +45,7 @@ public:
 
 	void GetCompilerArgs(TArray<const WCHAR*>& Out) const
 	{
-		Out.Add(TEXT("Zi"));
+		//Out.Add(TEXT("Zi"));
 		Out.Add(TEXT("-E"));
 		Out.Add(*EntryPoint);
 		Out.Add(TEXT("-T"));
@@ -117,14 +117,16 @@ void CompileD3DShader(const FShaderCompilerInput& Input, const FShaderPreprocess
 	CompileResult->GetStatus(&Result);
 
 	TRefCountPtr<IDxcBlob> OutResult;
+	TRefCountPtr<IDxcBlob> HashShader;
 	
 
 	if (SUCCEEDED(Result))
 	{
 		TRefCountPtr<IDxcBlobUtf16>	ObjectCodeNameBlob;
-		DxcShaderHash Hash;
+		TRefCountPtr<IDxcBlobUtf16>	ObjectHashBlob;
 		check(CompileResult->HasOutput(DXC_OUT_OBJECT) && "No object code found");
-		CompileResult->GetOutput(DXC_OUT_OBJECT, IID_PPV_ARGS(&OutResult), &ObjectCodeNameBlob);	
+		CompileResult->GetOutput(DXC_OUT_OBJECT, IID_PPV_ARGS(&OutResult), &ObjectCodeNameBlob);
+		CompileResult->GetOutput(DXC_OUT_SHADER_HASH, IID_PPV_ARGS(&HashShader), &ObjectHashBlob);
 	}
 	else
 	{
@@ -135,9 +137,13 @@ void CompileD3DShader(const FShaderCompilerInput& Input, const FShaderPreprocess
 		return;
 	}
 	
+
 	Output.ShaderCode.ShaderCodeWithOptionalData.Resize(OutResult->GetBufferSize());
 	FMemory::Memcpy(Output.ShaderCode.ShaderCodeWithOptionalData.GetData(),
 		OutResult->GetBufferPointer(), OutResult->GetBufferSize());
-	Output.ShaderHash = std::hash<TArray<uint8>>{}(Output.ShaderCode.ShaderCodeWithOptionalData);
+	
+	TArray<uint8> HashArray(HashShader->GetBufferSize());
+	FMemory::Memcpy(HashArray.GetData(), HashShader->GetBufferPointer(), HashShader->GetBufferSize());
+	Output.ShaderHash = std::hash<TArray<uint8>>{}(HashArray);
 }
 

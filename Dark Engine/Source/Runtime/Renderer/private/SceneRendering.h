@@ -36,6 +36,7 @@ public:
 
 	void RenderQuad(FRHICommandListImmediate& CmdList);
 	void RenderFractal(FRHICommandListImmediate& CmdList);
+	void RenderSeaScape(FRHICommandListImmediate& CmdList);
 
 
 

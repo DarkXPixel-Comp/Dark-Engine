@@ -75,6 +75,11 @@ void VSMain(in float4 Position : Attribute0, in float2 UV : Attribute1,
 void PSMain(in float2 uv : TEXCOORD, in float4 InPosition : SV_POSITION, out float4 Color : SV_TARGET)
 {
 	float2 newUv = (InPosition.xy - (Params.Resolution.xy / 2.f)) / Params.Resolution.x;
+	
+	//newUv = uv;
+	//newUv.y = 1 - newUv.y;
+	//newUv /= 2;
+	
 	//newUv = float2(uv.x, 1. - uv.y);
 	//newUv = uv;
 	
