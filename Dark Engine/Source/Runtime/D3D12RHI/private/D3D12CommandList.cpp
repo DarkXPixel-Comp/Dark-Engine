@@ -41,6 +41,7 @@ FD3D12CommandList::FD3D12CommandList(FD3D12CommandAllocator* CommandAllocator):
 		CommandList = GraphicsCommandList;
 		CommandList->QueryInterface(IID_PPV_ARGS(&CopyCommandList));
 		CommandList->QueryInterface(IID_PPV_ARGS(&DebugCommandList));
+		CommandList->QueryInterface(IID_PPV_ARGS(&GraphicsCommandList4));
 		break;
 	case ED3D12QueueType::Copy:
 		DXCall(Device->GetDevice()->CreateCommandList(0, GetD3DCommandListType(QueueType), *CommandAllocator,

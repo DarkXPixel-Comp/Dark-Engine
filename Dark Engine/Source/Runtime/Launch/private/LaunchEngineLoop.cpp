@@ -20,6 +20,8 @@
 #include "Console/GlobalInputOutConsole.h"
 
 #include "GlobalResource.h"
+#include "VulkanDynamicRHI.h"
+
 
 
 
@@ -133,7 +135,6 @@ int32 FEngineLoop::PreInit(const TCHAR* CmdLine)
 	bool bWithOSConsole = FString(CmdLine) == TEXT("-CMD");
 	GGlobalConsole.Initialize(bWithOSConsole);
 	GGlobalConsole.SetAutoClose(false);
-
 
 	GGlobalConsole.RegisterConsoleCommand(TEXT("c.CreateOS"), [](const TArray<FString>& Args)
 		{

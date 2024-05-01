@@ -24,6 +24,10 @@ namespace DE
 				T XYZW[4];
 			};
 
+
+			/**A zero vector(0, 0, 0, 1)*/
+			static const TVector4<T> ZeroVectorOneW;
+
 			/*explicit TVector4(void):
 				X(0), Y(0), Z(0), W(0)
 			{

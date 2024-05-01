@@ -67,7 +67,7 @@ ENDMACRO()
 
 
 
-project("Dark Engine" VERSION 0.0.47)
+project("Dark Engine" VERSION 0.0.49.0)
 
 
 if(MSVC)
@@ -83,6 +83,8 @@ FILE(GLOB_RECURSE sources "Dark Engine/Source/*.cpp")
 #include_directories("")
 
 add_compile_definitions(UBT_COMPILED_PLATFORM=Windows ROOT_DIR="${PROJECT_SOURCE_DIR}")
+
+
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "$<0:>${PROJECT_SOURCE_DIR}/Dark Engine/bin") # 
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "$<0:>${PROJECT_SOURCE_DIR}/Dark Engine/bin/lib") # 

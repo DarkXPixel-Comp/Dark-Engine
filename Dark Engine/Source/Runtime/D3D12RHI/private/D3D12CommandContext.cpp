@@ -21,7 +21,10 @@ void FD3D12ContextCommon::OpenCommandList()
 
 	CommandList = Device->GetCommandList(CommandAllocator);
 
+	ID3D12DescriptorHeap* Heaps[] = { Device->GetBindlessDescriptorManager().
+	GetHeap(ERHIDescriptorHeapType::Standart)->GetHeap() };
 
+	CommandList->GetGraphicsCommandList()->SetDescriptorHeaps(1, Heaps);
 
 }
 
@@ -179,13 +182,7 @@ void FD3D12CommandContext::RHIBeginFrame()
 	FD3D12CommandList& List = GetCommandList();
 	FD3D12Viewport* Viewport = FD3D12AdapterChild::Parent->GetDrawingViewport();
 	//ID3D12DescriptorHeap* Heaps[] = { FD3D12DynamicRHI::GetD3D12RHI()->ImGuiDescriptorHeap->GetHeap() };
-	ID3D12DescriptorHeap* Heaps[] = { FD3D12DeviceChild::Parent->GetBindlessDescriptorManager().
-		GetHeap(ERHIDescriptorHeapType::Standart)->GetHeap()};
 
-
-
-
-	List.GetGraphicsCommandList()->SetDescriptorHeaps(1, Heaps);
 	Viewport->GetCurrentBackBuffer();
 }
 
@@ -221,12 +218,46 @@ void FD3D12CommandContext::RHIEndImGui()
 void FD3D12CommandContext::RHIBeginRenderPass(FRHIRenderPassInfo& InInfo)
 {
 	FRHISetRenderTargetInfo RTInfo = InInfo.ConvertToRenderTargetInfo();
-	SetRenderTargetsAndClear(RTInfo);
+	//SetRenderTargetsAndClear(RTInfo);
+
+
+	FD3D12RenderTargetView* NewRenderTargets[MAX_RENDER_TARGETS];
+	TArray<FD3D12CpuDescriptor>	RTVDescriptors(RTInfo.NumColorRenderTargets);
+	TArray<D3D12_RENDER_PASS_RENDER_TARGET_DESC> RenderTargetPassDescs(RTInfo.NumColorRenderTargets);
+	for (uint32 i = 0; i < MAX_RENDER_TARGETS; ++i)
+	{
+		FD3D12RenderTargetView* RenderTarget = nullptr;
+		if (RTInfo.NumColorRenderTargets > i && i < MAX_RENDER_TARGETS && RTInfo.ColorRenderTarget[i].Texture != nullptr)
+		{
+			FD3D12Texture* NewRenderTarget = static_cast<FD3D12Texture*>(RTInfo.ColorRenderTarget[i].Texture);
+			RenderTarget = NewRenderTarget->RenderTargetViews[0].get();
+			TransitionResource(NewRenderTarget->GetResource(),
+				NewRenderTarget->GetResource()->GetCurrentState(), D3D12_RESOURCE_STATE_RENDER_TARGET, 0);
+			RTVDescriptors[i] = RenderTarget->GetCpuHandle();
+
+			RenderTargetPassDescs[i].cpuDescriptor = RTVDescriptors[i];
+
+			D3D12_CLEAR_VALUE ClearValue = {};
+			ClearValue.Format = GetDXGIFormat(NewRenderTarget->GetPixelFormat());
+			ClearValue.DepthStencil = { 0, 0 };
+			FMemory::Memcpy(ClearValue.Color, &FVector4f::ZeroVectorOneW, sizeof(FVector4f));
+			RenderTargetPassDescs[i].BeginningAccess.Type = D3D12_RENDER_PASS_BEGINNING_ACCESS_TYPE_CLEAR;
+			RenderTargetPassDescs[i].BeginningAccess.Clear.ClearValue = ClearValue;
+
+			RenderTargetPassDescs[i].EndingAccess.Type = D3D12_RENDER_PASS_ENDING_ACCESS_TYPE_PRESERVE;
+		}
+		NewRenderTargets[i] = RenderTarget;
+	}
+
+	GetGraphicsList4()->BeginRenderPass(RenderTargetPassDescs.Num(), RenderTargetPassDescs.GetData(), nullptr, D3D12_RENDER_PASS_FLAG_NONE);
+	StateCache.SetRenderTargets(RTInfo.NumColorRenderTargets, NewRenderTargets, nullptr);
+
 }
 
 void FD3D12CommandContext::RHIEndRenderPass(FRHIRenderPassInfo& InInfo)
 {
 	FRHISetRenderTargetInfo RTInfo = InInfo.ConvertToRenderTargetInfo();
+	GetGraphicsList4()->EndRenderPass();
 
 	for (uint32 i = 0; i < MAX_RENDER_TARGETS; ++i)
 	{
@@ -237,8 +268,6 @@ void FD3D12CommandContext::RHIEndRenderPass(FRHIRenderPassInfo& InInfo)
 			TransitionResource(D3DRenderTarget->GetResource(), D3D12_RESOURCE_STATE_ALL_SHADER_RESOURCE, 0);
 		}
 	}
-	
-
 }
 
 void FD3D12CommandContext::SetRenderTargets(int32 NumRenderTargets, const FRHIRenderTargetView *RenderTargetsRHI, const FRHIDepthRenderTargetView *DepthStencilViewRHI, bool bClear)
@@ -260,7 +289,7 @@ void FD3D12CommandContext::SetRenderTargets(int32 NumRenderTargets, const FRHIRe
 			RTVDescriptors[i] = RenderTarget->GetCpuHandle();
 			if (bClear && NewRenderTarget->IsValid())
 			{
-				const FLOAT ClearColor[4] = { 0, 0, 0, 1 };
+				static const FLOAT ClearColor[4] = { 0, 0, 0, 1 };
 				GetCommandList().GetGraphicsCommandList()->ClearRenderTargetView(RenderTarget->GetCpuHandle(), ClearColor, 0, nullptr);
 			}
 		}	
