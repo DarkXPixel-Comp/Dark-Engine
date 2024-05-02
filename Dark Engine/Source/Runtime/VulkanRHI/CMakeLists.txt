@@ -1,8 +1,8 @@
 add_library(VulkanRHI)
 
 target_compile_features(VulkanRHI PUBLIC cxx_std_20)
-target_link_libraries(VulkanRHI PRIVATE Core RHI IMGUI)
-target_link_libraries(VulkanRHI PUBLIC Vulkan)
+target_link_libraries(VulkanRHI PRIVATE Core RHI IMGUI NvidiaStreamline)
+target_link_libraries(VulkanRHI PRIVATE Vulkan)
 
 
 

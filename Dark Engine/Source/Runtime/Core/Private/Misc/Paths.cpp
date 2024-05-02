@@ -6,6 +6,11 @@ CORE_API FString FPaths::LaunchDir()
 	return EngineDir() + "bin/";
 }
 
+CORE_API FString FPaths::BinariesThirdPartyDir()
+{
+	return (EngineDir() + TEXT("bin")) / TEXT("ThirdParty");
+}
+
 CORE_API FString FPaths::EngineDir()
 {
 	FString DefaultEngineDir = RootDir() + "Dark Engine/";

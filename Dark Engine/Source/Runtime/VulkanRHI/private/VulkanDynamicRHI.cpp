@@ -4,6 +4,7 @@
 #include "VulkanUtil.h"
 
 TSharedPtr<IVulkanLoader> GVulkanLoader = nullptr;
+FVulkanDynamicRHI* GVulkanRHI = nullptr;
 
 
 FDynamicRHI* FVulkanDynamicRHIModule::CreateRHI()
@@ -15,7 +16,8 @@ FDynamicRHI* FVulkanDynamicRHIModule::CreateRHI()
 	checkAssert(GVulkanLoader->LoadVulkanFunctions());
 
 
-	return nullptr;
+	return GVulkanRHI = new FVulkanDynamicRHI();
+
 }
 
 void FVulkanDynamicRHI::Init()

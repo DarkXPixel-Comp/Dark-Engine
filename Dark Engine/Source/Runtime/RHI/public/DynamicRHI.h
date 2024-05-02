@@ -24,27 +24,27 @@ public:
 class FDynamicRHI
 {
 public:
-	virtual void Init() = 0;
-	virtual void PostInit() {}
-	virtual void Shutdown() = 0;
-	virtual TSharedPtr<FRHIViewport> RHICreateViewport(void* WindowHandle, uint32 SizeX, uint32 SizeY, bool bIsFullscreen) = 0;
-	virtual FRHITexture* RHIGetViewportBackBuffer(FRHIViewport* Viewport) = 0;
-	virtual IRHIComputeContext* RHIGetCommandContext() = 0;
-	virtual IRHIComputeContext* RHIGetDefaultContext() = 0;
-	virtual TRefCountPtr<FRHIBuffer> RHICreateBuffer(const FRHIBufferDesc& CreateDesc, const TCHAR* DebugName, ERHIAccess InitialState) = 0;
-	virtual TRefCountPtr<FRHITexture> RHICreateTexture(const FRHITextureCreateDesc& CreateDesc) = 0;
-	virtual void* RHILockTexture2D(FRHITexture* TextureRHI, uint32 MipIndex, EResourceLockMode LockMode, uint32& DestStride, bool bLockWithinMiptail, uint64* OutLockedByteCount) = 0;
-	virtual TRefCountPtr<FRHIUniformBuffer>	RHICreateUniformBuffer(const void* Contents, uint32 Size, EUniformBufferUsage Usage) = 0;
-	virtual void RHIUpdateUniformBuffer(FRHIUniformBuffer* BufferRHI, const void* Contents, uint32 Size) = 0;
-	virtual void* RHILockBuffer(FRHIBuffer* BufferRHI, uint32 Offset, uint32 Size, EResourceLockMode LockMode) = 0;
-	virtual void  RHIUnlockBuffer(FRHIBuffer* BufferRHI) = 0;
-	virtual TRefCountPtr<FRHIGraphicsPipelineState> RHICreateGraphicsPipelineState(const class FGraphicsPipelineStateInitializer& Initializer) = 0;
-	virtual TRefCountPtr<FRHIVertexDeclaration>	RHICreateVertexDeclaration(const FVertexDeclarationElementList& Elements) = 0;
-	virtual TRefCountPtr<FRHIVertexShader> RHICreateVertexShader(const TArray<uint8>& Code, const struct FShaderBounds& Bounds) = 0;
-	virtual TRefCountPtr<FRHIPixelShader> RHICreatePixelShader(const TArray<uint8>& Code, const struct FShaderBounds& Bounds) = 0;
-	virtual TRefCountPtr<FRHIRasterizerState> RHICreateRasterizerState(const FRasterizerStateInitializer& Initializer) = 0;
+	virtual void Init() {};
+	virtual void PostInit() {};
+	virtual void Shutdown() {};
+	virtual TSharedPtr<FRHIViewport> RHICreateViewport(void* WindowHandle, uint32 SizeX, uint32 SizeY, bool bIsFullscreen) { return nullptr; };
+	virtual FRHITexture* RHIGetViewportBackBuffer(FRHIViewport* Viewport) { return nullptr; };
+	virtual IRHIComputeContext* RHIGetCommandContext() { return nullptr; };
+	virtual IRHIComputeContext* RHIGetDefaultContext() { return nullptr; };
+	virtual TRefCountPtr<FRHIBuffer> RHICreateBuffer(const FRHIBufferDesc& CreateDesc, const TCHAR* DebugName, ERHIAccess InitialState) { return nullptr; };
+	virtual TRefCountPtr<FRHITexture> RHICreateTexture(const FRHITextureCreateDesc& CreateDesc) { return nullptr; };
+	virtual void* RHILockTexture2D(FRHITexture* TextureRHI, uint32 MipIndex, EResourceLockMode LockMode, uint32& DestStride, bool bLockWithinMiptail, uint64* OutLockedByteCount) { return nullptr; };
+	virtual TRefCountPtr<FRHIUniformBuffer>	RHICreateUniformBuffer(const void* Contents, uint32 Size, EUniformBufferUsage Usage) { return nullptr; };
+	virtual void RHIUpdateUniformBuffer(FRHIUniformBuffer* BufferRHI, const void* Contents, uint32 Size) {};
+	virtual void* RHILockBuffer(FRHIBuffer* BufferRHI, uint32 Offset, uint32 Size, EResourceLockMode LockMode) { return nullptr; };
+	virtual void  RHIUnlockBuffer(FRHIBuffer* BufferRHI) {};
+	virtual TRefCountPtr<FRHIGraphicsPipelineState> RHICreateGraphicsPipelineState(const class FGraphicsPipelineStateInitializer& Initializer) { return nullptr; };
+	virtual TRefCountPtr<FRHIVertexDeclaration>	RHICreateVertexDeclaration(const FVertexDeclarationElementList& Elements) { return nullptr; };
+	virtual TRefCountPtr<FRHIVertexShader> RHICreateVertexShader(const TArray<uint8>& Code, const struct FShaderBounds& Bounds) { return nullptr; };
+	virtual TRefCountPtr<FRHIPixelShader> RHICreatePixelShader(const TArray<uint8>& Code, const struct FShaderBounds& Bounds) { return nullptr; };
+	virtual TRefCountPtr<FRHIRasterizerState> RHICreateRasterizerState(const FRasterizerStateInitializer& Initializer) { return nullptr; };
 
-	virtual void RHIUnlockTexture2D(FRHITexture* TextureRHI, uint32 MipIndex, bool bLockWithinMiptail) = 0;
+	virtual void RHIUnlockTexture2D(FRHITexture* TextureRHI, uint32 MipIndex, bool bLockWithinMiptail) {};
 	virtual ERHIInterfaceType GetInterfaceType() const { return ERHIInterfaceType::Hidden; }
 
 };

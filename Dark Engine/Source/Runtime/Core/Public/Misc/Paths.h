@@ -15,6 +15,8 @@ public:
 
 	static CORE_API FString LaunchDir();
 
+	static CORE_API FString BinariesThirdPartyDir();
+
 	static CORE_API FString EngineDir();
 
 	static CORE_API FString ContentDir();

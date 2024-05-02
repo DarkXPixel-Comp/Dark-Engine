@@ -1,6 +1,7 @@
 #pragma once
 #include "VulkanInterfaces.h"
-#include "Windows.h"
+#include "Windows.h"  
+#include "Misc/Paths.h"
 
 
 class FWindowsVulkanLoader : public IVulkanLoader
@@ -8,12 +9,13 @@ class FWindowsVulkanLoader : public IVulkanLoader
 public:
 	FORCEINLINE virtual bool LoadVulkanFunctions()
 	{
-		VulkanModule = LoadLibrary(TEXT("vulkan-1.dll"));
+		VulkanModule = LoadLibrary(*FString::PrintF(TEXT("%s/NvidiaStreamline/sl.interposer.dll"), FPaths::BinariesThirdPartyDir()));
 		if (!VulkanModule)
 			return false;
 		VK::vkGetInstanceProcAddr = (PFN_vkGetInstanceProcAddr)GetProcAddress(VulkanModule, "vkGetInstanceProcAddr");
 		if (!VK::vkGetInstanceProcAddr)
 			return false;
+		VK::vkGetDeviceProcAddr = (PFN_vkGetDeviceProcAddr)GetProcAddress(VulkanModule, "vkGetDeviceProcAddr");
 		VK::vkCreateInstance = (PFN_vkCreateInstance)VK::vkGetInstanceProcAddr(0, "vkCreateInstance");
 
 

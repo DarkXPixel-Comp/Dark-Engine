@@ -1,5 +1,7 @@
 #pragma once
 #include "vulkan/vulkan_core.h"
+#include "sl.h"
+#include "sl_consts.h"
 
 
 class IVulkanLoader
