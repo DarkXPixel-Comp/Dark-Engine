@@ -65,21 +65,21 @@ void FSceneViewport::InitRHI()
 
 
 
-	TRefCountPtr<FRHITexture> RTRHI, SRVRHI;
-	
-	const FRHITextureCreateDesc Desc =
-		FRHITextureCreateDesc::Create2D(TEXT("BufferRT"))
-		.SetExtent(GetSize())
-		.SetFormat(EPixelFormat::PF_R8G8B8A8_UNORM)
-		.SetFlags(ETextureCreateFlags::RenderTargetable | ETextureCreateFlags::ShaderResource | ETextureCreateFlags::DepthStencilTargetable)
-		.SetInitialState(ERHIAccess::SRVGraphics);
+	//TRefCountPtr<FRHITexture> RTRHI, SRVRHI;
+	//
+	//const FRHITextureCreateDesc Desc =
+	//	FRHITextureCreateDesc::Create2D(TEXT("BufferRT"))
+	//	.SetExtent(GetSize())
+	//	.SetFormat(EPixelFormat::PF_R8G8B8A8_UNORM)
+	//	.SetFlags(ETextureCreateFlags::RenderTargetable | ETextureCreateFlags::ShaderResource | ETextureCreateFlags::DepthStencilTargetable)
+	//	.SetInitialState(ERHIAccess::SRVGraphics);
 
-	SRVRHI = RTRHI = RHICreateTexture(Desc);
-	check(SRVRHI && RTRHI);
+	//SRVRHI = RTRHI = RHICreateTexture(Desc);
+	//check(SRVRHI && RTRHI);
 
-	BufferedRenderTargetRHI = RTRHI;
-	BufferedShaderResourceTextureRHI = SRVRHI;
-	RenderTargetTextureRHI = BufferedShaderResourceTextureRHI;
+	//BufferedRenderTargetRHI = RTRHI;
+	//BufferedShaderResourceTextureRHI = SRVRHI;
+	//RenderTargetTextureRHI = BufferedShaderResourceTextureRHI;
 
 
 }

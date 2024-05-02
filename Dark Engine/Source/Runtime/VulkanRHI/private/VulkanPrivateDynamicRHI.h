@@ -13,6 +13,8 @@ public:
 
 
 	virtual void Init();
+	
+	void CreateDevice();
 	//virtual void PostInit();
 
 private:

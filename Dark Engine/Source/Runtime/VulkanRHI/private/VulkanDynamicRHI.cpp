@@ -37,6 +37,14 @@ void FVulkanDynamicRHI::Init()
 	CreateInfo.pApplicationInfo = &ApplicationInfo;
 	CreateInfo.enabledExtensionCount = 0;
 	CreateInfo.enabledLayerCount = 0;
-
 	VkCall(VK::vkCreateInstance(&CreateInfo, nullptr, &Instance));
+}
+
+
+
+void FVulkanDynamicRHI::CreateDevice()
+{
+
+
+
 }

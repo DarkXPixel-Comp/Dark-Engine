@@ -169,9 +169,9 @@ int32 FEngineLoop::PreInit(const TCHAR* CmdLine)
 	DE_LOG(Launch, Log, TEXT("RHI init"));
 
 
-	CompileGlobalShaders();
+	//CompileGlobalShaders();
 
-	InitGlobalRenderResources();
+	//InitGlobalRenderResources();
 
 	Engine = new DEditorEngine();
 
@@ -230,7 +230,7 @@ int32 FEngineLoop::Init()
 
 void FEngineLoop::Tick()
 {
-	Engine->Tick(1);
+	//Engine->Tick(1);
 
 	UIApplication::Get()->Tick();
 }
