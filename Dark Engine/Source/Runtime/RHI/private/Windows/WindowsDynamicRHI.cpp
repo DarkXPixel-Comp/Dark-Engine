@@ -1,6 +1,7 @@
 #include "DynamicRHI.h"
 
 #include "D3D12RHI.h"
+#include "VulkanDynamicRHI.h"
 
 
 IDynamicRHIModule* GLoadedRHIModule = nullptr;
@@ -18,7 +19,7 @@ enum class EWindowsRHI
 FDynamicRHI* PlatformCreateDynamicRHI()
 {
 	FDynamicRHI* DynamicRHI = nullptr;
-	GLoadedRHIModule = new FD3D12DynamicRHIModule();
+	GLoadedRHIModule = new FVulkanDynamicRHIModule();
 
 	if (GLoadedRHIModule)
 	{

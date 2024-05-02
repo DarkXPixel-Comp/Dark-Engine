@@ -9,7 +9,7 @@ class FWindowsVulkanLoader : public IVulkanLoader
 public:
 	FORCEINLINE virtual bool LoadVulkanFunctions()
 	{
-		VulkanModule = LoadLibrary(*FString::PrintF(TEXT("%s/NvidiaStreamline/sl.interposer.dll"), FPaths::BinariesThirdPartyDir()));
+		VulkanModule = LoadLibrary(TEXT("sl.interposer.dll"));
 		if (!VulkanModule)
 			return false;
 		VK::vkGetInstanceProcAddr = (PFN_vkGetInstanceProcAddr)GetProcAddress(VulkanModule, "vkGetInstanceProcAddr");

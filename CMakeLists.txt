@@ -70,6 +70,7 @@ ENDMACRO()
 project("Dark Engine" VERSION 0.0.49.0)
 
 
+
 if(MSVC)
 	add_compile_options("/MP 12")
 	#add_compile_options("/OPT:NOREF")

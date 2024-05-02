@@ -2,7 +2,9 @@
 
 #include "RHI.h"
 #include "RHICommandList.h"
-#include "Windows/WindowsDynamicRHI.cpp"
+//#include "Windows/WindowsDynamicRHI.cpp"
+
+
 
 
 FDynamicRHI* GDynamicRHI = nullptr;

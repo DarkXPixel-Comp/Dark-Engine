@@ -9,6 +9,7 @@ public:
 	FVulkanDynamicRHIModule() {}
 
 	virtual FDynamicRHI* CreateRHI() override;
+	virtual void Shutdown() override {}
 
 private:
 };
