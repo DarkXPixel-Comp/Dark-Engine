@@ -1,0 +1,114 @@
+\doxysection{Класс FRHICommand\+List}
+\hypertarget{class_f_r_h_i_command_list}{}\label{class_f_r_h_i_command_list}\index{FRHICommandList@{FRHICommandList}}
+
+
+{\ttfamily \#include $<$RHICommand\+List.\+h$>$}
+
+Граф наследования\+:FRHICommand\+List\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=5.000000cm]{d9/dfe/class_f_r_h_i_command_list}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_f_r_h_i_command_list_a1e880b04daedc67b72320ae4fc82033c}{FRHICommand\+List}} ()
+\item 
+void \mbox{\hyperlink{class_f_r_h_i_command_list_a5caa8253a4db2fba6f42212088216b72}{RHISet\+Viewport}} (float MinX, float MinY, float MinZ, float MaxX, float MaxY, float MaxZ)
+\item 
+void \mbox{\hyperlink{class_f_r_h_i_command_list_abba29d30a36401d05482a57f69b5aeb4}{Set\+Graphics\+Pipeline\+State}} (class \mbox{\hyperlink{class_f_r_h_i_graphics_pipeline_state}{FRHIGraphics\+Pipeline\+State}} \texorpdfstring{$\ast$}{*}Pipeline\+State, class \mbox{\hyperlink{struct_f_bound_shader_state_input}{FBound\+Shader\+State\+Input}} \&Shader\+Input)
+\item 
+void \mbox{\hyperlink{class_f_r_h_i_command_list_ab4cb1485eec439e0eb703f6f17763aaf}{Set\+Stream\+Source}} (\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} Stream\+Index, \mbox{\hyperlink{class_f_r_h_i_buffer}{FRHIBuffer}} \texorpdfstring{$\ast$}{*}Vertex\+Buffer, \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} Offset, \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} Stride)
+\item 
+void \mbox{\hyperlink{class_f_r_h_i_command_list_aaeed696e1ebbd58d816ed4d1f5d6584f}{Draw\+Indexed\+Primitive}} (\mbox{\hyperlink{class_f_r_h_i_buffer}{FRHIBuffer}} \texorpdfstring{$\ast$}{*}Index\+Buffer\+RHI, \mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}} Base\+Vertex\+Index, \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} First\+Instance, \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} Num\+Vertices, \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} Start\+Index, \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} Num\+Primitives, \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} Num\+Instances)
+\end{DoxyCompactItemize}
+\doxysubsection*{Открытые члены унаследованные от \mbox{\hyperlink{class_f_r_h_i_compute_command_list}{FRHICompute\+Command\+List}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_f_r_h_i_compute_command_list_a4ff96a1a8d2888ba1c983721355e7374}{FRHICompute\+Command\+List}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Открытые члены унаследованные от \mbox{\hyperlink{class_f_r_h_i_command_list_base}{FRHICommand\+List\+Base}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_f_r_h_i_command_list_base_ae50c16008cdd6575e7fb56ab55fb2d87}{FRHICommand\+List\+Base}} (\mbox{\hyperlink{class_f_r_h_i_command_list_base}{FRHICommand\+List\+Base}} \&\&Other)
+\item 
+\mbox{\hyperlink{class_f_r_h_i_command_list_base_a6a96d351cab4df7a05aed6f53f8233cb}{\texorpdfstring{$\sim$}{\string~}\+FRHICommand\+List\+Base}} ()
+\item 
+bool \mbox{\hyperlink{class_f_r_h_i_command_list_base_a7bf304af308aa3072aca59aab1f88f0c}{Is\+Immediate}} ()
+\item 
+class \mbox{\hyperlink{class_f_r_h_i_command_list_immediate}{FRHICommand\+List\+Immediate}} \& \mbox{\hyperlink{class_f_r_h_i_command_list_base_a2c2d7709be18fccb197adb52f109481c}{Get\+As\+Immediate}} ()
+\item 
+const \mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}} \mbox{\hyperlink{class_f_r_h_i_command_list_base_ad73bfcd91f4330ac623b5dcc3b6b7102}{Get\+Used\+Memory}} () const
+\item 
+void \mbox{\hyperlink{class_f_r_h_i_command_list_base_a84c1086a66dadaa9d21affb3c43b2da6}{Switch\+Pipeline}} ()
+\item 
+void \mbox{\hyperlink{class_f_r_h_i_command_list_base_a2e369d3f827a07e6d2c7e15aeaf1c6e0}{Add\+Dispatch\+Prerequisite}} (const FGraph\+Event\+Ref \&In\+Prereq)
+\item 
+void \mbox{\hyperlink{class_f_r_h_i_command_list_base_a7b4a70d0a4452f7b3f66e0eaa939c095}{Finish\+Recording}} ()
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_f_r_h_i_command_list_base_a1a2ae72ef7510739e936a6ead4d2411c}{Alloc}} (\mbox{\hyperlink{_platform_8h_a89241ea7101f26f05a4f1efd6be26b32}{int64}} In\+Aloc\+Size, \mbox{\hyperlink{_platform_8h_a89241ea7101f26f05a4f1efd6be26b32}{int64}} In\+Allignment)
+\item 
+\mbox{\hyperlink{class_i_r_h_i_command_context}{IRHICommand\+Context}} \& \mbox{\hyperlink{class_f_r_h_i_command_list_base_aba7acf76251af0ace18084cd78b58170}{Get\+Context}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Дополнительные унаследованные члены}
+\doxysubsection*{Открытые типы унаследованные от \mbox{\hyperlink{class_f_r_h_i_command_list_base}{FRHICommand\+List\+Base}}}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{class_f_r_h_i_command_list_base_a11ce7c99aa7331e71a7f0193c5135292}{ERecording\+Thread}} \{ \mbox{\hyperlink{class_f_r_h_i_command_list_base_a11ce7c99aa7331e71a7f0193c5135292a5e520da5341f2fec6d3bbfe7ef357922}{Render}}
+, \mbox{\hyperlink{class_f_r_h_i_command_list_base_a11ce7c99aa7331e71a7f0193c5135292aed36a1ef76a59ee3f15180e0441188ad}{Any}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Защищенные члены унаследованные от \mbox{\hyperlink{class_f_r_h_i_command_list_base}{FRHICommand\+List\+Base}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_f_r_h_i_command_list_base_a4ea3171cc9487ac22e2a88ec5e58dfad}{FRHICommand\+List\+Base}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Защищенные члены унаследованные от \mbox{\hyperlink{class_f_noncopyble}{FNoncopyble}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_f_noncopyble_addc0b38dc12de8c824553e9a4e068fd4}{FNoncopyble}} ()
+\item 
+\mbox{\hyperlink{class_f_noncopyble_a16ba73caedd4be7fc68f3011f8f1b60a}{\texorpdfstring{$\sim$}{\string~}\+FNoncopyble}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Конструктор(ы)}
+\Hypertarget{class_f_r_h_i_command_list_a1e880b04daedc67b72320ae4fc82033c}\label{class_f_r_h_i_command_list_a1e880b04daedc67b72320ae4fc82033c} 
+\index{FRHICommandList@{FRHICommandList}!FRHICommandList@{FRHICommandList}}
+\index{FRHICommandList@{FRHICommandList}!FRHICommandList@{FRHICommandList}}
+\doxysubsubsection{\texorpdfstring{FRHICommandList()}{FRHICommandList()}}
+{\footnotesize\ttfamily FRHICommand\+List\+::\+FRHICommand\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Методы}
+\Hypertarget{class_f_r_h_i_command_list_aaeed696e1ebbd58d816ed4d1f5d6584f}\label{class_f_r_h_i_command_list_aaeed696e1ebbd58d816ed4d1f5d6584f} 
+\index{FRHICommandList@{FRHICommandList}!DrawIndexedPrimitive@{DrawIndexedPrimitive}}
+\index{DrawIndexedPrimitive@{DrawIndexedPrimitive}!FRHICommandList@{FRHICommandList}}
+\doxysubsubsection{\texorpdfstring{DrawIndexedPrimitive()}{DrawIndexedPrimitive()}}
+{\footnotesize\ttfamily void FRHICommand\+List\+::\+Draw\+Indexed\+Primitive (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_f_r_h_i_buffer}{FRHIBuffer}} \texorpdfstring{$\ast$}{*}}]{Index\+Buffer\+RHI,  }\item[{\mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}}]{Base\+Vertex\+Index,  }\item[{\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}}]{First\+Instance,  }\item[{\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}}]{Num\+Vertices,  }\item[{\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}}]{Start\+Index,  }\item[{\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}}]{Num\+Primitives,  }\item[{\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}}]{Num\+Instances }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_f_r_h_i_command_list_a5caa8253a4db2fba6f42212088216b72}\label{class_f_r_h_i_command_list_a5caa8253a4db2fba6f42212088216b72} 
+\index{FRHICommandList@{FRHICommandList}!RHISetViewport@{RHISetViewport}}
+\index{RHISetViewport@{RHISetViewport}!FRHICommandList@{FRHICommandList}}
+\doxysubsubsection{\texorpdfstring{RHISetViewport()}{RHISetViewport()}}
+{\footnotesize\ttfamily void FRHICommand\+List\+::\+RHISet\+Viewport (\begin{DoxyParamCaption}\item[{float}]{MinX,  }\item[{float}]{MinY,  }\item[{float}]{MinZ,  }\item[{float}]{MaxX,  }\item[{float}]{MaxY,  }\item[{float}]{MaxZ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_f_r_h_i_command_list_abba29d30a36401d05482a57f69b5aeb4}\label{class_f_r_h_i_command_list_abba29d30a36401d05482a57f69b5aeb4} 
+\index{FRHICommandList@{FRHICommandList}!SetGraphicsPipelineState@{SetGraphicsPipelineState}}
+\index{SetGraphicsPipelineState@{SetGraphicsPipelineState}!FRHICommandList@{FRHICommandList}}
+\doxysubsubsection{\texorpdfstring{SetGraphicsPipelineState()}{SetGraphicsPipelineState()}}
+{\footnotesize\ttfamily void FRHICommand\+List\+::\+Set\+Graphics\+Pipeline\+State (\begin{DoxyParamCaption}\item[{class \mbox{\hyperlink{class_f_r_h_i_graphics_pipeline_state}{FRHIGraphics\+Pipeline\+State}} \texorpdfstring{$\ast$}{*}}]{Pipeline\+State,  }\item[{class \mbox{\hyperlink{struct_f_bound_shader_state_input}{FBound\+Shader\+State\+Input}} \&}]{Shader\+Input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_f_r_h_i_command_list_ab4cb1485eec439e0eb703f6f17763aaf}\label{class_f_r_h_i_command_list_ab4cb1485eec439e0eb703f6f17763aaf} 
+\index{FRHICommandList@{FRHICommandList}!SetStreamSource@{SetStreamSource}}
+\index{SetStreamSource@{SetStreamSource}!FRHICommandList@{FRHICommandList}}
+\doxysubsubsection{\texorpdfstring{SetStreamSource()}{SetStreamSource()}}
+{\footnotesize\ttfamily void FRHICommand\+List\+::\+Set\+Stream\+Source (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}}]{Stream\+Index,  }\item[{\mbox{\hyperlink{class_f_r_h_i_buffer}{FRHIBuffer}} \texorpdfstring{$\ast$}{*}}]{Vertex\+Buffer,  }\item[{\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}}]{Offset,  }\item[{\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}}]{Stride }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Объявления и описания членов класса находятся в файле\+:\begin{DoxyCompactItemize}
+\item 
+Dark Engine/\+Source/\+Runtime/\+RHI/public/\mbox{\hyperlink{_r_h_i_command_list_8h}{RHICommand\+List.\+h}}\end{DoxyCompactItemize}

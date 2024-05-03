@@ -1,0 +1,105 @@
+\doxysection{Bit\+Array.\+h}
+\hypertarget{_bit_array_8h_source}{}\label{_bit_array_8h_source}\index{Dark Engine/Source/Runtime/Core/Public/Containers/BitArray.h@{Dark Engine/Source/Runtime/Core/Public/Containers/BitArray.h}}
+\mbox{\hyperlink{_bit_array_8h}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_core_types_8h}{CoreTypes.h}}"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_array_8h}{Containers/Array.h}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_platform_math_8h}{HAL/PlatformMath.h}}"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_t_bit_array}{TBitArray}}}
+\DoxyCodeLine{00009\ \{\ \ \ \ \ \ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_t_bit_array_ad8bea3b9267b4a6935f8d735a89acd5e}{TBitArray}}()\ :}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ NumBits(0)}
+\DoxyCodeLine{00013\ \ \ \ \ \{\}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_t_bit_array_a3fe66a356abe76a159d1ff44a47a85ed}{TBitArray}}(\textcolor{keywordtype}{bool}\ bValue,\ \mbox{\hyperlink{_platform_8h_afddf25cca147311c233b23a9d3329bb4}{uint64}}\ InNumBits)}
+\DoxyCodeLine{00016\ \ \ \ \ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_t_bit_array_af5f3743a50c273e88eeb2c4727e06817}{Init}}(bValue,\ InNumBits);}
+\DoxyCodeLine{00018\ \ \ \ \ \}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ FORCEINLINE\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_t_bit_array_af5f3743a50c273e88eeb2c4727e06817}{Init}}(\textcolor{keywordtype}{bool}\ bValue,\ \mbox{\hyperlink{_platform_8h_afddf25cca147311c233b23a9d3329bb4}{uint64}}\ InNumBits)}
+\DoxyCodeLine{00021\ \ \ \ \ \{}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_t_bit_array_a29952414d8bb720719cf632d07c2754b}{Resize}}(InNumBits,\ \textcolor{keyword}{true},\ bValue);}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ FORCEINLINE\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_t_bit_array_a29952414d8bb720719cf632d07c2754b}{Resize}}(\mbox{\hyperlink{_platform_8h_afddf25cca147311c233b23a9d3329bb4}{uint64}}\ InNumBits,\ \textcolor{keywordtype}{bool}\ bEmpty\ =\ \textcolor{keyword}{false},\ \textcolor{keywordtype}{bool}\ bValue\ =\ \textcolor{keyword}{false})}
+\DoxyCodeLine{00029\ \ \ \ \ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ NumBits\ =\ InNumBits;}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_platform_8h_afddf25cca147311c233b23a9d3329bb4}{uint64}}\ SizeBitsArray\ =\ NumBits\ /\ 8\ +\ (NumBits\ \%\ 8\ ==\ 0\ ?\ 0\ :\ 1);}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ Bits.\mbox{\hyperlink{class_t_array_a1e6aa393e57ba5ba2e349e2cb161da51}{Resize}}(SizeBitsArray);}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (bEmpty)}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{_platform_8h_afddf25cca147311c233b23a9d3329bb4}{uint64}}\ i\ =\ 0;\ i\ <\ Bits.\mbox{\hyperlink{class_t_array_a8d3e11a710d9f6c9222989c2f639be51}{GetSize}}();\ ++i)}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Bits[i]\ =\ bValue\ ?\ 0xff\ :\ 0;}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00042\ \ \ \ \ \}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ FORCEINLINE\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_t_bit_array_a89511a8bd3a693bba62becd8bd19809e}{SetBit}}(\mbox{\hyperlink{_platform_8h_afddf25cca147311c233b23a9d3329bb4}{uint64}}\ Index,\ \textcolor{keywordtype}{bool}\ bValue)}
+\DoxyCodeLine{00046\ \ \ \ \ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_platform_8h_afddf25cca147311c233b23a9d3329bb4}{uint64}}\ IndexBitsArray\ =\ Index\ /\ 8;}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_platform_8h_afddf25cca147311c233b23a9d3329bb4}{uint64}}\ IndexBitInByte\ =\ Index\ \%\ 8;}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_platform_8h_a40bc01dd090acd02a79b5dc13e08abe6}{uint8}}\ Byte\ =\ Bits[IndexBitsArray];}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_platform_8h_a40bc01dd090acd02a79b5dc13e08abe6}{uint8}}\ Mask\ =\ FMath::Pow(2ull,\ IndexBitInByte);}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ Byte\ =\ Byte\ \&\ (\string~Mask);}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (bValue)}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ Byte\ =\ Byte\ |\ Mask;}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ Bits[IndexBitsArray]\ =\ Byte;}
+\DoxyCodeLine{00060\ \ \ \ \ \}}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ FORCEINLINE\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_t_bit_array_a8df990741689277823c8b228f8932164}{GetBit}}(\mbox{\hyperlink{_platform_8h_afddf25cca147311c233b23a9d3329bb4}{uint64}}\ Index)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00063\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (*\textcolor{keyword}{this})[Index];}
+\DoxyCodeLine{00065\ \ \ \ \ \}}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ FORCEINLINE\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_t_bit_array_ac339abbb84708922b2491965eb8c84d7}{operator[]}}(\mbox{\hyperlink{_platform_8h_afddf25cca147311c233b23a9d3329bb4}{uint64}}\ Index)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00068\ \textcolor{keyword}{\ \ \ \ }\{\ \ \ \ \ \ \ }
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_assertion_macros_8h_a586e110623cde145b8a5bdefb429e144}{check}}(Index\ <\ NumBits);}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_platform_8h_afddf25cca147311c233b23a9d3329bb4}{uint64}}\ IndexBitsArray\ =\ Index\ /\ 8;}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_platform_8h_afddf25cca147311c233b23a9d3329bb4}{uint64}}\ IndexBitInByte\ =\ Index\ \%\ 8;}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_platform_8h_a40bc01dd090acd02a79b5dc13e08abe6}{uint8}}\ Byte\ =\ Bits[IndexBitsArray];}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_platform_8h_a40bc01dd090acd02a79b5dc13e08abe6}{uint8}}\ Mask\ =\ FMath::Pow(2ull,\ IndexBitInByte);}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Byte\ \&\ Mask;}
+\DoxyCodeLine{00077\ \ \ \ \ \}}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \ \ FORCEINLINE\ \mbox{\hyperlink{_platform_8h_a89241ea7101f26f05a4f1efd6be26b32}{int64}}\ \mbox{\hyperlink{class_t_bit_array_aa951064b1fcf114298df6e82f895ebd4}{FindAndSetFirstZeroBit}}()}
+\DoxyCodeLine{00081\ \ \ \ \ \{}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{_platform_8h_afddf25cca147311c233b23a9d3329bb4}{uint64}}\ i\ =\ 0;\ i\ <\ NumBits;\ ++i)}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{class_t_bit_array_a8df990741689277823c8b228f8932164}{GetBit}}(i))}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_t_bit_array_a89511a8bd3a693bba62becd8bd19809e}{SetBit}}(i,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ i;}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{00091\ \ \ \ \ \}}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00095\ \ \ \ \ \mbox{\hyperlink{_platform_8h_afddf25cca147311c233b23a9d3329bb4}{uint64}}\ NumBits;}
+\DoxyCodeLine{00096\ \ \ \ \ TArray<uint8>\ Bits;}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \};}
+
+\end{DoxyCode}

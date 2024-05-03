@@ -1,0 +1,203 @@
+\doxysection{Файл Dark Engine/\+Source/\+Runtime/\+Core/\+Delegate/\+Delegate.h}
+\hypertarget{_delegate_8h}{}\label{_delegate_8h}\index{Dark Engine/Source/Runtime/Core/Delegate/Delegate.h@{Dark Engine/Source/Runtime/Core/Delegate/Delegate.h}}
+{\ttfamily \#include $<$Containers/\+Array.\+h$>$}\newline
+{\ttfamily \#include "{}Core.\+h"{}}\newline
+{\ttfamily \#include "{}type\+\_\+traits"{}}\newline
+{\ttfamily \#include $<$functional$>$}\newline
+\doxysubsubsection*{Классы}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_i_container}{IContainer}}
+\item 
+class \mbox{\hyperlink{class_i_i_container}{IIContainer$<$ In\+Ret\+Val\+Type, Param\+Types $>$}}
+\item 
+class \mbox{\hyperlink{class_t_method_containter}{TMethod\+Containter$<$ User\+Class, In\+Ret\+Val\+Type, Param\+Types $>$}}
+\item 
+class \mbox{\hyperlink{class_t_func_container}{TFunc\+Container$<$ In\+Ret\+Val\+Type, Param\+Types $>$}}
+\item 
+class \mbox{\hyperlink{class_t_delegate}{TDelegate$<$ In\+Ret\+Val\+Type, Param\+Types $>$}}
+\item 
+class \mbox{\hyperlink{class_t_multi_cast_delegate}{TMulti\+Cast\+Delegate$<$ In\+Ret\+Val\+Type, Param\+Types $>$}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Макросы}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_delegate_8h_a2cd99268972217c3ae1c31a42828567a}{FUNC\+\_\+\+DECLARE\+\_\+\+MULTICAST\+\_\+\+DELEGATE}}(Delegate\+Name,  Return\+Type, ...)~\mbox{\hyperlink{_logger_8h_a182e58c72146010abacd09e1d1f7ed0e}{typedef}} \mbox{\hyperlink{class_t_multi_cast_delegate}{TMulti\+Cast\+Delegate}}$<$Return\+Type, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+$>$ Delegate\+Name
+\item 
+\#define \mbox{\hyperlink{_delegate_8h_ae787feeb36949e63482401f9857ba520}{FUNC\+\_\+\+DECLARE\+\_\+\+DELEGATE}}(Delegate\+Name,  Return\+Type, ...)~\mbox{\hyperlink{_logger_8h_a182e58c72146010abacd09e1d1f7ed0e}{typedef}} \mbox{\hyperlink{class_t_delegate}{TDelegate}}$<$Return\+Type, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+$>$ Delegate\+Name
+\item 
+\#define \mbox{\hyperlink{_delegate_8h_a3e9cc98b0592771493ac53b3f1c894c1}{DECLARE\+\_\+\+DELEGATE}}(Delegate\+Name)~\mbox{\hyperlink{_delegate_8h_ae787feeb36949e63482401f9857ba520}{FUNC\+\_\+\+DECLARE\+\_\+\+DELEGATE}}( Delegate\+Name, void )
+\item 
+\#define \mbox{\hyperlink{_delegate_8h_ac9633c7824fa5dcbd6d16c2adeddeb02}{DECLARE\+\_\+\+MULTICAST\+\_\+\+DELEGATE}}(Delegate\+Name)~\mbox{\hyperlink{_delegate_8h_a2cd99268972217c3ae1c31a42828567a}{FUNC\+\_\+\+DECLARE\+\_\+\+MULTICAST\+\_\+\+DELEGATE}}( Delegate\+Name, void )
+\item 
+\#define \mbox{\hyperlink{_delegate_8h_a74b6271cb85a7fa325e5fa753fcf79c5}{DECLARE\+\_\+\+DELEGATE\+\_\+\+One\+Param}}(Delegate\+Name,  Param1\+Type)~\mbox{\hyperlink{_delegate_8h_ae787feeb36949e63482401f9857ba520}{FUNC\+\_\+\+DECLARE\+\_\+\+DELEGATE}}( Delegate\+Name, void, Param1\+Type )
+\item 
+\#define \mbox{\hyperlink{_delegate_8h_ad677cf1f8225ce2d1bca408d3e87fcbe}{DECLARE\+\_\+\+MULTICAST\+\_\+\+DELEGATE\+\_\+\+One\+Param}}(Delegate\+Name,  Param1\+Type)~\mbox{\hyperlink{_delegate_8h_a2cd99268972217c3ae1c31a42828567a}{FUNC\+\_\+\+DECLARE\+\_\+\+MULTICAST\+\_\+\+DELEGATE}}( Delegate\+Name, void, Param1\+Type )
+\item 
+\#define \mbox{\hyperlink{_delegate_8h_a4eae0977f942381940609c468e4435cd}{DECLARE\+\_\+\+DELEGATE\+\_\+\+Two\+Params}}(Delegate\+Name,  Param1\+Type,  Param2\+Type)~\mbox{\hyperlink{_delegate_8h_ae787feeb36949e63482401f9857ba520}{FUNC\+\_\+\+DECLARE\+\_\+\+DELEGATE}}( Delegate\+Name, void, Param1\+Type, Param2\+Type )
+\item 
+\#define \mbox{\hyperlink{_delegate_8h_a0306554b8c19e8b7f4d16b9998b8d372}{DECLARE\+\_\+\+MULTICAST\+\_\+\+DELEGATE\+\_\+\+Two\+Params}}(Delegate\+Name,  Param1\+Type,  Param2\+Type)~\mbox{\hyperlink{_delegate_8h_a2cd99268972217c3ae1c31a42828567a}{FUNC\+\_\+\+DECLARE\+\_\+\+MULTICAST\+\_\+\+DELEGATE}}( Delegate\+Name, void, Param1\+Type, Param2\+Type )
+\item 
+\#define \mbox{\hyperlink{_delegate_8h_acd57d3d75b21a94468dec87798574f2d}{DECLARE\+\_\+\+DELEGATE\+\_\+\+Three\+Params}}(Delegate\+Name,  Param1\+Type,  Param2\+Type,  Param3\+Type)~\mbox{\hyperlink{_delegate_8h_ae787feeb36949e63482401f9857ba520}{FUNC\+\_\+\+DECLARE\+\_\+\+DELEGATE}}( Delegate\+Name, void, Param1\+Type, Param2\+Type, Param3\+Type )
+\item 
+\#define \mbox{\hyperlink{_delegate_8h_ad627922db565f68dec22b3d95018186d}{DECLARE\+\_\+\+MULTICAST\+\_\+\+DELEGATE\+\_\+\+Three\+Params}}(Delegate\+Name,  Param1\+Type,  Param2\+Type,  Param3\+Type)~\mbox{\hyperlink{_delegate_8h_a2cd99268972217c3ae1c31a42828567a}{FUNC\+\_\+\+DECLARE\+\_\+\+MULTICAST\+\_\+\+DELEGATE}}( Delegate\+Name, void, Param1\+Type, Param2\+Type, Param3\+Type )
+\item 
+\#define \mbox{\hyperlink{_delegate_8h_adc79c036ee6a411662f61fa37a9b9e7c}{DECLARE\+\_\+\+DELEGATE\+\_\+\+Four\+Params}}(Delegate\+Name,  Param1\+Type,  Param2\+Type,  Param3\+Type,  Param4\+Type)~\mbox{\hyperlink{_delegate_8h_ae787feeb36949e63482401f9857ba520}{FUNC\+\_\+\+DECLARE\+\_\+\+DELEGATE}}( Delegate\+Name, void, Param1\+Type, Param2\+Type, Param3\+Type, Param4\+Type )
+\item 
+\#define \mbox{\hyperlink{_delegate_8h_a2299a7ea8340d0c5bb43c1b2bf2ee940}{DECLARE\+\_\+\+MULTICAST\+\_\+\+DELEGATE\+\_\+\+Four\+Params}}(Delegate\+Name,  Param1\+Type,  Param2\+Type,  Param3\+Type,  Param4\+Type)~\mbox{\hyperlink{_delegate_8h_a2cd99268972217c3ae1c31a42828567a}{FUNC\+\_\+\+DECLARE\+\_\+\+MULTICAST\+\_\+\+DELEGATE}}( Delegate\+Name, void, Param1\+Type, Param2\+Type, Param3\+Type, Param4\+Type )
+\item 
+\#define \mbox{\hyperlink{_delegate_8h_a2137e43ca1f190ad55a5a0bdbeed13b9}{DECLARE\+\_\+\+DELEGATE\+\_\+\+Five\+Params}}(Delegate\+Name,  Param1\+Type,  Param2\+Type,  Param3\+Type,  Param4\+Type,  Param5\+Type)~\mbox{\hyperlink{_delegate_8h_ae787feeb36949e63482401f9857ba520}{FUNC\+\_\+\+DECLARE\+\_\+\+DELEGATE}}( Delegate\+Name, void, Param1\+Type, Param2\+Type, Param3\+Type, Param4\+Type, Param5\+Type )
+\item 
+\#define \mbox{\hyperlink{_delegate_8h_a48c41e6db87583ec93b91b1cda2f9530}{DECLARE\+\_\+\+MULTICAST\+\_\+\+DELEGATE\+\_\+\+Five\+Params}}(Delegate\+Name,  Param1\+Type,  Param2\+Type,  Param3\+Type,  Param4\+Type,  Param5\+Type)~\mbox{\hyperlink{_delegate_8h_a2cd99268972217c3ae1c31a42828567a}{FUNC\+\_\+\+DECLARE\+\_\+\+MULTICAST\+\_\+\+DELEGATE}}( Delegate\+Name, void, Param1\+Type, Param2\+Type, Param3\+Type, Param4\+Type, Param5\+Type )
+\item 
+\#define \mbox{\hyperlink{_delegate_8h_abb99a9c6443c4c1d3c3329fa9a147804}{DECLARE\+\_\+\+DELEGATE\+\_\+\+Six\+Params}}(Delegate\+Name,  Param1\+Type,  Param2\+Type,  Param3\+Type,  Param4\+Type,  Param5\+Type,  Param6\+Type)~\mbox{\hyperlink{_delegate_8h_ae787feeb36949e63482401f9857ba520}{FUNC\+\_\+\+DECLARE\+\_\+\+DELEGATE}}( Delegate\+Name, void, Param1\+Type, Param2\+Type, Param3\+Type, Param4\+Type, Param5\+Type, Param6\+Type )
+\item 
+\#define \mbox{\hyperlink{_delegate_8h_a3b538854e87655152653a7d9904884be}{DECLARE\+\_\+\+MULTICAST\+\_\+\+DELEGATE\+\_\+\+Six\+Params}}(Delegate\+Name,  Param1\+Type,  Param2\+Type,  Param3\+Type,  Param4\+Type,  Param5\+Type,  Param6\+Type)~\mbox{\hyperlink{_delegate_8h_a2cd99268972217c3ae1c31a42828567a}{FUNC\+\_\+\+DECLARE\+\_\+\+MULTICAST\+\_\+\+DELEGATE}}( Delegate\+Name, void, Param1\+Type, Param2\+Type, Param3\+Type, Param4\+Type, Param5\+Type, Param6\+Type )
+\item 
+\#define \mbox{\hyperlink{_delegate_8h_ac9088ea06bd42333da14b2088f7c3095}{DECLARE\+\_\+\+DELEGATE\+\_\+\+Seven\+Params}}(Delegate\+Name,  Param1\+Type,  Param2\+Type,  Param3\+Type,  Param4\+Type,  Param5\+Type,  Param6\+Type,  Param7\+Type)~\mbox{\hyperlink{_delegate_8h_ae787feeb36949e63482401f9857ba520}{FUNC\+\_\+\+DECLARE\+\_\+\+DELEGATE}}( Delegate\+Name, void, Param1\+Type, Param2\+Type, Param3\+Type, Param4\+Type, Param5\+Type, Param6\+Type, Param7\+Type )
+\item 
+\#define \mbox{\hyperlink{_delegate_8h_afdcb4f61d565c4e92946447f18ee8259}{DECLARE\+\_\+\+MULTICAST\+\_\+\+DELEGATE\+\_\+\+Seven\+Params}}(Delegate\+Name,  Param1\+Type,  Param2\+Type,  Param3\+Type,  Param4\+Type,  Param5\+Type,  Param6\+Type,  Param7\+Type)~\mbox{\hyperlink{_delegate_8h_a2cd99268972217c3ae1c31a42828567a}{FUNC\+\_\+\+DECLARE\+\_\+\+MULTICAST\+\_\+\+DELEGATE}}( Delegate\+Name, void, Param1\+Type, Param2\+Type, Param3\+Type, Param4\+Type, Param5\+Type, Param6\+Type, Param7\+Type )
+\item 
+\#define \mbox{\hyperlink{_delegate_8h_a18fc1e8cddf48cd62392a51202965fdf}{DECLARE\+\_\+\+DELEGATE\+\_\+\+Eight\+Params}}(Delegate\+Name,  Param1\+Type,  Param2\+Type,  Param3\+Type,  Param4\+Type,  Param5\+Type,  Param6\+Type,  Param7\+Type,  Param8\+Type)~\mbox{\hyperlink{_delegate_8h_ae787feeb36949e63482401f9857ba520}{FUNC\+\_\+\+DECLARE\+\_\+\+DELEGATE}}( Delegate\+Name, void, Param1\+Type, Param2\+Type, Param3\+Type, Param4\+Type, Param5\+Type, Param6\+Type, Param7\+Type, Param8\+Type )
+\item 
+\#define \mbox{\hyperlink{_delegate_8h_ae403bff7d853c619e0862029e8e2b8ec}{DECLARE\+\_\+\+MULTICAST\+\_\+\+DELEGATE\+\_\+\+Eight\+Params}}(Delegate\+Name,  Param1\+Type,  Param2\+Type,  Param3\+Type,  Param4\+Type,  Param5\+Type,  Param6\+Type,  Param7\+Type,  Param8\+Type)~\mbox{\hyperlink{_delegate_8h_a2cd99268972217c3ae1c31a42828567a}{FUNC\+\_\+\+DECLARE\+\_\+\+MULTICAST\+\_\+\+DELEGATE}}( Delegate\+Name, void, Param1\+Type, Param2\+Type, Param3\+Type, Param4\+Type, Param5\+Type, Param6\+Type, Param7\+Type, Param8\+Type )
+\item 
+\#define \mbox{\hyperlink{_delegate_8h_a657b45a168efcff482e4b766e32a0d89}{DECLARE\+\_\+\+DELEGATE\+\_\+\+Nine\+Params}}(Delegate\+Name,  Param1\+Type,  Param2\+Type,  Param3\+Type,  Param4\+Type,  Param5\+Type,  Param6\+Type,  Param7\+Type,  Param8\+Type,  Param9\+Type)~\mbox{\hyperlink{_delegate_8h_ae787feeb36949e63482401f9857ba520}{FUNC\+\_\+\+DECLARE\+\_\+\+DELEGATE}}( Delegate\+Name, void, Param1\+Type, Param2\+Type, Param3\+Type, Param4\+Type, Param5\+Type, Param6\+Type, Param7\+Type, Param8\+Type, Param9\+Type )
+\item 
+\#define \mbox{\hyperlink{_delegate_8h_a582cb19db32ba0bb96c60fb22f0e2ddc}{DECLARE\+\_\+\+MULTICAST\+\_\+\+DELEGATE\+\_\+\+Nine\+Params}}(Delegate\+Name,  Param1\+Type,  Param2\+Type,  Param3\+Type,  Param4\+Type,  Param5\+Type,  Param6\+Type,  Param7\+Type,  Param8\+Type,  Param9\+Type)~\mbox{\hyperlink{_delegate_8h_a2cd99268972217c3ae1c31a42828567a}{FUNC\+\_\+\+DECLARE\+\_\+\+MULTICAST\+\_\+\+DELEGATE}}( Delegate\+Name, void, Param1\+Type, Param2\+Type, Param3\+Type, Param4\+Type, Param5\+Type, Param6\+Type, Param7\+Type, Param8\+Type, Param9\+Type )
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Макросы}
+\Hypertarget{_delegate_8h_a3e9cc98b0592771493ac53b3f1c894c1}\label{_delegate_8h_a3e9cc98b0592771493ac53b3f1c894c1} 
+\index{Delegate.h@{Delegate.h}!DECLARE\_DELEGATE@{DECLARE\_DELEGATE}}
+\index{DECLARE\_DELEGATE@{DECLARE\_DELEGATE}!Delegate.h@{Delegate.h}}
+\doxysubsubsection{\texorpdfstring{DECLARE\_DELEGATE}{DECLARE\_DELEGATE}}
+{\footnotesize\ttfamily \#define DECLARE\+\_\+\+DELEGATE(\begin{DoxyParamCaption}\item[{}]{Delegate\+Name }\end{DoxyParamCaption})~\mbox{\hyperlink{_delegate_8h_ae787feeb36949e63482401f9857ba520}{FUNC\+\_\+\+DECLARE\+\_\+\+DELEGATE}}( Delegate\+Name, void )}
+
+\Hypertarget{_delegate_8h_a18fc1e8cddf48cd62392a51202965fdf}\label{_delegate_8h_a18fc1e8cddf48cd62392a51202965fdf} 
+\index{Delegate.h@{Delegate.h}!DECLARE\_DELEGATE\_EightParams@{DECLARE\_DELEGATE\_EightParams}}
+\index{DECLARE\_DELEGATE\_EightParams@{DECLARE\_DELEGATE\_EightParams}!Delegate.h@{Delegate.h}}
+\doxysubsubsection{\texorpdfstring{DECLARE\_DELEGATE\_EightParams}{DECLARE\_DELEGATE\_EightParams}}
+{\footnotesize\ttfamily \#define DECLARE\+\_\+\+DELEGATE\+\_\+\+Eight\+Params(\begin{DoxyParamCaption}\item[{}]{Delegate\+Name,  }\item[{}]{Param1\+Type,  }\item[{}]{Param2\+Type,  }\item[{}]{Param3\+Type,  }\item[{}]{Param4\+Type,  }\item[{}]{Param5\+Type,  }\item[{}]{Param6\+Type,  }\item[{}]{Param7\+Type,  }\item[{}]{Param8\+Type }\end{DoxyParamCaption})~\mbox{\hyperlink{_delegate_8h_ae787feeb36949e63482401f9857ba520}{FUNC\+\_\+\+DECLARE\+\_\+\+DELEGATE}}( Delegate\+Name, void, Param1\+Type, Param2\+Type, Param3\+Type, Param4\+Type, Param5\+Type, Param6\+Type, Param7\+Type, Param8\+Type )}
+
+\Hypertarget{_delegate_8h_a2137e43ca1f190ad55a5a0bdbeed13b9}\label{_delegate_8h_a2137e43ca1f190ad55a5a0bdbeed13b9} 
+\index{Delegate.h@{Delegate.h}!DECLARE\_DELEGATE\_FiveParams@{DECLARE\_DELEGATE\_FiveParams}}
+\index{DECLARE\_DELEGATE\_FiveParams@{DECLARE\_DELEGATE\_FiveParams}!Delegate.h@{Delegate.h}}
+\doxysubsubsection{\texorpdfstring{DECLARE\_DELEGATE\_FiveParams}{DECLARE\_DELEGATE\_FiveParams}}
+{\footnotesize\ttfamily \#define DECLARE\+\_\+\+DELEGATE\+\_\+\+Five\+Params(\begin{DoxyParamCaption}\item[{}]{Delegate\+Name,  }\item[{}]{Param1\+Type,  }\item[{}]{Param2\+Type,  }\item[{}]{Param3\+Type,  }\item[{}]{Param4\+Type,  }\item[{}]{Param5\+Type }\end{DoxyParamCaption})~\mbox{\hyperlink{_delegate_8h_ae787feeb36949e63482401f9857ba520}{FUNC\+\_\+\+DECLARE\+\_\+\+DELEGATE}}( Delegate\+Name, void, Param1\+Type, Param2\+Type, Param3\+Type, Param4\+Type, Param5\+Type )}
+
+\Hypertarget{_delegate_8h_adc79c036ee6a411662f61fa37a9b9e7c}\label{_delegate_8h_adc79c036ee6a411662f61fa37a9b9e7c} 
+\index{Delegate.h@{Delegate.h}!DECLARE\_DELEGATE\_FourParams@{DECLARE\_DELEGATE\_FourParams}}
+\index{DECLARE\_DELEGATE\_FourParams@{DECLARE\_DELEGATE\_FourParams}!Delegate.h@{Delegate.h}}
+\doxysubsubsection{\texorpdfstring{DECLARE\_DELEGATE\_FourParams}{DECLARE\_DELEGATE\_FourParams}}
+{\footnotesize\ttfamily \#define DECLARE\+\_\+\+DELEGATE\+\_\+\+Four\+Params(\begin{DoxyParamCaption}\item[{}]{Delegate\+Name,  }\item[{}]{Param1\+Type,  }\item[{}]{Param2\+Type,  }\item[{}]{Param3\+Type,  }\item[{}]{Param4\+Type }\end{DoxyParamCaption})~\mbox{\hyperlink{_delegate_8h_ae787feeb36949e63482401f9857ba520}{FUNC\+\_\+\+DECLARE\+\_\+\+DELEGATE}}( Delegate\+Name, void, Param1\+Type, Param2\+Type, Param3\+Type, Param4\+Type )}
+
+\Hypertarget{_delegate_8h_a657b45a168efcff482e4b766e32a0d89}\label{_delegate_8h_a657b45a168efcff482e4b766e32a0d89} 
+\index{Delegate.h@{Delegate.h}!DECLARE\_DELEGATE\_NineParams@{DECLARE\_DELEGATE\_NineParams}}
+\index{DECLARE\_DELEGATE\_NineParams@{DECLARE\_DELEGATE\_NineParams}!Delegate.h@{Delegate.h}}
+\doxysubsubsection{\texorpdfstring{DECLARE\_DELEGATE\_NineParams}{DECLARE\_DELEGATE\_NineParams}}
+{\footnotesize\ttfamily \#define DECLARE\+\_\+\+DELEGATE\+\_\+\+Nine\+Params(\begin{DoxyParamCaption}\item[{}]{Delegate\+Name,  }\item[{}]{Param1\+Type,  }\item[{}]{Param2\+Type,  }\item[{}]{Param3\+Type,  }\item[{}]{Param4\+Type,  }\item[{}]{Param5\+Type,  }\item[{}]{Param6\+Type,  }\item[{}]{Param7\+Type,  }\item[{}]{Param8\+Type,  }\item[{}]{Param9\+Type }\end{DoxyParamCaption})~\mbox{\hyperlink{_delegate_8h_ae787feeb36949e63482401f9857ba520}{FUNC\+\_\+\+DECLARE\+\_\+\+DELEGATE}}( Delegate\+Name, void, Param1\+Type, Param2\+Type, Param3\+Type, Param4\+Type, Param5\+Type, Param6\+Type, Param7\+Type, Param8\+Type, Param9\+Type )}
+
+\Hypertarget{_delegate_8h_a74b6271cb85a7fa325e5fa753fcf79c5}\label{_delegate_8h_a74b6271cb85a7fa325e5fa753fcf79c5} 
+\index{Delegate.h@{Delegate.h}!DECLARE\_DELEGATE\_OneParam@{DECLARE\_DELEGATE\_OneParam}}
+\index{DECLARE\_DELEGATE\_OneParam@{DECLARE\_DELEGATE\_OneParam}!Delegate.h@{Delegate.h}}
+\doxysubsubsection{\texorpdfstring{DECLARE\_DELEGATE\_OneParam}{DECLARE\_DELEGATE\_OneParam}}
+{\footnotesize\ttfamily \#define DECLARE\+\_\+\+DELEGATE\+\_\+\+One\+Param(\begin{DoxyParamCaption}\item[{}]{Delegate\+Name,  }\item[{}]{Param1\+Type }\end{DoxyParamCaption})~\mbox{\hyperlink{_delegate_8h_ae787feeb36949e63482401f9857ba520}{FUNC\+\_\+\+DECLARE\+\_\+\+DELEGATE}}( Delegate\+Name, void, Param1\+Type )}
+
+\Hypertarget{_delegate_8h_ac9088ea06bd42333da14b2088f7c3095}\label{_delegate_8h_ac9088ea06bd42333da14b2088f7c3095} 
+\index{Delegate.h@{Delegate.h}!DECLARE\_DELEGATE\_SevenParams@{DECLARE\_DELEGATE\_SevenParams}}
+\index{DECLARE\_DELEGATE\_SevenParams@{DECLARE\_DELEGATE\_SevenParams}!Delegate.h@{Delegate.h}}
+\doxysubsubsection{\texorpdfstring{DECLARE\_DELEGATE\_SevenParams}{DECLARE\_DELEGATE\_SevenParams}}
+{\footnotesize\ttfamily \#define DECLARE\+\_\+\+DELEGATE\+\_\+\+Seven\+Params(\begin{DoxyParamCaption}\item[{}]{Delegate\+Name,  }\item[{}]{Param1\+Type,  }\item[{}]{Param2\+Type,  }\item[{}]{Param3\+Type,  }\item[{}]{Param4\+Type,  }\item[{}]{Param5\+Type,  }\item[{}]{Param6\+Type,  }\item[{}]{Param7\+Type }\end{DoxyParamCaption})~\mbox{\hyperlink{_delegate_8h_ae787feeb36949e63482401f9857ba520}{FUNC\+\_\+\+DECLARE\+\_\+\+DELEGATE}}( Delegate\+Name, void, Param1\+Type, Param2\+Type, Param3\+Type, Param4\+Type, Param5\+Type, Param6\+Type, Param7\+Type )}
+
+\Hypertarget{_delegate_8h_abb99a9c6443c4c1d3c3329fa9a147804}\label{_delegate_8h_abb99a9c6443c4c1d3c3329fa9a147804} 
+\index{Delegate.h@{Delegate.h}!DECLARE\_DELEGATE\_SixParams@{DECLARE\_DELEGATE\_SixParams}}
+\index{DECLARE\_DELEGATE\_SixParams@{DECLARE\_DELEGATE\_SixParams}!Delegate.h@{Delegate.h}}
+\doxysubsubsection{\texorpdfstring{DECLARE\_DELEGATE\_SixParams}{DECLARE\_DELEGATE\_SixParams}}
+{\footnotesize\ttfamily \#define DECLARE\+\_\+\+DELEGATE\+\_\+\+Six\+Params(\begin{DoxyParamCaption}\item[{}]{Delegate\+Name,  }\item[{}]{Param1\+Type,  }\item[{}]{Param2\+Type,  }\item[{}]{Param3\+Type,  }\item[{}]{Param4\+Type,  }\item[{}]{Param5\+Type,  }\item[{}]{Param6\+Type }\end{DoxyParamCaption})~\mbox{\hyperlink{_delegate_8h_ae787feeb36949e63482401f9857ba520}{FUNC\+\_\+\+DECLARE\+\_\+\+DELEGATE}}( Delegate\+Name, void, Param1\+Type, Param2\+Type, Param3\+Type, Param4\+Type, Param5\+Type, Param6\+Type )}
+
+\Hypertarget{_delegate_8h_acd57d3d75b21a94468dec87798574f2d}\label{_delegate_8h_acd57d3d75b21a94468dec87798574f2d} 
+\index{Delegate.h@{Delegate.h}!DECLARE\_DELEGATE\_ThreeParams@{DECLARE\_DELEGATE\_ThreeParams}}
+\index{DECLARE\_DELEGATE\_ThreeParams@{DECLARE\_DELEGATE\_ThreeParams}!Delegate.h@{Delegate.h}}
+\doxysubsubsection{\texorpdfstring{DECLARE\_DELEGATE\_ThreeParams}{DECLARE\_DELEGATE\_ThreeParams}}
+{\footnotesize\ttfamily \#define DECLARE\+\_\+\+DELEGATE\+\_\+\+Three\+Params(\begin{DoxyParamCaption}\item[{}]{Delegate\+Name,  }\item[{}]{Param1\+Type,  }\item[{}]{Param2\+Type,  }\item[{}]{Param3\+Type }\end{DoxyParamCaption})~\mbox{\hyperlink{_delegate_8h_ae787feeb36949e63482401f9857ba520}{FUNC\+\_\+\+DECLARE\+\_\+\+DELEGATE}}( Delegate\+Name, void, Param1\+Type, Param2\+Type, Param3\+Type )}
+
+\Hypertarget{_delegate_8h_a4eae0977f942381940609c468e4435cd}\label{_delegate_8h_a4eae0977f942381940609c468e4435cd} 
+\index{Delegate.h@{Delegate.h}!DECLARE\_DELEGATE\_TwoParams@{DECLARE\_DELEGATE\_TwoParams}}
+\index{DECLARE\_DELEGATE\_TwoParams@{DECLARE\_DELEGATE\_TwoParams}!Delegate.h@{Delegate.h}}
+\doxysubsubsection{\texorpdfstring{DECLARE\_DELEGATE\_TwoParams}{DECLARE\_DELEGATE\_TwoParams}}
+{\footnotesize\ttfamily \#define DECLARE\+\_\+\+DELEGATE\+\_\+\+Two\+Params(\begin{DoxyParamCaption}\item[{}]{Delegate\+Name,  }\item[{}]{Param1\+Type,  }\item[{}]{Param2\+Type }\end{DoxyParamCaption})~\mbox{\hyperlink{_delegate_8h_ae787feeb36949e63482401f9857ba520}{FUNC\+\_\+\+DECLARE\+\_\+\+DELEGATE}}( Delegate\+Name, void, Param1\+Type, Param2\+Type )}
+
+\Hypertarget{_delegate_8h_ac9633c7824fa5dcbd6d16c2adeddeb02}\label{_delegate_8h_ac9633c7824fa5dcbd6d16c2adeddeb02} 
+\index{Delegate.h@{Delegate.h}!DECLARE\_MULTICAST\_DELEGATE@{DECLARE\_MULTICAST\_DELEGATE}}
+\index{DECLARE\_MULTICAST\_DELEGATE@{DECLARE\_MULTICAST\_DELEGATE}!Delegate.h@{Delegate.h}}
+\doxysubsubsection{\texorpdfstring{DECLARE\_MULTICAST\_DELEGATE}{DECLARE\_MULTICAST\_DELEGATE}}
+{\footnotesize\ttfamily \#define DECLARE\+\_\+\+MULTICAST\+\_\+\+DELEGATE(\begin{DoxyParamCaption}\item[{}]{Delegate\+Name }\end{DoxyParamCaption})~\mbox{\hyperlink{_delegate_8h_a2cd99268972217c3ae1c31a42828567a}{FUNC\+\_\+\+DECLARE\+\_\+\+MULTICAST\+\_\+\+DELEGATE}}( Delegate\+Name, void )}
+
+\Hypertarget{_delegate_8h_ae403bff7d853c619e0862029e8e2b8ec}\label{_delegate_8h_ae403bff7d853c619e0862029e8e2b8ec} 
+\index{Delegate.h@{Delegate.h}!DECLARE\_MULTICAST\_DELEGATE\_EightParams@{DECLARE\_MULTICAST\_DELEGATE\_EightParams}}
+\index{DECLARE\_MULTICAST\_DELEGATE\_EightParams@{DECLARE\_MULTICAST\_DELEGATE\_EightParams}!Delegate.h@{Delegate.h}}
+\doxysubsubsection{\texorpdfstring{DECLARE\_MULTICAST\_DELEGATE\_EightParams}{DECLARE\_MULTICAST\_DELEGATE\_EightParams}}
+{\footnotesize\ttfamily \#define DECLARE\+\_\+\+MULTICAST\+\_\+\+DELEGATE\+\_\+\+Eight\+Params(\begin{DoxyParamCaption}\item[{}]{Delegate\+Name,  }\item[{}]{Param1\+Type,  }\item[{}]{Param2\+Type,  }\item[{}]{Param3\+Type,  }\item[{}]{Param4\+Type,  }\item[{}]{Param5\+Type,  }\item[{}]{Param6\+Type,  }\item[{}]{Param7\+Type,  }\item[{}]{Param8\+Type }\end{DoxyParamCaption})~\mbox{\hyperlink{_delegate_8h_a2cd99268972217c3ae1c31a42828567a}{FUNC\+\_\+\+DECLARE\+\_\+\+MULTICAST\+\_\+\+DELEGATE}}( Delegate\+Name, void, Param1\+Type, Param2\+Type, Param3\+Type, Param4\+Type, Param5\+Type, Param6\+Type, Param7\+Type, Param8\+Type )}
+
+\Hypertarget{_delegate_8h_a48c41e6db87583ec93b91b1cda2f9530}\label{_delegate_8h_a48c41e6db87583ec93b91b1cda2f9530} 
+\index{Delegate.h@{Delegate.h}!DECLARE\_MULTICAST\_DELEGATE\_FiveParams@{DECLARE\_MULTICAST\_DELEGATE\_FiveParams}}
+\index{DECLARE\_MULTICAST\_DELEGATE\_FiveParams@{DECLARE\_MULTICAST\_DELEGATE\_FiveParams}!Delegate.h@{Delegate.h}}
+\doxysubsubsection{\texorpdfstring{DECLARE\_MULTICAST\_DELEGATE\_FiveParams}{DECLARE\_MULTICAST\_DELEGATE\_FiveParams}}
+{\footnotesize\ttfamily \#define DECLARE\+\_\+\+MULTICAST\+\_\+\+DELEGATE\+\_\+\+Five\+Params(\begin{DoxyParamCaption}\item[{}]{Delegate\+Name,  }\item[{}]{Param1\+Type,  }\item[{}]{Param2\+Type,  }\item[{}]{Param3\+Type,  }\item[{}]{Param4\+Type,  }\item[{}]{Param5\+Type }\end{DoxyParamCaption})~\mbox{\hyperlink{_delegate_8h_a2cd99268972217c3ae1c31a42828567a}{FUNC\+\_\+\+DECLARE\+\_\+\+MULTICAST\+\_\+\+DELEGATE}}( Delegate\+Name, void, Param1\+Type, Param2\+Type, Param3\+Type, Param4\+Type, Param5\+Type )}
+
+\Hypertarget{_delegate_8h_a2299a7ea8340d0c5bb43c1b2bf2ee940}\label{_delegate_8h_a2299a7ea8340d0c5bb43c1b2bf2ee940} 
+\index{Delegate.h@{Delegate.h}!DECLARE\_MULTICAST\_DELEGATE\_FourParams@{DECLARE\_MULTICAST\_DELEGATE\_FourParams}}
+\index{DECLARE\_MULTICAST\_DELEGATE\_FourParams@{DECLARE\_MULTICAST\_DELEGATE\_FourParams}!Delegate.h@{Delegate.h}}
+\doxysubsubsection{\texorpdfstring{DECLARE\_MULTICAST\_DELEGATE\_FourParams}{DECLARE\_MULTICAST\_DELEGATE\_FourParams}}
+{\footnotesize\ttfamily \#define DECLARE\+\_\+\+MULTICAST\+\_\+\+DELEGATE\+\_\+\+Four\+Params(\begin{DoxyParamCaption}\item[{}]{Delegate\+Name,  }\item[{}]{Param1\+Type,  }\item[{}]{Param2\+Type,  }\item[{}]{Param3\+Type,  }\item[{}]{Param4\+Type }\end{DoxyParamCaption})~\mbox{\hyperlink{_delegate_8h_a2cd99268972217c3ae1c31a42828567a}{FUNC\+\_\+\+DECLARE\+\_\+\+MULTICAST\+\_\+\+DELEGATE}}( Delegate\+Name, void, Param1\+Type, Param2\+Type, Param3\+Type, Param4\+Type )}
+
+\Hypertarget{_delegate_8h_a582cb19db32ba0bb96c60fb22f0e2ddc}\label{_delegate_8h_a582cb19db32ba0bb96c60fb22f0e2ddc} 
+\index{Delegate.h@{Delegate.h}!DECLARE\_MULTICAST\_DELEGATE\_NineParams@{DECLARE\_MULTICAST\_DELEGATE\_NineParams}}
+\index{DECLARE\_MULTICAST\_DELEGATE\_NineParams@{DECLARE\_MULTICAST\_DELEGATE\_NineParams}!Delegate.h@{Delegate.h}}
+\doxysubsubsection{\texorpdfstring{DECLARE\_MULTICAST\_DELEGATE\_NineParams}{DECLARE\_MULTICAST\_DELEGATE\_NineParams}}
+{\footnotesize\ttfamily \#define DECLARE\+\_\+\+MULTICAST\+\_\+\+DELEGATE\+\_\+\+Nine\+Params(\begin{DoxyParamCaption}\item[{}]{Delegate\+Name,  }\item[{}]{Param1\+Type,  }\item[{}]{Param2\+Type,  }\item[{}]{Param3\+Type,  }\item[{}]{Param4\+Type,  }\item[{}]{Param5\+Type,  }\item[{}]{Param6\+Type,  }\item[{}]{Param7\+Type,  }\item[{}]{Param8\+Type,  }\item[{}]{Param9\+Type }\end{DoxyParamCaption})~\mbox{\hyperlink{_delegate_8h_a2cd99268972217c3ae1c31a42828567a}{FUNC\+\_\+\+DECLARE\+\_\+\+MULTICAST\+\_\+\+DELEGATE}}( Delegate\+Name, void, Param1\+Type, Param2\+Type, Param3\+Type, Param4\+Type, Param5\+Type, Param6\+Type, Param7\+Type, Param8\+Type, Param9\+Type )}
+
+\Hypertarget{_delegate_8h_ad677cf1f8225ce2d1bca408d3e87fcbe}\label{_delegate_8h_ad677cf1f8225ce2d1bca408d3e87fcbe} 
+\index{Delegate.h@{Delegate.h}!DECLARE\_MULTICAST\_DELEGATE\_OneParam@{DECLARE\_MULTICAST\_DELEGATE\_OneParam}}
+\index{DECLARE\_MULTICAST\_DELEGATE\_OneParam@{DECLARE\_MULTICAST\_DELEGATE\_OneParam}!Delegate.h@{Delegate.h}}
+\doxysubsubsection{\texorpdfstring{DECLARE\_MULTICAST\_DELEGATE\_OneParam}{DECLARE\_MULTICAST\_DELEGATE\_OneParam}}
+{\footnotesize\ttfamily \#define DECLARE\+\_\+\+MULTICAST\+\_\+\+DELEGATE\+\_\+\+One\+Param(\begin{DoxyParamCaption}\item[{}]{Delegate\+Name,  }\item[{}]{Param1\+Type }\end{DoxyParamCaption})~\mbox{\hyperlink{_delegate_8h_a2cd99268972217c3ae1c31a42828567a}{FUNC\+\_\+\+DECLARE\+\_\+\+MULTICAST\+\_\+\+DELEGATE}}( Delegate\+Name, void, Param1\+Type )}
+
+\Hypertarget{_delegate_8h_afdcb4f61d565c4e92946447f18ee8259}\label{_delegate_8h_afdcb4f61d565c4e92946447f18ee8259} 
+\index{Delegate.h@{Delegate.h}!DECLARE\_MULTICAST\_DELEGATE\_SevenParams@{DECLARE\_MULTICAST\_DELEGATE\_SevenParams}}
+\index{DECLARE\_MULTICAST\_DELEGATE\_SevenParams@{DECLARE\_MULTICAST\_DELEGATE\_SevenParams}!Delegate.h@{Delegate.h}}
+\doxysubsubsection{\texorpdfstring{DECLARE\_MULTICAST\_DELEGATE\_SevenParams}{DECLARE\_MULTICAST\_DELEGATE\_SevenParams}}
+{\footnotesize\ttfamily \#define DECLARE\+\_\+\+MULTICAST\+\_\+\+DELEGATE\+\_\+\+Seven\+Params(\begin{DoxyParamCaption}\item[{}]{Delegate\+Name,  }\item[{}]{Param1\+Type,  }\item[{}]{Param2\+Type,  }\item[{}]{Param3\+Type,  }\item[{}]{Param4\+Type,  }\item[{}]{Param5\+Type,  }\item[{}]{Param6\+Type,  }\item[{}]{Param7\+Type }\end{DoxyParamCaption})~\mbox{\hyperlink{_delegate_8h_a2cd99268972217c3ae1c31a42828567a}{FUNC\+\_\+\+DECLARE\+\_\+\+MULTICAST\+\_\+\+DELEGATE}}( Delegate\+Name, void, Param1\+Type, Param2\+Type, Param3\+Type, Param4\+Type, Param5\+Type, Param6\+Type, Param7\+Type )}
+
+\Hypertarget{_delegate_8h_a3b538854e87655152653a7d9904884be}\label{_delegate_8h_a3b538854e87655152653a7d9904884be} 
+\index{Delegate.h@{Delegate.h}!DECLARE\_MULTICAST\_DELEGATE\_SixParams@{DECLARE\_MULTICAST\_DELEGATE\_SixParams}}
+\index{DECLARE\_MULTICAST\_DELEGATE\_SixParams@{DECLARE\_MULTICAST\_DELEGATE\_SixParams}!Delegate.h@{Delegate.h}}
+\doxysubsubsection{\texorpdfstring{DECLARE\_MULTICAST\_DELEGATE\_SixParams}{DECLARE\_MULTICAST\_DELEGATE\_SixParams}}
+{\footnotesize\ttfamily \#define DECLARE\+\_\+\+MULTICAST\+\_\+\+DELEGATE\+\_\+\+Six\+Params(\begin{DoxyParamCaption}\item[{}]{Delegate\+Name,  }\item[{}]{Param1\+Type,  }\item[{}]{Param2\+Type,  }\item[{}]{Param3\+Type,  }\item[{}]{Param4\+Type,  }\item[{}]{Param5\+Type,  }\item[{}]{Param6\+Type }\end{DoxyParamCaption})~\mbox{\hyperlink{_delegate_8h_a2cd99268972217c3ae1c31a42828567a}{FUNC\+\_\+\+DECLARE\+\_\+\+MULTICAST\+\_\+\+DELEGATE}}( Delegate\+Name, void, Param1\+Type, Param2\+Type, Param3\+Type, Param4\+Type, Param5\+Type, Param6\+Type )}
+
+\Hypertarget{_delegate_8h_ad627922db565f68dec22b3d95018186d}\label{_delegate_8h_ad627922db565f68dec22b3d95018186d} 
+\index{Delegate.h@{Delegate.h}!DECLARE\_MULTICAST\_DELEGATE\_ThreeParams@{DECLARE\_MULTICAST\_DELEGATE\_ThreeParams}}
+\index{DECLARE\_MULTICAST\_DELEGATE\_ThreeParams@{DECLARE\_MULTICAST\_DELEGATE\_ThreeParams}!Delegate.h@{Delegate.h}}
+\doxysubsubsection{\texorpdfstring{DECLARE\_MULTICAST\_DELEGATE\_ThreeParams}{DECLARE\_MULTICAST\_DELEGATE\_ThreeParams}}
+{\footnotesize\ttfamily \#define DECLARE\+\_\+\+MULTICAST\+\_\+\+DELEGATE\+\_\+\+Three\+Params(\begin{DoxyParamCaption}\item[{}]{Delegate\+Name,  }\item[{}]{Param1\+Type,  }\item[{}]{Param2\+Type,  }\item[{}]{Param3\+Type }\end{DoxyParamCaption})~\mbox{\hyperlink{_delegate_8h_a2cd99268972217c3ae1c31a42828567a}{FUNC\+\_\+\+DECLARE\+\_\+\+MULTICAST\+\_\+\+DELEGATE}}( Delegate\+Name, void, Param1\+Type, Param2\+Type, Param3\+Type )}
+
+\Hypertarget{_delegate_8h_a0306554b8c19e8b7f4d16b9998b8d372}\label{_delegate_8h_a0306554b8c19e8b7f4d16b9998b8d372} 
+\index{Delegate.h@{Delegate.h}!DECLARE\_MULTICAST\_DELEGATE\_TwoParams@{DECLARE\_MULTICAST\_DELEGATE\_TwoParams}}
+\index{DECLARE\_MULTICAST\_DELEGATE\_TwoParams@{DECLARE\_MULTICAST\_DELEGATE\_TwoParams}!Delegate.h@{Delegate.h}}
+\doxysubsubsection{\texorpdfstring{DECLARE\_MULTICAST\_DELEGATE\_TwoParams}{DECLARE\_MULTICAST\_DELEGATE\_TwoParams}}
+{\footnotesize\ttfamily \#define DECLARE\+\_\+\+MULTICAST\+\_\+\+DELEGATE\+\_\+\+Two\+Params(\begin{DoxyParamCaption}\item[{}]{Delegate\+Name,  }\item[{}]{Param1\+Type,  }\item[{}]{Param2\+Type }\end{DoxyParamCaption})~\mbox{\hyperlink{_delegate_8h_a2cd99268972217c3ae1c31a42828567a}{FUNC\+\_\+\+DECLARE\+\_\+\+MULTICAST\+\_\+\+DELEGATE}}( Delegate\+Name, void, Param1\+Type, Param2\+Type )}
+
+\Hypertarget{_delegate_8h_ae787feeb36949e63482401f9857ba520}\label{_delegate_8h_ae787feeb36949e63482401f9857ba520} 
+\index{Delegate.h@{Delegate.h}!FUNC\_DECLARE\_DELEGATE@{FUNC\_DECLARE\_DELEGATE}}
+\index{FUNC\_DECLARE\_DELEGATE@{FUNC\_DECLARE\_DELEGATE}!Delegate.h@{Delegate.h}}
+\doxysubsubsection{\texorpdfstring{FUNC\_DECLARE\_DELEGATE}{FUNC\_DECLARE\_DELEGATE}}
+{\footnotesize\ttfamily \#define FUNC\+\_\+\+DECLARE\+\_\+\+DELEGATE(\begin{DoxyParamCaption}\item[{}]{Delegate\+Name,  }\item[{}]{Return\+Type,  }\item[{}]{... }\end{DoxyParamCaption})~\mbox{\hyperlink{_logger_8h_a182e58c72146010abacd09e1d1f7ed0e}{typedef}} \mbox{\hyperlink{class_t_delegate}{TDelegate}}$<$Return\+Type, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+$>$ Delegate\+Name}
+
+\Hypertarget{_delegate_8h_a2cd99268972217c3ae1c31a42828567a}\label{_delegate_8h_a2cd99268972217c3ae1c31a42828567a} 
+\index{Delegate.h@{Delegate.h}!FUNC\_DECLARE\_MULTICAST\_DELEGATE@{FUNC\_DECLARE\_MULTICAST\_DELEGATE}}
+\index{FUNC\_DECLARE\_MULTICAST\_DELEGATE@{FUNC\_DECLARE\_MULTICAST\_DELEGATE}!Delegate.h@{Delegate.h}}
+\doxysubsubsection{\texorpdfstring{FUNC\_DECLARE\_MULTICAST\_DELEGATE}{FUNC\_DECLARE\_MULTICAST\_DELEGATE}}
+{\footnotesize\ttfamily \#define FUNC\+\_\+\+DECLARE\+\_\+\+MULTICAST\+\_\+\+DELEGATE(\begin{DoxyParamCaption}\item[{}]{Delegate\+Name,  }\item[{}]{Return\+Type,  }\item[{}]{... }\end{DoxyParamCaption})~\mbox{\hyperlink{_logger_8h_a182e58c72146010abacd09e1d1f7ed0e}{typedef}} \mbox{\hyperlink{class_t_multi_cast_delegate}{TMulti\+Cast\+Delegate}}$<$Return\+Type, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+$>$ Delegate\+Name}
+

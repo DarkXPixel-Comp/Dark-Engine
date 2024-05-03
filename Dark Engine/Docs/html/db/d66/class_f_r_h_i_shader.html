@@ -1,0 +1,368 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Dark Engine: Класс FRHIShader</title>
+<link rel="icon" href="../../Logo.png" type="image/x-icon" />
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<script type="text/javascript" src="../../clipboard.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../MiniLogo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Dark Engine<span id="projectnumber">&#160;0.0.50</span>
+   </div>
+   <div id="projectbrief">New game engnie D3D12</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../../',true,false,'search.php','Поиск');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('db/d66/class_f_r_h_i_shader.html','../../'); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="#pub-attribs">Открытые атрибуты</a> &#124;
+<a href="../../df/de3/class_f_r_h_i_shader-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle"><div class="title">Класс FRHIShader</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="../../db/dec/_r_h_i_resources_8h_source.html">RHIResources.h</a>&gt;</code></p>
+<div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Граф наследования:FRHIShader:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+ <div class="center">
+  <img src="../../db/d66/class_f_r_h_i_shader.png" usemap="#FRHIShader_map" alt=""/>
+  <map id="FRHIShader_map" name="FRHIShader_map">
+<area href="../../d2/d83/class_f_r_h_i_resource.html" alt="FRHIResource" shape="rect" coords="164,56,318,80"/>
+<area href="../../dc/dba/class_f_ref_counted_object.html" alt="FRefCountedObject" shape="rect" coords="164,0,318,24"/>
+<area href="../../d0/deb/class_f_r_h_i_compute_shader.html" alt="FRHIComputeShader" shape="rect" coords="0,168,154,192"/>
+<area href="../../da/d86/class_f_r_h_i_graphics_shader.html" alt="FRHIGraphicsShader" shape="rect" coords="328,168,482,192"/>
+<area href="../../d9/d50/class_f_d3_d12_compute_shader.html" alt="FD3D12ComputeShader" shape="rect" coords="0,224,154,248"/>
+<area href="../../d6/d35/class_f_r_h_i_geometry_shader.html" alt="FRHIGeometryShader" shape="rect" coords="164,224,318,248"/>
+<area href="../../d4/d06/class_f_r_h_i_pixel_shader.html" alt="FRHIPixelShader" shape="rect" coords="328,224,482,248"/>
+<area href="../../d0/d98/class_f_r_h_i_vertex_shader.html" alt="FRHIVertexShader" shape="rect" coords="492,224,646,248"/>
+<area href="../../db/daf/class_f_d3_d12_geometry_shader.html" alt="FD3D12GeometryShader" shape="rect" coords="164,280,318,304"/>
+<area href="../../dd/d1d/class_f_d3_d12_pixel_shader.html" alt="FD3D12PixelShader" shape="rect" coords="328,280,482,304"/>
+<area href="../../de/d35/class_f_d3_d12_vertex_shader.html" alt="FD3D12VertexShader" shape="rect" coords="492,280,646,304"/>
+  </map>
+</div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:aaf53a4ca42f6bdf3488502afc97da199" id="r_aaf53a4ca42f6bdf3488502afc97da199"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="../../d2/dc9/_platform_8h.html#a74140f1ff3f7a51b1ac752f90283f3d6">TCHAR</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaf53a4ca42f6bdf3488502afc97da199">GetShaderName</a> () const</td></tr>
+<tr class="separator:aaf53a4ca42f6bdf3488502afc97da199"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5134a720c627945e779b567f5ea5550d" id="r_a5134a720c627945e779b567f5ea5550d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d9/dcb/class_f_string.html">FString</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5134a720c627945e779b567f5ea5550d">GetUniformBufferName</a> (<a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> Index) const</td></tr>
+<tr class="separator:a5134a720c627945e779b567f5ea5550d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac80b5bb80ff1e7654589cc9d211d9c19" id="r_ac80b5bb80ff1e7654589cc9d211d9c19"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../de/df7/_r_h_i_defines_8h.html#a89725d5f41ceac2e574ddc988f06775e">EShaderType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac80b5bb80ff1e7654589cc9d211d9c19">GetType</a> () const</td></tr>
+<tr class="separator:ac80b5bb80ff1e7654589cc9d211d9c19"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8bf0306477ae673ffb799230c19d953a" id="r_a8bf0306477ae673ffb799230c19d953a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8bf0306477ae673ffb799230c19d953a">FRHIShader</a> (<a class="el" href="../../de/df7/_r_h_i_defines_8h.html#ac956879f51692c0e19acc90d06b8405d">ERHIResourceType</a> InResourceType, <a class="el" href="../../de/df7/_r_h_i_defines_8h.html#a89725d5f41ceac2e574ddc988f06775e">EShaderType</a> InType)</td></tr>
+<tr class="separator:a8bf0306477ae673ffb799230c19d953a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_class_f_r_h_i_resource"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_f_r_h_i_resource')"><img src="../../closed.png" alt="-"/>&#160;Открытые члены унаследованные от <a class="el" href="../../d2/d83/class_f_r_h_i_resource.html">FRHIResource</a></td></tr>
+<tr class="memitem:aa6ad5b29a1b8786b083f89a7b4f4f2cf inherit pub_methods_class_f_r_h_i_resource" id="r_aa6ad5b29a1b8786b083f89a7b4f4f2cf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d83/class_f_r_h_i_resource.html#aa6ad5b29a1b8786b083f89a7b4f4f2cf">FRHIResource</a> (<a class="el" href="../../de/df7/_r_h_i_defines_8h.html#ac956879f51692c0e19acc90d06b8405d">ERHIResourceType</a> InResourceType)</td></tr>
+<tr class="separator:aa6ad5b29a1b8786b083f89a7b4f4f2cf inherit pub_methods_class_f_r_h_i_resource"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43b3eb835d6770a4f0ca910ce5a9f71d inherit pub_methods_class_f_r_h_i_resource" id="r_a43b3eb835d6770a4f0ca910ce5a9f71d"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d83/class_f_r_h_i_resource.html#a43b3eb835d6770a4f0ca910ce5a9f71d">~FRHIResource</a> ()</td></tr>
+<tr class="separator:a43b3eb835d6770a4f0ca910ce5a9f71d inherit pub_methods_class_f_r_h_i_resource"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab52bf70d01e6cd87f7f85ad25415ef02 inherit pub_methods_class_f_r_h_i_resource" id="r_ab52bf70d01e6cd87f7f85ad25415ef02"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d83/class_f_r_h_i_resource.html#ab52bf70d01e6cd87f7f85ad25415ef02">IsValid</a> () const</td></tr>
+<tr class="separator:ab52bf70d01e6cd87f7f85ad25415ef02 inherit pub_methods_class_f_r_h_i_resource"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf6a7d025a3f7d093609730cae8668e9 inherit pub_methods_class_f_r_h_i_resource" id="r_acf6a7d025a3f7d093609730cae8668e9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d83/class_f_r_h_i_resource.html#acf6a7d025a3f7d093609730cae8668e9">SetValid</a> (bool InIsValid)</td></tr>
+<tr class="separator:acf6a7d025a3f7d093609730cae8668e9 inherit pub_methods_class_f_r_h_i_resource"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6628a0e931fbf79f2c3deead02a9ee8b inherit pub_methods_class_f_r_h_i_resource" id="r_a6628a0e931fbf79f2c3deead02a9ee8b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d83/class_f_r_h_i_resource.html#a6628a0e931fbf79f2c3deead02a9ee8b">Delete</a> ()</td></tr>
+<tr class="separator:a6628a0e931fbf79f2c3deead02a9ee8b inherit pub_methods_class_f_r_h_i_resource"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2aff4c7ff357ad84bb0934492a4bf893 inherit pub_methods_class_f_r_h_i_resource" id="r_a2aff4c7ff357ad84bb0934492a4bf893"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../de/df7/_r_h_i_defines_8h.html#ac956879f51692c0e19acc90d06b8405d">ERHIResourceType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d83/class_f_r_h_i_resource.html#a2aff4c7ff357ad84bb0934492a4bf893">GetResourceType</a> () const</td></tr>
+<tr class="separator:a2aff4c7ff357ad84bb0934492a4bf893 inherit pub_methods_class_f_r_h_i_resource"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4ddb4518bc615c9c64c33812db4d244 inherit pub_methods_class_f_r_h_i_resource" id="r_ac4ddb4518bc615c9c64c33812db4d244"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="../../d9/dcb/class_f_string.html">FString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d83/class_f_r_h_i_resource.html#ac4ddb4518bc615c9c64c33812db4d244">GetName</a> () const</td></tr>
+<tr class="separator:ac4ddb4518bc615c9c64c33812db4d244 inherit pub_methods_class_f_r_h_i_resource"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ced010aaca4140fe3d61a235e3cfb09 inherit pub_methods_class_f_r_h_i_resource" id="r_a7ced010aaca4140fe3d61a235e3cfb09"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d83/class_f_r_h_i_resource.html#a7ced010aaca4140fe3d61a235e3cfb09">SetName</a> (<a class="el" href="../../d9/dcb/class_f_string.html">FString</a> InName)</td></tr>
+<tr class="separator:a7ced010aaca4140fe3d61a235e3cfb09 inherit pub_methods_class_f_r_h_i_resource"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_class_f_ref_counted_object"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_f_ref_counted_object')"><img src="../../closed.png" alt="-"/>&#160;Открытые члены унаследованные от <a class="el" href="../../dc/dba/class_f_ref_counted_object.html">FRefCountedObject</a></td></tr>
+<tr class="memitem:a3ae3edbc4c5caf1b150c3b261185e9b3 inherit pub_methods_class_f_ref_counted_object" id="r_a3ae3edbc4c5caf1b150c3b261185e9b3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dba/class_f_ref_counted_object.html#a3ae3edbc4c5caf1b150c3b261185e9b3">FRefCountedObject</a> ()</td></tr>
+<tr class="separator:a3ae3edbc4c5caf1b150c3b261185e9b3 inherit pub_methods_class_f_ref_counted_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1dbde45df03ba584126c3f68883e1e2e inherit pub_methods_class_f_ref_counted_object" id="r_a1dbde45df03ba584126c3f68883e1e2e"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dba/class_f_ref_counted_object.html#a1dbde45df03ba584126c3f68883e1e2e">~FRefCountedObject</a> ()</td></tr>
+<tr class="separator:a1dbde45df03ba584126c3f68883e1e2e inherit pub_methods_class_f_ref_counted_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac92d8ab8cedefb3c5bb731a609800832 inherit pub_methods_class_f_ref_counted_object" id="r_ac92d8ab8cedefb3c5bb731a609800832"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dba/class_f_ref_counted_object.html#ac92d8ab8cedefb3c5bb731a609800832">FRefCountedObject</a> (const <a class="el" href="../../dc/dba/class_f_ref_counted_object.html">FRefCountedObject</a> &amp;Rhs)=delete</td></tr>
+<tr class="separator:ac92d8ab8cedefb3c5bb731a609800832 inherit pub_methods_class_f_ref_counted_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d0313b3999b0a7f268b76058b7c5c18 inherit pub_methods_class_f_ref_counted_object" id="r_a8d0313b3999b0a7f268b76058b7c5c18"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/dba/class_f_ref_counted_object.html">FRefCountedObject</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dba/class_f_ref_counted_object.html#a8d0313b3999b0a7f268b76058b7c5c18">operator=</a> (const <a class="el" href="../../dc/dba/class_f_ref_counted_object.html">FRefCountedObject</a> &amp;Rhs)=delete</td></tr>
+<tr class="separator:a8d0313b3999b0a7f268b76058b7c5c18 inherit pub_methods_class_f_ref_counted_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e5a493f34a64331f86fc1f69934dea0 inherit pub_methods_class_f_ref_counted_object" id="r_a8e5a493f34a64331f86fc1f69934dea0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dba/class_f_ref_counted_object.html#a8e5a493f34a64331f86fc1f69934dea0">AddRef</a> () const</td></tr>
+<tr class="separator:a8e5a493f34a64331f86fc1f69934dea0 inherit pub_methods_class_f_ref_counted_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab350f7dff1cb3cbb729c10008be874bc inherit pub_methods_class_f_ref_counted_object" id="r_ab350f7dff1cb3cbb729c10008be874bc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dba/class_f_ref_counted_object.html#ab350f7dff1cb3cbb729c10008be874bc">Release</a> () const</td></tr>
+<tr class="separator:ab350f7dff1cb3cbb729c10008be874bc inherit pub_methods_class_f_ref_counted_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2b7744952475e6be883443e2380f33e inherit pub_methods_class_f_ref_counted_object" id="r_af2b7744952475e6be883443e2380f33e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dba/class_f_ref_counted_object.html#af2b7744952475e6be883443e2380f33e">GetRefCount</a> () const</td></tr>
+<tr class="separator:af2b7744952475e6be883443e2380f33e inherit pub_methods_class_f_ref_counted_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Открытые атрибуты</h2></td></tr>
+<tr class="memitem:a90f7bca641965508adefe78195f21abe" id="r_a90f7bca641965508adefe78195f21abe"><td class="memItemLeft" >struct {&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04ff79369edecb17a92a4a1253ec0177" id="r_a04ff79369edecb17a92a4a1253ec0177"><td class="memItemLeft" >&#160;&#160;&#160;<a class="el" href="../../d9/dcb/class_f_string.html">FString</a>&#160;&#160;&#160;<a class="el" href="#a6b20a2f19a7d12108701a271adcde259">ShaderName</a>&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
+<tr class="separator:a04ff79369edecb17a92a4a1253ec0177"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf76b6b176047716a86ffcf43a667d5b" id="r_abf76b6b176047716a86ffcf43a667d5b"><td class="memItemLeft" >&#160;&#160;&#160;<a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d9/dcb/class_f_string.html">FString</a> &gt;&#160;&#160;&#160;<a class="el" href="#af94c0dee491af8e8a7551353338d8577">UniformBufferNames</a>&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
+<tr class="separator:abf76b6b176047716a86ffcf43a667d5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90f7bca641965508adefe78195f21abe" id="r_a90f7bca641965508adefe78195f21abe"><td class="memItemLeft" valign="top">}&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a90f7bca641965508adefe78195f21abe">Debug</a>&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
+<tr class="separator:a90f7bca641965508adefe78195f21abe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a6d284d08887fd2a37b6006ef5e7fb3" id="r_a8a6d284d08887fd2a37b6006ef5e7fb3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/dc9/_platform_8h.html#afddf25cca147311c233b23a9d3329bb4">uint64</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8a6d284d08887fd2a37b6006ef5e7fb3">ShaderHash</a> = 0</td></tr>
+<tr class="separator:a8a6d284d08887fd2a37b6006ef5e7fb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
+Дополнительные унаследованные члены</h2></td></tr>
+<tr class="inherit_header pro_attribs_class_f_r_h_i_resource"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_attribs_class_f_r_h_i_resource')"><img src="../../closed.png" alt="-"/>&#160;Защищенные данные унаследованные от <a class="el" href="../../d2/d83/class_f_r_h_i_resource.html">FRHIResource</a></td></tr>
+<tr class="memitem:a27fba66710a9c548f069a6a3cd1f53ab inherit pro_attribs_class_f_r_h_i_resource" id="r_a27fba66710a9c548f069a6a3cd1f53ab"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../de/df7/_r_h_i_defines_8h.html#ac956879f51692c0e19acc90d06b8405d">ERHIResourceType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d83/class_f_r_h_i_resource.html#a27fba66710a9c548f069a6a3cd1f53ab">ResourceType</a></td></tr>
+<tr class="separator:a27fba66710a9c548f069a6a3cd1f53ab inherit pro_attribs_class_f_r_h_i_resource"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48df619fc4822732625e1fdd081fcda9 inherit pro_attribs_class_f_r_h_i_resource" id="r_a48df619fc4822732625e1fdd081fcda9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d9/dcb/class_f_string.html">FString</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d83/class_f_r_h_i_resource.html#a48df619fc4822732625e1fdd081fcda9">Name</a> = <a class="el" href="../../d2/dc9/_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(&quot;RHIResource&quot;)</td></tr>
+<tr class="separator:a48df619fc4822732625e1fdd081fcda9 inherit pro_attribs_class_f_r_h_i_resource"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Конструктор(ы)</h2>
+<a id="a8bf0306477ae673ffb799230c19d953a" name="a8bf0306477ae673ffb799230c19d953a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8bf0306477ae673ffb799230c19d953a">&#9670;&#160;</a></span>FRHIShader()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">FRHIShader::FRHIShader </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../de/df7/_r_h_i_defines_8h.html#ac956879f51692c0e19acc90d06b8405d">ERHIResourceType</a></td>          <td class="paramname"><span class="paramname"><em>InResourceType</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../de/df7/_r_h_i_defines_8h.html#a89725d5f41ceac2e574ddc988f06775e">EShaderType</a></td>          <td class="paramname"><span class="paramname"><em>InType</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Методы</h2>
+<a id="aaf53a4ca42f6bdf3488502afc97da199" name="aaf53a4ca42f6bdf3488502afc97da199"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf53a4ca42f6bdf3488502afc97da199">&#9670;&#160;</a></span>GetShaderName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="../../d2/dc9/_platform_8h.html#a74140f1ff3f7a51b1ac752f90283f3d6">TCHAR</a> * FRHIShader::GetShaderName </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac80b5bb80ff1e7654589cc9d211d9c19" name="ac80b5bb80ff1e7654589cc9d211d9c19"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac80b5bb80ff1e7654589cc9d211d9c19">&#9670;&#160;</a></span>GetType()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../de/df7/_r_h_i_defines_8h.html#a89725d5f41ceac2e574ddc988f06775e">EShaderType</a> FRHIShader::GetType </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5134a720c627945e779b567f5ea5550d" name="a5134a720c627945e779b567f5ea5550d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5134a720c627945e779b567f5ea5550d">&#9670;&#160;</a></span>GetUniformBufferName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d9/dcb/class_f_string.html">FString</a> FRHIShader::GetUniformBufferName </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a></td>          <td class="paramname"><span class="paramname"><em>Index</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Данные класса</h2>
+<a id="a90f7bca641965508adefe78195f21abe" name="a90f7bca641965508adefe78195f21abe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90f7bca641965508adefe78195f21abe">&#9670;&#160;</a></span>[struct]</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct  { ... }  FRHIShader::Debug</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8a6d284d08887fd2a37b6006ef5e7fb3" name="a8a6d284d08887fd2a37b6006ef5e7fb3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a6d284d08887fd2a37b6006ef5e7fb3">&#9670;&#160;</a></span>ShaderHash</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/dc9/_platform_8h.html#afddf25cca147311c233b23a9d3329bb4">uint64</a> FRHIShader::ShaderHash = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6b20a2f19a7d12108701a271adcde259" name="a6b20a2f19a7d12108701a271adcde259"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b20a2f19a7d12108701a271adcde259">&#9670;&#160;</a></span>ShaderName</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d9/dcb/class_f_string.html">FString</a> FRHIShader::ShaderName</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af94c0dee491af8e8a7551353338d8577" name="af94c0dee491af8e8a7551353338d8577"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af94c0dee491af8e8a7551353338d8577">&#9670;&#160;</a></span>UniformBufferNames</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt;<a class="el" href="../../d9/dcb/class_f_string.html">FString</a>&gt; FRHIShader::UniformBufferNames</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>Объявления и описания членов класса находятся в файле:<ul>
+<li>Dark Engine/Source/Runtime/RHI/public/<a class="el" href="../../db/dec/_r_h_i_resources_8h_source.html">RHIResources.h</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../db/d66/class_f_r_h_i_shader.html">FRHIShader</a></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
+</body>
+</html>

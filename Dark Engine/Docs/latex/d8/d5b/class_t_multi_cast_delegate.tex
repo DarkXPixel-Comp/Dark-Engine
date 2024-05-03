@@ -1,0 +1,90 @@
+\doxysection{Шаблон класса TMulti\+Cast\+Delegate\texorpdfstring{$<$}{<} In\+Ret\+Val\+Type, Param\+Types \texorpdfstring{$>$}{>}}
+\hypertarget{class_t_multi_cast_delegate}{}\label{class_t_multi_cast_delegate}\index{TMultiCastDelegate$<$ InRetValType, ParamTypes $>$@{TMultiCastDelegate$<$ InRetValType, ParamTypes $>$}}
+
+
+{\ttfamily \#include $<$Delegate.\+h$>$}
+
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_t_multi_cast_delegate_acadf8655f8dbcd7366a655486780e690}{TMulti\+Cast\+Delegate}} ()
+\item 
+\mbox{\hyperlink{class_t_multi_cast_delegate_ab9e8ed7b6e7482fe4b9bad5897db3c86}{\texorpdfstring{$\sim$}{\string~}\+TMulti\+Cast\+Delegate}} ()
+\item 
+const void \mbox{\hyperlink{class_t_multi_cast_delegate_a30b22e637b7ef2b142a0688de358b034}{Bind}} (std\+::function$<$ In\+Ret\+Val\+Type(Param\+Types...)$>$ func)
+\item 
+{\footnotesize template$<$typename User\+Class $>$ }\\const void \mbox{\hyperlink{class_t_multi_cast_delegate_a37ae685a9798ad3a295b4f86d2bc002d}{Bind}} (User\+Class \texorpdfstring{$\ast$}{*}in\+User\+Object, In\+Ret\+Val\+Type(User\+Class\+::\texorpdfstring{$\ast$}{*}func)(Param\+Types...))
+\item 
+void \mbox{\hyperlink{class_t_multi_cast_delegate_ae29c413847a56e9aa2ff6a3b1b2afa92}{Broad\+Cast}} (Param\+Types... params)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Открытые атрибуты}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_t_array}{TArray}}$<$ \mbox{\hyperlink{class_i_i_container}{IIContainer}}$<$ In\+Ret\+Val\+Type, Param\+Types... $>$ \texorpdfstring{$\ast$}{*} $>$ \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_t_multi_cast_delegate_aac6e06c2ac2fd74fb401c4106cc722f6}{containers}} = nullptr
+\item 
+FFunc\+Ptr \mbox{\hyperlink{class_t_multi_cast_delegate_a6f2fb247ea1d5965fd7e60ec16310079}{p\+Func}} = nullptr
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Конструктор(ы)}
+\Hypertarget{class_t_multi_cast_delegate_acadf8655f8dbcd7366a655486780e690}\label{class_t_multi_cast_delegate_acadf8655f8dbcd7366a655486780e690} 
+\index{TMultiCastDelegate$<$ InRetValType, ParamTypes $>$@{TMultiCastDelegate$<$ InRetValType, ParamTypes $>$}!TMultiCastDelegate@{TMultiCastDelegate}}
+\index{TMultiCastDelegate@{TMultiCastDelegate}!TMultiCastDelegate$<$ InRetValType, ParamTypes $>$@{TMultiCastDelegate$<$ InRetValType, ParamTypes $>$}}
+\doxysubsubsection{\texorpdfstring{TMultiCastDelegate()}{TMultiCastDelegate()}}
+{\footnotesize\ttfamily template$<$typename In\+Ret\+Val\+Type , typename... Param\+Types$>$ \\
+\mbox{\hyperlink{class_t_multi_cast_delegate}{TMulti\+Cast\+Delegate}}$<$ In\+Ret\+Val\+Type, Param\+Types $>$\mbox{\hyperlink{class_t_multi_cast_delegate}{\+::\+TMulti\+Cast\+Delegate}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_t_multi_cast_delegate_ab9e8ed7b6e7482fe4b9bad5897db3c86}\label{class_t_multi_cast_delegate_ab9e8ed7b6e7482fe4b9bad5897db3c86} 
+\index{TMultiCastDelegate$<$ InRetValType, ParamTypes $>$@{TMultiCastDelegate$<$ InRetValType, ParamTypes $>$}!````~TMultiCastDelegate@{\texorpdfstring{$\sim$}{\string~}TMultiCastDelegate}}
+\index{````~TMultiCastDelegate@{\texorpdfstring{$\sim$}{\string~}TMultiCastDelegate}!TMultiCastDelegate$<$ InRetValType, ParamTypes $>$@{TMultiCastDelegate$<$ InRetValType, ParamTypes $>$}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}TMultiCastDelegate()}{\string~TMultiCastDelegate()}}
+{\footnotesize\ttfamily template$<$typename In\+Ret\+Val\+Type , typename... Param\+Types$>$ \\
+\mbox{\hyperlink{class_t_multi_cast_delegate}{TMulti\+Cast\+Delegate}}$<$ In\+Ret\+Val\+Type, Param\+Types $>$\+::\texorpdfstring{$\sim$}{\string~}\mbox{\hyperlink{class_t_multi_cast_delegate}{TMulti\+Cast\+Delegate}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Методы}
+\Hypertarget{class_t_multi_cast_delegate_a30b22e637b7ef2b142a0688de358b034}\label{class_t_multi_cast_delegate_a30b22e637b7ef2b142a0688de358b034} 
+\index{TMultiCastDelegate$<$ InRetValType, ParamTypes $>$@{TMultiCastDelegate$<$ InRetValType, ParamTypes $>$}!Bind@{Bind}}
+\index{Bind@{Bind}!TMultiCastDelegate$<$ InRetValType, ParamTypes $>$@{TMultiCastDelegate$<$ InRetValType, ParamTypes $>$}}
+\doxysubsubsection{\texorpdfstring{Bind()}{Bind()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename In\+Ret\+Val\+Type , typename... Param\+Types$>$ \\
+const void \mbox{\hyperlink{class_t_multi_cast_delegate}{TMulti\+Cast\+Delegate}}$<$ In\+Ret\+Val\+Type, Param\+Types $>$\+::\+Bind (\begin{DoxyParamCaption}\item[{std\+::function$<$ In\+Ret\+Val\+Type(Param\+Types...)$>$}]{func }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_t_multi_cast_delegate_a37ae685a9798ad3a295b4f86d2bc002d}\label{class_t_multi_cast_delegate_a37ae685a9798ad3a295b4f86d2bc002d} 
+\index{TMultiCastDelegate$<$ InRetValType, ParamTypes $>$@{TMultiCastDelegate$<$ InRetValType, ParamTypes $>$}!Bind@{Bind}}
+\index{Bind@{Bind}!TMultiCastDelegate$<$ InRetValType, ParamTypes $>$@{TMultiCastDelegate$<$ InRetValType, ParamTypes $>$}}
+\doxysubsubsection{\texorpdfstring{Bind()}{Bind()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename In\+Ret\+Val\+Type , typename... Param\+Types$>$ \\
+template$<$typename User\+Class $>$ \\
+const void \mbox{\hyperlink{class_t_multi_cast_delegate}{TMulti\+Cast\+Delegate}}$<$ In\+Ret\+Val\+Type, Param\+Types $>$\+::\+Bind (\begin{DoxyParamCaption}\item[{User\+Class \texorpdfstring{$\ast$}{*}}]{in\+User\+Object,  }\item[{In\+Ret\+Val\+Type(User\+Class\+::\texorpdfstring{$\ast$}{*})(Param\+Types...)}]{func }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_t_multi_cast_delegate_ae29c413847a56e9aa2ff6a3b1b2afa92}\label{class_t_multi_cast_delegate_ae29c413847a56e9aa2ff6a3b1b2afa92} 
+\index{TMultiCastDelegate$<$ InRetValType, ParamTypes $>$@{TMultiCastDelegate$<$ InRetValType, ParamTypes $>$}!BroadCast@{BroadCast}}
+\index{BroadCast@{BroadCast}!TMultiCastDelegate$<$ InRetValType, ParamTypes $>$@{TMultiCastDelegate$<$ InRetValType, ParamTypes $>$}}
+\doxysubsubsection{\texorpdfstring{BroadCast()}{BroadCast()}}
+{\footnotesize\ttfamily template$<$typename In\+Ret\+Val\+Type , typename... Param\+Types$>$ \\
+void \mbox{\hyperlink{class_t_multi_cast_delegate}{TMulti\+Cast\+Delegate}}$<$ In\+Ret\+Val\+Type, Param\+Types $>$\+::\+Broad\+Cast (\begin{DoxyParamCaption}\item[{Param\+Types...}]{params }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Данные класса}
+\Hypertarget{class_t_multi_cast_delegate_aac6e06c2ac2fd74fb401c4106cc722f6}\label{class_t_multi_cast_delegate_aac6e06c2ac2fd74fb401c4106cc722f6} 
+\index{TMultiCastDelegate$<$ InRetValType, ParamTypes $>$@{TMultiCastDelegate$<$ InRetValType, ParamTypes $>$}!containers@{containers}}
+\index{containers@{containers}!TMultiCastDelegate$<$ InRetValType, ParamTypes $>$@{TMultiCastDelegate$<$ InRetValType, ParamTypes $>$}}
+\doxysubsubsection{\texorpdfstring{containers}{containers}}
+{\footnotesize\ttfamily template$<$typename In\+Ret\+Val\+Type , typename... Param\+Types$>$ \\
+\mbox{\hyperlink{class_t_array}{TArray}}$<$\mbox{\hyperlink{class_i_i_container}{IIContainer}}$<$In\+Ret\+Val\+Type, Param\+Types...$>$\texorpdfstring{$\ast$}{*}$>$\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_t_multi_cast_delegate}{TMulti\+Cast\+Delegate}}$<$ In\+Ret\+Val\+Type, Param\+Types $>$\+::containers = nullptr}
+
+\Hypertarget{class_t_multi_cast_delegate_a6f2fb247ea1d5965fd7e60ec16310079}\label{class_t_multi_cast_delegate_a6f2fb247ea1d5965fd7e60ec16310079} 
+\index{TMultiCastDelegate$<$ InRetValType, ParamTypes $>$@{TMultiCastDelegate$<$ InRetValType, ParamTypes $>$}!pFunc@{pFunc}}
+\index{pFunc@{pFunc}!TMultiCastDelegate$<$ InRetValType, ParamTypes $>$@{TMultiCastDelegate$<$ InRetValType, ParamTypes $>$}}
+\doxysubsubsection{\texorpdfstring{pFunc}{pFunc}}
+{\footnotesize\ttfamily template$<$typename In\+Ret\+Val\+Type , typename... Param\+Types$>$ \\
+FFunc\+Ptr \mbox{\hyperlink{class_t_multi_cast_delegate}{TMulti\+Cast\+Delegate}}$<$ In\+Ret\+Val\+Type, Param\+Types $>$\+::p\+Func = nullptr}
+
+
+
+Объявления и описания членов класса находятся в файле\+:\begin{DoxyCompactItemize}
+\item 
+Dark Engine/\+Source/\+Runtime/\+Core/\+Delegate/\mbox{\hyperlink{_delegate_8h}{Delegate.\+h}}\end{DoxyCompactItemize}

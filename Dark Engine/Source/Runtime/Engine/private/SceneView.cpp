@@ -2,9 +2,8 @@
 
 
 
-FSceneView::FSceneView(const FRenderTarget* InRenderTarget, FSceneInterface* InSceneInterface, FEditorViewportClient* InViewportClient) :
-	RenderTarget(InRenderTarget),
-	ViewportClient(InViewportClient)
+FSceneView::FSceneView(const FRenderTarget* InRenderTarget, FSceneInterface* InSceneInterface):
+	RenderTarget(InRenderTarget)
 {
 
 }
@@ -12,7 +11,11 @@ FSceneView::FSceneView(const FRenderTarget* InRenderTarget, FSceneInterface* InS
 
 void FSceneView::CalcSceneView()
 {	
-	const FViewportCameraTransform& ViewTransform = ViewportClient->GetViewTransform();
+
+
+	//ViewRect = FIntRect(FIntPoint(0, 0), ViewportSize);
+
+	/*const FViewportCameraTransform& ViewTransform = ViewportClient->GetViewTransform();
 
 	FMinimalViewInfo& MainViewInfo = ViewportClient->MainViewInfo;
 
@@ -29,7 +32,7 @@ void FSceneView::CalcSceneView()
 
 
 	MainViewInfo.CalculateProjectionMatrix();
-
+*/
 
 
 

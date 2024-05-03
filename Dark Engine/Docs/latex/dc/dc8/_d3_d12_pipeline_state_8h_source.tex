@@ -1,0 +1,95 @@
+\doxysection{D3\+D12\+Pipeline\+State.\+h}
+\hypertarget{_d3_d12_pipeline_state_8h_source}{}\label{_d3_d12_pipeline_state_8h_source}\index{Dark Engine/Source/Runtime/D3D12RHI/private/D3D12PipelineState.h@{Dark Engine/Source/Runtime/D3D12RHI/private/D3D12PipelineState.h}}
+\mbox{\hyperlink{_d3_d12_pipeline_state_8h}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_d3_d12_r_h_i_common_8h}{D3D12RHICommon.h}}"{}}\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_d3_d12_root_signature_8h}{D3D12RootSignature.h}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_unordored_map_8h}{Containers/UnordoredMap.h}}"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{class\ }\mbox{\hyperlink{struct_f_d3_d12_pipeline_state}{FD3D12PipelineState}};}
+\DoxyCodeLine{00007\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_f_d3_d12_vertex_shader}{FD3D12VertexShader}};}
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_f_d3_d12_pixel_shader}{FD3D12PixelShader}};}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_f_d3_d12___g_r_a_p_h_i_c_s___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c}{FD3D12\_GRAPHICS\_PIPELINE\_STATE\_DESC}}}
+\DoxyCodeLine{00014\ \{}
+\DoxyCodeLine{00015\ \ \ \ \ CD3DX12\_PIPELINE\_STATE\_STREAM\_ROOT\_SIGNATURE\ \mbox{\hyperlink{struct_f_d3_d12___g_r_a_p_h_i_c_s___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c_a9cc9276eb12cbbd2f737f74f06f92eae}{RootSignature}};}
+\DoxyCodeLine{00016\ \ \ \ \ CD3DX12\_PIPELINE\_STATE\_STREAM\_INPUT\_LAYOUT\ \mbox{\hyperlink{struct_f_d3_d12___g_r_a_p_h_i_c_s___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c_ace18c8a3fcc5c1e19df8240e4ff6cda4}{InputLayout}};}
+\DoxyCodeLine{00017\ \ \ \ \ CD3DX12\_PIPELINE\_STATE\_STREAM\_VS\ \mbox{\hyperlink{struct_f_d3_d12___g_r_a_p_h_i_c_s___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c_a4ce50807edd4d7f1663f43dee530348f}{VertexShader}};}
+\DoxyCodeLine{00018\ \ \ \ \ CD3DX12\_PIPELINE\_STATE\_STREAM\_PS\ \mbox{\hyperlink{struct_f_d3_d12___g_r_a_p_h_i_c_s___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c_ab558ffc8f8c33c3c05257442e55d90a5}{PixelShader}};}
+\DoxyCodeLine{00019\ \textcolor{comment}{//\ \ CD3DX12\_PIPELINE\_STATE\_STREAM\_GS\ GeometryShader;}}
+\DoxyCodeLine{00020\ \textcolor{comment}{//\ \ CD3DX12\_PIPELINE\_STATE\_STREAM\_DS\ DomainShader;}}
+\DoxyCodeLine{00021\ \textcolor{comment}{//\ \ CD3DX12\_PIPELINE\_STATE\_STREAM\_HS\ HullShader;}}
+\DoxyCodeLine{00022\ \textcolor{comment}{//\ \ CD3DX12\_PIPELINE\_STATE\_STREAM\_MS\ MeshShader;}}
+\DoxyCodeLine{00023\ \textcolor{comment}{//\ \ CD3DX12\_PIPELINE\_STATE\_STREAM\_AS\ AmplificationShader;}}
+\DoxyCodeLine{00024\ \ \ \ \ CD3DX12\_PIPELINE\_STATE\_STREAM\_BLEND\_DESC\ \mbox{\hyperlink{struct_f_d3_d12___g_r_a_p_h_i_c_s___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c_af47fa6aea143c9b32aa0392b3c9e3221}{BlendState}};}
+\DoxyCodeLine{00025\ \ \ \ \ CD3DX12\_PIPELINE\_STATE\_STREAM\_RASTERIZER\ \mbox{\hyperlink{struct_f_d3_d12___g_r_a_p_h_i_c_s___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c_ab05135c84a4e85bc780e2fbdf478e30f}{RasterState}};}
+\DoxyCodeLine{00026\ \ \ \ \ CD3DX12\_PIPELINE\_STATE\_STREAM\_DEPTH\_STENCIL\ \mbox{\hyperlink{struct_f_d3_d12___g_r_a_p_h_i_c_s___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c_a97fd1e378ccb3af180f03f5cf600d083}{DepthState}};}
+\DoxyCodeLine{00027\ \ \ \ \ CD3DX12\_PIPELINE\_STATE\_STREAM\_DEPTH\_STENCIL\_FORMAT\ \mbox{\hyperlink{struct_f_d3_d12___g_r_a_p_h_i_c_s___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c_ac1a9e2a5854a7180972967045660d71f}{DepthFormat}};}
+\DoxyCodeLine{00028\ \ \ \ \ CD3DX12\_PIPELINE\_STATE\_STREAM\_PRIMITIVE\_TOPOLOGY\ \mbox{\hyperlink{struct_f_d3_d12___g_r_a_p_h_i_c_s___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c_adc9257770e897bf59e2824af8a5951d8}{PrimitiveTopology}};}
+\DoxyCodeLine{00029\ \ \ \ \ CD3DX12\_PIPELINE\_STATE\_STREAM\_FLAGS\ \mbox{\hyperlink{struct_f_d3_d12___g_r_a_p_h_i_c_s___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c_a2985b45d1077bed3690689bb50df4d72}{Flags}};}
+\DoxyCodeLine{00030\ \ \ \ \ CD3DX12\_PIPELINE\_STATE\_STREAM\_SAMPLE\_DESC\ \mbox{\hyperlink{struct_f_d3_d12___g_r_a_p_h_i_c_s___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c_a4fec75f342b3bf746bf1c466828ba79e}{SampleDesc}};}
+\DoxyCodeLine{00031\ \ \ \ \ CD3DX12\_PIPELINE\_STATE\_STREAM\_RENDER\_TARGET\_FORMATS\ \mbox{\hyperlink{struct_f_d3_d12___g_r_a_p_h_i_c_s___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c_a1bc9fda01882040bf33e40b5ed29a3d5}{RenderTargetFormats}};}
+\DoxyCodeLine{00032\ \ \ \ \ CD3DX12\_PIPELINE\_STATE\_STREAM\_NODE\_MASK\ \mbox{\hyperlink{struct_f_d3_d12___g_r_a_p_h_i_c_s___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c_ac853681f0ed1ad94aa83375b3935b390}{NodeMask}};}
+\DoxyCodeLine{00033\ \};}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_f_d3_d12_pipeline_state_manager}{FD3D12PipelineStateManager}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_f_d3_d12_adapter_child}{FD3D12AdapterChild}}}
+\DoxyCodeLine{00038\ \{}
+\DoxyCodeLine{00039\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00040\ \ \ \ \ \mbox{\hyperlink{class_f_d3_d12_pipeline_state_manager_a92ec7c12676bf28095d8f5852d092c64}{FD3D12PipelineStateManager}}(\mbox{\hyperlink{class_f_d3_d12_adapter}{FD3D12Adapter}}*\ InParent);}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ \mbox{\hyperlink{struct_f_d3_d12_pipeline_state}{FD3D12PipelineState}}*\ \mbox{\hyperlink{class_f_d3_d12_pipeline_state_manager_acd48c5ccb817adbcc1504b3493e184cf}{GetPipelineState}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_f_graphics_pipeline_state_initializer}{FGraphicsPipelineStateInitializer}}\&\ Initializer,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_f_d3_d12_root_signature}{FD3D12RootSignature}}*\ InRootSignature);}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ D3D12\_PIPELINE\_STATE\_STREAM\_DESC\ \mbox{\hyperlink{class_f_d3_d12_pipeline_state_manager_aaa3731c9c1af4ce4ee19418ee313acd1}{SetPipelineDesc}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_f_graphics_pipeline_state_initializer}{FGraphicsPipelineStateInitializer}}\&\ Initializer,\ \mbox{\hyperlink{struct_f_d3_d12___g_r_a_p_h_i_c_s___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c}{FD3D12\_GRAPHICS\_PIPELINE\_STATE\_DESC}}\&\ PipelineStateDesc,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_f_d3_d12_root_signature}{FD3D12RootSignature}}*\ InRootSignature);}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_d3_d12_pipeline_state_manager_a5d947410ec545b5432d02732a9833cc9}{CachePSO}}();}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00049\ \ \ \ \ TUnordoredMap<FGraphicsPipelineStateInitializer,\ struct\ FD3D12PipelineState*>\ PSOMap;}
+\DoxyCodeLine{00050\ \ \ \ \ TRefCountPtr<ID3D12PipelineLibrary1>\ PipelineLibrary;}
+\DoxyCodeLine{00051\ \ \ \ \ TArray<uint8>\ Cache;}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \};}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_f_d3_d12_pipeline_state}{FD3D12PipelineState}}\ :\ \textcolor{keyword}{public}\ \ \mbox{\hyperlink{class_f_d3_d12_adapter_child}{FD3D12AdapterChild}}}
+\DoxyCodeLine{00059\ \{}
+\DoxyCodeLine{00060\ \ \ \ \ \mbox{\hyperlink{struct_f_d3_d12_pipeline_state_a3f7f31bbea71c6a6dbf51834b1dcf4f8}{FD3D12PipelineState}}(\mbox{\hyperlink{class_f_d3_d12_adapter}{FD3D12Adapter}}*\ InParent)\ :\ \mbox{\hyperlink{class_f_d3_d12_adapter_child}{FD3D12AdapterChild}}(InParent)\ \{\}}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{struct_f_d3_d12_pipeline_state_a76e921366e151d65c99a4a273b9d5455}{Create}}(\textcolor{keyword}{const}\ D3D12\_PIPELINE\_STATE\_STREAM\_DESC\&\ Initalizer,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_f_d3_d12_root_signature}{FD3D12RootSignature}}*\ InRootSignature);}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ TRefCountPtr<ID3D12PipelineState>\ \mbox{\hyperlink{struct_f_d3_d12_pipeline_state_acd202dd3617c97f5aba9abb18cb1b8bc}{PSO}};}
+\DoxyCodeLine{00065\ \};}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_f_d3_d12_graphics_pipeline_state}{FD3D12GraphicsPipelineState}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_f_r_h_i_graphics_pipeline_state}{FRHIGraphicsPipelineState}}}
+\DoxyCodeLine{00070\ \{}
+\DoxyCodeLine{00071\ \ \ \ \ \mbox{\hyperlink{struct_f_d3_d12_graphics_pipeline_state_ace4e16b9a01a902068e51a9eee4fa7b8}{FD3D12GraphicsPipelineState}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_f_graphics_pipeline_state_initializer}{FGraphicsPipelineStateInitializer}}\&\ Initializer,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_f_d3_d12_root_signature}{FD3D12RootSignature}}*\ InRootSignature,\ \mbox{\hyperlink{struct_f_d3_d12_pipeline_state}{FD3D12PipelineState}}*\ InPipelineState);}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \ \ \mbox{\hyperlink{class_f_d3_d12_vertex_shader}{FD3D12VertexShader}}*\ \mbox{\hyperlink{struct_f_d3_d12_graphics_pipeline_state_a524a0043814c27b50dc45bb34f4cf485}{GetVertexShader}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{class_f_d3_d12_vertex_shader}{FD3D12VertexShader}}*)\mbox{\hyperlink{struct_f_d3_d12_graphics_pipeline_state_ad86ea7f6eb776042ba46f00fc8d5c14e}{PipelineStateInitializer}}.\mbox{\hyperlink{class_f_graphics_pipeline_state_initializer_a24cb693a0b02762c3436638b85e8cdf5}{BoundShaderState}}.\mbox{\hyperlink{struct_f_bound_shader_state_input_ab640379ec7f3fd9450d657a69e59be47}{VertexShaderRHI}};\ \}}
+\DoxyCodeLine{00074\ \ \ \ \ \mbox{\hyperlink{class_f_d3_d12_pixel_shader}{FD3D12PixelShader}}*\ \mbox{\hyperlink{struct_f_d3_d12_graphics_pipeline_state_aa5e075dd293314bf72e313332c4adadb}{GetPixelShader}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{class_f_d3_d12_pixel_shader}{FD3D12PixelShader}}*)\mbox{\hyperlink{struct_f_d3_d12_graphics_pipeline_state_ad86ea7f6eb776042ba46f00fc8d5c14e}{PipelineStateInitializer}}.\mbox{\hyperlink{class_f_graphics_pipeline_state_initializer_a24cb693a0b02762c3436638b85e8cdf5}{BoundShaderState}}.\mbox{\hyperlink{struct_f_bound_shader_state_input_a3ecfb26501af54101c569a3ccd266ab7}{PixelShaderRHI}};\ \}}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{comment}{//FD3D12VertexShader*\ GetVertexShader()\ const\ \{\ return\ (FD3D12VertexShader*)PipelineStateInitializer.BoundShaderState.VertexShaderRHI;\ \}}}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \ \ \ \ \mbox{\hyperlink{class_f_graphics_pipeline_state_initializer}{FGraphicsPipelineStateInitializer}}\ \mbox{\hyperlink{struct_f_d3_d12_graphics_pipeline_state_ad86ea7f6eb776042ba46f00fc8d5c14e}{PipelineStateInitializer}};}
+\DoxyCodeLine{00079\ \ \ \ \ \mbox{\hyperlink{struct_f_d3_d12_pipeline_state}{FD3D12PipelineState}}*\ \mbox{\hyperlink{struct_f_d3_d12_graphics_pipeline_state_a9835cf8f416624e3c3598fd92c2a30b3}{PipelineState}};}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_f_d3_d12_root_signature}{FD3D12RootSignature}}*\ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_f_d3_d12_graphics_pipeline_state_a157aa4446057b1b1bbe3ad8fa97a4632}{RootSignature}};}
+\DoxyCodeLine{00081\ \};}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_f_d3_d12_rasterizer_state}{FD3D12RasterizerState}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_f_r_h_i_rasterizer_state}{FRHIRasterizerState}}}
+\DoxyCodeLine{00086\ \{}
+\DoxyCodeLine{00087\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00088\ \ \ \ \ D3D12\_RASTERIZER\_DESC\ \mbox{\hyperlink{class_f_d3_d12_rasterizer_state_aadd80b1e2babb50c5846b8cfcab0f20d}{Desc}};}
+\DoxyCodeLine{00089\ \};}
+
+\end{DoxyCode}

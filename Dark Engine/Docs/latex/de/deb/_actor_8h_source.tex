@@ -1,0 +1,82 @@
+\doxysection{Actor.\+h}
+\hypertarget{_actor_8h_source}{}\label{_actor_8h_source}\index{Dark Engine/Source/Runtime/Engine/Classes/Actor/Actor.h@{Dark Engine/Source/Runtime/Engine/Classes/Actor/Actor.h}}
+\mbox{\hyperlink{_actor_8h}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_u_object_8h}{../UObject/UObject.h}}"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{_core_8h}{Core.h}}>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{_actor_component_8h}{Components/ActorComponent/ActorComponent.h}}>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{_u_scene_component_8h}{Components/SceneComponent/USceneComponent.h}}>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <DirectXMath.h>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{_d3_d12_model_8h}{D3D12/D3D12Model.h}}>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{_input_core_8h}{InputCore.h}}>}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{using\ namespace\ }DirectX;}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{class\ }\mbox{\hyperlink{_core_platform_8h_a94070b76c7d4ff7927f14814f3f53e40}{DENGINE\_API}}\ \mbox{\hyperlink{class_a_actor}{AActor}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_u_object}{UObject}}}
+\DoxyCodeLine{00017\ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{class_u_object}{UObject}}\ \mbox{\hyperlink{class_u_object}{Super}};}
+\DoxyCodeLine{00019\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00020\ \ \ \ \ \mbox{\hyperlink{class_a_actor}{AActor}}();}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_u_object_abbcb856733c322925aa7cdb82b95f22e}{BeginPlay}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_u_object_a90045e313f786495240a5f3e9f3957c0}{Update}}(\textcolor{keywordtype}{float}\ DeltaTime)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_u_object_adaf378e80341f5fb43be2b1390331873}{Destroy}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ SetupPlayerController(\mbox{\hyperlink{class_f_input_core}{FInputCore}}*\ controller);}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{void}\ SetMesh(\mbox{\hyperlink{class_f_d3_d12_mesh}{FD3D12Mesh}}*\ mesh);}
+\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{class_d3_d12_model}{D3D12Model}}*\ \mbox{\hyperlink{class_a_actor_a0e0f1aedce3f45c9eea7878c1178c43a}{GetModel}}()\ \{\ \textcolor{keywordflow}{return}\ m\_model.get();\ \}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_a_actor_ae315b4881c8f0dbf155f0190445c0bac}{SetPosition}}(XMFLOAT3\ pos)\ \{\ m\_position\ =\ pos;\ \}}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_a_actor_a8f4ad7193882fc41fdf46cbcb4c9a2ee}{SetRotation}}(XMFLOAT3\ rot)\ \{\ m\_rotation\ =\ rot;\ \}}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_a_actor_a2cfb2eafe4b0dddbc482c855a8a7ff40}{SetScale}}(XMFLOAT3\ sc)\ \{\ m\_scale\ =\ sc;\ \}}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{void}\ AddRotation(XMFLOAT3\ rot);}
+\DoxyCodeLine{00035\ \ \ \ \ XMFLOAT3\ \mbox{\hyperlink{class_a_actor_a992f2fbf95e1e4e3392e8e8ab034e8d9}{GetPosition}}()\ \{\ \textcolor{keywordflow}{return}\ m\_position;\ \}}
+\DoxyCodeLine{00036\ \ \ \ \ XMFLOAT3\ \mbox{\hyperlink{class_a_actor_a7fde09d6f13b3c392088d1e9cdd3c39a}{GetRotation}}()\ \{\ \textcolor{keywordflow}{return}\ m\_rotation;\ \}}
+\DoxyCodeLine{00037\ \ \ \ \ XMFLOAT3\ \mbox{\hyperlink{class_a_actor_ad596fe9437beab558473068e1d361daf}{GetScale}}()\ \{\ \textcolor{keywordflow}{return}\ m\_scale;\ \}}
+\DoxyCodeLine{00038\ \ \ \ \ XMFLOAT3\ GetFrontVector();}
+\DoxyCodeLine{00039\ \ \ \ \ XMFLOAT3\ GetRightVector();}
+\DoxyCodeLine{00040\ \ \ \ \ XMFLOAT3\ GetUpVector();}
+\DoxyCodeLine{00041\ \ \ \ \ \mbox{\hyperlink{class_u_scene_component}{USceneComponent}}*\ \mbox{\hyperlink{class_a_actor_a9466f2a1d4b1e0bfcf22f50cf5fa02a6}{GetRootComponent}}()\ \{\ \textcolor{keywordflow}{return}\ m\_rootComponent.get();\ \}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_a_actor_aa53bd2b8190933c4dd19dd99964e72d4}{OnUpdateRotation}}(\textcolor{keywordtype}{float}\ delta)}
+\DoxyCodeLine{00045\ \ \ \ \ \{}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ m\_rotation.x\ +=\ delta\ *\ 0.5;}
+\DoxyCodeLine{00047\ \ \ \ \ \}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00054\ \ \ \ \ XMFLOAT3\ \mbox{\hyperlink{class_a_actor_a06b3ec7707d407eb5f6bfa7e5c336aeb}{m\_position}};}
+\DoxyCodeLine{00055\ \ \ \ \ XMFLOAT3\ \mbox{\hyperlink{class_a_actor_acf1bdde1d0fcce7a341b0692764538fc}{m\_rotation}};}
+\DoxyCodeLine{00056\ \ \ \ \ XMFLOAT3\ \mbox{\hyperlink{class_a_actor_a9a32d48f1a21dbae942c3c3e722a604c}{m\_scale}};}
+\DoxyCodeLine{00057\ \ \ \ \ TUniquePtr<D3D12Model>\ \mbox{\hyperlink{class_a_actor_a23ba7aca1d74009c58bb4602fd4effaa}{m\_model}};}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ TUniquePtr<USceneComponent>\ \mbox{\hyperlink{class_a_actor_a4c72b7797615ffb0b10aca0230707191}{m\_rootComponent}};}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ }
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \};}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \textcolor{comment}{//template<typename\ T>}}
+\DoxyCodeLine{00071\ \textcolor{comment}{//inline\ T*\ AActor::CreateDefaultSubObject(FString\ name)}}
+\DoxyCodeLine{00072\ \textcolor{comment}{//\{}}
+\DoxyCodeLine{00073\ \textcolor{comment}{//\ \ UActorComponent*\ component\ =\ new\ T(this);}}
+\DoxyCodeLine{00074\ \textcolor{comment}{//\ \ m\_ActorComponents.push\_back(component);}}
+\DoxyCodeLine{00075\ \textcolor{comment}{//\ \ return\ reinterpret\_cast<T*>(component);}}
+\DoxyCodeLine{00076\ \textcolor{comment}{//\}}}
+
+\end{DoxyCode}

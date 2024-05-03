@@ -1,0 +1,64 @@
+\doxysection{Класс IConsole\+Command}
+\hypertarget{class_i_console_command}{}\label{class_i_console_command}\index{IConsoleCommand@{IConsoleCommand}}
+
+
+{\ttfamily \#include $<$Base\+Console.\+h$>$}
+
+Граф наследования\+:IConsole\+Command\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{d4/d15/class_i_console_command}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool \mbox{\hyperlink{class_i_console_command_a386c44fcc3975345cc4b8c6789be79de}{Execute}} (const \mbox{\hyperlink{class_t_array}{TArray}}$<$ \mbox{\hyperlink{class_f_string}{FString}} $>$ \&Args)=0
+\end{DoxyCompactItemize}
+\doxysubsection*{Открытые члены унаследованные от \mbox{\hyperlink{class_i_console_object}{IConsole\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual class \mbox{\hyperlink{class_i_console_variable}{IConsole\+Variable}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_i_console_object_a7101238140f350114d2c2eb250c3e4ee}{As\+Variable}} ()
+\item 
+virtual bool \mbox{\hyperlink{class_i_console_object_a093cb564193cf09f0012be5531c24093}{Is\+Variable\+Bool}} () const
+\item 
+virtual bool \mbox{\hyperlink{class_i_console_object_ad15b8f9e4949cbec304323ca1acd54cb}{Is\+Variable\+Int}} () const
+\item 
+virtual bool \mbox{\hyperlink{class_i_console_object_a1475373dce3a7b2ce7a3c5bc3d68f561}{Is\+Variable\+Float}} () const
+\item 
+virtual bool \mbox{\hyperlink{class_i_console_object_acf10037995757f16cb5864b412147fd6}{Is\+Variable\+String}} () const
+\item 
+virtual \mbox{\hyperlink{class_t_console_variable_data}{TConsole\+Variable\+Data}}$<$ bool $>$ \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_i_console_object_a65b7510e4000b8a370c82e4dceb82d69}{As\+Variable\+Bool}} ()
+\item 
+virtual \mbox{\hyperlink{class_t_console_variable_data}{TConsole\+Variable\+Data}}$<$ \mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}} $>$ \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_i_console_object_a4cedcdbb48247c346061309c090949df}{As\+Variable\+Int}} ()
+\item 
+virtual \mbox{\hyperlink{class_t_console_variable_data}{TConsole\+Variable\+Data}}$<$ float $>$ \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_i_console_object_ad7b88eaa812093cacf2cd814473e7fc0}{As\+Variable\+Float}} ()
+\item 
+virtual \mbox{\hyperlink{class_t_console_variable_data}{TConsole\+Variable\+Data}}$<$ \mbox{\hyperlink{class_f_string}{FString}} $>$ \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_i_console_object_a47a210960116bf1330327a6110a80464}{As\+Variable\+String}} ()
+\item 
+virtual class \mbox{\hyperlink{class_i_console_command}{IConsole\+Command}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_i_console_object_a65f16f7e6ff35313d7a3d13f65708328}{As\+Command}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Дополнительные унаследованные члены}
+\doxysubsection*{Открытые атрибуты унаследованные от \mbox{\hyperlink{class_i_console_object}{IConsole\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_f_string}{FString}} \mbox{\hyperlink{class_i_console_object_a8ca6a8ffbb0d2b7b07fbd341cebbd0f5}{Description}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Методы}
+\Hypertarget{class_i_console_command_a386c44fcc3975345cc4b8c6789be79de}\label{class_i_console_command_a386c44fcc3975345cc4b8c6789be79de} 
+\index{IConsoleCommand@{IConsoleCommand}!Execute@{Execute}}
+\index{Execute@{Execute}!IConsoleCommand@{IConsoleCommand}}
+\doxysubsubsection{\texorpdfstring{Execute()}{Execute()}}
+{\footnotesize\ttfamily virtual bool IConsole\+Command\+::\+Execute (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_t_array}{TArray}}$<$ \mbox{\hyperlink{class_f_string}{FString}} $>$ \&}]{Args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Замещается в \mbox{\hyperlink{class_f_console_command_a303e4d81d425862e369c1fcd5b670b0f}{FConsole\+Command}}.
+
+
+
+Объявления и описания членов класса находятся в файле\+:\begin{DoxyCompactItemize}
+\item 
+Dark Engine/\+Source/\+Runtime/\+Core/\+Public/\+Console/\mbox{\hyperlink{_base_console_8h}{Base\+Console.\+h}}\end{DoxyCompactItemize}

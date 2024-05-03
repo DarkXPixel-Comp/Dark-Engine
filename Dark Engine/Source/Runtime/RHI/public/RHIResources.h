@@ -1,9 +1,11 @@
 #pragma once
 #include "RHIDefines.h"
-#include "CoreTypes.h"
 #include "Containers/DarkString.h"
 #include "Containers/Array.h"
 #include "Containers/StaticArray.h"
+#include "Misc/AssertionMacros.h"
+#include "Math/MathFwd.h"
+#include "Templates/RefCounting.h"
 
 
 
@@ -33,16 +35,13 @@ struct FRHIViewDesc
 
 
 
-class FRHIResource
+class FRHIResource : public FRefCountedObject
 {
 	friend class FRHICommandListImmediate;
 
 public:
 	FRHIResource(ERHIResourceType InResourceType): ResourceType(InResourceType) {}
 	virtual ~FRHIResource() {}
-
-	uint32 Release() { return 0; }
-
 
 	bool IsValid() const
 	{
@@ -75,7 +74,7 @@ private:
 
 protected:
 	ERHIResourceType ResourceType;
-	FString Name;
+	FString Name = TEXT("RHIResource");
 
 };
 
@@ -83,13 +82,13 @@ protected:
 class FRHIViewableResource : public FRHIResource
 {
 public:
-	FRHIViewableResource(ERHIResourceType InResourceType, ERHIAcces InAccess):
+	FRHIViewableResource(ERHIResourceType InResourceType, ERHIAccess InAccess):
 		FRHIResource(InResourceType),
 		Access(InAccess)
 	{}
 
 private:
-	ERHIAcces Access;
+	ERHIAccess Access;
 
 };
 
@@ -146,10 +145,6 @@ struct FRHIBufferDesc
 		}
 		return false;
 	}
-
-
-
-
 };
 
 
@@ -159,7 +154,7 @@ struct FRHIBufferDesc
 class FRHIBuffer : public FRHIResource
 {
 public:
-	FRHIBuffer(FRHIBufferDesc& InDesc) :
+	FRHIBuffer(const FRHIBufferDesc& InDesc) :
 		FRHIResource(RRT_Buffer),
 		Desc(InDesc)	 
 	{}
@@ -178,6 +173,7 @@ private:
 	FRHIBufferDesc Desc = {};
 
 };
+
 
 
 struct FRHITextureDesc
@@ -210,6 +206,24 @@ struct FRHITextureDesc
 		Dimension(InDimension)
 	{}
 
+
+	bool IsTextureCube() const
+	{
+		return Dimension == ETextureDimension::TextureCube || Dimension == ETextureDimension::TextureCubeArray;
+	}
+	bool IsTexture2D() const
+	{
+		return Dimension == ETextureDimension::Texture2D || Dimension == ETextureDimension::Texture2DArray;
+	}
+	bool IsTexture3D() const
+	{
+		return Dimension == ETextureDimension::Texture3D;
+	}
+	bool IsTextureArray() const
+	{
+		return Dimension == ETextureDimension::Texture2DArray || Dimension == ETextureDimension::TextureCubeArray;
+	}
+
 	uint32 ExtData = 0;
 	FIntPoint Extent = FIntPoint(1, 1);
 	uint16 ArraySize = 1;
@@ -218,7 +232,8 @@ struct FRHITextureDesc
 	uint8 NumSamples = 1;
 	ETextureDimension Dimension = ETextureDimension::Texture2D;
 	EPixelFormat Format = PF_Unknown;
-
+	ERHIAccess InitialState = ERHIAccess::Unknown;
+	ETextureCreateFlags Flags = ETextureCreateFlags::None;
 };
 
 
@@ -241,6 +256,16 @@ struct FRHITextureCreateDesc : public FRHITextureDesc
 	FRHITextureCreateDesc& SetFormat(EPixelFormat InFormat)
 	{
 		Format = InFormat;
+		return *this;
+	}
+	FRHITextureCreateDesc& SetFlags(ETextureCreateFlags InFlags)
+	{
+		Flags = InFlags;
+		return *this;
+	}
+	FRHITextureCreateDesc& SetInitialState(ERHIAccess InInitialState)
+	{
+		InitialState = InInitialState;
 		return *this;
 	}
 
@@ -267,10 +292,16 @@ struct FRHITextureCreateDesc : public FRHITextureDesc
 
 
 
-class FRHITexture : public FRHIResource
+class FRHITexture : public FRHIResource 
 {
 public:
 	EPixelFormat GetPixelFormat() const { return TextureDesc.Format; }
+
+	virtual void* GetNativeResource() const { return nullptr; }
+	virtual void* GetNativeShaderResourceView() const { return nullptr; }
+	virtual FIntPoint GetSize() const { return TextureDesc.Extent; }
+	virtual const FRHITextureDesc& GetDesc() const { return TextureDesc; }
+
 protected:
 	FRHITexture(const FRHITextureCreateDesc& InDesc) :
 		FRHIResource(RRT_Texture),
@@ -279,11 +310,13 @@ protected:
 		SetName(InDesc.DebugName);
 	}
 
-private:
+
+
+
+protected:
 	FRHITextureDesc TextureDesc;
 
 };
-
 
 
 
@@ -297,6 +330,7 @@ public:
 
 	virtual void Tick(float DeltaTime) {}
 	virtual void WaitForFrameEventCompletion() {}
+	virtual void Resize(int32 Width, int32 Height, bool bWasMinimized) {}
 
 };
 
@@ -326,6 +360,8 @@ public:
 	{}
 
 
+	uint64 ShaderHash = 0;
+
 private:
 	struct ShaderID
 	{
@@ -345,6 +381,54 @@ public:
 
 };
 
+
+struct FVertexElement
+{
+	uint8 Offset;
+	uint8 Stride;
+	uint8 AttributeIndex;
+	uint8 bUseInstanceIndex;
+	EVertexElementType Type;
+
+	FString Name = TEXT("");
+
+
+	FVertexElement() {}
+
+	FVertexElement(EVertexElementType InType, uint8 InAttributeIndex, uint8 InOffset, uint8 InbUseInstanceIndex, uint8 InStride) :
+		Type(InType),
+		AttributeIndex(InAttributeIndex),
+		Offset(InOffset),
+		bUseInstanceIndex(InbUseInstanceIndex),
+		Stride(InStride)
+	{}
+};
+
+template<>
+struct std::hash<FVertexElement>
+{
+	uint64 operator()(const FVertexElement& Other) const
+	{
+		uint64 Result = 0;
+		hash_combine(Result, Other.Offset);
+		hash_combine(Result, Other.Stride);
+		hash_combine(Result, Other.AttributeIndex);
+		hash_combine(Result, Other.bUseInstanceIndex);
+		hash_combine(Result, (uint8)Other.Type);
+		return Result;
+	}
+};
+
+
+typedef TArray<FVertexElement> FVertexDeclarationElementList;
+
+class FRHIVertexDeclaration : public FRHIResource
+{
+public:
+	FRHIVertexDeclaration() : FRHIResource(RRT_VertexDeclaration) {}
+	virtual bool GetInitializer(FVertexDeclarationElementList& Init) { return false; }
+};
+
 class FRHIVertexShader : public FRHIGraphicsShader
 {
 public:
@@ -358,17 +442,60 @@ public:
 	{}
 };
 
+class FRHIGeometryShader : public FRHIGraphicsShader
+{
+public:
+	FRHIGeometryShader() : FRHIGraphicsShader(RRT_GeometryShader, ST_Geometry)
+	{}
+};
+
+
+class FRHIComputeShader : public FRHIShader
+{
+public:
+	FRHIComputeShader() : FRHIShader(RRT_ComputeShader, ST_Geometry)
+	{}
+};
+
+
+class FRHIRasterizerState : public FRHIResource
+{
+public:
+	FRHIRasterizerState() : FRHIResource(RRT_RasterizerState) {}
+
+	FRasterizerStateInitializer Initializer;
+};
+
+
+class FRHIDepthStencilState : public FRHIResource
+{
+public:
+	FRHIDepthStencilState() : FRHIResource(RRT_DepthStencilState) {}
+
+	
+};
+
 
 class FRHISamplerState : public FRHIResource
 {
+public:
 	FRHISamplerState() : FRHIResource(RRT_SamplerState) {}
 	virtual FRHIDescriptorHandle GetBindlessHandle() const { return FRHIDescriptorHandle(); }
+};
+
+class FRHIUniformBuffer : public FRHIResource
+{
+public:
+	FRHIUniformBuffer() : FRHIResource(RRT_UniformBuffer)
+	{}
 };
 
 class FRHIRenderTargetView
 {
 public:
 	FRHIRenderTargetView() = default;
+	FRHIRenderTargetView(FRHITexture* InTexture): Texture(InTexture)
+	{}
 
 
 	FRHITexture* Texture = nullptr;
@@ -444,4 +571,89 @@ public:
 	bool bClearStencil = false;
 
 	//...
+};
+
+
+
+
+struct FBoundShaderStateInput
+{
+	FBoundShaderStateInput
+	(
+		FRHIVertexShader* InVertexShader,
+		FRHIPixelShader* InPixelShader,
+		FRHIGeometryShader* InGeometryShader
+	):
+		VertexShaderRHI(InVertexShader),
+		PixelShaderRHI(InPixelShader),
+		GeometryShaderRHI(InGeometryShader)
+	{}
+
+	FBoundShaderStateInput()
+	{}
+
+	bool operator ==(const FBoundShaderStateInput& Other) const
+	{
+		return VertexShaderRHI == Other.VertexShaderRHI && PixelShaderRHI == Other.PixelShaderRHI && GeometryShaderRHI == Other.GeometryShaderRHI && VertexDeclaration == Other.VertexDeclaration; 
+	}
+
+	FRHIVertexDeclaration* VertexDeclaration = nullptr;
+	FRHIVertexShader* VertexShaderRHI = nullptr;
+	FRHIPixelShader* PixelShaderRHI = nullptr;
+	FRHIGeometryShader* GeometryShaderRHI = nullptr;
+};
+
+
+
+class FGraphicsPipelineStateInitializer
+{
+public:
+	FBoundShaderStateInput BoundShaderState;
+	EPrimitiveType PrimitiveType;
+	EPixelFormat RenderTargetFormats[8];
+	EPixelFormat DepthFormat;
+	TRefCountPtr<FRHIRasterizerState> RasterizerState;
+
+
+
+
+	bool operator==(const FGraphicsPipelineStateInitializer& Other) const
+	{
+		return Other.BoundShaderState == BoundShaderState && PrimitiveType == Other.PrimitiveType;
+	}
+
+private:
+};
+
+template<>
+struct std::hash<FBoundShaderStateInput>
+{
+	std::size_t operator()(const FBoundShaderStateInput& Key) const
+	{
+		std::size_t Result = 0;
+		hash_without_hash_combine(Result, Key.PixelShaderRHI ? Key.PixelShaderRHI->ShaderHash : 0);
+		hash_without_hash_combine(Result, Key.VertexShaderRHI ? Key.VertexShaderRHI->ShaderHash : 0);
+		hash_without_hash_combine(Result, Key.GeometryShaderRHI ? Key.GeometryShaderRHI->ShaderHash : 0);
+		//hash_without_hash_combine(Result, Key.PixelShaderRHI ? Key.VertexDeclaration->ShaderHash : 0);
+
+		return Result;
+		/*return(std::hash<uint64>()((uint64)Key.VertexShaderRHI) << 1)
+			^ (std::hash<uint64>()((uint64)Key.PixelShaderRHI) << 1)
+			^ (std::hash<uint64>()((uint64)Key.GeometryShaderRHI) << 1);*/
+	}
+
+};
+
+
+template<>
+struct std::hash<FGraphicsPipelineStateInitializer>
+{
+	std::size_t operator()(const FGraphicsPipelineStateInitializer& Key) const
+	{	 
+		std::size_t Result = 0;
+		hash_combine(Result, Key.BoundShaderState);
+		hash_combine(Result, (uint32)Key.PrimitiveType);
+		return Result;
+	}
+
 };

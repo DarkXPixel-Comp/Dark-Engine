@@ -1,0 +1,65 @@
+\doxysection{Int\+Rect.\+h}
+\hypertarget{_int_rect_8h_source}{}\label{_int_rect_8h_source}\index{Dark Engine/Source/Runtime/Core/Public/Math/IntRect.h@{Dark Engine/Source/Runtime/Core/Public/Math/IntRect.h}}
+\mbox{\hyperlink{_int_rect_8h}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_int_point_8h}{IntPoint.h}}"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_d_e}{DE}}}
+\DoxyCodeLine{00008\ \{}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keyword}{namespace\ }Math}
+\DoxyCodeLine{00010\ \ \ \ \ \{}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ IntType>}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_int_rect}{TIntRect}}}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_int_rect_ac5ff6713c5eeca3d4e5d08dddebd86ac}{IntPointType}}\ =\ TIntPoint<IntType>;}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_assert}(\mbox{\hyperlink{struct_t_is_integer}{TIsInteger<IntType>::Value}},\ \textcolor{stringliteral}{"{}Only\ Integer"{}});}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{union}}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_int_rect_ac5ff6713c5eeca3d4e5d08dddebd86ac}{IntPointType}}\ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_int_rect_adb20f36c0efafd71176664ded3d05fca}{LeftUp}};}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_int_rect_ac5ff6713c5eeca3d4e5d08dddebd86ac}{IntPointType}}\ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_int_rect_ae2eaa416e2438a65da16b0a0c2e0ef09}{RightDown}};}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_int_rect_ac5ff6713c5eeca3d4e5d08dddebd86ac}{IntPointType}}\ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_int_rect_a7e83523711d6a8ef4286642c99d833af}{LeftUpRightDown}}[2];}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_int_rect_a5ddfe2a05040cbe53f69d19aad453223}{TIntRect}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_int_rect_affc247e02ecc39fcba8cac913de62a7d}{TIntRect}}(IntType\ X0,\ IntType\ Y0,\ IntType\ X1,\ IntType\ Y1)\ :}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_int_rect_adb20f36c0efafd71176664ded3d05fca}{LeftUp}}(X0,\ Y0),}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_int_rect_ae2eaa416e2438a65da16b0a0c2e0ef09}{RightDown}}(X1,\ Y1)}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \{\}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_int_rect_a5a34b9395b1b01c54dea216edc27e231}{TIntRect}}(\mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_int_rect_ac5ff6713c5eeca3d4e5d08dddebd86ac}{IntPointType}}\ InLeftUp,\ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_int_rect_ac5ff6713c5eeca3d4e5d08dddebd86ac}{IntPointType}}\ InRightDown):}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_int_rect_adb20f36c0efafd71176664ded3d05fca}{LeftUp}}(InLeftUp),}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_int_rect_ae2eaa416e2438a65da16b0a0c2e0ef09}{RightDown}}(InRightDown)}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \{\}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_int_rect_a1f4b466a4fa44e0ba9b9910a8eb550e7}{IsPointInRect}}(\mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_int_rect_ac5ff6713c5eeca3d4e5d08dddebd86ac}{IntPointType}}\ Point)}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (Point.X\ >\ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_int_rect_adb20f36c0efafd71176664ded3d05fca}{LeftUp}}.X\ \&\&}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Point.X\ <\ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_int_rect_ae2eaa416e2438a65da16b0a0c2e0ef09}{RightDown}}.X\ \&\&}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Point.Y\ >\ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_int_rect_adb20f36c0efafd71176664ded3d05fca}{LeftUp}}.Y\ \&\&}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Point.Y\ <\ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_int_rect_ae2eaa416e2438a65da16b0a0c2e0ef09}{RightDown}}.Y)}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ \}}
+\DoxyCodeLine{00059\ \}}
+
+\end{DoxyCode}

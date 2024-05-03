@@ -1,0 +1,84 @@
+\doxysection{Platform.\+h}
+\hypertarget{_platform_8h_source}{}\label{_platform_8h_source}\index{Dark Engine/Source/Runtime/Core/Public/HAL/Platform.h@{Dark Engine/Source/Runtime/Core/Public/HAL/Platform.h}}
+\mbox{\hyperlink{_platform_8h}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\#include\ "{}Definitions.h"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_preprocessor_helpers_8h}{PreprocessorHelpers.h}}"{}}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#if\ !defined(PLATFORM\_WINDOWS)}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#define\ PLATFORRM\_WINDOWS\ 0}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#if\ !defined(PLATFORM\_MICROSOFT)}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#define\ PLATFORM\_MICROSOFT\ 0}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{comment}{//\#include\ "{}Windows/WindowsPlatform.h"{}}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ COMPILED\_PLATFORM\_HEADER(Platform.h)}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#ifndef\ LIKELY\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{/*\ Hints\ compiler\ that\ expression\ is\ likely\ to\ be\ true,\ much\ softer\ than\ UE\_ASSUME\ -\/\ allows\ (penalized\ by\ worse\ performance)\ expression\ to\ be\ false\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#if\ (\ defined(\_\_clang\_\_)\ ||\ defined(\_\_GNUC\_\_)\ )\ \&\&\ (PLATFORM\_UNIX)\ \ }\textcolor{comment}{//\ effect\ of\ these\ on\ non-\/Linux\ platform\ has\ not\ been\ analyzed\ as\ of\ 2016-\/03-\/21}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ LIKELY(x)\ \ \ \ \ \ \ \ \ \ \ \_\_builtin\_expect(!!(x),\ 1)}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00023\ \textcolor{comment}{//\ the\ additional\ "{}!!"{}\ is\ added\ to\ silence\ "{}warning:\ equality\ comparison\ with\ exteraneous\ parenthese"{}\ messages\ on\ android}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#define\ LIKELY(x)\ \ \ \ \ \ \ \ \ \ \ (!!(x))}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#ifndef\ UNLIKELY\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{/*\ Hints\ compiler\ that\ expression\ is\ unlikely\ to\ be\ true,\ allows\ (penalized\ by\ worse\ performance)\ expression\ to\ be\ true\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#if\ (\ defined(\_\_clang\_\_)\ ||\ defined(\_\_GNUC\_\_)\ )\ \&\&\ (PLATFORM\_UNIX)\ \ }\textcolor{comment}{//\ effect\ of\ these\ on\ non-\/Linux\ platform\ has\ not\ been\ analyzed\ as\ of\ 2016-\/03-\/21}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#define\ UNLIKELY(x)\ \ \ \ \ \ \ \ \ \_\_builtin\_expect(!!(x),\ 0)}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{comment}{//\ the\ additional\ "{}!!"{}\ is\ added\ to\ silence\ "{}warning:\ equality\ comparison\ with\ exteraneous\ parenthese"{}\ messages\ on\ android}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#define\ UNLIKELY(x)\ \ \ \ \ \ \ \ \ (!!(x))}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{keyword}{typedef}\ FPlatformTypes::int8\ \mbox{\hyperlink{_platform_8h_a246fcaeb7b4e208e08c0683b1f507494}{int8}};}
+\DoxyCodeLine{00039\ \textcolor{keyword}{typedef}\ FPlatformTypes::uint8\ \mbox{\hyperlink{_platform_8h_a40bc01dd090acd02a79b5dc13e08abe6}{uint8}};}
+\DoxyCodeLine{00040\ \textcolor{keyword}{typedef}\ FPlatformTypes::int16\ \mbox{\hyperlink{_platform_8h_a1bd80c51a4b4f984eaeb341a689a989d}{int16}};}
+\DoxyCodeLine{00041\ \textcolor{keyword}{typedef}\ FPlatformTypes::uint16\ \mbox{\hyperlink{_platform_8h_a55934b7aafc849240fa69ea0339c0ab7}{uint16}};}
+\DoxyCodeLine{00042\ \textcolor{keyword}{typedef}\ FPlatformTypes::int32\ \mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}};}
+\DoxyCodeLine{00043\ \textcolor{keyword}{typedef}\ FPlatformTypes::uint32\ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}};}
+\DoxyCodeLine{00044\ \textcolor{keyword}{typedef}\ FPlatformTypes::int64\ \mbox{\hyperlink{_platform_8h_a89241ea7101f26f05a4f1efd6be26b32}{int64}};}
+\DoxyCodeLine{00045\ \textcolor{keyword}{typedef}\ FPlatformTypes::uint64\ \mbox{\hyperlink{_platform_8h_afddf25cca147311c233b23a9d3329bb4}{uint64}};}
+\DoxyCodeLine{00046\ \textcolor{keyword}{typedef}\ FPlatformTypes::ANSICHAR\ \mbox{\hyperlink{_platform_8h_ac65a9f028228aed366b4d8f24a8ab9e9}{ANSICHAR}};}
+\DoxyCodeLine{00047\ \textcolor{keyword}{typedef}\ FPlatformTypes::WIDECHAR\ \mbox{\hyperlink{_platform_8h_a827f84d187d97e962586441ccb428bcd}{WIDECHAR}};}
+\DoxyCodeLine{00048\ \textcolor{keyword}{typedef}\ FPlatformTypes::TCHAR\ \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}};}
+\DoxyCodeLine{00049\ \textcolor{keyword}{typedef}\ FPlatformTypes::UTF8CHAR\ \mbox{\hyperlink{_platform_8h_aa106c6faac821072d5d22b6596819e68}{UTF8CHAR}};}
+\DoxyCodeLine{00050\ \textcolor{keyword}{typedef}\ FPlatformTypes::CHAR16\ \mbox{\hyperlink{_platform_8h_a121b7c1744d52c1092756ec94fc61fca}{UCS2CHAR}};}
+\DoxyCodeLine{00051\ \textcolor{keyword}{typedef}\ FPlatformTypes::CHAR16\ \mbox{\hyperlink{_platform_8h_ab245726bba5fa0ec3682d602c304ca6f}{UTF16CHAR}};}
+\DoxyCodeLine{00052\ \textcolor{keyword}{typedef}\ FPlatformTypes::CHAR32\ \mbox{\hyperlink{_platform_8h_afe256fec1eca80ac3649f994c01acfb0}{UTF32CHAR}};}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{struct_f_windows_platform_types_a56bf1037bfe44bf96ec4bf6b080a2875}{FPlatformTypes::SIZE\_T}}\ \mbox{\hyperlink{_platform_8h_a2c46f1fb01e11216aa2c983307deafb4}{SIZE\_T}};}
+\DoxyCodeLine{00055\ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{struct_f_windows_platform_types_a152147135b159c0239c8fdff2d5e4b0d}{FPlatformTypes::SSIZE\_T}}\ \mbox{\hyperlink{_platform_8h_a2acf6f2dd03d5384792b7c090aa6b402}{SSIZE\_T}};}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#define\ UTF8TEXT\_PASTE(x)\ u8\ \#\#\ x}}
+\DoxyCodeLine{00059\ \textcolor{preprocessor}{\#define\ UTF16TEXT\_PASTE(x)\ u\ \#\#\ x}}
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\#define\ WIDETEXT\_PASTE(x)\ L\ \#\#\ x}}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\#undef\ TEXT}}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \textcolor{preprocessor}{\#if\ !defined(TEXT)}}
+\DoxyCodeLine{00065\ \textcolor{preprocessor}{\#if\ PLATFORM\_TCHAR\_IS\_UTF8CHAR}}
+\DoxyCodeLine{00066\ \textcolor{preprocessor}{\#define\ TEXT\_PASTE(x)\ UTF8TEXT(x)}}
+\DoxyCodeLine{00067\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\#define\ TEXT\_PASTE(x)\ WIDETEXT(x)}}
+\DoxyCodeLine{00069\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00070\ \textcolor{preprocessor}{\#define\ TEXT(x)\ TEXT\_PASTE(x)}}
+\DoxyCodeLine{00071\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \textcolor{preprocessor}{\#define\ UTF16TEXT(x)\ UTF16TEXT\_PASTE(x)}}
+\DoxyCodeLine{00077\ \textcolor{preprocessor}{\#define\ WIDETEXT(str)\ WIDETEXT\_PASTE(str)}}
+\DoxyCodeLine{00078\ }
+
+\end{DoxyCode}

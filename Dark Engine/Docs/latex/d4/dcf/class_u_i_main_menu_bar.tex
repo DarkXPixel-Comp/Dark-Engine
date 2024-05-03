@@ -1,0 +1,171 @@
+\doxysection{Класс UIMain\+Menu\+Bar}
+\hypertarget{class_u_i_main_menu_bar}{}\label{class_u_i_main_menu_bar}\index{UIMainMenuBar@{UIMainMenuBar}}
+
+
+{\ttfamily \#include $<$UIMain\+Menu\+Bar.\+h$>$}
+
+Граф наследования\+:UIMain\+Menu\+Bar\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{d4/dcf/class_u_i_main_menu_bar}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_u_i_main_menu_bar_aa9e7273f2ca3846e990506e02e481c96}{UIMain\+Menu\+Bar}} ()
+\item 
+virtual void \mbox{\hyperlink{class_u_i_main_menu_bar_a09066d20622ed8d2546b3ed4acfafe52}{Draw\+Im\+Gui}} ()
+\item 
+virtual void \mbox{\hyperlink{class_u_i_main_menu_bar_aabb037cfe322b9dc8fd89f92254bae56}{Update}} (float Delta\+Time)
+\item 
+void \mbox{\hyperlink{class_u_i_main_menu_bar_a8bb5b0f3245f4a180abd3bc84aebdbba}{Add\+Menu}} (const \mbox{\hyperlink{_t_unique_ptr_8h_ab7a7d47ba593c2489fecf3f003f56c53}{TShared\+Ptr}}$<$ class \mbox{\hyperlink{class_u_i_menu}{UIMenu}} $>$ \&In\+Menu)
+\item 
+void \mbox{\hyperlink{class_u_i_main_menu_bar_af2ac1a01e227ec47a82f2be525e7a09b}{Set\+Icon\+Texture}} (\mbox{\hyperlink{_t_unique_ptr_8h_a0e0f00349c59b03cfd84d025bb3d6d91}{TRef\+Count\+Ptr}}$<$ class \mbox{\hyperlink{class_f_r_h_i_texture}{FRHITexture}} $>$ In\+Icon\+Texture)
+\item 
+void \mbox{\hyperlink{class_u_i_main_menu_bar_a00bbc5faa180730f1e26efc2a20b0626}{Set\+Title}} (\mbox{\hyperlink{class_f_string}{FString}} In\+Title)
+\end{DoxyCompactItemize}
+\doxysubsection*{Открытые члены унаследованные от \mbox{\hyperlink{class_u_i_widget}{UIWidget}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_u_i_widget_a5623518110f7f05db0406185c4da42a4}{UIWidget}} (\mbox{\hyperlink{class_f_string}{FString}} In\+Name=\mbox{\hyperlink{_platform_8h_a2978f60d40d64f3605b5a99f66f292a9}{TEXT}}("{}UIWidget"{}))
+\item 
+void \mbox{\hyperlink{class_u_i_widget_a5ffdf553d2218751fbd1f587edec81a4}{Set\+Size}} (\mbox{\hyperlink{_math_fwd_8h_af5577845559ff81e49036ff088d51cbf}{FInt\+Point}} In\+Size)
+\item 
+void \mbox{\hyperlink{class_u_i_widget_abf5c17fb911bcf9e859439bd7cd30da7}{Set\+Postion}} (\mbox{\hyperlink{_math_fwd_8h_af5577845559ff81e49036ff088d51cbf}{FInt\+Point}} In\+Position)
+\item 
+\mbox{\hyperlink{class_f_string}{FString}} \mbox{\hyperlink{class_u_i_widget_a02aeea95baeeca04332cde6ab99adc8d}{Get\+Name}} () const
+\item 
+void \mbox{\hyperlink{class_u_i_widget_a865a73a1fcb2419f72a22598568a13a7}{Set\+Name}} (\mbox{\hyperlink{class_f_string}{FString}} In\+Name)
+\item 
+void \mbox{\hyperlink{class_u_i_widget_a4c05fb389d601d29abebd8605ee9f659}{Add\+Child}} (\mbox{\hyperlink{_t_unique_ptr_8h_ab7a7d47ba593c2489fecf3f003f56c53}{TShared\+Ptr}}$<$ \mbox{\hyperlink{class_u_i_widget}{UIWidget}} $>$ Child)
+\item 
+void \mbox{\hyperlink{class_u_i_widget_a3a008692757903d765689b5f8436a2cf}{Remove\+Child}} (\mbox{\hyperlink{_t_unique_ptr_8h_ab7a7d47ba593c2489fecf3f003f56c53}{TShared\+Ptr}}$<$ \mbox{\hyperlink{class_u_i_widget}{UIWidget}} $>$ Child)
+\item 
+void \mbox{\hyperlink{class_u_i_widget_aaa79699d3397fd8d66d977ce35c997af}{Deffered\+Remove\+Child}} (\mbox{\hyperlink{class_u_i_widget}{UIWidget}} \texorpdfstring{$\ast$}{*}Child)
+\item 
+bool \mbox{\hyperlink{class_u_i_widget_aef97c41756a26225c09c04363178abf3}{Is\+Open}} () const
+\item 
+void \mbox{\hyperlink{class_u_i_widget_a9cb11697c2cbc808e32cd0571b1c845e}{Set\+Open}} (bool Inb\+Open)
+\item 
+\mbox{\hyperlink{_math_fwd_8h_a64ca0e56e182799ed5a0fbfc0abacc30}{FInt\+Rect}} \mbox{\hyperlink{class_u_i_widget_a9eade48c629f9112148199da9033809b}{Get\+Rect}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Защищенные члены}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_u_i_main_menu_bar_ae1e3eb7e9ac057eb7bc2d22b75d35e62}{Draw\+Menu\+Bar}} ()
+\item 
+void \mbox{\hyperlink{class_u_i_main_menu_bar_a7ec64f830644667ef64b6c610c5e6ead}{Fast\+Load\+Icon}} (\mbox{\hyperlink{_t_unique_ptr_8h_a0e0f00349c59b03cfd84d025bb3d6d91}{TRef\+Count\+Ptr}}$<$ class \mbox{\hyperlink{class_f_r_h_i_texture}{FRHITexture}} $>$ \&In\+Texture, \mbox{\hyperlink{class_f_string}{FString}} Path)
+\item 
+void \mbox{\hyperlink{class_u_i_main_menu_bar_a8ead0f1e272362c292a416a14669175a}{Fast\+Load\+Icon}} (\mbox{\hyperlink{_t_unique_ptr_8h_a0e0f00349c59b03cfd84d025bb3d6d91}{TRef\+Count\+Ptr}}$<$ class \mbox{\hyperlink{class_f_r_h_i_texture}{FRHITexture}} $>$ \&In\+Texture, \mbox{\hyperlink{_platform_8h_a40bc01dd090acd02a79b5dc13e08abe6}{uint8}} \texorpdfstring{$\ast$}{*}Bytes, \mbox{\hyperlink{_platform_8h_afddf25cca147311c233b23a9d3329bb4}{uint64}} Size\+Bytes)
+\end{DoxyCompactItemize}
+\doxysubsection*{Защищенные члены унаследованные от \mbox{\hyperlink{class_u_i_widget}{UIWidget}}}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_u_i_widget_a76c75e697083f965cd3d1c27d31c722f}{For\+Each\+Child}} (std\+::function$<$ void(\mbox{\hyperlink{class_u_i_widget}{UIWidget}} \texorpdfstring{$\ast$}{*})$>$ Func)
+\item 
+void \mbox{\hyperlink{class_u_i_widget_ac670f7f42d80cea678453aff5089e988}{Close\+Widget}} ()
+\item 
+bool \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_u_i_widget_ad63852d58411923c525dbf0a04841cf5}{Is\+Widget\+Close}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Дополнительные унаследованные члены}
+\doxysubsection*{Открытые атрибуты унаследованные от \mbox{\hyperlink{class_u_i_widget}{UIWidget}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_u_i_window}{UIWindow}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_u_i_widget_ae831439d8e4c9a3cd556ff54f167668c}{Window}} = nullptr
+\item 
+\mbox{\hyperlink{class_u_i_widget}{UIWidget}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_u_i_widget_a62395be13ea933dee219a9cd2dea0487}{Owner}} = nullptr
+\item 
+bool \mbox{\hyperlink{class_u_i_widget_ad9acaa197c5fb4b7fbe0c7710d709f04}{b\+Have\+Close\+Button}} = false
+\end{DoxyCompactItemize}
+\doxysubsection*{Защищенные данные унаследованные от \mbox{\hyperlink{class_u_i_widget}{UIWidget}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_math_fwd_8h_af5577845559ff81e49036ff088d51cbf}{FInt\+Point}} \mbox{\hyperlink{class_u_i_widget_a50774a40c2d9e05a1861f1b340e0ea5a}{Position}}
+\item 
+\mbox{\hyperlink{_math_fwd_8h_a64ca0e56e182799ed5a0fbfc0abacc30}{FInt\+Rect}} \mbox{\hyperlink{class_u_i_widget_a28c927012f676e66a02f8af450e2d275}{Rect}}
+\item 
+\mbox{\hyperlink{_math_fwd_8h_af5577845559ff81e49036ff088d51cbf}{FInt\+Point}} \mbox{\hyperlink{class_u_i_widget_aad73df333b6e120abef060bbad441b9c}{Size}}
+\item 
+\mbox{\hyperlink{class_t_array}{TArray}}$<$ \mbox{\hyperlink{_t_unique_ptr_8h_ab7a7d47ba593c2489fecf3f003f56c53}{TShared\+Ptr}}$<$ \mbox{\hyperlink{class_u_i_widget}{UIWidget}} $>$ $>$ \mbox{\hyperlink{class_u_i_widget_a8f093ba7a489ca144ab6d1647d3f683f}{Child\+Widgets}}
+\item 
+\mbox{\hyperlink{class_f_string}{FString}} \mbox{\hyperlink{class_u_i_widget_a63d8d27e5fa60417b3717fd580ac4715}{Name}}
+\item 
+\mbox{\hyperlink{_platform_8h_afddf25cca147311c233b23a9d3329bb4}{uint64}} \mbox{\hyperlink{class_u_i_widget_a93b049ac89ded704797806d62b5d288e}{Index}} = 0
+\item 
+bool \mbox{\hyperlink{class_u_i_widget_a193457cd24eb4f0ada8e0c37a4322691}{b\+Open}} = true
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Конструктор(ы)}
+\Hypertarget{class_u_i_main_menu_bar_aa9e7273f2ca3846e990506e02e481c96}\label{class_u_i_main_menu_bar_aa9e7273f2ca3846e990506e02e481c96} 
+\index{UIMainMenuBar@{UIMainMenuBar}!UIMainMenuBar@{UIMainMenuBar}}
+\index{UIMainMenuBar@{UIMainMenuBar}!UIMainMenuBar@{UIMainMenuBar}}
+\doxysubsubsection{\texorpdfstring{UIMainMenuBar()}{UIMainMenuBar()}}
+{\footnotesize\ttfamily UIMain\+Menu\+Bar\+::\+UIMain\+Menu\+Bar (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Методы}
+\Hypertarget{class_u_i_main_menu_bar_a8bb5b0f3245f4a180abd3bc84aebdbba}\label{class_u_i_main_menu_bar_a8bb5b0f3245f4a180abd3bc84aebdbba} 
+\index{UIMainMenuBar@{UIMainMenuBar}!AddMenu@{AddMenu}}
+\index{AddMenu@{AddMenu}!UIMainMenuBar@{UIMainMenuBar}}
+\doxysubsubsection{\texorpdfstring{AddMenu()}{AddMenu()}}
+{\footnotesize\ttfamily void UIMain\+Menu\+Bar\+::\+Add\+Menu (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{_t_unique_ptr_8h_ab7a7d47ba593c2489fecf3f003f56c53}{TShared\+Ptr}}$<$ class \mbox{\hyperlink{class_u_i_menu}{UIMenu}} $>$ \&}]{In\+Menu }\end{DoxyParamCaption})}
+
+\Hypertarget{class_u_i_main_menu_bar_a09066d20622ed8d2546b3ed4acfafe52}\label{class_u_i_main_menu_bar_a09066d20622ed8d2546b3ed4acfafe52} 
+\index{UIMainMenuBar@{UIMainMenuBar}!DrawImGui@{DrawImGui}}
+\index{DrawImGui@{DrawImGui}!UIMainMenuBar@{UIMainMenuBar}}
+\doxysubsubsection{\texorpdfstring{DrawImGui()}{DrawImGui()}}
+{\footnotesize\ttfamily void UIMain\+Menu\+Bar\+::\+Draw\+Im\+Gui (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Переопределяет метод предка \mbox{\hyperlink{class_u_i_widget_a60e727936071f8591945beb85539ed8b}{UIWidget}}.
+
+\Hypertarget{class_u_i_main_menu_bar_ae1e3eb7e9ac057eb7bc2d22b75d35e62}\label{class_u_i_main_menu_bar_ae1e3eb7e9ac057eb7bc2d22b75d35e62} 
+\index{UIMainMenuBar@{UIMainMenuBar}!DrawMenuBar@{DrawMenuBar}}
+\index{DrawMenuBar@{DrawMenuBar}!UIMainMenuBar@{UIMainMenuBar}}
+\doxysubsubsection{\texorpdfstring{DrawMenuBar()}{DrawMenuBar()}}
+{\footnotesize\ttfamily void UIMain\+Menu\+Bar\+::\+Draw\+Menu\+Bar (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_u_i_main_menu_bar_a7ec64f830644667ef64b6c610c5e6ead}\label{class_u_i_main_menu_bar_a7ec64f830644667ef64b6c610c5e6ead} 
+\index{UIMainMenuBar@{UIMainMenuBar}!FastLoadIcon@{FastLoadIcon}}
+\index{FastLoadIcon@{FastLoadIcon}!UIMainMenuBar@{UIMainMenuBar}}
+\doxysubsubsection{\texorpdfstring{FastLoadIcon()}{FastLoadIcon()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void UIMain\+Menu\+Bar\+::\+Fast\+Load\+Icon (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_t_unique_ptr_8h_a0e0f00349c59b03cfd84d025bb3d6d91}{TRef\+Count\+Ptr}}$<$ class \mbox{\hyperlink{class_f_r_h_i_texture}{FRHITexture}} $>$ \&}]{In\+Texture,  }\item[{\mbox{\hyperlink{class_f_string}{FString}}}]{Path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_u_i_main_menu_bar_a8ead0f1e272362c292a416a14669175a}\label{class_u_i_main_menu_bar_a8ead0f1e272362c292a416a14669175a} 
+\index{UIMainMenuBar@{UIMainMenuBar}!FastLoadIcon@{FastLoadIcon}}
+\index{FastLoadIcon@{FastLoadIcon}!UIMainMenuBar@{UIMainMenuBar}}
+\doxysubsubsection{\texorpdfstring{FastLoadIcon()}{FastLoadIcon()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void UIMain\+Menu\+Bar\+::\+Fast\+Load\+Icon (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_t_unique_ptr_8h_a0e0f00349c59b03cfd84d025bb3d6d91}{TRef\+Count\+Ptr}}$<$ class \mbox{\hyperlink{class_f_r_h_i_texture}{FRHITexture}} $>$ \&}]{In\+Texture,  }\item[{\mbox{\hyperlink{_platform_8h_a40bc01dd090acd02a79b5dc13e08abe6}{uint8}} \texorpdfstring{$\ast$}{*}}]{Bytes,  }\item[{\mbox{\hyperlink{_platform_8h_afddf25cca147311c233b23a9d3329bb4}{uint64}}}]{Size\+Bytes }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_u_i_main_menu_bar_af2ac1a01e227ec47a82f2be525e7a09b}\label{class_u_i_main_menu_bar_af2ac1a01e227ec47a82f2be525e7a09b} 
+\index{UIMainMenuBar@{UIMainMenuBar}!SetIconTexture@{SetIconTexture}}
+\index{SetIconTexture@{SetIconTexture}!UIMainMenuBar@{UIMainMenuBar}}
+\doxysubsubsection{\texorpdfstring{SetIconTexture()}{SetIconTexture()}}
+{\footnotesize\ttfamily void UIMain\+Menu\+Bar\+::\+Set\+Icon\+Texture (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_t_unique_ptr_8h_a0e0f00349c59b03cfd84d025bb3d6d91}{TRef\+Count\+Ptr}}$<$ class \mbox{\hyperlink{class_f_r_h_i_texture}{FRHITexture}} $>$}]{In\+Icon\+Texture }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_u_i_main_menu_bar_a00bbc5faa180730f1e26efc2a20b0626}\label{class_u_i_main_menu_bar_a00bbc5faa180730f1e26efc2a20b0626} 
+\index{UIMainMenuBar@{UIMainMenuBar}!SetTitle@{SetTitle}}
+\index{SetTitle@{SetTitle}!UIMainMenuBar@{UIMainMenuBar}}
+\doxysubsubsection{\texorpdfstring{SetTitle()}{SetTitle()}}
+{\footnotesize\ttfamily void UIMain\+Menu\+Bar\+::\+Set\+Title (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_f_string}{FString}}}]{In\+Title }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_u_i_main_menu_bar_aabb037cfe322b9dc8fd89f92254bae56}\label{class_u_i_main_menu_bar_aabb037cfe322b9dc8fd89f92254bae56} 
+\index{UIMainMenuBar@{UIMainMenuBar}!Update@{Update}}
+\index{Update@{Update}!UIMainMenuBar@{UIMainMenuBar}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void UIMain\+Menu\+Bar\+::\+Update (\begin{DoxyParamCaption}\item[{float}]{Delta\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Переопределяет метод предка \mbox{\hyperlink{class_u_i_widget_a43b6fe57530ebd0e67249a595e6136bc}{UIWidget}}.
+
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+Dark Engine/\+Source/\+Runtime/\+UICore/public/\+Widgets/\mbox{\hyperlink{_u_i_main_menu_bar_8h}{UIMain\+Menu\+Bar.\+h}}\item 
+Dark Engine/\+Source/\+Runtime/\+UICore/private/\+Widgets/\mbox{\hyperlink{_u_i_main_menu_bar_8cpp}{UIMain\+Menu\+Bar.\+cpp}}\end{DoxyCompactItemize}

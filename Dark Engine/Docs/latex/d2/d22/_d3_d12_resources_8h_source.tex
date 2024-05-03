@@ -1,0 +1,298 @@
+\doxysection{D3\+D12\+Resources.\+h}
+\hypertarget{_d3_d12_resources_8h_source}{}\label{_d3_d12_resources_8h_source}\index{Dark Engine/Source/Runtime/D3D12RHI/private/D3D12Resources.h@{Dark Engine/Source/Runtime/D3D12RHI/private/D3D12Resources.h}}
+\mbox{\hyperlink{_d3_d12_resources_8h}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{_d3_d12_8h}{d3d12.h}}>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_t_unique_ptr_8h}{Memory/TUniquePtr.h}}"{}}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_d3_d12_r_h_i_common_8h}{D3D12RHICommon.h}}"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_dark_template_8h}{Templates/DarkTemplate.h}}"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_ref_counting_8h}{Templates/RefCounting.h}}"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_f_d3_d12_base_shader_resource}{FD3D12BaseShaderResource}};}
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_f_d3_d12_resource}{FD3D12Resource}};}
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_f_d3_d12_heap}{FD3D12Heap}};}
+\DoxyCodeLine{00014\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_f_d3_d12_locked_resource}{FD3D12LockedResource}};}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_f_d3_d12_resource_desc}{FD3D12ResourceDesc}}\ :\ \textcolor{keyword}{public}\ D3D12\_RESOURCE\_DESC}
+\DoxyCodeLine{00018\ \{}
+\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{struct_f_d3_d12_resource_desc_a59b99db38f18856aac7b36accfe93380}{FD3D12ResourceDesc}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00020\ \ \ \ \ \mbox{\hyperlink{struct_f_d3_d12_resource_desc_aa0914b9ea85e115a8601161d94a56404}{FD3D12ResourceDesc}}(\textcolor{keyword}{const}\ CD3DX12\_RESOURCE\_DESC\&\ Other)\ :}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ D3D12\_RESOURCE\_DESC(Other)}
+\DoxyCodeLine{00022\ \ \ \ \ \{\}}
+\DoxyCodeLine{00023\ \ \ \ \ \mbox{\hyperlink{struct_f_d3_d12_resource_desc_a0c479a972df4c640dae6c5371d1402ce}{FD3D12ResourceDesc}}(\textcolor{keyword}{const}\ D3D12\_RESOURCE\_DESC\&\ Other)\ :}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ D3D12\_RESOURCE\_DESC(Other)}
+\DoxyCodeLine{00025\ \ \ \ \ \{\}}
+\DoxyCodeLine{00026\ \};}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_f_d3_d12_resource}{FD3D12Resource}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_f_d3_d12_device_child}{FD3D12DeviceChild}},\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_f_ref_counted_object}{FRefCountedObject}}}
+\DoxyCodeLine{00031\ \{}
+\DoxyCodeLine{00032\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00033\ \ \ \ \ TRefCountPtr<ID3D12Resource>\ \mbox{\hyperlink{_d3_d12_main_8h_ab8eaee8f45f36954297ee6146eb6db20}{Resource}};}
+\DoxyCodeLine{00034\ \ \ \ \ TSharedPtr<FD3D12Heap>\ Heap;}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ D3D12\_GPU\_VIRTUAL\_ADDRESS\ GPUVirtualAddress;}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{void}*\ ResourceBaseAddress;}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{struct_f_d3_d12_resource_desc}{FD3D12ResourceDesc}}\ Desc;}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ D3D12\_RESOURCE\_STATES\ DefaultResourceState;}
+\DoxyCodeLine{00042\ \ \ \ \ D3D12\_RESOURCE\_STATES\ ReadableState;}
+\DoxyCodeLine{00043\ \ \ \ \ D3D12\_RESOURCE\_STATES\ WritableState;}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ D3D12\_HEAP\_TYPE\ HeapType;}
+\DoxyCodeLine{00046\ \ \ \ \ \mbox{\hyperlink{class_f_string}{FString}}\ DebugName;}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{bool}\ bBackBuffer\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00055\ \ \ \ \ \mbox{\hyperlink{class_f_d3_d12_resource_ae1e0b18f1f15d1f3d839dee23c494eca}{FD3D12Resource}}()\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00056\ \ \ \ \ \mbox{\hyperlink{class_f_d3_d12_resource_ae1e0b18f1f15d1f3d839dee23c494eca}{FD3D12Resource}}(}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_f_d3_d12_device}{FD3D12Device}}*\ ParentDevice,}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ ID3D12Resource*\ InResource,}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ D3D12\_RESOURCE\_STATES\ InInitialResourceState,}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_f_d3_d12_resource_desc}{FD3D12ResourceDesc}}\&\ InDesc,}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_f_d3_d12_heap}{FD3D12Heap}}*\ InHeap\ =\ \textcolor{keyword}{nullptr},}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ D3D12\_HEAP\_TYPE\ InHeapType\ =\ D3D12\_HEAP\_TYPE\_DEFAULT}
+\DoxyCodeLine{00063\ \ \ \ \ );}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ \mbox{\hyperlink{class_f_d3_d12_resource_af1e18572a65795a56b5edc289b951c42}{\string~FD3D12Resource}}()}
+\DoxyCodeLine{00066\ \ \ \ \ \{}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ \}}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ D3D12\_GPU\_VIRTUAL\_ADDRESS\ \mbox{\hyperlink{class_f_d3_d12_resource_a5412a477eb8177abd6fac118f594e324}{GetGPUVirtualAddress}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ GPUVirtualAddress;\ \}}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \ \ \ \ D3D12\_RESOURCE\_STATES\ \mbox{\hyperlink{class_f_d3_d12_resource_a20039b0d7099146cd760fac176961531}{GetCurrentState}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ DefaultResourceState;\ \}}
+\DoxyCodeLine{00073\ \ \ \ \ D3D12\_HEAP\_TYPE\ \mbox{\hyperlink{class_f_d3_d12_resource_a9bf59bdc58a1856019d4fd567615bec7}{GetHeapType}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ HeapType;\ \}}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_d3_d12_resource_a39715d8d6c43e1ee18cce4e8754fd7eb}{SetState}}(D3D12\_RESOURCE\_STATES\ State)\ \{\ DefaultResourceState\ =\ State;\ \}}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_d3_d12_resource_a9b8e4ae517a7906b30f68e9df3314be6}{SetIsBackBuffer}}(\textcolor{keywordtype}{bool}\ bInBackBuffer)\ \{\ bBackBuffer\ =\ bInBackBuffer;\ \}}
+\DoxyCodeLine{00076\ \ \ \ \ ID3D12Resource*\ \mbox{\hyperlink{class_f_d3_d12_resource_a3a784affd080d510b410e2cf2a34b3c4}{GetResource}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{_d3_d12_main_8h_ab8eaee8f45f36954297ee6146eb6db20}{Resource}}.Get();\ \}}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_f_d3_d12_resource_desc}{FD3D12ResourceDesc}}\&\ \mbox{\hyperlink{class_f_d3_d12_resource_a10c6e339f70440d73de8fad70ae4e6ac}{GetDesc}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ Desc;\ \}}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \};}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_f_d3_d12_resource_location}{FD3D12ResourceLocation}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_f_d3_d12_device_child}{FD3D12DeviceChild}}}
+\DoxyCodeLine{00085\ \{}
+\DoxyCodeLine{00086\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00087\ \ \ \ \ \mbox{\hyperlink{class_f_d3_d12_resource_location_a3dbd53b2a339d13c10a9b7bf8c49d40e}{FD3D12ResourceLocation}}(\mbox{\hyperlink{class_f_d3_d12_device}{FD3D12Device}}*\ \mbox{\hyperlink{class_f_d3_d12_device_child_afeb899a6e833b3f986e49def99db540c}{Parent}}):}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_f_d3_d12_device_child}{FD3D12DeviceChild}}(\mbox{\hyperlink{class_f_d3_d12_device_child_afeb899a6e833b3f986e49def99db540c}{Parent}})}
+\DoxyCodeLine{00089\ \ \ \ \ \{\}}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_d3_d12_resource_location_a6e90362958369fde607443e72e8327fa}{SetResource}}(\mbox{\hyperlink{class_f_d3_d12_resource}{FD3D12Resource}}*\ InResource)\ \{\ \mbox{\hyperlink{_d3_d12_main_8h_ab8eaee8f45f36954297ee6146eb6db20}{Resource}}\ =\ InResource;\ \}}
+\DoxyCodeLine{00093\ \ \ \ \ \mbox{\hyperlink{class_f_d3_d12_resource}{FD3D12Resource}}*\ \mbox{\hyperlink{class_f_d3_d12_resource_location_a44d09c882c765d976117fa147f56a6eb}{GetResource}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{_d3_d12_main_8h_ab8eaee8f45f36954297ee6146eb6db20}{Resource}}.Get();\ \}}
+\DoxyCodeLine{00094\ \ \ \ \ D3D12\_GPU\_VIRTUAL\_ADDRESS\ \mbox{\hyperlink{class_f_d3_d12_resource_location_a9a9dadadeb01062d8a22f12241d683aa}{GetGPUVirtualAddress}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{_d3_d12_main_8h_ab8eaee8f45f36954297ee6146eb6db20}{Resource}}-\/>GetGPUVirtualAddress();\ \}}
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_d3_d12_resource_location_ab07101d711eb2a6b4b8ad0c1bd7f8046}{SetOwner}}(\mbox{\hyperlink{class_f_d3_d12_base_shader_resource}{FD3D12BaseShaderResource}}*\ InOwner)\ \{\ Owner\ =\ InOwner;\ \}}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{class_f_d3_d12_resource_location_ae3dc47880d86073f96d38ec7d11e3d6d}{GetMappedBaseAddress}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ MappedAddress;\ \}}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \ \ \ \ \mbox{\hyperlink{_platform_8h_afddf25cca147311c233b23a9d3329bb4}{uint64}}\ \mbox{\hyperlink{class_f_d3_d12_resource_location_ad0b63e3d332f9c6c8b1a0017db191487}{GetSize}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{_d3_d12_main_8h_ab8eaee8f45f36954297ee6146eb6db20}{Resource}}-\/>GetDesc().Width;\ \}}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_f_d3_d12_resource_location_a11f19661e03690557a93f763dc9d6365}{IsValid}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00102\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{_d3_d12_main_8h_ab8eaee8f45f36954297ee6146eb6db20}{Resource}}\ !=\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00104\ \ \ \ \ \}}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_d3_d12_resource_location_a54ce545b6528d58d7b0887dc87b79292}{AsStandAlone}}(\mbox{\hyperlink{class_f_d3_d12_resource}{FD3D12Resource}}*\ InResource,\ \mbox{\hyperlink{_platform_8h_afddf25cca147311c233b23a9d3329bb4}{uint64}}\ InSize,\ \textcolor{keyword}{const}\ D3D12\_HEAP\_PROPERTIES*\ HeapProperties)}
+\DoxyCodeLine{00107\ \ \ \ \ \{}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_f_d3_d12_resource_location_a6e90362958369fde607443e72e8327fa}{SetResource}}(InResource);}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_f_d3_d12_resource_location_aee1b702d220bab7c9584c10de88d1808}{SetSize}}(InSize);}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{_d3_d12_main_8h_ab8eaee8f45f36954297ee6146eb6db20}{Resource}}-\/>GetHeapType()\ ==\ D3D12\_HEAP\_TYPE\_UPLOAD\ ||\ \mbox{\hyperlink{_d3_d12_main_8h_ab8eaee8f45f36954297ee6146eb6db20}{Resource}}-\/>GetHeapType()\ ==\ D3D12\_HEAP\_TYPE\_READBACK)}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ D3D12\_RANGE\ Range\ =\ \{\ 0,\ 0\ \};}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_d3_d12_main_8h_ab8eaee8f45f36954297ee6146eb6db20}{Resource}}-\/>GetResource()-\/>Map(0,\ \&Range,\ \&MappedAddress);}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_f_d3_d12_resource_location_abe20269dc925846a9e4e904cd19a6ed3}{SetGPUVirtualAddress}}(\mbox{\hyperlink{_d3_d12_main_8h_ab8eaee8f45f36954297ee6146eb6db20}{Resource}}-\/>GetGPUVirtualAddress());}
+\DoxyCodeLine{00118\ \ \ \ \ \}}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_d3_d12_resource_location_aee1b702d220bab7c9584c10de88d1808}{SetSize}}(\mbox{\hyperlink{_platform_8h_afddf25cca147311c233b23a9d3329bb4}{uint64}}\ InValue)\ \{\ Size\ =\ InValue;\ \}}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_d3_d12_resource_location_a924c0726731a3c09c21ce8d660fdb6ea}{Clear}}()}
+\DoxyCodeLine{00123\ \ \ \ \ \{}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{_d3_d12_main_8h_ab8eaee8f45f36954297ee6146eb6db20}{Resource}})}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ GPUVirtualAddress\ =\ D3D12\_GPU\_VIRTUAL\_ADDRESS();}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (MappedAddress)}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ D3D12\_RANGE\ Range\ =\ \{\ 0,\ 0\ \};}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_d3_d12_main_8h_ab8eaee8f45f36954297ee6146eb6db20}{Resource}}-\/>GetResource()-\/>Unmap(0,\ \&Range);}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ MappedAddress\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ Owner\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ Size\ =\ 0;}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_d3_d12_main_8h_ab8eaee8f45f36954297ee6146eb6db20}{Resource}}.Reset();}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00137\ \ \ \ \ \}}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_d3_d12_resource_location_abe20269dc925846a9e4e904cd19a6ed3}{SetGPUVirtualAddress}}(D3D12\_GPU\_VIRTUAL\_ADDRESS\ InAddress)\ \{\ GPUVirtualAddress\ =\ InAddress;\ \}}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00141\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00142\ \ \ \ \ D3D12\_GPU\_VIRTUAL\_ADDRESS\ GPUVirtualAddress;}
+\DoxyCodeLine{00143\ \ \ \ \ TRefCountPtr<FD3D12Resource>\ \mbox{\hyperlink{_d3_d12_main_8h_ab8eaee8f45f36954297ee6146eb6db20}{Resource}};}
+\DoxyCodeLine{00144\ \ \ \ \ \mbox{\hyperlink{class_f_d3_d12_base_shader_resource}{FD3D12BaseShaderResource}}*\ Owner;\ }
+\DoxyCodeLine{00145\ \ \ \ \ \textcolor{keywordtype}{void}*\ MappedAddress\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00146\ \ \ \ \ \mbox{\hyperlink{_platform_8h_afddf25cca147311c233b23a9d3329bb4}{uint64}}\ Size\ =\ 0;}
+\DoxyCodeLine{00147\ \};}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00155\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_f_d3_d12_heap}{FD3D12Heap}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_f_d3_d12_device_child}{FD3D12DeviceChild}}}
+\DoxyCodeLine{00156\ \{}
+\DoxyCodeLine{00157\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00158\ \ \ \ \ \mbox{\hyperlink{class_f_d3_d12_heap_aedbe15b24c36fd80f3bab9040b06f33b}{FD3D12Heap}}(\mbox{\hyperlink{class_f_d3_d12_device}{FD3D12Device}}*\ InDevice);}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00160\ \ \ \ \ ID3D12Heap*\ \mbox{\hyperlink{class_f_d3_d12_heap_abf95a1d20637db61057844bd205bc33b}{GetHeap}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00162\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_d3_d12_heap_a3a2e3abb900a4a13f187fad673b41e3d}{SetHeap}}(ID3D12Heap*\ InHeap,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}}*\ InName,\ \textcolor{keywordtype}{bool}\ bForceGetGPUAddress);}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00164\ \ \ \ \ D3D12\_GPU\_VIRTUAL\_ADDRESS\ \mbox{\hyperlink{class_f_d3_d12_heap_ad68e85eafff3cefc0c948b9df9cf81e2}{GetGPUVirtualAddress}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ GPUVirtualAddress;\ \}}
+\DoxyCodeLine{00165\ }
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00167\ }
+\DoxyCodeLine{00168\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00169\ \ \ \ \ TRefCountPtr<ID3D12Heap>\ Heap;}
+\DoxyCodeLine{00170\ \ \ \ \ \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}}*\ HeapName;}
+\DoxyCodeLine{00171\ \ \ \ \ D3D12\_HEAP\_DESC\ HeapDesc;}
+\DoxyCodeLine{00172\ \ \ \ \ D3D12\_GPU\_VIRTUAL\_ADDRESS\ GPUVirtualAddress\ =\ 0;}
+\DoxyCodeLine{00173\ \};}
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00175\ }
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00177\ }
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00179\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_f_d3_d12_base_shader_resource}{FD3D12BaseShaderResource}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_f_d3_d12_device_child}{FD3D12DeviceChild}}}
+\DoxyCodeLine{00180\ \{}
+\DoxyCodeLine{00181\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00182\ \ \ \ \ \mbox{\hyperlink{class_f_d3_d12_base_shader_resource_a98967de27785645274657806327e5a6d}{FD3D12BaseShaderResource}}(\mbox{\hyperlink{class_f_d3_d12_device}{FD3D12Device}}*\ InParent)\ :}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_f_d3_d12_device_child}{FD3D12DeviceChild}}(InParent),}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_f_d3_d12_base_shader_resource_a5457bf31e7f1d9eb78295b5c98017df1}{ResourceLocation}}(InParent)}
+\DoxyCodeLine{00185\ \ \ \ \ \{}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_f_d3_d12_base_shader_resource_a5457bf31e7f1d9eb78295b5c98017df1}{ResourceLocation}}.\mbox{\hyperlink{class_f_d3_d12_resource_location_ab07101d711eb2a6b4b8ad0c1bd7f8046}{SetOwner}}(\textcolor{keyword}{this});}
+\DoxyCodeLine{00187\ \ \ \ \ \}}
+\DoxyCodeLine{00188\ \ \ \ \ \mbox{\hyperlink{class_f_d3_d12_base_shader_resource_a88c90926f84d55cf4f5301213476b89e}{\string~FD3D12BaseShaderResource}}()}
+\DoxyCodeLine{00189\ \ \ \ \ \{}
+\DoxyCodeLine{00190\ \ \ \ \ \}}
+\DoxyCodeLine{00191\ \ \ \ \ }
+\DoxyCodeLine{00192\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00193\ \ \ \ \ \mbox{\hyperlink{class_f_d3_d12_resource}{FD3D12Resource}}*\ \mbox{\hyperlink{class_f_d3_d12_base_shader_resource_a9553ed5f7e788d0fa77dcd8500e587c1}{GetResouce}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_f_d3_d12_base_shader_resource_a5457bf31e7f1d9eb78295b5c98017df1}{ResourceLocation}}.\mbox{\hyperlink{class_f_d3_d12_resource_location_a44d09c882c765d976117fa147f56a6eb}{GetResource}}();\ \}}
+\DoxyCodeLine{00194\ }
+\DoxyCodeLine{00195\ }
+\DoxyCodeLine{00196\ }
+\DoxyCodeLine{00197\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00198\ \ \ \ \ \mbox{\hyperlink{class_f_d3_d12_resource_location}{FD3D12ResourceLocation}}\ \mbox{\hyperlink{class_f_d3_d12_base_shader_resource_a5457bf31e7f1d9eb78295b5c98017df1}{ResourceLocation}};}
+\DoxyCodeLine{00199\ \};}
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00201\ }
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00203\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_f_d3_d12_locked_resource}{FD3D12LockedResource}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_f_d3_d12_device_child}{FD3D12DeviceChild}}}
+\DoxyCodeLine{00204\ \{}
+\DoxyCodeLine{00205\ \ \ \ \ \mbox{\hyperlink{struct_f_d3_d12_locked_resource_a8ea9fdfd539b8c6f67e7974404bb0e93}{FD3D12LockedResource}}(\mbox{\hyperlink{class_f_d3_d12_device}{FD3D12Device}}*\ InDevice)\ :}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_f_d3_d12_device_child}{FD3D12DeviceChild}}(InDevice),}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_f_d3_d12_locked_resource_ab2b305317718afad5023829cd9eb4522}{LockedOffset}}(0),}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_f_d3_d12_locked_resource_ae25ae992868a668baeeae53e3a6eba6c}{LockedPitch}}(0),}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_f_d3_d12_locked_resource_a2ae37cc2a58ababa9304347b3dfcfcad}{bLocked}}(false),}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_f_d3_d12_locked_resource_a7dac85e38166387d96a3b5926d398420}{bLockedForReadOnly}}(false),}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_f_d3_d12_locked_resource_a79d4bc21362428dc2306e5d7e147bf14}{bHasNeverBeenLocked}}(true),}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_f_d3_d12_locked_resource_a792ae96b01c73f4f4f13ada58a667135}{MappedAddress}}(nullptr)}
+\DoxyCodeLine{00213\ \ \ \ \ \{\}}
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00215\ \ \ \ \ FORCEINLINE\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{struct_f_d3_d12_locked_resource_a881653fd1a2e56f6239241ec6356452f}{Reset}}()}
+\DoxyCodeLine{00216\ \ \ \ \ \{}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_d3_d12_main_8h_ab8eaee8f45f36954297ee6146eb6db20}{Resource}}.Reset();}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_f_d3_d12_locked_resource_a2ae37cc2a58ababa9304347b3dfcfcad}{bLocked}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_f_d3_d12_locked_resource_a7dac85e38166387d96a3b5926d398420}{bLockedForReadOnly}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_f_d3_d12_locked_resource_ab2b305317718afad5023829cd9eb4522}{LockedOffset}}\ =\ 0;}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_f_d3_d12_locked_resource_ae25ae992868a668baeeae53e3a6eba6c}{LockedPitch}}\ =\ 0;}
+\DoxyCodeLine{00222\ \ \ \ \ \}}
+\DoxyCodeLine{00223\ }
+\DoxyCodeLine{00224\ \ \ \ \ TRefCountPtr<ID3D12Resource>\ \mbox{\hyperlink{struct_f_d3_d12_locked_resource_a5f6519324053bce9d5c647befb07827c}{Resource}};}
+\DoxyCodeLine{00225\ \ \ \ \ \textcolor{comment}{//FD3D12ResourceLocation\ ResourceLocation;}}
+\DoxyCodeLine{00226\ \ \ \ \ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ \mbox{\hyperlink{struct_f_d3_d12_locked_resource_ab2b305317718afad5023829cd9eb4522}{LockedOffset}};}
+\DoxyCodeLine{00227\ \ \ \ \ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ \mbox{\hyperlink{struct_f_d3_d12_locked_resource_ae25ae992868a668baeeae53e3a6eba6c}{LockedPitch}};}
+\DoxyCodeLine{00228\ \ \ \ \ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ \mbox{\hyperlink{struct_f_d3_d12_locked_resource_a2ae37cc2a58ababa9304347b3dfcfcad}{bLocked}}\ :\ 1;}
+\DoxyCodeLine{00229\ \ \ \ \ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ \mbox{\hyperlink{struct_f_d3_d12_locked_resource_a7dac85e38166387d96a3b5926d398420}{bLockedForReadOnly}}\ :\ 1;}
+\DoxyCodeLine{00230\ \ \ \ \ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ \mbox{\hyperlink{struct_f_d3_d12_locked_resource_a79d4bc21362428dc2306e5d7e147bf14}{bHasNeverBeenLocked}}\ :\ 1;}
+\DoxyCodeLine{00231\ \ \ \ \ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{struct_f_d3_d12_locked_resource_a792ae96b01c73f4f4f13ada58a667135}{MappedAddress}};}
+\DoxyCodeLine{00232\ }
+\DoxyCodeLine{00233\ \};}
+\DoxyCodeLine{00234\ }
+\DoxyCodeLine{00235\ }
+\DoxyCodeLine{00236\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_f_d3_d12_buffer}{FD3D12Buffer}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_f_r_h_i_buffer}{FRHIBuffer}},\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_f_d3_d12_base_shader_resource}{FD3D12BaseShaderResource}}}
+\DoxyCodeLine{00237\ \{}
+\DoxyCodeLine{00238\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00239\ \ \ \ \ \mbox{\hyperlink{class_f_d3_d12_buffer_ab0e3c49c66be01023dc650d8ad2bd8a8}{FD3D12Buffer}}(\mbox{\hyperlink{class_f_d3_d12_device}{FD3D12Device}}*\ InParent,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_f_r_h_i_buffer_desc}{FRHIBufferDesc}}\&\ Desc):}
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_f_r_h_i_buffer}{FRHIBuffer}}(Desc),}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_f_d3_d12_base_shader_resource}{FD3D12BaseShaderResource}}(InParent),}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_f_d3_d12_buffer_a015193996658bf06f6b05688e95572d0}{LockedData}}(InParent)}
+\DoxyCodeLine{00243\ \ \ \ \ \{\}}
+\DoxyCodeLine{00244\ }
+\DoxyCodeLine{00245\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_f_d3_d12_buffer_af541445a76956248e44bf23e179fdc28}{\string~FD3D12Buffer}}()}
+\DoxyCodeLine{00246\ \ \ \ \ \{}
+\DoxyCodeLine{00247\ \ \ \ \ \}}
+\DoxyCodeLine{00248\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_d3_d12_buffer_a3bdb5d34c47dd2ddf32bdc15266481fd}{UploadResourceData}}(\textcolor{keyword}{class}\ \mbox{\hyperlink{class_f_r_h_i_command_list_base}{FRHICommandListBase}}\&\ InRHICmdList,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ Buffer,\ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ SizeBuffer,}
+\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ D3D12\_RESOURCE\_STATES\ InDestinationState,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}}*\ \mbox{\hyperlink{class_f_r_h_i_resource_a48df619fc4822732625e1fdd081fcda9}{Name}}\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00250\ }
+\DoxyCodeLine{00251\ }
+\DoxyCodeLine{00252\ }
+\DoxyCodeLine{00253\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_f_d3_d12_locked_resource}{FD3D12LockedResource}}\ \mbox{\hyperlink{class_f_d3_d12_buffer_a015193996658bf06f6b05688e95572d0}{LockedData}};}
+\DoxyCodeLine{00254\ }
+\DoxyCodeLine{00255\ }
+\DoxyCodeLine{00256\ \};}
+\DoxyCodeLine{00257\ }
+\DoxyCodeLine{00258\ }
+\DoxyCodeLine{00259\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_f_d3_d12_resource_barrier_batcher}{FD3D12ResourceBarrierBatcher}}}
+\DoxyCodeLine{00260\ \{}
+\DoxyCodeLine{00261\ \ \ \ \ \textcolor{keyword}{struct\ }FD3D12ResourceBarrier\ :\ \textcolor{keyword}{public}\ D3D12\_RESOURCE\_BARRIER}
+\DoxyCodeLine{00262\ \ \ \ \ \{}
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ FD3D12ResourceBarrier()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ FD3D12ResourceBarrier(D3D12\_RESOURCE\_BARRIER\&\&\ Barrier)\ :\ D3D12\_RESOURCE\_BARRIER(\mbox{\hyperlink{_dark_template_8h_a003eb64f2a7754a2bfdd60ab750e59ce}{MoveTemp}}(Barrier))\ \{\}}
+\DoxyCodeLine{00265\ \ \ \ \ \};}
+\DoxyCodeLine{00266\ }
+\DoxyCodeLine{00267\ }
+\DoxyCodeLine{00268\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00269\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_f_d3_d12_resource_barrier_batcher_ae2d7ea4dcdf7312399f38b3593260791}{AddTransition}}(\mbox{\hyperlink{class_f_d3_d12_resource}{FD3D12Resource}}*\ pResource,\ D3D12\_RESOURCE\_STATES\ Before,\ D3D12\_RESOURCE\_STATES\ After,\ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ SubResource);}
+\DoxyCodeLine{00270\ }
+\DoxyCodeLine{00271\ }
+\DoxyCodeLine{00272\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00273\ \ \ \ \ TArray<FD3D12ResourceBarrier>\ Barriers;}
+\DoxyCodeLine{00274\ }
+\DoxyCodeLine{00275\ }
+\DoxyCodeLine{00276\ \};}
+\DoxyCodeLine{00277\ }
+\DoxyCodeLine{00278\ }
+\DoxyCodeLine{00279\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_f_d3_d12_uniform_buffer}{FD3D12UniformBuffer}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_f_r_h_i_uniform_buffer}{FRHIUniformBuffer}},\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_f_d3_d12_device_child}{FD3D12DeviceChild}}}
+\DoxyCodeLine{00280\ \{}
+\DoxyCodeLine{00281\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00282\ \ \ \ \ \mbox{\hyperlink{class_f_d3_d12_uniform_buffer_aed6ee1f48f54db2155b28a772a0f1490}{FD3D12UniformBuffer}}(\textcolor{keyword}{class}\ \mbox{\hyperlink{class_f_d3_d12_device}{FD3D12Device}}*\ InParent,\ \mbox{\hyperlink{_r_h_i_defines_8h_a44efee7815674a346059a25f9b3c2085}{EUniformBufferUsage}}\ InUniformBufferUsage):}
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_f_d3_d12_device_child}{FD3D12DeviceChild}}(InParent),}
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_f_d3_d12_uniform_buffer_a764159933bce301b093be9bf57dd9c48}{ResourceLocation}}(InParent),}
+\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_f_d3_d12_uniform_buffer_ad398194a75adce9412bf8d16a7f3d87d}{UniformBufferUsage}}(InUniformBufferUsage)}
+\DoxyCodeLine{00286\ \ \ \ \ \{\}}
+\DoxyCodeLine{00287\ }
+\DoxyCodeLine{00288\ \ \ \ \ \mbox{\hyperlink{class_f_d3_d12_resource_location}{FD3D12ResourceLocation}}\ \mbox{\hyperlink{class_f_d3_d12_uniform_buffer_a764159933bce301b093be9bf57dd9c48}{ResourceLocation}};}
+\DoxyCodeLine{00289\ }
+\DoxyCodeLine{00290\ \ \ \ \ \mbox{\hyperlink{_r_h_i_defines_8h_a44efee7815674a346059a25f9b3c2085}{EUniformBufferUsage}}\ \mbox{\hyperlink{class_f_d3_d12_uniform_buffer_ad398194a75adce9412bf8d16a7f3d87d}{UniformBufferUsage}};}
+\DoxyCodeLine{00291\ }
+\DoxyCodeLine{00292\ \};}
+
+\end{DoxyCode}

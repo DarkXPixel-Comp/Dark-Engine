@@ -16,6 +16,7 @@ m_pausedTime(0), m_prevTime(0), m_currTime(0), m_stopped(false)
 	QueryPerformanceFrequency(reinterpret_cast<LARGE_INTEGER*>(&countsPerSec));
 
 	m_secondsPerCount = 1.0 / (double)countsPerSec;
+	Tick();
 }
 
 void FGameTimer::Tick()
@@ -46,6 +47,14 @@ void FGameTimer::Tick()
 
 }
 
+
+float FGameTimer::GameTime()
+{
+	__int64 currTime;
+
+	QueryPerformanceCounter(reinterpret_cast<LARGE_INTEGER*>(&currTime));
+	return (currTime) * _inst_->m_secondsPerCount;
+}
 
 float FGameTimer::DeltaTime()
 {

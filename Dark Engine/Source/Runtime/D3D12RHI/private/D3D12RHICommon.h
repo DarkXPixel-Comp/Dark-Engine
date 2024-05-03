@@ -3,6 +3,12 @@
 #include "D3D12ThirdParty.h"
 
 
+#include "Logging/LogMacros.h"
+
+DECLARE_LOG_CATEGORY(D3D12RHI, Log);
+
+
+
 
 class FD3D12Adapter;
 class FD3D12Device;

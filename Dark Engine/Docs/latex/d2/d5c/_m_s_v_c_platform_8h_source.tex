@@ -1,0 +1,22 @@
+\doxysection{MSVCPlatform.\+h}
+\hypertarget{_m_s_v_c_platform_8h_source}{}\label{_m_s_v_c_platform_8h_source}\index{Dark Engine/Source/Runtime/Core/Public/MSVC/MSVCPlatform.h@{Dark Engine/Source/Runtime/Core/Public/MSVC/MSVCPlatform.h}}
+\mbox{\hyperlink{_m_s_v_c_platform_8h}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <intrin.h>}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#if\ \_MSC\_VER\ <\ 1920}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#error\ "{}Compiler\ is\ expected\ to\ support\ if\ constexpr"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{comment}{//\#if\ defined(\_\_cpp\_fold\_expressions)}}
+\DoxyCodeLine{00010\ \textcolor{comment}{//\#define\ PLATFORM\_COMPILER\_HAS\_FOLD\_EXPRESSIONS\ 1}}
+\DoxyCodeLine{00011\ \textcolor{comment}{//\#else}}
+\DoxyCodeLine{00012\ \textcolor{comment}{//\#error\ "{}Compiler\ is\ expected\ to\ support\ fold\ expressions"{}}}
+\DoxyCodeLine{00013\ \textcolor{comment}{//\#endif}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#define\ PLATFORM\_RETURN\_ADDRESS()\ \ \ \ \ \ \ \ \ \ \ \_ReturnAddress()}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#define\ PLATFORM\_RETURN\_ADDRESS\_POINTER()\ \ \ \_AddressOfReturnAddress()}}
+
+\end{DoxyCode}

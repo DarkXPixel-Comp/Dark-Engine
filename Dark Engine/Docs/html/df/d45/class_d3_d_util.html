@@ -1,0 +1,707 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Dark Engine: Класс D3DUtil</title>
+<link rel="icon" href="../../Logo.png" type="image/x-icon" />
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<script type="text/javascript" src="../../clipboard.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../MiniLogo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Dark Engine<span id="projectnumber">&#160;0.0.50</span>
+   </div>
+   <div id="projectbrief">New game engnie D3D12</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../../',true,false,'search.php','Поиск');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('df/d45/class_d3_d_util.html','../../'); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-static-methods">Открытые статические члены</a> &#124;
+<a href="#pub-static-attribs">Статические открытые данные</a> &#124;
+<a href="../../d8/df1/class_d3_d_util-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle"><div class="title">Класс D3DUtil</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="../../d5/dc5/_d3_d12_utils_8h_source.html">D3D12Utils.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Открытые статические члены</h2></td></tr>
+<tr class="memitem:aef1e7718db784bdb00d4aedfdbac24ab" id="r_aef1e7718db784bdb00d4aedfdbac24ab"><td class="memItemLeft" align="right" valign="top">static UINT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aef1e7718db784bdb00d4aedfdbac24ab">CalcConstantBufferByteSize</a> (UINT byteSize)</td></tr>
+<tr class="separator:aef1e7718db784bdb00d4aedfdbac24ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae3b69b0425bd109fd036f8cf3fb8249a" id="r_ae3b69b0425bd109fd036f8cf3fb8249a"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae3b69b0425bd109fd036f8cf3fb8249a">GetCountPipelines</a> ()</td></tr>
+<tr class="separator:ae3b69b0425bd109fd036f8cf3fb8249a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33ddf7ded682c80de6a9b16ecd4b4d1e" id="r_a33ddf7ded682c80de6a9b16ecd4b4d1e"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; CD3DX12_STATIC_SAMPLER_DESC &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a33ddf7ded682c80de6a9b16ecd4b4d1e">GetStaticSamples</a> ()</td></tr>
+<tr class="separator:a33ddf7ded682c80de6a9b16ecd4b4d1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae11a6e03fd4ff48953784d35c268cde8" id="r_ae11a6e03fd4ff48953784d35c268cde8"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae11a6e03fd4ff48953784d35c268cde8">Init</a> ()</td></tr>
+<tr class="separator:ae11a6e03fd4ff48953784d35c268cde8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e5e4f3fd97abca9372dd37edb1cd9cb" id="r_a5e5e4f3fd97abca9372dd37edb1cd9cb"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5e5e4f3fd97abca9372dd37edb1cd9cb">Shutdown</a> ()</td></tr>
+<tr class="separator:a5e5e4f3fd97abca9372dd37edb1cd9cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f655b95bb30aa7312420cd9c4936f5c" id="r_a6f655b95bb30aa7312420cd9c4936f5c"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6f655b95bb30aa7312420cd9c4936f5c">InitPipelines</a> ()</td></tr>
+<tr class="separator:a6f655b95bb30aa7312420cd9c4936f5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6323fc17a1ee4d058a2817add5339f7" id="r_ad6323fc17a1ee4d058a2817add5339f7"><td class="memItemLeft" align="right" valign="top">static std::unordered_map&lt; std::string, <a class="el" href="../../dc/d27/_t_unique_ptr_8h.html#a6d68c36850f3343692c47cc0db1bdab6">TUniquePtr</a>&lt; <a class="el" href="../../d3/ddd/class_d3_d12_texture.html">D3D12Texture</a> &gt; &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad6323fc17a1ee4d058a2817add5339f7">GetTextures</a> ()</td></tr>
+<tr class="separator:ad6323fc17a1ee4d058a2817add5339f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a55b53d24240c273eabd3faf5142a67c5" id="r_a55b53d24240c273eabd3faf5142a67c5"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a55b53d24240c273eabd3faf5142a67c5">InitStaticSamples</a> ()</td></tr>
+<tr class="separator:a55b53d24240c273eabd3faf5142a67c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abfe37b74c81658bf63952ea7a36ab103" id="r_abfe37b74c81658bf63952ea7a36ab103"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../db/d06/class_d3_d12_pipeline_shader_root_signature.html">D3D12PipelineShaderRootSignature</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abfe37b74c81658bf63952ea7a36ab103">GetPipeline</a> (UINT id)</td></tr>
+<tr class="separator:abfe37b74c81658bf63952ea7a36ab103"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85c4db17827bb80a73946f5d9935bb1a" id="r_a85c4db17827bb80a73946f5d9935bb1a"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a85c4db17827bb80a73946f5d9935bb1a">CreatePipeline</a> (<a class="el" href="../../d5/dc5/_d3_d12_utils_8h.html#a49802c782fb40bd8e79835ef12871dde">eShaderType</a> type)</td></tr>
+<tr class="separator:a85c4db17827bb80a73946f5d9935bb1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d6fbe58e6bfe94e0b7381ea7742f43f" id="r_a6d6fbe58e6bfe94e0b7381ea7742f43f"><td class="memItemLeft" align="right" valign="top">static ID3D12Device8 *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6d6fbe58e6bfe94e0b7381ea7742f43f">GetDevice</a> ()</td></tr>
+<tr class="separator:a6d6fbe58e6bfe94e0b7381ea7742f43f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad95fc1ff872ecc676b7477afea9d3bb1" id="r_ad95fc1ff872ecc676b7477afea9d3bb1"><td class="memItemLeft" align="right" valign="top">static ID3D12CommandQueue *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad95fc1ff872ecc676b7477afea9d3bb1">GetCommandQueue</a> ()</td></tr>
+<tr class="separator:ad95fc1ff872ecc676b7477afea9d3bb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a766b593253e81c03df3dec3b72c086be" id="r_a766b593253e81c03df3dec3b72c086be"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../d5/d41/class_f_d3_d12_mesh.html">FD3D12Mesh</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a766b593253e81c03df3dec3b72c086be">LoadMesh</a> (<a class="el" href="../../d9/dcb/class_f_string.html">FString</a> path)</td></tr>
+<tr class="separator:a766b593253e81c03df3dec3b72c086be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a613c2354ad559a093ced162f460fccb0" id="r_a613c2354ad559a093ced162f460fccb0"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a613c2354ad559a093ced162f460fccb0">DeleteMesh</a> (<a class="el" href="../../d5/d41/class_f_d3_d12_mesh.html">FD3D12Mesh</a> *mesh)</td></tr>
+<tr class="separator:a613c2354ad559a093ced162f460fccb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aadcf6776485bb17d28739e93532b3356" id="r_aadcf6776485bb17d28739e93532b3356"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../d3/ddd/class_d3_d12_texture.html">D3D12Texture</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aadcf6776485bb17d28739e93532b3356">LoadTexture</a> (<a class="el" href="../../d9/dcb/class_f_string.html">FString</a> path, bool isCubeMap=false)</td></tr>
+<tr class="separator:aadcf6776485bb17d28739e93532b3356"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2065332bc653658ea42c8e912aae966" id="r_af2065332bc653658ea42c8e912aae966"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d5/d41/class_f_d3_d12_mesh.html">FD3D12Mesh</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af2065332bc653658ea42c8e912aae966">LoadMeshes</a> (std::string path, bool bCombineMeshes)</td></tr>
+<tr class="separator:af2065332bc653658ea42c8e912aae966"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afae814ef3ed8046a5c2d117688518e2e" id="r_afae814ef3ed8046a5c2d117688518e2e"><td class="memItemLeft" align="right" valign="top">static XMMATRIX&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afae814ef3ed8046a5c2d117688518e2e">CalcMVP</a> ()</td></tr>
+<tr class="separator:afae814ef3ed8046a5c2d117688518e2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf8b06b3d82a839f29a44a39a9137ae5" id="r_aaf8b06b3d82a839f29a44a39a9137ae5"><td class="memItemLeft" align="right" valign="top">static float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaf8b06b3d82a839f29a44a39a9137ae5">CalcFovY</a> (float fov_x, float w, float h)</td></tr>
+<tr class="separator:aaf8b06b3d82a839f29a44a39a9137ae5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb195463bf6f2dcf9f06026a5a92c84c" id="r_afb195463bf6f2dcf9f06026a5a92c84c"><td class="memItemLeft" align="right" valign="top">static XMFLOAT4X4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afb195463bf6f2dcf9f06026a5a92c84c">GetViewProjMatrix</a> (<a class="el" href="../../d0/da2/struct_d3_d12_camera.html">D3D12Camera</a> *camera)</td></tr>
+<tr class="separator:afb195463bf6f2dcf9f06026a5a92c84c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
+Статические открытые данные</h2></td></tr>
+<tr class="memitem:a2f763111c1fc718b6063cce196946187" id="r_a2f763111c1fc718b6063cce196946187"><td class="memItemLeft" align="right" valign="top">static ComPtr&lt; IDxcCompiler3 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2f763111c1fc718b6063cce196946187">m_ShaderCompiler</a></td></tr>
+<tr class="separator:a2f763111c1fc718b6063cce196946187"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abfaeb1ad0f86ea2c404eeba39e8bca91" id="r_abfaeb1ad0f86ea2c404eeba39e8bca91"><td class="memItemLeft" align="right" valign="top">static ComPtr&lt; IDxcUtils &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abfaeb1ad0f86ea2c404eeba39e8bca91">m_Utils</a></td></tr>
+<tr class="separator:abfaeb1ad0f86ea2c404eeba39e8bca91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Методы</h2>
+<a id="aef1e7718db784bdb00d4aedfdbac24ab" name="aef1e7718db784bdb00d4aedfdbac24ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef1e7718db784bdb00d4aedfdbac24ab">&#9670;&#160;</a></span>CalcConstantBufferByteSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static UINT D3DUtil::CalcConstantBufferByteSize </td>
+          <td>(</td>
+          <td class="paramtype">UINT</td>          <td class="paramname"><span class="paramname"><em>byteSize</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aaf8b06b3d82a839f29a44a39a9137ae5" name="aaf8b06b3d82a839f29a44a39a9137ae5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf8b06b3d82a839f29a44a39a9137ae5">&#9670;&#160;</a></span>CalcFovY()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static float D3DUtil::CalcFovY </td>
+          <td>(</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>fov_x</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>w</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>h</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afae814ef3ed8046a5c2d117688518e2e" name="afae814ef3ed8046a5c2d117688518e2e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afae814ef3ed8046a5c2d117688518e2e">&#9670;&#160;</a></span>CalcMVP()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static XMMATRIX D3DUtil::CalcMVP </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a85c4db17827bb80a73946f5d9935bb1a" name="a85c4db17827bb80a73946f5d9935bb1a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85c4db17827bb80a73946f5d9935bb1a">&#9670;&#160;</a></span>CreatePipeline()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> D3DUtil::CreatePipeline </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d5/dc5/_d3_d12_utils_8h.html#a49802c782fb40bd8e79835ef12871dde">eShaderType</a></td>          <td class="paramname"><span class="paramname"><em>type</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a613c2354ad559a093ced162f460fccb0" name="a613c2354ad559a093ced162f460fccb0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a613c2354ad559a093ced162f460fccb0">&#9670;&#160;</a></span>DeleteMesh()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void D3DUtil::DeleteMesh </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d5/d41/class_f_d3_d12_mesh.html">FD3D12Mesh</a> *</td>          <td class="paramname"><span class="paramname"><em>mesh</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad95fc1ff872ecc676b7477afea9d3bb1" name="ad95fc1ff872ecc676b7477afea9d3bb1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad95fc1ff872ecc676b7477afea9d3bb1">&#9670;&#160;</a></span>GetCommandQueue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static ID3D12CommandQueue * D3DUtil::GetCommandQueue </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae3b69b0425bd109fd036f8cf3fb8249a" name="ae3b69b0425bd109fd036f8cf3fb8249a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae3b69b0425bd109fd036f8cf3fb8249a">&#9670;&#160;</a></span>GetCountPipelines()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> D3DUtil::GetCountPipelines </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6d6fbe58e6bfe94e0b7381ea7742f43f" name="a6d6fbe58e6bfe94e0b7381ea7742f43f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d6fbe58e6bfe94e0b7381ea7742f43f">&#9670;&#160;</a></span>GetDevice()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static ID3D12Device8 * D3DUtil::GetDevice </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abfe37b74c81658bf63952ea7a36ab103" name="abfe37b74c81658bf63952ea7a36ab103"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abfe37b74c81658bf63952ea7a36ab103">&#9670;&#160;</a></span>GetPipeline()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="../../db/d06/class_d3_d12_pipeline_shader_root_signature.html">D3D12PipelineShaderRootSignature</a> * D3DUtil::GetPipeline </td>
+          <td>(</td>
+          <td class="paramtype">UINT</td>          <td class="paramname"><span class="paramname"><em>id</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a33ddf7ded682c80de6a9b16ecd4b4d1e" name="a33ddf7ded682c80de6a9b16ecd4b4d1e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a33ddf7ded682c80de6a9b16ecd4b4d1e">&#9670;&#160;</a></span>GetStaticSamples()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static const <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; CD3DX12_STATIC_SAMPLER_DESC &gt; D3DUtil::GetStaticSamples </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad6323fc17a1ee4d058a2817add5339f7" name="ad6323fc17a1ee4d058a2817add5339f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6323fc17a1ee4d058a2817add5339f7">&#9670;&#160;</a></span>GetTextures()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static std::unordered_map&lt; std::string, <a class="el" href="../../dc/d27/_t_unique_ptr_8h.html#a6d68c36850f3343692c47cc0db1bdab6">TUniquePtr</a>&lt; <a class="el" href="../../d3/ddd/class_d3_d12_texture.html">D3D12Texture</a> &gt; &gt; * D3DUtil::GetTextures </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afb195463bf6f2dcf9f06026a5a92c84c" name="afb195463bf6f2dcf9f06026a5a92c84c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb195463bf6f2dcf9f06026a5a92c84c">&#9670;&#160;</a></span>GetViewProjMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static XMFLOAT4X4 D3DUtil::GetViewProjMatrix </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d0/da2/struct_d3_d12_camera.html">D3D12Camera</a> *</td>          <td class="paramname"><span class="paramname"><em>camera</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae11a6e03fd4ff48953784d35c268cde8" name="ae11a6e03fd4ff48953784d35c268cde8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae11a6e03fd4ff48953784d35c268cde8">&#9670;&#160;</a></span>Init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void D3DUtil::Init </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6f655b95bb30aa7312420cd9c4936f5c" name="a6f655b95bb30aa7312420cd9c4936f5c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f655b95bb30aa7312420cd9c4936f5c">&#9670;&#160;</a></span>InitPipelines()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void D3DUtil::InitPipelines </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a55b53d24240c273eabd3faf5142a67c5" name="a55b53d24240c273eabd3faf5142a67c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a55b53d24240c273eabd3faf5142a67c5">&#9670;&#160;</a></span>InitStaticSamples()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void D3DUtil::InitStaticSamples </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a766b593253e81c03df3dec3b72c086be" name="a766b593253e81c03df3dec3b72c086be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a766b593253e81c03df3dec3b72c086be">&#9670;&#160;</a></span>LoadMesh()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="../../d5/d41/class_f_d3_d12_mesh.html">FD3D12Mesh</a> * D3DUtil::LoadMesh </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d9/dcb/class_f_string.html">FString</a></td>          <td class="paramname"><span class="paramname"><em>path</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af2065332bc653658ea42c8e912aae966" name="af2065332bc653658ea42c8e912aae966"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2065332bc653658ea42c8e912aae966">&#9670;&#160;</a></span>LoadMeshes()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d5/d41/class_f_d3_d12_mesh.html">FD3D12Mesh</a> * &gt; D3DUtil::LoadMeshes </td>
+          <td>(</td>
+          <td class="paramtype">std::string</td>          <td class="paramname"><span class="paramname"><em>path</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>bCombineMeshes</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aadcf6776485bb17d28739e93532b3356" name="aadcf6776485bb17d28739e93532b3356"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aadcf6776485bb17d28739e93532b3356">&#9670;&#160;</a></span>LoadTexture()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="../../d3/ddd/class_d3_d12_texture.html">D3D12Texture</a> * D3DUtil::LoadTexture </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d9/dcb/class_f_string.html">FString</a></td>          <td class="paramname"><span class="paramname"><em>path</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>isCubeMap</em><span class="paramdefsep"> = </span><span class="paramdefval">false</span></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5e5e4f3fd97abca9372dd37edb1cd9cb" name="a5e5e4f3fd97abca9372dd37edb1cd9cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e5e4f3fd97abca9372dd37edb1cd9cb">&#9670;&#160;</a></span>Shutdown()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void D3DUtil::Shutdown </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Данные класса</h2>
+<a id="a2f763111c1fc718b6063cce196946187" name="a2f763111c1fc718b6063cce196946187"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f763111c1fc718b6063cce196946187">&#9670;&#160;</a></span>m_ShaderCompiler</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ComPtr&lt; IDxcCompiler3 &gt; D3DUtil::m_ShaderCompiler</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abfaeb1ad0f86ea2c404eeba39e8bca91" name="abfaeb1ad0f86ea2c404eeba39e8bca91"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abfaeb1ad0f86ea2c404eeba39e8bca91">&#9670;&#160;</a></span>m_Utils</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ComPtr&lt; IDxcUtils &gt; D3DUtil::m_Utils</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>Объявления и описания членов классов находятся в файлах:<ul>
+<li>Dark Engine/Source/Runtime/Render/D3D12/<a class="el" href="../../d5/dc5/_d3_d12_utils_8h_source.html">D3D12Utils.h</a></li>
+<li>Dark Engine/Source/Runtime/Render/D3D12/<a class="el" href="../../d6/d96/_d3_d12_utils_8cpp.html">D3D12Utils.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../df/d45/class_d3_d_util.html">D3DUtil</a></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
+</body>
+</html>

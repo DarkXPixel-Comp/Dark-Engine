@@ -1,0 +1,101 @@
+\doxysection{Файл Dark Engine/\+Source/\+Runtime/\+D3\+D12\+RHI/public/\+D3\+D12\+Root\+Signature\+Definitions.h}
+\hypertarget{_d3_d12_root_signature_definitions_8h}{}\label{_d3_d12_root_signature_definitions_8h}\index{Dark Engine/Source/Runtime/D3D12RHI/public/D3D12RootSignatureDefinitions.h@{Dark Engine/Source/Runtime/D3D12RHI/public/D3D12RootSignatureDefinitions.h}}
+{\ttfamily \#include "{}D3\+D12\+RHI.\+h"{}}\newline
+{\ttfamily \#include "{}Misc/\+Enum\+Class\+Flags.\+h"{}}\newline
+\doxysubsubsection*{Классы}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_d3_d12_shader_utils_1_1_f_root_signature_creator}{D3\+D12\+Shader\+Utils\+::\+FRoot\+Signature\+Creator}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Пространства имен}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespace_d3_d12_shader_utils}{D3\+D12\+Shader\+Utils}}
+\item 
+namespace \mbox{\hyperlink{namespace_d3_d12_shader_utils_1_1_static_root_signature_constants}{D3\+D12\+Shader\+Utils\+::\+Static\+Root\+Signature\+Constants}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Перечисления}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{_d3_d12_root_signature_definitions_8h_a9cf79d0806d94189519c7f1860b3359d}{ED3\+D12\+Root\+Signature\+Flags}} \{ \newline
+\mbox{\hyperlink{_d3_d12_root_signature_definitions_8h_a9cf79d0806d94189519c7f1860b3359da6adf97f83acf6453d4a6a4b1070f3754}{None}} = 0
+, \mbox{\hyperlink{_d3_d12_root_signature_definitions_8h_a9cf79d0806d94189519c7f1860b3359da1a25bcd8f3a06725558921d9c7a5e001}{Allow\+Mesh\+Shaders}} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 0
+, \mbox{\hyperlink{_d3_d12_root_signature_definitions_8h_a9cf79d0806d94189519c7f1860b3359dab3f01d071866271acda101818c3af9f8}{Input\+Assembler}} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 1
+, \mbox{\hyperlink{_d3_d12_root_signature_definitions_8h_a9cf79d0806d94189519c7f1860b3359da13cb4137872acf1a2efe6e4f5a340079}{Bindless\+Resources}} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 2
+, \newline
+\mbox{\hyperlink{_d3_d12_root_signature_definitions_8h_a9cf79d0806d94189519c7f1860b3359da22123ebc05f7280bebd700f86dd424d7}{Bindless\+Samplers}} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 3
+ \}
+\item 
+enum class \mbox{\hyperlink{namespace_d3_d12_shader_utils_a207db8b5840313ca128578aa381db200}{D3\+D12\+Shader\+Utils\+::\+ERoot\+Signature\+Range\+Type}} \{ \mbox{\hyperlink{namespace_d3_d12_shader_utils_a207db8b5840313ca128578aa381db200a67f5d41ba054c96a26203555f6481cc8}{D3\+D12\+Shader\+Utils\+::\+CBV}}
+, \mbox{\hyperlink{namespace_d3_d12_shader_utils_a207db8b5840313ca128578aa381db200ab71ecf0b186ac1b938e15483f792b7db}{D3\+D12\+Shader\+Utils\+::\+SRV}}
+, \mbox{\hyperlink{namespace_d3_d12_shader_utils_a207db8b5840313ca128578aa381db200a6902d76cea698982754404da77e5e08a}{D3\+D12\+Shader\+Utils\+::\+UAV}}
+, \mbox{\hyperlink{namespace_d3_d12_shader_utils_a207db8b5840313ca128578aa381db200a5bca2f066df1fe641b2b779db2a63c0a}{D3\+D12\+Shader\+Utils\+::\+Sampler}}
+ \}
+\item 
+enum class \mbox{\hyperlink{namespace_d3_d12_shader_utils_a30e13ceca46c1a2fbd4e98608968b691}{D3\+D12\+Shader\+Utils\+::\+ERoot\+Signature\+Visibility}} \{ \newline
+\mbox{\hyperlink{namespace_d3_d12_shader_utils_a30e13ceca46c1a2fbd4e98608968b691ab22b929ba52471a02d18bb3a4e4472e6}{D3\+D12\+Shader\+Utils\+::\+Vertex}}
+, \mbox{\hyperlink{namespace_d3_d12_shader_utils_a30e13ceca46c1a2fbd4e98608968b691a08822b3ae4e2aede0afe08abe600e9c0}{D3\+D12\+Shader\+Utils\+::\+Pixel}}
+, \mbox{\hyperlink{namespace_d3_d12_shader_utils_a30e13ceca46c1a2fbd4e98608968b691ad9c6333623e6357515fcbf17be806273}{D3\+D12\+Shader\+Utils\+::\+Geometry}}
+, \mbox{\hyperlink{namespace_d3_d12_shader_utils_a30e13ceca46c1a2fbd4e98608968b691a710fdb6adb881b408116ef95335e1961}{D3\+D12\+Shader\+Utils\+::\+Mesh}}
+, \newline
+\mbox{\hyperlink{namespace_d3_d12_shader_utils_a30e13ceca46c1a2fbd4e98608968b691ad0c190f4141deff315ff99fc07ac375c}{D3\+D12\+Shader\+Utils\+::\+Amplification}}
+, \mbox{\hyperlink{namespace_d3_d12_shader_utils_a30e13ceca46c1a2fbd4e98608968b691ab1c94ca2fbc3e78fc30069c8d0f01680}{D3\+D12\+Shader\+Utils\+::\+All}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Функции}
+\begin{DoxyCompactItemize}
+\item 
+D3\+D12\+\_\+\+DESCRIPTOR\+\_\+\+RANGE\+\_\+\+TYPE \mbox{\hyperlink{namespace_d3_d12_shader_utils_ad7386bec6fb527d9b9465736f124768f}{D3\+D12\+Shader\+Utils\+::\+Get\+D3\+D12\+Descriptor\+Range\+Type}} (\mbox{\hyperlink{namespace_d3_d12_shader_utils_a207db8b5840313ca128578aa381db200}{ERoot\+Signature\+Range\+Type}} Type)
+\item 
+D3\+D12\+\_\+\+DESCRIPTOR\+\_\+\+RANGE\+\_\+\+FLAGS \mbox{\hyperlink{namespace_d3_d12_shader_utils_aa91bae32a72289f6c7b2dcca4fc54dbf}{D3\+D12\+Shader\+Utils\+::\+Get\+D3\+D12\+Descriptor\+Range\+Flags}} (\mbox{\hyperlink{namespace_d3_d12_shader_utils_a207db8b5840313ca128578aa381db200}{ERoot\+Signature\+Range\+Type}} Type)
+\item 
+D3\+D12\+\_\+\+SHADER\+\_\+\+VISIBILITY \mbox{\hyperlink{namespace_d3_d12_shader_utils_aed58f72ee6049efa619fc1c79a0f5563}{D3\+D12\+Shader\+Utils\+::\+Get\+D3\+D12\+Shader\+Visibility}} (\mbox{\hyperlink{namespace_d3_d12_shader_utils_a30e13ceca46c1a2fbd4e98608968b691}{ERoot\+Signature\+Visibility}} Visibility)
+\item 
+const \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{namespace_d3_d12_shader_utils_abf398da334c70a94e8de0ea10ce41329}{D3\+D12\+Shader\+Utils\+::\+Get\+Visibility\+Flag}} (\mbox{\hyperlink{namespace_d3_d12_shader_utils_a30e13ceca46c1a2fbd4e98608968b691}{ERoot\+Signature\+Visibility}} Visibility)
+\item 
+const \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{namespace_d3_d12_shader_utils_ab6c98df726b25d8d87eecdda82516aee}{D3\+D12\+Shader\+Utils\+::\+Get\+Type\+Prefix}} (\mbox{\hyperlink{namespace_d3_d12_shader_utils_a207db8b5840313ca128578aa381db200}{ERoot\+Signature\+Range\+Type}} Type)
+\item 
+const \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{namespace_d3_d12_shader_utils_a595b6c0d377e89624e61bc7df81821c2}{D3\+D12\+Shader\+Utils\+::\+Get\+Flag\+Name}} (D3\+D12\+\_\+\+ROOT\+\_\+\+SIGNATURE\+\_\+\+FLAGS Flag)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Переменные}
+\begin{DoxyCompactItemize}
+\item 
+D3\+D12\+\_\+\+DESCRIPTOR\+\_\+\+RANGE\+\_\+\+FLAGS \mbox{\hyperlink{namespace_d3_d12_shader_utils_1_1_static_root_signature_constants_a63e65d5a5b7434b243f4363c12d29b8a}{D3\+D12\+Shader\+Utils\+::\+Static\+Root\+Signature\+Constants\+::\+SRVDescriptor\+Range\+Flags}} = D3\+D12\+\_\+\+DESCRIPTOR\+\_\+\+RANGE\+\_\+\+FLAG\+\_\+\+DATA\+\_\+\+STATIC\+\_\+\+WHILE\+\_\+\+SET\+\_\+\+AT\+\_\+\+EXECUTE \texorpdfstring{$\vert$}{|} D3\+D12\+\_\+\+DESCRIPTOR\+\_\+\+RANGE\+\_\+\+FLAG\+\_\+\+DATA\+\_\+\+VOLATILE
+\item 
+const D3\+D12\+\_\+\+DESCRIPTOR\+\_\+\+RANGE\+\_\+\+FLAGS \mbox{\hyperlink{namespace_d3_d12_shader_utils_1_1_static_root_signature_constants_a7dfb2f141fee79385199404f592fb3a3}{D3\+D12\+Shader\+Utils\+::\+Static\+Root\+Signature\+Constants\+::\+CBVDescriptor\+Range\+Flags}} = D3\+D12\+\_\+\+DESCRIPTOR\+\_\+\+RANGE\+\_\+\+FLAG\+\_\+\+DATA\+\_\+\+STATIC\+\_\+\+WHILE\+\_\+\+SET\+\_\+\+AT\+\_\+\+EXECUTE \texorpdfstring{$\vert$}{|} D3\+D12\+\_\+\+DESCRIPTOR\+\_\+\+RANGE\+\_\+\+FLAG\+\_\+\+DESCRIPTORS\+\_\+\+VOLATILE
+\item 
+const D3\+D12\+\_\+\+DESCRIPTOR\+\_\+\+RANGE\+\_\+\+FLAGS \mbox{\hyperlink{namespace_d3_d12_shader_utils_1_1_static_root_signature_constants_aa410c73ccad77ef81fc6fa27435f7cad}{D3\+D12\+Shader\+Utils\+::\+Static\+Root\+Signature\+Constants\+::\+UAVDescriptor\+Range\+Flags}} = D3\+D12\+\_\+\+DESCRIPTOR\+\_\+\+RANGE\+\_\+\+FLAG\+\_\+\+DATA\+\_\+\+VOLATILE \texorpdfstring{$\vert$}{|} D3\+D12\+\_\+\+DESCRIPTOR\+\_\+\+RANGE\+\_\+\+FLAG\+\_\+\+DESCRIPTORS\+\_\+\+VOLATILE
+\item 
+const D3\+D12\+\_\+\+DESCRIPTOR\+\_\+\+RANGE\+\_\+\+FLAGS \mbox{\hyperlink{namespace_d3_d12_shader_utils_1_1_static_root_signature_constants_a8b6abe4e33e0e2b3ebf0c2ca0f83c61d}{D3\+D12\+Shader\+Utils\+::\+Static\+Root\+Signature\+Constants\+::\+Sampler\+Descriptor\+Range\+Flags}} = D3\+D12\+\_\+\+DESCRIPTOR\+\_\+\+RANGE\+\_\+\+FLAG\+\_\+\+DESCRIPTORS\+\_\+\+VOLATILE
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Перечисления}
+\Hypertarget{_d3_d12_root_signature_definitions_8h_a9cf79d0806d94189519c7f1860b3359d}\label{_d3_d12_root_signature_definitions_8h_a9cf79d0806d94189519c7f1860b3359d} 
+\index{D3D12RootSignatureDefinitions.h@{D3D12RootSignatureDefinitions.h}!ED3D12RootSignatureFlags@{ED3D12RootSignatureFlags}}
+\index{ED3D12RootSignatureFlags@{ED3D12RootSignatureFlags}!D3D12RootSignatureDefinitions.h@{D3D12RootSignatureDefinitions.h}}
+\doxysubsubsection{\texorpdfstring{ED3D12RootSignatureFlags}{ED3D12RootSignatureFlags}}
+{\footnotesize\ttfamily enum class \mbox{\hyperlink{_d3_d12_root_signature_definitions_8h_a9cf79d0806d94189519c7f1860b3359d}{ED3\+D12\+Root\+Signature\+Flags}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Элементы перечислений}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{None@{None}!D3D12RootSignatureDefinitions.h@{D3D12RootSignatureDefinitions.h}}\index{D3D12RootSignatureDefinitions.h@{D3D12RootSignatureDefinitions.h}!None@{None}}}\Hypertarget{_d3_d12_root_signature_definitions_8h_a9cf79d0806d94189519c7f1860b3359da6adf97f83acf6453d4a6a4b1070f3754}\label{_d3_d12_root_signature_definitions_8h_a9cf79d0806d94189519c7f1860b3359da6adf97f83acf6453d4a6a4b1070f3754} 
+None&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{AllowMeshShaders@{AllowMeshShaders}!D3D12RootSignatureDefinitions.h@{D3D12RootSignatureDefinitions.h}}\index{D3D12RootSignatureDefinitions.h@{D3D12RootSignatureDefinitions.h}!AllowMeshShaders@{AllowMeshShaders}}}\Hypertarget{_d3_d12_root_signature_definitions_8h_a9cf79d0806d94189519c7f1860b3359da1a25bcd8f3a06725558921d9c7a5e001}\label{_d3_d12_root_signature_definitions_8h_a9cf79d0806d94189519c7f1860b3359da1a25bcd8f3a06725558921d9c7a5e001} 
+Allow\+Mesh\+Shaders&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{InputAssembler@{InputAssembler}!D3D12RootSignatureDefinitions.h@{D3D12RootSignatureDefinitions.h}}\index{D3D12RootSignatureDefinitions.h@{D3D12RootSignatureDefinitions.h}!InputAssembler@{InputAssembler}}}\Hypertarget{_d3_d12_root_signature_definitions_8h_a9cf79d0806d94189519c7f1860b3359dab3f01d071866271acda101818c3af9f8}\label{_d3_d12_root_signature_definitions_8h_a9cf79d0806d94189519c7f1860b3359dab3f01d071866271acda101818c3af9f8} 
+Input\+Assembler&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BindlessResources@{BindlessResources}!D3D12RootSignatureDefinitions.h@{D3D12RootSignatureDefinitions.h}}\index{D3D12RootSignatureDefinitions.h@{D3D12RootSignatureDefinitions.h}!BindlessResources@{BindlessResources}}}\Hypertarget{_d3_d12_root_signature_definitions_8h_a9cf79d0806d94189519c7f1860b3359da13cb4137872acf1a2efe6e4f5a340079}\label{_d3_d12_root_signature_definitions_8h_a9cf79d0806d94189519c7f1860b3359da13cb4137872acf1a2efe6e4f5a340079} 
+Bindless\+Resources&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BindlessSamplers@{BindlessSamplers}!D3D12RootSignatureDefinitions.h@{D3D12RootSignatureDefinitions.h}}\index{D3D12RootSignatureDefinitions.h@{D3D12RootSignatureDefinitions.h}!BindlessSamplers@{BindlessSamplers}}}\Hypertarget{_d3_d12_root_signature_definitions_8h_a9cf79d0806d94189519c7f1860b3359da22123ebc05f7280bebd700f86dd424d7}\label{_d3_d12_root_signature_definitions_8h_a9cf79d0806d94189519c7f1860b3359da22123ebc05f7280bebd700f86dd424d7} 
+Bindless\+Samplers&\\
+\hline
+
+\end{DoxyEnumFields}

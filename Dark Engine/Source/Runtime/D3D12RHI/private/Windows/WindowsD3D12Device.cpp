@@ -7,6 +7,7 @@
 
 #include <filesystem>
 #include <shlobj.h>
+#include <Logger.h>
 
 static std::wstring GetLatestWinPixGpuCapturerPath_Cpp17()
 {
@@ -44,13 +45,14 @@ FD3D12DynamicRHI* GD3D12RHI = nullptr;
 
 FD3D12DynamicRHIModule::FD3D12DynamicRHIModule()
 {
-#ifdef USE_PIX
+#if USE_PIX
 	if (GetModuleHandle(TEXT("WinPixGpuCapturer.dll")) == 0)
 	{
-		LoadLibrary(GetLatestWinPixGpuCapturerPath_Cpp17().c_str());
+		if (LoadLibrary(GetLatestWinPixGpuCapturerPath_Cpp17().c_str()))
+		{
+		//	Logger::log("[D3D12RHIModule] WinPixGpuCapturer.dll was loaded");
+		}
 	}
-
-	
 #endif
 
 
@@ -65,11 +67,16 @@ FDynamicRHI* FD3D12DynamicRHIModule::CreateRHI()
 	if(ChosenAdapters.GetSize() != 0)
 		GD3D12RHI = new FD3D12DynamicRHI(ChosenAdapters);
 
-
-
-
-
 	return GD3D12RHI;
+}
+
+void FD3D12DynamicRHIModule::Shutdown()
+{
+	for (auto& i : ChosenAdapters)
+	{
+		//i.reset();
+		i->Destroy();
+	}
 }
 
 
@@ -145,7 +152,7 @@ D3D_FEATURE_LEVEL FindHighestFeatureLevel(ID3D12Device* Device, D3D_FEATURE_LEVE
 bool TestD3D12CreateDevice(IDXGIAdapter* Adapter, FD3D12DeviceBasicInfo& BasicInfo)
 {
 	ID3D12Device* Device = nullptr;
-	D3D_FEATURE_LEVEL MinFeatureLevel = D3D_FEATURE_LEVEL_12_2;
+	D3D_FEATURE_LEVEL MinFeatureLevel = D3D_FEATURE_LEVEL_12_0;
 	const HRESULT D3D12CreateDeviceResult = D3D12CreateDevice(Adapter, MinFeatureLevel, IID_PPV_ARGS(&Device));
 	if (SUCCEEDED(D3D12CreateDeviceResult))
 	{
@@ -215,12 +222,22 @@ void FD3D12DynamicRHIModule::FindAdapter()
 		}
 	}
 
+
+
+
 	TSharedPtr<FD3D12Adapter> NewAdapter;
 
 	if (BestMemoryAdapter.IsValid())
 	{
 		NewAdapter = std::make_shared<FD3D12Adapter>(BestMemoryAdapter);
 		ChosenAdapters.Add(NewAdapter);
+		DE_LOG(D3D12RHI, Log, TEXT("Choose device: %s with %iMB"), BestMemoryAdapter.Desc.Description,
+			BestMemoryAdapter.Desc.DedicatedVideoMemory / (1024 * 1024));
+	}
+	else
+	{
+		DE_LOG(D3D12RHI, Fatal, TEXT("This system not have supported GPU. %s(%i)"), BestMemoryAdapter.Desc.Description,
+			BestMemoryAdapter.Desc.DedicatedVideoMemory / (1024 * 1024));
 	}
 
 

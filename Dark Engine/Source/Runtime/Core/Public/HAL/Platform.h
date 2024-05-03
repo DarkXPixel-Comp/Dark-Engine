@@ -2,7 +2,6 @@
 //#include "Definitions.h"
 #include "PreprocessorHelpers.h"
 
-#include "Definitions.h"
 
 
 #if !defined(PLATFORM_WINDOWS)
@@ -59,6 +58,8 @@ typedef FPlatformTypes::SSIZE_T SSIZE_T;
 #define UTF8TEXT_PASTE(x) u8 ## x
 #define UTF16TEXT_PASTE(x) u ## x
 #define WIDETEXT_PASTE(x) L ## x
+
+#undef TEXT
 
 #if !defined(TEXT)
 #if PLATFORM_TCHAR_IS_UTF8CHAR

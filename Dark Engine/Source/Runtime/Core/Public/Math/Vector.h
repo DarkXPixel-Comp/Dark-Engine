@@ -10,8 +10,8 @@
 
 
 
-
-
+#pragma warning(push)
+#pragma warning(disable: 4661)
 namespace DE
 {
 	namespace Math
@@ -27,44 +27,44 @@ namespace DE
 			{
 				struct
 				{
-					T X;
-					T Y;
-					T Z;
+					T X; ///< X Element
+					T Y; ///< Y Element
+					T Z; ///< Z Element
 				};
-				T XYZ[3];
+				T XYZ[3]; ///< XYZ Array
 			};
 
 			/** A zero vector (0, 0, 0) */
 			DENGINE_API static const TVector<T> ZeroVector;
 
-			/** A zero vector (0, 0, 0) */
+			/** A one vector (1, 1, 1) */
 			DENGINE_API static const TVector<T> OneVector;
 
-			/** A zero vector (0, 0, 0) */
+			/** A up vector (0, 1, 0) */
 			DENGINE_API static const TVector<T> UpVector;
 
-			/** A zero vector (0, 0, 0) */
+			/** A down vector (0, -1, 0) */
 			DENGINE_API static const TVector<T> DownVector;
 
-			/** A zero vector (0, 0, 0) */
+			/** A forward vector (0, 0, 1) */
 			DENGINE_API static const TVector<T> ForwardVector;
 
-			/** A zero vector (0, 0, 0) */
+			/** A backward vector (0, 0, -1) */
 			DENGINE_API static const TVector<T> BackwardVector;
 
-			/** A zero vector (0, 0, 0) */
+			/** A rigth vector (1, 0, 0) */
 			DENGINE_API static const TVector<T> RightVector;
 
-			/** A zero vector (0, 0, 0) */
+			/** A left vector (-1, 0, 0) */
 			DENGINE_API static const TVector<T> LeftVector;
 
-			/** A zero vector (0, 0, 0) */
+			/** A XAxis vector (1, 0, 0) */
 			DENGINE_API static const TVector<T> XAxisVector;
 
-			/** A zero vector (0, 0, 0) */
+			/** A YAxis vector (0, 1, 0) */
 			DENGINE_API static const TVector<T> YAxisVector;
 
-			/** A zero vector (0, 0, 0) */
+			/** A ZAxis vector (0, 0, 1) */
 			DENGINE_API static const TVector<T> ZAxisVector;
 
 
@@ -96,16 +96,16 @@ namespace DE
 			/**
 			* Constructor initializing all components to a single T value.
 			*
-			* @param InF Value to set all components to.
+			* \param[in] InF Value to set all components to.
 			*/
 			explicit TVector(T InF);
 
 			/**
 			 * Constructor using initial values for each component.
 			 *
-			 * @param InX X Coordinate.
-			 * @param InY Y Coordinate.
-			 * @param InZ Z Coordinate.
+			 * \param[in] InX X Coordinate.
+			 * \param[in] InY Y Coordinate.
+			 * \param[in] InZ Z Coordinate.
 			 */
 
 			explicit TVector(T InX, T InY, T InZ);
@@ -113,44 +113,58 @@ namespace DE
 			/**
 			* Constructs a vector from an TVector2<T> and Z value.
 			*
-			* @param V Vector to copy from.
-			* @param InZ Z Coordinate.
+			* \param[in] V Vector to copy from.
+			* \param[in] InZ Z Coordinate.
 			*/
 			explicit TVector(const TVector2<T> V, T InZ);
 
+			/**
+			* Constructs a vector from two TVector2<T>.
+			*
+			* \param[in] V1 Vector to copy from.
+			* \param[in] V2 Vector2 to copy from.
+			*/
 			explicit TVector(const TVector2<T> V1, TVector2<T> V2);
+
+			/**
+			* Constructs a vector from std::initializer_list<T> 3 first element.
+			*
+			* \param[in] Elements Elements to copy from.
+			*/
+			TVector(std::initializer_list<T> Elements);
+
+			TVector<T>& operator=(std::initializer_list<T> Elements);
 
 			/**
 			* Calculate cross product between this and another vector.
 			*
-			* @param V The other vector.
-			* @return The cross product.
+			* \param[in] V The other vector.
+			* \return The cross product.
 			*/
 			FORCEINLINE	TVector<T> operator^(const TVector<T>& V) const;
 
 			/**
 			 * Calculate cross product between this and another vector.
 			 *
-			 * @param V The other vector.
-			 * @return The cross product.
+			 * \param[in] V The other vector.
+			 * \return The cross product.
 			 */
-
 			FORCEINLINE TVector<T> Cross(const TVector<T>& V2) const;
 
 			/**
 			* Calculate the cross product of two vectors.
 			*
-			* @param A The first vector.
-			* @param B The second vector.
-			* @return The cross product.
+			* \param[in] A The first vector.
+			* \param[in] B The second vector.
+			* \return The cross product.
 			*/
 			FORCEINLINE static TVector<T> CrossProduct(const TVector<T>& A, const TVector<T>& B);
 
 			/**
 			 * Calculate the dot product between this and another vector.
 			 *
-			 * @param V The other vector.
-			 * @return The dot product.
+			 * \param[in] V The other vector.
+			 * \return[in] The dot product.
 			 */
 			FORCEINLINE T operator|(const TVector<T>& V) const
 			{
@@ -160,8 +174,8 @@ namespace DE
 			/**
 			 * Calculate the dot product between this and another vector.
 			 *
-			 * @param V The other vector.
-			 * @return The dot product.
+			 * \param[in] V The other vector.
+			 * \return The dot product.
 			 */
 			FORCEINLINE T Dot(const TVector<T>& V) const;
 
@@ -170,8 +184,8 @@ namespace DE
 			/**
 			 * Gets the result of component-wise addition of this and another vector.
 			 *
-			 * @param V The vector to add to this.
-			 * @return The result of vector addition.
+			 * \param[in] V The vector to add to this.
+			 * \return The result of vector addition.
 			 */
 			FORCEINLINE TVector<T> operator+(const TVector<T>& V) const;
 
@@ -280,16 +294,16 @@ namespace DE
 
 
 			/**
-* Get a copy of this vector with absolute value of each component.
-*
-* @return A copy of this vector with absolute value of each component.
-*/
+			* Get a copy of this vector with absolute value of each component.
+			*
+			* \return A copy of this vector with absolute value of each component.
+			*/
 			TVector<T> GetAbs() const;
 
 			/**
 			 * Get the length (magnitude) of this vector.
 			 *
-			 * @return The length of this vector.
+			 * \return The length of this vector.
 			 */
 			T Size() const
 			{
@@ -299,14 +313,14 @@ namespace DE
 			/**
 			 * Get the length (magnitude) of this vector.
 			 *
-			 * @return The length of this vector.
+			 * \return The length of this vector.
 			 */
 			T Length() const;
 
 			/**
 			 * Get the squared length of this vector.
 			 *
-			 * @return The squared length of this vector.
+			 * \return The squared length of this vector.
 			 */
 			T SizeSquared() const
 			{
@@ -316,7 +330,7 @@ namespace DE
 			/**
 			 * Get the squared length of this vector.
 			 *
-			 * @return The squared length of this vector.
+			 * \return The squared length of this vector.
 			 */
 			T SquaredLength() const
 			{
@@ -326,7 +340,7 @@ namespace DE
 			/**
 			 * Get the length of the 2D components of this vector.
 			 *
-			 * @return The 2D length of this vector.
+			 * \return The 2D length of this vector.
 			 */
 			T Size2D() const
 			{
@@ -336,7 +350,7 @@ namespace DE
 			/**
 			 * Get the squared length of the 2D components of this vector.
 			 *
-			 * @return The squared 2D length of this vector.
+			 * \return The squared 2D length of this vector.
 			 */
 			T SizeSquared2D() const
 			{
@@ -346,45 +360,45 @@ namespace DE
 			/**
 			 * Checks whether vector is near to zero within a specified tolerance.
 			 *
-			 * @param Tolerance Error tolerance.
-			 * @return true if the vector is near to zero, false otherwise.
+			 * \param[in] Tolerance Error tolerance.
+			 * \return true if the vector is near to zero, false otherwise.
 			 */
 			bool IsNearlyZero(T Tolerance = DE_KINDA_SMALL_NUMBER) const;
 
 			/**
 			 * Checks whether all components of the vector are exactly zero.
 			 *
-			 * @return true if the vector is exactly zero, false otherwise.
+			 * \return true if the vector is exactly zero, false otherwise.
 			 */
 			bool IsZero() const;
 
 			/**
 			 * Check if the vector is of unit length, with specified tolerance.
 			 *
-			 * @param LengthSquaredTolerance Tolerance against squared length.
-			 * @return true if the vector is a unit vector within the specified tolerance.
+			 * \param[in] LengthSquaredTolerance Tolerance against squared length.
+			 * \return true if the vector is a unit vector within the specified tolerance.
 			 */
 			FORCEINLINE bool IsUnit(T LengthSquaredTolerance = DE_KINDA_SMALL_NUMBER) const;
 
 			/**
 			 * Checks whether vector is normalized.
 			 *
-			 * @return true if normalized, false otherwise.
+			 * \return true if normalized, false otherwise.
 			 */
 			bool IsNormalized() const;
 
 			/**
 			 * Normalize this vector in-place if it is larger than a given tolerance. Leaves it unchanged if not.
 			 *
-			 * @param Tolerance Minimum squared length of vector for normalization.
-			 * @return true if the vector was normalized correctly, false otherwise.
+			 * \param[in] Tolerance Minimum squared length of vector for normalization.
+			 * \return true if the vector was normalized correctly, false otherwise.
 			 */
 			bool Normalize(T Tolerance = DE_SMALL_NUMBER);
 
 			/**
 			 * Calculates normalized version of vector without checking for zero length.
 			 *
-			 * @return Normalized version of vector.
+			 * \return Normalized version of vector.
 			 * @see GetSafeNormal()
 			 */
 			FORCEINLINE TVector<T> GetUnsafeNormal() const;
@@ -393,7 +407,7 @@ namespace DE
 			 * Gets a normalized copy of the vector, checking it is safe to do so based on the length.
 			 * Returns zero vector by default if vector length is too small to safely normalize.
 			 *
-			 * @param Tolerance Minimum squared vector length.
+			 * @param[in] Tolerance Minimum squared vector length.
 			 * @return A normalized copy if safe, ResultIfZero otherwise.
 			 */
 			TVector<T> GetSafeNormal(T Tolerance = DE_SMALL_NUMBER, const TVector<T>& ResultIfZero = ZeroVector) const;
@@ -402,7 +416,7 @@ namespace DE
 			 * Gets a normalized copy of the 2D components of the vector, checking it is safe to do so. Z is set to zero.
 			 * Returns zero vector by default if vector length is too small to normalize.
 			 *
-			 * @param Tolerance Minimum squared vector length.
+			 * @param[in] Tolerance Minimum squared vector length.
 			 * @return Normalized copy if safe, otherwise returns ResultIfZero.
 			 */
 			TVector<T> GetSafeNormal2D(T Tolerance = DE_SMALL_NUMBER, const TVector<T>& ResultIfZero = ZeroVector) const;
@@ -410,8 +424,8 @@ namespace DE
 			/**
 			 * Util to convert this vector into a unit direction vector and its original length.
 			 *
-			 * @param OutDir Reference passed in to store unit direction vector.
-			 * @param OutLength Reference passed in to store length of the vector.
+			 * @param[out] OutDir Reference passed in to store unit direction vector.
+			 * @param[out] OutLength Reference passed in to store length of the vector.
 			 */
 			void ToDirectionAndLength(TVector<T>& OutDir, double& OutLength) const;
 			void ToDirectionAndLength(TVector<T>& OutDir, float& OutLength) const;
@@ -564,7 +578,7 @@ namespace DE
 
 			bool ContainsNaN() const;
 
-			FString	ToString() const;
+			//FString	ToString() const { return FString(); }
 
 
 
@@ -583,10 +597,26 @@ namespace DE
 		}
 
 		template<typename T>
-		FORCEINLINE DE::Math::TVector<T>::TVector(const TVector2<T> V, T InZ)
-			: X(V.X), Y(V.Y), Z(InZ)
+		FORCEINLINE TVector<T>::TVector(std::initializer_list<T> Elements)
 		{
-			DiagnosticCheckNaN();
+			int32 SizeList = Elements.size() > 3 ? 3 : Elements.size();
+			auto it = Elements.begin();
+			for (int32 i = 0; i < SizeList; ++i)
+			{
+				XYZ[i] = *(it + i);
+			}
+		}
+
+		template<typename T>
+		FORCEINLINE TVector<T>& TVector<T>::operator=(std::initializer_list<T> Elements)
+		{
+			int32 SizeList = Elements.size() > 3 ? 3 : Elements.size();
+			auto it = Elements.begin();
+			for (int32 i = 0; i < SizeList; ++i)
+			{
+				XYZ[i] = *(it + i);
+			}
+			return *this;
 		}
 
 		template<typename T>
@@ -728,6 +758,8 @@ namespace DE
 		}
 
 
+
+
 		template<typename T>
 		inline TVector<T> TVector<T>::CrossProduct(const TVector<T>& A, const TVector<T>& B)
 		{
@@ -757,3 +789,5 @@ namespace DE
 }
 
 
+
+#pragma warning (pop)

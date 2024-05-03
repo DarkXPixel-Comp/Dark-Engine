@@ -3,7 +3,12 @@
 
 #include "CoreMinimal.h"
 
-
+/**
+*	@author DarkXPixel - https:darkengine.com - <EMAIL> - nahmurin.dima65@gmail.com
+*	@brief The engine loop class.
+*	@version 1.0
+*	@date 23/04/2024
+*/
 class FEngineLoop
 {
 public:
@@ -17,7 +22,7 @@ public:
 	
 	int32 Init();
 	void InitTime() {}
-	void Exit() {}
+	void Exit();
 	void Tick();
 
 

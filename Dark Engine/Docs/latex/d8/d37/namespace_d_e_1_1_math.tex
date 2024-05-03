@@ -1,0 +1,33 @@
+\doxysection{Пространство имен DE\+::Math}
+\hypertarget{namespace_d_e_1_1_math}{}\label{namespace_d_e_1_1_math}\index{DE::Math@{DE::Math}}
+\doxysubsubsection*{Классы}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_int_point}{TInt\+Point}}
+\item 
+struct \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_int_rect}{TInt\+Rect}}
+\item 
+struct \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_matrix}{TMatrix}}
+\item 
+struct \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_perspective_matrix}{TPerspective\+Matrix}}
+\item 
+struct \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_plane}{TPlane}}
+\item 
+struct \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_rotator}{TRotator}}
+\item 
+struct \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector}{TVector}}
+\item 
+struct \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector2}{TVector2}}
+\item 
+struct \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector4}{TVector4}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Implements a container for rotation information.
+
+All rotation values are stored in degrees.
+
+The angles are interpreted as intrinsic rotations applied in the order Yaw, then Pitch, then Roll. I.\+e., an object would be rotated first by the specified yaw around its up axis (with positive angles interpreted as clockwise when viewed from above, along -\/Z), then pitched around its (new) right axis (with positive angles interpreted as \textquotesingle{}nose up\textquotesingle{}, i.\+e. clockwise when viewed along +Y), and then finally rolled around its (final) forward axis (with positive angles interpreted as clockwise rotations when viewed along +X).
+
+Note that these conventions differ from quaternion axis/angle. UE Quat always considers a positive angle to be a left-\/handed rotation, whereas Rotator treats yaw as left-\/handed but pitch and roll as right-\/handed. 

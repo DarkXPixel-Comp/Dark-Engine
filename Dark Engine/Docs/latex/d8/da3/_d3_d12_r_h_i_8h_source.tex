@@ -1,0 +1,37 @@
+\doxysection{D3\+D12\+RHI.\+h}
+\hypertarget{_d3_d12_r_h_i_8h_source}{}\label{_d3_d12_r_h_i_8h_source}\index{Dark Engine/Source/Runtime/D3D12RHI/public/D3D12RHI.h@{Dark Engine/Source/Runtime/D3D12RHI/public/D3D12RHI.h}}
+\mbox{\hyperlink{_d3_d12_r_h_i_8h}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_d3_d12_defines_8h}{D3D12Defines.h}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_platform_8h}{HAL/Platform.h}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_d3_d12_third_party_8h}{D3D12ThirdParty.h}}"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_d3_d12_dynamic_r_h_i_8h}{D3D12DynamicRHI.h}}"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_t_unique_ptr_8h}{Memory/TUniquePtr.h}}"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_array_8h}{Containers/Array.h}}"{}}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_f_d3_d12_adapter}{FD3D12Adapter}};}
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_f_d3_d12_device}{FD3D12Device}};}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_f_d3_d12_dynamic_r_h_i_module}{FD3D12DynamicRHIModule}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_i_dynamic_r_h_i_module}{IDynamicRHIModule}}}
+\DoxyCodeLine{00017\ \{}
+\DoxyCodeLine{00018\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{class_f_d3_d12_dynamic_r_h_i_module_a7e34ed72a99423bbdeedc00925c48eca}{FD3D12DynamicRHIModule}}();}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_f_dynamic_r_h_i}{FDynamicRHI}}*\ \mbox{\hyperlink{class_f_d3_d12_dynamic_r_h_i_module_aa86f6d8310c49c13bea0d439e22e70c0}{CreateRHI}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_d3_d12_dynamic_r_h_i_module_a8b0cd0977c5f60909d7c561fd1d54995}{Shutdown}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{void}\ FindAdapter();}
+\DoxyCodeLine{00027\ \ \ \ \ TArray<TSharedPtr<FD3D12Adapter>>\ ChosenAdapters;}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \};}
+
+\end{DoxyCode}

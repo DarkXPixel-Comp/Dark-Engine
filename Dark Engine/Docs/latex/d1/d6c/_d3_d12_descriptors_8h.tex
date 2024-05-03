@@ -1,0 +1,70 @@
+\doxysection{Файл Dark Engine/\+Source/\+Runtime/\+D3\+D12\+RHI/private/\+D3\+D12\+Descriptors.h}
+\hypertarget{_d3_d12_descriptors_8h}{}\label{_d3_d12_descriptors_8h}\index{Dark Engine/Source/Runtime/D3D12RHI/private/D3D12Descriptors.h@{Dark Engine/Source/Runtime/D3D12RHI/private/D3D12Descriptors.h}}
+{\ttfamily \#include "{}D3\+D12\+RHI.\+h"{}}\newline
+{\ttfamily \#include "{}D3\+D12\+RHICommon.\+h"{}}\newline
+{\ttfamily \#include $<$d3d12.\+h$>$}\newline
+{\ttfamily \#include "{}RHIDefines.\+h"{}}\newline
+{\ttfamily \#include "{}Templates/\+Ref\+Counting.\+h"{}}\newline
+\doxysubsubsection*{Классы}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_f_d3_d12_cpu_descriptor}{FD3\+D12\+Cpu\+Descriptor}}
+\item 
+struct \mbox{\hyperlink{struct_f_d3_d12_cpu_free_range}{FD3\+D12\+Cpu\+Free\+Range}}
+\item 
+struct \mbox{\hyperlink{struct_f_d3_d12_cpu_entry}{FD3\+D12\+Cpu\+Entry}}
+\item 
+class \mbox{\hyperlink{class_f_d3_d12_descriptor_heap}{FD3\+D12\+Descriptor\+Heap}}
+\item 
+class \mbox{\hyperlink{class_f_d3_d12_descriptor_manager}{FD3\+D12\+Descriptor\+Manager}}
+\item 
+class \mbox{\hyperlink{class_f_d3_d12_descriptor_heap_manager}{FD3\+D12\+Descriptor\+Heap\+Manager}}
+\item 
+class \mbox{\hyperlink{class_f_d3_d12_cpu_descriptor_manager}{FD3\+D12\+Cpu\+Descriptor\+Manager}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Функции}
+\begin{DoxyCompactItemize}
+\item 
+FORCEINLINE D3\+D12\+\_\+\+DESCRIPTOR\+\_\+\+HEAP\+\_\+\+TYPE \mbox{\hyperlink{_d3_d12_descriptors_8h_af1452944dcad7eb0c6dbfe1de5ef3ea8}{Get\+D3\+D12\+Descriptor\+Heap\+Type}} (\mbox{\hyperlink{_r_h_i_defines_8h_a9457a748b9d30acc00348bdc63f5de4e}{ERHIDescriptor\+Heap\+Type}} Heap\+Type)
+\item 
+FORCEINLINE \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} \mbox{\hyperlink{_d3_d12_descriptors_8h_af9ed2a6f5ce7374baeb59eeac4e0990c}{Get\+Cpu\+Descriptor\+Heap\+Size}} (\mbox{\hyperlink{_r_h_i_defines_8h_a9457a748b9d30acc00348bdc63f5de4e}{ERHIDescriptor\+Heap\+Type}} Heap\+Type)
+\item 
+\mbox{\hyperlink{class_f_d3_d12_descriptor_heap}{FD3\+D12\+Descriptor\+Heap}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{_d3_d12_descriptors_8h_afb4f8d88e1e4061837e321c23a7d5e8b}{Create\+Descriptor\+Heap}} (\mbox{\hyperlink{class_f_d3_d12_device}{FD3\+D12\+Device}} \texorpdfstring{$\ast$}{*}Device, const \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}} \texorpdfstring{$\ast$}{*}Debug\+Name, \mbox{\hyperlink{_r_h_i_defines_8h_a9457a748b9d30acc00348bdc63f5de4e}{ERHIDescriptor\+Heap\+Type}} Heap\+Type, \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} Num\+Descriptors, D3\+D12\+\_\+\+DESCRIPTOR\+\_\+\+HEAP\+\_\+\+FLAGS Flags)
+\item 
+void \mbox{\hyperlink{_d3_d12_descriptors_8h_a0d45a2727457803dbb7c0d5a76c178c2}{Copy\+Descriptors}} (\mbox{\hyperlink{class_f_d3_d12_device}{FD3\+D12\+Device}} \texorpdfstring{$\ast$}{*}Device, \mbox{\hyperlink{class_f_d3_d12_descriptor_heap}{FD3\+D12\+Descriptor\+Heap}} \texorpdfstring{$\ast$}{*}Target\+Heap, \mbox{\hyperlink{class_f_d3_d12_descriptor_heap}{FD3\+D12\+Descriptor\+Heap}} \texorpdfstring{$\ast$}{*}Source\+Heap, \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} Num\+Descriptors)
+\item 
+void \mbox{\hyperlink{_d3_d12_descriptors_8h_a458b509604fdad3f949e0bcd9c6e19a6}{Copy\+Descriptor}} (\mbox{\hyperlink{class_f_d3_d12_device}{FD3\+D12\+Device}} \texorpdfstring{$\ast$}{*}Device, \mbox{\hyperlink{class_f_d3_d12_descriptor_heap}{FD3\+D12\+Descriptor\+Heap}} \texorpdfstring{$\ast$}{*}Target\+Heap, \mbox{\hyperlink{struct_f_r_h_i_descriptor_handle}{FRHIDescriptor\+Handle}} Handle, D3\+D12\+\_\+\+CPU\+\_\+\+DESCRIPTOR\+\_\+\+HANDLE Source\+Cpu\+Handle)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Функции}
+\Hypertarget{_d3_d12_descriptors_8h_a458b509604fdad3f949e0bcd9c6e19a6}\label{_d3_d12_descriptors_8h_a458b509604fdad3f949e0bcd9c6e19a6} 
+\index{D3D12Descriptors.h@{D3D12Descriptors.h}!CopyDescriptor@{CopyDescriptor}}
+\index{CopyDescriptor@{CopyDescriptor}!D3D12Descriptors.h@{D3D12Descriptors.h}}
+\doxysubsubsection{\texorpdfstring{CopyDescriptor()}{CopyDescriptor()}}
+{\footnotesize\ttfamily void Copy\+Descriptor (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_f_d3_d12_device}{FD3\+D12\+Device}} \texorpdfstring{$\ast$}{*}}]{Device,  }\item[{\mbox{\hyperlink{class_f_d3_d12_descriptor_heap}{FD3\+D12\+Descriptor\+Heap}} \texorpdfstring{$\ast$}{*}}]{Target\+Heap,  }\item[{\mbox{\hyperlink{struct_f_r_h_i_descriptor_handle}{FRHIDescriptor\+Handle}}}]{Handle,  }\item[{D3\+D12\+\_\+\+CPU\+\_\+\+DESCRIPTOR\+\_\+\+HANDLE}]{Source\+Cpu\+Handle }\end{DoxyParamCaption})}
+
+\Hypertarget{_d3_d12_descriptors_8h_a0d45a2727457803dbb7c0d5a76c178c2}\label{_d3_d12_descriptors_8h_a0d45a2727457803dbb7c0d5a76c178c2} 
+\index{D3D12Descriptors.h@{D3D12Descriptors.h}!CopyDescriptors@{CopyDescriptors}}
+\index{CopyDescriptors@{CopyDescriptors}!D3D12Descriptors.h@{D3D12Descriptors.h}}
+\doxysubsubsection{\texorpdfstring{CopyDescriptors()}{CopyDescriptors()}}
+{\footnotesize\ttfamily void Copy\+Descriptors (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_f_d3_d12_device}{FD3\+D12\+Device}} \texorpdfstring{$\ast$}{*}}]{Device,  }\item[{\mbox{\hyperlink{class_f_d3_d12_descriptor_heap}{FD3\+D12\+Descriptor\+Heap}} \texorpdfstring{$\ast$}{*}}]{Target\+Heap,  }\item[{\mbox{\hyperlink{class_f_d3_d12_descriptor_heap}{FD3\+D12\+Descriptor\+Heap}} \texorpdfstring{$\ast$}{*}}]{Source\+Heap,  }\item[{\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}}]{Num\+Descriptors }\end{DoxyParamCaption})}
+
+\Hypertarget{_d3_d12_descriptors_8h_afb4f8d88e1e4061837e321c23a7d5e8b}\label{_d3_d12_descriptors_8h_afb4f8d88e1e4061837e321c23a7d5e8b} 
+\index{D3D12Descriptors.h@{D3D12Descriptors.h}!CreateDescriptorHeap@{CreateDescriptorHeap}}
+\index{CreateDescriptorHeap@{CreateDescriptorHeap}!D3D12Descriptors.h@{D3D12Descriptors.h}}
+\doxysubsubsection{\texorpdfstring{CreateDescriptorHeap()}{CreateDescriptorHeap()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_f_d3_d12_descriptor_heap}{FD3\+D12\+Descriptor\+Heap}} \texorpdfstring{$\ast$}{*} Create\+Descriptor\+Heap (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_f_d3_d12_device}{FD3\+D12\+Device}} \texorpdfstring{$\ast$}{*}}]{Device,  }\item[{const \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}} \texorpdfstring{$\ast$}{*}}]{Debug\+Name,  }\item[{\mbox{\hyperlink{_r_h_i_defines_8h_a9457a748b9d30acc00348bdc63f5de4e}{ERHIDescriptor\+Heap\+Type}}}]{Heap\+Type,  }\item[{\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}}]{Num\+Descriptors,  }\item[{D3\+D12\+\_\+\+DESCRIPTOR\+\_\+\+HEAP\+\_\+\+FLAGS}]{Flags }\end{DoxyParamCaption})}
+
+\Hypertarget{_d3_d12_descriptors_8h_af9ed2a6f5ce7374baeb59eeac4e0990c}\label{_d3_d12_descriptors_8h_af9ed2a6f5ce7374baeb59eeac4e0990c} 
+\index{D3D12Descriptors.h@{D3D12Descriptors.h}!GetCpuDescriptorHeapSize@{GetCpuDescriptorHeapSize}}
+\index{GetCpuDescriptorHeapSize@{GetCpuDescriptorHeapSize}!D3D12Descriptors.h@{D3D12Descriptors.h}}
+\doxysubsubsection{\texorpdfstring{GetCpuDescriptorHeapSize()}{GetCpuDescriptorHeapSize()}}
+{\footnotesize\ttfamily FORCEINLINE \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} Get\+Cpu\+Descriptor\+Heap\+Size (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_r_h_i_defines_8h_a9457a748b9d30acc00348bdc63f5de4e}{ERHIDescriptor\+Heap\+Type}}}]{Heap\+Type }\end{DoxyParamCaption})}
+
+\Hypertarget{_d3_d12_descriptors_8h_af1452944dcad7eb0c6dbfe1de5ef3ea8}\label{_d3_d12_descriptors_8h_af1452944dcad7eb0c6dbfe1de5ef3ea8} 
+\index{D3D12Descriptors.h@{D3D12Descriptors.h}!GetD3D12DescriptorHeapType@{GetD3D12DescriptorHeapType}}
+\index{GetD3D12DescriptorHeapType@{GetD3D12DescriptorHeapType}!D3D12Descriptors.h@{D3D12Descriptors.h}}
+\doxysubsubsection{\texorpdfstring{GetD3D12DescriptorHeapType()}{GetD3D12DescriptorHeapType()}}
+{\footnotesize\ttfamily FORCEINLINE D3\+D12\+\_\+\+DESCRIPTOR\+\_\+\+HEAP\+\_\+\+TYPE Get\+D3\+D12\+Descriptor\+Heap\+Type (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_r_h_i_defines_8h_a9457a748b9d30acc00348bdc63f5de4e}{ERHIDescriptor\+Heap\+Type}}}]{Heap\+Type }\end{DoxyParamCaption})}
+

@@ -1,0 +1,275 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Dark Engine: Исходный файл Dark Engine/Source/Runtime/Engine/Classes/Engine/EditorViewportClient.h</title>
+<link rel="icon" href="../../Logo.png" type="image/x-icon" />
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<script type="text/javascript" src="../../clipboard.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../MiniLogo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Dark Engine<span id="projectnumber">&#160;0.0.50</span>
+   </div>
+   <div id="projectbrief">New game engnie D3D12</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../../',true,false,'search.php','Поиск');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(1); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('d9/d00/_editor_viewport_client_8h_source.html','../../'); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">EditorViewportClient.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d9/d00/_editor_viewport_client_8h.html">См. документацию.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;<a class="code" href="../../dc/d27/_t_unique_ptr_8h.html">Memory/TUniquePtr.h</a>&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="../../d3/d26/_dark_client_8h.html">DarkClient.h</a>&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="../../dd/dd8/_engine_2_classes_2_engine_2_scene_viewport_8h.html">SceneViewport.h</a>&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="../../dc/d55/_viewport_client_8h.html">ViewportClient.h</a>&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;<a class="code" href="../../d3/dc5/_array_8h.html">Containers/Array.h</a>&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="../../d5/d17/_canvas_8h.html">Canvas.h</a>&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;<a class="code" href="../../d0/df6/_math_fwd_8h.html">Math/MathFwd.h</a>&quot;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="../../df/dbc/_camera_types_8h.html">Camera/CameraTypes.h</a>&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;<a class="code" href="../../d3/d30/_u_i_window_8h.html">Widgets/UIWindow.h</a>&quot;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="../../d0/d94/_scene_interface_8h.html">SceneInterface.h</a>&quot;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">class </span><a class="code hl_class" href="../../d6/d8f/class_u_i_editor_viewport.html">UIEditorViewport</a>;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="foldopen" id="foldopen00018" data-start="{" data-end="};">
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="../../d3/df8/class_f_editor_widget.html">   18</a></span><span class="keyword">class </span><a class="code hl_class" href="../../d3/df8/class_f_editor_widget.html">FEditorWidget</a></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>{</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>};</div>
+</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keyword">class </span><a class="code hl_class" href="../../d5/d14/class_f_scene_viewport.html">FSceneViewport</a>;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="foldopen" id="foldopen00027" data-start="{" data-end="};">
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="../../db/d13/struct_f_viewport_camera_transform.html">   27</a></span><span class="keyword">struct </span><a class="code hl_struct" href="../../db/d13/struct_f_viewport_camera_transform.html">FViewportCameraTransform</a></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>{</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <a class="code hl_function" href="../../db/d13/struct_f_viewport_camera_transform.html#a4bb125ef40cc63948cda3edd8912980e">FViewportCameraTransform</a>();</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../db/d13/struct_f_viewport_camera_transform.html#a4c3fa67a24c7b5e671399d920cc0b866">SetLocation</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">FVector</a>&amp; Position);</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../db/d13/struct_f_viewport_camera_transform.html#aac58fbf1096b0993d4bbf3a338ee01d4">SetRotation</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../d7/dde/struct_d_e_1_1_math_1_1_t_rotator.html">FRotator</a>&amp; Rotation);</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../db/d13/struct_f_viewport_camera_transform.html#a631b7101f5521ff74834a84b5e4e8ab8">SetLookAt</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">FVector</a>&amp; InLookAt);</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../db/d13/struct_f_viewport_camera_transform.html#a3e4409c94901c8bdcb37c9c1585a10d4">SetOrthoZoom</a>(<span class="keywordtype">float</span> InOrthoZoom);</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="../../db/d13/struct_f_viewport_camera_transform.html#a7c4b11115d29f4ad451b8a8c47ca9599">   36</a></span>    <span class="keyword">const</span> <a class="code hl_class" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">FVector</a>&amp; <a class="code hl_function" href="../../db/d13/struct_f_viewport_camera_transform.html#a7c4b11115d29f4ad451b8a8c47ca9599">GetLocation</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> ViewLocation; }</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="../../db/d13/struct_f_viewport_camera_transform.html#ad58244535e3d95072c32ade4782441cf">   37</a></span>    <span class="keyword">const</span> <a class="code hl_class" href="../../d7/dde/struct_d_e_1_1_math_1_1_t_rotator.html">FRotator</a>&amp; <a class="code hl_function" href="../../db/d13/struct_f_viewport_camera_transform.html#ad58244535e3d95072c32ade4782441cf">GetRotation</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> ViewRotation; }</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="../../db/d13/struct_f_viewport_camera_transform.html#a8111b3b98debf2679ea99726b9b98fec">   38</a></span>    <span class="keyword">const</span> <a class="code hl_class" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">FVector</a>&amp; <a class="code hl_function" href="../../db/d13/struct_f_viewport_camera_transform.html#a8111b3b98debf2679ea99726b9b98fec">GetLookAt</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> LookAt; }</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="../../db/d13/struct_f_viewport_camera_transform.html#ae3740c8a91dff3ee750afb3c892ab7c4">   39</a></span>    <span class="keywordtype">float</span> <a class="code hl_function" href="../../db/d13/struct_f_viewport_camera_transform.html#ae3740c8a91dff3ee750afb3c892ab7c4">GetOrthoZoom</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> OrthoZoom; }</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <a class="code hl_class" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">FVector</a> ViewLocation;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <a class="code hl_class" href="../../d7/dde/struct_d_e_1_1_math_1_1_t_rotator.html">FRotator</a> ViewRotation;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <a class="code hl_class" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">FVector</a> LookAt;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keywordtype">float</span> OrthoZoom;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>};</div>
+</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="foldopen" id="foldopen00053" data-start="{" data-end="};">
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="../../d8/d82/class_f_editor_viewport_client.html">   53</a></span><span class="keyword">class </span><a class="code hl_class" href="../../d8/d82/class_f_editor_viewport_client.html">FEditorViewportClient</a> : <span class="keyword">public</span> <a class="code hl_class" href="../../db/d3f/class_f_viewport_client.html">FViewportClient</a></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>{</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    TSharedPtr&lt;class FWorld&gt; World;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <a class="code hl_function" href="../../d8/d82/class_f_editor_viewport_client.html#a297ec95e9f1293f577cfaa77f90d2dd0">FEditorViewportClient</a>(<a class="code hl_class" href="../../d6/d8f/class_u_i_editor_viewport.html">UIEditorViewport</a>* InLevelViewport);      </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="../../d8/d82/class_f_editor_viewport_client.html#a58717d31d01b8bb60f18691e4c0d0048">   60</a></span>    <a class="code hl_function" href="../../d8/d82/class_f_editor_viewport_client.html#a58717d31d01b8bb60f18691e4c0d0048">FEditorViewportClient</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../d8/d82/class_f_editor_viewport_client.html">FEditorViewportClient</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="../../d8/d82/class_f_editor_viewport_client.html#a8a418ab2d59b1517d9d4311a9f54fbee">   61</a></span>    <a class="code hl_class" href="../../d8/d82/class_f_editor_viewport_client.html">FEditorViewportClient</a>&amp; <span class="keyword">const</span> <a class="code hl_function" href="../../d8/d82/class_f_editor_viewport_client.html#a8a418ab2d59b1517d9d4311a9f54fbee">operator=</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../d8/d82/class_f_editor_viewport_client.html">FEditorViewportClient</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="../../d8/d82/class_f_editor_viewport_client.html#a000326c88f744dd396b58c7d64931ad9">   63</a></span>    <a class="code hl_class" href="../../d1/d29/class_f_viewport.html">FViewport</a>* <a class="code hl_variable" href="../../d8/d82/class_f_editor_viewport_client.html#a000326c88f744dd396b58c7d64931ad9">Viewport</a>;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="../../d8/d82/class_f_editor_viewport_client.html#ac9dcb3a6e22d096e914db3bfec7e0c0a">   64</a></span>    <a class="code hl_class" href="../../d7/d9f/class_f_render_target.html">FRenderTarget</a>* <a class="code hl_variable" href="../../d8/d82/class_f_editor_viewport_client.html#ac9dcb3a6e22d096e914db3bfec7e0c0a">RenderTarget</a>;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="../../d8/d82/class_f_editor_viewport_client.html#aaae6af6d6437570d5748fc3d063709ad">   65</a></span>    TArray&lt;FEditorWidget&gt; <a class="code hl_variable" href="../../d8/d82/class_f_editor_viewport_client.html#aaae6af6d6437570d5748fc3d063709ad">EditorWidgets</a>;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d8/d82/class_f_editor_viewport_client.html#a4ca9efc3aef1ce7fde43c0098a715f79">Draw</a>(<a class="code hl_class" href="../../d1/d29/class_f_viewport.html">FViewport</a>* InViewport, <a class="code hl_class" href="../../d2/d57/class_f_canvas.html">FCanvas</a>* InCanvas);</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="../../d8/d82/class_f_editor_viewport_client.html#ad83dd01d7bc0bccd4a08744c4c2ce186">   70</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d8/d82/class_f_editor_viewport_client.html#ad83dd01d7bc0bccd4a08744c4c2ce186">SetViewport</a>(<a class="code hl_class" href="../../d1/d29/class_f_viewport.html">FViewport</a>* InViewport);</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <a class="code hl_class" href="../../de/db5/class_f_scene_interface.html">FSceneInterface</a>* <a class="code hl_function" href="../../d8/d82/class_f_editor_viewport_client.html#a950043cb3cdfd35eafcab4e5bac8551b">GetScene</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="../../d8/d82/class_f_editor_viewport_client.html#a1a3bdcfd4bd5426d5a717c365c7d6746">   74</a></span>    <span class="keyword">const</span> <a class="code hl_struct" href="../../db/d13/struct_f_viewport_camera_transform.html">FViewportCameraTransform</a>&amp; <a class="code hl_function" href="../../d8/d82/class_f_editor_viewport_client.html#a1a3bdcfd4bd5426d5a717c365c7d6746">GetViewTransform</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> ViewTransform; }</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <span class="keyword">virtual</span> <a class="code hl_class" href="../../d1/d0e/class_f_world.html">FWorld</a>* <a class="code hl_function" href="../../d8/d82/class_f_editor_viewport_client.html#adfa21801457f3684528d6f4f815c42ea">GetWorld</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="../../d8/d82/class_f_editor_viewport_client.html#a7f8d4b95b552bb29fd9d2fa2aeaec0a1">   78</a></span>    <a class="code hl_class" href="../../d5/d14/class_f_scene_viewport.html">FSceneViewport</a>* <a class="code hl_function" href="../../d8/d82/class_f_editor_viewport_client.html#a7f8d4b95b552bb29fd9d2fa2aeaec0a1">GetGameViewport</a>();</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno"><a class="line" href="../../d8/d82/class_f_editor_viewport_client.html#a162467b16c97f5818885f01b0f35a523">   79</a></span>    <span class="keyword">const</span> TArray&lt;FEditorWidget&gt;&amp; <a class="code hl_function" href="../../d8/d82/class_f_editor_viewport_client.html#a162467b16c97f5818885f01b0f35a523">GetEditorWidgets</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d8/d82/class_f_editor_viewport_client.html#aaae6af6d6437570d5748fc3d063709ad">EditorWidgets</a>; }</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno"><a class="line" href="../../d8/d82/class_f_editor_viewport_client.html#a47310c7589330e4fc32f66579c99a030">   81</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d8/d82/class_f_editor_viewport_client.html#a47310c7589330e4fc32f66579c99a030">IsRealtime</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <span class="keyword">true</span>; }</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../d8/d82/class_f_editor_viewport_client.html#ae9448a58ca2f8b55d122414235f63e26">Tick</a>(<span class="keywordtype">float</span> DeltaTime);</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="../../d8/d82/class_f_editor_viewport_client.html#a0e0f33dad33bcf13051c09cff15b2674">   85</a></span>    <a class="code hl_struct" href="../../dc/da7/struct_f_minimal_view_info.html">FMinimalViewInfo</a> <a class="code hl_variable" href="../../d8/d82/class_f_editor_viewport_client.html#a0e0f33dad33bcf13051c09cff15b2674">MainViewInfo</a>;</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno"><a class="line" href="../../d8/d82/class_f_editor_viewport_client.html#ad129c55ffc8731f90646ec85c554bdbe">   87</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="../../d8/d82/class_f_editor_viewport_client.html#ad129c55ffc8731f90646ec85c554bdbe">FOV</a>;</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="comment">//virtual void Init();</span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <span class="keywordtype">void</span> DrawEditor();</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    <a class="code hl_struct" href="../../db/d13/struct_f_viewport_camera_transform.html">FViewportCameraTransform</a> ViewTransform;</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    <a class="code hl_class" href="../../d6/d8f/class_u_i_editor_viewport.html">UIEditorViewport</a>* EditorViewportWidget;</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>};</div>
+</div>
+<div class="ttc" id="a_array_8h_html"><div class="ttname"><a href="../../d3/dc5/_array_8h.html">Array.h</a></div></div>
+<div class="ttc" id="a_camera_types_8h_html"><div class="ttname"><a href="../../df/dbc/_camera_types_8h.html">CameraTypes.h</a></div></div>
+<div class="ttc" id="a_canvas_8h_html"><div class="ttname"><a href="../../d5/d17/_canvas_8h.html">Canvas.h</a></div></div>
+<div class="ttc" id="a_dark_client_8h_html"><div class="ttname"><a href="../../d3/d26/_dark_client_8h.html">DarkClient.h</a></div></div>
+<div class="ttc" id="a_engine_2_classes_2_engine_2_scene_viewport_8h_html"><div class="ttname"><a href="../../dd/dd8/_engine_2_classes_2_engine_2_scene_viewport_8h.html">SceneViewport.h</a></div></div>
+<div class="ttc" id="a_math_fwd_8h_html"><div class="ttname"><a href="../../d0/df6/_math_fwd_8h.html">MathFwd.h</a></div></div>
+<div class="ttc" id="a_scene_interface_8h_html"><div class="ttname"><a href="../../d0/d94/_scene_interface_8h.html">SceneInterface.h</a></div></div>
+<div class="ttc" id="a_t_unique_ptr_8h_html"><div class="ttname"><a href="../../dc/d27/_t_unique_ptr_8h.html">TUniquePtr.h</a></div></div>
+<div class="ttc" id="a_u_i_window_8h_html"><div class="ttname"><a href="../../d3/d30/_u_i_window_8h.html">UIWindow.h</a></div></div>
+<div class="ttc" id="a_viewport_client_8h_html"><div class="ttname"><a href="../../dc/d55/_viewport_client_8h.html">ViewportClient.h</a></div></div>
+<div class="ttc" id="aclass_f_canvas_html"><div class="ttname"><a href="../../d2/d57/class_f_canvas.html">FCanvas</a></div><div class="ttdef"><b>Definition</b> Canvas.h:9</div></div>
+<div class="ttc" id="aclass_f_editor_viewport_client_html"><div class="ttname"><a href="../../d8/d82/class_f_editor_viewport_client.html">FEditorViewportClient</a></div><div class="ttdef"><b>Definition</b> EditorViewportClient.h:54</div></div>
+<div class="ttc" id="aclass_f_editor_viewport_client_html_a000326c88f744dd396b58c7d64931ad9"><div class="ttname"><a href="../../d8/d82/class_f_editor_viewport_client.html#a000326c88f744dd396b58c7d64931ad9">FEditorViewportClient::Viewport</a></div><div class="ttdeci">FViewport * Viewport</div><div class="ttdef"><b>Definition</b> EditorViewportClient.h:63</div></div>
+<div class="ttc" id="aclass_f_editor_viewport_client_html_a0e0f33dad33bcf13051c09cff15b2674"><div class="ttname"><a href="../../d8/d82/class_f_editor_viewport_client.html#a0e0f33dad33bcf13051c09cff15b2674">FEditorViewportClient::MainViewInfo</a></div><div class="ttdeci">FMinimalViewInfo MainViewInfo</div><div class="ttdef"><b>Definition</b> EditorViewportClient.h:85</div></div>
+<div class="ttc" id="aclass_f_editor_viewport_client_html_a162467b16c97f5818885f01b0f35a523"><div class="ttname"><a href="../../d8/d82/class_f_editor_viewport_client.html#a162467b16c97f5818885f01b0f35a523">FEditorViewportClient::GetEditorWidgets</a></div><div class="ttdeci">const TArray&lt; FEditorWidget &gt; &amp; GetEditorWidgets() const</div><div class="ttdef"><b>Definition</b> EditorViewportClient.h:79</div></div>
+<div class="ttc" id="aclass_f_editor_viewport_client_html_a1a3bdcfd4bd5426d5a717c365c7d6746"><div class="ttname"><a href="../../d8/d82/class_f_editor_viewport_client.html#a1a3bdcfd4bd5426d5a717c365c7d6746">FEditorViewportClient::GetViewTransform</a></div><div class="ttdeci">const FViewportCameraTransform &amp; GetViewTransform() const</div><div class="ttdef"><b>Definition</b> EditorViewportClient.h:74</div></div>
+<div class="ttc" id="aclass_f_editor_viewport_client_html_a297ec95e9f1293f577cfaa77f90d2dd0"><div class="ttname"><a href="../../d8/d82/class_f_editor_viewport_client.html#a297ec95e9f1293f577cfaa77f90d2dd0">FEditorViewportClient::FEditorViewportClient</a></div><div class="ttdeci">FEditorViewportClient(UIEditorViewport *InLevelViewport)</div><div class="ttdef"><b>Definition</b> EditorViewportClient.cpp:13</div></div>
+<div class="ttc" id="aclass_f_editor_viewport_client_html_a47310c7589330e4fc32f66579c99a030"><div class="ttname"><a href="../../d8/d82/class_f_editor_viewport_client.html#a47310c7589330e4fc32f66579c99a030">FEditorViewportClient::IsRealtime</a></div><div class="ttdeci">virtual bool IsRealtime() const</div><div class="ttdef"><b>Definition</b> EditorViewportClient.h:81</div></div>
+<div class="ttc" id="aclass_f_editor_viewport_client_html_a4ca9efc3aef1ce7fde43c0098a715f79"><div class="ttname"><a href="../../d8/d82/class_f_editor_viewport_client.html#a4ca9efc3aef1ce7fde43c0098a715f79">FEditorViewportClient::Draw</a></div><div class="ttdeci">void Draw(FViewport *InViewport, FCanvas *InCanvas)</div><div class="ttdef"><b>Definition</b> EditorViewportClient.cpp:30</div></div>
+<div class="ttc" id="aclass_f_editor_viewport_client_html_a58717d31d01b8bb60f18691e4c0d0048"><div class="ttname"><a href="../../d8/d82/class_f_editor_viewport_client.html#a58717d31d01b8bb60f18691e4c0d0048">FEditorViewportClient::FEditorViewportClient</a></div><div class="ttdeci">FEditorViewportClient(const FEditorViewportClient &amp;)=delete</div></div>
+<div class="ttc" id="aclass_f_editor_viewport_client_html_a7f8d4b95b552bb29fd9d2fa2aeaec0a1"><div class="ttname"><a href="../../d8/d82/class_f_editor_viewport_client.html#a7f8d4b95b552bb29fd9d2fa2aeaec0a1">FEditorViewportClient::GetGameViewport</a></div><div class="ttdeci">FSceneViewport * GetGameViewport()</div></div>
+<div class="ttc" id="aclass_f_editor_viewport_client_html_a8a418ab2d59b1517d9d4311a9f54fbee"><div class="ttname"><a href="../../d8/d82/class_f_editor_viewport_client.html#a8a418ab2d59b1517d9d4311a9f54fbee">FEditorViewportClient::operator=</a></div><div class="ttdeci">FEditorViewportClient &amp;const operator=(const FEditorViewportClient &amp;)=delete</div></div>
+<div class="ttc" id="aclass_f_editor_viewport_client_html_a950043cb3cdfd35eafcab4e5bac8551b"><div class="ttname"><a href="../../d8/d82/class_f_editor_viewport_client.html#a950043cb3cdfd35eafcab4e5bac8551b">FEditorViewportClient::GetScene</a></div><div class="ttdeci">FSceneInterface * GetScene() const</div><div class="ttdef"><b>Definition</b> EditorViewportClient.cpp:51</div></div>
+<div class="ttc" id="aclass_f_editor_viewport_client_html_aaae6af6d6437570d5748fc3d063709ad"><div class="ttname"><a href="../../d8/d82/class_f_editor_viewport_client.html#aaae6af6d6437570d5748fc3d063709ad">FEditorViewportClient::EditorWidgets</a></div><div class="ttdeci">TArray&lt; FEditorWidget &gt; EditorWidgets</div><div class="ttdef"><b>Definition</b> EditorViewportClient.h:65</div></div>
+<div class="ttc" id="aclass_f_editor_viewport_client_html_ac9dcb3a6e22d096e914db3bfec7e0c0a"><div class="ttname"><a href="../../d8/d82/class_f_editor_viewport_client.html#ac9dcb3a6e22d096e914db3bfec7e0c0a">FEditorViewportClient::RenderTarget</a></div><div class="ttdeci">FRenderTarget * RenderTarget</div><div class="ttdef"><b>Definition</b> EditorViewportClient.h:64</div></div>
+<div class="ttc" id="aclass_f_editor_viewport_client_html_ad129c55ffc8731f90646ec85c554bdbe"><div class="ttname"><a href="../../d8/d82/class_f_editor_viewport_client.html#ad129c55ffc8731f90646ec85c554bdbe">FEditorViewportClient::FOV</a></div><div class="ttdeci">float FOV</div><div class="ttdef"><b>Definition</b> EditorViewportClient.h:87</div></div>
+<div class="ttc" id="aclass_f_editor_viewport_client_html_ad83dd01d7bc0bccd4a08744c4c2ce186"><div class="ttname"><a href="../../d8/d82/class_f_editor_viewport_client.html#ad83dd01d7bc0bccd4a08744c4c2ce186">FEditorViewportClient::SetViewport</a></div><div class="ttdeci">void SetViewport(FViewport *InViewport)</div></div>
+<div class="ttc" id="aclass_f_editor_viewport_client_html_adfa21801457f3684528d6f4f815c42ea"><div class="ttname"><a href="../../d8/d82/class_f_editor_viewport_client.html#adfa21801457f3684528d6f4f815c42ea">FEditorViewportClient::GetWorld</a></div><div class="ttdeci">virtual FWorld * GetWorld() const</div><div class="ttdef"><b>Definition</b> EditorViewportClient.cpp:22</div></div>
+<div class="ttc" id="aclass_f_editor_viewport_client_html_ae9448a58ca2f8b55d122414235f63e26"><div class="ttname"><a href="../../d8/d82/class_f_editor_viewport_client.html#ae9448a58ca2f8b55d122414235f63e26">FEditorViewportClient::Tick</a></div><div class="ttdeci">virtual void Tick(float DeltaTime)</div><div class="ttdef"><b>Definition</b> EditorViewportClient.cpp:62</div></div>
+<div class="ttc" id="aclass_f_editor_widget_html"><div class="ttname"><a href="../../d3/df8/class_f_editor_widget.html">FEditorWidget</a></div><div class="ttdef"><b>Definition</b> EditorViewportClient.h:19</div></div>
+<div class="ttc" id="aclass_f_render_target_html"><div class="ttname"><a href="../../d7/d9f/class_f_render_target.html">FRenderTarget</a></div><div class="ttdef"><b>Definition</b> DarkClient.h:13</div></div>
+<div class="ttc" id="aclass_f_scene_interface_html"><div class="ttname"><a href="../../de/db5/class_f_scene_interface.html">FSceneInterface</a></div><div class="ttdef"><b>Definition</b> SceneInterface.h:7</div></div>
+<div class="ttc" id="aclass_f_scene_viewport_html"><div class="ttname"><a href="../../d5/d14/class_f_scene_viewport.html">FSceneViewport</a></div><div class="ttdef"><b>Definition</b> SceneViewport.h:12</div></div>
+<div class="ttc" id="aclass_f_viewport_client_html"><div class="ttname"><a href="../../db/d3f/class_f_viewport_client.html">FViewportClient</a></div><div class="ttdef"><b>Definition</b> ViewportClient.h:12</div></div>
+<div class="ttc" id="aclass_f_viewport_html"><div class="ttname"><a href="../../d1/d29/class_f_viewport.html">FViewport</a></div><div class="ttdef"><b>Definition</b> DarkClient.h:34</div></div>
+<div class="ttc" id="aclass_f_world_html"><div class="ttname"><a href="../../d1/d0e/class_f_world.html">FWorld</a></div><div class="ttdef"><b>Definition</b> World.h:4</div></div>
+<div class="ttc" id="aclass_u_i_editor_viewport_html"><div class="ttname"><a href="../../d6/d8f/class_u_i_editor_viewport.html">UIEditorViewport</a></div><div class="ttdef"><b>Definition</b> UIEditorViewport.h:10</div></div>
+<div class="ttc" id="astruct_d_e_1_1_math_1_1_t_rotator_html"><div class="ttname"><a href="../../d7/dde/struct_d_e_1_1_math_1_1_t_rotator.html">DE::Math::TRotator&lt; double &gt;</a></div></div>
+<div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector&lt; double &gt;</a></div></div>
+<div class="ttc" id="astruct_f_minimal_view_info_html"><div class="ttname"><a href="../../dc/da7/struct_f_minimal_view_info.html">FMinimalViewInfo</a></div><div class="ttdef"><b>Definition</b> CameraTypes.h:7</div></div>
+<div class="ttc" id="astruct_f_viewport_camera_transform_html"><div class="ttname"><a href="../../db/d13/struct_f_viewport_camera_transform.html">FViewportCameraTransform</a></div><div class="ttdef"><b>Definition</b> EditorViewportClient.h:28</div></div>
+<div class="ttc" id="astruct_f_viewport_camera_transform_html_a3e4409c94901c8bdcb37c9c1585a10d4"><div class="ttname"><a href="../../db/d13/struct_f_viewport_camera_transform.html#a3e4409c94901c8bdcb37c9c1585a10d4">FViewportCameraTransform::SetOrthoZoom</a></div><div class="ttdeci">void SetOrthoZoom(float InOrthoZoom)</div><div class="ttdef"><b>Definition</b> EditorViewportClient.cpp:95</div></div>
+<div class="ttc" id="astruct_f_viewport_camera_transform_html_a4bb125ef40cc63948cda3edd8912980e"><div class="ttname"><a href="../../db/d13/struct_f_viewport_camera_transform.html#a4bb125ef40cc63948cda3edd8912980e">FViewportCameraTransform::FViewportCameraTransform</a></div><div class="ttdeci">FViewportCameraTransform()</div><div class="ttdef"><b>Definition</b> EditorViewportClient.cpp:72</div></div>
+<div class="ttc" id="astruct_f_viewport_camera_transform_html_a4c3fa67a24c7b5e671399d920cc0b866"><div class="ttname"><a href="../../db/d13/struct_f_viewport_camera_transform.html#a4c3fa67a24c7b5e671399d920cc0b866">FViewportCameraTransform::SetLocation</a></div><div class="ttdeci">void SetLocation(const FVector &amp;Position)</div><div class="ttdef"><b>Definition</b> EditorViewportClient.cpp:80</div></div>
+<div class="ttc" id="astruct_f_viewport_camera_transform_html_a631b7101f5521ff74834a84b5e4e8ab8"><div class="ttname"><a href="../../db/d13/struct_f_viewport_camera_transform.html#a631b7101f5521ff74834a84b5e4e8ab8">FViewportCameraTransform::SetLookAt</a></div><div class="ttdeci">void SetLookAt(const FVector &amp;InLookAt)</div><div class="ttdef"><b>Definition</b> EditorViewportClient.cpp:90</div></div>
+<div class="ttc" id="astruct_f_viewport_camera_transform_html_a7c4b11115d29f4ad451b8a8c47ca9599"><div class="ttname"><a href="../../db/d13/struct_f_viewport_camera_transform.html#a7c4b11115d29f4ad451b8a8c47ca9599">FViewportCameraTransform::GetLocation</a></div><div class="ttdeci">const FVector &amp; GetLocation() const</div><div class="ttdef"><b>Definition</b> EditorViewportClient.h:36</div></div>
+<div class="ttc" id="astruct_f_viewport_camera_transform_html_a8111b3b98debf2679ea99726b9b98fec"><div class="ttname"><a href="../../db/d13/struct_f_viewport_camera_transform.html#a8111b3b98debf2679ea99726b9b98fec">FViewportCameraTransform::GetLookAt</a></div><div class="ttdeci">const FVector &amp; GetLookAt() const</div><div class="ttdef"><b>Definition</b> EditorViewportClient.h:38</div></div>
+<div class="ttc" id="astruct_f_viewport_camera_transform_html_aac58fbf1096b0993d4bbf3a338ee01d4"><div class="ttname"><a href="../../db/d13/struct_f_viewport_camera_transform.html#aac58fbf1096b0993d4bbf3a338ee01d4">FViewportCameraTransform::SetRotation</a></div><div class="ttdeci">void SetRotation(const FRotator &amp;Rotation)</div><div class="ttdef"><b>Definition</b> EditorViewportClient.cpp:85</div></div>
+<div class="ttc" id="astruct_f_viewport_camera_transform_html_ad58244535e3d95072c32ade4782441cf"><div class="ttname"><a href="../../db/d13/struct_f_viewport_camera_transform.html#ad58244535e3d95072c32ade4782441cf">FViewportCameraTransform::GetRotation</a></div><div class="ttdeci">const FRotator &amp; GetRotation() const</div><div class="ttdef"><b>Definition</b> EditorViewportClient.h:37</div></div>
+<div class="ttc" id="astruct_f_viewport_camera_transform_html_ae3740c8a91dff3ee750afb3c892ab7c4"><div class="ttname"><a href="../../db/d13/struct_f_viewport_camera_transform.html#ae3740c8a91dff3ee750afb3c892ab7c4">FViewportCameraTransform::GetOrthoZoom</a></div><div class="ttdeci">float GetOrthoZoom() const</div><div class="ttdef"><b>Definition</b> EditorViewportClient.h:39</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../dir_55043db21ba5ddd7c561d2c5a5a38944.html">Dark Engine</a></li><li class="navelem"><a class="el" href="../../dir_e00b54220e1e1486ac9971b606d33054.html">Source</a></li><li class="navelem"><a class="el" href="../../dir_ae01c8af07818b260cc3481e8588b277.html">Runtime</a></li><li class="navelem"><a class="el" href="../../dir_736522237f23468e79442f3fc4ecd19b.html">Engine</a></li><li class="navelem"><a class="el" href="../../dir_8e5f7f07800deb66a56f516b5eaf6fef.html">Classes</a></li><li class="navelem"><a class="el" href="../../dir_2ebadd61a5acc3104b5f7c6fd0023479.html">Engine</a></li><li class="navelem"><a class="el" href="../../d9/d00/_editor_viewport_client_8h.html">EditorViewportClient.h</a></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
+</body>
+</html>

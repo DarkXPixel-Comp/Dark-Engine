@@ -84,7 +84,7 @@ FD3D12Texture* FD3D12Viewport::GetSwapChainSurface(EPixelFormat PixelFormat, uin
 
 	FD3D12DynamicRHI* DynamicRHI = FD3D12DynamicRHI::GetD3D12RHI();
 	
-	FD3D12Texture* SwapChainTexture = DynamicRHI->CreateD3D12Texture(CreateDesc, Adapter->GetDevice());
+	FD3D12Texture* SwapChainTexture = DynamicRHI->CreateEmptyD3D12Texture(CreateDesc, Adapter->GetDevice());
 
 	const D3D12_RESOURCE_STATES InitialState = D3D12_RESOURCE_STATE_COMMON;
 
@@ -98,7 +98,18 @@ FD3D12Texture* FD3D12Viewport::GetSwapChainSurface(EPixelFormat PixelFormat, uin
 	RTVDesc.ViewDimension = D3D12_RTV_DIMENSION_TEXTURE2D;
 	RTVDesc.Texture2D.MipSlice = 0;
 
-	SwapChainTexture->AddRTV(RTVDesc, 0);
+	SwapChainTexture->SetNumRTV(1);
+	SwapChainTexture->EmplaceRTV(RTVDesc, 0);
+	
+
+	D3D12_SHADER_RESOURCE_VIEW_DESC SRVDesc = {};
+	SRVDesc.Shader4ComponentMapping = D3D12_DEFAULT_SHADER_4_COMPONENT_MAPPING;
+	SRVDesc.Format = BackBufferDesc.Format;
+	SRVDesc.ViewDimension = D3D12_SRV_DIMENSION_TEXTURE2D;
+	SRVDesc.Texture2D.MostDetailedMip = 0;
+	SRVDesc.Texture2D.MipLevels = 1;
+
+	SwapChainTexture->EmplaceSRV(SRVDesc);
 
 	DX12::SetName(SwapChainTexture->GetResource(), *Name);
 
@@ -127,7 +138,7 @@ void FD3D12Viewport::CalculateSwapchainNum(int32 SwapChainNum)
 void FD3D12Viewport::Init()
 {
 	FD3D12Adapter* Adapter = GetParentAdapter();
-	IDXGIFactory7* Factory = Adapter->GetDXGIFactory();
+	IDXGIFactory5* Factory = Adapter->GetDXGIFactory();
 
 
 	CalculateSwapchainNum(WindowsDefaultNumBackBuffers);
@@ -189,11 +200,13 @@ void FD3D12Viewport::Resize(uint32 InSizeX, uint32 InSizeY, bool bInIsFullscreen
 {
 	FD3D12Adapter* Adapter = GetParentAdapter();
 
+		
+	Adapter->GetDevice()->GetDefaultCommandContext().FlushCommands(ED3D12FlushFlags::WaitForSubmission);
 
 
 	for (uint32 i = 0; i < NumBackBuffers; ++i)
 	{
-		BackBuffers[i].reset();
+		BackBuffers[i].Reset();
 	}
 
 
@@ -223,21 +236,20 @@ void FD3D12Viewport::Resize(uint32 InSizeX, uint32 InSizeY, bool bInIsFullscreen
 
 
 	UINT SwapChainFlags = DXGI_SWAP_CHAIN_FLAG_ALLOW_MODE_SWITCH;
-	SwapChain1->ResizeBuffers(NumBackBuffers, SizeX, SizeY, GetRenderTargetFormat(InPixelFormat), SwapChainFlags);
+	DXCall(SwapChain1->ResizeBuffers(NumBackBuffers, SizeX, SizeY, GetRenderTargetFormat(InPixelFormat), SwapChainFlags));
 
 	FD3D12Device* Device = Adapter->GetDevice();
 	for (uint32 i = 0; i < NumBackBuffers; i++)
 	{
 		check(BackBuffers[i] == nullptr);
-		BackBuffers[i] = MakeShareble(GetSwapChainSurface(PixelFormat, SizeX, SizeY, SwapChain1.Get(),
-			i, nullptr));
+		BackBuffers[i] = GetSwapChainSurface(PixelFormat, SizeX, SizeY, SwapChain1.Get(), i, nullptr);
 	}
 	CurrentBackBufferIndex = 0;
 
 	
 }
 
-bool FD3D12Viewport::Present(bool bVsync)
+bool FD3D12Viewport::Present(int32 bVsync)
 {
 	FD3D12Texture* BackBuffer = GetCurrentBackBuffer();
 	FD3D12CommandContext& DefaultContext = Parent->GetDevice()->GetDefaultCommandContext();
@@ -251,7 +263,7 @@ bool FD3D12Viewport::Present(bool bVsync)
 	UINT Flags = 0;
 	if (!bVsync && !bIsFullscreen)
 	{
-		Flags |= DXGI_PRESENT_ALLOW_TEARING;
+		//Flags |= DXGI_PRESENT_ALLOW_TEARING;
 	}
 
 	if (SwapChain4)
@@ -269,3 +281,9 @@ void FD3D12Viewport::WaitForFrameEventCompletion()
 {
 	
 }
+
+void FD3D12Viewport::Resize(int32 Width, int32 Height, bool bWasMinimized)
+{
+	Resize(Width, Height, false, PixelFormat);
+}
+

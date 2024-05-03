@@ -6,6 +6,7 @@
 #include "Matrix.h"
 #include "IntPoint.h"
 #include "IntRect.h"
+#include "Vector4.h"
 
 
 namespace DE::Math
@@ -16,6 +17,7 @@ namespace DE::Math
 	template<typename T> struct TMatrix;
 	template<typename T> struct TIntPoint;
 	template<typename T> struct TIntRect;
+	template<typename T> struct TVector4;
 }
 
 
@@ -46,6 +48,8 @@ using FRotator3d =				DE::Math::TRotator<double>;
 using FVector3f =				DE::Math::TVector<float>;
 using FVector2f =				DE::Math::TVector2<float>;
 using FRotator3f =				DE::Math::TRotator<float>;
+
+using FVector4f =				DE::Math::TVector4<float>;
 
 using FMatrix =					DE::Math::TMatrix<double>;
 using FMatrix4x4f =				DE::Math::TMatrix<float>;

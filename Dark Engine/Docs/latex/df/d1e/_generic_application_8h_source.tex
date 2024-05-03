@@ -1,0 +1,33 @@
+\doxysection{Generic\+Application.\+h}
+\hypertarget{_generic_application_8h_source}{}\label{_generic_application_8h_source}\index{Dark Engine/Source/Runtime/ApplicationCore/public/GenericPlatform/GenericApplication.h@{Dark Engine/Source/Runtime/ApplicationCore/public/GenericPlatform/GenericApplication.h}}
+\mbox{\hyperlink{_generic_application_8h}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_generic_window_8h}{GenericPlatform/GenericWindow.h}}"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_core_minimal_8h}{CoreMinimal.h}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_math_fwd_8h}{Math/MathFwd.h}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_generic_window_definition_8h}{GenericPlatform/GenericWindowDefinition.h}}"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_generic_application_handler_8h}{GenericPlatform/GenericApplicationHandler.h}}"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_f_generic_application}{FGenericApplication}}}
+\DoxyCodeLine{00010\ \{}
+\DoxyCodeLine{00011\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{_t_unique_ptr_8h_ab7a7d47ba593c2489fecf3f003f56c53}{TSharedPtr<FGenericWindow>}}\ \mbox{\hyperlink{class_f_generic_application_ab9d5763f6c74eee4f611df58972169d8}{MakeWindow}}()}
+\DoxyCodeLine{00013\ \ \ \ \ \{}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{_t_unique_ptr_8h_afc155ef9e11e17d1684de7ccccd2a189}{MakeShareble}}(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_f_generic_window}{FGenericWindow}}());}
+\DoxyCodeLine{00015\ \ \ \ \ \}}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_generic_application_a948aea0ec3f153d101e2a7e976cb6832}{InitializeWindow}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{_t_unique_ptr_8h_ab7a7d47ba593c2489fecf3f003f56c53}{TSharedPtr<FGenericWindow>}}\&\ InWindows,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{_t_unique_ptr_8h_ab7a7d47ba593c2489fecf3f003f56c53}{TSharedPtr<FGenericWindowDefinition>}}\&\ InDefinition)\ \{\}}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_generic_application_a0a5505b00c78d52b4109829f63944f5e}{PumpMessages}}()\ \{\}}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_generic_application_a13819167070117655de8731a97747d26}{Tick}}(\textcolor{keywordtype}{float}\ DeltaTime)\ \{\}}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_generic_application_a741934477606cac5e33349034e46a756}{SetMessageHandler}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{_t_unique_ptr_8h_ab7a7d47ba593c2489fecf3f003f56c53}{TSharedPtr<FGenericApplicationHandler>}}\&\ InMessageHandler)\ \{\ \mbox{\hyperlink{class_f_generic_application_a6b69155ae76393394a80201ec97ef445}{MessageHandler}}\ =\ InMessageHandler;\ \}}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_int_point}{FIntPoint}}\ \mbox{\hyperlink{class_f_generic_application_a5071e87223e1f3be5a49b39550ab16df}{GetMousePos}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{_math_fwd_8h_af5577845559ff81e49036ff088d51cbf}{FIntPoint}}();\ \}}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_generic_application_ad89b102a7786dd018b1cc67eca82b1c6}{SetCapture}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{_t_unique_ptr_8h_ab7a7d47ba593c2489fecf3f003f56c53}{TSharedPtr<FGenericWindow>}}\&\ InWindow)\ \{\}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00026\ \ \ \ \ \mbox{\hyperlink{_t_unique_ptr_8h_ab7a7d47ba593c2489fecf3f003f56c53}{TSharedPtr<FGenericApplicationHandler>}}\ \mbox{\hyperlink{class_f_generic_application_a6b69155ae76393394a80201ec97ef445}{MessageHandler}};}
+\DoxyCodeLine{00027\ \};}
+
+\end{DoxyCode}

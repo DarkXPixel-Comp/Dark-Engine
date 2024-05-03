@@ -1,0 +1,364 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Dark Engine: Исходный файл Dark Engine/Source/Runtime/RHI/public/DynamicRHI.h</title>
+<link rel="icon" href="../../Logo.png" type="image/x-icon" />
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<script type="text/javascript" src="../../clipboard.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../MiniLogo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Dark Engine<span id="projectnumber">&#160;0.0.50</span>
+   </div>
+   <div id="projectbrief">New game engnie D3D12</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../../',true,false,'search.php','Поиск');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(1); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('d8/db0/_dynamic_r_h_i_8h_source.html','../../'); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">DynamicRHI.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d8/db0/_dynamic_r_h_i_8h.html">См. документацию.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;<a class="code" href="../../de/df7/_r_h_i_defines_8h.html">RHIDefines.h</a>&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;<a class="code" href="../../db/dec/_r_h_i_resources_8h.html">RHIResources.h</a>&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="../../d0/dc7/_r_h_i_context_8h.html">RHIContext.h</a>&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="../../dc/d27/_t_unique_ptr_8h.html">Memory/TUniquePtr.h</a>&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">//#include &quot;Shader.h&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="foldopen" id="foldopen00011" data-start="{" data-end="};">
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="../../dd/d82/class_i_dynamic_r_h_i_module.html">   11</a></span><span class="keyword">class </span><a class="code hl_class" href="../../dd/d82/class_i_dynamic_r_h_i_module.html">IDynamicRHIModule</a></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>{</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="../../dd/d82/class_i_dynamic_r_h_i_module.html#a54d71fef31e64ca3d5fea82873b7c453">   14</a></span>    <span class="keyword">virtual</span> <span class="keyword">class </span><a class="code hl_class" href="../../de/d38/class_f_dynamic_r_h_i.html">FDynamicRHI</a>* <a class="code hl_function" href="../../dd/d82/class_i_dynamic_r_h_i_module.html#a54d71fef31e64ca3d5fea82873b7c453">CreateRHI</a>() = 0;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="../../dd/d82/class_i_dynamic_r_h_i_module.html#a1ffe850cc2b41382fa33823cf4590bd4">   15</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../dd/d82/class_i_dynamic_r_h_i_module.html#a1ffe850cc2b41382fa33823cf4590bd4">Shutdown</a>() = 0;</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>};</div>
+</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="foldopen" id="foldopen00024" data-start="{" data-end="};">
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="../../de/d38/class_f_dynamic_r_h_i.html">   24</a></span><span class="keyword">class </span><a class="code hl_class" href="../../de/d38/class_f_dynamic_r_h_i.html">FDynamicRHI</a></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>{</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="../../de/d38/class_f_dynamic_r_h_i.html#a602eace3203e7c8c4eac477038f1a18e">   27</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../de/d38/class_f_dynamic_r_h_i.html#a602eace3203e7c8c4eac477038f1a18e">Init</a>() = 0;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="../../de/d38/class_f_dynamic_r_h_i.html#ab677d5f56d73bc0de7f32b17045d23ef">   28</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../de/d38/class_f_dynamic_r_h_i.html#ab677d5f56d73bc0de7f32b17045d23ef">PostInit</a>() {}</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="../../de/d38/class_f_dynamic_r_h_i.html#a09975cc271feb70604c7a04ec7e8d34d">   29</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../de/d38/class_f_dynamic_r_h_i.html#a09975cc271feb70604c7a04ec7e8d34d">Shutdown</a>() = 0;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="../../de/d38/class_f_dynamic_r_h_i.html#a72aa0ec91b8fde287c525cf4ffee1880">   30</a></span>    <span class="keyword">virtual</span> TSharedPtr&lt;FRHIViewport&gt; <a class="code hl_function" href="../../de/d38/class_f_dynamic_r_h_i.html#a72aa0ec91b8fde287c525cf4ffee1880">RHICreateViewport</a>(<span class="keywordtype">void</span>* WindowHandle, <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> SizeX, <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> SizeY, <span class="keywordtype">bool</span> bIsFullscreen) = 0;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="../../de/d38/class_f_dynamic_r_h_i.html#a3fc08ca3ca63a1731b0ace83af3b0746">   31</a></span>    <span class="keyword">virtual</span> <a class="code hl_class" href="../../d3/d6d/class_f_r_h_i_texture.html">FRHITexture</a>* <a class="code hl_function" href="../../de/d38/class_f_dynamic_r_h_i.html#a3fc08ca3ca63a1731b0ace83af3b0746">RHIGetViewportBackBuffer</a>(<a class="code hl_class" href="../../d0/d5f/class_f_r_h_i_viewport.html">FRHIViewport</a>* <a class="code hl_struct" href="../../de/d02/struct_viewport.html">Viewport</a>) = 0;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="../../de/d38/class_f_dynamic_r_h_i.html#a16346de3a5e19381511dfb0ea108f03b">   32</a></span>    <span class="keyword">virtual</span> <a class="code hl_class" href="../../d2/db5/class_i_r_h_i_compute_context.html">IRHIComputeContext</a>* <a class="code hl_function" href="../../de/d38/class_f_dynamic_r_h_i.html#a16346de3a5e19381511dfb0ea108f03b">RHIGetCommandContext</a>() = 0;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="../../de/d38/class_f_dynamic_r_h_i.html#a416befd9929970c468352fca1cec71df">   33</a></span>    <span class="keyword">virtual</span> <a class="code hl_class" href="../../d2/db5/class_i_r_h_i_compute_context.html">IRHIComputeContext</a>* <a class="code hl_function" href="../../de/d38/class_f_dynamic_r_h_i.html#a416befd9929970c468352fca1cec71df">RHIGetDefaultContext</a>() = 0;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="../../de/d38/class_f_dynamic_r_h_i.html#a9df31b485e80af97a63c004118a2b664">   34</a></span>    <span class="keyword">virtual</span> TRefCountPtr&lt;FRHIBuffer&gt; <a class="code hl_function" href="../../de/d38/class_f_dynamic_r_h_i.html#a9df31b485e80af97a63c004118a2b664">RHICreateBuffer</a>(<span class="keyword">const</span> <a class="code hl_struct" href="../../d7/d2f/struct_f_r_h_i_buffer_desc.html">FRHIBufferDesc</a>&amp; CreateDesc, <span class="keyword">const</span> <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a74140f1ff3f7a51b1ac752f90283f3d6">TCHAR</a>* DebugName, <a class="code hl_enumeration" href="../../de/df7/_r_h_i_defines_8h.html#a790a925a3358fc56173b2ffb0f607c5f">ERHIAccess</a> InitialState) = 0;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="../../de/d38/class_f_dynamic_r_h_i.html#a6441be808da157cf46d617bb998272a1">   35</a></span>    <span class="keyword">virtual</span> TRefCountPtr&lt;FRHITexture&gt; <a class="code hl_function" href="../../de/d38/class_f_dynamic_r_h_i.html#a6441be808da157cf46d617bb998272a1">RHICreateTexture</a>(<span class="keyword">const</span> <a class="code hl_struct" href="../../d5/d82/struct_f_r_h_i_texture_create_desc.html">FRHITextureCreateDesc</a>&amp; CreateDesc) = 0;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="../../de/d38/class_f_dynamic_r_h_i.html#af273516e480d8c36b9d6fe8dc49f9957">   36</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span>* <a class="code hl_function" href="../../de/d38/class_f_dynamic_r_h_i.html#af273516e480d8c36b9d6fe8dc49f9957">RHILockTexture2D</a>(<a class="code hl_class" href="../../d3/d6d/class_f_r_h_i_texture.html">FRHITexture</a>* TextureRHI, <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> MipIndex, <a class="code hl_enumeration" href="../../de/df7/_r_h_i_defines_8h.html#a74b58e6e8443baea529ab6f701abadb7">EResourceLockMode</a> LockMode, <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a>&amp; DestStride, <span class="keywordtype">bool</span> bLockWithinMiptail, <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#afddf25cca147311c233b23a9d3329bb4">uint64</a>* OutLockedByteCount) = 0;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="../../de/d38/class_f_dynamic_r_h_i.html#a00495758d56da1761d91f843bfda3ea6">   37</a></span>    <span class="keyword">virtual</span> TRefCountPtr&lt;FRHIUniformBuffer&gt; <a class="code hl_function" href="../../de/d38/class_f_dynamic_r_h_i.html#a00495758d56da1761d91f843bfda3ea6">RHICreateUniformBuffer</a>(<span class="keyword">const</span> <span class="keywordtype">void</span>* Contents, <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> <a class="code hl_enumvalue" href="../../d5/dc5/_d3_d12_utils_8h.html#a49802c782fb40bd8e79835ef12871ddeaff9abf2b1a689f70a77a18da50c01d9f">Size</a>, <a class="code hl_enumeration" href="../../de/df7/_r_h_i_defines_8h.html#a44efee7815674a346059a25f9b3c2085">EUniformBufferUsage</a> Usage) = 0;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="../../de/d38/class_f_dynamic_r_h_i.html#a3da5ee99b27e2866e613e804ca189321">   38</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../de/d38/class_f_dynamic_r_h_i.html#a3da5ee99b27e2866e613e804ca189321">RHIUpdateUniformBuffer</a>(<a class="code hl_class" href="../../da/df0/class_f_r_h_i_uniform_buffer.html">FRHIUniformBuffer</a>* BufferRHI, <span class="keyword">const</span> <span class="keywordtype">void</span>* Contents, <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> <a class="code hl_enumvalue" href="../../d5/dc5/_d3_d12_utils_8h.html#a49802c782fb40bd8e79835ef12871ddeaff9abf2b1a689f70a77a18da50c01d9f">Size</a>) = 0;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="../../de/d38/class_f_dynamic_r_h_i.html#ae59571e204c5365c3b21962b1101b026">   39</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span>* <a class="code hl_function" href="../../de/d38/class_f_dynamic_r_h_i.html#ae59571e204c5365c3b21962b1101b026">RHILockBuffer</a>(<a class="code hl_class" href="../../d9/d24/class_f_r_h_i_buffer.html">FRHIBuffer</a>* BufferRHI, <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> Offset, <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> <a class="code hl_enumvalue" href="../../d5/dc5/_d3_d12_utils_8h.html#a49802c782fb40bd8e79835ef12871ddeaff9abf2b1a689f70a77a18da50c01d9f">Size</a>, <a class="code hl_enumeration" href="../../de/df7/_r_h_i_defines_8h.html#a74b58e6e8443baea529ab6f701abadb7">EResourceLockMode</a> LockMode) = 0;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="../../de/d38/class_f_dynamic_r_h_i.html#a7123858ea467546ddfad559b895900dc">   40</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span>  <a class="code hl_function" href="../../de/d38/class_f_dynamic_r_h_i.html#a7123858ea467546ddfad559b895900dc">RHIUnlockBuffer</a>(<a class="code hl_class" href="../../d9/d24/class_f_r_h_i_buffer.html">FRHIBuffer</a>* BufferRHI) = 0;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="../../de/d38/class_f_dynamic_r_h_i.html#af8532d4d041297a0a3d05aa30e9a4330">   41</a></span>    <span class="keyword">virtual</span> TRefCountPtr&lt;FRHIGraphicsPipelineState&gt; <a class="code hl_function" href="../../de/d38/class_f_dynamic_r_h_i.html#af8532d4d041297a0a3d05aa30e9a4330">RHICreateGraphicsPipelineState</a>(<span class="keyword">const</span> <span class="keyword">class</span> <a class="code hl_class" href="../../d2/d2e/class_f_graphics_pipeline_state_initializer.html">FGraphicsPipelineStateInitializer</a>&amp; Initializer) = 0;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="../../de/d38/class_f_dynamic_r_h_i.html#a2401a4be0e19b756b5091d68534c567a">   42</a></span>    <span class="keyword">virtual</span> TRefCountPtr&lt;FRHIVertexDeclaration&gt; <a class="code hl_function" href="../../de/d38/class_f_dynamic_r_h_i.html#a2401a4be0e19b756b5091d68534c567a">RHICreateVertexDeclaration</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../d6/db1/class_t_array.html">FVertexDeclarationElementList</a>&amp; Elements) = 0;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="../../de/d38/class_f_dynamic_r_h_i.html#a2c6ef6a9b044a8222d38129d13630fa9">   43</a></span>    <span class="keyword">virtual</span> TRefCountPtr&lt;FRHIVertexShader&gt; <a class="code hl_function" href="../../de/d38/class_f_dynamic_r_h_i.html#a2c6ef6a9b044a8222d38129d13630fa9">RHICreateVertexShader</a>(<span class="keyword">const</span> TArray&lt;uint8&gt;&amp; Code, <span class="keyword">const</span> <span class="keyword">struct</span> <a class="code hl_struct" href="../../d8/df6/struct_f_shader_bounds.html">FShaderBounds</a>&amp; Bounds) = 0;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="../../de/d38/class_f_dynamic_r_h_i.html#a53d0ed0d31f17f76afa082d2ea9f4f4b">   44</a></span>    <span class="keyword">virtual</span> TRefCountPtr&lt;FRHIPixelShader&gt; <a class="code hl_function" href="../../de/d38/class_f_dynamic_r_h_i.html#a53d0ed0d31f17f76afa082d2ea9f4f4b">RHICreatePixelShader</a>(<span class="keyword">const</span> TArray&lt;uint8&gt;&amp; Code, <span class="keyword">const</span> <span class="keyword">struct</span> <a class="code hl_struct" href="../../d8/df6/struct_f_shader_bounds.html">FShaderBounds</a>&amp; Bounds) = 0;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="../../de/d38/class_f_dynamic_r_h_i.html#a5cb35963ad6e49192091556074aa7c59">   45</a></span>    <span class="keyword">virtual</span> TRefCountPtr&lt;FRHIRasterizerState&gt; <a class="code hl_function" href="../../de/d38/class_f_dynamic_r_h_i.html#a5cb35963ad6e49192091556074aa7c59">RHICreateRasterizerState</a>(<span class="keyword">const</span> <a class="code hl_struct" href="../../dc/df1/struct_f_rasterizer_state_initializer.html">FRasterizerStateInitializer</a>&amp; Initializer) = 0;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="../../de/d38/class_f_dynamic_r_h_i.html#a94741c19da2ffb044dcfb5611f9d7e87">   47</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../de/d38/class_f_dynamic_r_h_i.html#a94741c19da2ffb044dcfb5611f9d7e87">RHIUnlockTexture2D</a>(<a class="code hl_class" href="../../d3/d6d/class_f_r_h_i_texture.html">FRHITexture</a>* TextureRHI, <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> MipIndex, <span class="keywordtype">bool</span> bLockWithinMiptail) = 0;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="../../de/d38/class_f_dynamic_r_h_i.html#a4fad1dc7f9e8744d4cd7df6ea792f137">   48</a></span>    <span class="keyword">virtual</span> <a class="code hl_enumeration" href="../../de/df7/_r_h_i_defines_8h.html#accfdbf6612e46ffde28b934e051fb990">ERHIInterfaceType</a> <a class="code hl_function" href="../../de/d38/class_f_dynamic_r_h_i.html#a4fad1dc7f9e8744d4cd7df6ea792f137">GetInterfaceType</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="../../de/df7/_r_h_i_defines_8h.html#accfdbf6612e46ffde28b934e051fb990a7acdf85c69cc3c5305456a293524386e">ERHIInterfaceType::Hidden</a>; }</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>};</div>
+</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="keyword">extern</span> <a class="code hl_class" href="../../de/d38/class_f_dynamic_r_h_i.html">FDynamicRHI</a>* <a class="code hl_variable" href="../../d8/db0/_dynamic_r_h_i_8h.html#a7f476220c09bed9c45bc8cdcfde73e72">GDynamicRHI</a>;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="foldopen" id="foldopen00055" data-start="{" data-end="};">
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="../../da/d93/class_i_dynamic_r_h_i.html">   55</a></span><span class="keyword">class </span><a class="code hl_class" href="../../da/d93/class_i_dynamic_r_h_i.html">IDynamicRHI</a></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>{</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="../../da/d93/class_i_dynamic_r_h_i.html#a2b2d7bd6f35bafeced4cbfe17075b362">   58</a></span>    <span class="keyword">virtual</span> <a class="code hl_class" href="../../de/d38/class_f_dynamic_r_h_i.html">FDynamicRHI</a>* <a class="code hl_function" href="../../da/d93/class_i_dynamic_r_h_i.html#a2b2d7bd6f35bafeced4cbfe17075b362">CreateRHI</a>() = 0;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>};</div>
+</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><a class="code hl_class" href="../../de/d38/class_f_dynamic_r_h_i.html">FDynamicRHI</a>* <a class="code hl_function" href="../../d8/db0/_dynamic_r_h_i_8h.html#a6f7bbd40a88c402c937b168491aa55d5">PlatformCreateDynamicRHI</a>();</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../d8/db0/_dynamic_r_h_i_8h.html#a457a483a7a2b29076ac07499b10b5a9b">DynamicRHIShutdown</a>();</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>TSharedPtr&lt;FRHIViewport&gt; <a class="code hl_function" href="../../d8/db0/_dynamic_r_h_i_8h.html#a64677140780b5d96ff87159949c72381">CreateRHIViewport</a>(<span class="keywordtype">void</span>* WindowHandle, <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> SizeX, <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> SizeY, <span class="keywordtype">bool</span> bIsFullscreen);</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="foldopen" id="foldopen00083" data-start="{" data-end="}">
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="../../d8/db0/_dynamic_r_h_i_8h.html#a74b21e28a063d0dac2be752b7a81072f">   83</a></span>FORCEINLINE <a class="code hl_class" href="../../d3/d6d/class_f_r_h_i_texture.html">FRHITexture</a>* <a class="code hl_function" href="../../d8/db0/_dynamic_r_h_i_8h.html#a74b21e28a063d0dac2be752b7a81072f">RHIGetViewportBackBuffer</a>(<a class="code hl_class" href="../../d0/d5f/class_f_r_h_i_viewport.html">FRHIViewport</a>* <a class="code hl_struct" href="../../de/d02/struct_viewport.html">Viewport</a>)</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>{</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d8/db0/_dynamic_r_h_i_8h.html#a7f476220c09bed9c45bc8cdcfde73e72">GDynamicRHI</a>-&gt;<a class="code hl_function" href="../../de/d38/class_f_dynamic_r_h_i.html#a3fc08ca3ca63a1731b0ace83af3b0746">RHIGetViewportBackBuffer</a>(<a class="code hl_struct" href="../../de/d02/struct_viewport.html">Viewport</a>);</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>}</div>
+</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
+<div class="foldopen" id="foldopen00097" data-start="{" data-end="}">
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno"><a class="line" href="../../d8/db0/_dynamic_r_h_i_8h.html#a9f813715cdf25d3557fa66873b435201">   97</a></span>FORCEINLINE TRefCountPtr&lt;FRHIBuffer&gt; <a class="code hl_function" href="../../d8/db0/_dynamic_r_h_i_8h.html#a9f813715cdf25d3557fa66873b435201">RHICreateBuffer</a>(<span class="keyword">const</span> <a class="code hl_struct" href="../../d7/d2f/struct_f_r_h_i_buffer_desc.html">FRHIBufferDesc</a>&amp; CreateDesc, <span class="keyword">const</span> <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a74140f1ff3f7a51b1ac752f90283f3d6">TCHAR</a>* DebugName, <a class="code hl_enumeration" href="../../de/df7/_r_h_i_defines_8h.html#a790a925a3358fc56173b2ffb0f607c5f">ERHIAccess</a> InitialState)</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>{</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d8/db0/_dynamic_r_h_i_8h.html#a7f476220c09bed9c45bc8cdcfde73e72">GDynamicRHI</a>-&gt;<a class="code hl_function" href="../../de/d38/class_f_dynamic_r_h_i.html#a9df31b485e80af97a63c004118a2b664">RHICreateBuffer</a>(CreateDesc, DebugName, InitialState);</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>}</div>
+</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
+<div class="foldopen" id="foldopen00107" data-start="{" data-end="}">
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno"><a class="line" href="../../d8/db0/_dynamic_r_h_i_8h.html#a97675cc79124d5cfb88070b186caabe2">  107</a></span>FORCEINLINE TRefCountPtr&lt;FRHITexture&gt; <a class="code hl_function" href="../../d8/db0/_dynamic_r_h_i_8h.html#a97675cc79124d5cfb88070b186caabe2">RHICreateTexture</a>(<span class="keyword">const</span> <a class="code hl_struct" href="../../d5/d82/struct_f_r_h_i_texture_create_desc.html">FRHITextureCreateDesc</a>&amp; CreateDesc)</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>{</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <span class="comment">//FRHICommandListImmediate&amp; RHICmdList = FRHICommandListExecutor::GetImmediateCommandList();</span></div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d8/db0/_dynamic_r_h_i_8h.html#a7f476220c09bed9c45bc8cdcfde73e72">GDynamicRHI</a>-&gt;<a class="code hl_function" href="../../de/d38/class_f_dynamic_r_h_i.html#a6441be808da157cf46d617bb998272a1">RHICreateTexture</a>(CreateDesc);</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>}</div>
+</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
+<div class="foldopen" id="foldopen00114" data-start="{" data-end="}">
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno"><a class="line" href="../../d8/db0/_dynamic_r_h_i_8h.html#a2539f19aaf4b8b466c5e4917e168a628">  114</a></span>FORCEINLINE TRefCountPtr&lt;FRHIRasterizerState&gt; <a class="code hl_function" href="../../d8/db0/_dynamic_r_h_i_8h.html#a2539f19aaf4b8b466c5e4917e168a628">RHICreateRasterizerState</a>(<span class="keyword">const</span> <a class="code hl_struct" href="../../dc/df1/struct_f_rasterizer_state_initializer.html">FRasterizerStateInitializer</a>&amp; Initializer)</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>{</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d8/db0/_dynamic_r_h_i_8h.html#a7f476220c09bed9c45bc8cdcfde73e72">GDynamicRHI</a>-&gt;<a class="code hl_function" href="../../de/d38/class_f_dynamic_r_h_i.html#a5cb35963ad6e49192091556074aa7c59">RHICreateRasterizerState</a>(Initializer);</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>}</div>
+</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
+<div class="foldopen" id="foldopen00119" data-start="{" data-end="}">
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno"><a class="line" href="../../d8/db0/_dynamic_r_h_i_8h.html#a7f419d09ffe4241adaed158f4b581968">  119</a></span>FORCEINLINE TRefCountPtr&lt;FRHIUniformBuffer&gt; <a class="code hl_function" href="../../d8/db0/_dynamic_r_h_i_8h.html#a7f419d09ffe4241adaed158f4b581968">RHICreateUniformBuffer</a>(<span class="keyword">const</span> <span class="keywordtype">void</span>* Contents, <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> <a class="code hl_enumvalue" href="../../d5/dc5/_d3_d12_utils_8h.html#a49802c782fb40bd8e79835ef12871ddeaff9abf2b1a689f70a77a18da50c01d9f">Size</a>, <a class="code hl_enumeration" href="../../de/df7/_r_h_i_defines_8h.html#a44efee7815674a346059a25f9b3c2085">EUniformBufferUsage</a> Usage)</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>{</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d8/db0/_dynamic_r_h_i_8h.html#a7f476220c09bed9c45bc8cdcfde73e72">GDynamicRHI</a>-&gt;<a class="code hl_function" href="../../de/d38/class_f_dynamic_r_h_i.html#a00495758d56da1761d91f843bfda3ea6">RHICreateUniformBuffer</a>(Contents, <a class="code hl_enumvalue" href="../../d5/dc5/_d3_d12_utils_8h.html#a49802c782fb40bd8e79835ef12871ddeaff9abf2b1a689f70a77a18da50c01d9f">Size</a>, Usage);</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>}</div>
+</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span> </div>
+<div class="foldopen" id="foldopen00124" data-start="{" data-end="}">
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno"><a class="line" href="../../d8/db0/_dynamic_r_h_i_8h.html#a1fe76f1d9aab0c5589e5526976b6c8db">  124</a></span>FORCEINLINE <span class="keywordtype">void</span> <a class="code hl_function" href="../../d8/db0/_dynamic_r_h_i_8h.html#a1fe76f1d9aab0c5589e5526976b6c8db">RHIUpdateUniformBuffer</a>(<a class="code hl_class" href="../../da/df0/class_f_r_h_i_uniform_buffer.html">FRHIUniformBuffer</a>* BufferRHI, <span class="keyword">const</span> <span class="keywordtype">void</span>* Contents, <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> <a class="code hl_enumvalue" href="../../d5/dc5/_d3_d12_utils_8h.html#a49802c782fb40bd8e79835ef12871ddeaff9abf2b1a689f70a77a18da50c01d9f">Size</a>)</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>{</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    <a class="code hl_variable" href="../../d8/db0/_dynamic_r_h_i_8h.html#a7f476220c09bed9c45bc8cdcfde73e72">GDynamicRHI</a>-&gt;<a class="code hl_function" href="../../de/d38/class_f_dynamic_r_h_i.html#a3da5ee99b27e2866e613e804ca189321">RHIUpdateUniformBuffer</a>(BufferRHI, Contents, <a class="code hl_enumvalue" href="../../d5/dc5/_d3_d12_utils_8h.html#a49802c782fb40bd8e79835ef12871ddeaff9abf2b1a689f70a77a18da50c01d9f">Size</a>);</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>}</div>
+</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span> </div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span> </div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span> </div>
+<div class="foldopen" id="foldopen00132" data-start="{" data-end="}">
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno"><a class="line" href="../../d8/db0/_dynamic_r_h_i_8h.html#aaae12c584cc160195bae750b5ff58855">  132</a></span>FORCEINLINE <span class="keywordtype">void</span>* <a class="code hl_function" href="../../d8/db0/_dynamic_r_h_i_8h.html#aaae12c584cc160195bae750b5ff58855">RHILockTexture2D</a>(<a class="code hl_class" href="../../d3/d6d/class_f_r_h_i_texture.html">FRHITexture</a>* TextureRHI, <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> MipIndex, <a class="code hl_enumeration" href="../../de/df7/_r_h_i_defines_8h.html#a74b58e6e8443baea529ab6f701abadb7">EResourceLockMode</a> LockMode,</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a>&amp; DestStride, <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#afddf25cca147311c233b23a9d3329bb4">uint64</a>* OutLockedByteCount, <span class="keywordtype">bool</span> bLockWithinMiptail = <span class="keyword">false</span>)</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>{</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d8/db0/_dynamic_r_h_i_8h.html#a7f476220c09bed9c45bc8cdcfde73e72">GDynamicRHI</a>-&gt;<a class="code hl_function" href="../../de/d38/class_f_dynamic_r_h_i.html#af273516e480d8c36b9d6fe8dc49f9957">RHILockTexture2D</a>(TextureRHI, MipIndex, LockMode, DestStride, bLockWithinMiptail, OutLockedByteCount);</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>}</div>
+</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span> </div>
+<div class="foldopen" id="foldopen00138" data-start="{" data-end="}">
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno"><a class="line" href="../../d8/db0/_dynamic_r_h_i_8h.html#ac3a4172ed3b1066dcd454f51e53244b4">  138</a></span>FORCEINLINE <span class="keywordtype">void</span> <a class="code hl_function" href="../../d8/db0/_dynamic_r_h_i_8h.html#ac3a4172ed3b1066dcd454f51e53244b4">RHIUnlockTexture2D</a>(<a class="code hl_class" href="../../d3/d6d/class_f_r_h_i_texture.html">FRHITexture</a>* TextureRHI, <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> MipIndex, <span class="keywordtype">bool</span> bLockWithinMiptail = <span class="keyword">false</span>)</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>{</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>    <a class="code hl_variable" href="../../d8/db0/_dynamic_r_h_i_8h.html#a7f476220c09bed9c45bc8cdcfde73e72">GDynamicRHI</a>-&gt;<a class="code hl_function" href="../../de/d38/class_f_dynamic_r_h_i.html#a94741c19da2ffb044dcfb5611f9d7e87">RHIUnlockTexture2D</a>(TextureRHI, MipIndex, bLockWithinMiptail);</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>}</div>
+</div>
+<div class="foldopen" id="foldopen00142" data-start="{" data-end="}">
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno"><a class="line" href="../../d8/db0/_dynamic_r_h_i_8h.html#a4e523b52ef7c31b49d6321fae61270ba">  142</a></span>FORCEINLINE <span class="keywordtype">void</span>* <a class="code hl_function" href="../../d8/db0/_dynamic_r_h_i_8h.html#a4e523b52ef7c31b49d6321fae61270ba">RHILockBuffer</a>(<a class="code hl_class" href="../../d9/d24/class_f_r_h_i_buffer.html">FRHIBuffer</a>* BufferRHI, <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> Offset, <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> <a class="code hl_enumvalue" href="../../d5/dc5/_d3_d12_utils_8h.html#a49802c782fb40bd8e79835ef12871ddeaff9abf2b1a689f70a77a18da50c01d9f">Size</a>, <a class="code hl_enumeration" href="../../de/df7/_r_h_i_defines_8h.html#a74b58e6e8443baea529ab6f701abadb7">EResourceLockMode</a> LockMode)</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>{</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d8/db0/_dynamic_r_h_i_8h.html#a7f476220c09bed9c45bc8cdcfde73e72">GDynamicRHI</a>-&gt;<a class="code hl_function" href="../../de/d38/class_f_dynamic_r_h_i.html#ae59571e204c5365c3b21962b1101b026">RHILockBuffer</a>(BufferRHI, Offset, <a class="code hl_enumvalue" href="../../d5/dc5/_d3_d12_utils_8h.html#a49802c782fb40bd8e79835ef12871ddeaff9abf2b1a689f70a77a18da50c01d9f">Size</a>, LockMode);</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>}</div>
+</div>
+<div class="foldopen" id="foldopen00146" data-start="{" data-end="}">
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno"><a class="line" href="../../d8/db0/_dynamic_r_h_i_8h.html#a884dd5454688e9402c4e13f4e671370b">  146</a></span>FORCEINLINE <span class="keywordtype">void</span>  <a class="code hl_function" href="../../d8/db0/_dynamic_r_h_i_8h.html#a884dd5454688e9402c4e13f4e671370b">RHIUnlockBuffer</a>(<a class="code hl_class" href="../../d9/d24/class_f_r_h_i_buffer.html">FRHIBuffer</a>* BufferRHI)</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>{</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    <a class="code hl_variable" href="../../d8/db0/_dynamic_r_h_i_8h.html#a7f476220c09bed9c45bc8cdcfde73e72">GDynamicRHI</a>-&gt;<a class="code hl_function" href="../../de/d38/class_f_dynamic_r_h_i.html#a7123858ea467546ddfad559b895900dc">RHIUnlockBuffer</a>(BufferRHI);</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>}</div>
+</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span> </div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span> </div>
+<div class="foldopen" id="foldopen00152" data-start="{" data-end="}">
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno"><a class="line" href="../../d8/db0/_dynamic_r_h_i_8h.html#a50c6da8a09f76e48d7115dde7f4cd97d">  152</a></span>FORCEINLINE TRefCountPtr&lt;FRHIGraphicsPipelineState&gt; <a class="code hl_function" href="../../d8/db0/_dynamic_r_h_i_8h.html#a50c6da8a09f76e48d7115dde7f4cd97d">RHICreateGraphicsPipelineState</a>(<span class="keyword">const</span> <span class="keyword">class</span> <a class="code hl_class" href="../../d2/d2e/class_f_graphics_pipeline_state_initializer.html">FGraphicsPipelineStateInitializer</a>&amp; Initializer)</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>{</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d8/db0/_dynamic_r_h_i_8h.html#a7f476220c09bed9c45bc8cdcfde73e72">GDynamicRHI</a>-&gt;<a class="code hl_function" href="../../de/d38/class_f_dynamic_r_h_i.html#af8532d4d041297a0a3d05aa30e9a4330">RHICreateGraphicsPipelineState</a>(Initializer);</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>}</div>
+</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span> </div>
+<div class="foldopen" id="foldopen00157" data-start="{" data-end="}">
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno"><a class="line" href="../../d8/db0/_dynamic_r_h_i_8h.html#afc60b329fd99f6e3e24deb6b88769ab2">  157</a></span>FORCEINLINE TRefCountPtr&lt;FRHIVertexShader&gt; <a class="code hl_function" href="../../d8/db0/_dynamic_r_h_i_8h.html#afc60b329fd99f6e3e24deb6b88769ab2">RHICreateVertexShader</a>(<span class="keyword">const</span> TArray&lt;uint8&gt;&amp; Code, <span class="keyword">const</span> <span class="keyword">struct</span> <a class="code hl_struct" href="../../d8/df6/struct_f_shader_bounds.html">FShaderBounds</a>&amp; Bounds)</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>{</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d8/db0/_dynamic_r_h_i_8h.html#a7f476220c09bed9c45bc8cdcfde73e72">GDynamicRHI</a>-&gt;<a class="code hl_function" href="../../de/d38/class_f_dynamic_r_h_i.html#a2c6ef6a9b044a8222d38129d13630fa9">RHICreateVertexShader</a>(Code, Bounds);</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>}</div>
+</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span> </div>
+<div class="foldopen" id="foldopen00162" data-start="{" data-end="}">
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno"><a class="line" href="../../d8/db0/_dynamic_r_h_i_8h.html#a7517b77b859e55ad7c2bd4b4d932faf3">  162</a></span>FORCEINLINE TRefCountPtr&lt;FRHIVertexDeclaration&gt;<a class="code hl_function" href="../../d8/db0/_dynamic_r_h_i_8h.html#a7517b77b859e55ad7c2bd4b4d932faf3">RHICreateVertexDeclaration</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../d6/db1/class_t_array.html">FVertexDeclarationElementList</a>&amp; Elements)</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>{</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d8/db0/_dynamic_r_h_i_8h.html#a7f476220c09bed9c45bc8cdcfde73e72">GDynamicRHI</a>-&gt;<a class="code hl_function" href="../../de/d38/class_f_dynamic_r_h_i.html#a2401a4be0e19b756b5091d68534c567a">RHICreateVertexDeclaration</a>(Elements);</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>}</div>
+</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span> </div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span> </div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span> </div>
+<div class="foldopen" id="foldopen00169" data-start="{" data-end="}">
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno"><a class="line" href="../../d8/db0/_dynamic_r_h_i_8h.html#a756d5c579d92e465b0fe00d857a29998">  169</a></span>FORCEINLINE TRefCountPtr&lt;FRHIPixelShader&gt; <a class="code hl_function" href="../../d8/db0/_dynamic_r_h_i_8h.html#a756d5c579d92e465b0fe00d857a29998">RHICreatePixelShader</a>(<span class="keyword">const</span> TArray&lt;uint8&gt;&amp; Code, <span class="keyword">const</span> <span class="keyword">struct</span> <a class="code hl_struct" href="../../d8/df6/struct_f_shader_bounds.html">FShaderBounds</a>&amp; Bounds)</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>{</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d8/db0/_dynamic_r_h_i_8h.html#a7f476220c09bed9c45bc8cdcfde73e72">GDynamicRHI</a>-&gt;<a class="code hl_function" href="../../de/d38/class_f_dynamic_r_h_i.html#a53d0ed0d31f17f76afa082d2ea9f4f4b">RHICreatePixelShader</a>(Code, Bounds);</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>}</div>
+</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span> </div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span> </div>
+<div class="ttc" id="a_d3_d12_utils_8h_html_a49802c782fb40bd8e79835ef12871ddeaff9abf2b1a689f70a77a18da50c01d9f"><div class="ttname"><a href="../../d5/dc5/_d3_d12_utils_8h.html#a49802c782fb40bd8e79835ef12871ddeaff9abf2b1a689f70a77a18da50c01d9f">Size</a></div><div class="ttdeci">@ Size</div><div class="ttdef"><b>Definition</b> D3D12Utils.h:26</div></div>
+<div class="ttc" id="a_dynamic_r_h_i_8h_html_a1fe76f1d9aab0c5589e5526976b6c8db"><div class="ttname"><a href="../../d8/db0/_dynamic_r_h_i_8h.html#a1fe76f1d9aab0c5589e5526976b6c8db">RHIUpdateUniformBuffer</a></div><div class="ttdeci">FORCEINLINE void RHIUpdateUniformBuffer(FRHIUniformBuffer *BufferRHI, const void *Contents, uint32 Size)</div><div class="ttdef"><b>Definition</b> DynamicRHI.h:124</div></div>
+<div class="ttc" id="a_dynamic_r_h_i_8h_html_a2539f19aaf4b8b466c5e4917e168a628"><div class="ttname"><a href="../../d8/db0/_dynamic_r_h_i_8h.html#a2539f19aaf4b8b466c5e4917e168a628">RHICreateRasterizerState</a></div><div class="ttdeci">FORCEINLINE TRefCountPtr&lt; FRHIRasterizerState &gt; RHICreateRasterizerState(const FRasterizerStateInitializer &amp;Initializer)</div><div class="ttdef"><b>Definition</b> DynamicRHI.h:114</div></div>
+<div class="ttc" id="a_dynamic_r_h_i_8h_html_a457a483a7a2b29076ac07499b10b5a9b"><div class="ttname"><a href="../../d8/db0/_dynamic_r_h_i_8h.html#a457a483a7a2b29076ac07499b10b5a9b">DynamicRHIShutdown</a></div><div class="ttdeci">void DynamicRHIShutdown()</div><div class="ttdef"><b>Definition</b> WindowsDynamicRHI.cpp:30</div></div>
+<div class="ttc" id="a_dynamic_r_h_i_8h_html_a4e523b52ef7c31b49d6321fae61270ba"><div class="ttname"><a href="../../d8/db0/_dynamic_r_h_i_8h.html#a4e523b52ef7c31b49d6321fae61270ba">RHILockBuffer</a></div><div class="ttdeci">FORCEINLINE void * RHILockBuffer(FRHIBuffer *BufferRHI, uint32 Offset, uint32 Size, EResourceLockMode LockMode)</div><div class="ttdef"><b>Definition</b> DynamicRHI.h:142</div></div>
+<div class="ttc" id="a_dynamic_r_h_i_8h_html_a50c6da8a09f76e48d7115dde7f4cd97d"><div class="ttname"><a href="../../d8/db0/_dynamic_r_h_i_8h.html#a50c6da8a09f76e48d7115dde7f4cd97d">RHICreateGraphicsPipelineState</a></div><div class="ttdeci">FORCEINLINE TRefCountPtr&lt; FRHIGraphicsPipelineState &gt; RHICreateGraphicsPipelineState(const class FGraphicsPipelineStateInitializer &amp;Initializer)</div><div class="ttdef"><b>Definition</b> DynamicRHI.h:152</div></div>
+<div class="ttc" id="a_dynamic_r_h_i_8h_html_a64677140780b5d96ff87159949c72381"><div class="ttname"><a href="../../d8/db0/_dynamic_r_h_i_8h.html#a64677140780b5d96ff87159949c72381">CreateRHIViewport</a></div><div class="ttdeci">TSharedPtr&lt; FRHIViewport &gt; CreateRHIViewport(void *WindowHandle, uint32 SizeX, uint32 SizeY, bool bIsFullscreen)</div><div class="ttdef"><b>Definition</b> DynamicRHI.cpp:51</div></div>
+<div class="ttc" id="a_dynamic_r_h_i_8h_html_a6f7bbd40a88c402c937b168491aa55d5"><div class="ttname"><a href="../../d8/db0/_dynamic_r_h_i_8h.html#a6f7bbd40a88c402c937b168491aa55d5">PlatformCreateDynamicRHI</a></div><div class="ttdeci">FDynamicRHI * PlatformCreateDynamicRHI()</div><div class="ttdef"><b>Definition</b> WindowsDynamicRHI.cpp:18</div></div>
+<div class="ttc" id="a_dynamic_r_h_i_8h_html_a74b21e28a063d0dac2be752b7a81072f"><div class="ttname"><a href="../../d8/db0/_dynamic_r_h_i_8h.html#a74b21e28a063d0dac2be752b7a81072f">RHIGetViewportBackBuffer</a></div><div class="ttdeci">FORCEINLINE FRHITexture * RHIGetViewportBackBuffer(FRHIViewport *Viewport)</div><div class="ttdef"><b>Definition</b> DynamicRHI.h:83</div></div>
+<div class="ttc" id="a_dynamic_r_h_i_8h_html_a7517b77b859e55ad7c2bd4b4d932faf3"><div class="ttname"><a href="../../d8/db0/_dynamic_r_h_i_8h.html#a7517b77b859e55ad7c2bd4b4d932faf3">RHICreateVertexDeclaration</a></div><div class="ttdeci">FORCEINLINE TRefCountPtr&lt; FRHIVertexDeclaration &gt; RHICreateVertexDeclaration(const FVertexDeclarationElementList &amp;Elements)</div><div class="ttdef"><b>Definition</b> DynamicRHI.h:162</div></div>
+<div class="ttc" id="a_dynamic_r_h_i_8h_html_a756d5c579d92e465b0fe00d857a29998"><div class="ttname"><a href="../../d8/db0/_dynamic_r_h_i_8h.html#a756d5c579d92e465b0fe00d857a29998">RHICreatePixelShader</a></div><div class="ttdeci">FORCEINLINE TRefCountPtr&lt; FRHIPixelShader &gt; RHICreatePixelShader(const TArray&lt; uint8 &gt; &amp;Code, const struct FShaderBounds &amp;Bounds)</div><div class="ttdef"><b>Definition</b> DynamicRHI.h:169</div></div>
+<div class="ttc" id="a_dynamic_r_h_i_8h_html_a7f419d09ffe4241adaed158f4b581968"><div class="ttname"><a href="../../d8/db0/_dynamic_r_h_i_8h.html#a7f419d09ffe4241adaed158f4b581968">RHICreateUniformBuffer</a></div><div class="ttdeci">FORCEINLINE TRefCountPtr&lt; FRHIUniformBuffer &gt; RHICreateUniformBuffer(const void *Contents, uint32 Size, EUniformBufferUsage Usage)</div><div class="ttdef"><b>Definition</b> DynamicRHI.h:119</div></div>
+<div class="ttc" id="a_dynamic_r_h_i_8h_html_a7f476220c09bed9c45bc8cdcfde73e72"><div class="ttname"><a href="../../d8/db0/_dynamic_r_h_i_8h.html#a7f476220c09bed9c45bc8cdcfde73e72">GDynamicRHI</a></div><div class="ttdeci">FDynamicRHI * GDynamicRHI</div><div class="ttdef"><b>Definition</b> DynamicRHI.cpp:8</div></div>
+<div class="ttc" id="a_dynamic_r_h_i_8h_html_a884dd5454688e9402c4e13f4e671370b"><div class="ttname"><a href="../../d8/db0/_dynamic_r_h_i_8h.html#a884dd5454688e9402c4e13f4e671370b">RHIUnlockBuffer</a></div><div class="ttdeci">FORCEINLINE void RHIUnlockBuffer(FRHIBuffer *BufferRHI)</div><div class="ttdef"><b>Definition</b> DynamicRHI.h:146</div></div>
+<div class="ttc" id="a_dynamic_r_h_i_8h_html_a97675cc79124d5cfb88070b186caabe2"><div class="ttname"><a href="../../d8/db0/_dynamic_r_h_i_8h.html#a97675cc79124d5cfb88070b186caabe2">RHICreateTexture</a></div><div class="ttdeci">FORCEINLINE TRefCountPtr&lt; FRHITexture &gt; RHICreateTexture(const FRHITextureCreateDesc &amp;CreateDesc)</div><div class="ttdef"><b>Definition</b> DynamicRHI.h:107</div></div>
+<div class="ttc" id="a_dynamic_r_h_i_8h_html_a9f813715cdf25d3557fa66873b435201"><div class="ttname"><a href="../../d8/db0/_dynamic_r_h_i_8h.html#a9f813715cdf25d3557fa66873b435201">RHICreateBuffer</a></div><div class="ttdeci">FORCEINLINE TRefCountPtr&lt; FRHIBuffer &gt; RHICreateBuffer(const FRHIBufferDesc &amp;CreateDesc, const TCHAR *DebugName, ERHIAccess InitialState)</div><div class="ttdef"><b>Definition</b> DynamicRHI.h:97</div></div>
+<div class="ttc" id="a_dynamic_r_h_i_8h_html_aaae12c584cc160195bae750b5ff58855"><div class="ttname"><a href="../../d8/db0/_dynamic_r_h_i_8h.html#aaae12c584cc160195bae750b5ff58855">RHILockTexture2D</a></div><div class="ttdeci">FORCEINLINE void * RHILockTexture2D(FRHITexture *TextureRHI, uint32 MipIndex, EResourceLockMode LockMode, uint32 &amp;DestStride, uint64 *OutLockedByteCount, bool bLockWithinMiptail=false)</div><div class="ttdef"><b>Definition</b> DynamicRHI.h:132</div></div>
+<div class="ttc" id="a_dynamic_r_h_i_8h_html_ac3a4172ed3b1066dcd454f51e53244b4"><div class="ttname"><a href="../../d8/db0/_dynamic_r_h_i_8h.html#ac3a4172ed3b1066dcd454f51e53244b4">RHIUnlockTexture2D</a></div><div class="ttdeci">FORCEINLINE void RHIUnlockTexture2D(FRHITexture *TextureRHI, uint32 MipIndex, bool bLockWithinMiptail=false)</div><div class="ttdef"><b>Definition</b> DynamicRHI.h:138</div></div>
+<div class="ttc" id="a_dynamic_r_h_i_8h_html_afc60b329fd99f6e3e24deb6b88769ab2"><div class="ttname"><a href="../../d8/db0/_dynamic_r_h_i_8h.html#afc60b329fd99f6e3e24deb6b88769ab2">RHICreateVertexShader</a></div><div class="ttdeci">FORCEINLINE TRefCountPtr&lt; FRHIVertexShader &gt; RHICreateVertexShader(const TArray&lt; uint8 &gt; &amp;Code, const struct FShaderBounds &amp;Bounds)</div><div class="ttdef"><b>Definition</b> DynamicRHI.h:157</div></div>
+<div class="ttc" id="a_platform_8h_html_a74140f1ff3f7a51b1ac752f90283f3d6"><div class="ttname"><a href="../../d2/dc9/_platform_8h.html#a74140f1ff3f7a51b1ac752f90283f3d6">TCHAR</a></div><div class="ttdeci">FPlatformTypes::TCHAR TCHAR</div><div class="ttdef"><b>Definition</b> Platform.h:48</div></div>
+<div class="ttc" id="a_platform_8h_html_a8c7a127091efbdfc5a16939041653e05"><div class="ttname"><a href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a></div><div class="ttdeci">FPlatformTypes::uint32 uint32</div><div class="ttdef"><b>Definition</b> Platform.h:43</div></div>
+<div class="ttc" id="a_platform_8h_html_afddf25cca147311c233b23a9d3329bb4"><div class="ttname"><a href="../../d2/dc9/_platform_8h.html#afddf25cca147311c233b23a9d3329bb4">uint64</a></div><div class="ttdeci">FPlatformTypes::uint64 uint64</div><div class="ttdef"><b>Definition</b> Platform.h:45</div></div>
+<div class="ttc" id="a_r_h_i_context_8h_html"><div class="ttname"><a href="../../d0/dc7/_r_h_i_context_8h.html">RHIContext.h</a></div></div>
+<div class="ttc" id="a_r_h_i_defines_8h_html"><div class="ttname"><a href="../../de/df7/_r_h_i_defines_8h.html">RHIDefines.h</a></div></div>
+<div class="ttc" id="a_r_h_i_defines_8h_html_a44efee7815674a346059a25f9b3c2085"><div class="ttname"><a href="../../de/df7/_r_h_i_defines_8h.html#a44efee7815674a346059a25f9b3c2085">EUniformBufferUsage</a></div><div class="ttdeci">EUniformBufferUsage</div><div class="ttdef"><b>Definition</b> RHIDefines.h:167</div></div>
+<div class="ttc" id="a_r_h_i_defines_8h_html_a74b58e6e8443baea529ab6f701abadb7"><div class="ttname"><a href="../../de/df7/_r_h_i_defines_8h.html#a74b58e6e8443baea529ab6f701abadb7">EResourceLockMode</a></div><div class="ttdeci">EResourceLockMode</div><div class="ttdef"><b>Definition</b> RHIDefines.h:196</div></div>
+<div class="ttc" id="a_r_h_i_defines_8h_html_a790a925a3358fc56173b2ffb0f607c5f"><div class="ttname"><a href="../../de/df7/_r_h_i_defines_8h.html#a790a925a3358fc56173b2ffb0f607c5f">ERHIAccess</a></div><div class="ttdeci">ERHIAccess</div><div class="ttdef"><b>Definition</b> RHIDefines.h:110</div></div>
+<div class="ttc" id="a_r_h_i_defines_8h_html_accfdbf6612e46ffde28b934e051fb990"><div class="ttname"><a href="../../de/df7/_r_h_i_defines_8h.html#accfdbf6612e46ffde28b934e051fb990">ERHIInterfaceType</a></div><div class="ttdeci">ERHIInterfaceType</div><div class="ttdef"><b>Definition</b> RHIDefines.h:7</div></div>
+<div class="ttc" id="a_r_h_i_defines_8h_html_accfdbf6612e46ffde28b934e051fb990a7acdf85c69cc3c5305456a293524386e"><div class="ttname"><a href="../../de/df7/_r_h_i_defines_8h.html#accfdbf6612e46ffde28b934e051fb990a7acdf85c69cc3c5305456a293524386e">ERHIInterfaceType::Hidden</a></div><div class="ttdeci">@ Hidden</div></div>
+<div class="ttc" id="a_r_h_i_resources_8h_html"><div class="ttname"><a href="../../db/dec/_r_h_i_resources_8h.html">RHIResources.h</a></div></div>
+<div class="ttc" id="a_t_unique_ptr_8h_html"><div class="ttname"><a href="../../dc/d27/_t_unique_ptr_8h.html">TUniquePtr.h</a></div></div>
+<div class="ttc" id="aclass_f_dynamic_r_h_i_html"><div class="ttname"><a href="../../de/d38/class_f_dynamic_r_h_i.html">FDynamicRHI</a></div><div class="ttdef"><b>Definition</b> DynamicRHI.h:25</div></div>
+<div class="ttc" id="aclass_f_dynamic_r_h_i_html_a00495758d56da1761d91f843bfda3ea6"><div class="ttname"><a href="../../de/d38/class_f_dynamic_r_h_i.html#a00495758d56da1761d91f843bfda3ea6">FDynamicRHI::RHICreateUniformBuffer</a></div><div class="ttdeci">virtual TRefCountPtr&lt; FRHIUniformBuffer &gt; RHICreateUniformBuffer(const void *Contents, uint32 Size, EUniformBufferUsage Usage)=0</div></div>
+<div class="ttc" id="aclass_f_dynamic_r_h_i_html_a09975cc271feb70604c7a04ec7e8d34d"><div class="ttname"><a href="../../de/d38/class_f_dynamic_r_h_i.html#a09975cc271feb70604c7a04ec7e8d34d">FDynamicRHI::Shutdown</a></div><div class="ttdeci">virtual void Shutdown()=0</div></div>
+<div class="ttc" id="aclass_f_dynamic_r_h_i_html_a16346de3a5e19381511dfb0ea108f03b"><div class="ttname"><a href="../../de/d38/class_f_dynamic_r_h_i.html#a16346de3a5e19381511dfb0ea108f03b">FDynamicRHI::RHIGetCommandContext</a></div><div class="ttdeci">virtual IRHIComputeContext * RHIGetCommandContext()=0</div></div>
+<div class="ttc" id="aclass_f_dynamic_r_h_i_html_a2401a4be0e19b756b5091d68534c567a"><div class="ttname"><a href="../../de/d38/class_f_dynamic_r_h_i.html#a2401a4be0e19b756b5091d68534c567a">FDynamicRHI::RHICreateVertexDeclaration</a></div><div class="ttdeci">virtual TRefCountPtr&lt; FRHIVertexDeclaration &gt; RHICreateVertexDeclaration(const FVertexDeclarationElementList &amp;Elements)=0</div></div>
+<div class="ttc" id="aclass_f_dynamic_r_h_i_html_a2c6ef6a9b044a8222d38129d13630fa9"><div class="ttname"><a href="../../de/d38/class_f_dynamic_r_h_i.html#a2c6ef6a9b044a8222d38129d13630fa9">FDynamicRHI::RHICreateVertexShader</a></div><div class="ttdeci">virtual TRefCountPtr&lt; FRHIVertexShader &gt; RHICreateVertexShader(const TArray&lt; uint8 &gt; &amp;Code, const struct FShaderBounds &amp;Bounds)=0</div></div>
+<div class="ttc" id="aclass_f_dynamic_r_h_i_html_a3da5ee99b27e2866e613e804ca189321"><div class="ttname"><a href="../../de/d38/class_f_dynamic_r_h_i.html#a3da5ee99b27e2866e613e804ca189321">FDynamicRHI::RHIUpdateUniformBuffer</a></div><div class="ttdeci">virtual void RHIUpdateUniformBuffer(FRHIUniformBuffer *BufferRHI, const void *Contents, uint32 Size)=0</div></div>
+<div class="ttc" id="aclass_f_dynamic_r_h_i_html_a3fc08ca3ca63a1731b0ace83af3b0746"><div class="ttname"><a href="../../de/d38/class_f_dynamic_r_h_i.html#a3fc08ca3ca63a1731b0ace83af3b0746">FDynamicRHI::RHIGetViewportBackBuffer</a></div><div class="ttdeci">virtual FRHITexture * RHIGetViewportBackBuffer(FRHIViewport *Viewport)=0</div></div>
+<div class="ttc" id="aclass_f_dynamic_r_h_i_html_a416befd9929970c468352fca1cec71df"><div class="ttname"><a href="../../de/d38/class_f_dynamic_r_h_i.html#a416befd9929970c468352fca1cec71df">FDynamicRHI::RHIGetDefaultContext</a></div><div class="ttdeci">virtual IRHIComputeContext * RHIGetDefaultContext()=0</div></div>
+<div class="ttc" id="aclass_f_dynamic_r_h_i_html_a4fad1dc7f9e8744d4cd7df6ea792f137"><div class="ttname"><a href="../../de/d38/class_f_dynamic_r_h_i.html#a4fad1dc7f9e8744d4cd7df6ea792f137">FDynamicRHI::GetInterfaceType</a></div><div class="ttdeci">virtual ERHIInterfaceType GetInterfaceType() const</div><div class="ttdef"><b>Definition</b> DynamicRHI.h:48</div></div>
+<div class="ttc" id="aclass_f_dynamic_r_h_i_html_a53d0ed0d31f17f76afa082d2ea9f4f4b"><div class="ttname"><a href="../../de/d38/class_f_dynamic_r_h_i.html#a53d0ed0d31f17f76afa082d2ea9f4f4b">FDynamicRHI::RHICreatePixelShader</a></div><div class="ttdeci">virtual TRefCountPtr&lt; FRHIPixelShader &gt; RHICreatePixelShader(const TArray&lt; uint8 &gt; &amp;Code, const struct FShaderBounds &amp;Bounds)=0</div></div>
+<div class="ttc" id="aclass_f_dynamic_r_h_i_html_a5cb35963ad6e49192091556074aa7c59"><div class="ttname"><a href="../../de/d38/class_f_dynamic_r_h_i.html#a5cb35963ad6e49192091556074aa7c59">FDynamicRHI::RHICreateRasterizerState</a></div><div class="ttdeci">virtual TRefCountPtr&lt; FRHIRasterizerState &gt; RHICreateRasterizerState(const FRasterizerStateInitializer &amp;Initializer)=0</div></div>
+<div class="ttc" id="aclass_f_dynamic_r_h_i_html_a602eace3203e7c8c4eac477038f1a18e"><div class="ttname"><a href="../../de/d38/class_f_dynamic_r_h_i.html#a602eace3203e7c8c4eac477038f1a18e">FDynamicRHI::Init</a></div><div class="ttdeci">virtual void Init()=0</div></div>
+<div class="ttc" id="aclass_f_dynamic_r_h_i_html_a6441be808da157cf46d617bb998272a1"><div class="ttname"><a href="../../de/d38/class_f_dynamic_r_h_i.html#a6441be808da157cf46d617bb998272a1">FDynamicRHI::RHICreateTexture</a></div><div class="ttdeci">virtual TRefCountPtr&lt; FRHITexture &gt; RHICreateTexture(const FRHITextureCreateDesc &amp;CreateDesc)=0</div></div>
+<div class="ttc" id="aclass_f_dynamic_r_h_i_html_a7123858ea467546ddfad559b895900dc"><div class="ttname"><a href="../../de/d38/class_f_dynamic_r_h_i.html#a7123858ea467546ddfad559b895900dc">FDynamicRHI::RHIUnlockBuffer</a></div><div class="ttdeci">virtual void RHIUnlockBuffer(FRHIBuffer *BufferRHI)=0</div></div>
+<div class="ttc" id="aclass_f_dynamic_r_h_i_html_a72aa0ec91b8fde287c525cf4ffee1880"><div class="ttname"><a href="../../de/d38/class_f_dynamic_r_h_i.html#a72aa0ec91b8fde287c525cf4ffee1880">FDynamicRHI::RHICreateViewport</a></div><div class="ttdeci">virtual TSharedPtr&lt; FRHIViewport &gt; RHICreateViewport(void *WindowHandle, uint32 SizeX, uint32 SizeY, bool bIsFullscreen)=0</div></div>
+<div class="ttc" id="aclass_f_dynamic_r_h_i_html_a94741c19da2ffb044dcfb5611f9d7e87"><div class="ttname"><a href="../../de/d38/class_f_dynamic_r_h_i.html#a94741c19da2ffb044dcfb5611f9d7e87">FDynamicRHI::RHIUnlockTexture2D</a></div><div class="ttdeci">virtual void RHIUnlockTexture2D(FRHITexture *TextureRHI, uint32 MipIndex, bool bLockWithinMiptail)=0</div></div>
+<div class="ttc" id="aclass_f_dynamic_r_h_i_html_a9df31b485e80af97a63c004118a2b664"><div class="ttname"><a href="../../de/d38/class_f_dynamic_r_h_i.html#a9df31b485e80af97a63c004118a2b664">FDynamicRHI::RHICreateBuffer</a></div><div class="ttdeci">virtual TRefCountPtr&lt; FRHIBuffer &gt; RHICreateBuffer(const FRHIBufferDesc &amp;CreateDesc, const TCHAR *DebugName, ERHIAccess InitialState)=0</div></div>
+<div class="ttc" id="aclass_f_dynamic_r_h_i_html_ab677d5f56d73bc0de7f32b17045d23ef"><div class="ttname"><a href="../../de/d38/class_f_dynamic_r_h_i.html#ab677d5f56d73bc0de7f32b17045d23ef">FDynamicRHI::PostInit</a></div><div class="ttdeci">virtual void PostInit()</div><div class="ttdef"><b>Definition</b> DynamicRHI.h:28</div></div>
+<div class="ttc" id="aclass_f_dynamic_r_h_i_html_ae59571e204c5365c3b21962b1101b026"><div class="ttname"><a href="../../de/d38/class_f_dynamic_r_h_i.html#ae59571e204c5365c3b21962b1101b026">FDynamicRHI::RHILockBuffer</a></div><div class="ttdeci">virtual void * RHILockBuffer(FRHIBuffer *BufferRHI, uint32 Offset, uint32 Size, EResourceLockMode LockMode)=0</div></div>
+<div class="ttc" id="aclass_f_dynamic_r_h_i_html_af273516e480d8c36b9d6fe8dc49f9957"><div class="ttname"><a href="../../de/d38/class_f_dynamic_r_h_i.html#af273516e480d8c36b9d6fe8dc49f9957">FDynamicRHI::RHILockTexture2D</a></div><div class="ttdeci">virtual void * RHILockTexture2D(FRHITexture *TextureRHI, uint32 MipIndex, EResourceLockMode LockMode, uint32 &amp;DestStride, bool bLockWithinMiptail, uint64 *OutLockedByteCount)=0</div></div>
+<div class="ttc" id="aclass_f_dynamic_r_h_i_html_af8532d4d041297a0a3d05aa30e9a4330"><div class="ttname"><a href="../../de/d38/class_f_dynamic_r_h_i.html#af8532d4d041297a0a3d05aa30e9a4330">FDynamicRHI::RHICreateGraphicsPipelineState</a></div><div class="ttdeci">virtual TRefCountPtr&lt; FRHIGraphicsPipelineState &gt; RHICreateGraphicsPipelineState(const class FGraphicsPipelineStateInitializer &amp;Initializer)=0</div></div>
+<div class="ttc" id="aclass_f_graphics_pipeline_state_initializer_html"><div class="ttname"><a href="../../d2/d2e/class_f_graphics_pipeline_state_initializer.html">FGraphicsPipelineStateInitializer</a></div><div class="ttdef"><b>Definition</b> RHIResources.h:609</div></div>
+<div class="ttc" id="aclass_f_r_h_i_buffer_html"><div class="ttname"><a href="../../d9/d24/class_f_r_h_i_buffer.html">FRHIBuffer</a></div><div class="ttdef"><b>Definition</b> RHIResources.h:155</div></div>
+<div class="ttc" id="aclass_f_r_h_i_texture_html"><div class="ttname"><a href="../../d3/d6d/class_f_r_h_i_texture.html">FRHITexture</a></div><div class="ttdef"><b>Definition</b> RHIResources.h:296</div></div>
+<div class="ttc" id="aclass_f_r_h_i_uniform_buffer_html"><div class="ttname"><a href="../../da/df0/class_f_r_h_i_uniform_buffer.html">FRHIUniformBuffer</a></div><div class="ttdef"><b>Definition</b> RHIResources.h:487</div></div>
+<div class="ttc" id="aclass_f_r_h_i_viewport_html"><div class="ttname"><a href="../../d0/d5f/class_f_r_h_i_viewport.html">FRHIViewport</a></div><div class="ttdef"><b>Definition</b> RHIResources.h:325</div></div>
+<div class="ttc" id="aclass_i_dynamic_r_h_i_html"><div class="ttname"><a href="../../da/d93/class_i_dynamic_r_h_i.html">IDynamicRHI</a></div><div class="ttdef"><b>Definition</b> DynamicRHI.h:56</div></div>
+<div class="ttc" id="aclass_i_dynamic_r_h_i_html_a2b2d7bd6f35bafeced4cbfe17075b362"><div class="ttname"><a href="../../da/d93/class_i_dynamic_r_h_i.html#a2b2d7bd6f35bafeced4cbfe17075b362">IDynamicRHI::CreateRHI</a></div><div class="ttdeci">virtual FDynamicRHI * CreateRHI()=0</div></div>
+<div class="ttc" id="aclass_i_dynamic_r_h_i_module_html"><div class="ttname"><a href="../../dd/d82/class_i_dynamic_r_h_i_module.html">IDynamicRHIModule</a></div><div class="ttdef"><b>Definition</b> DynamicRHI.h:12</div></div>
+<div class="ttc" id="aclass_i_dynamic_r_h_i_module_html_a1ffe850cc2b41382fa33823cf4590bd4"><div class="ttname"><a href="../../dd/d82/class_i_dynamic_r_h_i_module.html#a1ffe850cc2b41382fa33823cf4590bd4">IDynamicRHIModule::Shutdown</a></div><div class="ttdeci">virtual void Shutdown()=0</div></div>
+<div class="ttc" id="aclass_i_dynamic_r_h_i_module_html_a54d71fef31e64ca3d5fea82873b7c453"><div class="ttname"><a href="../../dd/d82/class_i_dynamic_r_h_i_module.html#a54d71fef31e64ca3d5fea82873b7c453">IDynamicRHIModule::CreateRHI</a></div><div class="ttdeci">virtual class FDynamicRHI * CreateRHI()=0</div></div>
+<div class="ttc" id="aclass_i_r_h_i_compute_context_html"><div class="ttname"><a href="../../d2/db5/class_i_r_h_i_compute_context.html">IRHIComputeContext</a></div><div class="ttdef"><b>Definition</b> RHIContext.h:8</div></div>
+<div class="ttc" id="aclass_t_array_html"><div class="ttname"><a href="../../d6/db1/class_t_array.html">TArray</a></div><div class="ttdef"><b>Definition</b> Array.h:29</div></div>
+<div class="ttc" id="astruct_f_r_h_i_buffer_desc_html"><div class="ttname"><a href="../../d7/d2f/struct_f_r_h_i_buffer_desc.html">FRHIBufferDesc</a></div><div class="ttdef"><b>Definition</b> RHIResources.h:128</div></div>
+<div class="ttc" id="astruct_f_r_h_i_texture_create_desc_html"><div class="ttname"><a href="../../d5/d82/struct_f_r_h_i_texture_create_desc.html">FRHITextureCreateDesc</a></div><div class="ttdef"><b>Definition</b> RHIResources.h:241</div></div>
+<div class="ttc" id="astruct_f_rasterizer_state_initializer_html"><div class="ttname"><a href="../../dc/df1/struct_f_rasterizer_state_initializer.html">FRasterizerStateInitializer</a></div><div class="ttdef"><b>Definition</b> RHIDefines.h:216</div></div>
+<div class="ttc" id="astruct_f_shader_bounds_html"><div class="ttname"><a href="../../d8/df6/struct_f_shader_bounds.html">FShaderBounds</a></div><div class="ttdef"><b>Definition</b> ShaderCore.h:94</div></div>
+<div class="ttc" id="astruct_viewport_html"><div class="ttname"><a href="../../de/d02/struct_viewport.html">Viewport</a></div><div class="ttdef"><b>Definition</b> D3D12Render.h:37</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../dir_55043db21ba5ddd7c561d2c5a5a38944.html">Dark Engine</a></li><li class="navelem"><a class="el" href="../../dir_e00b54220e1e1486ac9971b606d33054.html">Source</a></li><li class="navelem"><a class="el" href="../../dir_ae01c8af07818b260cc3481e8588b277.html">Runtime</a></li><li class="navelem"><a class="el" href="../../dir_36f40cf2346c3a351d59e1803b4d918d.html">RHI</a></li><li class="navelem"><a class="el" href="../../dir_c109a2ed3ccf3db39eee5b1cbca42152.html">public</a></li><li class="navelem"><a class="el" href="../../d8/db0/_dynamic_r_h_i_8h.html">DynamicRHI.h</a></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
+</body>
+</html>

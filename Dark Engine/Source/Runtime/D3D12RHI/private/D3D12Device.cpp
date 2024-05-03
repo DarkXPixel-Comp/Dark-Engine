@@ -2,24 +2,56 @@
 #include "D3D12RHIPrivate.h"
 #include "D3D12Util.h"
 #include "D3D12Descriptors.h"
+#include <Logger.h>
+#include "D3D12PipelineState.h"
 
 
 
 FD3D12Device::FD3D12Device(FD3D12Adapter* InAdapter):
 	FD3D12AdapterChild(InAdapter),
-	DescriptorHeapManager(this)
+	DescriptorHeapManager(this),
+	BindlessDescriptorManager(this),
+	PipelineStateManager(new FD3D12PipelineStateManager(GetParentAdapter()))
 {
 	for (uint32 i = 0; i < (uint32)ED3D12QueueType::Count; ++i)
 	{
 		Queues.Emplace(this, (ED3D12QueueType)i);
 	}
 
+	DE_LOG(D3D12RHI, Log, TEXT("Queues init"));
+
 	for (uint32 HeapType = 0; HeapType < (int32)ERHIDescriptorHeapType::Count; ++HeapType)
 	{
 		CpuDescriptorManagers.Emplace(this, (ERHIDescriptorHeapType)HeapType);
 	}
+	DE_LOG(D3D12RHI, Log, TEXT("Cpu Descriptor Managers init"));
+
+	BindlessDescriptorManager.Init();
+	DE_LOG(D3D12RHI, Log, TEXT("Bindless descriptor manager init"));
+
+	DescriptorHeapManager.Init(0, 0);
+
+	DE_LOG(D3D12RHI, Log, TEXT("Descriptor Heap Manager init"));
+
+
+
+
 
 	ImmediateCommandContext = FD3D12DynamicRHI::GetD3D12RHI()->CreateCommandContext(this, ED3D12QueueType::Direct, true);
+
+	DE_LOG(D3D12RHI, Log, TEXT("Immediate context init"));
+}
+
+FD3D12Device::~FD3D12Device()
+{
+}
+
+void FD3D12Device::Destroy()
+{
+	if (PipelineStateManager)
+	{
+		PipelineStateManager->CachePSO();
+	}
 }
 
 FD3D12CommandAllocator* FD3D12Device::GetCommandAllocator(ED3D12QueueType QueueType)
@@ -31,7 +63,6 @@ FD3D12CommandAllocator* FD3D12Device::GetCommandAllocator(ED3D12QueueType QueueT
 	if (!Allocator)
 	{
 		Allocator = new FD3D12CommandAllocator(this, QueueType);
-		Logger::log("Alloc Allocator");
 	}
 
 	Allocator->Reset();

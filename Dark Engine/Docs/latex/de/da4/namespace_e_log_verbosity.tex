@@ -1,0 +1,87 @@
+\doxysection{Пространство имен ELog\+Verbosity}
+\hypertarget{namespace_e_log_verbosity}{}\label{namespace_e_log_verbosity}\index{ELogVerbosity@{ELogVerbosity}}
+\doxysubsubsection*{Перечисления}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{namespace_e_log_verbosity_ab6bab2e0ab6887ab14ba3dda79944252}{Type}} \+: uint8 \{ \newline
+\mbox{\hyperlink{namespace_e_log_verbosity_ab6bab2e0ab6887ab14ba3dda79944252a0596f377e8d2bb59953e8f96ffb94558}{No\+Logging}} = 0
+, \mbox{\hyperlink{namespace_e_log_verbosity_ab6bab2e0ab6887ab14ba3dda79944252a14128745b037ab30ae88c299c995e3bf}{Fatal}}
+, \mbox{\hyperlink{namespace_e_log_verbosity_ab6bab2e0ab6887ab14ba3dda79944252a6ae2a4036ef7ff4d28c8626c3309e924}{Error}}
+, \mbox{\hyperlink{namespace_e_log_verbosity_ab6bab2e0ab6887ab14ba3dda79944252a03d955900d6d545c5983ccd7fce46604}{Warning}}
+, \newline
+\mbox{\hyperlink{namespace_e_log_verbosity_ab6bab2e0ab6887ab14ba3dda79944252af4656db27c97bfa3931c1ed9aa417c0c}{Display}}
+, \mbox{\hyperlink{namespace_e_log_verbosity_ab6bab2e0ab6887ab14ba3dda79944252a303109b2cf906d429f34b386fcc87085}{Log}}
+, \mbox{\hyperlink{namespace_e_log_verbosity_ab6bab2e0ab6887ab14ba3dda79944252a0214bfc57e697db412a81bc7acb65445}{Verbose}}
+, \mbox{\hyperlink{namespace_e_log_verbosity_ab6bab2e0ab6887ab14ba3dda79944252ae3d311f1906ee857e64bff6608c2663a}{Very\+Verbose}}
+, \newline
+\mbox{\hyperlink{namespace_e_log_verbosity_ab6bab2e0ab6887ab14ba3dda79944252a6aaa48ac3252a581d1dc9c2fa40d66d1}{All}} = Very\+Verbose
+, \mbox{\hyperlink{namespace_e_log_verbosity_ab6bab2e0ab6887ab14ba3dda79944252a02f750cc9fe74a4da999a77505548c38}{Num\+Verbosity}}
+, \mbox{\hyperlink{namespace_e_log_verbosity_ab6bab2e0ab6887ab14ba3dda79944252ad313fb7e4217e5899bdde74ee1d691c5}{Verbosity\+Mask}} = 0xf
+, \mbox{\hyperlink{namespace_e_log_verbosity_ab6bab2e0ab6887ab14ba3dda79944252a131e0352ff51aa6a50aec33521911dc4}{Set\+Color}} = 0x40
+, \newline
+\mbox{\hyperlink{namespace_e_log_verbosity_ab6bab2e0ab6887ab14ba3dda79944252a2ebf29e953b0a6c12278beb8142768dd}{Break\+On\+Log}} = 0x80
+ \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Перечисления}
+\Hypertarget{namespace_e_log_verbosity_ab6bab2e0ab6887ab14ba3dda79944252}\label{namespace_e_log_verbosity_ab6bab2e0ab6887ab14ba3dda79944252} 
+\index{ELogVerbosity@{ELogVerbosity}!Type@{Type}}
+\index{Type@{Type}!ELogVerbosity@{ELogVerbosity}}
+\doxysubsubsection{\texorpdfstring{Type}{Type}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{namespace_e_log_verbosity_ab6bab2e0ab6887ab14ba3dda79944252}{ELog\+Verbosity\+::\+Type}} \+: \mbox{\hyperlink{_platform_8h_a40bc01dd090acd02a79b5dc13e08abe6}{uint8}}}
+
+\begin{DoxyEnumFields}{Элементы перечислений}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NoLogging@{NoLogging}!ELogVerbosity@{ELogVerbosity}}\index{ELogVerbosity@{ELogVerbosity}!NoLogging@{NoLogging}}}\Hypertarget{namespace_e_log_verbosity_ab6bab2e0ab6887ab14ba3dda79944252a0596f377e8d2bb59953e8f96ffb94558}\label{namespace_e_log_verbosity_ab6bab2e0ab6887ab14ba3dda79944252a0596f377e8d2bb59953e8f96ffb94558} 
+No\+Logging&Not used \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Fatal@{Fatal}!ELogVerbosity@{ELogVerbosity}}\index{ELogVerbosity@{ELogVerbosity}!Fatal@{Fatal}}}\Hypertarget{namespace_e_log_verbosity_ab6bab2e0ab6887ab14ba3dda79944252a14128745b037ab30ae88c299c995e3bf}\label{namespace_e_log_verbosity_ab6bab2e0ab6887ab14ba3dda79944252a14128745b037ab30ae88c299c995e3bf} 
+Fatal&Always prints a fatal error to console (and log file) and crashes (even if logging is disabled) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Error@{Error}!ELogVerbosity@{ELogVerbosity}}\index{ELogVerbosity@{ELogVerbosity}!Error@{Error}}}\Hypertarget{namespace_e_log_verbosity_ab6bab2e0ab6887ab14ba3dda79944252a6ae2a4036ef7ff4d28c8626c3309e924}\label{namespace_e_log_verbosity_ab6bab2e0ab6887ab14ba3dda79944252a6ae2a4036ef7ff4d28c8626c3309e924} 
+Error&Prints an error to console (and log file). Commandlets and the editor collect and report errors. Error messages result in commandlet failure. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Warning@{Warning}!ELogVerbosity@{ELogVerbosity}}\index{ELogVerbosity@{ELogVerbosity}!Warning@{Warning}}}\Hypertarget{namespace_e_log_verbosity_ab6bab2e0ab6887ab14ba3dda79944252a03d955900d6d545c5983ccd7fce46604}\label{namespace_e_log_verbosity_ab6bab2e0ab6887ab14ba3dda79944252a03d955900d6d545c5983ccd7fce46604} 
+Warning&Prints a warning to console (and log file). Commandlets and the editor collect and report warnings. Warnings can be treated as an error. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Display@{Display}!ELogVerbosity@{ELogVerbosity}}\index{ELogVerbosity@{ELogVerbosity}!Display@{Display}}}\Hypertarget{namespace_e_log_verbosity_ab6bab2e0ab6887ab14ba3dda79944252af4656db27c97bfa3931c1ed9aa417c0c}\label{namespace_e_log_verbosity_ab6bab2e0ab6887ab14ba3dda79944252af4656db27c97bfa3931c1ed9aa417c0c} 
+Display&Prints a message to console (and log file) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Log@{Log}!ELogVerbosity@{ELogVerbosity}}\index{ELogVerbosity@{ELogVerbosity}!Log@{Log}}}\Hypertarget{namespace_e_log_verbosity_ab6bab2e0ab6887ab14ba3dda79944252a303109b2cf906d429f34b386fcc87085}\label{namespace_e_log_verbosity_ab6bab2e0ab6887ab14ba3dda79944252a303109b2cf906d429f34b386fcc87085} 
+Log&Prints a message to a log file (does not print to console) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Verbose@{Verbose}!ELogVerbosity@{ELogVerbosity}}\index{ELogVerbosity@{ELogVerbosity}!Verbose@{Verbose}}}\Hypertarget{namespace_e_log_verbosity_ab6bab2e0ab6887ab14ba3dda79944252a0214bfc57e697db412a81bc7acb65445}\label{namespace_e_log_verbosity_ab6bab2e0ab6887ab14ba3dda79944252a0214bfc57e697db412a81bc7acb65445} 
+Verbose&Prints a verbose message to a log file (if Verbose logging is enabled for the given category, usually used for detailed logging) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{VeryVerbose@{VeryVerbose}!ELogVerbosity@{ELogVerbosity}}\index{ELogVerbosity@{ELogVerbosity}!VeryVerbose@{VeryVerbose}}}\Hypertarget{namespace_e_log_verbosity_ab6bab2e0ab6887ab14ba3dda79944252ae3d311f1906ee857e64bff6608c2663a}\label{namespace_e_log_verbosity_ab6bab2e0ab6887ab14ba3dda79944252ae3d311f1906ee857e64bff6608c2663a} 
+Very\+Verbose&Prints a verbose message to a log file (if Very\+Verbose logging is enabled, usually used for detailed logging that would otherwise spam output) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{All@{All}!ELogVerbosity@{ELogVerbosity}}\index{ELogVerbosity@{ELogVerbosity}!All@{All}}}\Hypertarget{namespace_e_log_verbosity_ab6bab2e0ab6887ab14ba3dda79944252a6aaa48ac3252a581d1dc9c2fa40d66d1}\label{namespace_e_log_verbosity_ab6bab2e0ab6887ab14ba3dda79944252a6aaa48ac3252a581d1dc9c2fa40d66d1} 
+All&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NumVerbosity@{NumVerbosity}!ELogVerbosity@{ELogVerbosity}}\index{ELogVerbosity@{ELogVerbosity}!NumVerbosity@{NumVerbosity}}}\Hypertarget{namespace_e_log_verbosity_ab6bab2e0ab6887ab14ba3dda79944252a02f750cc9fe74a4da999a77505548c38}\label{namespace_e_log_verbosity_ab6bab2e0ab6887ab14ba3dda79944252a02f750cc9fe74a4da999a77505548c38} 
+Num\+Verbosity&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{VerbosityMask@{VerbosityMask}!ELogVerbosity@{ELogVerbosity}}\index{ELogVerbosity@{ELogVerbosity}!VerbosityMask@{VerbosityMask}}}\Hypertarget{namespace_e_log_verbosity_ab6bab2e0ab6887ab14ba3dda79944252ad313fb7e4217e5899bdde74ee1d691c5}\label{namespace_e_log_verbosity_ab6bab2e0ab6887ab14ba3dda79944252ad313fb7e4217e5899bdde74ee1d691c5} 
+Verbosity\+Mask&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SetColor@{SetColor}!ELogVerbosity@{ELogVerbosity}}\index{ELogVerbosity@{ELogVerbosity}!SetColor@{SetColor}}}\Hypertarget{namespace_e_log_verbosity_ab6bab2e0ab6887ab14ba3dda79944252a131e0352ff51aa6a50aec33521911dc4}\label{namespace_e_log_verbosity_ab6bab2e0ab6887ab14ba3dda79944252a131e0352ff51aa6a50aec33521911dc4} 
+Set\+Color&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BreakOnLog@{BreakOnLog}!ELogVerbosity@{ELogVerbosity}}\index{ELogVerbosity@{ELogVerbosity}!BreakOnLog@{BreakOnLog}}}\Hypertarget{namespace_e_log_verbosity_ab6bab2e0ab6887ab14ba3dda79944252a2ebf29e953b0a6c12278beb8142768dd}\label{namespace_e_log_verbosity_ab6bab2e0ab6887ab14ba3dda79944252a2ebf29e953b0a6c12278beb8142768dd} 
+Break\+On\+Log&\\
+\hline
+
+\end{DoxyEnumFields}

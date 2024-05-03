@@ -1,0 +1,127 @@
+\doxysection{Класс FGeneric\+Application\+Handler}
+\hypertarget{class_f_generic_application_handler}{}\label{class_f_generic_application_handler}\index{FGenericApplicationHandler@{FGenericApplicationHandler}}
+
+
+{\ttfamily \#include $<$Generic\+Application\+Handler.\+h$>$}
+
+Граф наследования\+:FGeneric\+Application\+Handler\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{d8/d30/class_f_generic_application_handler}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool \mbox{\hyperlink{class_f_generic_application_handler_ae82fdd29595d5d772b152de44a6ee851}{On\+Mouse\+Down}} (const \mbox{\hyperlink{_t_unique_ptr_8h_ab7a7d47ba593c2489fecf3f003f56c53}{TShared\+Ptr}}$<$ \mbox{\hyperlink{class_f_generic_window}{FGeneric\+Window}} $>$ \&Window, const \mbox{\hyperlink{namespace_e_mouse_buttons_ad8e0d01f817db033b785df665a734868}{EMouse\+Buttons\+::\+Type}} Button, const \mbox{\hyperlink{_math_fwd_8h_a37d063b0aaf05e8e7934ce3c52b620c0}{FVector2D}} Cursor\+Pos)
+\item 
+virtual bool \mbox{\hyperlink{class_f_generic_application_handler_afd13e7a891ccd54c9e42044a4daa9b4f}{On\+Mouse\+Up}} (const \mbox{\hyperlink{namespace_e_mouse_buttons_ad8e0d01f817db033b785df665a734868}{EMouse\+Buttons\+::\+Type}} Buton, const \mbox{\hyperlink{_math_fwd_8h_a37d063b0aaf05e8e7934ce3c52b620c0}{FVector2D}} Cursor\+Pos)
+\item 
+virtual bool \mbox{\hyperlink{class_f_generic_application_handler_ad9b18faf32e8b5f120224869b5fcd313}{On\+Mouse\+Double\+Click}} (const \mbox{\hyperlink{_t_unique_ptr_8h_ab7a7d47ba593c2489fecf3f003f56c53}{TShared\+Ptr}}$<$ \mbox{\hyperlink{class_f_generic_window}{FGeneric\+Window}} $>$ \&Window, \mbox{\hyperlink{namespace_e_mouse_buttons_ad8e0d01f817db033b785df665a734868}{EMouse\+Buttons\+::\+Type}} Button, const \mbox{\hyperlink{_math_fwd_8h_a37d063b0aaf05e8e7934ce3c52b620c0}{FVector2D}} Cursor\+Pos)
+\item 
+virtual bool \mbox{\hyperlink{class_f_generic_application_handler_a1b22dc7632975577bcdf4b00c539c24a}{On\+Moving\+Window}} (const \mbox{\hyperlink{_t_unique_ptr_8h_ab7a7d47ba593c2489fecf3f003f56c53}{TShared\+Ptr}}$<$ \mbox{\hyperlink{class_f_generic_window}{FGeneric\+Window}} $>$ \&Window, \mbox{\hyperlink{_math_fwd_8h_a64ca0e56e182799ed5a0fbfc0abacc30}{FInt\+Rect}} New\+Rect)
+\item 
+virtual bool \mbox{\hyperlink{class_f_generic_application_handler_a573b8e61e744727af98effc7e0b3a134}{On\+Moved\+Window}} (const \mbox{\hyperlink{_t_unique_ptr_8h_ab7a7d47ba593c2489fecf3f003f56c53}{TShared\+Ptr}}$<$ \mbox{\hyperlink{class_f_generic_window}{FGeneric\+Window}} $>$ \&Window, \mbox{\hyperlink{_math_fwd_8h_af5577845559ff81e49036ff088d51cbf}{FInt\+Point}} New\+Position)
+\item 
+virtual bool \mbox{\hyperlink{class_f_generic_application_handler_aa11cd4eed892ee76fe1e928f7f93c4a6}{On\+Mouse\+Move}} ()
+\item 
+virtual bool \mbox{\hyperlink{class_f_generic_application_handler_a02349a480acfb4ca73a995e6136280b3}{On\+Raw\+Mouse\+Move}} (const \mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}} X, const \mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}} Y)
+\item 
+virtual bool \mbox{\hyperlink{class_f_generic_application_handler_aed22f7375f2a4c8d2d43e7d54cc02e03}{On\+Size\+Changed}} (const \mbox{\hyperlink{_t_unique_ptr_8h_ab7a7d47ba593c2489fecf3f003f56c53}{TShared\+Ptr}}$<$ \mbox{\hyperlink{class_f_generic_window}{FGeneric\+Window}} $>$ \&Window, const \mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}} Width, const \mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}} Height, bool b\+Was\+Minimized=false)
+\item 
+virtual bool \mbox{\hyperlink{class_f_generic_application_handler_adb3b887f47e580f22cfc2d722af7c305}{On\+Resize}} (const \mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}} Width, const \mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}} Height, const bool b\+Fullscreen)
+\item 
+virtual bool \mbox{\hyperlink{class_f_generic_application_handler_abe2566d2eb80847ccf9e1bac8d725122}{On\+Window\+Draw}} (const \mbox{\hyperlink{_t_unique_ptr_8h_ab7a7d47ba593c2489fecf3f003f56c53}{TShared\+Ptr}}$<$ \mbox{\hyperlink{class_f_generic_window}{FGeneric\+Window}} $>$ \&Window)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Методы}
+\Hypertarget{class_f_generic_application_handler_ad9b18faf32e8b5f120224869b5fcd313}\label{class_f_generic_application_handler_ad9b18faf32e8b5f120224869b5fcd313} 
+\index{FGenericApplicationHandler@{FGenericApplicationHandler}!OnMouseDoubleClick@{OnMouseDoubleClick}}
+\index{OnMouseDoubleClick@{OnMouseDoubleClick}!FGenericApplicationHandler@{FGenericApplicationHandler}}
+\doxysubsubsection{\texorpdfstring{OnMouseDoubleClick()}{OnMouseDoubleClick()}}
+{\footnotesize\ttfamily virtual bool FGeneric\+Application\+Handler\+::\+On\+Mouse\+Double\+Click (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{_t_unique_ptr_8h_ab7a7d47ba593c2489fecf3f003f56c53}{TShared\+Ptr}}$<$ \mbox{\hyperlink{class_f_generic_window}{FGeneric\+Window}} $>$ \&}]{Window,  }\item[{\mbox{\hyperlink{namespace_e_mouse_buttons_ad8e0d01f817db033b785df665a734868}{EMouse\+Buttons\+::\+Type}}}]{Button,  }\item[{const \mbox{\hyperlink{_math_fwd_8h_a37d063b0aaf05e8e7934ce3c52b620c0}{FVector2D}}}]{Cursor\+Pos }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\Hypertarget{class_f_generic_application_handler_ae82fdd29595d5d772b152de44a6ee851}\label{class_f_generic_application_handler_ae82fdd29595d5d772b152de44a6ee851} 
+\index{FGenericApplicationHandler@{FGenericApplicationHandler}!OnMouseDown@{OnMouseDown}}
+\index{OnMouseDown@{OnMouseDown}!FGenericApplicationHandler@{FGenericApplicationHandler}}
+\doxysubsubsection{\texorpdfstring{OnMouseDown()}{OnMouseDown()}}
+{\footnotesize\ttfamily virtual bool FGeneric\+Application\+Handler\+::\+On\+Mouse\+Down (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{_t_unique_ptr_8h_ab7a7d47ba593c2489fecf3f003f56c53}{TShared\+Ptr}}$<$ \mbox{\hyperlink{class_f_generic_window}{FGeneric\+Window}} $>$ \&}]{Window,  }\item[{const \mbox{\hyperlink{namespace_e_mouse_buttons_ad8e0d01f817db033b785df665a734868}{EMouse\+Buttons\+::\+Type}}}]{Button,  }\item[{const \mbox{\hyperlink{_math_fwd_8h_a37d063b0aaf05e8e7934ce3c52b620c0}{FVector2D}}}]{Cursor\+Pos }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Переопределяется в \mbox{\hyperlink{class_u_i_application_acaff68b8f3d23410948ccbbcd5319c57}{UIApplication}}.
+
+\Hypertarget{class_f_generic_application_handler_aa11cd4eed892ee76fe1e928f7f93c4a6}\label{class_f_generic_application_handler_aa11cd4eed892ee76fe1e928f7f93c4a6} 
+\index{FGenericApplicationHandler@{FGenericApplicationHandler}!OnMouseMove@{OnMouseMove}}
+\index{OnMouseMove@{OnMouseMove}!FGenericApplicationHandler@{FGenericApplicationHandler}}
+\doxysubsubsection{\texorpdfstring{OnMouseMove()}{OnMouseMove()}}
+{\footnotesize\ttfamily virtual bool FGeneric\+Application\+Handler\+::\+On\+Mouse\+Move (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\Hypertarget{class_f_generic_application_handler_afd13e7a891ccd54c9e42044a4daa9b4f}\label{class_f_generic_application_handler_afd13e7a891ccd54c9e42044a4daa9b4f} 
+\index{FGenericApplicationHandler@{FGenericApplicationHandler}!OnMouseUp@{OnMouseUp}}
+\index{OnMouseUp@{OnMouseUp}!FGenericApplicationHandler@{FGenericApplicationHandler}}
+\doxysubsubsection{\texorpdfstring{OnMouseUp()}{OnMouseUp()}}
+{\footnotesize\ttfamily virtual bool FGeneric\+Application\+Handler\+::\+On\+Mouse\+Up (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespace_e_mouse_buttons_ad8e0d01f817db033b785df665a734868}{EMouse\+Buttons\+::\+Type}}}]{Buton,  }\item[{const \mbox{\hyperlink{_math_fwd_8h_a37d063b0aaf05e8e7934ce3c52b620c0}{FVector2D}}}]{Cursor\+Pos }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Переопределяется в \mbox{\hyperlink{class_u_i_application_a76a70396c2d31dea5c208fbad9f4e61b}{UIApplication}}.
+
+\Hypertarget{class_f_generic_application_handler_a573b8e61e744727af98effc7e0b3a134}\label{class_f_generic_application_handler_a573b8e61e744727af98effc7e0b3a134} 
+\index{FGenericApplicationHandler@{FGenericApplicationHandler}!OnMovedWindow@{OnMovedWindow}}
+\index{OnMovedWindow@{OnMovedWindow}!FGenericApplicationHandler@{FGenericApplicationHandler}}
+\doxysubsubsection{\texorpdfstring{OnMovedWindow()}{OnMovedWindow()}}
+{\footnotesize\ttfamily virtual bool FGeneric\+Application\+Handler\+::\+On\+Moved\+Window (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{_t_unique_ptr_8h_ab7a7d47ba593c2489fecf3f003f56c53}{TShared\+Ptr}}$<$ \mbox{\hyperlink{class_f_generic_window}{FGeneric\+Window}} $>$ \&}]{Window,  }\item[{\mbox{\hyperlink{_math_fwd_8h_af5577845559ff81e49036ff088d51cbf}{FInt\+Point}}}]{New\+Position }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Переопределяется в \mbox{\hyperlink{class_u_i_application_a0e85f34c70354cb8c697c1aaa6ce8cb5}{UIApplication}}.
+
+\Hypertarget{class_f_generic_application_handler_a1b22dc7632975577bcdf4b00c539c24a}\label{class_f_generic_application_handler_a1b22dc7632975577bcdf4b00c539c24a} 
+\index{FGenericApplicationHandler@{FGenericApplicationHandler}!OnMovingWindow@{OnMovingWindow}}
+\index{OnMovingWindow@{OnMovingWindow}!FGenericApplicationHandler@{FGenericApplicationHandler}}
+\doxysubsubsection{\texorpdfstring{OnMovingWindow()}{OnMovingWindow()}}
+{\footnotesize\ttfamily virtual bool FGeneric\+Application\+Handler\+::\+On\+Moving\+Window (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{_t_unique_ptr_8h_ab7a7d47ba593c2489fecf3f003f56c53}{TShared\+Ptr}}$<$ \mbox{\hyperlink{class_f_generic_window}{FGeneric\+Window}} $>$ \&}]{Window,  }\item[{\mbox{\hyperlink{_math_fwd_8h_a64ca0e56e182799ed5a0fbfc0abacc30}{FInt\+Rect}}}]{New\+Rect }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Переопределяется в \mbox{\hyperlink{class_u_i_application_af50f3cf973f0d431389aea89a586565f}{UIApplication}}.
+
+\Hypertarget{class_f_generic_application_handler_a02349a480acfb4ca73a995e6136280b3}\label{class_f_generic_application_handler_a02349a480acfb4ca73a995e6136280b3} 
+\index{FGenericApplicationHandler@{FGenericApplicationHandler}!OnRawMouseMove@{OnRawMouseMove}}
+\index{OnRawMouseMove@{OnRawMouseMove}!FGenericApplicationHandler@{FGenericApplicationHandler}}
+\doxysubsubsection{\texorpdfstring{OnRawMouseMove()}{OnRawMouseMove()}}
+{\footnotesize\ttfamily virtual bool FGeneric\+Application\+Handler\+::\+On\+Raw\+Mouse\+Move (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}}]{X,  }\item[{const \mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}}]{Y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\Hypertarget{class_f_generic_application_handler_adb3b887f47e580f22cfc2d722af7c305}\label{class_f_generic_application_handler_adb3b887f47e580f22cfc2d722af7c305} 
+\index{FGenericApplicationHandler@{FGenericApplicationHandler}!OnResize@{OnResize}}
+\index{OnResize@{OnResize}!FGenericApplicationHandler@{FGenericApplicationHandler}}
+\doxysubsubsection{\texorpdfstring{OnResize()}{OnResize()}}
+{\footnotesize\ttfamily virtual bool FGeneric\+Application\+Handler\+::\+On\+Resize (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}}]{Width,  }\item[{const \mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}}]{Height,  }\item[{const bool}]{b\+Fullscreen }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\Hypertarget{class_f_generic_application_handler_aed22f7375f2a4c8d2d43e7d54cc02e03}\label{class_f_generic_application_handler_aed22f7375f2a4c8d2d43e7d54cc02e03} 
+\index{FGenericApplicationHandler@{FGenericApplicationHandler}!OnSizeChanged@{OnSizeChanged}}
+\index{OnSizeChanged@{OnSizeChanged}!FGenericApplicationHandler@{FGenericApplicationHandler}}
+\doxysubsubsection{\texorpdfstring{OnSizeChanged()}{OnSizeChanged()}}
+{\footnotesize\ttfamily virtual bool FGeneric\+Application\+Handler\+::\+On\+Size\+Changed (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{_t_unique_ptr_8h_ab7a7d47ba593c2489fecf3f003f56c53}{TShared\+Ptr}}$<$ \mbox{\hyperlink{class_f_generic_window}{FGeneric\+Window}} $>$ \&}]{Window,  }\item[{const \mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}}]{Width,  }\item[{const \mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}}]{Height,  }\item[{bool}]{b\+Was\+Minimized = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Переопределяется в \mbox{\hyperlink{class_u_i_application_a1fa43803f539079cb74eb759fd67a323}{UIApplication}}.
+
+\Hypertarget{class_f_generic_application_handler_abe2566d2eb80847ccf9e1bac8d725122}\label{class_f_generic_application_handler_abe2566d2eb80847ccf9e1bac8d725122} 
+\index{FGenericApplicationHandler@{FGenericApplicationHandler}!OnWindowDraw@{OnWindowDraw}}
+\index{OnWindowDraw@{OnWindowDraw}!FGenericApplicationHandler@{FGenericApplicationHandler}}
+\doxysubsubsection{\texorpdfstring{OnWindowDraw()}{OnWindowDraw()}}
+{\footnotesize\ttfamily virtual bool FGeneric\+Application\+Handler\+::\+On\+Window\+Draw (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{_t_unique_ptr_8h_ab7a7d47ba593c2489fecf3f003f56c53}{TShared\+Ptr}}$<$ \mbox{\hyperlink{class_f_generic_window}{FGeneric\+Window}} $>$ \&}]{Window }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Переопределяется в \mbox{\hyperlink{class_u_i_application_ada15bd06e9e4d358b5a2b2e7f347bd24}{UIApplication}}.
+
+
+
+Объявления и описания членов класса находятся в файле\+:\begin{DoxyCompactItemize}
+\item 
+Dark Engine/\+Source/\+Runtime/\+Application\+Core/public/\+Generic\+Platform/\mbox{\hyperlink{_generic_application_handler_8h}{Generic\+Application\+Handler.\+h}}\end{DoxyCompactItemize}

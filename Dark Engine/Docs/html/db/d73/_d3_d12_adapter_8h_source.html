@@ -1,0 +1,272 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Dark Engine: Исходный файл Dark Engine/Source/Runtime/D3D12RHI/private/D3D12Adapter.h</title>
+<link rel="icon" href="../../Logo.png" type="image/x-icon" />
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<script type="text/javascript" src="../../clipboard.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../MiniLogo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Dark Engine<span id="projectnumber">&#160;0.0.50</span>
+   </div>
+   <div id="projectbrief">New game engnie D3D12</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../../',true,false,'search.php','Поиск');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(1); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('db/d73/_d3_d12_adapter_8h_source.html','../../'); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">D3D12Adapter.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="../../db/d73/_d3_d12_adapter_8h.html">См. документацию.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;<a class="code" href="../../de/d85/_dark_template_8h.html">Templates/DarkTemplate.h</a>&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="../../d7/d10/_d3_d12_r_h_i_private_8h.html">D3D12RHIPrivate.h</a>&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="../../df/d65/_static_array_8h.html">Containers/StaticArray.h</a>&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="../../d6/d14/_d3_d12_viewport_8h.html">D3D12Viewport.h</a>&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;wrl.h&gt;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">using </span>Microsoft::WRL::ComPtr;</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="foldopen" id="foldopen00013" data-start="{" data-end="};">
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="../../d2/d98/struct_f_d3_d12_device_basic_info.html">   13</a></span><span class="keyword">struct </span><a class="code hl_struct" href="../../d2/d98/struct_f_d3_d12_device_basic_info.html">FD3D12DeviceBasicInfo</a></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>{</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="../../d2/d98/struct_f_d3_d12_device_basic_info.html#ac16799fa5291443a6515b052a8afe1f6">   15</a></span>    D3D_FEATURE_LEVEL           <a class="code hl_variable" href="../../d2/d98/struct_f_d3_d12_device_basic_info.html#ac16799fa5291443a6515b052a8afe1f6">MaxFeatureLevel</a>;</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="../../d2/d98/struct_f_d3_d12_device_basic_info.html#a5e05080835cbf1be2b2e0ae15d7ade59">   16</a></span>    D3D_SHADER_MODEL            <a class="code hl_variable" href="../../d2/d98/struct_f_d3_d12_device_basic_info.html#a5e05080835cbf1be2b2e0ae15d7ade59">MaxShaderModel</a>;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="../../d2/d98/struct_f_d3_d12_device_basic_info.html#ae14a55ce2bd39e4df352d1037e2edf48">   17</a></span>    D3D12_RESOURCE_BINDING_TIER <a class="code hl_variable" href="../../d2/d98/struct_f_d3_d12_device_basic_info.html#ae14a55ce2bd39e4df352d1037e2edf48">ResourceBindingTier</a>;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="../../d2/d98/struct_f_d3_d12_device_basic_info.html#a7a24d0076c2d07d007bdd6c0bb538717">   18</a></span>    D3D12_RESOURCE_HEAP_TIER    <a class="code hl_variable" href="../../d2/d98/struct_f_d3_d12_device_basic_info.html#a7a24d0076c2d07d007bdd6c0bb538717">ResourceHeapTier</a>;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="../../d2/d98/struct_f_d3_d12_device_basic_info.html#a26fa572d2cf4af251b74043bc2d1fcba">   19</a></span>    <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a>                      <a class="code hl_variable" href="../../d2/d98/struct_f_d3_d12_device_basic_info.html#a26fa572d2cf4af251b74043bc2d1fcba">NumDeviceNodes</a>;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>};</div>
+</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="foldopen" id="foldopen00024" data-start="{" data-end="};">
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="../../d6/d09/struct_f_d3_d12_adapter_desc.html">   24</a></span><span class="keyword">struct </span><a class="code hl_struct" href="../../d6/d09/struct_f_d3_d12_adapter_desc.html">FD3D12AdapterDesc</a></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>{</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="../../d6/d09/struct_f_d3_d12_adapter_desc.html#ae3706bc5138b5d3fa84b3605ea1a41a5">   26</a></span>    <a class="code hl_function" href="../../d6/d09/struct_f_d3_d12_adapter_desc.html#ae3706bc5138b5d3fa84b3605ea1a41a5">FD3D12AdapterDesc</a>();</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <a class="code hl_function" href="../../d6/d09/struct_f_d3_d12_adapter_desc.html#ae3706bc5138b5d3fa84b3605ea1a41a5">FD3D12AdapterDesc</a>(<span class="keyword">const</span> DXGI_ADAPTER_DESC&amp; InDesc, <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a84083085985fb180ad38b9c32e3937da">int32</a> InAdapterIndex);</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d6/d09/struct_f_d3_d12_adapter_desc.html#a5be702429d3b6ab9f52596b2c51ae515">IsValid</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keyword">static</span> HRESULT <a class="code hl_function" href="../../d6/d09/struct_f_d3_d12_adapter_desc.html#a447e4737a2e2d02ae130655be53f43d1">EnumAdapters</a>(<a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a84083085985fb180ad38b9c32e3937da">int32</a> <a class="code hl_variable" href="../../d6/d09/struct_f_d3_d12_adapter_desc.html#a26ddc1eb5b8876c139d9115ad3d3fca9">AdapterIndex</a>, DXGI_GPU_PREFERENCE GPUPreference,</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>                                IDXGIFactory7* DXGIFactory, IDXGIAdapter** TempAdapter);</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="../../d6/d09/struct_f_d3_d12_adapter_desc.html#aa6232bbe8d72c128cc9274f05c864b15">   38</a></span>    DXGI_ADAPTER_DESC <a class="code hl_variable" href="../../d6/d09/struct_f_d3_d12_adapter_desc.html#aa6232bbe8d72c128cc9274f05c864b15">Desc</a> = {};</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="../../d6/d09/struct_f_d3_d12_adapter_desc.html#a26ddc1eb5b8876c139d9115ad3d3fca9">   39</a></span>    <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a84083085985fb180ad38b9c32e3937da">int32</a> <a class="code hl_variable" href="../../d6/d09/struct_f_d3_d12_adapter_desc.html#a26ddc1eb5b8876c139d9115ad3d3fca9">AdapterIndex</a> = -1;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="../../d6/d09/struct_f_d3_d12_adapter_desc.html#a6ba668babe2476b128ef08ff36d097a2">   40</a></span>    D3D_FEATURE_LEVEL <a class="code hl_variable" href="../../d6/d09/struct_f_d3_d12_adapter_desc.html#a6ba668babe2476b128ef08ff36d097a2">MaxSupportFeatureLevel</a>;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>};</div>
+</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="foldopen" id="foldopen00049" data-start="{" data-end="};">
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="../../d6/db4/class_f_d3_d12_adapter.html">   49</a></span><span class="keyword">class </span><a class="code hl_class" href="../../d6/db4/class_f_d3_d12_adapter.html">FD3D12Adapter</a> : <span class="keyword">public</span> <a class="code hl_class" href="../../d2/dc6/class_f_noncopyble.html">FNoncopyble</a></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>{</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="../../d6/db4/class_f_d3_d12_adapter.html#aa8b145c59043e8ba70c7a513e823153b">   51</a></span>    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code hl_class" href="../../d3/d95/class_f_d3_d12_dynamic_r_h_i.html">FD3D12DynamicRHI</a>;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <a class="code hl_function" href="../../d6/db4/class_f_d3_d12_adapter.html#a840be72e5344d676640683309686acfd">FD3D12Adapter</a>(<a class="code hl_struct" href="../../d6/d09/struct_f_d3_d12_adapter_desc.html">FD3D12AdapterDesc</a>&amp; DescIn);</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <a class="code hl_function" href="../../d6/db4/class_f_d3_d12_adapter.html#a8777eae67231f4936165e3c2f0bf6b01">~FD3D12Adapter</a>();</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d6/db4/class_f_d3_d12_adapter.html#ae1e09fc2e3c90ed1c3628bd8c15cb1cf">Destroy</a>();</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d6/db4/class_f_d3_d12_adapter.html#a5e0a9ce01cb682a39c2bac6fc0c4880e">InitializeDevices</a>();</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="../../d6/db4/class_f_d3_d12_adapter.html#a65f38881454c6ef6cfb258f2ba4cd1c0">   61</a></span>    <span class="keyword">const</span> <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a84083085985fb180ad38b9c32e3937da">int32</a> <a class="code hl_function" href="../../d6/db4/class_f_d3_d12_adapter.html#a65f38881454c6ef6cfb258f2ba4cd1c0">GetAdapterIndex</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> Desc.<a class="code hl_variable" href="../../d6/d09/struct_f_d3_d12_adapter_desc.html#a26ddc1eb5b8876c139d9115ad3d3fca9">AdapterIndex</a>; }</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="../../d6/db4/class_f_d3_d12_adapter.html#aa50cd8e462b78a0264ddf2529f4ad309">   62</a></span>    <span class="keyword">const</span> D3D_FEATURE_LEVEL <a class="code hl_function" href="../../d6/db4/class_f_d3_d12_adapter.html#aa50cd8e462b78a0264ddf2529f4ad309">GetFeatureLevel</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> Desc.<a class="code hl_variable" href="../../d6/d09/struct_f_d3_d12_adapter_desc.html#a6ba668babe2476b128ef08ff36d097a2">MaxSupportFeatureLevel</a>; }</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="../../d6/db4/class_f_d3_d12_adapter.html#a3455589b2188d1be67ad6b50bbcb7afa">   63</a></span>    ID3D12Device* <a class="code hl_function" href="../../d6/db4/class_f_d3_d12_adapter.html#a3455589b2188d1be67ad6b50bbcb7afa">GetD3DDevice</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> RootDevice.Get(); }</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="../../d6/db4/class_f_d3_d12_adapter.html#a4e784d85f0931197ee8c2dba483ca9f9">   64</a></span>    ID3D12Device2* <a class="code hl_function" href="../../d6/db4/class_f_d3_d12_adapter.html#a4e784d85f0931197ee8c2dba483ca9f9">GetD3DDevice2</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> RootDevice2.Get(); }</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="../../d6/db4/class_f_d3_d12_adapter.html#a4a5efa1ee3553f2f268569a157291e42">   66</a></span>    <span class="keyword">const</span> <a class="code hl_struct" href="../../d6/d09/struct_f_d3_d12_adapter_desc.html">FD3D12AdapterDesc</a>&amp; <a class="code hl_function" href="../../d6/db4/class_f_d3_d12_adapter.html#a4a5efa1ee3553f2f268569a157291e42">GetDesc</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> Desc; }</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="../../d6/db4/class_f_d3_d12_adapter.html#a551d4c77e94c5e358cdb8905ad9881ac">   67</a></span>    <span class="keyword">const</span> DXGI_ADAPTER_DESC&amp; <a class="code hl_function" href="../../d6/db4/class_f_d3_d12_adapter.html#a551d4c77e94c5e358cdb8905ad9881ac">GetAdapterDesc</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> Desc.<a class="code hl_variable" href="../../d6/d09/struct_f_d3_d12_adapter_desc.html#aa6232bbe8d72c128cc9274f05c864b15">Desc</a>; }</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="../../d6/db4/class_f_d3_d12_adapter.html#a0a5ef7e84ce0078a308297f70539ee06">   69</a></span>    IDXGIAdapter4* <a class="code hl_function" href="../../d6/db4/class_f_d3_d12_adapter.html#a0a5ef7e84ce0078a308297f70539ee06">GetAdapter</a>() { <span class="keywordflow">return</span> DXGIAdapter.Get(); }</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="../../d6/db4/class_f_d3_d12_adapter.html#a2292fce797153e660cb4dee79b2cd547">   71</a></span>    IDXGIFactory5* <a class="code hl_function" href="../../d6/db4/class_f_d3_d12_adapter.html#a2292fce797153e660cb4dee79b2cd547">GetDXGIFactory</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> DXGIFactory.Get(); }</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d6/db4/class_f_d3_d12_adapter.html#afec340664a96a35be262c9df31e77c8d">CreateRootDevice</a>(<span class="keywordtype">bool</span> bWithDebug = <span class="keyword">false</span>);</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="../../d6/db4/class_f_d3_d12_adapter.html#af5a4d93876b22ece6a7af8ada9a6cdd3">   74</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d6/db4/class_f_d3_d12_adapter.html#af5a4d93876b22ece6a7af8ada9a6cdd3">CreateDXGIFactory</a>(<span class="keywordtype">bool</span> bWithDebug = <span class="keyword">false</span>);</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="../../d6/db4/class_f_d3_d12_adapter.html#afd19fb597ad3119547777e03de6587dc">   76</a></span>    <a class="code hl_class" href="../../d1/d79/class_f_d3_d12_device.html">FD3D12Device</a>* <a class="code hl_function" href="../../d6/db4/class_f_d3_d12_adapter.html#afd19fb597ad3119547777e03de6587dc">GetDevice</a>(<a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> Index = 0)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> Devices[Index].get(); }</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="../../d6/db4/class_f_d3_d12_adapter.html#a31747012cf345b973adb7fd4f51e6f4b">   78</a></span>    TArray&lt;FD3D12Viewport*&gt;&amp; <a class="code hl_function" href="../../d6/db4/class_f_d3_d12_adapter.html#a31747012cf345b973adb7fd4f51e6f4b">GetViewports</a>() { <span class="keywordflow">return</span> Viewports; }</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="../../d6/db4/class_f_d3_d12_adapter.html#ae884a695b02d1de9935efc39db636a22">   80</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d6/db4/class_f_d3_d12_adapter.html#ae884a695b02d1de9935efc39db636a22">SetDrawingViewport</a>(<a class="code hl_class" href="../../d3/d1d/class_f_d3_d12_viewport.html">FD3D12Viewport</a>* InViewport) { DrawingViewport = InViewport; }</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno"><a class="line" href="../../d6/db4/class_f_d3_d12_adapter.html#a72755931f91ceba2a7dd2dce0b7d4d3e">   81</a></span>    <a class="code hl_class" href="../../d3/d1d/class_f_d3_d12_viewport.html">FD3D12Viewport</a>* <a class="code hl_function" href="../../d6/db4/class_f_d3_d12_adapter.html#a72755931f91ceba2a7dd2dce0b7d4d3e">GetDrawingViewport</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> DrawingViewport; }</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="../../d6/db4/class_f_d3_d12_adapter.html#ae7482ed426fc7f9ecafa642e4bfac868">   83</a></span>    <span class="keyword">class </span><a class="code hl_class" href="../../d5/d99/class_f_d3_d12_root_signature_manager.html">FD3D12RootSignatureManager</a>* <span class="keyword">const</span> <a class="code hl_variable" href="../../d6/db4/class_f_d3_d12_adapter.html#ae7482ed426fc7f9ecafa642e4bfac868">RootSignatureManager</a>;</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    <a class="code hl_struct" href="../../d6/d09/struct_f_d3_d12_adapter_desc.html">FD3D12AdapterDesc</a> Desc = {};</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    ComPtr&lt;ID3D12Device&gt; RootDevice;</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    ComPtr&lt;ID3D12Device2&gt; RootDevice2;</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    ComPtr&lt;IDXGIFactory7&gt; DXGIFactory;</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    ComPtr&lt;IDXGIAdapter4&gt; DXGIAdapter;</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    TStaticArray&lt;TSharedPtr&lt;FD3D12Device&gt;, 1&gt; Devices;</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    ComPtr&lt;ID3D12InfoQueue1&gt; InfoQueue;</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    <span class="keywordtype">bool</span> bDebugDevice;</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <span class="keywordtype">bool</span> bDeviceCreated;</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    <span class="keywordtype">bool</span> bDestroyed = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    TArray&lt;FD3D12Viewport*&gt; Viewports;</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <a class="code hl_class" href="../../d3/d1d/class_f_d3_d12_viewport.html">FD3D12Viewport</a>* DrawingViewport;</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>};</div>
+</div>
+<div class="ttc" id="a_d3_d12_r_h_i_private_8h_html"><div class="ttname"><a href="../../d7/d10/_d3_d12_r_h_i_private_8h.html">D3D12RHIPrivate.h</a></div></div>
+<div class="ttc" id="a_d3_d12_viewport_8h_html"><div class="ttname"><a href="../../d6/d14/_d3_d12_viewport_8h.html">D3D12Viewport.h</a></div></div>
+<div class="ttc" id="a_dark_template_8h_html"><div class="ttname"><a href="../../de/d85/_dark_template_8h.html">DarkTemplate.h</a></div></div>
+<div class="ttc" id="a_platform_8h_html_a84083085985fb180ad38b9c32e3937da"><div class="ttname"><a href="../../d2/dc9/_platform_8h.html#a84083085985fb180ad38b9c32e3937da">int32</a></div><div class="ttdeci">FPlatformTypes::int32 int32</div><div class="ttdef"><b>Definition</b> Platform.h:42</div></div>
+<div class="ttc" id="a_platform_8h_html_a8c7a127091efbdfc5a16939041653e05"><div class="ttname"><a href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a></div><div class="ttdeci">FPlatformTypes::uint32 uint32</div><div class="ttdef"><b>Definition</b> Platform.h:43</div></div>
+<div class="ttc" id="a_static_array_8h_html"><div class="ttname"><a href="../../df/d65/_static_array_8h.html">StaticArray.h</a></div></div>
+<div class="ttc" id="aclass_f_d3_d12_adapter_html"><div class="ttname"><a href="../../d6/db4/class_f_d3_d12_adapter.html">FD3D12Adapter</a></div><div class="ttdef"><b>Definition</b> D3D12Adapter.h:50</div></div>
+<div class="ttc" id="aclass_f_d3_d12_adapter_html_a0a5ef7e84ce0078a308297f70539ee06"><div class="ttname"><a href="../../d6/db4/class_f_d3_d12_adapter.html#a0a5ef7e84ce0078a308297f70539ee06">FD3D12Adapter::GetAdapter</a></div><div class="ttdeci">IDXGIAdapter4 * GetAdapter()</div><div class="ttdef"><b>Definition</b> D3D12Adapter.h:69</div></div>
+<div class="ttc" id="aclass_f_d3_d12_adapter_html_a2292fce797153e660cb4dee79b2cd547"><div class="ttname"><a href="../../d6/db4/class_f_d3_d12_adapter.html#a2292fce797153e660cb4dee79b2cd547">FD3D12Adapter::GetDXGIFactory</a></div><div class="ttdeci">IDXGIFactory5 * GetDXGIFactory() const</div><div class="ttdef"><b>Definition</b> D3D12Adapter.h:71</div></div>
+<div class="ttc" id="aclass_f_d3_d12_adapter_html_a31747012cf345b973adb7fd4f51e6f4b"><div class="ttname"><a href="../../d6/db4/class_f_d3_d12_adapter.html#a31747012cf345b973adb7fd4f51e6f4b">FD3D12Adapter::GetViewports</a></div><div class="ttdeci">TArray&lt; FD3D12Viewport * &gt; &amp; GetViewports()</div><div class="ttdef"><b>Definition</b> D3D12Adapter.h:78</div></div>
+<div class="ttc" id="aclass_f_d3_d12_adapter_html_a3455589b2188d1be67ad6b50bbcb7afa"><div class="ttname"><a href="../../d6/db4/class_f_d3_d12_adapter.html#a3455589b2188d1be67ad6b50bbcb7afa">FD3D12Adapter::GetD3DDevice</a></div><div class="ttdeci">ID3D12Device * GetD3DDevice() const</div><div class="ttdef"><b>Definition</b> D3D12Adapter.h:63</div></div>
+<div class="ttc" id="aclass_f_d3_d12_adapter_html_a4a5efa1ee3553f2f268569a157291e42"><div class="ttname"><a href="../../d6/db4/class_f_d3_d12_adapter.html#a4a5efa1ee3553f2f268569a157291e42">FD3D12Adapter::GetDesc</a></div><div class="ttdeci">const FD3D12AdapterDesc &amp; GetDesc() const</div><div class="ttdef"><b>Definition</b> D3D12Adapter.h:66</div></div>
+<div class="ttc" id="aclass_f_d3_d12_adapter_html_a4e784d85f0931197ee8c2dba483ca9f9"><div class="ttname"><a href="../../d6/db4/class_f_d3_d12_adapter.html#a4e784d85f0931197ee8c2dba483ca9f9">FD3D12Adapter::GetD3DDevice2</a></div><div class="ttdeci">ID3D12Device2 * GetD3DDevice2() const</div><div class="ttdef"><b>Definition</b> D3D12Adapter.h:64</div></div>
+<div class="ttc" id="aclass_f_d3_d12_adapter_html_a551d4c77e94c5e358cdb8905ad9881ac"><div class="ttname"><a href="../../d6/db4/class_f_d3_d12_adapter.html#a551d4c77e94c5e358cdb8905ad9881ac">FD3D12Adapter::GetAdapterDesc</a></div><div class="ttdeci">const DXGI_ADAPTER_DESC &amp; GetAdapterDesc() const</div><div class="ttdef"><b>Definition</b> D3D12Adapter.h:67</div></div>
+<div class="ttc" id="aclass_f_d3_d12_adapter_html_a5e0a9ce01cb682a39c2bac6fc0c4880e"><div class="ttname"><a href="../../d6/db4/class_f_d3_d12_adapter.html#a5e0a9ce01cb682a39c2bac6fc0c4880e">FD3D12Adapter::InitializeDevices</a></div><div class="ttdeci">void InitializeDevices()</div><div class="ttdef"><b>Definition</b> D3D12Adapter.cpp:106</div></div>
+<div class="ttc" id="aclass_f_d3_d12_adapter_html_a65f38881454c6ef6cfb258f2ba4cd1c0"><div class="ttname"><a href="../../d6/db4/class_f_d3_d12_adapter.html#a65f38881454c6ef6cfb258f2ba4cd1c0">FD3D12Adapter::GetAdapterIndex</a></div><div class="ttdeci">const int32 GetAdapterIndex() const</div><div class="ttdef"><b>Definition</b> D3D12Adapter.h:61</div></div>
+<div class="ttc" id="aclass_f_d3_d12_adapter_html_a72755931f91ceba2a7dd2dce0b7d4d3e"><div class="ttname"><a href="../../d6/db4/class_f_d3_d12_adapter.html#a72755931f91ceba2a7dd2dce0b7d4d3e">FD3D12Adapter::GetDrawingViewport</a></div><div class="ttdeci">FD3D12Viewport * GetDrawingViewport() const</div><div class="ttdef"><b>Definition</b> D3D12Adapter.h:81</div></div>
+<div class="ttc" id="aclass_f_d3_d12_adapter_html_a840be72e5344d676640683309686acfd"><div class="ttname"><a href="../../d6/db4/class_f_d3_d12_adapter.html#a840be72e5344d676640683309686acfd">FD3D12Adapter::FD3D12Adapter</a></div><div class="ttdeci">FD3D12Adapter(FD3D12AdapterDesc &amp;DescIn)</div><div class="ttdef"><b>Definition</b> D3D12Adapter.cpp:68</div></div>
+<div class="ttc" id="aclass_f_d3_d12_adapter_html_a8777eae67231f4936165e3c2f0bf6b01"><div class="ttname"><a href="../../d6/db4/class_f_d3_d12_adapter.html#a8777eae67231f4936165e3c2f0bf6b01">FD3D12Adapter::~FD3D12Adapter</a></div><div class="ttdeci">~FD3D12Adapter()</div><div class="ttdef"><b>Definition</b> D3D12Adapter.cpp:76</div></div>
+<div class="ttc" id="aclass_f_d3_d12_adapter_html_aa50cd8e462b78a0264ddf2529f4ad309"><div class="ttname"><a href="../../d6/db4/class_f_d3_d12_adapter.html#aa50cd8e462b78a0264ddf2529f4ad309">FD3D12Adapter::GetFeatureLevel</a></div><div class="ttdeci">const D3D_FEATURE_LEVEL GetFeatureLevel() const</div><div class="ttdef"><b>Definition</b> D3D12Adapter.h:62</div></div>
+<div class="ttc" id="aclass_f_d3_d12_adapter_html_ae1e09fc2e3c90ed1c3628bd8c15cb1cf"><div class="ttname"><a href="../../d6/db4/class_f_d3_d12_adapter.html#ae1e09fc2e3c90ed1c3628bd8c15cb1cf">FD3D12Adapter::Destroy</a></div><div class="ttdeci">void Destroy()</div><div class="ttdef"><b>Definition</b> D3D12Adapter.cpp:82</div></div>
+<div class="ttc" id="aclass_f_d3_d12_adapter_html_ae7482ed426fc7f9ecafa642e4bfac868"><div class="ttname"><a href="../../d6/db4/class_f_d3_d12_adapter.html#ae7482ed426fc7f9ecafa642e4bfac868">FD3D12Adapter::RootSignatureManager</a></div><div class="ttdeci">class FD3D12RootSignatureManager *const RootSignatureManager</div><div class="ttdef"><b>Definition</b> D3D12Adapter.h:83</div></div>
+<div class="ttc" id="aclass_f_d3_d12_adapter_html_ae884a695b02d1de9935efc39db636a22"><div class="ttname"><a href="../../d6/db4/class_f_d3_d12_adapter.html#ae884a695b02d1de9935efc39db636a22">FD3D12Adapter::SetDrawingViewport</a></div><div class="ttdeci">void SetDrawingViewport(FD3D12Viewport *InViewport)</div><div class="ttdef"><b>Definition</b> D3D12Adapter.h:80</div></div>
+<div class="ttc" id="aclass_f_d3_d12_adapter_html_af5a4d93876b22ece6a7af8ada9a6cdd3"><div class="ttname"><a href="../../d6/db4/class_f_d3_d12_adapter.html#af5a4d93876b22ece6a7af8ada9a6cdd3">FD3D12Adapter::CreateDXGIFactory</a></div><div class="ttdeci">void CreateDXGIFactory(bool bWithDebug=false)</div></div>
+<div class="ttc" id="aclass_f_d3_d12_adapter_html_afd19fb597ad3119547777e03de6587dc"><div class="ttname"><a href="../../d6/db4/class_f_d3_d12_adapter.html#afd19fb597ad3119547777e03de6587dc">FD3D12Adapter::GetDevice</a></div><div class="ttdeci">FD3D12Device * GetDevice(uint32 Index=0) const</div><div class="ttdef"><b>Definition</b> D3D12Adapter.h:76</div></div>
+<div class="ttc" id="aclass_f_d3_d12_adapter_html_afec340664a96a35be262c9df31e77c8d"><div class="ttname"><a href="../../d6/db4/class_f_d3_d12_adapter.html#afec340664a96a35be262c9df31e77c8d">FD3D12Adapter::CreateRootDevice</a></div><div class="ttdeci">void CreateRootDevice(bool bWithDebug=false)</div><div class="ttdef"><b>Definition</b> D3D12Adapter.cpp:121</div></div>
+<div class="ttc" id="aclass_f_d3_d12_device_html"><div class="ttname"><a href="../../d1/d79/class_f_d3_d12_device.html">FD3D12Device</a></div><div class="ttdoc">Main D3D12Device.</div><div class="ttdef"><b>Definition</b> D3D12Device.h:60</div></div>
+<div class="ttc" id="aclass_f_d3_d12_dynamic_r_h_i_html"><div class="ttname"><a href="../../d3/d95/class_f_d3_d12_dynamic_r_h_i.html">FD3D12DynamicRHI</a></div><div class="ttdef"><b>Definition</b> D3D12RHIPrivate.h:15</div></div>
+<div class="ttc" id="aclass_f_d3_d12_root_signature_manager_html"><div class="ttname"><a href="../../d5/d99/class_f_d3_d12_root_signature_manager.html">FD3D12RootSignatureManager</a></div><div class="ttdef"><b>Definition</b> D3D12RootSignature.h:140</div></div>
+<div class="ttc" id="aclass_f_d3_d12_viewport_html"><div class="ttname"><a href="../../d3/d1d/class_f_d3_d12_viewport.html">FD3D12Viewport</a></div><div class="ttdef"><b>Definition</b> D3D12Viewport.h:13</div></div>
+<div class="ttc" id="aclass_f_noncopyble_html"><div class="ttname"><a href="../../d2/dc6/class_f_noncopyble.html">FNoncopyble</a></div><div class="ttdef"><b>Definition</b> DarkTemplate.h:25</div></div>
+<div class="ttc" id="astruct_f_d3_d12_adapter_desc_html"><div class="ttname"><a href="../../d6/d09/struct_f_d3_d12_adapter_desc.html">FD3D12AdapterDesc</a></div><div class="ttdef"><b>Definition</b> D3D12Adapter.h:25</div></div>
+<div class="ttc" id="astruct_f_d3_d12_adapter_desc_html_a26ddc1eb5b8876c139d9115ad3d3fca9"><div class="ttname"><a href="../../d6/d09/struct_f_d3_d12_adapter_desc.html#a26ddc1eb5b8876c139d9115ad3d3fca9">FD3D12AdapterDesc::AdapterIndex</a></div><div class="ttdeci">int32 AdapterIndex</div><div class="ttdef"><b>Definition</b> D3D12Adapter.h:39</div></div>
+<div class="ttc" id="astruct_f_d3_d12_adapter_desc_html_a447e4737a2e2d02ae130655be53f43d1"><div class="ttname"><a href="../../d6/d09/struct_f_d3_d12_adapter_desc.html#a447e4737a2e2d02ae130655be53f43d1">FD3D12AdapterDesc::EnumAdapters</a></div><div class="ttdeci">static HRESULT EnumAdapters(int32 AdapterIndex, DXGI_GPU_PREFERENCE GPUPreference, IDXGIFactory7 *DXGIFactory, IDXGIAdapter **TempAdapter)</div><div class="ttdef"><b>Definition</b> D3D12Adapter.cpp:95</div></div>
+<div class="ttc" id="astruct_f_d3_d12_adapter_desc_html_a5be702429d3b6ab9f52596b2c51ae515"><div class="ttname"><a href="../../d6/d09/struct_f_d3_d12_adapter_desc.html#a5be702429d3b6ab9f52596b2c51ae515">FD3D12AdapterDesc::IsValid</a></div><div class="ttdeci">bool IsValid() const</div><div class="ttdef"><b>Definition</b> D3D12Adapter.cpp:62</div></div>
+<div class="ttc" id="astruct_f_d3_d12_adapter_desc_html_a6ba668babe2476b128ef08ff36d097a2"><div class="ttname"><a href="../../d6/d09/struct_f_d3_d12_adapter_desc.html#a6ba668babe2476b128ef08ff36d097a2">FD3D12AdapterDesc::MaxSupportFeatureLevel</a></div><div class="ttdeci">D3D_FEATURE_LEVEL MaxSupportFeatureLevel</div><div class="ttdef"><b>Definition</b> D3D12Adapter.h:40</div></div>
+<div class="ttc" id="astruct_f_d3_d12_adapter_desc_html_aa6232bbe8d72c128cc9274f05c864b15"><div class="ttname"><a href="../../d6/d09/struct_f_d3_d12_adapter_desc.html#aa6232bbe8d72c128cc9274f05c864b15">FD3D12AdapterDesc::Desc</a></div><div class="ttdeci">DXGI_ADAPTER_DESC Desc</div><div class="ttdef"><b>Definition</b> D3D12Adapter.h:38</div></div>
+<div class="ttc" id="astruct_f_d3_d12_adapter_desc_html_ae3706bc5138b5d3fa84b3605ea1a41a5"><div class="ttname"><a href="../../d6/d09/struct_f_d3_d12_adapter_desc.html#ae3706bc5138b5d3fa84b3605ea1a41a5">FD3D12AdapterDesc::FD3D12AdapterDesc</a></div><div class="ttdeci">FD3D12AdapterDesc()</div></div>
+<div class="ttc" id="astruct_f_d3_d12_device_basic_info_html"><div class="ttname"><a href="../../d2/d98/struct_f_d3_d12_device_basic_info.html">FD3D12DeviceBasicInfo</a></div><div class="ttdef"><b>Definition</b> D3D12Adapter.h:14</div></div>
+<div class="ttc" id="astruct_f_d3_d12_device_basic_info_html_a26fa572d2cf4af251b74043bc2d1fcba"><div class="ttname"><a href="../../d2/d98/struct_f_d3_d12_device_basic_info.html#a26fa572d2cf4af251b74043bc2d1fcba">FD3D12DeviceBasicInfo::NumDeviceNodes</a></div><div class="ttdeci">uint32 NumDeviceNodes</div><div class="ttdef"><b>Definition</b> D3D12Adapter.h:19</div></div>
+<div class="ttc" id="astruct_f_d3_d12_device_basic_info_html_a5e05080835cbf1be2b2e0ae15d7ade59"><div class="ttname"><a href="../../d2/d98/struct_f_d3_d12_device_basic_info.html#a5e05080835cbf1be2b2e0ae15d7ade59">FD3D12DeviceBasicInfo::MaxShaderModel</a></div><div class="ttdeci">D3D_SHADER_MODEL MaxShaderModel</div><div class="ttdef"><b>Definition</b> D3D12Adapter.h:16</div></div>
+<div class="ttc" id="astruct_f_d3_d12_device_basic_info_html_a7a24d0076c2d07d007bdd6c0bb538717"><div class="ttname"><a href="../../d2/d98/struct_f_d3_d12_device_basic_info.html#a7a24d0076c2d07d007bdd6c0bb538717">FD3D12DeviceBasicInfo::ResourceHeapTier</a></div><div class="ttdeci">D3D12_RESOURCE_HEAP_TIER ResourceHeapTier</div><div class="ttdef"><b>Definition</b> D3D12Adapter.h:18</div></div>
+<div class="ttc" id="astruct_f_d3_d12_device_basic_info_html_ac16799fa5291443a6515b052a8afe1f6"><div class="ttname"><a href="../../d2/d98/struct_f_d3_d12_device_basic_info.html#ac16799fa5291443a6515b052a8afe1f6">FD3D12DeviceBasicInfo::MaxFeatureLevel</a></div><div class="ttdeci">D3D_FEATURE_LEVEL MaxFeatureLevel</div><div class="ttdef"><b>Definition</b> D3D12Adapter.h:15</div></div>
+<div class="ttc" id="astruct_f_d3_d12_device_basic_info_html_ae14a55ce2bd39e4df352d1037e2edf48"><div class="ttname"><a href="../../d2/d98/struct_f_d3_d12_device_basic_info.html#ae14a55ce2bd39e4df352d1037e2edf48">FD3D12DeviceBasicInfo::ResourceBindingTier</a></div><div class="ttdeci">D3D12_RESOURCE_BINDING_TIER ResourceBindingTier</div><div class="ttdef"><b>Definition</b> D3D12Adapter.h:17</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../dir_55043db21ba5ddd7c561d2c5a5a38944.html">Dark Engine</a></li><li class="navelem"><a class="el" href="../../dir_e00b54220e1e1486ac9971b606d33054.html">Source</a></li><li class="navelem"><a class="el" href="../../dir_ae01c8af07818b260cc3481e8588b277.html">Runtime</a></li><li class="navelem"><a class="el" href="../../dir_69d1b7a79a04d24cd43f7c84d74c5d6d.html">D3D12RHI</a></li><li class="navelem"><a class="el" href="../../dir_975782192f4e5579da5ceb9eedcf6dc7.html">private</a></li><li class="navelem"><a class="el" href="../../db/d73/_d3_d12_adapter_8h.html">D3D12Adapter.h</a></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
+</body>
+</html>

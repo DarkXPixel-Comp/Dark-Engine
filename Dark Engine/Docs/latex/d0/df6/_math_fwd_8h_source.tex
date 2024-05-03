@@ -1,0 +1,64 @@
+\doxysection{Math\+Fwd.\+h}
+\hypertarget{_math_fwd_8h_source}{}\label{_math_fwd_8h_source}\index{Dark Engine/Source/Runtime/Core/Public/Math/MathFwd.h@{Dark Engine/Source/Runtime/Core/Public/Math/MathFwd.h}}
+\mbox{\hyperlink{_math_fwd_8h}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{_platform_8h}{HAL/Platform.h}}>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_vector2_d_8h}{Vector2D.h}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_vector_8h}{Vector.h}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_rotator_8h}{Rotator.h}}"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_matrix_8h}{Matrix.h}}"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_int_point_8h}{IntPoint.h}}"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_int_rect_8h}{IntRect.h}}"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_vector4_8h}{Vector4.h}}"{}}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_d_e_1_1_math}{DE::Math}}}
+\DoxyCodeLine{00013\ \{}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>\ \textcolor{keyword}{struct\ }TVector;}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>\ \textcolor{keyword}{struct\ }TVector2;}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>\ \textcolor{keyword}{struct\ }TRotator;}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>\ \textcolor{keyword}{struct\ }TMatrix;}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>\ \textcolor{keyword}{struct\ }TIntPoint;}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>\ \textcolor{keyword}{struct\ }TIntRect;}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>\ \textcolor{keyword}{struct\ }TVector4;}
+\DoxyCodeLine{00021\ \}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{comment}{//\ ISPC\ forward\ declarations}}
+\DoxyCodeLine{00025\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceispc}{ispc}}}
+\DoxyCodeLine{00026\ \{}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector}{FVector}};}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector2}{FVector2D}};}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{struct\ }FVector4;}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{struct\ }FQuat;}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_matrix}{FMatrix}};}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keyword}{struct\ }FPlane;}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keyword}{struct\ }FTransform;}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_int_point}{FIntPoint}};}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_int_rect}{FIntRect}};}
+\DoxyCodeLine{00036\ \}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{keyword}{using\ }\mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector}{FVector}}\ =\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector}{DE::Math::TVector<double>}};}
+\DoxyCodeLine{00040\ \textcolor{keyword}{using\ }\mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector2}{FVector2D}}\ =\ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector2}{DE::Math::TVector2<double>}};}
+\DoxyCodeLine{00041\ \textcolor{keyword}{using\ }\mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_rotator}{FRotator}}\ =\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_rotator}{DE::Math::TRotator<double>}};}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{keyword}{using\ }\mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector}{FVector3d}}\ =\ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector}{DE::Math::TVector<double>}};}
+\DoxyCodeLine{00045\ \textcolor{keyword}{using\ }\mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector}{FVector2d}}\ =\ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector}{DE::Math::TVector<double>}};}
+\DoxyCodeLine{00046\ \textcolor{keyword}{using\ }\mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_rotator}{FRotator3d}}\ =\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_rotator}{DE::Math::TRotator<double>}};}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \textcolor{keyword}{using\ }\mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector}{FVector3f}}\ =\ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector}{DE::Math::TVector<float>}};}
+\DoxyCodeLine{00049\ \textcolor{keyword}{using\ }\mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector2}{FVector2f}}\ =\ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector2}{DE::Math::TVector2<float>}};}
+\DoxyCodeLine{00050\ \textcolor{keyword}{using\ }\mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_rotator}{FRotator3f}}\ =\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_rotator}{DE::Math::TRotator<float>}};}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \textcolor{keyword}{using\ }\mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector4}{FVector4f}}\ =\ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector4}{DE::Math::TVector4<float>}};}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \textcolor{keyword}{using\ }\mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_matrix}{FMatrix}}\ =\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_matrix}{DE::Math::TMatrix<double>}};}
+\DoxyCodeLine{00055\ \textcolor{keyword}{using\ }\mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_matrix}{FMatrix4x4f}}\ =\ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_matrix}{DE::Math::TMatrix<float>}};}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \textcolor{keyword}{using\ }\mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_int_point}{FIntPoint}}\ =\ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_int_point}{DE::Math::TIntPoint<int32>}};}
+\DoxyCodeLine{00058\ \textcolor{keyword}{using\ }\mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_int_rect}{FIntRect}}\ =\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_int_rect}{DE::Math::TIntRect<int32>}};}
+
+\end{DoxyCode}

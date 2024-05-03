@@ -1,0 +1,140 @@
+\doxysection{Класс UIConsole}
+\hypertarget{class_u_i_console}{}\label{class_u_i_console}\index{UIConsole@{UIConsole}}
+
+
+{\ttfamily \#include $<$UIConsole.\+h$>$}
+
+Граф наследования\+:UIConsole\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{d7/d40/class_u_i_console}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_u_i_console_a3675bcbf887cd67d3596dc22f5a804a9}{UIConsole}} ()
+\item 
+void \mbox{\hyperlink{class_u_i_console_abeeb768891a7abe68b7d8958688c3a2c}{Draw\+Im\+Gui}} ()
+\item 
+void \mbox{\hyperlink{class_u_i_console_a22762450faf716fa33bd79fe652ec883}{On\+Log\+Add}} (struct \mbox{\hyperlink{struct_f_console_log}{FConsole\+Log}} In\+Log)
+\end{DoxyCompactItemize}
+\doxysubsection*{Открытые члены унаследованные от \mbox{\hyperlink{class_u_i_widget}{UIWidget}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_u_i_widget_a5623518110f7f05db0406185c4da42a4}{UIWidget}} (\mbox{\hyperlink{class_f_string}{FString}} In\+Name=\mbox{\hyperlink{_platform_8h_a2978f60d40d64f3605b5a99f66f292a9}{TEXT}}("{}UIWidget"{}))
+\item 
+virtual void \mbox{\hyperlink{class_u_i_widget_a43b6fe57530ebd0e67249a595e6136bc}{Update}} (float Delta\+Time)
+\item 
+void \mbox{\hyperlink{class_u_i_widget_a5ffdf553d2218751fbd1f587edec81a4}{Set\+Size}} (\mbox{\hyperlink{_math_fwd_8h_af5577845559ff81e49036ff088d51cbf}{FInt\+Point}} In\+Size)
+\item 
+void \mbox{\hyperlink{class_u_i_widget_abf5c17fb911bcf9e859439bd7cd30da7}{Set\+Postion}} (\mbox{\hyperlink{_math_fwd_8h_af5577845559ff81e49036ff088d51cbf}{FInt\+Point}} In\+Position)
+\item 
+\mbox{\hyperlink{class_f_string}{FString}} \mbox{\hyperlink{class_u_i_widget_a02aeea95baeeca04332cde6ab99adc8d}{Get\+Name}} () const
+\item 
+void \mbox{\hyperlink{class_u_i_widget_a865a73a1fcb2419f72a22598568a13a7}{Set\+Name}} (\mbox{\hyperlink{class_f_string}{FString}} In\+Name)
+\item 
+void \mbox{\hyperlink{class_u_i_widget_a4c05fb389d601d29abebd8605ee9f659}{Add\+Child}} (\mbox{\hyperlink{_t_unique_ptr_8h_ab7a7d47ba593c2489fecf3f003f56c53}{TShared\+Ptr}}$<$ \mbox{\hyperlink{class_u_i_widget}{UIWidget}} $>$ Child)
+\item 
+void \mbox{\hyperlink{class_u_i_widget_a3a008692757903d765689b5f8436a2cf}{Remove\+Child}} (\mbox{\hyperlink{_t_unique_ptr_8h_ab7a7d47ba593c2489fecf3f003f56c53}{TShared\+Ptr}}$<$ \mbox{\hyperlink{class_u_i_widget}{UIWidget}} $>$ Child)
+\item 
+void \mbox{\hyperlink{class_u_i_widget_aaa79699d3397fd8d66d977ce35c997af}{Deffered\+Remove\+Child}} (\mbox{\hyperlink{class_u_i_widget}{UIWidget}} \texorpdfstring{$\ast$}{*}Child)
+\item 
+bool \mbox{\hyperlink{class_u_i_widget_aef97c41756a26225c09c04363178abf3}{Is\+Open}} () const
+\item 
+void \mbox{\hyperlink{class_u_i_widget_a9cb11697c2cbc808e32cd0571b1c845e}{Set\+Open}} (bool Inb\+Open)
+\item 
+\mbox{\hyperlink{_math_fwd_8h_a64ca0e56e182799ed5a0fbfc0abacc30}{FInt\+Rect}} \mbox{\hyperlink{class_u_i_widget_a9eade48c629f9112148199da9033809b}{Get\+Rect}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Открытые атрибуты}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_t_array}{TArray}}$<$ \mbox{\hyperlink{class_f_string}{FString}} $>$ \mbox{\hyperlink{class_u_i_console_af73a2d24017075b4f7d01e04a496ea47}{History}}
+\item 
+\mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}} \mbox{\hyperlink{class_u_i_console_adc575b7ee1b174ea647329dee4ee8f90}{Current\+Index}} = 0
+\end{DoxyCompactItemize}
+\doxysubsection*{Открытые атрибуты унаследованные от \mbox{\hyperlink{class_u_i_widget}{UIWidget}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_u_i_window}{UIWindow}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_u_i_widget_ae831439d8e4c9a3cd556ff54f167668c}{Window}} = nullptr
+\item 
+\mbox{\hyperlink{class_u_i_widget}{UIWidget}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_u_i_widget_a62395be13ea933dee219a9cd2dea0487}{Owner}} = nullptr
+\item 
+bool \mbox{\hyperlink{class_u_i_widget_ad9acaa197c5fb4b7fbe0c7710d709f04}{b\+Have\+Close\+Button}} = false
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Дополнительные унаследованные члены}
+\doxysubsection*{Защищенные члены унаследованные от \mbox{\hyperlink{class_u_i_widget}{UIWidget}}}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_u_i_widget_a76c75e697083f965cd3d1c27d31c722f}{For\+Each\+Child}} (std\+::function$<$ void(\mbox{\hyperlink{class_u_i_widget}{UIWidget}} \texorpdfstring{$\ast$}{*})$>$ Func)
+\item 
+void \mbox{\hyperlink{class_u_i_widget_ac670f7f42d80cea678453aff5089e988}{Close\+Widget}} ()
+\item 
+bool \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_u_i_widget_ad63852d58411923c525dbf0a04841cf5}{Is\+Widget\+Close}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Защищенные данные унаследованные от \mbox{\hyperlink{class_u_i_widget}{UIWidget}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_math_fwd_8h_af5577845559ff81e49036ff088d51cbf}{FInt\+Point}} \mbox{\hyperlink{class_u_i_widget_a50774a40c2d9e05a1861f1b340e0ea5a}{Position}}
+\item 
+\mbox{\hyperlink{_math_fwd_8h_a64ca0e56e182799ed5a0fbfc0abacc30}{FInt\+Rect}} \mbox{\hyperlink{class_u_i_widget_a28c927012f676e66a02f8af450e2d275}{Rect}}
+\item 
+\mbox{\hyperlink{_math_fwd_8h_af5577845559ff81e49036ff088d51cbf}{FInt\+Point}} \mbox{\hyperlink{class_u_i_widget_aad73df333b6e120abef060bbad441b9c}{Size}}
+\item 
+\mbox{\hyperlink{class_t_array}{TArray}}$<$ \mbox{\hyperlink{_t_unique_ptr_8h_ab7a7d47ba593c2489fecf3f003f56c53}{TShared\+Ptr}}$<$ \mbox{\hyperlink{class_u_i_widget}{UIWidget}} $>$ $>$ \mbox{\hyperlink{class_u_i_widget_a8f093ba7a489ca144ab6d1647d3f683f}{Child\+Widgets}}
+\item 
+\mbox{\hyperlink{class_f_string}{FString}} \mbox{\hyperlink{class_u_i_widget_a63d8d27e5fa60417b3717fd580ac4715}{Name}}
+\item 
+\mbox{\hyperlink{_platform_8h_afddf25cca147311c233b23a9d3329bb4}{uint64}} \mbox{\hyperlink{class_u_i_widget_a93b049ac89ded704797806d62b5d288e}{Index}} = 0
+\item 
+bool \mbox{\hyperlink{class_u_i_widget_a193457cd24eb4f0ada8e0c37a4322691}{b\+Open}} = true
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Конструктор(ы)}
+\Hypertarget{class_u_i_console_a3675bcbf887cd67d3596dc22f5a804a9}\label{class_u_i_console_a3675bcbf887cd67d3596dc22f5a804a9} 
+\index{UIConsole@{UIConsole}!UIConsole@{UIConsole}}
+\index{UIConsole@{UIConsole}!UIConsole@{UIConsole}}
+\doxysubsubsection{\texorpdfstring{UIConsole()}{UIConsole()}}
+{\footnotesize\ttfamily UIConsole\+::\+UIConsole (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Методы}
+\Hypertarget{class_u_i_console_abeeb768891a7abe68b7d8958688c3a2c}\label{class_u_i_console_abeeb768891a7abe68b7d8958688c3a2c} 
+\index{UIConsole@{UIConsole}!DrawImGui@{DrawImGui}}
+\index{DrawImGui@{DrawImGui}!UIConsole@{UIConsole}}
+\doxysubsubsection{\texorpdfstring{DrawImGui()}{DrawImGui()}}
+{\footnotesize\ttfamily void UIConsole\+::\+Draw\+Im\+Gui (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Переопределяет метод предка \mbox{\hyperlink{class_u_i_widget_a60e727936071f8591945beb85539ed8b}{UIWidget}}.
+
+\Hypertarget{class_u_i_console_a22762450faf716fa33bd79fe652ec883}\label{class_u_i_console_a22762450faf716fa33bd79fe652ec883} 
+\index{UIConsole@{UIConsole}!OnLogAdd@{OnLogAdd}}
+\index{OnLogAdd@{OnLogAdd}!UIConsole@{UIConsole}}
+\doxysubsubsection{\texorpdfstring{OnLogAdd()}{OnLogAdd()}}
+{\footnotesize\ttfamily void UIConsole\+::\+On\+Log\+Add (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_f_console_log}{FConsole\+Log}}}]{In\+Log }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Данные класса}
+\Hypertarget{class_u_i_console_adc575b7ee1b174ea647329dee4ee8f90}\label{class_u_i_console_adc575b7ee1b174ea647329dee4ee8f90} 
+\index{UIConsole@{UIConsole}!CurrentIndex@{CurrentIndex}}
+\index{CurrentIndex@{CurrentIndex}!UIConsole@{UIConsole}}
+\doxysubsubsection{\texorpdfstring{CurrentIndex}{CurrentIndex}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}} UIConsole\+::\+Current\+Index = 0}
+
+\Hypertarget{class_u_i_console_af73a2d24017075b4f7d01e04a496ea47}\label{class_u_i_console_af73a2d24017075b4f7d01e04a496ea47} 
+\index{UIConsole@{UIConsole}!History@{History}}
+\index{History@{History}!UIConsole@{UIConsole}}
+\doxysubsubsection{\texorpdfstring{History}{History}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_t_array}{TArray}}$<$\mbox{\hyperlink{class_f_string}{FString}}$>$ UIConsole\+::\+History}
+
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+Dark Engine/\+Source/\+Runtime/\+UICore/public/\+Widgets/\mbox{\hyperlink{_u_i_console_8h}{UIConsole.\+h}}\item 
+Dark Engine/\+Source/\+Runtime/\+UICore/private/\+Widgets/\mbox{\hyperlink{_u_i_console_8cpp}{UIConsole.\+cpp}}\end{DoxyCompactItemize}

@@ -19,6 +19,8 @@ public:
 
 	static CORE_API FString ContentDir();
 
+	static CORE_API FString CacheDir();
+
 	static CORE_API FString EngineBinariesDir();
 
 	static CORE_API FString EngineUserDir(); 
@@ -29,6 +31,8 @@ public:
 
 	static CORE_API FString SourceDir();
 
+	static CORE_API FString ConfigDir();
+
 	static CORE_API FString RootDir();
 
 	static CORE_API FString ProjectDir();
@@ -37,11 +41,5 @@ public:
 
 	static CORE_API FString ProjectContentDir();
 
-	//static CORE_API FString ShaderDir
-
 	static CORE_API FString CombineDir(FString Str1, FString Str2);
-											  
-
-
-
 };

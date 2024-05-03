@@ -1,6 +1,11 @@
 #include "Misc/AssertionMacros.h"
 #include <cstdarg>
 
+#include "Logging/LogMacros.h"
+
+
+DECLARE_LOG_CATEGORY(AssertMacros, Display);
+
 
 bool VARARGS FDebug::CheckVerifyFailedImpl(
 	const ANSICHAR* Expr,
@@ -10,13 +15,9 @@ bool VARARGS FDebug::CheckVerifyFailedImpl(
 	const TCHAR* Format,
 	...)
 {
-	va_list	Args;
+	DE_LOG(AssertMacros, Warning, TEXT("%s in %s(%i)"), *FString(Expr), *FString(File), Line);
 
-	va_start(Args, Format);
-	FDebug::LogAssertFailedMessageImplV(Expr, File, Line, ProgramCounter, Format, Args);
-
-	va_end(Args);
-
+	
 	return true;
 }
 

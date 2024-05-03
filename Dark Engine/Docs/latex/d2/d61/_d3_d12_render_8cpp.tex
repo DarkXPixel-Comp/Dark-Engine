@@ -1,0 +1,33 @@
+\doxysection{Файл Dark Engine/\+Source/\+Runtime/\+Render/\+D3\+D12/\+D3\+D12\+Render.cpp}
+\hypertarget{_d3_d12_render_8cpp}{}\label{_d3_d12_render_8cpp}\index{Dark Engine/Source/Runtime/Render/D3D12/D3D12Render.cpp@{Dark Engine/Source/Runtime/Render/D3D12/D3D12Render.cpp}}
+{\ttfamily \#include "{}D3\+D12\+Render.\+h"{}}\newline
+{\ttfamily \#include $<$DEngine.\+h$>$}\newline
+{\ttfamily \#include "{}D3\+D12\+Utils.\+h"{}}\newline
+{\ttfamily \#include "{}D3\+D12\+Scene.\+h"{}}\newline
+{\ttfamily \#include "{}D3\+D12\+PSO.\+h"{}}\newline
+{\ttfamily \#include $<$Timer/\+Game\+Timer.\+h$>$}\newline
+{\ttfamily \#include $<$Resource\+Upload\+Batch.\+h$>$}\newline
+{\ttfamily \#include $<$Buffer\+Helpers.\+h$>$}\newline
+{\ttfamily \#include $<$d3d12.\+h$>$}\newline
+\doxysubsubsection*{Функции}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_d3_d12_render_8cpp_a2cce978d9bec06db5db2ab7c16acc7fa}{Transition\+Resource}} (Microsoft\+::\+WRL\+::\+Com\+Ptr$<$ ID3\+D12\+Graphics\+Command\+List6 $>$ command\+List, Microsoft\+::\+WRL\+::\+Com\+Ptr$<$ ID3\+D12\+Resource $>$ resource, D3\+D12\+\_\+\+RESOURCE\+\_\+\+STATES before\+State, D3\+D12\+\_\+\+RESOURCE\+\_\+\+STATES after\+State)
+\item 
+static Direct\+X\+::\+XMFLOAT3 \mbox{\hyperlink{_d3_d12_render_8cpp_a70383da6d6f1bef654f6be26f387bfc9}{Spherical\+To\+Cartesian}} (float radius, float theta, float phi)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Функции}
+\Hypertarget{_d3_d12_render_8cpp_a70383da6d6f1bef654f6be26f387bfc9}\label{_d3_d12_render_8cpp_a70383da6d6f1bef654f6be26f387bfc9} 
+\index{D3D12Render.cpp@{D3D12Render.cpp}!SphericalToCartesian@{SphericalToCartesian}}
+\index{SphericalToCartesian@{SphericalToCartesian}!D3D12Render.cpp@{D3D12Render.cpp}}
+\doxysubsubsection{\texorpdfstring{SphericalToCartesian()}{SphericalToCartesian()}}
+{\footnotesize\ttfamily static Direct\+X\+::\+XMFLOAT3 Spherical\+To\+Cartesian (\begin{DoxyParamCaption}\item[{float}]{radius,  }\item[{float}]{theta,  }\item[{float}]{phi }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{_d3_d12_render_8cpp_a2cce978d9bec06db5db2ab7c16acc7fa}\label{_d3_d12_render_8cpp_a2cce978d9bec06db5db2ab7c16acc7fa} 
+\index{D3D12Render.cpp@{D3D12Render.cpp}!TransitionResource@{TransitionResource}}
+\index{TransitionResource@{TransitionResource}!D3D12Render.cpp@{D3D12Render.cpp}}
+\doxysubsubsection{\texorpdfstring{TransitionResource()}{TransitionResource()}}
+{\footnotesize\ttfamily void Transition\+Resource (\begin{DoxyParamCaption}\item[{Microsoft\+::\+WRL\+::\+Com\+Ptr$<$ ID3\+D12\+Graphics\+Command\+List6 $>$}]{command\+List,  }\item[{Microsoft\+::\+WRL\+::\+Com\+Ptr$<$ ID3\+D12\+Resource $>$}]{resource,  }\item[{D3\+D12\+\_\+\+RESOURCE\+\_\+\+STATES}]{before\+State,  }\item[{D3\+D12\+\_\+\+RESOURCE\+\_\+\+STATES}]{after\+State }\end{DoxyParamCaption})}
+

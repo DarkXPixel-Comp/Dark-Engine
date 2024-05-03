@@ -1,0 +1,26 @@
+\doxysection{Dark\+Type\+Traits.\+h}
+\hypertarget{_dark_type_traits_8h_source}{}\label{_dark_type_traits_8h_source}\index{Dark Engine/Source/Runtime/Core/Public/Templates/DarkTypeTraits.h@{Dark Engine/Source/Runtime/Core/Public/Templates/DarkTypeTraits.h}}
+\mbox{\hyperlink{_dark_type_traits_8h}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{_core_types_8h}{CoreTypes.h}}>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{_enable_if_8h}{Templates/EnableIf.h}}>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <type\_traits>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_is_floating_point_8h}{IsFloatingPoint.h}}"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#if\ \_\_cplusplus\ <\ 202000}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\ \ \ \ \#define\ DE\_REQUIRES(...)\ ,\ std::enable\_if\_t<(\_\_VA\_ARGS\_\_),\ int>=\ 0}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00012\ \textcolor{comment}{//namespace\ DE::Core::Private}}
+\DoxyCodeLine{00013\ \textcolor{comment}{//\{}}
+\DoxyCodeLine{00014\ \textcolor{comment}{//\ \ template<bool\ B>}}
+\DoxyCodeLine{00015\ \textcolor{comment}{//\ \ concept\ BoolIdentityConcept\ =\ B;}}
+\DoxyCodeLine{00016\ \textcolor{comment}{//\}}}
+\DoxyCodeLine{00017\ \textcolor{comment}{//\#define\ UE\_DE\_REQUIRES\ >\ requires\ (!!(\_\_VA\_ARGS\_\_))\ \ \ \ \&\&\ DE::Core::Private::BoolIdentityConcept<true}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ TEMPLATE\_REQUIRES(...)\ typename\ TEnableIf<\_\_VA\_ARGS\_\_,\ int>::type\ =\ 0}}
+
+\end{DoxyCode}

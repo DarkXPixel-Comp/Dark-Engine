@@ -1,0 +1,166 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Dark Engine: Исходный файл Dark Engine/Source/Runtime/Engine/Classes/Engine/SceneViewport.h</title>
+<link rel="icon" href="../../Logo.png" type="image/x-icon" />
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<script type="text/javascript" src="../../clipboard.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../MiniLogo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Dark Engine<span id="projectnumber">&#160;0.0.50</span>
+   </div>
+   <div id="projectbrief">New game engnie D3D12</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../../',true,false,'search.php','Поиск');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(1); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('dd/dd8/_engine_2_classes_2_engine_2_scene_viewport_8h_source.html','../../'); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">SceneViewport.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="../../dd/dd8/_engine_2_classes_2_engine_2_scene_viewport_8h.html">См. документацию.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;<a class="code" href="../../d3/d26/_dark_client_8h.html">DarkClient.h</a>&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="../../dc/db6/_rendering_common_8h.html">Rendering/RenderingCommon.h</a>&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="../../dc/d61/_u_i_viewport_8h.html">Widgets/UIViewport.h</a>&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">class </span><a class="code hl_class" href="../../d1/d5e/class_u_i_viewport.html">UIViewport</a>;</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="foldopen" id="foldopen00011" data-start="{" data-end="};">
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="../../d5/d14/class_f_scene_viewport.html">   11</a></span><span class="keyword">class </span><a class="code hl_class" href="../../d5/d14/class_f_scene_viewport.html">FSceneViewport</a> : <span class="keyword">public</span> <a class="code hl_class" href="../../d1/d29/class_f_viewport.html">FViewport</a>, <span class="keyword">public</span> <a class="code hl_class" href="../../d2/d11/class_i_u_i_viewport.html">IUIViewport</a></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>{</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="../../d5/d14/class_f_scene_viewport.html#a5c05b62b87fc07f79c79a35f7550382e">   14</a></span>    <a class="code hl_function" href="../../d5/d14/class_f_scene_viewport.html#a5c05b62b87fc07f79c79a35f7550382e">FSceneViewport</a>(<a class="code hl_class" href="../../db/d3f/class_f_viewport_client.html">FViewportClient</a>* InViewportClient, <a class="code hl_class" href="../../d1/d5e/class_u_i_viewport.html">UIViewport</a>* InViewportWidget): <a class="code hl_class" href="../../d1/d29/class_f_viewport.html">FViewport</a>(InViewportClient), RTTSize(0, 0) {}</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="../../d5/d14/class_f_scene_viewport.html#a691d32859e1f1c69953d159dc402c4d6">   15</a></span>    <span class="keyword">virtual</span> <a class="code hl_class" href="../../d2/de5/class_f_u_i_shader_resource.html">FUIShaderResource</a>* <a class="code hl_function" href="../../d5/d14/class_f_scene_viewport.html#a691d32859e1f1c69953d159dc402c4d6">GetViewportRenderTargetTexture</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <span class="keyword">nullptr</span>; }</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="../../d5/d14/class_f_scene_viewport.html#aa25a38ccd4e3e2d544fb5b9fb2f955a6">   16</a></span>    <span class="keyword">virtual</span> <a class="code hl_class" href="../../d3/def/struct_d_e_1_1_math_1_1_t_int_point.html">FIntPoint</a> <a class="code hl_function" href="../../d5/d14/class_f_scene_viewport.html#aa25a38ccd4e3e2d544fb5b9fb2f955a6">GetSize</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_function" href="../../d1/d29/class_f_viewport.html#a9bfcca5dae74d9467fcbab3b0db868e2">GetSizeXY</a>(); }</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../d5/d14/class_f_scene_viewport.html#a0a75b7b2fd66ae342c446685ea0494e1">Resize</a>(<a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a84083085985fb180ad38b9c32e3937da">int32</a> InSizeX, <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a84083085985fb180ad38b9c32e3937da">int32</a> InSizeY);</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d5/d14/class_f_scene_viewport.html#aa8da22ac03a616f279ca593fb02a56eb">SetTexturePath</a>(<a class="code hl_class" href="../../d9/dcb/class_f_string.html">FString</a> Path);</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d5/d14/class_f_scene_viewport.html#a029eb52d6ec436b00ec7da9ce45e1157">InitRHI</a>();</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <a class="code hl_class" href="../../d3/def/struct_d_e_1_1_math_1_1_t_int_point.html">FIntPoint</a> RTTSize;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    TRefCountPtr&lt;FRHITexture&gt; BufferedRenderTargetRHI;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    TRefCountPtr&lt;FRHITexture&gt; BufferedShaderResourceTextureRHI;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>};</div>
+</div>
+<div class="ttc" id="a_dark_client_8h_html"><div class="ttname"><a href="../../d3/d26/_dark_client_8h.html">DarkClient.h</a></div></div>
+<div class="ttc" id="a_platform_8h_html_a84083085985fb180ad38b9c32e3937da"><div class="ttname"><a href="../../d2/dc9/_platform_8h.html#a84083085985fb180ad38b9c32e3937da">int32</a></div><div class="ttdeci">FPlatformTypes::int32 int32</div><div class="ttdef"><b>Definition</b> Platform.h:42</div></div>
+<div class="ttc" id="a_rendering_common_8h_html"><div class="ttname"><a href="../../dc/db6/_rendering_common_8h.html">RenderingCommon.h</a></div></div>
+<div class="ttc" id="a_u_i_viewport_8h_html"><div class="ttname"><a href="../../dc/d61/_u_i_viewport_8h.html">UIViewport.h</a></div></div>
+<div class="ttc" id="aclass_f_scene_viewport_html"><div class="ttname"><a href="../../d5/d14/class_f_scene_viewport.html">FSceneViewport</a></div><div class="ttdef"><b>Definition</b> SceneViewport.h:12</div></div>
+<div class="ttc" id="aclass_f_scene_viewport_html_a029eb52d6ec436b00ec7da9ce45e1157"><div class="ttname"><a href="../../d5/d14/class_f_scene_viewport.html#a029eb52d6ec436b00ec7da9ce45e1157">FSceneViewport::InitRHI</a></div><div class="ttdeci">void InitRHI()</div><div class="ttdef"><b>Definition</b> SceneViewport.cpp:49</div></div>
+<div class="ttc" id="aclass_f_scene_viewport_html_a0a75b7b2fd66ae342c446685ea0494e1"><div class="ttname"><a href="../../d5/d14/class_f_scene_viewport.html#a0a75b7b2fd66ae342c446685ea0494e1">FSceneViewport::Resize</a></div><div class="ttdeci">virtual void Resize(int32 InSizeX, int32 InSizeY)</div><div class="ttdef"><b>Definition</b> SceneViewport.cpp:38</div></div>
+<div class="ttc" id="aclass_f_scene_viewport_html_a5c05b62b87fc07f79c79a35f7550382e"><div class="ttname"><a href="../../d5/d14/class_f_scene_viewport.html#a5c05b62b87fc07f79c79a35f7550382e">FSceneViewport::FSceneViewport</a></div><div class="ttdeci">FSceneViewport(FViewportClient *InViewportClient, UIViewport *InViewportWidget)</div><div class="ttdef"><b>Definition</b> SceneViewport.h:14</div></div>
+<div class="ttc" id="aclass_f_scene_viewport_html_a691d32859e1f1c69953d159dc402c4d6"><div class="ttname"><a href="../../d5/d14/class_f_scene_viewport.html#a691d32859e1f1c69953d159dc402c4d6">FSceneViewport::GetViewportRenderTargetTexture</a></div><div class="ttdeci">virtual FUIShaderResource * GetViewportRenderTargetTexture() const</div><div class="ttdef"><b>Definition</b> SceneViewport.h:15</div></div>
+<div class="ttc" id="aclass_f_scene_viewport_html_aa25a38ccd4e3e2d544fb5b9fb2f955a6"><div class="ttname"><a href="../../d5/d14/class_f_scene_viewport.html#aa25a38ccd4e3e2d544fb5b9fb2f955a6">FSceneViewport::GetSize</a></div><div class="ttdeci">virtual FIntPoint GetSize() const</div><div class="ttdef"><b>Definition</b> SceneViewport.h:16</div></div>
+<div class="ttc" id="aclass_f_scene_viewport_html_aa8da22ac03a616f279ca593fb02a56eb"><div class="ttname"><a href="../../d5/d14/class_f_scene_viewport.html#aa8da22ac03a616f279ca593fb02a56eb">FSceneViewport::SetTexturePath</a></div><div class="ttdeci">void SetTexturePath(FString Path)</div><div class="ttdef"><b>Definition</b> SceneViewport.cpp:44</div></div>
+<div class="ttc" id="aclass_f_string_html"><div class="ttname"><a href="../../d9/dcb/class_f_string.html">FString</a></div><div class="ttdef"><b>Definition</b> DarkString.h:17</div></div>
+<div class="ttc" id="aclass_f_u_i_shader_resource_html"><div class="ttname"><a href="../../d2/de5/class_f_u_i_shader_resource.html">FUIShaderResource</a></div><div class="ttdef"><b>Definition</b> UIShaderResource.h:19</div></div>
+<div class="ttc" id="aclass_f_viewport_client_html"><div class="ttname"><a href="../../db/d3f/class_f_viewport_client.html">FViewportClient</a></div><div class="ttdef"><b>Definition</b> ViewportClient.h:12</div></div>
+<div class="ttc" id="aclass_f_viewport_html"><div class="ttname"><a href="../../d1/d29/class_f_viewport.html">FViewport</a></div><div class="ttdef"><b>Definition</b> DarkClient.h:34</div></div>
+<div class="ttc" id="aclass_f_viewport_html_a9bfcca5dae74d9467fcbab3b0db868e2"><div class="ttname"><a href="../../d1/d29/class_f_viewport.html#a9bfcca5dae74d9467fcbab3b0db868e2">FViewport::GetSizeXY</a></div><div class="ttdeci">FIntPoint GetSizeXY() const</div><div class="ttdef"><b>Definition</b> DarkClient.h:44</div></div>
+<div class="ttc" id="aclass_i_u_i_viewport_html"><div class="ttname"><a href="../../d2/d11/class_i_u_i_viewport.html">IUIViewport</a></div><div class="ttdef"><b>Definition</b> RenderingCommon.h:8</div></div>
+<div class="ttc" id="aclass_u_i_viewport_html"><div class="ttname"><a href="../../d1/d5e/class_u_i_viewport.html">UIViewport</a></div><div class="ttdef"><b>Definition</b> UIViewport.h:15</div></div>
+<div class="ttc" id="astruct_d_e_1_1_math_1_1_t_int_point_html"><div class="ttname"><a href="../../d3/def/struct_d_e_1_1_math_1_1_t_int_point.html">DE::Math::TIntPoint&lt; int32 &gt;</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../dir_55043db21ba5ddd7c561d2c5a5a38944.html">Dark Engine</a></li><li class="navelem"><a class="el" href="../../dir_e00b54220e1e1486ac9971b606d33054.html">Source</a></li><li class="navelem"><a class="el" href="../../dir_ae01c8af07818b260cc3481e8588b277.html">Runtime</a></li><li class="navelem"><a class="el" href="../../dir_736522237f23468e79442f3fc4ecd19b.html">Engine</a></li><li class="navelem"><a class="el" href="../../dir_8e5f7f07800deb66a56f516b5eaf6fef.html">Classes</a></li><li class="navelem"><a class="el" href="../../dir_2ebadd61a5acc3104b5f7c6fd0023479.html">Engine</a></li><li class="navelem"><a class="el" href="../../dd/dd8/_engine_2_classes_2_engine_2_scene_viewport_8h.html">SceneViewport.h</a></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
+</body>
+</html>

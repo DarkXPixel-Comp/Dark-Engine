@@ -1,0 +1,277 @@
+\doxysection{Структура FGeneric\+Platform\+Memory}
+\hypertarget{struct_f_generic_platform_memory}{}\label{struct_f_generic_platform_memory}\index{FGenericPlatformMemory@{FGenericPlatformMemory}}
+
+
+{\ttfamily \#include $<$Generic\+Platform\+Memory.\+h$>$}
+
+Граф наследования\+:FGeneric\+Platform\+Memory\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{d2/dac/struct_f_generic_platform_memory}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Открытые типы}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{struct_f_generic_platform_memory_a68d141c03992fb6aae185a4cfbebde67}{EMemory\+Counter\+Region}} \{ \newline
+\mbox{\hyperlink{struct_f_generic_platform_memory_a68d141c03992fb6aae185a4cfbebde67aa4d0f1a1a1f13e42f7788617b592b48c}{MCR\+\_\+\+Invalid}}
+, \mbox{\hyperlink{struct_f_generic_platform_memory_a68d141c03992fb6aae185a4cfbebde67a63d07aceae0c619c70b19b715e6f29e2}{MCR\+\_\+\+Physical}}
+, \mbox{\hyperlink{struct_f_generic_platform_memory_a68d141c03992fb6aae185a4cfbebde67a2f3c935ccc14ccfb464eb52fec4843a3}{MCR\+\_\+\+GPU}}
+, \mbox{\hyperlink{struct_f_generic_platform_memory_a68d141c03992fb6aae185a4cfbebde67a1b14b99dd64fa3bbfac1d94e80dc8e6c}{MCR\+\_\+\+GPUSystem}}
+, \newline
+\mbox{\hyperlink{struct_f_generic_platform_memory_a68d141c03992fb6aae185a4cfbebde67a23b2b22106e700115cd42da8057f9144}{MCR\+\_\+\+Texture\+Pool}}
+, \mbox{\hyperlink{struct_f_generic_platform_memory_a68d141c03992fb6aae185a4cfbebde67ae50f8bf55a33f42c18d18a1ee060e212}{MCR\+\_\+\+Streaming\+Pool}}
+, \mbox{\hyperlink{struct_f_generic_platform_memory_a68d141c03992fb6aae185a4cfbebde67a5e693c43fa8e909e326d282cebfcabf5}{MCR\+\_\+\+Used\+Streaming\+Pool}}
+, \mbox{\hyperlink{struct_f_generic_platform_memory_a68d141c03992fb6aae185a4cfbebde67aac73df1f86c8bb56b67c1bc3153b2fab}{MCR\+\_\+\+GPUDefrag\+Pool}}
+, \newline
+\mbox{\hyperlink{struct_f_generic_platform_memory_a68d141c03992fb6aae185a4cfbebde67a79e9c9ce7efaf4e68b63e67d244d8a73}{MCR\+\_\+\+Physical\+LLM}}
+, \mbox{\hyperlink{struct_f_generic_platform_memory_a68d141c03992fb6aae185a4cfbebde67abb8a1b23b68b099738ba1575fde5f95a}{MCR\+\_\+\+MAX}}
+ \}
+\item 
+enum \mbox{\hyperlink{struct_f_generic_platform_memory_a0cf4cd052acae0df2b1d84f0b62e30a8}{EMemory\+Allocator\+To\+Use}} \{ \newline
+\mbox{\hyperlink{struct_f_generic_platform_memory_a0cf4cd052acae0df2b1d84f0b62e30a8a2877d95501c25f163b9cbf5acf79ae2d}{Ansi}}
+, \mbox{\hyperlink{struct_f_generic_platform_memory_a0cf4cd052acae0df2b1d84f0b62e30a8a7e874aa063f675687e756571835e1143}{Stomp}}
+, \mbox{\hyperlink{struct_f_generic_platform_memory_a0cf4cd052acae0df2b1d84f0b62e30a8a580971ff4a94a54579f4e73b6a8ef940}{TBB}}
+, \mbox{\hyperlink{struct_f_generic_platform_memory_a0cf4cd052acae0df2b1d84f0b62e30a8ac3fca6568110482a592d9f4a2a2e7ee9}{Jemalloc}}
+, \newline
+\mbox{\hyperlink{struct_f_generic_platform_memory_a0cf4cd052acae0df2b1d84f0b62e30a8a18112b3605a3b445621ea95cbc09cdb4}{Binned}}
+, \mbox{\hyperlink{struct_f_generic_platform_memory_a0cf4cd052acae0df2b1d84f0b62e30a8a1c947b4dcf07450c97038f9c7de7c8c1}{Binned2}}
+, \mbox{\hyperlink{struct_f_generic_platform_memory_a0cf4cd052acae0df2b1d84f0b62e30a8af3e62e44b9e21acf56fa14812037cb58}{Binned3}}
+, \mbox{\hyperlink{struct_f_generic_platform_memory_a0cf4cd052acae0df2b1d84f0b62e30a8a4aa9c831b84a42a4d326f2d7b913f33c}{Platform}}
+, \newline
+\mbox{\hyperlink{struct_f_generic_platform_memory_a0cf4cd052acae0df2b1d84f0b62e30a8a97ad63d503f0f664ac33bda7b162a81b}{Mimalloc}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Открытые статические члены}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{struct_f_generic_platform_memory_a753f908f64e2cf8fa2d02b8044fcbf3f}{Init}} ()
+\item 
+static void \mbox{\hyperlink{struct_f_generic_platform_memory_a0a9d8691262f563871ddfb28504f7d29}{On\+Out\+Of\+Memory}} (\mbox{\hyperlink{_platform_8h_afddf25cca147311c233b23a9d3329bb4}{uint64}} \mbox{\hyperlink{_d3_d12_utils_8h_a49802c782fb40bd8e79835ef12871ddeaff9abf2b1a689f70a77a18da50c01d9f}{Size}}, \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} Alignmemnt)
+\item 
+static void \mbox{\hyperlink{struct_f_generic_platform_memory_aa14a1389746849b7c2df612674c79dc7}{Setup\+Memory\+Pools}} ()
+\item 
+static \mbox{\hyperlink{_definitions_8h_afea66f9a6812c2354b544f31910fd72f}{CORE\+\_\+\+API}} void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_f_generic_platform_memory_adc9e1cac7542a87425c3df335611a109}{Binned\+Alloc\+From\+OS}} (\mbox{\hyperlink{_platform_8h_a2c46f1fb01e11216aa2c983307deafb4}{SIZE\+\_\+T}} \mbox{\hyperlink{_d3_d12_utils_8h_a49802c782fb40bd8e79835ef12871ddeaff9abf2b1a689f70a77a18da50c01d9f}{Size}})
+\item 
+static void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_f_generic_platform_memory_a341dc15dc436088731a9e337a1c1e3d4}{Memzero}} (void \texorpdfstring{$\ast$}{*}Dst, \mbox{\hyperlink{_platform_8h_a2c46f1fb01e11216aa2c983307deafb4}{SIZE\+\_\+T}} \mbox{\hyperlink{_pixel_format_8h_afb559e26bc610db43ba605230a142898a928f33270be19855038d0245a0fa06a1}{Count}})
+\item 
+static FORCEINLINE void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_f_generic_platform_memory_a780574b745e0f677810b3b1966e13c76}{Memmove}} (void \texorpdfstring{$\ast$}{*}Dst, const void \texorpdfstring{$\ast$}{*}Src, \mbox{\hyperlink{_platform_8h_a2c46f1fb01e11216aa2c983307deafb4}{SIZE\+\_\+T}} \mbox{\hyperlink{_pixel_format_8h_afb559e26bc610db43ba605230a142898a928f33270be19855038d0245a0fa06a1}{Count}})
+\item 
+static \mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}} \mbox{\hyperlink{struct_f_generic_platform_memory_a87e4f64719cbe71c0605ccb601e48d1f}{Memcmp}} (const void \texorpdfstring{$\ast$}{*}Buf1, const void \texorpdfstring{$\ast$}{*}Buf2, \mbox{\hyperlink{_platform_8h_a2c46f1fb01e11216aa2c983307deafb4}{SIZE\+\_\+T}} \mbox{\hyperlink{_pixel_format_8h_afb559e26bc610db43ba605230a142898a928f33270be19855038d0245a0fa06a1}{Count}})
+\item 
+static void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_f_generic_platform_memory_a9dd441da1c388e52f0700b59df6a336a}{Memset}} (void \texorpdfstring{$\ast$}{*}Dst, \mbox{\hyperlink{_platform_8h_a40bc01dd090acd02a79b5dc13e08abe6}{uint8}} Char, \mbox{\hyperlink{_platform_8h_a2c46f1fb01e11216aa2c983307deafb4}{SIZE\+\_\+T}} \mbox{\hyperlink{_pixel_format_8h_afb559e26bc610db43ba605230a142898a928f33270be19855038d0245a0fa06a1}{Count}})
+\item 
+static void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_f_generic_platform_memory_ab46f8cf40276eb3a904f9e7329bc5a0f}{Memcpy}} (void \texorpdfstring{$\ast$}{*}Dst, const void \texorpdfstring{$\ast$}{*}Src, \mbox{\hyperlink{_platform_8h_a2c46f1fb01e11216aa2c983307deafb4}{SIZE\+\_\+T}} \mbox{\hyperlink{_pixel_format_8h_afb559e26bc610db43ba605230a142898a928f33270be19855038d0245a0fa06a1}{Count}})
+\item 
+static void \mbox{\hyperlink{struct_f_generic_platform_memory_a934aa131573522d27a59a21458eebd96}{Memswap}} (void \texorpdfstring{$\ast$}{*}Ptr1, void \texorpdfstring{$\ast$}{*}Ptr2, \mbox{\hyperlink{_platform_8h_a2c46f1fb01e11216aa2c983307deafb4}{SIZE\+\_\+T}} \mbox{\hyperlink{_d3_d12_utils_8h_a49802c782fb40bd8e79835ef12871ddeaff9abf2b1a689f70a77a18da50c01d9f}{Size}})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Статические открытые данные}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{_core_platform_8h_a94070b76c7d4ff7927f14814f3f53e40}{DENGINE\+\_\+\+API}} bool \mbox{\hyperlink{struct_f_generic_platform_memory_a72f368a97f21b7b461af562cf16d93ea}{b\+Is\+OOM}}
+\item 
+static \mbox{\hyperlink{_core_platform_8h_a94070b76c7d4ff7927f14814f3f53e40}{DENGINE\+\_\+\+API}} \mbox{\hyperlink{_platform_8h_afddf25cca147311c233b23a9d3329bb4}{uint64}} \mbox{\hyperlink{struct_f_generic_platform_memory_a40c1478bceb93229172b2ea8937b4f9b}{OOMAllocation\+Size}}
+\item 
+static \mbox{\hyperlink{_core_platform_8h_a94070b76c7d4ff7927f14814f3f53e40}{DENGINE\+\_\+\+API}} \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} \mbox{\hyperlink{struct_f_generic_platform_memory_a649fbde525ef28e112691db7cc25a38a}{OOMAllocation\+Alignment}}
+\item 
+static \mbox{\hyperlink{_core_platform_8h_a94070b76c7d4ff7927f14814f3f53e40}{DENGINE\+\_\+\+API}} void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_f_generic_platform_memory_a6cca50d553467f870adc5d11aa336218}{Backup\+OOMMemory\+Pool}}
+\item 
+static \mbox{\hyperlink{_core_platform_8h_a94070b76c7d4ff7927f14814f3f53e40}{DENGINE\+\_\+\+API}} \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} \mbox{\hyperlink{struct_f_generic_platform_memory_a162d39d03d5ba1ed1a7fba1b30ee84be}{Backup\+OOMMemory\+Pool\+Size}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Перечисления}
+\Hypertarget{struct_f_generic_platform_memory_a0cf4cd052acae0df2b1d84f0b62e30a8}\label{struct_f_generic_platform_memory_a0cf4cd052acae0df2b1d84f0b62e30a8} 
+\index{FGenericPlatformMemory@{FGenericPlatformMemory}!EMemoryAllocatorToUse@{EMemoryAllocatorToUse}}
+\index{EMemoryAllocatorToUse@{EMemoryAllocatorToUse}!FGenericPlatformMemory@{FGenericPlatformMemory}}
+\doxysubsubsection{\texorpdfstring{EMemoryAllocatorToUse}{EMemoryAllocatorToUse}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{struct_f_generic_platform_memory_a0cf4cd052acae0df2b1d84f0b62e30a8}{FGeneric\+Platform\+Memory\+::\+EMemory\+Allocator\+To\+Use}}}
+
+\begin{DoxyEnumFields}{Элементы перечислений}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Ansi@{Ansi}!FGenericPlatformMemory@{FGenericPlatformMemory}}\index{FGenericPlatformMemory@{FGenericPlatformMemory}!Ansi@{Ansi}}}\Hypertarget{struct_f_generic_platform_memory_a0cf4cd052acae0df2b1d84f0b62e30a8a2877d95501c25f163b9cbf5acf79ae2d}\label{struct_f_generic_platform_memory_a0cf4cd052acae0df2b1d84f0b62e30a8a2877d95501c25f163b9cbf5acf79ae2d} 
+Ansi&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Stomp@{Stomp}!FGenericPlatformMemory@{FGenericPlatformMemory}}\index{FGenericPlatformMemory@{FGenericPlatformMemory}!Stomp@{Stomp}}}\Hypertarget{struct_f_generic_platform_memory_a0cf4cd052acae0df2b1d84f0b62e30a8a7e874aa063f675687e756571835e1143}\label{struct_f_generic_platform_memory_a0cf4cd052acae0df2b1d84f0b62e30a8a7e874aa063f675687e756571835e1143} 
+Stomp&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TBB@{TBB}!FGenericPlatformMemory@{FGenericPlatformMemory}}\index{FGenericPlatformMemory@{FGenericPlatformMemory}!TBB@{TBB}}}\Hypertarget{struct_f_generic_platform_memory_a0cf4cd052acae0df2b1d84f0b62e30a8a580971ff4a94a54579f4e73b6a8ef940}\label{struct_f_generic_platform_memory_a0cf4cd052acae0df2b1d84f0b62e30a8a580971ff4a94a54579f4e73b6a8ef940} 
+TBB&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Jemalloc@{Jemalloc}!FGenericPlatformMemory@{FGenericPlatformMemory}}\index{FGenericPlatformMemory@{FGenericPlatformMemory}!Jemalloc@{Jemalloc}}}\Hypertarget{struct_f_generic_platform_memory_a0cf4cd052acae0df2b1d84f0b62e30a8ac3fca6568110482a592d9f4a2a2e7ee9}\label{struct_f_generic_platform_memory_a0cf4cd052acae0df2b1d84f0b62e30a8ac3fca6568110482a592d9f4a2a2e7ee9} 
+Jemalloc&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Binned@{Binned}!FGenericPlatformMemory@{FGenericPlatformMemory}}\index{FGenericPlatformMemory@{FGenericPlatformMemory}!Binned@{Binned}}}\Hypertarget{struct_f_generic_platform_memory_a0cf4cd052acae0df2b1d84f0b62e30a8a18112b3605a3b445621ea95cbc09cdb4}\label{struct_f_generic_platform_memory_a0cf4cd052acae0df2b1d84f0b62e30a8a18112b3605a3b445621ea95cbc09cdb4} 
+Binned&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Binned2@{Binned2}!FGenericPlatformMemory@{FGenericPlatformMemory}}\index{FGenericPlatformMemory@{FGenericPlatformMemory}!Binned2@{Binned2}}}\Hypertarget{struct_f_generic_platform_memory_a0cf4cd052acae0df2b1d84f0b62e30a8a1c947b4dcf07450c97038f9c7de7c8c1}\label{struct_f_generic_platform_memory_a0cf4cd052acae0df2b1d84f0b62e30a8a1c947b4dcf07450c97038f9c7de7c8c1} 
+Binned2&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Binned3@{Binned3}!FGenericPlatformMemory@{FGenericPlatformMemory}}\index{FGenericPlatformMemory@{FGenericPlatformMemory}!Binned3@{Binned3}}}\Hypertarget{struct_f_generic_platform_memory_a0cf4cd052acae0df2b1d84f0b62e30a8af3e62e44b9e21acf56fa14812037cb58}\label{struct_f_generic_platform_memory_a0cf4cd052acae0df2b1d84f0b62e30a8af3e62e44b9e21acf56fa14812037cb58} 
+Binned3&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Platform@{Platform}!FGenericPlatformMemory@{FGenericPlatformMemory}}\index{FGenericPlatformMemory@{FGenericPlatformMemory}!Platform@{Platform}}}\Hypertarget{struct_f_generic_platform_memory_a0cf4cd052acae0df2b1d84f0b62e30a8a4aa9c831b84a42a4d326f2d7b913f33c}\label{struct_f_generic_platform_memory_a0cf4cd052acae0df2b1d84f0b62e30a8a4aa9c831b84a42a4d326f2d7b913f33c} 
+Platform&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Mimalloc@{Mimalloc}!FGenericPlatformMemory@{FGenericPlatformMemory}}\index{FGenericPlatformMemory@{FGenericPlatformMemory}!Mimalloc@{Mimalloc}}}\Hypertarget{struct_f_generic_platform_memory_a0cf4cd052acae0df2b1d84f0b62e30a8a97ad63d503f0f664ac33bda7b162a81b}\label{struct_f_generic_platform_memory_a0cf4cd052acae0df2b1d84f0b62e30a8a97ad63d503f0f664ac33bda7b162a81b} 
+Mimalloc&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{struct_f_generic_platform_memory_a68d141c03992fb6aae185a4cfbebde67}\label{struct_f_generic_platform_memory_a68d141c03992fb6aae185a4cfbebde67} 
+\index{FGenericPlatformMemory@{FGenericPlatformMemory}!EMemoryCounterRegion@{EMemoryCounterRegion}}
+\index{EMemoryCounterRegion@{EMemoryCounterRegion}!FGenericPlatformMemory@{FGenericPlatformMemory}}
+\doxysubsubsection{\texorpdfstring{EMemoryCounterRegion}{EMemoryCounterRegion}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{struct_f_generic_platform_memory_a68d141c03992fb6aae185a4cfbebde67}{FGeneric\+Platform\+Memory\+::\+EMemory\+Counter\+Region}}}
+
+\begin{DoxyEnumFields}{Элементы перечислений}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MCR\_Invalid@{MCR\_Invalid}!FGenericPlatformMemory@{FGenericPlatformMemory}}\index{FGenericPlatformMemory@{FGenericPlatformMemory}!MCR\_Invalid@{MCR\_Invalid}}}\Hypertarget{struct_f_generic_platform_memory_a68d141c03992fb6aae185a4cfbebde67aa4d0f1a1a1f13e42f7788617b592b48c}\label{struct_f_generic_platform_memory_a68d141c03992fb6aae185a4cfbebde67aa4d0f1a1a1f13e42f7788617b592b48c} 
+MCR\+\_\+\+Invalid&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MCR\_Physical@{MCR\_Physical}!FGenericPlatformMemory@{FGenericPlatformMemory}}\index{FGenericPlatformMemory@{FGenericPlatformMemory}!MCR\_Physical@{MCR\_Physical}}}\Hypertarget{struct_f_generic_platform_memory_a68d141c03992fb6aae185a4cfbebde67a63d07aceae0c619c70b19b715e6f29e2}\label{struct_f_generic_platform_memory_a68d141c03992fb6aae185a4cfbebde67a63d07aceae0c619c70b19b715e6f29e2} 
+MCR\+\_\+\+Physical&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MCR\_GPU@{MCR\_GPU}!FGenericPlatformMemory@{FGenericPlatformMemory}}\index{FGenericPlatformMemory@{FGenericPlatformMemory}!MCR\_GPU@{MCR\_GPU}}}\Hypertarget{struct_f_generic_platform_memory_a68d141c03992fb6aae185a4cfbebde67a2f3c935ccc14ccfb464eb52fec4843a3}\label{struct_f_generic_platform_memory_a68d141c03992fb6aae185a4cfbebde67a2f3c935ccc14ccfb464eb52fec4843a3} 
+MCR\+\_\+\+GPU&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MCR\_GPUSystem@{MCR\_GPUSystem}!FGenericPlatformMemory@{FGenericPlatformMemory}}\index{FGenericPlatformMemory@{FGenericPlatformMemory}!MCR\_GPUSystem@{MCR\_GPUSystem}}}\Hypertarget{struct_f_generic_platform_memory_a68d141c03992fb6aae185a4cfbebde67a1b14b99dd64fa3bbfac1d94e80dc8e6c}\label{struct_f_generic_platform_memory_a68d141c03992fb6aae185a4cfbebde67a1b14b99dd64fa3bbfac1d94e80dc8e6c} 
+MCR\+\_\+\+GPUSystem&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MCR\_TexturePool@{MCR\_TexturePool}!FGenericPlatformMemory@{FGenericPlatformMemory}}\index{FGenericPlatformMemory@{FGenericPlatformMemory}!MCR\_TexturePool@{MCR\_TexturePool}}}\Hypertarget{struct_f_generic_platform_memory_a68d141c03992fb6aae185a4cfbebde67a23b2b22106e700115cd42da8057f9144}\label{struct_f_generic_platform_memory_a68d141c03992fb6aae185a4cfbebde67a23b2b22106e700115cd42da8057f9144} 
+MCR\+\_\+\+Texture\+Pool&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MCR\_StreamingPool@{MCR\_StreamingPool}!FGenericPlatformMemory@{FGenericPlatformMemory}}\index{FGenericPlatformMemory@{FGenericPlatformMemory}!MCR\_StreamingPool@{MCR\_StreamingPool}}}\Hypertarget{struct_f_generic_platform_memory_a68d141c03992fb6aae185a4cfbebde67ae50f8bf55a33f42c18d18a1ee060e212}\label{struct_f_generic_platform_memory_a68d141c03992fb6aae185a4cfbebde67ae50f8bf55a33f42c18d18a1ee060e212} 
+MCR\+\_\+\+Streaming\+Pool&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MCR\_UsedStreamingPool@{MCR\_UsedStreamingPool}!FGenericPlatformMemory@{FGenericPlatformMemory}}\index{FGenericPlatformMemory@{FGenericPlatformMemory}!MCR\_UsedStreamingPool@{MCR\_UsedStreamingPool}}}\Hypertarget{struct_f_generic_platform_memory_a68d141c03992fb6aae185a4cfbebde67a5e693c43fa8e909e326d282cebfcabf5}\label{struct_f_generic_platform_memory_a68d141c03992fb6aae185a4cfbebde67a5e693c43fa8e909e326d282cebfcabf5} 
+MCR\+\_\+\+Used\+Streaming\+Pool&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MCR\_GPUDefragPool@{MCR\_GPUDefragPool}!FGenericPlatformMemory@{FGenericPlatformMemory}}\index{FGenericPlatformMemory@{FGenericPlatformMemory}!MCR\_GPUDefragPool@{MCR\_GPUDefragPool}}}\Hypertarget{struct_f_generic_platform_memory_a68d141c03992fb6aae185a4cfbebde67aac73df1f86c8bb56b67c1bc3153b2fab}\label{struct_f_generic_platform_memory_a68d141c03992fb6aae185a4cfbebde67aac73df1f86c8bb56b67c1bc3153b2fab} 
+MCR\+\_\+\+GPUDefrag\+Pool&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MCR\_PhysicalLLM@{MCR\_PhysicalLLM}!FGenericPlatformMemory@{FGenericPlatformMemory}}\index{FGenericPlatformMemory@{FGenericPlatformMemory}!MCR\_PhysicalLLM@{MCR\_PhysicalLLM}}}\Hypertarget{struct_f_generic_platform_memory_a68d141c03992fb6aae185a4cfbebde67a79e9c9ce7efaf4e68b63e67d244d8a73}\label{struct_f_generic_platform_memory_a68d141c03992fb6aae185a4cfbebde67a79e9c9ce7efaf4e68b63e67d244d8a73} 
+MCR\+\_\+\+Physical\+LLM&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MCR\_MAX@{MCR\_MAX}!FGenericPlatformMemory@{FGenericPlatformMemory}}\index{FGenericPlatformMemory@{FGenericPlatformMemory}!MCR\_MAX@{MCR\_MAX}}}\Hypertarget{struct_f_generic_platform_memory_a68d141c03992fb6aae185a4cfbebde67abb8a1b23b68b099738ba1575fde5f95a}\label{struct_f_generic_platform_memory_a68d141c03992fb6aae185a4cfbebde67abb8a1b23b68b099738ba1575fde5f95a} 
+MCR\+\_\+\+MAX&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Методы}
+\Hypertarget{struct_f_generic_platform_memory_adc9e1cac7542a87425c3df335611a109}\label{struct_f_generic_platform_memory_adc9e1cac7542a87425c3df335611a109} 
+\index{FGenericPlatformMemory@{FGenericPlatformMemory}!BinnedAllocFromOS@{BinnedAllocFromOS}}
+\index{BinnedAllocFromOS@{BinnedAllocFromOS}!FGenericPlatformMemory@{FGenericPlatformMemory}}
+\doxysubsubsection{\texorpdfstring{BinnedAllocFromOS()}{BinnedAllocFromOS()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_definitions_8h_afea66f9a6812c2354b544f31910fd72f}{CORE\+\_\+\+API}} void \texorpdfstring{$\ast$}{*} FGeneric\+Platform\+Memory\+::\+Binned\+Alloc\+From\+OS (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_platform_8h_a2c46f1fb01e11216aa2c983307deafb4}{SIZE\+\_\+T}}}]{Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{struct_f_generic_platform_memory_a753f908f64e2cf8fa2d02b8044fcbf3f}\label{struct_f_generic_platform_memory_a753f908f64e2cf8fa2d02b8044fcbf3f} 
+\index{FGenericPlatformMemory@{FGenericPlatformMemory}!Init@{Init}}
+\index{Init@{Init}!FGenericPlatformMemory@{FGenericPlatformMemory}}
+\doxysubsubsection{\texorpdfstring{Init()}{Init()}}
+{\footnotesize\ttfamily void FGeneric\+Platform\+Memory\+::\+Init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{struct_f_generic_platform_memory_a87e4f64719cbe71c0605ccb601e48d1f}\label{struct_f_generic_platform_memory_a87e4f64719cbe71c0605ccb601e48d1f} 
+\index{FGenericPlatformMemory@{FGenericPlatformMemory}!Memcmp@{Memcmp}}
+\index{Memcmp@{Memcmp}!FGenericPlatformMemory@{FGenericPlatformMemory}}
+\doxysubsubsection{\texorpdfstring{Memcmp()}{Memcmp()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}} FGeneric\+Platform\+Memory\+::\+Memcmp (\begin{DoxyParamCaption}\item[{const void \texorpdfstring{$\ast$}{*}}]{Buf1,  }\item[{const void \texorpdfstring{$\ast$}{*}}]{Buf2,  }\item[{\mbox{\hyperlink{_platform_8h_a2c46f1fb01e11216aa2c983307deafb4}{SIZE\+\_\+T}}}]{Count }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+\Hypertarget{struct_f_generic_platform_memory_ab46f8cf40276eb3a904f9e7329bc5a0f}\label{struct_f_generic_platform_memory_ab46f8cf40276eb3a904f9e7329bc5a0f} 
+\index{FGenericPlatformMemory@{FGenericPlatformMemory}!Memcpy@{Memcpy}}
+\index{Memcpy@{Memcpy}!FGenericPlatformMemory@{FGenericPlatformMemory}}
+\doxysubsubsection{\texorpdfstring{Memcpy()}{Memcpy()}}
+{\footnotesize\ttfamily static void \texorpdfstring{$\ast$}{*} FGeneric\+Platform\+Memory\+::\+Memcpy (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{Dst,  }\item[{const void \texorpdfstring{$\ast$}{*}}]{Src,  }\item[{\mbox{\hyperlink{_platform_8h_a2c46f1fb01e11216aa2c983307deafb4}{SIZE\+\_\+T}}}]{Count }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+\Hypertarget{struct_f_generic_platform_memory_a780574b745e0f677810b3b1966e13c76}\label{struct_f_generic_platform_memory_a780574b745e0f677810b3b1966e13c76} 
+\index{FGenericPlatformMemory@{FGenericPlatformMemory}!Memmove@{Memmove}}
+\index{Memmove@{Memmove}!FGenericPlatformMemory@{FGenericPlatformMemory}}
+\doxysubsubsection{\texorpdfstring{Memmove()}{Memmove()}}
+{\footnotesize\ttfamily static FORCEINLINE void \texorpdfstring{$\ast$}{*} FGeneric\+Platform\+Memory\+::\+Memmove (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{Dst,  }\item[{const void \texorpdfstring{$\ast$}{*}}]{Src,  }\item[{\mbox{\hyperlink{_platform_8h_a2c46f1fb01e11216aa2c983307deafb4}{SIZE\+\_\+T}}}]{Count }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+\Hypertarget{struct_f_generic_platform_memory_a9dd441da1c388e52f0700b59df6a336a}\label{struct_f_generic_platform_memory_a9dd441da1c388e52f0700b59df6a336a} 
+\index{FGenericPlatformMemory@{FGenericPlatformMemory}!Memset@{Memset}}
+\index{Memset@{Memset}!FGenericPlatformMemory@{FGenericPlatformMemory}}
+\doxysubsubsection{\texorpdfstring{Memset()}{Memset()}}
+{\footnotesize\ttfamily static void \texorpdfstring{$\ast$}{*} FGeneric\+Platform\+Memory\+::\+Memset (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{Dst,  }\item[{\mbox{\hyperlink{_platform_8h_a40bc01dd090acd02a79b5dc13e08abe6}{uint8}}}]{Char,  }\item[{\mbox{\hyperlink{_platform_8h_a2c46f1fb01e11216aa2c983307deafb4}{SIZE\+\_\+T}}}]{Count }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+\Hypertarget{struct_f_generic_platform_memory_a934aa131573522d27a59a21458eebd96}\label{struct_f_generic_platform_memory_a934aa131573522d27a59a21458eebd96} 
+\index{FGenericPlatformMemory@{FGenericPlatformMemory}!Memswap@{Memswap}}
+\index{Memswap@{Memswap}!FGenericPlatformMemory@{FGenericPlatformMemory}}
+\doxysubsubsection{\texorpdfstring{Memswap()}{Memswap()}}
+{\footnotesize\ttfamily static void FGeneric\+Platform\+Memory\+::\+Memswap (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{Ptr1,  }\item[{void \texorpdfstring{$\ast$}{*}}]{Ptr2,  }\item[{\mbox{\hyperlink{_platform_8h_a2c46f1fb01e11216aa2c983307deafb4}{SIZE\+\_\+T}}}]{Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+\Hypertarget{struct_f_generic_platform_memory_a341dc15dc436088731a9e337a1c1e3d4}\label{struct_f_generic_platform_memory_a341dc15dc436088731a9e337a1c1e3d4} 
+\index{FGenericPlatformMemory@{FGenericPlatformMemory}!Memzero@{Memzero}}
+\index{Memzero@{Memzero}!FGenericPlatformMemory@{FGenericPlatformMemory}}
+\doxysubsubsection{\texorpdfstring{Memzero()}{Memzero()}}
+{\footnotesize\ttfamily static void \texorpdfstring{$\ast$}{*} FGeneric\+Platform\+Memory\+::\+Memzero (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{Dst,  }\item[{\mbox{\hyperlink{_platform_8h_a2c46f1fb01e11216aa2c983307deafb4}{SIZE\+\_\+T}}}]{Count }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+\Hypertarget{struct_f_generic_platform_memory_a0a9d8691262f563871ddfb28504f7d29}\label{struct_f_generic_platform_memory_a0a9d8691262f563871ddfb28504f7d29} 
+\index{FGenericPlatformMemory@{FGenericPlatformMemory}!OnOutOfMemory@{OnOutOfMemory}}
+\index{OnOutOfMemory@{OnOutOfMemory}!FGenericPlatformMemory@{FGenericPlatformMemory}}
+\doxysubsubsection{\texorpdfstring{OnOutOfMemory()}{OnOutOfMemory()}}
+{\footnotesize\ttfamily static void FGeneric\+Platform\+Memory\+::\+On\+Out\+Of\+Memory (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_platform_8h_afddf25cca147311c233b23a9d3329bb4}{uint64}}}]{Size,  }\item[{\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}}]{Alignmemnt }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{struct_f_generic_platform_memory_aa14a1389746849b7c2df612674c79dc7}\label{struct_f_generic_platform_memory_aa14a1389746849b7c2df612674c79dc7} 
+\index{FGenericPlatformMemory@{FGenericPlatformMemory}!SetupMemoryPools@{SetupMemoryPools}}
+\index{SetupMemoryPools@{SetupMemoryPools}!FGenericPlatformMemory@{FGenericPlatformMemory}}
+\doxysubsubsection{\texorpdfstring{SetupMemoryPools()}{SetupMemoryPools()}}
+{\footnotesize\ttfamily void FGeneric\+Platform\+Memory\+::\+Setup\+Memory\+Pools (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+\doxysubsection{Данные класса}
+\Hypertarget{struct_f_generic_platform_memory_a6cca50d553467f870adc5d11aa336218}\label{struct_f_generic_platform_memory_a6cca50d553467f870adc5d11aa336218} 
+\index{FGenericPlatformMemory@{FGenericPlatformMemory}!BackupOOMMemoryPool@{BackupOOMMemoryPool}}
+\index{BackupOOMMemoryPool@{BackupOOMMemoryPool}!FGenericPlatformMemory@{FGenericPlatformMemory}}
+\doxysubsubsection{\texorpdfstring{BackupOOMMemoryPool}{BackupOOMMemoryPool}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_core_platform_8h_a94070b76c7d4ff7927f14814f3f53e40}{DENGINE\+\_\+\+API}} void\texorpdfstring{$\ast$}{*} FGeneric\+Platform\+Memory\+::\+Backup\+OOMMemory\+Pool\hspace{0.3cm}{\ttfamily [static]}}
+
+Preallocated buffer to delete on out of memory. Used by OOM handling and crash reporting. \Hypertarget{struct_f_generic_platform_memory_a162d39d03d5ba1ed1a7fba1b30ee84be}\label{struct_f_generic_platform_memory_a162d39d03d5ba1ed1a7fba1b30ee84be} 
+\index{FGenericPlatformMemory@{FGenericPlatformMemory}!BackupOOMMemoryPoolSize@{BackupOOMMemoryPoolSize}}
+\index{BackupOOMMemoryPoolSize@{BackupOOMMemoryPoolSize}!FGenericPlatformMemory@{FGenericPlatformMemory}}
+\doxysubsubsection{\texorpdfstring{BackupOOMMemoryPoolSize}{BackupOOMMemoryPoolSize}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_core_platform_8h_a94070b76c7d4ff7927f14814f3f53e40}{DENGINE\+\_\+\+API}} \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} FGeneric\+Platform\+Memory\+::\+Backup\+OOMMemory\+Pool\+Size\hspace{0.3cm}{\ttfamily [static]}}
+
+Size of Backup\+OOMMemory\+Pool in bytes. \Hypertarget{struct_f_generic_platform_memory_a72f368a97f21b7b461af562cf16d93ea}\label{struct_f_generic_platform_memory_a72f368a97f21b7b461af562cf16d93ea} 
+\index{FGenericPlatformMemory@{FGenericPlatformMemory}!bIsOOM@{bIsOOM}}
+\index{bIsOOM@{bIsOOM}!FGenericPlatformMemory@{FGenericPlatformMemory}}
+\doxysubsubsection{\texorpdfstring{bIsOOM}{bIsOOM}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_core_platform_8h_a94070b76c7d4ff7927f14814f3f53e40}{DENGINE\+\_\+\+API}} bool FGeneric\+Platform\+Memory\+::b\+Is\+OOM\hspace{0.3cm}{\ttfamily [static]}}
+
+Set to true if we encounters out of memory. \Hypertarget{struct_f_generic_platform_memory_a649fbde525ef28e112691db7cc25a38a}\label{struct_f_generic_platform_memory_a649fbde525ef28e112691db7cc25a38a} 
+\index{FGenericPlatformMemory@{FGenericPlatformMemory}!OOMAllocationAlignment@{OOMAllocationAlignment}}
+\index{OOMAllocationAlignment@{OOMAllocationAlignment}!FGenericPlatformMemory@{FGenericPlatformMemory}}
+\doxysubsubsection{\texorpdfstring{OOMAllocationAlignment}{OOMAllocationAlignment}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_core_platform_8h_a94070b76c7d4ff7927f14814f3f53e40}{DENGINE\+\_\+\+API}} \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} FGeneric\+Platform\+Memory\+::\+OOMAllocation\+Alignment\hspace{0.3cm}{\ttfamily [static]}}
+
+Set to alignment of allocation that triggered out of memory, zero otherwise. \Hypertarget{struct_f_generic_platform_memory_a40c1478bceb93229172b2ea8937b4f9b}\label{struct_f_generic_platform_memory_a40c1478bceb93229172b2ea8937b4f9b} 
+\index{FGenericPlatformMemory@{FGenericPlatformMemory}!OOMAllocationSize@{OOMAllocationSize}}
+\index{OOMAllocationSize@{OOMAllocationSize}!FGenericPlatformMemory@{FGenericPlatformMemory}}
+\doxysubsubsection{\texorpdfstring{OOMAllocationSize}{OOMAllocationSize}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_core_platform_8h_a94070b76c7d4ff7927f14814f3f53e40}{DENGINE\+\_\+\+API}} \mbox{\hyperlink{_platform_8h_afddf25cca147311c233b23a9d3329bb4}{uint64}} FGeneric\+Platform\+Memory\+::\+OOMAllocation\+Size\hspace{0.3cm}{\ttfamily [static]}}
+
+Set to size of allocation that triggered out of memory, zero otherwise. 
+
+Объявления и описания членов структур находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+Dark Engine/\+Source/\+Runtime/\+Core/\+Public/\+Generic\+Platform/\mbox{\hyperlink{_generic_platform_memory_8h}{Generic\+Platform\+Memory.\+h}}\item 
+Dark Engine/\+Source/\+Runtime/\+Core/\+Private/\+Generic\+Platform/\mbox{\hyperlink{_generic_platform_memory_8cpp}{Generic\+Platform\+Memory.\+cpp}}\end{DoxyCompactItemize}

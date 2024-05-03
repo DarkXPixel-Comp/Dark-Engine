@@ -1,0 +1,284 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Dark Engine: Файл Dark Engine/Source/Runtime/D3D12RHI/private/D3D12Descriptors.h</title>
+<link rel="icon" href="../../Logo.png" type="image/x-icon" />
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<script type="text/javascript" src="../../clipboard.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../MiniLogo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Dark Engine<span id="projectnumber">&#160;0.0.50</span>
+   </div>
+   <div id="projectbrief">New game engnie D3D12</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../../',true,false,'search.php','Поиск');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('d1/d6c/_d3_d12_descriptors_8h.html','../../'); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Классы</a> &#124;
+<a href="#func-members">Функции</a>  </div>
+  <div class="headertitle"><div class="title">Файл D3D12Descriptors.h</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d8/da3/_d3_d12_r_h_i_8h_source.html">D3D12RHI.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d7/d2e/_d3_d12_r_h_i_common_8h_source.html">D3D12RHICommon.h</a>&quot;</code><br />
+<code>#include &lt;<a class="el" href="../../de/d94/_d3_d12_8h_source.html">d3d12.h</a>&gt;</code><br />
+<code>#include &quot;<a class="el" href="../../de/df7/_r_h_i_defines_8h_source.html">RHIDefines.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d3/d13/_ref_counting_8h_source.html">Templates/RefCounting.h</a>&quot;</code><br />
+</div>
+<p><a href="../../d1/d6c/_d3_d12_descriptors_8h_source.html">См. исходные тексты.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Классы</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d75/struct_f_d3_d12_cpu_descriptor.html">FD3D12CpuDescriptor</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d7d/struct_f_d3_d12_cpu_free_range.html">FD3D12CpuFreeRange</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d87/struct_f_d3_d12_cpu_entry.html">FD3D12CpuEntry</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dd3/class_f_d3_d12_descriptor_heap.html">FD3D12DescriptorHeap</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/db4/class_f_d3_d12_descriptor_manager.html">FD3D12DescriptorManager</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dfc/class_f_d3_d12_descriptor_heap_manager.html">FD3D12DescriptorHeapManager</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dcf/class_f_d3_d12_cpu_descriptor_manager.html">FD3D12CpuDescriptorManager</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Функции</h2></td></tr>
+<tr class="memitem:af1452944dcad7eb0c6dbfe1de5ef3ea8" id="r_af1452944dcad7eb0c6dbfe1de5ef3ea8"><td class="memItemLeft" align="right" valign="top">FORCEINLINE D3D12_DESCRIPTOR_HEAP_TYPE&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af1452944dcad7eb0c6dbfe1de5ef3ea8">GetD3D12DescriptorHeapType</a> (<a class="el" href="../../de/df7/_r_h_i_defines_8h.html#a9457a748b9d30acc00348bdc63f5de4e">ERHIDescriptorHeapType</a> HeapType)</td></tr>
+<tr class="separator:af1452944dcad7eb0c6dbfe1de5ef3ea8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9ed2a6f5ce7374baeb59eeac4e0990c" id="r_af9ed2a6f5ce7374baeb59eeac4e0990c"><td class="memItemLeft" align="right" valign="top">FORCEINLINE <a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af9ed2a6f5ce7374baeb59eeac4e0990c">GetCpuDescriptorHeapSize</a> (<a class="el" href="../../de/df7/_r_h_i_defines_8h.html#a9457a748b9d30acc00348bdc63f5de4e">ERHIDescriptorHeapType</a> HeapType)</td></tr>
+<tr class="separator:af9ed2a6f5ce7374baeb59eeac4e0990c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb4f8d88e1e4061837e321c23a7d5e8b" id="r_afb4f8d88e1e4061837e321c23a7d5e8b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d1/dd3/class_f_d3_d12_descriptor_heap.html">FD3D12DescriptorHeap</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afb4f8d88e1e4061837e321c23a7d5e8b">CreateDescriptorHeap</a> (<a class="el" href="../../d1/d79/class_f_d3_d12_device.html">FD3D12Device</a> *Device, const <a class="el" href="../../d2/dc9/_platform_8h.html#a74140f1ff3f7a51b1ac752f90283f3d6">TCHAR</a> *DebugName, <a class="el" href="../../de/df7/_r_h_i_defines_8h.html#a9457a748b9d30acc00348bdc63f5de4e">ERHIDescriptorHeapType</a> HeapType, <a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> NumDescriptors, D3D12_DESCRIPTOR_HEAP_FLAGS Flags)</td></tr>
+<tr class="separator:afb4f8d88e1e4061837e321c23a7d5e8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d45a2727457803dbb7c0d5a76c178c2" id="r_a0d45a2727457803dbb7c0d5a76c178c2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0d45a2727457803dbb7c0d5a76c178c2">CopyDescriptors</a> (<a class="el" href="../../d1/d79/class_f_d3_d12_device.html">FD3D12Device</a> *Device, <a class="el" href="../../d1/dd3/class_f_d3_d12_descriptor_heap.html">FD3D12DescriptorHeap</a> *TargetHeap, <a class="el" href="../../d1/dd3/class_f_d3_d12_descriptor_heap.html">FD3D12DescriptorHeap</a> *SourceHeap, <a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> NumDescriptors)</td></tr>
+<tr class="separator:a0d45a2727457803dbb7c0d5a76c178c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a458b509604fdad3f949e0bcd9c6e19a6" id="r_a458b509604fdad3f949e0bcd9c6e19a6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a458b509604fdad3f949e0bcd9c6e19a6">CopyDescriptor</a> (<a class="el" href="../../d1/d79/class_f_d3_d12_device.html">FD3D12Device</a> *Device, <a class="el" href="../../d1/dd3/class_f_d3_d12_descriptor_heap.html">FD3D12DescriptorHeap</a> *TargetHeap, <a class="el" href="../../dd/d95/struct_f_r_h_i_descriptor_handle.html">FRHIDescriptorHandle</a> Handle, D3D12_CPU_DESCRIPTOR_HANDLE SourceCpuHandle)</td></tr>
+<tr class="separator:a458b509604fdad3f949e0bcd9c6e19a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Функции</h2>
+<a id="a458b509604fdad3f949e0bcd9c6e19a6" name="a458b509604fdad3f949e0bcd9c6e19a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a458b509604fdad3f949e0bcd9c6e19a6">&#9670;&#160;</a></span>CopyDescriptor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CopyDescriptor </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d1/d79/class_f_d3_d12_device.html">FD3D12Device</a> *</td>          <td class="paramname"><span class="paramname"><em>Device</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d1/dd3/class_f_d3_d12_descriptor_heap.html">FD3D12DescriptorHeap</a> *</td>          <td class="paramname"><span class="paramname"><em>TargetHeap</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../dd/d95/struct_f_r_h_i_descriptor_handle.html">FRHIDescriptorHandle</a></td>          <td class="paramname"><span class="paramname"><em>Handle</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">D3D12_CPU_DESCRIPTOR_HANDLE</td>          <td class="paramname"><span class="paramname"><em>SourceCpuHandle</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0d45a2727457803dbb7c0d5a76c178c2" name="a0d45a2727457803dbb7c0d5a76c178c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d45a2727457803dbb7c0d5a76c178c2">&#9670;&#160;</a></span>CopyDescriptors()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CopyDescriptors </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d1/d79/class_f_d3_d12_device.html">FD3D12Device</a> *</td>          <td class="paramname"><span class="paramname"><em>Device</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d1/dd3/class_f_d3_d12_descriptor_heap.html">FD3D12DescriptorHeap</a> *</td>          <td class="paramname"><span class="paramname"><em>TargetHeap</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d1/dd3/class_f_d3_d12_descriptor_heap.html">FD3D12DescriptorHeap</a> *</td>          <td class="paramname"><span class="paramname"><em>SourceHeap</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a></td>          <td class="paramname"><span class="paramname"><em>NumDescriptors</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afb4f8d88e1e4061837e321c23a7d5e8b" name="afb4f8d88e1e4061837e321c23a7d5e8b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb4f8d88e1e4061837e321c23a7d5e8b">&#9670;&#160;</a></span>CreateDescriptorHeap()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d1/dd3/class_f_d3_d12_descriptor_heap.html">FD3D12DescriptorHeap</a> * CreateDescriptorHeap </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d1/d79/class_f_d3_d12_device.html">FD3D12Device</a> *</td>          <td class="paramname"><span class="paramname"><em>Device</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d2/dc9/_platform_8h.html#a74140f1ff3f7a51b1ac752f90283f3d6">TCHAR</a> *</td>          <td class="paramname"><span class="paramname"><em>DebugName</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../de/df7/_r_h_i_defines_8h.html#a9457a748b9d30acc00348bdc63f5de4e">ERHIDescriptorHeapType</a></td>          <td class="paramname"><span class="paramname"><em>HeapType</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a></td>          <td class="paramname"><span class="paramname"><em>NumDescriptors</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">D3D12_DESCRIPTOR_HEAP_FLAGS</td>          <td class="paramname"><span class="paramname"><em>Flags</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af9ed2a6f5ce7374baeb59eeac4e0990c" name="af9ed2a6f5ce7374baeb59eeac4e0990c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af9ed2a6f5ce7374baeb59eeac4e0990c">&#9670;&#160;</a></span>GetCpuDescriptorHeapSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FORCEINLINE <a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> GetCpuDescriptorHeapSize </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../de/df7/_r_h_i_defines_8h.html#a9457a748b9d30acc00348bdc63f5de4e">ERHIDescriptorHeapType</a></td>          <td class="paramname"><span class="paramname"><em>HeapType</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af1452944dcad7eb0c6dbfe1de5ef3ea8" name="af1452944dcad7eb0c6dbfe1de5ef3ea8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af1452944dcad7eb0c6dbfe1de5ef3ea8">&#9670;&#160;</a></span>GetD3D12DescriptorHeapType()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FORCEINLINE D3D12_DESCRIPTOR_HEAP_TYPE GetD3D12DescriptorHeapType </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../de/df7/_r_h_i_defines_8h.html#a9457a748b9d30acc00348bdc63f5de4e">ERHIDescriptorHeapType</a></td>          <td class="paramname"><span class="paramname"><em>HeapType</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../dir_55043db21ba5ddd7c561d2c5a5a38944.html">Dark Engine</a></li><li class="navelem"><a class="el" href="../../dir_e00b54220e1e1486ac9971b606d33054.html">Source</a></li><li class="navelem"><a class="el" href="../../dir_ae01c8af07818b260cc3481e8588b277.html">Runtime</a></li><li class="navelem"><a class="el" href="../../dir_69d1b7a79a04d24cd43f7c84d74c5d6d.html">D3D12RHI</a></li><li class="navelem"><a class="el" href="../../dir_975782192f4e5579da5ceb9eedcf6dc7.html">private</a></li><li class="navelem"><a class="el" href="../../d1/d6c/_d3_d12_descriptors_8h.html">D3D12Descriptors.h</a></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
+</body>
+</html>

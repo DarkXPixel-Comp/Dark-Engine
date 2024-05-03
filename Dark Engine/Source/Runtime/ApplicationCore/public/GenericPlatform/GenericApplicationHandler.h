@@ -22,13 +22,28 @@ namespace EMouseButtons
 class FGenericApplicationHandler
 {
 public:
-	virtual bool OnMouseDown(const TSharedPtr<FGenericWindow>& Window,
-		const EMouseButtons::Type Button, const FVector2D CursorPos)
+	virtual bool OnMouseDown(const TSharedPtr<FGenericWindow>& Window, const EMouseButtons::Type Button,
+		const FVector2D CursorPos)
 	{
 		return false;
 	}
-	virtual bool OnMouseUp(const TSharedPtr<FGenericWindow>& Window,
+	virtual bool OnMouseUp(const EMouseButtons::Type Buton, const FVector2D CursorPos)
+	{
+		return false;
+	}
+
+	virtual bool OnMouseDoubleClick(const TSharedPtr<FGenericWindow>& Window, EMouseButtons::Type Button,
 		const FVector2D CursorPos)
+	{
+		return false;
+	}
+
+	virtual bool OnMovingWindow(const TSharedPtr<FGenericWindow>& Window, FIntRect NewRect)
+	{
+		return false;
+	}
+
+	virtual bool OnMovedWindow(const TSharedPtr<FGenericWindow>& Window, FIntPoint NewPosition)
 	{
 		return false;
 	}
@@ -46,11 +61,13 @@ public:
 	{
 		return false;
 	}
+	virtual bool OnResize(const int32 Width, const int32 Height, const bool bFullscreen)
+	{
+		return false;
+	}
 
-
-
-
-
-
-
+	virtual bool OnWindowDraw(const TSharedPtr<FGenericWindow>& Window)
+	{
+		return false;
+	}
 };

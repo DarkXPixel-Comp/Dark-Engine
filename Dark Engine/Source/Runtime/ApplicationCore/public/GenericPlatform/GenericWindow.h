@@ -12,6 +12,17 @@ enum EWindowMode
 	Windowed
 };
 
+
+enum class ECursorArea
+{
+	Client,
+	Close,
+	Caption,
+	Maximize,
+	Minimize,
+	Menu
+};
+
 class FGenericWindow
 {
 public:
@@ -27,6 +38,8 @@ public:
 
 	virtual void Maximize() {}
 
+	virtual void Minimize() {}
+
 	virtual TSharedPtr<FGenericWindow> MakeWindow() { return MakeShareble(new FGenericWindow()); }
 
 	virtual void* GetOSWindowHandle() const { return nullptr; }
@@ -41,16 +54,21 @@ public:
 
 	virtual FIntPoint GetRelativeMousePos() const { return FIntPoint(); }
 
+	virtual bool IsMaximized() const { return false; }
+
+	virtual void Restore() {}
+						  
 #ifdef IMGUI
 	virtual void InitImGui() {}
 	virtual void BeginImGui() {}
 #endif
 
 
+	ECursorArea bTitleBarHovarered = ECursorArea::Client;
 
 protected:
 	bool bIsVisible = false;
-	EWindowMode WindowMode;
+	EWindowMode WindowMode = EWindowMode::Windowed;
 
 
 

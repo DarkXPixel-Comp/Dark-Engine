@@ -1,0 +1,72 @@
+\doxysection{Файл Dark Engine/\+Source/\+Runtime/\+Core/\+Public/\+Logging/\+Log\+Macros.h}
+\hypertarget{_log_macros_8h}{}\label{_log_macros_8h}\index{Dark Engine/Source/Runtime/Core/Public/Logging/LogMacros.h@{Dark Engine/Source/Runtime/Core/Public/Logging/LogMacros.h}}
+{\ttfamily \#include "{}Logging/\+Log\+Category.\+h"{}}\newline
+{\ttfamily \#include $<$format$>$}\newline
+{\ttfamily \#include $<$Logger.\+h$>$}\newline
+{\ttfamily \#include "{}Console/\+Global\+Input\+Out\+Console.\+h"{}}\newline
+\doxysubsubsection*{Классы}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_f_msg}{FMsg}}
+\item 
+struct \mbox{\hyperlink{struct_f_static_basic_log_record}{FStatic\+Basic\+Log\+Record}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Макросы}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_log_macros_8h_a8741300d0bc8f72af0519831a732553a}{DE\+\_\+\+LOG}}(Category\+Name,  Verbosity,  Format, ...)
+\item 
+\#define \mbox{\hyperlink{_log_macros_8h_a66c06938995cf7354bd4997344688e38}{DECLARE\+\_\+\+LOG\+\_\+\+CATEGORY}}(Category\+Name,  Default\+Verbosity)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Функции}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_log_macros_8h_a99dd282f6810f1bc1a5cf055ca8d3b59}{Basic\+Log}} (const \mbox{\hyperlink{struct_f_log_category_base}{FLog\+Category\+Base}} \&Category, const \mbox{\hyperlink{struct_f_static_basic_log_record}{FStatic\+Basic\+Log\+Record}} \texorpdfstring{$\ast$}{*}Log,...)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Макросы}
+\Hypertarget{_log_macros_8h_a8741300d0bc8f72af0519831a732553a}\label{_log_macros_8h_a8741300d0bc8f72af0519831a732553a} 
+\index{LogMacros.h@{LogMacros.h}!DE\_LOG@{DE\_LOG}}
+\index{DE\_LOG@{DE\_LOG}!LogMacros.h@{LogMacros.h}}
+\doxysubsubsection{\texorpdfstring{DE\_LOG}{DE\_LOG}}
+{\footnotesize\ttfamily \#define DE\+\_\+\+LOG(\begin{DoxyParamCaption}\item[{}]{Category\+Name,  }\item[{}]{Verbosity,  }\item[{}]{Format,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+{\bfseries Макроопределение\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{\ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{struct_f_static_basic_log_record}{FStaticBasicLogRecord}}\ LOG\_Static(Format,\ \_\_builtin\_FILE(),\ \_\_builtin\_LINE(),\ ELogVerbosity::Verbosity)\ \ \ \ ;\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ ((ELogVerbosity::Verbosity\ \&\ \mbox{\hyperlink{namespace_e_log_verbosity_ab6bab2e0ab6887ab14ba3dda79944252ad313fb7e4217e5899bdde74ee1d691c5}{ELogVerbosity::VerbosityMask}})\ ==\ \mbox{\hyperlink{namespace_e_log_verbosity_ab6bab2e0ab6887ab14ba3dda79944252a14128745b037ab30ae88c299c995e3bf}{ELogVerbosity::Fatal}})\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \{\ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ BasicLog(CategoryName,\ \&LOG\_Static,\ \#\#\_\_VA\_ARGS\_\_);\ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \}\ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ ((ELogVerbosity::Verbosity\ \&\ \mbox{\hyperlink{namespace_e_log_verbosity_ab6bab2e0ab6887ab14ba3dda79944252ad313fb7e4217e5899bdde74ee1d691c5}{ELogVerbosity::VerbosityMask}})\ <=\ \mbox{\hyperlink{namespace_e_log_verbosity_ab6bab2e0ab6887ab14ba3dda79944252ae3d311f1906ee857e64bff6608c2663a}{ELogVerbosity::VeryVerbose}})\ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \{\ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ BasicLog(CategoryName,\ \&LOG\_Static,\ \#\#\_\_VA\_ARGS\_\_);\ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \}\(\backslash\)}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\Hypertarget{_log_macros_8h_a66c06938995cf7354bd4997344688e38}\label{_log_macros_8h_a66c06938995cf7354bd4997344688e38} 
+\index{LogMacros.h@{LogMacros.h}!DECLARE\_LOG\_CATEGORY@{DECLARE\_LOG\_CATEGORY}}
+\index{DECLARE\_LOG\_CATEGORY@{DECLARE\_LOG\_CATEGORY}!LogMacros.h@{LogMacros.h}}
+\doxysubsubsection{\texorpdfstring{DECLARE\_LOG\_CATEGORY}{DECLARE\_LOG\_CATEGORY}}
+{\footnotesize\ttfamily \#define DECLARE\+\_\+\+LOG\+\_\+\+CATEGORY(\begin{DoxyParamCaption}\item[{}]{Category\+Name,  }\item[{}]{Default\+Verbosity }\end{DoxyParamCaption})}
+
+{\bfseries Макроопределение\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{static}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_f_log_category}{FLogCategory}}\#\#CategoryName\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{struct_f_log_category}{FLogCategory}}<ELogVerbosity::DefaultVerbosity>\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ FORCEINLINE\ \mbox{\hyperlink{struct_f_log_category}{FLogCategory}}\#\#CategoryName()\ :\ \mbox{\hyperlink{struct_f_log_category}{FLogCategory}}(\mbox{\hyperlink{_platform_8h_a2978f60d40d64f3605b5a99f66f292a9}{TEXT}}(\#CategoryName))\ \{\}\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \}\ CategoryName;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Функции}
+\Hypertarget{_log_macros_8h_a99dd282f6810f1bc1a5cf055ca8d3b59}\label{_log_macros_8h_a99dd282f6810f1bc1a5cf055ca8d3b59} 
+\index{LogMacros.h@{LogMacros.h}!BasicLog@{BasicLog}}
+\index{BasicLog@{BasicLog}!LogMacros.h@{LogMacros.h}}
+\doxysubsubsection{\texorpdfstring{BasicLog()}{BasicLog()}}
+{\footnotesize\ttfamily void Basic\+Log (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_f_log_category_base}{FLog\+Category\+Base}} \&}]{Category,  }\item[{const \mbox{\hyperlink{struct_f_static_basic_log_record}{FStatic\+Basic\+Log\+Record}} \texorpdfstring{$\ast$}{*}}]{Log,  }\item[{}]{... }\end{DoxyParamCaption})}
+

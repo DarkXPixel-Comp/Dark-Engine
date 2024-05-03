@@ -1,0 +1,866 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Dark Engine: Класс IRHICommandContext</title>
+<link rel="icon" href="../../Logo.png" type="image/x-icon" />
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<script type="text/javascript" src="../../clipboard.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../MiniLogo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Dark Engine<span id="projectnumber">&#160;0.0.50</span>
+   </div>
+   <div id="projectbrief">New game engnie D3D12</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../../',true,false,'search.php','Поиск');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('d8/d41/class_i_r_h_i_command_context.html','../../'); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="../../d0/d60/class_i_r_h_i_command_context-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle"><div class="title">Класс IRHICommandContext<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="../../d0/dc7/_r_h_i_context_8h_source.html">RHIContext.h</a>&gt;</code></p>
+<div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Граф наследования:IRHICommandContext:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+ <div class="center">
+  <img src="../../d8/d41/class_i_r_h_i_command_context.png" usemap="#IRHICommandContext_map" alt=""/>
+  <map id="IRHICommandContext_map" name="IRHICommandContext_map">
+<area href="../../d2/db5/class_i_r_h_i_compute_context.html" alt="IRHIComputeContext" shape="rect" coords="0,0,184,24"/>
+<area href="../../d3/dda/class_f_d3_d12_command_context_base.html" alt="FD3D12CommandContextBase" shape="rect" coords="0,112,184,136"/>
+<area href="../../d3/d12/class_f_d3_d12_command_context.html" alt="FD3D12CommandContext" shape="rect" coords="0,168,184,192"/>
+  </map>
+</div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:a7d0aa131ee738047cab127901d55f9f8" id="r_a7d0aa131ee738047cab127901d55f9f8"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7d0aa131ee738047cab127901d55f9f8">RHIBeginDrawingViewport</a> (<a class="el" href="../../d0/d5f/class_f_r_h_i_viewport.html">FRHIViewport</a> *<a class="el" href="../../de/d02/struct_viewport.html">Viewport</a>, <a class="el" href="../../d3/d6d/class_f_r_h_i_texture.html">FRHITexture</a> *<a class="el" href="../../de/df7/_r_h_i_defines_8h.html#a9457a748b9d30acc00348bdc63f5de4ea9b0bffda4bcb312168c0d6537cb04b4d">RenderTarget</a>)=0</td></tr>
+<tr class="separator:a7d0aa131ee738047cab127901d55f9f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a436ec235e25ad15f4a4cdd4ae0dc13be" id="r_a436ec235e25ad15f4a4cdd4ae0dc13be"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a436ec235e25ad15f4a4cdd4ae0dc13be">RHIEndDrawingViewport</a> (<a class="el" href="../../d0/d5f/class_f_r_h_i_viewport.html">FRHIViewport</a> *<a class="el" href="../../de/d02/struct_viewport.html">Viewport</a>, bool bPresent, <a class="el" href="../../d2/dc9/_platform_8h.html#a84083085985fb180ad38b9c32e3937da">int32</a> Vsync)=0</td></tr>
+<tr class="separator:a436ec235e25ad15f4a4cdd4ae0dc13be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b32a73d30f021c13ff4f3890d815cc6" id="r_a3b32a73d30f021c13ff4f3890d815cc6"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3b32a73d30f021c13ff4f3890d815cc6">RHIBeginFrame</a> ()=0</td></tr>
+<tr class="separator:a3b32a73d30f021c13ff4f3890d815cc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2386d2f02841a5684468d7beb7a1fc7c" id="r_a2386d2f02841a5684468d7beb7a1fc7c"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2386d2f02841a5684468d7beb7a1fc7c">RHIBeginRenderPass</a> (struct <a class="el" href="../../dc/dcb/struct_f_r_h_i_render_pass_info.html">FRHIRenderPassInfo</a> &amp;InInfo)=0</td></tr>
+<tr class="separator:a2386d2f02841a5684468d7beb7a1fc7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a745a4a29a8a3692f9d268a07df2522da" id="r_a745a4a29a8a3692f9d268a07df2522da"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a745a4a29a8a3692f9d268a07df2522da">RHIEndRenderPass</a> (struct <a class="el" href="../../dc/dcb/struct_f_r_h_i_render_pass_info.html">FRHIRenderPassInfo</a> &amp;InInfo)=0</td></tr>
+<tr class="separator:a745a4a29a8a3692f9d268a07df2522da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c270bca1093d983140d6621816b34c4" id="r_a9c270bca1093d983140d6621816b34c4"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9c270bca1093d983140d6621816b34c4">RHIEndFrame</a> ()=0</td></tr>
+<tr class="separator:a9c270bca1093d983140d6621816b34c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49198de67731fe374e18ade7db8d1a9c" id="r_a49198de67731fe374e18ade7db8d1a9c"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a49198de67731fe374e18ade7db8d1a9c">BeginScene</a> ()</td></tr>
+<tr class="separator:a49198de67731fe374e18ade7db8d1a9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90c4cf317f608a59d4523633c6d57e93" id="r_a90c4cf317f608a59d4523633c6d57e93"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a90c4cf317f608a59d4523633c6d57e93">EndScene</a> ()</td></tr>
+<tr class="separator:a90c4cf317f608a59d4523633c6d57e93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0b576b0c387de3588a9137555593c74" id="r_aa0b576b0c387de3588a9137555593c74"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa0b576b0c387de3588a9137555593c74">RHISetViewport</a> (float MinX, float MinY, float MinZ, float MaxX, float MaxY, float MaxZ)=0</td></tr>
+<tr class="separator:aa0b576b0c387de3588a9137555593c74"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a061c664135960a65e5621f825c60f1a3" id="r_a061c664135960a65e5621f825c60f1a3"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a061c664135960a65e5621f825c60f1a3">RHISetScissorRect</a> (bool bEnable, <a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> MinX, <a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> MinY, <a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> MaxX, <a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> MaxY)</td></tr>
+<tr class="separator:a061c664135960a65e5621f825c60f1a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a90c2d8763f94ca834b2e8d3a4fa1c5" id="r_a3a90c2d8763f94ca834b2e8d3a4fa1c5"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3a90c2d8763f94ca834b2e8d3a4fa1c5">RHISetGraphicsPipelineState</a> (class <a class="el" href="../../de/dfc/class_f_r_h_i_graphics_pipeline_state.html">FRHIGraphicsPipelineState</a> *GraphicsPSO, const <a class="el" href="../../db/d5f/struct_f_bound_shader_state_input.html">FBoundShaderStateInput</a> &amp;ShaderInput)=0</td></tr>
+<tr class="separator:a3a90c2d8763f94ca834b2e8d3a4fa1c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb2f56473c82780610734dbe213efb29" id="r_adb2f56473c82780610734dbe213efb29"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adb2f56473c82780610734dbe213efb29">RHISetShaderTexture</a> (<a class="el" href="../../da/d86/class_f_r_h_i_graphics_shader.html">FRHIGraphicsShader</a> *Shader, <a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> TextureIndex, <a class="el" href="../../d3/d6d/class_f_r_h_i_texture.html">FRHITexture</a> *Texture)</td></tr>
+<tr class="separator:adb2f56473c82780610734dbe213efb29"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af864f58a8b6e84873ee53bdf5bb41c9f" id="r_af864f58a8b6e84873ee53bdf5bb41c9f"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af864f58a8b6e84873ee53bdf5bb41c9f">RHISetShaderSampler</a> (<a class="el" href="../../da/d86/class_f_r_h_i_graphics_shader.html">FRHIGraphicsShader</a> *Shader, <a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> SamplerIndex, <a class="el" href="../../d3/d38/class_f_r_h_i_sampler_state.html">FRHISamplerState</a> *State)</td></tr>
+<tr class="separator:af864f58a8b6e84873ee53bdf5bb41c9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abdc8d79607cb9a68c6d79d6a7116f57c" id="r_abdc8d79607cb9a68c6d79d6a7116f57c"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abdc8d79607cb9a68c6d79d6a7116f57c">RHIBeginImGui</a> ()=0</td></tr>
+<tr class="separator:abdc8d79607cb9a68c6d79d6a7116f57c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e14b0f1f38950719884854721ecfb51" id="r_a2e14b0f1f38950719884854721ecfb51"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2e14b0f1f38950719884854721ecfb51">RHIEndImGui</a> ()=0</td></tr>
+<tr class="separator:a2e14b0f1f38950719884854721ecfb51"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5214f20c38de1bfbf9e69435142156a1" id="r_a5214f20c38de1bfbf9e69435142156a1"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5214f20c38de1bfbf9e69435142156a1">RHIClearTextureColor</a> (<a class="el" href="../../d3/d6d/class_f_r_h_i_texture.html">FRHITexture</a> *InTexture, <a class="el" href="../../d0/df6/_math_fwd_8h.html#a2a5830396a4d19761fa96594e10278fa">FVector</a> InColor)=0</td></tr>
+<tr class="separator:a5214f20c38de1bfbf9e69435142156a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a39de659290f300dc94d04fea9c47d3" id="r_a3a39de659290f300dc94d04fea9c47d3"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3a39de659290f300dc94d04fea9c47d3">RHISetStreamSource</a> (<a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> StreamIndex, <a class="el" href="../../d9/d24/class_f_r_h_i_buffer.html">FRHIBuffer</a> *VertexBuffer, <a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> Offset, <a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> Stride)=0</td></tr>
+<tr class="separator:a3a39de659290f300dc94d04fea9c47d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7defddc4d40bb54c9fae77b57b462b2c" id="r_a7defddc4d40bb54c9fae77b57b462b2c"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7defddc4d40bb54c9fae77b57b462b2c">RHIDrawIndexedPrimitive</a> (<a class="el" href="../../d9/d24/class_f_r_h_i_buffer.html">FRHIBuffer</a> *IndexBufferRHI, <a class="el" href="../../d2/dc9/_platform_8h.html#a84083085985fb180ad38b9c32e3937da">int32</a> BaseVertexIndex, <a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> FirstInstance, <a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> NumVertices, <a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> StartIndex, <a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> NumPrimitives, <a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> NumInstances)=0</td></tr>
+<tr class="separator:a7defddc4d40bb54c9fae77b57b462b2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92e5f9edd22895ef70874bba33a0986e" id="r_a92e5f9edd22895ef70874bba33a0986e"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a92e5f9edd22895ef70874bba33a0986e">RHISetShaderParameters</a> (<a class="el" href="../../da/d86/class_f_r_h_i_graphics_shader.html">FRHIGraphicsShader</a> *Shader, <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d2/dc9/_platform_8h.html#a40bc01dd090acd02a79b5dc13e08abe6">uint8</a> &gt; &amp;InParameters, <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../dd/dbe/struct_f_r_h_i_shader_parameter_resource.html">FRHIShaderParameterResource</a> &gt; &amp;InBindlessParameters, <a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../dd/dbe/struct_f_r_h_i_shader_parameter_resource.html">FRHIShaderParameterResource</a> &gt; &amp;InResourceParameters)=0</td></tr>
+<tr class="separator:a92e5f9edd22895ef70874bba33a0986e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe2194fead74407f7fe7c251c1132445" id="r_abe2194fead74407f7fe7c251c1132445"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abe2194fead74407f7fe7c251c1132445">SetRenderTargets</a> (<a class="el" href="../../d2/dc9/_platform_8h.html#a84083085985fb180ad38b9c32e3937da">int32</a> NumRenderTargets, const <a class="el" href="../../db/d0c/class_f_r_h_i_render_target_view.html">FRHIRenderTargetView</a> *RenderTargetsRHI, const <a class="el" href="../../d1/dc4/class_f_r_h_i_depth_render_target_view.html">FRHIDepthRenderTargetView</a> *DepthStencilViewRHI, bool bClear=false)=0</td></tr>
+<tr class="separator:abe2194fead74407f7fe7c251c1132445"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_class_i_r_h_i_compute_context"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_i_r_h_i_compute_context')"><img src="../../closed.png" alt="-"/>&#160;Открытые члены унаследованные от <a class="el" href="../../d2/db5/class_i_r_h_i_compute_context.html">IRHIComputeContext</a></td></tr>
+<tr class="memitem:a3228620d5f77b5a095d67177f0d0a971 inherit pub_methods_class_i_r_h_i_compute_context" id="r_a3228620d5f77b5a095d67177f0d0a971"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/db5/class_i_r_h_i_compute_context.html#a3228620d5f77b5a095d67177f0d0a971">RHISetComputePipelineState</a> (<a class="el" href="../../de/d0a/class_f_r_h_i_compute_pipeline_state.html">FRHIComputePipelineState</a> *ComputePipelineState)</td></tr>
+<tr class="separator:a3228620d5f77b5a095d67177f0d0a971 inherit pub_methods_class_i_r_h_i_compute_context"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac586a014226cf3cc3534edf82f713fd5 inherit pub_methods_class_i_r_h_i_compute_context" id="r_ac586a014226cf3cc3534edf82f713fd5"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/db5/class_i_r_h_i_compute_context.html#ac586a014226cf3cc3534edf82f713fd5">RHIDispatchComputeShader</a> (<a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> ThreadGroupCountX, <a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> ThreadGroupCountY, <a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> ThreadGroupCountZ)</td></tr>
+<tr class="separator:ac586a014226cf3cc3534edf82f713fd5 inherit pub_methods_class_i_r_h_i_compute_context"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9cc5024ea20c2436f8ddc89aa24be2a inherit pub_methods_class_i_r_h_i_compute_context" id="r_aa9cc5024ea20c2436f8ddc89aa24be2a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/db5/class_i_r_h_i_compute_context.html#aa9cc5024ea20c2436f8ddc89aa24be2a">RHIDispatchIndirectComputeShader</a> (<a class="el" href="../../d9/d24/class_f_r_h_i_buffer.html">FRHIBuffer</a> *InBuffer, <a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> ArgumentOffset)</td></tr>
+<tr class="separator:aa9cc5024ea20c2436f8ddc89aa24be2a inherit pub_methods_class_i_r_h_i_compute_context"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Методы</h2>
+<a id="a49198de67731fe374e18ade7db8d1a9c" name="a49198de67731fe374e18ade7db8d1a9c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49198de67731fe374e18ade7db8d1a9c">&#9670;&#160;</a></span>BeginScene()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void IRHICommandContext::BeginScene </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a90c4cf317f608a59d4523633c6d57e93" name="a90c4cf317f608a59d4523633c6d57e93"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90c4cf317f608a59d4523633c6d57e93">&#9670;&#160;</a></span>EndScene()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void IRHICommandContext::EndScene </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7d0aa131ee738047cab127901d55f9f8" name="a7d0aa131ee738047cab127901d55f9f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d0aa131ee738047cab127901d55f9f8">&#9670;&#160;</a></span>RHIBeginDrawingViewport()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void IRHICommandContext::RHIBeginDrawingViewport </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d0/d5f/class_f_r_h_i_viewport.html">FRHIViewport</a> *</td>          <td class="paramname"><span class="paramname"><em>Viewport</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d3/d6d/class_f_r_h_i_texture.html">FRHITexture</a> *</td>          <td class="paramname"><span class="paramname"><em>RenderTarget</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Замещается в <a class="el" href="../../d3/dda/class_f_d3_d12_command_context_base.html#af89b8d4dae9b792aa6b46c60804008f1">FD3D12CommandContextBase</a>.</p>
+
+</div>
+</div>
+<a id="a3b32a73d30f021c13ff4f3890d815cc6" name="a3b32a73d30f021c13ff4f3890d815cc6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b32a73d30f021c13ff4f3890d815cc6">&#9670;&#160;</a></span>RHIBeginFrame()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void IRHICommandContext::RHIBeginFrame </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Замещается в <a class="el" href="../../d3/d12/class_f_d3_d12_command_context.html#a98390fb0ed2d4f08bd1dcaa0bb7305e5">FD3D12CommandContext</a>.</p>
+
+</div>
+</div>
+<a id="abdc8d79607cb9a68c6d79d6a7116f57c" name="abdc8d79607cb9a68c6d79d6a7116f57c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abdc8d79607cb9a68c6d79d6a7116f57c">&#9670;&#160;</a></span>RHIBeginImGui()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void IRHICommandContext::RHIBeginImGui </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Замещается в <a class="el" href="../../d3/d12/class_f_d3_d12_command_context.html#a8f9830e94669916eeea679acf1f69aa1">FD3D12CommandContext</a>.</p>
+
+</div>
+</div>
+<a id="a2386d2f02841a5684468d7beb7a1fc7c" name="a2386d2f02841a5684468d7beb7a1fc7c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2386d2f02841a5684468d7beb7a1fc7c">&#9670;&#160;</a></span>RHIBeginRenderPass()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void IRHICommandContext::RHIBeginRenderPass </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="../../dc/dcb/struct_f_r_h_i_render_pass_info.html">FRHIRenderPassInfo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>InInfo</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Замещается в <a class="el" href="../../d3/d12/class_f_d3_d12_command_context.html#a947312537a1ee7453cea025880075a19">FD3D12CommandContext</a>.</p>
+
+</div>
+</div>
+<a id="a5214f20c38de1bfbf9e69435142156a1" name="a5214f20c38de1bfbf9e69435142156a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5214f20c38de1bfbf9e69435142156a1">&#9670;&#160;</a></span>RHIClearTextureColor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void IRHICommandContext::RHIClearTextureColor </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d6d/class_f_r_h_i_texture.html">FRHITexture</a> *</td>          <td class="paramname"><span class="paramname"><em>InTexture</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d0/df6/_math_fwd_8h.html#a2a5830396a4d19761fa96594e10278fa">FVector</a></td>          <td class="paramname"><span class="paramname"><em>InColor</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Замещается в <a class="el" href="../../d3/d12/class_f_d3_d12_command_context.html#a6e7f74f9e230d9b42e45276d47d08a8a">FD3D12CommandContext</a>.</p>
+
+</div>
+</div>
+<a id="a7defddc4d40bb54c9fae77b57b462b2c" name="a7defddc4d40bb54c9fae77b57b462b2c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7defddc4d40bb54c9fae77b57b462b2c">&#9670;&#160;</a></span>RHIDrawIndexedPrimitive()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void IRHICommandContext::RHIDrawIndexedPrimitive </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d9/d24/class_f_r_h_i_buffer.html">FRHIBuffer</a> *</td>          <td class="paramname"><span class="paramname"><em>IndexBufferRHI</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d2/dc9/_platform_8h.html#a84083085985fb180ad38b9c32e3937da">int32</a></td>          <td class="paramname"><span class="paramname"><em>BaseVertexIndex</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a></td>          <td class="paramname"><span class="paramname"><em>FirstInstance</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a></td>          <td class="paramname"><span class="paramname"><em>NumVertices</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a></td>          <td class="paramname"><span class="paramname"><em>StartIndex</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a></td>          <td class="paramname"><span class="paramname"><em>NumPrimitives</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a></td>          <td class="paramname"><span class="paramname"><em>NumInstances</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Замещается в <a class="el" href="../../d3/d12/class_f_d3_d12_command_context.html#a2a6decc2e64d0edaa62a21bb10329755">FD3D12CommandContext</a>.</p>
+
+</div>
+</div>
+<a id="a436ec235e25ad15f4a4cdd4ae0dc13be" name="a436ec235e25ad15f4a4cdd4ae0dc13be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a436ec235e25ad15f4a4cdd4ae0dc13be">&#9670;&#160;</a></span>RHIEndDrawingViewport()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void IRHICommandContext::RHIEndDrawingViewport </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d0/d5f/class_f_r_h_i_viewport.html">FRHIViewport</a> *</td>          <td class="paramname"><span class="paramname"><em>Viewport</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>bPresent</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d2/dc9/_platform_8h.html#a84083085985fb180ad38b9c32e3937da">int32</a></td>          <td class="paramname"><span class="paramname"><em>Vsync</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Замещается в <a class="el" href="../../d3/dda/class_f_d3_d12_command_context_base.html#a3a9a99c903935fa755227e036d59bbe2">FD3D12CommandContextBase</a>.</p>
+
+</div>
+</div>
+<a id="a9c270bca1093d983140d6621816b34c4" name="a9c270bca1093d983140d6621816b34c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c270bca1093d983140d6621816b34c4">&#9670;&#160;</a></span>RHIEndFrame()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void IRHICommandContext::RHIEndFrame </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Замещается в <a class="el" href="../../d3/d12/class_f_d3_d12_command_context.html#afde160e09afa35e01fb217f8045d19f8">FD3D12CommandContext</a>.</p>
+
+</div>
+</div>
+<a id="a2e14b0f1f38950719884854721ecfb51" name="a2e14b0f1f38950719884854721ecfb51"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e14b0f1f38950719884854721ecfb51">&#9670;&#160;</a></span>RHIEndImGui()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void IRHICommandContext::RHIEndImGui </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Замещается в <a class="el" href="../../d3/d12/class_f_d3_d12_command_context.html#a82795462f11768c1b3dcde5b93b19fd7">FD3D12CommandContext</a>.</p>
+
+</div>
+</div>
+<a id="a745a4a29a8a3692f9d268a07df2522da" name="a745a4a29a8a3692f9d268a07df2522da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a745a4a29a8a3692f9d268a07df2522da">&#9670;&#160;</a></span>RHIEndRenderPass()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void IRHICommandContext::RHIEndRenderPass </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="../../dc/dcb/struct_f_r_h_i_render_pass_info.html">FRHIRenderPassInfo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>InInfo</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Замещается в <a class="el" href="../../d3/d12/class_f_d3_d12_command_context.html#afc1c11b10711d1455f434f75e14aeb06">FD3D12CommandContext</a>.</p>
+
+</div>
+</div>
+<a id="a3a90c2d8763f94ca834b2e8d3a4fa1c5" name="a3a90c2d8763f94ca834b2e8d3a4fa1c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a90c2d8763f94ca834b2e8d3a4fa1c5">&#9670;&#160;</a></span>RHISetGraphicsPipelineState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void IRHICommandContext::RHISetGraphicsPipelineState </td>
+          <td>(</td>
+          <td class="paramtype">class <a class="el" href="../../de/dfc/class_f_r_h_i_graphics_pipeline_state.html">FRHIGraphicsPipelineState</a> *</td>          <td class="paramname"><span class="paramname"><em>GraphicsPSO</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../db/d5f/struct_f_bound_shader_state_input.html">FBoundShaderStateInput</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>ShaderInput</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Замещается в <a class="el" href="../../d3/d12/class_f_d3_d12_command_context.html#ac6724b5dd81ab007fc88e8f1169e9f21">FD3D12CommandContext</a>.</p>
+
+</div>
+</div>
+<a id="a061c664135960a65e5621f825c60f1a3" name="a061c664135960a65e5621f825c60f1a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a061c664135960a65e5621f825c60f1a3">&#9670;&#160;</a></span>RHISetScissorRect()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void IRHICommandContext::RHISetScissorRect </td>
+          <td>(</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>bEnable</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a></td>          <td class="paramname"><span class="paramname"><em>MinX</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a></td>          <td class="paramname"><span class="paramname"><em>MinY</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a></td>          <td class="paramname"><span class="paramname"><em>MaxX</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a></td>          <td class="paramname"><span class="paramname"><em>MaxY</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a92e5f9edd22895ef70874bba33a0986e" name="a92e5f9edd22895ef70874bba33a0986e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a92e5f9edd22895ef70874bba33a0986e">&#9670;&#160;</a></span>RHISetShaderParameters()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void IRHICommandContext::RHISetShaderParameters </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../da/d86/class_f_r_h_i_graphics_shader.html">FRHIGraphicsShader</a> *</td>          <td class="paramname"><span class="paramname"><em>Shader</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../d2/dc9/_platform_8h.html#a40bc01dd090acd02a79b5dc13e08abe6">uint8</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>InParameters</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../dd/dbe/struct_f_r_h_i_shader_parameter_resource.html">FRHIShaderParameterResource</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>InBindlessParameters</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; <a class="el" href="../../dd/dbe/struct_f_r_h_i_shader_parameter_resource.html">FRHIShaderParameterResource</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>InResourceParameters</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Замещается в <a class="el" href="../../d3/d12/class_f_d3_d12_command_context.html#a7796e58a91f5d2d8d53427b1fd9683a2">FD3D12CommandContext</a>.</p>
+
+</div>
+</div>
+<a id="af864f58a8b6e84873ee53bdf5bb41c9f" name="af864f58a8b6e84873ee53bdf5bb41c9f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af864f58a8b6e84873ee53bdf5bb41c9f">&#9670;&#160;</a></span>RHISetShaderSampler()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void IRHICommandContext::RHISetShaderSampler </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../da/d86/class_f_r_h_i_graphics_shader.html">FRHIGraphicsShader</a> *</td>          <td class="paramname"><span class="paramname"><em>Shader</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a></td>          <td class="paramname"><span class="paramname"><em>SamplerIndex</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d3/d38/class_f_r_h_i_sampler_state.html">FRHISamplerState</a> *</td>          <td class="paramname"><span class="paramname"><em>State</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adb2f56473c82780610734dbe213efb29" name="adb2f56473c82780610734dbe213efb29"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adb2f56473c82780610734dbe213efb29">&#9670;&#160;</a></span>RHISetShaderTexture()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void IRHICommandContext::RHISetShaderTexture </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../da/d86/class_f_r_h_i_graphics_shader.html">FRHIGraphicsShader</a> *</td>          <td class="paramname"><span class="paramname"><em>Shader</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a></td>          <td class="paramname"><span class="paramname"><em>TextureIndex</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d3/d6d/class_f_r_h_i_texture.html">FRHITexture</a> *</td>          <td class="paramname"><span class="paramname"><em>Texture</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3a39de659290f300dc94d04fea9c47d3" name="a3a39de659290f300dc94d04fea9c47d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a39de659290f300dc94d04fea9c47d3">&#9670;&#160;</a></span>RHISetStreamSource()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void IRHICommandContext::RHISetStreamSource </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a></td>          <td class="paramname"><span class="paramname"><em>StreamIndex</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d9/d24/class_f_r_h_i_buffer.html">FRHIBuffer</a> *</td>          <td class="paramname"><span class="paramname"><em>VertexBuffer</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a></td>          <td class="paramname"><span class="paramname"><em>Offset</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a></td>          <td class="paramname"><span class="paramname"><em>Stride</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Замещается в <a class="el" href="../../d3/d12/class_f_d3_d12_command_context.html#aafe452fbbdfa0543b9027d6cce14b7ec">FD3D12CommandContext</a>.</p>
+
+</div>
+</div>
+<a id="aa0b576b0c387de3588a9137555593c74" name="aa0b576b0c387de3588a9137555593c74"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0b576b0c387de3588a9137555593c74">&#9670;&#160;</a></span>RHISetViewport()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void IRHICommandContext::RHISetViewport </td>
+          <td>(</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>MinX</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>MinY</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>MinZ</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>MaxX</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>MaxY</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>MaxZ</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Замещается в <a class="el" href="../../d3/d12/class_f_d3_d12_command_context.html#ac16561de7706f0cf490f09a012f65421">FD3D12CommandContext</a>.</p>
+
+</div>
+</div>
+<a id="abe2194fead74407f7fe7c251c1132445" name="abe2194fead74407f7fe7c251c1132445"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe2194fead74407f7fe7c251c1132445">&#9670;&#160;</a></span>SetRenderTargets()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void IRHICommandContext::SetRenderTargets </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d2/dc9/_platform_8h.html#a84083085985fb180ad38b9c32e3937da">int32</a></td>          <td class="paramname"><span class="paramname"><em>NumRenderTargets</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../db/d0c/class_f_r_h_i_render_target_view.html">FRHIRenderTargetView</a> *</td>          <td class="paramname"><span class="paramname"><em>RenderTargetsRHI</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d1/dc4/class_f_r_h_i_depth_render_target_view.html">FRHIDepthRenderTargetView</a> *</td>          <td class="paramname"><span class="paramname"><em>DepthStencilViewRHI</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>bClear</em><span class="paramdefsep"> = </span><span class="paramdefval">false</span></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Замещается в <a class="el" href="../../d3/d12/class_f_d3_d12_command_context.html#afe009c1bd1a8c33196edc8478aac2368">FD3D12CommandContext</a>.</p>
+
+</div>
+</div>
+<hr/>Объявления и описания членов класса находятся в файле:<ul>
+<li>Dark Engine/Source/Runtime/RHI/public/<a class="el" href="../../d0/dc7/_r_h_i_context_8h_source.html">RHIContext.h</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../d8/d41/class_i_r_h_i_command_context.html">IRHICommandContext</a></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
+</body>
+</html>

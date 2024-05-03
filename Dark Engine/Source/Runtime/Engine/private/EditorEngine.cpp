@@ -37,12 +37,30 @@ void DEditorEngine::UpdateViewportClient(FEditorViewportClient* InViewportClient
 {
 	if (InViewportClient->IsRealtime())
 	{
-		InViewportClient->GameViewport->Draw(InViewportClient);
+		InViewportClient->Viewport->Draw();
 	}
 	CurrentViewportClient = InViewportClient;
 }
 
 void DEditorEngine::UpdateViewportClient()
 {
-	CurrentViewportClient->GameViewport->Draw(CurrentViewportClient);
+	CurrentViewportClient->Viewport->Draw();
+}
+
+FWorld* DEditorEngine::NewMap()
+{
+	FWorld* NewWorld = new FWorld();
+	NewWorld->InitWorld();
+	GWorld = NewWorld;
+	return NewWorld;
+}
+
+void DEditorEngine::Shutdown()
+{
+	if (GWorld)
+	{
+		delete GWorld;
+		GWorld = nullptr;
+	}
+
 }

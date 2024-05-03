@@ -1,0 +1,66 @@
+\doxysection{D3\+D12\+Resource.\+h}
+\hypertarget{_d3_d12_resource_8h_source}{}\label{_d3_d12_resource_8h_source}\index{Dark Engine/Source/Runtime/Render/D3D12/D3D12Resource.h@{Dark Engine/Source/Runtime/Render/D3D12/D3D12Resource.h}}
+\mbox{\hyperlink{_d3_d12_resource_8h}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_d3_d12_utils_8h}{D3D12Utils.h}}"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_d3_d12_main_8h}{D3D12Main.h}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{_array_8h}{Containers/Array.h}}>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00007\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_d3_d12_upload_buffer_resource}{D3D12UploadBufferResource}}}
+\DoxyCodeLine{00008\ \{}
+\DoxyCodeLine{00009\ \ \ \ \ TArray<T>\ m\_dataBuffer;}
+\DoxyCodeLine{00010\ \ \ \ \ UINT\ m\_elementByteSize;}
+\DoxyCodeLine{00011\ \ \ \ \ UINT\ m\_elementsByteSize;}
+\DoxyCodeLine{00012\ \ \ \ \ ID3D12Device8*\ m\_device;}
+\DoxyCodeLine{00013\ \ \ \ \ ComPtr<ID3D12Resource>\ m\_uploadBuffer;}
+\DoxyCodeLine{00014\ \ \ \ \ BYTE*\ m\_mappedData;}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{class_d3_d12_upload_buffer_resource_a1071a84d92864a1ea436c674f32c10c2}{D3D12UploadBufferResource}}(UINT\ elementCount,\ \textcolor{keywordtype}{bool}\ isConstantBuffer\ =\ \textcolor{keyword}{false})\ ;}
+\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{class_d3_d12_upload_buffer_resource_aa53f47e3165edf02d0691e84ffbd706b}{\string~D3D12UploadBufferResource}}();}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_d3_d12_upload_buffer_resource_ab29f4d6f8a74bbf0044743c791e935b1}{CopyData}}(UINT\ elementIndex,\ \textcolor{keyword}{const}\ T\&\ data);}
+\DoxyCodeLine{00022\ \ \ \ \ T\ \mbox{\hyperlink{class_d3_d12_upload_buffer_resource_a16616304c9feb505a67ddc0e94c20f8c}{ReadData}}(UINT\ elementIndex)\ \{\ \textcolor{keywordflow}{return}\ m\_dataBuffer[elementIndex];\ \}}
+\DoxyCodeLine{00023\ \ \ \ \ ID3D12Resource*\ \mbox{\hyperlink{class_d3_d12_upload_buffer_resource_a5b80659dc1e73899f021eddf4cd3356a}{GetResource}}()\ \{\ \textcolor{keywordflow}{return}\ m\_uploadBuffer.Get();\ \}}
+\DoxyCodeLine{00024\ \ \ \ \ UINT\ \mbox{\hyperlink{class_d3_d12_upload_buffer_resource_a7b0fb7af22af6731173761f6077c2dd9}{GetElementByteSize}}()\ \{\ \textcolor{keywordflow}{return}\ m\_elementByteSize;\ \}}
+\DoxyCodeLine{00025\ \ \ \ \ UINT\ \mbox{\hyperlink{class_d3_d12_upload_buffer_resource_ac8ca63c524f88a87e15ba73f631b1cdb}{GetElementsByteSize}}()\ \{\ \textcolor{keywordflow}{return}\ m\_elementsByteSize;\ \}}
+\DoxyCodeLine{00026\ \};}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00030\ \mbox{\hyperlink{class_d3_d12_upload_buffer_resource_a1071a84d92864a1ea436c674f32c10c2}{D3D12UploadBufferResource<T>::D3D12UploadBufferResource}}(UINT\ elementCount,\ \textcolor{keywordtype}{bool}\ isConstantBuffer)}
+\DoxyCodeLine{00031\ \{}
+\DoxyCodeLine{00032\ \ \ \ \ m\_device\ =\ \mbox{\hyperlink{class_d3_d_util_a6d6fbe58e6bfe94e0b7381ea7742f43f}{D3DUtil::GetDevice}}();}
+\DoxyCodeLine{00033\ \ \ \ \ m\_dataBuffer.Resize(elementCount);}
+\DoxyCodeLine{00034\ \ \ \ \ m\_elementByteSize\ =\ isConstantBuffer\ ?\ \mbox{\hyperlink{class_d3_d_util_aef1e7718db784bdb00d4aedfdbac24ab}{D3DUtil::CalcConstantBufferByteSize}}(\textcolor{keyword}{sizeof}(T))\ :\ \textcolor{keyword}{sizeof}(T);}
+\DoxyCodeLine{00035\ \ \ \ \ m\_elementsByteSize\ =\ elementCount\ *\ m\_elementByteSize;}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ D3D12\_HEAP\_PROPERTIES\ heapProperties\ =\ CD3DX12\_HEAP\_PROPERTIES(D3D12\_HEAP\_TYPE\_UPLOAD);}
+\DoxyCodeLine{00038\ \ \ \ \ D3D12\_RESOURCE\_DESC\ resourceDesc\ =\ CD3DX12\_RESOURCE\_DESC::Buffer(m\_elementsByteSize);}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ m\_device-\/>CreateCommittedResource(\&heapProperties,\ D3D12\_HEAP\_FLAG\_NONE,\ \&resourceDesc,}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ D3D12\_RESOURCE\_STATE\_GENERIC\_READ,\ \textcolor{keyword}{nullptr},\ IID\_PPV\_ARGS(\&m\_uploadBuffer));}
+\DoxyCodeLine{00042\ \ \ \ \ m\_uploadBuffer-\/>Map(0,\ 0,\ \textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{void}**\textcolor{keyword}{>}(\&m\_mappedData));}
+\DoxyCodeLine{00043\ \}}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00046\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{class_d3_d12_upload_buffer_resource_aa53f47e3165edf02d0691e84ffbd706b}{D3D12UploadBufferResource<T>::\string~D3D12UploadBufferResource}}()}
+\DoxyCodeLine{00047\ \{}
+\DoxyCodeLine{00048\ \ \ \ \ m\_uploadBuffer-\/>Unmap(0,\ 0);}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{comment}{//m\_uploadBuffer-\/>Release();}}
+\DoxyCodeLine{00050\ \}}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00054\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_d3_d12_upload_buffer_resource_ab29f4d6f8a74bbf0044743c791e935b1}{D3D12UploadBufferResource<T>::CopyData}}(UINT\ elementIndex,\ \textcolor{keyword}{const}\ T\&\ data)}
+\DoxyCodeLine{00055\ \{}
+\DoxyCodeLine{00056\ \ \ \ \ memcpy(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{void}*\textcolor{keyword}{>}(\&m\_mappedData[elementIndex\ *\ m\_elementByteSize]),\ \&data,\ \textcolor{keyword}{sizeof}(T));}
+\DoxyCodeLine{00057\ \ \ \ \ m\_dataBuffer[elementIndex]\ =\ data;}
+\DoxyCodeLine{00058\ \}}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ }
+
+\end{DoxyCode}

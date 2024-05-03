@@ -1,0 +1,133 @@
+\doxysection{Файл Dark Engine/\+Source/\+Runtime/\+Core/\+Core\+Defines.h}
+\hypertarget{_core_defines_8h}{}\label{_core_defines_8h}\index{Dark Engine/Source/Runtime/Core/CoreDefines.h@{Dark Engine/Source/Runtime/Core/CoreDefines.h}}
+\doxysubsubsection*{Макросы}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_core_defines_8h_a9265b72a302841c301689a66be8f13c2}{STUBBED}}(x)
+\item 
+\#define \mbox{\hyperlink{_core_defines_8h_abbdfa8f54b7fc7761d12ecc473f87bc4}{CPP}}~1
+\item 
+\#define \mbox{\hyperlink{_core_defines_8h_aa952ab88fc276d999c5b567605fd34bf}{STRUCTCPP}}~1
+\item 
+\#define \mbox{\hyperlink{_core_defines_8h_a20217791611bd7072991970ea100fdc7}{DEFAULTS}}~0
+\item 
+\#define \mbox{\hyperlink{_core_defines_8h_ac001c76097043d5f14f92651c602bf1c}{STANDALONE\+\_\+\+SEEKFREE\+\_\+\+SUFFIX}}~\mbox{\hyperlink{_platform_8h_a2978f60d40d64f3605b5a99f66f292a9}{TEXT}}("{}\+\_\+\+SF"{})
+\item 
+\#define \mbox{\hyperlink{_core_defines_8h_a9f7bd792b9891de0d3ab2ede0a92b7d9}{NUM\+\_\+\+DELEGATE\+\_\+\+INLINE\+\_\+\+BYTES}}~0
+\item 
+\#define \mbox{\hyperlink{_core_defines_8h_a9904dfe920647d37b231b785a59bd62d}{NUM\+\_\+\+MULTICAST\+\_\+\+DELEGATE\+\_\+\+INLINE\+\_\+\+ENTRIES}}~0
+\item 
+\#define \mbox{\hyperlink{_core_defines_8h_a823dca85f6560c6cc4f5a52baefe8f40}{NUM\+\_\+\+TFUNCTION\+\_\+\+INLINE\+\_\+\+BYTES}}~32
+\item 
+\#define \mbox{\hyperlink{_core_defines_8h_a465ff61416cc6930831ef8bdbf37450c}{NO\+\_\+\+CVARS}}~0
+\item 
+\#define \mbox{\hyperlink{_core_defines_8h_a7ee662528ee54ebaec49a740c97ad79f}{istr}}(x)~std\+::to\+\_\+string(x)
+\item 
+\#define \mbox{\hyperlink{_core_defines_8h_a0debedfbf6b7531888a5ab38a1c1ce1b}{icstr}}(x)~std\+::to\+\_\+string(x).c\+\_\+str()
+\item 
+\#define \mbox{\hyperlink{_core_defines_8h_a829e9501c21ff17c12429a2601f0034d}{cstr}}(x)~x.\+c\+\_\+str()
+\item 
+\#define \mbox{\hyperlink{_core_defines_8h_a8b5c88ebedced9a80e7c0cb7cbbdfaa7}{strw}}(x)~std\+::wstring(x.\+begin(), x.\+end())
+\item 
+\#define \mbox{\hyperlink{_core_defines_8h_a0334d753b13962afea34c1c6176e1a96}{wstr}}(x)~\mbox{\hyperlink{class_f_string}{FString}}(x.\+begin(), x.\+end())
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Макросы}
+\Hypertarget{_core_defines_8h_abbdfa8f54b7fc7761d12ecc473f87bc4}\label{_core_defines_8h_abbdfa8f54b7fc7761d12ecc473f87bc4} 
+\index{CoreDefines.h@{CoreDefines.h}!CPP@{CPP}}
+\index{CPP@{CPP}!CoreDefines.h@{CoreDefines.h}}
+\doxysubsubsection{\texorpdfstring{CPP}{CPP}}
+{\footnotesize\ttfamily \#define CPP~1}
+
+\Hypertarget{_core_defines_8h_a829e9501c21ff17c12429a2601f0034d}\label{_core_defines_8h_a829e9501c21ff17c12429a2601f0034d} 
+\index{CoreDefines.h@{CoreDefines.h}!cstr@{cstr}}
+\index{cstr@{cstr}!CoreDefines.h@{CoreDefines.h}}
+\doxysubsubsection{\texorpdfstring{cstr}{cstr}}
+{\footnotesize\ttfamily \#define cstr(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~x.\+c\+\_\+str()}
+
+\Hypertarget{_core_defines_8h_a20217791611bd7072991970ea100fdc7}\label{_core_defines_8h_a20217791611bd7072991970ea100fdc7} 
+\index{CoreDefines.h@{CoreDefines.h}!DEFAULTS@{DEFAULTS}}
+\index{DEFAULTS@{DEFAULTS}!CoreDefines.h@{CoreDefines.h}}
+\doxysubsubsection{\texorpdfstring{DEFAULTS}{DEFAULTS}}
+{\footnotesize\ttfamily \#define DEFAULTS~0}
+
+\Hypertarget{_core_defines_8h_a0debedfbf6b7531888a5ab38a1c1ce1b}\label{_core_defines_8h_a0debedfbf6b7531888a5ab38a1c1ce1b} 
+\index{CoreDefines.h@{CoreDefines.h}!icstr@{icstr}}
+\index{icstr@{icstr}!CoreDefines.h@{CoreDefines.h}}
+\doxysubsubsection{\texorpdfstring{icstr}{icstr}}
+{\footnotesize\ttfamily \#define icstr(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~std\+::to\+\_\+string(x).c\+\_\+str()}
+
+\Hypertarget{_core_defines_8h_a7ee662528ee54ebaec49a740c97ad79f}\label{_core_defines_8h_a7ee662528ee54ebaec49a740c97ad79f} 
+\index{CoreDefines.h@{CoreDefines.h}!istr@{istr}}
+\index{istr@{istr}!CoreDefines.h@{CoreDefines.h}}
+\doxysubsubsection{\texorpdfstring{istr}{istr}}
+{\footnotesize\ttfamily \#define istr(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~std\+::to\+\_\+string(x)}
+
+\Hypertarget{_core_defines_8h_a465ff61416cc6930831ef8bdbf37450c}\label{_core_defines_8h_a465ff61416cc6930831ef8bdbf37450c} 
+\index{CoreDefines.h@{CoreDefines.h}!NO\_CVARS@{NO\_CVARS}}
+\index{NO\_CVARS@{NO\_CVARS}!CoreDefines.h@{CoreDefines.h}}
+\doxysubsubsection{\texorpdfstring{NO\_CVARS}{NO\_CVARS}}
+{\footnotesize\ttfamily \#define NO\+\_\+\+CVARS~0}
+
+\Hypertarget{_core_defines_8h_a9f7bd792b9891de0d3ab2ede0a92b7d9}\label{_core_defines_8h_a9f7bd792b9891de0d3ab2ede0a92b7d9} 
+\index{CoreDefines.h@{CoreDefines.h}!NUM\_DELEGATE\_INLINE\_BYTES@{NUM\_DELEGATE\_INLINE\_BYTES}}
+\index{NUM\_DELEGATE\_INLINE\_BYTES@{NUM\_DELEGATE\_INLINE\_BYTES}!CoreDefines.h@{CoreDefines.h}}
+\doxysubsubsection{\texorpdfstring{NUM\_DELEGATE\_INLINE\_BYTES}{NUM\_DELEGATE\_INLINE\_BYTES}}
+{\footnotesize\ttfamily \#define NUM\+\_\+\+DELEGATE\+\_\+\+INLINE\+\_\+\+BYTES~0}
+
+\Hypertarget{_core_defines_8h_a9904dfe920647d37b231b785a59bd62d}\label{_core_defines_8h_a9904dfe920647d37b231b785a59bd62d} 
+\index{CoreDefines.h@{CoreDefines.h}!NUM\_MULTICAST\_DELEGATE\_INLINE\_ENTRIES@{NUM\_MULTICAST\_DELEGATE\_INLINE\_ENTRIES}}
+\index{NUM\_MULTICAST\_DELEGATE\_INLINE\_ENTRIES@{NUM\_MULTICAST\_DELEGATE\_INLINE\_ENTRIES}!CoreDefines.h@{CoreDefines.h}}
+\doxysubsubsection{\texorpdfstring{NUM\_MULTICAST\_DELEGATE\_INLINE\_ENTRIES}{NUM\_MULTICAST\_DELEGATE\_INLINE\_ENTRIES}}
+{\footnotesize\ttfamily \#define NUM\+\_\+\+MULTICAST\+\_\+\+DELEGATE\+\_\+\+INLINE\+\_\+\+ENTRIES~0}
+
+\Hypertarget{_core_defines_8h_a823dca85f6560c6cc4f5a52baefe8f40}\label{_core_defines_8h_a823dca85f6560c6cc4f5a52baefe8f40} 
+\index{CoreDefines.h@{CoreDefines.h}!NUM\_TFUNCTION\_INLINE\_BYTES@{NUM\_TFUNCTION\_INLINE\_BYTES}}
+\index{NUM\_TFUNCTION\_INLINE\_BYTES@{NUM\_TFUNCTION\_INLINE\_BYTES}!CoreDefines.h@{CoreDefines.h}}
+\doxysubsubsection{\texorpdfstring{NUM\_TFUNCTION\_INLINE\_BYTES}{NUM\_TFUNCTION\_INLINE\_BYTES}}
+{\footnotesize\ttfamily \#define NUM\+\_\+\+TFUNCTION\+\_\+\+INLINE\+\_\+\+BYTES~32}
+
+\Hypertarget{_core_defines_8h_ac001c76097043d5f14f92651c602bf1c}\label{_core_defines_8h_ac001c76097043d5f14f92651c602bf1c} 
+\index{CoreDefines.h@{CoreDefines.h}!STANDALONE\_SEEKFREE\_SUFFIX@{STANDALONE\_SEEKFREE\_SUFFIX}}
+\index{STANDALONE\_SEEKFREE\_SUFFIX@{STANDALONE\_SEEKFREE\_SUFFIX}!CoreDefines.h@{CoreDefines.h}}
+\doxysubsubsection{\texorpdfstring{STANDALONE\_SEEKFREE\_SUFFIX}{STANDALONE\_SEEKFREE\_SUFFIX}}
+{\footnotesize\ttfamily \#define STANDALONE\+\_\+\+SEEKFREE\+\_\+\+SUFFIX~\mbox{\hyperlink{_platform_8h_a2978f60d40d64f3605b5a99f66f292a9}{TEXT}}("{}\+\_\+\+SF"{})}
+
+\Hypertarget{_core_defines_8h_aa952ab88fc276d999c5b567605fd34bf}\label{_core_defines_8h_aa952ab88fc276d999c5b567605fd34bf} 
+\index{CoreDefines.h@{CoreDefines.h}!STRUCTCPP@{STRUCTCPP}}
+\index{STRUCTCPP@{STRUCTCPP}!CoreDefines.h@{CoreDefines.h}}
+\doxysubsubsection{\texorpdfstring{STRUCTCPP}{STRUCTCPP}}
+{\footnotesize\ttfamily \#define STRUCTCPP~1}
+
+\Hypertarget{_core_defines_8h_a8b5c88ebedced9a80e7c0cb7cbbdfaa7}\label{_core_defines_8h_a8b5c88ebedced9a80e7c0cb7cbbdfaa7} 
+\index{CoreDefines.h@{CoreDefines.h}!strw@{strw}}
+\index{strw@{strw}!CoreDefines.h@{CoreDefines.h}}
+\doxysubsubsection{\texorpdfstring{strw}{strw}}
+{\footnotesize\ttfamily \#define strw(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~std\+::wstring(x.\+begin(), x.\+end())}
+
+\Hypertarget{_core_defines_8h_a9265b72a302841c301689a66be8f13c2}\label{_core_defines_8h_a9265b72a302841c301689a66be8f13c2} 
+\index{CoreDefines.h@{CoreDefines.h}!STUBBED@{STUBBED}}
+\index{STUBBED@{STUBBED}!CoreDefines.h@{CoreDefines.h}}
+\doxysubsubsection{\texorpdfstring{STUBBED}{STUBBED}}
+{\footnotesize\ttfamily \#define STUBBED(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})}
+
+{\bfseries Макроопределение\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{do}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ AlreadySeenThisStubbedSection\ =\ \textcolor{keyword}{false};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ if\ (!AlreadySeenThisStubbedSection)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ AlreadySeenThisStubbedSection\ =\ \textcolor{keyword}{true};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ fprintf(stderr,\ \textcolor{stringliteral}{"{}STUBBED:\ \%s\ at\ \%s:\%d\ (\%s)\(\backslash\)n"{}},\ x,\ \_\_FILE\_\_,\ \_\_LINE\_\_,\ \_\_FUNCTION\_\_);\ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \}\ \textcolor{keywordflow}{while}\ (0)}
+
+\end{DoxyCode}
+\Hypertarget{_core_defines_8h_a0334d753b13962afea34c1c6176e1a96}\label{_core_defines_8h_a0334d753b13962afea34c1c6176e1a96} 
+\index{CoreDefines.h@{CoreDefines.h}!wstr@{wstr}}
+\index{wstr@{wstr}!CoreDefines.h@{CoreDefines.h}}
+\doxysubsubsection{\texorpdfstring{wstr}{wstr}}
+{\footnotesize\ttfamily \#define wstr(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~\mbox{\hyperlink{class_f_string}{FString}}(x.\+begin(), x.\+end())}
+

@@ -1,0 +1,51 @@
+\doxysection{D3\+D12\+Queue.\+h}
+\hypertarget{_d3_d12_queue_8h_source}{}\label{_d3_d12_queue_8h_source}\index{Dark Engine/Source/Runtime/D3D12RHI/private/D3D12Queue.h@{Dark Engine/Source/Runtime/D3D12RHI/private/D3D12Queue.h}}
+\mbox{\hyperlink{_d3_d12_queue_8h}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_d3_d12_r_h_i_common_8h}{D3D12RHICommon.h}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_r_h_i_pipeline_8h}{RHIPipeline.h}}"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{_d3_d12_queue_8h_ac3690361fe491f309cb9dbba3be17899}{ED3D12QueueType}}}
+\DoxyCodeLine{00008\ \{}
+\DoxyCodeLine{00009\ \ \ \ \ \mbox{\hyperlink{_d3_d12_queue_8h_ac3690361fe491f309cb9dbba3be17899afd1dd0c603be8170f9eae0be9f2f6afb}{Direct}}\ =\ 0,}
+\DoxyCodeLine{00010\ \ \ \ \ \mbox{\hyperlink{_d3_d12_queue_8h_ac3690361fe491f309cb9dbba3be17899a5fb63579fc981698f97d55bfecb213ea}{Copy}}\ =\ 1,}
+\DoxyCodeLine{00011\ \ \ \ \ \mbox{\hyperlink{_d3_d12_queue_8h_ac3690361fe491f309cb9dbba3be17899a24aa4117da86c41684ad25742832dfa6}{Async}}\ =\ 2,}
+\DoxyCodeLine{00012\ \ \ \ \ \mbox{\hyperlink{_d3_d12_queue_8h_ac3690361fe491f309cb9dbba3be17899ae93f994f01c537c4e2f7d8528c3eb5e9}{Count}}\ =\ 3}
+\DoxyCodeLine{00013\ \};}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ FORCEINLINE\ \mbox{\hyperlink{_d3_d12_queue_8h_ac3690361fe491f309cb9dbba3be17899}{ED3D12QueueType}}\ \mbox{\hyperlink{_d3_d12_queue_8h_ac823fdb43855e011bc184e50eaa700f7}{GetD3DCommandQueueType}}(\mbox{\hyperlink{_r_h_i_pipeline_8h_a7897373e689a9d0a3e71d78c0e898407}{ERHIPipeline}}\ Pipeline)}
+\DoxyCodeLine{00018\ \{}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordflow}{switch}\ (Pipeline)}
+\DoxyCodeLine{00020\ \ \ \ \ \{}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{_r_h_i_pipeline_8h_a7897373e689a9d0a3e71d78c0e898407ad334dfcea59127bedfcdbe0a3ee7f494}{ERHIPipeline::Graphics}}:\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{_d3_d12_queue_8h_ac3690361fe491f309cb9dbba3be17899afd1dd0c603be8170f9eae0be9f2f6afb}{ED3D12QueueType::Direct}};}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{_r_h_i_pipeline_8h_a7897373e689a9d0a3e71d78c0e898407ad010f2d878ac2db17e54920d5fde5e6c}{ERHIPipeline::AsyncCompute}}:\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{_d3_d12_queue_8h_ac3690361fe491f309cb9dbba3be17899a24aa4117da86c41684ad25742832dfa6}{ED3D12QueueType::Async}};}
+\DoxyCodeLine{00023\ \ \ \ \ \}}
+\DoxyCodeLine{00024\ \}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ FORCEINLINE\ \textcolor{keyword}{const}\ \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}}*\ \mbox{\hyperlink{_d3_d12_queue_8h_ae370ac004d8fd427a4d972d0cdc69d25}{GetD3D12CommandQueueTypeName}}(\mbox{\hyperlink{_d3_d12_queue_8h_ac3690361fe491f309cb9dbba3be17899}{ED3D12QueueType}}\ QueueType)}
+\DoxyCodeLine{00028\ \{}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordflow}{switch}\ (QueueType)}
+\DoxyCodeLine{00030\ \ \ \ \ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{_d3_d12_queue_8h_ac3690361fe491f309cb9dbba3be17899afd1dd0c603be8170f9eae0be9f2f6afb}{ED3D12QueueType::Direct}}:\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{_platform_8h_a2978f60d40d64f3605b5a99f66f292a9}{TEXT}}(\textcolor{stringliteral}{"{}Direct"{}});}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{_d3_d12_queue_8h_ac3690361fe491f309cb9dbba3be17899a5fb63579fc981698f97d55bfecb213ea}{ED3D12QueueType::Copy}}:\ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{_platform_8h_a2978f60d40d64f3605b5a99f66f292a9}{TEXT}}(\textcolor{stringliteral}{"{}Copy"{}});}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{_d3_d12_queue_8h_ac3690361fe491f309cb9dbba3be17899a24aa4117da86c41684ad25742832dfa6}{ED3D12QueueType::Async}}:\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{_platform_8h_a2978f60d40d64f3605b5a99f66f292a9}{TEXT}}(\textcolor{stringliteral}{"{}Async"{}});}
+\DoxyCodeLine{00034\ \ \ \ \ \}}
+\DoxyCodeLine{00035\ \}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ FORCEINLINE\ D3D12\_COMMAND\_LIST\_TYPE\ \mbox{\hyperlink{_d3_d12_queue_8h_accd1109ac0ead39335708978d2732a6f}{GetD3DCommandListType}}(\mbox{\hyperlink{_d3_d12_queue_8h_ac3690361fe491f309cb9dbba3be17899}{ED3D12QueueType}}\ QueueType)}
+\DoxyCodeLine{00038\ \{}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordflow}{switch}\ (QueueType)}
+\DoxyCodeLine{00040\ \ \ \ \ \{}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{_d3_d12_queue_8h_ac3690361fe491f309cb9dbba3be17899afd1dd0c603be8170f9eae0be9f2f6afb}{ED3D12QueueType::Direct}}:\ \textcolor{keywordflow}{return}\ D3D12\_COMMAND\_LIST\_TYPE\_DIRECT;}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{_d3_d12_queue_8h_ac3690361fe491f309cb9dbba3be17899a5fb63579fc981698f97d55bfecb213ea}{ED3D12QueueType::Copy}}:\ \ \ \ \textcolor{keywordflow}{return}\ D3D12\_COMMAND\_LIST\_TYPE\_COPY;}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{_d3_d12_queue_8h_ac3690361fe491f309cb9dbba3be17899a24aa4117da86c41684ad25742832dfa6}{ED3D12QueueType::Async}}:\ \textcolor{keywordflow}{return}\ D3D12\_COMMAND\_LIST\_TYPE\_COMPUTE;}
+\DoxyCodeLine{00044\ \ \ \ \ \}}
+\DoxyCodeLine{00045\ \}}
+
+\end{DoxyCode}

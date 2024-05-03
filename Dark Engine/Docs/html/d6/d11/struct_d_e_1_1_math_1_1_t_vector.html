@@ -1,0 +1,3041 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Dark Engine: Шаблон структуры DE::Math::TVector&lt; T &gt;</title>
+<link rel="icon" href="../../Logo.png" type="image/x-icon" />
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<script type="text/javascript" src="../../clipboard.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../MiniLogo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Dark Engine<span id="projectnumber">&#160;0.0.50</span>
+   </div>
+   <div id="projectbrief">New game engnie D3D12</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../../',true,false,'search.php','Поиск');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('d6/d11/struct_d_e_1_1_math_1_1_t_vector.html','../../'); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-types">Открытые типы</a> &#124;
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="#pub-static-methods">Открытые статические члены</a> &#124;
+<a href="#pub-attribs">Открытые атрибуты</a> &#124;
+<a href="#pub-static-attribs">Статические открытые данные</a> &#124;
+<a href="../../d5/de0/struct_d_e_1_1_math_1_1_t_vector-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle"><div class="title">Шаблон структуры DE::Math::TVector&lt; T &gt;</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="../../d4/d7f/_vector_8h_source.html">Vector.h</a>&gt;</code></p>
+<div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Граф наследования:DE::Math::TVector&lt; T &gt;:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+ <div class="center">
+  <img src="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.png" usemap="#DE::Math::TVector_3C_20T_20_3E_map" alt=""/>
+  <map id="DE::Math::TVector_3C_20T_20_3E_map" name="DE::Math::TVector_3C_20T_20_3E_map">
+<area href="../../dc/ddb/struct_d_e_1_1_math_1_1_t_plane.html" alt="DE::Math::TPlane&lt; T &gt;" shape="rect" coords="0,56,145,80"/>
+  </map>
+</div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
+Открытые типы</h2></td></tr>
+<tr class="memitem:a6e62827091dce61f9f3afdadd5cec58b" id="r_a6e62827091dce61f9f3afdadd5cec58b"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6e62827091dce61f9f3afdadd5cec58b">FDark</a> = T</td></tr>
+<tr class="separator:a6e62827091dce61f9f3afdadd5cec58b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:a22351713c8cb9a3d3097914bdee228e3" id="r_a22351713c8cb9a3d3097914bdee228e3"><td class="memItemLeft" align="right" valign="top">FORCEINLINE void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a22351713c8cb9a3d3097914bdee228e3">DiagnosticCheckNaN</a> () const</td></tr>
+<tr class="separator:a22351713c8cb9a3d3097914bdee228e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ce7b645a9e6f61192c65842d73f6929" id="r_a8ce7b645a9e6f61192c65842d73f6929"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8ce7b645a9e6f61192c65842d73f6929">TVector</a> ()</td></tr>
+<tr class="separator:a8ce7b645a9e6f61192c65842d73f6929"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a858c7f3418abe623f9e439dec1ca466f" id="r_a858c7f3418abe623f9e439dec1ca466f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a858c7f3418abe623f9e439dec1ca466f">TVector</a> (T InF)</td></tr>
+<tr class="separator:a858c7f3418abe623f9e439dec1ca466f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e09fb9afde7f29e9c2ee8bc6034265f" id="r_a1e09fb9afde7f29e9c2ee8bc6034265f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1e09fb9afde7f29e9c2ee8bc6034265f">TVector</a> (T InX, T InY, T InZ)</td></tr>
+<tr class="separator:a1e09fb9afde7f29e9c2ee8bc6034265f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7ce77ef41d72cb989a439d449614f15" id="r_ab7ce77ef41d72cb989a439d449614f15"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab7ce77ef41d72cb989a439d449614f15">TVector</a> (const <a class="el" href="../../d3/dba/struct_d_e_1_1_math_1_1_t_vector2.html">TVector2</a>&lt; T &gt; V, T InZ)</td></tr>
+<tr class="separator:ab7ce77ef41d72cb989a439d449614f15"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3af89ee9b0bd1300c2898f20c18877e" id="r_ac3af89ee9b0bd1300c2898f20c18877e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac3af89ee9b0bd1300c2898f20c18877e">TVector</a> (const <a class="el" href="../../d3/dba/struct_d_e_1_1_math_1_1_t_vector2.html">TVector2</a>&lt; T &gt; V1, <a class="el" href="../../d3/dba/struct_d_e_1_1_math_1_1_t_vector2.html">TVector2</a>&lt; T &gt; V2)</td></tr>
+<tr class="separator:ac3af89ee9b0bd1300c2898f20c18877e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a0f55d6e31128909545b2169ec09419" id="r_a4a0f55d6e31128909545b2169ec09419"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4a0f55d6e31128909545b2169ec09419">TVector</a> (std::initializer_list&lt; T &gt; Elements)</td></tr>
+<tr class="separator:a4a0f55d6e31128909545b2169ec09419"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8cb1b3d6e3e5ba60da2879045109a571" id="r_a8cb1b3d6e3e5ba60da2879045109a571"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8cb1b3d6e3e5ba60da2879045109a571">operator=</a> (std::initializer_list&lt; T &gt; Elements)</td></tr>
+<tr class="separator:a8cb1b3d6e3e5ba60da2879045109a571"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7374b2346cb58212c2d248a98963292c" id="r_a7374b2346cb58212c2d248a98963292c"><td class="memItemLeft" align="right" valign="top">FORCEINLINE <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7374b2346cb58212c2d248a98963292c">operator^</a> (const <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; &amp;V) const</td></tr>
+<tr class="separator:a7374b2346cb58212c2d248a98963292c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afda5484b610e96346bd1b476fe4f4dbb" id="r_afda5484b610e96346bd1b476fe4f4dbb"><td class="memItemLeft" align="right" valign="top">FORCEINLINE <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afda5484b610e96346bd1b476fe4f4dbb">Cross</a> (const <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; &amp;V2) const</td></tr>
+<tr class="separator:afda5484b610e96346bd1b476fe4f4dbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf4543c501854e2a4797f172d7d2a285" id="r_acf4543c501854e2a4797f172d7d2a285"><td class="memItemLeft" align="right" valign="top">FORCEINLINE T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acf4543c501854e2a4797f172d7d2a285">operator|</a> (const <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; &amp;V) const</td></tr>
+<tr class="separator:acf4543c501854e2a4797f172d7d2a285"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a702d28ab0849afac4763a96134e542ea" id="r_a702d28ab0849afac4763a96134e542ea"><td class="memItemLeft" align="right" valign="top">FORCEINLINE T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a702d28ab0849afac4763a96134e542ea">Dot</a> (const <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; &amp;V) const</td></tr>
+<tr class="separator:a702d28ab0849afac4763a96134e542ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa2fc9ca5ae7167ace53a242f89ab514" id="r_aaa2fc9ca5ae7167ace53a242f89ab514"><td class="memItemLeft" align="right" valign="top">FORCEINLINE <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaa2fc9ca5ae7167ace53a242f89ab514">operator+</a> (const <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; &amp;V) const</td></tr>
+<tr class="separator:aaa2fc9ca5ae7167ace53a242f89ab514"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e6f77df889bbd7f0941a6eb8faee2f3" id="r_a1e6f77df889bbd7f0941a6eb8faee2f3"><td class="memItemLeft" align="right" valign="top">FORCEINLINE <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1e6f77df889bbd7f0941a6eb8faee2f3">operator-</a> (const <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; &amp;V) const</td></tr>
+<tr class="separator:a1e6f77df889bbd7f0941a6eb8faee2f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0efc10c8309fafc3a8ccb828c1e8ae46" id="r_a0efc10c8309fafc3a8ccb828c1e8ae46"><td class="memTemplParams" colspan="2">template&lt;typename FArg &gt; </td></tr>
+<tr class="memitem:a0efc10c8309fafc3a8ccb828c1e8ae46"><td class="memTemplItemLeft" align="right" valign="top">FORCEINLINE <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a0efc10c8309fafc3a8ccb828c1e8ae46">operator-</a> (FArg Bias)</td></tr>
+<tr class="separator:a0efc10c8309fafc3a8ccb828c1e8ae46"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a373172d05f95dab45d2c9e53dc99ede1" id="r_a373172d05f95dab45d2c9e53dc99ede1"><td class="memTemplParams" colspan="2">template&lt;typename FArg &gt; </td></tr>
+<tr class="memitem:a373172d05f95dab45d2c9e53dc99ede1"><td class="memTemplItemLeft" align="right" valign="top">FORCEINLINE <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a373172d05f95dab45d2c9e53dc99ede1">operator*</a> (FArg Scale) const</td></tr>
+<tr class="separator:a373172d05f95dab45d2c9e53dc99ede1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3fc3d0850761a457aec767de94b2e0e0" id="r_a3fc3d0850761a457aec767de94b2e0e0"><td class="memTemplParams" colspan="2">template&lt;typename FArg &gt; </td></tr>
+<tr class="memitem:a3fc3d0850761a457aec767de94b2e0e0"><td class="memTemplItemLeft" align="right" valign="top">FORCEINLINE <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a3fc3d0850761a457aec767de94b2e0e0">operator/</a> (FArg Scale) const</td></tr>
+<tr class="separator:a3fc3d0850761a457aec767de94b2e0e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aebe109f2ca3b8d6e4e62d96c3570725f" id="r_aebe109f2ca3b8d6e4e62d96c3570725f"><td class="memItemLeft" align="right" valign="top">FORCEINLINE <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aebe109f2ca3b8d6e4e62d96c3570725f">operator*</a> (const <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; &amp;V) const</td></tr>
+<tr class="separator:aebe109f2ca3b8d6e4e62d96c3570725f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a343c8f85e31dcd138bcacbb6bf48a0d6" id="r_a343c8f85e31dcd138bcacbb6bf48a0d6"><td class="memItemLeft" align="right" valign="top">FORCEINLINE <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a343c8f85e31dcd138bcacbb6bf48a0d6">operator/</a> (const <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; &amp;V) const</td></tr>
+<tr class="separator:a343c8f85e31dcd138bcacbb6bf48a0d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35753a54f2db7b4e62b5a23baf2d0e37" id="r_a35753a54f2db7b4e62b5a23baf2d0e37"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a35753a54f2db7b4e62b5a23baf2d0e37">operator==</a> (const <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; &amp;V) const</td></tr>
+<tr class="separator:a35753a54f2db7b4e62b5a23baf2d0e37"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c4098d1d387833d8bae81072d8409a9" id="r_a5c4098d1d387833d8bae81072d8409a9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5c4098d1d387833d8bae81072d8409a9">operator!=</a> (const <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; &amp;V) const</td></tr>
+<tr class="separator:a5c4098d1d387833d8bae81072d8409a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb119798692f88143b3b73bb968b42b1" id="r_aeb119798692f88143b3b73bb968b42b1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeb119798692f88143b3b73bb968b42b1">Equals</a> (const <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; &amp;V, T Tolerance=<a class="el" href="../../d7/d8b/_dark_math_utility_8h.html#af164f5a3286e027ba25121e9f81cd1f7">DE_KINDA_SMALL_NUMBER</a>) const</td></tr>
+<tr class="separator:aeb119798692f88143b3b73bb968b42b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a610ca38a5d3b5601e16f9a3a62828349" id="r_a610ca38a5d3b5601e16f9a3a62828349"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a610ca38a5d3b5601e16f9a3a62828349">AllComponentEqual</a> (T Tolerance=<a class="el" href="../../d7/d8b/_dark_math_utility_8h.html#af164f5a3286e027ba25121e9f81cd1f7">DE_KINDA_SMALL_NUMBER</a>) const</td></tr>
+<tr class="separator:a610ca38a5d3b5601e16f9a3a62828349"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8a05cc0f976a01621dfbbdb5f15eaf8" id="r_ab8a05cc0f976a01621dfbbdb5f15eaf8"><td class="memItemLeft" align="right" valign="top">FORCEINLINE <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab8a05cc0f976a01621dfbbdb5f15eaf8">operator+=</a> (const <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; &amp;V)</td></tr>
+<tr class="separator:ab8a05cc0f976a01621dfbbdb5f15eaf8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f191b248ff5011ede7a50476f640c3f" id="r_a8f191b248ff5011ede7a50476f640c3f"><td class="memItemLeft" align="right" valign="top">FORCEINLINE <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8f191b248ff5011ede7a50476f640c3f">operator-=</a> (const <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; &amp;V)</td></tr>
+<tr class="separator:a8f191b248ff5011ede7a50476f640c3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af46b24bb7565f9a8541fcf7ede4e162c" id="r_af46b24bb7565f9a8541fcf7ede4e162c"><td class="memTemplParams" colspan="2">template&lt;typename FArg , <a class="el" href="../../d5/da7/_dark_type_traits_8h.html#aad49833beeab0ea4077979d083cee73b">TEMPLATE_REQUIRES</a>(std::is_arithmetic&lt; FArg &gt;::value) &gt; </td></tr>
+<tr class="memitem:af46b24bb7565f9a8541fcf7ede4e162c"><td class="memTemplItemLeft" align="right" valign="top">FORCEINLINE <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#af46b24bb7565f9a8541fcf7ede4e162c">operator*=</a> (FArg Scale)</td></tr>
+<tr class="separator:af46b24bb7565f9a8541fcf7ede4e162c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa44d4c3cc5f1688e42f3c039f355dbd5" id="r_aa44d4c3cc5f1688e42f3c039f355dbd5"><td class="memTemplParams" colspan="2">template&lt;typename FArg , <a class="el" href="../../d5/da7/_dark_type_traits_8h.html#aad49833beeab0ea4077979d083cee73b">TEMPLATE_REQUIRES</a>(std::is_arithmetic&lt; FArg &gt;::value) &gt; </td></tr>
+<tr class="memitem:aa44d4c3cc5f1688e42f3c039f355dbd5"><td class="memTemplItemLeft" align="right" valign="top">FORCEINLINE <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#aa44d4c3cc5f1688e42f3c039f355dbd5">operator/=</a> (FArg Scale)</td></tr>
+<tr class="separator:aa44d4c3cc5f1688e42f3c039f355dbd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a212a13633b0fac2b92559254f4b5c0eb" id="r_a212a13633b0fac2b92559254f4b5c0eb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a212a13633b0fac2b92559254f4b5c0eb">operator*=</a> (const <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; &amp;V)</td></tr>
+<tr class="separator:a212a13633b0fac2b92559254f4b5c0eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d89c61db75f5bb66c5bc65b5a079752" id="r_a0d89c61db75f5bb66c5bc65b5a079752"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0d89c61db75f5bb66c5bc65b5a079752">operator/=</a> (const <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; &amp;V)</td></tr>
+<tr class="separator:a0d89c61db75f5bb66c5bc65b5a079752"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2867c3b54222aef24954283622a53aac" id="r_a2867c3b54222aef24954283622a53aac"><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2867c3b54222aef24954283622a53aac">operator[]</a> (<a class="el" href="../../d2/dc9/_platform_8h.html#a84083085985fb180ad38b9c32e3937da">int32</a> Index)</td></tr>
+<tr class="separator:a2867c3b54222aef24954283622a53aac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac39234c1fa8e9a8fdf2c6953c44d750b" id="r_ac39234c1fa8e9a8fdf2c6953c44d750b"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac39234c1fa8e9a8fdf2c6953c44d750b">operator[]</a> (<a class="el" href="../../d2/dc9/_platform_8h.html#a84083085985fb180ad38b9c32e3937da">int32</a> Index) const</td></tr>
+<tr class="separator:ac39234c1fa8e9a8fdf2c6953c44d750b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48409e88096fee8cac99a86656330839" id="r_a48409e88096fee8cac99a86656330839"><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a48409e88096fee8cac99a86656330839">Component</a> (<a class="el" href="../../d2/dc9/_platform_8h.html#a84083085985fb180ad38b9c32e3937da">int32</a> Index)</td></tr>
+<tr class="separator:a48409e88096fee8cac99a86656330839"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5401f2f2cc03acccffad8a3e4c19b04a" id="r_a5401f2f2cc03acccffad8a3e4c19b04a"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5401f2f2cc03acccffad8a3e4c19b04a">Component</a> (<a class="el" href="../../d2/dc9/_platform_8h.html#a84083085985fb180ad38b9c32e3937da">int32</a> Index) const</td></tr>
+<tr class="separator:a5401f2f2cc03acccffad8a3e4c19b04a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c5d10e996314fc4ffe92108614be524" id="r_a7c5d10e996314fc4ffe92108614be524"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7c5d10e996314fc4ffe92108614be524">Set</a> (T InX, T InY, T InZ)</td></tr>
+<tr class="separator:a7c5d10e996314fc4ffe92108614be524"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27af7d97a02305d0f78b11ff1bfd6eff" id="r_a27af7d97a02305d0f78b11ff1bfd6eff"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a27af7d97a02305d0f78b11ff1bfd6eff">GetMax</a> () const</td></tr>
+<tr class="separator:a27af7d97a02305d0f78b11ff1bfd6eff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a457e1ee7dccad08d798615ea21ec026e" id="r_a457e1ee7dccad08d798615ea21ec026e"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a457e1ee7dccad08d798615ea21ec026e">GetAbsMax</a> () const</td></tr>
+<tr class="separator:a457e1ee7dccad08d798615ea21ec026e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aefc3db19f933967265410f90178bd69c" id="r_aefc3db19f933967265410f90178bd69c"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aefc3db19f933967265410f90178bd69c">GetMin</a> () const</td></tr>
+<tr class="separator:aefc3db19f933967265410f90178bd69c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace9eacd4da2adc8b56f025529e356301" id="r_ace9eacd4da2adc8b56f025529e356301"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ace9eacd4da2adc8b56f025529e356301">GetAbsMin</a> () const</td></tr>
+<tr class="separator:ace9eacd4da2adc8b56f025529e356301"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec06673e335169e45b54d84913a8b2e6" id="r_aec06673e335169e45b54d84913a8b2e6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aec06673e335169e45b54d84913a8b2e6">ComponentMin</a> (const <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; &amp;Other) const</td></tr>
+<tr class="separator:aec06673e335169e45b54d84913a8b2e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79cfdc610972c00a2ad9961a0adc34d7" id="r_a79cfdc610972c00a2ad9961a0adc34d7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a79cfdc610972c00a2ad9961a0adc34d7">ComponentMax</a> (const <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; &amp;Other) const</td></tr>
+<tr class="separator:a79cfdc610972c00a2ad9961a0adc34d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afca742f60531f30785989e29bfe894e0" id="r_afca742f60531f30785989e29bfe894e0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afca742f60531f30785989e29bfe894e0">GetAbs</a> () const</td></tr>
+<tr class="separator:afca742f60531f30785989e29bfe894e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3bb83f4ba54b9616ddd36bafa962f479" id="r_a3bb83f4ba54b9616ddd36bafa962f479"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3bb83f4ba54b9616ddd36bafa962f479">Size</a> () const</td></tr>
+<tr class="separator:a3bb83f4ba54b9616ddd36bafa962f479"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7921c278d27532b80701b0392f5eb56e" id="r_a7921c278d27532b80701b0392f5eb56e"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7921c278d27532b80701b0392f5eb56e">Length</a> () const</td></tr>
+<tr class="separator:a7921c278d27532b80701b0392f5eb56e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2effd53749ac6d6edad47d9898fecca" id="r_ac2effd53749ac6d6edad47d9898fecca"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac2effd53749ac6d6edad47d9898fecca">SizeSquared</a> () const</td></tr>
+<tr class="separator:ac2effd53749ac6d6edad47d9898fecca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2715e3398412e855e780b4e9a23cdb9e" id="r_a2715e3398412e855e780b4e9a23cdb9e"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2715e3398412e855e780b4e9a23cdb9e">SquaredLength</a> () const</td></tr>
+<tr class="separator:a2715e3398412e855e780b4e9a23cdb9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a857879501e43d77b20a9a6fb6ad5d9" id="r_a9a857879501e43d77b20a9a6fb6ad5d9"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9a857879501e43d77b20a9a6fb6ad5d9">Size2D</a> () const</td></tr>
+<tr class="separator:a9a857879501e43d77b20a9a6fb6ad5d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aafc2961cf4284d8853fe1f4681d1cc17" id="r_aafc2961cf4284d8853fe1f4681d1cc17"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aafc2961cf4284d8853fe1f4681d1cc17">SizeSquared2D</a> () const</td></tr>
+<tr class="separator:aafc2961cf4284d8853fe1f4681d1cc17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8946faddbe37aa4fa665e5e1c232bc96" id="r_a8946faddbe37aa4fa665e5e1c232bc96"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8946faddbe37aa4fa665e5e1c232bc96">IsNearlyZero</a> (T Tolerance=<a class="el" href="../../d7/d8b/_dark_math_utility_8h.html#af164f5a3286e027ba25121e9f81cd1f7">DE_KINDA_SMALL_NUMBER</a>) const</td></tr>
+<tr class="separator:a8946faddbe37aa4fa665e5e1c232bc96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee951920fcbb43c7da9658edfe4a0cc5" id="r_aee951920fcbb43c7da9658edfe4a0cc5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aee951920fcbb43c7da9658edfe4a0cc5">IsZero</a> () const</td></tr>
+<tr class="separator:aee951920fcbb43c7da9658edfe4a0cc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1308972f7210420356327e8b51e13f00" id="r_a1308972f7210420356327e8b51e13f00"><td class="memItemLeft" align="right" valign="top">FORCEINLINE bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1308972f7210420356327e8b51e13f00">IsUnit</a> (T LengthSquaredTolerance=<a class="el" href="../../d7/d8b/_dark_math_utility_8h.html#af164f5a3286e027ba25121e9f81cd1f7">DE_KINDA_SMALL_NUMBER</a>) const</td></tr>
+<tr class="separator:a1308972f7210420356327e8b51e13f00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a662b9f8b92c8ba8bf243f95561d02774" id="r_a662b9f8b92c8ba8bf243f95561d02774"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a662b9f8b92c8ba8bf243f95561d02774">IsNormalized</a> () const</td></tr>
+<tr class="separator:a662b9f8b92c8ba8bf243f95561d02774"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a781443e9b5c22494fb35f91a712f3a7c" id="r_a781443e9b5c22494fb35f91a712f3a7c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a781443e9b5c22494fb35f91a712f3a7c">Normalize</a> (T Tolerance=<a class="el" href="../../d7/d8b/_dark_math_utility_8h.html#a6b8547d1f71738e3e0c252789d22d3d1">DE_SMALL_NUMBER</a>)</td></tr>
+<tr class="separator:a781443e9b5c22494fb35f91a712f3a7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a097d8bb004ad4213e09336eb096de544" id="r_a097d8bb004ad4213e09336eb096de544"><td class="memItemLeft" align="right" valign="top">FORCEINLINE <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a097d8bb004ad4213e09336eb096de544">GetUnsafeNormal</a> () const</td></tr>
+<tr class="separator:a097d8bb004ad4213e09336eb096de544"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac75b9d0bc7b32e38ac6f51cc7f8485f4" id="r_ac75b9d0bc7b32e38ac6f51cc7f8485f4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac75b9d0bc7b32e38ac6f51cc7f8485f4">GetSafeNormal</a> (T Tolerance=<a class="el" href="../../d7/d8b/_dark_math_utility_8h.html#a6b8547d1f71738e3e0c252789d22d3d1">DE_SMALL_NUMBER</a>, const <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; &amp;ResultIfZero=<a class="el" href="#a2ebc6e4acd75aeeb4e796a22a6c73888">ZeroVector</a>) const</td></tr>
+<tr class="separator:ac75b9d0bc7b32e38ac6f51cc7f8485f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f536b156f0dd11876ed604e36d7a146" id="r_a0f536b156f0dd11876ed604e36d7a146"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0f536b156f0dd11876ed604e36d7a146">GetSafeNormal2D</a> (T Tolerance=<a class="el" href="../../d7/d8b/_dark_math_utility_8h.html#a6b8547d1f71738e3e0c252789d22d3d1">DE_SMALL_NUMBER</a>, const <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; &amp;ResultIfZero=<a class="el" href="#a2ebc6e4acd75aeeb4e796a22a6c73888">ZeroVector</a>) const</td></tr>
+<tr class="separator:a0f536b156f0dd11876ed604e36d7a146"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af76901ffd7e482b4e60b61c4549f58f6" id="r_af76901ffd7e482b4e60b61c4549f58f6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af76901ffd7e482b4e60b61c4549f58f6">ToDirectionAndLength</a> (<a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; &amp;OutDir, double &amp;OutLength) const</td></tr>
+<tr class="separator:af76901ffd7e482b4e60b61c4549f58f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acda2f04cdd7edbf4ae86529a85d4e44a" id="r_acda2f04cdd7edbf4ae86529a85d4e44a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acda2f04cdd7edbf4ae86529a85d4e44a">ToDirectionAndLength</a> (<a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; &amp;OutDir, float &amp;OutLength) const</td></tr>
+<tr class="separator:acda2f04cdd7edbf4ae86529a85d4e44a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac49fc5af786b5249be75af6f6298a799" id="r_ac49fc5af786b5249be75af6f6298a799"><td class="memItemLeft" align="right" valign="top">FORCEINLINE <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac49fc5af786b5249be75af6f6298a799">GetSignVector</a> () const</td></tr>
+<tr class="separator:ac49fc5af786b5249be75af6f6298a799"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc3a9403895b37558bc832d715f1f9f5" id="r_abc3a9403895b37558bc832d715f1f9f5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abc3a9403895b37558bc832d715f1f9f5">Projection</a> () const</td></tr>
+<tr class="separator:abc3a9403895b37558bc832d715f1f9f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abce3d9f9b3cde4af54ee95272fffb98f" id="r_abce3d9f9b3cde4af54ee95272fffb98f"><td class="memItemLeft" align="right" valign="top">FORCEINLINE <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abce3d9f9b3cde4af54ee95272fffb98f">GetUnsafeNormal2D</a> () const</td></tr>
+<tr class="separator:abce3d9f9b3cde4af54ee95272fffb98f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6759a10dc5038cfc56d60f93c4e42e2" id="r_ae6759a10dc5038cfc56d60f93c4e42e2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae6759a10dc5038cfc56d60f93c4e42e2">GridSnap</a> (const T &amp;GridSz) const</td></tr>
+<tr class="separator:ae6759a10dc5038cfc56d60f93c4e42e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac586525c32c2a180a5f1eb5563f69162" id="r_ac586525c32c2a180a5f1eb5563f69162"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac586525c32c2a180a5f1eb5563f69162">BoundToCube</a> (T Radius) const</td></tr>
+<tr class="separator:ac586525c32c2a180a5f1eb5563f69162"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f42b95edc51120e3b537ed55c1146a0" id="r_a0f42b95edc51120e3b537ed55c1146a0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0f42b95edc51120e3b537ed55c1146a0">BoundToBox</a> (const <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; &amp;Min, const <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; &amp;Max) const</td></tr>
+<tr class="separator:a0f42b95edc51120e3b537ed55c1146a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ec0c65590df6ecc83ffaef39e7bcb43" id="r_a4ec0c65590df6ecc83ffaef39e7bcb43"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4ec0c65590df6ecc83ffaef39e7bcb43">GetClampedToSize</a> (T Min, T Max) const</td></tr>
+<tr class="separator:a4ec0c65590df6ecc83ffaef39e7bcb43"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4793383246f109dd1d33b863d108bec9" id="r_a4793383246f109dd1d33b863d108bec9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4793383246f109dd1d33b863d108bec9">GetClampedToSize2D</a> (T Min, T Max) const</td></tr>
+<tr class="separator:a4793383246f109dd1d33b863d108bec9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e24bc3dfbec527d0e5f18eabf61c200" id="r_a4e24bc3dfbec527d0e5f18eabf61c200"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4e24bc3dfbec527d0e5f18eabf61c200">GetClampedToMaxSize</a> (T MaxSize) const</td></tr>
+<tr class="separator:a4e24bc3dfbec527d0e5f18eabf61c200"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5fbf250975563ae0fc7cd0b3f93441a" id="r_aa5fbf250975563ae0fc7cd0b3f93441a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa5fbf250975563ae0fc7cd0b3f93441a">GetClampedToMaxSize2D</a> (T MaxSize) const</td></tr>
+<tr class="separator:aa5fbf250975563ae0fc7cd0b3f93441a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add73b3246f19d91e5ee317bea8f63bda" id="r_add73b3246f19d91e5ee317bea8f63bda"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#add73b3246f19d91e5ee317bea8f63bda">AddBounded</a> (const <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; &amp;V, T Radius=<a class="el" href="../../dd/d20/_numeric_limits_8h.html#a5e3826997831b9ec8579031aa9c77013">MAX_int16</a>)</td></tr>
+<tr class="separator:add73b3246f19d91e5ee317bea8f63bda"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a73aed4cb63b6b95cf8e82a926b8c32" id="r_a0a73aed4cb63b6b95cf8e82a926b8c32"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0a73aed4cb63b6b95cf8e82a926b8c32">Reciprocal</a> () const</td></tr>
+<tr class="separator:a0a73aed4cb63b6b95cf8e82a926b8c32"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63174b4687ca98ec6cff67c5cebdc311" id="r_a63174b4687ca98ec6cff67c5cebdc311"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a63174b4687ca98ec6cff67c5cebdc311">IsUniform</a> (T Tolerance=<a class="el" href="../../d7/d8b/_dark_math_utility_8h.html#af164f5a3286e027ba25121e9f81cd1f7">DE_KINDA_SMALL_NUMBER</a>) const</td></tr>
+<tr class="separator:a63174b4687ca98ec6cff67c5cebdc311"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ed3888bb9461151207a97bd2f8e8fc7" id="r_a2ed3888bb9461151207a97bd2f8e8fc7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2ed3888bb9461151207a97bd2f8e8fc7">MirrorByVector</a> (const <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; &amp;MirrorNormal) const</td></tr>
+<tr class="separator:a2ed3888bb9461151207a97bd2f8e8fc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37d38f65568d8821bc9fe9ac091278e5" id="r_a37d38f65568d8821bc9fe9ac091278e5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a37d38f65568d8821bc9fe9ac091278e5">RotateAngleAxis</a> (const T AngleDeg, const <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; &amp;Axis) const</td></tr>
+<tr class="separator:a37d38f65568d8821bc9fe9ac091278e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a4e2c05f28d38034b5508fbdbcb7920" id="r_a0a4e2c05f28d38034b5508fbdbcb7920"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0a4e2c05f28d38034b5508fbdbcb7920">RotateAngleAxisRad</a> (const T AngleRad, const <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; &amp;Axis) const</td></tr>
+<tr class="separator:a0a4e2c05f28d38034b5508fbdbcb7920"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7b15ac8c8b9d01ccccab27ad302ddbf" id="r_ae7b15ac8c8b9d01ccccab27ad302ddbf"><td class="memItemLeft" align="right" valign="top">FORCEINLINE T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae7b15ac8c8b9d01ccccab27ad302ddbf">CosineAngle2D</a> (<a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; B) const</td></tr>
+<tr class="separator:ae7b15ac8c8b9d01ccccab27ad302ddbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e8b62d303da4f5a54508d3822293a17" id="r_a3e8b62d303da4f5a54508d3822293a17"><td class="memItemLeft" align="right" valign="top">FORCEINLINE <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3e8b62d303da4f5a54508d3822293a17">ProjectOnTo</a> (const <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; &amp;A) const</td></tr>
+<tr class="separator:a3e8b62d303da4f5a54508d3822293a17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4addc6ae1566823670e2ba8b01429b67" id="r_a4addc6ae1566823670e2ba8b01429b67"><td class="memItemLeft" align="right" valign="top">FORCEINLINE <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4addc6ae1566823670e2ba8b01429b67">ProjectOnToNormal</a> (const <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; &amp;Normal) const</td></tr>
+<tr class="separator:a4addc6ae1566823670e2ba8b01429b67"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a14a39bf928491c848ad084404ce07e06" id="r_a14a39bf928491c848ad084404ce07e06"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a14a39bf928491c848ad084404ce07e06">ContainsNaN</a> () const</td></tr>
+<tr class="separator:a14a39bf928491c848ad084404ce07e06"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Открытые статические члены</h2></td></tr>
+<tr class="memitem:a65027ad63c8cd8559a8fa404dba93fd9" id="r_a65027ad63c8cd8559a8fa404dba93fd9"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a65027ad63c8cd8559a8fa404dba93fd9">Zero</a> ()</td></tr>
+<tr class="separator:a65027ad63c8cd8559a8fa404dba93fd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a703dede5b1540e18960c9d1082c72956" id="r_a703dede5b1540e18960c9d1082c72956"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a703dede5b1540e18960c9d1082c72956">One</a> ()</td></tr>
+<tr class="separator:a703dede5b1540e18960c9d1082c72956"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e05b987d4cb9f5ee3546a2f33c9d457" id="r_a6e05b987d4cb9f5ee3546a2f33c9d457"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6e05b987d4cb9f5ee3546a2f33c9d457">UnitX</a> ()</td></tr>
+<tr class="separator:a6e05b987d4cb9f5ee3546a2f33c9d457"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41880ff8420d07220bdf6370c7e42a2e" id="r_a41880ff8420d07220bdf6370c7e42a2e"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a41880ff8420d07220bdf6370c7e42a2e">UnitY</a> ()</td></tr>
+<tr class="separator:a41880ff8420d07220bdf6370c7e42a2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ecc8782fc2cee47cfcb72c768c61135" id="r_a9ecc8782fc2cee47cfcb72c768c61135"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9ecc8782fc2cee47cfcb72c768c61135">UnitZ</a> ()</td></tr>
+<tr class="separator:a9ecc8782fc2cee47cfcb72c768c61135"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7350a5806e38af2a173c1afd1528aed1" id="r_a7350a5806e38af2a173c1afd1528aed1"><td class="memItemLeft" align="right" valign="top">static FORCEINLINE <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7350a5806e38af2a173c1afd1528aed1">CrossProduct</a> (const <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; &amp;A, const <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; &amp;B)</td></tr>
+<tr class="separator:a7350a5806e38af2a173c1afd1528aed1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20b060de484601e434549e0845740e17" id="r_a20b060de484601e434549e0845740e17"><td class="memItemLeft" align="right" valign="top">static FORCEINLINE T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a20b060de484601e434549e0845740e17">DotProduct</a> (const <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; &amp;A, const <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; &amp;B)</td></tr>
+<tr class="separator:a20b060de484601e434549e0845740e17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Открытые атрибуты</h2></td></tr>
+<tr class="memitem:a1325a5d37f340339ce3d2905388a612c" id="r_a1325a5d37f340339ce3d2905388a612c"><td class="memItemLeft" >union {&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7304351ae12f989a1c07266b77ede26" id="r_ab7304351ae12f989a1c07266b77ede26"><td class="memItemLeft" >&#160;&#160;&#160;struct {&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a365000c1a8318e6188b91586a7a3377d" id="r_a365000c1a8318e6188b91586a7a3377d"><td class="memItemLeft" >&#160;&#160;&#160;&#160;&#160;&#160;T&#160;&#160;&#160;<a class="el" href="#a83d8e497f3c137b464eef47d68e10cb0">X</a>&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
+<tr class="memdesc:a365000c1a8318e6188b91586a7a3377d"><td class="mdescLeft">&#160;</td><td class="mdescRight">X Element.  <a href="#a83d8e497f3c137b464eef47d68e10cb0">Подробнее...</a><br /></td></tr>
+<tr class="separator:a365000c1a8318e6188b91586a7a3377d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69a7e5ea6dcc0fb7e728ce31ddebefcd" id="r_a69a7e5ea6dcc0fb7e728ce31ddebefcd"><td class="memItemLeft" >&#160;&#160;&#160;&#160;&#160;&#160;T&#160;&#160;&#160;<a class="el" href="#a3ab993a66a40d6877730d9122b36d074">Y</a>&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
+<tr class="memdesc:a69a7e5ea6dcc0fb7e728ce31ddebefcd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Y Element.  <a href="#a3ab993a66a40d6877730d9122b36d074">Подробнее...</a><br /></td></tr>
+<tr class="separator:a69a7e5ea6dcc0fb7e728ce31ddebefcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a02ff662b877c63eb7a67bb381f185bd0" id="r_a02ff662b877c63eb7a67bb381f185bd0"><td class="memItemLeft" >&#160;&#160;&#160;&#160;&#160;&#160;T&#160;&#160;&#160;<a class="el" href="#a16e16df15b6a2475cdf4cd70d20e1bfa">Z</a>&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
+<tr class="memdesc:a02ff662b877c63eb7a67bb381f185bd0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Z Element.  <a href="#a16e16df15b6a2475cdf4cd70d20e1bfa">Подробнее...</a><br /></td></tr>
+<tr class="separator:a02ff662b877c63eb7a67bb381f185bd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7304351ae12f989a1c07266b77ede26" id="r_ab7304351ae12f989a1c07266b77ede26"><td class="memItemLeft" valign="top">&#160;&#160;&#160;}&#160;</td><td class="memItemRight" valign="bottom">&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
+<tr class="separator:ab7304351ae12f989a1c07266b77ede26"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a687d57cfff6373ce4b91427d75ab93f4" id="r_a687d57cfff6373ce4b91427d75ab93f4"><td class="memItemLeft" >&#160;&#160;&#160;T&#160;&#160;&#160;<a class="el" href="#a540d4969de25b79b316ef61e41d9a4ac">XYZ</a> [3]&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
+<tr class="memdesc:a687d57cfff6373ce4b91427d75ab93f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">XYZ Array.  <a href="#a540d4969de25b79b316ef61e41d9a4ac">Подробнее...</a><br /></td></tr>
+<tr class="separator:a687d57cfff6373ce4b91427d75ab93f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1325a5d37f340339ce3d2905388a612c" id="r_a1325a5d37f340339ce3d2905388a612c"><td class="memItemLeft" valign="top">};&#160;</td><td class="memItemRight" valign="bottom">&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
+<tr class="separator:a1325a5d37f340339ce3d2905388a612c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
+Статические открытые данные</h2></td></tr>
+<tr class="memitem:a2ebc6e4acd75aeeb4e796a22a6c73888" id="r_a2ebc6e4acd75aeeb4e796a22a6c73888"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../da/d5a/_core_platform_8h.html#a94070b76c7d4ff7927f14814f3f53e40">DENGINE_API</a> const <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2ebc6e4acd75aeeb4e796a22a6c73888">ZeroVector</a></td></tr>
+<tr class="separator:a2ebc6e4acd75aeeb4e796a22a6c73888"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a77ad03c61a4ace90db1b14b5a8912e0a" id="r_a77ad03c61a4ace90db1b14b5a8912e0a"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../da/d5a/_core_platform_8h.html#a94070b76c7d4ff7927f14814f3f53e40">DENGINE_API</a> const <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a77ad03c61a4ace90db1b14b5a8912e0a">OneVector</a></td></tr>
+<tr class="separator:a77ad03c61a4ace90db1b14b5a8912e0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06f4078604ecf36d49962deae8792313" id="r_a06f4078604ecf36d49962deae8792313"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../da/d5a/_core_platform_8h.html#a94070b76c7d4ff7927f14814f3f53e40">DENGINE_API</a> const <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a06f4078604ecf36d49962deae8792313">UpVector</a></td></tr>
+<tr class="separator:a06f4078604ecf36d49962deae8792313"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c3f178884d1db9c0a669edc1522a4aa" id="r_a1c3f178884d1db9c0a669edc1522a4aa"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../da/d5a/_core_platform_8h.html#a94070b76c7d4ff7927f14814f3f53e40">DENGINE_API</a> const <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1c3f178884d1db9c0a669edc1522a4aa">DownVector</a></td></tr>
+<tr class="separator:a1c3f178884d1db9c0a669edc1522a4aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:addf4058d86930fdd356d52baa0ab6bad" id="r_addf4058d86930fdd356d52baa0ab6bad"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../da/d5a/_core_platform_8h.html#a94070b76c7d4ff7927f14814f3f53e40">DENGINE_API</a> const <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#addf4058d86930fdd356d52baa0ab6bad">ForwardVector</a></td></tr>
+<tr class="separator:addf4058d86930fdd356d52baa0ab6bad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a371a9209579aafb7a4feb75caf7ab06b" id="r_a371a9209579aafb7a4feb75caf7ab06b"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../da/d5a/_core_platform_8h.html#a94070b76c7d4ff7927f14814f3f53e40">DENGINE_API</a> const <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a371a9209579aafb7a4feb75caf7ab06b">BackwardVector</a></td></tr>
+<tr class="separator:a371a9209579aafb7a4feb75caf7ab06b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a1d65550b3d543864e833adb0cc1016" id="r_a6a1d65550b3d543864e833adb0cc1016"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../da/d5a/_core_platform_8h.html#a94070b76c7d4ff7927f14814f3f53e40">DENGINE_API</a> const <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6a1d65550b3d543864e833adb0cc1016">RightVector</a></td></tr>
+<tr class="separator:a6a1d65550b3d543864e833adb0cc1016"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca050b5643af4c62901db1759e1ddbdb" id="r_aca050b5643af4c62901db1759e1ddbdb"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../da/d5a/_core_platform_8h.html#a94070b76c7d4ff7927f14814f3f53e40">DENGINE_API</a> const <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aca050b5643af4c62901db1759e1ddbdb">LeftVector</a></td></tr>
+<tr class="separator:aca050b5643af4c62901db1759e1ddbdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a451d674f44eef427cfd46ebc8d126913" id="r_a451d674f44eef427cfd46ebc8d126913"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../da/d5a/_core_platform_8h.html#a94070b76c7d4ff7927f14814f3f53e40">DENGINE_API</a> const <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a451d674f44eef427cfd46ebc8d126913">XAxisVector</a></td></tr>
+<tr class="separator:a451d674f44eef427cfd46ebc8d126913"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4651ab08dc1f033324a0f7fbd18e9ad2" id="r_a4651ab08dc1f033324a0f7fbd18e9ad2"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../da/d5a/_core_platform_8h.html#a94070b76c7d4ff7927f14814f3f53e40">DENGINE_API</a> const <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4651ab08dc1f033324a0f7fbd18e9ad2">YAxisVector</a></td></tr>
+<tr class="separator:a4651ab08dc1f033324a0f7fbd18e9ad2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5bf33accc35da656eec3762c94bfd8c0" id="r_a5bf33accc35da656eec3762c94bfd8c0"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../da/d5a/_core_platform_8h.html#a94070b76c7d4ff7927f14814f3f53e40">DENGINE_API</a> const <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5bf33accc35da656eec3762c94bfd8c0">ZAxisVector</a></td></tr>
+<tr class="separator:a5bf33accc35da656eec3762c94bfd8c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Определения типов</h2>
+<a id="a6e62827091dce61f9f3afdadd5cec58b" name="a6e62827091dce61f9f3afdadd5cec58b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e62827091dce61f9f3afdadd5cec58b">&#9670;&#160;</a></span>FDark</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::FDark = T</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Конструктор(ы)</h2>
+<a id="a8ce7b645a9e6f61192c65842d73f6929" name="a8ce7b645a9e6f61192c65842d73f6929"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ce7b645a9e6f61192c65842d73f6929">&#9670;&#160;</a></span>TVector() <span class="overload">[1/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">FORCEINLINE <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::TVector </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Default constructor (no initialization). </p>
+
+</div>
+</div>
+<a id="a858c7f3418abe623f9e439dec1ca466f" name="a858c7f3418abe623f9e439dec1ca466f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a858c7f3418abe623f9e439dec1ca466f">&#9670;&#160;</a></span>TVector() <span class="overload">[2/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">FORCEINLINE <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::TVector </td>
+          <td>(</td>
+          <td class="paramtype">T</td>          <td class="paramname"><span class="paramname"><em>InF</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Constructor initializing all components to a single T value.</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">InF</td><td>Value to set all components to. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a1e09fb9afde7f29e9c2ee8bc6034265f" name="a1e09fb9afde7f29e9c2ee8bc6034265f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e09fb9afde7f29e9c2ee8bc6034265f">&#9670;&#160;</a></span>TVector() <span class="overload">[3/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">FORCEINLINE <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::TVector </td>
+          <td>(</td>
+          <td class="paramtype">T</td>          <td class="paramname"><span class="paramname"><em>InX</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T</td>          <td class="paramname"><span class="paramname"><em>InY</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T</td>          <td class="paramname"><span class="paramname"><em>InZ</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Constructor using initial values for each component.</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">InX</td><td>X Coordinate. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">InY</td><td>Y Coordinate. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">InZ</td><td>Z Coordinate. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab7ce77ef41d72cb989a439d449614f15" name="ab7ce77ef41d72cb989a439d449614f15"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7ce77ef41d72cb989a439d449614f15">&#9670;&#160;</a></span>TVector() <span class="overload">[4/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::TVector </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d3/dba/struct_d_e_1_1_math_1_1_t_vector2.html">TVector2</a>&lt; T &gt;</td>          <td class="paramname"><span class="paramname"><em>V</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T</td>          <td class="paramname"><span class="paramname"><em>InZ</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Constructs a vector from an TVector2&lt;T&gt; and Z value.</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">V</td><td>Vector to copy from. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">InZ</td><td>Z Coordinate. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac3af89ee9b0bd1300c2898f20c18877e" name="ac3af89ee9b0bd1300c2898f20c18877e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac3af89ee9b0bd1300c2898f20c18877e">&#9670;&#160;</a></span>TVector() <span class="overload">[5/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::TVector </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d3/dba/struct_d_e_1_1_math_1_1_t_vector2.html">TVector2</a>&lt; T &gt;</td>          <td class="paramname"><span class="paramname"><em>V1</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d3/dba/struct_d_e_1_1_math_1_1_t_vector2.html">TVector2</a>&lt; T &gt;</td>          <td class="paramname"><span class="paramname"><em>V2</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Constructs a vector from two TVector2&lt;T&gt;.</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">V1</td><td>Vector to copy from. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">V2</td><td>Vector2 to copy from. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a4a0f55d6e31128909545b2169ec09419" name="a4a0f55d6e31128909545b2169ec09419"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a0f55d6e31128909545b2169ec09419">&#9670;&#160;</a></span>TVector() <span class="overload">[6/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">FORCEINLINE <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::TVector </td>
+          <td>(</td>
+          <td class="paramtype">std::initializer_list&lt; T &gt;</td>          <td class="paramname"><span class="paramname"><em>Elements</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Constructs a vector from std::initializer_list&lt;T&gt; 3 first element.</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">Elements</td><td>Elements to copy from. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Методы</h2>
+<a id="add73b3246f19d91e5ee317bea8f63bda" name="add73b3246f19d91e5ee317bea8f63bda"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add73b3246f19d91e5ee317bea8f63bda">&#9670;&#160;</a></span>AddBounded()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::AddBounded </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>V</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T</td>          <td class="paramname"><span class="paramname"><em>Radius</em><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="../../dd/d20/_numeric_limits_8h.html#a5e3826997831b9ec8579031aa9c77013">MAX_int16</a></span></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Add a vector to this and clamp the result in a cube.</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">V</td><td>Vector to add. </td></tr>
+    <tr><td class="paramname">Radius</td><td>Half size of the cube. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a610ca38a5d3b5601e16f9a3a62828349" name="a610ca38a5d3b5601e16f9a3a62828349"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a610ca38a5d3b5601e16f9a3a62828349">&#9670;&#160;</a></span>AllComponentEqual()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::AllComponentEqual </td>
+          <td>(</td>
+          <td class="paramtype">T</td>          <td class="paramname"><span class="paramname"><em>Tolerance</em><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="../../d7/d8b/_dark_math_utility_8h.html#af164f5a3286e027ba25121e9f81cd1f7">DE_KINDA_SMALL_NUMBER</a></span></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0f42b95edc51120e3b537ed55c1146a0" name="a0f42b95edc51120e3b537ed55c1146a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f42b95edc51120e3b537ed55c1146a0">&#9670;&#160;</a></span>BoundToBox()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::BoundToBox </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>Min</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>Max</em></span>&#160;) const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get a copy of this vector, clamped inside of a cube. </p>
+
+</div>
+</div>
+<a id="ac586525c32c2a180a5f1eb5563f69162" name="ac586525c32c2a180a5f1eb5563f69162"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac586525c32c2a180a5f1eb5563f69162">&#9670;&#160;</a></span>BoundToCube()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::BoundToCube </td>
+          <td>(</td>
+          <td class="paramtype">T</td>          <td class="paramname"><span class="paramname"><em>Radius</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get a copy of this vector, clamped inside of a cube.</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Radius</td><td>Half size of the cube. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>A copy of this vector, bound by cube. </dd></dl>
+
+</div>
+</div>
+<a id="a48409e88096fee8cac99a86656330839" name="a48409e88096fee8cac99a86656330839"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48409e88096fee8cac99a86656330839">&#9670;&#160;</a></span>Component() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T &amp; <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::Component </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d2/dc9/_platform_8h.html#a84083085985fb180ad38b9c32e3937da">int32</a></td>          <td class="paramname"><span class="paramname"><em>Index</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5401f2f2cc03acccffad8a3e4c19b04a" name="a5401f2f2cc03acccffad8a3e4c19b04a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5401f2f2cc03acccffad8a3e4c19b04a">&#9670;&#160;</a></span>Component() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::Component </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d2/dc9/_platform_8h.html#a84083085985fb180ad38b9c32e3937da">int32</a></td>          <td class="paramname"><span class="paramname"><em>Index</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a79cfdc610972c00a2ad9961a0adc34d7" name="a79cfdc610972c00a2ad9961a0adc34d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79cfdc610972c00a2ad9961a0adc34d7">&#9670;&#160;</a></span>ComponentMax()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::ComponentMax </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>Other</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Gets the component-wise max of two vectors. </p>
+
+</div>
+</div>
+<a id="aec06673e335169e45b54d84913a8b2e6" name="aec06673e335169e45b54d84913a8b2e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec06673e335169e45b54d84913a8b2e6">&#9670;&#160;</a></span>ComponentMin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::ComponentMin </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>Other</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Gets the component-wise min of two vectors. </p>
+
+</div>
+</div>
+<a id="a14a39bf928491c848ad084404ce07e06" name="a14a39bf928491c848ad084404ce07e06"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a14a39bf928491c848ad084404ce07e06">&#9670;&#160;</a></span>ContainsNaN()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">FORCEINLINE bool <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::ContainsNaN </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Return the <a class="el" href="../../d7/dde/struct_d_e_1_1_math_1_1_t_rotator.html">TRotator</a> orientation corresponding to the direction in which the vector points. Sets Yaw and Pitch to the proper numbers, and sets Roll to zero because the roll can'T be determined from a vector.</p>
+<dl class="section return"><dt>Возвращает</dt><dd><a class="el" href="../../d7/dde/struct_d_e_1_1_math_1_1_t_rotator.html">TRotator</a> from the Vector's direction, without any roll. </dd></dl>
+<dl class="section see"><dt>См. также</dt><dd>ToOrientationQuat() </dd></dl>
+
+</div>
+</div>
+<a id="ae7b15ac8c8b9d01ccccab27ad302ddbf" name="ae7b15ac8c8b9d01ccccab27ad302ddbf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae7b15ac8c8b9d01ccccab27ad302ddbf">&#9670;&#160;</a></span>CosineAngle2D()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">FORCEINLINE T <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::CosineAngle2D </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt;</td>          <td class="paramname"><span class="paramname"><em>B</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Returns the cosine of the angle between this vector and another projected onto the XY plane (no Z).</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">B</td><td>the other vector to find the 2D cosine of the angle with. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>The cosine. </dd></dl>
+
+</div>
+</div>
+<a id="afda5484b610e96346bd1b476fe4f4dbb" name="afda5484b610e96346bd1b476fe4f4dbb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afda5484b610e96346bd1b476fe4f4dbb">&#9670;&#160;</a></span>Cross()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::Cross </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>V2</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Calculate cross product between this and another vector.</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">V</td><td>The other vector. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>The cross product. </dd></dl>
+
+</div>
+</div>
+<a id="a7350a5806e38af2a173c1afd1528aed1" name="a7350a5806e38af2a173c1afd1528aed1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7350a5806e38af2a173c1afd1528aed1">&#9670;&#160;</a></span>CrossProduct()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::CrossProduct </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>A</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>B</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Calculate the cross product of two vectors.</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">A</td><td>The first vector. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">B</td><td>The second vector. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>The cross product. </dd></dl>
+
+</div>
+</div>
+<a id="a22351713c8cb9a3d3097914bdee228e3" name="a22351713c8cb9a3d3097914bdee228e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a22351713c8cb9a3d3097914bdee228e3">&#9670;&#160;</a></span>DiagnosticCheckNaN()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">FORCEINLINE void <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::DiagnosticCheckNaN </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a702d28ab0849afac4763a96134e542ea" name="a702d28ab0849afac4763a96134e542ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a702d28ab0849afac4763a96134e542ea">&#9670;&#160;</a></span>Dot()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::Dot </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>V</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Calculate the dot product between this and another vector.</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">V</td><td>The other vector. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>The dot product. </dd></dl>
+
+</div>
+</div>
+<a id="a20b060de484601e434549e0845740e17" name="a20b060de484601e434549e0845740e17"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20b060de484601e434549e0845740e17">&#9670;&#160;</a></span>DotProduct()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::DotProduct </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>A</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>B</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aeb119798692f88143b3b73bb968b42b1" name="aeb119798692f88143b3b73bb968b42b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb119798692f88143b3b73bb968b42b1">&#9670;&#160;</a></span>Equals()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::Equals </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>V</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T</td>          <td class="paramname"><span class="paramname"><em>Tolerance</em><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="../../d7/d8b/_dark_math_utility_8h.html#af164f5a3286e027ba25121e9f81cd1f7">DE_KINDA_SMALL_NUMBER</a></span></span>&#160;) const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afca742f60531f30785989e29bfe894e0" name="afca742f60531f30785989e29bfe894e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afca742f60531f30785989e29bfe894e0">&#9670;&#160;</a></span>GetAbs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::GetAbs </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Get a copy of this vector with absolute value of each component.</p>
+<dl class="section return"><dt>Возвращает</dt><dd>A copy of this vector with absolute value of each component. </dd></dl>
+
+</div>
+</div>
+<a id="a457e1ee7dccad08d798615ea21ec026e" name="a457e1ee7dccad08d798615ea21ec026e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a457e1ee7dccad08d798615ea21ec026e">&#9670;&#160;</a></span>GetAbsMax()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::GetAbsMax </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ace9eacd4da2adc8b56f025529e356301" name="ace9eacd4da2adc8b56f025529e356301"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace9eacd4da2adc8b56f025529e356301">&#9670;&#160;</a></span>GetAbsMin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::GetAbsMin </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4e24bc3dfbec527d0e5f18eabf61c200" name="a4e24bc3dfbec527d0e5f18eabf61c200"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e24bc3dfbec527d0e5f18eabf61c200">&#9670;&#160;</a></span>GetClampedToMaxSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::GetClampedToMaxSize </td>
+          <td>(</td>
+          <td class="paramtype">T</td>          <td class="paramname"><span class="paramname"><em>MaxSize</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Create a copy of this vector, with its maximum magnitude clamped to MaxSize. </p>
+
+</div>
+</div>
+<a id="aa5fbf250975563ae0fc7cd0b3f93441a" name="aa5fbf250975563ae0fc7cd0b3f93441a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5fbf250975563ae0fc7cd0b3f93441a">&#9670;&#160;</a></span>GetClampedToMaxSize2D()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::GetClampedToMaxSize2D </td>
+          <td>(</td>
+          <td class="paramtype">T</td>          <td class="paramname"><span class="paramname"><em>MaxSize</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Create a copy of this vector, with the maximum 2D magnitude clamped to MaxSize. Z is unchanged. </p>
+
+</div>
+</div>
+<a id="a4ec0c65590df6ecc83ffaef39e7bcb43" name="a4ec0c65590df6ecc83ffaef39e7bcb43"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ec0c65590df6ecc83ffaef39e7bcb43">&#9670;&#160;</a></span>GetClampedToSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::GetClampedToSize </td>
+          <td>(</td>
+          <td class="paramtype">T</td>          <td class="paramname"><span class="paramname"><em>Min</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T</td>          <td class="paramname"><span class="paramname"><em>Max</em></span>&#160;) const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Create a copy of this vector, with its magnitude clamped between Min and Max. </p>
+
+</div>
+</div>
+<a id="a4793383246f109dd1d33b863d108bec9" name="a4793383246f109dd1d33b863d108bec9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4793383246f109dd1d33b863d108bec9">&#9670;&#160;</a></span>GetClampedToSize2D()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::GetClampedToSize2D </td>
+          <td>(</td>
+          <td class="paramtype">T</td>          <td class="paramname"><span class="paramname"><em>Min</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T</td>          <td class="paramname"><span class="paramname"><em>Max</em></span>&#160;) const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Create a copy of this vector, with the 2D magnitude clamped between Min and Max. Z is unchanged. </p>
+
+</div>
+</div>
+<a id="a27af7d97a02305d0f78b11ff1bfd6eff" name="a27af7d97a02305d0f78b11ff1bfd6eff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27af7d97a02305d0f78b11ff1bfd6eff">&#9670;&#160;</a></span>GetMax()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::GetMax </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aefc3db19f933967265410f90178bd69c" name="aefc3db19f933967265410f90178bd69c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aefc3db19f933967265410f90178bd69c">&#9670;&#160;</a></span>GetMin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::GetMin </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac75b9d0bc7b32e38ac6f51cc7f8485f4" name="ac75b9d0bc7b32e38ac6f51cc7f8485f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac75b9d0bc7b32e38ac6f51cc7f8485f4">&#9670;&#160;</a></span>GetSafeNormal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::GetSafeNormal </td>
+          <td>(</td>
+          <td class="paramtype">T</td>          <td class="paramname"><span class="paramname"><em>Tolerance</em><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="../../d7/d8b/_dark_math_utility_8h.html#a6b8547d1f71738e3e0c252789d22d3d1">DE_SMALL_NUMBER</a></span>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>ResultIfZero</em><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#a2ebc6e4acd75aeeb4e796a22a6c73888">ZeroVector</a></span></span>&#160;) const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Gets a normalized copy of the vector, checking it is safe to do so based on the length. Returns zero vector by default if vector length is too small to safely normalize.</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">Tolerance</td><td>Minimum squared vector length. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>A normalized copy if safe, ResultIfZero otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="a0f536b156f0dd11876ed604e36d7a146" name="a0f536b156f0dd11876ed604e36d7a146"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f536b156f0dd11876ed604e36d7a146">&#9670;&#160;</a></span>GetSafeNormal2D()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::GetSafeNormal2D </td>
+          <td>(</td>
+          <td class="paramtype">T</td>          <td class="paramname"><span class="paramname"><em>Tolerance</em><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="../../d7/d8b/_dark_math_utility_8h.html#a6b8547d1f71738e3e0c252789d22d3d1">DE_SMALL_NUMBER</a></span>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>ResultIfZero</em><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#a2ebc6e4acd75aeeb4e796a22a6c73888">ZeroVector</a></span></span>&#160;) const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Gets a normalized copy of the 2D components of the vector, checking it is safe to do so. Z is set to zero. Returns zero vector by default if vector length is too small to normalize.</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">Tolerance</td><td>Minimum squared vector length. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Normalized copy if safe, otherwise returns ResultIfZero. </dd></dl>
+
+</div>
+</div>
+<a id="ac49fc5af786b5249be75af6f6298a799" name="ac49fc5af786b5249be75af6f6298a799"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac49fc5af786b5249be75af6f6298a799">&#9670;&#160;</a></span>GetSignVector()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">FORCEINLINE <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::GetSignVector </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get a copy of the vector as sign only. Each component is set to +1 or -1, with the sign of zero treated as +1.</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">A</td><td>copy of the vector with each component set to +1 or -1 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a097d8bb004ad4213e09336eb096de544" name="a097d8bb004ad4213e09336eb096de544"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a097d8bb004ad4213e09336eb096de544">&#9670;&#160;</a></span>GetUnsafeNormal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">FORCEINLINE <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::GetUnsafeNormal </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Calculates normalized version of vector without checking for zero length.</p>
+<dl class="section return"><dt>Возвращает</dt><dd>Normalized version of vector. </dd></dl>
+<dl class="section see"><dt>См. также</dt><dd><a class="el" href="#ac75b9d0bc7b32e38ac6f51cc7f8485f4">GetSafeNormal()</a> </dd></dl>
+
+</div>
+</div>
+<a id="abce3d9f9b3cde4af54ee95272fffb98f" name="abce3d9f9b3cde4af54ee95272fffb98f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abce3d9f9b3cde4af54ee95272fffb98f">&#9670;&#160;</a></span>GetUnsafeNormal2D()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">FORCEINLINE <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::GetUnsafeNormal2D </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Calculates normalized 2D version of vector without checking for zero length.</p>
+<dl class="section return"><dt>Возвращает</dt><dd>Normalized version of vector. </dd></dl>
+<dl class="section see"><dt>См. также</dt><dd><a class="el" href="#a0f536b156f0dd11876ed604e36d7a146">GetSafeNormal2D()</a> </dd></dl>
+
+</div>
+</div>
+<a id="ae6759a10dc5038cfc56d60f93c4e42e2" name="ae6759a10dc5038cfc56d60f93c4e42e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6759a10dc5038cfc56d60f93c4e42e2">&#9670;&#160;</a></span>GridSnap()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::GridSnap </td>
+          <td>(</td>
+          <td class="paramtype">const T &amp;</td>          <td class="paramname"><span class="paramname"><em>GridSz</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Gets a copy of this vector snapped to a grid.</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">GridSz</td><td>Grid dimension. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>A copy of this vector snapped to a grid. </dd></dl>
+<dl class="section see"><dt>См. также</dt><dd>FMath::GridSnap() </dd></dl>
+
+</div>
+</div>
+<a id="a8946faddbe37aa4fa665e5e1c232bc96" name="a8946faddbe37aa4fa665e5e1c232bc96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8946faddbe37aa4fa665e5e1c232bc96">&#9670;&#160;</a></span>IsNearlyZero()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::IsNearlyZero </td>
+          <td>(</td>
+          <td class="paramtype">T</td>          <td class="paramname"><span class="paramname"><em>Tolerance</em><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="../../d7/d8b/_dark_math_utility_8h.html#af164f5a3286e027ba25121e9f81cd1f7">DE_KINDA_SMALL_NUMBER</a></span></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Checks whether vector is near to zero within a specified tolerance.</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">Tolerance</td><td>Error tolerance. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>true if the vector is near to zero, false otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="a662b9f8b92c8ba8bf243f95561d02774" name="a662b9f8b92c8ba8bf243f95561d02774"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a662b9f8b92c8ba8bf243f95561d02774">&#9670;&#160;</a></span>IsNormalized()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::IsNormalized </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Checks whether vector is normalized.</p>
+<dl class="section return"><dt>Возвращает</dt><dd>true if normalized, false otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="a63174b4687ca98ec6cff67c5cebdc311" name="a63174b4687ca98ec6cff67c5cebdc311"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63174b4687ca98ec6cff67c5cebdc311">&#9670;&#160;</a></span>IsUniform()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::IsUniform </td>
+          <td>(</td>
+          <td class="paramtype">T</td>          <td class="paramname"><span class="paramname"><em>Tolerance</em><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="../../d7/d8b/_dark_math_utility_8h.html#af164f5a3286e027ba25121e9f81cd1f7">DE_KINDA_SMALL_NUMBER</a></span></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Check whether X, Y and Z are nearly equal.</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Tolerance</td><td>Specified Tolerance. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>true if X == Y == Z within the specified tolerance. </dd></dl>
+
+</div>
+</div>
+<a id="a1308972f7210420356327e8b51e13f00" name="a1308972f7210420356327e8b51e13f00"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1308972f7210420356327e8b51e13f00">&#9670;&#160;</a></span>IsUnit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">FORCEINLINE bool <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::IsUnit </td>
+          <td>(</td>
+          <td class="paramtype">T</td>          <td class="paramname"><span class="paramname"><em>LengthSquaredTolerance</em><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="../../d7/d8b/_dark_math_utility_8h.html#af164f5a3286e027ba25121e9f81cd1f7">DE_KINDA_SMALL_NUMBER</a></span></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Check if the vector is of unit length, with specified tolerance.</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">LengthSquaredTolerance</td><td>Tolerance against squared length. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>true if the vector is a unit vector within the specified tolerance. </dd></dl>
+
+</div>
+</div>
+<a id="aee951920fcbb43c7da9658edfe4a0cc5" name="aee951920fcbb43c7da9658edfe4a0cc5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aee951920fcbb43c7da9658edfe4a0cc5">&#9670;&#160;</a></span>IsZero()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::IsZero </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Checks whether all components of the vector are exactly zero.</p>
+<dl class="section return"><dt>Возвращает</dt><dd>true if the vector is exactly zero, false otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="a7921c278d27532b80701b0392f5eb56e" name="a7921c278d27532b80701b0392f5eb56e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7921c278d27532b80701b0392f5eb56e">&#9670;&#160;</a></span>Length()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::Length </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Get the length (magnitude) of this vector.</p>
+<dl class="section return"><dt>Возвращает</dt><dd>The length of this vector. </dd></dl>
+
+</div>
+</div>
+<a id="a2ed3888bb9461151207a97bd2f8e8fc7" name="a2ed3888bb9461151207a97bd2f8e8fc7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ed3888bb9461151207a97bd2f8e8fc7">&#9670;&#160;</a></span>MirrorByVector()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::MirrorByVector </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>MirrorNormal</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Mirror a vector about a normal vector.</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">MirrorNormal</td><td>Normal vector to mirror about. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Mirrored vector. </dd></dl>
+
+</div>
+</div>
+<a id="a781443e9b5c22494fb35f91a712f3a7c" name="a781443e9b5c22494fb35f91a712f3a7c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a781443e9b5c22494fb35f91a712f3a7c">&#9670;&#160;</a></span>Normalize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::Normalize </td>
+          <td>(</td>
+          <td class="paramtype">T</td>          <td class="paramname"><span class="paramname"><em>Tolerance</em><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="../../d7/d8b/_dark_math_utility_8h.html#a6b8547d1f71738e3e0c252789d22d3d1">DE_SMALL_NUMBER</a></span></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Normalize this vector in-place if it is larger than a given tolerance. Leaves it unchanged if not.</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">Tolerance</td><td>Minimum squared length of vector for normalization. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>true if the vector was normalized correctly, false otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="a703dede5b1540e18960c9d1082c72956" name="a703dede5b1540e18960c9d1082c72956"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a703dede5b1540e18960c9d1082c72956">&#9670;&#160;</a></span>One()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::One </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5c4098d1d387833d8bae81072d8409a9" name="a5c4098d1d387833d8bae81072d8409a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c4098d1d387833d8bae81072d8409a9">&#9670;&#160;</a></span>operator!=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::operator!= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>V</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aebe109f2ca3b8d6e4e62d96c3570725f" name="aebe109f2ca3b8d6e4e62d96c3570725f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aebe109f2ca3b8d6e4e62d96c3570725f">&#9670;&#160;</a></span>operator*() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">FORCEINLINE <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::operator* </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>V</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a373172d05f95dab45d2c9e53dc99ede1" name="a373172d05f95dab45d2c9e53dc99ede1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a373172d05f95dab45d2c9e53dc99ede1">&#9670;&#160;</a></span>operator*() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<div class="memtemplate">
+template&lt;typename FArg &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">FORCEINLINE <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::operator* </td>
+          <td>(</td>
+          <td class="paramtype">FArg</td>          <td class="paramname"><span class="paramname"><em>Scale</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a212a13633b0fac2b92559254f4b5c0eb" name="a212a13633b0fac2b92559254f4b5c0eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a212a13633b0fac2b92559254f4b5c0eb">&#9670;&#160;</a></span>operator*=() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::operator*= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>V</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af46b24bb7565f9a8541fcf7ede4e162c" name="af46b24bb7565f9a8541fcf7ede4e162c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af46b24bb7565f9a8541fcf7ede4e162c">&#9670;&#160;</a></span>operator*=() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<div class="memtemplate">
+template&lt;typename FArg , <a class="el" href="../../d5/da7/_dark_type_traits_8h.html#aad49833beeab0ea4077979d083cee73b">TEMPLATE_REQUIRES</a>(std::is_arithmetic&lt; FArg &gt;::value) &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">FORCEINLINE <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::operator*= </td>
+          <td>(</td>
+          <td class="paramtype">FArg</td>          <td class="paramname"><span class="paramname"><em>Scale</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aaa2fc9ca5ae7167ace53a242f89ab514" name="aaa2fc9ca5ae7167ace53a242f89ab514"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa2fc9ca5ae7167ace53a242f89ab514">&#9670;&#160;</a></span>operator+()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">FORCEINLINE <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::operator+ </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>V</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Gets the result of component-wise addition of this and another vector.</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">V</td><td>The vector to add to this. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>The result of vector addition. </dd></dl>
+
+</div>
+</div>
+<a id="ab8a05cc0f976a01621dfbbdb5f15eaf8" name="ab8a05cc0f976a01621dfbbdb5f15eaf8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab8a05cc0f976a01621dfbbdb5f15eaf8">&#9670;&#160;</a></span>operator+=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">FORCEINLINE <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::operator+= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>V</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1e6f77df889bbd7f0941a6eb8faee2f3" name="a1e6f77df889bbd7f0941a6eb8faee2f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e6f77df889bbd7f0941a6eb8faee2f3">&#9670;&#160;</a></span>operator-() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">FORCEINLINE <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::operator- </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>V</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0efc10c8309fafc3a8ccb828c1e8ae46" name="a0efc10c8309fafc3a8ccb828c1e8ae46"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0efc10c8309fafc3a8ccb828c1e8ae46">&#9670;&#160;</a></span>operator-() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<div class="memtemplate">
+template&lt;typename FArg &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">FORCEINLINE <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::operator- </td>
+          <td>(</td>
+          <td class="paramtype">FArg</td>          <td class="paramname"><span class="paramname"><em>Bias</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8f191b248ff5011ede7a50476f640c3f" name="a8f191b248ff5011ede7a50476f640c3f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f191b248ff5011ede7a50476f640c3f">&#9670;&#160;</a></span>operator-=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">FORCEINLINE <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::operator-= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>V</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a343c8f85e31dcd138bcacbb6bf48a0d6" name="a343c8f85e31dcd138bcacbb6bf48a0d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a343c8f85e31dcd138bcacbb6bf48a0d6">&#9670;&#160;</a></span>operator/() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">FORCEINLINE <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::operator/ </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>V</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3fc3d0850761a457aec767de94b2e0e0" name="a3fc3d0850761a457aec767de94b2e0e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3fc3d0850761a457aec767de94b2e0e0">&#9670;&#160;</a></span>operator/() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<div class="memtemplate">
+template&lt;typename FArg &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">FORCEINLINE <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::operator/ </td>
+          <td>(</td>
+          <td class="paramtype">FArg</td>          <td class="paramname"><span class="paramname"><em>Scale</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0d89c61db75f5bb66c5bc65b5a079752" name="a0d89c61db75f5bb66c5bc65b5a079752"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d89c61db75f5bb66c5bc65b5a079752">&#9670;&#160;</a></span>operator/=() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::operator/= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>V</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa44d4c3cc5f1688e42f3c039f355dbd5" name="aa44d4c3cc5f1688e42f3c039f355dbd5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa44d4c3cc5f1688e42f3c039f355dbd5">&#9670;&#160;</a></span>operator/=() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<div class="memtemplate">
+template&lt;typename FArg , <a class="el" href="../../d5/da7/_dark_type_traits_8h.html#aad49833beeab0ea4077979d083cee73b">TEMPLATE_REQUIRES</a>(std::is_arithmetic&lt; FArg &gt;::value) &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">FORCEINLINE <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::operator/= </td>
+          <td>(</td>
+          <td class="paramtype">FArg</td>          <td class="paramname"><span class="paramname"><em>Scale</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8cb1b3d6e3e5ba60da2879045109a571" name="a8cb1b3d6e3e5ba60da2879045109a571"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8cb1b3d6e3e5ba60da2879045109a571">&#9670;&#160;</a></span>operator=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">FORCEINLINE <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; &amp; <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::operator= </td>
+          <td>(</td>
+          <td class="paramtype">std::initializer_list&lt; T &gt;</td>          <td class="paramname"><span class="paramname"><em>Elements</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a35753a54f2db7b4e62b5a23baf2d0e37" name="a35753a54f2db7b4e62b5a23baf2d0e37"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35753a54f2db7b4e62b5a23baf2d0e37">&#9670;&#160;</a></span>operator==()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::operator== </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>V</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2867c3b54222aef24954283622a53aac" name="a2867c3b54222aef24954283622a53aac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2867c3b54222aef24954283622a53aac">&#9670;&#160;</a></span>operator[]() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T &amp; <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::operator[] </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d2/dc9/_platform_8h.html#a84083085985fb180ad38b9c32e3937da">int32</a></td>          <td class="paramname"><span class="paramname"><em>Index</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac39234c1fa8e9a8fdf2c6953c44d750b" name="ac39234c1fa8e9a8fdf2c6953c44d750b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac39234c1fa8e9a8fdf2c6953c44d750b">&#9670;&#160;</a></span>operator[]() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::operator[] </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d2/dc9/_platform_8h.html#a84083085985fb180ad38b9c32e3937da">int32</a></td>          <td class="paramname"><span class="paramname"><em>Index</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7374b2346cb58212c2d248a98963292c" name="a7374b2346cb58212c2d248a98963292c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7374b2346cb58212c2d248a98963292c">&#9670;&#160;</a></span>operator^()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">FORCEINLINE <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::operator^ </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>V</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Calculate cross product between this and another vector.</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">V</td><td>The other vector. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>The cross product. </dd></dl>
+
+</div>
+</div>
+<a id="acf4543c501854e2a4797f172d7d2a285" name="acf4543c501854e2a4797f172d7d2a285"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf4543c501854e2a4797f172d7d2a285">&#9670;&#160;</a></span>operator|()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">FORCEINLINE T <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::operator| </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>V</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Calculate the dot product between this and another vector.</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">V</td><td>The other vector. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>[in] The dot product. </dd></dl>
+
+</div>
+</div>
+<a id="abc3a9403895b37558bc832d715f1f9f5" name="abc3a9403895b37558bc832d715f1f9f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc3a9403895b37558bc832d715f1f9f5">&#9670;&#160;</a></span>Projection()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::Projection </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Projects 2D components of vector based on Z.</p>
+<dl class="section return"><dt>Возвращает</dt><dd>Projected version of vector based on Z. </dd></dl>
+
+</div>
+</div>
+<a id="a3e8b62d303da4f5a54508d3822293a17" name="a3e8b62d303da4f5a54508d3822293a17"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e8b62d303da4f5a54508d3822293a17">&#9670;&#160;</a></span>ProjectOnTo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">FORCEINLINE <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::ProjectOnTo </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>A</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Gets a copy of this vector projected onto the input vector.</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">A</td><td>Vector to project onto, does not assume it is normalized. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Projected vector. </dd></dl>
+
+</div>
+</div>
+<a id="a4addc6ae1566823670e2ba8b01429b67" name="a4addc6ae1566823670e2ba8b01429b67"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4addc6ae1566823670e2ba8b01429b67">&#9670;&#160;</a></span>ProjectOnToNormal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">FORCEINLINE <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::ProjectOnToNormal </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>Normal</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Gets a copy of this vector projected onto the input vector, which is assumed to be unit length.</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Normal</td><td>Vector to project onto (assumed to be unit length). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Projected vector. </dd></dl>
+
+</div>
+</div>
+<a id="a0a73aed4cb63b6b95cf8e82a926b8c32" name="a0a73aed4cb63b6b95cf8e82a926b8c32"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a73aed4cb63b6b95cf8e82a926b8c32">&#9670;&#160;</a></span>Reciprocal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::Reciprocal </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Gets the reciprocal of this vector, avoiding division by zero. Zero components are set to BIG_NUMBER.</p>
+<dl class="section return"><dt>Возвращает</dt><dd>Reciprocal of this vector. </dd></dl>
+
+</div>
+</div>
+<a id="a37d38f65568d8821bc9fe9ac091278e5" name="a37d38f65568d8821bc9fe9ac091278e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a37d38f65568d8821bc9fe9ac091278e5">&#9670;&#160;</a></span>RotateAngleAxis()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::RotateAngleAxis </td>
+          <td>(</td>
+          <td class="paramtype">const T</td>          <td class="paramname"><span class="paramname"><em>AngleDeg</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>Axis</em></span>&#160;) const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Mirrors a vector about a plane.</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Plane</td><td>Plane to mirror about. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Mirrored vector. Rotates around Axis (assumes Axis.Size() == 1).</dd></dl>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">AngleDeg</td><td>Angle to rotate (in degrees). </td></tr>
+    <tr><td class="paramname">Axis</td><td>Axis to rotate around. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Rotated Vector. </dd></dl>
+
+</div>
+</div>
+<a id="a0a4e2c05f28d38034b5508fbdbcb7920" name="a0a4e2c05f28d38034b5508fbdbcb7920"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a4e2c05f28d38034b5508fbdbcb7920">&#9670;&#160;</a></span>RotateAngleAxisRad()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::RotateAngleAxisRad </td>
+          <td>(</td>
+          <td class="paramtype">const T</td>          <td class="paramname"><span class="paramname"><em>AngleRad</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>Axis</em></span>&#160;) const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Rotates around Axis (assumes Axis.Size() == 1).</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">AngleRad</td><td>Angle to rotate (in radians). </td></tr>
+    <tr><td class="paramname">Axis</td><td>Axis to rotate around. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Rotated Vector. </dd></dl>
+
+</div>
+</div>
+<a id="a7c5d10e996314fc4ffe92108614be524" name="a7c5d10e996314fc4ffe92108614be524"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c5d10e996314fc4ffe92108614be524">&#9670;&#160;</a></span>Set()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::Set </td>
+          <td>(</td>
+          <td class="paramtype">T</td>          <td class="paramname"><span class="paramname"><em>InX</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T</td>          <td class="paramname"><span class="paramname"><em>InY</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T</td>          <td class="paramname"><span class="paramname"><em>InZ</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Get a specific component of the vector, given a specific axis by enum Set a specified componet of the vector, given a specific axis by enum </p>
+
+</div>
+</div>
+<a id="a3bb83f4ba54b9616ddd36bafa962f479" name="a3bb83f4ba54b9616ddd36bafa962f479"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3bb83f4ba54b9616ddd36bafa962f479">&#9670;&#160;</a></span>Size()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::Size </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Get the length (magnitude) of this vector.</p>
+<dl class="section return"><dt>Возвращает</dt><dd>The length of this vector. </dd></dl>
+
+</div>
+</div>
+<a id="a9a857879501e43d77b20a9a6fb6ad5d9" name="a9a857879501e43d77b20a9a6fb6ad5d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a857879501e43d77b20a9a6fb6ad5d9">&#9670;&#160;</a></span>Size2D()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::Size2D </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Get the length of the 2D components of this vector.</p>
+<dl class="section return"><dt>Возвращает</dt><dd>The 2D length of this vector. </dd></dl>
+
+</div>
+</div>
+<a id="ac2effd53749ac6d6edad47d9898fecca" name="ac2effd53749ac6d6edad47d9898fecca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2effd53749ac6d6edad47d9898fecca">&#9670;&#160;</a></span>SizeSquared()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::SizeSquared </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Get the squared length of this vector.</p>
+<dl class="section return"><dt>Возвращает</dt><dd>The squared length of this vector. </dd></dl>
+
+</div>
+</div>
+<a id="aafc2961cf4284d8853fe1f4681d1cc17" name="aafc2961cf4284d8853fe1f4681d1cc17"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aafc2961cf4284d8853fe1f4681d1cc17">&#9670;&#160;</a></span>SizeSquared2D()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::SizeSquared2D </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Get the squared length of the 2D components of this vector.</p>
+<dl class="section return"><dt>Возвращает</dt><dd>The squared 2D length of this vector. </dd></dl>
+
+</div>
+</div>
+<a id="a2715e3398412e855e780b4e9a23cdb9e" name="a2715e3398412e855e780b4e9a23cdb9e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2715e3398412e855e780b4e9a23cdb9e">&#9670;&#160;</a></span>SquaredLength()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::SquaredLength </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Get the squared length of this vector.</p>
+<dl class="section return"><dt>Возвращает</dt><dd>The squared length of this vector. </dd></dl>
+
+</div>
+</div>
+<a id="af76901ffd7e482b4e60b61c4549f58f6" name="af76901ffd7e482b4e60b61c4549f58f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af76901ffd7e482b4e60b61c4549f58f6">&#9670;&#160;</a></span>ToDirectionAndLength() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::ToDirectionAndLength </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>OutDir</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double &amp;</td>          <td class="paramname"><span class="paramname"><em>OutLength</em></span>&#160;) const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Util to convert this vector into a unit direction vector and its original length.</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">OutDir</td><td>Reference passed in to store unit direction vector. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">OutLength</td><td>Reference passed in to store length of the vector. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="acda2f04cdd7edbf4ae86529a85d4e44a" name="acda2f04cdd7edbf4ae86529a85d4e44a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acda2f04cdd7edbf4ae86529a85d4e44a">&#9670;&#160;</a></span>ToDirectionAndLength() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::ToDirectionAndLength </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>OutDir</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float &amp;</td>          <td class="paramname"><span class="paramname"><em>OutLength</em></span>&#160;) const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6e05b987d4cb9f5ee3546a2f33c9d457" name="a6e05b987d4cb9f5ee3546a2f33c9d457"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e05b987d4cb9f5ee3546a2f33c9d457">&#9670;&#160;</a></span>UnitX()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::UnitX </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a41880ff8420d07220bdf6370c7e42a2e" name="a41880ff8420d07220bdf6370c7e42a2e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41880ff8420d07220bdf6370c7e42a2e">&#9670;&#160;</a></span>UnitY()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::UnitY </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9ecc8782fc2cee47cfcb72c768c61135" name="a9ecc8782fc2cee47cfcb72c768c61135"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ecc8782fc2cee47cfcb72c768c61135">&#9670;&#160;</a></span>UnitZ()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::UnitZ </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a65027ad63c8cd8559a8fa404dba93fd9" name="a65027ad63c8cd8559a8fa404dba93fd9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a65027ad63c8cd8559a8fa404dba93fd9">&#9670;&#160;</a></span>Zero()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt; T &gt; <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::Zero </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Данные класса</h2>
+<a id="a1325a5d37f340339ce3d2905388a612c" name="a1325a5d37f340339ce3d2905388a612c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1325a5d37f340339ce3d2905388a612c">&#9670;&#160;</a></span>[union]</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">union  { ... }  <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a371a9209579aafb7a4feb75caf7ab06b" name="a371a9209579aafb7a4feb75caf7ab06b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a371a9209579aafb7a4feb75caf7ab06b">&#9670;&#160;</a></span>BackwardVector</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../da/d5a/_core_platform_8h.html#a94070b76c7d4ff7927f14814f3f53e40">DENGINE_API</a> const <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt;T&gt; <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::BackwardVector</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>A backward vector (0, 0, -1) </p>
+
+</div>
+</div>
+<a id="a1c3f178884d1db9c0a669edc1522a4aa" name="a1c3f178884d1db9c0a669edc1522a4aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c3f178884d1db9c0a669edc1522a4aa">&#9670;&#160;</a></span>DownVector</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../da/d5a/_core_platform_8h.html#a94070b76c7d4ff7927f14814f3f53e40">DENGINE_API</a> const <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt;T&gt; <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::DownVector</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>A down vector (0, -1, 0) </p>
+
+</div>
+</div>
+<a id="addf4058d86930fdd356d52baa0ab6bad" name="addf4058d86930fdd356d52baa0ab6bad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#addf4058d86930fdd356d52baa0ab6bad">&#9670;&#160;</a></span>ForwardVector</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../da/d5a/_core_platform_8h.html#a94070b76c7d4ff7927f14814f3f53e40">DENGINE_API</a> const <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt;T&gt; <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::ForwardVector</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>A forward vector (0, 0, 1) </p>
+
+</div>
+</div>
+<a id="aca050b5643af4c62901db1759e1ddbdb" name="aca050b5643af4c62901db1759e1ddbdb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aca050b5643af4c62901db1759e1ddbdb">&#9670;&#160;</a></span>LeftVector</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../da/d5a/_core_platform_8h.html#a94070b76c7d4ff7927f14814f3f53e40">DENGINE_API</a> const <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt;T&gt; <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::LeftVector</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>A left vector (-1, 0, 0) </p>
+
+</div>
+</div>
+<a id="a77ad03c61a4ace90db1b14b5a8912e0a" name="a77ad03c61a4ace90db1b14b5a8912e0a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77ad03c61a4ace90db1b14b5a8912e0a">&#9670;&#160;</a></span>OneVector</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../da/d5a/_core_platform_8h.html#a94070b76c7d4ff7927f14814f3f53e40">DENGINE_API</a> const <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt;T&gt; <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::OneVector</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>A one vector (1, 1, 1) </p>
+
+</div>
+</div>
+<a id="a6a1d65550b3d543864e833adb0cc1016" name="a6a1d65550b3d543864e833adb0cc1016"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a1d65550b3d543864e833adb0cc1016">&#9670;&#160;</a></span>RightVector</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../da/d5a/_core_platform_8h.html#a94070b76c7d4ff7927f14814f3f53e40">DENGINE_API</a> const <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt;T&gt; <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::RightVector</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>A rigth vector (1, 0, 0) </p>
+
+</div>
+</div>
+<a id="a06f4078604ecf36d49962deae8792313" name="a06f4078604ecf36d49962deae8792313"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a06f4078604ecf36d49962deae8792313">&#9670;&#160;</a></span>UpVector</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../da/d5a/_core_platform_8h.html#a94070b76c7d4ff7927f14814f3f53e40">DENGINE_API</a> const <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt;T&gt; <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::UpVector</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>A up vector (0, 1, 0) </p>
+
+</div>
+</div>
+<a id="a83d8e497f3c137b464eef47d68e10cb0" name="a83d8e497f3c137b464eef47d68e10cb0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a83d8e497f3c137b464eef47d68e10cb0">&#9670;&#160;</a></span>X</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">T <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::X</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>X Element. </p>
+
+</div>
+</div>
+<a id="a451d674f44eef427cfd46ebc8d126913" name="a451d674f44eef427cfd46ebc8d126913"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a451d674f44eef427cfd46ebc8d126913">&#9670;&#160;</a></span>XAxisVector</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../da/d5a/_core_platform_8h.html#a94070b76c7d4ff7927f14814f3f53e40">DENGINE_API</a> const <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt;T&gt; <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::XAxisVector</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>A XAxis vector (1, 0, 0) </p>
+
+</div>
+</div>
+<a id="a540d4969de25b79b316ef61e41d9a4ac" name="a540d4969de25b79b316ef61e41d9a4ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a540d4969de25b79b316ef61e41d9a4ac">&#9670;&#160;</a></span>XYZ</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">T <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::XYZ[3]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>XYZ Array. </p>
+
+</div>
+</div>
+<a id="a3ab993a66a40d6877730d9122b36d074" name="a3ab993a66a40d6877730d9122b36d074"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ab993a66a40d6877730d9122b36d074">&#9670;&#160;</a></span>Y</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">T <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::Y</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Y Element. </p>
+
+</div>
+</div>
+<a id="a4651ab08dc1f033324a0f7fbd18e9ad2" name="a4651ab08dc1f033324a0f7fbd18e9ad2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4651ab08dc1f033324a0f7fbd18e9ad2">&#9670;&#160;</a></span>YAxisVector</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../da/d5a/_core_platform_8h.html#a94070b76c7d4ff7927f14814f3f53e40">DENGINE_API</a> const <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt;T&gt; <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::YAxisVector</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>A YAxis vector (0, 1, 0) </p>
+
+</div>
+</div>
+<a id="a16e16df15b6a2475cdf4cd70d20e1bfa" name="a16e16df15b6a2475cdf4cd70d20e1bfa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16e16df15b6a2475cdf4cd70d20e1bfa">&#9670;&#160;</a></span>Z</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">T <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::Z</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Z Element. </p>
+
+</div>
+</div>
+<a id="a5bf33accc35da656eec3762c94bfd8c0" name="a5bf33accc35da656eec3762c94bfd8c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5bf33accc35da656eec3762c94bfd8c0">&#9670;&#160;</a></span>ZAxisVector</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../da/d5a/_core_platform_8h.html#a94070b76c7d4ff7927f14814f3f53e40">DENGINE_API</a> const <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt;T&gt; <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::ZAxisVector</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>A ZAxis vector (0, 0, 1) </p>
+
+</div>
+</div>
+<a id="a2ebc6e4acd75aeeb4e796a22a6c73888" name="a2ebc6e4acd75aeeb4e796a22a6c73888"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ebc6e4acd75aeeb4e796a22a6c73888">&#9670;&#160;</a></span>ZeroVector</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../da/d5a/_core_platform_8h.html#a94070b76c7d4ff7927f14814f3f53e40">DENGINE_API</a> const <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a>&lt;T&gt; <a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector</a>&lt; T &gt;::ZeroVector</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>A zero vector (0, 0, 0) </p>
+
+</div>
+</div>
+<hr/>Объявления и описания членов структур находятся в файлах:<ul>
+<li>Dark Engine/Source/Runtime/Core/Public/Math/<a class="el" href="../../d0/df6/_math_fwd_8h_source.html">MathFwd.h</a></li>
+<li>Dark Engine/Source/Runtime/Core/Public/Math/<a class="el" href="../../d4/d7f/_vector_8h_source.html">Vector.h</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../d8/d9d/namespace_d_e.html">DE</a></li><li class="navelem"><a class="el" href="../../d8/d37/namespace_d_e_1_1_math.html">Math</a></li><li class="navelem"><a class="el" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">TVector</a></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
+</body>
+</html>

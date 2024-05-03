@@ -1,0 +1,40 @@
+\doxysection{Файл Dark Engine/\+Source/\+Runtime/\+Vulkan\+RHI/private/\+Vulkan\+Util.h}
+\hypertarget{_vulkan_util_8h}{}\label{_vulkan_util_8h}\index{Dark Engine/Source/Runtime/VulkanRHI/private/VulkanUtil.h@{Dark Engine/Source/Runtime/VulkanRHI/private/VulkanUtil.h}}
+{\ttfamily \#include "{}Vulkan/vulkan.\+h"{}}\newline
+{\ttfamily \#include "{}Vulkan\+Common.\+h"{}}\newline
+\doxysubsubsection*{Макросы}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_vulkan_util_8h_ab7bb2e844567c5074317d9d50c2f6270}{Vk\+Call}}(x)~\{Vk\+Result Result = x; if(!\mbox{\hyperlink{_vulkan_util_8h_ad5546bb1652a695d15860136a4f937b0}{Verify\+Vk\+Result}}(Result)) \{\mbox{\hyperlink{_vulkan_util_8h_a972831e8c0ba2623da1ebf10c566004d}{Log\+Vk\+Error}}(Result);\}\}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Функции}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{_vulkan_util_8h_a972831e8c0ba2623da1ebf10c566004d}{Log\+Vk\+Error}} (Vk\+Result Result)
+\item 
+static bool \mbox{\hyperlink{_vulkan_util_8h_ad5546bb1652a695d15860136a4f937b0}{Verify\+Vk\+Result}} (Vk\+Result Result)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Макросы}
+\Hypertarget{_vulkan_util_8h_ab7bb2e844567c5074317d9d50c2f6270}\label{_vulkan_util_8h_ab7bb2e844567c5074317d9d50c2f6270} 
+\index{VulkanUtil.h@{VulkanUtil.h}!VkCall@{VkCall}}
+\index{VkCall@{VkCall}!VulkanUtil.h@{VulkanUtil.h}}
+\doxysubsubsection{\texorpdfstring{VkCall}{VkCall}}
+{\footnotesize\ttfamily \#define Vk\+Call(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~\{Vk\+Result Result = x; if(!\mbox{\hyperlink{_vulkan_util_8h_ad5546bb1652a695d15860136a4f937b0}{Verify\+Vk\+Result}}(Result)) \{\mbox{\hyperlink{_vulkan_util_8h_a972831e8c0ba2623da1ebf10c566004d}{Log\+Vk\+Error}}(Result);\}\}}
+
+
+
+\doxysubsection{Функции}
+\Hypertarget{_vulkan_util_8h_a972831e8c0ba2623da1ebf10c566004d}\label{_vulkan_util_8h_a972831e8c0ba2623da1ebf10c566004d} 
+\index{VulkanUtil.h@{VulkanUtil.h}!LogVkError@{LogVkError}}
+\index{LogVkError@{LogVkError}!VulkanUtil.h@{VulkanUtil.h}}
+\doxysubsubsection{\texorpdfstring{LogVkError()}{LogVkError()}}
+{\footnotesize\ttfamily static void Log\+Vk\+Error (\begin{DoxyParamCaption}\item[{Vk\+Result}]{Result }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{_vulkan_util_8h_ad5546bb1652a695d15860136a4f937b0}\label{_vulkan_util_8h_ad5546bb1652a695d15860136a4f937b0} 
+\index{VulkanUtil.h@{VulkanUtil.h}!VerifyVkResult@{VerifyVkResult}}
+\index{VerifyVkResult@{VerifyVkResult}!VulkanUtil.h@{VulkanUtil.h}}
+\doxysubsubsection{\texorpdfstring{VerifyVkResult()}{VerifyVkResult()}}
+{\footnotesize\ttfamily static bool Verify\+Vk\+Result (\begin{DoxyParamCaption}\item[{Vk\+Result}]{Result }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+

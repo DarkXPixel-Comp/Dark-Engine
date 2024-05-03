@@ -1,0 +1,447 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Dark Engine: Исходный файл Dark Engine/Source/Runtime/Render/D3D12/D3D12Render.h</title>
+<link rel="icon" href="../../Logo.png" type="image/x-icon" />
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<script type="text/javascript" src="../../clipboard.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../MiniLogo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Dark Engine<span id="projectnumber">&#160;0.0.50</span>
+   </div>
+   <div id="projectbrief">New game engnie D3D12</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../../',true,false,'search.php','Поиск');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(1); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('d0/d2b/_d3_d12_render_8h_source.html','../../'); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">D3D12Render.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d0/d2b/_d3_d12_render_8h.html">См. документацию.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;<a class="code" href="../../dd/dce/_d3_d12_main_8h.html">D3D12Main.h</a>&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="../../d3/da0/_renderer_8h.html">D3D12/Renderer.h</a>&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;VertexTypes.h&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;VertexTypes.h&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;<a class="code" href="../../d3/dc5/_array_8h.html">Containers/Array.h</a>&gt;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;DescriptorHeap.h&gt;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;<a class="code" href="../../de/d45/_dark_string_8h.html">Containers/DarkString.h</a>&gt;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;<a class="code" href="../../d3/d6b/_command_line_8h.html">CommandLine/CommandLine.h</a>&gt;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;<a class="code" href="../../db/d04/_core_types_8h.html">CoreTypes.h</a>&gt;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;dxcapi.h&gt;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &lt;<a class="code" href="../../dd/d0f/_render_2_d3_d12_2_d3_d12_shader_8h.html">d3d12shader.h</a>&gt;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &lt;<a class="code" href="../../de/dd7/_windows_window_8h.html">Windows/WindowsWindow.h</a>&gt;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;<a class="code" href="../../d4/d8b/_d3_d12_types_8h.html">D3D12Types.h</a>&quot;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;<a class="code" href="../../de/d49/_d3_d12_resource_8h.html">D3D12Resource.h</a>&quot;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &lt;<a class="code" href="../../dd/d7b/_input_core_8h.html">InputCore.h</a>&gt;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &lt;PostProcess.h&gt;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &lt;GraphicsMemory.h&gt;</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &quot;<a class="code" href="../../df/d8d/_d3_d12_p_s_o_8h.html">D3D12PSO.h</a>&quot;</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include &quot;imgui.h&quot;</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &quot;imgui_impl_dx12.h&quot;</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;imgui_impl_win32.h&quot;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &quot;<a class="code" href="../../d9/dfd/_delegate_8h.html">Delegate/Delegate.h</a>&quot;</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="keyword">using namespace </span>std;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="keyword">using namespace </span>DirectX;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="foldopen" id="foldopen00036" data-start="{" data-end="};">
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="../../de/d02/struct_viewport.html">   36</a></span><span class="keyword">struct </span><a class="code hl_struct" href="../../de/d02/struct_viewport.html">Viewport</a></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>{</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="../../de/d02/struct_viewport.html#a77151c334dd873a6b6a30cef28871d68">   38</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="../../de/d02/struct_viewport.html#a77151c334dd873a6b6a30cef28871d68">left</a>;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="../../de/d02/struct_viewport.html#a602280bfb59a8128f6493f966524ce69">   39</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="../../de/d02/struct_viewport.html#a602280bfb59a8128f6493f966524ce69">top</a>;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="../../de/d02/struct_viewport.html#a0a99922d9658b73cfb2a28530677d3b7">   40</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="../../de/d02/struct_viewport.html#a0a99922d9658b73cfb2a28530677d3b7">right</a>;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="../../de/d02/struct_viewport.html#ac39b3c3dc70fa865d467a99c7ce52f19">   41</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="../../de/d02/struct_viewport.html#ac39b3c3dc70fa865d467a99c7ce52f19">bottom</a>;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>};</div>
+</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="foldopen" id="foldopen00044" data-start="{" data-end="};">
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="../../dc/ddc/struct_ray_gen_constant_buffer.html">   44</a></span><span class="keyword">struct </span><a class="code hl_struct" href="../../dc/ddc/struct_ray_gen_constant_buffer.html">RayGenConstantBuffer</a></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>{</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="../../dc/ddc/struct_ray_gen_constant_buffer.html#ab6b9eb3b37d8f5f2ccfb64d5f299e0dd">   46</a></span>    <a class="code hl_struct" href="../../de/d02/struct_viewport.html">Viewport</a> <a class="code hl_variable" href="../../dc/ddc/struct_ray_gen_constant_buffer.html#ab6b9eb3b37d8f5f2ccfb64d5f299e0dd">viewport</a>;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="../../dc/ddc/struct_ray_gen_constant_buffer.html#a745cadc8bcd5ecb6fbe2163e6dc4508b">   47</a></span>    <a class="code hl_struct" href="../../de/d02/struct_viewport.html">Viewport</a> <a class="code hl_variable" href="../../dc/ddc/struct_ray_gen_constant_buffer.html#a745cadc8bcd5ecb6fbe2163e6dc4508b">stencil</a>;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>};</div>
+</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="foldopen" id="foldopen00051" data-start="{" data-end="};">
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="../../d9/d57/struct_vertex_pos_color.html">   51</a></span><span class="keyword">struct </span><a class="code hl_struct" href="../../d9/d57/struct_vertex_pos_color.html">VertexPosColor</a></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>{</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="../../d9/d57/struct_vertex_pos_color.html#a83c27721a77069fe08e5dc02f24afb7f">   53</a></span>    <a class="code hl_function" href="../../d9/d57/struct_vertex_pos_color.html#a83c27721a77069fe08e5dc02f24afb7f">VertexPosColor</a>(XMFLOAT3 iposition, XMFLOAT3 icolor) : <a class="code hl_variable" href="../../d9/d57/struct_vertex_pos_color.html#aa3a885ebafbdd7d06f5b452d2b475179">Position</a>(iposition), <a class="code hl_variable" href="../../d9/d57/struct_vertex_pos_color.html#a27b9cfdc1e2b0d9e55801d8b0a7d2ddc">Color</a>(icolor) {}</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="../../d9/d57/struct_vertex_pos_color.html#aa3a885ebafbdd7d06f5b452d2b475179">   55</a></span>    XMFLOAT3 <a class="code hl_variable" href="../../d9/d57/struct_vertex_pos_color.html#aa3a885ebafbdd7d06f5b452d2b475179">Position</a>;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="../../d9/d57/struct_vertex_pos_color.html#a27b9cfdc1e2b0d9e55801d8b0a7d2ddc">   56</a></span>    XMFLOAT3 <a class="code hl_variable" href="../../d9/d57/struct_vertex_pos_color.html#a27b9cfdc1e2b0d9e55801d8b0a7d2ddc">Color</a>;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>};</div>
+</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="comment">//typedef VertexPositionNormalColorTexture Vertex;</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="comment">//VertexPositionNormalColorTexture</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="keyword">class </span><a class="code hl_class" href="../../d5/d41/class_f_d3_d12_mesh.html">FD3D12Mesh</a>;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="keyword">class </span>D3D12Mesh1;</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="keyword">class </span><a class="code hl_class" href="../../de/d21/class_d3_d12_model.html">D3D12Model</a>;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="keyword">class </span><a class="code hl_class" href="../../d7/df2/class_d3_d12_material.html">D3D12Material</a>;</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="keyword">class </span><a class="code hl_class" href="../../d9/db4/class_d3_d12_scene.html">D3D12Scene</a>;</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="foldopen" id="foldopen00075" data-start="{" data-end="};">
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="../../df/d68/class_d3_d12_renderer.html">   75</a></span><span class="keyword">class </span><a class="code hl_class" href="../../df/d68/class_d3_d12_renderer.html">D3D12Renderer</a> : <span class="keyword">public</span> <a class="code hl_class" href="../../d4/d44/class_renderer.html">Renderer</a></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>{</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <span class="keyword">static</span> <span class="keyword">const</span> <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> BACK_BUFFER_COUNT = 2;</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <span class="keywordtype">void</span> Test() { <a class="code hl_define" href="../../d3/d6b/_command_line_8h.html#a4ebfeaa819ddc7b0039496d16b2adb37">PrintLine</a>(<span class="stringliteral">&quot;Test&quot;</span>); }</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <a class="code hl_function" href="../../df/d68/class_d3_d12_renderer.html#a3b662b2f33d792bcffdc9269ea1f3997">D3D12Renderer</a>();</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    int32_t <a class="code hl_function" href="../../df/d68/class_d3_d12_renderer.html#ab9aebeda48bf3b095c7fda28c84f4b09">Init</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../df/d68/class_d3_d12_renderer.html#aa790f82fc4e39cfd34ab6634bc01f673">Shutdown</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../df/d68/class_d3_d12_renderer.html#a44cd26e6339e136920b9306ae3a34e27">BeginFrame</a>(<a class="code hl_class" href="../../d9/db4/class_d3_d12_scene.html">D3D12Scene</a>* scene);</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../df/d68/class_d3_d12_renderer.html#ab1556e63e2387463850524658851c53f">Render</a>(<a class="code hl_class" href="../../d9/db4/class_d3_d12_scene.html">D3D12Scene</a>*) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../df/d68/class_d3_d12_renderer.html#aa7fafefbe67ebe0c63a35a6160038566">SetResolution</a>(<a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a84083085985fb180ad38b9c32e3937da">int32</a> Width, <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a84083085985fb180ad38b9c32e3937da">int32</a> Height, <span class="keywordtype">bool</span> IsFullScreen) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../df/d68/class_d3_d12_renderer.html#a03368877dd51fe0103b72c9f42c51a3e">RenderObj</a>();</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../df/d68/class_d3_d12_renderer.html#ae0eee51bbb0285af74be4c4de1d254d0">RenderScene</a>();</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../df/d68/class_d3_d12_renderer.html#ae29df92539415bc7898caef586a5d468">EndFrame</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../df/d68/class_d3_d12_renderer.html#aa1a3d4c026b031dc83192f48d8784e99">OnResize</a>(<span class="keywordtype">long</span> x, <span class="keywordtype">long</span> y);</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../df/d68/class_d3_d12_renderer.html#a8219c07fe09a952427df655b221b21b5">OnInput</a>(<a class="code hl_enumeration" href="../../dd/d7b/_input_core_8h.html#af20302d31e77274d05d1998475591a5a">eInputActionState</a> action);</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../df/d68/class_d3_d12_renderer.html#a8a4e62d84cd6c2a97c7e815465e2e8e3">OnInterface</a>();</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../df/d68/class_d3_d12_renderer.html#a37648d96444c526f6c3d07f6e589ab52">PostProcessing</a>(D3D12_GPU_DESCRIPTOR_HANDLE renderHandle, ID3D12Resource* outputHandle);</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno"><a class="line" href="../../df/d68/class_d3_d12_renderer.html#a992a3322c9b03e5a68028abb30fe4df8">   99</a></span>    TArray&lt;D3D12Mesh1*&gt; <a class="code hl_function" href="../../df/d68/class_d3_d12_renderer.html#a992a3322c9b03e5a68028abb30fe4df8">LoadMesh</a>(<a class="code hl_class" href="../../d9/dcb/class_f_string.html">FString</a> path = <span class="stringliteral">&quot;&quot;</span>);</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../df/d68/class_d3_d12_renderer.html#adb307fd9d8a57d3ab547a828809024f1">Update</a>();</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#afddf25cca147311c233b23a9d3329bb4">uint64</a> Signal(<a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#afddf25cca147311c233b23a9d3329bb4">uint64</a>&amp; fenceValue);</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    <span class="keywordtype">void</span> WaitForFenceValue(<a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#afddf25cca147311c233b23a9d3329bb4">uint64</a> fenceValue);</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <span class="keywordtype">void</span> WaitFrame();</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <span class="keywordtype">float</span> rot = 0.0f;</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#afddf25cca147311c233b23a9d3329bb4">uint64</a> m_freeSRVDescriptor = 0;</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno"><a class="line" href="../../df/d68/class_d3_d12_renderer.html#a852ad225c9a1f3acf2593d4da343d2c0">  115</a></span>    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code hl_class" href="../../d5/d41/class_f_d3_d12_mesh.html">FD3D12Mesh</a>;</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno"><a class="line" href="../../df/d68/class_d3_d12_renderer.html#a15e89b621a8ba339d1e7cdadfbb50a61">  117</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="../../df/d68/class_d3_d12_renderer.html#a15e89b621a8ba339d1e7cdadfbb50a61">IsRaster</a> = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno"><a class="line" href="../../df/d68/class_d3_d12_renderer.html#aa1286f15bb9f0d764af42c5f580cdcd1">  118</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="../../df/d68/class_d3_d12_renderer.html#aa1286f15bb9f0d764af42c5f580cdcd1">isDefaultTexLoaded</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno"><a class="line" href="../../df/d68/class_d3_d12_renderer.html#a308a32db755fc352c2e47eac39ff2c89">  119</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="../../df/d68/class_d3_d12_renderer.html#a308a32db755fc352c2e47eac39ff2c89">isSkyboxTexLoaded</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno"><a class="line" href="../../df/d68/class_d3_d12_renderer.html#a1fcbbf59f7e2d004e8e9fc05448911c6">  120</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="../../df/d68/class_d3_d12_renderer.html#a1fcbbf59f7e2d004e8e9fc05448911c6">msaa</a> = 1;</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno"><a class="line" href="../../df/d68/class_d3_d12_renderer.html#a429bb8417172251a5182526816a36760">  122</a></span>    ComPtr&lt;IDXGIFactory7&gt; <a class="code hl_variable" href="../../df/d68/class_d3_d12_renderer.html#a429bb8417172251a5182526816a36760">m_factory</a>;</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno"><a class="line" href="../../df/d68/class_d3_d12_renderer.html#af997a5c552fe197479ed778915c4f55e">  123</a></span>    ComPtr&lt;ID3D12Device8&gt; <a class="code hl_variable" href="../../df/d68/class_d3_d12_renderer.html#af997a5c552fe197479ed778915c4f55e">m_device</a>;</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno"><a class="line" href="../../df/d68/class_d3_d12_renderer.html#a9e152a1f71eee5e0f196c795bcaaf664">  124</a></span>    ComPtr&lt;IDXGIAdapter1&gt; <a class="code hl_variable" href="../../df/d68/class_d3_d12_renderer.html#a9e152a1f71eee5e0f196c795bcaaf664">m_adapter</a>;</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno"><a class="line" href="../../df/d68/class_d3_d12_renderer.html#af58c32c6b4895001d60ebfc546195e9b">  125</a></span>    ComPtr&lt;ID3D12Resource&gt; <a class="code hl_variable" href="../../df/d68/class_d3_d12_renderer.html#af58c32c6b4895001d60ebfc546195e9b">tempBuffer</a>;</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span> </div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno"><a class="line" href="../../df/d68/class_d3_d12_renderer.html#ae45fa4dd4ec7123c41717ed61d4a3122">  127</a></span>    ComPtr&lt;ID3D12CommandAllocator&gt; <a class="code hl_variable" href="../../df/d68/class_d3_d12_renderer.html#ae45fa4dd4ec7123c41717ed61d4a3122">m_commandAllocator</a>;</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno"><a class="line" href="../../df/d68/class_d3_d12_renderer.html#ab847b8c9d3bdcca2acf2ced9540541a1">  128</a></span>    ComPtr&lt;ID3D12GraphicsCommandList6&gt; <a class="code hl_variable" href="../../df/d68/class_d3_d12_renderer.html#ab847b8c9d3bdcca2acf2ced9540541a1">m_commandList</a>;</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno"><a class="line" href="../../df/d68/class_d3_d12_renderer.html#ad5a99fee1c2a844ff74bf797bd021140">  129</a></span>    ComPtr&lt;ID3D12CommandQueue&gt; <a class="code hl_variable" href="../../df/d68/class_d3_d12_renderer.html#ad5a99fee1c2a844ff74bf797bd021140">m_commandQueue</a>;</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span> </div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno"><a class="line" href="../../df/d68/class_d3_d12_renderer.html#a6b951e7e941d197c80dafd905a73ac7e">  131</a></span>    TUniquePtr &lt;DescriptorHeap&gt; <a class="code hl_variable" href="../../df/d68/class_d3_d12_renderer.html#a6b951e7e941d197c80dafd905a73ac7e">RTDescriptorHeap</a>;</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno"><a class="line" href="../../df/d68/class_d3_d12_renderer.html#a8002e41b69af55bcbb66795a777284ef">  132</a></span>    TUniquePtr &lt;DescriptorHeap&gt; <a class="code hl_variable" href="../../df/d68/class_d3_d12_renderer.html#a8002e41b69af55bcbb66795a777284ef">DSDescriptorHeap</a>;</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno"><a class="line" href="../../df/d68/class_d3_d12_renderer.html#a687efd0d5876dfdc49cd3952bc6e70d0">  133</a></span>    TUniquePtr &lt;DescriptorHeap&gt; <a class="code hl_variable" href="../../df/d68/class_d3_d12_renderer.html#a687efd0d5876dfdc49cd3952bc6e70d0">SRDescriptorHeap</a>;</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span> </div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno"><a class="line" href="../../df/d68/class_d3_d12_renderer.html#a00f8bac9e1baf033e8770330c8549baa">  135</a></span>    ComPtr&lt;IDXGISwapChain4&gt; <a class="code hl_variable" href="../../df/d68/class_d3_d12_renderer.html#a00f8bac9e1baf033e8770330c8549baa">m_swapchain</a>;</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno"><a class="line" href="../../df/d68/class_d3_d12_renderer.html#a02942d543fc3d336002f38a80b8dd492">  136</a></span>    ComPtr&lt;IDXGISwapChain&gt; <a class="code hl_variable" href="../../df/d68/class_d3_d12_renderer.html#a02942d543fc3d336002f38a80b8dd492">m_swapchainT</a>;</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span> </div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span> </div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span> </div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span> </div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno"><a class="line" href="../../df/d68/class_d3_d12_renderer.html#abb5971aa7b645924128023bd99937194">  141</a></span>    TUniquePtr&lt;BasicPostProcess&gt; <a class="code hl_variable" href="../../df/d68/class_d3_d12_renderer.html#abb5971aa7b645924128023bd99937194">PostProcess</a>;</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno"><a class="line" href="../../df/d68/class_d3_d12_renderer.html#ac84cdd66af4b18d57d294e5cfb2aa7d0">  142</a></span>    TUniquePtr&lt;GraphicsMemory&gt; <a class="code hl_variable" href="../../df/d68/class_d3_d12_renderer.html#ac84cdd66af4b18d57d294e5cfb2aa7d0">GraphMemory</a>;</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span> </div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span> </div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span> </div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno"><a class="line" href="../../df/d68/class_d3_d12_renderer.html#aac9eb35c9b209c213330601088e0cff2">  146</a></span>    <a class="code hl_class" href="../../d8/dd5/class_f_windows_window.html">FWindowsWindow</a>* <a class="code hl_variable" href="../../df/d68/class_d3_d12_renderer.html#aac9eb35c9b209c213330601088e0cff2">m_renderWindow</a>;</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span> </div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno"><a class="line" href="../../df/d68/class_d3_d12_renderer.html#a19869ac089a3ef7f35fbdf5204a9bffa">  148</a></span>    <a class="code hl_typedef" href="../../dd/dce/_d3_d12_main_8h.html#ab8eaee8f45f36954297ee6146eb6db20">Resource</a> <a class="code hl_variable" href="../../df/d68/class_d3_d12_renderer.html#a19869ac089a3ef7f35fbdf5204a9bffa">m_backBuffers</a>[BACK_BUFFER_COUNT];</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno"><a class="line" href="../../df/d68/class_d3_d12_renderer.html#a878e447043ae372ac86b532d17506ab6">  149</a></span>    <a class="code hl_typedef" href="../../dd/dce/_d3_d12_main_8h.html#ab8eaee8f45f36954297ee6146eb6db20">Resource</a> <a class="code hl_variable" href="../../df/d68/class_d3_d12_renderer.html#a878e447043ae372ac86b532d17506ab6">m_depthBuffer</a>;</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno"><a class="line" href="../../df/d68/class_d3_d12_renderer.html#a33776c460e9902c498ccae56398c3eea">  150</a></span>    <a class="code hl_typedef" href="../../dd/dce/_d3_d12_main_8h.html#ab8eaee8f45f36954297ee6146eb6db20">Resource</a> <a class="code hl_variable" href="../../df/d68/class_d3_d12_renderer.html#a33776c460e9902c498ccae56398c3eea">m_backVertexBuffer</a>;</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno"><a class="line" href="../../df/d68/class_d3_d12_renderer.html#adb95b3800d0f7a7d1d0544275ada8741">  151</a></span>    <a class="code hl_typedef" href="../../dd/dce/_d3_d12_main_8h.html#ab8eaee8f45f36954297ee6146eb6db20">Resource</a> <a class="code hl_variable" href="../../df/d68/class_d3_d12_renderer.html#adb95b3800d0f7a7d1d0544275ada8741">m_backIndicesBuffer</a>;</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno"><a class="line" href="../../df/d68/class_d3_d12_renderer.html#a06230c36c870f59d7f739143248cc76f">  152</a></span>    <a class="code hl_typedef" href="../../dd/dce/_d3_d12_main_8h.html#ab8eaee8f45f36954297ee6146eb6db20">Resource</a> <a class="code hl_variable" href="../../df/d68/class_d3_d12_renderer.html#a06230c36c870f59d7f739143248cc76f">m_RenderTarget</a>;</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span> </div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno"><a class="line" href="../../df/d68/class_d3_d12_renderer.html#a5f322ec4094a05c23e997e81e26c5cf6">  154</a></span>    <a class="code hl_typedef" href="../../dd/dce/_d3_d12_main_8h.html#ab8eaee8f45f36954297ee6146eb6db20">Resource</a> <a class="code hl_variable" href="../../df/d68/class_d3_d12_renderer.html#a5f322ec4094a05c23e997e81e26c5cf6">m_vertexSkyBoxBuffer</a>;</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno"><a class="line" href="../../df/d68/class_d3_d12_renderer.html#a7602a045e653dbde77c442c83136039a">  155</a></span>    <a class="code hl_typedef" href="../../dd/dce/_d3_d12_main_8h.html#ab8eaee8f45f36954297ee6146eb6db20">Resource</a> <a class="code hl_variable" href="../../df/d68/class_d3_d12_renderer.html#a7602a045e653dbde77c442c83136039a">m_indicesSkyBoxBuffer</a>;</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span> </div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno"><a class="line" href="../../df/d68/class_d3_d12_renderer.html#ad37075f99507c658cf2cb3069d8d8da0">  157</a></span>    <a class="code hl_class" href="../../d3/ddd/class_d3_d12_texture.html">D3D12Texture</a>* <a class="code hl_variable" href="../../df/d68/class_d3_d12_renderer.html#ad37075f99507c658cf2cb3069d8d8da0">m_skyboxTexture</a>;</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span> </div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span> </div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span> </div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno"><a class="line" href="../../df/d68/class_d3_d12_renderer.html#a164bdc157c01a30f870707ec1a08d416">  161</a></span>    D3D12_VERTEX_BUFFER_VIEW <a class="code hl_variable" href="../../df/d68/class_d3_d12_renderer.html#a164bdc157c01a30f870707ec1a08d416">m_backVertexView</a>;</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno"><a class="line" href="../../df/d68/class_d3_d12_renderer.html#a5608fc9e7666321c1681f741ad5c7123">  162</a></span>    D3D12_INDEX_BUFFER_VIEW <a class="code hl_variable" href="../../df/d68/class_d3_d12_renderer.html#a5608fc9e7666321c1681f741ad5c7123">m_backIndexView</a>;</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span> </div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno"><a class="line" href="../../df/d68/class_d3_d12_renderer.html#ac301c6b93f11d3c75c106afa0477ce8a">  164</a></span>    D3D12_VERTEX_BUFFER_VIEW <a class="code hl_variable" href="../../df/d68/class_d3_d12_renderer.html#ac301c6b93f11d3c75c106afa0477ce8a">m_SkyBoxVertexView</a>;</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno"><a class="line" href="../../df/d68/class_d3_d12_renderer.html#a6fa14398c4c42fd9a22b85d4552074da">  165</a></span>    D3D12_INDEX_BUFFER_VIEW <a class="code hl_variable" href="../../df/d68/class_d3_d12_renderer.html#a6fa14398c4c42fd9a22b85d4552074da">m_SkyBoxIndexView</a>;</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span> </div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno"><a class="line" href="../../df/d68/class_d3_d12_renderer.html#a61cf741c0557a7a2afb14389fed73efc">  167</a></span>    TUniquePtr &lt;D3D12UploadBufferResource&lt;XMMATRIX&gt;&gt; <a class="code hl_variable" href="../../df/d68/class_d3_d12_renderer.html#a61cf741c0557a7a2afb14389fed73efc">m_cbvObjectSkyBox</a>;</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span> </div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span> </div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno"><a class="line" href="../../df/d68/class_d3_d12_renderer.html#aee8cd9c1e15d0b636a075a65669bf6fd">  170</a></span>    TUniquePtr&lt;D3D12PipelineShaderRootSignature&gt; <a class="code hl_variable" href="../../df/d68/class_d3_d12_renderer.html#aee8cd9c1e15d0b636a075a65669bf6fd">m_PostProcessPSO</a>;</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno"><a class="line" href="../../df/d68/class_d3_d12_renderer.html#af3b99f09069f5f8a00f759165f1eaad1">  171</a></span>    TUniquePtr&lt;D3D12PipelineShaderRootSignature&gt; <a class="code hl_variable" href="../../df/d68/class_d3_d12_renderer.html#af3b99f09069f5f8a00f759165f1eaad1">m_Blur</a>;</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno"><a class="line" href="../../df/d68/class_d3_d12_renderer.html#a4e376b8113dc7cc306b7568306bce54e">  172</a></span>    TUniquePtr&lt;D3D12PipelineShaderRootSignature&gt; <a class="code hl_variable" href="../../df/d68/class_d3_d12_renderer.html#a4e376b8113dc7cc306b7568306bce54e">m_SkyBoxPSO</a>;</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span> </div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span> </div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno"><a class="line" href="../../df/d68/class_d3_d12_renderer.html#a9750bff5b6a3acc27f49c4fe5d1e3c45">  175</a></span>    DXGI_FORMAT <a class="code hl_variable" href="../../df/d68/class_d3_d12_renderer.html#a9750bff5b6a3acc27f49c4fe5d1e3c45">m_backBufferFormat</a>;</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno"><a class="line" href="../../df/d68/class_d3_d12_renderer.html#a13505d3d836b8c1f3850205fead3bc64">  176</a></span>    DXGI_FORMAT <a class="code hl_variable" href="../../df/d68/class_d3_d12_renderer.html#a13505d3d836b8c1f3850205fead3bc64">m_depthStencilFormat</a>;</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span> </div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span> </div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno"><a class="line" href="../../df/d68/class_d3_d12_renderer.html#aa9cdbfc32a655ccd5513b252cf477e20">  179</a></span>    HANDLE <a class="code hl_variable" href="../../df/d68/class_d3_d12_renderer.html#aa9cdbfc32a655ccd5513b252cf477e20">m_fenceEvent</a>;</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno"><a class="line" href="../../df/d68/class_d3_d12_renderer.html#a4e007859659b73b2fc37ce04e58678dd">  180</a></span>    ComPtr&lt;ID3D12Fence&gt; <a class="code hl_variable" href="../../df/d68/class_d3_d12_renderer.html#a4e007859659b73b2fc37ce04e58678dd">m_fence</a>;</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno"><a class="line" href="../../df/d68/class_d3_d12_renderer.html#a7934cf13a00ac3e9ad8f6b5735174b9f">  181</a></span>    <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#afddf25cca147311c233b23a9d3329bb4">uint64</a> <a class="code hl_variable" href="../../df/d68/class_d3_d12_renderer.html#a7934cf13a00ac3e9ad8f6b5735174b9f">m_fenceValue</a>;</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span> </div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno"><a class="line" href="../../df/d68/class_d3_d12_renderer.html#a552610928ec0ea485f5248368a3eb325">  183</a></span>    <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#afddf25cca147311c233b23a9d3329bb4">uint64</a> <a class="code hl_variable" href="../../df/d68/class_d3_d12_renderer.html#a552610928ec0ea485f5248368a3eb325">CurrentBackBufferIndex</a> = 0;</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno"><a class="line" href="../../df/d68/class_d3_d12_renderer.html#aca391d23c4a13ab64d21111251b7d169">  184</a></span>    <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a2c46f1fb01e11216aa2c983307deafb4">SIZE_T</a> <a class="code hl_variable" href="../../df/d68/class_d3_d12_renderer.html#aca391d23c4a13ab64d21111251b7d169">RTHandleSize</a> =       0;</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno"><a class="line" href="../../df/d68/class_d3_d12_renderer.html#a9c64562b836700c10d9640286812c634">  185</a></span>    <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a2c46f1fb01e11216aa2c983307deafb4">SIZE_T</a> <a class="code hl_variable" href="../../df/d68/class_d3_d12_renderer.html#a9c64562b836700c10d9640286812c634">DSHandleSize</a> =       0;</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno"><a class="line" href="../../df/d68/class_d3_d12_renderer.html#a07232bdb9cb19d0f437a160b7458f6fd">  186</a></span>    <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a2c46f1fb01e11216aa2c983307deafb4">SIZE_T</a> <a class="code hl_variable" href="../../df/d68/class_d3_d12_renderer.html#a07232bdb9cb19d0f437a160b7458f6fd">CBSRUAHandleSize</a> =   0;</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span> </div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno"><a class="line" href="../../df/d68/class_d3_d12_renderer.html#af73ba487a0b00f9edbf7e1493da360fd">  188</a></span>    D3D12_VIEWPORT <a class="code hl_variable" href="../../df/d68/class_d3_d12_renderer.html#af73ba487a0b00f9edbf7e1493da360fd">Viewport</a>;</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno"><a class="line" href="../../df/d68/class_d3_d12_renderer.html#a5a2624405d85f63642a1f460948e1537">  189</a></span>    D3D12_RECT <a class="code hl_variable" href="../../df/d68/class_d3_d12_renderer.html#a5a2624405d85f63642a1f460948e1537">ScissorRect</a>;</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno"><a class="line" href="../../df/d68/class_d3_d12_renderer.html#aa5200de903542bfdda6d3fc98c07ff51">  190</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="../../df/d68/class_d3_d12_renderer.html#aa5200de903542bfdda6d3fc98c07ff51">Fov</a>;</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno"><a class="line" href="../../df/d68/class_d3_d12_renderer.html#a4ba526261fcb17578be954cc01e841da">  191</a></span>    TUniquePtr&lt;D3D12UploadBufferResource&lt;D3D12PassConstants&gt;&gt; <a class="code hl_variable" href="../../df/d68/class_d3_d12_renderer.html#a4ba526261fcb17578be954cc01e841da">m_passBuffer</a>;</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span> </div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span> </div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span> </div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>    <span class="comment">// RayTracing</span></div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span> </div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span> </div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno"><a class="line" href="../../df/d68/class_d3_d12_renderer.html#a2173517f461ec6ef1e6f1f737c0e6080">  198</a></span>    ComPtr&lt;ID3D12RootSignature&gt; <a class="code hl_variable" href="../../df/d68/class_d3_d12_renderer.html#a2173517f461ec6ef1e6f1f737c0e6080">m_RayTracingGlobalRootSignature</a>;</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno"><a class="line" href="../../df/d68/class_d3_d12_renderer.html#a9e00fee6777974d50983278f833904a5">  199</a></span>    ComPtr&lt;ID3D12RootSignature&gt; <a class="code hl_variable" href="../../df/d68/class_d3_d12_renderer.html#a9e00fee6777974d50983278f833904a5">m_RayTracingLocalRootSignature</a>;</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno"><a class="line" href="../../df/d68/class_d3_d12_renderer.html#a42f01f02ca7c5f18efa95bcb155a5958">  200</a></span>    <a class="code hl_struct" href="../../dc/ddc/struct_ray_gen_constant_buffer.html">RayGenConstantBuffer</a> <a class="code hl_variable" href="../../df/d68/class_d3_d12_renderer.html#a42f01f02ca7c5f18efa95bcb155a5958">m_RayGenCB</a>;</div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span> </div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span> </div>
+<div class="foldopen" id="foldopen00203" data-start="{" data-end="};">
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno"><a class="line" href="../../d2/dec/struct_d3_d12_renderer_1_1_f_acceleration_buffers.html">  203</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="../../d2/dec/struct_d3_d12_renderer_1_1_f_acceleration_buffers.html">FAccelerationBuffers</a></div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>    {</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno"><a class="line" href="../../d2/dec/struct_d3_d12_renderer_1_1_f_acceleration_buffers.html#a99bb09aa324f54bd6a316550f0815e83">  205</a></span>        <a class="code hl_typedef" href="../../dd/dce/_d3_d12_main_8h.html#ab8eaee8f45f36954297ee6146eb6db20">Resource</a> <a class="code hl_variable" href="../../d2/dec/struct_d3_d12_renderer_1_1_f_acceleration_buffers.html#a99bb09aa324f54bd6a316550f0815e83">ScratchBuffer</a>;</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno"><a class="line" href="../../d2/dec/struct_d3_d12_renderer_1_1_f_acceleration_buffers.html#a3f8a581cbd52313bf92a160ffe15fea7">  206</a></span>        <a class="code hl_typedef" href="../../dd/dce/_d3_d12_main_8h.html#ab8eaee8f45f36954297ee6146eb6db20">Resource</a> <a class="code hl_variable" href="../../d2/dec/struct_d3_d12_renderer_1_1_f_acceleration_buffers.html#a3f8a581cbd52313bf92a160ffe15fea7">ResultBuffer</a>;</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno"><a class="line" href="../../d2/dec/struct_d3_d12_renderer_1_1_f_acceleration_buffers.html#af638f57210c3dd938667cef530d88ed2">  207</a></span>        <a class="code hl_typedef" href="../../dd/dce/_d3_d12_main_8h.html#ab8eaee8f45f36954297ee6146eb6db20">Resource</a> <a class="code hl_variable" href="../../d2/dec/struct_d3_d12_renderer_1_1_f_acceleration_buffers.html#af638f57210c3dd938667cef530d88ed2">InstanceDescBuffer</a>;</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>    };</div>
+</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span> </div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>    </div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>};</div>
+</div>
+<div class="ttc" id="a_array_8h_html"><div class="ttname"><a href="../../d3/dc5/_array_8h.html">Array.h</a></div></div>
+<div class="ttc" id="a_command_line_8h_html"><div class="ttname"><a href="../../d3/d6b/_command_line_8h.html">CommandLine.h</a></div></div>
+<div class="ttc" id="a_command_line_8h_html_a4ebfeaa819ddc7b0039496d16b2adb37"><div class="ttname"><a href="../../d3/d6b/_command_line_8h.html#a4ebfeaa819ddc7b0039496d16b2adb37">PrintLine</a></div><div class="ttdeci">#define PrintLine(...)</div><div class="ttdef"><b>Definition</b> CommandLine.h:7</div></div>
+<div class="ttc" id="a_core_types_8h_html"><div class="ttname"><a href="../../db/d04/_core_types_8h.html">CoreTypes.h</a></div></div>
+<div class="ttc" id="a_d3_d12_main_8h_html"><div class="ttname"><a href="../../dd/dce/_d3_d12_main_8h.html">D3D12Main.h</a></div></div>
+<div class="ttc" id="a_d3_d12_main_8h_html_ab8eaee8f45f36954297ee6146eb6db20"><div class="ttname"><a href="../../dd/dce/_d3_d12_main_8h.html#ab8eaee8f45f36954297ee6146eb6db20">Resource</a></div><div class="ttdeci">ComPtr&lt; ID3D12Resource &gt; Resource</div><div class="ttdef"><b>Definition</b> D3D12Main.h:29</div></div>
+<div class="ttc" id="a_d3_d12_p_s_o_8h_html"><div class="ttname"><a href="../../df/d8d/_d3_d12_p_s_o_8h.html">D3D12PSO.h</a></div></div>
+<div class="ttc" id="a_d3_d12_resource_8h_html"><div class="ttname"><a href="../../de/d49/_d3_d12_resource_8h.html">D3D12Resource.h</a></div></div>
+<div class="ttc" id="a_d3_d12_types_8h_html"><div class="ttname"><a href="../../d4/d8b/_d3_d12_types_8h.html">D3D12Types.h</a></div></div>
+<div class="ttc" id="a_dark_string_8h_html"><div class="ttname"><a href="../../de/d45/_dark_string_8h.html">DarkString.h</a></div></div>
+<div class="ttc" id="a_delegate_8h_html"><div class="ttname"><a href="../../d9/dfd/_delegate_8h.html">Delegate.h</a></div></div>
+<div class="ttc" id="a_input_core_8h_html"><div class="ttname"><a href="../../dd/d7b/_input_core_8h.html">InputCore.h</a></div></div>
+<div class="ttc" id="a_input_core_8h_html_af20302d31e77274d05d1998475591a5a"><div class="ttname"><a href="../../dd/d7b/_input_core_8h.html#af20302d31e77274d05d1998475591a5a">eInputActionState</a></div><div class="ttdeci">eInputActionState</div><div class="ttdef"><b>Definition</b> InputCore.h:12</div></div>
+<div class="ttc" id="a_platform_8h_html_a2c46f1fb01e11216aa2c983307deafb4"><div class="ttname"><a href="../../d2/dc9/_platform_8h.html#a2c46f1fb01e11216aa2c983307deafb4">SIZE_T</a></div><div class="ttdeci">FPlatformTypes::SIZE_T SIZE_T</div><div class="ttdef"><b>Definition</b> Platform.h:54</div></div>
+<div class="ttc" id="a_platform_8h_html_a84083085985fb180ad38b9c32e3937da"><div class="ttname"><a href="../../d2/dc9/_platform_8h.html#a84083085985fb180ad38b9c32e3937da">int32</a></div><div class="ttdeci">FPlatformTypes::int32 int32</div><div class="ttdef"><b>Definition</b> Platform.h:42</div></div>
+<div class="ttc" id="a_platform_8h_html_a8c7a127091efbdfc5a16939041653e05"><div class="ttname"><a href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a></div><div class="ttdeci">FPlatformTypes::uint32 uint32</div><div class="ttdef"><b>Definition</b> Platform.h:43</div></div>
+<div class="ttc" id="a_platform_8h_html_afddf25cca147311c233b23a9d3329bb4"><div class="ttname"><a href="../../d2/dc9/_platform_8h.html#afddf25cca147311c233b23a9d3329bb4">uint64</a></div><div class="ttdeci">FPlatformTypes::uint64 uint64</div><div class="ttdef"><b>Definition</b> Platform.h:45</div></div>
+<div class="ttc" id="a_render_2_d3_d12_2_d3_d12_shader_8h_html"><div class="ttname"><a href="../../dd/d0f/_render_2_d3_d12_2_d3_d12_shader_8h.html">D3D12Shader.h</a></div></div>
+<div class="ttc" id="a_renderer_8h_html"><div class="ttname"><a href="../../d3/da0/_renderer_8h.html">Renderer.h</a></div></div>
+<div class="ttc" id="a_windows_window_8h_html"><div class="ttname"><a href="../../de/dd7/_windows_window_8h.html">WindowsWindow.h</a></div></div>
+<div class="ttc" id="aclass_d3_d12_material_html"><div class="ttname"><a href="../../d7/df2/class_d3_d12_material.html">D3D12Material</a></div><div class="ttdef"><b>Definition</b> D3D12Material.h:8</div></div>
+<div class="ttc" id="aclass_d3_d12_model_html"><div class="ttname"><a href="../../de/d21/class_d3_d12_model.html">D3D12Model</a></div><div class="ttdef"><b>Definition</b> D3D12Model.h:9</div></div>
+<div class="ttc" id="aclass_d3_d12_renderer_html"><div class="ttname"><a href="../../df/d68/class_d3_d12_renderer.html">D3D12Renderer</a></div><div class="ttdef"><b>Definition</b> D3D12Render.h:76</div></div>
+<div class="ttc" id="aclass_d3_d12_renderer_html_a00f8bac9e1baf033e8770330c8549baa"><div class="ttname"><a href="../../df/d68/class_d3_d12_renderer.html#a00f8bac9e1baf033e8770330c8549baa">D3D12Renderer::m_swapchain</a></div><div class="ttdeci">ComPtr&lt; IDXGISwapChain4 &gt; m_swapchain</div><div class="ttdef"><b>Definition</b> D3D12Render.h:135</div></div>
+<div class="ttc" id="aclass_d3_d12_renderer_html_a02942d543fc3d336002f38a80b8dd492"><div class="ttname"><a href="../../df/d68/class_d3_d12_renderer.html#a02942d543fc3d336002f38a80b8dd492">D3D12Renderer::m_swapchainT</a></div><div class="ttdeci">ComPtr&lt; IDXGISwapChain &gt; m_swapchainT</div><div class="ttdef"><b>Definition</b> D3D12Render.h:136</div></div>
+<div class="ttc" id="aclass_d3_d12_renderer_html_a03368877dd51fe0103b72c9f42c51a3e"><div class="ttname"><a href="../../df/d68/class_d3_d12_renderer.html#a03368877dd51fe0103b72c9f42c51a3e">D3D12Renderer::RenderObj</a></div><div class="ttdeci">void RenderObj()</div><div class="ttdef"><b>Definition</b> D3D12Render.cpp:82</div></div>
+<div class="ttc" id="aclass_d3_d12_renderer_html_a06230c36c870f59d7f739143248cc76f"><div class="ttname"><a href="../../df/d68/class_d3_d12_renderer.html#a06230c36c870f59d7f739143248cc76f">D3D12Renderer::m_RenderTarget</a></div><div class="ttdeci">Resource m_RenderTarget</div><div class="ttdef"><b>Definition</b> D3D12Render.h:152</div></div>
+<div class="ttc" id="aclass_d3_d12_renderer_html_a07232bdb9cb19d0f437a160b7458f6fd"><div class="ttname"><a href="../../df/d68/class_d3_d12_renderer.html#a07232bdb9cb19d0f437a160b7458f6fd">D3D12Renderer::CBSRUAHandleSize</a></div><div class="ttdeci">SIZE_T CBSRUAHandleSize</div><div class="ttdef"><b>Definition</b> D3D12Render.h:186</div></div>
+<div class="ttc" id="aclass_d3_d12_renderer_html_a13505d3d836b8c1f3850205fead3bc64"><div class="ttname"><a href="../../df/d68/class_d3_d12_renderer.html#a13505d3d836b8c1f3850205fead3bc64">D3D12Renderer::m_depthStencilFormat</a></div><div class="ttdeci">DXGI_FORMAT m_depthStencilFormat</div><div class="ttdef"><b>Definition</b> D3D12Render.h:176</div></div>
+<div class="ttc" id="aclass_d3_d12_renderer_html_a15e89b621a8ba339d1e7cdadfbb50a61"><div class="ttname"><a href="../../df/d68/class_d3_d12_renderer.html#a15e89b621a8ba339d1e7cdadfbb50a61">D3D12Renderer::IsRaster</a></div><div class="ttdeci">bool IsRaster</div><div class="ttdef"><b>Definition</b> D3D12Render.h:117</div></div>
+<div class="ttc" id="aclass_d3_d12_renderer_html_a164bdc157c01a30f870707ec1a08d416"><div class="ttname"><a href="../../df/d68/class_d3_d12_renderer.html#a164bdc157c01a30f870707ec1a08d416">D3D12Renderer::m_backVertexView</a></div><div class="ttdeci">D3D12_VERTEX_BUFFER_VIEW m_backVertexView</div><div class="ttdef"><b>Definition</b> D3D12Render.h:161</div></div>
+<div class="ttc" id="aclass_d3_d12_renderer_html_a19869ac089a3ef7f35fbdf5204a9bffa"><div class="ttname"><a href="../../df/d68/class_d3_d12_renderer.html#a19869ac089a3ef7f35fbdf5204a9bffa">D3D12Renderer::m_backBuffers</a></div><div class="ttdeci">Resource m_backBuffers[BACK_BUFFER_COUNT]</div><div class="ttdef"><b>Definition</b> D3D12Render.h:148</div></div>
+<div class="ttc" id="aclass_d3_d12_renderer_html_a1fcbbf59f7e2d004e8e9fc05448911c6"><div class="ttname"><a href="../../df/d68/class_d3_d12_renderer.html#a1fcbbf59f7e2d004e8e9fc05448911c6">D3D12Renderer::msaa</a></div><div class="ttdeci">int msaa</div><div class="ttdef"><b>Definition</b> D3D12Render.h:120</div></div>
+<div class="ttc" id="aclass_d3_d12_renderer_html_a2173517f461ec6ef1e6f1f737c0e6080"><div class="ttname"><a href="../../df/d68/class_d3_d12_renderer.html#a2173517f461ec6ef1e6f1f737c0e6080">D3D12Renderer::m_RayTracingGlobalRootSignature</a></div><div class="ttdeci">ComPtr&lt; ID3D12RootSignature &gt; m_RayTracingGlobalRootSignature</div><div class="ttdef"><b>Definition</b> D3D12Render.h:198</div></div>
+<div class="ttc" id="aclass_d3_d12_renderer_html_a308a32db755fc352c2e47eac39ff2c89"><div class="ttname"><a href="../../df/d68/class_d3_d12_renderer.html#a308a32db755fc352c2e47eac39ff2c89">D3D12Renderer::isSkyboxTexLoaded</a></div><div class="ttdeci">bool isSkyboxTexLoaded</div><div class="ttdef"><b>Definition</b> D3D12Render.h:119</div></div>
+<div class="ttc" id="aclass_d3_d12_renderer_html_a33776c460e9902c498ccae56398c3eea"><div class="ttname"><a href="../../df/d68/class_d3_d12_renderer.html#a33776c460e9902c498ccae56398c3eea">D3D12Renderer::m_backVertexBuffer</a></div><div class="ttdeci">Resource m_backVertexBuffer</div><div class="ttdef"><b>Definition</b> D3D12Render.h:150</div></div>
+<div class="ttc" id="aclass_d3_d12_renderer_html_a37648d96444c526f6c3d07f6e589ab52"><div class="ttname"><a href="../../df/d68/class_d3_d12_renderer.html#a37648d96444c526f6c3d07f6e589ab52">D3D12Renderer::PostProcessing</a></div><div class="ttdeci">void PostProcessing(D3D12_GPU_DESCRIPTOR_HANDLE renderHandle, ID3D12Resource *outputHandle)</div><div class="ttdef"><b>Definition</b> D3D12Render.cpp:87</div></div>
+<div class="ttc" id="aclass_d3_d12_renderer_html_a3b662b2f33d792bcffdc9269ea1f3997"><div class="ttname"><a href="../../df/d68/class_d3_d12_renderer.html#a3b662b2f33d792bcffdc9269ea1f3997">D3D12Renderer::D3D12Renderer</a></div><div class="ttdeci">D3D12Renderer()</div><div class="ttdef"><b>Definition</b> D3D12Render.cpp:35</div></div>
+<div class="ttc" id="aclass_d3_d12_renderer_html_a429bb8417172251a5182526816a36760"><div class="ttname"><a href="../../df/d68/class_d3_d12_renderer.html#a429bb8417172251a5182526816a36760">D3D12Renderer::m_factory</a></div><div class="ttdeci">ComPtr&lt; IDXGIFactory7 &gt; m_factory</div><div class="ttdef"><b>Definition</b> D3D12Render.h:122</div></div>
+<div class="ttc" id="aclass_d3_d12_renderer_html_a42f01f02ca7c5f18efa95bcb155a5958"><div class="ttname"><a href="../../df/d68/class_d3_d12_renderer.html#a42f01f02ca7c5f18efa95bcb155a5958">D3D12Renderer::m_RayGenCB</a></div><div class="ttdeci">RayGenConstantBuffer m_RayGenCB</div><div class="ttdef"><b>Definition</b> D3D12Render.h:200</div></div>
+<div class="ttc" id="aclass_d3_d12_renderer_html_a44cd26e6339e136920b9306ae3a34e27"><div class="ttname"><a href="../../df/d68/class_d3_d12_renderer.html#a44cd26e6339e136920b9306ae3a34e27">D3D12Renderer::BeginFrame</a></div><div class="ttdeci">void BeginFrame(D3D12Scene *scene)</div><div class="ttdef"><b>Definition</b> D3D12Render.cpp:65</div></div>
+<div class="ttc" id="aclass_d3_d12_renderer_html_a4ba526261fcb17578be954cc01e841da"><div class="ttname"><a href="../../df/d68/class_d3_d12_renderer.html#a4ba526261fcb17578be954cc01e841da">D3D12Renderer::m_passBuffer</a></div><div class="ttdeci">TUniquePtr&lt; D3D12UploadBufferResource&lt; D3D12PassConstants &gt; &gt; m_passBuffer</div><div class="ttdef"><b>Definition</b> D3D12Render.h:191</div></div>
+<div class="ttc" id="aclass_d3_d12_renderer_html_a4e007859659b73b2fc37ce04e58678dd"><div class="ttname"><a href="../../df/d68/class_d3_d12_renderer.html#a4e007859659b73b2fc37ce04e58678dd">D3D12Renderer::m_fence</a></div><div class="ttdeci">ComPtr&lt; ID3D12Fence &gt; m_fence</div><div class="ttdef"><b>Definition</b> D3D12Render.h:180</div></div>
+<div class="ttc" id="aclass_d3_d12_renderer_html_a4e376b8113dc7cc306b7568306bce54e"><div class="ttname"><a href="../../df/d68/class_d3_d12_renderer.html#a4e376b8113dc7cc306b7568306bce54e">D3D12Renderer::m_SkyBoxPSO</a></div><div class="ttdeci">TUniquePtr&lt; D3D12PipelineShaderRootSignature &gt; m_SkyBoxPSO</div><div class="ttdef"><b>Definition</b> D3D12Render.h:172</div></div>
+<div class="ttc" id="aclass_d3_d12_renderer_html_a552610928ec0ea485f5248368a3eb325"><div class="ttname"><a href="../../df/d68/class_d3_d12_renderer.html#a552610928ec0ea485f5248368a3eb325">D3D12Renderer::CurrentBackBufferIndex</a></div><div class="ttdeci">uint64 CurrentBackBufferIndex</div><div class="ttdef"><b>Definition</b> D3D12Render.h:183</div></div>
+<div class="ttc" id="aclass_d3_d12_renderer_html_a5608fc9e7666321c1681f741ad5c7123"><div class="ttname"><a href="../../df/d68/class_d3_d12_renderer.html#a5608fc9e7666321c1681f741ad5c7123">D3D12Renderer::m_backIndexView</a></div><div class="ttdeci">D3D12_INDEX_BUFFER_VIEW m_backIndexView</div><div class="ttdef"><b>Definition</b> D3D12Render.h:162</div></div>
+<div class="ttc" id="aclass_d3_d12_renderer_html_a5a2624405d85f63642a1f460948e1537"><div class="ttname"><a href="../../df/d68/class_d3_d12_renderer.html#a5a2624405d85f63642a1f460948e1537">D3D12Renderer::ScissorRect</a></div><div class="ttdeci">D3D12_RECT ScissorRect</div><div class="ttdef"><b>Definition</b> D3D12Render.h:189</div></div>
+<div class="ttc" id="aclass_d3_d12_renderer_html_a5f322ec4094a05c23e997e81e26c5cf6"><div class="ttname"><a href="../../df/d68/class_d3_d12_renderer.html#a5f322ec4094a05c23e997e81e26c5cf6">D3D12Renderer::m_vertexSkyBoxBuffer</a></div><div class="ttdeci">Resource m_vertexSkyBoxBuffer</div><div class="ttdef"><b>Definition</b> D3D12Render.h:154</div></div>
+<div class="ttc" id="aclass_d3_d12_renderer_html_a61cf741c0557a7a2afb14389fed73efc"><div class="ttname"><a href="../../df/d68/class_d3_d12_renderer.html#a61cf741c0557a7a2afb14389fed73efc">D3D12Renderer::m_cbvObjectSkyBox</a></div><div class="ttdeci">TUniquePtr&lt; D3D12UploadBufferResource&lt; XMMATRIX &gt; &gt; m_cbvObjectSkyBox</div><div class="ttdef"><b>Definition</b> D3D12Render.h:167</div></div>
+<div class="ttc" id="aclass_d3_d12_renderer_html_a687efd0d5876dfdc49cd3952bc6e70d0"><div class="ttname"><a href="../../df/d68/class_d3_d12_renderer.html#a687efd0d5876dfdc49cd3952bc6e70d0">D3D12Renderer::SRDescriptorHeap</a></div><div class="ttdeci">TUniquePtr&lt; DescriptorHeap &gt; SRDescriptorHeap</div><div class="ttdef"><b>Definition</b> D3D12Render.h:133</div></div>
+<div class="ttc" id="aclass_d3_d12_renderer_html_a6b951e7e941d197c80dafd905a73ac7e"><div class="ttname"><a href="../../df/d68/class_d3_d12_renderer.html#a6b951e7e941d197c80dafd905a73ac7e">D3D12Renderer::RTDescriptorHeap</a></div><div class="ttdeci">TUniquePtr&lt; DescriptorHeap &gt; RTDescriptorHeap</div><div class="ttdef"><b>Definition</b> D3D12Render.h:131</div></div>
+<div class="ttc" id="aclass_d3_d12_renderer_html_a6fa14398c4c42fd9a22b85d4552074da"><div class="ttname"><a href="../../df/d68/class_d3_d12_renderer.html#a6fa14398c4c42fd9a22b85d4552074da">D3D12Renderer::m_SkyBoxIndexView</a></div><div class="ttdeci">D3D12_INDEX_BUFFER_VIEW m_SkyBoxIndexView</div><div class="ttdef"><b>Definition</b> D3D12Render.h:165</div></div>
+<div class="ttc" id="aclass_d3_d12_renderer_html_a7602a045e653dbde77c442c83136039a"><div class="ttname"><a href="../../df/d68/class_d3_d12_renderer.html#a7602a045e653dbde77c442c83136039a">D3D12Renderer::m_indicesSkyBoxBuffer</a></div><div class="ttdeci">Resource m_indicesSkyBoxBuffer</div><div class="ttdef"><b>Definition</b> D3D12Render.h:155</div></div>
+<div class="ttc" id="aclass_d3_d12_renderer_html_a7934cf13a00ac3e9ad8f6b5735174b9f"><div class="ttname"><a href="../../df/d68/class_d3_d12_renderer.html#a7934cf13a00ac3e9ad8f6b5735174b9f">D3D12Renderer::m_fenceValue</a></div><div class="ttdeci">uint64 m_fenceValue</div><div class="ttdef"><b>Definition</b> D3D12Render.h:181</div></div>
+<div class="ttc" id="aclass_d3_d12_renderer_html_a8002e41b69af55bcbb66795a777284ef"><div class="ttname"><a href="../../df/d68/class_d3_d12_renderer.html#a8002e41b69af55bcbb66795a777284ef">D3D12Renderer::DSDescriptorHeap</a></div><div class="ttdeci">TUniquePtr&lt; DescriptorHeap &gt; DSDescriptorHeap</div><div class="ttdef"><b>Definition</b> D3D12Render.h:132</div></div>
+<div class="ttc" id="aclass_d3_d12_renderer_html_a8219c07fe09a952427df655b221b21b5"><div class="ttname"><a href="../../df/d68/class_d3_d12_renderer.html#a8219c07fe09a952427df655b221b21b5">D3D12Renderer::OnInput</a></div><div class="ttdeci">void OnInput(eInputActionState action)</div><div class="ttdef"><b>Definition</b> D3D12Render.cpp:45</div></div>
+<div class="ttc" id="aclass_d3_d12_renderer_html_a878e447043ae372ac86b532d17506ab6"><div class="ttname"><a href="../../df/d68/class_d3_d12_renderer.html#a878e447043ae372ac86b532d17506ab6">D3D12Renderer::m_depthBuffer</a></div><div class="ttdeci">Resource m_depthBuffer</div><div class="ttdef"><b>Definition</b> D3D12Render.h:149</div></div>
+<div class="ttc" id="aclass_d3_d12_renderer_html_a8a4e62d84cd6c2a97c7e815465e2e8e3"><div class="ttname"><a href="../../df/d68/class_d3_d12_renderer.html#a8a4e62d84cd6c2a97c7e815465e2e8e3">D3D12Renderer::OnInterface</a></div><div class="ttdeci">void OnInterface()</div><div class="ttdef"><b>Definition</b> D3D12Render.cpp:70</div></div>
+<div class="ttc" id="aclass_d3_d12_renderer_html_a9750bff5b6a3acc27f49c4fe5d1e3c45"><div class="ttname"><a href="../../df/d68/class_d3_d12_renderer.html#a9750bff5b6a3acc27f49c4fe5d1e3c45">D3D12Renderer::m_backBufferFormat</a></div><div class="ttdeci">DXGI_FORMAT m_backBufferFormat</div><div class="ttdef"><b>Definition</b> D3D12Render.h:175</div></div>
+<div class="ttc" id="aclass_d3_d12_renderer_html_a992a3322c9b03e5a68028abb30fe4df8"><div class="ttname"><a href="../../df/d68/class_d3_d12_renderer.html#a992a3322c9b03e5a68028abb30fe4df8">D3D12Renderer::LoadMesh</a></div><div class="ttdeci">TArray&lt; D3D12Mesh1 * &gt; LoadMesh(FString path=&quot;&quot;)</div></div>
+<div class="ttc" id="aclass_d3_d12_renderer_html_a9c64562b836700c10d9640286812c634"><div class="ttname"><a href="../../df/d68/class_d3_d12_renderer.html#a9c64562b836700c10d9640286812c634">D3D12Renderer::DSHandleSize</a></div><div class="ttdeci">SIZE_T DSHandleSize</div><div class="ttdef"><b>Definition</b> D3D12Render.h:185</div></div>
+<div class="ttc" id="aclass_d3_d12_renderer_html_a9e00fee6777974d50983278f833904a5"><div class="ttname"><a href="../../df/d68/class_d3_d12_renderer.html#a9e00fee6777974d50983278f833904a5">D3D12Renderer::m_RayTracingLocalRootSignature</a></div><div class="ttdeci">ComPtr&lt; ID3D12RootSignature &gt; m_RayTracingLocalRootSignature</div><div class="ttdef"><b>Definition</b> D3D12Render.h:199</div></div>
+<div class="ttc" id="aclass_d3_d12_renderer_html_a9e152a1f71eee5e0f196c795bcaaf664"><div class="ttname"><a href="../../df/d68/class_d3_d12_renderer.html#a9e152a1f71eee5e0f196c795bcaaf664">D3D12Renderer::m_adapter</a></div><div class="ttdeci">ComPtr&lt; IDXGIAdapter1 &gt; m_adapter</div><div class="ttdef"><b>Definition</b> D3D12Render.h:124</div></div>
+<div class="ttc" id="aclass_d3_d12_renderer_html_aa1286f15bb9f0d764af42c5f580cdcd1"><div class="ttname"><a href="../../df/d68/class_d3_d12_renderer.html#aa1286f15bb9f0d764af42c5f580cdcd1">D3D12Renderer::isDefaultTexLoaded</a></div><div class="ttdeci">bool isDefaultTexLoaded</div><div class="ttdef"><b>Definition</b> D3D12Render.h:118</div></div>
+<div class="ttc" id="aclass_d3_d12_renderer_html_aa1a3d4c026b031dc83192f48d8784e99"><div class="ttname"><a href="../../df/d68/class_d3_d12_renderer.html#aa1a3d4c026b031dc83192f48d8784e99">D3D12Renderer::OnResize</a></div><div class="ttdeci">void OnResize(long x, long y)</div><div class="ttdef"><b>Definition</b> D3D12Render.cpp:112</div></div>
+<div class="ttc" id="aclass_d3_d12_renderer_html_aa5200de903542bfdda6d3fc98c07ff51"><div class="ttname"><a href="../../df/d68/class_d3_d12_renderer.html#aa5200de903542bfdda6d3fc98c07ff51">D3D12Renderer::Fov</a></div><div class="ttdeci">float Fov</div><div class="ttdef"><b>Definition</b> D3D12Render.h:190</div></div>
+<div class="ttc" id="aclass_d3_d12_renderer_html_aa790f82fc4e39cfd34ab6634bc01f673"><div class="ttname"><a href="../../df/d68/class_d3_d12_renderer.html#aa790f82fc4e39cfd34ab6634bc01f673">D3D12Renderer::Shutdown</a></div><div class="ttdeci">void Shutdown() override</div><div class="ttdef"><b>Definition</b> D3D12Render.cpp:49</div></div>
+<div class="ttc" id="aclass_d3_d12_renderer_html_aa7fafefbe67ebe0c63a35a6160038566"><div class="ttname"><a href="../../df/d68/class_d3_d12_renderer.html#aa7fafefbe67ebe0c63a35a6160038566">D3D12Renderer::SetResolution</a></div><div class="ttdeci">void SetResolution(int32 Width, int32 Height, bool IsFullScreen) override</div><div class="ttdef"><b>Definition</b> D3D12Render.cpp:74</div></div>
+<div class="ttc" id="aclass_d3_d12_renderer_html_aa9cdbfc32a655ccd5513b252cf477e20"><div class="ttname"><a href="../../df/d68/class_d3_d12_renderer.html#aa9cdbfc32a655ccd5513b252cf477e20">D3D12Renderer::m_fenceEvent</a></div><div class="ttdeci">HANDLE m_fenceEvent</div><div class="ttdef"><b>Definition</b> D3D12Render.h:179</div></div>
+<div class="ttc" id="aclass_d3_d12_renderer_html_aac9eb35c9b209c213330601088e0cff2"><div class="ttname"><a href="../../df/d68/class_d3_d12_renderer.html#aac9eb35c9b209c213330601088e0cff2">D3D12Renderer::m_renderWindow</a></div><div class="ttdeci">FWindowsWindow * m_renderWindow</div><div class="ttdef"><b>Definition</b> D3D12Render.h:146</div></div>
+<div class="ttc" id="aclass_d3_d12_renderer_html_ab1556e63e2387463850524658851c53f"><div class="ttname"><a href="../../df/d68/class_d3_d12_renderer.html#ab1556e63e2387463850524658851c53f">D3D12Renderer::Render</a></div><div class="ttdeci">void Render(D3D12Scene *) override</div><div class="ttdef"><b>Definition</b> D3D12Render.cpp:78</div></div>
+<div class="ttc" id="aclass_d3_d12_renderer_html_ab847b8c9d3bdcca2acf2ced9540541a1"><div class="ttname"><a href="../../df/d68/class_d3_d12_renderer.html#ab847b8c9d3bdcca2acf2ced9540541a1">D3D12Renderer::m_commandList</a></div><div class="ttdeci">ComPtr&lt; ID3D12GraphicsCommandList6 &gt; m_commandList</div><div class="ttdef"><b>Definition</b> D3D12Render.h:128</div></div>
+<div class="ttc" id="aclass_d3_d12_renderer_html_ab9aebeda48bf3b095c7fda28c84f4b09"><div class="ttname"><a href="../../df/d68/class_d3_d12_renderer.html#ab9aebeda48bf3b095c7fda28c84f4b09">D3D12Renderer::Init</a></div><div class="ttdeci">int32_t Init() override</div><div class="ttdef"><b>Definition</b> D3D12Render.cpp:39</div></div>
+<div class="ttc" id="aclass_d3_d12_renderer_html_abb5971aa7b645924128023bd99937194"><div class="ttname"><a href="../../df/d68/class_d3_d12_renderer.html#abb5971aa7b645924128023bd99937194">D3D12Renderer::PostProcess</a></div><div class="ttdeci">TUniquePtr&lt; BasicPostProcess &gt; PostProcess</div><div class="ttdef"><b>Definition</b> D3D12Render.h:141</div></div>
+<div class="ttc" id="aclass_d3_d12_renderer_html_ac301c6b93f11d3c75c106afa0477ce8a"><div class="ttname"><a href="../../df/d68/class_d3_d12_renderer.html#ac301c6b93f11d3c75c106afa0477ce8a">D3D12Renderer::m_SkyBoxVertexView</a></div><div class="ttdeci">D3D12_VERTEX_BUFFER_VIEW m_SkyBoxVertexView</div><div class="ttdef"><b>Definition</b> D3D12Render.h:164</div></div>
+<div class="ttc" id="aclass_d3_d12_renderer_html_ac84cdd66af4b18d57d294e5cfb2aa7d0"><div class="ttname"><a href="../../df/d68/class_d3_d12_renderer.html#ac84cdd66af4b18d57d294e5cfb2aa7d0">D3D12Renderer::GraphMemory</a></div><div class="ttdeci">TUniquePtr&lt; GraphicsMemory &gt; GraphMemory</div><div class="ttdef"><b>Definition</b> D3D12Render.h:142</div></div>
+<div class="ttc" id="aclass_d3_d12_renderer_html_aca391d23c4a13ab64d21111251b7d169"><div class="ttname"><a href="../../df/d68/class_d3_d12_renderer.html#aca391d23c4a13ab64d21111251b7d169">D3D12Renderer::RTHandleSize</a></div><div class="ttdeci">SIZE_T RTHandleSize</div><div class="ttdef"><b>Definition</b> D3D12Render.h:184</div></div>
+<div class="ttc" id="aclass_d3_d12_renderer_html_ad37075f99507c658cf2cb3069d8d8da0"><div class="ttname"><a href="../../df/d68/class_d3_d12_renderer.html#ad37075f99507c658cf2cb3069d8d8da0">D3D12Renderer::m_skyboxTexture</a></div><div class="ttdeci">D3D12Texture * m_skyboxTexture</div><div class="ttdef"><b>Definition</b> D3D12Render.h:157</div></div>
+<div class="ttc" id="aclass_d3_d12_renderer_html_ad5a99fee1c2a844ff74bf797bd021140"><div class="ttname"><a href="../../df/d68/class_d3_d12_renderer.html#ad5a99fee1c2a844ff74bf797bd021140">D3D12Renderer::m_commandQueue</a></div><div class="ttdeci">ComPtr&lt; ID3D12CommandQueue &gt; m_commandQueue</div><div class="ttdef"><b>Definition</b> D3D12Render.h:129</div></div>
+<div class="ttc" id="aclass_d3_d12_renderer_html_adb307fd9d8a57d3ab547a828809024f1"><div class="ttname"><a href="../../df/d68/class_d3_d12_renderer.html#adb307fd9d8a57d3ab547a828809024f1">D3D12Renderer::Update</a></div><div class="ttdeci">void Update()</div><div class="ttdef"><b>Definition</b> D3D12Render.cpp:118</div></div>
+<div class="ttc" id="aclass_d3_d12_renderer_html_adb95b3800d0f7a7d1d0544275ada8741"><div class="ttname"><a href="../../df/d68/class_d3_d12_renderer.html#adb95b3800d0f7a7d1d0544275ada8741">D3D12Renderer::m_backIndicesBuffer</a></div><div class="ttdeci">Resource m_backIndicesBuffer</div><div class="ttdef"><b>Definition</b> D3D12Render.h:151</div></div>
+<div class="ttc" id="aclass_d3_d12_renderer_html_ae0eee51bbb0285af74be4c4de1d254d0"><div class="ttname"><a href="../../df/d68/class_d3_d12_renderer.html#ae0eee51bbb0285af74be4c4de1d254d0">D3D12Renderer::RenderScene</a></div><div class="ttdeci">void RenderScene()</div><div class="ttdef"><b>Definition</b> D3D12Render.cpp:99</div></div>
+<div class="ttc" id="aclass_d3_d12_renderer_html_ae29df92539415bc7898caef586a5d468"><div class="ttname"><a href="../../df/d68/class_d3_d12_renderer.html#ae29df92539415bc7898caef586a5d468">D3D12Renderer::EndFrame</a></div><div class="ttdeci">void EndFrame() override</div><div class="ttdef"><b>Definition</b> D3D12Render.cpp:108</div></div>
+<div class="ttc" id="aclass_d3_d12_renderer_html_ae45fa4dd4ec7123c41717ed61d4a3122"><div class="ttname"><a href="../../df/d68/class_d3_d12_renderer.html#ae45fa4dd4ec7123c41717ed61d4a3122">D3D12Renderer::m_commandAllocator</a></div><div class="ttdeci">ComPtr&lt; ID3D12CommandAllocator &gt; m_commandAllocator</div><div class="ttdef"><b>Definition</b> D3D12Render.h:127</div></div>
+<div class="ttc" id="aclass_d3_d12_renderer_html_aee8cd9c1e15d0b636a075a65669bf6fd"><div class="ttname"><a href="../../df/d68/class_d3_d12_renderer.html#aee8cd9c1e15d0b636a075a65669bf6fd">D3D12Renderer::m_PostProcessPSO</a></div><div class="ttdeci">TUniquePtr&lt; D3D12PipelineShaderRootSignature &gt; m_PostProcessPSO</div><div class="ttdef"><b>Definition</b> D3D12Render.h:170</div></div>
+<div class="ttc" id="aclass_d3_d12_renderer_html_af3b99f09069f5f8a00f759165f1eaad1"><div class="ttname"><a href="../../df/d68/class_d3_d12_renderer.html#af3b99f09069f5f8a00f759165f1eaad1">D3D12Renderer::m_Blur</a></div><div class="ttdeci">TUniquePtr&lt; D3D12PipelineShaderRootSignature &gt; m_Blur</div><div class="ttdef"><b>Definition</b> D3D12Render.h:171</div></div>
+<div class="ttc" id="aclass_d3_d12_renderer_html_af58c32c6b4895001d60ebfc546195e9b"><div class="ttname"><a href="../../df/d68/class_d3_d12_renderer.html#af58c32c6b4895001d60ebfc546195e9b">D3D12Renderer::tempBuffer</a></div><div class="ttdeci">ComPtr&lt; ID3D12Resource &gt; tempBuffer</div><div class="ttdef"><b>Definition</b> D3D12Render.h:125</div></div>
+<div class="ttc" id="aclass_d3_d12_renderer_html_af73ba487a0b00f9edbf7e1493da360fd"><div class="ttname"><a href="../../df/d68/class_d3_d12_renderer.html#af73ba487a0b00f9edbf7e1493da360fd">D3D12Renderer::Viewport</a></div><div class="ttdeci">D3D12_VIEWPORT Viewport</div><div class="ttdef"><b>Definition</b> D3D12Render.h:188</div></div>
+<div class="ttc" id="aclass_d3_d12_renderer_html_af997a5c552fe197479ed778915c4f55e"><div class="ttname"><a href="../../df/d68/class_d3_d12_renderer.html#af997a5c552fe197479ed778915c4f55e">D3D12Renderer::m_device</a></div><div class="ttdeci">ComPtr&lt; ID3D12Device8 &gt; m_device</div><div class="ttdef"><b>Definition</b> D3D12Render.h:123</div></div>
+<div class="ttc" id="aclass_d3_d12_scene_html"><div class="ttname"><a href="../../d9/db4/class_d3_d12_scene.html">D3D12Scene</a></div><div class="ttdef"><b>Definition</b> D3D12Scene.h:8</div></div>
+<div class="ttc" id="aclass_d3_d12_texture_html"><div class="ttname"><a href="../../d3/ddd/class_d3_d12_texture.html">D3D12Texture</a></div><div class="ttdef"><b>Definition</b> D3D12Texture.h:7</div></div>
+<div class="ttc" id="aclass_f_d3_d12_mesh_html"><div class="ttname"><a href="../../d5/d41/class_f_d3_d12_mesh.html">FD3D12Mesh</a></div><div class="ttdef"><b>Definition</b> D3D12Mesh.h:21</div></div>
+<div class="ttc" id="aclass_f_string_html"><div class="ttname"><a href="../../d9/dcb/class_f_string.html">FString</a></div><div class="ttdef"><b>Definition</b> DarkString.h:17</div></div>
+<div class="ttc" id="aclass_f_windows_window_html"><div class="ttname"><a href="../../d8/dd5/class_f_windows_window.html">FWindowsWindow</a></div><div class="ttdef"><b>Definition</b> WindowsWindow.h:34</div></div>
+<div class="ttc" id="aclass_renderer_html"><div class="ttname"><a href="../../d4/d44/class_renderer.html">Renderer</a></div><div class="ttdef"><b>Definition</b> Renderer.h:13</div></div>
+<div class="ttc" id="astruct_d3_d12_renderer_1_1_f_acceleration_buffers_html"><div class="ttname"><a href="../../d2/dec/struct_d3_d12_renderer_1_1_f_acceleration_buffers.html">D3D12Renderer::FAccelerationBuffers</a></div><div class="ttdef"><b>Definition</b> D3D12Render.h:204</div></div>
+<div class="ttc" id="astruct_d3_d12_renderer_1_1_f_acceleration_buffers_html_a3f8a581cbd52313bf92a160ffe15fea7"><div class="ttname"><a href="../../d2/dec/struct_d3_d12_renderer_1_1_f_acceleration_buffers.html#a3f8a581cbd52313bf92a160ffe15fea7">D3D12Renderer::FAccelerationBuffers::ResultBuffer</a></div><div class="ttdeci">Resource ResultBuffer</div><div class="ttdef"><b>Definition</b> D3D12Render.h:206</div></div>
+<div class="ttc" id="astruct_d3_d12_renderer_1_1_f_acceleration_buffers_html_a99bb09aa324f54bd6a316550f0815e83"><div class="ttname"><a href="../../d2/dec/struct_d3_d12_renderer_1_1_f_acceleration_buffers.html#a99bb09aa324f54bd6a316550f0815e83">D3D12Renderer::FAccelerationBuffers::ScratchBuffer</a></div><div class="ttdeci">Resource ScratchBuffer</div><div class="ttdef"><b>Definition</b> D3D12Render.h:205</div></div>
+<div class="ttc" id="astruct_d3_d12_renderer_1_1_f_acceleration_buffers_html_af638f57210c3dd938667cef530d88ed2"><div class="ttname"><a href="../../d2/dec/struct_d3_d12_renderer_1_1_f_acceleration_buffers.html#af638f57210c3dd938667cef530d88ed2">D3D12Renderer::FAccelerationBuffers::InstanceDescBuffer</a></div><div class="ttdeci">Resource InstanceDescBuffer</div><div class="ttdef"><b>Definition</b> D3D12Render.h:207</div></div>
+<div class="ttc" id="astruct_ray_gen_constant_buffer_html"><div class="ttname"><a href="../../dc/ddc/struct_ray_gen_constant_buffer.html">RayGenConstantBuffer</a></div><div class="ttdef"><b>Definition</b> D3D12Render.h:45</div></div>
+<div class="ttc" id="astruct_ray_gen_constant_buffer_html_a745cadc8bcd5ecb6fbe2163e6dc4508b"><div class="ttname"><a href="../../dc/ddc/struct_ray_gen_constant_buffer.html#a745cadc8bcd5ecb6fbe2163e6dc4508b">RayGenConstantBuffer::stencil</a></div><div class="ttdeci">Viewport stencil</div><div class="ttdef"><b>Definition</b> D3D12Render.h:47</div></div>
+<div class="ttc" id="astruct_ray_gen_constant_buffer_html_ab6b9eb3b37d8f5f2ccfb64d5f299e0dd"><div class="ttname"><a href="../../dc/ddc/struct_ray_gen_constant_buffer.html#ab6b9eb3b37d8f5f2ccfb64d5f299e0dd">RayGenConstantBuffer::viewport</a></div><div class="ttdeci">Viewport viewport</div><div class="ttdef"><b>Definition</b> D3D12Render.h:46</div></div>
+<div class="ttc" id="astruct_vertex_pos_color_html"><div class="ttname"><a href="../../d9/d57/struct_vertex_pos_color.html">VertexPosColor</a></div><div class="ttdef"><b>Definition</b> D3D12Render.h:52</div></div>
+<div class="ttc" id="astruct_vertex_pos_color_html_a27b9cfdc1e2b0d9e55801d8b0a7d2ddc"><div class="ttname"><a href="../../d9/d57/struct_vertex_pos_color.html#a27b9cfdc1e2b0d9e55801d8b0a7d2ddc">VertexPosColor::Color</a></div><div class="ttdeci">XMFLOAT3 Color</div><div class="ttdef"><b>Definition</b> D3D12Render.h:56</div></div>
+<div class="ttc" id="astruct_vertex_pos_color_html_a83c27721a77069fe08e5dc02f24afb7f"><div class="ttname"><a href="../../d9/d57/struct_vertex_pos_color.html#a83c27721a77069fe08e5dc02f24afb7f">VertexPosColor::VertexPosColor</a></div><div class="ttdeci">VertexPosColor(XMFLOAT3 iposition, XMFLOAT3 icolor)</div><div class="ttdef"><b>Definition</b> D3D12Render.h:53</div></div>
+<div class="ttc" id="astruct_vertex_pos_color_html_aa3a885ebafbdd7d06f5b452d2b475179"><div class="ttname"><a href="../../d9/d57/struct_vertex_pos_color.html#aa3a885ebafbdd7d06f5b452d2b475179">VertexPosColor::Position</a></div><div class="ttdeci">XMFLOAT3 Position</div><div class="ttdef"><b>Definition</b> D3D12Render.h:55</div></div>
+<div class="ttc" id="astruct_viewport_html"><div class="ttname"><a href="../../de/d02/struct_viewport.html">Viewport</a></div><div class="ttdef"><b>Definition</b> D3D12Render.h:37</div></div>
+<div class="ttc" id="astruct_viewport_html_a0a99922d9658b73cfb2a28530677d3b7"><div class="ttname"><a href="../../de/d02/struct_viewport.html#a0a99922d9658b73cfb2a28530677d3b7">Viewport::right</a></div><div class="ttdeci">float right</div><div class="ttdef"><b>Definition</b> D3D12Render.h:40</div></div>
+<div class="ttc" id="astruct_viewport_html_a602280bfb59a8128f6493f966524ce69"><div class="ttname"><a href="../../de/d02/struct_viewport.html#a602280bfb59a8128f6493f966524ce69">Viewport::top</a></div><div class="ttdeci">float top</div><div class="ttdef"><b>Definition</b> D3D12Render.h:39</div></div>
+<div class="ttc" id="astruct_viewport_html_a77151c334dd873a6b6a30cef28871d68"><div class="ttname"><a href="../../de/d02/struct_viewport.html#a77151c334dd873a6b6a30cef28871d68">Viewport::left</a></div><div class="ttdeci">float left</div><div class="ttdef"><b>Definition</b> D3D12Render.h:38</div></div>
+<div class="ttc" id="astruct_viewport_html_ac39b3c3dc70fa865d467a99c7ce52f19"><div class="ttname"><a href="../../de/d02/struct_viewport.html#ac39b3c3dc70fa865d467a99c7ce52f19">Viewport::bottom</a></div><div class="ttdeci">float bottom</div><div class="ttdef"><b>Definition</b> D3D12Render.h:41</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../dir_55043db21ba5ddd7c561d2c5a5a38944.html">Dark Engine</a></li><li class="navelem"><a class="el" href="../../dir_e00b54220e1e1486ac9971b606d33054.html">Source</a></li><li class="navelem"><a class="el" href="../../dir_ae01c8af07818b260cc3481e8588b277.html">Runtime</a></li><li class="navelem"><a class="el" href="../../dir_1b0bffc8d096929f17ecae6ef7b4b529.html">Render</a></li><li class="navelem"><a class="el" href="../../dir_d93dc1c13639dc0a8989b4ca7595d959.html">D3D12</a></li><li class="navelem"><a class="el" href="../../d0/d2b/_d3_d12_render_8h.html">D3D12Render.h</a></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,11 +1,12 @@
 #pragma once
 
 #include "DarkClient.h"
-#include "World.h"
+#include "Engine/World.h"
 #include "Math/MathFwd.h"
 
 
 class FViewport;
+class FCanvas;
 
 class FViewportClient
 {
@@ -14,7 +15,7 @@ public:
 	virtual ~FViewportClient() {}
 
 	virtual void RedrawRequested(FViewport* Viewport) {}
-	virtual void Draw(FViewport* InViewport, FWorld* InWorld) {}
+	virtual void Draw(FViewport* InViewport, FCanvas* Canvas) {}
 
 	virtual void Tick(float DeltaTime) {}
 

@@ -1,0 +1,79 @@
+\doxysection{Generic\+Application\+Handler.\+h}
+\hypertarget{_generic_application_handler_8h_source}{}\label{_generic_application_handler_8h_source}\index{Dark Engine/Source/Runtime/ApplicationCore/public/GenericPlatform/GenericApplicationHandler.h@{Dark Engine/Source/Runtime/ApplicationCore/public/GenericPlatform/GenericApplicationHandler.h}}
+\mbox{\hyperlink{_generic_application_handler_8h}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_t_unique_ptr_8h}{Memory/TUniquePtr.h}}"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_generic_window_8h}{GenericWindow.h}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_math_fwd_8h}{Math/MathFwd.h}}"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_e_mouse_buttons}{EMouseButtons}}}
+\DoxyCodeLine{00008\ \{}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{namespace_e_mouse_buttons_ad8e0d01f817db033b785df665a734868}{Type}}}
+\DoxyCodeLine{00010\ \ \ \ \ \{}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_e_mouse_buttons_ad8e0d01f817db033b785df665a734868a07992496f8a84d00df1873e0a1a75c1e}{Left}},}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_e_mouse_buttons_ad8e0d01f817db033b785df665a734868aa5704a1427b89d827e7ee81f99af2383}{Middle}},}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_e_mouse_buttons_ad8e0d01f817db033b785df665a734868af1842e3782cf35ed8befc2762d8a3a3f}{Right}},}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_e_mouse_buttons_ad8e0d01f817db033b785df665a734868ad19c46784f0112543c41b588529d4320}{Thumb01}},}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_e_mouse_buttons_ad8e0d01f817db033b785df665a734868a8991878dd1ad7cce51ca8b69085dfc4f}{Thumb02}},}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_e_mouse_buttons_ad8e0d01f817db033b785df665a734868a024edd57bf5faaa1a5b263a6ecf55559}{Invalid}}}
+\DoxyCodeLine{00017\ \ \ \ \ \};}
+\DoxyCodeLine{00018\ \}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_f_generic_application_handler}{FGenericApplicationHandler}}}
+\DoxyCodeLine{00023\ \{}
+\DoxyCodeLine{00024\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_f_generic_application_handler_ae82fdd29595d5d772b152de44a6ee851}{OnMouseDown}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{_t_unique_ptr_8h_ab7a7d47ba593c2489fecf3f003f56c53}{TSharedPtr<FGenericWindow>}}\&\ Window,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{namespace_e_mouse_buttons_ad8e0d01f817db033b785df665a734868}{EMouseButtons::Type}}\ Button,}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector2}{FVector2D}}\ CursorPos)}
+\DoxyCodeLine{00027\ \ \ \ \ \{}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00029\ \ \ \ \ \}}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_f_generic_application_handler_afd13e7a891ccd54c9e42044a4daa9b4f}{OnMouseUp}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{namespace_e_mouse_buttons_ad8e0d01f817db033b785df665a734868}{EMouseButtons::Type}}\ Buton,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector2}{FVector2D}}\ CursorPos)}
+\DoxyCodeLine{00031\ \ \ \ \ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00033\ \ \ \ \ \}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_f_generic_application_handler_ad9b18faf32e8b5f120224869b5fcd313}{OnMouseDoubleClick}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{_t_unique_ptr_8h_ab7a7d47ba593c2489fecf3f003f56c53}{TSharedPtr<FGenericWindow>}}\&\ Window,\ \mbox{\hyperlink{namespace_e_mouse_buttons_ad8e0d01f817db033b785df665a734868}{EMouseButtons::Type}}\ Button,}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector2}{FVector2D}}\ CursorPos)}
+\DoxyCodeLine{00037\ \ \ \ \ \{}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00039\ \ \ \ \ \}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_f_generic_application_handler_a1b22dc7632975577bcdf4b00c539c24a}{OnMovingWindow}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{_t_unique_ptr_8h_ab7a7d47ba593c2489fecf3f003f56c53}{TSharedPtr<FGenericWindow>}}\&\ Window,\ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_int_rect}{FIntRect}}\ NewRect)}
+\DoxyCodeLine{00042\ \ \ \ \ \{}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00044\ \ \ \ \ \}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_f_generic_application_handler_a573b8e61e744727af98effc7e0b3a134}{OnMovedWindow}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{_t_unique_ptr_8h_ab7a7d47ba593c2489fecf3f003f56c53}{TSharedPtr<FGenericWindow>}}\&\ Window,\ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_int_point}{FIntPoint}}\ NewPosition)}
+\DoxyCodeLine{00047\ \ \ \ \ \{}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00049\ \ \ \ \ \}}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_f_generic_application_handler_aa11cd4eed892ee76fe1e928f7f93c4a6}{OnMouseMove}}()}
+\DoxyCodeLine{00052\ \ \ \ \ \{}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00054\ \ \ \ \ \}}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_f_generic_application_handler_a02349a480acfb4ca73a995e6136280b3}{OnRawMouseMove}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}\ X,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}\ Y)}
+\DoxyCodeLine{00056\ \ \ \ \ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00058\ \ \ \ \ \}}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_f_generic_application_handler_aed22f7375f2a4c8d2d43e7d54cc02e03}{OnSizeChanged}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{_t_unique_ptr_8h_ab7a7d47ba593c2489fecf3f003f56c53}{TSharedPtr<FGenericWindow>}}\&\ Window,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}\ Width,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}\ Height,\ \textcolor{keywordtype}{bool}\ bWasMinimized\ =\ \textcolor{keyword}{false})}
+\DoxyCodeLine{00061\ \ \ \ \ \{}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00063\ \ \ \ \ \}}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_f_generic_application_handler_adb3b887f47e580f22cfc2d722af7c305}{OnResize}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}\ Width,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}\ Height,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ bFullscreen)}
+\DoxyCodeLine{00065\ \ \ \ \ \{}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00067\ \ \ \ \ \}}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_f_generic_application_handler_abe2566d2eb80847ccf9e1bac8d725122}{OnWindowDraw}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{_t_unique_ptr_8h_ab7a7d47ba593c2489fecf3f003f56c53}{TSharedPtr<FGenericWindow>}}\&\ Window)}
+\DoxyCodeLine{00070\ \ \ \ \ \{}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00072\ \ \ \ \ \}}
+\DoxyCodeLine{00073\ \};}
+
+\end{DoxyCode}

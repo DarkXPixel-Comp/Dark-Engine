@@ -1,0 +1,138 @@
+\doxysection{Windows\+Platform.\+h}
+\hypertarget{_windows_platform_8h_source}{}\label{_windows_platform_8h_source}\index{Dark Engine/Source/Runtime/Core/Public/Windows/WindowsPlatform.h@{Dark Engine/Source/Runtime/Core/Public/Windows/WindowsPlatform.h}}
+\mbox{\hyperlink{_windows_platform_8h}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_generic_platform_8h}{GenericPlatform/GenericPlatform.h}}"{}}\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#if\ defined(\_\_clang\_\_)}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_m_s_v_c_platform_8h}{MSVC/MSVCPlatform.h}}"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_f_windows_platform_types}{FWindowsPlatformTypes}}\ :\ \textcolor{keyword}{public}\ FGenericPlatformTypes}
+\DoxyCodeLine{00013\ \{}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#ifdef\ \_WIN64}}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{unsigned}\ \_\_int64\ \mbox{\hyperlink{struct_f_windows_platform_types_a56bf1037bfe44bf96ec4bf6b080a2875}{SIZE\_T}};}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{typedef}\ \_\_int64\ \mbox{\hyperlink{struct_f_windows_platform_types_a152147135b159c0239c8fdff2d5e4b0d}{SSIZE\_T}};}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{struct_f_windows_platform_types_a56bf1037bfe44bf96ec4bf6b080a2875}{SIZE\_T}};}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{struct_f_windows_platform_types_a152147135b159c0239c8fdff2d5e4b0d}{SSIZE\_T}};}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ \_WIN64}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#if\ USE\_UTF8\_TCHARS}}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{_platform_8h_aa106c6faac821072d5d22b6596819e68}{UTF8CHAR}}\ \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}};}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00024\ \};}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{struct_f_windows_platform_types}{FWindowsPlatformTypes}}\ \mbox{\hyperlink{_windows_platform_8h_a19df676521ece5797288fd2ec15bfccb}{FPlatformTypes}};}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{comment}{//\ Base\ defines,\ must\ define\ these\ for\ the\ platform,\ there\ are\ no\ defaults}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#define\ PLATFORM\_DESKTOP\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#if\ defined(\ \_WIN64\ )}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#define\ PLATFORM\_64BITS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#define\ PLATFORM\_64BITS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#if\ defined(\ \_MANAGED\ )\ ||\ defined(\ \_M\_CEE\ )}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#define\ PLATFORM\_COMPILER\_COMMON\_LANGUAGE\_RUNTIME\_COMPILATION\ \ \ 1}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#define\ PLATFORM\_CAN\_SUPPORT\_EDITORONLY\_DATA\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{comment}{//\ Base\ defines,\ defaults\ are\ commented\ out}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#define\ PLATFORM\_LITTLE\_ENDIAN\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#define\ PLATFORM\_SUPPORTS\_UNALIGNED\_LOADS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#define\ PLATFORM\_SUPPORTS\_PRAGMA\_PACK\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#if\ defined(\_M\_ARM)\ ||\ defined(\_M\_ARM64)\ ||\ defined(\_M\_ARM64EC)}}
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#define\ PLATFORM\_CPU\_ARM\_FAMILY\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#define\ PLATFORM\_ENABLE\_VECTORINTRINSICS\_NEON\ \ \ \ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#define\ PLATFORM\_ENABLE\_VECTORINTRINSICS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00055\ \textcolor{preprocessor}{\#elif\ (defined(\_M\_IX86)\ ||\ defined(\_M\_X64))}}
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#define\ PLATFORM\_CPU\_X86\_FAMILY\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#define\ PLATFORM\_ENABLE\_VECTORINTRINSICS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00060\ \textcolor{comment}{//\ FMA3\ support\ was\ added\ starting\ from\ AMD\ Piledriver\ (excluding\ Jaguar)\ and\ Intel\ Haswell\ (excluding\ Pentium\ and\ Celeron)}}
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\#ifndef\ PLATFORM\_ALWAYS\_HAS\_FMA3}}
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\#define\ PLATFORM\_ALWAYS\_HAS\_FMA3\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00063\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \textcolor{preprocessor}{\#define\ PLATFORM\_USE\_LS\_SPEC\_FOR\_WIDECHAR\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00066\ \textcolor{comment}{//\#define\ PLATFORM\_USE\_SYSTEM\_VSWPRINTF\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00067\ \textcolor{comment}{//\#define\ PLATFORM\_TCHAR\_IS\_4\_BYTES\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\#define\ PLATFORM\_HAS\_BSD\_TIME\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00069\ \textcolor{preprocessor}{\#define\ PLATFORM\_USE\_PTHREADS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00070\ \textcolor{preprocessor}{\#define\ PLATFORM\_USES\_UNFAIR\_LOCKS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00071\ \textcolor{preprocessor}{\#define\ PLATFORM\_MAX\_FILEPATH\_LENGTH\_DEPRECATED\ \ \ \ \ \ \ \ \ \ \ \ \ WINDOWS\_MAX\_PATH}}
+\DoxyCodeLine{00072\ \textcolor{preprocessor}{\#define\ PLATFORM\_HAS\_BSD\_IPV6\_SOCKETS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00073\ \textcolor{preprocessor}{\#define\ PLATFORM\_HAS\_BSD\_SOCKET\_FEATURE\_WINSOCKETS\ \ \ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00074\ \textcolor{preprocessor}{\#define\ PLATFORM\_USES\_MICROSOFT\_LIBC\_FUNCTIONS\ \ \ \ \ \ \ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00075\ \textcolor{preprocessor}{\#define\ PLATFORM\_IS\_ANSI\_MALLOC\_THREADSAFE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00076\ \textcolor{preprocessor}{\#if\ PLATFORM\_CPU\_ARM\_FAMILY}}
+\DoxyCodeLine{00077\ \textcolor{preprocessor}{\#define\ PLATFORM\_SUPPORTS\_TBB\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00078\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00079\ \textcolor{preprocessor}{\#define\ PLATFORM\_SUPPORTS\_TBB\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00080\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00081\ \textcolor{preprocessor}{\#define\ PLATFORM\_SUPPORTS\_MIMALLOC\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PLATFORM\_64BITS}}
+\DoxyCodeLine{00082\ \textcolor{preprocessor}{\#define\ PLATFORM\_SUPPORTS\_NAMED\_PIPES\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00083\ \textcolor{preprocessor}{\#define\ PLATFORM\_COMPILER\_HAS\_TCHAR\_WMAIN\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00084\ \textcolor{preprocessor}{\#define\ PLATFORM\_SUPPORTS\_EARLY\_MOVIE\_PLAYBACK\ \ \ \ \ \ \ \ \ \ \ \ \ \ (!WITH\_EDITOR)\ }\textcolor{comment}{//\ movies\ will\ start\ before\ engine\ is\ initalized}}
+\DoxyCodeLine{00085\ \textcolor{preprocessor}{\#define\ PLATFORM\_USE\_GENERIC\_STRING\_IMPLEMENTATION\ \ \ \ \ \ \ \ \ \ 0\ }\textcolor{comment}{//\ Can\ set\ this\ to\ 1\ if\ you\ need\ to\ debug\ FGenericWidePlatformString::GetVarArgs\ on\ Windows}}
+\DoxyCodeLine{00086\ \textcolor{preprocessor}{\#define\ PLATFORM\_SUPPORTS\_VIRTUAL\_TEXTURE\_STREAMING\ \ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00087\ \textcolor{preprocessor}{\#define\ PLATFORM\_SUPPORTS\_VARIABLE\_RATE\_SHADING\ \ \ \ \ \ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00088\ \textcolor{preprocessor}{\#define\ PLATFORM\_SUPPORTS\_MESH\_SHADERS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00089\ \textcolor{preprocessor}{\#define\ PLATFORM\_SUPPORTS\_BINDLESS\_RENDERING\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00090\ \textcolor{preprocessor}{\#define\ PLATFORM\_USES\_\_ALIGNED\_MALLOC\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \textcolor{preprocessor}{\#if\ WITH\_EDITOR}}
+\DoxyCodeLine{00093\ \textcolor{preprocessor}{\#define\ PLATFORM\_FILE\_READER\_BUFFER\_SIZE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (256*1024)}}
+\DoxyCodeLine{00094\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \textcolor{preprocessor}{\#define\ PLATFORM\_SUPPORTS\_STACK\_SYMBOLS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00097\ \textcolor{preprocessor}{\#define\ PLATFORM\_COMPILER\_HAS\_DECLTYPE\_AUTO\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \textcolor{preprocessor}{\#define\ PLATFORM\_GLOBAL\_LOG\_CATEGORY\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LogWindows}}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \textcolor{preprocessor}{\#define\ PLATFORM\_SUPPORTS\_BORDERLESS\_WINDOW\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \textcolor{preprocessor}{\#define\ PLATFORM\_RETURN\_ADDRESS\_FOR\_CALLSTACKTRACING\ \ \ \ \ \ \ \ PLATFORM\_RETURN\_ADDRESS\_POINTER}}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \textcolor{preprocessor}{\#define\ WINDOWS\_USE\_FEATURE\_APPLICATIONMISC\_CLASS\ \ \ \ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00106\ \textcolor{preprocessor}{\#define\ WINDOWS\_USE\_FEATURE\_PLATFORMMISC\_CLASS\ \ \ \ \ \ \ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00107\ \textcolor{preprocessor}{\#define\ WINDOWS\_USE\_FEATURE\_PLATFORMHTTP\_CLASS\ \ \ \ \ \ \ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \textcolor{comment}{//\ Q:\ Why\ is\ there\ a\ \_\_nop()\ before\ \_\_debugbreak()?}}
+\DoxyCodeLine{00111\ \textcolor{comment}{//\ A:\ VS'\ debug\ engine\ has\ a\ bug\ where\ it\ will\ silently\ swallow\ explicit}}
+\DoxyCodeLine{00112\ \textcolor{comment}{//\ breakpoint\ interrupts\ when\ single-\/step\ debugging\ either\ line-\/by-\/line\ or}}
+\DoxyCodeLine{00113\ \textcolor{comment}{//\ over\ call\ instructions.\ This\ can\ hide\ legitimate\ reasons\ to\ trap.\ Asserts}}
+\DoxyCodeLine{00114\ \textcolor{comment}{//\ for\ example,\ which\ can\ appear\ as\ if\ the\ did\ not\ fire,\ leaving\ a\ programmer}}
+\DoxyCodeLine{00115\ \textcolor{comment}{//\ unknowingly\ debugging\ an\ undefined\ process.}}
+\DoxyCodeLine{00116\ \textcolor{preprocessor}{\#define\ PLATFORM\_BREAK()\ (\_\_nop(),\ \_\_debugbreak())}}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ \textcolor{comment}{//\ Intrinsics\ for\ 128-\/bit\ atomics\ on\ Windows\ platform\ requires\ Windows\ 8\ or\ higher\ (WINVER>=0x0602)}}
+\DoxyCodeLine{00119\ \textcolor{comment}{//\ http://msdn.microsoft.com/en-\/us/library/windows/desktop/hh972640.aspx}}
+\DoxyCodeLine{00120\ \textcolor{preprocessor}{\#define\ PLATFORM\_HAS\_128BIT\_ATOMICS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (PLATFORM\_64BITS\ \&\&\ (WINVER\ >=\ 0x602))}}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \textcolor{preprocessor}{\#define\ VARARGS\ \ \ \ \ \_\_cdecl\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{/*\ Functions\ with\ variable\ arguments\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00125\ \textcolor{preprocessor}{\#define\ CDECL\ \ \ \ \ \ \ \_\_cdecl\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{/*\ Standard\ C\ function\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00126\ \textcolor{preprocessor}{\#define\ STDCALL\ \ \ \ \ \_\_stdcall\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{/*\ Standard\ calling\ convention\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00127\ \textcolor{preprocessor}{\#define\ FORCEINLINE\ \_\_forceinline\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{/*\ Force\ code\ to\ be\ inline\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00128\ \textcolor{preprocessor}{\#define\ FORCENOINLINE\ \_\_declspec(noinline)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{/*\ Force\ code\ to\ NOT\ be\ inline\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00129\ \textcolor{preprocessor}{\#define\ FUNCTION\_NON\_NULL\_RETURN\_START\ \_Ret\_notnull\_\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{/*\ Indicate\ that\ the\ function\ never\ returns\ nullptr.\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00130\ \textcolor{preprocessor}{\#define\ DLLEXPORT\ \_\_declspec(dllexport)}}
+\DoxyCodeLine{00131\ \textcolor{preprocessor}{\#define\ DLLIMPORT\ \_\_declspec(dllimport)}}
+\DoxyCodeLine{00132\ \textcolor{preprocessor}{\#define\ FORCEINLINE\ \_\_forceinline}}
+
+\end{DoxyCode}

@@ -1,0 +1,183 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Dark Engine: Исходный файл Dark Engine/Source/Runtime/UICore/public/Widgets/UIEditorSettings.h</title>
+<link rel="icon" href="../../Logo.png" type="image/x-icon" />
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<script type="text/javascript" src="../../clipboard.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../MiniLogo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Dark Engine<span id="projectnumber">&#160;0.0.50</span>
+   </div>
+   <div id="projectbrief">New game engnie D3D12</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../../',true,false,'search.php','Поиск');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(1); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('d0/d20/_u_i_editor_settings_8h_source.html','../../'); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">UIEditorSettings.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d0/d20/_u_i_editor_settings_8h.html">См. документацию.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="../../d5/dc2/_u_i_widget_8h.html">Widgets/UIWidget.h</a>&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="../../d7/d8d/_int_point_8h.html">Math/IntPoint.h</a>&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">class </span><a class="code hl_class" href="../../d6/d8f/class_u_i_editor_viewport.html">UIEditorViewport</a>;</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="foldopen" id="foldopen00010" data-start="{" data-end="};">
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="../../db/dad/class_u_i_editor_settings.html">   10</a></span><span class="keyword">class </span><a class="code hl_class" href="../../db/dad/class_u_i_editor_settings.html">UIEditorSettings</a> : <span class="keyword">public</span> <a class="code hl_class" href="../../d1/d68/class_u_i_widget.html">UIWidget</a></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>{</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <a class="code hl_function" href="../../db/dad/class_u_i_editor_settings.html#adae4a9b4bcaf8ee267a3be547e32b1cd">UIEditorSettings</a>();</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00016" data-start="{" data-end="}">
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="../../db/dad/class_u_i_editor_settings.html#a53609408af1e8f17f42248984fb510eb">   16</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../db/dad/class_u_i_editor_settings.html#a53609408af1e8f17f42248984fb510eb">SetEditorViewport</a>(TSharedPtr&lt;UIEditorViewport&gt; InEditorViewport)</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    {</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        EditorViewport = InEditorViewport;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    }</div>
+</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="../../db/dad/class_u_i_editor_settings.html#a134cadfbf3592d0d762158beb04c36de">   20</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../db/dad/class_u_i_editor_settings.html#a134cadfbf3592d0d762158beb04c36de">SetTexturePath</a>(<a class="code hl_class" href="../../d9/dcb/class_f_string.html">FString</a> Path);</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../db/dad/class_u_i_editor_settings.html#a6581e28d6d602826b4207ce5b5cdfba6">DrawImGui</a>();</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../db/dad/class_u_i_editor_settings.html#a3ea29998062a4e9fef0acdcd19c37992">Update</a>(<span class="keywordtype">float</span> DeltaTime);</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keywordtype">void</span> SetTextureBackground(<a class="code hl_class" href="../../d9/dcb/class_f_string.html">FString</a> Path);</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keyword">struct</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    {</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="../../db/dad/class_u_i_editor_settings.html#af58d818bec3222096a28082ea95e1d95">   30</a></span>        <a class="code hl_class" href="../../d3/def/struct_d_e_1_1_math_1_1_t_int_point.html">FIntPoint</a> <a class="code hl_variable" href="../../db/dad/class_u_i_editor_settings.html#af58d818bec3222096a28082ea95e1d95">ResolutionViewport</a> = <a class="code hl_typedef" href="../../d0/df6/_math_fwd_8h.html#af5577845559ff81e49036ff088d51cbf">FIntPoint</a>(1280, 720);</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="../../db/dad/class_u_i_editor_settings.html#a0c60a7f9327fd053dd8744c486914dd4">   31</a></span>        <span class="keywordtype">float</span> <a class="code hl_variable" href="../../db/dad/class_u_i_editor_settings.html#a0c60a7f9327fd053dd8744c486914dd4">Color</a>[3] = {0, 0, 0};</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="../../db/dad/class_u_i_editor_settings.html#ac3f52c6065fdf2e7e4a55503af2e8dfc">   32</a></span>        <span class="keywordtype">bool</span> <a class="code hl_variable" href="../../db/dad/class_u_i_editor_settings.html#ac3f52c6065fdf2e7e4a55503af2e8dfc">bVsync</a> = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="../../db/dad/class_u_i_editor_settings.html#ae4bb41478b5a396c51aba417ea35d556">   33</a></span>        <span class="keywordtype">char</span> <a class="code hl_variable" href="../../db/dad/class_u_i_editor_settings.html#ae4bb41478b5a396c51aba417ea35d556">PathTexture</a>[256];</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="../../db/dad/class_u_i_editor_settings.html#a0c5fda70cee6d4a71bcc0b1a2acadcb7">   34</a></span>    } <a class="code hl_variable" href="../../db/dad/class_u_i_editor_settings.html#a0c5fda70cee6d4a71bcc0b1a2acadcb7">CurrentSettings</a>, <a class="code hl_variable" href="../../db/dad/class_u_i_editor_settings.html#a613a329ee004a25f4560c6d01a7e9d6c">TempSettings</a>;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="../../db/dad/class_u_i_editor_settings.html#acdc9c69771c798558cc19e0bb7284b5a">   37</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="../../db/dad/class_u_i_editor_settings.html#acdc9c69771c798558cc19e0bb7284b5a">bChangeSettings</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    TSharedPtr&lt;UIEditorViewport&gt; EditorViewport;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keywordtype">bool</span> bOpen = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>};</div>
+</div>
+<div class="ttc" id="a_int_point_8h_html"><div class="ttname"><a href="../../d7/d8d/_int_point_8h.html">IntPoint.h</a></div></div>
+<div class="ttc" id="a_math_fwd_8h_html_af5577845559ff81e49036ff088d51cbf"><div class="ttname"><a href="../../d0/df6/_math_fwd_8h.html#af5577845559ff81e49036ff088d51cbf">FIntPoint</a></div><div class="ttdeci">DE::Math::TIntPoint&lt; int32 &gt; FIntPoint</div><div class="ttdef"><b>Definition</b> MathFwd.h:57</div></div>
+<div class="ttc" id="a_u_i_widget_8h_html"><div class="ttname"><a href="../../d5/dc2/_u_i_widget_8h.html">UIWidget.h</a></div></div>
+<div class="ttc" id="aclass_f_string_html"><div class="ttname"><a href="../../d9/dcb/class_f_string.html">FString</a></div><div class="ttdef"><b>Definition</b> DarkString.h:17</div></div>
+<div class="ttc" id="aclass_u_i_editor_settings_html"><div class="ttname"><a href="../../db/dad/class_u_i_editor_settings.html">UIEditorSettings</a></div><div class="ttdef"><b>Definition</b> UIEditorSettings.h:11</div></div>
+<div class="ttc" id="aclass_u_i_editor_settings_html_a0c5fda70cee6d4a71bcc0b1a2acadcb7"><div class="ttname"><a href="../../db/dad/class_u_i_editor_settings.html#a0c5fda70cee6d4a71bcc0b1a2acadcb7">UIEditorSettings::CurrentSettings</a></div><div class="ttdeci">struct UIEditorSettings::@67 CurrentSettings</div></div>
+<div class="ttc" id="aclass_u_i_editor_settings_html_a0c60a7f9327fd053dd8744c486914dd4"><div class="ttname"><a href="../../db/dad/class_u_i_editor_settings.html#a0c60a7f9327fd053dd8744c486914dd4">UIEditorSettings::Color</a></div><div class="ttdeci">float Color[3]</div><div class="ttdef"><b>Definition</b> UIEditorSettings.h:31</div></div>
+<div class="ttc" id="aclass_u_i_editor_settings_html_a134cadfbf3592d0d762158beb04c36de"><div class="ttname"><a href="../../db/dad/class_u_i_editor_settings.html#a134cadfbf3592d0d762158beb04c36de">UIEditorSettings::SetTexturePath</a></div><div class="ttdeci">void SetTexturePath(FString Path)</div></div>
+<div class="ttc" id="aclass_u_i_editor_settings_html_a3ea29998062a4e9fef0acdcd19c37992"><div class="ttname"><a href="../../db/dad/class_u_i_editor_settings.html#a3ea29998062a4e9fef0acdcd19c37992">UIEditorSettings::Update</a></div><div class="ttdeci">void Update(float DeltaTime)</div><div class="ttdef"><b>Definition</b> UIEditorSettings.cpp:93</div></div>
+<div class="ttc" id="aclass_u_i_editor_settings_html_a53609408af1e8f17f42248984fb510eb"><div class="ttname"><a href="../../db/dad/class_u_i_editor_settings.html#a53609408af1e8f17f42248984fb510eb">UIEditorSettings::SetEditorViewport</a></div><div class="ttdeci">void SetEditorViewport(TSharedPtr&lt; UIEditorViewport &gt; InEditorViewport)</div><div class="ttdef"><b>Definition</b> UIEditorSettings.h:16</div></div>
+<div class="ttc" id="aclass_u_i_editor_settings_html_a613a329ee004a25f4560c6d01a7e9d6c"><div class="ttname"><a href="../../db/dad/class_u_i_editor_settings.html#a613a329ee004a25f4560c6d01a7e9d6c">UIEditorSettings::TempSettings</a></div><div class="ttdeci">struct UIEditorSettings::@67 TempSettings</div></div>
+<div class="ttc" id="aclass_u_i_editor_settings_html_a6581e28d6d602826b4207ce5b5cdfba6"><div class="ttname"><a href="../../db/dad/class_u_i_editor_settings.html#a6581e28d6d602826b4207ce5b5cdfba6">UIEditorSettings::DrawImGui</a></div><div class="ttdeci">void DrawImGui()</div><div class="ttdef"><b>Definition</b> UIEditorSettings.cpp:40</div></div>
+<div class="ttc" id="aclass_u_i_editor_settings_html_ac3f52c6065fdf2e7e4a55503af2e8dfc"><div class="ttname"><a href="../../db/dad/class_u_i_editor_settings.html#ac3f52c6065fdf2e7e4a55503af2e8dfc">UIEditorSettings::bVsync</a></div><div class="ttdeci">bool bVsync</div><div class="ttdef"><b>Definition</b> UIEditorSettings.h:32</div></div>
+<div class="ttc" id="aclass_u_i_editor_settings_html_acdc9c69771c798558cc19e0bb7284b5a"><div class="ttname"><a href="../../db/dad/class_u_i_editor_settings.html#acdc9c69771c798558cc19e0bb7284b5a">UIEditorSettings::bChangeSettings</a></div><div class="ttdeci">bool bChangeSettings</div><div class="ttdef"><b>Definition</b> UIEditorSettings.h:37</div></div>
+<div class="ttc" id="aclass_u_i_editor_settings_html_adae4a9b4bcaf8ee267a3be547e32b1cd"><div class="ttname"><a href="../../db/dad/class_u_i_editor_settings.html#adae4a9b4bcaf8ee267a3be547e32b1cd">UIEditorSettings::UIEditorSettings</a></div><div class="ttdeci">UIEditorSettings()</div><div class="ttdef"><b>Definition</b> UIEditorSettings.cpp:26</div></div>
+<div class="ttc" id="aclass_u_i_editor_settings_html_ae4bb41478b5a396c51aba417ea35d556"><div class="ttname"><a href="../../db/dad/class_u_i_editor_settings.html#ae4bb41478b5a396c51aba417ea35d556">UIEditorSettings::PathTexture</a></div><div class="ttdeci">char PathTexture[256]</div><div class="ttdef"><b>Definition</b> UIEditorSettings.h:33</div></div>
+<div class="ttc" id="aclass_u_i_editor_settings_html_af58d818bec3222096a28082ea95e1d95"><div class="ttname"><a href="../../db/dad/class_u_i_editor_settings.html#af58d818bec3222096a28082ea95e1d95">UIEditorSettings::ResolutionViewport</a></div><div class="ttdeci">FIntPoint ResolutionViewport</div><div class="ttdef"><b>Definition</b> UIEditorSettings.h:30</div></div>
+<div class="ttc" id="aclass_u_i_editor_viewport_html"><div class="ttname"><a href="../../d6/d8f/class_u_i_editor_viewport.html">UIEditorViewport</a></div><div class="ttdef"><b>Definition</b> UIEditorViewport.h:10</div></div>
+<div class="ttc" id="aclass_u_i_widget_html"><div class="ttname"><a href="../../d1/d68/class_u_i_widget.html">UIWidget</a></div><div class="ttdef"><b>Definition</b> UIWidget.h:17</div></div>
+<div class="ttc" id="astruct_d_e_1_1_math_1_1_t_int_point_html"><div class="ttname"><a href="../../d3/def/struct_d_e_1_1_math_1_1_t_int_point.html">DE::Math::TIntPoint&lt; int32 &gt;</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../dir_55043db21ba5ddd7c561d2c5a5a38944.html">Dark Engine</a></li><li class="navelem"><a class="el" href="../../dir_e00b54220e1e1486ac9971b606d33054.html">Source</a></li><li class="navelem"><a class="el" href="../../dir_ae01c8af07818b260cc3481e8588b277.html">Runtime</a></li><li class="navelem"><a class="el" href="../../dir_eeada408226bdd8c9ce13b8152f152c0.html">UICore</a></li><li class="navelem"><a class="el" href="../../dir_0a7389cf834aa017a133265e0c66a883.html">public</a></li><li class="navelem"><a class="el" href="../../dir_7dbaa450d4b677da97ae98b367941a25.html">Widgets</a></li><li class="navelem"><a class="el" href="../../d0/d20/_u_i_editor_settings_8h.html">UIEditorSettings.h</a></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
+</body>
+</html>

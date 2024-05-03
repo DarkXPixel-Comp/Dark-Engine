@@ -1,0 +1,264 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Dark Engine: Исходный файл Dark Engine/Source/Runtime/UICore/public/Widgets/UIWidget.h</title>
+<link rel="icon" href="../../Logo.png" type="image/x-icon" />
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<script type="text/javascript" src="../../clipboard.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../MiniLogo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Dark Engine<span id="projectnumber">&#160;0.0.50</span>
+   </div>
+   <div id="projectbrief">New game engnie D3D12</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../../',true,false,'search.php','Поиск');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(1); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('d5/dc2/_u_i_widget_8h_source.html','../../'); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">UIWidget.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d5/dc2/_u_i_widget_8h.html">См. документацию.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;<a class="code" href="../../d0/df6/_math_fwd_8h.html">Math/MathFwd.h</a>&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="../../d3/dc5/_array_8h.html">Containers/Array.h</a>&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="../../dc/d27/_t_unique_ptr_8h.html">Memory/TUniquePtr.h</a>&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;functional&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="../../d6/d52/_u_i_common_8h.html">UICommon.h</a>&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment">//#include &quot;UIWindow.h&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">class </span><a class="code hl_class" href="../../df/dab/class_u_i_window.html">UIWindow</a>;</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">struct </span>ImVec4;</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>ImVec4 <a class="code hl_function" href="../../d5/dc2/_u_i_widget_8h.html#a0892497a331a45dd362a11fee13ca95f">FVectorToImVec4</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">FVector</a>&amp; InVector);</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="foldopen" id="foldopen00016" data-start="{" data-end="};">
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="../../d1/d68/class_u_i_widget.html">   16</a></span><span class="keyword">class </span><a class="code hl_class" href="../../d1/d68/class_u_i_widget.html">UIWidget</a></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>{</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="../../d1/d68/class_u_i_widget.html#ac0a247b0358b824309714b4e67d9bc51">   18</a></span>    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code hl_class" href="../../df/dab/class_u_i_window.html">UIWindow</a>;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00020" data-start="{" data-end="}">
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="../../d1/d68/class_u_i_widget.html#a5623518110f7f05db0406185c4da42a4">   20</a></span>    <a class="code hl_function" href="../../d1/d68/class_u_i_widget.html#a5623518110f7f05db0406185c4da42a4">UIWidget</a>(<a class="code hl_class" href="../../d9/dcb/class_f_string.html">FString</a> InName = <a class="code hl_define" href="../../d2/dc9/_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;UIWidget&quot;</span>)):</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        <a class="code hl_variable" href="../../d1/d68/class_u_i_widget.html#a63d8d27e5fa60417b3717fd580ac4715">Name</a>(InName)</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    {</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        <a class="code hl_define" href="../../d7/dcd/_log_macros_8h.html#a8741300d0bc8f72af0519831a732553a">DE_LOG</a>(UICoreLog, Log, <a class="code hl_define" href="../../d2/dc9/_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;Create %s&quot;</span>), *<a class="code hl_variable" href="../../d1/d68/class_u_i_widget.html#a63d8d27e5fa60417b3717fd580ac4715">Name</a>);</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    }</div>
+</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../d1/d68/class_u_i_widget.html#a43b6fe57530ebd0e67249a595e6136bc">Update</a>(<span class="keywordtype">float</span> DeltaTime);</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="../../d1/d68/class_u_i_widget.html#a60e727936071f8591945beb85539ed8b">   26</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../d1/d68/class_u_i_widget.html#a60e727936071f8591945beb85539ed8b">DrawImGui</a>() {}</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="../../d1/d68/class_u_i_widget.html#a5ffdf553d2218751fbd1f587edec81a4">   28</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d1/d68/class_u_i_widget.html#a5ffdf553d2218751fbd1f587edec81a4">SetSize</a>(<a class="code hl_class" href="../../d3/def/struct_d_e_1_1_math_1_1_t_int_point.html">FIntPoint</a> InSize) { <a class="code hl_variable" href="../../d1/d68/class_u_i_widget.html#aad73df333b6e120abef060bbad441b9c">Size</a> = InSize; }</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="../../d1/d68/class_u_i_widget.html#abf5c17fb911bcf9e859439bd7cd30da7">   29</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d1/d68/class_u_i_widget.html#abf5c17fb911bcf9e859439bd7cd30da7">SetPostion</a>(<a class="code hl_class" href="../../d3/def/struct_d_e_1_1_math_1_1_t_int_point.html">FIntPoint</a> InPosition) { <a class="code hl_variable" href="../../d1/d68/class_u_i_widget.html#a50774a40c2d9e05a1861f1b340e0ea5a">Position</a> = InPosition; }</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="../../d1/d68/class_u_i_widget.html#a02aeea95baeeca04332cde6ab99adc8d">   30</a></span>    <a class="code hl_class" href="../../d9/dcb/class_f_string.html">FString</a> <a class="code hl_function" href="../../d1/d68/class_u_i_widget.html#a02aeea95baeeca04332cde6ab99adc8d">GetName</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d1/d68/class_u_i_widget.html#a63d8d27e5fa60417b3717fd580ac4715">Name</a>; }</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="../../d1/d68/class_u_i_widget.html#a865a73a1fcb2419f72a22598568a13a7">   31</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d1/d68/class_u_i_widget.html#a865a73a1fcb2419f72a22598568a13a7">SetName</a>(<a class="code hl_class" href="../../d9/dcb/class_f_string.html">FString</a> InName) { <a class="code hl_variable" href="../../d1/d68/class_u_i_widget.html#a63d8d27e5fa60417b3717fd580ac4715">Name</a> = InName; }</div>
+<div class="foldopen" id="foldopen00032" data-start="{" data-end="}">
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="../../d1/d68/class_u_i_widget.html#a4c05fb389d601d29abebd8605ee9f659">   32</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d1/d68/class_u_i_widget.html#a4c05fb389d601d29abebd8605ee9f659">AddChild</a>(TSharedPtr&lt;UIWidget&gt; Child)</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    { </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        Child-&gt;Window = <a class="code hl_variable" href="../../d1/d68/class_u_i_widget.html#ae831439d8e4c9a3cd556ff54f167668c">Window</a>;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        Child-&gt;Owner = <span class="keyword">this</span>;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        <a class="code hl_variable" href="../../d1/d68/class_u_i_widget.html#a8f093ba7a489ca144ab6d1647d3f683f">ChildWidgets</a>.<a class="code hl_function" href="../../d6/db1/class_t_array.html#a27e18ffaa6dfeadac0e08e11c9b512a7">Add</a>(Child);</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    }</div>
+</div>
+<div class="foldopen" id="foldopen00038" data-start="{" data-end="}">
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="../../d1/d68/class_u_i_widget.html#a3a008692757903d765689b5f8436a2cf">   38</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d1/d68/class_u_i_widget.html#a3a008692757903d765689b5f8436a2cf">RemoveChild</a>(TSharedPtr&lt;UIWidget&gt; Child)</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    {</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        Child-&gt;Window = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        Child-&gt;Owner = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        <a class="code hl_variable" href="../../d1/d68/class_u_i_widget.html#a8f093ba7a489ca144ab6d1647d3f683f">ChildWidgets</a>.<a class="code hl_function" href="../../d6/db1/class_t_array.html#afb0e6e483934148de9b5835e6cb67c99">Remove</a>(Child);</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    }</div>
+</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="foldopen" id="foldopen00045" data-start="{" data-end="}">
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="../../d1/d68/class_u_i_widget.html#aaa79699d3397fd8d66d977ce35c997af">   45</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d1/d68/class_u_i_widget.html#aaa79699d3397fd8d66d977ce35c997af">DefferedRemoveChild</a>(<a class="code hl_class" href="../../d1/d68/class_u_i_widget.html">UIWidget</a>* Child)</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    {</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        DefferedRemoved.<a class="code hl_function" href="../../d6/db1/class_t_array.html#a27e18ffaa6dfeadac0e08e11c9b512a7">Add</a>(Child);</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    }</div>
+</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="foldopen" id="foldopen00050" data-start="{" data-end="}">
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="../../d1/d68/class_u_i_widget.html#aef97c41756a26225c09c04363178abf3">   50</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d1/d68/class_u_i_widget.html#aef97c41756a26225c09c04363178abf3">IsOpen</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d1/d68/class_u_i_widget.html#a193457cd24eb4f0ada8e0c37a4322691">bOpen</a>;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    }</div>
+</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="foldopen" id="foldopen00055" data-start="{" data-end="}">
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="../../d1/d68/class_u_i_widget.html#a9cb11697c2cbc808e32cd0571b1c845e">   55</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d1/d68/class_u_i_widget.html#a9cb11697c2cbc808e32cd0571b1c845e">SetOpen</a>(<span class="keywordtype">bool</span> InbOpen)</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    {</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        <a class="code hl_variable" href="../../d1/d68/class_u_i_widget.html#a193457cd24eb4f0ada8e0c37a4322691">bOpen</a> = InbOpen;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    }</div>
+</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="comment">//operator int() const;</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="../../d1/d68/class_u_i_widget.html#a9eade48c629f9112148199da9033809b">   63</a></span>    <a class="code hl_class" href="../../d8/d10/struct_d_e_1_1_math_1_1_t_int_rect.html">FIntRect</a> <a class="code hl_function" href="../../d1/d68/class_u_i_widget.html#a9eade48c629f9112148199da9033809b">GetRect</a>() { <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d1/d68/class_u_i_widget.html#a28c927012f676e66a02f8af450e2d275">Rect</a>; }</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="../../d1/d68/class_u_i_widget.html#ae831439d8e4c9a3cd556ff54f167668c">   64</a></span>    <a class="code hl_class" href="../../df/dab/class_u_i_window.html">UIWindow</a>* <a class="code hl_variable" href="../../d1/d68/class_u_i_widget.html#ae831439d8e4c9a3cd556ff54f167668c">Window</a> = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="../../d1/d68/class_u_i_widget.html#a62395be13ea933dee219a9cd2dea0487">   65</a></span>    <a class="code hl_class" href="../../d1/d68/class_u_i_widget.html">UIWidget</a>* <a class="code hl_variable" href="../../d1/d68/class_u_i_widget.html#a62395be13ea933dee219a9cd2dea0487">Owner</a> = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="../../d1/d68/class_u_i_widget.html#ad9acaa197c5fb4b7fbe0c7710d709f04">   66</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="../../d1/d68/class_u_i_widget.html#ad9acaa197c5fb4b7fbe0c7710d709f04">bHaveCloseButton</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="comment">//void ForEachChild(void(*Func)(UIWidget*));</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d1/d68/class_u_i_widget.html#a76c75e697083f965cd3d1c27d31c722f">ForEachChild</a>(std::function&lt;<span class="keywordtype">void</span>(<a class="code hl_class" href="../../d1/d68/class_u_i_widget.html">UIWidget</a>*)&gt; Func);</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d1/d68/class_u_i_widget.html#ac670f7f42d80cea678453aff5089e988">CloseWidget</a>();</div>
+<div class="foldopen" id="foldopen00073" data-start="{" data-end="}">
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="../../d1/d68/class_u_i_widget.html#ad63852d58411923c525dbf0a04841cf5">   73</a></span>    <span class="keywordtype">bool</span>* <a class="code hl_function" href="../../d1/d68/class_u_i_widget.html#ad63852d58411923c525dbf0a04841cf5">IsWidgetClose</a>()</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    {</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d1/d68/class_u_i_widget.html#ad9acaa197c5fb4b7fbe0c7710d709f04">bHaveCloseButton</a> ? &amp;<a class="code hl_variable" href="../../d1/d68/class_u_i_widget.html#a193457cd24eb4f0ada8e0c37a4322691">bOpen</a> : <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    }</div>
+</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <span class="keywordtype">void</span> InitWindow(<a class="code hl_class" href="../../df/dab/class_u_i_window.html">UIWindow</a>* InWindow) { <a class="code hl_variable" href="../../d1/d68/class_u_i_widget.html#ae831439d8e4c9a3cd556ff54f167668c">Window</a> = InWindow;  }</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    TArray&lt;UIWidget*&gt; DefferedRemoved;</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno"><a class="line" href="../../d1/d68/class_u_i_widget.html#a50774a40c2d9e05a1861f1b340e0ea5a">   84</a></span>    <a class="code hl_class" href="../../d3/def/struct_d_e_1_1_math_1_1_t_int_point.html">FIntPoint</a> <a class="code hl_variable" href="../../d1/d68/class_u_i_widget.html#a50774a40c2d9e05a1861f1b340e0ea5a">Position</a>;</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="../../d1/d68/class_u_i_widget.html#a28c927012f676e66a02f8af450e2d275">   85</a></span>    <a class="code hl_class" href="../../d8/d10/struct_d_e_1_1_math_1_1_t_int_rect.html">FIntRect</a> <a class="code hl_variable" href="../../d1/d68/class_u_i_widget.html#a28c927012f676e66a02f8af450e2d275">Rect</a>;</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno"><a class="line" href="../../d1/d68/class_u_i_widget.html#aad73df333b6e120abef060bbad441b9c">   86</a></span>    <a class="code hl_class" href="../../d3/def/struct_d_e_1_1_math_1_1_t_int_point.html">FIntPoint</a> <a class="code hl_variable" href="../../d1/d68/class_u_i_widget.html#aad73df333b6e120abef060bbad441b9c">Size</a>;</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno"><a class="line" href="../../d1/d68/class_u_i_widget.html#a8f093ba7a489ca144ab6d1647d3f683f">   87</a></span>    TArray&lt;TSharedPtr&lt;UIWidget&gt;&gt; <a class="code hl_variable" href="../../d1/d68/class_u_i_widget.html#a8f093ba7a489ca144ab6d1647d3f683f">ChildWidgets</a>;</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="../../d1/d68/class_u_i_widget.html#a63d8d27e5fa60417b3717fd580ac4715">   88</a></span>    <a class="code hl_class" href="../../d9/dcb/class_f_string.html">FString</a> <a class="code hl_variable" href="../../d1/d68/class_u_i_widget.html#a63d8d27e5fa60417b3717fd580ac4715">Name</a>;</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="../../d1/d68/class_u_i_widget.html#a93b049ac89ded704797806d62b5d288e">   89</a></span>    <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#afddf25cca147311c233b23a9d3329bb4">uint64</a> <a class="code hl_variable" href="../../d1/d68/class_u_i_widget.html#a93b049ac89ded704797806d62b5d288e">Index</a> = 0;</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno"><a class="line" href="../../d1/d68/class_u_i_widget.html#a193457cd24eb4f0ada8e0c37a4322691">   90</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="../../d1/d68/class_u_i_widget.html#a193457cd24eb4f0ada8e0c37a4322691">bOpen</a> = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>};</div>
+</div>
+<div class="ttc" id="a_array_8h_html"><div class="ttname"><a href="../../d3/dc5/_array_8h.html">Array.h</a></div></div>
+<div class="ttc" id="a_log_macros_8h_html_a8741300d0bc8f72af0519831a732553a"><div class="ttname"><a href="../../d7/dcd/_log_macros_8h.html#a8741300d0bc8f72af0519831a732553a">DE_LOG</a></div><div class="ttdeci">#define DE_LOG(CategoryName, Verbosity, Format,...)</div><div class="ttdef"><b>Definition</b> LogMacros.h:102</div></div>
+<div class="ttc" id="a_math_fwd_8h_html"><div class="ttname"><a href="../../d0/df6/_math_fwd_8h.html">MathFwd.h</a></div></div>
+<div class="ttc" id="a_platform_8h_html_a2978f60d40d64f3605b5a99f66f292a9"><div class="ttname"><a href="../../d2/dc9/_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a></div><div class="ttdeci">#define TEXT(x)</div><div class="ttdef"><b>Definition</b> Platform.h:70</div></div>
+<div class="ttc" id="a_platform_8h_html_afddf25cca147311c233b23a9d3329bb4"><div class="ttname"><a href="../../d2/dc9/_platform_8h.html#afddf25cca147311c233b23a9d3329bb4">uint64</a></div><div class="ttdeci">FPlatformTypes::uint64 uint64</div><div class="ttdef"><b>Definition</b> Platform.h:45</div></div>
+<div class="ttc" id="a_t_unique_ptr_8h_html"><div class="ttname"><a href="../../dc/d27/_t_unique_ptr_8h.html">TUniquePtr.h</a></div></div>
+<div class="ttc" id="a_u_i_common_8h_html"><div class="ttname"><a href="../../d6/d52/_u_i_common_8h.html">UICommon.h</a></div></div>
+<div class="ttc" id="a_u_i_widget_8h_html_a0892497a331a45dd362a11fee13ca95f"><div class="ttname"><a href="../../d5/dc2/_u_i_widget_8h.html#a0892497a331a45dd362a11fee13ca95f">FVectorToImVec4</a></div><div class="ttdeci">ImVec4 FVectorToImVec4(const FVector &amp;InVector)</div><div class="ttdef"><b>Definition</b> UIWidget.cpp:6</div></div>
+<div class="ttc" id="aclass_f_string_html"><div class="ttname"><a href="../../d9/dcb/class_f_string.html">FString</a></div><div class="ttdef"><b>Definition</b> DarkString.h:17</div></div>
+<div class="ttc" id="aclass_t_array_html_a27e18ffaa6dfeadac0e08e11c9b512a7"><div class="ttname"><a href="../../d6/db1/class_t_array.html#a27e18ffaa6dfeadac0e08e11c9b512a7">TArray::Add</a></div><div class="ttdeci">void Add(ElementType &amp;&amp;Item)</div><div class="ttdef"><b>Definition</b> Array.h:68</div></div>
+<div class="ttc" id="aclass_t_array_html_afb0e6e483934148de9b5835e6cb67c99"><div class="ttname"><a href="../../d6/db1/class_t_array.html#afb0e6e483934148de9b5835e6cb67c99">TArray::Remove</a></div><div class="ttdeci">void Remove(const ElementType &amp;Element)</div><div class="ttdef"><b>Definition</b> Array.h:110</div></div>
+<div class="ttc" id="aclass_u_i_widget_html"><div class="ttname"><a href="../../d1/d68/class_u_i_widget.html">UIWidget</a></div><div class="ttdef"><b>Definition</b> UIWidget.h:17</div></div>
+<div class="ttc" id="aclass_u_i_widget_html_a02aeea95baeeca04332cde6ab99adc8d"><div class="ttname"><a href="../../d1/d68/class_u_i_widget.html#a02aeea95baeeca04332cde6ab99adc8d">UIWidget::GetName</a></div><div class="ttdeci">FString GetName() const</div><div class="ttdef"><b>Definition</b> UIWidget.h:30</div></div>
+<div class="ttc" id="aclass_u_i_widget_html_a193457cd24eb4f0ada8e0c37a4322691"><div class="ttname"><a href="../../d1/d68/class_u_i_widget.html#a193457cd24eb4f0ada8e0c37a4322691">UIWidget::bOpen</a></div><div class="ttdeci">bool bOpen</div><div class="ttdef"><b>Definition</b> UIWidget.h:90</div></div>
+<div class="ttc" id="aclass_u_i_widget_html_a28c927012f676e66a02f8af450e2d275"><div class="ttname"><a href="../../d1/d68/class_u_i_widget.html#a28c927012f676e66a02f8af450e2d275">UIWidget::Rect</a></div><div class="ttdeci">FIntRect Rect</div><div class="ttdef"><b>Definition</b> UIWidget.h:85</div></div>
+<div class="ttc" id="aclass_u_i_widget_html_a3a008692757903d765689b5f8436a2cf"><div class="ttname"><a href="../../d1/d68/class_u_i_widget.html#a3a008692757903d765689b5f8436a2cf">UIWidget::RemoveChild</a></div><div class="ttdeci">void RemoveChild(TSharedPtr&lt; UIWidget &gt; Child)</div><div class="ttdef"><b>Definition</b> UIWidget.h:38</div></div>
+<div class="ttc" id="aclass_u_i_widget_html_a43b6fe57530ebd0e67249a595e6136bc"><div class="ttname"><a href="../../d1/d68/class_u_i_widget.html#a43b6fe57530ebd0e67249a595e6136bc">UIWidget::Update</a></div><div class="ttdeci">virtual void Update(float DeltaTime)</div><div class="ttdef"><b>Definition</b> UIWidget.cpp:27</div></div>
+<div class="ttc" id="aclass_u_i_widget_html_a4c05fb389d601d29abebd8605ee9f659"><div class="ttname"><a href="../../d1/d68/class_u_i_widget.html#a4c05fb389d601d29abebd8605ee9f659">UIWidget::AddChild</a></div><div class="ttdeci">void AddChild(TSharedPtr&lt; UIWidget &gt; Child)</div><div class="ttdef"><b>Definition</b> UIWidget.h:32</div></div>
+<div class="ttc" id="aclass_u_i_widget_html_a50774a40c2d9e05a1861f1b340e0ea5a"><div class="ttname"><a href="../../d1/d68/class_u_i_widget.html#a50774a40c2d9e05a1861f1b340e0ea5a">UIWidget::Position</a></div><div class="ttdeci">FIntPoint Position</div><div class="ttdef"><b>Definition</b> UIWidget.h:84</div></div>
+<div class="ttc" id="aclass_u_i_widget_html_a5623518110f7f05db0406185c4da42a4"><div class="ttname"><a href="../../d1/d68/class_u_i_widget.html#a5623518110f7f05db0406185c4da42a4">UIWidget::UIWidget</a></div><div class="ttdeci">UIWidget(FString InName=TEXT(&quot;UIWidget&quot;))</div><div class="ttdef"><b>Definition</b> UIWidget.h:20</div></div>
+<div class="ttc" id="aclass_u_i_widget_html_a5ffdf553d2218751fbd1f587edec81a4"><div class="ttname"><a href="../../d1/d68/class_u_i_widget.html#a5ffdf553d2218751fbd1f587edec81a4">UIWidget::SetSize</a></div><div class="ttdeci">void SetSize(FIntPoint InSize)</div><div class="ttdef"><b>Definition</b> UIWidget.h:28</div></div>
+<div class="ttc" id="aclass_u_i_widget_html_a60e727936071f8591945beb85539ed8b"><div class="ttname"><a href="../../d1/d68/class_u_i_widget.html#a60e727936071f8591945beb85539ed8b">UIWidget::DrawImGui</a></div><div class="ttdeci">virtual void DrawImGui()</div><div class="ttdef"><b>Definition</b> UIWidget.h:26</div></div>
+<div class="ttc" id="aclass_u_i_widget_html_a62395be13ea933dee219a9cd2dea0487"><div class="ttname"><a href="../../d1/d68/class_u_i_widget.html#a62395be13ea933dee219a9cd2dea0487">UIWidget::Owner</a></div><div class="ttdeci">UIWidget * Owner</div><div class="ttdef"><b>Definition</b> UIWidget.h:65</div></div>
+<div class="ttc" id="aclass_u_i_widget_html_a63d8d27e5fa60417b3717fd580ac4715"><div class="ttname"><a href="../../d1/d68/class_u_i_widget.html#a63d8d27e5fa60417b3717fd580ac4715">UIWidget::Name</a></div><div class="ttdeci">FString Name</div><div class="ttdef"><b>Definition</b> UIWidget.h:88</div></div>
+<div class="ttc" id="aclass_u_i_widget_html_a76c75e697083f965cd3d1c27d31c722f"><div class="ttname"><a href="../../d1/d68/class_u_i_widget.html#a76c75e697083f965cd3d1c27d31c722f">UIWidget::ForEachChild</a></div><div class="ttdeci">void ForEachChild(std::function&lt; void(UIWidget *)&gt; Func)</div><div class="ttdef"><b>Definition</b> UIWidget.cpp:46</div></div>
+<div class="ttc" id="aclass_u_i_widget_html_a865a73a1fcb2419f72a22598568a13a7"><div class="ttname"><a href="../../d1/d68/class_u_i_widget.html#a865a73a1fcb2419f72a22598568a13a7">UIWidget::SetName</a></div><div class="ttdeci">void SetName(FString InName)</div><div class="ttdef"><b>Definition</b> UIWidget.h:31</div></div>
+<div class="ttc" id="aclass_u_i_widget_html_a8f093ba7a489ca144ab6d1647d3f683f"><div class="ttname"><a href="../../d1/d68/class_u_i_widget.html#a8f093ba7a489ca144ab6d1647d3f683f">UIWidget::ChildWidgets</a></div><div class="ttdeci">TArray&lt; TSharedPtr&lt; UIWidget &gt; &gt; ChildWidgets</div><div class="ttdef"><b>Definition</b> UIWidget.h:87</div></div>
+<div class="ttc" id="aclass_u_i_widget_html_a93b049ac89ded704797806d62b5d288e"><div class="ttname"><a href="../../d1/d68/class_u_i_widget.html#a93b049ac89ded704797806d62b5d288e">UIWidget::Index</a></div><div class="ttdeci">uint64 Index</div><div class="ttdef"><b>Definition</b> UIWidget.h:89</div></div>
+<div class="ttc" id="aclass_u_i_widget_html_a9cb11697c2cbc808e32cd0571b1c845e"><div class="ttname"><a href="../../d1/d68/class_u_i_widget.html#a9cb11697c2cbc808e32cd0571b1c845e">UIWidget::SetOpen</a></div><div class="ttdeci">void SetOpen(bool InbOpen)</div><div class="ttdef"><b>Definition</b> UIWidget.h:55</div></div>
+<div class="ttc" id="aclass_u_i_widget_html_a9eade48c629f9112148199da9033809b"><div class="ttname"><a href="../../d1/d68/class_u_i_widget.html#a9eade48c629f9112148199da9033809b">UIWidget::GetRect</a></div><div class="ttdeci">FIntRect GetRect()</div><div class="ttdef"><b>Definition</b> UIWidget.h:63</div></div>
+<div class="ttc" id="aclass_u_i_widget_html_aaa79699d3397fd8d66d977ce35c997af"><div class="ttname"><a href="../../d1/d68/class_u_i_widget.html#aaa79699d3397fd8d66d977ce35c997af">UIWidget::DefferedRemoveChild</a></div><div class="ttdeci">void DefferedRemoveChild(UIWidget *Child)</div><div class="ttdef"><b>Definition</b> UIWidget.h:45</div></div>
+<div class="ttc" id="aclass_u_i_widget_html_aad73df333b6e120abef060bbad441b9c"><div class="ttname"><a href="../../d1/d68/class_u_i_widget.html#aad73df333b6e120abef060bbad441b9c">UIWidget::Size</a></div><div class="ttdeci">FIntPoint Size</div><div class="ttdef"><b>Definition</b> UIWidget.h:86</div></div>
+<div class="ttc" id="aclass_u_i_widget_html_abf5c17fb911bcf9e859439bd7cd30da7"><div class="ttname"><a href="../../d1/d68/class_u_i_widget.html#abf5c17fb911bcf9e859439bd7cd30da7">UIWidget::SetPostion</a></div><div class="ttdeci">void SetPostion(FIntPoint InPosition)</div><div class="ttdef"><b>Definition</b> UIWidget.h:29</div></div>
+<div class="ttc" id="aclass_u_i_widget_html_ac670f7f42d80cea678453aff5089e988"><div class="ttname"><a href="../../d1/d68/class_u_i_widget.html#ac670f7f42d80cea678453aff5089e988">UIWidget::CloseWidget</a></div><div class="ttdeci">void CloseWidget()</div><div class="ttdef"><b>Definition</b> UIWidget.cpp:17</div></div>
+<div class="ttc" id="aclass_u_i_widget_html_ad63852d58411923c525dbf0a04841cf5"><div class="ttname"><a href="../../d1/d68/class_u_i_widget.html#ad63852d58411923c525dbf0a04841cf5">UIWidget::IsWidgetClose</a></div><div class="ttdeci">bool * IsWidgetClose()</div><div class="ttdef"><b>Definition</b> UIWidget.h:73</div></div>
+<div class="ttc" id="aclass_u_i_widget_html_ad9acaa197c5fb4b7fbe0c7710d709f04"><div class="ttname"><a href="../../d1/d68/class_u_i_widget.html#ad9acaa197c5fb4b7fbe0c7710d709f04">UIWidget::bHaveCloseButton</a></div><div class="ttdeci">bool bHaveCloseButton</div><div class="ttdef"><b>Definition</b> UIWidget.h:66</div></div>
+<div class="ttc" id="aclass_u_i_widget_html_ae831439d8e4c9a3cd556ff54f167668c"><div class="ttname"><a href="../../d1/d68/class_u_i_widget.html#ae831439d8e4c9a3cd556ff54f167668c">UIWidget::Window</a></div><div class="ttdeci">UIWindow * Window</div><div class="ttdef"><b>Definition</b> UIWidget.h:64</div></div>
+<div class="ttc" id="aclass_u_i_widget_html_aef97c41756a26225c09c04363178abf3"><div class="ttname"><a href="../../d1/d68/class_u_i_widget.html#aef97c41756a26225c09c04363178abf3">UIWidget::IsOpen</a></div><div class="ttdeci">bool IsOpen() const</div><div class="ttdef"><b>Definition</b> UIWidget.h:50</div></div>
+<div class="ttc" id="aclass_u_i_window_html"><div class="ttname"><a href="../../df/dab/class_u_i_window.html">UIWindow</a></div><div class="ttdef"><b>Definition</b> UIWindow.h:11</div></div>
+<div class="ttc" id="astruct_d_e_1_1_math_1_1_t_int_point_html"><div class="ttname"><a href="../../d3/def/struct_d_e_1_1_math_1_1_t_int_point.html">DE::Math::TIntPoint&lt; int32 &gt;</a></div></div>
+<div class="ttc" id="astruct_d_e_1_1_math_1_1_t_int_rect_html"><div class="ttname"><a href="../../d8/d10/struct_d_e_1_1_math_1_1_t_int_rect.html">DE::Math::TIntRect&lt; int32 &gt;</a></div></div>
+<div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector&lt; double &gt;</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../dir_55043db21ba5ddd7c561d2c5a5a38944.html">Dark Engine</a></li><li class="navelem"><a class="el" href="../../dir_e00b54220e1e1486ac9971b606d33054.html">Source</a></li><li class="navelem"><a class="el" href="../../dir_ae01c8af07818b260cc3481e8588b277.html">Runtime</a></li><li class="navelem"><a class="el" href="../../dir_eeada408226bdd8c9ce13b8152f152c0.html">UICore</a></li><li class="navelem"><a class="el" href="../../dir_0a7389cf834aa017a133265e0c66a883.html">public</a></li><li class="navelem"><a class="el" href="../../dir_7dbaa450d4b677da97ae98b367941a25.html">Widgets</a></li><li class="navelem"><a class="el" href="../../d5/dc2/_u_i_widget_8h.html">UIWidget.h</a></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
+</body>
+</html>

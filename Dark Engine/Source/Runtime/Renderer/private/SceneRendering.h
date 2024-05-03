@@ -5,10 +5,27 @@
 #include "RHICommandList.h"
 
 
+class FViewInfo : public FSceneView
+{
+public:
+	FViewInfo(const FSceneView* InView) :
+		FSceneView(*InView)
+	{
+		Init();
+	}
+	void Init();
+
+
+	FIntRect ViewRect;
+	class FGlobalShaderMap* ShaderMap;
+};
+
+
 class FSceneRender : public ISceneRenderer
 {
 public:
 	FSceneRender(const FSceneView* InView);
+	~FSceneRender();
 
 
 public: 
@@ -17,12 +34,14 @@ public:
 	//void RenderUI(class FRenderTarget* RenderTarget) {}
 
 
-	void RenderTriangle(FRHICommandListImmediate& CmdList);
+	void RenderQuad(FRHICommandListImmediate& CmdList);
+	void RenderFractal(FRHICommandListImmediate& CmdList);
+	void RenderSeaScape(FRHICommandListImmediate& CmdList);
 
 
 
 	FScene* Scene;
-	FSceneView SceneView;
+	FViewInfo* SceneView;
 
 };
 

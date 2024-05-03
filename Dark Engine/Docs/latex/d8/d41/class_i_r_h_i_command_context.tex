@@ -1,0 +1,252 @@
+\doxysection{Класс IRHICommand\+Context}
+\hypertarget{class_i_r_h_i_command_context}{}\label{class_i_r_h_i_command_context}\index{IRHICommandContext@{IRHICommandContext}}
+
+
+{\ttfamily \#include $<$RHIContext.\+h$>$}
+
+Граф наследования\+:IRHICommand\+Context\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{d8/d41/class_i_r_h_i_command_context}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_i_r_h_i_command_context_a7d0aa131ee738047cab127901d55f9f8}{RHIBegin\+Drawing\+Viewport}} (\mbox{\hyperlink{class_f_r_h_i_viewport}{FRHIViewport}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{struct_viewport}{Viewport}}, \mbox{\hyperlink{class_f_r_h_i_texture}{FRHITexture}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{_r_h_i_defines_8h_a9457a748b9d30acc00348bdc63f5de4ea9b0bffda4bcb312168c0d6537cb04b4d}{Render\+Target}})=0
+\item 
+virtual void \mbox{\hyperlink{class_i_r_h_i_command_context_a436ec235e25ad15f4a4cdd4ae0dc13be}{RHIEnd\+Drawing\+Viewport}} (\mbox{\hyperlink{class_f_r_h_i_viewport}{FRHIViewport}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{struct_viewport}{Viewport}}, bool b\+Present, \mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}} Vsync)=0
+\item 
+virtual void \mbox{\hyperlink{class_i_r_h_i_command_context_a3b32a73d30f021c13ff4f3890d815cc6}{RHIBegin\+Frame}} ()=0
+\item 
+virtual void \mbox{\hyperlink{class_i_r_h_i_command_context_a2386d2f02841a5684468d7beb7a1fc7c}{RHIBegin\+Render\+Pass}} (struct \mbox{\hyperlink{struct_f_r_h_i_render_pass_info}{FRHIRender\+Pass\+Info}} \&In\+Info)=0
+\item 
+virtual void \mbox{\hyperlink{class_i_r_h_i_command_context_a745a4a29a8a3692f9d268a07df2522da}{RHIEnd\+Render\+Pass}} (struct \mbox{\hyperlink{struct_f_r_h_i_render_pass_info}{FRHIRender\+Pass\+Info}} \&In\+Info)=0
+\item 
+virtual void \mbox{\hyperlink{class_i_r_h_i_command_context_a9c270bca1093d983140d6621816b34c4}{RHIEnd\+Frame}} ()=0
+\item 
+virtual void \mbox{\hyperlink{class_i_r_h_i_command_context_a49198de67731fe374e18ade7db8d1a9c}{Begin\+Scene}} ()
+\item 
+virtual void \mbox{\hyperlink{class_i_r_h_i_command_context_a90c4cf317f608a59d4523633c6d57e93}{End\+Scene}} ()
+\item 
+virtual void \mbox{\hyperlink{class_i_r_h_i_command_context_aa0b576b0c387de3588a9137555593c74}{RHISet\+Viewport}} (float MinX, float MinY, float MinZ, float MaxX, float MaxY, float MaxZ)=0
+\item 
+virtual void \mbox{\hyperlink{class_i_r_h_i_command_context_a061c664135960a65e5621f825c60f1a3}{RHISet\+Scissor\+Rect}} (bool b\+Enable, \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} MinX, \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} MinY, \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} MaxX, \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} MaxY)
+\item 
+virtual void \mbox{\hyperlink{class_i_r_h_i_command_context_a3a90c2d8763f94ca834b2e8d3a4fa1c5}{RHISet\+Graphics\+Pipeline\+State}} (class \mbox{\hyperlink{class_f_r_h_i_graphics_pipeline_state}{FRHIGraphics\+Pipeline\+State}} \texorpdfstring{$\ast$}{*}Graphics\+PSO, const \mbox{\hyperlink{struct_f_bound_shader_state_input}{FBound\+Shader\+State\+Input}} \&Shader\+Input)=0
+\item 
+virtual void \mbox{\hyperlink{class_i_r_h_i_command_context_adb2f56473c82780610734dbe213efb29}{RHISet\+Shader\+Texture}} (\mbox{\hyperlink{class_f_r_h_i_graphics_shader}{FRHIGraphics\+Shader}} \texorpdfstring{$\ast$}{*}Shader, \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} Texture\+Index, \mbox{\hyperlink{class_f_r_h_i_texture}{FRHITexture}} \texorpdfstring{$\ast$}{*}Texture)
+\item 
+virtual void \mbox{\hyperlink{class_i_r_h_i_command_context_af864f58a8b6e84873ee53bdf5bb41c9f}{RHISet\+Shader\+Sampler}} (\mbox{\hyperlink{class_f_r_h_i_graphics_shader}{FRHIGraphics\+Shader}} \texorpdfstring{$\ast$}{*}Shader, \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} Sampler\+Index, \mbox{\hyperlink{class_f_r_h_i_sampler_state}{FRHISampler\+State}} \texorpdfstring{$\ast$}{*}State)
+\item 
+virtual void \mbox{\hyperlink{class_i_r_h_i_command_context_abdc8d79607cb9a68c6d79d6a7116f57c}{RHIBegin\+Im\+Gui}} ()=0
+\item 
+virtual void \mbox{\hyperlink{class_i_r_h_i_command_context_a2e14b0f1f38950719884854721ecfb51}{RHIEnd\+Im\+Gui}} ()=0
+\item 
+virtual void \mbox{\hyperlink{class_i_r_h_i_command_context_a5214f20c38de1bfbf9e69435142156a1}{RHIClear\+Texture\+Color}} (\mbox{\hyperlink{class_f_r_h_i_texture}{FRHITexture}} \texorpdfstring{$\ast$}{*}In\+Texture, \mbox{\hyperlink{_math_fwd_8h_a2a5830396a4d19761fa96594e10278fa}{FVector}} In\+Color)=0
+\item 
+virtual void \mbox{\hyperlink{class_i_r_h_i_command_context_a3a39de659290f300dc94d04fea9c47d3}{RHISet\+Stream\+Source}} (\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} Stream\+Index, \mbox{\hyperlink{class_f_r_h_i_buffer}{FRHIBuffer}} \texorpdfstring{$\ast$}{*}Vertex\+Buffer, \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} Offset, \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} Stride)=0
+\item 
+virtual void \mbox{\hyperlink{class_i_r_h_i_command_context_a7defddc4d40bb54c9fae77b57b462b2c}{RHIDraw\+Indexed\+Primitive}} (\mbox{\hyperlink{class_f_r_h_i_buffer}{FRHIBuffer}} \texorpdfstring{$\ast$}{*}Index\+Buffer\+RHI, \mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}} Base\+Vertex\+Index, \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} First\+Instance, \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} Num\+Vertices, \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} Start\+Index, \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} Num\+Primitives, \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} Num\+Instances)=0
+\item 
+virtual void \mbox{\hyperlink{class_i_r_h_i_command_context_a92e5f9edd22895ef70874bba33a0986e}{RHISet\+Shader\+Parameters}} (\mbox{\hyperlink{class_f_r_h_i_graphics_shader}{FRHIGraphics\+Shader}} \texorpdfstring{$\ast$}{*}Shader, \mbox{\hyperlink{class_t_array}{TArray}}$<$ \mbox{\hyperlink{_platform_8h_a40bc01dd090acd02a79b5dc13e08abe6}{uint8}} $>$ \&In\+Parameters, \mbox{\hyperlink{class_t_array}{TArray}}$<$ \mbox{\hyperlink{struct_f_r_h_i_shader_parameter_resource}{FRHIShader\+Parameter\+Resource}} $>$ \&In\+Bindless\+Parameters, \mbox{\hyperlink{class_t_array}{TArray}}$<$ \mbox{\hyperlink{struct_f_r_h_i_shader_parameter_resource}{FRHIShader\+Parameter\+Resource}} $>$ \&In\+Resource\+Parameters)=0
+\item 
+virtual void \mbox{\hyperlink{class_i_r_h_i_command_context_abe2194fead74407f7fe7c251c1132445}{Set\+Render\+Targets}} (\mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}} Num\+Render\+Targets, const \mbox{\hyperlink{class_f_r_h_i_render_target_view}{FRHIRender\+Target\+View}} \texorpdfstring{$\ast$}{*}Render\+Targets\+RHI, const \mbox{\hyperlink{class_f_r_h_i_depth_render_target_view}{FRHIDepth\+Render\+Target\+View}} \texorpdfstring{$\ast$}{*}Depth\+Stencil\+View\+RHI, bool b\+Clear=false)=0
+\end{DoxyCompactItemize}
+\doxysubsection*{Открытые члены унаследованные от \mbox{\hyperlink{class_i_r_h_i_compute_context}{IRHICompute\+Context}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_i_r_h_i_compute_context_a3228620d5f77b5a095d67177f0d0a971}{RHISet\+Compute\+Pipeline\+State}} (\mbox{\hyperlink{class_f_r_h_i_compute_pipeline_state}{FRHICompute\+Pipeline\+State}} \texorpdfstring{$\ast$}{*}Compute\+Pipeline\+State)
+\item 
+virtual void \mbox{\hyperlink{class_i_r_h_i_compute_context_ac586a014226cf3cc3534edf82f713fd5}{RHIDispatch\+Compute\+Shader}} (\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} Thread\+Group\+CountX, \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} Thread\+Group\+CountY, \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} Thread\+Group\+CountZ)
+\item 
+virtual void \mbox{\hyperlink{class_i_r_h_i_compute_context_aa9cc5024ea20c2436f8ddc89aa24be2a}{RHIDispatch\+Indirect\+Compute\+Shader}} (\mbox{\hyperlink{class_f_r_h_i_buffer}{FRHIBuffer}} \texorpdfstring{$\ast$}{*}In\+Buffer, \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} Argument\+Offset)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Методы}
+\Hypertarget{class_i_r_h_i_command_context_a49198de67731fe374e18ade7db8d1a9c}\label{class_i_r_h_i_command_context_a49198de67731fe374e18ade7db8d1a9c} 
+\index{IRHICommandContext@{IRHICommandContext}!BeginScene@{BeginScene}}
+\index{BeginScene@{BeginScene}!IRHICommandContext@{IRHICommandContext}}
+\doxysubsubsection{\texorpdfstring{BeginScene()}{BeginScene()}}
+{\footnotesize\ttfamily virtual void IRHICommand\+Context\+::\+Begin\+Scene (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\Hypertarget{class_i_r_h_i_command_context_a90c4cf317f608a59d4523633c6d57e93}\label{class_i_r_h_i_command_context_a90c4cf317f608a59d4523633c6d57e93} 
+\index{IRHICommandContext@{IRHICommandContext}!EndScene@{EndScene}}
+\index{EndScene@{EndScene}!IRHICommandContext@{IRHICommandContext}}
+\doxysubsubsection{\texorpdfstring{EndScene()}{EndScene()}}
+{\footnotesize\ttfamily virtual void IRHICommand\+Context\+::\+End\+Scene (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\Hypertarget{class_i_r_h_i_command_context_a7d0aa131ee738047cab127901d55f9f8}\label{class_i_r_h_i_command_context_a7d0aa131ee738047cab127901d55f9f8} 
+\index{IRHICommandContext@{IRHICommandContext}!RHIBeginDrawingViewport@{RHIBeginDrawingViewport}}
+\index{RHIBeginDrawingViewport@{RHIBeginDrawingViewport}!IRHICommandContext@{IRHICommandContext}}
+\doxysubsubsection{\texorpdfstring{RHIBeginDrawingViewport()}{RHIBeginDrawingViewport()}}
+{\footnotesize\ttfamily virtual void IRHICommand\+Context\+::\+RHIBegin\+Drawing\+Viewport (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_f_r_h_i_viewport}{FRHIViewport}} \texorpdfstring{$\ast$}{*}}]{Viewport,  }\item[{\mbox{\hyperlink{class_f_r_h_i_texture}{FRHITexture}} \texorpdfstring{$\ast$}{*}}]{Render\+Target }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Замещается в \mbox{\hyperlink{class_f_d3_d12_command_context_base_af89b8d4dae9b792aa6b46c60804008f1}{FD3\+D12\+Command\+Context\+Base}}.
+
+\Hypertarget{class_i_r_h_i_command_context_a3b32a73d30f021c13ff4f3890d815cc6}\label{class_i_r_h_i_command_context_a3b32a73d30f021c13ff4f3890d815cc6} 
+\index{IRHICommandContext@{IRHICommandContext}!RHIBeginFrame@{RHIBeginFrame}}
+\index{RHIBeginFrame@{RHIBeginFrame}!IRHICommandContext@{IRHICommandContext}}
+\doxysubsubsection{\texorpdfstring{RHIBeginFrame()}{RHIBeginFrame()}}
+{\footnotesize\ttfamily virtual void IRHICommand\+Context\+::\+RHIBegin\+Frame (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Замещается в \mbox{\hyperlink{class_f_d3_d12_command_context_a98390fb0ed2d4f08bd1dcaa0bb7305e5}{FD3\+D12\+Command\+Context}}.
+
+\Hypertarget{class_i_r_h_i_command_context_abdc8d79607cb9a68c6d79d6a7116f57c}\label{class_i_r_h_i_command_context_abdc8d79607cb9a68c6d79d6a7116f57c} 
+\index{IRHICommandContext@{IRHICommandContext}!RHIBeginImGui@{RHIBeginImGui}}
+\index{RHIBeginImGui@{RHIBeginImGui}!IRHICommandContext@{IRHICommandContext}}
+\doxysubsubsection{\texorpdfstring{RHIBeginImGui()}{RHIBeginImGui()}}
+{\footnotesize\ttfamily virtual void IRHICommand\+Context\+::\+RHIBegin\+Im\+Gui (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Замещается в \mbox{\hyperlink{class_f_d3_d12_command_context_a8f9830e94669916eeea679acf1f69aa1}{FD3\+D12\+Command\+Context}}.
+
+\Hypertarget{class_i_r_h_i_command_context_a2386d2f02841a5684468d7beb7a1fc7c}\label{class_i_r_h_i_command_context_a2386d2f02841a5684468d7beb7a1fc7c} 
+\index{IRHICommandContext@{IRHICommandContext}!RHIBeginRenderPass@{RHIBeginRenderPass}}
+\index{RHIBeginRenderPass@{RHIBeginRenderPass}!IRHICommandContext@{IRHICommandContext}}
+\doxysubsubsection{\texorpdfstring{RHIBeginRenderPass()}{RHIBeginRenderPass()}}
+{\footnotesize\ttfamily virtual void IRHICommand\+Context\+::\+RHIBegin\+Render\+Pass (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_f_r_h_i_render_pass_info}{FRHIRender\+Pass\+Info}} \&}]{In\+Info }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Замещается в \mbox{\hyperlink{class_f_d3_d12_command_context_a947312537a1ee7453cea025880075a19}{FD3\+D12\+Command\+Context}}.
+
+\Hypertarget{class_i_r_h_i_command_context_a5214f20c38de1bfbf9e69435142156a1}\label{class_i_r_h_i_command_context_a5214f20c38de1bfbf9e69435142156a1} 
+\index{IRHICommandContext@{IRHICommandContext}!RHIClearTextureColor@{RHIClearTextureColor}}
+\index{RHIClearTextureColor@{RHIClearTextureColor}!IRHICommandContext@{IRHICommandContext}}
+\doxysubsubsection{\texorpdfstring{RHIClearTextureColor()}{RHIClearTextureColor()}}
+{\footnotesize\ttfamily virtual void IRHICommand\+Context\+::\+RHIClear\+Texture\+Color (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_f_r_h_i_texture}{FRHITexture}} \texorpdfstring{$\ast$}{*}}]{In\+Texture,  }\item[{\mbox{\hyperlink{_math_fwd_8h_a2a5830396a4d19761fa96594e10278fa}{FVector}}}]{In\+Color }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Замещается в \mbox{\hyperlink{class_f_d3_d12_command_context_a6e7f74f9e230d9b42e45276d47d08a8a}{FD3\+D12\+Command\+Context}}.
+
+\Hypertarget{class_i_r_h_i_command_context_a7defddc4d40bb54c9fae77b57b462b2c}\label{class_i_r_h_i_command_context_a7defddc4d40bb54c9fae77b57b462b2c} 
+\index{IRHICommandContext@{IRHICommandContext}!RHIDrawIndexedPrimitive@{RHIDrawIndexedPrimitive}}
+\index{RHIDrawIndexedPrimitive@{RHIDrawIndexedPrimitive}!IRHICommandContext@{IRHICommandContext}}
+\doxysubsubsection{\texorpdfstring{RHIDrawIndexedPrimitive()}{RHIDrawIndexedPrimitive()}}
+{\footnotesize\ttfamily virtual void IRHICommand\+Context\+::\+RHIDraw\+Indexed\+Primitive (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_f_r_h_i_buffer}{FRHIBuffer}} \texorpdfstring{$\ast$}{*}}]{Index\+Buffer\+RHI,  }\item[{\mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}}]{Base\+Vertex\+Index,  }\item[{\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}}]{First\+Instance,  }\item[{\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}}]{Num\+Vertices,  }\item[{\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}}]{Start\+Index,  }\item[{\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}}]{Num\+Primitives,  }\item[{\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}}]{Num\+Instances }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Замещается в \mbox{\hyperlink{class_f_d3_d12_command_context_a2a6decc2e64d0edaa62a21bb10329755}{FD3\+D12\+Command\+Context}}.
+
+\Hypertarget{class_i_r_h_i_command_context_a436ec235e25ad15f4a4cdd4ae0dc13be}\label{class_i_r_h_i_command_context_a436ec235e25ad15f4a4cdd4ae0dc13be} 
+\index{IRHICommandContext@{IRHICommandContext}!RHIEndDrawingViewport@{RHIEndDrawingViewport}}
+\index{RHIEndDrawingViewport@{RHIEndDrawingViewport}!IRHICommandContext@{IRHICommandContext}}
+\doxysubsubsection{\texorpdfstring{RHIEndDrawingViewport()}{RHIEndDrawingViewport()}}
+{\footnotesize\ttfamily virtual void IRHICommand\+Context\+::\+RHIEnd\+Drawing\+Viewport (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_f_r_h_i_viewport}{FRHIViewport}} \texorpdfstring{$\ast$}{*}}]{Viewport,  }\item[{bool}]{b\+Present,  }\item[{\mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}}]{Vsync }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Замещается в \mbox{\hyperlink{class_f_d3_d12_command_context_base_a3a9a99c903935fa755227e036d59bbe2}{FD3\+D12\+Command\+Context\+Base}}.
+
+\Hypertarget{class_i_r_h_i_command_context_a9c270bca1093d983140d6621816b34c4}\label{class_i_r_h_i_command_context_a9c270bca1093d983140d6621816b34c4} 
+\index{IRHICommandContext@{IRHICommandContext}!RHIEndFrame@{RHIEndFrame}}
+\index{RHIEndFrame@{RHIEndFrame}!IRHICommandContext@{IRHICommandContext}}
+\doxysubsubsection{\texorpdfstring{RHIEndFrame()}{RHIEndFrame()}}
+{\footnotesize\ttfamily virtual void IRHICommand\+Context\+::\+RHIEnd\+Frame (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Замещается в \mbox{\hyperlink{class_f_d3_d12_command_context_afde160e09afa35e01fb217f8045d19f8}{FD3\+D12\+Command\+Context}}.
+
+\Hypertarget{class_i_r_h_i_command_context_a2e14b0f1f38950719884854721ecfb51}\label{class_i_r_h_i_command_context_a2e14b0f1f38950719884854721ecfb51} 
+\index{IRHICommandContext@{IRHICommandContext}!RHIEndImGui@{RHIEndImGui}}
+\index{RHIEndImGui@{RHIEndImGui}!IRHICommandContext@{IRHICommandContext}}
+\doxysubsubsection{\texorpdfstring{RHIEndImGui()}{RHIEndImGui()}}
+{\footnotesize\ttfamily virtual void IRHICommand\+Context\+::\+RHIEnd\+Im\+Gui (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Замещается в \mbox{\hyperlink{class_f_d3_d12_command_context_a82795462f11768c1b3dcde5b93b19fd7}{FD3\+D12\+Command\+Context}}.
+
+\Hypertarget{class_i_r_h_i_command_context_a745a4a29a8a3692f9d268a07df2522da}\label{class_i_r_h_i_command_context_a745a4a29a8a3692f9d268a07df2522da} 
+\index{IRHICommandContext@{IRHICommandContext}!RHIEndRenderPass@{RHIEndRenderPass}}
+\index{RHIEndRenderPass@{RHIEndRenderPass}!IRHICommandContext@{IRHICommandContext}}
+\doxysubsubsection{\texorpdfstring{RHIEndRenderPass()}{RHIEndRenderPass()}}
+{\footnotesize\ttfamily virtual void IRHICommand\+Context\+::\+RHIEnd\+Render\+Pass (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_f_r_h_i_render_pass_info}{FRHIRender\+Pass\+Info}} \&}]{In\+Info }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Замещается в \mbox{\hyperlink{class_f_d3_d12_command_context_afc1c11b10711d1455f434f75e14aeb06}{FD3\+D12\+Command\+Context}}.
+
+\Hypertarget{class_i_r_h_i_command_context_a3a90c2d8763f94ca834b2e8d3a4fa1c5}\label{class_i_r_h_i_command_context_a3a90c2d8763f94ca834b2e8d3a4fa1c5} 
+\index{IRHICommandContext@{IRHICommandContext}!RHISetGraphicsPipelineState@{RHISetGraphicsPipelineState}}
+\index{RHISetGraphicsPipelineState@{RHISetGraphicsPipelineState}!IRHICommandContext@{IRHICommandContext}}
+\doxysubsubsection{\texorpdfstring{RHISetGraphicsPipelineState()}{RHISetGraphicsPipelineState()}}
+{\footnotesize\ttfamily virtual void IRHICommand\+Context\+::\+RHISet\+Graphics\+Pipeline\+State (\begin{DoxyParamCaption}\item[{class \mbox{\hyperlink{class_f_r_h_i_graphics_pipeline_state}{FRHIGraphics\+Pipeline\+State}} \texorpdfstring{$\ast$}{*}}]{Graphics\+PSO,  }\item[{const \mbox{\hyperlink{struct_f_bound_shader_state_input}{FBound\+Shader\+State\+Input}} \&}]{Shader\+Input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Замещается в \mbox{\hyperlink{class_f_d3_d12_command_context_ac6724b5dd81ab007fc88e8f1169e9f21}{FD3\+D12\+Command\+Context}}.
+
+\Hypertarget{class_i_r_h_i_command_context_a061c664135960a65e5621f825c60f1a3}\label{class_i_r_h_i_command_context_a061c664135960a65e5621f825c60f1a3} 
+\index{IRHICommandContext@{IRHICommandContext}!RHISetScissorRect@{RHISetScissorRect}}
+\index{RHISetScissorRect@{RHISetScissorRect}!IRHICommandContext@{IRHICommandContext}}
+\doxysubsubsection{\texorpdfstring{RHISetScissorRect()}{RHISetScissorRect()}}
+{\footnotesize\ttfamily virtual void IRHICommand\+Context\+::\+RHISet\+Scissor\+Rect (\begin{DoxyParamCaption}\item[{bool}]{b\+Enable,  }\item[{\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}}]{MinX,  }\item[{\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}}]{MinY,  }\item[{\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}}]{MaxX,  }\item[{\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}}]{MaxY }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\Hypertarget{class_i_r_h_i_command_context_a92e5f9edd22895ef70874bba33a0986e}\label{class_i_r_h_i_command_context_a92e5f9edd22895ef70874bba33a0986e} 
+\index{IRHICommandContext@{IRHICommandContext}!RHISetShaderParameters@{RHISetShaderParameters}}
+\index{RHISetShaderParameters@{RHISetShaderParameters}!IRHICommandContext@{IRHICommandContext}}
+\doxysubsubsection{\texorpdfstring{RHISetShaderParameters()}{RHISetShaderParameters()}}
+{\footnotesize\ttfamily virtual void IRHICommand\+Context\+::\+RHISet\+Shader\+Parameters (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_f_r_h_i_graphics_shader}{FRHIGraphics\+Shader}} \texorpdfstring{$\ast$}{*}}]{Shader,  }\item[{\mbox{\hyperlink{class_t_array}{TArray}}$<$ \mbox{\hyperlink{_platform_8h_a40bc01dd090acd02a79b5dc13e08abe6}{uint8}} $>$ \&}]{In\+Parameters,  }\item[{\mbox{\hyperlink{class_t_array}{TArray}}$<$ \mbox{\hyperlink{struct_f_r_h_i_shader_parameter_resource}{FRHIShader\+Parameter\+Resource}} $>$ \&}]{In\+Bindless\+Parameters,  }\item[{\mbox{\hyperlink{class_t_array}{TArray}}$<$ \mbox{\hyperlink{struct_f_r_h_i_shader_parameter_resource}{FRHIShader\+Parameter\+Resource}} $>$ \&}]{In\+Resource\+Parameters }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Замещается в \mbox{\hyperlink{class_f_d3_d12_command_context_a7796e58a91f5d2d8d53427b1fd9683a2}{FD3\+D12\+Command\+Context}}.
+
+\Hypertarget{class_i_r_h_i_command_context_af864f58a8b6e84873ee53bdf5bb41c9f}\label{class_i_r_h_i_command_context_af864f58a8b6e84873ee53bdf5bb41c9f} 
+\index{IRHICommandContext@{IRHICommandContext}!RHISetShaderSampler@{RHISetShaderSampler}}
+\index{RHISetShaderSampler@{RHISetShaderSampler}!IRHICommandContext@{IRHICommandContext}}
+\doxysubsubsection{\texorpdfstring{RHISetShaderSampler()}{RHISetShaderSampler()}}
+{\footnotesize\ttfamily virtual void IRHICommand\+Context\+::\+RHISet\+Shader\+Sampler (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_f_r_h_i_graphics_shader}{FRHIGraphics\+Shader}} \texorpdfstring{$\ast$}{*}}]{Shader,  }\item[{\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}}]{Sampler\+Index,  }\item[{\mbox{\hyperlink{class_f_r_h_i_sampler_state}{FRHISampler\+State}} \texorpdfstring{$\ast$}{*}}]{State }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\Hypertarget{class_i_r_h_i_command_context_adb2f56473c82780610734dbe213efb29}\label{class_i_r_h_i_command_context_adb2f56473c82780610734dbe213efb29} 
+\index{IRHICommandContext@{IRHICommandContext}!RHISetShaderTexture@{RHISetShaderTexture}}
+\index{RHISetShaderTexture@{RHISetShaderTexture}!IRHICommandContext@{IRHICommandContext}}
+\doxysubsubsection{\texorpdfstring{RHISetShaderTexture()}{RHISetShaderTexture()}}
+{\footnotesize\ttfamily virtual void IRHICommand\+Context\+::\+RHISet\+Shader\+Texture (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_f_r_h_i_graphics_shader}{FRHIGraphics\+Shader}} \texorpdfstring{$\ast$}{*}}]{Shader,  }\item[{\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}}]{Texture\+Index,  }\item[{\mbox{\hyperlink{class_f_r_h_i_texture}{FRHITexture}} \texorpdfstring{$\ast$}{*}}]{Texture }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\Hypertarget{class_i_r_h_i_command_context_a3a39de659290f300dc94d04fea9c47d3}\label{class_i_r_h_i_command_context_a3a39de659290f300dc94d04fea9c47d3} 
+\index{IRHICommandContext@{IRHICommandContext}!RHISetStreamSource@{RHISetStreamSource}}
+\index{RHISetStreamSource@{RHISetStreamSource}!IRHICommandContext@{IRHICommandContext}}
+\doxysubsubsection{\texorpdfstring{RHISetStreamSource()}{RHISetStreamSource()}}
+{\footnotesize\ttfamily virtual void IRHICommand\+Context\+::\+RHISet\+Stream\+Source (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}}]{Stream\+Index,  }\item[{\mbox{\hyperlink{class_f_r_h_i_buffer}{FRHIBuffer}} \texorpdfstring{$\ast$}{*}}]{Vertex\+Buffer,  }\item[{\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}}]{Offset,  }\item[{\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}}]{Stride }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Замещается в \mbox{\hyperlink{class_f_d3_d12_command_context_aafe452fbbdfa0543b9027d6cce14b7ec}{FD3\+D12\+Command\+Context}}.
+
+\Hypertarget{class_i_r_h_i_command_context_aa0b576b0c387de3588a9137555593c74}\label{class_i_r_h_i_command_context_aa0b576b0c387de3588a9137555593c74} 
+\index{IRHICommandContext@{IRHICommandContext}!RHISetViewport@{RHISetViewport}}
+\index{RHISetViewport@{RHISetViewport}!IRHICommandContext@{IRHICommandContext}}
+\doxysubsubsection{\texorpdfstring{RHISetViewport()}{RHISetViewport()}}
+{\footnotesize\ttfamily virtual void IRHICommand\+Context\+::\+RHISet\+Viewport (\begin{DoxyParamCaption}\item[{float}]{MinX,  }\item[{float}]{MinY,  }\item[{float}]{MinZ,  }\item[{float}]{MaxX,  }\item[{float}]{MaxY,  }\item[{float}]{MaxZ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Замещается в \mbox{\hyperlink{class_f_d3_d12_command_context_ac16561de7706f0cf490f09a012f65421}{FD3\+D12\+Command\+Context}}.
+
+\Hypertarget{class_i_r_h_i_command_context_abe2194fead74407f7fe7c251c1132445}\label{class_i_r_h_i_command_context_abe2194fead74407f7fe7c251c1132445} 
+\index{IRHICommandContext@{IRHICommandContext}!SetRenderTargets@{SetRenderTargets}}
+\index{SetRenderTargets@{SetRenderTargets}!IRHICommandContext@{IRHICommandContext}}
+\doxysubsubsection{\texorpdfstring{SetRenderTargets()}{SetRenderTargets()}}
+{\footnotesize\ttfamily virtual void IRHICommand\+Context\+::\+Set\+Render\+Targets (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}}]{Num\+Render\+Targets,  }\item[{const \mbox{\hyperlink{class_f_r_h_i_render_target_view}{FRHIRender\+Target\+View}} \texorpdfstring{$\ast$}{*}}]{Render\+Targets\+RHI,  }\item[{const \mbox{\hyperlink{class_f_r_h_i_depth_render_target_view}{FRHIDepth\+Render\+Target\+View}} \texorpdfstring{$\ast$}{*}}]{Depth\+Stencil\+View\+RHI,  }\item[{bool}]{b\+Clear = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Замещается в \mbox{\hyperlink{class_f_d3_d12_command_context_afe009c1bd1a8c33196edc8478aac2368}{FD3\+D12\+Command\+Context}}.
+
+
+
+Объявления и описания членов класса находятся в файле\+:\begin{DoxyCompactItemize}
+\item 
+Dark Engine/\+Source/\+Runtime/\+RHI/public/\mbox{\hyperlink{_r_h_i_context_8h}{RHIContext.\+h}}\end{DoxyCompactItemize}

@@ -1,35 +1,28 @@
 #include "DarkClient.h"
+#include "Canvas.h"
 
 
 const TRefCountPtr<FRHITexture>& FRenderTarget::GetRenderTargetTexture() const
 {
-	return RenderTargetTexture;
+	return RenderTargetTextureRHI;
 	
 }
 
 
-
-
-
-
-void FViewport::Draw(FViewportClient* InViewport)
+FViewport::FViewport(FViewportClient* InViewportClient):
+	ViewportClient(InViewportClient),
+	SizeX(0),
+	SizeY(0)
 {
-	ViewportClient = InViewport;
-	FWorld* World = nullptr;//GetClient()->GetWorld();
+
+}
+
+void FViewport::Draw()
+{
+	FCanvas Canvas(this, GetClient()->GetWorld());
+	
 
 
-	ViewportClient->Draw(this, World);
-
-
-
-
-
-
-
-
-
-
-
-
+	ViewportClient->Draw(this, &Canvas);
 
 }

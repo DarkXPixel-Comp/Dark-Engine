@@ -1,0 +1,86 @@
+\doxysection{Generic\+Window.\+h}
+\hypertarget{_generic_window_8h_source}{}\label{_generic_window_8h_source}\index{Dark Engine/Source/Runtime/ApplicationCore/public/GenericPlatform/GenericWindow.h@{Dark Engine/Source/Runtime/ApplicationCore/public/GenericPlatform/GenericWindow.h}}
+\mbox{\hyperlink{_generic_window_8h}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_core_types_8h}{CoreTypes.h}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_dark_string_8h}{Containers/DarkString.h}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_core_minimal_8h}{CoreMinimal.h}}"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{_generic_window_8h_a58dc439d7f01a8000901a1d441cb3521}{EWindowMode}}}
+\DoxyCodeLine{00009\ \{}
+\DoxyCodeLine{00010\ \ \ \ \ \mbox{\hyperlink{_generic_window_8h_a58dc439d7f01a8000901a1d441cb3521a442ecc88f57a81fcf5161137646b031f}{Fullscreen}},}
+\DoxyCodeLine{00011\ \ \ \ \ \mbox{\hyperlink{_generic_window_8h_a58dc439d7f01a8000901a1d441cb3521a02048cb51efc5ae08652bef5de7758a8}{WindowedFullscreen}},}
+\DoxyCodeLine{00012\ \ \ \ \ \mbox{\hyperlink{_generic_window_8h_a58dc439d7f01a8000901a1d441cb3521af1a5b940ef8dbfe3a9129574d83c514d}{Windowed}}}
+\DoxyCodeLine{00013\ \};}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{_generic_window_8h_ad17743377374d232bd23db0b3cf58a88}{ECursorArea}}}
+\DoxyCodeLine{00017\ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{_generic_window_8h_ad17743377374d232bd23db0b3cf58a88a577d7068826de925ea2aec01dbadf5e4}{Client}},}
+\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{_generic_window_8h_ad17743377374d232bd23db0b3cf58a88ad3d2e617335f08df83599665eef8a418}{Close}},}
+\DoxyCodeLine{00020\ \ \ \ \ \mbox{\hyperlink{_generic_window_8h_ad17743377374d232bd23db0b3cf58a88a272ba7d164aa836995be6319a698be84}{Caption}},}
+\DoxyCodeLine{00021\ \ \ \ \ \mbox{\hyperlink{_generic_window_8h_ad17743377374d232bd23db0b3cf58a88a9369ba148ee259473fc1fb4939b6c2e8}{Maximize}},}
+\DoxyCodeLine{00022\ \ \ \ \ \mbox{\hyperlink{_generic_window_8h_ad17743377374d232bd23db0b3cf58a88ad27532d90ecd513e97ab811c0f34dbfd}{Minimize}},}
+\DoxyCodeLine{00023\ \ \ \ \ \mbox{\hyperlink{_generic_window_8h_ad17743377374d232bd23db0b3cf58a88ab61541208db7fa7dba42c85224405911}{Menu}}}
+\DoxyCodeLine{00024\ \};}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_f_generic_window}{FGenericWindow}}}
+\DoxyCodeLine{00027\ \{}
+\DoxyCodeLine{00028\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00029\ \ \ \ \ \mbox{\hyperlink{class_f_generic_window_a5283c1ab8db421a73cbad961fc45509f}{FGenericWindow}}()\ \{\}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_f_generic_window_a236df48ece1d1c3a51c6a4a4aac121d5}{GetFullScreenInfo}}(\mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}\&\ X,\ \mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}\&\ Y,\ \mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}\&\ Width,\ \mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}\&\ Height)\ \{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};\ \}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_generic_window_aea08d46822a9a1856946bfa2dda29264}{Destroy}}()\ \{\}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_generic_window_a20d120b3508806e9e225108d76e11c94}{Show}}()\ \{\}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_generic_window_a1afcdd9a59c22a967df467f590553f51}{Update}}()\ \{\}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_generic_window_a67dd7b0ab780b480731a8cb35a7828b6}{Maximize}}()\ \{\}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_generic_window_aff5d55fb047d4406b03ada46b0f741d5}{Minimize}}()\ \{\}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{_t_unique_ptr_8h_ab7a7d47ba593c2489fecf3f003f56c53}{TSharedPtr<FGenericWindow>}}\ \mbox{\hyperlink{class_f_generic_window_a4352c6864bc6eed59ec54bf66e070718}{MakeWindow}}()\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{_t_unique_ptr_8h_afc155ef9e11e17d1684de7ccccd2a189}{MakeShareble}}(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_f_generic_window_a5283c1ab8db421a73cbad961fc45509f}{FGenericWindow}}());\ \}}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{class_f_generic_window_ae266473d488766a119464e88eccef189}{GetOSWindowHandle}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};\ \}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_generic_window_a2301376d91624e90d95bebd10df65ba8}{SetTitle}}(\mbox{\hyperlink{class_f_string}{FString}}\ Title)\ \{\}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_int_rect}{FIntRect}}\ \mbox{\hyperlink{class_f_generic_window_a81a7754c93490aa215de91f2463be246}{GetRect}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{_math_fwd_8h_a64ca0e56e182799ed5a0fbfc0abacc30}{FIntRect}}();\ \}}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_int_point}{FIntPoint}}\ \mbox{\hyperlink{class_f_generic_window_a3793f6e7c750b1ad30970dade24b090f}{GetSize}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{_math_fwd_8h_af5577845559ff81e49036ff088d51cbf}{FIntPoint}}();\ \}}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_int_point}{FIntPoint}}\ \mbox{\hyperlink{class_f_generic_window_a634e516dda18e93a28c8010c23c15630}{GetPosition}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{_math_fwd_8h_af5577845559ff81e49036ff088d51cbf}{FIntPoint}}();\ \}}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{_generic_window_8h_a58dc439d7f01a8000901a1d441cb3521}{EWindowMode}}\ \mbox{\hyperlink{class_f_generic_window_ae3a4f45c4a4676cc9fcaf793b335be03}{GetWindowMode}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_f_generic_window_aa9b3ec80783b9c9d199426e589d836d1}{WindowMode}};\ \}}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_int_point}{FIntPoint}}\ \mbox{\hyperlink{class_f_generic_window_a9861926f39725499c7089d3fdbd72fd7}{GetRelativeMousePos}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{_math_fwd_8h_af5577845559ff81e49036ff088d51cbf}{FIntPoint}}();\ \}}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_f_generic_window_acc2ed2536a84f305f17e89a700657ac5}{IsMaximized}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};\ \}}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_generic_window_a52275c18527c2f97b56faae726d57894}{Restore}}()\ \{\}}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\#ifdef\ IMGUI}}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ InitImGui()\ \{\}}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ BeginImGui()\ \{\}}
+\DoxyCodeLine{00064\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ \mbox{\hyperlink{_generic_window_8h_ad17743377374d232bd23db0b3cf58a88}{ECursorArea}}\ \mbox{\hyperlink{class_f_generic_window_a2f39ab1f9dc502a40a2dde6f208dfcfa}{bTitleBarHovarered}}\ =\ \mbox{\hyperlink{_generic_window_8h_ad17743377374d232bd23db0b3cf58a88a577d7068826de925ea2aec01dbadf5e4}{ECursorArea::Client}};}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_f_generic_window_a62f7695c84ab60723eef8ffd901e3e73}{bIsVisible}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00071\ \ \ \ \ \mbox{\hyperlink{_generic_window_8h_a58dc439d7f01a8000901a1d441cb3521}{EWindowMode}}\ \mbox{\hyperlink{class_f_generic_window_aa9b3ec80783b9c9d199426e589d836d1}{WindowMode}}\ =\ \mbox{\hyperlink{_generic_window_8h_a58dc439d7f01a8000901a1d441cb3521af1a5b940ef8dbfe3a9129574d83c514d}{EWindowMode::Windowed}};}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \ \ }
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \};}
+
+\end{DoxyCode}

@@ -1,0 +1,55 @@
+\doxysection{Файл Dark Engine/\+Source/\+Runtime/\+Core/\+Public/\+Containers/\+Array.h}
+\hypertarget{_array_8h}{}\label{_array_8h}\index{Dark Engine/Source/Runtime/Core/Public/Containers/Array.h@{Dark Engine/Source/Runtime/Core/Public/Containers/Array.h}}
+{\ttfamily \#include "{}Templates/\+Make\+Unsigned.\+h"{}}\newline
+{\ttfamily \#include "{}Templates/\+Is\+Signed.\+h"{}}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$set$>$}\newline
+{\ttfamily \#include "{}HAL/\+Platform.\+h"{}}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+\doxysubsubsection*{Классы}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_array_reserve}{Array\+Reserve}}
+\item 
+class \mbox{\hyperlink{class_t_array}{TArray$<$ Element\+Type $>$}}
+\item 
+struct \mbox{\hyperlink{structstd_1_1hash_3_01_t_array_3_01_t_01_4_01_4}{std\+::hash$<$ TArray$<$ T $>$ $>$}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Определения типов}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class ... Args$>$ }\\using \mbox{\hyperlink{_array_8h_a028d961cd42b98f89dec78ae0f1d619f}{TSet}} = std\+::set$<$Args...$>$
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Функции}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class T $>$ }\\void \mbox{\hyperlink{_array_8h_a04cc1b733a2f4d205f13f7a59facba64}{hash\+\_\+combine}} (std\+::size\+\_\+t \&seed, const T \&v)
+\item 
+void \mbox{\hyperlink{_array_8h_ac4b95aa8f07fa2256ca3208f0b7abc15}{hash\+\_\+without\+\_\+hash\+\_\+combine}} (std\+::size\+\_\+t \&seed, const std\+::size\+\_\+t \&hash)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Типы}
+\Hypertarget{_array_8h_a028d961cd42b98f89dec78ae0f1d619f}\label{_array_8h_a028d961cd42b98f89dec78ae0f1d619f} 
+\index{Array.h@{Array.h}!TSet@{TSet}}
+\index{TSet@{TSet}!Array.h@{Array.h}}
+\doxysubsubsection{\texorpdfstring{TSet}{TSet}}
+{\footnotesize\ttfamily template$<$class ... Args$>$ \\
+using \mbox{\hyperlink{_array_8h_a028d961cd42b98f89dec78ae0f1d619f}{TSet}} = std\+::set$<$Args...$>$}
+
+
+
+\doxysubsection{Функции}
+\Hypertarget{_array_8h_a04cc1b733a2f4d205f13f7a59facba64}\label{_array_8h_a04cc1b733a2f4d205f13f7a59facba64} 
+\index{Array.h@{Array.h}!hash\_combine@{hash\_combine}}
+\index{hash\_combine@{hash\_combine}!Array.h@{Array.h}}
+\doxysubsubsection{\texorpdfstring{hash\_combine()}{hash\_combine()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void hash\+\_\+combine (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t \&}]{seed,  }\item[{const T \&}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{_array_8h_ac4b95aa8f07fa2256ca3208f0b7abc15}\label{_array_8h_ac4b95aa8f07fa2256ca3208f0b7abc15} 
+\index{Array.h@{Array.h}!hash\_without\_hash\_combine@{hash\_without\_hash\_combine}}
+\index{hash\_without\_hash\_combine@{hash\_without\_hash\_combine}!Array.h@{Array.h}}
+\doxysubsubsection{\texorpdfstring{hash\_without\_hash\_combine()}{hash\_without\_hash\_combine()}}
+{\footnotesize\ttfamily void hash\+\_\+without\+\_\+hash\+\_\+combine (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t \&}]{seed,  }\item[{const std\+::size\+\_\+t \&}]{hash }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+

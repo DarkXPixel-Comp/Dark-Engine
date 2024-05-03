@@ -1,0 +1,104 @@
+\doxysection{D3\+D12\+Shader.\+h}
+\hypertarget{_d3_d12_r_h_i_2private_2_d3_d12_shader_8h_source}{}\label{_d3_d12_r_h_i_2private_2_d3_d12_shader_8h_source}\index{Dark Engine/Source/Runtime/D3D12RHI/private/D3D12Shader.h@{Dark Engine/Source/Runtime/D3D12RHI/private/D3D12Shader.h}}
+\mbox{\hyperlink{_d3_d12_r_h_i_2private_2_d3_d12_shader_8h}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_r_h_i_resources_8h}{RHIResources.h}}"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_d3_d12_8h}{d3d12.h}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}d3dx12.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_shader_8h}{Shader.h}}"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_f_shader_code_resource_counts}{FShaderCodeResourceCounts}}}
+\DoxyCodeLine{00009\ \{}
+\DoxyCodeLine{00010\ \ \ \ \ \mbox{\hyperlink{struct_f_shader_code_resource_counts_a6f7f232aeb1e2e59e146be5ff6c8b3d2}{FShaderCodeResourceCounts}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_f_shader_bounds}{FShaderBounds}}\&\ InBounds)\ :\ }
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_f_shader_code_resource_counts_aa767657bc62aa99af5662533c8443234}{NumSamplers}}(InBounds.SamplerCount),}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_f_shader_code_resource_counts_accd418a7b1e158c74f0342e31feeebb3}{NumSRVs}}(InBounds.ShaderResourceCount),}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_f_shader_code_resource_counts_a16cd030fd05c69d92f25750be85e231a}{NumCBVs}}(InBounds.ConstantBufferCount),}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_f_shader_code_resource_counts_a86ed4120f44bf07d406a0e7924b5eb55}{NumUAVs}}(InBounds.UnorderedAccessCount)}
+\DoxyCodeLine{00015\ \ \ \ \ \{\}}
+\DoxyCodeLine{00016\ \ \ \ \ \mbox{\hyperlink{struct_f_shader_code_resource_counts_aee68d93858282e0762bcaed63f009099}{FShaderCodeResourceCounts}}()\ \{\}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{_platform_8h_a40bc01dd090acd02a79b5dc13e08abe6}{uint8}}\ \mbox{\hyperlink{struct_f_shader_code_resource_counts_aa767657bc62aa99af5662533c8443234}{NumSamplers}};}
+\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{_platform_8h_a40bc01dd090acd02a79b5dc13e08abe6}{uint8}}\ \mbox{\hyperlink{struct_f_shader_code_resource_counts_accd418a7b1e158c74f0342e31feeebb3}{NumSRVs}};}
+\DoxyCodeLine{00020\ \ \ \ \ \mbox{\hyperlink{_platform_8h_a40bc01dd090acd02a79b5dc13e08abe6}{uint8}}\ \mbox{\hyperlink{struct_f_shader_code_resource_counts_a16cd030fd05c69d92f25750be85e231a}{NumCBVs}};}
+\DoxyCodeLine{00021\ \ \ \ \ \mbox{\hyperlink{_platform_8h_a40bc01dd090acd02a79b5dc13e08abe6}{uint8}}\ \mbox{\hyperlink{struct_f_shader_code_resource_counts_a86ed4120f44bf07d406a0e7924b5eb55}{NumUAVs}};}
+\DoxyCodeLine{00022\ \};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_f_d3_d12_shader_data}{FD3D12ShaderData}}}
+\DoxyCodeLine{00025\ \{}
+\DoxyCodeLine{00026\ \ \ \ \ TArray<uint8>\ \mbox{\hyperlink{struct_f_d3_d12_shader_data_ad78f20d0358aa4530005e8392abbf373}{Code}};}
+\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{struct_f_shader_code_resource_counts}{FShaderCodeResourceCounts}}\ \mbox{\hyperlink{struct_f_d3_d12_shader_data_a85420584656ed30b5aa3456f491528bf}{ResourceCounts}}\{\};}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ D3D12\_SHADER\_BYTECODE\ \mbox{\hyperlink{struct_f_d3_d12_shader_data_acbc48932c398e4ec0ebbac1f9ef31420}{GetShaderByteCode}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00030\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ CD3DX12\_SHADER\_BYTECODE(\mbox{\hyperlink{struct_f_d3_d12_shader_data_ad78f20d0358aa4530005e8392abbf373}{Code}}.\mbox{\hyperlink{class_t_array_a6f85f6ee77b6e3107fa8b686ff11ca3c}{GetData}}(),\ \mbox{\hyperlink{struct_f_d3_d12_shader_data_ad78f20d0358aa4530005e8392abbf373}{Code}}.\mbox{\hyperlink{class_t_array_a0518cdf49caf6fe4f4d7948a030e65a9}{Num}}());}
+\DoxyCodeLine{00032\ \ \ \ \ \}}
+\DoxyCodeLine{00033\ \};}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TShaderType>}
+\DoxyCodeLine{00038\ TShaderType*\ \mbox{\hyperlink{_d3_d12_r_h_i_2private_2_d3_d12_shader_8h_a0617dfde3e1954dbb199a102622a45ab}{CreateStandartShader}}(\textcolor{keyword}{const}\ TArray<uint8>\&\ InCode)}
+\DoxyCodeLine{00039\ \{}
+\DoxyCodeLine{00040\ \ \ \ \ TShaderType*\ Shader\ =\ \textcolor{keyword}{new}\ TShaderType();}
+\DoxyCodeLine{00041\ \ \ \ \ Shader-\/>Code\ =\ InCode;}
+\DoxyCodeLine{00042\ \ \ \ \ Shader-\/>ShaderHash\ =\ std::hash<TArray<uint8>>\{\}(InCode);}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordflow}{return}\ Shader;}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{keyword}{typedef}\ TArray<D3D12\_INPUT\_ELEMENT\_DESC>\ \mbox{\hyperlink{_d3_d12_r_h_i_2private_2_d3_d12_shader_8h_abf9318cfc7dfe77dc9345d7de87cf581}{FD3D12VertexElements}};}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_f_d3_d12_vertex_declaration}{FD3D12VertexDeclaration}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_f_r_h_i_vertex_declaration}{FRHIVertexDeclaration}}}
+\DoxyCodeLine{00052\ \{}
+\DoxyCodeLine{00053\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00054\ \ \ \ \ \mbox{\hyperlink{class_t_array}{FD3D12VertexElements}}\ \mbox{\hyperlink{class_f_d3_d12_vertex_declaration_adf46d27f730b24b3d5e31467ecfdf4d1}{VertexElements}};}
+\DoxyCodeLine{00055\ \ \ \ \ \mbox{\hyperlink{class_f_d3_d12_vertex_declaration_a901d0640f3ae99416074e5babd4b2d6d}{FD3D12VertexDeclaration}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_t_array}{FD3D12VertexElements}}\&\ InElements):}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_f_d3_d12_vertex_declaration_adf46d27f730b24b3d5e31467ecfdf4d1}{VertexElements}}(InElements)}
+\DoxyCodeLine{00057\ \ \ \ \ \{\}}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ D3D12\_INPUT\_LAYOUT\_DESC\ \mbox{\hyperlink{class_f_d3_d12_vertex_declaration_a93e56c54286bb745ae64479700c9b737}{GetLayoutDsec}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00061\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ D3D12\_INPUT\_LAYOUT\_DESC\{\mbox{\hyperlink{class_f_d3_d12_vertex_declaration_adf46d27f730b24b3d5e31467ecfdf4d1}{VertexElements}}.\mbox{\hyperlink{class_t_array_a6f85f6ee77b6e3107fa8b686ff11ca3c}{GetData}}(),\ (UINT)\mbox{\hyperlink{class_f_d3_d12_vertex_declaration_adf46d27f730b24b3d5e31467ecfdf4d1}{VertexElements}}.\mbox{\hyperlink{class_t_array_a0518cdf49caf6fe4f4d7948a030e65a9}{Num}}()\};}
+\DoxyCodeLine{00063\ \ \ \ \ \}}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ \mbox{\hyperlink{class_f_string}{FString}}\ \mbox{\hyperlink{class_f_d3_d12_vertex_declaration_a30006bce856b99b32bf693eeef16b21d}{SemanticName}};}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \};}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_f_d3_d12_vertex_shader}{FD3D12VertexShader}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_f_r_h_i_vertex_shader}{FRHIVertexShader}},\ \textcolor{keyword}{public}\ \mbox{\hyperlink{struct_f_d3_d12_shader_data}{FD3D12ShaderData}}}
+\DoxyCodeLine{00072\ \{}
+\DoxyCodeLine{00073\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keyword}{enum}\ \{\ \mbox{\hyperlink{class_f_d3_d12_vertex_shader_a54ace5f7bd7623ef3245e930e7898aeba4ff31b591372d724cff9c477c92edec3}{StaticType}}\ =\ \mbox{\hyperlink{_r_h_i_defines_8h_a89725d5f41ceac2e574ddc988f06775ea051ebc9c5c563958123bdbdc3bb9330d}{ST\_Vertex}}\ \};}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \};}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_f_d3_d12_pixel_shader}{FD3D12PixelShader}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_f_r_h_i_pixel_shader}{FRHIPixelShader}},\ \textcolor{keyword}{public}\ \mbox{\hyperlink{struct_f_d3_d12_shader_data}{FD3D12ShaderData}}}
+\DoxyCodeLine{00080\ \{}
+\DoxyCodeLine{00081\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keyword}{enum}\ \{\ \mbox{\hyperlink{class_f_d3_d12_pixel_shader_a0da9ec5fb6ae4f7ca27097e642dd1d53a4fdbbefd5377e644b030845f7727fdd7}{StaticType}}\ =\ \mbox{\hyperlink{_r_h_i_defines_8h_a89725d5f41ceac2e574ddc988f06775ea135f8248df527333f4407f04072fdf74}{ST\_Pixel}}\ \};}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \};}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_f_d3_d12_geometry_shader}{FD3D12GeometryShader}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_f_r_h_i_geometry_shader}{FRHIGeometryShader}},\ \textcolor{keyword}{public}\ \mbox{\hyperlink{struct_f_d3_d12_shader_data}{FD3D12ShaderData}}}
+\DoxyCodeLine{00087\ \{}
+\DoxyCodeLine{00088\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keyword}{enum}\ \{\ \mbox{\hyperlink{class_f_d3_d12_geometry_shader_aea1b08f30c6c727d1dfc866603757a67abbb3652377e79573ceeb7ccb8ea1a71b}{StaticType}}\ =\ \mbox{\hyperlink{_r_h_i_defines_8h_a89725d5f41ceac2e574ddc988f06775eae3f6fd79e0c21a0b595127fe2159e7fa}{ST\_Geometry}}\ \};}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \};}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_f_d3_d12_compute_shader}{FD3D12ComputeShader}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_f_r_h_i_compute_shader}{FRHIComputeShader}},\ \textcolor{keyword}{public}\ \mbox{\hyperlink{struct_f_d3_d12_shader_data}{FD3D12ShaderData}}}
+\DoxyCodeLine{00094\ \{}
+\DoxyCodeLine{00095\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keyword}{enum}\ \{\ \mbox{\hyperlink{class_f_d3_d12_compute_shader_addbb760f702a5ec6e07e5fd9edbfe18baf6805688ea7e0a37d428044f1302af0f}{StaticType}}\ =\ \mbox{\hyperlink{_r_h_i_defines_8h_a89725d5f41ceac2e574ddc988f06775ea64d9c4eef6dc34ee3db598ddc5a62080}{ST\_Compute}}\ \};}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \};}
+
+\end{DoxyCode}

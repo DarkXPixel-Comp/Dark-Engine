@@ -1,0 +1,27 @@
+\doxysection{Core\+Globals.\+h}
+\hypertarget{_core_globals_8h_source}{}\label{_core_globals_8h_source}\index{Dark Engine/Source/Runtime/Core/Public/CoreGlobals.h@{Dark Engine/Source/Runtime/Core/Public/CoreGlobals.h}}
+\mbox{\hyperlink{_core_globals_8h}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_core_8h}{Core.h}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_core_types_8h}{CoreTypes.h}}"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_core_platform_8h}{CorePlatform.h}}"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{_core_globals_8h_a993cee07f9ba1cc5c622e6752a849f58}{GIsRequestingExit}};}
+\DoxyCodeLine{00010\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{_core_globals_8h_a5b229b173fcd7b076746219a0e2f6a7b}{GIsTitleBarHovered}};}
+\DoxyCodeLine{00011\ \textcolor{keyword}{extern}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_f_config_cache}{FConfigCache}}*\ \mbox{\hyperlink{_core_globals_8h_a79ecfad895559da885ca719cc642af16}{GConfig}};}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ FORCEINLINE\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{_core_globals_8h_a80f2496ec2f7aa2514cf49ff5fbcdfff}{IsExitRequested}}()}
+\DoxyCodeLine{00014\ \{}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{_core_globals_8h_a993cee07f9ba1cc5c622e6752a849f58}{GIsRequestingExit}};}
+\DoxyCodeLine{00016\ \}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ FORCEINLINE\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_core_globals_8h_a5440566ea4d305cba9cce5e54116e94d}{RequestExit}}()}
+\DoxyCodeLine{00019\ \{}
+\DoxyCodeLine{00020\ \ \ \ \ \mbox{\hyperlink{_core_globals_8h_a993cee07f9ba1cc5c622e6752a849f58}{GIsRequestingExit}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00021\ \}}
+
+\end{DoxyCode}

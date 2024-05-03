@@ -1,0 +1,115 @@
+\doxysection{Класс FD3\+D12\+Descriptor\+Heap}
+\hypertarget{class_f_d3_d12_descriptor_heap}{}\label{class_f_d3_d12_descriptor_heap}\index{FD3D12DescriptorHeap@{FD3D12DescriptorHeap}}
+
+
+{\ttfamily \#include $<$D3\+D12\+Descriptors.\+h$>$}
+
+Граф наследования\+:FD3\+D12\+Descriptor\+Heap\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{d1/dd3/class_f_d3_d12_descriptor_heap}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_f_d3_d12_descriptor_heap_a08bfb8d3931e11ae791828cddf014d39}{FD3\+D12\+Descriptor\+Heap}} (\mbox{\hyperlink{class_f_d3_d12_device}{FD3\+D12\+Device}} \texorpdfstring{$\ast$}{*}In\+Device, ID3\+D12\+Descriptor\+Heap \texorpdfstring{$\ast$}{*}In\+Heap, \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} In\+Num\+Descriptors, \mbox{\hyperlink{_r_h_i_defines_8h_a9457a748b9d30acc00348bdc63f5de4e}{ERHIDescriptor\+Heap\+Type}} In\+Type, D3\+D12\+\_\+\+DESCRIPTOR\+\_\+\+HEAP\+\_\+\+FLAGS In\+Flags)
+\item 
+\mbox{\hyperlink{class_f_d3_d12_descriptor_heap_ab924970a17c48a1c502d44e9253470e7}{\texorpdfstring{$\sim$}{\string~}\+FD3\+D12\+Descriptor\+Heap}} ()
+\item 
+ID3\+D12\+Descriptor\+Heap \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_f_d3_d12_descriptor_heap_a410844880ec9f9ec2c7060325e7eb203}{Get\+Heap}} () const
+\item 
+\mbox{\hyperlink{_r_h_i_defines_8h_a9457a748b9d30acc00348bdc63f5de4e}{ERHIDescriptor\+Heap\+Type}} \mbox{\hyperlink{class_f_d3_d12_descriptor_heap_a76073c2708274798bc709e07ba459970}{Get\+Type}} () const
+\item 
+D3\+D12\+\_\+\+DESCRIPTOR\+\_\+\+HEAP\+\_\+\+FLAGS \mbox{\hyperlink{class_f_d3_d12_descriptor_heap_ae2d68d14f086e84150cfb725f40c0861}{Get\+Flags}} () const
+\item 
+D3\+D12\+\_\+\+CPU\+\_\+\+DESCRIPTOR\+\_\+\+HANDLE \mbox{\hyperlink{class_f_d3_d12_descriptor_heap_a6829b20e87f0c463803198923bcff8a7}{Get\+CPUSlot\+Handle}} (\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} Slot) const
+\item 
+D3\+D12\+\_\+\+GPU\+\_\+\+DESCRIPTOR\+\_\+\+HANDLE \mbox{\hyperlink{class_f_d3_d12_descriptor_heap_a8fe489e99d005ed64553faedae07df65}{Get\+GPUSlot\+Handle}} (\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} Slot) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Открытые члены унаследованные от \mbox{\hyperlink{class_f_d3_d12_device_child}{FD3\+D12\+Device\+Child}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_f_d3_d12_device_child_a10d7d8a5f5e73776f399916ed71e76a1}{FD3\+D12\+Device\+Child}} (\mbox{\hyperlink{class_f_d3_d12_device}{FD3\+D12\+Device}} \texorpdfstring{$\ast$}{*}In\+Parent)
+\item 
+\mbox{\hyperlink{class_f_d3_d12_device}{FD3\+D12\+Device}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_f_d3_d12_device_child_a1ec13e7c862c719985027e28395a2f57}{Get\+Parent\+Device}} () const
+\item 
+void \mbox{\hyperlink{class_f_d3_d12_device_child_ab64c047f38c63c5890fb361eac5f30f6}{Set\+Parent\+Device}} (\mbox{\hyperlink{class_f_d3_d12_device}{FD3\+D12\+Device}} \texorpdfstring{$\ast$}{*}In\+Parent)
+\end{DoxyCompactItemize}
+\doxysubsection*{Открытые члены унаследованные от \mbox{\hyperlink{class_f_ref_counted_object}{FRef\+Counted\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_f_ref_counted_object_a3ae3edbc4c5caf1b150c3b261185e9b3}{FRef\+Counted\+Object}} ()
+\item 
+virtual \mbox{\hyperlink{class_f_ref_counted_object_a1dbde45df03ba584126c3f68883e1e2e}{\texorpdfstring{$\sim$}{\string~}\+FRef\+Counted\+Object}} ()
+\item 
+\mbox{\hyperlink{class_f_ref_counted_object_ac92d8ab8cedefb3c5bb731a609800832}{FRef\+Counted\+Object}} (const \mbox{\hyperlink{class_f_ref_counted_object}{FRef\+Counted\+Object}} \&Rhs)=delete
+\item 
+\mbox{\hyperlink{class_f_ref_counted_object}{FRef\+Counted\+Object}} \& \mbox{\hyperlink{class_f_ref_counted_object_a8d0313b3999b0a7f268b76058b7c5c18}{operator=}} (const \mbox{\hyperlink{class_f_ref_counted_object}{FRef\+Counted\+Object}} \&Rhs)=delete
+\item 
+\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} \mbox{\hyperlink{class_f_ref_counted_object_a8e5a493f34a64331f86fc1f69934dea0}{Add\+Ref}} () const
+\item 
+\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} \mbox{\hyperlink{class_f_ref_counted_object_ab350f7dff1cb3cbb729c10008be874bc}{Release}} () const
+\item 
+\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} \mbox{\hyperlink{class_f_ref_counted_object_af2b7744952475e6be883443e2380f33e}{Get\+Ref\+Count}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Дополнительные унаследованные члены}
+\doxysubsection*{Защищенные данные унаследованные от \mbox{\hyperlink{class_f_d3_d12_device_child}{FD3\+D12\+Device\+Child}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_f_d3_d12_device}{FD3\+D12\+Device}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_f_d3_d12_device_child_afeb899a6e833b3f986e49def99db540c}{Parent}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Конструктор(ы)}
+\Hypertarget{class_f_d3_d12_descriptor_heap_a08bfb8d3931e11ae791828cddf014d39}\label{class_f_d3_d12_descriptor_heap_a08bfb8d3931e11ae791828cddf014d39} 
+\index{FD3D12DescriptorHeap@{FD3D12DescriptorHeap}!FD3D12DescriptorHeap@{FD3D12DescriptorHeap}}
+\index{FD3D12DescriptorHeap@{FD3D12DescriptorHeap}!FD3D12DescriptorHeap@{FD3D12DescriptorHeap}}
+\doxysubsubsection{\texorpdfstring{FD3D12DescriptorHeap()}{FD3D12DescriptorHeap()}}
+{\footnotesize\ttfamily FD3\+D12\+Descriptor\+Heap\+::\+FD3\+D12\+Descriptor\+Heap (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_f_d3_d12_device}{FD3\+D12\+Device}} \texorpdfstring{$\ast$}{*}}]{In\+Device,  }\item[{ID3\+D12\+Descriptor\+Heap \texorpdfstring{$\ast$}{*}}]{In\+Heap,  }\item[{\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}}]{In\+Num\+Descriptors,  }\item[{\mbox{\hyperlink{_r_h_i_defines_8h_a9457a748b9d30acc00348bdc63f5de4e}{ERHIDescriptor\+Heap\+Type}}}]{In\+Type,  }\item[{D3\+D12\+\_\+\+DESCRIPTOR\+\_\+\+HEAP\+\_\+\+FLAGS}]{In\+Flags }\end{DoxyParamCaption})}
+
+\Hypertarget{class_f_d3_d12_descriptor_heap_ab924970a17c48a1c502d44e9253470e7}\label{class_f_d3_d12_descriptor_heap_ab924970a17c48a1c502d44e9253470e7} 
+\index{FD3D12DescriptorHeap@{FD3D12DescriptorHeap}!````~FD3D12DescriptorHeap@{\texorpdfstring{$\sim$}{\string~}FD3D12DescriptorHeap}}
+\index{````~FD3D12DescriptorHeap@{\texorpdfstring{$\sim$}{\string~}FD3D12DescriptorHeap}!FD3D12DescriptorHeap@{FD3D12DescriptorHeap}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}FD3D12DescriptorHeap()}{\string~FD3D12DescriptorHeap()}}
+{\footnotesize\ttfamily FD3\+D12\+Descriptor\+Heap\+::\texorpdfstring{$\sim$}{\string~}\+FD3\+D12\+Descriptor\+Heap (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Методы}
+\Hypertarget{class_f_d3_d12_descriptor_heap_a6829b20e87f0c463803198923bcff8a7}\label{class_f_d3_d12_descriptor_heap_a6829b20e87f0c463803198923bcff8a7} 
+\index{FD3D12DescriptorHeap@{FD3D12DescriptorHeap}!GetCPUSlotHandle@{GetCPUSlotHandle}}
+\index{GetCPUSlotHandle@{GetCPUSlotHandle}!FD3D12DescriptorHeap@{FD3D12DescriptorHeap}}
+\doxysubsubsection{\texorpdfstring{GetCPUSlotHandle()}{GetCPUSlotHandle()}}
+{\footnotesize\ttfamily D3\+D12\+\_\+\+CPU\+\_\+\+DESCRIPTOR\+\_\+\+HANDLE FD3\+D12\+Descriptor\+Heap\+::\+Get\+CPUSlot\+Handle (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}}]{Slot }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_f_d3_d12_descriptor_heap_ae2d68d14f086e84150cfb725f40c0861}\label{class_f_d3_d12_descriptor_heap_ae2d68d14f086e84150cfb725f40c0861} 
+\index{FD3D12DescriptorHeap@{FD3D12DescriptorHeap}!GetFlags@{GetFlags}}
+\index{GetFlags@{GetFlags}!FD3D12DescriptorHeap@{FD3D12DescriptorHeap}}
+\doxysubsubsection{\texorpdfstring{GetFlags()}{GetFlags()}}
+{\footnotesize\ttfamily D3\+D12\+\_\+\+DESCRIPTOR\+\_\+\+HEAP\+\_\+\+FLAGS FD3\+D12\+Descriptor\+Heap\+::\+Get\+Flags (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_f_d3_d12_descriptor_heap_a8fe489e99d005ed64553faedae07df65}\label{class_f_d3_d12_descriptor_heap_a8fe489e99d005ed64553faedae07df65} 
+\index{FD3D12DescriptorHeap@{FD3D12DescriptorHeap}!GetGPUSlotHandle@{GetGPUSlotHandle}}
+\index{GetGPUSlotHandle@{GetGPUSlotHandle}!FD3D12DescriptorHeap@{FD3D12DescriptorHeap}}
+\doxysubsubsection{\texorpdfstring{GetGPUSlotHandle()}{GetGPUSlotHandle()}}
+{\footnotesize\ttfamily D3\+D12\+\_\+\+GPU\+\_\+\+DESCRIPTOR\+\_\+\+HANDLE FD3\+D12\+Descriptor\+Heap\+::\+Get\+GPUSlot\+Handle (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}}]{Slot }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_f_d3_d12_descriptor_heap_a410844880ec9f9ec2c7060325e7eb203}\label{class_f_d3_d12_descriptor_heap_a410844880ec9f9ec2c7060325e7eb203} 
+\index{FD3D12DescriptorHeap@{FD3D12DescriptorHeap}!GetHeap@{GetHeap}}
+\index{GetHeap@{GetHeap}!FD3D12DescriptorHeap@{FD3D12DescriptorHeap}}
+\doxysubsubsection{\texorpdfstring{GetHeap()}{GetHeap()}}
+{\footnotesize\ttfamily ID3\+D12\+Descriptor\+Heap \texorpdfstring{$\ast$}{*} FD3\+D12\+Descriptor\+Heap\+::\+Get\+Heap (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_f_d3_d12_descriptor_heap_a76073c2708274798bc709e07ba459970}\label{class_f_d3_d12_descriptor_heap_a76073c2708274798bc709e07ba459970} 
+\index{FD3D12DescriptorHeap@{FD3D12DescriptorHeap}!GetType@{GetType}}
+\index{GetType@{GetType}!FD3D12DescriptorHeap@{FD3D12DescriptorHeap}}
+\doxysubsubsection{\texorpdfstring{GetType()}{GetType()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_r_h_i_defines_8h_a9457a748b9d30acc00348bdc63f5de4e}{ERHIDescriptor\+Heap\+Type}} FD3\+D12\+Descriptor\+Heap\+::\+Get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+Dark Engine/\+Source/\+Runtime/\+D3\+D12\+RHI/private/\mbox{\hyperlink{_d3_d12_descriptors_8h}{D3\+D12\+Descriptors.\+h}}\item 
+Dark Engine/\+Source/\+Runtime/\+D3\+D12\+RHI/private/\mbox{\hyperlink{_d3_d12_descriptors_8cpp}{D3\+D12\+Descriptors.\+cpp}}\end{DoxyCompactItemize}

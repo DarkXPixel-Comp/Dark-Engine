@@ -53,39 +53,50 @@ public:
 	FD3D12Adapter(FD3D12AdapterDesc& DescIn);
 	~FD3D12Adapter();
 
+	void Destroy();
+
 	void InitializeDevices();
 
 
 	const int32 GetAdapterIndex() const { return Desc.AdapterIndex; }
 	const D3D_FEATURE_LEVEL GetFeatureLevel() const { return Desc.MaxSupportFeatureLevel; }
-	ID3D12Device10* GetD3DDevice() const { return RootDevice.Get(); }
+	ID3D12Device* GetD3DDevice() const { return RootDevice.Get(); }
+	ID3D12Device2* GetD3DDevice2() const { return RootDevice2.Get(); }
+
 	const FD3D12AdapterDesc& GetDesc() const { return Desc; }
 	const DXGI_ADAPTER_DESC& GetAdapterDesc() const { return Desc.Desc; }
 
 	IDXGIAdapter4* GetAdapter() { return DXGIAdapter.Get(); }
 
-	IDXGIFactory7* GetDXGIFactory()	const { return DXGIFactory.Get(); }
+	IDXGIFactory5* GetDXGIFactory()	const { return DXGIFactory.Get(); }
 
 	void CreateRootDevice(bool bWithDebug = false);
 	void CreateDXGIFactory(bool bWithDebug = false);
 
-	FD3D12Device* GetDevice(uint32 Index = 0) const { return Devices[Index]; }
+	FD3D12Device* GetDevice(uint32 Index = 0) const { return Devices[Index].get(); }
 
 	TArray<FD3D12Viewport*>& GetViewports() { return Viewports; }
 
 	void SetDrawingViewport(FD3D12Viewport* InViewport) { DrawingViewport = InViewport; }
 	FD3D12Viewport* GetDrawingViewport() const { return DrawingViewport; }
 
+	class FD3D12RootSignatureManager* const RootSignatureManager;
+
+
 
 private:
 	FD3D12AdapterDesc Desc = {};
-	ComPtr<ID3D12Device10> RootDevice;
+	ComPtr<ID3D12Device> RootDevice;
+	ComPtr<ID3D12Device2> RootDevice2;
 	ComPtr<IDXGIFactory7> DXGIFactory;
 	ComPtr<IDXGIAdapter4> DXGIAdapter;
-	TStaticArray<FD3D12Device*, 1> Devices;
+	TStaticArray<TSharedPtr<FD3D12Device>, 1> Devices;
+
+	ComPtr<ID3D12InfoQueue1> InfoQueue;
 
 	bool bDebugDevice;
 	bool bDeviceCreated;
+	bool bDestroyed = false;
 
 	TArray<FD3D12Viewport*>	Viewports;
 

@@ -1,0 +1,120 @@
+\doxysection{Класс FViewport}
+\hypertarget{class_f_viewport}{}\label{class_f_viewport}\index{FViewport@{FViewport}}
+
+
+{\ttfamily \#include $<$Dark\+Client.\+h$>$}
+
+Граф наследования\+:FViewport\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{d1/d29/class_f_viewport}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_f_viewport_ae71bbdda5af6b40a8ef98c43e6aa8724}{FViewport}} (\mbox{\hyperlink{class_f_viewport_client}{FViewport\+Client}} \texorpdfstring{$\ast$}{*}In\+Viewport\+Client)
+\item 
+void \mbox{\hyperlink{class_f_viewport_a48f4c9a3650460cdcb231a6e07c5d8b6}{Draw}} ()
+\item 
+\mbox{\hyperlink{class_f_viewport_client}{FViewport\+Client}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_f_viewport_af6293f93d4281c5c5a50ed9b1b96a98e}{Get\+Client}} () const
+\item 
+void \mbox{\hyperlink{class_f_viewport_a5a7bca8ca78ff0f7c9dd45340b963d5e}{Set\+Size}} (\mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}} In\+SizeX, \mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}} In\+SizeY)
+\item 
+\mbox{\hyperlink{_math_fwd_8h_af5577845559ff81e49036ff088d51cbf}{FInt\+Point}} \mbox{\hyperlink{class_f_viewport_a9bfcca5dae74d9467fcbab3b0db868e2}{Get\+Size\+XY}} () const
+\item 
+virtual float \mbox{\hyperlink{class_f_viewport_a988b141e089931afca6a23b095adc004}{Get\+Display\+Gamma}} () const override
+\item 
+virtual void \mbox{\hyperlink{class_f_viewport_a13206beddc732fb76002f64d7133304d}{Resize}} (\mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}} In\+SizeX, \mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}} In\+SizeY)=0
+\end{DoxyCompactItemize}
+\doxysubsection*{Открытые члены унаследованные от \mbox{\hyperlink{class_f_render_target}{FRender\+Target}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual const \mbox{\hyperlink{_t_unique_ptr_8h_a0e0f00349c59b03cfd84d025bb3d6d91}{TRef\+Count\+Ptr}}$<$ \mbox{\hyperlink{class_f_r_h_i_texture}{FRHITexture}} $>$ \& \mbox{\hyperlink{class_f_render_target_a4dcbbfca003dfe7c337ea133e7db7417}{Get\+Render\+Target\+Texture}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Открытые атрибуты}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_math_fwd_8h_af5577845559ff81e49036ff088d51cbf}{FInt\+Point}} \mbox{\hyperlink{class_f_viewport_a12011ddb1544378e270c70e71bb96a79}{Viewport\+Size}} = \mbox{\hyperlink{_math_fwd_8h_af5577845559ff81e49036ff088d51cbf}{FInt\+Point}}()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Дополнительные унаследованные члены}
+\doxysubsection*{Защищенные данные унаследованные от \mbox{\hyperlink{class_f_render_target}{FRender\+Target}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_t_unique_ptr_8h_a0e0f00349c59b03cfd84d025bb3d6d91}{TRef\+Count\+Ptr}}$<$ \mbox{\hyperlink{class_f_r_h_i_texture}{FRHITexture}} $>$ \mbox{\hyperlink{class_f_render_target_a727d916da992b5487c63fbb9fba35c52}{Render\+Target\+Texture\+RHI}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Конструктор(ы)}
+\Hypertarget{class_f_viewport_ae71bbdda5af6b40a8ef98c43e6aa8724}\label{class_f_viewport_ae71bbdda5af6b40a8ef98c43e6aa8724} 
+\index{FViewport@{FViewport}!FViewport@{FViewport}}
+\index{FViewport@{FViewport}!FViewport@{FViewport}}
+\doxysubsubsection{\texorpdfstring{FViewport()}{FViewport()}}
+{\footnotesize\ttfamily FViewport\+::\+FViewport (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_f_viewport_client}{FViewport\+Client}} \texorpdfstring{$\ast$}{*}}]{In\+Viewport\+Client }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Методы}
+\Hypertarget{class_f_viewport_a48f4c9a3650460cdcb231a6e07c5d8b6}\label{class_f_viewport_a48f4c9a3650460cdcb231a6e07c5d8b6} 
+\index{FViewport@{FViewport}!Draw@{Draw}}
+\index{Draw@{Draw}!FViewport@{FViewport}}
+\doxysubsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily void FViewport\+::\+Draw (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{class_f_viewport_af6293f93d4281c5c5a50ed9b1b96a98e}\label{class_f_viewport_af6293f93d4281c5c5a50ed9b1b96a98e} 
+\index{FViewport@{FViewport}!GetClient@{GetClient}}
+\index{GetClient@{GetClient}!FViewport@{FViewport}}
+\doxysubsubsection{\texorpdfstring{GetClient()}{GetClient()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_f_viewport_client}{FViewport\+Client}} \texorpdfstring{$\ast$}{*} FViewport\+::\+Get\+Client (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_f_viewport_a988b141e089931afca6a23b095adc004}\label{class_f_viewport_a988b141e089931afca6a23b095adc004} 
+\index{FViewport@{FViewport}!GetDisplayGamma@{GetDisplayGamma}}
+\index{GetDisplayGamma@{GetDisplayGamma}!FViewport@{FViewport}}
+\doxysubsubsection{\texorpdfstring{GetDisplayGamma()}{GetDisplayGamma()}}
+{\footnotesize\ttfamily virtual float FViewport\+::\+Get\+Display\+Gamma (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Переопределяет метод предка \mbox{\hyperlink{class_f_render_target_af06fa59b44adcc5f0cbd839c50fae49f}{FRender\+Target}}.
+
+\Hypertarget{class_f_viewport_a9bfcca5dae74d9467fcbab3b0db868e2}\label{class_f_viewport_a9bfcca5dae74d9467fcbab3b0db868e2} 
+\index{FViewport@{FViewport}!GetSizeXY@{GetSizeXY}}
+\index{GetSizeXY@{GetSizeXY}!FViewport@{FViewport}}
+\doxysubsubsection{\texorpdfstring{GetSizeXY()}{GetSizeXY()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_math_fwd_8h_af5577845559ff81e49036ff088d51cbf}{FInt\+Point}} FViewport\+::\+Get\+Size\+XY (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Замещает \mbox{\hyperlink{class_f_render_target_a510f693c58f8f2dc1c03e3deaded26df}{FRender\+Target}}.
+
+\Hypertarget{class_f_viewport_a13206beddc732fb76002f64d7133304d}\label{class_f_viewport_a13206beddc732fb76002f64d7133304d} 
+\index{FViewport@{FViewport}!Resize@{Resize}}
+\index{Resize@{Resize}!FViewport@{FViewport}}
+\doxysubsubsection{\texorpdfstring{Resize()}{Resize()}}
+{\footnotesize\ttfamily virtual void FViewport\+::\+Resize (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}}]{In\+SizeX,  }\item[{\mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}}]{In\+SizeY }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Замещается в \mbox{\hyperlink{class_f_scene_viewport_a0a75b7b2fd66ae342c446685ea0494e1}{FScene\+Viewport}}.
+
+\Hypertarget{class_f_viewport_a5a7bca8ca78ff0f7c9dd45340b963d5e}\label{class_f_viewport_a5a7bca8ca78ff0f7c9dd45340b963d5e} 
+\index{FViewport@{FViewport}!SetSize@{SetSize}}
+\index{SetSize@{SetSize}!FViewport@{FViewport}}
+\doxysubsubsection{\texorpdfstring{SetSize()}{SetSize()}}
+{\footnotesize\ttfamily void FViewport\+::\+Set\+Size (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}}]{In\+SizeX,  }\item[{\mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}}]{In\+SizeY }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Данные класса}
+\Hypertarget{class_f_viewport_a12011ddb1544378e270c70e71bb96a79}\label{class_f_viewport_a12011ddb1544378e270c70e71bb96a79} 
+\index{FViewport@{FViewport}!ViewportSize@{ViewportSize}}
+\index{ViewportSize@{ViewportSize}!FViewport@{FViewport}}
+\doxysubsubsection{\texorpdfstring{ViewportSize}{ViewportSize}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_math_fwd_8h_af5577845559ff81e49036ff088d51cbf}{FInt\+Point}} FViewport\+::\+Viewport\+Size = \mbox{\hyperlink{_math_fwd_8h_af5577845559ff81e49036ff088d51cbf}{FInt\+Point}}()}
+
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+Dark Engine/\+Source/\+Runtime/\+Engine/public/\mbox{\hyperlink{_dark_client_8h}{Dark\+Client.\+h}}\item 
+Dark Engine/\+Source/\+Runtime/\+Engine/private/\mbox{\hyperlink{_dark_client_8cpp}{Dark\+Client.\+cpp}}\end{DoxyCompactItemize}

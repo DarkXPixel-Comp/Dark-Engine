@@ -1,0 +1,44 @@
+\doxysection{Файл Dark Engine/\+Source/\+Runtime/\+Renderer/private/\+Shader.cpp}
+\hypertarget{_shader_8cpp}{}\label{_shader_8cpp}\index{Dark Engine/Source/Runtime/Renderer/private/Shader.cpp@{Dark Engine/Source/Runtime/Renderer/private/Shader.cpp}}
+{\ttfamily \#include "{}Shader.\+h"{}}\newline
+{\ttfamily \#include "{}HAL/\+Dark\+Memory.\+h"{}}\newline
+{\ttfamily \#include $<$Shader\+Compiler.\+h$>$}\newline
+{\ttfamily \#include "{}Dynamic\+RHI.\+h"{}}\newline
+\doxysubsubsection*{Переменные}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_t_array}{TArray}}$<$ const \mbox{\hyperlink{class_f_shader_type_registration}{FShader\+Type\+Registration}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{_shader_8cpp_ab392f8c0c79744e838d8553fc43cb427}{GShader\+Type\+Registation\+Instances}} = \mbox{\hyperlink{class_t_array}{TArray}}$<$const \mbox{\hyperlink{class_f_shader_type_registration}{FShader\+Type\+Registration}}\texorpdfstring{$\ast$}{*}$>$()
+\item 
+\mbox{\hyperlink{class_t_array}{TArray}}$<$ const \mbox{\hyperlink{class_f_shader_type}{FShader\+Type}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{_shader_8cpp_a5a426d46ef24b25699f8647b5bb047be}{GShader\+Types}}
+\item 
+\mbox{\hyperlink{_unordored_map_8h_a92bf7bcdbfe4ad5e7f9d970ac79a487d}{TUnordored\+Map}}$<$ \mbox{\hyperlink{class_f_string}{FString}}, \mbox{\hyperlink{class_f_shader_type}{FShader\+Type}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{_shader_8cpp_a21d0924068aa2686af59e3a2a2033219}{GName\+To\+Type\+Map}}
+\item 
+\mbox{\hyperlink{class_t_array}{TArray}}$<$ const \mbox{\hyperlink{class_f_shader_pipeline_type}{FShader\+Pipeline\+Type}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{_shader_8cpp_afb940707b77969d7990c7274fe4282ab}{GShader\+Pipeline\+Types}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Переменные}
+\Hypertarget{_shader_8cpp_a21d0924068aa2686af59e3a2a2033219}\label{_shader_8cpp_a21d0924068aa2686af59e3a2a2033219} 
+\index{Shader.cpp@{Shader.cpp}!GNameToTypeMap@{GNameToTypeMap}}
+\index{GNameToTypeMap@{GNameToTypeMap}!Shader.cpp@{Shader.cpp}}
+\doxysubsubsection{\texorpdfstring{GNameToTypeMap}{GNameToTypeMap}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_unordored_map_8h_a92bf7bcdbfe4ad5e7f9d970ac79a487d}{TUnordored\+Map}}$<$\mbox{\hyperlink{class_f_string}{FString}}, \mbox{\hyperlink{class_f_shader_type}{FShader\+Type}}\texorpdfstring{$\ast$}{*}$>$ GName\+To\+Type\+Map}
+
+\Hypertarget{_shader_8cpp_afb940707b77969d7990c7274fe4282ab}\label{_shader_8cpp_afb940707b77969d7990c7274fe4282ab} 
+\index{Shader.cpp@{Shader.cpp}!GShaderPipelineTypes@{GShaderPipelineTypes}}
+\index{GShaderPipelineTypes@{GShaderPipelineTypes}!Shader.cpp@{Shader.cpp}}
+\doxysubsubsection{\texorpdfstring{GShaderPipelineTypes}{GShaderPipelineTypes}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_t_array}{TArray}}$<$const \mbox{\hyperlink{class_f_shader_pipeline_type}{FShader\+Pipeline\+Type}}\texorpdfstring{$\ast$}{*}$>$ GShader\+Pipeline\+Types}
+
+\Hypertarget{_shader_8cpp_ab392f8c0c79744e838d8553fc43cb427}\label{_shader_8cpp_ab392f8c0c79744e838d8553fc43cb427} 
+\index{Shader.cpp@{Shader.cpp}!GShaderTypeRegistationInstances@{GShaderTypeRegistationInstances}}
+\index{GShaderTypeRegistationInstances@{GShaderTypeRegistationInstances}!Shader.cpp@{Shader.cpp}}
+\doxysubsubsection{\texorpdfstring{GShaderTypeRegistationInstances}{GShaderTypeRegistationInstances}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_t_array}{TArray}}$<$const \mbox{\hyperlink{class_f_shader_type_registration}{FShader\+Type\+Registration}}\texorpdfstring{$\ast$}{*}$>$ GShader\+Type\+Registation\+Instances = \mbox{\hyperlink{class_t_array}{TArray}}$<$const \mbox{\hyperlink{class_f_shader_type_registration}{FShader\+Type\+Registration}}\texorpdfstring{$\ast$}{*}$>$()}
+
+\Hypertarget{_shader_8cpp_a5a426d46ef24b25699f8647b5bb047be}\label{_shader_8cpp_a5a426d46ef24b25699f8647b5bb047be} 
+\index{Shader.cpp@{Shader.cpp}!GShaderTypes@{GShaderTypes}}
+\index{GShaderTypes@{GShaderTypes}!Shader.cpp@{Shader.cpp}}
+\doxysubsubsection{\texorpdfstring{GShaderTypes}{GShaderTypes}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_t_array}{TArray}}$<$const \mbox{\hyperlink{class_f_shader_type}{FShader\+Type}}\texorpdfstring{$\ast$}{*}$>$ GShader\+Types}
+

@@ -1,6 +1,7 @@
 #pragma once
 #include "HAL/PreprocessorHelpers.h"
 #include "CoreTypes.h"
+#include <cassert>
 
 
 
@@ -55,7 +56,12 @@ public:
 #ifndef	checkSlow
 #define checkSlow(expr)			check(expr)
 #endif
-
+#ifndef checkAssert
+#define checkAssert(expr)	\
+{\
+	if(UNLIKELY(!(expr))) { assert(expr);}\
+}
+#endif
 #endif
 
 // Technically we could use just the _F version (lambda-based) for asserts
@@ -67,7 +73,10 @@ public:
 			{ \
 				if (FDebug::CheckVerifyFailedImpl(#expr, __FILE__, __LINE__, PLATFORM_RETURN_ADDRESS(), TEXT(""))) \
 				{ \
-					PLATFORM_BREAK(); \
+					if(IsDebuggerPresent())\
+					{  \
+						PLATFORM_BREAK();\
+					} \
 				} \
 			} \
 		}

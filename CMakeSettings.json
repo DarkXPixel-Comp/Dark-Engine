@@ -9,7 +9,8 @@
 			"cmakeCommandArgs": "",
 			"buildCommandArgs": "",
 			"ctestCommandArgs": "",
-			"installRoot": "${projectDir}\\Dark Engine\\bin"
+			"installRoot": "${projectDir}\\Dark Engine\\bin",
+			"intelliSenseMode": "windows-msvc-x64"
 		},
 		{
 			"name": "Win64-Release",

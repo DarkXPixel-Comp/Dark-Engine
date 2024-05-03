@@ -1,0 +1,260 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Dark Engine: Исходный файл Dark Engine/Source/Runtime/D3D12RHI/private/D3D12Device.h</title>
+<link rel="icon" href="../../Logo.png" type="image/x-icon" />
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<script type="text/javascript" src="../../clipboard.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../MiniLogo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Dark Engine<span id="projectnumber">&#160;0.0.50</span>
+   </div>
+   <div id="projectbrief">New game engnie D3D12</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../../',true,false,'search.php','Поиск');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(1); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('d7/d20/_d3_d12_device_8h_source.html','../../'); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">D3D12Device.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d7/d20/_d3_d12_device_8h.html">См. документацию.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;<a class="code" href="../../d7/d2e/_d3_d12_r_h_i_common_8h.html">D3D12RHICommon.h</a>&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="../../d6/d5e/_d3_d12_command_list_8h.html">D3D12CommandList.h</a>&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="../../d6/dd6/_d3_d12_queue_8h.html">D3D12Queue.h</a>&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="../../db/d73/_d3_d12_adapter_8h.html">D3D12Adapter.h</a>&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="../../d1/d6c/_d3_d12_descriptors_8h.html">D3D12Descriptors.h</a>&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;<a class="code" href="../../d7/d2a/_d3_d12_bindless_descriptors_8h.html">D3D12BindlessDescriptors.h</a>&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">class </span><a class="code hl_class" href="../../d1/d3a/class_f_d3_d12_context_common.html">FD3D12ContextCommon</a>;</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">class </span><a class="code hl_class" href="../../d7/dc0/class_f_d3_d12_command_allocator.html">FD3D12CommandAllocator</a>;</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">class </span><a class="code hl_class" href="../../d5/d3e/class_f_d3_d12_command_list.html">FD3D12CommandList</a>;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">class </span><a class="code hl_class" href="../../d5/dfc/class_f_d3_d12_descriptor_heap_manager.html">FD3D12DescriptorHeapManager</a>;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">class </span><a class="code hl_class" href="../../d5/dcf/class_f_d3_d12_cpu_descriptor_manager.html">FD3D12CpuDescriptorManager</a>;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keyword">class </span><a class="code hl_class" href="../../d3/d12/class_f_d3_d12_command_context.html">FD3D12CommandContext</a>;</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="foldopen" id="foldopen00022" data-start="{" data-end="};">
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="../../df/d45/class_f_d3_d12_queue.html">   22</a></span><span class="keyword">class </span><a class="code hl_class" href="../../df/d45/class_f_d3_d12_queue.html">FD3D12Queue</a></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>{</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <a class="code hl_function" href="../../df/d45/class_f_d3_d12_queue.html#aa02b7bc640f400247ebb12155ffa27ab">FD3D12Queue</a>(<a class="code hl_class" href="../../d1/d79/class_f_d3_d12_device.html">FD3D12Device</a>* <a class="code hl_variable" href="../../df/d45/class_f_d3_d12_queue.html#ab69ae0b54191864518123868d1d7b658">Device</a>, <a class="code hl_enumeration" href="../../d6/dd6/_d3_d12_queue_8h.html#ac3690361fe491f309cb9dbba3be17899">ED3D12QueueType</a>);</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="../../df/d45/class_f_d3_d12_queue.html#ab69ae0b54191864518123868d1d7b658">   28</a></span>    <a class="code hl_class" href="../../d1/d79/class_f_d3_d12_device.html">FD3D12Device</a>* <span class="keyword">const</span> <a class="code hl_variable" href="../../df/d45/class_f_d3_d12_queue.html#ab69ae0b54191864518123868d1d7b658">Device</a>;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="../../df/d45/class_f_d3_d12_queue.html#a4d19906844cd4c4fd77c18dba598956f">   29</a></span>    <a class="code hl_enumeration" href="../../d6/dd6/_d3_d12_queue_8h.html#ac3690361fe491f309cb9dbba3be17899">ED3D12QueueType</a> <span class="keyword">const</span> <a class="code hl_variable" href="../../df/d45/class_f_d3_d12_queue.html#a4d19906844cd4c4fd77c18dba598956f">QueueType</a>;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="../../df/d45/class_f_d3_d12_queue.html#a9d3539bd1529c0c03b3f8df1e9642881">   31</a></span>    TRefCountPtr&lt;ID3D12CommandQueue&gt; <a class="code hl_variable" href="../../df/d45/class_f_d3_d12_queue.html#a9d3539bd1529c0c03b3f8df1e9642881">CommandQueue</a>;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="../../df/d45/class_f_d3_d12_queue.html#a072bf0f5ba02dd12174a8ee389da03c9">   32</a></span>    TRefCountPtr&lt;ID3D12Fence&gt; <a class="code hl_variable" href="../../df/d45/class_f_d3_d12_queue.html#a072bf0f5ba02dd12174a8ee389da03c9">Fence</a>;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="../../df/d45/class_f_d3_d12_queue.html#a038a238a2631802cfe4b9649fd6c419c">   33</a></span>    <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#afddf25cca147311c233b23a9d3329bb4">uint64</a> <a class="code hl_variable" href="../../df/d45/class_f_d3_d12_queue.html#a038a238a2631802cfe4b9649fd6c419c">FenceValue</a> = 0;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="../../df/d45/class_f_d3_d12_queue.html#abb66b50ba0ff626501fdde3c3e0bcf32">   34</a></span>    HANDLE <a class="code hl_variable" href="../../df/d45/class_f_d3_d12_queue.html#abb66b50ba0ff626501fdde3c3e0bcf32">FenceEvent</a>;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../df/d45/class_f_d3_d12_queue.html#af3dbeb3be9161487120ea1db8478aabf">WaitFrame</a>();</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keyword">struct</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    {</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="../../df/d45/class_f_d3_d12_queue.html#accfd5c618083c8086a46827a77d6f48c">   42</a></span>        TArray&lt;FD3D12ContextCommon*&gt;    <a class="code hl_variable" href="../../df/d45/class_f_d3_d12_queue.html#accfd5c618083c8086a46827a77d6f48c">Contexts</a>;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="../../df/d45/class_f_d3_d12_queue.html#a835cc4b635b719ee5d91a0c3204cddf1">   43</a></span>        TArray&lt;FD3D12CommandAllocator*&gt; <a class="code hl_variable" href="../../df/d45/class_f_d3_d12_queue.html#a835cc4b635b719ee5d91a0c3204cddf1">Allocators</a>;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="../../df/d45/class_f_d3_d12_queue.html#aa605e535f2a702100e446caf7620ebcd">   44</a></span>        TArray&lt;FD3D12CommandList*&gt; <a class="code hl_variable" href="../../df/d45/class_f_d3_d12_queue.html#aa605e535f2a702100e446caf7620ebcd">Lists</a>;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="../../df/d45/class_f_d3_d12_queue.html#a0f2592f8b7ae98ae6c8d263f8eda471b">   45</a></span>    } <a class="code hl_variable" href="../../df/d45/class_f_d3_d12_queue.html#a0f2592f8b7ae98ae6c8d263f8eda471b">ObjectPool</a>;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>};</div>
+</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="foldopen" id="foldopen00059" data-start="{" data-end="};">
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="../../d1/d79/class_f_d3_d12_device.html">   59</a></span><span class="keyword">class </span><a class="code hl_class" href="../../d1/d79/class_f_d3_d12_device.html">FD3D12Device</a> : <span class="keyword">public</span> <a class="code hl_class" href="../../d5/d6e/class_f_d3_d12_adapter_child.html">FD3D12AdapterChild</a>  </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>{</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <a class="code hl_function" href="../../d1/d79/class_f_d3_d12_device.html#af4d9b9c20a7c01bfd34030653227a435">FD3D12Device</a>(<a class="code hl_class" href="../../d6/db4/class_f_d3_d12_adapter.html">FD3D12Adapter</a>* InAdapter);</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <a class="code hl_function" href="../../d1/d79/class_f_d3_d12_device.html#a6728272199afe1ebaffd15e5c11cdc26">~FD3D12Device</a>();</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d1/d79/class_f_d3_d12_device.html#afe4aba3260ce3d0f2f36e5970c0dde27">Destroy</a>();</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="../../d1/d79/class_f_d3_d12_device.html#ae0d8805778e53089027dae70f3703bdb">   67</a></span>    FORCEINLINE ID3D12Device* <a class="code hl_function" href="../../d1/d79/class_f_d3_d12_device.html#ae0d8805778e53089027dae70f3703bdb">GetDevice</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_function" href="../../d5/d6e/class_f_d3_d12_adapter_child.html#a11aef509b009d364104e7d730d3cbe49">GetParentAdapter</a>()-&gt;<a class="code hl_function" href="../../d6/db4/class_f_d3_d12_adapter.html#a3455589b2188d1be67ad6b50bbcb7afa">GetD3DDevice</a>(); } </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <a class="code hl_class" href="../../d7/dc0/class_f_d3_d12_command_allocator.html">FD3D12CommandAllocator</a>* <a class="code hl_function" href="../../d1/d79/class_f_d3_d12_device.html#a0813e49ba519a55ac6be18a21ee3c616">GetCommandAllocator</a>(<a class="code hl_enumeration" href="../../d6/dd6/_d3_d12_queue_8h.html#ac3690361fe491f309cb9dbba3be17899">ED3D12QueueType</a> QueueType); </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <a class="code hl_class" href="../../d5/d3e/class_f_d3_d12_command_list.html">FD3D12CommandList</a>* <a class="code hl_function" href="../../d1/d79/class_f_d3_d12_device.html#a621eb5292def523b871909af00b3bdb6">GetCommandList</a>(<a class="code hl_class" href="../../d7/dc0/class_f_d3_d12_command_allocator.html">FD3D12CommandAllocator</a>* CommandAllocator); </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="../../d1/d79/class_f_d3_d12_device.html#a3a9237e426deb9d1631b39c0f38c4d20">   72</a></span>    <a class="code hl_class" href="../../d5/dfc/class_f_d3_d12_descriptor_heap_manager.html">FD3D12DescriptorHeapManager</a>&amp; <a class="code hl_function" href="../../d1/d79/class_f_d3_d12_device.html#a3a9237e426deb9d1631b39c0f38c4d20">GetDescriptorHeapManager</a>() { <span class="keywordflow">return</span> DescriptorHeapManager; }</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="../../d1/d79/class_f_d3_d12_device.html#ac73b900989a63acefce93e2a3a2a2ac1">   73</a></span>    <a class="code hl_class" href="../../d4/de3/class_f_d3_d12_bindless_descriptor_manager.html">FD3D12BindlessDescriptorManager</a>&amp; <a class="code hl_function" href="../../d1/d79/class_f_d3_d12_device.html#ac73b900989a63acefce93e2a3a2a2ac1">GetBindlessDescriptorManager</a>() { <span class="keywordflow">return</span> BindlessDescriptorManager; }</div>
+<div class="foldopen" id="foldopen00074" data-start="{" data-end="}">
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="../../d1/d79/class_f_d3_d12_device.html#aeb48ba39416be381444a3b2d43e6874d">   74</a></span>    <a class="code hl_class" href="../../d5/dcf/class_f_d3_d12_cpu_descriptor_manager.html">FD3D12CpuDescriptorManager</a>&amp; <a class="code hl_function" href="../../d1/d79/class_f_d3_d12_device.html#aeb48ba39416be381444a3b2d43e6874d">GetCpuDescriptorManger</a>(<a class="code hl_enumeration" href="../../de/df7/_r_h_i_defines_8h.html#a9457a748b9d30acc00348bdc63f5de4e">ERHIDescriptorHeapType</a> InType)</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    {</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        <span class="keywordflow">return</span> CpuDescriptorManagers[(<a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a84083085985fb180ad38b9c32e3937da">int32</a>)InType];</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    }</div>
+</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno"><a class="line" href="../../d1/d79/class_f_d3_d12_device.html#aa5fa13afcaa18f1dff586d5defb301be">   81</a></span>    <a class="code hl_class" href="../../df/d45/class_f_d3_d12_queue.html">FD3D12Queue</a>&amp; <a class="code hl_function" href="../../d1/d79/class_f_d3_d12_device.html#aa5fa13afcaa18f1dff586d5defb301be">GetQueue</a>(<a class="code hl_enumeration" href="../../d6/dd6/_d3_d12_queue_8h.html#ac3690361fe491f309cb9dbba3be17899">ED3D12QueueType</a> QueueType) { <span class="keywordflow">return</span> Queues[(<a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a>)QueueType]; }</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno"><a class="line" href="../../d1/d79/class_f_d3_d12_device.html#ac72766b2c897ec0ea6a896a62f3293aa">   82</a></span>    <a class="code hl_class" href="../../d3/d12/class_f_d3_d12_command_context.html">FD3D12CommandContext</a>&amp; <a class="code hl_function" href="../../d1/d79/class_f_d3_d12_device.html#ac72766b2c897ec0ea6a896a62f3293aa">GetDefaultCommandContext</a>() { <span class="keywordflow">return</span> *ImmediateCommandContext; }</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="../../d1/d79/class_f_d3_d12_device.html#a591d42372daf3fc9049d7e59831a924a">   83</a></span>    <span class="keyword">class </span><a class="code hl_class" href="../../dc/d9f/class_f_d3_d12_pipeline_state_manager.html">FD3D12PipelineStateManager</a>&amp; <a class="code hl_function" href="../../d1/d79/class_f_d3_d12_device.html#a591d42372daf3fc9049d7e59831a924a">GetPipelineStateManager</a>() { <span class="keywordflow">return</span> *PipelineStateManager; }</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    TArray&lt;FD3D12Queue&gt; Queues;</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    TArray&lt;FD3D12CpuDescriptorManager&gt; CpuDescriptorManagers;</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    <a class="code hl_class" href="../../d5/dfc/class_f_d3_d12_descriptor_heap_manager.html">FD3D12DescriptorHeapManager</a> DescriptorHeapManager;</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    <a class="code hl_class" href="../../d4/de3/class_f_d3_d12_bindless_descriptor_manager.html">FD3D12BindlessDescriptorManager</a> BindlessDescriptorManager;</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="keyword">class </span><a class="code hl_class" href="../../dc/d9f/class_f_d3_d12_pipeline_state_manager.html">FD3D12PipelineStateManager</a>* <span class="keyword">const</span> PipelineStateManager;</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    <a class="code hl_class" href="../../d3/d12/class_f_d3_d12_command_context.html">FD3D12CommandContext</a>* ImmediateCommandContext = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>};</div>
+</div>
+<div class="ttc" id="a_d3_d12_adapter_8h_html"><div class="ttname"><a href="../../db/d73/_d3_d12_adapter_8h.html">D3D12Adapter.h</a></div></div>
+<div class="ttc" id="a_d3_d12_bindless_descriptors_8h_html"><div class="ttname"><a href="../../d7/d2a/_d3_d12_bindless_descriptors_8h.html">D3D12BindlessDescriptors.h</a></div></div>
+<div class="ttc" id="a_d3_d12_command_list_8h_html"><div class="ttname"><a href="../../d6/d5e/_d3_d12_command_list_8h.html">D3D12CommandList.h</a></div></div>
+<div class="ttc" id="a_d3_d12_descriptors_8h_html"><div class="ttname"><a href="../../d1/d6c/_d3_d12_descriptors_8h.html">D3D12Descriptors.h</a></div></div>
+<div class="ttc" id="a_d3_d12_queue_8h_html"><div class="ttname"><a href="../../d6/dd6/_d3_d12_queue_8h.html">D3D12Queue.h</a></div></div>
+<div class="ttc" id="a_d3_d12_queue_8h_html_ac3690361fe491f309cb9dbba3be17899"><div class="ttname"><a href="../../d6/dd6/_d3_d12_queue_8h.html#ac3690361fe491f309cb9dbba3be17899">ED3D12QueueType</a></div><div class="ttdeci">ED3D12QueueType</div><div class="ttdef"><b>Definition</b> D3D12Queue.h:8</div></div>
+<div class="ttc" id="a_d3_d12_r_h_i_common_8h_html"><div class="ttname"><a href="../../d7/d2e/_d3_d12_r_h_i_common_8h.html">D3D12RHICommon.h</a></div></div>
+<div class="ttc" id="a_platform_8h_html_a84083085985fb180ad38b9c32e3937da"><div class="ttname"><a href="../../d2/dc9/_platform_8h.html#a84083085985fb180ad38b9c32e3937da">int32</a></div><div class="ttdeci">FPlatformTypes::int32 int32</div><div class="ttdef"><b>Definition</b> Platform.h:42</div></div>
+<div class="ttc" id="a_platform_8h_html_a8c7a127091efbdfc5a16939041653e05"><div class="ttname"><a href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a></div><div class="ttdeci">FPlatformTypes::uint32 uint32</div><div class="ttdef"><b>Definition</b> Platform.h:43</div></div>
+<div class="ttc" id="a_platform_8h_html_afddf25cca147311c233b23a9d3329bb4"><div class="ttname"><a href="../../d2/dc9/_platform_8h.html#afddf25cca147311c233b23a9d3329bb4">uint64</a></div><div class="ttdeci">FPlatformTypes::uint64 uint64</div><div class="ttdef"><b>Definition</b> Platform.h:45</div></div>
+<div class="ttc" id="a_r_h_i_defines_8h_html_a9457a748b9d30acc00348bdc63f5de4e"><div class="ttname"><a href="../../de/df7/_r_h_i_defines_8h.html#a9457a748b9d30acc00348bdc63f5de4e">ERHIDescriptorHeapType</a></div><div class="ttdeci">ERHIDescriptorHeapType</div><div class="ttdef"><b>Definition</b> RHIDefines.h:36</div></div>
+<div class="ttc" id="aclass_f_d3_d12_adapter_child_html"><div class="ttname"><a href="../../d5/d6e/class_f_d3_d12_adapter_child.html">FD3D12AdapterChild</a></div><div class="ttdef"><b>Definition</b> D3D12RHICommon.h:19</div></div>
+<div class="ttc" id="aclass_f_d3_d12_adapter_child_html_a11aef509b009d364104e7d730d3cbe49"><div class="ttname"><a href="../../d5/d6e/class_f_d3_d12_adapter_child.html#a11aef509b009d364104e7d730d3cbe49">FD3D12AdapterChild::GetParentAdapter</a></div><div class="ttdeci">FD3D12Adapter * GetParentAdapter() const</div><div class="ttdef"><b>Definition</b> D3D12RHICommon.h:26</div></div>
+<div class="ttc" id="aclass_f_d3_d12_adapter_html"><div class="ttname"><a href="../../d6/db4/class_f_d3_d12_adapter.html">FD3D12Adapter</a></div><div class="ttdef"><b>Definition</b> D3D12Adapter.h:50</div></div>
+<div class="ttc" id="aclass_f_d3_d12_adapter_html_a3455589b2188d1be67ad6b50bbcb7afa"><div class="ttname"><a href="../../d6/db4/class_f_d3_d12_adapter.html#a3455589b2188d1be67ad6b50bbcb7afa">FD3D12Adapter::GetD3DDevice</a></div><div class="ttdeci">ID3D12Device * GetD3DDevice() const</div><div class="ttdef"><b>Definition</b> D3D12Adapter.h:63</div></div>
+<div class="ttc" id="aclass_f_d3_d12_bindless_descriptor_manager_html"><div class="ttname"><a href="../../d4/de3/class_f_d3_d12_bindless_descriptor_manager.html">FD3D12BindlessDescriptorManager</a></div><div class="ttdef"><b>Definition</b> D3D12BindlessDescriptors.h:55</div></div>
+<div class="ttc" id="aclass_f_d3_d12_command_allocator_html"><div class="ttname"><a href="../../d7/dc0/class_f_d3_d12_command_allocator.html">FD3D12CommandAllocator</a></div><div class="ttdef"><b>Definition</b> D3D12CommandList.h:10</div></div>
+<div class="ttc" id="aclass_f_d3_d12_command_context_html"><div class="ttname"><a href="../../d3/d12/class_f_d3_d12_command_context.html">FD3D12CommandContext</a></div><div class="ttdef"><b>Definition</b> D3D12CommandContext.h:123</div></div>
+<div class="ttc" id="aclass_f_d3_d12_command_list_html"><div class="ttname"><a href="../../d5/d3e/class_f_d3_d12_command_list.html">FD3D12CommandList</a></div><div class="ttdef"><b>Definition</b> D3D12CommandList.h:33</div></div>
+<div class="ttc" id="aclass_f_d3_d12_context_common_html"><div class="ttname"><a href="../../d1/d3a/class_f_d3_d12_context_common.html">FD3D12ContextCommon</a></div><div class="ttdef"><b>Definition</b> D3D12CommandContext.h:27</div></div>
+<div class="ttc" id="aclass_f_d3_d12_cpu_descriptor_manager_html"><div class="ttname"><a href="../../d5/dcf/class_f_d3_d12_cpu_descriptor_manager.html">FD3D12CpuDescriptorManager</a></div><div class="ttdef"><b>Definition</b> D3D12Descriptors.h:173</div></div>
+<div class="ttc" id="aclass_f_d3_d12_descriptor_heap_manager_html"><div class="ttname"><a href="../../d5/dfc/class_f_d3_d12_descriptor_heap_manager.html">FD3D12DescriptorHeapManager</a></div><div class="ttdef"><b>Definition</b> D3D12Descriptors.h:148</div></div>
+<div class="ttc" id="aclass_f_d3_d12_device_html"><div class="ttname"><a href="../../d1/d79/class_f_d3_d12_device.html">FD3D12Device</a></div><div class="ttdoc">Main D3D12Device.</div><div class="ttdef"><b>Definition</b> D3D12Device.h:60</div></div>
+<div class="ttc" id="aclass_f_d3_d12_device_html_a0813e49ba519a55ac6be18a21ee3c616"><div class="ttname"><a href="../../d1/d79/class_f_d3_d12_device.html#a0813e49ba519a55ac6be18a21ee3c616">FD3D12Device::GetCommandAllocator</a></div><div class="ttdeci">FD3D12CommandAllocator * GetCommandAllocator(ED3D12QueueType QueueType)</div><div class="ttdoc">Allocate CommandAllocator like QueueType.</div><div class="ttdef"><b>Definition</b> D3D12Device.cpp:57</div></div>
+<div class="ttc" id="aclass_f_d3_d12_device_html_a3a9237e426deb9d1631b39c0f38c4d20"><div class="ttname"><a href="../../d1/d79/class_f_d3_d12_device.html#a3a9237e426deb9d1631b39c0f38c4d20">FD3D12Device::GetDescriptorHeapManager</a></div><div class="ttdeci">FD3D12DescriptorHeapManager &amp; GetDescriptorHeapManager()</div><div class="ttdef"><b>Definition</b> D3D12Device.h:72</div></div>
+<div class="ttc" id="aclass_f_d3_d12_device_html_a591d42372daf3fc9049d7e59831a924a"><div class="ttname"><a href="../../d1/d79/class_f_d3_d12_device.html#a591d42372daf3fc9049d7e59831a924a">FD3D12Device::GetPipelineStateManager</a></div><div class="ttdeci">class FD3D12PipelineStateManager &amp; GetPipelineStateManager()</div><div class="ttdef"><b>Definition</b> D3D12Device.h:83</div></div>
+<div class="ttc" id="aclass_f_d3_d12_device_html_a621eb5292def523b871909af00b3bdb6"><div class="ttname"><a href="../../d1/d79/class_f_d3_d12_device.html#a621eb5292def523b871909af00b3bdb6">FD3D12Device::GetCommandList</a></div><div class="ttdeci">FD3D12CommandList * GetCommandList(FD3D12CommandAllocator *CommandAllocator)</div><div class="ttdoc">Allocate Commandlist with CommandAllocator.</div><div class="ttdef"><b>Definition</b> D3D12Device.cpp:74</div></div>
+<div class="ttc" id="aclass_f_d3_d12_device_html_a6728272199afe1ebaffd15e5c11cdc26"><div class="ttname"><a href="../../d1/d79/class_f_d3_d12_device.html#a6728272199afe1ebaffd15e5c11cdc26">FD3D12Device::~FD3D12Device</a></div><div class="ttdeci">~FD3D12Device()</div><div class="ttdef"><b>Definition</b> D3D12Device.cpp:45</div></div>
+<div class="ttc" id="aclass_f_d3_d12_device_html_aa5fa13afcaa18f1dff586d5defb301be"><div class="ttname"><a href="../../d1/d79/class_f_d3_d12_device.html#aa5fa13afcaa18f1dff586d5defb301be">FD3D12Device::GetQueue</a></div><div class="ttdeci">FD3D12Queue &amp; GetQueue(ED3D12QueueType QueueType)</div><div class="ttdef"><b>Definition</b> D3D12Device.h:81</div></div>
+<div class="ttc" id="aclass_f_d3_d12_device_html_ac72766b2c897ec0ea6a896a62f3293aa"><div class="ttname"><a href="../../d1/d79/class_f_d3_d12_device.html#ac72766b2c897ec0ea6a896a62f3293aa">FD3D12Device::GetDefaultCommandContext</a></div><div class="ttdeci">FD3D12CommandContext &amp; GetDefaultCommandContext()</div><div class="ttdef"><b>Definition</b> D3D12Device.h:82</div></div>
+<div class="ttc" id="aclass_f_d3_d12_device_html_ac73b900989a63acefce93e2a3a2a2ac1"><div class="ttname"><a href="../../d1/d79/class_f_d3_d12_device.html#ac73b900989a63acefce93e2a3a2a2ac1">FD3D12Device::GetBindlessDescriptorManager</a></div><div class="ttdeci">FD3D12BindlessDescriptorManager &amp; GetBindlessDescriptorManager()</div><div class="ttdef"><b>Definition</b> D3D12Device.h:73</div></div>
+<div class="ttc" id="aclass_f_d3_d12_device_html_ae0d8805778e53089027dae70f3703bdb"><div class="ttname"><a href="../../d1/d79/class_f_d3_d12_device.html#ae0d8805778e53089027dae70f3703bdb">FD3D12Device::GetDevice</a></div><div class="ttdeci">FORCEINLINE ID3D12Device * GetDevice() const</div><div class="ttdoc">Get ID3D12Device.</div><div class="ttdef"><b>Definition</b> D3D12Device.h:67</div></div>
+<div class="ttc" id="aclass_f_d3_d12_device_html_aeb48ba39416be381444a3b2d43e6874d"><div class="ttname"><a href="../../d1/d79/class_f_d3_d12_device.html#aeb48ba39416be381444a3b2d43e6874d">FD3D12Device::GetCpuDescriptorManger</a></div><div class="ttdeci">FD3D12CpuDescriptorManager &amp; GetCpuDescriptorManger(ERHIDescriptorHeapType InType)</div><div class="ttdef"><b>Definition</b> D3D12Device.h:74</div></div>
+<div class="ttc" id="aclass_f_d3_d12_device_html_af4d9b9c20a7c01bfd34030653227a435"><div class="ttname"><a href="../../d1/d79/class_f_d3_d12_device.html#af4d9b9c20a7c01bfd34030653227a435">FD3D12Device::FD3D12Device</a></div><div class="ttdeci">FD3D12Device(FD3D12Adapter *InAdapter)</div><div class="ttdef"><b>Definition</b> D3D12Device.cpp:10</div></div>
+<div class="ttc" id="aclass_f_d3_d12_device_html_afe4aba3260ce3d0f2f36e5970c0dde27"><div class="ttname"><a href="../../d1/d79/class_f_d3_d12_device.html#afe4aba3260ce3d0f2f36e5970c0dde27">FD3D12Device::Destroy</a></div><div class="ttdeci">void Destroy()</div><div class="ttdef"><b>Definition</b> D3D12Device.cpp:49</div></div>
+<div class="ttc" id="aclass_f_d3_d12_pipeline_state_manager_html"><div class="ttname"><a href="../../dc/d9f/class_f_d3_d12_pipeline_state_manager.html">FD3D12PipelineStateManager</a></div><div class="ttdef"><b>Definition</b> D3D12PipelineState.h:38</div></div>
+<div class="ttc" id="aclass_f_d3_d12_queue_html"><div class="ttname"><a href="../../df/d45/class_f_d3_d12_queue.html">FD3D12Queue</a></div><div class="ttdef"><b>Definition</b> D3D12Device.h:23</div></div>
+<div class="ttc" id="aclass_f_d3_d12_queue_html_a038a238a2631802cfe4b9649fd6c419c"><div class="ttname"><a href="../../df/d45/class_f_d3_d12_queue.html#a038a238a2631802cfe4b9649fd6c419c">FD3D12Queue::FenceValue</a></div><div class="ttdeci">uint64 FenceValue</div><div class="ttdef"><b>Definition</b> D3D12Device.h:33</div></div>
+<div class="ttc" id="aclass_f_d3_d12_queue_html_a072bf0f5ba02dd12174a8ee389da03c9"><div class="ttname"><a href="../../df/d45/class_f_d3_d12_queue.html#a072bf0f5ba02dd12174a8ee389da03c9">FD3D12Queue::Fence</a></div><div class="ttdeci">TRefCountPtr&lt; ID3D12Fence &gt; Fence</div><div class="ttdef"><b>Definition</b> D3D12Device.h:32</div></div>
+<div class="ttc" id="aclass_f_d3_d12_queue_html_a0f2592f8b7ae98ae6c8d263f8eda471b"><div class="ttname"><a href="../../df/d45/class_f_d3_d12_queue.html#a0f2592f8b7ae98ae6c8d263f8eda471b">FD3D12Queue::ObjectPool</a></div><div class="ttdeci">struct FD3D12Queue::@57 ObjectPool</div></div>
+<div class="ttc" id="aclass_f_d3_d12_queue_html_a4d19906844cd4c4fd77c18dba598956f"><div class="ttname"><a href="../../df/d45/class_f_d3_d12_queue.html#a4d19906844cd4c4fd77c18dba598956f">FD3D12Queue::QueueType</a></div><div class="ttdeci">ED3D12QueueType const QueueType</div><div class="ttdef"><b>Definition</b> D3D12Device.h:29</div></div>
+<div class="ttc" id="aclass_f_d3_d12_queue_html_a835cc4b635b719ee5d91a0c3204cddf1"><div class="ttname"><a href="../../df/d45/class_f_d3_d12_queue.html#a835cc4b635b719ee5d91a0c3204cddf1">FD3D12Queue::Allocators</a></div><div class="ttdeci">TArray&lt; FD3D12CommandAllocator * &gt; Allocators</div><div class="ttdef"><b>Definition</b> D3D12Device.h:43</div></div>
+<div class="ttc" id="aclass_f_d3_d12_queue_html_a9d3539bd1529c0c03b3f8df1e9642881"><div class="ttname"><a href="../../df/d45/class_f_d3_d12_queue.html#a9d3539bd1529c0c03b3f8df1e9642881">FD3D12Queue::CommandQueue</a></div><div class="ttdeci">TRefCountPtr&lt; ID3D12CommandQueue &gt; CommandQueue</div><div class="ttdef"><b>Definition</b> D3D12Device.h:31</div></div>
+<div class="ttc" id="aclass_f_d3_d12_queue_html_aa02b7bc640f400247ebb12155ffa27ab"><div class="ttname"><a href="../../df/d45/class_f_d3_d12_queue.html#aa02b7bc640f400247ebb12155ffa27ab">FD3D12Queue::FD3D12Queue</a></div><div class="ttdeci">FD3D12Queue(FD3D12Device *Device, ED3D12QueueType)</div><div class="ttdef"><b>Definition</b> D3D12Device.cpp:92</div></div>
+<div class="ttc" id="aclass_f_d3_d12_queue_html_aa605e535f2a702100e446caf7620ebcd"><div class="ttname"><a href="../../df/d45/class_f_d3_d12_queue.html#aa605e535f2a702100e446caf7620ebcd">FD3D12Queue::Lists</a></div><div class="ttdeci">TArray&lt; FD3D12CommandList * &gt; Lists</div><div class="ttdef"><b>Definition</b> D3D12Device.h:44</div></div>
+<div class="ttc" id="aclass_f_d3_d12_queue_html_ab69ae0b54191864518123868d1d7b658"><div class="ttname"><a href="../../df/d45/class_f_d3_d12_queue.html#ab69ae0b54191864518123868d1d7b658">FD3D12Queue::Device</a></div><div class="ttdeci">FD3D12Device *const Device</div><div class="ttdef"><b>Definition</b> D3D12Device.h:28</div></div>
+<div class="ttc" id="aclass_f_d3_d12_queue_html_abb66b50ba0ff626501fdde3c3e0bcf32"><div class="ttname"><a href="../../df/d45/class_f_d3_d12_queue.html#abb66b50ba0ff626501fdde3c3e0bcf32">FD3D12Queue::FenceEvent</a></div><div class="ttdeci">HANDLE FenceEvent</div><div class="ttdef"><b>Definition</b> D3D12Device.h:34</div></div>
+<div class="ttc" id="aclass_f_d3_d12_queue_html_accfd5c618083c8086a46827a77d6f48c"><div class="ttname"><a href="../../df/d45/class_f_d3_d12_queue.html#accfd5c618083c8086a46827a77d6f48c">FD3D12Queue::Contexts</a></div><div class="ttdeci">TArray&lt; FD3D12ContextCommon * &gt; Contexts</div><div class="ttdef"><b>Definition</b> D3D12Device.h:42</div></div>
+<div class="ttc" id="aclass_f_d3_d12_queue_html_af3dbeb3be9161487120ea1db8478aabf"><div class="ttname"><a href="../../df/d45/class_f_d3_d12_queue.html#af3dbeb3be9161487120ea1db8478aabf">FD3D12Queue::WaitFrame</a></div><div class="ttdeci">void WaitFrame()</div><div class="ttdef"><b>Definition</b> D3D12Device.cpp:113</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../dir_55043db21ba5ddd7c561d2c5a5a38944.html">Dark Engine</a></li><li class="navelem"><a class="el" href="../../dir_e00b54220e1e1486ac9971b606d33054.html">Source</a></li><li class="navelem"><a class="el" href="../../dir_ae01c8af07818b260cc3481e8588b277.html">Runtime</a></li><li class="navelem"><a class="el" href="../../dir_69d1b7a79a04d24cd43f7c84d74c5d6d.html">D3D12RHI</a></li><li class="navelem"><a class="el" href="../../dir_975782192f4e5579da5ceb9eedcf6dc7.html">private</a></li><li class="navelem"><a class="el" href="../../d7/d20/_d3_d12_device_8h.html">D3D12Device.h</a></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
+</body>
+</html>

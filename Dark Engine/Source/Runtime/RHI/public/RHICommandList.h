@@ -81,6 +81,22 @@ public:
 		GetContext().RHISetViewport(MinX, MinY, MinZ, MaxX, MaxY, MaxZ);
 	}
 
+
+	void SetGraphicsPipelineState(class FRHIGraphicsPipelineState* PipelineState, class FBoundShaderStateInput& ShaderInput)
+	{
+		GetContext().RHISetGraphicsPipelineState(PipelineState, ShaderInput);
+	}
+
+	void SetStreamSource(uint32 StreamIndex, FRHIBuffer* VertexBuffer, uint32 Offset, uint32 Stride)
+	{
+		GetContext().RHISetStreamSource(StreamIndex, VertexBuffer, Offset, Stride);
+	}
+
+	void DrawIndexedPrimitive(FRHIBuffer* IndexBufferRHI, int32 BaseVertexIndex, uint32 FirstInstance, uint32 NumVertices, uint32 StartIndex, uint32 NumPrimitives, uint32 NumInstances)
+	{
+		GetContext().RHIDrawIndexedPrimitive(IndexBufferRHI, BaseVertexIndex, FirstInstance, NumVertices, StartIndex, NumPrimitives, NumInstances);
+	}
+
 };
 
 
@@ -108,11 +124,15 @@ public:
 	{
 		GetContext().RHIBeginRenderPass(InInfo);
 	}
+	void EndRenderPass(struct FRHIRenderPassInfo& InInfo)
+	{
+		GetContext().RHIEndRenderPass(InInfo);
+	}
 	void BeginDrawingViewport(FRHIViewport* Viewport, FRHITexture* RenderTargetRHI)
 	{
 		GetContext().RHIBeginDrawingViewport(Viewport, RenderTargetRHI);
 	}
-	void EndDrawingViewport(FRHIViewport* Viewport, bool bPresent, bool bVsync)
+	void EndDrawingViewport(FRHIViewport* Viewport, bool bPresent, int32 bVsync)
 	{
 		GetContext().RHIEndDrawingViewport(Viewport, bPresent, bVsync);
 	}
@@ -131,8 +151,28 @@ public:
 	}
 	void InitializeContexts();
 
+	void ClearTextureColor(FRHITexture* InTexture, FVector InColor)
+	{
+		GetContext().RHIClearTextureColor(InTexture, InColor);
+	}
+
+	void SetShaderParameters(
+		FRHIGraphicsShader* Shader,
+		TArray<uint8>& InParameters,
+		TArray<FRHIShaderParameterResource>& InBindlessParameters,
+		TArray<FRHIShaderParameterResource>& InResourceParameters)
+	{
+		GetContext().RHISetShaderParameters(Shader, InParameters, InBindlessParameters, InResourceParameters);
+	}
 
 
+	void SetRenderTargets(int32 NumRenderTargets,
+		const FRHIRenderTargetView* RenderTargetsRHI,
+		const FRHIDepthRenderTargetView* DepthStencilViewRHI,
+		bool bClear = false)
+	{
+		GetContext().SetRenderTargets(NumRenderTargets, RenderTargetsRHI, DepthStencilViewRHI, bClear);
+	}
 };
 
 

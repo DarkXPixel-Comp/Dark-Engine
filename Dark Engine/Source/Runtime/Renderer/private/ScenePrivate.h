@@ -1,11 +1,14 @@
 #pragma once
 #include "SceneInterface.h"
-#include "World.h"
-
+#include "Engine/World.h"
+#include "CoreTypes.h"
 
 class FScene : public FSceneInterface
 {
 public:
+	FScene(FWorld* InWorld);
+
+
 	virtual FScene* GetRenderScene() override final { return this; }
 	virtual FWorld* GetWorld() final { return World; }
 

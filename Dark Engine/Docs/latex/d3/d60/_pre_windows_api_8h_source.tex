@@ -1,0 +1,36 @@
+\doxysection{Pre\+Windows\+Api.\+h}
+\hypertarget{_pre_windows_api_8h_source}{}\label{_pre_windows_api_8h_source}\index{Dark Engine/Source/Runtime/Core/Public/Windows/PreWindowsApi.h@{Dark Engine/Source/Runtime/Core/Public/Windows/PreWindowsApi.h}}
+\mbox{\hyperlink{_pre_windows_api_8h}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_platform_8h}{HAL/Platform.h}}"{}}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#if\ !PLATFORM\_WINDOWS}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}Microsoft/PreWindowsApi.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#if\ !defined(\_\_clang\_\_)}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#pragma\ warning(disable:4103)}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#pragma\ push\_macro("{}MAX\_uint8"{})}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#pragma\ push\_macro("{}MAX\_uint16"{})}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#pragma\ push\_macro("{}MAX\_uint32"{})}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#pragma\ push\_macro("{}MAX\_uint64"{})}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#pragma\ push\_macro("{}TEXT"{})}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#pragma\ push\_macro("{}TRUE"{})}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#pragma\ push\_macro("{}FALSE"{})}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#ifndef\ \_WINNT\_}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#undef\ TEXT}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ }
+
+\end{DoxyCode}

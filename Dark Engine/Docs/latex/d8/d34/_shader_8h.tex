@@ -1,0 +1,104 @@
+\doxysection{Файл Dark Engine/\+Source/\+Runtime/\+Renderer/public/\+Shader.h}
+\hypertarget{_shader_8h}{}\label{_shader_8h}\index{Dark Engine/Source/Runtime/Renderer/public/Shader.h@{Dark Engine/Source/Runtime/Renderer/public/Shader.h}}
+{\ttfamily \#include "{}HAL/\+Platform.\+h"{}}\newline
+{\ttfamily \#include "{}Containers/\+Array.\+h"{}}\newline
+{\ttfamily \#include "{}Containers/\+Dark\+String.\+h"{}}\newline
+{\ttfamily \#include "{}Containers/\+Unordored\+Map.\+h"{}}\newline
+{\ttfamily \#include "{}Memory/\+TUnique\+Ptr.\+h"{}}\newline
+{\ttfamily \#include "{}RHIDefines.\+h"{}}\newline
+{\ttfamily \#include "{}RHIResources.\+h"{}}\newline
+{\ttfamily \#include $<$functional$>$}\newline
+{\ttfamily \#include "{}Shader\+Core.\+h"{}}\newline
+\doxysubsubsection*{Классы}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_f_shader}{FShader}}
+\item 
+class \mbox{\hyperlink{class_f_shader_type}{FShader\+Type}}
+\item 
+class \mbox{\hyperlink{class_f_shader_type_1_1_f_parameters}{FShader\+Type\+::\+FParameters}}
+\item 
+struct \mbox{\hyperlink{struct_f_shader_compiled_initializer_type}{FShader\+Compiled\+Initializer\+Type}}
+\item 
+class \mbox{\hyperlink{class_f_shader_pipeline_type}{FShader\+Pipeline\+Type}}
+\item 
+class \mbox{\hyperlink{class_f_shader_type_registration}{FShader\+Type\+Registration}}
+\item 
+class \mbox{\hyperlink{class_f_shader_map_resource_code}{FShader\+Map\+Resource\+Code}}
+\item 
+struct \mbox{\hyperlink{struct_f_shader_map_resource_code_1_1_f_shader_entry}{FShader\+Map\+Resource\+Code\+::\+FShader\+Entry}}
+\item 
+class \mbox{\hyperlink{class_f_shader_map_content}{FShader\+Map\+Content}}
+\item 
+class \mbox{\hyperlink{class_f_shader_map_base}{FShader\+Map\+Base}}
+\item 
+class \mbox{\hyperlink{class_t_shader_map}{TShader\+Map$<$ Content\+Type $>$}}
+\item 
+class \mbox{\hyperlink{class_t_shader_ref_base}{TShader\+Ref\+Base$<$ Shader\+Type $>$}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Макросы}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_shader_8h_ab017c78ff362b54321ce914870da03f8}{DECLARE\+\_\+\+SHADER\+\_\+\+TYPE}}(Shader\+Class,  In\+Shader\+Meta\+Type, ...)
+\item 
+\#define \mbox{\hyperlink{_shader_8h_a4bc80fedd33a498d0c90912074a530ab}{IMPLEMENT\+\_\+\+SHADER\+\_\+\+TYPE}}(Shader\+Class,  Source\+Filename,  Function\+Name,  Shader\+Type)
+\item 
+\#define \mbox{\hyperlink{_shader_8h_a5ca6c4d5f23f4559926809e3d7cec327}{SHADER\+\_\+\+USE\+\_\+\+PARAMETER\+\_\+\+STRUCT}}(Shader\+Class,  Shader\+Parent\+Class)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Макросы}
+\Hypertarget{_shader_8h_ab017c78ff362b54321ce914870da03f8}\label{_shader_8h_ab017c78ff362b54321ce914870da03f8} 
+\index{Shader.h@{Shader.h}!DECLARE\_SHADER\_TYPE@{DECLARE\_SHADER\_TYPE}}
+\index{DECLARE\_SHADER\_TYPE@{DECLARE\_SHADER\_TYPE}!Shader.h@{Shader.h}}
+\doxysubsubsection{\texorpdfstring{DECLARE\_SHADER\_TYPE}{DECLARE\_SHADER\_TYPE}}
+{\footnotesize\ttfamily \#define DECLARE\+\_\+\+SHADER\+\_\+\+TYPE(\begin{DoxyParamCaption}\item[{}]{Shader\+Class,  }\item[{}]{In\+Shader\+Meta\+Type,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+{\bfseries Макроопределение\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{public}:\(\backslash\)}
+\DoxyCodeLine{\textcolor{keyword}{using\ }ShaderMetaType\ =\ F\#\#InShaderMetaType\#\#ShaderType;\(\backslash\)}
+\DoxyCodeLine{\textcolor{comment}{/*using\ ShaderMapType\ =\ F\#\#InShaderMetaType\#\#ShaerMap;\(\backslash\)*/}\ \(\backslash\)}
+\DoxyCodeLine{\textcolor{keyword}{static}\ ShaderMetaType\&\ GetStaticType();\ \(\backslash\)}
+\DoxyCodeLine{\textcolor{keyword}{private}:\(\backslash\)}
+\DoxyCodeLine{\textcolor{keyword}{static}\ \mbox{\hyperlink{class_f_shader_type_registration}{FShaderTypeRegistration}}\ ShaderTypeRegistration;\(\backslash\)}
+\DoxyCodeLine{\textcolor{keyword}{public}:\ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_f_shader}{FShader}}*\ ConstructSerializedInstance()\ \{\textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ ShaderClass();\}\(\backslash\)}
+\DoxyCodeLine{\textcolor{keyword}{static}\ \mbox{\hyperlink{class_f_shader}{FShader}}*\ ConstructCompiledInstance(\textcolor{keyword}{const}\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{struct_f_shader_compiled_initializer_type}{FShaderCompiledInitializerType}}\&\ Initializer)\(\backslash\)}
+\DoxyCodeLine{\{\textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ ShaderClass(\textcolor{keyword}{static\_cast<}\textcolor{keyword}{const\ }typename\ \mbox{\hyperlink{struct_f_shader_compiled_initializer_type}{FShaderCompiledInitializerType}}\&\textcolor{keyword}{>}(Initializer));\}\(\backslash\)}
+
+\end{DoxyCode}
+\Hypertarget{_shader_8h_a4bc80fedd33a498d0c90912074a530ab}\label{_shader_8h_a4bc80fedd33a498d0c90912074a530ab} 
+\index{Shader.h@{Shader.h}!IMPLEMENT\_SHADER\_TYPE@{IMPLEMENT\_SHADER\_TYPE}}
+\index{IMPLEMENT\_SHADER\_TYPE@{IMPLEMENT\_SHADER\_TYPE}!Shader.h@{Shader.h}}
+\doxysubsubsection{\texorpdfstring{IMPLEMENT\_SHADER\_TYPE}{IMPLEMENT\_SHADER\_TYPE}}
+{\footnotesize\ttfamily \#define IMPLEMENT\+\_\+\+SHADER\+\_\+\+TYPE(\begin{DoxyParamCaption}\item[{}]{Shader\+Class,  }\item[{}]{Source\+Filename,  }\item[{}]{Function\+Name,  }\item[{}]{Shader\+Type }\end{DoxyParamCaption})}
+
+{\bfseries Макроопределение\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{ShaderClass::ShaderMetaType\&\ ShaderClass::GetStaticType()\(\backslash\)}
+\DoxyCodeLine{\{\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{static}\ ShaderClass::ShaderMetaType\ StaticType\(\backslash\)}
+\DoxyCodeLine{(\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ TEXT(\#ShaderClass),\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ SourceFilename,\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ FunctionName,\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ ShaderType\(\backslash\)}
+\DoxyCodeLine{);\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ GetShaderBounds(StaticType.Bounds);\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ StaticType;\(\backslash\)}
+\DoxyCodeLine{\}\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{class_f_shader_type_registration}{FShaderTypeRegistration}}\ ShaderClass::ShaderTypeRegistration(ShaderClass::GetStaticType);}
+
+\end{DoxyCode}
+\Hypertarget{_shader_8h_a5ca6c4d5f23f4559926809e3d7cec327}\label{_shader_8h_a5ca6c4d5f23f4559926809e3d7cec327} 
+\index{Shader.h@{Shader.h}!SHADER\_USE\_PARAMETER\_STRUCT@{SHADER\_USE\_PARAMETER\_STRUCT}}
+\index{SHADER\_USE\_PARAMETER\_STRUCT@{SHADER\_USE\_PARAMETER\_STRUCT}!Shader.h@{Shader.h}}
+\doxysubsubsection{\texorpdfstring{SHADER\_USE\_PARAMETER\_STRUCT}{SHADER\_USE\_PARAMETER\_STRUCT}}
+{\footnotesize\ttfamily \#define SHADER\+\_\+\+USE\+\_\+\+PARAMETER\+\_\+\+STRUCT(\begin{DoxyParamCaption}\item[{}]{Shader\+Class,  }\item[{}]{Shader\+Parent\+Class }\end{DoxyParamCaption})}
+
+{\bfseries Макроопределение\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{ShaderClass(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_f_shader_compiled_initializer_type}{FShaderCompiledInitializerType}}\&\ Initializer):\ ShaderParentClass(Initializer)\ \{\}\(\backslash\)}
+\DoxyCodeLine{ShaderClass()\ \{\}}
+
+\end{DoxyCode}

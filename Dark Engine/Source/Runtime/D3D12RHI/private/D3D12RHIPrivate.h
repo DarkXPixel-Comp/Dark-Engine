@@ -6,6 +6,7 @@
 #include "DynamicRHI.h"
 #include "RHIContext.h"
 #include "D3D12Queue.h"
+#include "Containers/UnordoredMap.h"
 
 
 
@@ -31,7 +32,7 @@ public:
 	void PostInit() override;
 
 	//virtual void PostInit();
-	virtual void Shutdown() {}
+	virtual void Shutdown() override;
 
 	virtual TSharedPtr<FRHIViewport> RHICreateViewport(void* WindowHandle, uint32 SizeX, uint32 SizeY, bool bIsFullscreen) override;
 
@@ -43,6 +44,11 @@ public:
 
 	virtual FRHITexture* RHIGetViewportBackBuffer(FRHIViewport* Viewport) override;
 
+	virtual TRefCountPtr<FRHIVertexDeclaration>	RHICreateVertexDeclaration(const FVertexDeclarationElementList& Elements) override;
+	virtual TRefCountPtr<FRHIVertexShader> RHICreateVertexShader(const TArray<uint8>& Code, const FShaderBounds& Bounds) override;
+	virtual TRefCountPtr<FRHIPixelShader> RHICreatePixelShader(const TArray<uint8>& Code, const FShaderBounds& Bounds) override;
+	virtual TRefCountPtr<FRHIRasterizerState> RHICreateRasterizerState(const FRasterizerStateInitializer& Initializer) override;
+
 
 	virtual ID3D12CommandQueue* RHIGetCommandQueue() override { return nullptr; }
 	virtual ID3D12Device* RHIGetDevice() { return nullptr; }
@@ -50,26 +56,38 @@ public:
 	virtual DXGI_FORMAT RHIGetSwapChainFormat() const { return DXGI_FORMAT_UNKNOWN; }
 
 
+	virtual TRefCountPtr<FRHIBuffer> RHICreateBuffer(const FRHIBufferDesc& CreateDesc, const TCHAR* DebugName, ERHIAccess InitialState);
+	virtual void* RHILockBuffer(FRHIBuffer* BufferRHI, uint32 Offset, uint32 Size, EResourceLockMode LockMode);
+	virtual void RHIUnlockBuffer(FRHIBuffer* BufferRHI);
+
+	virtual TRefCountPtr<FRHIUniformBuffer>	RHICreateUniformBuffer(const void* Contents, uint32 Size, EUniformBufferUsage Usage);
+	virtual void RHIUpdateUniformBuffer(FRHIUniformBuffer* BufferRHI, const void* Contents, uint32 Size);
+
+	virtual TRefCountPtr<FRHITexture> RHICreateTexture(const FRHITextureCreateDesc& CreateDesc);
+	virtual void* RHILockTexture2D(FRHITexture* TextureRHI, uint32 MipIndex, EResourceLockMode LockMode,
+		uint32& DestStride, bool bLockWithinMiptail, uint64* OutLockedByteCount);
+	virtual void RHIUnlockTexture2D(FRHITexture* Texture, uint32 MipIndex, bool bLockWithinMiptail);
+
+	virtual TRefCountPtr<FRHIGraphicsPipelineState> RHICreateGraphicsPipelineState(const class FGraphicsPipelineStateInitializer& Initalizer) override;
+
+
 
 #ifdef IMGUI
 	FD3D12DescriptorHeap* ImGuiDescriptorHeap;
-	uint32 ImGuiDescriptorHandle = 0;
+	//uint32 ImGuiDescriptorHandle = 0;
+	FRHIDescriptorHandle ImGuiDescriptorHandle;
 #endif
 
 public:
-	FD3D12Texture* CreateD3D12Texture(const FRHITextureCreateDesc& CreateDesc, FD3D12Device* Device)
-	{
-		return new FD3D12Texture(CreateDesc, Device);
-	}
+	FD3D12Texture* CreateEmptyD3D12Texture(const FRHITextureCreateDesc& CreateDesc, FD3D12Device* Device);
+	FD3D12Texture* CreateD3D12Texture(const FRHITextureCreateDesc& CreateDesc, FD3D12Device* Device);
 
+	FD3D12Buffer* CreateD3D12Buffer(class FRHICommandListBase* RHICmdList, const FRHIBufferDesc& BufferDesc, ERHIAccess ResourceState, const TCHAR* DebugName);
 
 private:
 	TArray<TSharedPtr<FD3D12Adapter>> ChosenAdapters;
 	D3D_FEATURE_LEVEL FeatureLevel;
-
-
-
-
-
+	TMap<uint64, class FRHIVertexDeclaration*> VertexDeclarationMap;
+	TUnordoredMap<class FGraphicsPipelineStateInitializer, TRefCountPtr<class FRHIGraphicsPipelineState>> GraphicsPipelineStateCache;
 };
 

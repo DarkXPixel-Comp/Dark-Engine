@@ -7,3 +7,4 @@
 #define DENGINE_API __declspec(dllexport)
 #define DENGINE_API
 #define DENGINE_API __declspec(dllimport)
+#define SHADER_USE_PARAMETER_STRUCT(ShaderClass, ShaderParentClass) ShaderClass(const ShaderMetaType::CompiledShaderInitializerType& Initializer): ShaderParentClass(Initializer) {}ShaderClass() {}

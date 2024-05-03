@@ -1,0 +1,82 @@
+\doxysection{Файл Dark Engine/\+Source/\+Runtime/\+Core/\+Public/\+Console/\+Base\+Console.h}
+\hypertarget{_base_console_8h}{}\label{_base_console_8h}\index{Dark Engine/Source/Runtime/Core/Public/Console/BaseConsole.h@{Dark Engine/Source/Runtime/Core/Public/Console/BaseConsole.h}}
+{\ttfamily \#include "{}Containers/\+Dark\+String.\+h"{}}\newline
+{\ttfamily \#include "{}Containers/\+Array.\+h"{}}\newline
+{\ttfamily \#include "{}Containers/\+Unordored\+Map.\+h"{}}\newline
+{\ttfamily \#include "{}Delegate/\+Delegate.\+h"{}}\newline
+{\ttfamily \#include "{}Misc/\+Scope\+Lock.\+h"{}}\newline
+\doxysubsubsection*{Классы}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_f_console_log}{FConsole\+Log}}
+\item 
+class \mbox{\hyperlink{class_t_console_variable_data}{TConsole\+Variable\+Data$<$ T $>$}}
+\item 
+class \mbox{\hyperlink{class_i_console_object}{IConsole\+Object}}
+\item 
+class \mbox{\hyperlink{class_i_console_variable}{IConsole\+Variable}}
+\item 
+class \mbox{\hyperlink{class_i_console_command}{IConsole\+Command}}
+\item 
+class \mbox{\hyperlink{class_f_base_console}{FBase\+Console}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Определения типов}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_logger_8h_a182e58c72146010abacd09e1d1f7ed0e}{typedef}} std\+::function$<$ void(const \mbox{\hyperlink{class_t_array}{TArray}}$<$ \mbox{\hyperlink{class_f_string}{FString}} $>$ \&) \mbox{\hyperlink{_base_console_8h_a0886a2931f781b536b1634839c82ee3a}{FConsole\+Solo\+Command\+With\+Args\+Delegate}})
+\item 
+\mbox{\hyperlink{_logger_8h_a182e58c72146010abacd09e1d1f7ed0e}{typedef}} std\+::function$<$ void(class \mbox{\hyperlink{class_i_console_variable}{IConsole\+Variable}} \texorpdfstring{$\ast$}{*}) \mbox{\hyperlink{_base_console_8h_ae26911fde2b2d2265a98cdf95ef33044}{FConsole\+Solo\+Variable\+Delegate}})
+\item 
+\mbox{\hyperlink{_logger_8h_a182e58c72146010abacd09e1d1f7ed0e}{typedef}} \mbox{\hyperlink{class_t_multi_cast_delegate}{TMulti\+Cast\+Delegate}}$<$ void, class \mbox{\hyperlink{class_i_console_variable}{IConsole\+Variable}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{_base_console_8h_a9744fe37fe954a806a485fcc5a6856d1}{FConsole\+Variable\+Delegate}}
+\item 
+\mbox{\hyperlink{_logger_8h_a182e58c72146010abacd09e1d1f7ed0e}{typedef}} \mbox{\hyperlink{class_t_multi_cast_delegate}{TMulti\+Cast\+Delegate}}$<$ void, const \mbox{\hyperlink{class_t_array}{TArray}}$<$ \mbox{\hyperlink{class_f_string}{FString}} $>$ \& $>$ \mbox{\hyperlink{_base_console_8h_ab77b9320a72802c1194ebc9837b225d1}{FConsole\+Command\+With\+Args\+Delegate}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Функции}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_base_console_8h_a1478386e625a4266093527224aab762d}{DECLARE\+\_\+\+DELEGATE\+\_\+\+One\+Param}} (FOn\+Add\+Console\+Input, \mbox{\hyperlink{class_f_string}{FString}})
+\item 
+\mbox{\hyperlink{_base_console_8h_aef92e81024b52c7ec76e5cad3ada7a4e}{DECLARE\+\_\+\+DELEGATE\+\_\+\+One\+Param}} (FOn\+Add\+Console\+Message, struct \mbox{\hyperlink{struct_f_console_log}{FConsole\+Log}})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Типы}
+\Hypertarget{_base_console_8h_ab77b9320a72802c1194ebc9837b225d1}\label{_base_console_8h_ab77b9320a72802c1194ebc9837b225d1} 
+\index{BaseConsole.h@{BaseConsole.h}!FConsoleCommandWithArgsDelegate@{FConsoleCommandWithArgsDelegate}}
+\index{FConsoleCommandWithArgsDelegate@{FConsoleCommandWithArgsDelegate}!BaseConsole.h@{BaseConsole.h}}
+\doxysubsubsection{\texorpdfstring{FConsoleCommandWithArgsDelegate}{FConsoleCommandWithArgsDelegate}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_logger_8h_a182e58c72146010abacd09e1d1f7ed0e}{typedef}} \mbox{\hyperlink{class_t_multi_cast_delegate}{TMulti\+Cast\+Delegate}}$<$void, const \mbox{\hyperlink{class_t_array}{TArray}}$<$\mbox{\hyperlink{class_f_string}{FString}}$>$\&$>$ \mbox{\hyperlink{_base_console_8h_ab77b9320a72802c1194ebc9837b225d1}{FConsole\+Command\+With\+Args\+Delegate}}}
+
+\Hypertarget{_base_console_8h_a0886a2931f781b536b1634839c82ee3a}\label{_base_console_8h_a0886a2931f781b536b1634839c82ee3a} 
+\index{BaseConsole.h@{BaseConsole.h}!FConsoleSoloCommandWithArgsDelegate@{FConsoleSoloCommandWithArgsDelegate}}
+\index{FConsoleSoloCommandWithArgsDelegate@{FConsoleSoloCommandWithArgsDelegate}!BaseConsole.h@{BaseConsole.h}}
+\doxysubsubsection{\texorpdfstring{FConsoleSoloCommandWithArgsDelegate}{FConsoleSoloCommandWithArgsDelegate}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_logger_8h_a182e58c72146010abacd09e1d1f7ed0e}{typedef}} std\+::function$<$void(const \mbox{\hyperlink{class_t_array}{TArray}}$<$\mbox{\hyperlink{class_f_string}{FString}}$>$\&) FConsole\+Solo\+Command\+With\+Args\+Delegate) }
+
+\Hypertarget{_base_console_8h_ae26911fde2b2d2265a98cdf95ef33044}\label{_base_console_8h_ae26911fde2b2d2265a98cdf95ef33044} 
+\index{BaseConsole.h@{BaseConsole.h}!FConsoleSoloVariableDelegate@{FConsoleSoloVariableDelegate}}
+\index{FConsoleSoloVariableDelegate@{FConsoleSoloVariableDelegate}!BaseConsole.h@{BaseConsole.h}}
+\doxysubsubsection{\texorpdfstring{FConsoleSoloVariableDelegate}{FConsoleSoloVariableDelegate}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_logger_8h_a182e58c72146010abacd09e1d1f7ed0e}{typedef}} std\+::function$<$void(class \mbox{\hyperlink{class_i_console_variable}{IConsole\+Variable}}\texorpdfstring{$\ast$}{*}) FConsole\+Solo\+Variable\+Delegate) }
+
+\Hypertarget{_base_console_8h_a9744fe37fe954a806a485fcc5a6856d1}\label{_base_console_8h_a9744fe37fe954a806a485fcc5a6856d1} 
+\index{BaseConsole.h@{BaseConsole.h}!FConsoleVariableDelegate@{FConsoleVariableDelegate}}
+\index{FConsoleVariableDelegate@{FConsoleVariableDelegate}!BaseConsole.h@{BaseConsole.h}}
+\doxysubsubsection{\texorpdfstring{FConsoleVariableDelegate}{FConsoleVariableDelegate}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_logger_8h_a182e58c72146010abacd09e1d1f7ed0e}{typedef}} \mbox{\hyperlink{class_t_multi_cast_delegate}{TMulti\+Cast\+Delegate}}$<$void, class \mbox{\hyperlink{class_i_console_variable}{IConsole\+Variable}}\texorpdfstring{$\ast$}{*}$>$ \mbox{\hyperlink{_base_console_8h_a9744fe37fe954a806a485fcc5a6856d1}{FConsole\+Variable\+Delegate}}}
+
+
+
+\doxysubsection{Функции}
+\Hypertarget{_base_console_8h_a1478386e625a4266093527224aab762d}\label{_base_console_8h_a1478386e625a4266093527224aab762d} 
+\index{BaseConsole.h@{BaseConsole.h}!DECLARE\_DELEGATE\_OneParam@{DECLARE\_DELEGATE\_OneParam}}
+\index{DECLARE\_DELEGATE\_OneParam@{DECLARE\_DELEGATE\_OneParam}!BaseConsole.h@{BaseConsole.h}}
+\doxysubsubsection{\texorpdfstring{DECLARE\_DELEGATE\_OneParam()}{DECLARE\_DELEGATE\_OneParam()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily DECLARE\+\_\+\+DELEGATE\+\_\+\+One\+Param (\begin{DoxyParamCaption}\item[{FOn\+Add\+Console\+Input}]{,  }\item[{\mbox{\hyperlink{class_f_string}{FString}}}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{_base_console_8h_aef92e81024b52c7ec76e5cad3ada7a4e}\label{_base_console_8h_aef92e81024b52c7ec76e5cad3ada7a4e} 
+\index{BaseConsole.h@{BaseConsole.h}!DECLARE\_DELEGATE\_OneParam@{DECLARE\_DELEGATE\_OneParam}}
+\index{DECLARE\_DELEGATE\_OneParam@{DECLARE\_DELEGATE\_OneParam}!BaseConsole.h@{BaseConsole.h}}
+\doxysubsubsection{\texorpdfstring{DECLARE\_DELEGATE\_OneParam()}{DECLARE\_DELEGATE\_OneParam()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily DECLARE\+\_\+\+DELEGATE\+\_\+\+One\+Param (\begin{DoxyParamCaption}\item[{FOn\+Add\+Console\+Message}]{,  }\item[{struct \mbox{\hyperlink{struct_f_console_log}{FConsole\+Log}}}]{ }\end{DoxyParamCaption})}
+

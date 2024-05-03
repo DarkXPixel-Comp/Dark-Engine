@@ -15,54 +15,11 @@
 #include "Common.hlsl"
 
 
-SamplerState gSamPointWrap : register(s0);
-SamplerState gSamPointClamp : register(s1);
-SamplerState gSamLinearWrap : register(s2);
-SamplerState gSamLinearClamp : register(s3);
-SamplerState gSamAnisotropicWrap : register(s4);
-SamplerState gSamAnisotropicClamp : register(s5);
-
-Texture2D tAlbedo : register(t0);
-Texture2D tNormal : register(t1);
-
-
-cbuffer cbObject : register(b0)
-{
-	float4x4 ModelMatrix;
-}
-
-cbuffer cbPass : register(b3)
-{
-	Light gLights[16];
-	float4x4 gView;
-	float4x4 gProj;
-	float4x4 gViewProj;
-	float2 gRenderTargetSize;
-	float gTotalTime;
-	float gDeltaTime;
-	float3 gEyePos;
-	float gZNear;
-	float4 gAmbientLight;
-	float gFarZ;
-}
-
-
-cbuffer cbMaterial : register(b2)
-{
-	float4 gDiffuse;
-	float3 gFrensel;
-	float gRoughness;
-	float4x4 gMatTransform;
-}
-
-
-
-
-
 
 float4 main(PSInput input) : SV_TARGET
 {
-	//return gColorMap.Sample(gSamLinearClamp, input.uv);
+	return float4(1, 1, 1, 1);
+	/*//return gColorMap.Sample(gSamLinearClamp, input.uv);
 	//return float4(1, 1, 1, 1);
 	
 	float4 gDiffuseAlbedo = gDiffuse * tAlbedo.Sample(gSamAnisotropicWrap, input.uv);
@@ -94,6 +51,6 @@ float4 main(PSInput input) : SV_TARGET
 	
 	litColor.a = gDiffuseAlbedo.a;
 	//return ambient;
-	return litColor;
+	return litColor;*/
 
 }

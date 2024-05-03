@@ -1,0 +1,46 @@
+\doxysection{Файл Dark Engine/\+Source/\+Runtime/\+Application\+Core/public/\+Windows/\+Windows\+Window.h}
+\hypertarget{_windows_window_8h}{}\label{_windows_window_8h}\index{Dark Engine/Source/Runtime/ApplicationCore/public/Windows/WindowsWindow.h@{Dark Engine/Source/Runtime/ApplicationCore/public/Windows/WindowsWindow.h}}
+{\ttfamily \#include $<$Core.\+h$>$}\newline
+{\ttfamily \#include $<$Delegate/\+Delegate.\+h$>$}\newline
+{\ttfamily \#include $<$Windows.\+h$>$}\newline
+{\ttfamily \#include $<$Containers/\+Dark\+String.\+h$>$}\newline
+{\ttfamily \#include "{}Generic\+Platform/\+Generic\+Window.\+h"{}}\newline
+{\ttfamily \#include "{}Generic\+Platform/\+Generic\+Window\+Definition.\+h"{}}\newline
+{\ttfamily \#include "{}Windows/\+Windows\+Application.\+h"{}}\newline
+{\ttfamily \#include "{}Memory/\+TUnique\+Ptr.\+h"{}}\newline
+{\ttfamily \#include "{}Math/\+Math\+Fwd.\+h"{}}\newline
+\doxysubsubsection*{Классы}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_f_windows_window}{FWindows\+Window}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Функции}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_windows_window_8h_a0cd3f36f6718d52d9c4eef410b217914}{DECLARE\+\_\+\+MULTICAST\+\_\+\+DELEGATE\+\_\+\+Two\+Params}} (Resize\+Window, long, long)
+\item 
+\mbox{\hyperlink{_windows_window_8h_a669c8cfd1bfa1bce37877109f66eed29}{DECLARE\+\_\+\+MULTICAST\+\_\+\+DELEGATE}} (FDestroy\+Window)
+\item 
+\mbox{\hyperlink{_windows_window_8h_acdec8eefb31ddf5b1fa691bcae2d5f4c}{DECLARE\+\_\+\+DELEGATE}} (FUpdate\+Window)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Функции}
+\Hypertarget{_windows_window_8h_acdec8eefb31ddf5b1fa691bcae2d5f4c}\label{_windows_window_8h_acdec8eefb31ddf5b1fa691bcae2d5f4c} 
+\index{WindowsWindow.h@{WindowsWindow.h}!DECLARE\_DELEGATE@{DECLARE\_DELEGATE}}
+\index{DECLARE\_DELEGATE@{DECLARE\_DELEGATE}!WindowsWindow.h@{WindowsWindow.h}}
+\doxysubsubsection{\texorpdfstring{DECLARE\_DELEGATE()}{DECLARE\_DELEGATE()}}
+{\footnotesize\ttfamily DECLARE\+\_\+\+DELEGATE (\begin{DoxyParamCaption}\item[{FUpdate\+Window}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{_windows_window_8h_a669c8cfd1bfa1bce37877109f66eed29}\label{_windows_window_8h_a669c8cfd1bfa1bce37877109f66eed29} 
+\index{WindowsWindow.h@{WindowsWindow.h}!DECLARE\_MULTICAST\_DELEGATE@{DECLARE\_MULTICAST\_DELEGATE}}
+\index{DECLARE\_MULTICAST\_DELEGATE@{DECLARE\_MULTICAST\_DELEGATE}!WindowsWindow.h@{WindowsWindow.h}}
+\doxysubsubsection{\texorpdfstring{DECLARE\_MULTICAST\_DELEGATE()}{DECLARE\_MULTICAST\_DELEGATE()}}
+{\footnotesize\ttfamily DECLARE\+\_\+\+MULTICAST\+\_\+\+DELEGATE (\begin{DoxyParamCaption}\item[{FDestroy\+Window}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{_windows_window_8h_a0cd3f36f6718d52d9c4eef410b217914}\label{_windows_window_8h_a0cd3f36f6718d52d9c4eef410b217914} 
+\index{WindowsWindow.h@{WindowsWindow.h}!DECLARE\_MULTICAST\_DELEGATE\_TwoParams@{DECLARE\_MULTICAST\_DELEGATE\_TwoParams}}
+\index{DECLARE\_MULTICAST\_DELEGATE\_TwoParams@{DECLARE\_MULTICAST\_DELEGATE\_TwoParams}!WindowsWindow.h@{WindowsWindow.h}}
+\doxysubsubsection{\texorpdfstring{DECLARE\_MULTICAST\_DELEGATE\_TwoParams()}{DECLARE\_MULTICAST\_DELEGATE\_TwoParams()}}
+{\footnotesize\ttfamily DECLARE\+\_\+\+MULTICAST\+\_\+\+DELEGATE\+\_\+\+Two\+Params (\begin{DoxyParamCaption}\item[{Resize\+Window}]{,  }\item[{long}]{,  }\item[{long}]{ }\end{DoxyParamCaption})}
+

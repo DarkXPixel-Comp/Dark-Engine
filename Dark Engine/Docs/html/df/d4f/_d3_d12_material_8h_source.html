@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Dark Engine: Исходный файл Dark Engine/Source/Runtime/Render/D3D12/D3D12Material.h</title>
+<link rel="icon" href="../../Logo.png" type="image/x-icon" />
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<script type="text/javascript" src="../../clipboard.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../MiniLogo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Dark Engine<span id="projectnumber">&#160;0.0.50</span>
+   </div>
+   <div id="projectbrief">New game engnie D3D12</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../../',true,false,'search.php','Поиск');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(1); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('df/d4f/_d3_d12_material_8h_source.html','../../'); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">D3D12Material.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="../../df/d4f/_d3_d12_material_8h.html">См. документацию.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;<a class="code" href="../../de/d94/_d3_d12_8h.html">D3D12.h</a>&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="../../de/d49/_d3_d12_resource_8h.html">D3D12Resource.h</a>&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="../../d1/dae/_render_2_d3_d12_2_d3_d12_texture_8h.html">D3D12Texture.h</a>&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="foldopen" id="foldopen00007" data-start="{" data-end="};">
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="../../d7/df2/class_d3_d12_material.html">    7</a></span><span class="keyword">class </span><a class="code hl_class" href="../../d7/df2/class_d3_d12_material.html">D3D12Material</a></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>{</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    <span class="comment">//D3D12UploadBufferResource&lt;&gt;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="../../d7/df2/class_d3_d12_material.html#aabb5a79724b47acd55fd739de93f4150">   12</a></span>    XMFLOAT4 <a class="code hl_variable" href="../../d7/df2/class_d3_d12_material.html#aabb5a79724b47acd55fd739de93f4150">m_diffuseAlbedo</a>;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="../../d7/df2/class_d3_d12_material.html#a389dc5c4d4d31ce2df428ad1b96202d0">   13</a></span>    XMFLOAT3 <a class="code hl_variable" href="../../d7/df2/class_d3_d12_material.html#a389dc5c4d4d31ce2df428ad1b96202d0">m_frenselR0</a>;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="../../d7/df2/class_d3_d12_material.html#a78e916a136cc36c0bc3ddda9c86f9b3e">   14</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="../../d7/df2/class_d3_d12_material.html#a78e916a136cc36c0bc3ddda9c86f9b3e">m_roughness</a>;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="../../d7/df2/class_d3_d12_material.html#a101f25d85487ffdd6e40c7e144e26423">   15</a></span>    XMFLOAT4X4 <a class="code hl_variable" href="../../d7/df2/class_d3_d12_material.html#a101f25d85487ffdd6e40c7e144e26423">m_matTransform</a>;</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="../../d7/df2/class_d3_d12_material.html#a62ad71325cb4de00a92123c71e9be7a8">   18</a></span>    int64_t <a class="code hl_variable" href="../../d7/df2/class_d3_d12_material.html#a62ad71325cb4de00a92123c71e9be7a8">m_BaseDescriptorIndex</a> = -1;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="../../d7/df2/class_d3_d12_material.html#ad54d164110f8d10933a37171d21e490a">   20</a></span>    <a class="code hl_class" href="../../d3/ddd/class_d3_d12_texture.html">D3D12Texture</a>* <a class="code hl_variable" href="../../d7/df2/class_d3_d12_material.html#ad54d164110f8d10933a37171d21e490a">t_Albedo</a>;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="../../d7/df2/class_d3_d12_material.html#afd0b5f5ea711b557095f39da869981c7">   21</a></span>    <a class="code hl_class" href="../../d3/ddd/class_d3_d12_texture.html">D3D12Texture</a>* <a class="code hl_variable" href="../../d7/df2/class_d3_d12_material.html#afd0b5f5ea711b557095f39da869981c7">t_Roughness</a>;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="../../d7/df2/class_d3_d12_material.html#a4dc9f7cf078d62f769b76d7037440e57">   22</a></span>    <a class="code hl_class" href="../../d3/ddd/class_d3_d12_texture.html">D3D12Texture</a>* <a class="code hl_variable" href="../../d7/df2/class_d3_d12_material.html#a4dc9f7cf078d62f769b76d7037440e57">t_Metallic</a>;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="../../d7/df2/class_d3_d12_material.html#a1c514f11418b3ced3cee36f73af8affb">   23</a></span>    <a class="code hl_class" href="../../d3/ddd/class_d3_d12_texture.html">D3D12Texture</a>* <a class="code hl_variable" href="../../d7/df2/class_d3_d12_material.html#a1c514f11418b3ced3cee36f73af8affb">t_AmbientOcclusion</a>;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="../../d7/df2/class_d3_d12_material.html#ab3a6415b68d17329117a6135282d3d50">   24</a></span>    <a class="code hl_class" href="../../d3/ddd/class_d3_d12_texture.html">D3D12Texture</a>* <a class="code hl_variable" href="../../d7/df2/class_d3_d12_material.html#ab3a6415b68d17329117a6135282d3d50">t_Normal</a>;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="../../d7/df2/class_d3_d12_material.html#a1e8c656d4f6499c3fdb1fa5d7f366334">   25</a></span>    <a class="code hl_class" href="../../d3/ddd/class_d3_d12_texture.html">D3D12Texture</a>* <a class="code hl_variable" href="../../d7/df2/class_d3_d12_material.html#a1e8c656d4f6499c3fdb1fa5d7f366334">t_Specular</a>;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>};</div>
+</div>
+<div class="ttc" id="a_d3_d12_8h_html"><div class="ttname"><a href="../../de/d94/_d3_d12_8h.html">D3D12.h</a></div></div>
+<div class="ttc" id="a_d3_d12_resource_8h_html"><div class="ttname"><a href="../../de/d49/_d3_d12_resource_8h.html">D3D12Resource.h</a></div></div>
+<div class="ttc" id="a_render_2_d3_d12_2_d3_d12_texture_8h_html"><div class="ttname"><a href="../../d1/dae/_render_2_d3_d12_2_d3_d12_texture_8h.html">D3D12Texture.h</a></div></div>
+<div class="ttc" id="aclass_d3_d12_material_html"><div class="ttname"><a href="../../d7/df2/class_d3_d12_material.html">D3D12Material</a></div><div class="ttdef"><b>Definition</b> D3D12Material.h:8</div></div>
+<div class="ttc" id="aclass_d3_d12_material_html_a101f25d85487ffdd6e40c7e144e26423"><div class="ttname"><a href="../../d7/df2/class_d3_d12_material.html#a101f25d85487ffdd6e40c7e144e26423">D3D12Material::m_matTransform</a></div><div class="ttdeci">XMFLOAT4X4 m_matTransform</div><div class="ttdef"><b>Definition</b> D3D12Material.h:15</div></div>
+<div class="ttc" id="aclass_d3_d12_material_html_a1c514f11418b3ced3cee36f73af8affb"><div class="ttname"><a href="../../d7/df2/class_d3_d12_material.html#a1c514f11418b3ced3cee36f73af8affb">D3D12Material::t_AmbientOcclusion</a></div><div class="ttdeci">D3D12Texture * t_AmbientOcclusion</div><div class="ttdef"><b>Definition</b> D3D12Material.h:23</div></div>
+<div class="ttc" id="aclass_d3_d12_material_html_a1e8c656d4f6499c3fdb1fa5d7f366334"><div class="ttname"><a href="../../d7/df2/class_d3_d12_material.html#a1e8c656d4f6499c3fdb1fa5d7f366334">D3D12Material::t_Specular</a></div><div class="ttdeci">D3D12Texture * t_Specular</div><div class="ttdef"><b>Definition</b> D3D12Material.h:25</div></div>
+<div class="ttc" id="aclass_d3_d12_material_html_a389dc5c4d4d31ce2df428ad1b96202d0"><div class="ttname"><a href="../../d7/df2/class_d3_d12_material.html#a389dc5c4d4d31ce2df428ad1b96202d0">D3D12Material::m_frenselR0</a></div><div class="ttdeci">XMFLOAT3 m_frenselR0</div><div class="ttdef"><b>Definition</b> D3D12Material.h:13</div></div>
+<div class="ttc" id="aclass_d3_d12_material_html_a4dc9f7cf078d62f769b76d7037440e57"><div class="ttname"><a href="../../d7/df2/class_d3_d12_material.html#a4dc9f7cf078d62f769b76d7037440e57">D3D12Material::t_Metallic</a></div><div class="ttdeci">D3D12Texture * t_Metallic</div><div class="ttdef"><b>Definition</b> D3D12Material.h:22</div></div>
+<div class="ttc" id="aclass_d3_d12_material_html_a62ad71325cb4de00a92123c71e9be7a8"><div class="ttname"><a href="../../d7/df2/class_d3_d12_material.html#a62ad71325cb4de00a92123c71e9be7a8">D3D12Material::m_BaseDescriptorIndex</a></div><div class="ttdeci">int64_t m_BaseDescriptorIndex</div><div class="ttdef"><b>Definition</b> D3D12Material.h:18</div></div>
+<div class="ttc" id="aclass_d3_d12_material_html_a78e916a136cc36c0bc3ddda9c86f9b3e"><div class="ttname"><a href="../../d7/df2/class_d3_d12_material.html#a78e916a136cc36c0bc3ddda9c86f9b3e">D3D12Material::m_roughness</a></div><div class="ttdeci">float m_roughness</div><div class="ttdef"><b>Definition</b> D3D12Material.h:14</div></div>
+<div class="ttc" id="aclass_d3_d12_material_html_aabb5a79724b47acd55fd739de93f4150"><div class="ttname"><a href="../../d7/df2/class_d3_d12_material.html#aabb5a79724b47acd55fd739de93f4150">D3D12Material::m_diffuseAlbedo</a></div><div class="ttdeci">XMFLOAT4 m_diffuseAlbedo</div><div class="ttdef"><b>Definition</b> D3D12Material.h:12</div></div>
+<div class="ttc" id="aclass_d3_d12_material_html_ab3a6415b68d17329117a6135282d3d50"><div class="ttname"><a href="../../d7/df2/class_d3_d12_material.html#ab3a6415b68d17329117a6135282d3d50">D3D12Material::t_Normal</a></div><div class="ttdeci">D3D12Texture * t_Normal</div><div class="ttdef"><b>Definition</b> D3D12Material.h:24</div></div>
+<div class="ttc" id="aclass_d3_d12_material_html_ad54d164110f8d10933a37171d21e490a"><div class="ttname"><a href="../../d7/df2/class_d3_d12_material.html#ad54d164110f8d10933a37171d21e490a">D3D12Material::t_Albedo</a></div><div class="ttdeci">D3D12Texture * t_Albedo</div><div class="ttdef"><b>Definition</b> D3D12Material.h:20</div></div>
+<div class="ttc" id="aclass_d3_d12_material_html_afd0b5f5ea711b557095f39da869981c7"><div class="ttname"><a href="../../d7/df2/class_d3_d12_material.html#afd0b5f5ea711b557095f39da869981c7">D3D12Material::t_Roughness</a></div><div class="ttdeci">D3D12Texture * t_Roughness</div><div class="ttdef"><b>Definition</b> D3D12Material.h:21</div></div>
+<div class="ttc" id="aclass_d3_d12_texture_html"><div class="ttname"><a href="../../d3/ddd/class_d3_d12_texture.html">D3D12Texture</a></div><div class="ttdef"><b>Definition</b> D3D12Texture.h:7</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../dir_55043db21ba5ddd7c561d2c5a5a38944.html">Dark Engine</a></li><li class="navelem"><a class="el" href="../../dir_e00b54220e1e1486ac9971b606d33054.html">Source</a></li><li class="navelem"><a class="el" href="../../dir_ae01c8af07818b260cc3481e8588b277.html">Runtime</a></li><li class="navelem"><a class="el" href="../../dir_1b0bffc8d096929f17ecae6ef7b4b529.html">Render</a></li><li class="navelem"><a class="el" href="../../dir_d93dc1c13639dc0a8989b4ca7595d959.html">D3D12</a></li><li class="navelem"><a class="el" href="../../df/d4f/_d3_d12_material_8h.html">D3D12Material.h</a></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
+</body>
+</html>

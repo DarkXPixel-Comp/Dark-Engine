@@ -1,0 +1,281 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Dark Engine: Исходный файл Dark Engine/Source/Runtime/D3D12RHI/private/D3D12Shader.h</title>
+<link rel="icon" href="../../Logo.png" type="image/x-icon" />
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<script type="text/javascript" src="../../clipboard.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../MiniLogo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Dark Engine<span id="projectnumber">&#160;0.0.50</span>
+   </div>
+   <div id="projectbrief">New game engnie D3D12</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../../',true,false,'search.php','Поиск');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(1); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('dc/dd2/_d3_d12_r_h_i_2private_2_d3_d12_shader_8h_source.html','../../'); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">D3D12Shader.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="../../dc/dd2/_d3_d12_r_h_i_2private_2_d3_d12_shader_8h.html">См. документацию.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;<a class="code" href="../../db/dec/_r_h_i_resources_8h.html">RHIResources.h</a>&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="../../de/d94/_d3_d12_8h.html">d3d12.h</a>&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;d3dx12.h&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="../../d8/d34/_shader_8h.html">Shader.h</a>&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="foldopen" id="foldopen00008" data-start="{" data-end="};">
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="../../d3/d5f/struct_f_shader_code_resource_counts.html">    8</a></span><span class="keyword">struct </span><a class="code hl_struct" href="../../d3/d5f/struct_f_shader_code_resource_counts.html">FShaderCodeResourceCounts</a></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>{</div>
+<div class="foldopen" id="foldopen00010" data-start="{" data-end="}">
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="../../d3/d5f/struct_f_shader_code_resource_counts.html#a6f7f232aeb1e2e59e146be5ff6c8b3d2">   10</a></span>    <a class="code hl_function" href="../../d3/d5f/struct_f_shader_code_resource_counts.html#a6f7f232aeb1e2e59e146be5ff6c8b3d2">FShaderCodeResourceCounts</a>(<span class="keyword">const</span> <a class="code hl_struct" href="../../d8/df6/struct_f_shader_bounds.html">FShaderBounds</a>&amp; InBounds) : </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>        <a class="code hl_variable" href="../../d3/d5f/struct_f_shader_code_resource_counts.html#aa767657bc62aa99af5662533c8443234">NumSamplers</a>(InBounds.SamplerCount),</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>        <a class="code hl_variable" href="../../d3/d5f/struct_f_shader_code_resource_counts.html#accd418a7b1e158c74f0342e31feeebb3">NumSRVs</a>(InBounds.ShaderResourceCount),</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>        <a class="code hl_variable" href="../../d3/d5f/struct_f_shader_code_resource_counts.html#a16cd030fd05c69d92f25750be85e231a">NumCBVs</a>(InBounds.ConstantBufferCount),</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>        <a class="code hl_variable" href="../../d3/d5f/struct_f_shader_code_resource_counts.html#a86ed4120f44bf07d406a0e7924b5eb55">NumUAVs</a>(InBounds.UnorderedAccessCount)</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    {}</div>
+</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="../../d3/d5f/struct_f_shader_code_resource_counts.html#aee68d93858282e0762bcaed63f009099">   16</a></span>    <a class="code hl_function" href="../../d3/d5f/struct_f_shader_code_resource_counts.html#aee68d93858282e0762bcaed63f009099">FShaderCodeResourceCounts</a>() {}</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="../../d3/d5f/struct_f_shader_code_resource_counts.html#aa767657bc62aa99af5662533c8443234">   18</a></span>    <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a40bc01dd090acd02a79b5dc13e08abe6">uint8</a> <a class="code hl_variable" href="../../d3/d5f/struct_f_shader_code_resource_counts.html#aa767657bc62aa99af5662533c8443234">NumSamplers</a>;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="../../d3/d5f/struct_f_shader_code_resource_counts.html#accd418a7b1e158c74f0342e31feeebb3">   19</a></span>    <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a40bc01dd090acd02a79b5dc13e08abe6">uint8</a> <a class="code hl_variable" href="../../d3/d5f/struct_f_shader_code_resource_counts.html#accd418a7b1e158c74f0342e31feeebb3">NumSRVs</a>;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="../../d3/d5f/struct_f_shader_code_resource_counts.html#a16cd030fd05c69d92f25750be85e231a">   20</a></span>    <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a40bc01dd090acd02a79b5dc13e08abe6">uint8</a> <a class="code hl_variable" href="../../d3/d5f/struct_f_shader_code_resource_counts.html#a16cd030fd05c69d92f25750be85e231a">NumCBVs</a>;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="../../d3/d5f/struct_f_shader_code_resource_counts.html#a86ed4120f44bf07d406a0e7924b5eb55">   21</a></span>    <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a40bc01dd090acd02a79b5dc13e08abe6">uint8</a> <a class="code hl_variable" href="../../d3/d5f/struct_f_shader_code_resource_counts.html#a86ed4120f44bf07d406a0e7924b5eb55">NumUAVs</a>;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>};</div>
+</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="foldopen" id="foldopen00024" data-start="{" data-end="};">
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="../../dd/df1/struct_f_d3_d12_shader_data.html">   24</a></span><span class="keyword">struct </span><a class="code hl_struct" href="../../dd/df1/struct_f_d3_d12_shader_data.html">FD3D12ShaderData</a></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>{</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="../../dd/df1/struct_f_d3_d12_shader_data.html#ad78f20d0358aa4530005e8392abbf373">   26</a></span>    TArray&lt;uint8&gt; <a class="code hl_variable" href="../../dd/df1/struct_f_d3_d12_shader_data.html#ad78f20d0358aa4530005e8392abbf373">Code</a>;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="../../dd/df1/struct_f_d3_d12_shader_data.html#a85420584656ed30b5aa3456f491528bf">   27</a></span>    <a class="code hl_struct" href="../../d3/d5f/struct_f_shader_code_resource_counts.html">FShaderCodeResourceCounts</a> <a class="code hl_variable" href="../../dd/df1/struct_f_d3_d12_shader_data.html#a85420584656ed30b5aa3456f491528bf">ResourceCounts</a>{};</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="foldopen" id="foldopen00029" data-start="{" data-end="}">
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="../../dd/df1/struct_f_d3_d12_shader_data.html#acbc48932c398e4ec0ebbac1f9ef31420">   29</a></span>    D3D12_SHADER_BYTECODE <a class="code hl_function" href="../../dd/df1/struct_f_d3_d12_shader_data.html#acbc48932c398e4ec0ebbac1f9ef31420">GetShaderByteCode</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        <span class="keywordflow">return</span> CD3DX12_SHADER_BYTECODE(<a class="code hl_variable" href="../../dd/df1/struct_f_d3_d12_shader_data.html#ad78f20d0358aa4530005e8392abbf373">Code</a>.<a class="code hl_function" href="../../d6/db1/class_t_array.html#a6f85f6ee77b6e3107fa8b686ff11ca3c">GetData</a>(), <a class="code hl_variable" href="../../dd/df1/struct_f_d3_d12_shader_data.html#ad78f20d0358aa4530005e8392abbf373">Code</a>.<a class="code hl_function" href="../../d6/db1/class_t_array.html#a0518cdf49caf6fe4f4d7948a030e65a9">Num</a>());</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    }</div>
+</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>};</div>
+</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> TShaderType&gt;</div>
+<div class="foldopen" id="foldopen00038" data-start="{" data-end="}">
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="../../dc/dd2/_d3_d12_r_h_i_2private_2_d3_d12_shader_8h.html#a0617dfde3e1954dbb199a102622a45ab">   38</a></span>TShaderType* <a class="code hl_function" href="../../dc/dd2/_d3_d12_r_h_i_2private_2_d3_d12_shader_8h.html#a0617dfde3e1954dbb199a102622a45ab">CreateStandartShader</a>(<span class="keyword">const</span> TArray&lt;uint8&gt;&amp; InCode)</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>{</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    TShaderType* Shader = <span class="keyword">new</span> TShaderType();</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    Shader-&gt;Code = InCode;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    Shader-&gt;ShaderHash = std::hash&lt;TArray&lt;uint8&gt;&gt;{}(InCode);</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keywordflow">return</span> Shader;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>}</div>
+</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="../../dc/dd2/_d3_d12_r_h_i_2private_2_d3_d12_shader_8h.html#abf9318cfc7dfe77dc9345d7de87cf581">   49</a></span><span class="keyword">typedef</span> TArray&lt;D3D12_INPUT_ELEMENT_DESC&gt; <a class="code hl_typedef" href="../../dc/dd2/_d3_d12_r_h_i_2private_2_d3_d12_shader_8h.html#abf9318cfc7dfe77dc9345d7de87cf581">FD3D12VertexElements</a>;</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="foldopen" id="foldopen00051" data-start="{" data-end="};">
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="../../d3/d63/class_f_d3_d12_vertex_declaration.html">   51</a></span><span class="keyword">class </span><a class="code hl_class" href="../../d3/d63/class_f_d3_d12_vertex_declaration.html">FD3D12VertexDeclaration</a> : <span class="keyword">public</span> <a class="code hl_class" href="../../d6/de6/class_f_r_h_i_vertex_declaration.html">FRHIVertexDeclaration</a></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>{</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="../../d3/d63/class_f_d3_d12_vertex_declaration.html#adf46d27f730b24b3d5e31467ecfdf4d1">   54</a></span>    <a class="code hl_class" href="../../d6/db1/class_t_array.html">FD3D12VertexElements</a> <a class="code hl_variable" href="../../d3/d63/class_f_d3_d12_vertex_declaration.html#adf46d27f730b24b3d5e31467ecfdf4d1">VertexElements</a>;</div>
+<div class="foldopen" id="foldopen00055" data-start="{" data-end="}">
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="../../d3/d63/class_f_d3_d12_vertex_declaration.html#a901d0640f3ae99416074e5babd4b2d6d">   55</a></span>    <a class="code hl_function" href="../../d3/d63/class_f_d3_d12_vertex_declaration.html#a901d0640f3ae99416074e5babd4b2d6d">FD3D12VertexDeclaration</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../d6/db1/class_t_array.html">FD3D12VertexElements</a>&amp; InElements):</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        <a class="code hl_variable" href="../../d3/d63/class_f_d3_d12_vertex_declaration.html#adf46d27f730b24b3d5e31467ecfdf4d1">VertexElements</a>(InElements)</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    {}</div>
+</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="foldopen" id="foldopen00060" data-start="{" data-end="}">
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="../../d3/d63/class_f_d3_d12_vertex_declaration.html#a93e56c54286bb745ae64479700c9b737">   60</a></span>    D3D12_INPUT_LAYOUT_DESC <a class="code hl_function" href="../../d3/d63/class_f_d3_d12_vertex_declaration.html#a93e56c54286bb745ae64479700c9b737">GetLayoutDsec</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        <span class="keywordflow">return</span> D3D12_INPUT_LAYOUT_DESC{<a class="code hl_variable" href="../../d3/d63/class_f_d3_d12_vertex_declaration.html#adf46d27f730b24b3d5e31467ecfdf4d1">VertexElements</a>.<a class="code hl_function" href="../../d6/db1/class_t_array.html#a6f85f6ee77b6e3107fa8b686ff11ca3c">GetData</a>(), (UINT)<a class="code hl_variable" href="../../d3/d63/class_f_d3_d12_vertex_declaration.html#adf46d27f730b24b3d5e31467ecfdf4d1">VertexElements</a>.<a class="code hl_function" href="../../d6/db1/class_t_array.html#a0518cdf49caf6fe4f4d7948a030e65a9">Num</a>()};</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    }</div>
+</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="../../d3/d63/class_f_d3_d12_vertex_declaration.html#a30006bce856b99b32bf693eeef16b21d">   65</a></span>    <a class="code hl_class" href="../../d9/dcb/class_f_string.html">FString</a> <a class="code hl_variable" href="../../d3/d63/class_f_d3_d12_vertex_declaration.html#a30006bce856b99b32bf693eeef16b21d">SemanticName</a>;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>};</div>
+</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="foldopen" id="foldopen00071" data-start="{" data-end="};">
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="../../de/d35/class_f_d3_d12_vertex_shader.html">   71</a></span><span class="keyword">class </span><a class="code hl_class" href="../../de/d35/class_f_d3_d12_vertex_shader.html">FD3D12VertexShader</a> : <span class="keyword">public</span> <a class="code hl_class" href="../../d0/d98/class_f_r_h_i_vertex_shader.html">FRHIVertexShader</a>, <span class="keyword">public</span> <a class="code hl_struct" href="../../dd/df1/struct_f_d3_d12_shader_data.html">FD3D12ShaderData</a></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>{</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="../../de/d35/class_f_d3_d12_vertex_shader.html#a54ace5f7bd7623ef3245e930e7898aeba4ff31b591372d724cff9c477c92edec3">   74</a></span>    <span class="keyword">enum</span> { <a class="code hl_enumvalue" href="../../de/d35/class_f_d3_d12_vertex_shader.html#a54ace5f7bd7623ef3245e930e7898aeba4ff31b591372d724cff9c477c92edec3">StaticType</a> = <a class="code hl_enumvalue" href="../../de/df7/_r_h_i_defines_8h.html#a89725d5f41ceac2e574ddc988f06775ea051ebc9c5c563958123bdbdc3bb9330d">ST_Vertex</a> };</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>};</div>
+</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="foldopen" id="foldopen00079" data-start="{" data-end="};">
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno"><a class="line" href="../../dd/d1d/class_f_d3_d12_pixel_shader.html">   79</a></span><span class="keyword">class </span><a class="code hl_class" href="../../dd/d1d/class_f_d3_d12_pixel_shader.html">FD3D12PixelShader</a> : <span class="keyword">public</span> <a class="code hl_class" href="../../d4/d06/class_f_r_h_i_pixel_shader.html">FRHIPixelShader</a>, <span class="keyword">public</span> <a class="code hl_struct" href="../../dd/df1/struct_f_d3_d12_shader_data.html">FD3D12ShaderData</a></div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>{</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno"><a class="line" href="../../dd/d1d/class_f_d3_d12_pixel_shader.html#a0da9ec5fb6ae4f7ca27097e642dd1d53a4fdbbefd5377e644b030845f7727fdd7">   82</a></span>    <span class="keyword">enum</span> { <a class="code hl_enumvalue" href="../../dd/d1d/class_f_d3_d12_pixel_shader.html#a0da9ec5fb6ae4f7ca27097e642dd1d53a4fdbbefd5377e644b030845f7727fdd7">StaticType</a> = <a class="code hl_enumvalue" href="../../de/df7/_r_h_i_defines_8h.html#a89725d5f41ceac2e574ddc988f06775ea135f8248df527333f4407f04072fdf74">ST_Pixel</a> };</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>};</div>
+</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="foldopen" id="foldopen00086" data-start="{" data-end="};">
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno"><a class="line" href="../../db/daf/class_f_d3_d12_geometry_shader.html">   86</a></span><span class="keyword">class </span><a class="code hl_class" href="../../db/daf/class_f_d3_d12_geometry_shader.html">FD3D12GeometryShader</a> : <span class="keyword">public</span> <a class="code hl_class" href="../../d6/d35/class_f_r_h_i_geometry_shader.html">FRHIGeometryShader</a>, <span class="keyword">public</span> <a class="code hl_struct" href="../../dd/df1/struct_f_d3_d12_shader_data.html">FD3D12ShaderData</a></div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>{</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="../../db/daf/class_f_d3_d12_geometry_shader.html#aea1b08f30c6c727d1dfc866603757a67abbb3652377e79573ceeb7ccb8ea1a71b">   89</a></span>    <span class="keyword">enum</span> { <a class="code hl_enumvalue" href="../../db/daf/class_f_d3_d12_geometry_shader.html#aea1b08f30c6c727d1dfc866603757a67abbb3652377e79573ceeb7ccb8ea1a71b">StaticType</a> = <a class="code hl_enumvalue" href="../../de/df7/_r_h_i_defines_8h.html#a89725d5f41ceac2e574ddc988f06775eae3f6fd79e0c21a0b595127fe2159e7fa">ST_Geometry</a> };</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>};</div>
+</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="foldopen" id="foldopen00093" data-start="{" data-end="};">
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno"><a class="line" href="../../d9/d50/class_f_d3_d12_compute_shader.html">   93</a></span><span class="keyword">class </span><a class="code hl_class" href="../../d9/d50/class_f_d3_d12_compute_shader.html">FD3D12ComputeShader</a> : <span class="keyword">public</span> <a class="code hl_class" href="../../d0/deb/class_f_r_h_i_compute_shader.html">FRHIComputeShader</a>, <span class="keyword">public</span> <a class="code hl_struct" href="../../dd/df1/struct_f_d3_d12_shader_data.html">FD3D12ShaderData</a></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>{</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno"><a class="line" href="../../d9/d50/class_f_d3_d12_compute_shader.html#addbb760f702a5ec6e07e5fd9edbfe18baf6805688ea7e0a37d428044f1302af0f">   96</a></span>    <span class="keyword">enum</span> { <a class="code hl_enumvalue" href="../../d9/d50/class_f_d3_d12_compute_shader.html#addbb760f702a5ec6e07e5fd9edbfe18baf6805688ea7e0a37d428044f1302af0f">StaticType</a> = <a class="code hl_enumvalue" href="../../de/df7/_r_h_i_defines_8h.html#a89725d5f41ceac2e574ddc988f06775ea64d9c4eef6dc34ee3db598ddc5a62080">ST_Compute</a> };</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>};</div>
+</div>
+<div class="ttc" id="a_d3_d12_8h_html"><div class="ttname"><a href="../../de/d94/_d3_d12_8h.html">D3D12.h</a></div></div>
+<div class="ttc" id="a_d3_d12_r_h_i_2private_2_d3_d12_shader_8h_html_a0617dfde3e1954dbb199a102622a45ab"><div class="ttname"><a href="../../dc/dd2/_d3_d12_r_h_i_2private_2_d3_d12_shader_8h.html#a0617dfde3e1954dbb199a102622a45ab">CreateStandartShader</a></div><div class="ttdeci">TShaderType * CreateStandartShader(const TArray&lt; uint8 &gt; &amp;InCode)</div><div class="ttdef"><b>Definition</b> D3D12Shader.h:38</div></div>
+<div class="ttc" id="a_d3_d12_r_h_i_2private_2_d3_d12_shader_8h_html_abf9318cfc7dfe77dc9345d7de87cf581"><div class="ttname"><a href="../../dc/dd2/_d3_d12_r_h_i_2private_2_d3_d12_shader_8h.html#abf9318cfc7dfe77dc9345d7de87cf581">FD3D12VertexElements</a></div><div class="ttdeci">TArray&lt; D3D12_INPUT_ELEMENT_DESC &gt; FD3D12VertexElements</div><div class="ttdef"><b>Definition</b> D3D12Shader.h:49</div></div>
+<div class="ttc" id="a_platform_8h_html_a40bc01dd090acd02a79b5dc13e08abe6"><div class="ttname"><a href="../../d2/dc9/_platform_8h.html#a40bc01dd090acd02a79b5dc13e08abe6">uint8</a></div><div class="ttdeci">FPlatformTypes::uint8 uint8</div><div class="ttdef"><b>Definition</b> Platform.h:39</div></div>
+<div class="ttc" id="a_r_h_i_defines_8h_html_a89725d5f41ceac2e574ddc988f06775ea051ebc9c5c563958123bdbdc3bb9330d"><div class="ttname"><a href="../../de/df7/_r_h_i_defines_8h.html#a89725d5f41ceac2e574ddc988f06775ea051ebc9c5c563958123bdbdc3bb9330d">ST_Vertex</a></div><div class="ttdeci">@ ST_Vertex</div><div class="ttdef"><b>Definition</b> RHIDefines.h:127</div></div>
+<div class="ttc" id="a_r_h_i_defines_8h_html_a89725d5f41ceac2e574ddc988f06775ea135f8248df527333f4407f04072fdf74"><div class="ttname"><a href="../../de/df7/_r_h_i_defines_8h.html#a89725d5f41ceac2e574ddc988f06775ea135f8248df527333f4407f04072fdf74">ST_Pixel</a></div><div class="ttdeci">@ ST_Pixel</div><div class="ttdef"><b>Definition</b> RHIDefines.h:129</div></div>
+<div class="ttc" id="a_r_h_i_defines_8h_html_a89725d5f41ceac2e574ddc988f06775ea64d9c4eef6dc34ee3db598ddc5a62080"><div class="ttname"><a href="../../de/df7/_r_h_i_defines_8h.html#a89725d5f41ceac2e574ddc988f06775ea64d9c4eef6dc34ee3db598ddc5a62080">ST_Compute</a></div><div class="ttdeci">@ ST_Compute</div><div class="ttdef"><b>Definition</b> RHIDefines.h:131</div></div>
+<div class="ttc" id="a_r_h_i_defines_8h_html_a89725d5f41ceac2e574ddc988f06775eae3f6fd79e0c21a0b595127fe2159e7fa"><div class="ttname"><a href="../../de/df7/_r_h_i_defines_8h.html#a89725d5f41ceac2e574ddc988f06775eae3f6fd79e0c21a0b595127fe2159e7fa">ST_Geometry</a></div><div class="ttdeci">@ ST_Geometry</div><div class="ttdef"><b>Definition</b> RHIDefines.h:130</div></div>
+<div class="ttc" id="a_r_h_i_resources_8h_html"><div class="ttname"><a href="../../db/dec/_r_h_i_resources_8h.html">RHIResources.h</a></div></div>
+<div class="ttc" id="a_shader_8h_html"><div class="ttname"><a href="../../d8/d34/_shader_8h.html">Shader.h</a></div></div>
+<div class="ttc" id="aclass_f_d3_d12_compute_shader_html"><div class="ttname"><a href="../../d9/d50/class_f_d3_d12_compute_shader.html">FD3D12ComputeShader</a></div><div class="ttdef"><b>Definition</b> D3D12Shader.h:94</div></div>
+<div class="ttc" id="aclass_f_d3_d12_compute_shader_html_addbb760f702a5ec6e07e5fd9edbfe18baf6805688ea7e0a37d428044f1302af0f"><div class="ttname"><a href="../../d9/d50/class_f_d3_d12_compute_shader.html#addbb760f702a5ec6e07e5fd9edbfe18baf6805688ea7e0a37d428044f1302af0f">FD3D12ComputeShader::StaticType</a></div><div class="ttdeci">@ StaticType</div><div class="ttdef"><b>Definition</b> D3D12Shader.h:96</div></div>
+<div class="ttc" id="aclass_f_d3_d12_geometry_shader_html"><div class="ttname"><a href="../../db/daf/class_f_d3_d12_geometry_shader.html">FD3D12GeometryShader</a></div><div class="ttdef"><b>Definition</b> D3D12Shader.h:87</div></div>
+<div class="ttc" id="aclass_f_d3_d12_geometry_shader_html_aea1b08f30c6c727d1dfc866603757a67abbb3652377e79573ceeb7ccb8ea1a71b"><div class="ttname"><a href="../../db/daf/class_f_d3_d12_geometry_shader.html#aea1b08f30c6c727d1dfc866603757a67abbb3652377e79573ceeb7ccb8ea1a71b">FD3D12GeometryShader::StaticType</a></div><div class="ttdeci">@ StaticType</div><div class="ttdef"><b>Definition</b> D3D12Shader.h:89</div></div>
+<div class="ttc" id="aclass_f_d3_d12_pixel_shader_html"><div class="ttname"><a href="../../dd/d1d/class_f_d3_d12_pixel_shader.html">FD3D12PixelShader</a></div><div class="ttdef"><b>Definition</b> D3D12Shader.h:80</div></div>
+<div class="ttc" id="aclass_f_d3_d12_pixel_shader_html_a0da9ec5fb6ae4f7ca27097e642dd1d53a4fdbbefd5377e644b030845f7727fdd7"><div class="ttname"><a href="../../dd/d1d/class_f_d3_d12_pixel_shader.html#a0da9ec5fb6ae4f7ca27097e642dd1d53a4fdbbefd5377e644b030845f7727fdd7">FD3D12PixelShader::StaticType</a></div><div class="ttdeci">@ StaticType</div><div class="ttdef"><b>Definition</b> D3D12Shader.h:82</div></div>
+<div class="ttc" id="aclass_f_d3_d12_vertex_declaration_html"><div class="ttname"><a href="../../d3/d63/class_f_d3_d12_vertex_declaration.html">FD3D12VertexDeclaration</a></div><div class="ttdef"><b>Definition</b> D3D12Shader.h:52</div></div>
+<div class="ttc" id="aclass_f_d3_d12_vertex_declaration_html_a30006bce856b99b32bf693eeef16b21d"><div class="ttname"><a href="../../d3/d63/class_f_d3_d12_vertex_declaration.html#a30006bce856b99b32bf693eeef16b21d">FD3D12VertexDeclaration::SemanticName</a></div><div class="ttdeci">FString SemanticName</div><div class="ttdef"><b>Definition</b> D3D12Shader.h:65</div></div>
+<div class="ttc" id="aclass_f_d3_d12_vertex_declaration_html_a901d0640f3ae99416074e5babd4b2d6d"><div class="ttname"><a href="../../d3/d63/class_f_d3_d12_vertex_declaration.html#a901d0640f3ae99416074e5babd4b2d6d">FD3D12VertexDeclaration::FD3D12VertexDeclaration</a></div><div class="ttdeci">FD3D12VertexDeclaration(const FD3D12VertexElements &amp;InElements)</div><div class="ttdef"><b>Definition</b> D3D12Shader.h:55</div></div>
+<div class="ttc" id="aclass_f_d3_d12_vertex_declaration_html_a93e56c54286bb745ae64479700c9b737"><div class="ttname"><a href="../../d3/d63/class_f_d3_d12_vertex_declaration.html#a93e56c54286bb745ae64479700c9b737">FD3D12VertexDeclaration::GetLayoutDsec</a></div><div class="ttdeci">D3D12_INPUT_LAYOUT_DESC GetLayoutDsec() const</div><div class="ttdef"><b>Definition</b> D3D12Shader.h:60</div></div>
+<div class="ttc" id="aclass_f_d3_d12_vertex_declaration_html_adf46d27f730b24b3d5e31467ecfdf4d1"><div class="ttname"><a href="../../d3/d63/class_f_d3_d12_vertex_declaration.html#adf46d27f730b24b3d5e31467ecfdf4d1">FD3D12VertexDeclaration::VertexElements</a></div><div class="ttdeci">FD3D12VertexElements VertexElements</div><div class="ttdef"><b>Definition</b> D3D12Shader.h:54</div></div>
+<div class="ttc" id="aclass_f_d3_d12_vertex_shader_html"><div class="ttname"><a href="../../de/d35/class_f_d3_d12_vertex_shader.html">FD3D12VertexShader</a></div><div class="ttdef"><b>Definition</b> D3D12Shader.h:72</div></div>
+<div class="ttc" id="aclass_f_d3_d12_vertex_shader_html_a54ace5f7bd7623ef3245e930e7898aeba4ff31b591372d724cff9c477c92edec3"><div class="ttname"><a href="../../de/d35/class_f_d3_d12_vertex_shader.html#a54ace5f7bd7623ef3245e930e7898aeba4ff31b591372d724cff9c477c92edec3">FD3D12VertexShader::StaticType</a></div><div class="ttdeci">@ StaticType</div><div class="ttdef"><b>Definition</b> D3D12Shader.h:74</div></div>
+<div class="ttc" id="aclass_f_r_h_i_compute_shader_html"><div class="ttname"><a href="../../d0/deb/class_f_r_h_i_compute_shader.html">FRHIComputeShader</a></div><div class="ttdef"><b>Definition</b> RHIResources.h:454</div></div>
+<div class="ttc" id="aclass_f_r_h_i_geometry_shader_html"><div class="ttname"><a href="../../d6/d35/class_f_r_h_i_geometry_shader.html">FRHIGeometryShader</a></div><div class="ttdef"><b>Definition</b> RHIResources.h:446</div></div>
+<div class="ttc" id="aclass_f_r_h_i_pixel_shader_html"><div class="ttname"><a href="../../d4/d06/class_f_r_h_i_pixel_shader.html">FRHIPixelShader</a></div><div class="ttdef"><b>Definition</b> RHIResources.h:439</div></div>
+<div class="ttc" id="aclass_f_r_h_i_vertex_declaration_html"><div class="ttname"><a href="../../d6/de6/class_f_r_h_i_vertex_declaration.html">FRHIVertexDeclaration</a></div><div class="ttdef"><b>Definition</b> RHIResources.h:426</div></div>
+<div class="ttc" id="aclass_f_r_h_i_vertex_shader_html"><div class="ttname"><a href="../../d0/d98/class_f_r_h_i_vertex_shader.html">FRHIVertexShader</a></div><div class="ttdef"><b>Definition</b> RHIResources.h:433</div></div>
+<div class="ttc" id="aclass_f_string_html"><div class="ttname"><a href="../../d9/dcb/class_f_string.html">FString</a></div><div class="ttdef"><b>Definition</b> DarkString.h:17</div></div>
+<div class="ttc" id="aclass_t_array_html"><div class="ttname"><a href="../../d6/db1/class_t_array.html">TArray&lt; D3D12_INPUT_ELEMENT_DESC &gt;</a></div></div>
+<div class="ttc" id="aclass_t_array_html_a0518cdf49caf6fe4f4d7948a030e65a9"><div class="ttname"><a href="../../d6/db1/class_t_array.html#a0518cdf49caf6fe4f4d7948a030e65a9">TArray::Num</a></div><div class="ttdeci">SizeType Num() const</div><div class="ttdef"><b>Definition</b> Array.h:91</div></div>
+<div class="ttc" id="aclass_t_array_html_a6f85f6ee77b6e3107fa8b686ff11ca3c"><div class="ttname"><a href="../../d6/db1/class_t_array.html#a6f85f6ee77b6e3107fa8b686ff11ca3c">TArray::GetData</a></div><div class="ttdeci">auto GetData()</div><div class="ttdef"><b>Definition</b> Array.h:85</div></div>
+<div class="ttc" id="astruct_f_d3_d12_shader_data_html"><div class="ttname"><a href="../../dd/df1/struct_f_d3_d12_shader_data.html">FD3D12ShaderData</a></div><div class="ttdef"><b>Definition</b> D3D12Shader.h:25</div></div>
+<div class="ttc" id="astruct_f_d3_d12_shader_data_html_a85420584656ed30b5aa3456f491528bf"><div class="ttname"><a href="../../dd/df1/struct_f_d3_d12_shader_data.html#a85420584656ed30b5aa3456f491528bf">FD3D12ShaderData::ResourceCounts</a></div><div class="ttdeci">FShaderCodeResourceCounts ResourceCounts</div><div class="ttdef"><b>Definition</b> D3D12Shader.h:27</div></div>
+<div class="ttc" id="astruct_f_d3_d12_shader_data_html_acbc48932c398e4ec0ebbac1f9ef31420"><div class="ttname"><a href="../../dd/df1/struct_f_d3_d12_shader_data.html#acbc48932c398e4ec0ebbac1f9ef31420">FD3D12ShaderData::GetShaderByteCode</a></div><div class="ttdeci">D3D12_SHADER_BYTECODE GetShaderByteCode() const</div><div class="ttdef"><b>Definition</b> D3D12Shader.h:29</div></div>
+<div class="ttc" id="astruct_f_d3_d12_shader_data_html_ad78f20d0358aa4530005e8392abbf373"><div class="ttname"><a href="../../dd/df1/struct_f_d3_d12_shader_data.html#ad78f20d0358aa4530005e8392abbf373">FD3D12ShaderData::Code</a></div><div class="ttdeci">TArray&lt; uint8 &gt; Code</div><div class="ttdef"><b>Definition</b> D3D12Shader.h:26</div></div>
+<div class="ttc" id="astruct_f_shader_bounds_html"><div class="ttname"><a href="../../d8/df6/struct_f_shader_bounds.html">FShaderBounds</a></div><div class="ttdef"><b>Definition</b> ShaderCore.h:94</div></div>
+<div class="ttc" id="astruct_f_shader_code_resource_counts_html"><div class="ttname"><a href="../../d3/d5f/struct_f_shader_code_resource_counts.html">FShaderCodeResourceCounts</a></div><div class="ttdef"><b>Definition</b> D3D12Shader.h:9</div></div>
+<div class="ttc" id="astruct_f_shader_code_resource_counts_html_a16cd030fd05c69d92f25750be85e231a"><div class="ttname"><a href="../../d3/d5f/struct_f_shader_code_resource_counts.html#a16cd030fd05c69d92f25750be85e231a">FShaderCodeResourceCounts::NumCBVs</a></div><div class="ttdeci">uint8 NumCBVs</div><div class="ttdef"><b>Definition</b> D3D12Shader.h:20</div></div>
+<div class="ttc" id="astruct_f_shader_code_resource_counts_html_a6f7f232aeb1e2e59e146be5ff6c8b3d2"><div class="ttname"><a href="../../d3/d5f/struct_f_shader_code_resource_counts.html#a6f7f232aeb1e2e59e146be5ff6c8b3d2">FShaderCodeResourceCounts::FShaderCodeResourceCounts</a></div><div class="ttdeci">FShaderCodeResourceCounts(const FShaderBounds &amp;InBounds)</div><div class="ttdef"><b>Definition</b> D3D12Shader.h:10</div></div>
+<div class="ttc" id="astruct_f_shader_code_resource_counts_html_a86ed4120f44bf07d406a0e7924b5eb55"><div class="ttname"><a href="../../d3/d5f/struct_f_shader_code_resource_counts.html#a86ed4120f44bf07d406a0e7924b5eb55">FShaderCodeResourceCounts::NumUAVs</a></div><div class="ttdeci">uint8 NumUAVs</div><div class="ttdef"><b>Definition</b> D3D12Shader.h:21</div></div>
+<div class="ttc" id="astruct_f_shader_code_resource_counts_html_aa767657bc62aa99af5662533c8443234"><div class="ttname"><a href="../../d3/d5f/struct_f_shader_code_resource_counts.html#aa767657bc62aa99af5662533c8443234">FShaderCodeResourceCounts::NumSamplers</a></div><div class="ttdeci">uint8 NumSamplers</div><div class="ttdef"><b>Definition</b> D3D12Shader.h:18</div></div>
+<div class="ttc" id="astruct_f_shader_code_resource_counts_html_accd418a7b1e158c74f0342e31feeebb3"><div class="ttname"><a href="../../d3/d5f/struct_f_shader_code_resource_counts.html#accd418a7b1e158c74f0342e31feeebb3">FShaderCodeResourceCounts::NumSRVs</a></div><div class="ttdeci">uint8 NumSRVs</div><div class="ttdef"><b>Definition</b> D3D12Shader.h:19</div></div>
+<div class="ttc" id="astruct_f_shader_code_resource_counts_html_aee68d93858282e0762bcaed63f009099"><div class="ttname"><a href="../../d3/d5f/struct_f_shader_code_resource_counts.html#aee68d93858282e0762bcaed63f009099">FShaderCodeResourceCounts::FShaderCodeResourceCounts</a></div><div class="ttdeci">FShaderCodeResourceCounts()</div><div class="ttdef"><b>Definition</b> D3D12Shader.h:16</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../dir_55043db21ba5ddd7c561d2c5a5a38944.html">Dark Engine</a></li><li class="navelem"><a class="el" href="../../dir_e00b54220e1e1486ac9971b606d33054.html">Source</a></li><li class="navelem"><a class="el" href="../../dir_ae01c8af07818b260cc3481e8588b277.html">Runtime</a></li><li class="navelem"><a class="el" href="../../dir_69d1b7a79a04d24cd43f7c84d74c5d6d.html">D3D12RHI</a></li><li class="navelem"><a class="el" href="../../dir_975782192f4e5579da5ceb9eedcf6dc7.html">private</a></li><li class="navelem"><a class="el" href="../../dc/dd2/_d3_d12_r_h_i_2private_2_d3_d12_shader_8h.html">D3D12Shader.h</a></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
+</body>
+</html>

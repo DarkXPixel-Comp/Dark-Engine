@@ -1,0 +1,39 @@
+\doxysection{UIEditor\+Viewport.\+h}
+\hypertarget{_u_i_editor_viewport_8h_source}{}\label{_u_i_editor_viewport_8h_source}\index{Dark Engine/Source/Runtime/UICore/public/Widgets/UIEditorViewport.h@{Dark Engine/Source/Runtime/UICore/public/Widgets/UIEditorViewport.h}}
+\mbox{\hyperlink{_u_i_editor_viewport_8h}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_u_i_widget_8h}{Widgets/UIWidget.h}}"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_u_i_viewport_8h}{Widgets/UIViewport.h}}"{}}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_f_editor_viewport_client}{FEditorViewportClient}};}
+\DoxyCodeLine{00006\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_f_scene_viewport}{FSceneViewport}};}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_u_i_editor_viewport}{UIEditorViewport}}\ :\ \textcolor{keyword}{public}\ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_u_i_viewport}{UIViewport}}}
+\DoxyCodeLine{00010\ \{}
+\DoxyCodeLine{00011\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00012\ \ \ \ \ \mbox{\hyperlink{class_u_i_editor_viewport_a06953c0db1b671d18fbb1ec802e72b92}{UIEditorViewport}}();}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_u_i_editor_viewport_aea18e12c30b0a6b8c85f5b460f879321}{ConstructEditorViewportClient}}();}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_u_i_editor_viewport_a6ecd465cb95d1b666c1a39944f967a8a}{Update}}(\textcolor{keywordtype}{float}\ DeltaTime);}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_u_i_editor_viewport_a4bbd45703ad3375b758d7bae180be59e}{DrawImGui}}();}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_u_i_editor_viewport_a3bcc6096234ff02d2a1d72768a741e65}{OnResize}}(\mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}\ NewX,\ \mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}\ NewY);}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_u_i_editor_viewport_ad1071c0da1fbbff5256de5987503405d}{SetResolution}}(\mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}\ Width,\ \mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}\ Height);}
+\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_int_point}{FIntPoint}}\ \mbox{\hyperlink{class_u_i_editor_viewport_a495b57aabe74775124b0397c41b32187}{GetResoulution}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ SceneViewport-\/>GetSizeXY();\ \}}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_u_i_editor_viewport_a643d5bbecf1a51a9c1377a6bc4bdb4f9}{SetColorBackground}}(\mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector}{FVector}}\ InColor);}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_u_i_editor_viewport_a566c49bc5f40f091c95a0de1c4853b2d}{SetTexturePath}}(\mbox{\hyperlink{class_f_string}{FString}}\ Path);}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{const}\ TSharedPtr<FSceneViewport>\&\ \mbox{\hyperlink{class_u_i_editor_viewport_ab6abe7613419e384004e1132119751ac}{GetSceneViewport}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ SceneViewport;\ \}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ }
+\DoxyCodeLine{00026\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00027\ \ \ \ \ TSharedPtr<FEditorViewportClient>\ EditorViewportClient;}
+\DoxyCodeLine{00028\ \ \ \ \ TSharedPtr<FSceneViewport>\ SceneViewport;}
+\DoxyCodeLine{00029\ \ \ \ \ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_int_point}{FIntPoint}}\ LastSize;}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{bool}\ SkipImage\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \};}
+
+\end{DoxyCode}

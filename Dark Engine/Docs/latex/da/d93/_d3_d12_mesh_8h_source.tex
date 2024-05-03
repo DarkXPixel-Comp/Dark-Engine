@@ -1,0 +1,53 @@
+\doxysection{D3\+D12\+Mesh.\+h}
+\hypertarget{_d3_d12_mesh_8h_source}{}\label{_d3_d12_mesh_8h_source}\index{Dark Engine/Source/Runtime/Render/D3D12/D3D12Mesh.h@{Dark Engine/Source/Runtime/Render/D3D12/D3D12Mesh.h}}
+\mbox{\hyperlink{_d3_d12_mesh_8h}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{_array_8h}{Containers/Array.h}}>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{_dark_string_8h}{Containers/DarkString.h}}>}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <wtypes.h>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_d3_d12_main_8h}{D3D12Main.h}}"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_d3_d12_types_8h}{D3D12Types.h}}"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{comment}{//\#define\ Vertex\ VertexPositionNormalColorTexture}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ Vertex\ VertexDefault}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_f_render_mesh}{FRenderMesh}}}
+\DoxyCodeLine{00016\ \{}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \};}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_f_d3_d12_mesh}{FD3D12Mesh}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_f_render_mesh}{FRenderMesh}}}
+\DoxyCodeLine{00021\ \{}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_d3_d12_renderer}{D3D12Renderer}};}
+\DoxyCodeLine{00023\ \ \ \ \ ID3D12Device8*\ m\_device;}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ ID3D12Resource*\ m\_vertexBuffer;}
+\DoxyCodeLine{00026\ \ \ \ \ ID3D12Resource*\ m\_indexBuffer;}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ D3D12\_VERTEX\_BUFFER\_VIEW\ m\_vertexBufferView;}
+\DoxyCodeLine{00029\ \ \ \ \ D3D12\_INDEX\_BUFFER\_VIEW\ m\_indexBufferView;}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00033\ \ \ \ \ \mbox{\hyperlink{class_f_d3_d12_mesh_a3232f1c80a941314394b03735842f11c}{FD3D12Mesh}}();}
+\DoxyCodeLine{00034\ \ \ \ \ \mbox{\hyperlink{class_f_d3_d12_mesh_a3232f1c80a941314394b03735842f11c}{FD3D12Mesh}}(TArray<Vertex>\ vertices,\ TArray<WORD>\ indices);}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ \mbox{\hyperlink{class_f_d3_d12_mesh_a6d4ea26d197529b8a9aa48a68b1a6ca4}{FD3D12Mesh}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_f_d3_d12_mesh}{FD3D12Mesh}}\&\ m)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00037\ \ \ \ \ \mbox{\hyperlink{class_f_d3_d12_mesh_af924a76af48d800b377e7729bf3825e9}{FD3D12Mesh}}(\mbox{\hyperlink{class_f_d3_d12_mesh}{FD3D12Mesh}}\&\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_d3_d12_mesh_ab8aba4334927c28a74fec2e46910dae0}{Init}}(TArray<Vertex>\ vertices,\ TArray<WORD>\ indices);}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00043\ \ \ \ \ \mbox{\hyperlink{class_f_string}{FString}}\ \mbox{\hyperlink{class_f_d3_d12_mesh_ad51da45a603de927d073cc6148838096}{PathToMesh}};}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \};}
+
+\end{DoxyCode}

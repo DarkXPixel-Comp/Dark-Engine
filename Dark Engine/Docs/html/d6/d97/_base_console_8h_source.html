@@ -1,0 +1,443 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Dark Engine: Исходный файл Dark Engine/Source/Runtime/Core/Public/Console/BaseConsole.h</title>
+<link rel="icon" href="../../Logo.png" type="image/x-icon" />
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<script type="text/javascript" src="../../clipboard.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../MiniLogo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Dark Engine<span id="projectnumber">&#160;0.0.50</span>
+   </div>
+   <div id="projectbrief">New game engnie D3D12</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../../',true,false,'search.php','Поиск');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(1); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('d6/d97/_base_console_8h_source.html','../../'); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">BaseConsole.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d6/d97/_base_console_8h.html">См. документацию.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;<a class="code" href="../../de/d45/_dark_string_8h.html">Containers/DarkString.h</a>&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="../../d3/dc5/_array_8h.html">Containers/Array.h</a>&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="../../da/d88/_unordored_map_8h.html">Containers/UnordoredMap.h</a>&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="../../d9/dfd/_delegate_8h.html">Delegate/Delegate.h</a>&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="../../d6/df1/_scope_lock_8h.html">Misc/ScopeLock.h</a>&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="../../d6/d97/_base_console_8h.html#a1478386e625a4266093527224aab762d">    9</a></span><a class="code hl_define" href="../../d9/dfd/_delegate_8h.html#a74b6271cb85a7fa325e5fa753fcf79c5">DECLARE_DELEGATE_OneParam</a>(FOnAddConsoleInput, <a class="code hl_class" href="../../d9/dcb/class_f_string.html">FString</a>);</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="../../d6/d97/_base_console_8h.html#aef92e81024b52c7ec76e5cad3ada7a4e">   10</a></span><a class="code hl_define" href="../../d9/dfd/_delegate_8h.html#a74b6271cb85a7fa325e5fa753fcf79c5">DECLARE_DELEGATE_OneParam</a>(FOnAddConsoleMessage, <span class="keyword">struct</span> <a class="code hl_struct" href="../../da/de9/struct_f_console_log.html">FConsoleLog</a>);</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="../../d6/d97/_base_console_8h.html#a0886a2931f781b536b1634839c82ee3a">   13</a></span><span class="keyword">typedef</span> std::function&lt;void(<span class="keyword">const</span> TArray&lt;FString&gt;&amp;)&gt; <a class="code hl_typedef" href="../../d6/d97/_base_console_8h.html#a0886a2931f781b536b1634839c82ee3a">FConsoleSoloCommandWithArgsDelegate</a>;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="../../d6/d97/_base_console_8h.html#ae26911fde2b2d2265a98cdf95ef33044">   14</a></span><span class="keyword">typedef</span> std::function&lt;void(<span class="keyword">class</span> <a class="code hl_class" href="../../d7/dd4/class_i_console_variable.html">IConsoleVariable</a>*)&gt; <a class="code hl_typedef" href="../../d6/d97/_base_console_8h.html#ae26911fde2b2d2265a98cdf95ef33044">FConsoleSoloVariableDelegate</a>;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="../../d6/d97/_base_console_8h.html#a9744fe37fe954a806a485fcc5a6856d1">   18</a></span><span class="keyword">typedef</span> TMultiCastDelegate&lt;void, class IConsoleVariable*&gt; <a class="code hl_typedef" href="../../d6/d97/_base_console_8h.html#a9744fe37fe954a806a485fcc5a6856d1">FConsoleVariableDelegate</a>;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="../../d6/d97/_base_console_8h.html#ab77b9320a72802c1194ebc9837b225d1">   19</a></span><span class="keyword">typedef</span> TMultiCastDelegate&lt;void, const TArray&lt;FString&gt;&amp;&gt; <a class="code hl_typedef" href="../../d6/d97/_base_console_8h.html#ab77b9320a72802c1194ebc9837b225d1">FConsoleCommandWithArgsDelegate</a>;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="foldopen" id="foldopen00022" data-start="{" data-end="};">
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="../../da/de9/struct_f_console_log.html">   22</a></span><span class="keyword">struct </span><a class="code hl_struct" href="../../da/de9/struct_f_console_log.html">FConsoleLog</a></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>{</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="../../da/de9/struct_f_console_log.html#a5154aa6f1b9d1901d38c201c625cdb5e">   24</a></span>    <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#afddf25cca147311c233b23a9d3329bb4">uint64</a> <a class="code hl_variable" href="../../da/de9/struct_f_console_log.html#a5154aa6f1b9d1901d38c201c625cdb5e">Id</a>;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="../../da/de9/struct_f_console_log.html#a17af02052888cb06293c4ea6eb35bc8d">   25</a></span>    <a class="code hl_class" href="../../d9/dcb/class_f_string.html">FString</a> <a class="code hl_variable" href="../../da/de9/struct_f_console_log.html#a17af02052888cb06293c4ea6eb35bc8d">Log</a>;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="../../da/de9/struct_f_console_log.html#aed3f9c25b2a3908a944dec300b50675b">   26</a></span>    <a class="code hl_class" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">FVector3f</a> <a class="code hl_variable" href="../../da/de9/struct_f_console_log.html#aed3f9c25b2a3908a944dec300b50675b">Color</a>;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="../../da/de9/struct_f_console_log.html#af7b5ddbcb020b65d5d427a557a5c2d4f">   27</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="../../da/de9/struct_f_console_log.html#af7b5ddbcb020b65d5d427a557a5c2d4f">Time</a>;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>};</div>
+</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div>
+<div class="foldopen" id="foldopen00032" data-start="{" data-end="};">
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="../../d6/d79/class_t_console_variable_data.html">   32</a></span><span class="keyword">class </span><a class="code hl_class" href="../../d6/d79/class_t_console_variable_data.html">TConsoleVariableData</a></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>{</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00035" data-start="{" data-end="}">
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="../../d6/d79/class_t_console_variable_data.html#a8fabafc751f342ba9b2140c9618a1a3f">   35</a></span>    <a class="code hl_function" href="../../d6/d79/class_t_console_variable_data.html#a8fabafc751f342ba9b2140c9618a1a3f">TConsoleVariableData</a>(<span class="keyword">const</span> T DefaultValue):</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        Data(DefaultValue)</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    {</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    }</div>
+</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="foldopen" id="foldopen00040" data-start="{" data-end="}">
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="../../d6/d79/class_t_console_variable_data.html#a09fc3a1ddd6a815d17c83499f2f43bf7">   40</a></span>    T <a class="code hl_function" href="../../d6/d79/class_t_console_variable_data.html#a09fc3a1ddd6a815d17c83499f2f43bf7">GetValue</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        <span class="keywordflow">return</span> Data;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    }</div>
+</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    T Data;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>};</div>
+</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="foldopen" id="foldopen00052" data-start="{" data-end="};">
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="../../d9/dd0/class_i_console_object.html">   52</a></span><span class="keyword">class </span><a class="code hl_class" href="../../d9/dd0/class_i_console_object.html">IConsoleObject</a></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>{</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00055" data-start="{" data-end="}">
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="../../d9/dd0/class_i_console_object.html#a7101238140f350114d2c2eb250c3e4ee">   55</a></span>    <span class="keyword">virtual</span> <span class="keyword">class </span><a class="code hl_class" href="../../d7/dd4/class_i_console_variable.html">IConsoleVariable</a>* <a class="code hl_function" href="../../d9/dd0/class_i_console_object.html#a7101238140f350114d2c2eb250c3e4ee">AsVariable</a>()</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    {</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    }</div>
+</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="../../d9/dd0/class_i_console_object.html#a093cb564193cf09f0012be5531c24093">   60</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d9/dd0/class_i_console_object.html#a093cb564193cf09f0012be5531c24093">IsVariableBool</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <span class="keyword">false</span>; }</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="../../d9/dd0/class_i_console_object.html#ad15b8f9e4949cbec304323ca1acd54cb">   61</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d9/dd0/class_i_console_object.html#ad15b8f9e4949cbec304323ca1acd54cb">IsVariableInt</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <span class="keyword">false</span>; }</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="../../d9/dd0/class_i_console_object.html#a1475373dce3a7b2ce7a3c5bc3d68f561">   62</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d9/dd0/class_i_console_object.html#a1475373dce3a7b2ce7a3c5bc3d68f561">IsVariableFloat</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <span class="keyword">false</span>; }</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="../../d9/dd0/class_i_console_object.html#acf10037995757f16cb5864b412147fd6">   63</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d9/dd0/class_i_console_object.html#acf10037995757f16cb5864b412147fd6">IsVariableString</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <span class="keyword">false</span>; }</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="foldopen" id="foldopen00065" data-start="{" data-end="}">
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="../../d9/dd0/class_i_console_object.html#a65b7510e4000b8a370c82e4dceb82d69">   65</a></span>    <span class="keyword">virtual</span> TConsoleVariableData&lt;bool&gt;* <a class="code hl_function" href="../../d9/dd0/class_i_console_object.html#a65b7510e4000b8a370c82e4dceb82d69">AsVariableBool</a>()</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    {</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    }</div>
+</div>
+<div class="foldopen" id="foldopen00069" data-start="{" data-end="}">
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="../../d9/dd0/class_i_console_object.html#a4cedcdbb48247c346061309c090949df">   69</a></span>    <span class="keyword">virtual</span> TConsoleVariableData&lt;int32&gt;* <a class="code hl_function" href="../../d9/dd0/class_i_console_object.html#a4cedcdbb48247c346061309c090949df">AsVariableInt</a>()</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    {</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    }</div>
+</div>
+<div class="foldopen" id="foldopen00073" data-start="{" data-end="}">
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="../../d9/dd0/class_i_console_object.html#ad7b88eaa812093cacf2cd814473e7fc0">   73</a></span>    <span class="keyword">virtual</span> TConsoleVariableData&lt;float&gt;* <a class="code hl_function" href="../../d9/dd0/class_i_console_object.html#ad7b88eaa812093cacf2cd814473e7fc0">AsVariableFloat</a>()</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    {</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    }</div>
+</div>
+<div class="foldopen" id="foldopen00077" data-start="{" data-end="}">
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="../../d9/dd0/class_i_console_object.html#a47a210960116bf1330327a6110a80464">   77</a></span>    <span class="keyword">virtual</span> TConsoleVariableData&lt;FString&gt;* <a class="code hl_function" href="../../d9/dd0/class_i_console_object.html#a47a210960116bf1330327a6110a80464">AsVariableString</a>()</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    {</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    }</div>
+</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
+<div class="foldopen" id="foldopen00082" data-start="{" data-end="}">
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno"><a class="line" href="../../d9/dd0/class_i_console_object.html#a65f16f7e6ff35313d7a3d13f65708328">   82</a></span>    <span class="keyword">virtual</span> <span class="keyword">class </span><a class="code hl_class" href="../../d4/d15/class_i_console_command.html">IConsoleCommand</a>* <a class="code hl_function" href="../../d9/dd0/class_i_console_object.html#a65f16f7e6ff35313d7a3d13f65708328">AsCommand</a>()</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    {</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    }</div>
+</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno"><a class="line" href="../../d9/dd0/class_i_console_object.html#a8ca6a8ffbb0d2b7b07fbd341cebbd0f5">   87</a></span>    <a class="code hl_class" href="../../d9/dcb/class_f_string.html">FString</a> <a class="code hl_variable" href="../../d9/dd0/class_i_console_object.html#a8ca6a8ffbb0d2b7b07fbd341cebbd0f5">Description</a>;</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>};</div>
+</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="foldopen" id="foldopen00090" data-start="{" data-end="};">
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno"><a class="line" href="../../d7/dd4/class_i_console_variable.html">   90</a></span><span class="keyword">class </span><a class="code hl_class" href="../../d7/dd4/class_i_console_variable.html">IConsoleVariable</a> : <span class="keyword">public</span> <a class="code hl_class" href="../../d9/dd0/class_i_console_object.html">IConsoleObject</a></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>{</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno"><a class="line" href="../../d7/dd4/class_i_console_variable.html#a9e43b6b5d5dc7b550f7e74d24b2ba185">   93</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../d7/dd4/class_i_console_variable.html#a9e43b6b5d5dc7b550f7e74d24b2ba185">Set</a>(<span class="keyword">const</span> <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a74140f1ff3f7a51b1ac752f90283f3d6">TCHAR</a>* InValue) = 0;</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno"><a class="line" href="../../d7/dd4/class_i_console_variable.html#a17b0b12bd6b2ebd0516e6a0f2d8b9981">   94</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d7/dd4/class_i_console_variable.html#a17b0b12bd6b2ebd0516e6a0f2d8b9981">GetBool</a>() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno"><a class="line" href="../../d7/dd4/class_i_console_variable.html#afa03a84041176328439fca27e786d5af">   95</a></span>    <span class="keyword">virtual</span> <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a84083085985fb180ad38b9c32e3937da">int32</a> <a class="code hl_function" href="../../d7/dd4/class_i_console_variable.html#afa03a84041176328439fca27e786d5af">GetInt</a>() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno"><a class="line" href="../../d7/dd4/class_i_console_variable.html#a831b7af810ff77844b48eec5a0d706fc">   96</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">float</span> <a class="code hl_function" href="../../d7/dd4/class_i_console_variable.html#a831b7af810ff77844b48eec5a0d706fc">GetFloat</a>() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno"><a class="line" href="../../d7/dd4/class_i_console_variable.html#a69e716aa9274f68f57d71b1404132abb">   97</a></span>    <span class="keyword">virtual</span> <a class="code hl_class" href="../../d9/dcb/class_f_string.html">FString</a> <a class="code hl_function" href="../../d7/dd4/class_i_console_variable.html#a69e716aa9274f68f57d71b1404132abb">GetString</a>() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="foldopen" id="foldopen00099" data-start="{" data-end="}">
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno"><a class="line" href="../../d7/dd4/class_i_console_variable.html#af70e4e536fc6ca1823d6650e67a1cb27">   99</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d7/dd4/class_i_console_variable.html#af70e4e536fc6ca1823d6650e67a1cb27">GetValue</a>(<a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a84083085985fb180ad38b9c32e3937da">int32</a>&amp; OutValue)</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    {</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>        OutValue = <a class="code hl_function" href="../../d7/dd4/class_i_console_variable.html#afa03a84041176328439fca27e786d5af">GetInt</a>();</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    }</div>
+</div>
+<div class="foldopen" id="foldopen00103" data-start="{" data-end="}">
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno"><a class="line" href="../../d7/dd4/class_i_console_variable.html#a43d62223e0d2e829bf7124d8b35c8ed3">  103</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d7/dd4/class_i_console_variable.html#a43d62223e0d2e829bf7124d8b35c8ed3">GetValue</a>(<span class="keywordtype">bool</span>&amp; OutValue)</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    {</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>        OutValue = <a class="code hl_function" href="../../d7/dd4/class_i_console_variable.html#a17b0b12bd6b2ebd0516e6a0f2d8b9981">GetBool</a>();</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    }</div>
+</div>
+<div class="foldopen" id="foldopen00107" data-start="{" data-end="}">
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno"><a class="line" href="../../d7/dd4/class_i_console_variable.html#adfd819da93de113dbbdbc6f375395a7f">  107</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d7/dd4/class_i_console_variable.html#adfd819da93de113dbbdbc6f375395a7f">GetValue</a>(<span class="keywordtype">float</span>&amp; OutValue)</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    {</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>        OutValue = <a class="code hl_function" href="../../d7/dd4/class_i_console_variable.html#a831b7af810ff77844b48eec5a0d706fc">GetFloat</a>();</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    }</div>
+</div>
+<div class="foldopen" id="foldopen00111" data-start="{" data-end="}">
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno"><a class="line" href="../../d7/dd4/class_i_console_variable.html#aec9ab9a1527f7489feb94f5a425e2210">  111</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d7/dd4/class_i_console_variable.html#aec9ab9a1527f7489feb94f5a425e2210">GetValue</a>(<a class="code hl_class" href="../../d9/dcb/class_f_string.html">FString</a>&amp; OutValue)</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    {</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>        OutValue = <a class="code hl_function" href="../../d7/dd4/class_i_console_variable.html#a69e716aa9274f68f57d71b1404132abb">GetString</a>();</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    }</div>
+</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno"><a class="line" href="../../d7/dd4/class_i_console_variable.html#aa7be4ac7c3be83c5a5b2c42a7e7e8b41">  116</a></span>    <span class="keyword">virtual</span> <a class="code hl_class" href="../../d9/dcb/class_f_string.html">FString</a> <a class="code hl_function" href="../../d7/dd4/class_i_console_variable.html#aa7be4ac7c3be83c5a5b2c42a7e7e8b41">ToString</a>() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno"><a class="line" href="../../d7/dd4/class_i_console_variable.html#af38e30a22e47de49ee941573b5ede88f">  118</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../d7/dd4/class_i_console_variable.html#af38e30a22e47de49ee941573b5ede88f">SetOnChangedCallback</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../d8/d5b/class_t_multi_cast_delegate.html">FConsoleVariableDelegate</a>&amp; Callback) = 0;</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno"><a class="line" href="../../d7/dd4/class_i_console_variable.html#a7578b065757fb537521d6ef28f4352bc">  119</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../d7/dd4/class_i_console_variable.html#a7578b065757fb537521d6ef28f4352bc">SetOnChangedCallback</a>(<a class="code hl_typedef" href="../../d6/d97/_base_console_8h.html#ae26911fde2b2d2265a98cdf95ef33044">FConsoleSoloVariableDelegate</a> Callback) = 0;</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span> </div>
+<div class="foldopen" id="foldopen00121" data-start="{" data-end="}">
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno"><a class="line" href="../../d7/dd4/class_i_console_variable.html#aca5846b6c66ce8166ba38f67f47a39c2">  121</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d7/dd4/class_i_console_variable.html#aca5846b6c66ce8166ba38f67f47a39c2">Set</a>(<span class="keywordtype">bool</span> InValue)</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    {</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>        <a class="code hl_function" href="../../d7/dd4/class_i_console_variable.html#a9e43b6b5d5dc7b550f7e74d24b2ba185">Set</a>(InValue ? <a class="code hl_define" href="../../d2/dc9/_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;1&quot;</span>) : <a class="code hl_define" href="../../d2/dc9/_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;0&quot;</span>));</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    }</div>
+</div>
+<div class="foldopen" id="foldopen00125" data-start="{" data-end="}">
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno"><a class="line" href="../../d7/dd4/class_i_console_variable.html#a19a0a785074cd184e999d2d0851ce715">  125</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d7/dd4/class_i_console_variable.html#a19a0a785074cd184e999d2d0851ce715">Set</a>(<a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a84083085985fb180ad38b9c32e3937da">int32</a> InValue)</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    {</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>        <a class="code hl_function" href="../../d7/dd4/class_i_console_variable.html#a9e43b6b5d5dc7b550f7e74d24b2ba185">Set</a>(*<a class="code hl_function" href="../../d9/dcb/class_f_string.html#a1dfcf0015234ee1810ed318e32dc6543">FString::PrintF</a>(<a class="code hl_define" href="../../d2/dc9/_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;%i&quot;</span>), InValue));</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    }</div>
+</div>
+<div class="foldopen" id="foldopen00129" data-start="{" data-end="}">
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno"><a class="line" href="../../d7/dd4/class_i_console_variable.html#a21e572d6e13cf221b109881891f3ad7f">  129</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d7/dd4/class_i_console_variable.html#a21e572d6e13cf221b109881891f3ad7f">Set</a>(<span class="keywordtype">float</span> InValue)</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    {</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>        <a class="code hl_function" href="../../d7/dd4/class_i_console_variable.html#a9e43b6b5d5dc7b550f7e74d24b2ba185">Set</a>(*<a class="code hl_function" href="../../d9/dcb/class_f_string.html#a1dfcf0015234ee1810ed318e32dc6543">FString::PrintF</a>(<a class="code hl_define" href="../../d2/dc9/_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;%f&quot;</span>), InValue));</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    }</div>
+</div>
+<div class="foldopen" id="foldopen00133" data-start="{" data-end="}">
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno"><a class="line" href="../../d7/dd4/class_i_console_variable.html#ad081b365133d0240ef788d5d213329b7">  133</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d7/dd4/class_i_console_variable.html#ad081b365133d0240ef788d5d213329b7">Set</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../d9/dcb/class_f_string.html">FString</a>&amp; InValue)</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>    {</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>        <a class="code hl_function" href="../../d7/dd4/class_i_console_variable.html#a9e43b6b5d5dc7b550f7e74d24b2ba185">Set</a>(*InValue);</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>    }</div>
+</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>};</div>
+</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span> </div>
+<div class="foldopen" id="foldopen00139" data-start="{" data-end="};">
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno"><a class="line" href="../../d4/d15/class_i_console_command.html">  139</a></span><span class="keyword">class </span><a class="code hl_class" href="../../d4/d15/class_i_console_command.html">IConsoleCommand</a> : <span class="keyword">public</span> <a class="code hl_class" href="../../d9/dd0/class_i_console_object.html">IConsoleObject</a></div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>{</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno"><a class="line" href="../../d4/d15/class_i_console_command.html#a386c44fcc3975345cc4b8c6789be79de">  142</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d4/d15/class_i_console_command.html#a386c44fcc3975345cc4b8c6789be79de">Execute</a>(<span class="keyword">const</span> TArray&lt;FString&gt;&amp; Args) = 0;</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>};</div>
+</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span> </div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span> </div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span> </div>
+<div class="foldopen" id="foldopen00147" data-start="{" data-end="};">
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno"><a class="line" href="../../d0/de2/class_f_base_console.html">  147</a></span><span class="keyword">class </span><a class="code hl_class" href="../../d0/de2/class_f_base_console.html">FBaseConsole</a></div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>{</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>    <a class="code hl_function" href="../../d0/de2/class_f_base_console.html#ab2051fda4e33461e404af772bff4e080">FBaseConsole</a>(); </div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>    <a class="code hl_function" href="../../d0/de2/class_f_base_console.html#ae5a9975fe8113456fbbab6069ef6dc10">~FBaseConsole</a>();</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span> </div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../d0/de2/class_f_base_console.html#a05faf83877b1405c2b84173993508fc2">AddLog</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../d9/dcb/class_f_string.html">FString</a>&amp; Text, <a class="code hl_class" href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">FVector3f</a> Color = <a class="code hl_typedef" href="../../d0/df6/_math_fwd_8h.html#a97a4aa8e6391e1665580cd373848baff">FVector3f</a>(1, 1, 1), <span class="keywordtype">float</span> Time = 0.f);</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno"><a class="line" href="../../d0/de2/class_f_base_console.html#a6313ede0b57806b2f5c965e7139056f1">  154</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d0/de2/class_f_base_console.html#a6313ede0b57806b2f5c965e7139056f1">Update</a>(<span class="keywordtype">float</span> DeltaTime);</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno"><a class="line" href="../../d0/de2/class_f_base_console.html#a9e6443966a961d5c4283f390e12ce8f5">  155</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d0/de2/class_f_base_console.html#a9e6443966a961d5c4283f390e12ce8f5">RemoveLog</a>();</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d0/de2/class_f_base_console.html#a8ae273e89ecf09a34908471f7a6c73fc">InputText</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../d9/dcb/class_f_string.html">FString</a>&amp; Text);</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span> </div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span> </div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>    <a class="code hl_class" href="../../d9/dd0/class_i_console_object.html">IConsoleObject</a>* <a class="code hl_function" href="../../d0/de2/class_f_base_console.html#a393ae6d421cff7ebcabdda4e04ed4b98">AddConsoleObject</a>(<span class="keyword">const</span> <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a74140f1ff3f7a51b1ac752f90283f3d6">TCHAR</a>* Name, <a class="code hl_class" href="../../d9/dd0/class_i_console_object.html">IConsoleObject</a>* Obj, <span class="keyword">const</span> <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a74140f1ff3f7a51b1ac752f90283f3d6">TCHAR</a>* Description = <a class="code hl_define" href="../../d2/dc9/_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;&quot;</span>));</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span> </div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>    <span class="keyword">class </span><a class="code hl_class" href="../../d4/d15/class_i_console_command.html">IConsoleCommand</a>* <a class="code hl_function" href="../../d0/de2/class_f_base_console.html#a1ed1badb13464da64adee8cf50c6e999">RegisterConsoleCommand</a>(<span class="keyword">const</span> <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a74140f1ff3f7a51b1ac752f90283f3d6">TCHAR</a>* Name, <span class="keyword">const</span> <a class="code hl_class" href="../../d8/d5b/class_t_multi_cast_delegate.html">FConsoleCommandWithArgsDelegate</a>&amp; Command, <span class="keyword">const</span> <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a74140f1ff3f7a51b1ac752f90283f3d6">TCHAR</a>* Description = <a class="code hl_define" href="../../d2/dc9/_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;&quot;</span>));</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>    <span class="keyword">class </span><a class="code hl_class" href="../../d4/d15/class_i_console_command.html">IConsoleCommand</a>* <a class="code hl_function" href="../../d0/de2/class_f_base_console.html#a1ed1badb13464da64adee8cf50c6e999">RegisterConsoleCommand</a>(<span class="keyword">const</span> <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a74140f1ff3f7a51b1ac752f90283f3d6">TCHAR</a>* Name, <a class="code hl_typedef" href="../../d6/d97/_base_console_8h.html#a0886a2931f781b536b1634839c82ee3a">FConsoleSoloCommandWithArgsDelegate</a> Command, <span class="keyword">const</span> <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a74140f1ff3f7a51b1ac752f90283f3d6">TCHAR</a>* Description = <a class="code hl_define" href="../../d2/dc9/_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;&quot;</span>));</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span> </div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span> </div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno"><a class="line" href="../../d0/de2/class_f_base_console.html#a091e6c76b658107e92c9f0fdc4c1f0c9">  165</a></span>    <span class="keyword">class </span><a class="code hl_class" href="../../d7/dd4/class_i_console_variable.html">IConsoleVariable</a>* <a class="code hl_function" href="../../d0/de2/class_f_base_console.html#a091e6c76b658107e92c9f0fdc4c1f0c9">RegisterConsoleVariable</a>(<span class="keyword">const</span> <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a74140f1ff3f7a51b1ac752f90283f3d6">TCHAR</a>* Name, <span class="keyword">const</span> <a class="code hl_class" href="../../d9/dcb/class_f_string.html">FString</a>&amp; DefaultValue, <span class="keyword">const</span> <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a74140f1ff3f7a51b1ac752f90283f3d6">TCHAR</a>* Description = <a class="code hl_define" href="../../d2/dc9/_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;&quot;</span>));</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno"><a class="line" href="../../d0/de2/class_f_base_console.html#ae1dc3f4ad6471318207d1435e829ca9f">  166</a></span>    <span class="keyword">class </span><a class="code hl_class" href="../../d7/dd4/class_i_console_variable.html">IConsoleVariable</a>* <a class="code hl_function" href="../../d0/de2/class_f_base_console.html#ae1dc3f4ad6471318207d1435e829ca9f">RegisterConsoleVariable</a>(<span class="keyword">const</span> <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a74140f1ff3f7a51b1ac752f90283f3d6">TCHAR</a>* Name, <span class="keywordtype">float</span> DefaultValue, <span class="keyword">const</span> <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a74140f1ff3f7a51b1ac752f90283f3d6">TCHAR</a>* Description = <a class="code hl_define" href="../../d2/dc9/_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;&quot;</span>));</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno"><a class="line" href="../../d0/de2/class_f_base_console.html#ac3a21a26ea9d8efa315f1d5d5c75180d">  167</a></span>    <span class="keyword">class </span><a class="code hl_class" href="../../d7/dd4/class_i_console_variable.html">IConsoleVariable</a>* <a class="code hl_function" href="../../d0/de2/class_f_base_console.html#ac3a21a26ea9d8efa315f1d5d5c75180d">RegisterConsoleVariable</a>(<span class="keyword">const</span> <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a74140f1ff3f7a51b1ac752f90283f3d6">TCHAR</a>* Name, <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a84083085985fb180ad38b9c32e3937da">int32</a> DefaultValue, <span class="keyword">const</span> <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a74140f1ff3f7a51b1ac752f90283f3d6">TCHAR</a>* Description = <a class="code hl_define" href="../../d2/dc9/_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;&quot;</span>));</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno"><a class="line" href="../../d0/de2/class_f_base_console.html#a8f8e0165efc4c25252791b2673b6e462">  168</a></span>    <span class="keyword">class </span><a class="code hl_class" href="../../d7/dd4/class_i_console_variable.html">IConsoleVariable</a>* <a class="code hl_function" href="../../d0/de2/class_f_base_console.html#a8f8e0165efc4c25252791b2673b6e462">RegisterConsoleVariable</a>(<span class="keyword">const</span> <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a74140f1ff3f7a51b1ac752f90283f3d6">TCHAR</a>* Name, <span class="keywordtype">bool</span> DefaultValue, <span class="keyword">const</span> <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a74140f1ff3f7a51b1ac752f90283f3d6">TCHAR</a>* Description = <a class="code hl_define" href="../../d2/dc9/_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;&quot;</span>));</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span> </div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno"><a class="line" href="../../d0/de2/class_f_base_console.html#a5ae0733abf3a847b5779b8c3e22d5e3c">  170</a></span>    <span class="keyword">class </span><a class="code hl_class" href="../../d7/dd4/class_i_console_variable.html">IConsoleVariable</a>* <a class="code hl_function" href="../../d0/de2/class_f_base_console.html#a5ae0733abf3a847b5779b8c3e22d5e3c">RegisterConsoleVariableRef</a>(<span class="keyword">const</span> <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a74140f1ff3f7a51b1ac752f90283f3d6">TCHAR</a>* Name, <a class="code hl_class" href="../../d9/dcb/class_f_string.html">FString</a>&amp; RefValue, <span class="keyword">const</span> <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a74140f1ff3f7a51b1ac752f90283f3d6">TCHAR</a>* Description = <a class="code hl_define" href="../../d2/dc9/_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;&quot;</span>));</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno"><a class="line" href="../../d0/de2/class_f_base_console.html#a28e9ea85caf2129e92d947f3cffce84f">  171</a></span>    <span class="keyword">class </span><a class="code hl_class" href="../../d7/dd4/class_i_console_variable.html">IConsoleVariable</a>* <a class="code hl_function" href="../../d0/de2/class_f_base_console.html#a28e9ea85caf2129e92d947f3cffce84f">RegisterConsoleVariableRef</a>(<span class="keyword">const</span> <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a74140f1ff3f7a51b1ac752f90283f3d6">TCHAR</a>* Name, <span class="keywordtype">float</span>&amp; RefValue, <span class="keyword">const</span> <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a74140f1ff3f7a51b1ac752f90283f3d6">TCHAR</a>* Description = <a class="code hl_define" href="../../d2/dc9/_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;&quot;</span>));</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>    <span class="keyword">class </span><a class="code hl_class" href="../../d7/dd4/class_i_console_variable.html">IConsoleVariable</a>* <a class="code hl_function" href="../../d0/de2/class_f_base_console.html#a5ae0733abf3a847b5779b8c3e22d5e3c">RegisterConsoleVariableRef</a>(<span class="keyword">const</span> <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a74140f1ff3f7a51b1ac752f90283f3d6">TCHAR</a>* Name, <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a84083085985fb180ad38b9c32e3937da">int32</a>&amp; RefValue, <span class="keyword">const</span> <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a74140f1ff3f7a51b1ac752f90283f3d6">TCHAR</a>* Description = <a class="code hl_define" href="../../d2/dc9/_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;&quot;</span>));</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno"><a class="line" href="../../d0/de2/class_f_base_console.html#a2b29465f197f9b2f39e734d5ecbd7743">  173</a></span>    <span class="keyword">class </span><a class="code hl_class" href="../../d7/dd4/class_i_console_variable.html">IConsoleVariable</a>* <a class="code hl_function" href="../../d0/de2/class_f_base_console.html#a2b29465f197f9b2f39e734d5ecbd7743">RegisterConsoleVariableRef</a>(<span class="keyword">const</span> <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a74140f1ff3f7a51b1ac752f90283f3d6">TCHAR</a>* Name, <span class="keywordtype">bool</span>&amp; RefValue, <span class="keyword">const</span> <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a74140f1ff3f7a51b1ac752f90283f3d6">TCHAR</a>* Description = <a class="code hl_define" href="../../d2/dc9/_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;&quot;</span>));</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span> </div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span> </div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno"><a class="line" href="../../d0/de2/class_f_base_console.html#a6ff0f9e823aa748b043aade6e1d8d9aa">  176</a></span>    <span class="keyword">const</span> TArray&lt;FConsoleLog&gt;&amp; <a class="code hl_function" href="../../d0/de2/class_f_base_console.html#a6ff0f9e823aa748b043aade6e1d8d9aa">GetLogs</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d0/de2/class_f_base_console.html#a9594533192119ae6d6ba23b12b2ced39">Cache</a>; }</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span> </div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno"><a class="line" href="../../d0/de2/class_f_base_console.html#a33aad924bf0bb991d4b26e2279a7d6bd">  178</a></span>    FOnAddConsoleInput <a class="code hl_variable" href="../../d0/de2/class_f_base_console.html#a33aad924bf0bb991d4b26e2279a7d6bd">OnAddConsoleInput</a>;  </div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno"><a class="line" href="../../d0/de2/class_f_base_console.html#ae6a7b4f68cf3a26faa7e7c45e005073c">  179</a></span>    FOnAddConsoleMessage <a class="code hl_variable" href="../../d0/de2/class_f_base_console.html#ae6a7b4f68cf3a26faa7e7c45e005073c">OnAddConsoleMessage</a>;</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span> </div>
+<div class="foldopen" id="foldopen00181" data-start="{" data-end="}">
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno"><a class="line" href="../../d0/de2/class_f_base_console.html#a9f9913c82c7953ac872353b6ae83c549">  181</a></span>    <span class="keyword">const</span> TUnordoredMap&lt;FString, IConsoleObject*&gt;&amp; <a class="code hl_function" href="../../d0/de2/class_f_base_console.html#a9f9913c82c7953ac872353b6ae83c549">GetConsoleObjects</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>        <span class="keywordflow">return</span> ConsoleObjects;</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>    }</div>
+</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span> </div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span> </div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>    <span class="keywordtype">void</span> ParseInput(<a class="code hl_class" href="../../d9/dcb/class_f_string.html">FString</a>&amp; InputOutCommands, TArray&lt;FString&gt;&amp; OutArgs);</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span> </div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno"><a class="line" href="../../d0/de2/class_f_base_console.html#a9594533192119ae6d6ba23b12b2ced39">  191</a></span>    TArray&lt;FConsoleLog&gt; <a class="code hl_variable" href="../../d0/de2/class_f_base_console.html#a9594533192119ae6d6ba23b12b2ced39">Cache</a>;</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno"><a class="line" href="../../d0/de2/class_f_base_console.html#a0ca0e8cfab2c3347ee0ac08f4f1ce9cf">  192</a></span>    TArray&lt;FString&gt; <a class="code hl_variable" href="../../d0/de2/class_f_base_console.html#a0ca0e8cfab2c3347ee0ac08f4f1ce9cf">Inputs</a>;</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno"><a class="line" href="../../d0/de2/class_f_base_console.html#a69f1545caac45ed1d329120ef7a7e33a">  193</a></span>    <span class="keyword">static</span> <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#afddf25cca147311c233b23a9d3329bb4">uint64</a> <a class="code hl_variable" href="../../d0/de2/class_f_base_console.html#a69f1545caac45ed1d329120ef7a7e33a">StaticID</a>;</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span> </div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>    <span class="keyword">mutable</span> <a class="code hl_class" href="../../d2/d88/class_f_windows_critical_section.html">FCriticalSection</a> AddLogCriticalSection;</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span> </div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>    <span class="keywordtype">bool</span> bInit = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>    TUnordoredMap&lt;FString, IConsoleObject*&gt; ConsoleObjects;</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>};</div>
+</div>
+<div class="ttc" id="a_array_8h_html"><div class="ttname"><a href="../../d3/dc5/_array_8h.html">Array.h</a></div></div>
+<div class="ttc" id="a_base_console_8h_html_a0886a2931f781b536b1634839c82ee3a"><div class="ttname"><a href="../../d6/d97/_base_console_8h.html#a0886a2931f781b536b1634839c82ee3a">FConsoleSoloCommandWithArgsDelegate</a></div><div class="ttdeci">std::function&lt; void(const TArray&lt; FString &gt; &amp;) FConsoleSoloCommandWithArgsDelegate)</div><div class="ttdef"><b>Definition</b> BaseConsole.h:13</div></div>
+<div class="ttc" id="a_base_console_8h_html_a9744fe37fe954a806a485fcc5a6856d1"><div class="ttname"><a href="../../d6/d97/_base_console_8h.html#a9744fe37fe954a806a485fcc5a6856d1">FConsoleVariableDelegate</a></div><div class="ttdeci">TMultiCastDelegate&lt; void, class IConsoleVariable * &gt; FConsoleVariableDelegate</div><div class="ttdef"><b>Definition</b> BaseConsole.h:18</div></div>
+<div class="ttc" id="a_base_console_8h_html_ab77b9320a72802c1194ebc9837b225d1"><div class="ttname"><a href="../../d6/d97/_base_console_8h.html#ab77b9320a72802c1194ebc9837b225d1">FConsoleCommandWithArgsDelegate</a></div><div class="ttdeci">TMultiCastDelegate&lt; void, const TArray&lt; FString &gt; &amp; &gt; FConsoleCommandWithArgsDelegate</div><div class="ttdef"><b>Definition</b> BaseConsole.h:19</div></div>
+<div class="ttc" id="a_base_console_8h_html_ae26911fde2b2d2265a98cdf95ef33044"><div class="ttname"><a href="../../d6/d97/_base_console_8h.html#ae26911fde2b2d2265a98cdf95ef33044">FConsoleSoloVariableDelegate</a></div><div class="ttdeci">std::function&lt; void(class IConsoleVariable *) FConsoleSoloVariableDelegate)</div><div class="ttdef"><b>Definition</b> BaseConsole.h:14</div></div>
+<div class="ttc" id="a_dark_string_8h_html"><div class="ttname"><a href="../../de/d45/_dark_string_8h.html">DarkString.h</a></div></div>
+<div class="ttc" id="a_delegate_8h_html"><div class="ttname"><a href="../../d9/dfd/_delegate_8h.html">Delegate.h</a></div></div>
+<div class="ttc" id="a_delegate_8h_html_a74b6271cb85a7fa325e5fa753fcf79c5"><div class="ttname"><a href="../../d9/dfd/_delegate_8h.html#a74b6271cb85a7fa325e5fa753fcf79c5">DECLARE_DELEGATE_OneParam</a></div><div class="ttdeci">#define DECLARE_DELEGATE_OneParam(DelegateName, Param1Type)</div><div class="ttdef"><b>Definition</b> Delegate.h:17</div></div>
+<div class="ttc" id="a_math_fwd_8h_html_a97a4aa8e6391e1665580cd373848baff"><div class="ttname"><a href="../../d0/df6/_math_fwd_8h.html#a97a4aa8e6391e1665580cd373848baff">FVector3f</a></div><div class="ttdeci">DE::Math::TVector&lt; float &gt; FVector3f</div><div class="ttdef"><b>Definition</b> MathFwd.h:48</div></div>
+<div class="ttc" id="a_platform_8h_html_a2978f60d40d64f3605b5a99f66f292a9"><div class="ttname"><a href="../../d2/dc9/_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a></div><div class="ttdeci">#define TEXT(x)</div><div class="ttdef"><b>Definition</b> Platform.h:70</div></div>
+<div class="ttc" id="a_platform_8h_html_a74140f1ff3f7a51b1ac752f90283f3d6"><div class="ttname"><a href="../../d2/dc9/_platform_8h.html#a74140f1ff3f7a51b1ac752f90283f3d6">TCHAR</a></div><div class="ttdeci">FPlatformTypes::TCHAR TCHAR</div><div class="ttdef"><b>Definition</b> Platform.h:48</div></div>
+<div class="ttc" id="a_platform_8h_html_a84083085985fb180ad38b9c32e3937da"><div class="ttname"><a href="../../d2/dc9/_platform_8h.html#a84083085985fb180ad38b9c32e3937da">int32</a></div><div class="ttdeci">FPlatformTypes::int32 int32</div><div class="ttdef"><b>Definition</b> Platform.h:42</div></div>
+<div class="ttc" id="a_platform_8h_html_afddf25cca147311c233b23a9d3329bb4"><div class="ttname"><a href="../../d2/dc9/_platform_8h.html#afddf25cca147311c233b23a9d3329bb4">uint64</a></div><div class="ttdeci">FPlatformTypes::uint64 uint64</div><div class="ttdef"><b>Definition</b> Platform.h:45</div></div>
+<div class="ttc" id="a_scope_lock_8h_html"><div class="ttname"><a href="../../d6/df1/_scope_lock_8h.html">ScopeLock.h</a></div></div>
+<div class="ttc" id="a_unordored_map_8h_html"><div class="ttname"><a href="../../da/d88/_unordored_map_8h.html">UnordoredMap.h</a></div></div>
+<div class="ttc" id="aclass_f_base_console_html"><div class="ttname"><a href="../../d0/de2/class_f_base_console.html">FBaseConsole</a></div><div class="ttdef"><b>Definition</b> BaseConsole.h:148</div></div>
+<div class="ttc" id="aclass_f_base_console_html_a05faf83877b1405c2b84173993508fc2"><div class="ttname"><a href="../../d0/de2/class_f_base_console.html#a05faf83877b1405c2b84173993508fc2">FBaseConsole::AddLog</a></div><div class="ttdeci">virtual void AddLog(const FString &amp;Text, FVector3f Color=FVector3f(1, 1, 1), float Time=0.f)</div><div class="ttdef"><b>Definition</b> BaseConsole.cpp:223</div></div>
+<div class="ttc" id="aclass_f_base_console_html_a091e6c76b658107e92c9f0fdc4c1f0c9"><div class="ttname"><a href="../../d0/de2/class_f_base_console.html#a091e6c76b658107e92c9f0fdc4c1f0c9">FBaseConsole::RegisterConsoleVariable</a></div><div class="ttdeci">class IConsoleVariable * RegisterConsoleVariable(const TCHAR *Name, const FString &amp;DefaultValue, const TCHAR *Description=TEXT(&quot;&quot;))</div></div>
+<div class="ttc" id="aclass_f_base_console_html_a0ca0e8cfab2c3347ee0ac08f4f1ce9cf"><div class="ttname"><a href="../../d0/de2/class_f_base_console.html#a0ca0e8cfab2c3347ee0ac08f4f1ce9cf">FBaseConsole::Inputs</a></div><div class="ttdeci">TArray&lt; FString &gt; Inputs</div><div class="ttdef"><b>Definition</b> BaseConsole.h:192</div></div>
+<div class="ttc" id="aclass_f_base_console_html_a1ed1badb13464da64adee8cf50c6e999"><div class="ttname"><a href="../../d0/de2/class_f_base_console.html#a1ed1badb13464da64adee8cf50c6e999">FBaseConsole::RegisterConsoleCommand</a></div><div class="ttdeci">class IConsoleCommand * RegisterConsoleCommand(const TCHAR *Name, const FConsoleCommandWithArgsDelegate &amp;Command, const TCHAR *Description=TEXT(&quot;&quot;))</div><div class="ttdef"><b>Definition</b> BaseConsole.cpp:158</div></div>
+<div class="ttc" id="aclass_f_base_console_html_a28e9ea85caf2129e92d947f3cffce84f"><div class="ttname"><a href="../../d0/de2/class_f_base_console.html#a28e9ea85caf2129e92d947f3cffce84f">FBaseConsole::RegisterConsoleVariableRef</a></div><div class="ttdeci">class IConsoleVariable * RegisterConsoleVariableRef(const TCHAR *Name, float &amp;RefValue, const TCHAR *Description=TEXT(&quot;&quot;))</div></div>
+<div class="ttc" id="aclass_f_base_console_html_a2b29465f197f9b2f39e734d5ecbd7743"><div class="ttname"><a href="../../d0/de2/class_f_base_console.html#a2b29465f197f9b2f39e734d5ecbd7743">FBaseConsole::RegisterConsoleVariableRef</a></div><div class="ttdeci">class IConsoleVariable * RegisterConsoleVariableRef(const TCHAR *Name, bool &amp;RefValue, const TCHAR *Description=TEXT(&quot;&quot;))</div></div>
+<div class="ttc" id="aclass_f_base_console_html_a33aad924bf0bb991d4b26e2279a7d6bd"><div class="ttname"><a href="../../d0/de2/class_f_base_console.html#a33aad924bf0bb991d4b26e2279a7d6bd">FBaseConsole::OnAddConsoleInput</a></div><div class="ttdeci">FOnAddConsoleInput OnAddConsoleInput</div><div class="ttdef"><b>Definition</b> BaseConsole.h:178</div></div>
+<div class="ttc" id="aclass_f_base_console_html_a393ae6d421cff7ebcabdda4e04ed4b98"><div class="ttname"><a href="../../d0/de2/class_f_base_console.html#a393ae6d421cff7ebcabdda4e04ed4b98">FBaseConsole::AddConsoleObject</a></div><div class="ttdeci">IConsoleObject * AddConsoleObject(const TCHAR *Name, IConsoleObject *Obj, const TCHAR *Description=TEXT(&quot;&quot;))</div><div class="ttdef"><b>Definition</b> BaseConsole.cpp:135</div></div>
+<div class="ttc" id="aclass_f_base_console_html_a5ae0733abf3a847b5779b8c3e22d5e3c"><div class="ttname"><a href="../../d0/de2/class_f_base_console.html#a5ae0733abf3a847b5779b8c3e22d5e3c">FBaseConsole::RegisterConsoleVariableRef</a></div><div class="ttdeci">class IConsoleVariable * RegisterConsoleVariableRef(const TCHAR *Name, FString &amp;RefValue, const TCHAR *Description=TEXT(&quot;&quot;))</div></div>
+<div class="ttc" id="aclass_f_base_console_html_a6313ede0b57806b2f5c965e7139056f1"><div class="ttname"><a href="../../d0/de2/class_f_base_console.html#a6313ede0b57806b2f5c965e7139056f1">FBaseConsole::Update</a></div><div class="ttdeci">void Update(float DeltaTime)</div></div>
+<div class="ttc" id="aclass_f_base_console_html_a69f1545caac45ed1d329120ef7a7e33a"><div class="ttname"><a href="../../d0/de2/class_f_base_console.html#a69f1545caac45ed1d329120ef7a7e33a">FBaseConsole::StaticID</a></div><div class="ttdeci">static uint64 StaticID</div><div class="ttdef"><b>Definition</b> BaseConsole.h:193</div></div>
+<div class="ttc" id="aclass_f_base_console_html_a6ff0f9e823aa748b043aade6e1d8d9aa"><div class="ttname"><a href="../../d0/de2/class_f_base_console.html#a6ff0f9e823aa748b043aade6e1d8d9aa">FBaseConsole::GetLogs</a></div><div class="ttdeci">const TArray&lt; FConsoleLog &gt; &amp; GetLogs() const</div><div class="ttdef"><b>Definition</b> BaseConsole.h:176</div></div>
+<div class="ttc" id="aclass_f_base_console_html_a8ae273e89ecf09a34908471f7a6c73fc"><div class="ttname"><a href="../../d0/de2/class_f_base_console.html#a8ae273e89ecf09a34908471f7a6c73fc">FBaseConsole::InputText</a></div><div class="ttdeci">void InputText(const FString &amp;Text)</div><div class="ttdef"><b>Definition</b> BaseConsole.cpp:237</div></div>
+<div class="ttc" id="aclass_f_base_console_html_a8f8e0165efc4c25252791b2673b6e462"><div class="ttname"><a href="../../d0/de2/class_f_base_console.html#a8f8e0165efc4c25252791b2673b6e462">FBaseConsole::RegisterConsoleVariable</a></div><div class="ttdeci">class IConsoleVariable * RegisterConsoleVariable(const TCHAR *Name, bool DefaultValue, const TCHAR *Description=TEXT(&quot;&quot;))</div></div>
+<div class="ttc" id="aclass_f_base_console_html_a9594533192119ae6d6ba23b12b2ced39"><div class="ttname"><a href="../../d0/de2/class_f_base_console.html#a9594533192119ae6d6ba23b12b2ced39">FBaseConsole::Cache</a></div><div class="ttdeci">TArray&lt; FConsoleLog &gt; Cache</div><div class="ttdef"><b>Definition</b> BaseConsole.h:191</div></div>
+<div class="ttc" id="aclass_f_base_console_html_a9e6443966a961d5c4283f390e12ce8f5"><div class="ttname"><a href="../../d0/de2/class_f_base_console.html#a9e6443966a961d5c4283f390e12ce8f5">FBaseConsole::RemoveLog</a></div><div class="ttdeci">void RemoveLog()</div></div>
+<div class="ttc" id="aclass_f_base_console_html_a9f9913c82c7953ac872353b6ae83c549"><div class="ttname"><a href="../../d0/de2/class_f_base_console.html#a9f9913c82c7953ac872353b6ae83c549">FBaseConsole::GetConsoleObjects</a></div><div class="ttdeci">const TUnordoredMap&lt; FString, IConsoleObject * &gt; &amp; GetConsoleObjects() const</div><div class="ttdef"><b>Definition</b> BaseConsole.h:181</div></div>
+<div class="ttc" id="aclass_f_base_console_html_ab2051fda4e33461e404af772bff4e080"><div class="ttname"><a href="../../d0/de2/class_f_base_console.html#ab2051fda4e33461e404af772bff4e080">FBaseConsole::FBaseConsole</a></div><div class="ttdeci">FBaseConsole()</div><div class="ttdef"><b>Definition</b> BaseConsole.cpp:208</div></div>
+<div class="ttc" id="aclass_f_base_console_html_ac3a21a26ea9d8efa315f1d5d5c75180d"><div class="ttname"><a href="../../d0/de2/class_f_base_console.html#ac3a21a26ea9d8efa315f1d5d5c75180d">FBaseConsole::RegisterConsoleVariable</a></div><div class="ttdeci">class IConsoleVariable * RegisterConsoleVariable(const TCHAR *Name, int32 DefaultValue, const TCHAR *Description=TEXT(&quot;&quot;))</div></div>
+<div class="ttc" id="aclass_f_base_console_html_ae1dc3f4ad6471318207d1435e829ca9f"><div class="ttname"><a href="../../d0/de2/class_f_base_console.html#ae1dc3f4ad6471318207d1435e829ca9f">FBaseConsole::RegisterConsoleVariable</a></div><div class="ttdeci">class IConsoleVariable * RegisterConsoleVariable(const TCHAR *Name, float DefaultValue, const TCHAR *Description=TEXT(&quot;&quot;))</div></div>
+<div class="ttc" id="aclass_f_base_console_html_ae5a9975fe8113456fbbab6069ef6dc10"><div class="ttname"><a href="../../d0/de2/class_f_base_console.html#ae5a9975fe8113456fbbab6069ef6dc10">FBaseConsole::~FBaseConsole</a></div><div class="ttdeci">~FBaseConsole()</div><div class="ttdef"><b>Definition</b> BaseConsole.cpp:213</div></div>
+<div class="ttc" id="aclass_f_base_console_html_ae6a7b4f68cf3a26faa7e7c45e005073c"><div class="ttname"><a href="../../d0/de2/class_f_base_console.html#ae6a7b4f68cf3a26faa7e7c45e005073c">FBaseConsole::OnAddConsoleMessage</a></div><div class="ttdeci">FOnAddConsoleMessage OnAddConsoleMessage</div><div class="ttdef"><b>Definition</b> BaseConsole.h:179</div></div>
+<div class="ttc" id="aclass_f_string_html"><div class="ttname"><a href="../../d9/dcb/class_f_string.html">FString</a></div><div class="ttdef"><b>Definition</b> DarkString.h:17</div></div>
+<div class="ttc" id="aclass_f_string_html_a1dfcf0015234ee1810ed318e32dc6543"><div class="ttname"><a href="../../d9/dcb/class_f_string.html#a1dfcf0015234ee1810ed318e32dc6543">FString::PrintF</a></div><div class="ttdeci">static FString PrintF(const TCHAR *Fmt, TypeArgs... Args)</div><div class="ttdef"><b>Definition</b> DarkString.h:103</div></div>
+<div class="ttc" id="aclass_f_windows_critical_section_html"><div class="ttname"><a href="../../d2/d88/class_f_windows_critical_section.html">FWindowsCriticalSection</a></div><div class="ttdef"><b>Definition</b> WindowsCriticalSection.h:6</div></div>
+<div class="ttc" id="aclass_i_console_command_html"><div class="ttname"><a href="../../d4/d15/class_i_console_command.html">IConsoleCommand</a></div><div class="ttdef"><b>Definition</b> BaseConsole.h:140</div></div>
+<div class="ttc" id="aclass_i_console_command_html_a386c44fcc3975345cc4b8c6789be79de"><div class="ttname"><a href="../../d4/d15/class_i_console_command.html#a386c44fcc3975345cc4b8c6789be79de">IConsoleCommand::Execute</a></div><div class="ttdeci">virtual bool Execute(const TArray&lt; FString &gt; &amp;Args)=0</div></div>
+<div class="ttc" id="aclass_i_console_object_html"><div class="ttname"><a href="../../d9/dd0/class_i_console_object.html">IConsoleObject</a></div><div class="ttdef"><b>Definition</b> BaseConsole.h:53</div></div>
+<div class="ttc" id="aclass_i_console_object_html_a093cb564193cf09f0012be5531c24093"><div class="ttname"><a href="../../d9/dd0/class_i_console_object.html#a093cb564193cf09f0012be5531c24093">IConsoleObject::IsVariableBool</a></div><div class="ttdeci">virtual bool IsVariableBool() const</div><div class="ttdef"><b>Definition</b> BaseConsole.h:60</div></div>
+<div class="ttc" id="aclass_i_console_object_html_a1475373dce3a7b2ce7a3c5bc3d68f561"><div class="ttname"><a href="../../d9/dd0/class_i_console_object.html#a1475373dce3a7b2ce7a3c5bc3d68f561">IConsoleObject::IsVariableFloat</a></div><div class="ttdeci">virtual bool IsVariableFloat() const</div><div class="ttdef"><b>Definition</b> BaseConsole.h:62</div></div>
+<div class="ttc" id="aclass_i_console_object_html_a47a210960116bf1330327a6110a80464"><div class="ttname"><a href="../../d9/dd0/class_i_console_object.html#a47a210960116bf1330327a6110a80464">IConsoleObject::AsVariableString</a></div><div class="ttdeci">virtual TConsoleVariableData&lt; FString &gt; * AsVariableString()</div><div class="ttdef"><b>Definition</b> BaseConsole.h:77</div></div>
+<div class="ttc" id="aclass_i_console_object_html_a4cedcdbb48247c346061309c090949df"><div class="ttname"><a href="../../d9/dd0/class_i_console_object.html#a4cedcdbb48247c346061309c090949df">IConsoleObject::AsVariableInt</a></div><div class="ttdeci">virtual TConsoleVariableData&lt; int32 &gt; * AsVariableInt()</div><div class="ttdef"><b>Definition</b> BaseConsole.h:69</div></div>
+<div class="ttc" id="aclass_i_console_object_html_a65b7510e4000b8a370c82e4dceb82d69"><div class="ttname"><a href="../../d9/dd0/class_i_console_object.html#a65b7510e4000b8a370c82e4dceb82d69">IConsoleObject::AsVariableBool</a></div><div class="ttdeci">virtual TConsoleVariableData&lt; bool &gt; * AsVariableBool()</div><div class="ttdef"><b>Definition</b> BaseConsole.h:65</div></div>
+<div class="ttc" id="aclass_i_console_object_html_a65f16f7e6ff35313d7a3d13f65708328"><div class="ttname"><a href="../../d9/dd0/class_i_console_object.html#a65f16f7e6ff35313d7a3d13f65708328">IConsoleObject::AsCommand</a></div><div class="ttdeci">virtual class IConsoleCommand * AsCommand()</div><div class="ttdef"><b>Definition</b> BaseConsole.h:82</div></div>
+<div class="ttc" id="aclass_i_console_object_html_a7101238140f350114d2c2eb250c3e4ee"><div class="ttname"><a href="../../d9/dd0/class_i_console_object.html#a7101238140f350114d2c2eb250c3e4ee">IConsoleObject::AsVariable</a></div><div class="ttdeci">virtual class IConsoleVariable * AsVariable()</div><div class="ttdef"><b>Definition</b> BaseConsole.h:55</div></div>
+<div class="ttc" id="aclass_i_console_object_html_a8ca6a8ffbb0d2b7b07fbd341cebbd0f5"><div class="ttname"><a href="../../d9/dd0/class_i_console_object.html#a8ca6a8ffbb0d2b7b07fbd341cebbd0f5">IConsoleObject::Description</a></div><div class="ttdeci">FString Description</div><div class="ttdef"><b>Definition</b> BaseConsole.h:87</div></div>
+<div class="ttc" id="aclass_i_console_object_html_acf10037995757f16cb5864b412147fd6"><div class="ttname"><a href="../../d9/dd0/class_i_console_object.html#acf10037995757f16cb5864b412147fd6">IConsoleObject::IsVariableString</a></div><div class="ttdeci">virtual bool IsVariableString() const</div><div class="ttdef"><b>Definition</b> BaseConsole.h:63</div></div>
+<div class="ttc" id="aclass_i_console_object_html_ad15b8f9e4949cbec304323ca1acd54cb"><div class="ttname"><a href="../../d9/dd0/class_i_console_object.html#ad15b8f9e4949cbec304323ca1acd54cb">IConsoleObject::IsVariableInt</a></div><div class="ttdeci">virtual bool IsVariableInt() const</div><div class="ttdef"><b>Definition</b> BaseConsole.h:61</div></div>
+<div class="ttc" id="aclass_i_console_object_html_ad7b88eaa812093cacf2cd814473e7fc0"><div class="ttname"><a href="../../d9/dd0/class_i_console_object.html#ad7b88eaa812093cacf2cd814473e7fc0">IConsoleObject::AsVariableFloat</a></div><div class="ttdeci">virtual TConsoleVariableData&lt; float &gt; * AsVariableFloat()</div><div class="ttdef"><b>Definition</b> BaseConsole.h:73</div></div>
+<div class="ttc" id="aclass_i_console_variable_html"><div class="ttname"><a href="../../d7/dd4/class_i_console_variable.html">IConsoleVariable</a></div><div class="ttdef"><b>Definition</b> BaseConsole.h:91</div></div>
+<div class="ttc" id="aclass_i_console_variable_html_a17b0b12bd6b2ebd0516e6a0f2d8b9981"><div class="ttname"><a href="../../d7/dd4/class_i_console_variable.html#a17b0b12bd6b2ebd0516e6a0f2d8b9981">IConsoleVariable::GetBool</a></div><div class="ttdeci">virtual bool GetBool() const =0</div></div>
+<div class="ttc" id="aclass_i_console_variable_html_a19a0a785074cd184e999d2d0851ce715"><div class="ttname"><a href="../../d7/dd4/class_i_console_variable.html#a19a0a785074cd184e999d2d0851ce715">IConsoleVariable::Set</a></div><div class="ttdeci">void Set(int32 InValue)</div><div class="ttdef"><b>Definition</b> BaseConsole.h:125</div></div>
+<div class="ttc" id="aclass_i_console_variable_html_a21e572d6e13cf221b109881891f3ad7f"><div class="ttname"><a href="../../d7/dd4/class_i_console_variable.html#a21e572d6e13cf221b109881891f3ad7f">IConsoleVariable::Set</a></div><div class="ttdeci">void Set(float InValue)</div><div class="ttdef"><b>Definition</b> BaseConsole.h:129</div></div>
+<div class="ttc" id="aclass_i_console_variable_html_a43d62223e0d2e829bf7124d8b35c8ed3"><div class="ttname"><a href="../../d7/dd4/class_i_console_variable.html#a43d62223e0d2e829bf7124d8b35c8ed3">IConsoleVariable::GetValue</a></div><div class="ttdeci">void GetValue(bool &amp;OutValue)</div><div class="ttdef"><b>Definition</b> BaseConsole.h:103</div></div>
+<div class="ttc" id="aclass_i_console_variable_html_a69e716aa9274f68f57d71b1404132abb"><div class="ttname"><a href="../../d7/dd4/class_i_console_variable.html#a69e716aa9274f68f57d71b1404132abb">IConsoleVariable::GetString</a></div><div class="ttdeci">virtual FString GetString() const =0</div></div>
+<div class="ttc" id="aclass_i_console_variable_html_a7578b065757fb537521d6ef28f4352bc"><div class="ttname"><a href="../../d7/dd4/class_i_console_variable.html#a7578b065757fb537521d6ef28f4352bc">IConsoleVariable::SetOnChangedCallback</a></div><div class="ttdeci">virtual void SetOnChangedCallback(FConsoleSoloVariableDelegate Callback)=0</div></div>
+<div class="ttc" id="aclass_i_console_variable_html_a831b7af810ff77844b48eec5a0d706fc"><div class="ttname"><a href="../../d7/dd4/class_i_console_variable.html#a831b7af810ff77844b48eec5a0d706fc">IConsoleVariable::GetFloat</a></div><div class="ttdeci">virtual float GetFloat() const =0</div></div>
+<div class="ttc" id="aclass_i_console_variable_html_a9e43b6b5d5dc7b550f7e74d24b2ba185"><div class="ttname"><a href="../../d7/dd4/class_i_console_variable.html#a9e43b6b5d5dc7b550f7e74d24b2ba185">IConsoleVariable::Set</a></div><div class="ttdeci">virtual void Set(const TCHAR *InValue)=0</div></div>
+<div class="ttc" id="aclass_i_console_variable_html_aa7be4ac7c3be83c5a5b2c42a7e7e8b41"><div class="ttname"><a href="../../d7/dd4/class_i_console_variable.html#aa7be4ac7c3be83c5a5b2c42a7e7e8b41">IConsoleVariable::ToString</a></div><div class="ttdeci">virtual FString ToString() const =0</div></div>
+<div class="ttc" id="aclass_i_console_variable_html_aca5846b6c66ce8166ba38f67f47a39c2"><div class="ttname"><a href="../../d7/dd4/class_i_console_variable.html#aca5846b6c66ce8166ba38f67f47a39c2">IConsoleVariable::Set</a></div><div class="ttdeci">void Set(bool InValue)</div><div class="ttdef"><b>Definition</b> BaseConsole.h:121</div></div>
+<div class="ttc" id="aclass_i_console_variable_html_ad081b365133d0240ef788d5d213329b7"><div class="ttname"><a href="../../d7/dd4/class_i_console_variable.html#ad081b365133d0240ef788d5d213329b7">IConsoleVariable::Set</a></div><div class="ttdeci">void Set(const FString &amp;InValue)</div><div class="ttdef"><b>Definition</b> BaseConsole.h:133</div></div>
+<div class="ttc" id="aclass_i_console_variable_html_adfd819da93de113dbbdbc6f375395a7f"><div class="ttname"><a href="../../d7/dd4/class_i_console_variable.html#adfd819da93de113dbbdbc6f375395a7f">IConsoleVariable::GetValue</a></div><div class="ttdeci">void GetValue(float &amp;OutValue)</div><div class="ttdef"><b>Definition</b> BaseConsole.h:107</div></div>
+<div class="ttc" id="aclass_i_console_variable_html_aec9ab9a1527f7489feb94f5a425e2210"><div class="ttname"><a href="../../d7/dd4/class_i_console_variable.html#aec9ab9a1527f7489feb94f5a425e2210">IConsoleVariable::GetValue</a></div><div class="ttdeci">void GetValue(FString &amp;OutValue)</div><div class="ttdef"><b>Definition</b> BaseConsole.h:111</div></div>
+<div class="ttc" id="aclass_i_console_variable_html_af38e30a22e47de49ee941573b5ede88f"><div class="ttname"><a href="../../d7/dd4/class_i_console_variable.html#af38e30a22e47de49ee941573b5ede88f">IConsoleVariable::SetOnChangedCallback</a></div><div class="ttdeci">virtual void SetOnChangedCallback(const FConsoleVariableDelegate &amp;Callback)=0</div></div>
+<div class="ttc" id="aclass_i_console_variable_html_af70e4e536fc6ca1823d6650e67a1cb27"><div class="ttname"><a href="../../d7/dd4/class_i_console_variable.html#af70e4e536fc6ca1823d6650e67a1cb27">IConsoleVariable::GetValue</a></div><div class="ttdeci">void GetValue(int32 &amp;OutValue)</div><div class="ttdef"><b>Definition</b> BaseConsole.h:99</div></div>
+<div class="ttc" id="aclass_i_console_variable_html_afa03a84041176328439fca27e786d5af"><div class="ttname"><a href="../../d7/dd4/class_i_console_variable.html#afa03a84041176328439fca27e786d5af">IConsoleVariable::GetInt</a></div><div class="ttdeci">virtual int32 GetInt() const =0</div></div>
+<div class="ttc" id="aclass_t_console_variable_data_html"><div class="ttname"><a href="../../d6/d79/class_t_console_variable_data.html">TConsoleVariableData</a></div><div class="ttdef"><b>Definition</b> BaseConsole.h:33</div></div>
+<div class="ttc" id="aclass_t_console_variable_data_html_a09fc3a1ddd6a815d17c83499f2f43bf7"><div class="ttname"><a href="../../d6/d79/class_t_console_variable_data.html#a09fc3a1ddd6a815d17c83499f2f43bf7">TConsoleVariableData::GetValue</a></div><div class="ttdeci">T GetValue() const</div><div class="ttdef"><b>Definition</b> BaseConsole.h:40</div></div>
+<div class="ttc" id="aclass_t_console_variable_data_html_a8fabafc751f342ba9b2140c9618a1a3f"><div class="ttname"><a href="../../d6/d79/class_t_console_variable_data.html#a8fabafc751f342ba9b2140c9618a1a3f">TConsoleVariableData::TConsoleVariableData</a></div><div class="ttdeci">TConsoleVariableData(const T DefaultValue)</div><div class="ttdef"><b>Definition</b> BaseConsole.h:35</div></div>
+<div class="ttc" id="aclass_t_multi_cast_delegate_html"><div class="ttname"><a href="../../d8/d5b/class_t_multi_cast_delegate.html">TMultiCastDelegate&lt; void, class IConsoleVariable * &gt;</a></div></div>
+<div class="ttc" id="astruct_d_e_1_1_math_1_1_t_vector_html"><div class="ttname"><a href="../../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html">DE::Math::TVector&lt; float &gt;</a></div></div>
+<div class="ttc" id="astruct_f_console_log_html"><div class="ttname"><a href="../../da/de9/struct_f_console_log.html">FConsoleLog</a></div><div class="ttdef"><b>Definition</b> BaseConsole.h:23</div></div>
+<div class="ttc" id="astruct_f_console_log_html_a17af02052888cb06293c4ea6eb35bc8d"><div class="ttname"><a href="../../da/de9/struct_f_console_log.html#a17af02052888cb06293c4ea6eb35bc8d">FConsoleLog::Log</a></div><div class="ttdeci">FString Log</div><div class="ttdef"><b>Definition</b> BaseConsole.h:25</div></div>
+<div class="ttc" id="astruct_f_console_log_html_a5154aa6f1b9d1901d38c201c625cdb5e"><div class="ttname"><a href="../../da/de9/struct_f_console_log.html#a5154aa6f1b9d1901d38c201c625cdb5e">FConsoleLog::Id</a></div><div class="ttdeci">uint64 Id</div><div class="ttdef"><b>Definition</b> BaseConsole.h:24</div></div>
+<div class="ttc" id="astruct_f_console_log_html_aed3f9c25b2a3908a944dec300b50675b"><div class="ttname"><a href="../../da/de9/struct_f_console_log.html#aed3f9c25b2a3908a944dec300b50675b">FConsoleLog::Color</a></div><div class="ttdeci">FVector3f Color</div><div class="ttdef"><b>Definition</b> BaseConsole.h:26</div></div>
+<div class="ttc" id="astruct_f_console_log_html_af7b5ddbcb020b65d5d427a557a5c2d4f"><div class="ttname"><a href="../../da/de9/struct_f_console_log.html#af7b5ddbcb020b65d5d427a557a5c2d4f">FConsoleLog::Time</a></div><div class="ttdeci">float Time</div><div class="ttdef"><b>Definition</b> BaseConsole.h:27</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../dir_55043db21ba5ddd7c561d2c5a5a38944.html">Dark Engine</a></li><li class="navelem"><a class="el" href="../../dir_e00b54220e1e1486ac9971b606d33054.html">Source</a></li><li class="navelem"><a class="el" href="../../dir_ae01c8af07818b260cc3481e8588b277.html">Runtime</a></li><li class="navelem"><a class="el" href="../../dir_59f1d85f259666bc4c18ba498cded78a.html">Core</a></li><li class="navelem"><a class="el" href="../../dir_78d6767ad0aceff322a7926558f8cdbd.html">Public</a></li><li class="navelem"><a class="el" href="../../dir_e7c75a8bb17e7a937603b32b96d6fe99.html">Console</a></li><li class="navelem"><a class="el" href="../../d6/d97/_base_console_8h.html">BaseConsole.h</a></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -23,7 +23,7 @@ public:
 class FWindowsApplication : public FGenericApplication
 {
 public:
-	static FWindowsApplication* CreateWindowsApplication(const HINSTANCE HInstance, const HICON HIcon);
+	static FWindowsApplication* CreateWindowsApplication(const HINSTANCE HInstance, const HICON HIcon, const HCURSOR HCursor = NULL);
 	static void DestroyWindowsApplication();
 
 public:
@@ -31,6 +31,8 @@ public:
 	virtual void InitializeWindow(const TSharedPtr<FGenericWindow>& InWindow,
 		const TSharedPtr<FGenericWindowDefinition>& InDefinition) override;
 
+
+	virtual void SetCapture(const TSharedPtr<FGenericWindow>& InWindow);
 
 	virtual FIntPoint GetMousePos() const;
 
@@ -45,14 +47,14 @@ private:
 
 	int32 ProcessMessage(HWND hWnd, uint32 Msg, WPARAM wParam, LPARAM lParam);
 
-	FWindowsApplication(const HINSTANCE HInstance, const HICON HIcon);
+	FWindowsApplication(const HINSTANCE HInstance, const HICON HIcon, const HCURSOR HCursor = NULL);
 	~FWindowsApplication();
 
 
 	HINSTANCE InstanceHandle;
 
 private:
-	static bool RegisterClass(const HINSTANCE HInstance, const HICON HIcon);
+	static bool RegisterClass(const HINSTANCE HInstance, const HICON HIcon, const HCURSOR HCursor);
 
 
 

@@ -1,0 +1,318 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Dark Engine: Исходный файл Dark Engine/Source/Runtime/Core/Public/GenericPlatform/GenericPlatformMemory.h</title>
+<link rel="icon" href="../../Logo.png" type="image/x-icon" />
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<script type="text/javascript" src="../../clipboard.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../MiniLogo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Dark Engine<span id="projectnumber">&#160;0.0.50</span>
+   </div>
+   <div id="projectbrief">New game engnie D3D12</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../../',true,false,'search.php','Поиск');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(1); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('de/d8d/_generic_platform_memory_8h_source.html','../../'); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">GenericPlatformMemory.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="../../de/d8d/_generic_platform_memory_8h.html">См. документацию.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="../../d5/d64/_core_fwd_8h.html">CoreFwd.h</a>&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="../../db/d04/_core_types_8h.html">CoreTypes.h</a>&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;<a class="code" href="../../d5/dd3/_platform_string_8h.html">HAL/PlatformString.h</a>&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;wchar.h&gt;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">class </span>FMalloc;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment">//class FString;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="foldopen" id="foldopen00016" data-start="{" data-end="};">
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="../../d2/dac/struct_f_generic_platform_memory.html">   16</a></span><span class="keyword">struct </span><a class="code hl_struct" href="../../d2/dac/struct_f_generic_platform_memory.html">FGenericPlatformMemory</a></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>{</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="../../d2/dac/struct_f_generic_platform_memory.html#a72f368a97f21b7b461af562cf16d93ea">   20</a></span>    <span class="keyword">static</span> <a class="code hl_define" href="../../da/d5a/_core_platform_8h.html#a94070b76c7d4ff7927f14814f3f53e40">DENGINE_API</a> <span class="keywordtype">bool</span> <a class="code hl_variable" href="../../d2/dac/struct_f_generic_platform_memory.html#a72f368a97f21b7b461af562cf16d93ea">bIsOOM</a>;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="../../d2/dac/struct_f_generic_platform_memory.html#a40c1478bceb93229172b2ea8937b4f9b">   23</a></span>    <span class="keyword">static</span> <a class="code hl_define" href="../../da/d5a/_core_platform_8h.html#a94070b76c7d4ff7927f14814f3f53e40">DENGINE_API</a> <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#afddf25cca147311c233b23a9d3329bb4">uint64</a> <a class="code hl_variable" href="../../d2/dac/struct_f_generic_platform_memory.html#a40c1478bceb93229172b2ea8937b4f9b">OOMAllocationSize</a>;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="../../d2/dac/struct_f_generic_platform_memory.html#a649fbde525ef28e112691db7cc25a38a">   26</a></span>    <span class="keyword">static</span> <a class="code hl_define" href="../../da/d5a/_core_platform_8h.html#a94070b76c7d4ff7927f14814f3f53e40">DENGINE_API</a> <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> <a class="code hl_variable" href="../../d2/dac/struct_f_generic_platform_memory.html#a649fbde525ef28e112691db7cc25a38a">OOMAllocationAlignment</a>;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="../../d2/dac/struct_f_generic_platform_memory.html#a6cca50d553467f870adc5d11aa336218">   29</a></span>    <span class="keyword">static</span> <a class="code hl_define" href="../../da/d5a/_core_platform_8h.html#a94070b76c7d4ff7927f14814f3f53e40">DENGINE_API</a> <span class="keywordtype">void</span>* <a class="code hl_variable" href="../../d2/dac/struct_f_generic_platform_memory.html#a6cca50d553467f870adc5d11aa336218">BackupOOMMemoryPool</a>;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="../../d2/dac/struct_f_generic_platform_memory.html#a162d39d03d5ba1ed1a7fba1b30ee84be">   32</a></span>    <span class="keyword">static</span> <a class="code hl_define" href="../../da/d5a/_core_platform_8h.html#a94070b76c7d4ff7927f14814f3f53e40">DENGINE_API</a> <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> <a class="code hl_variable" href="../../d2/dac/struct_f_generic_platform_memory.html#a162d39d03d5ba1ed1a7fba1b30ee84be">BackupOOMMemoryPoolSize</a>;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="foldopen" id="foldopen00034" data-start="{" data-end="};">
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="../../d2/dac/struct_f_generic_platform_memory.html#a68d141c03992fb6aae185a4cfbebde67">   34</a></span>    <span class="keyword">enum</span> <a class="code hl_enumeration" href="../../d2/dac/struct_f_generic_platform_memory.html#a68d141c03992fb6aae185a4cfbebde67">EMemoryCounterRegion</a></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    {</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="../../d2/dac/struct_f_generic_platform_memory.html#a68d141c03992fb6aae185a4cfbebde67aa4d0f1a1a1f13e42f7788617b592b48c">   36</a></span>        <a class="code hl_enumvalue" href="../../d2/dac/struct_f_generic_platform_memory.html#a68d141c03992fb6aae185a4cfbebde67aa4d0f1a1a1f13e42f7788617b592b48c">MCR_Invalid</a>, <span class="comment">// not memory</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="../../d2/dac/struct_f_generic_platform_memory.html#a68d141c03992fb6aae185a4cfbebde67a63d07aceae0c619c70b19b715e6f29e2">   37</a></span>        <a class="code hl_enumvalue" href="../../d2/dac/struct_f_generic_platform_memory.html#a68d141c03992fb6aae185a4cfbebde67a63d07aceae0c619c70b19b715e6f29e2">MCR_Physical</a>, <span class="comment">// main system memory</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="../../d2/dac/struct_f_generic_platform_memory.html#a68d141c03992fb6aae185a4cfbebde67a2f3c935ccc14ccfb464eb52fec4843a3">   38</a></span>        <a class="code hl_enumvalue" href="../../d2/dac/struct_f_generic_platform_memory.html#a68d141c03992fb6aae185a4cfbebde67a2f3c935ccc14ccfb464eb52fec4843a3">MCR_GPU</a>, <span class="comment">// memory directly a GPU (graphics card, etc)</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="../../d2/dac/struct_f_generic_platform_memory.html#a68d141c03992fb6aae185a4cfbebde67a1b14b99dd64fa3bbfac1d94e80dc8e6c">   39</a></span>        <a class="code hl_enumvalue" href="../../d2/dac/struct_f_generic_platform_memory.html#a68d141c03992fb6aae185a4cfbebde67a1b14b99dd64fa3bbfac1d94e80dc8e6c">MCR_GPUSystem</a>, <span class="comment">// system memory directly accessible by a GPU</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="../../d2/dac/struct_f_generic_platform_memory.html#a68d141c03992fb6aae185a4cfbebde67a23b2b22106e700115cd42da8057f9144">   40</a></span>        <a class="code hl_enumvalue" href="../../d2/dac/struct_f_generic_platform_memory.html#a68d141c03992fb6aae185a4cfbebde67a23b2b22106e700115cd42da8057f9144">MCR_TexturePool</a>, <span class="comment">// presized texture pools</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="../../d2/dac/struct_f_generic_platform_memory.html#a68d141c03992fb6aae185a4cfbebde67ae50f8bf55a33f42c18d18a1ee060e212">   41</a></span>        <a class="code hl_enumvalue" href="../../d2/dac/struct_f_generic_platform_memory.html#a68d141c03992fb6aae185a4cfbebde67ae50f8bf55a33f42c18d18a1ee060e212">MCR_StreamingPool</a>, <span class="comment">// amount of texture pool available for streaming.</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="../../d2/dac/struct_f_generic_platform_memory.html#a68d141c03992fb6aae185a4cfbebde67a5e693c43fa8e909e326d282cebfcabf5">   42</a></span>        <a class="code hl_enumvalue" href="../../d2/dac/struct_f_generic_platform_memory.html#a68d141c03992fb6aae185a4cfbebde67a5e693c43fa8e909e326d282cebfcabf5">MCR_UsedStreamingPool</a>, <span class="comment">// amount of texture pool used for streaming.</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="../../d2/dac/struct_f_generic_platform_memory.html#a68d141c03992fb6aae185a4cfbebde67aac73df1f86c8bb56b67c1bc3153b2fab">   43</a></span>        <a class="code hl_enumvalue" href="../../d2/dac/struct_f_generic_platform_memory.html#a68d141c03992fb6aae185a4cfbebde67aac73df1f86c8bb56b67c1bc3153b2fab">MCR_GPUDefragPool</a>, <span class="comment">// presized pool of memory that can be defragmented.</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="../../d2/dac/struct_f_generic_platform_memory.html#a68d141c03992fb6aae185a4cfbebde67a79e9c9ce7efaf4e68b63e67d244d8a73">   44</a></span>        <a class="code hl_enumvalue" href="../../d2/dac/struct_f_generic_platform_memory.html#a68d141c03992fb6aae185a4cfbebde67a79e9c9ce7efaf4e68b63e67d244d8a73">MCR_PhysicalLLM</a>, <span class="comment">// total physical memory including CPU and GPU</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        <a class="code hl_enumvalue" href="../../d2/dac/struct_f_generic_platform_memory.html#a68d141c03992fb6aae185a4cfbebde67abb8a1b23b68b099738ba1575fde5f95a">MCR_MAX</a></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="../../d2/dac/struct_f_generic_platform_memory.html#a68d141c03992fb6aae185a4cfbebde67abb8a1b23b68b099738ba1575fde5f95a">   46</a></span>    };</div>
+</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="foldopen" id="foldopen00048" data-start="{" data-end="};">
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="../../d2/dac/struct_f_generic_platform_memory.html#a0cf4cd052acae0df2b1d84f0b62e30a8">   48</a></span>    <span class="keyword">enum</span> <a class="code hl_enumeration" href="../../d2/dac/struct_f_generic_platform_memory.html#a0cf4cd052acae0df2b1d84f0b62e30a8">EMemoryAllocatorToUse</a></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    {</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="../../d2/dac/struct_f_generic_platform_memory.html#a0cf4cd052acae0df2b1d84f0b62e30a8a2877d95501c25f163b9cbf5acf79ae2d">   50</a></span>        <a class="code hl_enumvalue" href="../../d2/dac/struct_f_generic_platform_memory.html#a0cf4cd052acae0df2b1d84f0b62e30a8a2877d95501c25f163b9cbf5acf79ae2d">Ansi</a>, <span class="comment">// Default C allocator</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="../../d2/dac/struct_f_generic_platform_memory.html#a0cf4cd052acae0df2b1d84f0b62e30a8a7e874aa063f675687e756571835e1143">   51</a></span>        <a class="code hl_enumvalue" href="../../d2/dac/struct_f_generic_platform_memory.html#a0cf4cd052acae0df2b1d84f0b62e30a8a7e874aa063f675687e756571835e1143">Stomp</a>, <span class="comment">// Allocator to check for memory stomping</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="../../d2/dac/struct_f_generic_platform_memory.html#a0cf4cd052acae0df2b1d84f0b62e30a8a580971ff4a94a54579f4e73b6a8ef940">   52</a></span>        <a class="code hl_enumvalue" href="../../d2/dac/struct_f_generic_platform_memory.html#a0cf4cd052acae0df2b1d84f0b62e30a8a580971ff4a94a54579f4e73b6a8ef940">TBB</a>, <span class="comment">// Thread Building Blocks malloc</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="../../d2/dac/struct_f_generic_platform_memory.html#a0cf4cd052acae0df2b1d84f0b62e30a8ac3fca6568110482a592d9f4a2a2e7ee9">   53</a></span>        <a class="code hl_enumvalue" href="../../d2/dac/struct_f_generic_platform_memory.html#a0cf4cd052acae0df2b1d84f0b62e30a8ac3fca6568110482a592d9f4a2a2e7ee9">Jemalloc</a>, <span class="comment">// Linux/FreeBSD malloc</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="../../d2/dac/struct_f_generic_platform_memory.html#a0cf4cd052acae0df2b1d84f0b62e30a8a18112b3605a3b445621ea95cbc09cdb4">   54</a></span>        <a class="code hl_enumvalue" href="../../d2/dac/struct_f_generic_platform_memory.html#a0cf4cd052acae0df2b1d84f0b62e30a8a18112b3605a3b445621ea95cbc09cdb4">Binned</a>, <span class="comment">// Older binned malloc</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="../../d2/dac/struct_f_generic_platform_memory.html#a0cf4cd052acae0df2b1d84f0b62e30a8a1c947b4dcf07450c97038f9c7de7c8c1">   55</a></span>        <a class="code hl_enumvalue" href="../../d2/dac/struct_f_generic_platform_memory.html#a0cf4cd052acae0df2b1d84f0b62e30a8a1c947b4dcf07450c97038f9c7de7c8c1">Binned2</a>, <span class="comment">// Newer binned malloc</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="../../d2/dac/struct_f_generic_platform_memory.html#a0cf4cd052acae0df2b1d84f0b62e30a8af3e62e44b9e21acf56fa14812037cb58">   56</a></span>        <a class="code hl_enumvalue" href="../../d2/dac/struct_f_generic_platform_memory.html#a0cf4cd052acae0df2b1d84f0b62e30a8af3e62e44b9e21acf56fa14812037cb58">Binned3</a>, <span class="comment">// Newer VM-based binned malloc, 64 bit only</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="../../d2/dac/struct_f_generic_platform_memory.html#a0cf4cd052acae0df2b1d84f0b62e30a8a4aa9c831b84a42a4d326f2d7b913f33c">   57</a></span>        <a class="code hl_enumvalue" href="../../d2/dac/struct_f_generic_platform_memory.html#a0cf4cd052acae0df2b1d84f0b62e30a8a4aa9c831b84a42a4d326f2d7b913f33c">Platform</a>, <span class="comment">// Custom platform specific allocator</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="../../d2/dac/struct_f_generic_platform_memory.html#a0cf4cd052acae0df2b1d84f0b62e30a8a97ad63d503f0f664ac33bda7b162a81b">   58</a></span>        <a class="code hl_enumvalue" href="../../d2/dac/struct_f_generic_platform_memory.html#a0cf4cd052acae0df2b1d84f0b62e30a8a97ad63d503f0f664ac33bda7b162a81b">Mimalloc</a>, <span class="comment">// mimalloc</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    };</div>
+</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../d2/dac/struct_f_generic_platform_memory.html#a753f908f64e2cf8fa2d02b8044fcbf3f">Init</a>();</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="../../d2/dac/struct_f_generic_platform_memory.html#a0a9d8691262f563871ddfb28504f7d29">   67</a></span>    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../d2/dac/struct_f_generic_platform_memory.html#a0a9d8691262f563871ddfb28504f7d29">OnOutOfMemory</a>(<a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#afddf25cca147311c233b23a9d3329bb4">uint64</a> <a class="code hl_enumvalue" href="../../d5/dc5/_d3_d12_utils_8h.html#a49802c782fb40bd8e79835ef12871ddeaff9abf2b1a689f70a77a18da50c01d9f">Size</a>, <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> Alignmemnt);</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../d2/dac/struct_f_generic_platform_memory.html#aa14a1389746849b7c2df612674c79dc7">SetupMemoryPools</a>();</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <span class="keyword">static</span> <a class="code hl_define" href="../../d6/d5e/_definitions_8h.html#afea66f9a6812c2354b544f31910fd72f">CORE_API</a> <span class="keywordtype">void</span>* <a class="code hl_function" href="../../d2/dac/struct_f_generic_platform_memory.html#adc9e1cac7542a87425c3df335611a109">BinnedAllocFromOS</a>(<a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a2c46f1fb01e11216aa2c983307deafb4">SIZE_T</a> <a class="code hl_enumvalue" href="../../d5/dc5/_d3_d12_utils_8h.html#a49802c782fb40bd8e79835ef12871ddeaff9abf2b1a689f70a77a18da50c01d9f">Size</a>);</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="../../d2/dac/struct_f_generic_platform_memory.html#a341dc15dc436088731a9e337a1c1e3d4">   77</a></span>    <span class="keyword">static</span> <span class="keywordtype">void</span>* <a class="code hl_function" href="../../d2/dac/struct_f_generic_platform_memory.html#a341dc15dc436088731a9e337a1c1e3d4">Memzero</a>(<span class="keywordtype">void</span>* Dst, <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a2c46f1fb01e11216aa2c983307deafb4">SIZE_T</a> <a class="code hl_enumvalue" href="../../d5/db6/_pixel_format_8h.html#afb559e26bc610db43ba605230a142898a928f33270be19855038d0245a0fa06a1">Count</a>) { <span class="keywordflow">return</span> <a class="code hl_function" href="../../d2/dac/struct_f_generic_platform_memory.html#a9dd441da1c388e52f0700b59df6a336a">Memset</a>(Dst, 0, <a class="code hl_enumvalue" href="../../d5/db6/_pixel_format_8h.html#afb559e26bc610db43ba605230a142898a928f33270be19855038d0245a0fa06a1">Count</a>); }</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="../../d2/dac/struct_f_generic_platform_memory.html#a780574b745e0f677810b3b1966e13c76">   80</a></span>    <span class="keyword">static</span> FORCEINLINE <span class="keywordtype">void</span>* <a class="code hl_function" href="../../d2/dac/struct_f_generic_platform_memory.html#a780574b745e0f677810b3b1966e13c76">Memmove</a>(<span class="keywordtype">void</span>* Dst, <span class="keyword">const</span> <span class="keywordtype">void</span>* Src, <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a2c46f1fb01e11216aa2c983307deafb4">SIZE_T</a> <a class="code hl_enumvalue" href="../../d5/db6/_pixel_format_8h.html#afb559e26bc610db43ba605230a142898a928f33270be19855038d0245a0fa06a1">Count</a>) { <span class="keywordflow">return</span> memmove(Dst, Src, <a class="code hl_enumvalue" href="../../d5/db6/_pixel_format_8h.html#afb559e26bc610db43ba605230a142898a928f33270be19855038d0245a0fa06a1">Count</a>); }</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno"><a class="line" href="../../d2/dac/struct_f_generic_platform_memory.html#a87e4f64719cbe71c0605ccb601e48d1f">   81</a></span>    <span class="keyword">static</span> <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a84083085985fb180ad38b9c32e3937da">int32</a> <a class="code hl_function" href="../../d2/dac/struct_f_generic_platform_memory.html#a87e4f64719cbe71c0605ccb601e48d1f">Memcmp</a>(<span class="keyword">const</span> <span class="keywordtype">void</span>* Buf1, <span class="keyword">const</span> <span class="keywordtype">void</span>* Buf2, <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a2c46f1fb01e11216aa2c983307deafb4">SIZE_T</a> <a class="code hl_enumvalue" href="../../d5/db6/_pixel_format_8h.html#afb559e26bc610db43ba605230a142898a928f33270be19855038d0245a0fa06a1">Count</a>) { <span class="keywordflow">return</span> memcmp(Buf1, Buf2, <a class="code hl_enumvalue" href="../../d5/db6/_pixel_format_8h.html#afb559e26bc610db43ba605230a142898a928f33270be19855038d0245a0fa06a1">Count</a>); }</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno"><a class="line" href="../../d2/dac/struct_f_generic_platform_memory.html#a9dd441da1c388e52f0700b59df6a336a">   82</a></span>    <span class="keyword">static</span> <span class="keywordtype">void</span>* <a class="code hl_function" href="../../d2/dac/struct_f_generic_platform_memory.html#a9dd441da1c388e52f0700b59df6a336a">Memset</a>(<span class="keywordtype">void</span>* Dst, <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a40bc01dd090acd02a79b5dc13e08abe6">uint8</a> Char, <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a2c46f1fb01e11216aa2c983307deafb4">SIZE_T</a> <a class="code hl_enumvalue" href="../../d5/db6/_pixel_format_8h.html#afb559e26bc610db43ba605230a142898a928f33270be19855038d0245a0fa06a1">Count</a>) { <span class="keywordflow">return</span> memset(Dst, Char, <a class="code hl_enumvalue" href="../../d5/db6/_pixel_format_8h.html#afb559e26bc610db43ba605230a142898a928f33270be19855038d0245a0fa06a1">Count</a>); }</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="../../d2/dac/struct_f_generic_platform_memory.html#ab46f8cf40276eb3a904f9e7329bc5a0f">   83</a></span>    <span class="keyword">static</span> <span class="keywordtype">void</span>* <a class="code hl_function" href="../../d2/dac/struct_f_generic_platform_memory.html#ab46f8cf40276eb3a904f9e7329bc5a0f">Memcpy</a>(<span class="keywordtype">void</span>* Dst, <span class="keyword">const</span> <span class="keywordtype">void</span>* Src, <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a2c46f1fb01e11216aa2c983307deafb4">SIZE_T</a> <a class="code hl_enumvalue" href="../../d5/db6/_pixel_format_8h.html#afb559e26bc610db43ba605230a142898a928f33270be19855038d0245a0fa06a1">Count</a>) { <span class="keywordflow">return</span> memcpy(Dst, Src, <a class="code hl_enumvalue" href="../../d5/db6/_pixel_format_8h.html#afb559e26bc610db43ba605230a142898a928f33270be19855038d0245a0fa06a1">Count</a>); }</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="foldopen" id="foldopen00086" data-start="{" data-end="}">
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno"><a class="line" href="../../d2/dac/struct_f_generic_platform_memory.html#a934aa131573522d27a59a21458eebd96">   86</a></span>    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../d2/dac/struct_f_generic_platform_memory.html#a934aa131573522d27a59a21458eebd96">Memswap</a>(<span class="keywordtype">void</span>* Ptr1, <span class="keywordtype">void</span>* Ptr2, <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a2c46f1fb01e11216aa2c983307deafb4">SIZE_T</a> <a class="code hl_enumvalue" href="../../d5/dc5/_d3_d12_utils_8h.html#a49802c782fb40bd8e79835ef12871ddeaff9abf2b1a689f70a77a18da50c01d9f">Size</a>)</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    {</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        <span class="keywordflow">switch</span> (<a class="code hl_enumvalue" href="../../d5/dc5/_d3_d12_utils_8h.html#a49802c782fb40bd8e79835ef12871ddeaff9abf2b1a689f70a77a18da50c01d9f">Size</a>)</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        {</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        <span class="keywordflow">case</span> 0:</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        <span class="keywordflow">case</span> 1:</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>            Valswap(*(<a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a40bc01dd090acd02a79b5dc13e08abe6">uint8</a>*)Ptr1, *(<a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a40bc01dd090acd02a79b5dc13e08abe6">uint8</a>*)Ptr2);</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>        <span class="keywordflow">case</span> 2:</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>            Valswap(*(<a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a55934b7aafc849240fa69ea0339c0ab7">uint16</a>*)Ptr1, *(<a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a55934b7aafc849240fa69ea0339c0ab7">uint16</a>*)Ptr2);</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        <span class="keywordflow">case</span> 3:</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>            Valswap(*((<a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a55934b7aafc849240fa69ea0339c0ab7">uint16</a>*&amp;)Ptr1)++, *((<a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a55934b7aafc849240fa69ea0339c0ab7">uint16</a>*&amp;)Ptr2)++);</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>            Valswap(*(<a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a40bc01dd090acd02a79b5dc13e08abe6">uint8</a>*)Ptr1, *(<a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a40bc01dd090acd02a79b5dc13e08abe6">uint8</a>*)Ptr2);</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>        <span class="keywordflow">case</span> 4:</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>            Valswap(*(<a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a>*)Ptr1, *(<a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a>*)Ptr2);</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>        <span class="keywordflow">case</span> 5:</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>            Valswap(*((<a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a>*&amp;)Ptr1)++, *((<a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a>*&amp;)Ptr2)++);</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>            Valswap(*(<a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a40bc01dd090acd02a79b5dc13e08abe6">uint8</a>*)Ptr1, *(<a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a40bc01dd090acd02a79b5dc13e08abe6">uint8</a>*)Ptr2);</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>        <span class="keywordflow">case</span> 6:</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>            Valswap(*((<a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a>*&amp;)Ptr1)++, *((<a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a>*&amp;)Ptr2)++);</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>            Valswap(*(<a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a55934b7aafc849240fa69ea0339c0ab7">uint16</a>*)Ptr1, *(<a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a55934b7aafc849240fa69ea0339c0ab7">uint16</a>*)Ptr2);</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>        <span class="keywordflow">case</span> 7:</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>            Valswap(*((<a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a>*&amp;)Ptr1)++, *((<a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a>*&amp;)Ptr2)++);</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>            Valswap(*((<a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a55934b7aafc849240fa69ea0339c0ab7">uint16</a>*&amp;)Ptr1)++, *((<a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a55934b7aafc849240fa69ea0339c0ab7">uint16</a>*&amp;)Ptr2)++);</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>            Valswap(*(<a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a40bc01dd090acd02a79b5dc13e08abe6">uint8</a>*)Ptr1, *(<a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a40bc01dd090acd02a79b5dc13e08abe6">uint8</a>*)Ptr2);</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>        <span class="keywordflow">case</span> 8:</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>            Valswap(*(<a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#afddf25cca147311c233b23a9d3329bb4">uint64</a>*)Ptr1, *(<a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#afddf25cca147311c233b23a9d3329bb4">uint64</a>*)Ptr2);</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>        <span class="keywordflow">case</span> 16:</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>            Valswap(((<a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#afddf25cca147311c233b23a9d3329bb4">uint64</a>*)Ptr1)[0], ((<a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#afddf25cca147311c233b23a9d3329bb4">uint64</a>*)Ptr2)[0]);</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>            Valswap(((<a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#afddf25cca147311c233b23a9d3329bb4">uint64</a>*)Ptr1)[1], ((<a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#afddf25cca147311c233b23a9d3329bb4">uint64</a>*)Ptr2)[1]);</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>        <span class="keywordflow">default</span>:</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>        }</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span> </div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>    }</div>
+</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span> </div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span> </div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    <span class="keyword">static</span> <span class="keywordtype">void</span> Valswap(T&amp; A, T&amp; B)</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>    {</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>        T Tmp = A;</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>        A = B;</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>        B = Tmp;</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>    }</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>    </div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span> </div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span> </div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span> </div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span> </div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>};</div>
+</div>
+<div class="ttc" id="a_core_fwd_8h_html"><div class="ttname"><a href="../../d5/d64/_core_fwd_8h.html">CoreFwd.h</a></div></div>
+<div class="ttc" id="a_core_platform_8h_html_a94070b76c7d4ff7927f14814f3f53e40"><div class="ttname"><a href="../../da/d5a/_core_platform_8h.html#a94070b76c7d4ff7927f14814f3f53e40">DENGINE_API</a></div><div class="ttdeci">#define DENGINE_API</div><div class="ttdef"><b>Definition</b> CorePlatform.h:8</div></div>
+<div class="ttc" id="a_core_types_8h_html"><div class="ttname"><a href="../../db/d04/_core_types_8h.html">CoreTypes.h</a></div></div>
+<div class="ttc" id="a_d3_d12_utils_8h_html_a49802c782fb40bd8e79835ef12871ddeaff9abf2b1a689f70a77a18da50c01d9f"><div class="ttname"><a href="../../d5/dc5/_d3_d12_utils_8h.html#a49802c782fb40bd8e79835ef12871ddeaff9abf2b1a689f70a77a18da50c01d9f">Size</a></div><div class="ttdeci">@ Size</div><div class="ttdef"><b>Definition</b> D3D12Utils.h:26</div></div>
+<div class="ttc" id="a_definitions_8h_html_afea66f9a6812c2354b544f31910fd72f"><div class="ttname"><a href="../../d6/d5e/_definitions_8h.html#afea66f9a6812c2354b544f31910fd72f">CORE_API</a></div><div class="ttdeci">#define CORE_API</div><div class="ttdef"><b>Definition</b> Definitions.h:108</div></div>
+<div class="ttc" id="a_pixel_format_8h_html_afb559e26bc610db43ba605230a142898a928f33270be19855038d0245a0fa06a1"><div class="ttname"><a href="../../d5/db6/_pixel_format_8h.html#afb559e26bc610db43ba605230a142898a928f33270be19855038d0245a0fa06a1">Count</a></div><div class="ttdeci">@ Count</div><div class="ttdef"><b>Definition</b> PixelFormat.h:16</div></div>
+<div class="ttc" id="a_platform_8h_html_a2c46f1fb01e11216aa2c983307deafb4"><div class="ttname"><a href="../../d2/dc9/_platform_8h.html#a2c46f1fb01e11216aa2c983307deafb4">SIZE_T</a></div><div class="ttdeci">FPlatformTypes::SIZE_T SIZE_T</div><div class="ttdef"><b>Definition</b> Platform.h:54</div></div>
+<div class="ttc" id="a_platform_8h_html_a40bc01dd090acd02a79b5dc13e08abe6"><div class="ttname"><a href="../../d2/dc9/_platform_8h.html#a40bc01dd090acd02a79b5dc13e08abe6">uint8</a></div><div class="ttdeci">FPlatformTypes::uint8 uint8</div><div class="ttdef"><b>Definition</b> Platform.h:39</div></div>
+<div class="ttc" id="a_platform_8h_html_a55934b7aafc849240fa69ea0339c0ab7"><div class="ttname"><a href="../../d2/dc9/_platform_8h.html#a55934b7aafc849240fa69ea0339c0ab7">uint16</a></div><div class="ttdeci">FPlatformTypes::uint16 uint16</div><div class="ttdef"><b>Definition</b> Platform.h:41</div></div>
+<div class="ttc" id="a_platform_8h_html_a84083085985fb180ad38b9c32e3937da"><div class="ttname"><a href="../../d2/dc9/_platform_8h.html#a84083085985fb180ad38b9c32e3937da">int32</a></div><div class="ttdeci">FPlatformTypes::int32 int32</div><div class="ttdef"><b>Definition</b> Platform.h:42</div></div>
+<div class="ttc" id="a_platform_8h_html_a8c7a127091efbdfc5a16939041653e05"><div class="ttname"><a href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a></div><div class="ttdeci">FPlatformTypes::uint32 uint32</div><div class="ttdef"><b>Definition</b> Platform.h:43</div></div>
+<div class="ttc" id="a_platform_8h_html_afddf25cca147311c233b23a9d3329bb4"><div class="ttname"><a href="../../d2/dc9/_platform_8h.html#afddf25cca147311c233b23a9d3329bb4">uint64</a></div><div class="ttdeci">FPlatformTypes::uint64 uint64</div><div class="ttdef"><b>Definition</b> Platform.h:45</div></div>
+<div class="ttc" id="a_platform_string_8h_html"><div class="ttname"><a href="../../d5/dd3/_platform_string_8h.html">PlatformString.h</a></div></div>
+<div class="ttc" id="astruct_f_generic_platform_memory_html"><div class="ttname"><a href="../../d2/dac/struct_f_generic_platform_memory.html">FGenericPlatformMemory</a></div><div class="ttdef"><b>Definition</b> GenericPlatformMemory.h:17</div></div>
+<div class="ttc" id="astruct_f_generic_platform_memory_html_a0a9d8691262f563871ddfb28504f7d29"><div class="ttname"><a href="../../d2/dac/struct_f_generic_platform_memory.html#a0a9d8691262f563871ddfb28504f7d29">FGenericPlatformMemory::OnOutOfMemory</a></div><div class="ttdeci">static void OnOutOfMemory(uint64 Size, uint32 Alignmemnt)</div></div>
+<div class="ttc" id="astruct_f_generic_platform_memory_html_a0cf4cd052acae0df2b1d84f0b62e30a8"><div class="ttname"><a href="../../d2/dac/struct_f_generic_platform_memory.html#a0cf4cd052acae0df2b1d84f0b62e30a8">FGenericPlatformMemory::EMemoryAllocatorToUse</a></div><div class="ttdeci">EMemoryAllocatorToUse</div><div class="ttdef"><b>Definition</b> GenericPlatformMemory.h:49</div></div>
+<div class="ttc" id="astruct_f_generic_platform_memory_html_a0cf4cd052acae0df2b1d84f0b62e30a8a18112b3605a3b445621ea95cbc09cdb4"><div class="ttname"><a href="../../d2/dac/struct_f_generic_platform_memory.html#a0cf4cd052acae0df2b1d84f0b62e30a8a18112b3605a3b445621ea95cbc09cdb4">FGenericPlatformMemory::Binned</a></div><div class="ttdeci">@ Binned</div><div class="ttdef"><b>Definition</b> GenericPlatformMemory.h:54</div></div>
+<div class="ttc" id="astruct_f_generic_platform_memory_html_a0cf4cd052acae0df2b1d84f0b62e30a8a1c947b4dcf07450c97038f9c7de7c8c1"><div class="ttname"><a href="../../d2/dac/struct_f_generic_platform_memory.html#a0cf4cd052acae0df2b1d84f0b62e30a8a1c947b4dcf07450c97038f9c7de7c8c1">FGenericPlatformMemory::Binned2</a></div><div class="ttdeci">@ Binned2</div><div class="ttdef"><b>Definition</b> GenericPlatformMemory.h:55</div></div>
+<div class="ttc" id="astruct_f_generic_platform_memory_html_a0cf4cd052acae0df2b1d84f0b62e30a8a2877d95501c25f163b9cbf5acf79ae2d"><div class="ttname"><a href="../../d2/dac/struct_f_generic_platform_memory.html#a0cf4cd052acae0df2b1d84f0b62e30a8a2877d95501c25f163b9cbf5acf79ae2d">FGenericPlatformMemory::Ansi</a></div><div class="ttdeci">@ Ansi</div><div class="ttdef"><b>Definition</b> GenericPlatformMemory.h:50</div></div>
+<div class="ttc" id="astruct_f_generic_platform_memory_html_a0cf4cd052acae0df2b1d84f0b62e30a8a4aa9c831b84a42a4d326f2d7b913f33c"><div class="ttname"><a href="../../d2/dac/struct_f_generic_platform_memory.html#a0cf4cd052acae0df2b1d84f0b62e30a8a4aa9c831b84a42a4d326f2d7b913f33c">FGenericPlatformMemory::Platform</a></div><div class="ttdeci">@ Platform</div><div class="ttdef"><b>Definition</b> GenericPlatformMemory.h:57</div></div>
+<div class="ttc" id="astruct_f_generic_platform_memory_html_a0cf4cd052acae0df2b1d84f0b62e30a8a580971ff4a94a54579f4e73b6a8ef940"><div class="ttname"><a href="../../d2/dac/struct_f_generic_platform_memory.html#a0cf4cd052acae0df2b1d84f0b62e30a8a580971ff4a94a54579f4e73b6a8ef940">FGenericPlatformMemory::TBB</a></div><div class="ttdeci">@ TBB</div><div class="ttdef"><b>Definition</b> GenericPlatformMemory.h:52</div></div>
+<div class="ttc" id="astruct_f_generic_platform_memory_html_a0cf4cd052acae0df2b1d84f0b62e30a8a7e874aa063f675687e756571835e1143"><div class="ttname"><a href="../../d2/dac/struct_f_generic_platform_memory.html#a0cf4cd052acae0df2b1d84f0b62e30a8a7e874aa063f675687e756571835e1143">FGenericPlatformMemory::Stomp</a></div><div class="ttdeci">@ Stomp</div><div class="ttdef"><b>Definition</b> GenericPlatformMemory.h:51</div></div>
+<div class="ttc" id="astruct_f_generic_platform_memory_html_a0cf4cd052acae0df2b1d84f0b62e30a8a97ad63d503f0f664ac33bda7b162a81b"><div class="ttname"><a href="../../d2/dac/struct_f_generic_platform_memory.html#a0cf4cd052acae0df2b1d84f0b62e30a8a97ad63d503f0f664ac33bda7b162a81b">FGenericPlatformMemory::Mimalloc</a></div><div class="ttdeci">@ Mimalloc</div><div class="ttdef"><b>Definition</b> GenericPlatformMemory.h:58</div></div>
+<div class="ttc" id="astruct_f_generic_platform_memory_html_a0cf4cd052acae0df2b1d84f0b62e30a8ac3fca6568110482a592d9f4a2a2e7ee9"><div class="ttname"><a href="../../d2/dac/struct_f_generic_platform_memory.html#a0cf4cd052acae0df2b1d84f0b62e30a8ac3fca6568110482a592d9f4a2a2e7ee9">FGenericPlatformMemory::Jemalloc</a></div><div class="ttdeci">@ Jemalloc</div><div class="ttdef"><b>Definition</b> GenericPlatformMemory.h:53</div></div>
+<div class="ttc" id="astruct_f_generic_platform_memory_html_a0cf4cd052acae0df2b1d84f0b62e30a8af3e62e44b9e21acf56fa14812037cb58"><div class="ttname"><a href="../../d2/dac/struct_f_generic_platform_memory.html#a0cf4cd052acae0df2b1d84f0b62e30a8af3e62e44b9e21acf56fa14812037cb58">FGenericPlatformMemory::Binned3</a></div><div class="ttdeci">@ Binned3</div><div class="ttdef"><b>Definition</b> GenericPlatformMemory.h:56</div></div>
+<div class="ttc" id="astruct_f_generic_platform_memory_html_a162d39d03d5ba1ed1a7fba1b30ee84be"><div class="ttname"><a href="../../d2/dac/struct_f_generic_platform_memory.html#a162d39d03d5ba1ed1a7fba1b30ee84be">FGenericPlatformMemory::BackupOOMMemoryPoolSize</a></div><div class="ttdeci">static DENGINE_API uint32 BackupOOMMemoryPoolSize</div><div class="ttdef"><b>Definition</b> GenericPlatformMemory.h:32</div></div>
+<div class="ttc" id="astruct_f_generic_platform_memory_html_a341dc15dc436088731a9e337a1c1e3d4"><div class="ttname"><a href="../../d2/dac/struct_f_generic_platform_memory.html#a341dc15dc436088731a9e337a1c1e3d4">FGenericPlatformMemory::Memzero</a></div><div class="ttdeci">static void * Memzero(void *Dst, SIZE_T Count)</div><div class="ttdef"><b>Definition</b> GenericPlatformMemory.h:77</div></div>
+<div class="ttc" id="astruct_f_generic_platform_memory_html_a40c1478bceb93229172b2ea8937b4f9b"><div class="ttname"><a href="../../d2/dac/struct_f_generic_platform_memory.html#a40c1478bceb93229172b2ea8937b4f9b">FGenericPlatformMemory::OOMAllocationSize</a></div><div class="ttdeci">static DENGINE_API uint64 OOMAllocationSize</div><div class="ttdef"><b>Definition</b> GenericPlatformMemory.h:23</div></div>
+<div class="ttc" id="astruct_f_generic_platform_memory_html_a649fbde525ef28e112691db7cc25a38a"><div class="ttname"><a href="../../d2/dac/struct_f_generic_platform_memory.html#a649fbde525ef28e112691db7cc25a38a">FGenericPlatformMemory::OOMAllocationAlignment</a></div><div class="ttdeci">static DENGINE_API uint32 OOMAllocationAlignment</div><div class="ttdef"><b>Definition</b> GenericPlatformMemory.h:26</div></div>
+<div class="ttc" id="astruct_f_generic_platform_memory_html_a68d141c03992fb6aae185a4cfbebde67"><div class="ttname"><a href="../../d2/dac/struct_f_generic_platform_memory.html#a68d141c03992fb6aae185a4cfbebde67">FGenericPlatformMemory::EMemoryCounterRegion</a></div><div class="ttdeci">EMemoryCounterRegion</div><div class="ttdef"><b>Definition</b> GenericPlatformMemory.h:35</div></div>
+<div class="ttc" id="astruct_f_generic_platform_memory_html_a68d141c03992fb6aae185a4cfbebde67a1b14b99dd64fa3bbfac1d94e80dc8e6c"><div class="ttname"><a href="../../d2/dac/struct_f_generic_platform_memory.html#a68d141c03992fb6aae185a4cfbebde67a1b14b99dd64fa3bbfac1d94e80dc8e6c">FGenericPlatformMemory::MCR_GPUSystem</a></div><div class="ttdeci">@ MCR_GPUSystem</div><div class="ttdef"><b>Definition</b> GenericPlatformMemory.h:39</div></div>
+<div class="ttc" id="astruct_f_generic_platform_memory_html_a68d141c03992fb6aae185a4cfbebde67a23b2b22106e700115cd42da8057f9144"><div class="ttname"><a href="../../d2/dac/struct_f_generic_platform_memory.html#a68d141c03992fb6aae185a4cfbebde67a23b2b22106e700115cd42da8057f9144">FGenericPlatformMemory::MCR_TexturePool</a></div><div class="ttdeci">@ MCR_TexturePool</div><div class="ttdef"><b>Definition</b> GenericPlatformMemory.h:40</div></div>
+<div class="ttc" id="astruct_f_generic_platform_memory_html_a68d141c03992fb6aae185a4cfbebde67a2f3c935ccc14ccfb464eb52fec4843a3"><div class="ttname"><a href="../../d2/dac/struct_f_generic_platform_memory.html#a68d141c03992fb6aae185a4cfbebde67a2f3c935ccc14ccfb464eb52fec4843a3">FGenericPlatformMemory::MCR_GPU</a></div><div class="ttdeci">@ MCR_GPU</div><div class="ttdef"><b>Definition</b> GenericPlatformMemory.h:38</div></div>
+<div class="ttc" id="astruct_f_generic_platform_memory_html_a68d141c03992fb6aae185a4cfbebde67a5e693c43fa8e909e326d282cebfcabf5"><div class="ttname"><a href="../../d2/dac/struct_f_generic_platform_memory.html#a68d141c03992fb6aae185a4cfbebde67a5e693c43fa8e909e326d282cebfcabf5">FGenericPlatformMemory::MCR_UsedStreamingPool</a></div><div class="ttdeci">@ MCR_UsedStreamingPool</div><div class="ttdef"><b>Definition</b> GenericPlatformMemory.h:42</div></div>
+<div class="ttc" id="astruct_f_generic_platform_memory_html_a68d141c03992fb6aae185a4cfbebde67a63d07aceae0c619c70b19b715e6f29e2"><div class="ttname"><a href="../../d2/dac/struct_f_generic_platform_memory.html#a68d141c03992fb6aae185a4cfbebde67a63d07aceae0c619c70b19b715e6f29e2">FGenericPlatformMemory::MCR_Physical</a></div><div class="ttdeci">@ MCR_Physical</div><div class="ttdef"><b>Definition</b> GenericPlatformMemory.h:37</div></div>
+<div class="ttc" id="astruct_f_generic_platform_memory_html_a68d141c03992fb6aae185a4cfbebde67a79e9c9ce7efaf4e68b63e67d244d8a73"><div class="ttname"><a href="../../d2/dac/struct_f_generic_platform_memory.html#a68d141c03992fb6aae185a4cfbebde67a79e9c9ce7efaf4e68b63e67d244d8a73">FGenericPlatformMemory::MCR_PhysicalLLM</a></div><div class="ttdeci">@ MCR_PhysicalLLM</div><div class="ttdef"><b>Definition</b> GenericPlatformMemory.h:44</div></div>
+<div class="ttc" id="astruct_f_generic_platform_memory_html_a68d141c03992fb6aae185a4cfbebde67aa4d0f1a1a1f13e42f7788617b592b48c"><div class="ttname"><a href="../../d2/dac/struct_f_generic_platform_memory.html#a68d141c03992fb6aae185a4cfbebde67aa4d0f1a1a1f13e42f7788617b592b48c">FGenericPlatformMemory::MCR_Invalid</a></div><div class="ttdeci">@ MCR_Invalid</div><div class="ttdef"><b>Definition</b> GenericPlatformMemory.h:36</div></div>
+<div class="ttc" id="astruct_f_generic_platform_memory_html_a68d141c03992fb6aae185a4cfbebde67aac73df1f86c8bb56b67c1bc3153b2fab"><div class="ttname"><a href="../../d2/dac/struct_f_generic_platform_memory.html#a68d141c03992fb6aae185a4cfbebde67aac73df1f86c8bb56b67c1bc3153b2fab">FGenericPlatformMemory::MCR_GPUDefragPool</a></div><div class="ttdeci">@ MCR_GPUDefragPool</div><div class="ttdef"><b>Definition</b> GenericPlatformMemory.h:43</div></div>
+<div class="ttc" id="astruct_f_generic_platform_memory_html_a68d141c03992fb6aae185a4cfbebde67abb8a1b23b68b099738ba1575fde5f95a"><div class="ttname"><a href="../../d2/dac/struct_f_generic_platform_memory.html#a68d141c03992fb6aae185a4cfbebde67abb8a1b23b68b099738ba1575fde5f95a">FGenericPlatformMemory::MCR_MAX</a></div><div class="ttdeci">@ MCR_MAX</div><div class="ttdef"><b>Definition</b> GenericPlatformMemory.h:45</div></div>
+<div class="ttc" id="astruct_f_generic_platform_memory_html_a68d141c03992fb6aae185a4cfbebde67ae50f8bf55a33f42c18d18a1ee060e212"><div class="ttname"><a href="../../d2/dac/struct_f_generic_platform_memory.html#a68d141c03992fb6aae185a4cfbebde67ae50f8bf55a33f42c18d18a1ee060e212">FGenericPlatformMemory::MCR_StreamingPool</a></div><div class="ttdeci">@ MCR_StreamingPool</div><div class="ttdef"><b>Definition</b> GenericPlatformMemory.h:41</div></div>
+<div class="ttc" id="astruct_f_generic_platform_memory_html_a6cca50d553467f870adc5d11aa336218"><div class="ttname"><a href="../../d2/dac/struct_f_generic_platform_memory.html#a6cca50d553467f870adc5d11aa336218">FGenericPlatformMemory::BackupOOMMemoryPool</a></div><div class="ttdeci">static DENGINE_API void * BackupOOMMemoryPool</div><div class="ttdef"><b>Definition</b> GenericPlatformMemory.h:29</div></div>
+<div class="ttc" id="astruct_f_generic_platform_memory_html_a72f368a97f21b7b461af562cf16d93ea"><div class="ttname"><a href="../../d2/dac/struct_f_generic_platform_memory.html#a72f368a97f21b7b461af562cf16d93ea">FGenericPlatformMemory::bIsOOM</a></div><div class="ttdeci">static DENGINE_API bool bIsOOM</div><div class="ttdef"><b>Definition</b> GenericPlatformMemory.h:20</div></div>
+<div class="ttc" id="astruct_f_generic_platform_memory_html_a753f908f64e2cf8fa2d02b8044fcbf3f"><div class="ttname"><a href="../../d2/dac/struct_f_generic_platform_memory.html#a753f908f64e2cf8fa2d02b8044fcbf3f">FGenericPlatformMemory::Init</a></div><div class="ttdeci">static void Init()</div><div class="ttdef"><b>Definition</b> GenericPlatformMemory.cpp:8</div></div>
+<div class="ttc" id="astruct_f_generic_platform_memory_html_a780574b745e0f677810b3b1966e13c76"><div class="ttname"><a href="../../d2/dac/struct_f_generic_platform_memory.html#a780574b745e0f677810b3b1966e13c76">FGenericPlatformMemory::Memmove</a></div><div class="ttdeci">static FORCEINLINE void * Memmove(void *Dst, const void *Src, SIZE_T Count)</div><div class="ttdef"><b>Definition</b> GenericPlatformMemory.h:80</div></div>
+<div class="ttc" id="astruct_f_generic_platform_memory_html_a87e4f64719cbe71c0605ccb601e48d1f"><div class="ttname"><a href="../../d2/dac/struct_f_generic_platform_memory.html#a87e4f64719cbe71c0605ccb601e48d1f">FGenericPlatformMemory::Memcmp</a></div><div class="ttdeci">static int32 Memcmp(const void *Buf1, const void *Buf2, SIZE_T Count)</div><div class="ttdef"><b>Definition</b> GenericPlatformMemory.h:81</div></div>
+<div class="ttc" id="astruct_f_generic_platform_memory_html_a934aa131573522d27a59a21458eebd96"><div class="ttname"><a href="../../d2/dac/struct_f_generic_platform_memory.html#a934aa131573522d27a59a21458eebd96">FGenericPlatformMemory::Memswap</a></div><div class="ttdeci">static void Memswap(void *Ptr1, void *Ptr2, SIZE_T Size)</div><div class="ttdef"><b>Definition</b> GenericPlatformMemory.h:86</div></div>
+<div class="ttc" id="astruct_f_generic_platform_memory_html_a9dd441da1c388e52f0700b59df6a336a"><div class="ttname"><a href="../../d2/dac/struct_f_generic_platform_memory.html#a9dd441da1c388e52f0700b59df6a336a">FGenericPlatformMemory::Memset</a></div><div class="ttdeci">static void * Memset(void *Dst, uint8 Char, SIZE_T Count)</div><div class="ttdef"><b>Definition</b> GenericPlatformMemory.h:82</div></div>
+<div class="ttc" id="astruct_f_generic_platform_memory_html_aa14a1389746849b7c2df612674c79dc7"><div class="ttname"><a href="../../d2/dac/struct_f_generic_platform_memory.html#aa14a1389746849b7c2df612674c79dc7">FGenericPlatformMemory::SetupMemoryPools</a></div><div class="ttdeci">static void SetupMemoryPools()</div><div class="ttdef"><b>Definition</b> GenericPlatformMemory.cpp:15</div></div>
+<div class="ttc" id="astruct_f_generic_platform_memory_html_ab46f8cf40276eb3a904f9e7329bc5a0f"><div class="ttname"><a href="../../d2/dac/struct_f_generic_platform_memory.html#ab46f8cf40276eb3a904f9e7329bc5a0f">FGenericPlatformMemory::Memcpy</a></div><div class="ttdeci">static void * Memcpy(void *Dst, const void *Src, SIZE_T Count)</div><div class="ttdef"><b>Definition</b> GenericPlatformMemory.h:83</div></div>
+<div class="ttc" id="astruct_f_generic_platform_memory_html_adc9e1cac7542a87425c3df335611a109"><div class="ttname"><a href="../../d2/dac/struct_f_generic_platform_memory.html#adc9e1cac7542a87425c3df335611a109">FGenericPlatformMemory::BinnedAllocFromOS</a></div><div class="ttdeci">static CORE_API void * BinnedAllocFromOS(SIZE_T Size)</div><div class="ttdef"><b>Definition</b> GenericPlatformMemory.cpp:26</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../dir_55043db21ba5ddd7c561d2c5a5a38944.html">Dark Engine</a></li><li class="navelem"><a class="el" href="../../dir_e00b54220e1e1486ac9971b606d33054.html">Source</a></li><li class="navelem"><a class="el" href="../../dir_ae01c8af07818b260cc3481e8588b277.html">Runtime</a></li><li class="navelem"><a class="el" href="../../dir_59f1d85f259666bc4c18ba498cded78a.html">Core</a></li><li class="navelem"><a class="el" href="../../dir_78d6767ad0aceff322a7926558f8cdbd.html">Public</a></li><li class="navelem"><a class="el" href="../../dir_8f5e47fa1a170f1a510e52847efeee9d.html">GenericPlatform</a></li><li class="navelem"><a class="el" href="../../de/d8d/_generic_platform_memory_8h.html">GenericPlatformMemory.h</a></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
+</body>
+</html>

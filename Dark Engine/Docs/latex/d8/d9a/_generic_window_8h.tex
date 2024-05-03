@@ -1,0 +1,83 @@
+\doxysection{Файл Dark Engine/\+Source/\+Runtime/\+Application\+Core/public/\+Generic\+Platform/\+Generic\+Window.h}
+\hypertarget{_generic_window_8h}{}\label{_generic_window_8h}\index{Dark Engine/Source/Runtime/ApplicationCore/public/GenericPlatform/GenericWindow.h@{Dark Engine/Source/Runtime/ApplicationCore/public/GenericPlatform/GenericWindow.h}}
+{\ttfamily \#include "{}Core\+Types.\+h"{}}\newline
+{\ttfamily \#include "{}Containers/\+Dark\+String.\+h"{}}\newline
+{\ttfamily \#include "{}Core\+Minimal.\+h"{}}\newline
+\doxysubsubsection*{Классы}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_f_generic_window}{FGeneric\+Window}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Перечисления}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{_generic_window_8h_a58dc439d7f01a8000901a1d441cb3521}{EWindow\+Mode}} \{ \mbox{\hyperlink{_generic_window_8h_a58dc439d7f01a8000901a1d441cb3521a442ecc88f57a81fcf5161137646b031f}{Fullscreen}}
+, \mbox{\hyperlink{_generic_window_8h_a58dc439d7f01a8000901a1d441cb3521a02048cb51efc5ae08652bef5de7758a8}{Windowed\+Fullscreen}}
+, \mbox{\hyperlink{_generic_window_8h_a58dc439d7f01a8000901a1d441cb3521af1a5b940ef8dbfe3a9129574d83c514d}{Windowed}}
+ \}
+\item 
+enum class \mbox{\hyperlink{_generic_window_8h_ad17743377374d232bd23db0b3cf58a88}{ECursor\+Area}} \{ \newline
+\mbox{\hyperlink{_generic_window_8h_ad17743377374d232bd23db0b3cf58a88a577d7068826de925ea2aec01dbadf5e4}{Client}}
+, \mbox{\hyperlink{_generic_window_8h_ad17743377374d232bd23db0b3cf58a88ad3d2e617335f08df83599665eef8a418}{Close}}
+, \mbox{\hyperlink{_generic_window_8h_ad17743377374d232bd23db0b3cf58a88a272ba7d164aa836995be6319a698be84}{Caption}}
+, \mbox{\hyperlink{_generic_window_8h_ad17743377374d232bd23db0b3cf58a88a9369ba148ee259473fc1fb4939b6c2e8}{Maximize}}
+, \newline
+\mbox{\hyperlink{_generic_window_8h_ad17743377374d232bd23db0b3cf58a88ad27532d90ecd513e97ab811c0f34dbfd}{Minimize}}
+, \mbox{\hyperlink{_generic_window_8h_ad17743377374d232bd23db0b3cf58a88ab61541208db7fa7dba42c85224405911}{Menu}}
+ \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Перечисления}
+\Hypertarget{_generic_window_8h_ad17743377374d232bd23db0b3cf58a88}\label{_generic_window_8h_ad17743377374d232bd23db0b3cf58a88} 
+\index{GenericWindow.h@{GenericWindow.h}!ECursorArea@{ECursorArea}}
+\index{ECursorArea@{ECursorArea}!GenericWindow.h@{GenericWindow.h}}
+\doxysubsubsection{\texorpdfstring{ECursorArea}{ECursorArea}}
+{\footnotesize\ttfamily enum class \mbox{\hyperlink{_generic_window_8h_ad17743377374d232bd23db0b3cf58a88}{ECursor\+Area}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Элементы перечислений}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Client@{Client}!GenericWindow.h@{GenericWindow.h}}\index{GenericWindow.h@{GenericWindow.h}!Client@{Client}}}\Hypertarget{_generic_window_8h_ad17743377374d232bd23db0b3cf58a88a577d7068826de925ea2aec01dbadf5e4}\label{_generic_window_8h_ad17743377374d232bd23db0b3cf58a88a577d7068826de925ea2aec01dbadf5e4} 
+Client&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Close@{Close}!GenericWindow.h@{GenericWindow.h}}\index{GenericWindow.h@{GenericWindow.h}!Close@{Close}}}\Hypertarget{_generic_window_8h_ad17743377374d232bd23db0b3cf58a88ad3d2e617335f08df83599665eef8a418}\label{_generic_window_8h_ad17743377374d232bd23db0b3cf58a88ad3d2e617335f08df83599665eef8a418} 
+Close&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Caption@{Caption}!GenericWindow.h@{GenericWindow.h}}\index{GenericWindow.h@{GenericWindow.h}!Caption@{Caption}}}\Hypertarget{_generic_window_8h_ad17743377374d232bd23db0b3cf58a88a272ba7d164aa836995be6319a698be84}\label{_generic_window_8h_ad17743377374d232bd23db0b3cf58a88a272ba7d164aa836995be6319a698be84} 
+Caption&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Maximize@{Maximize}!GenericWindow.h@{GenericWindow.h}}\index{GenericWindow.h@{GenericWindow.h}!Maximize@{Maximize}}}\Hypertarget{_generic_window_8h_ad17743377374d232bd23db0b3cf58a88a9369ba148ee259473fc1fb4939b6c2e8}\label{_generic_window_8h_ad17743377374d232bd23db0b3cf58a88a9369ba148ee259473fc1fb4939b6c2e8} 
+Maximize&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Minimize@{Minimize}!GenericWindow.h@{GenericWindow.h}}\index{GenericWindow.h@{GenericWindow.h}!Minimize@{Minimize}}}\Hypertarget{_generic_window_8h_ad17743377374d232bd23db0b3cf58a88ad27532d90ecd513e97ab811c0f34dbfd}\label{_generic_window_8h_ad17743377374d232bd23db0b3cf58a88ad27532d90ecd513e97ab811c0f34dbfd} 
+Minimize&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Menu@{Menu}!GenericWindow.h@{GenericWindow.h}}\index{GenericWindow.h@{GenericWindow.h}!Menu@{Menu}}}\Hypertarget{_generic_window_8h_ad17743377374d232bd23db0b3cf58a88ab61541208db7fa7dba42c85224405911}\label{_generic_window_8h_ad17743377374d232bd23db0b3cf58a88ab61541208db7fa7dba42c85224405911} 
+Menu&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{_generic_window_8h_a58dc439d7f01a8000901a1d441cb3521}\label{_generic_window_8h_a58dc439d7f01a8000901a1d441cb3521} 
+\index{GenericWindow.h@{GenericWindow.h}!EWindowMode@{EWindowMode}}
+\index{EWindowMode@{EWindowMode}!GenericWindow.h@{GenericWindow.h}}
+\doxysubsubsection{\texorpdfstring{EWindowMode}{EWindowMode}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_generic_window_8h_a58dc439d7f01a8000901a1d441cb3521}{EWindow\+Mode}}}
+
+\begin{DoxyEnumFields}{Элементы перечислений}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Fullscreen@{Fullscreen}!GenericWindow.h@{GenericWindow.h}}\index{GenericWindow.h@{GenericWindow.h}!Fullscreen@{Fullscreen}}}\Hypertarget{_generic_window_8h_a58dc439d7f01a8000901a1d441cb3521a442ecc88f57a81fcf5161137646b031f}\label{_generic_window_8h_a58dc439d7f01a8000901a1d441cb3521a442ecc88f57a81fcf5161137646b031f} 
+Fullscreen&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WindowedFullscreen@{WindowedFullscreen}!GenericWindow.h@{GenericWindow.h}}\index{GenericWindow.h@{GenericWindow.h}!WindowedFullscreen@{WindowedFullscreen}}}\Hypertarget{_generic_window_8h_a58dc439d7f01a8000901a1d441cb3521a02048cb51efc5ae08652bef5de7758a8}\label{_generic_window_8h_a58dc439d7f01a8000901a1d441cb3521a02048cb51efc5ae08652bef5de7758a8} 
+Windowed\+Fullscreen&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Windowed@{Windowed}!GenericWindow.h@{GenericWindow.h}}\index{GenericWindow.h@{GenericWindow.h}!Windowed@{Windowed}}}\Hypertarget{_generic_window_8h_a58dc439d7f01a8000901a1d441cb3521af1a5b940ef8dbfe3a9129574d83c514d}\label{_generic_window_8h_a58dc439d7f01a8000901a1d441cb3521af1a5b940ef8dbfe3a9129574d83c514d} 
+Windowed&\\
+\hline
+
+\end{DoxyEnumFields}

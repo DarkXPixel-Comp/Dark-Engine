@@ -1,0 +1,485 @@
+\doxysection{Структура ID3\+DX12\+Pipeline\+Parser\+Callbacks}
+\hypertarget{struct_i_d3_d_x12_pipeline_parser_callbacks}{}\label{struct_i_d3_d_x12_pipeline_parser_callbacks}\index{ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}}
+
+
+{\ttfamily \#include $<$d3dx12.\+h$>$}
+
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{struct_i_d3_d_x12_pipeline_parser_callbacks_a5456be43d172e340f6e3fa18fc7bf83a}{Flags\+Cb}} (D3\+D12\+\_\+\+PIPELINE\+\_\+\+STATE\+\_\+\+FLAGS)
+\item 
+virtual void \mbox{\hyperlink{struct_i_d3_d_x12_pipeline_parser_callbacks_ac5704822d7fda2624101267a24d9c0dc}{Node\+Mask\+Cb}} (UINT)
+\item 
+virtual void \mbox{\hyperlink{struct_i_d3_d_x12_pipeline_parser_callbacks_a71f70ab760c914ef463930c4a7a67a9f}{Root\+Signature\+Cb}} (ID3\+D12\+Root\+Signature \texorpdfstring{$\ast$}{*})
+\item 
+virtual void \mbox{\hyperlink{struct_i_d3_d_x12_pipeline_parser_callbacks_a9f47eb3b339cdd435855990c5fbc0507}{Input\+Layout\+Cb}} (const D3\+D12\+\_\+\+INPUT\+\_\+\+LAYOUT\+\_\+\+DESC \&)
+\item 
+virtual void \mbox{\hyperlink{struct_i_d3_d_x12_pipeline_parser_callbacks_a8db5ca9d3a25739a42260a61aed0c775}{IBStrip\+Cut\+Value\+Cb}} (D3\+D12\+\_\+\+INDEX\+\_\+\+BUFFER\+\_\+\+STRIP\+\_\+\+CUT\+\_\+\+VALUE)
+\item 
+virtual void \mbox{\hyperlink{struct_i_d3_d_x12_pipeline_parser_callbacks_a3ae6fe4f203f8b11ac5072835eafc442}{Primitive\+Topology\+Type\+Cb}} (D3\+D12\+\_\+\+PRIMITIVE\+\_\+\+TOPOLOGY\+\_\+\+TYPE)
+\item 
+virtual void \mbox{\hyperlink{struct_i_d3_d_x12_pipeline_parser_callbacks_af5cd66f6a5ea9dca69de3a0c5c192bdb}{VSCb}} (const D3\+D12\+\_\+\+SHADER\+\_\+\+BYTECODE \&)
+\item 
+virtual void \mbox{\hyperlink{struct_i_d3_d_x12_pipeline_parser_callbacks_a10b75824a2b28786cd2fb3e51ce3bf95}{GSCb}} (const D3\+D12\+\_\+\+SHADER\+\_\+\+BYTECODE \&)
+\item 
+virtual void \mbox{\hyperlink{struct_i_d3_d_x12_pipeline_parser_callbacks_afdca51f3f8df3a92871736432eeae0d4}{Stream\+Output\+Cb}} (const D3\+D12\+\_\+\+STREAM\+\_\+\+OUTPUT\+\_\+\+DESC \&)
+\item 
+virtual void \mbox{\hyperlink{struct_i_d3_d_x12_pipeline_parser_callbacks_a677123aa4a820197501cd939e59a141b}{HSCb}} (const D3\+D12\+\_\+\+SHADER\+\_\+\+BYTECODE \&)
+\item 
+virtual void \mbox{\hyperlink{struct_i_d3_d_x12_pipeline_parser_callbacks_a9f1c497112b3adeb74b404a172472958}{DSCb}} (const D3\+D12\+\_\+\+SHADER\+\_\+\+BYTECODE \&)
+\item 
+virtual void \mbox{\hyperlink{struct_i_d3_d_x12_pipeline_parser_callbacks_a5ccb90a7a8a855782240f201c01a6369}{PSCb}} (const D3\+D12\+\_\+\+SHADER\+\_\+\+BYTECODE \&)
+\item 
+virtual void \mbox{\hyperlink{struct_i_d3_d_x12_pipeline_parser_callbacks_ab4661d0431922f6ef9ffe1f87cdf440a}{CSCb}} (const D3\+D12\+\_\+\+SHADER\+\_\+\+BYTECODE \&)
+\item 
+virtual void \mbox{\hyperlink{struct_i_d3_d_x12_pipeline_parser_callbacks_a2685c9397d29f2239f9ed577082a31c0}{ASCb}} (const D3\+D12\+\_\+\+SHADER\+\_\+\+BYTECODE \&)
+\item 
+virtual void \mbox{\hyperlink{struct_i_d3_d_x12_pipeline_parser_callbacks_a3569ea038622a63cc548fb31bb718c26}{MSCb}} (const D3\+D12\+\_\+\+SHADER\+\_\+\+BYTECODE \&)
+\item 
+virtual void \mbox{\hyperlink{struct_i_d3_d_x12_pipeline_parser_callbacks_a0769d2bf7b4a451379507422e349477f}{Blend\+State\+Cb}} (const D3\+D12\+\_\+\+BLEND\+\_\+\+DESC \&)
+\item 
+virtual void \mbox{\hyperlink{struct_i_d3_d_x12_pipeline_parser_callbacks_ab2aaf681da67d4ad4b63bf012e67d9be}{Depth\+Stencil\+State\+Cb}} (const D3\+D12\+\_\+\+DEPTH\+\_\+\+STENCIL\+\_\+\+DESC \&)
+\item 
+virtual void \mbox{\hyperlink{struct_i_d3_d_x12_pipeline_parser_callbacks_abefdb3854a7c4a2f06fd8eef72d08dcb}{Depth\+Stencil\+State1\+Cb}} (const D3\+D12\+\_\+\+DEPTH\+\_\+\+STENCIL\+\_\+\+DESC1 \&)
+\item 
+virtual void \mbox{\hyperlink{struct_i_d3_d_x12_pipeline_parser_callbacks_a14d572f5a5423278d3f46f9a2656d701}{DSVFormat\+Cb}} (DXGI\+\_\+\+FORMAT)
+\item 
+virtual void \mbox{\hyperlink{struct_i_d3_d_x12_pipeline_parser_callbacks_a3157075157e7fc68eb559055ef0ab87b}{Rasterizer\+State\+Cb}} (const D3\+D12\+\_\+\+RASTERIZER\+\_\+\+DESC \&)
+\item 
+virtual void \mbox{\hyperlink{struct_i_d3_d_x12_pipeline_parser_callbacks_a21bb61f217ab92475c75acffd9e9dbad}{RTVFormats\+Cb}} (const D3\+D12\+\_\+\+RT\+\_\+\+FORMAT\+\_\+\+ARRAY \&)
+\item 
+virtual void \mbox{\hyperlink{struct_i_d3_d_x12_pipeline_parser_callbacks_a4d3d38064b1d9c7fddf9eebbbbb59313}{Sample\+Desc\+Cb}} (const DXGI\+\_\+\+SAMPLE\+\_\+\+DESC \&)
+\item 
+virtual void \mbox{\hyperlink{struct_i_d3_d_x12_pipeline_parser_callbacks_ae7a81d7d6ca83cdc247fb89bd9a684d3}{Sample\+Mask\+Cb}} (UINT)
+\item 
+virtual void \mbox{\hyperlink{struct_i_d3_d_x12_pipeline_parser_callbacks_acbfba73ec62fc1041efdc8fd368cc6db}{View\+Instancing\+Cb}} (const D3\+D12\+\_\+\+VIEW\+\_\+\+INSTANCING\+\_\+\+DESC \&)
+\item 
+virtual void \mbox{\hyperlink{struct_i_d3_d_x12_pipeline_parser_callbacks_a23a5c3c8af5b86af69bd039a178c482c}{Cached\+PSOCb}} (const D3\+D12\+\_\+\+CACHED\+\_\+\+PIPELINE\+\_\+\+STATE \&)
+\item 
+virtual void \mbox{\hyperlink{struct_i_d3_d_x12_pipeline_parser_callbacks_a6765aa1cd96aecfd5ed64a8a296b6892}{Error\+Bad\+Input\+Parameter}} (UINT)
+\item 
+virtual void \mbox{\hyperlink{struct_i_d3_d_x12_pipeline_parser_callbacks_a38ac7eb3cd54f0d5051372b207306fe0}{Error\+Duplicate\+Subobject}} (D3\+D12\+\_\+\+PIPELINE\+\_\+\+STATE\+\_\+\+SUBOBJECT\+\_\+\+TYPE)
+\item 
+virtual void \mbox{\hyperlink{struct_i_d3_d_x12_pipeline_parser_callbacks_a0cc456ee9285fd3dc32efab92661fc68}{Error\+Unknown\+Subobject}} (UINT)
+\item 
+virtual \mbox{\hyperlink{struct_i_d3_d_x12_pipeline_parser_callbacks_a9a71c1bf4f9bf842a80d37326112e740}{\texorpdfstring{$\sim$}{\string~}\+ID3\+DX12\+Pipeline\+Parser\+Callbacks}} ()=default
+\item 
+virtual void \mbox{\hyperlink{struct_i_d3_d_x12_pipeline_parser_callbacks_a5456be43d172e340f6e3fa18fc7bf83a}{Flags\+Cb}} (D3\+D12\+\_\+\+PIPELINE\+\_\+\+STATE\+\_\+\+FLAGS)
+\item 
+virtual void \mbox{\hyperlink{struct_i_d3_d_x12_pipeline_parser_callbacks_ac5704822d7fda2624101267a24d9c0dc}{Node\+Mask\+Cb}} (UINT)
+\item 
+virtual void \mbox{\hyperlink{struct_i_d3_d_x12_pipeline_parser_callbacks_a71f70ab760c914ef463930c4a7a67a9f}{Root\+Signature\+Cb}} (ID3\+D12\+Root\+Signature \texorpdfstring{$\ast$}{*})
+\item 
+virtual void \mbox{\hyperlink{struct_i_d3_d_x12_pipeline_parser_callbacks_a9f47eb3b339cdd435855990c5fbc0507}{Input\+Layout\+Cb}} (const D3\+D12\+\_\+\+INPUT\+\_\+\+LAYOUT\+\_\+\+DESC \&)
+\item 
+virtual void \mbox{\hyperlink{struct_i_d3_d_x12_pipeline_parser_callbacks_a8db5ca9d3a25739a42260a61aed0c775}{IBStrip\+Cut\+Value\+Cb}} (D3\+D12\+\_\+\+INDEX\+\_\+\+BUFFER\+\_\+\+STRIP\+\_\+\+CUT\+\_\+\+VALUE)
+\item 
+virtual void \mbox{\hyperlink{struct_i_d3_d_x12_pipeline_parser_callbacks_a3ae6fe4f203f8b11ac5072835eafc442}{Primitive\+Topology\+Type\+Cb}} (D3\+D12\+\_\+\+PRIMITIVE\+\_\+\+TOPOLOGY\+\_\+\+TYPE)
+\item 
+virtual void \mbox{\hyperlink{struct_i_d3_d_x12_pipeline_parser_callbacks_af5cd66f6a5ea9dca69de3a0c5c192bdb}{VSCb}} (const D3\+D12\+\_\+\+SHADER\+\_\+\+BYTECODE \&)
+\item 
+virtual void \mbox{\hyperlink{struct_i_d3_d_x12_pipeline_parser_callbacks_a10b75824a2b28786cd2fb3e51ce3bf95}{GSCb}} (const D3\+D12\+\_\+\+SHADER\+\_\+\+BYTECODE \&)
+\item 
+virtual void \mbox{\hyperlink{struct_i_d3_d_x12_pipeline_parser_callbacks_afdca51f3f8df3a92871736432eeae0d4}{Stream\+Output\+Cb}} (const D3\+D12\+\_\+\+STREAM\+\_\+\+OUTPUT\+\_\+\+DESC \&)
+\item 
+virtual void \mbox{\hyperlink{struct_i_d3_d_x12_pipeline_parser_callbacks_a677123aa4a820197501cd939e59a141b}{HSCb}} (const D3\+D12\+\_\+\+SHADER\+\_\+\+BYTECODE \&)
+\item 
+virtual void \mbox{\hyperlink{struct_i_d3_d_x12_pipeline_parser_callbacks_a9f1c497112b3adeb74b404a172472958}{DSCb}} (const D3\+D12\+\_\+\+SHADER\+\_\+\+BYTECODE \&)
+\item 
+virtual void \mbox{\hyperlink{struct_i_d3_d_x12_pipeline_parser_callbacks_a5ccb90a7a8a855782240f201c01a6369}{PSCb}} (const D3\+D12\+\_\+\+SHADER\+\_\+\+BYTECODE \&)
+\item 
+virtual void \mbox{\hyperlink{struct_i_d3_d_x12_pipeline_parser_callbacks_ab4661d0431922f6ef9ffe1f87cdf440a}{CSCb}} (const D3\+D12\+\_\+\+SHADER\+\_\+\+BYTECODE \&)
+\item 
+virtual void \mbox{\hyperlink{struct_i_d3_d_x12_pipeline_parser_callbacks_a2685c9397d29f2239f9ed577082a31c0}{ASCb}} (const D3\+D12\+\_\+\+SHADER\+\_\+\+BYTECODE \&)
+\item 
+virtual void \mbox{\hyperlink{struct_i_d3_d_x12_pipeline_parser_callbacks_a3569ea038622a63cc548fb31bb718c26}{MSCb}} (const D3\+D12\+\_\+\+SHADER\+\_\+\+BYTECODE \&)
+\item 
+virtual void \mbox{\hyperlink{struct_i_d3_d_x12_pipeline_parser_callbacks_a0769d2bf7b4a451379507422e349477f}{Blend\+State\+Cb}} (const D3\+D12\+\_\+\+BLEND\+\_\+\+DESC \&)
+\item 
+virtual void \mbox{\hyperlink{struct_i_d3_d_x12_pipeline_parser_callbacks_ab2aaf681da67d4ad4b63bf012e67d9be}{Depth\+Stencil\+State\+Cb}} (const D3\+D12\+\_\+\+DEPTH\+\_\+\+STENCIL\+\_\+\+DESC \&)
+\item 
+virtual void \mbox{\hyperlink{struct_i_d3_d_x12_pipeline_parser_callbacks_abefdb3854a7c4a2f06fd8eef72d08dcb}{Depth\+Stencil\+State1\+Cb}} (const D3\+D12\+\_\+\+DEPTH\+\_\+\+STENCIL\+\_\+\+DESC1 \&)
+\item 
+virtual void \mbox{\hyperlink{struct_i_d3_d_x12_pipeline_parser_callbacks_a14d572f5a5423278d3f46f9a2656d701}{DSVFormat\+Cb}} (DXGI\+\_\+\+FORMAT)
+\item 
+virtual void \mbox{\hyperlink{struct_i_d3_d_x12_pipeline_parser_callbacks_a3157075157e7fc68eb559055ef0ab87b}{Rasterizer\+State\+Cb}} (const D3\+D12\+\_\+\+RASTERIZER\+\_\+\+DESC \&)
+\item 
+virtual void \mbox{\hyperlink{struct_i_d3_d_x12_pipeline_parser_callbacks_a21bb61f217ab92475c75acffd9e9dbad}{RTVFormats\+Cb}} (const D3\+D12\+\_\+\+RT\+\_\+\+FORMAT\+\_\+\+ARRAY \&)
+\item 
+virtual void \mbox{\hyperlink{struct_i_d3_d_x12_pipeline_parser_callbacks_a4d3d38064b1d9c7fddf9eebbbbb59313}{Sample\+Desc\+Cb}} (const DXGI\+\_\+\+SAMPLE\+\_\+\+DESC \&)
+\item 
+virtual void \mbox{\hyperlink{struct_i_d3_d_x12_pipeline_parser_callbacks_ae7a81d7d6ca83cdc247fb89bd9a684d3}{Sample\+Mask\+Cb}} (UINT)
+\item 
+virtual void \mbox{\hyperlink{struct_i_d3_d_x12_pipeline_parser_callbacks_acbfba73ec62fc1041efdc8fd368cc6db}{View\+Instancing\+Cb}} (const D3\+D12\+\_\+\+VIEW\+\_\+\+INSTANCING\+\_\+\+DESC \&)
+\item 
+virtual void \mbox{\hyperlink{struct_i_d3_d_x12_pipeline_parser_callbacks_a23a5c3c8af5b86af69bd039a178c482c}{Cached\+PSOCb}} (const D3\+D12\+\_\+\+CACHED\+\_\+\+PIPELINE\+\_\+\+STATE \&)
+\item 
+virtual void \mbox{\hyperlink{struct_i_d3_d_x12_pipeline_parser_callbacks_a6765aa1cd96aecfd5ed64a8a296b6892}{Error\+Bad\+Input\+Parameter}} (UINT)
+\item 
+virtual void \mbox{\hyperlink{struct_i_d3_d_x12_pipeline_parser_callbacks_a38ac7eb3cd54f0d5051372b207306fe0}{Error\+Duplicate\+Subobject}} (D3\+D12\+\_\+\+PIPELINE\+\_\+\+STATE\+\_\+\+SUBOBJECT\+\_\+\+TYPE)
+\item 
+virtual void \mbox{\hyperlink{struct_i_d3_d_x12_pipeline_parser_callbacks_a0cc456ee9285fd3dc32efab92661fc68}{Error\+Unknown\+Subobject}} (UINT)
+\item 
+virtual \mbox{\hyperlink{struct_i_d3_d_x12_pipeline_parser_callbacks_a9a71c1bf4f9bf842a80d37326112e740}{\texorpdfstring{$\sim$}{\string~}\+ID3\+DX12\+Pipeline\+Parser\+Callbacks}} ()=default
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Конструктор(ы)}
+\Hypertarget{struct_i_d3_d_x12_pipeline_parser_callbacks_a9a71c1bf4f9bf842a80d37326112e740}\label{struct_i_d3_d_x12_pipeline_parser_callbacks_a9a71c1bf4f9bf842a80d37326112e740} 
+\index{ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}!````~ID3DX12PipelineParserCallbacks@{\texorpdfstring{$\sim$}{\string~}ID3DX12PipelineParserCallbacks}}
+\index{````~ID3DX12PipelineParserCallbacks@{\texorpdfstring{$\sim$}{\string~}ID3DX12PipelineParserCallbacks}!ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}ID3DX12PipelineParserCallbacks()}{\string~ID3DX12PipelineParserCallbacks()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual ID3\+DX12\+Pipeline\+Parser\+Callbacks\+::\texorpdfstring{$\sim$}{\string~}\+ID3\+DX12\+Pipeline\+Parser\+Callbacks (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+\Hypertarget{struct_i_d3_d_x12_pipeline_parser_callbacks_a9a71c1bf4f9bf842a80d37326112e740}\label{struct_i_d3_d_x12_pipeline_parser_callbacks_a9a71c1bf4f9bf842a80d37326112e740} 
+\index{ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}!````~ID3DX12PipelineParserCallbacks@{\texorpdfstring{$\sim$}{\string~}ID3DX12PipelineParserCallbacks}}
+\index{````~ID3DX12PipelineParserCallbacks@{\texorpdfstring{$\sim$}{\string~}ID3DX12PipelineParserCallbacks}!ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}ID3DX12PipelineParserCallbacks()}{\string~ID3DX12PipelineParserCallbacks()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual ID3\+DX12\+Pipeline\+Parser\+Callbacks\+::\texorpdfstring{$\sim$}{\string~}\+ID3\+DX12\+Pipeline\+Parser\+Callbacks (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+\doxysubsection{Методы}
+\Hypertarget{struct_i_d3_d_x12_pipeline_parser_callbacks_a2685c9397d29f2239f9ed577082a31c0}\label{struct_i_d3_d_x12_pipeline_parser_callbacks_a2685c9397d29f2239f9ed577082a31c0} 
+\index{ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}!ASCb@{ASCb}}
+\index{ASCb@{ASCb}!ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}}
+\doxysubsubsection{\texorpdfstring{ASCb()}{ASCb()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual void ID3\+DX12\+Pipeline\+Parser\+Callbacks\+::\+ASCb (\begin{DoxyParamCaption}\item[{const D3\+D12\+\_\+\+SHADER\+\_\+\+BYTECODE \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\Hypertarget{struct_i_d3_d_x12_pipeline_parser_callbacks_a2685c9397d29f2239f9ed577082a31c0}\label{struct_i_d3_d_x12_pipeline_parser_callbacks_a2685c9397d29f2239f9ed577082a31c0} 
+\index{ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}!ASCb@{ASCb}}
+\index{ASCb@{ASCb}!ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}}
+\doxysubsubsection{\texorpdfstring{ASCb()}{ASCb()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual void ID3\+DX12\+Pipeline\+Parser\+Callbacks\+::\+ASCb (\begin{DoxyParamCaption}\item[{const D3\+D12\+\_\+\+SHADER\+\_\+\+BYTECODE \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\Hypertarget{struct_i_d3_d_x12_pipeline_parser_callbacks_a0769d2bf7b4a451379507422e349477f}\label{struct_i_d3_d_x12_pipeline_parser_callbacks_a0769d2bf7b4a451379507422e349477f} 
+\index{ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}!BlendStateCb@{BlendStateCb}}
+\index{BlendStateCb@{BlendStateCb}!ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}}
+\doxysubsubsection{\texorpdfstring{BlendStateCb()}{BlendStateCb()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual void ID3\+DX12\+Pipeline\+Parser\+Callbacks\+::\+Blend\+State\+Cb (\begin{DoxyParamCaption}\item[{const D3\+D12\+\_\+\+BLEND\+\_\+\+DESC \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\Hypertarget{struct_i_d3_d_x12_pipeline_parser_callbacks_a0769d2bf7b4a451379507422e349477f}\label{struct_i_d3_d_x12_pipeline_parser_callbacks_a0769d2bf7b4a451379507422e349477f} 
+\index{ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}!BlendStateCb@{BlendStateCb}}
+\index{BlendStateCb@{BlendStateCb}!ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}}
+\doxysubsubsection{\texorpdfstring{BlendStateCb()}{BlendStateCb()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual void ID3\+DX12\+Pipeline\+Parser\+Callbacks\+::\+Blend\+State\+Cb (\begin{DoxyParamCaption}\item[{const D3\+D12\+\_\+\+BLEND\+\_\+\+DESC \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\Hypertarget{struct_i_d3_d_x12_pipeline_parser_callbacks_a23a5c3c8af5b86af69bd039a178c482c}\label{struct_i_d3_d_x12_pipeline_parser_callbacks_a23a5c3c8af5b86af69bd039a178c482c} 
+\index{ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}!CachedPSOCb@{CachedPSOCb}}
+\index{CachedPSOCb@{CachedPSOCb}!ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}}
+\doxysubsubsection{\texorpdfstring{CachedPSOCb()}{CachedPSOCb()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual void ID3\+DX12\+Pipeline\+Parser\+Callbacks\+::\+Cached\+PSOCb (\begin{DoxyParamCaption}\item[{const D3\+D12\+\_\+\+CACHED\+\_\+\+PIPELINE\+\_\+\+STATE \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\Hypertarget{struct_i_d3_d_x12_pipeline_parser_callbacks_a23a5c3c8af5b86af69bd039a178c482c}\label{struct_i_d3_d_x12_pipeline_parser_callbacks_a23a5c3c8af5b86af69bd039a178c482c} 
+\index{ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}!CachedPSOCb@{CachedPSOCb}}
+\index{CachedPSOCb@{CachedPSOCb}!ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}}
+\doxysubsubsection{\texorpdfstring{CachedPSOCb()}{CachedPSOCb()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual void ID3\+DX12\+Pipeline\+Parser\+Callbacks\+::\+Cached\+PSOCb (\begin{DoxyParamCaption}\item[{const D3\+D12\+\_\+\+CACHED\+\_\+\+PIPELINE\+\_\+\+STATE \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\Hypertarget{struct_i_d3_d_x12_pipeline_parser_callbacks_ab4661d0431922f6ef9ffe1f87cdf440a}\label{struct_i_d3_d_x12_pipeline_parser_callbacks_ab4661d0431922f6ef9ffe1f87cdf440a} 
+\index{ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}!CSCb@{CSCb}}
+\index{CSCb@{CSCb}!ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}}
+\doxysubsubsection{\texorpdfstring{CSCb()}{CSCb()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual void ID3\+DX12\+Pipeline\+Parser\+Callbacks\+::\+CSCb (\begin{DoxyParamCaption}\item[{const D3\+D12\+\_\+\+SHADER\+\_\+\+BYTECODE \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\Hypertarget{struct_i_d3_d_x12_pipeline_parser_callbacks_ab4661d0431922f6ef9ffe1f87cdf440a}\label{struct_i_d3_d_x12_pipeline_parser_callbacks_ab4661d0431922f6ef9ffe1f87cdf440a} 
+\index{ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}!CSCb@{CSCb}}
+\index{CSCb@{CSCb}!ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}}
+\doxysubsubsection{\texorpdfstring{CSCb()}{CSCb()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual void ID3\+DX12\+Pipeline\+Parser\+Callbacks\+::\+CSCb (\begin{DoxyParamCaption}\item[{const D3\+D12\+\_\+\+SHADER\+\_\+\+BYTECODE \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\Hypertarget{struct_i_d3_d_x12_pipeline_parser_callbacks_abefdb3854a7c4a2f06fd8eef72d08dcb}\label{struct_i_d3_d_x12_pipeline_parser_callbacks_abefdb3854a7c4a2f06fd8eef72d08dcb} 
+\index{ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}!DepthStencilState1Cb@{DepthStencilState1Cb}}
+\index{DepthStencilState1Cb@{DepthStencilState1Cb}!ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}}
+\doxysubsubsection{\texorpdfstring{DepthStencilState1Cb()}{DepthStencilState1Cb()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual void ID3\+DX12\+Pipeline\+Parser\+Callbacks\+::\+Depth\+Stencil\+State1\+Cb (\begin{DoxyParamCaption}\item[{const D3\+D12\+\_\+\+DEPTH\+\_\+\+STENCIL\+\_\+\+DESC1 \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\Hypertarget{struct_i_d3_d_x12_pipeline_parser_callbacks_abefdb3854a7c4a2f06fd8eef72d08dcb}\label{struct_i_d3_d_x12_pipeline_parser_callbacks_abefdb3854a7c4a2f06fd8eef72d08dcb} 
+\index{ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}!DepthStencilState1Cb@{DepthStencilState1Cb}}
+\index{DepthStencilState1Cb@{DepthStencilState1Cb}!ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}}
+\doxysubsubsection{\texorpdfstring{DepthStencilState1Cb()}{DepthStencilState1Cb()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual void ID3\+DX12\+Pipeline\+Parser\+Callbacks\+::\+Depth\+Stencil\+State1\+Cb (\begin{DoxyParamCaption}\item[{const D3\+D12\+\_\+\+DEPTH\+\_\+\+STENCIL\+\_\+\+DESC1 \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\Hypertarget{struct_i_d3_d_x12_pipeline_parser_callbacks_ab2aaf681da67d4ad4b63bf012e67d9be}\label{struct_i_d3_d_x12_pipeline_parser_callbacks_ab2aaf681da67d4ad4b63bf012e67d9be} 
+\index{ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}!DepthStencilStateCb@{DepthStencilStateCb}}
+\index{DepthStencilStateCb@{DepthStencilStateCb}!ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}}
+\doxysubsubsection{\texorpdfstring{DepthStencilStateCb()}{DepthStencilStateCb()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual void ID3\+DX12\+Pipeline\+Parser\+Callbacks\+::\+Depth\+Stencil\+State\+Cb (\begin{DoxyParamCaption}\item[{const D3\+D12\+\_\+\+DEPTH\+\_\+\+STENCIL\+\_\+\+DESC \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\Hypertarget{struct_i_d3_d_x12_pipeline_parser_callbacks_ab2aaf681da67d4ad4b63bf012e67d9be}\label{struct_i_d3_d_x12_pipeline_parser_callbacks_ab2aaf681da67d4ad4b63bf012e67d9be} 
+\index{ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}!DepthStencilStateCb@{DepthStencilStateCb}}
+\index{DepthStencilStateCb@{DepthStencilStateCb}!ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}}
+\doxysubsubsection{\texorpdfstring{DepthStencilStateCb()}{DepthStencilStateCb()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual void ID3\+DX12\+Pipeline\+Parser\+Callbacks\+::\+Depth\+Stencil\+State\+Cb (\begin{DoxyParamCaption}\item[{const D3\+D12\+\_\+\+DEPTH\+\_\+\+STENCIL\+\_\+\+DESC \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\Hypertarget{struct_i_d3_d_x12_pipeline_parser_callbacks_a9f1c497112b3adeb74b404a172472958}\label{struct_i_d3_d_x12_pipeline_parser_callbacks_a9f1c497112b3adeb74b404a172472958} 
+\index{ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}!DSCb@{DSCb}}
+\index{DSCb@{DSCb}!ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}}
+\doxysubsubsection{\texorpdfstring{DSCb()}{DSCb()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual void ID3\+DX12\+Pipeline\+Parser\+Callbacks\+::\+DSCb (\begin{DoxyParamCaption}\item[{const D3\+D12\+\_\+\+SHADER\+\_\+\+BYTECODE \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\Hypertarget{struct_i_d3_d_x12_pipeline_parser_callbacks_a9f1c497112b3adeb74b404a172472958}\label{struct_i_d3_d_x12_pipeline_parser_callbacks_a9f1c497112b3adeb74b404a172472958} 
+\index{ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}!DSCb@{DSCb}}
+\index{DSCb@{DSCb}!ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}}
+\doxysubsubsection{\texorpdfstring{DSCb()}{DSCb()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual void ID3\+DX12\+Pipeline\+Parser\+Callbacks\+::\+DSCb (\begin{DoxyParamCaption}\item[{const D3\+D12\+\_\+\+SHADER\+\_\+\+BYTECODE \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\Hypertarget{struct_i_d3_d_x12_pipeline_parser_callbacks_a14d572f5a5423278d3f46f9a2656d701}\label{struct_i_d3_d_x12_pipeline_parser_callbacks_a14d572f5a5423278d3f46f9a2656d701} 
+\index{ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}!DSVFormatCb@{DSVFormatCb}}
+\index{DSVFormatCb@{DSVFormatCb}!ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}}
+\doxysubsubsection{\texorpdfstring{DSVFormatCb()}{DSVFormatCb()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual void ID3\+DX12\+Pipeline\+Parser\+Callbacks\+::\+DSVFormat\+Cb (\begin{DoxyParamCaption}\item[{DXGI\+\_\+\+FORMAT}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\Hypertarget{struct_i_d3_d_x12_pipeline_parser_callbacks_a14d572f5a5423278d3f46f9a2656d701}\label{struct_i_d3_d_x12_pipeline_parser_callbacks_a14d572f5a5423278d3f46f9a2656d701} 
+\index{ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}!DSVFormatCb@{DSVFormatCb}}
+\index{DSVFormatCb@{DSVFormatCb}!ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}}
+\doxysubsubsection{\texorpdfstring{DSVFormatCb()}{DSVFormatCb()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual void ID3\+DX12\+Pipeline\+Parser\+Callbacks\+::\+DSVFormat\+Cb (\begin{DoxyParamCaption}\item[{DXGI\+\_\+\+FORMAT}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\Hypertarget{struct_i_d3_d_x12_pipeline_parser_callbacks_a6765aa1cd96aecfd5ed64a8a296b6892}\label{struct_i_d3_d_x12_pipeline_parser_callbacks_a6765aa1cd96aecfd5ed64a8a296b6892} 
+\index{ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}!ErrorBadInputParameter@{ErrorBadInputParameter}}
+\index{ErrorBadInputParameter@{ErrorBadInputParameter}!ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}}
+\doxysubsubsection{\texorpdfstring{ErrorBadInputParameter()}{ErrorBadInputParameter()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual void ID3\+DX12\+Pipeline\+Parser\+Callbacks\+::\+Error\+Bad\+Input\+Parameter (\begin{DoxyParamCaption}\item[{UINT}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\Hypertarget{struct_i_d3_d_x12_pipeline_parser_callbacks_a6765aa1cd96aecfd5ed64a8a296b6892}\label{struct_i_d3_d_x12_pipeline_parser_callbacks_a6765aa1cd96aecfd5ed64a8a296b6892} 
+\index{ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}!ErrorBadInputParameter@{ErrorBadInputParameter}}
+\index{ErrorBadInputParameter@{ErrorBadInputParameter}!ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}}
+\doxysubsubsection{\texorpdfstring{ErrorBadInputParameter()}{ErrorBadInputParameter()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual void ID3\+DX12\+Pipeline\+Parser\+Callbacks\+::\+Error\+Bad\+Input\+Parameter (\begin{DoxyParamCaption}\item[{UINT}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\Hypertarget{struct_i_d3_d_x12_pipeline_parser_callbacks_a38ac7eb3cd54f0d5051372b207306fe0}\label{struct_i_d3_d_x12_pipeline_parser_callbacks_a38ac7eb3cd54f0d5051372b207306fe0} 
+\index{ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}!ErrorDuplicateSubobject@{ErrorDuplicateSubobject}}
+\index{ErrorDuplicateSubobject@{ErrorDuplicateSubobject}!ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}}
+\doxysubsubsection{\texorpdfstring{ErrorDuplicateSubobject()}{ErrorDuplicateSubobject()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual void ID3\+DX12\+Pipeline\+Parser\+Callbacks\+::\+Error\+Duplicate\+Subobject (\begin{DoxyParamCaption}\item[{D3\+D12\+\_\+\+PIPELINE\+\_\+\+STATE\+\_\+\+SUBOBJECT\+\_\+\+TYPE}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\Hypertarget{struct_i_d3_d_x12_pipeline_parser_callbacks_a38ac7eb3cd54f0d5051372b207306fe0}\label{struct_i_d3_d_x12_pipeline_parser_callbacks_a38ac7eb3cd54f0d5051372b207306fe0} 
+\index{ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}!ErrorDuplicateSubobject@{ErrorDuplicateSubobject}}
+\index{ErrorDuplicateSubobject@{ErrorDuplicateSubobject}!ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}}
+\doxysubsubsection{\texorpdfstring{ErrorDuplicateSubobject()}{ErrorDuplicateSubobject()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual void ID3\+DX12\+Pipeline\+Parser\+Callbacks\+::\+Error\+Duplicate\+Subobject (\begin{DoxyParamCaption}\item[{D3\+D12\+\_\+\+PIPELINE\+\_\+\+STATE\+\_\+\+SUBOBJECT\+\_\+\+TYPE}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\Hypertarget{struct_i_d3_d_x12_pipeline_parser_callbacks_a0cc456ee9285fd3dc32efab92661fc68}\label{struct_i_d3_d_x12_pipeline_parser_callbacks_a0cc456ee9285fd3dc32efab92661fc68} 
+\index{ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}!ErrorUnknownSubobject@{ErrorUnknownSubobject}}
+\index{ErrorUnknownSubobject@{ErrorUnknownSubobject}!ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}}
+\doxysubsubsection{\texorpdfstring{ErrorUnknownSubobject()}{ErrorUnknownSubobject()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual void ID3\+DX12\+Pipeline\+Parser\+Callbacks\+::\+Error\+Unknown\+Subobject (\begin{DoxyParamCaption}\item[{UINT}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\Hypertarget{struct_i_d3_d_x12_pipeline_parser_callbacks_a0cc456ee9285fd3dc32efab92661fc68}\label{struct_i_d3_d_x12_pipeline_parser_callbacks_a0cc456ee9285fd3dc32efab92661fc68} 
+\index{ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}!ErrorUnknownSubobject@{ErrorUnknownSubobject}}
+\index{ErrorUnknownSubobject@{ErrorUnknownSubobject}!ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}}
+\doxysubsubsection{\texorpdfstring{ErrorUnknownSubobject()}{ErrorUnknownSubobject()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual void ID3\+DX12\+Pipeline\+Parser\+Callbacks\+::\+Error\+Unknown\+Subobject (\begin{DoxyParamCaption}\item[{UINT}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\Hypertarget{struct_i_d3_d_x12_pipeline_parser_callbacks_a5456be43d172e340f6e3fa18fc7bf83a}\label{struct_i_d3_d_x12_pipeline_parser_callbacks_a5456be43d172e340f6e3fa18fc7bf83a} 
+\index{ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}!FlagsCb@{FlagsCb}}
+\index{FlagsCb@{FlagsCb}!ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}}
+\doxysubsubsection{\texorpdfstring{FlagsCb()}{FlagsCb()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual void ID3\+DX12\+Pipeline\+Parser\+Callbacks\+::\+Flags\+Cb (\begin{DoxyParamCaption}\item[{D3\+D12\+\_\+\+PIPELINE\+\_\+\+STATE\+\_\+\+FLAGS}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\Hypertarget{struct_i_d3_d_x12_pipeline_parser_callbacks_a5456be43d172e340f6e3fa18fc7bf83a}\label{struct_i_d3_d_x12_pipeline_parser_callbacks_a5456be43d172e340f6e3fa18fc7bf83a} 
+\index{ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}!FlagsCb@{FlagsCb}}
+\index{FlagsCb@{FlagsCb}!ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}}
+\doxysubsubsection{\texorpdfstring{FlagsCb()}{FlagsCb()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual void ID3\+DX12\+Pipeline\+Parser\+Callbacks\+::\+Flags\+Cb (\begin{DoxyParamCaption}\item[{D3\+D12\+\_\+\+PIPELINE\+\_\+\+STATE\+\_\+\+FLAGS}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\Hypertarget{struct_i_d3_d_x12_pipeline_parser_callbacks_a10b75824a2b28786cd2fb3e51ce3bf95}\label{struct_i_d3_d_x12_pipeline_parser_callbacks_a10b75824a2b28786cd2fb3e51ce3bf95} 
+\index{ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}!GSCb@{GSCb}}
+\index{GSCb@{GSCb}!ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}}
+\doxysubsubsection{\texorpdfstring{GSCb()}{GSCb()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual void ID3\+DX12\+Pipeline\+Parser\+Callbacks\+::\+GSCb (\begin{DoxyParamCaption}\item[{const D3\+D12\+\_\+\+SHADER\+\_\+\+BYTECODE \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\Hypertarget{struct_i_d3_d_x12_pipeline_parser_callbacks_a10b75824a2b28786cd2fb3e51ce3bf95}\label{struct_i_d3_d_x12_pipeline_parser_callbacks_a10b75824a2b28786cd2fb3e51ce3bf95} 
+\index{ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}!GSCb@{GSCb}}
+\index{GSCb@{GSCb}!ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}}
+\doxysubsubsection{\texorpdfstring{GSCb()}{GSCb()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual void ID3\+DX12\+Pipeline\+Parser\+Callbacks\+::\+GSCb (\begin{DoxyParamCaption}\item[{const D3\+D12\+\_\+\+SHADER\+\_\+\+BYTECODE \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\Hypertarget{struct_i_d3_d_x12_pipeline_parser_callbacks_a677123aa4a820197501cd939e59a141b}\label{struct_i_d3_d_x12_pipeline_parser_callbacks_a677123aa4a820197501cd939e59a141b} 
+\index{ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}!HSCb@{HSCb}}
+\index{HSCb@{HSCb}!ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}}
+\doxysubsubsection{\texorpdfstring{HSCb()}{HSCb()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual void ID3\+DX12\+Pipeline\+Parser\+Callbacks\+::\+HSCb (\begin{DoxyParamCaption}\item[{const D3\+D12\+\_\+\+SHADER\+\_\+\+BYTECODE \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\Hypertarget{struct_i_d3_d_x12_pipeline_parser_callbacks_a677123aa4a820197501cd939e59a141b}\label{struct_i_d3_d_x12_pipeline_parser_callbacks_a677123aa4a820197501cd939e59a141b} 
+\index{ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}!HSCb@{HSCb}}
+\index{HSCb@{HSCb}!ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}}
+\doxysubsubsection{\texorpdfstring{HSCb()}{HSCb()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual void ID3\+DX12\+Pipeline\+Parser\+Callbacks\+::\+HSCb (\begin{DoxyParamCaption}\item[{const D3\+D12\+\_\+\+SHADER\+\_\+\+BYTECODE \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\Hypertarget{struct_i_d3_d_x12_pipeline_parser_callbacks_a8db5ca9d3a25739a42260a61aed0c775}\label{struct_i_d3_d_x12_pipeline_parser_callbacks_a8db5ca9d3a25739a42260a61aed0c775} 
+\index{ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}!IBStripCutValueCb@{IBStripCutValueCb}}
+\index{IBStripCutValueCb@{IBStripCutValueCb}!ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}}
+\doxysubsubsection{\texorpdfstring{IBStripCutValueCb()}{IBStripCutValueCb()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual void ID3\+DX12\+Pipeline\+Parser\+Callbacks\+::\+IBStrip\+Cut\+Value\+Cb (\begin{DoxyParamCaption}\item[{D3\+D12\+\_\+\+INDEX\+\_\+\+BUFFER\+\_\+\+STRIP\+\_\+\+CUT\+\_\+\+VALUE}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\Hypertarget{struct_i_d3_d_x12_pipeline_parser_callbacks_a8db5ca9d3a25739a42260a61aed0c775}\label{struct_i_d3_d_x12_pipeline_parser_callbacks_a8db5ca9d3a25739a42260a61aed0c775} 
+\index{ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}!IBStripCutValueCb@{IBStripCutValueCb}}
+\index{IBStripCutValueCb@{IBStripCutValueCb}!ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}}
+\doxysubsubsection{\texorpdfstring{IBStripCutValueCb()}{IBStripCutValueCb()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual void ID3\+DX12\+Pipeline\+Parser\+Callbacks\+::\+IBStrip\+Cut\+Value\+Cb (\begin{DoxyParamCaption}\item[{D3\+D12\+\_\+\+INDEX\+\_\+\+BUFFER\+\_\+\+STRIP\+\_\+\+CUT\+\_\+\+VALUE}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\Hypertarget{struct_i_d3_d_x12_pipeline_parser_callbacks_a9f47eb3b339cdd435855990c5fbc0507}\label{struct_i_d3_d_x12_pipeline_parser_callbacks_a9f47eb3b339cdd435855990c5fbc0507} 
+\index{ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}!InputLayoutCb@{InputLayoutCb}}
+\index{InputLayoutCb@{InputLayoutCb}!ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}}
+\doxysubsubsection{\texorpdfstring{InputLayoutCb()}{InputLayoutCb()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual void ID3\+DX12\+Pipeline\+Parser\+Callbacks\+::\+Input\+Layout\+Cb (\begin{DoxyParamCaption}\item[{const D3\+D12\+\_\+\+INPUT\+\_\+\+LAYOUT\+\_\+\+DESC \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\Hypertarget{struct_i_d3_d_x12_pipeline_parser_callbacks_a9f47eb3b339cdd435855990c5fbc0507}\label{struct_i_d3_d_x12_pipeline_parser_callbacks_a9f47eb3b339cdd435855990c5fbc0507} 
+\index{ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}!InputLayoutCb@{InputLayoutCb}}
+\index{InputLayoutCb@{InputLayoutCb}!ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}}
+\doxysubsubsection{\texorpdfstring{InputLayoutCb()}{InputLayoutCb()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual void ID3\+DX12\+Pipeline\+Parser\+Callbacks\+::\+Input\+Layout\+Cb (\begin{DoxyParamCaption}\item[{const D3\+D12\+\_\+\+INPUT\+\_\+\+LAYOUT\+\_\+\+DESC \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\Hypertarget{struct_i_d3_d_x12_pipeline_parser_callbacks_a3569ea038622a63cc548fb31bb718c26}\label{struct_i_d3_d_x12_pipeline_parser_callbacks_a3569ea038622a63cc548fb31bb718c26} 
+\index{ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}!MSCb@{MSCb}}
+\index{MSCb@{MSCb}!ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}}
+\doxysubsubsection{\texorpdfstring{MSCb()}{MSCb()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual void ID3\+DX12\+Pipeline\+Parser\+Callbacks\+::\+MSCb (\begin{DoxyParamCaption}\item[{const D3\+D12\+\_\+\+SHADER\+\_\+\+BYTECODE \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\Hypertarget{struct_i_d3_d_x12_pipeline_parser_callbacks_a3569ea038622a63cc548fb31bb718c26}\label{struct_i_d3_d_x12_pipeline_parser_callbacks_a3569ea038622a63cc548fb31bb718c26} 
+\index{ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}!MSCb@{MSCb}}
+\index{MSCb@{MSCb}!ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}}
+\doxysubsubsection{\texorpdfstring{MSCb()}{MSCb()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual void ID3\+DX12\+Pipeline\+Parser\+Callbacks\+::\+MSCb (\begin{DoxyParamCaption}\item[{const D3\+D12\+\_\+\+SHADER\+\_\+\+BYTECODE \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\Hypertarget{struct_i_d3_d_x12_pipeline_parser_callbacks_ac5704822d7fda2624101267a24d9c0dc}\label{struct_i_d3_d_x12_pipeline_parser_callbacks_ac5704822d7fda2624101267a24d9c0dc} 
+\index{ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}!NodeMaskCb@{NodeMaskCb}}
+\index{NodeMaskCb@{NodeMaskCb}!ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}}
+\doxysubsubsection{\texorpdfstring{NodeMaskCb()}{NodeMaskCb()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual void ID3\+DX12\+Pipeline\+Parser\+Callbacks\+::\+Node\+Mask\+Cb (\begin{DoxyParamCaption}\item[{UINT}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\Hypertarget{struct_i_d3_d_x12_pipeline_parser_callbacks_ac5704822d7fda2624101267a24d9c0dc}\label{struct_i_d3_d_x12_pipeline_parser_callbacks_ac5704822d7fda2624101267a24d9c0dc} 
+\index{ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}!NodeMaskCb@{NodeMaskCb}}
+\index{NodeMaskCb@{NodeMaskCb}!ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}}
+\doxysubsubsection{\texorpdfstring{NodeMaskCb()}{NodeMaskCb()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual void ID3\+DX12\+Pipeline\+Parser\+Callbacks\+::\+Node\+Mask\+Cb (\begin{DoxyParamCaption}\item[{UINT}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\Hypertarget{struct_i_d3_d_x12_pipeline_parser_callbacks_a3ae6fe4f203f8b11ac5072835eafc442}\label{struct_i_d3_d_x12_pipeline_parser_callbacks_a3ae6fe4f203f8b11ac5072835eafc442} 
+\index{ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}!PrimitiveTopologyTypeCb@{PrimitiveTopologyTypeCb}}
+\index{PrimitiveTopologyTypeCb@{PrimitiveTopologyTypeCb}!ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}}
+\doxysubsubsection{\texorpdfstring{PrimitiveTopologyTypeCb()}{PrimitiveTopologyTypeCb()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual void ID3\+DX12\+Pipeline\+Parser\+Callbacks\+::\+Primitive\+Topology\+Type\+Cb (\begin{DoxyParamCaption}\item[{D3\+D12\+\_\+\+PRIMITIVE\+\_\+\+TOPOLOGY\+\_\+\+TYPE}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\Hypertarget{struct_i_d3_d_x12_pipeline_parser_callbacks_a3ae6fe4f203f8b11ac5072835eafc442}\label{struct_i_d3_d_x12_pipeline_parser_callbacks_a3ae6fe4f203f8b11ac5072835eafc442} 
+\index{ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}!PrimitiveTopologyTypeCb@{PrimitiveTopologyTypeCb}}
+\index{PrimitiveTopologyTypeCb@{PrimitiveTopologyTypeCb}!ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}}
+\doxysubsubsection{\texorpdfstring{PrimitiveTopologyTypeCb()}{PrimitiveTopologyTypeCb()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual void ID3\+DX12\+Pipeline\+Parser\+Callbacks\+::\+Primitive\+Topology\+Type\+Cb (\begin{DoxyParamCaption}\item[{D3\+D12\+\_\+\+PRIMITIVE\+\_\+\+TOPOLOGY\+\_\+\+TYPE}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\Hypertarget{struct_i_d3_d_x12_pipeline_parser_callbacks_a5ccb90a7a8a855782240f201c01a6369}\label{struct_i_d3_d_x12_pipeline_parser_callbacks_a5ccb90a7a8a855782240f201c01a6369} 
+\index{ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}!PSCb@{PSCb}}
+\index{PSCb@{PSCb}!ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}}
+\doxysubsubsection{\texorpdfstring{PSCb()}{PSCb()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual void ID3\+DX12\+Pipeline\+Parser\+Callbacks\+::\+PSCb (\begin{DoxyParamCaption}\item[{const D3\+D12\+\_\+\+SHADER\+\_\+\+BYTECODE \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\Hypertarget{struct_i_d3_d_x12_pipeline_parser_callbacks_a5ccb90a7a8a855782240f201c01a6369}\label{struct_i_d3_d_x12_pipeline_parser_callbacks_a5ccb90a7a8a855782240f201c01a6369} 
+\index{ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}!PSCb@{PSCb}}
+\index{PSCb@{PSCb}!ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}}
+\doxysubsubsection{\texorpdfstring{PSCb()}{PSCb()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual void ID3\+DX12\+Pipeline\+Parser\+Callbacks\+::\+PSCb (\begin{DoxyParamCaption}\item[{const D3\+D12\+\_\+\+SHADER\+\_\+\+BYTECODE \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\Hypertarget{struct_i_d3_d_x12_pipeline_parser_callbacks_a3157075157e7fc68eb559055ef0ab87b}\label{struct_i_d3_d_x12_pipeline_parser_callbacks_a3157075157e7fc68eb559055ef0ab87b} 
+\index{ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}!RasterizerStateCb@{RasterizerStateCb}}
+\index{RasterizerStateCb@{RasterizerStateCb}!ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}}
+\doxysubsubsection{\texorpdfstring{RasterizerStateCb()}{RasterizerStateCb()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual void ID3\+DX12\+Pipeline\+Parser\+Callbacks\+::\+Rasterizer\+State\+Cb (\begin{DoxyParamCaption}\item[{const D3\+D12\+\_\+\+RASTERIZER\+\_\+\+DESC \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\Hypertarget{struct_i_d3_d_x12_pipeline_parser_callbacks_a3157075157e7fc68eb559055ef0ab87b}\label{struct_i_d3_d_x12_pipeline_parser_callbacks_a3157075157e7fc68eb559055ef0ab87b} 
+\index{ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}!RasterizerStateCb@{RasterizerStateCb}}
+\index{RasterizerStateCb@{RasterizerStateCb}!ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}}
+\doxysubsubsection{\texorpdfstring{RasterizerStateCb()}{RasterizerStateCb()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual void ID3\+DX12\+Pipeline\+Parser\+Callbacks\+::\+Rasterizer\+State\+Cb (\begin{DoxyParamCaption}\item[{const D3\+D12\+\_\+\+RASTERIZER\+\_\+\+DESC \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\Hypertarget{struct_i_d3_d_x12_pipeline_parser_callbacks_a71f70ab760c914ef463930c4a7a67a9f}\label{struct_i_d3_d_x12_pipeline_parser_callbacks_a71f70ab760c914ef463930c4a7a67a9f} 
+\index{ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}!RootSignatureCb@{RootSignatureCb}}
+\index{RootSignatureCb@{RootSignatureCb}!ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}}
+\doxysubsubsection{\texorpdfstring{RootSignatureCb()}{RootSignatureCb()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual void ID3\+DX12\+Pipeline\+Parser\+Callbacks\+::\+Root\+Signature\+Cb (\begin{DoxyParamCaption}\item[{ID3\+D12\+Root\+Signature \texorpdfstring{$\ast$}{*}}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\Hypertarget{struct_i_d3_d_x12_pipeline_parser_callbacks_a71f70ab760c914ef463930c4a7a67a9f}\label{struct_i_d3_d_x12_pipeline_parser_callbacks_a71f70ab760c914ef463930c4a7a67a9f} 
+\index{ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}!RootSignatureCb@{RootSignatureCb}}
+\index{RootSignatureCb@{RootSignatureCb}!ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}}
+\doxysubsubsection{\texorpdfstring{RootSignatureCb()}{RootSignatureCb()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual void ID3\+DX12\+Pipeline\+Parser\+Callbacks\+::\+Root\+Signature\+Cb (\begin{DoxyParamCaption}\item[{ID3\+D12\+Root\+Signature \texorpdfstring{$\ast$}{*}}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\Hypertarget{struct_i_d3_d_x12_pipeline_parser_callbacks_a21bb61f217ab92475c75acffd9e9dbad}\label{struct_i_d3_d_x12_pipeline_parser_callbacks_a21bb61f217ab92475c75acffd9e9dbad} 
+\index{ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}!RTVFormatsCb@{RTVFormatsCb}}
+\index{RTVFormatsCb@{RTVFormatsCb}!ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}}
+\doxysubsubsection{\texorpdfstring{RTVFormatsCb()}{RTVFormatsCb()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual void ID3\+DX12\+Pipeline\+Parser\+Callbacks\+::\+RTVFormats\+Cb (\begin{DoxyParamCaption}\item[{const D3\+D12\+\_\+\+RT\+\_\+\+FORMAT\+\_\+\+ARRAY \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\Hypertarget{struct_i_d3_d_x12_pipeline_parser_callbacks_a21bb61f217ab92475c75acffd9e9dbad}\label{struct_i_d3_d_x12_pipeline_parser_callbacks_a21bb61f217ab92475c75acffd9e9dbad} 
+\index{ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}!RTVFormatsCb@{RTVFormatsCb}}
+\index{RTVFormatsCb@{RTVFormatsCb}!ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}}
+\doxysubsubsection{\texorpdfstring{RTVFormatsCb()}{RTVFormatsCb()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual void ID3\+DX12\+Pipeline\+Parser\+Callbacks\+::\+RTVFormats\+Cb (\begin{DoxyParamCaption}\item[{const D3\+D12\+\_\+\+RT\+\_\+\+FORMAT\+\_\+\+ARRAY \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\Hypertarget{struct_i_d3_d_x12_pipeline_parser_callbacks_a4d3d38064b1d9c7fddf9eebbbbb59313}\label{struct_i_d3_d_x12_pipeline_parser_callbacks_a4d3d38064b1d9c7fddf9eebbbbb59313} 
+\index{ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}!SampleDescCb@{SampleDescCb}}
+\index{SampleDescCb@{SampleDescCb}!ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}}
+\doxysubsubsection{\texorpdfstring{SampleDescCb()}{SampleDescCb()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual void ID3\+DX12\+Pipeline\+Parser\+Callbacks\+::\+Sample\+Desc\+Cb (\begin{DoxyParamCaption}\item[{const DXGI\+\_\+\+SAMPLE\+\_\+\+DESC \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\Hypertarget{struct_i_d3_d_x12_pipeline_parser_callbacks_a4d3d38064b1d9c7fddf9eebbbbb59313}\label{struct_i_d3_d_x12_pipeline_parser_callbacks_a4d3d38064b1d9c7fddf9eebbbbb59313} 
+\index{ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}!SampleDescCb@{SampleDescCb}}
+\index{SampleDescCb@{SampleDescCb}!ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}}
+\doxysubsubsection{\texorpdfstring{SampleDescCb()}{SampleDescCb()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual void ID3\+DX12\+Pipeline\+Parser\+Callbacks\+::\+Sample\+Desc\+Cb (\begin{DoxyParamCaption}\item[{const DXGI\+\_\+\+SAMPLE\+\_\+\+DESC \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\Hypertarget{struct_i_d3_d_x12_pipeline_parser_callbacks_ae7a81d7d6ca83cdc247fb89bd9a684d3}\label{struct_i_d3_d_x12_pipeline_parser_callbacks_ae7a81d7d6ca83cdc247fb89bd9a684d3} 
+\index{ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}!SampleMaskCb@{SampleMaskCb}}
+\index{SampleMaskCb@{SampleMaskCb}!ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}}
+\doxysubsubsection{\texorpdfstring{SampleMaskCb()}{SampleMaskCb()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual void ID3\+DX12\+Pipeline\+Parser\+Callbacks\+::\+Sample\+Mask\+Cb (\begin{DoxyParamCaption}\item[{UINT}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\Hypertarget{struct_i_d3_d_x12_pipeline_parser_callbacks_ae7a81d7d6ca83cdc247fb89bd9a684d3}\label{struct_i_d3_d_x12_pipeline_parser_callbacks_ae7a81d7d6ca83cdc247fb89bd9a684d3} 
+\index{ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}!SampleMaskCb@{SampleMaskCb}}
+\index{SampleMaskCb@{SampleMaskCb}!ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}}
+\doxysubsubsection{\texorpdfstring{SampleMaskCb()}{SampleMaskCb()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual void ID3\+DX12\+Pipeline\+Parser\+Callbacks\+::\+Sample\+Mask\+Cb (\begin{DoxyParamCaption}\item[{UINT}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\Hypertarget{struct_i_d3_d_x12_pipeline_parser_callbacks_afdca51f3f8df3a92871736432eeae0d4}\label{struct_i_d3_d_x12_pipeline_parser_callbacks_afdca51f3f8df3a92871736432eeae0d4} 
+\index{ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}!StreamOutputCb@{StreamOutputCb}}
+\index{StreamOutputCb@{StreamOutputCb}!ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}}
+\doxysubsubsection{\texorpdfstring{StreamOutputCb()}{StreamOutputCb()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual void ID3\+DX12\+Pipeline\+Parser\+Callbacks\+::\+Stream\+Output\+Cb (\begin{DoxyParamCaption}\item[{const D3\+D12\+\_\+\+STREAM\+\_\+\+OUTPUT\+\_\+\+DESC \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\Hypertarget{struct_i_d3_d_x12_pipeline_parser_callbacks_afdca51f3f8df3a92871736432eeae0d4}\label{struct_i_d3_d_x12_pipeline_parser_callbacks_afdca51f3f8df3a92871736432eeae0d4} 
+\index{ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}!StreamOutputCb@{StreamOutputCb}}
+\index{StreamOutputCb@{StreamOutputCb}!ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}}
+\doxysubsubsection{\texorpdfstring{StreamOutputCb()}{StreamOutputCb()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual void ID3\+DX12\+Pipeline\+Parser\+Callbacks\+::\+Stream\+Output\+Cb (\begin{DoxyParamCaption}\item[{const D3\+D12\+\_\+\+STREAM\+\_\+\+OUTPUT\+\_\+\+DESC \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\Hypertarget{struct_i_d3_d_x12_pipeline_parser_callbacks_acbfba73ec62fc1041efdc8fd368cc6db}\label{struct_i_d3_d_x12_pipeline_parser_callbacks_acbfba73ec62fc1041efdc8fd368cc6db} 
+\index{ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}!ViewInstancingCb@{ViewInstancingCb}}
+\index{ViewInstancingCb@{ViewInstancingCb}!ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}}
+\doxysubsubsection{\texorpdfstring{ViewInstancingCb()}{ViewInstancingCb()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual void ID3\+DX12\+Pipeline\+Parser\+Callbacks\+::\+View\+Instancing\+Cb (\begin{DoxyParamCaption}\item[{const D3\+D12\+\_\+\+VIEW\+\_\+\+INSTANCING\+\_\+\+DESC \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\Hypertarget{struct_i_d3_d_x12_pipeline_parser_callbacks_acbfba73ec62fc1041efdc8fd368cc6db}\label{struct_i_d3_d_x12_pipeline_parser_callbacks_acbfba73ec62fc1041efdc8fd368cc6db} 
+\index{ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}!ViewInstancingCb@{ViewInstancingCb}}
+\index{ViewInstancingCb@{ViewInstancingCb}!ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}}
+\doxysubsubsection{\texorpdfstring{ViewInstancingCb()}{ViewInstancingCb()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual void ID3\+DX12\+Pipeline\+Parser\+Callbacks\+::\+View\+Instancing\+Cb (\begin{DoxyParamCaption}\item[{const D3\+D12\+\_\+\+VIEW\+\_\+\+INSTANCING\+\_\+\+DESC \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\Hypertarget{struct_i_d3_d_x12_pipeline_parser_callbacks_af5cd66f6a5ea9dca69de3a0c5c192bdb}\label{struct_i_d3_d_x12_pipeline_parser_callbacks_af5cd66f6a5ea9dca69de3a0c5c192bdb} 
+\index{ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}!VSCb@{VSCb}}
+\index{VSCb@{VSCb}!ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}}
+\doxysubsubsection{\texorpdfstring{VSCb()}{VSCb()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual void ID3\+DX12\+Pipeline\+Parser\+Callbacks\+::\+VSCb (\begin{DoxyParamCaption}\item[{const D3\+D12\+\_\+\+SHADER\+\_\+\+BYTECODE \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\Hypertarget{struct_i_d3_d_x12_pipeline_parser_callbacks_af5cd66f6a5ea9dca69de3a0c5c192bdb}\label{struct_i_d3_d_x12_pipeline_parser_callbacks_af5cd66f6a5ea9dca69de3a0c5c192bdb} 
+\index{ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}!VSCb@{VSCb}}
+\index{VSCb@{VSCb}!ID3DX12PipelineParserCallbacks@{ID3DX12PipelineParserCallbacks}}
+\doxysubsubsection{\texorpdfstring{VSCb()}{VSCb()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual void ID3\+DX12\+Pipeline\+Parser\+Callbacks\+::\+VSCb (\begin{DoxyParamCaption}\item[{const D3\+D12\+\_\+\+SHADER\+\_\+\+BYTECODE \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Объявления и описания членов структур находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+Dark Engine/\+Source/\+Runtime/\+D3\+D12\+RHI/public/\mbox{\hyperlink{_d3_d12_r_h_i_2public_2d3dx12_8h}{d3dx12.\+h}}\item 
+Dark Engine/\+Source/\+Runtime/\+Render/\+D3\+D12/\mbox{\hyperlink{_render_2_d3_d12_2d3dx12_8h}{d3dx12.\+h}}\end{DoxyCompactItemize}

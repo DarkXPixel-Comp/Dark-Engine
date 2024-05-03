@@ -1,14 +1,16 @@
-﻿
-#include <Settings/PerEngineSettings.h>
+﻿#include <Settings/PerEngineSettings.h>
 //#include <Launch/Resource/resource.h>
 #include <Application/Application.h>
 #include <DEngine.h>
-#include <Logging/Logger.hpp>
+#include <Logging/Logger.h>
 #include <Windows/WindowsSystemIncludes.h>
+#include "Logging/LogMacros.h"
+
+#include <Windows.h>
 
 
 
-
+DECLARE_LOG_CATEGORY(LaunchWindowsLog, Display);
 
 
 extern int32 GuardedMain(const TCHAR* CmdLine);
@@ -19,16 +21,16 @@ void InvalidParameterHandler(const TCHAR* Expr,
 							 uint32 Line,
 							 uintptr_t Reserved)
 {
-	throw;
-
+	DE_LOG(LaunchWindowsLog, Fatal, TEXT("%s, Func = (%s) In %s(%i)"), Expr, Func, File, Line);
 }
 
 
 
 
-void SetupWindowsEnviroment()
+static void SetupWindowsEnviroment()
 {
 	_set_invalid_parameter_handler(InvalidParameterHandler);
+	SetThreadDpiAwarenessContext(DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2);
 }
 
 
@@ -37,31 +39,14 @@ int32 LaunchWindowsStartup(HINSTANCE hInInstance, HINSTANCE hPrevInstance, char*
 {
 	SetupWindowsEnviroment();
 
+	//setlocale(LC_ALL, ".utf8");
+
 	int32_t ErrorCode = 0;
 	hInstance = hInInstance;
 
-	Application::Instance()->Initialize(hInInstance, hPrevInstance, pCmdLine, nCmdShow);
 
 	ErrorCode = GuardedMain(CmdLine);
 	
-
-	/*ErrorCode = GEngine.Initialize();
-	ErrorCode = GEngine.PostInit();
-
-
-	while (GEngine.isAppWork())
-	{
-		GEngine.UpdateLoop();
-	}
-
-
-
-
-	GEngine.Shutdown();
-
-
-	Logger::wait();
-	Logger::Exit();*/
 
 
 	return ErrorCode;
@@ -79,7 +64,7 @@ int32_t WINAPI WinMain(
 	_In_ int32_t nCmdShow
 )
 {
-	int32 Result = LaunchWindowsStartup(hInInstance, prevInstance, lpCmdLine, nCmdShow, nullptr);
+	int32 Result = LaunchWindowsStartup(hInInstance, prevInstance, lpCmdLine, nCmdShow, *FString(lpCmdLine));
 	
 	return Result;
 }

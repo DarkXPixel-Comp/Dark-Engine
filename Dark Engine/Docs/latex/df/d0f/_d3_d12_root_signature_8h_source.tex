@@ -1,0 +1,158 @@
+\doxysection{D3\+D12\+Root\+Signature.\+h}
+\hypertarget{_d3_d12_root_signature_8h_source}{}\label{_d3_d12_root_signature_8h_source}\index{Dark Engine/Source/Runtime/D3D12RHI/private/D3D12RootSignature.h@{Dark Engine/Source/Runtime/D3D12RHI/private/D3D12RootSignature.h}}
+\mbox{\hyperlink{_d3_d12_root_signature_8h}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_d3_d12_r_h_i_common_8h}{D3D12RHICommon.h}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_unordored_map_8h}{Containers/UnordoredMap.h}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_array_8h}{Containers/Array.h}}"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{_d3_d12_root_signature_8h_a63ef258198b89b8ea8576180716d3d27}{ERootParameterKeys}}}
+\DoxyCodeLine{00010\ \{}
+\DoxyCodeLine{00011\ \ \ \ \ \mbox{\hyperlink{_d3_d12_root_signature_8h_a63ef258198b89b8ea8576180716d3d27af72a36c840220fd45db2b1ecfb307f6f}{PS\_SRVs}},}
+\DoxyCodeLine{00012\ \ \ \ \ \mbox{\hyperlink{_d3_d12_root_signature_8h_a63ef258198b89b8ea8576180716d3d27a762324a880a9e91f16dcc169626c94a9}{PS\_CBVs}},}
+\DoxyCodeLine{00013\ \ \ \ \ \mbox{\hyperlink{_d3_d12_root_signature_8h_a63ef258198b89b8ea8576180716d3d27a4324d756a5aacb25202ab1aed1fc369e}{PS\_RootCBVs}},}
+\DoxyCodeLine{00014\ \ \ \ \ \mbox{\hyperlink{_d3_d12_root_signature_8h_a63ef258198b89b8ea8576180716d3d27a601e32ae22b6d66490948b3044a2a79f}{PS\_Samplers}},}
+\DoxyCodeLine{00015\ \ \ \ \ \mbox{\hyperlink{_d3_d12_root_signature_8h_a63ef258198b89b8ea8576180716d3d27a27326a2388bd847cd9d8e85ad5192bad}{VS\_SRVs}},}
+\DoxyCodeLine{00016\ \ \ \ \ \mbox{\hyperlink{_d3_d12_root_signature_8h_a63ef258198b89b8ea8576180716d3d27a18641b6a05f36b3f9c0b3a96ed3f468d}{VS\_CBVs}},}
+\DoxyCodeLine{00017\ \ \ \ \ \mbox{\hyperlink{_d3_d12_root_signature_8h_a63ef258198b89b8ea8576180716d3d27ad8ab7e6e3fed84e94751b3739e5a21f6}{VS\_RootCBVs}},}
+\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{_d3_d12_root_signature_8h_a63ef258198b89b8ea8576180716d3d27a025b6f80c9f708f7a60b528ab8d10b34}{VS\_Samplers}},}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \mbox{\hyperlink{_d3_d12_root_signature_8h_a63ef258198b89b8ea8576180716d3d27abba859a50d1a732171a6eefd0fed8942}{RPK\_Count}}}
+\DoxyCodeLine{00023\ \};}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_f_d3_d12_root_signature_desc}{FD3D12RootSignatureDesc}}}
+\DoxyCodeLine{00028\ \{}
+\DoxyCodeLine{00029\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_f_d3_d12_root_signature_desc_a4a01e2d53677f7f4aa7dc44573eff1ae}{FD3D12RootSignatureDesc}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_f_bound_shader_state_input}{FBoundShaderStateInput}}\&\ BSS);}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ \mbox{\hyperlink{class_f_d3_d12_root_signature_desc_a4d3cd64d9095127ea6607516f6389f7d}{MaxRootParameters}}\ =\ 32;}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ FORCEINLINE\ \textcolor{keyword}{const}\ D3D12\_VERSIONED\_ROOT\_SIGNATURE\_DESC\&\ \mbox{\hyperlink{class_f_d3_d12_root_signature_desc_a20715f629342a3fbad83b6a817435cde}{GetDesc}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ RootDesc;\ \}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ \mbox{\hyperlink{_platform_8h_afddf25cca147311c233b23a9d3329bb4}{uint64}}\ \mbox{\hyperlink{class_f_d3_d12_root_signature_desc_aa03960e5eabd247ff3ad0c0c0380a718}{Hash}}\ =\ 0;}
+\DoxyCodeLine{00037\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00038\ \ \ \ \ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ RootParameterSize\ =\ 0;}
+\DoxyCodeLine{00039\ \ \ \ \ CD3DX12\_ROOT\_PARAMETER1\ TableSlots[\mbox{\hyperlink{class_f_d3_d12_root_signature_desc_a4d3cd64d9095127ea6607516f6389f7d}{MaxRootParameters}}];}
+\DoxyCodeLine{00040\ \ \ \ \ CD3DX12\_DESCRIPTOR\_RANGE1\ DescriptorRanges[\mbox{\hyperlink{class_f_d3_d12_root_signature_desc_a4d3cd64d9095127ea6607516f6389f7d}{MaxRootParameters}}];}
+\DoxyCodeLine{00041\ \ \ \ \ CD3DX12\_VERSIONED\_ROOT\_SIGNATURE\_DESC\ RootDesc;}
+\DoxyCodeLine{00042\ \};}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_f_d3_d12_root_signature}{FD3D12RootSignature}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_f_d3_d12_adapter_child}{FD3D12AdapterChild}}}
+\DoxyCodeLine{00047\ \{}
+\DoxyCodeLine{00048\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00049\ \ \ \ \ \mbox{\hyperlink{class_f_d3_d12_root_signature_a0aa80d272b9f5d52d89ee848c21ad0e5}{FD3D12RootSignature}}(\mbox{\hyperlink{class_f_d3_d12_adapter}{FD3D12Adapter}}*\ InParent)\ :\ \mbox{\hyperlink{class_f_d3_d12_adapter_child}{FD3D12AdapterChild}}(InParent)}
+\DoxyCodeLine{00050\ \ \ \ \ \{\}}
+\DoxyCodeLine{00051\ \ \ \ \ \mbox{\hyperlink{class_f_d3_d12_root_signature_abdd865e52e30a36d927a1667e32a7142}{FD3D12RootSignature}}(\mbox{\hyperlink{class_f_d3_d12_adapter}{FD3D12Adapter}}*\ InParent,\ \textcolor{keyword}{const}\ \textcolor{keyword}{class}\ \mbox{\hyperlink{struct_f_bound_shader_state_input}{FBoundShaderStateInput}}\&\ BSS)}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{class_f_d3_d12_adapter_child}{FD3D12AdapterChild}}(InParent)}
+\DoxyCodeLine{00053\ \ \ \ \ \{}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_f_d3_d12_root_signature_a7f087385e6be21ef209eace852137448}{Init}}(BSS);}
+\DoxyCodeLine{00055\ \ \ \ \ \}}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_d3_d12_root_signature_a7f087385e6be21ef209eace852137448}{Init}}(\textcolor{keyword}{const}\ \textcolor{keyword}{class}\ \mbox{\hyperlink{struct_f_bound_shader_state_input}{FBoundShaderStateInput}}\&\ BSS);}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_d3_d12_root_signature_a7f087385e6be21ef209eace852137448}{Init}}(\textcolor{keyword}{const}\ D3D12\_VERSIONED\_ROOT\_SIGNATURE\_DESC\&\ InDesc);}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ ID3D12RootSignature*\ \mbox{\hyperlink{class_f_d3_d12_root_signature_ae784f16051b72c8fd60581b5c7928136}{GetRootSignature}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ RootSignature.Get();\ \}}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ \mbox{\hyperlink{_platform_8h_afddf25cca147311c233b23a9d3329bb4}{uint64}}\ \mbox{\hyperlink{class_f_d3_d12_root_signature_aed928e90eea3c571e79d220bcb7ab6c3}{Hash}}\ =\ 0;}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \ \ FORCEINLINE\ \mbox{\hyperlink{_platform_8h_a40bc01dd090acd02a79b5dc13e08abe6}{uint8}}\ \mbox{\hyperlink{class_f_d3_d12_root_signature_a90e1e5177c0c8c0a4911977fef95b0e2}{GetCBVDBindSlot}}(\mbox{\hyperlink{_r_h_i_defines_8h_a89725d5f41ceac2e574ddc988f06775e}{EShaderType}}\ Type)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00067\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (Type)}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{_r_h_i_defines_8h_a89725d5f41ceac2e574ddc988f06775ea051ebc9c5c563958123bdbdc3bb9330d}{ST\_Vertex}}:\ \textcolor{keywordflow}{return}\ BindSlotMap[\mbox{\hyperlink{_d3_d12_root_signature_8h_a63ef258198b89b8ea8576180716d3d27ad8ab7e6e3fed84e94751b3739e5a21f6}{VS\_RootCBVs}}];}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{_r_h_i_defines_8h_a89725d5f41ceac2e574ddc988f06775ea135f8248df527333f4407f04072fdf74}{ST\_Pixel}}:\ \textcolor{keywordflow}{return}\ BindSlotMap[\mbox{\hyperlink{_d3_d12_root_signature_8h_a63ef258198b89b8ea8576180716d3d27a4324d756a5aacb25202ab1aed1fc369e}{PS\_RootCBVs}}];}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00073\ \ \ \ \ \}}
+\DoxyCodeLine{00074\ \ \ \ \ FORCEINLINE\ \mbox{\hyperlink{_platform_8h_a40bc01dd090acd02a79b5dc13e08abe6}{uint8}}\ \mbox{\hyperlink{class_f_d3_d12_root_signature_af11ba52bd5526151317fc35b1974e0c3}{GetCBVDTBindSlot}}(\mbox{\hyperlink{_r_h_i_defines_8h_a89725d5f41ceac2e574ddc988f06775e}{EShaderType}}\ Type)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00075\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (Type)}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{_r_h_i_defines_8h_a89725d5f41ceac2e574ddc988f06775ea051ebc9c5c563958123bdbdc3bb9330d}{ST\_Vertex}}:\ \textcolor{keywordflow}{return}\ BindSlotMap[\mbox{\hyperlink{_d3_d12_root_signature_8h_a63ef258198b89b8ea8576180716d3d27a18641b6a05f36b3f9c0b3a96ed3f468d}{VS\_CBVs}}];}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{_r_h_i_defines_8h_a89725d5f41ceac2e574ddc988f06775ea135f8248df527333f4407f04072fdf74}{ST\_Pixel}}:\ \textcolor{keywordflow}{return}\ BindSlotMap[\mbox{\hyperlink{_d3_d12_root_signature_8h_a63ef258198b89b8ea8576180716d3d27a762324a880a9e91f16dcc169626c94a9}{PS\_CBVs}}];}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00081\ \ \ \ \ \}}
+\DoxyCodeLine{00082\ \ \ \ \ FORCEINLINE\ \mbox{\hyperlink{_platform_8h_a40bc01dd090acd02a79b5dc13e08abe6}{uint8}}\ \mbox{\hyperlink{class_f_d3_d12_root_signature_a1e9c404bd24e8f4ef97164acc511e7bf}{GetSRVDTBindSlot}}(\mbox{\hyperlink{_r_h_i_defines_8h_a89725d5f41ceac2e574ddc988f06775e}{EShaderType}}\ Type)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00083\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (Type)}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{_r_h_i_defines_8h_a89725d5f41ceac2e574ddc988f06775ea051ebc9c5c563958123bdbdc3bb9330d}{ST\_Vertex}}:\ \textcolor{keywordflow}{return}\ BindSlotMap[\mbox{\hyperlink{_d3_d12_root_signature_8h_a63ef258198b89b8ea8576180716d3d27a27326a2388bd847cd9d8e85ad5192bad}{VS\_SRVs}}];}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{_r_h_i_defines_8h_a89725d5f41ceac2e574ddc988f06775ea135f8248df527333f4407f04072fdf74}{ST\_Pixel}}:\ \textcolor{keywordflow}{return}\ BindSlotMap[\mbox{\hyperlink{_d3_d12_root_signature_8h_a63ef258198b89b8ea8576180716d3d27af72a36c840220fd45db2b1ecfb307f6f}{PS\_SRVs}}];}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00089\ \ \ \ \ \}}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordtype}{void}\ AnalyzeSinature(\textcolor{keyword}{const}\ D3D12\_ROOT\_SIGNATURE\_DESC1\&\ Desc,\ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ BindingSpace);}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \ \ \ \ FORCEINLINE\ \textcolor{keywordtype}{void}\ SetCBVDTBindSlot(\mbox{\hyperlink{_r_h_i_defines_8h_a89725d5f41ceac2e574ddc988f06775e}{EShaderType}}\ Type,\ \mbox{\hyperlink{_platform_8h_a40bc01dd090acd02a79b5dc13e08abe6}{uint8}}\ RootParameterIndex)}
+\DoxyCodeLine{00095\ \ \ \ \ \{}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (Type)}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{_r_h_i_defines_8h_a89725d5f41ceac2e574ddc988f06775ea051ebc9c5c563958123bdbdc3bb9330d}{ST\_Vertex}}:}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ BindSlotMap[\mbox{\hyperlink{_d3_d12_root_signature_8h_a63ef258198b89b8ea8576180716d3d27a18641b6a05f36b3f9c0b3a96ed3f468d}{VS\_CBVs}}]\ =\ RootParameterIndex;}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{_r_h_i_defines_8h_a89725d5f41ceac2e574ddc988f06775ea135f8248df527333f4407f04072fdf74}{ST\_Pixel}}:}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ BindSlotMap[\mbox{\hyperlink{_d3_d12_root_signature_8h_a63ef258198b89b8ea8576180716d3d27a762324a880a9e91f16dcc169626c94a9}{PS\_CBVs}}]\ =\ RootParameterIndex;}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00105\ \ \ \ \ \}}
+\DoxyCodeLine{00106\ \ \ \ \ FORCEINLINE\ \textcolor{keywordtype}{void}\ SetSRVDTBindSlot(\mbox{\hyperlink{_r_h_i_defines_8h_a89725d5f41ceac2e574ddc988f06775e}{EShaderType}}\ Type,\ \mbox{\hyperlink{_platform_8h_a40bc01dd090acd02a79b5dc13e08abe6}{uint8}}\ RootParameterIndex)}
+\DoxyCodeLine{00107\ \ \ \ \ \{}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (Type)}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{_r_h_i_defines_8h_a89725d5f41ceac2e574ddc988f06775ea051ebc9c5c563958123bdbdc3bb9330d}{ST\_Vertex}}:}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ BindSlotMap[\mbox{\hyperlink{_d3_d12_root_signature_8h_a63ef258198b89b8ea8576180716d3d27a27326a2388bd847cd9d8e85ad5192bad}{VS\_SRVs}}]\ =\ RootParameterIndex;}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{_r_h_i_defines_8h_a89725d5f41ceac2e574ddc988f06775ea135f8248df527333f4407f04072fdf74}{ST\_Pixel}}:}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ BindSlotMap[\mbox{\hyperlink{_d3_d12_root_signature_8h_a63ef258198b89b8ea8576180716d3d27af72a36c840220fd45db2b1ecfb307f6f}{PS\_SRVs}}]\ =\ RootParameterIndex;}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00117\ \ \ \ \ \}}
+\DoxyCodeLine{00118\ \ \ \ \ FORCEINLINE\ \textcolor{keywordtype}{void}\ SetCBVDBindSlot(\mbox{\hyperlink{_r_h_i_defines_8h_a89725d5f41ceac2e574ddc988f06775e}{EShaderType}}\ Type,\ \mbox{\hyperlink{_platform_8h_a40bc01dd090acd02a79b5dc13e08abe6}{uint8}}\ RootParameterIndex)}
+\DoxyCodeLine{00119\ \ \ \ \ \{}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (Type)}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{_r_h_i_defines_8h_a89725d5f41ceac2e574ddc988f06775ea051ebc9c5c563958123bdbdc3bb9330d}{ST\_Vertex}}:}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ BindSlotMap[\mbox{\hyperlink{_d3_d12_root_signature_8h_a63ef258198b89b8ea8576180716d3d27ad8ab7e6e3fed84e94751b3739e5a21f6}{VS\_RootCBVs}}]\ =\ RootParameterIndex;}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{_r_h_i_defines_8h_a89725d5f41ceac2e574ddc988f06775ea135f8248df527333f4407f04072fdf74}{ST\_Pixel}}:}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ BindSlotMap[\mbox{\hyperlink{_d3_d12_root_signature_8h_a63ef258198b89b8ea8576180716d3d27a4324d756a5aacb25202ab1aed1fc369e}{PS\_RootCBVs}}]\ =\ RootParameterIndex;}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00129\ \ \ \ \ \}}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00132\ \ \ \ \ TRefCountPtr<ID3DBlob>\ RootSignatureBlob;}
+\DoxyCodeLine{00133\ \ \ \ \ TRefCountPtr<ID3D12RootSignature>\ RootSignature;}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00135\ \ \ \ \ \mbox{\hyperlink{_platform_8h_a40bc01dd090acd02a79b5dc13e08abe6}{uint8}}\ BindSlotMap[\mbox{\hyperlink{_d3_d12_root_signature_8h_a63ef258198b89b8ea8576180716d3d27abba859a50d1a732171a6eefd0fed8942}{RPK\_Count}}];}
+\DoxyCodeLine{00136\ \};}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_f_d3_d12_root_signature_manager}{FD3D12RootSignatureManager}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_f_d3_d12_adapter_child}{FD3D12AdapterChild}}}
+\DoxyCodeLine{00140\ \{}
+\DoxyCodeLine{00141\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00142\ \ \ \ \ \mbox{\hyperlink{class_f_d3_d12_root_signature_manager_a51815b15b91ffabe0b46eb2fd7bafe8d}{FD3D12RootSignatureManager}}(\mbox{\hyperlink{class_f_d3_d12_adapter}{FD3D12Adapter}}*\ InParent):\ \mbox{\hyperlink{class_f_d3_d12_adapter_child}{FD3D12AdapterChild}}(InParent)\ \{\}}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00144\ \ \ \ \ \mbox{\hyperlink{class_f_d3_d12_root_signature}{FD3D12RootSignature}}*\ \mbox{\hyperlink{class_f_d3_d12_root_signature_manager_ae36d18349297758b44055ecb943d3b36}{GetRootSignature}}(\textcolor{keyword}{const}\ \textcolor{keyword}{class}\ \mbox{\hyperlink{struct_f_bound_shader_state_input}{FBoundShaderStateInput}}\&\ BSS);}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00147\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00148\ \ \ \ \ \mbox{\hyperlink{class_f_d3_d12_root_signature}{FD3D12RootSignature}}*\ CreateRootSignature(\textcolor{keyword}{const}\ \textcolor{keyword}{class}\ \mbox{\hyperlink{struct_f_bound_shader_state_input}{FBoundShaderStateInput}}\&\ BSS);}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00150\ \ \ \ \ TUnordoredMap<FBoundShaderStateInput,\ FD3D12RootSignature*>\ RootSignatureMap;}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00152\ \};}
+
+\end{DoxyCode}

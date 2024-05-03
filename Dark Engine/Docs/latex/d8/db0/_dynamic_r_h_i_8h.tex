@@ -1,0 +1,210 @@
+\doxysection{Файл Dark Engine/\+Source/\+Runtime/\+RHI/public/\+Dynamic\+RHI.h}
+\hypertarget{_dynamic_r_h_i_8h}{}\label{_dynamic_r_h_i_8h}\index{Dark Engine/Source/Runtime/RHI/public/DynamicRHI.h@{Dark Engine/Source/Runtime/RHI/public/DynamicRHI.h}}
+{\ttfamily \#include "{}RHIDefines.\+h"{}}\newline
+{\ttfamily \#include $<$RHIResources.\+h$>$}\newline
+{\ttfamily \#include "{}RHIContext.\+h"{}}\newline
+{\ttfamily \#include "{}Memory/\+TUnique\+Ptr.\+h"{}}\newline
+\doxysubsubsection*{Классы}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_i_dynamic_r_h_i_module}{IDynamic\+RHIModule}}
+\item 
+class \mbox{\hyperlink{class_f_dynamic_r_h_i}{FDynamic\+RHI}}
+\item 
+class \mbox{\hyperlink{class_i_dynamic_r_h_i}{IDynamic\+RHI}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Функции}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_f_dynamic_r_h_i}{FDynamic\+RHI}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{_dynamic_r_h_i_8h_a6f7bbd40a88c402c937b168491aa55d5}{Platform\+Create\+Dynamic\+RHI}} ()
+\item 
+void \mbox{\hyperlink{_dynamic_r_h_i_8h_a457a483a7a2b29076ac07499b10b5a9b}{Dynamic\+RHIShutdown}} ()
+\item 
+\mbox{\hyperlink{_t_unique_ptr_8h_ab7a7d47ba593c2489fecf3f003f56c53}{TShared\+Ptr}}$<$ \mbox{\hyperlink{class_f_r_h_i_viewport}{FRHIViewport}} $>$ \mbox{\hyperlink{_dynamic_r_h_i_8h_a64677140780b5d96ff87159949c72381}{Create\+RHIViewport}} (void \texorpdfstring{$\ast$}{*}Window\+Handle, \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} SizeX, \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} SizeY, bool b\+Is\+Fullscreen)
+\item 
+FORCEINLINE \mbox{\hyperlink{class_f_r_h_i_texture}{FRHITexture}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{_dynamic_r_h_i_8h_a74b21e28a063d0dac2be752b7a81072f}{RHIGet\+Viewport\+Back\+Buffer}} (\mbox{\hyperlink{class_f_r_h_i_viewport}{FRHIViewport}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{struct_viewport}{Viewport}})
+\item 
+FORCEINLINE \mbox{\hyperlink{_t_unique_ptr_8h_a0e0f00349c59b03cfd84d025bb3d6d91}{TRef\+Count\+Ptr}}$<$ \mbox{\hyperlink{class_f_r_h_i_buffer}{FRHIBuffer}} $>$ \mbox{\hyperlink{_dynamic_r_h_i_8h_a9f813715cdf25d3557fa66873b435201}{RHICreate\+Buffer}} (const \mbox{\hyperlink{struct_f_r_h_i_buffer_desc}{FRHIBuffer\+Desc}} \&Create\+Desc, const \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}} \texorpdfstring{$\ast$}{*}Debug\+Name, \mbox{\hyperlink{_r_h_i_defines_8h_a790a925a3358fc56173b2ffb0f607c5f}{ERHIAccess}} Initial\+State)
+\item 
+FORCEINLINE \mbox{\hyperlink{_t_unique_ptr_8h_a0e0f00349c59b03cfd84d025bb3d6d91}{TRef\+Count\+Ptr}}$<$ \mbox{\hyperlink{class_f_r_h_i_texture}{FRHITexture}} $>$ \mbox{\hyperlink{_dynamic_r_h_i_8h_a97675cc79124d5cfb88070b186caabe2}{RHICreate\+Texture}} (const \mbox{\hyperlink{struct_f_r_h_i_texture_create_desc}{FRHITexture\+Create\+Desc}} \&Create\+Desc)
+\item 
+FORCEINLINE \mbox{\hyperlink{_t_unique_ptr_8h_a0e0f00349c59b03cfd84d025bb3d6d91}{TRef\+Count\+Ptr}}$<$ \mbox{\hyperlink{class_f_r_h_i_rasterizer_state}{FRHIRasterizer\+State}} $>$ \mbox{\hyperlink{_dynamic_r_h_i_8h_a2539f19aaf4b8b466c5e4917e168a628}{RHICreate\+Rasterizer\+State}} (const \mbox{\hyperlink{struct_f_rasterizer_state_initializer}{FRasterizer\+State\+Initializer}} \&Initializer)
+\item 
+FORCEINLINE \mbox{\hyperlink{_t_unique_ptr_8h_a0e0f00349c59b03cfd84d025bb3d6d91}{TRef\+Count\+Ptr}}$<$ \mbox{\hyperlink{class_f_r_h_i_uniform_buffer}{FRHIUniform\+Buffer}} $>$ \mbox{\hyperlink{_dynamic_r_h_i_8h_a7f419d09ffe4241adaed158f4b581968}{RHICreate\+Uniform\+Buffer}} (const void \texorpdfstring{$\ast$}{*}Contents, \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} \mbox{\hyperlink{_d3_d12_utils_8h_a49802c782fb40bd8e79835ef12871ddeaff9abf2b1a689f70a77a18da50c01d9f}{Size}}, \mbox{\hyperlink{_r_h_i_defines_8h_a44efee7815674a346059a25f9b3c2085}{EUniform\+Buffer\+Usage}} Usage)
+\item 
+FORCEINLINE void \mbox{\hyperlink{_dynamic_r_h_i_8h_a1fe76f1d9aab0c5589e5526976b6c8db}{RHIUpdate\+Uniform\+Buffer}} (\mbox{\hyperlink{class_f_r_h_i_uniform_buffer}{FRHIUniform\+Buffer}} \texorpdfstring{$\ast$}{*}Buffer\+RHI, const void \texorpdfstring{$\ast$}{*}Contents, \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} \mbox{\hyperlink{_d3_d12_utils_8h_a49802c782fb40bd8e79835ef12871ddeaff9abf2b1a689f70a77a18da50c01d9f}{Size}})
+\item 
+FORCEINLINE void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{_dynamic_r_h_i_8h_aaae12c584cc160195bae750b5ff58855}{RHILock\+Texture2D}} (\mbox{\hyperlink{class_f_r_h_i_texture}{FRHITexture}} \texorpdfstring{$\ast$}{*}Texture\+RHI, \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} Mip\+Index, \mbox{\hyperlink{_r_h_i_defines_8h_a74b58e6e8443baea529ab6f701abadb7}{EResource\+Lock\+Mode}} Lock\+Mode, \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} \&Dest\+Stride, \mbox{\hyperlink{_platform_8h_afddf25cca147311c233b23a9d3329bb4}{uint64}} \texorpdfstring{$\ast$}{*}Out\+Locked\+Byte\+Count, bool b\+Lock\+Within\+Miptail=false)
+\item 
+FORCEINLINE void \mbox{\hyperlink{_dynamic_r_h_i_8h_ac3a4172ed3b1066dcd454f51e53244b4}{RHIUnlock\+Texture2D}} (\mbox{\hyperlink{class_f_r_h_i_texture}{FRHITexture}} \texorpdfstring{$\ast$}{*}Texture\+RHI, \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} Mip\+Index, bool b\+Lock\+Within\+Miptail=false)
+\item 
+FORCEINLINE void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{_dynamic_r_h_i_8h_a4e523b52ef7c31b49d6321fae61270ba}{RHILock\+Buffer}} (\mbox{\hyperlink{class_f_r_h_i_buffer}{FRHIBuffer}} \texorpdfstring{$\ast$}{*}Buffer\+RHI, \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} Offset, \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} \mbox{\hyperlink{_d3_d12_utils_8h_a49802c782fb40bd8e79835ef12871ddeaff9abf2b1a689f70a77a18da50c01d9f}{Size}}, \mbox{\hyperlink{_r_h_i_defines_8h_a74b58e6e8443baea529ab6f701abadb7}{EResource\+Lock\+Mode}} Lock\+Mode)
+\item 
+FORCEINLINE void \mbox{\hyperlink{_dynamic_r_h_i_8h_a884dd5454688e9402c4e13f4e671370b}{RHIUnlock\+Buffer}} (\mbox{\hyperlink{class_f_r_h_i_buffer}{FRHIBuffer}} \texorpdfstring{$\ast$}{*}Buffer\+RHI)
+\item 
+FORCEINLINE \mbox{\hyperlink{_t_unique_ptr_8h_a0e0f00349c59b03cfd84d025bb3d6d91}{TRef\+Count\+Ptr}}$<$ \mbox{\hyperlink{class_f_r_h_i_graphics_pipeline_state}{FRHIGraphics\+Pipeline\+State}} $>$ \mbox{\hyperlink{_dynamic_r_h_i_8h_a50c6da8a09f76e48d7115dde7f4cd97d}{RHICreate\+Graphics\+Pipeline\+State}} (const class \mbox{\hyperlink{class_f_graphics_pipeline_state_initializer}{FGraphics\+Pipeline\+State\+Initializer}} \&Initializer)
+\item 
+FORCEINLINE \mbox{\hyperlink{_t_unique_ptr_8h_a0e0f00349c59b03cfd84d025bb3d6d91}{TRef\+Count\+Ptr}}$<$ \mbox{\hyperlink{class_f_r_h_i_vertex_shader}{FRHIVertex\+Shader}} $>$ \mbox{\hyperlink{_dynamic_r_h_i_8h_afc60b329fd99f6e3e24deb6b88769ab2}{RHICreate\+Vertex\+Shader}} (const \mbox{\hyperlink{class_t_array}{TArray}}$<$ \mbox{\hyperlink{_platform_8h_a40bc01dd090acd02a79b5dc13e08abe6}{uint8}} $>$ \&Code, const struct \mbox{\hyperlink{struct_f_shader_bounds}{FShader\+Bounds}} \&Bounds)
+\item 
+FORCEINLINE \mbox{\hyperlink{_t_unique_ptr_8h_a0e0f00349c59b03cfd84d025bb3d6d91}{TRef\+Count\+Ptr}}$<$ \mbox{\hyperlink{class_f_r_h_i_vertex_declaration}{FRHIVertex\+Declaration}} $>$ \mbox{\hyperlink{_dynamic_r_h_i_8h_a7517b77b859e55ad7c2bd4b4d932faf3}{RHICreate\+Vertex\+Declaration}} (const \mbox{\hyperlink{_r_h_i_resources_8h_aa77d5af5631a2f543ab68862f67d6f93}{FVertex\+Declaration\+Element\+List}} \&Elements)
+\item 
+FORCEINLINE \mbox{\hyperlink{_t_unique_ptr_8h_a0e0f00349c59b03cfd84d025bb3d6d91}{TRef\+Count\+Ptr}}$<$ \mbox{\hyperlink{class_f_r_h_i_pixel_shader}{FRHIPixel\+Shader}} $>$ \mbox{\hyperlink{_dynamic_r_h_i_8h_a756d5c579d92e465b0fe00d857a29998}{RHICreate\+Pixel\+Shader}} (const \mbox{\hyperlink{class_t_array}{TArray}}$<$ \mbox{\hyperlink{_platform_8h_a40bc01dd090acd02a79b5dc13e08abe6}{uint8}} $>$ \&Code, const struct \mbox{\hyperlink{struct_f_shader_bounds}{FShader\+Bounds}} \&Bounds)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Переменные}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_f_dynamic_r_h_i}{FDynamic\+RHI}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{_dynamic_r_h_i_8h_a7f476220c09bed9c45bc8cdcfde73e72}{GDynamic\+RHI}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Функции}
+\Hypertarget{_dynamic_r_h_i_8h_a64677140780b5d96ff87159949c72381}\label{_dynamic_r_h_i_8h_a64677140780b5d96ff87159949c72381} 
+\index{DynamicRHI.h@{DynamicRHI.h}!CreateRHIViewport@{CreateRHIViewport}}
+\index{CreateRHIViewport@{CreateRHIViewport}!DynamicRHI.h@{DynamicRHI.h}}
+\doxysubsubsection{\texorpdfstring{CreateRHIViewport()}{CreateRHIViewport()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_t_unique_ptr_8h_ab7a7d47ba593c2489fecf3f003f56c53}{TShared\+Ptr}}$<$ \mbox{\hyperlink{class_f_r_h_i_viewport}{FRHIViewport}} $>$ Create\+RHIViewport (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{Window\+Handle,  }\item[{\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}}]{SizeX,  }\item[{\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}}]{SizeY,  }\item[{bool}]{b\+Is\+Fullscreen }\end{DoxyParamCaption})}
+
+Create \doxylink{class_f_r_h_i_viewport}{FRHIViewport} 
+\begin{DoxyParams}[1]{Аргументы}
+\mbox{\texttt{ in}}  & {\em Window\+Handle} & OS handle on window \\
+\hline
+\mbox{\texttt{ in}}  & {\em SizeX} & Width \doxylink{struct_viewport}{Viewport} \\
+\hline
+\mbox{\texttt{ in}}  & {\em SizeY} & Heigth \doxylink{struct_viewport}{Viewport} \\
+\hline
+\mbox{\texttt{ in}}  & {\em Fullscreen} & On \\
+\hline
+\end{DoxyParams}
+\Hypertarget{_dynamic_r_h_i_8h_a457a483a7a2b29076ac07499b10b5a9b}\label{_dynamic_r_h_i_8h_a457a483a7a2b29076ac07499b10b5a9b} 
+\index{DynamicRHI.h@{DynamicRHI.h}!DynamicRHIShutdown@{DynamicRHIShutdown}}
+\index{DynamicRHIShutdown@{DynamicRHIShutdown}!DynamicRHI.h@{DynamicRHI.h}}
+\doxysubsubsection{\texorpdfstring{DynamicRHIShutdown()}{DynamicRHIShutdown()}}
+{\footnotesize\ttfamily void Dynamic\+RHIShutdown (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{_dynamic_r_h_i_8h_a6f7bbd40a88c402c937b168491aa55d5}\label{_dynamic_r_h_i_8h_a6f7bbd40a88c402c937b168491aa55d5} 
+\index{DynamicRHI.h@{DynamicRHI.h}!PlatformCreateDynamicRHI@{PlatformCreateDynamicRHI}}
+\index{PlatformCreateDynamicRHI@{PlatformCreateDynamicRHI}!DynamicRHI.h@{DynamicRHI.h}}
+\doxysubsubsection{\texorpdfstring{PlatformCreateDynamicRHI()}{PlatformCreateDynamicRHI()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_f_dynamic_r_h_i}{FDynamic\+RHI}} \texorpdfstring{$\ast$}{*} Platform\+Create\+Dynamic\+RHI (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{_dynamic_r_h_i_8h_a9f813715cdf25d3557fa66873b435201}\label{_dynamic_r_h_i_8h_a9f813715cdf25d3557fa66873b435201} 
+\index{DynamicRHI.h@{DynamicRHI.h}!RHICreateBuffer@{RHICreateBuffer}}
+\index{RHICreateBuffer@{RHICreateBuffer}!DynamicRHI.h@{DynamicRHI.h}}
+\doxysubsubsection{\texorpdfstring{RHICreateBuffer()}{RHICreateBuffer()}}
+{\footnotesize\ttfamily FORCEINLINE \mbox{\hyperlink{_t_unique_ptr_8h_a0e0f00349c59b03cfd84d025bb3d6d91}{TRef\+Count\+Ptr}}$<$ \mbox{\hyperlink{class_f_r_h_i_buffer}{FRHIBuffer}} $>$ RHICreate\+Buffer (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_f_r_h_i_buffer_desc}{FRHIBuffer\+Desc}} \&}]{Create\+Desc,  }\item[{const \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}} \texorpdfstring{$\ast$}{*}}]{Debug\+Name,  }\item[{\mbox{\hyperlink{_r_h_i_defines_8h_a790a925a3358fc56173b2ffb0f607c5f}{ERHIAccess}}}]{Initial\+State }\end{DoxyParamCaption})}
+
+Create \doxylink{class_f_r_h_i_buffer}{FRHIBuffer} 
+\begin{DoxyParams}[1]{Аргументы}
+\mbox{\texttt{ in}}  & {\em Create\+Desc} & Buffer\+Desc \\
+\hline
+\mbox{\texttt{ in}}  & {\em Debug\+Name} & Debug name for debugger \\
+\hline
+\mbox{\texttt{ in}}  & {\em Initial\+State} & Initial \doxylink{class_r_h_i}{RHI} state \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Ref\+Count object \doxylink{class_f_r_h_i_buffer}{FRHIBuffer} 
+\end{DoxyReturn}
+\Hypertarget{_dynamic_r_h_i_8h_a50c6da8a09f76e48d7115dde7f4cd97d}\label{_dynamic_r_h_i_8h_a50c6da8a09f76e48d7115dde7f4cd97d} 
+\index{DynamicRHI.h@{DynamicRHI.h}!RHICreateGraphicsPipelineState@{RHICreateGraphicsPipelineState}}
+\index{RHICreateGraphicsPipelineState@{RHICreateGraphicsPipelineState}!DynamicRHI.h@{DynamicRHI.h}}
+\doxysubsubsection{\texorpdfstring{RHICreateGraphicsPipelineState()}{RHICreateGraphicsPipelineState()}}
+{\footnotesize\ttfamily FORCEINLINE \mbox{\hyperlink{_t_unique_ptr_8h_a0e0f00349c59b03cfd84d025bb3d6d91}{TRef\+Count\+Ptr}}$<$ \mbox{\hyperlink{class_f_r_h_i_graphics_pipeline_state}{FRHIGraphics\+Pipeline\+State}} $>$ RHICreate\+Graphics\+Pipeline\+State (\begin{DoxyParamCaption}\item[{const class \mbox{\hyperlink{class_f_graphics_pipeline_state_initializer}{FGraphics\+Pipeline\+State\+Initializer}} \&}]{Initializer }\end{DoxyParamCaption})}
+
+\Hypertarget{_dynamic_r_h_i_8h_a756d5c579d92e465b0fe00d857a29998}\label{_dynamic_r_h_i_8h_a756d5c579d92e465b0fe00d857a29998} 
+\index{DynamicRHI.h@{DynamicRHI.h}!RHICreatePixelShader@{RHICreatePixelShader}}
+\index{RHICreatePixelShader@{RHICreatePixelShader}!DynamicRHI.h@{DynamicRHI.h}}
+\doxysubsubsection{\texorpdfstring{RHICreatePixelShader()}{RHICreatePixelShader()}}
+{\footnotesize\ttfamily FORCEINLINE \mbox{\hyperlink{_t_unique_ptr_8h_a0e0f00349c59b03cfd84d025bb3d6d91}{TRef\+Count\+Ptr}}$<$ \mbox{\hyperlink{class_f_r_h_i_pixel_shader}{FRHIPixel\+Shader}} $>$ RHICreate\+Pixel\+Shader (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_t_array}{TArray}}$<$ \mbox{\hyperlink{_platform_8h_a40bc01dd090acd02a79b5dc13e08abe6}{uint8}} $>$ \&}]{Code,  }\item[{const struct \mbox{\hyperlink{struct_f_shader_bounds}{FShader\+Bounds}} \&}]{Bounds }\end{DoxyParamCaption})}
+
+\Hypertarget{_dynamic_r_h_i_8h_a2539f19aaf4b8b466c5e4917e168a628}\label{_dynamic_r_h_i_8h_a2539f19aaf4b8b466c5e4917e168a628} 
+\index{DynamicRHI.h@{DynamicRHI.h}!RHICreateRasterizerState@{RHICreateRasterizerState}}
+\index{RHICreateRasterizerState@{RHICreateRasterizerState}!DynamicRHI.h@{DynamicRHI.h}}
+\doxysubsubsection{\texorpdfstring{RHICreateRasterizerState()}{RHICreateRasterizerState()}}
+{\footnotesize\ttfamily FORCEINLINE \mbox{\hyperlink{_t_unique_ptr_8h_a0e0f00349c59b03cfd84d025bb3d6d91}{TRef\+Count\+Ptr}}$<$ \mbox{\hyperlink{class_f_r_h_i_rasterizer_state}{FRHIRasterizer\+State}} $>$ RHICreate\+Rasterizer\+State (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_f_rasterizer_state_initializer}{FRasterizer\+State\+Initializer}} \&}]{Initializer }\end{DoxyParamCaption})}
+
+\Hypertarget{_dynamic_r_h_i_8h_a97675cc79124d5cfb88070b186caabe2}\label{_dynamic_r_h_i_8h_a97675cc79124d5cfb88070b186caabe2} 
+\index{DynamicRHI.h@{DynamicRHI.h}!RHICreateTexture@{RHICreateTexture}}
+\index{RHICreateTexture@{RHICreateTexture}!DynamicRHI.h@{DynamicRHI.h}}
+\doxysubsubsection{\texorpdfstring{RHICreateTexture()}{RHICreateTexture()}}
+{\footnotesize\ttfamily FORCEINLINE \mbox{\hyperlink{_t_unique_ptr_8h_a0e0f00349c59b03cfd84d025bb3d6d91}{TRef\+Count\+Ptr}}$<$ \mbox{\hyperlink{class_f_r_h_i_texture}{FRHITexture}} $>$ RHICreate\+Texture (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_f_r_h_i_texture_create_desc}{FRHITexture\+Create\+Desc}} \&}]{Create\+Desc }\end{DoxyParamCaption})}
+
+Create \doxylink{class_f_r_h_i_texture}{FRHITexture} 
+\begin{DoxyParams}[1]{Аргументы}
+\mbox{\texttt{ in}}  & {\em Create\+Desc} & Texture create description \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Ref\+Count object \doxylink{class_f_r_h_i_texture}{FRHITexture} 
+\end{DoxyReturn}
+\Hypertarget{_dynamic_r_h_i_8h_a7f419d09ffe4241adaed158f4b581968}\label{_dynamic_r_h_i_8h_a7f419d09ffe4241adaed158f4b581968} 
+\index{DynamicRHI.h@{DynamicRHI.h}!RHICreateUniformBuffer@{RHICreateUniformBuffer}}
+\index{RHICreateUniformBuffer@{RHICreateUniformBuffer}!DynamicRHI.h@{DynamicRHI.h}}
+\doxysubsubsection{\texorpdfstring{RHICreateUniformBuffer()}{RHICreateUniformBuffer()}}
+{\footnotesize\ttfamily FORCEINLINE \mbox{\hyperlink{_t_unique_ptr_8h_a0e0f00349c59b03cfd84d025bb3d6d91}{TRef\+Count\+Ptr}}$<$ \mbox{\hyperlink{class_f_r_h_i_uniform_buffer}{FRHIUniform\+Buffer}} $>$ RHICreate\+Uniform\+Buffer (\begin{DoxyParamCaption}\item[{const void \texorpdfstring{$\ast$}{*}}]{Contents,  }\item[{\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}}]{Size,  }\item[{\mbox{\hyperlink{_r_h_i_defines_8h_a44efee7815674a346059a25f9b3c2085}{EUniform\+Buffer\+Usage}}}]{Usage }\end{DoxyParamCaption})}
+
+\Hypertarget{_dynamic_r_h_i_8h_a7517b77b859e55ad7c2bd4b4d932faf3}\label{_dynamic_r_h_i_8h_a7517b77b859e55ad7c2bd4b4d932faf3} 
+\index{DynamicRHI.h@{DynamicRHI.h}!RHICreateVertexDeclaration@{RHICreateVertexDeclaration}}
+\index{RHICreateVertexDeclaration@{RHICreateVertexDeclaration}!DynamicRHI.h@{DynamicRHI.h}}
+\doxysubsubsection{\texorpdfstring{RHICreateVertexDeclaration()}{RHICreateVertexDeclaration()}}
+{\footnotesize\ttfamily FORCEINLINE \mbox{\hyperlink{_t_unique_ptr_8h_a0e0f00349c59b03cfd84d025bb3d6d91}{TRef\+Count\+Ptr}}$<$ \mbox{\hyperlink{class_f_r_h_i_vertex_declaration}{FRHIVertex\+Declaration}} $>$ RHICreate\+Vertex\+Declaration (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{_r_h_i_resources_8h_aa77d5af5631a2f543ab68862f67d6f93}{FVertex\+Declaration\+Element\+List}} \&}]{Elements }\end{DoxyParamCaption})}
+
+\Hypertarget{_dynamic_r_h_i_8h_afc60b329fd99f6e3e24deb6b88769ab2}\label{_dynamic_r_h_i_8h_afc60b329fd99f6e3e24deb6b88769ab2} 
+\index{DynamicRHI.h@{DynamicRHI.h}!RHICreateVertexShader@{RHICreateVertexShader}}
+\index{RHICreateVertexShader@{RHICreateVertexShader}!DynamicRHI.h@{DynamicRHI.h}}
+\doxysubsubsection{\texorpdfstring{RHICreateVertexShader()}{RHICreateVertexShader()}}
+{\footnotesize\ttfamily FORCEINLINE \mbox{\hyperlink{_t_unique_ptr_8h_a0e0f00349c59b03cfd84d025bb3d6d91}{TRef\+Count\+Ptr}}$<$ \mbox{\hyperlink{class_f_r_h_i_vertex_shader}{FRHIVertex\+Shader}} $>$ RHICreate\+Vertex\+Shader (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_t_array}{TArray}}$<$ \mbox{\hyperlink{_platform_8h_a40bc01dd090acd02a79b5dc13e08abe6}{uint8}} $>$ \&}]{Code,  }\item[{const struct \mbox{\hyperlink{struct_f_shader_bounds}{FShader\+Bounds}} \&}]{Bounds }\end{DoxyParamCaption})}
+
+\Hypertarget{_dynamic_r_h_i_8h_a74b21e28a063d0dac2be752b7a81072f}\label{_dynamic_r_h_i_8h_a74b21e28a063d0dac2be752b7a81072f} 
+\index{DynamicRHI.h@{DynamicRHI.h}!RHIGetViewportBackBuffer@{RHIGetViewportBackBuffer}}
+\index{RHIGetViewportBackBuffer@{RHIGetViewportBackBuffer}!DynamicRHI.h@{DynamicRHI.h}}
+\doxysubsubsection{\texorpdfstring{RHIGetViewportBackBuffer()}{RHIGetViewportBackBuffer()}}
+{\footnotesize\ttfamily FORCEINLINE \mbox{\hyperlink{class_f_r_h_i_texture}{FRHITexture}} \texorpdfstring{$\ast$}{*} RHIGet\+Viewport\+Back\+Buffer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_f_r_h_i_viewport}{FRHIViewport}} \texorpdfstring{$\ast$}{*}}]{Viewport }\end{DoxyParamCaption})}
+
+Get Back\+Buffer Texture 
+\begin{DoxyParams}[1]{Аргументы}
+\mbox{\texttt{ in}}  & {\em \doxylink{struct_viewport}{Viewport}} & \doxylink{struct_viewport}{Viewport} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+\doxylink{class_f_r_h_i_texture}{FRHITexture} back buffer 
+\end{DoxyReturn}
+\Hypertarget{_dynamic_r_h_i_8h_a4e523b52ef7c31b49d6321fae61270ba}\label{_dynamic_r_h_i_8h_a4e523b52ef7c31b49d6321fae61270ba} 
+\index{DynamicRHI.h@{DynamicRHI.h}!RHILockBuffer@{RHILockBuffer}}
+\index{RHILockBuffer@{RHILockBuffer}!DynamicRHI.h@{DynamicRHI.h}}
+\doxysubsubsection{\texorpdfstring{RHILockBuffer()}{RHILockBuffer()}}
+{\footnotesize\ttfamily FORCEINLINE void \texorpdfstring{$\ast$}{*} RHILock\+Buffer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_f_r_h_i_buffer}{FRHIBuffer}} \texorpdfstring{$\ast$}{*}}]{Buffer\+RHI,  }\item[{\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}}]{Offset,  }\item[{\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}}]{Size,  }\item[{\mbox{\hyperlink{_r_h_i_defines_8h_a74b58e6e8443baea529ab6f701abadb7}{EResource\+Lock\+Mode}}}]{Lock\+Mode }\end{DoxyParamCaption})}
+
+\Hypertarget{_dynamic_r_h_i_8h_aaae12c584cc160195bae750b5ff58855}\label{_dynamic_r_h_i_8h_aaae12c584cc160195bae750b5ff58855} 
+\index{DynamicRHI.h@{DynamicRHI.h}!RHILockTexture2D@{RHILockTexture2D}}
+\index{RHILockTexture2D@{RHILockTexture2D}!DynamicRHI.h@{DynamicRHI.h}}
+\doxysubsubsection{\texorpdfstring{RHILockTexture2D()}{RHILockTexture2D()}}
+{\footnotesize\ttfamily FORCEINLINE void \texorpdfstring{$\ast$}{*} RHILock\+Texture2D (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_f_r_h_i_texture}{FRHITexture}} \texorpdfstring{$\ast$}{*}}]{Texture\+RHI,  }\item[{\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}}]{Mip\+Index,  }\item[{\mbox{\hyperlink{_r_h_i_defines_8h_a74b58e6e8443baea529ab6f701abadb7}{EResource\+Lock\+Mode}}}]{Lock\+Mode,  }\item[{\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} \&}]{Dest\+Stride,  }\item[{\mbox{\hyperlink{_platform_8h_afddf25cca147311c233b23a9d3329bb4}{uint64}} \texorpdfstring{$\ast$}{*}}]{Out\+Locked\+Byte\+Count,  }\item[{bool}]{b\+Lock\+Within\+Miptail = {\ttfamily false} }\end{DoxyParamCaption})}
+
+\Hypertarget{_dynamic_r_h_i_8h_a884dd5454688e9402c4e13f4e671370b}\label{_dynamic_r_h_i_8h_a884dd5454688e9402c4e13f4e671370b} 
+\index{DynamicRHI.h@{DynamicRHI.h}!RHIUnlockBuffer@{RHIUnlockBuffer}}
+\index{RHIUnlockBuffer@{RHIUnlockBuffer}!DynamicRHI.h@{DynamicRHI.h}}
+\doxysubsubsection{\texorpdfstring{RHIUnlockBuffer()}{RHIUnlockBuffer()}}
+{\footnotesize\ttfamily FORCEINLINE void RHIUnlock\+Buffer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_f_r_h_i_buffer}{FRHIBuffer}} \texorpdfstring{$\ast$}{*}}]{Buffer\+RHI }\end{DoxyParamCaption})}
+
+\Hypertarget{_dynamic_r_h_i_8h_ac3a4172ed3b1066dcd454f51e53244b4}\label{_dynamic_r_h_i_8h_ac3a4172ed3b1066dcd454f51e53244b4} 
+\index{DynamicRHI.h@{DynamicRHI.h}!RHIUnlockTexture2D@{RHIUnlockTexture2D}}
+\index{RHIUnlockTexture2D@{RHIUnlockTexture2D}!DynamicRHI.h@{DynamicRHI.h}}
+\doxysubsubsection{\texorpdfstring{RHIUnlockTexture2D()}{RHIUnlockTexture2D()}}
+{\footnotesize\ttfamily FORCEINLINE void RHIUnlock\+Texture2D (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_f_r_h_i_texture}{FRHITexture}} \texorpdfstring{$\ast$}{*}}]{Texture\+RHI,  }\item[{\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}}]{Mip\+Index,  }\item[{bool}]{b\+Lock\+Within\+Miptail = {\ttfamily false} }\end{DoxyParamCaption})}
+
+\Hypertarget{_dynamic_r_h_i_8h_a1fe76f1d9aab0c5589e5526976b6c8db}\label{_dynamic_r_h_i_8h_a1fe76f1d9aab0c5589e5526976b6c8db} 
+\index{DynamicRHI.h@{DynamicRHI.h}!RHIUpdateUniformBuffer@{RHIUpdateUniformBuffer}}
+\index{RHIUpdateUniformBuffer@{RHIUpdateUniformBuffer}!DynamicRHI.h@{DynamicRHI.h}}
+\doxysubsubsection{\texorpdfstring{RHIUpdateUniformBuffer()}{RHIUpdateUniformBuffer()}}
+{\footnotesize\ttfamily FORCEINLINE void RHIUpdate\+Uniform\+Buffer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_f_r_h_i_uniform_buffer}{FRHIUniform\+Buffer}} \texorpdfstring{$\ast$}{*}}]{Buffer\+RHI,  }\item[{const void \texorpdfstring{$\ast$}{*}}]{Contents,  }\item[{\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}}]{Size }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Переменные}
+\Hypertarget{_dynamic_r_h_i_8h_a7f476220c09bed9c45bc8cdcfde73e72}\label{_dynamic_r_h_i_8h_a7f476220c09bed9c45bc8cdcfde73e72} 
+\index{DynamicRHI.h@{DynamicRHI.h}!GDynamicRHI@{GDynamicRHI}}
+\index{GDynamicRHI@{GDynamicRHI}!DynamicRHI.h@{DynamicRHI.h}}
+\doxysubsubsection{\texorpdfstring{GDynamicRHI}{GDynamicRHI}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_f_dynamic_r_h_i}{FDynamic\+RHI}}\texorpdfstring{$\ast$}{*} GDynamic\+RHI\hspace{0.3cm}{\ttfamily [extern]}}
+

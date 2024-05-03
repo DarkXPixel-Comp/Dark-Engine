@@ -1,0 +1,89 @@
+\doxysection{Файл Dark Engine/\+Source/\+Runtime/\+Core/\+Public/\+Templates/\+Dark\+Template.h}
+\hypertarget{_dark_template_8h}{}\label{_dark_template_8h}\index{Dark Engine/Source/Runtime/Core/Public/Templates/DarkTemplate.h@{Dark Engine/Source/Runtime/Core/Public/Templates/DarkTemplate.h}}
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include "{}Misc/\+Assertion\+Macros.\+h"{}}\newline
+\doxysubsubsection*{Классы}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_t_remove_reference}{TRemove\+Reference$<$ T $>$}}
+\item 
+struct \mbox{\hyperlink{struct_t_remove_reference_3_01_t_01_6_01_4}{TRemove\+Reference$<$ T \& $>$}}
+\item 
+struct \mbox{\hyperlink{struct_t_remove_reference_3_01_t_01_6_6_01_4}{TRemove\+Reference$<$ T \&\& $>$}}
+\item 
+class \mbox{\hyperlink{class_f_noncopyble}{FNoncopyble}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Макросы}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_dark_template_8h_a65a9a0605dd44912118be3a866b27089}{DE\+\_\+\+ARRAY\+\_\+\+COUNT}}(arr)~(\+\_\+countof(arr))
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Функции}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{struct_t_remove_reference}{TRemove\+Reference}}$<$ T $>$\+::\+Type \&\& \mbox{\hyperlink{_dark_template_8h_a003eb64f2a7754a2bfdd60ab750e59ce}{Move\+Temp}} (T \&\&Obj)
+\item 
+{\footnotesize template$<$typename T $>$ }\\FORCEINLINE T \mbox{\hyperlink{_dark_template_8h_a5e3f3fc2408448746761ecb4c7ed8d80}{Bit\+Mask}} (\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} \mbox{\hyperlink{_pixel_format_8h_afb559e26bc610db43ba605230a142898a928f33270be19855038d0245a0fa06a1}{Count}})
+\item 
+template$<$$>$ FORCEINLINE \mbox{\hyperlink{_platform_8h_afddf25cca147311c233b23a9d3329bb4}{uint64}} \mbox{\hyperlink{_dark_template_8h_ad1e15f26c2fce27690c85c85069bd87d}{Bit\+Mask$<$ uint64 $>$}} (\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} \mbox{\hyperlink{_pixel_format_8h_afb559e26bc610db43ba605230a142898a928f33270be19855038d0245a0fa06a1}{Count}})
+\item 
+template$<$$>$ FORCEINLINE \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} \mbox{\hyperlink{_dark_template_8h_a623ac80688a1f8b56509bb8da9d20208}{Bit\+Mask$<$ uint32 $>$}} (\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} \mbox{\hyperlink{_pixel_format_8h_afb559e26bc610db43ba605230a142898a928f33270be19855038d0245a0fa06a1}{Count}})
+\item 
+template$<$$>$ FORCEINLINE \mbox{\hyperlink{_platform_8h_a55934b7aafc849240fa69ea0339c0ab7}{uint16}} \mbox{\hyperlink{_dark_template_8h_a62a62fff03dc22ee9c7da6b83f7d3bc1}{Bit\+Mask$<$ uint16 $>$}} (\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} \mbox{\hyperlink{_pixel_format_8h_afb559e26bc610db43ba605230a142898a928f33270be19855038d0245a0fa06a1}{Count}})
+\item 
+template$<$$>$ FORCEINLINE \mbox{\hyperlink{_platform_8h_a40bc01dd090acd02a79b5dc13e08abe6}{uint8}} \mbox{\hyperlink{_dark_template_8h_aee28b4873fcbc01e8b2273f22fe18724}{Bit\+Mask$<$ uint8 $>$}} (\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} \mbox{\hyperlink{_pixel_format_8h_afb559e26bc610db43ba605230a142898a928f33270be19855038d0245a0fa06a1}{Count}})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Макросы}
+\Hypertarget{_dark_template_8h_a65a9a0605dd44912118be3a866b27089}\label{_dark_template_8h_a65a9a0605dd44912118be3a866b27089} 
+\index{DarkTemplate.h@{DarkTemplate.h}!DE\_ARRAY\_COUNT@{DE\_ARRAY\_COUNT}}
+\index{DE\_ARRAY\_COUNT@{DE\_ARRAY\_COUNT}!DarkTemplate.h@{DarkTemplate.h}}
+\doxysubsubsection{\texorpdfstring{DE\_ARRAY\_COUNT}{DE\_ARRAY\_COUNT}}
+{\footnotesize\ttfamily \#define DE\+\_\+\+ARRAY\+\_\+\+COUNT(\begin{DoxyParamCaption}\item[{}]{arr }\end{DoxyParamCaption})~(\+\_\+countof(arr))}
+
+
+
+\doxysubsection{Функции}
+\Hypertarget{_dark_template_8h_a5e3f3fc2408448746761ecb4c7ed8d80}\label{_dark_template_8h_a5e3f3fc2408448746761ecb4c7ed8d80} 
+\index{DarkTemplate.h@{DarkTemplate.h}!BitMask@{BitMask}}
+\index{BitMask@{BitMask}!DarkTemplate.h@{DarkTemplate.h}}
+\doxysubsubsection{\texorpdfstring{BitMask()}{BitMask()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+FORCEINLINE T Bit\+Mask (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}}]{Count }\end{DoxyParamCaption})}
+
+\Hypertarget{_dark_template_8h_a62a62fff03dc22ee9c7da6b83f7d3bc1}\label{_dark_template_8h_a62a62fff03dc22ee9c7da6b83f7d3bc1} 
+\index{DarkTemplate.h@{DarkTemplate.h}!BitMask$<$ uint16 $>$@{BitMask$<$ uint16 $>$}}
+\index{BitMask$<$ uint16 $>$@{BitMask$<$ uint16 $>$}!DarkTemplate.h@{DarkTemplate.h}}
+\doxysubsubsection{\texorpdfstring{BitMask$<$ uint16 $>$()}{BitMask< uint16 >()}}
+{\footnotesize\ttfamily template$<$$>$ \\
+FORCEINLINE \mbox{\hyperlink{_platform_8h_a55934b7aafc849240fa69ea0339c0ab7}{uint16}} \mbox{\hyperlink{_dark_template_8h_a5e3f3fc2408448746761ecb4c7ed8d80}{Bit\+Mask}}$<$ \mbox{\hyperlink{_platform_8h_a55934b7aafc849240fa69ea0339c0ab7}{uint16}} $>$ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}}]{Count }\end{DoxyParamCaption})}
+
+\Hypertarget{_dark_template_8h_a623ac80688a1f8b56509bb8da9d20208}\label{_dark_template_8h_a623ac80688a1f8b56509bb8da9d20208} 
+\index{DarkTemplate.h@{DarkTemplate.h}!BitMask$<$ uint32 $>$@{BitMask$<$ uint32 $>$}}
+\index{BitMask$<$ uint32 $>$@{BitMask$<$ uint32 $>$}!DarkTemplate.h@{DarkTemplate.h}}
+\doxysubsubsection{\texorpdfstring{BitMask$<$ uint32 $>$()}{BitMask< uint32 >()}}
+{\footnotesize\ttfamily template$<$$>$ \\
+FORCEINLINE \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} \mbox{\hyperlink{_dark_template_8h_a5e3f3fc2408448746761ecb4c7ed8d80}{Bit\+Mask}}$<$ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} $>$ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}}]{Count }\end{DoxyParamCaption})}
+
+\Hypertarget{_dark_template_8h_ad1e15f26c2fce27690c85c85069bd87d}\label{_dark_template_8h_ad1e15f26c2fce27690c85c85069bd87d} 
+\index{DarkTemplate.h@{DarkTemplate.h}!BitMask$<$ uint64 $>$@{BitMask$<$ uint64 $>$}}
+\index{BitMask$<$ uint64 $>$@{BitMask$<$ uint64 $>$}!DarkTemplate.h@{DarkTemplate.h}}
+\doxysubsubsection{\texorpdfstring{BitMask$<$ uint64 $>$()}{BitMask< uint64 >()}}
+{\footnotesize\ttfamily template$<$$>$ \\
+FORCEINLINE \mbox{\hyperlink{_platform_8h_afddf25cca147311c233b23a9d3329bb4}{uint64}} \mbox{\hyperlink{_dark_template_8h_a5e3f3fc2408448746761ecb4c7ed8d80}{Bit\+Mask}}$<$ \mbox{\hyperlink{_platform_8h_afddf25cca147311c233b23a9d3329bb4}{uint64}} $>$ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}}]{Count }\end{DoxyParamCaption})}
+
+\Hypertarget{_dark_template_8h_aee28b4873fcbc01e8b2273f22fe18724}\label{_dark_template_8h_aee28b4873fcbc01e8b2273f22fe18724} 
+\index{DarkTemplate.h@{DarkTemplate.h}!BitMask$<$ uint8 $>$@{BitMask$<$ uint8 $>$}}
+\index{BitMask$<$ uint8 $>$@{BitMask$<$ uint8 $>$}!DarkTemplate.h@{DarkTemplate.h}}
+\doxysubsubsection{\texorpdfstring{BitMask$<$ uint8 $>$()}{BitMask< uint8 >()}}
+{\footnotesize\ttfamily template$<$$>$ \\
+FORCEINLINE \mbox{\hyperlink{_platform_8h_a40bc01dd090acd02a79b5dc13e08abe6}{uint8}} \mbox{\hyperlink{_dark_template_8h_a5e3f3fc2408448746761ecb4c7ed8d80}{Bit\+Mask}}$<$ \mbox{\hyperlink{_platform_8h_a40bc01dd090acd02a79b5dc13e08abe6}{uint8}} $>$ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}}]{Count }\end{DoxyParamCaption})}
+
+\Hypertarget{_dark_template_8h_a003eb64f2a7754a2bfdd60ab750e59ce}\label{_dark_template_8h_a003eb64f2a7754a2bfdd60ab750e59ce} 
+\index{DarkTemplate.h@{DarkTemplate.h}!MoveTemp@{MoveTemp}}
+\index{MoveTemp@{MoveTemp}!DarkTemplate.h@{DarkTemplate.h}}
+\doxysubsubsection{\texorpdfstring{MoveTemp()}{MoveTemp()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{struct_t_remove_reference}{TRemove\+Reference}}$<$ T $>$\+::\+Type \&\& Move\+Temp (\begin{DoxyParamCaption}\item[{T \&\&}]{Obj }\end{DoxyParamCaption})}
+

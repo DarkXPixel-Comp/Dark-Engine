@@ -129,3 +129,4 @@ typedef FWindowsPlatformTypes FPlatformTypes;
 #define FUNCTION_NON_NULL_RETURN_START _Ret_notnull_				/* Indicate that the function never returns nullptr. */
 #define DLLEXPORT __declspec(dllexport)
 #define DLLIMPORT __declspec(dllimport)
+#define FORCEINLINE __forceinline

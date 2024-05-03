@@ -12,7 +12,7 @@ struct FAllocationData
 	SIZE_T	Size;
 
 	SIZE_T	Sentinel;
-}
+};
 
 
 

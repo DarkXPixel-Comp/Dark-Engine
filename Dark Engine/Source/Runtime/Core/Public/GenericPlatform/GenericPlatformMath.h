@@ -73,6 +73,12 @@ struct FGenericPlatformMath
 	}
 
 
+	template <class T1, class T2>
+	static constexpr T1 Pow(T1 A, T2 B)
+	{
+		return pow(A, B);
+	}
+
 	static FORCEINLINE int32 Rand() { return rand(); }
 
 	static FORCEINLINE void RandInit(int32 Seed) { srand(Seed); }

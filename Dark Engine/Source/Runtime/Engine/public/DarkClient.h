@@ -23,8 +23,8 @@ public:
 
 
 
-private:
-	TRefCountPtr<FRHITexture> RenderTargetTexture;
+protected:
+	TRefCountPtr<FRHITexture> RenderTargetTextureRHI;
 };
 
 
@@ -33,7 +33,9 @@ private:
 class FViewport	 : public FRenderTarget
 {
 public:
-	void Draw(FViewportClient* InViewport);
+	FViewport(FViewportClient* InViewportClient);
+
+	void Draw();
 
 	FViewportClient* GetClient() const { return ViewportClient; }
 
@@ -41,6 +43,9 @@ public:
 	//FIntPoint GetSize() const { return FIntPoint(SizeX, SizeY); }
 	FIntPoint GetSizeXY() const { return FIntPoint(SizeX, SizeY); }
 	virtual float GetDisplayGamma() const override { return 0; }
+	virtual void Resize(int32 InSizeX, int32 InSizeY) = 0;
+
+	FIntPoint ViewportSize = FIntPoint();
 
 
 private:

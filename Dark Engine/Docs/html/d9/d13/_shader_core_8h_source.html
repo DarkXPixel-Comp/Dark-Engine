@@ -1,0 +1,288 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Dark Engine: Исходный файл Dark Engine/Source/Runtime/Renderer/public/ShaderCore.h</title>
+<link rel="icon" href="../../Logo.png" type="image/x-icon" />
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<script type="text/javascript" src="../../clipboard.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../MiniLogo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Dark Engine<span id="projectnumber">&#160;0.0.50</span>
+   </div>
+   <div id="projectbrief">New game engnie D3D12</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../../',true,false,'search.php','Поиск');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(1); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('d9/d13/_shader_core_8h_source.html','../../'); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">ShaderCore.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d9/d13/_shader_core_8h.html">См. документацию.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;<a class="code" href="../../da/d88/_unordored_map_8h.html">Containers/UnordoredMap.h</a>&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="../../de/d45/_dark_string_8h.html">Containers/DarkString.h</a>&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="../../d7/dcd/_log_macros_8h.html">Logging/LogMacros.h</a>&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;variant&gt;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><a class="code hl_define" href="../../d7/dcd/_log_macros_8h.html#a66c06938995cf7354bd4997344688e38">DECLARE_LOG_CATEGORY</a>(LogShaders, Display)</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="foldopen" id="foldopen00011" data-start="{" data-end="};">
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="../../d0/d3b/class_f_shader_compiler_definitions.html">   11</a></span>class <a class="code hl_class" href="../../d0/d3b/class_f_shader_compiler_definitions.html">FShaderCompilerDefinitions</a></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>{</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="../../d0/d3b/class_f_shader_compiler_definitions.html#ab8b76a65492ffb4a7867be9ff5222df9">   14</a></span>    <a class="code hl_function" href="../../d0/d3b/class_f_shader_compiler_definitions.html#ab8b76a65492ffb4a7867be9ff5222df9">FShaderCompilerDefinitions</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="foldopen" id="foldopen00016" data-start="{" data-end="}">
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="../../d0/d3b/class_f_shader_compiler_definitions.html#aa8052f44050cc05f13cafc0bbb1b9f96">   16</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d0/d3b/class_f_shader_compiler_definitions.html#aa8052f44050cc05f13cafc0bbb1b9f96">SetDefine</a>(<span class="keyword">const</span> <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a74140f1ff3f7a51b1ac752f90283f3d6">TCHAR</a>* Name, <span class="keyword">const</span> <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a74140f1ff3f7a51b1ac752f90283f3d6">TCHAR</a>* Value)</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    {</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        Definitions.emplace(Name, Value);</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    }</div>
+</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="foldopen" id="foldopen00021" data-start="{" data-end="}">
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="../../d0/d3b/class_f_shader_compiler_definitions.html#ae4200b22263973c3bf2c444ba692c476">   21</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d0/d3b/class_f_shader_compiler_definitions.html#ae4200b22263973c3bf2c444ba692c476">SetDefine</a>(<span class="keyword">const</span> <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a74140f1ff3f7a51b1ac752f90283f3d6">TCHAR</a>* Name, <span class="keyword">const</span> <a class="code hl_class" href="../../d9/dcb/class_f_string.html">FString</a>&amp; Value)</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    {</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        Definitions.emplace(Name, Value);</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    }</div>
+</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="foldopen" id="foldopen00026" data-start="{" data-end="}">
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="../../d0/d3b/class_f_shader_compiler_definitions.html#a0840dcaf53bd6d04a11150bdee29cc44">   26</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d0/d3b/class_f_shader_compiler_definitions.html#a0840dcaf53bd6d04a11150bdee29cc44">SetDefine</a>(<span class="keyword">const</span> <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a74140f1ff3f7a51b1ac752f90283f3d6">TCHAR</a>* Name, <span class="keywordtype">bool</span> Value)</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    {</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        Definitions.emplace(Name, Value ? <a class="code hl_define" href="../../d2/dc9/_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;1&quot;</span>) : <a class="code hl_define" href="../../d2/dc9/_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;0&quot;</span>));</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    }</div>
+</div>
+<div class="foldopen" id="foldopen00030" data-start="{" data-end="}">
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="../../d0/d3b/class_f_shader_compiler_definitions.html#a13e1d9b59a04b38d51edd0a728d9da38">   30</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d0/d3b/class_f_shader_compiler_definitions.html#a13e1d9b59a04b38d51edd0a728d9da38">SetDefine</a>(<span class="keyword">const</span> <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a74140f1ff3f7a51b1ac752f90283f3d6">TCHAR</a>* Name, <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> Value)</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    {</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        Definitions.emplace(Name, <a class="code hl_function" href="../../d9/dcb/class_f_string.html#a1dfcf0015234ee1810ed318e32dc6543">FString::PrintF</a>(<a class="code hl_define" href="../../d2/dc9/_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;%u&quot;</span>), Value));</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    }</div>
+</div>
+<div class="foldopen" id="foldopen00034" data-start="{" data-end="}">
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="../../d0/d3b/class_f_shader_compiler_definitions.html#a4227ccc4e265e4073376c8e21dbbe7e3">   34</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d0/d3b/class_f_shader_compiler_definitions.html#a4227ccc4e265e4073376c8e21dbbe7e3">SetDefine</a>(<span class="keyword">const</span> <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a74140f1ff3f7a51b1ac752f90283f3d6">TCHAR</a>* Name, <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a84083085985fb180ad38b9c32e3937da">int32</a> Value)</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    {</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        Definitions.emplace(Name, <a class="code hl_function" href="../../d9/dcb/class_f_string.html#a1dfcf0015234ee1810ed318e32dc6543">FString::PrintF</a>(<a class="code hl_define" href="../../d2/dc9/_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;%i&quot;</span>), Value));</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    }</div>
+</div>
+<div class="foldopen" id="foldopen00038" data-start="{" data-end="}">
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="../../d0/d3b/class_f_shader_compiler_definitions.html#a4306b4ea1ccd232c2bbf05c058c43106">   38</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d0/d3b/class_f_shader_compiler_definitions.html#a4306b4ea1ccd232c2bbf05c058c43106">SetDefine</a>(<span class="keyword">const</span> <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a74140f1ff3f7a51b1ac752f90283f3d6">TCHAR</a>* Name, <span class="keywordtype">float</span> Value)</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    {</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        Definitions.emplace(Name, <a class="code hl_function" href="../../d9/dcb/class_f_string.html#a1dfcf0015234ee1810ed318e32dc6543">FString::PrintF</a>(<a class="code hl_define" href="../../d2/dc9/_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a>(<span class="stringliteral">&quot;%f&quot;</span>), Value));</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    }</div>
+</div>
+<div class="foldopen" id="foldopen00042" data-start="{" data-end="}">
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="../../d0/d3b/class_f_shader_compiler_definitions.html#a170fc20204b2ce5b53500df04d15136a">   42</a></span>    <span class="keyword">const</span> TMap&lt;FString, FString&gt;&amp; <a class="code hl_function" href="../../d0/d3b/class_f_shader_compiler_definitions.html#a170fc20204b2ce5b53500df04d15136a">GetDefinitionMap</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        <span class="keywordflow">return</span> Definitions;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    }</div>
+</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    TMap&lt;FString, FString&gt; Definitions;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>};</div>
+</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="foldopen" id="foldopen00051" data-start="{" data-end="};">
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="../../da/d3c/struct_f_shader_compiler_environment.html">   51</a></span><span class="keyword">struct </span><a class="code hl_struct" href="../../da/d3c/struct_f_shader_compiler_environment.html">FShaderCompilerEnvironment</a></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>{</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="../../da/d3c/struct_f_shader_compiler_environment.html#a769f8fe1e9091daaadf7138641998543">   53</a></span>    <a class="code hl_class" href="../../d0/d3b/class_f_shader_compiler_definitions.html">FShaderCompilerDefinitions</a> <a class="code hl_variable" href="../../da/d3c/struct_f_shader_compiler_environment.html#a769f8fe1e9091daaadf7138641998543">Definitions</a>;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="../../da/d3c/struct_f_shader_compiler_environment.html#a3b3bd9972d2a62a85ec12fe1826f693a">   54</a></span>    TMap&lt;FString, std::variant&lt;bool, float, int32, uint32, FString&gt;&gt; <a class="code hl_variable" href="../../da/d3c/struct_f_shader_compiler_environment.html#a3b3bd9972d2a62a85ec12fe1826f693a">CompileArgs</a>;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>};</div>
+</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="foldopen" id="foldopen00061" data-start="{" data-end="};">
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="../../df/da0/struct_f_shader_compiler_input.html">   61</a></span><span class="keyword">struct </span><a class="code hl_struct" href="../../df/da0/struct_f_shader_compiler_input.html">FShaderCompilerInput</a></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>{</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="../../df/da0/struct_f_shader_compiler_input.html#ab0dd72c619e45656eef73a3420ee7041">   63</a></span>    <a class="code hl_class" href="../../d9/dcb/class_f_string.html">FString</a> <a class="code hl_variable" href="../../df/da0/struct_f_shader_compiler_input.html#ab0dd72c619e45656eef73a3420ee7041">ShaderFormat</a>;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="../../df/da0/struct_f_shader_compiler_input.html#acc0f421843de6b9347438d95e6acb112">   64</a></span>    <a class="code hl_class" href="../../d9/dcb/class_f_string.html">FString</a> <a class="code hl_variable" href="../../df/da0/struct_f_shader_compiler_input.html#acc0f421843de6b9347438d95e6acb112">SourceFilePath</a>;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="../../df/da0/struct_f_shader_compiler_input.html#a15f1a9506ef85875bf870544cc26a138">   65</a></span>    <a class="code hl_class" href="../../d9/dcb/class_f_string.html">FString</a> <a class="code hl_variable" href="../../df/da0/struct_f_shader_compiler_input.html#a15f1a9506ef85875bf870544cc26a138">EntryPoint</a>;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="../../df/da0/struct_f_shader_compiler_input.html#a76f5355a5358abaf449dcc67be9b796c">   66</a></span>    <a class="code hl_class" href="../../d9/dcb/class_f_string.html">FString</a> <a class="code hl_variable" href="../../df/da0/struct_f_shader_compiler_input.html#a76f5355a5358abaf449dcc67be9b796c">ShaderName</a>;</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="../../df/da0/struct_f_shader_compiler_input.html#a88445dce09a2c4dfbbd20023bc4be517">   67</a></span>    <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> <a class="code hl_variable" href="../../df/da0/struct_f_shader_compiler_input.html#a88445dce09a2c4dfbbd20023bc4be517">ShaderType</a>;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="../../df/da0/struct_f_shader_compiler_input.html#a313a65ea27ab7c5a6e1034656ece289e">   68</a></span>    <span class="keyword">class </span><a class="code hl_class" href="../../d0/d2f/class_f_shader_type.html">FShaderType</a>* <a class="code hl_variable" href="../../df/da0/struct_f_shader_compiler_input.html#a313a65ea27ab7c5a6e1034656ece289e">Type</a>;</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="../../df/da0/struct_f_shader_compiler_input.html#aafddcda9d053821ad5e8ef67c396842a">   70</a></span>    <a class="code hl_struct" href="../../da/d3c/struct_f_shader_compiler_environment.html">FShaderCompilerEnvironment</a> <a class="code hl_variable" href="../../df/da0/struct_f_shader_compiler_input.html#aafddcda9d053821ad5e8ef67c396842a">Environment</a>;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>};</div>
+</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="foldopen" id="foldopen00073" data-start="{" data-end="};">
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="../../df/dc2/struct_f_shader_preprocess_output.html">   73</a></span><span class="keyword">struct </span><a class="code hl_struct" href="../../df/dc2/struct_f_shader_preprocess_output.html">FShaderPreprocessOutput</a></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>{</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="../../df/dc2/struct_f_shader_preprocess_output.html#a76bc4c4f2b9c5dee87c44214ea1e4bdf">   75</a></span>    <a class="code hl_class" href="../../d9/dcb/class_f_string.html">FString</a> <a class="code hl_variable" href="../../df/dc2/struct_f_shader_preprocess_output.html#a76bc4c4f2b9c5dee87c44214ea1e4bdf">PreprocessedSource</a>;</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="../../df/dc2/struct_f_shader_preprocess_output.html#aae804f7d7d1815b2539243b6e3db5714">   76</a></span>    <a class="code hl_class" href="../../d9/dcb/class_f_string.html">FString</a> <a class="code hl_variable" href="../../df/dc2/struct_f_shader_preprocess_output.html#aae804f7d7d1815b2539243b6e3db5714">OriginalPreprocessedSource</a>;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="../../df/dc2/struct_f_shader_preprocess_output.html#a69142fbcf09878074cfee9073517ea4c">   77</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="../../df/dc2/struct_f_shader_preprocess_output.html#a69142fbcf09878074cfee9073517ea4c">PreprocessTime</a>;</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>};</div>
+</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="foldopen" id="foldopen00080" data-start="{" data-end="};">
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="../../d2/d84/struct_f_shader_code.html">   80</a></span><span class="keyword">struct </span><a class="code hl_struct" href="../../d2/d84/struct_f_shader_code.html">FShaderCode</a></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>{</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno"><a class="line" href="../../d2/d84/struct_f_shader_code.html#a7f5b781a06a71d249f5ebfeabb60e109">   82</a></span>    TArray&lt;uint8&gt; <a class="code hl_variable" href="../../d2/d84/struct_f_shader_code.html#a7f5b781a06a71d249f5ebfeabb60e109">ShaderCodeWithOptionalData</a>;</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>};</div>
+</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="foldopen" id="foldopen00086" data-start="{" data-end="};">
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno"><a class="line" href="../../db/d88/struct_f_shader_compiler_output.html">   86</a></span><span class="keyword">struct </span><a class="code hl_struct" href="../../db/d88/struct_f_shader_compiler_output.html">FShaderCompilerOutput</a></div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>{</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="../../db/d88/struct_f_shader_compiler_output.html#a0efc612169e4dcf83fbca156c0f9d392">   88</a></span>    <a class="code hl_struct" href="../../d2/d84/struct_f_shader_code.html">FShaderCode</a> <a class="code hl_variable" href="../../db/d88/struct_f_shader_compiler_output.html#a0efc612169e4dcf83fbca156c0f9d392">ShaderCode</a>;</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="../../db/d88/struct_f_shader_compiler_output.html#a8ee27c0a85539c47031ad207e927e573">   89</a></span>    std::size_t <a class="code hl_variable" href="../../db/d88/struct_f_shader_compiler_output.html#a8ee27c0a85539c47031ad207e927e573">ShaderHash</a> = 0;</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>};</div>
+</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="foldopen" id="foldopen00093" data-start="{" data-end="};">
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno"><a class="line" href="../../d8/df6/struct_f_shader_bounds.html">   93</a></span><span class="keyword">struct </span><a class="code hl_struct" href="../../d8/df6/struct_f_shader_bounds.html">FShaderBounds</a></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>{</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno"><a class="line" href="../../d8/df6/struct_f_shader_bounds.html#af7039766da808173f52a333b8d90c146">   95</a></span>    <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a40bc01dd090acd02a79b5dc13e08abe6">uint8</a> <a class="code hl_variable" href="../../d8/df6/struct_f_shader_bounds.html#af7039766da808173f52a333b8d90c146">SamplerCount</a>;</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno"><a class="line" href="../../d8/df6/struct_f_shader_bounds.html#ae4d49b9139098564d7c19a73fe278751">   96</a></span>    <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a40bc01dd090acd02a79b5dc13e08abe6">uint8</a> <a class="code hl_variable" href="../../d8/df6/struct_f_shader_bounds.html#ae4d49b9139098564d7c19a73fe278751">ConstantBufferCount</a>;</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno"><a class="line" href="../../d8/df6/struct_f_shader_bounds.html#a88f855ceb0e60b57a1a10e6d78f558ad">   97</a></span>    <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a40bc01dd090acd02a79b5dc13e08abe6">uint8</a> <a class="code hl_variable" href="../../d8/df6/struct_f_shader_bounds.html#a88f855ceb0e60b57a1a10e6d78f558ad">ShaderResourceCount</a>;</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno"><a class="line" href="../../d8/df6/struct_f_shader_bounds.html#a589a5029efee46a1ea4d5806035f597f">   98</a></span>    <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a40bc01dd090acd02a79b5dc13e08abe6">uint8</a> <a class="code hl_variable" href="../../d8/df6/struct_f_shader_bounds.html#a589a5029efee46a1ea4d5806035f597f">UnorderedAccessCount</a>;</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>};</div>
+</div>
+<div class="ttc" id="a_dark_string_8h_html"><div class="ttname"><a href="../../de/d45/_dark_string_8h.html">DarkString.h</a></div></div>
+<div class="ttc" id="a_log_macros_8h_html"><div class="ttname"><a href="../../d7/dcd/_log_macros_8h.html">LogMacros.h</a></div></div>
+<div class="ttc" id="a_log_macros_8h_html_a66c06938995cf7354bd4997344688e38"><div class="ttname"><a href="../../d7/dcd/_log_macros_8h.html#a66c06938995cf7354bd4997344688e38">DECLARE_LOG_CATEGORY</a></div><div class="ttdeci">#define DECLARE_LOG_CATEGORY(CategoryName, DefaultVerbosity)</div><div class="ttdef"><b>Definition</b> LogMacros.h:119</div></div>
+<div class="ttc" id="a_platform_8h_html_a2978f60d40d64f3605b5a99f66f292a9"><div class="ttname"><a href="../../d2/dc9/_platform_8h.html#a2978f60d40d64f3605b5a99f66f292a9">TEXT</a></div><div class="ttdeci">#define TEXT(x)</div><div class="ttdef"><b>Definition</b> Platform.h:70</div></div>
+<div class="ttc" id="a_platform_8h_html_a40bc01dd090acd02a79b5dc13e08abe6"><div class="ttname"><a href="../../d2/dc9/_platform_8h.html#a40bc01dd090acd02a79b5dc13e08abe6">uint8</a></div><div class="ttdeci">FPlatformTypes::uint8 uint8</div><div class="ttdef"><b>Definition</b> Platform.h:39</div></div>
+<div class="ttc" id="a_platform_8h_html_a74140f1ff3f7a51b1ac752f90283f3d6"><div class="ttname"><a href="../../d2/dc9/_platform_8h.html#a74140f1ff3f7a51b1ac752f90283f3d6">TCHAR</a></div><div class="ttdeci">FPlatformTypes::TCHAR TCHAR</div><div class="ttdef"><b>Definition</b> Platform.h:48</div></div>
+<div class="ttc" id="a_platform_8h_html_a84083085985fb180ad38b9c32e3937da"><div class="ttname"><a href="../../d2/dc9/_platform_8h.html#a84083085985fb180ad38b9c32e3937da">int32</a></div><div class="ttdeci">FPlatformTypes::int32 int32</div><div class="ttdef"><b>Definition</b> Platform.h:42</div></div>
+<div class="ttc" id="a_platform_8h_html_a8c7a127091efbdfc5a16939041653e05"><div class="ttname"><a href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a></div><div class="ttdeci">FPlatformTypes::uint32 uint32</div><div class="ttdef"><b>Definition</b> Platform.h:43</div></div>
+<div class="ttc" id="a_unordored_map_8h_html"><div class="ttname"><a href="../../da/d88/_unordored_map_8h.html">UnordoredMap.h</a></div></div>
+<div class="ttc" id="aclass_f_shader_compiler_definitions_html"><div class="ttname"><a href="../../d0/d3b/class_f_shader_compiler_definitions.html">FShaderCompilerDefinitions</a></div><div class="ttdef"><b>Definition</b> ShaderCore.h:12</div></div>
+<div class="ttc" id="aclass_f_shader_compiler_definitions_html_a0840dcaf53bd6d04a11150bdee29cc44"><div class="ttname"><a href="../../d0/d3b/class_f_shader_compiler_definitions.html#a0840dcaf53bd6d04a11150bdee29cc44">FShaderCompilerDefinitions::SetDefine</a></div><div class="ttdeci">void SetDefine(const TCHAR *Name, bool Value)</div><div class="ttdef"><b>Definition</b> ShaderCore.h:26</div></div>
+<div class="ttc" id="aclass_f_shader_compiler_definitions_html_a13e1d9b59a04b38d51edd0a728d9da38"><div class="ttname"><a href="../../d0/d3b/class_f_shader_compiler_definitions.html#a13e1d9b59a04b38d51edd0a728d9da38">FShaderCompilerDefinitions::SetDefine</a></div><div class="ttdeci">void SetDefine(const TCHAR *Name, uint32 Value)</div><div class="ttdef"><b>Definition</b> ShaderCore.h:30</div></div>
+<div class="ttc" id="aclass_f_shader_compiler_definitions_html_a170fc20204b2ce5b53500df04d15136a"><div class="ttname"><a href="../../d0/d3b/class_f_shader_compiler_definitions.html#a170fc20204b2ce5b53500df04d15136a">FShaderCompilerDefinitions::GetDefinitionMap</a></div><div class="ttdeci">const TMap&lt; FString, FString &gt; &amp; GetDefinitionMap() const</div><div class="ttdef"><b>Definition</b> ShaderCore.h:42</div></div>
+<div class="ttc" id="aclass_f_shader_compiler_definitions_html_a4227ccc4e265e4073376c8e21dbbe7e3"><div class="ttname"><a href="../../d0/d3b/class_f_shader_compiler_definitions.html#a4227ccc4e265e4073376c8e21dbbe7e3">FShaderCompilerDefinitions::SetDefine</a></div><div class="ttdeci">void SetDefine(const TCHAR *Name, int32 Value)</div><div class="ttdef"><b>Definition</b> ShaderCore.h:34</div></div>
+<div class="ttc" id="aclass_f_shader_compiler_definitions_html_a4306b4ea1ccd232c2bbf05c058c43106"><div class="ttname"><a href="../../d0/d3b/class_f_shader_compiler_definitions.html#a4306b4ea1ccd232c2bbf05c058c43106">FShaderCompilerDefinitions::SetDefine</a></div><div class="ttdeci">void SetDefine(const TCHAR *Name, float Value)</div><div class="ttdef"><b>Definition</b> ShaderCore.h:38</div></div>
+<div class="ttc" id="aclass_f_shader_compiler_definitions_html_aa8052f44050cc05f13cafc0bbb1b9f96"><div class="ttname"><a href="../../d0/d3b/class_f_shader_compiler_definitions.html#aa8052f44050cc05f13cafc0bbb1b9f96">FShaderCompilerDefinitions::SetDefine</a></div><div class="ttdeci">void SetDefine(const TCHAR *Name, const TCHAR *Value)</div><div class="ttdef"><b>Definition</b> ShaderCore.h:16</div></div>
+<div class="ttc" id="aclass_f_shader_compiler_definitions_html_ab8b76a65492ffb4a7867be9ff5222df9"><div class="ttname"><a href="../../d0/d3b/class_f_shader_compiler_definitions.html#ab8b76a65492ffb4a7867be9ff5222df9">FShaderCompilerDefinitions::FShaderCompilerDefinitions</a></div><div class="ttdeci">FShaderCompilerDefinitions()=default</div></div>
+<div class="ttc" id="aclass_f_shader_compiler_definitions_html_ae4200b22263973c3bf2c444ba692c476"><div class="ttname"><a href="../../d0/d3b/class_f_shader_compiler_definitions.html#ae4200b22263973c3bf2c444ba692c476">FShaderCompilerDefinitions::SetDefine</a></div><div class="ttdeci">void SetDefine(const TCHAR *Name, const FString &amp;Value)</div><div class="ttdef"><b>Definition</b> ShaderCore.h:21</div></div>
+<div class="ttc" id="aclass_f_shader_type_html"><div class="ttname"><a href="../../d0/d2f/class_f_shader_type.html">FShaderType</a></div><div class="ttdef"><b>Definition</b> Shader.h:44</div></div>
+<div class="ttc" id="aclass_f_string_html"><div class="ttname"><a href="../../d9/dcb/class_f_string.html">FString</a></div><div class="ttdef"><b>Definition</b> DarkString.h:17</div></div>
+<div class="ttc" id="aclass_f_string_html_a1dfcf0015234ee1810ed318e32dc6543"><div class="ttname"><a href="../../d9/dcb/class_f_string.html#a1dfcf0015234ee1810ed318e32dc6543">FString::PrintF</a></div><div class="ttdeci">static FString PrintF(const TCHAR *Fmt, TypeArgs... Args)</div><div class="ttdef"><b>Definition</b> DarkString.h:103</div></div>
+<div class="ttc" id="astruct_f_shader_bounds_html"><div class="ttname"><a href="../../d8/df6/struct_f_shader_bounds.html">FShaderBounds</a></div><div class="ttdef"><b>Definition</b> ShaderCore.h:94</div></div>
+<div class="ttc" id="astruct_f_shader_bounds_html_a589a5029efee46a1ea4d5806035f597f"><div class="ttname"><a href="../../d8/df6/struct_f_shader_bounds.html#a589a5029efee46a1ea4d5806035f597f">FShaderBounds::UnorderedAccessCount</a></div><div class="ttdeci">uint8 UnorderedAccessCount</div><div class="ttdef"><b>Definition</b> ShaderCore.h:98</div></div>
+<div class="ttc" id="astruct_f_shader_bounds_html_a88f855ceb0e60b57a1a10e6d78f558ad"><div class="ttname"><a href="../../d8/df6/struct_f_shader_bounds.html#a88f855ceb0e60b57a1a10e6d78f558ad">FShaderBounds::ShaderResourceCount</a></div><div class="ttdeci">uint8 ShaderResourceCount</div><div class="ttdef"><b>Definition</b> ShaderCore.h:97</div></div>
+<div class="ttc" id="astruct_f_shader_bounds_html_ae4d49b9139098564d7c19a73fe278751"><div class="ttname"><a href="../../d8/df6/struct_f_shader_bounds.html#ae4d49b9139098564d7c19a73fe278751">FShaderBounds::ConstantBufferCount</a></div><div class="ttdeci">uint8 ConstantBufferCount</div><div class="ttdef"><b>Definition</b> ShaderCore.h:96</div></div>
+<div class="ttc" id="astruct_f_shader_bounds_html_af7039766da808173f52a333b8d90c146"><div class="ttname"><a href="../../d8/df6/struct_f_shader_bounds.html#af7039766da808173f52a333b8d90c146">FShaderBounds::SamplerCount</a></div><div class="ttdeci">uint8 SamplerCount</div><div class="ttdef"><b>Definition</b> ShaderCore.h:95</div></div>
+<div class="ttc" id="astruct_f_shader_code_html"><div class="ttname"><a href="../../d2/d84/struct_f_shader_code.html">FShaderCode</a></div><div class="ttdef"><b>Definition</b> ShaderCore.h:81</div></div>
+<div class="ttc" id="astruct_f_shader_code_html_a7f5b781a06a71d249f5ebfeabb60e109"><div class="ttname"><a href="../../d2/d84/struct_f_shader_code.html#a7f5b781a06a71d249f5ebfeabb60e109">FShaderCode::ShaderCodeWithOptionalData</a></div><div class="ttdeci">TArray&lt; uint8 &gt; ShaderCodeWithOptionalData</div><div class="ttdef"><b>Definition</b> ShaderCore.h:82</div></div>
+<div class="ttc" id="astruct_f_shader_compiler_environment_html"><div class="ttname"><a href="../../da/d3c/struct_f_shader_compiler_environment.html">FShaderCompilerEnvironment</a></div><div class="ttdef"><b>Definition</b> ShaderCore.h:52</div></div>
+<div class="ttc" id="astruct_f_shader_compiler_environment_html_a3b3bd9972d2a62a85ec12fe1826f693a"><div class="ttname"><a href="../../da/d3c/struct_f_shader_compiler_environment.html#a3b3bd9972d2a62a85ec12fe1826f693a">FShaderCompilerEnvironment::CompileArgs</a></div><div class="ttdeci">TMap&lt; FString, std::variant&lt; bool, float, int32, uint32, FString &gt; &gt; CompileArgs</div><div class="ttdef"><b>Definition</b> ShaderCore.h:54</div></div>
+<div class="ttc" id="astruct_f_shader_compiler_environment_html_a769f8fe1e9091daaadf7138641998543"><div class="ttname"><a href="../../da/d3c/struct_f_shader_compiler_environment.html#a769f8fe1e9091daaadf7138641998543">FShaderCompilerEnvironment::Definitions</a></div><div class="ttdeci">FShaderCompilerDefinitions Definitions</div><div class="ttdef"><b>Definition</b> ShaderCore.h:53</div></div>
+<div class="ttc" id="astruct_f_shader_compiler_input_html"><div class="ttname"><a href="../../df/da0/struct_f_shader_compiler_input.html">FShaderCompilerInput</a></div><div class="ttdef"><b>Definition</b> ShaderCore.h:62</div></div>
+<div class="ttc" id="astruct_f_shader_compiler_input_html_a15f1a9506ef85875bf870544cc26a138"><div class="ttname"><a href="../../df/da0/struct_f_shader_compiler_input.html#a15f1a9506ef85875bf870544cc26a138">FShaderCompilerInput::EntryPoint</a></div><div class="ttdeci">FString EntryPoint</div><div class="ttdef"><b>Definition</b> ShaderCore.h:65</div></div>
+<div class="ttc" id="astruct_f_shader_compiler_input_html_a313a65ea27ab7c5a6e1034656ece289e"><div class="ttname"><a href="../../df/da0/struct_f_shader_compiler_input.html#a313a65ea27ab7c5a6e1034656ece289e">FShaderCompilerInput::Type</a></div><div class="ttdeci">class FShaderType * Type</div><div class="ttdef"><b>Definition</b> ShaderCore.h:68</div></div>
+<div class="ttc" id="astruct_f_shader_compiler_input_html_a76f5355a5358abaf449dcc67be9b796c"><div class="ttname"><a href="../../df/da0/struct_f_shader_compiler_input.html#a76f5355a5358abaf449dcc67be9b796c">FShaderCompilerInput::ShaderName</a></div><div class="ttdeci">FString ShaderName</div><div class="ttdef"><b>Definition</b> ShaderCore.h:66</div></div>
+<div class="ttc" id="astruct_f_shader_compiler_input_html_a88445dce09a2c4dfbbd20023bc4be517"><div class="ttname"><a href="../../df/da0/struct_f_shader_compiler_input.html#a88445dce09a2c4dfbbd20023bc4be517">FShaderCompilerInput::ShaderType</a></div><div class="ttdeci">uint32 ShaderType</div><div class="ttdef"><b>Definition</b> ShaderCore.h:67</div></div>
+<div class="ttc" id="astruct_f_shader_compiler_input_html_aafddcda9d053821ad5e8ef67c396842a"><div class="ttname"><a href="../../df/da0/struct_f_shader_compiler_input.html#aafddcda9d053821ad5e8ef67c396842a">FShaderCompilerInput::Environment</a></div><div class="ttdeci">FShaderCompilerEnvironment Environment</div><div class="ttdef"><b>Definition</b> ShaderCore.h:70</div></div>
+<div class="ttc" id="astruct_f_shader_compiler_input_html_ab0dd72c619e45656eef73a3420ee7041"><div class="ttname"><a href="../../df/da0/struct_f_shader_compiler_input.html#ab0dd72c619e45656eef73a3420ee7041">FShaderCompilerInput::ShaderFormat</a></div><div class="ttdeci">FString ShaderFormat</div><div class="ttdef"><b>Definition</b> ShaderCore.h:63</div></div>
+<div class="ttc" id="astruct_f_shader_compiler_input_html_acc0f421843de6b9347438d95e6acb112"><div class="ttname"><a href="../../df/da0/struct_f_shader_compiler_input.html#acc0f421843de6b9347438d95e6acb112">FShaderCompilerInput::SourceFilePath</a></div><div class="ttdeci">FString SourceFilePath</div><div class="ttdef"><b>Definition</b> ShaderCore.h:64</div></div>
+<div class="ttc" id="astruct_f_shader_compiler_output_html"><div class="ttname"><a href="../../db/d88/struct_f_shader_compiler_output.html">FShaderCompilerOutput</a></div><div class="ttdef"><b>Definition</b> ShaderCore.h:87</div></div>
+<div class="ttc" id="astruct_f_shader_compiler_output_html_a0efc612169e4dcf83fbca156c0f9d392"><div class="ttname"><a href="../../db/d88/struct_f_shader_compiler_output.html#a0efc612169e4dcf83fbca156c0f9d392">FShaderCompilerOutput::ShaderCode</a></div><div class="ttdeci">FShaderCode ShaderCode</div><div class="ttdef"><b>Definition</b> ShaderCore.h:88</div></div>
+<div class="ttc" id="astruct_f_shader_compiler_output_html_a8ee27c0a85539c47031ad207e927e573"><div class="ttname"><a href="../../db/d88/struct_f_shader_compiler_output.html#a8ee27c0a85539c47031ad207e927e573">FShaderCompilerOutput::ShaderHash</a></div><div class="ttdeci">std::size_t ShaderHash</div><div class="ttdef"><b>Definition</b> ShaderCore.h:89</div></div>
+<div class="ttc" id="astruct_f_shader_preprocess_output_html"><div class="ttname"><a href="../../df/dc2/struct_f_shader_preprocess_output.html">FShaderPreprocessOutput</a></div><div class="ttdef"><b>Definition</b> ShaderCore.h:74</div></div>
+<div class="ttc" id="astruct_f_shader_preprocess_output_html_a69142fbcf09878074cfee9073517ea4c"><div class="ttname"><a href="../../df/dc2/struct_f_shader_preprocess_output.html#a69142fbcf09878074cfee9073517ea4c">FShaderPreprocessOutput::PreprocessTime</a></div><div class="ttdeci">float PreprocessTime</div><div class="ttdef"><b>Definition</b> ShaderCore.h:77</div></div>
+<div class="ttc" id="astruct_f_shader_preprocess_output_html_a76bc4c4f2b9c5dee87c44214ea1e4bdf"><div class="ttname"><a href="../../df/dc2/struct_f_shader_preprocess_output.html#a76bc4c4f2b9c5dee87c44214ea1e4bdf">FShaderPreprocessOutput::PreprocessedSource</a></div><div class="ttdeci">FString PreprocessedSource</div><div class="ttdef"><b>Definition</b> ShaderCore.h:75</div></div>
+<div class="ttc" id="astruct_f_shader_preprocess_output_html_aae804f7d7d1815b2539243b6e3db5714"><div class="ttname"><a href="../../df/dc2/struct_f_shader_preprocess_output.html#aae804f7d7d1815b2539243b6e3db5714">FShaderPreprocessOutput::OriginalPreprocessedSource</a></div><div class="ttdeci">FString OriginalPreprocessedSource</div><div class="ttdef"><b>Definition</b> ShaderCore.h:76</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../dir_55043db21ba5ddd7c561d2c5a5a38944.html">Dark Engine</a></li><li class="navelem"><a class="el" href="../../dir_e00b54220e1e1486ac9971b606d33054.html">Source</a></li><li class="navelem"><a class="el" href="../../dir_ae01c8af07818b260cc3481e8588b277.html">Runtime</a></li><li class="navelem"><a class="el" href="../../dir_ac0a88f04922c682ecd6524b6994dced.html">Renderer</a></li><li class="navelem"><a class="el" href="../../dir_9100b1b9dd1caf8af5a1c39b96598d41.html">public</a></li><li class="navelem"><a class="el" href="../../d9/d13/_shader_core_8h.html">ShaderCore.h</a></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
+</body>
+</html>

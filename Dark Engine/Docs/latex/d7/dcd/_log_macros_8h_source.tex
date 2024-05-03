@@ -1,0 +1,131 @@
+\doxysection{Log\+Macros.\+h}
+\hypertarget{_log_macros_8h_source}{}\label{_log_macros_8h_source}\index{Dark Engine/Source/Runtime/Core/Public/Logging/LogMacros.h@{Dark Engine/Source/Runtime/Core/Public/Logging/LogMacros.h}}
+\mbox{\hyperlink{_log_macros_8h}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_log_category_8h}{Logging/LogCategory.h}}"{}}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <format>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{_logger_8h}{Logger.h}}>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_global_input_out_console_8h}{Console/GlobalInputOutConsole.h}}"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_f_msg}{FMsg}}}
+\DoxyCodeLine{00010\ \{}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{struct_f_msg_ac4435abec3ccd9a455e186c6797a4759}{LogV}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{_platform_8h_ac65a9f028228aed366b4d8f24a8ab9e9}{ANSICHAR}}*\ File,\ \mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}\ Line,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_f_string}{FString}}\&\ Category,\ \mbox{\hyperlink{namespace_e_log_verbosity_ab6bab2e0ab6887ab14ba3dda79944252}{ELogVerbosity::Type}}\ Verbosity,}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}}*\ Fmt,\ va\_list\ Args)}
+\DoxyCodeLine{00013\ \ \ \ \ \{}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \textcolor{comment}{//if\ (Verbosity\ !=\ ELogVerbosity::Fatal)}}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_f_string}{FString}}\ Message;}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \ \ Message.\mbox{\hyperlink{class_f_string_a732671533c37673d1920e0c3613a79f1}{AppendV}}(Fmt,\ Args);}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structlog__}{log\_}}\ CurrentLog;}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_f_string}{FString}}\ Verbose\ =\ \mbox{\hyperlink{_platform_8h_a2978f60d40d64f3605b5a99f66f292a9}{TEXT}}(\textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (Verbosity)}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{namespace_e_log_verbosity_ab6bab2e0ab6887ab14ba3dda79944252a14128745b037ab30ae88c299c995e3bf}{ELogVerbosity::Fatal}}:}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ CurrentLog.Color\ =\ \{\ 1.0,\ 0.0,\ 0.0\ \};}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Verbose\ =\ \mbox{\hyperlink{_platform_8h_a2978f60d40d64f3605b5a99f66f292a9}{TEXT}}(\textcolor{stringliteral}{"{}FATAL"{}});}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{namespace_e_log_verbosity_ab6bab2e0ab6887ab14ba3dda79944252a6ae2a4036ef7ff4d28c8626c3309e924}{ELogVerbosity::Error}}:}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ CurrentLog.Color\ =\ \{\ 0.8,\ 0.0,\ 0.0\ \};}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Verbose\ =\ \mbox{\hyperlink{_platform_8h_a2978f60d40d64f3605b5a99f66f292a9}{TEXT}}(\textcolor{stringliteral}{"{}Error"{}});}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{namespace_e_log_verbosity_ab6bab2e0ab6887ab14ba3dda79944252a03d955900d6d545c5983ccd7fce46604}{ELogVerbosity::Warning}}:}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ CurrentLog.Color\ =\ \{\ 1.f,\ 1.f,\ 0.0\ \};}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Verbose\ =\ \mbox{\hyperlink{_platform_8h_a2978f60d40d64f3605b5a99f66f292a9}{TEXT}}(\textcolor{stringliteral}{"{}Warning"{}});}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{namespace_e_log_verbosity_ab6bab2e0ab6887ab14ba3dda79944252af4656db27c97bfa3931c1ed9aa417c0c}{ELogVerbosity::Display}}:}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ CurrentLog.Color\ =\ \{\ 0.9f,\ 0.9f,\ 0.9f\ \};}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Verbose\ =\ \mbox{\hyperlink{_platform_8h_a2978f60d40d64f3605b5a99f66f292a9}{TEXT}}(\textcolor{stringliteral}{"{}Display"{}});}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{namespace_e_log_verbosity_ab6bab2e0ab6887ab14ba3dda79944252a303109b2cf906d429f34b386fcc87085}{ELogVerbosity::Log}}:}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ CurrentLog.Color\ =\ \{\ 0.9f,\ 0.9f,\ 0.9f\ \};}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Verbose\ =\ \mbox{\hyperlink{_platform_8h_a2978f60d40d64f3605b5a99f66f292a9}{TEXT}}(\textcolor{stringliteral}{"{}Log"{}});}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*FString\ Result;}}
+\DoxyCodeLine{00049\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ Result.AppendV(TEXT("{}\%S:\ \%S:\ \%S"{}),\ L"{}TEST"{},\ L"{}TEST2"{},\ L"{}TEST3"{})*/}}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//FString\ Result\ =\ FString::PrintF(TEXT("{}\%i:\ \%s:\ \%s"{}),\ 25,\ L"{}TEST2"{},\ L"{}TEST3"{});}}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_f_string}{FString}}\ Result\ =\ \mbox{\hyperlink{class_f_string_a1dfcf0015234ee1810ed318e32dc6543}{FString::PrintF}}(\mbox{\hyperlink{_platform_8h_a2978f60d40d64f3605b5a99f66f292a9}{TEXT}}(\textcolor{stringliteral}{"{}[\%s]\ [\%s]:\ \%s"{}}),\ *Category,\ *Verbose,\ *Message);}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ CurrentLog.ModernLog\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ CurrentLog.Result\ =\ Result;}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_logger_ae67239dae8c15333f52f364f7a7683a0}{Logger::log}}(CurrentLog);\ }
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector}{FVector3f}}\ Color;}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ Color.\mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector_a83d8e497f3c137b464eef47d68e10cb0}{X}}\ =\ CurrentLog.Color.X;}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ Color.\mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector_a3ab993a66a40d6877730d9122b36d074}{Y}}\ =\ CurrentLog.Color.Y;}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ Color.\mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector_a16e16df15b6a2475cdf4cd70d20e1bfa}{Z}}\ =\ CurrentLog.Color.Z;}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_global_input_out_console_8cpp_a0b048b6b08d9df33ca1e82d2226934ae}{GGlobalConsole}}.\mbox{\hyperlink{class_f_global_input_out_console_a1fd9e3df80c8a1834641a5148929cab3}{AddLog}}(CurrentLog.Result,\ Color);}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00066\ \ \ \ \ \}}
+\DoxyCodeLine{00067\ \};\ }
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_f_static_basic_log_record}{FStaticBasicLogRecord}}}
+\DoxyCodeLine{00074\ \{}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}}*\ \mbox{\hyperlink{struct_f_static_basic_log_record_aa8bc9e1229571e77ac2a128004784237}{Format}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{_platform_8h_ac65a9f028228aed366b4d8f24a8ab9e9}{ANSICHAR}}*\ \mbox{\hyperlink{struct_f_static_basic_log_record_a2ed500aac078528db8fbb4036330b361}{File}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00077\ \ \ \ \ \mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}\ \mbox{\hyperlink{struct_f_static_basic_log_record_a456463035394506dd9bb778c2e455792}{Line}}\ =\ 0;}
+\DoxyCodeLine{00078\ \ \ \ \ \mbox{\hyperlink{namespace_e_log_verbosity_ab6bab2e0ab6887ab14ba3dda79944252}{ELogVerbosity::Type}}\ \mbox{\hyperlink{struct_f_static_basic_log_record_a5e1543b5e1a87bc0c071ad15b4a52a44}{Verbosity}}\ =\ \mbox{\hyperlink{namespace_e_log_verbosity_ab6bab2e0ab6887ab14ba3dda79944252a303109b2cf906d429f34b386fcc87085}{ELogVerbosity::Log}};}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{struct_f_static_basic_log_record_a2b31c30627d6b3a9ade17bf86cc32f12}{FStaticBasicLogRecord}}}
+\DoxyCodeLine{00081\ \ \ \ \ (}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}}*\ InFormat,}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{_platform_8h_ac65a9f028228aed366b4d8f24a8ab9e9}{ANSICHAR}}*\ InFile,}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}\ InLine,}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_e_log_verbosity_ab6bab2e0ab6887ab14ba3dda79944252}{ELogVerbosity::Type}}\ InVebosity}
+\DoxyCodeLine{00086\ \ \ \ \ ):}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_f_static_basic_log_record_aa8bc9e1229571e77ac2a128004784237}{Format}}(InFormat),}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_f_static_basic_log_record_a2ed500aac078528db8fbb4036330b361}{File}}(InFile),}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_f_static_basic_log_record_a456463035394506dd9bb778c2e455792}{Line}}(InLine),}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_f_static_basic_log_record_a5e1543b5e1a87bc0c071ad15b4a52a44}{Verbosity}}(InVebosity)}
+\DoxyCodeLine{00091\ \ \ \ \ \{\}}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \};}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_log_macros_8h_a99dd282f6810f1bc1a5cf055ca8d3b59}{BasicLog}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_f_log_category_base}{FLogCategoryBase}}\&\ Category,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_f_static_basic_log_record}{FStaticBasicLogRecord}}*\ Log,\ ...);}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \textcolor{preprocessor}{\#define\ DE\_LOG(CategoryName,\ Verbosity,\ Format,\ ...)\ \(\backslash\)}}
+\DoxyCodeLine{00103\ \textcolor{preprocessor}{\{\ \ \ \(\backslash\)}}
+\DoxyCodeLine{00104\ \textcolor{preprocessor}{\ \ \ \ static\ constexpr\ FStaticBasicLogRecord\ LOG\_Static(Format,\ \_\_builtin\_FILE(),\ \_\_builtin\_LINE(),\ ELogVerbosity::Verbosity)\ ;\(\backslash\)}}
+\DoxyCodeLine{00105\ \textcolor{preprocessor}{\ \ \ \ if\ constexpr\ ((ELogVerbosity::Verbosity\ \&\ ELogVerbosity::VerbosityMask)\ ==\ ELogVerbosity::Fatal)\ \(\backslash\)}}
+\DoxyCodeLine{00106\ \textcolor{preprocessor}{\ \ \ \ \{\ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00107\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ BasicLog(CategoryName,\ \&LOG\_Static,\ \#\#\_\_VA\_ARGS\_\_);\ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00108\ \textcolor{preprocessor}{\ \ \ \ \}\ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00109\ \textcolor{preprocessor}{\ \ \ \ else\ if\ constexpr\ ((ELogVerbosity::Verbosity\ \&\ ELogVerbosity::VerbosityMask)\ <=\ ELogVerbosity::VeryVerbose)\ \ \(\backslash\)}}
+\DoxyCodeLine{00110\ \textcolor{preprocessor}{\ \ \ \ \{\ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00111\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ BasicLog(CategoryName,\ \&LOG\_Static,\ \#\#\_\_VA\_ARGS\_\_);\ \ \ \(\backslash\)}}
+\DoxyCodeLine{00112\ \textcolor{preprocessor}{\ \ \ \ \}\(\backslash\)}}
+\DoxyCodeLine{00113\ \textcolor{preprocessor}{\}}}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \textcolor{preprocessor}{\#define\ DECLARE\_LOG\_CATEGORY(CategoryName,\ DefaultVerbosity)\ \(\backslash\)}}
+\DoxyCodeLine{00120\ \textcolor{preprocessor}{static\ struct\ FLogCategory\#\#CategoryName\ :\ public\ FLogCategory<ELogVerbosity::DefaultVerbosity>\ \(\backslash\)}}
+\DoxyCodeLine{00121\ \textcolor{preprocessor}{\ \ \ \ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00122\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ FORCEINLINE\ FLogCategory\#\#CategoryName()\ :\ FLogCategory(TEXT(\#CategoryName))\ \{\}\(\backslash\)}}
+\DoxyCodeLine{00123\ \textcolor{preprocessor}{\ \ \ \ \}\ CategoryName;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00124\ \textcolor{preprocessor}{}}
+\DoxyCodeLine{00125\ }
+
+\end{DoxyCode}

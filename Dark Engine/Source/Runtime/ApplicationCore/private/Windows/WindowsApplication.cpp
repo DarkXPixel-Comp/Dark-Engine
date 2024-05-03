@@ -5,14 +5,18 @@
 #include <CoreGlobals.h>
 #include "imgui_impl_win32.h"
 #include "Math/MathFwd.h"
+#include "windowsx.h"
+#include <HAL/DarkMemory.h>
+
+#undef IsMaximized
 
 
 FWindowsApplication* WindowsApplication;
 
 
-FWindowsApplication* FWindowsApplication::CreateWindowsApplication(const HINSTANCE HInstance, const HICON IconHandle)
+FWindowsApplication* FWindowsApplication::CreateWindowsApplication(const HINSTANCE HInstance, const HICON IconHandle, const HCURSOR HCursor)
 {
-	WindowsApplication = new FWindowsApplication(HInstance, IconHandle);
+	WindowsApplication = new FWindowsApplication(HInstance, IconHandle, HCursor);
 	return WindowsApplication;
 }
 
@@ -41,6 +45,18 @@ static TSharedPtr< FWindowsWindow > FindWindowByHWND(const TArray< TSharedPtr< F
 	return TSharedPtr< FWindowsWindow >(nullptr);
 }
 
+void FWindowsApplication::SetCapture(const TSharedPtr<FGenericWindow>& InWindow)
+{
+	if (InWindow.get())
+	{
+		::SetCapture((HWND)InWindow->GetOSWindowHandle());
+	}
+	else
+	{
+		::ReleaseCapture();
+	}
+}
+
 
 FIntPoint FWindowsApplication::GetMousePos() const
 {
@@ -52,6 +68,8 @@ FIntPoint FWindowsApplication::GetMousePos() const
 
 extern IMGUI_IMPL_API LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
 
+
+POINTS Pos;
 
 int32 FWindowsApplication::ProcessMessage(HWND hWnd, uint32 Msg, WPARAM wParam, LPARAM lParam)
 {
@@ -70,7 +88,10 @@ int32 FWindowsApplication::ProcessMessage(HWND hWnd, uint32 Msg, WPARAM wParam, 
 		}
 
 
-		ImGui_ImplWin32_WndProcHandler(hWnd, Msg, wParam, lParam);
+		if (ImGui_ImplWin32_WndProcHandler(hWnd, Msg, wParam, lParam))
+		{
+			return true;
+		}
 		switch (Msg)
 		{
 		case WM_DESTROY:
@@ -83,8 +104,13 @@ int32 FWindowsApplication::ProcessMessage(HWND hWnd, uint32 Msg, WPARAM wParam, 
 			GIsRequestingExit = true;
 			return 0;
 
+		/*case WM_PAINT:
+		{
+			MessageHandler->OnWindowDraw(CurrentWindow);
+			return 0;
+		}*/
 
-		case WM_PAINT:
+	/*	case WM_PAINT:
 		{
 			PAINTSTRUCT ps;
 			HDC hdc;
@@ -93,7 +119,7 @@ int32 FWindowsApplication::ProcessMessage(HWND hWnd, uint32 Msg, WPARAM wParam, 
 			LineTo(hdc, 1920, 1080);
 			EndPaint(hWnd, &ps);
 			return 0;
-		}
+		}*/
 
 
 		//case WM_LBUTTONDOWN:
@@ -101,36 +127,156 @@ int32 FWindowsApplication::ProcessMessage(HWND hWnd, uint32 Msg, WPARAM wParam, 
 		//	return DefWindowProcW()
 		//}
 
-		case WM_INPUT:
+		//case WM_INPUT:
+		//{
+		//	uint32 Size = 0;
+		//	GetRawInputData((HRAWINPUT)lParam, RID_INPUT, NULL, &Size, sizeof(RAWINPUTHEADER));
+
+		//	TUniquePtr<uint8[]> RawData = make_unique<uint8[]>(Size);
+		//	if (GetRawInputData((HRAWINPUT)lParam, RID_INPUT, RawData.get(), &Size, sizeof(RAWINPUTHEADER)) == Size)
+		//	{
+		//		const RAWINPUT* const Raw = (const RAWINPUT* const)RawData.get();
+
+		//		if (Raw->header.dwType == RIM_TYPEMOUSE)
+		//		{
+		//			const bool IsAbsoluteInput = (Raw->data.mouse.usFlags & MOUSE_MOVE_ABSOLUTE) == MOUSE_MOVE_ABSOLUTE;
+		//			if (IsAbsoluteInput)
+		//			{
+		//				MessageHandler->OnMouseMove();
+		//			}
+		//			else
+		//			{
+		//				const int xPosRelative = Raw->data.mouse.lLastX;
+		//				const int yPosRelative = Raw->data.mouse.lLastY;
+
+		//				MessageHandler->OnRawMouseMove(xPosRelative, yPosRelative);
+
+		//			}
+		//		}
+
+		//	}
+		//	break;
+		//}
+
+		//case WM_LBUTTONDBLCLK:
+		//case WM_LBUTTONDOWN:
+		//case WM_LBUTTONUP:
+		//{
+		//	POINT CursorPoint;
+		//	CursorPoint.x = GET_X_LPARAM(lParam);
+		//	CursorPoint.y = GET_Y_LPARAM(lParam);
+
+		//	ClientToScreen(hWnd, &CursorPoint);
+
+		//	const FVector2D CursorPos(CursorPoint.x, CursorPoint.y);
+		//	EMouseButtons::Type MouseButton = EMouseButtons::Invalid;
+
+		//	bool bDoubleClick = false;
+		//	bool bMouseUp = false;
+
+		//	switch (Msg)
+		//	{
+		//	case WM_LBUTTONDBLCLK:
+		//		bDoubleClick = true;
+		//		MouseButton = EMouseButtons::Left;
+		//		break;
+		//	case WM_LBUTTONUP:
+		//		bMouseUp = true;
+		//		MouseButton = EMouseButtons::Left;
+		//		break;
+		//	case WM_LBUTTONDOWN:
+		//		MouseButton = EMouseButtons::Left;
+		//		//Pos = MAKEPOINTS(lParam);
+		//		break;
+		//	}
+
+		//	if (bMouseUp)
+		//	{
+		//		return MessageHandler->OnMouseUp(MouseButton, CursorPos);
+		//	}
+		//	else if (bDoubleClick)
+		//	{
+		//		MessageHandler->OnMouseDoubleClick(CurrentWindow, MouseButton, CursorPos);
+		//	}
+		//	else
+		//	{
+		//		MessageHandler->OnMouseDown(CurrentWindow, MouseButton, CursorPos);
+		//	}
+		//	
+
+		//	return 0;
+		//}
+
+		//break;
+
+		case WM_NCHITTEST:
 		{
-			uint32 Size = 0;
-			GetRawInputData((HRAWINPUT)lParam, RID_INPUT, NULL, &Size, sizeof(RAWINPUTHEADER));
+			POINT Point;
+			static RECT border_thickness = { 4, 4, 4, 4 };
+			Point.x = GET_X_LPARAM(lParam);
+			Point.y = GET_Y_LPARAM(lParam);
+			ScreenToClient(hWnd, &Point);
 
-			TUniquePtr<uint8[]> RawData = make_unique<uint8[]>(Size);
-			if (GetRawInputData((HRAWINPUT)lParam, RID_INPUT, RawData.get(), &Size, sizeof(RAWINPUTHEADER)) == Size)
+			if (!CurrentWindow->IsMaximized())
 			{
-				const RAWINPUT* const Raw = (const RAWINPUT* const)RawData.get();
+				RECT Rect;
+				GetClientRect(hWnd, &Rect);
 
-				if (Raw->header.dwType == RIM_TYPEMOUSE)
-				{
-					const bool IsAbsoluteInput = (Raw->data.mouse.usFlags & MOUSE_MOVE_ABSOLUTE) == MOUSE_MOVE_ABSOLUTE;
-					if (IsAbsoluteInput)
-					{
-						MessageHandler->OnMouseMove();
-					}
-					else
-					{
-						const int xPosRelative = Raw->data.mouse.lLastX;
-						const int yPosRelative = Raw->data.mouse.lLastY;
+				const int VerticalBorderSize = GetSystemMetrics(SM_CYFRAME);
+				
+				enum { left = 1, top = 2, right = 4, bottom = 8 };
+				int hit = 0;
+				if (Point.x <= border_thickness.left)
+					hit |= left;
+				if (Point.x >= Rect.right - border_thickness.right)
+					hit |= right;
+				if (Point.y <= border_thickness.top || Point.y < VerticalBorderSize)
+					hit |= top;
+				if (Point.y >= Rect.bottom - border_thickness.bottom)
+					hit |= bottom;
 
-						MessageHandler->OnRawMouseMove(xPosRelative, yPosRelative);
-
-					}
-				}
-
+				if (hit & top && hit & left)        return HTTOPLEFT;
+				if (hit & top && hit & right)       return HTTOPRIGHT;
+				if (hit & bottom && hit & left)     return HTBOTTOMLEFT;
+				if (hit & bottom && hit & right)    return HTBOTTOMRIGHT;
+				if (hit & left)                     return HTLEFT;
+				if (hit & top)                      return HTTOP;
+				if (hit & right)                    return HTRIGHT;
+				if (hit & bottom)                   return HTBOTTOM;
 			}
+			ECursorArea TitleBarHittest;
+			
+			TitleBarHittest = CurrentWindow->bTitleBarHovarered;
 
+			switch (TitleBarHittest)
+			{
+			case ECursorArea::Client:	return HTCLIENT;
+			case ECursorArea::Close:	return HTCLOSE;
+			case ECursorArea::Caption:	return HTCAPTION;
+			case ECursorArea::Maximize:	return HTZOOM;
+			case ECursorArea::Minimize:	return HTREDUCE;
+			case ECursorArea::Menu:		return HTMENU;
+			default:					return HTCLIENT;
+			}
 		}
+
+		break;
+
+		case WM_MOVE:
+		{
+			FIntPoint NewPosition = FIntPoint((int)(short)LOWORD(lParam), (int)(short)HIWORD(lParam));
+
+			MessageHandler->OnMovedWindow(CurrentWindow, NewPosition);
+		}
+		break;
+
+		case WM_MOVING:
+		{
+			RECT* Rect = (RECT*)lParam;
+
+			MessageHandler->OnMovingWindow(CurrentWindow, FIntRect(Rect->left, Rect->top, Rect->right, Rect->bottom));
+		}
+		break;
 
 		case WM_SIZE:
 		{
@@ -146,8 +292,6 @@ int32 FWindowsApplication::ProcessMessage(HWND hWnd, uint32 Msg, WPARAM wParam, 
 				const bool bWasMinimized = (wParam == SIZE_MINIMIZED);
 				MessageHandler->OnSizeChanged(CurrentWindow, NewWidth, NewHeight, bWasMinimized);
 			}
-
-
 			break;
 		}
 		case WM_SIZING:
@@ -169,56 +313,36 @@ int32 FWindowsApplication::ProcessMessage(HWND hWnd, uint32 Msg, WPARAM wParam, 
 			int32 NewWidth = Rect->right - Rect->left;
 			int32 NewHeight = Rect->bottom - Rect->top;
 
-			switch (wParam)
-			{
-			case WMSZ_LEFT:
-			case WMSZ_RIGHT:
-			case WMSZ_BOTTOMLEFT:
-			case WMSZ_BOTTOMRIGHT:
-			case WMSZ_TOPLEFT:
-			case WMSZ_TOPRIGHT:
-			{
-				int32 MinWidth = 100;
+			int32 MinWidth = 800;
+			int32 MinHeight = 600;
 
-				if (NewWidth < MinWidth)
+			if (NewWidth < MinWidth)
+			{
+				if (wParam == WMSZ_LEFT || wParam == WMSZ_BOTTOMLEFT || wParam == WMSZ_TOPLEFT)
 				{
-					if (wParam == WMSZ_LEFT || wParam == WMSZ_BOTTOMLEFT || wParam == WMSZ_TOPLEFT)
-					{
-						Rect->left -= (MinWidth - NewWidth);
-					}
-					else if (wParam == WMSZ_RIGHT || wParam == WMSZ_BOTTOMRIGHT || wParam == WMSZ_TOPRIGHT)
-					{
-						Rect->right += (MinWidth - NewWidth);
-					}
-
-					NewWidth = MinWidth;
+					Rect->left -= (MinWidth - NewWidth);
 				}
-				break;
-			}
-
-			case WMSZ_TOP:
-			case WMSZ_BOTTOM:
-			{
-				int32 MinHeight = 100;
-
-				if (NewHeight < MinHeight)
+				else if (wParam == WMSZ_RIGHT || wParam == WMSZ_BOTTOMRIGHT || wParam == WMSZ_TOPRIGHT)
 				{
-					if (wParam == WMSZ_TOP)
-					{
-						Rect->top -= (MinHeight - NewHeight);
-					}
-					else
-					{
-						Rect->bottom += (MinHeight - NewHeight);
-					}
-
-					NewHeight = MinHeight;
+					Rect->right += (MinWidth - NewWidth);
 				}
-				break;
-			}
+
+				NewWidth = MinWidth;
 			}
 
+			if (NewHeight < MinHeight)
+			{
+				if (wParam == WMSZ_TOP || wParam == WMSZ_TOPLEFT || wParam == WMSZ_TOPRIGHT)
+				{
+					Rect->top -= (MinHeight - NewHeight);
+				}
+				else if(wParam == WMSZ_BOTTOM || wParam == WMSZ_BOTTOMLEFT || wParam == WMSZ_BOTTOMRIGHT)
+				{
+					Rect->bottom += (MinHeight - NewHeight);
+				}
 
+				NewHeight = MinHeight;
+			}
 
 			AdjustWindowRectEx(Rect, WindowInfo.dwStyle, false, WindowInfo.dwExStyle);
 
@@ -279,12 +403,13 @@ int32 FWindowsApplication::ProcessMessage(HWND hWnd, uint32 Msg, WPARAM wParam, 
 
 
 
-	return DefWindowProc(hWnd, Msg, wParam, lParam);
+	return (int32)DefWindowProc(hWnd, Msg, wParam, lParam);
 }
 
 void FWindowsApplication::PumpMessages()
 {
 	MSG Message;
+	
 
 	while (PeekMessage(&Message, NULL, 0, 0, PM_REMOVE))
 	{
@@ -296,18 +421,14 @@ void FWindowsApplication::PumpMessages()
 }
 
 
-FWindowsApplication::FWindowsApplication(const HINSTANCE HInstance, const HICON IconHandle) :
+FWindowsApplication::FWindowsApplication(const HINSTANCE HInstance, const HICON IconHandle, const HCURSOR HCursor) :
 	InstanceHandle(HInstance)
 {
-	bool bClassRegister = RegisterClass(InstanceHandle, IconHandle);
+	bool bClassRegister = RegisterClass(InstanceHandle, IconHandle, HCursor);
+
 
 	// For Drag and Drop
 	OleInitialize(NULL);
-
-
-
-
-
 }
 
 
@@ -337,7 +458,7 @@ TSharedPtr<FGenericWindow> FWindowsApplication::MakeWindow()
 }
 
 
-bool FWindowsApplication::RegisterClass(const HINSTANCE HInstance, const HICON HIcon)
+bool FWindowsApplication::RegisterClass(const HINSTANCE HInstance, const HICON HIcon, const HCURSOR HCursor)
 {
 	WNDCLASS WC;
 	FMemory::Memzero(&WC, sizeof(WC));
@@ -347,7 +468,7 @@ bool FWindowsApplication::RegisterClass(const HINSTANCE HInstance, const HICON H
 	WC.cbWndExtra = 0;
 	WC.hInstance = HInstance;
 	WC.hIcon = HIcon;
-	WC.hCursor = NULL;
+	WC.hCursor = HCursor;
 	WC.hbrBackground = NULL;
 	WC.lpszMenuName = NULL;
 	WC.lpszClassName = FWindowsWindow::AppWindowClass;

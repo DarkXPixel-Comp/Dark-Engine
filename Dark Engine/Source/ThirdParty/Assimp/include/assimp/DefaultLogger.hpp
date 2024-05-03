@@ -40,7 +40,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
 /**
- *  @file DefaultLogger.hpp
+ *  @file DefaultLogger.h
  */
 
 #pragma once
@@ -52,8 +52,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #endif
 
 #include "LogStream.hpp"
-#include "Logger.hpp"
-#include "NullLogger.hpp"
+#include "Logger.h"
+#include "NullLogger.h"
 #include <vector>
 
 namespace Assimp {

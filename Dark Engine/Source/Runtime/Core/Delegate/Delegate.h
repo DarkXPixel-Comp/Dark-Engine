@@ -136,7 +136,7 @@ public:
 	{
 		if (container)
 		{
-			return container->Call();
+			return container->Call(params...);
 		}
 	}
 
@@ -152,14 +152,14 @@ class TMultiCastDelegate
 public:
 	TMultiCastDelegate() { containers = new TArray<IIContainer<InRetValType, ParamTypes...>*>(); }
 	~TMultiCastDelegate() { delete containers; }
-	const void Bind(InRetValType(*func)(ParamTypes...))
-	{
-		IIContainer<InRetValType, ParamTypes...>* temp = new TFuncContainer<InRetValType, ParamTypes...>(func);
+	//const void Bind(InRetValType(*func)(ParamTypes...))
+	//{
+	//	IIContainer<InRetValType, ParamTypes...>* temp = new TFuncContainer<InRetValType, ParamTypes...>(func);
 
-		containers->Push(temp);
+	//	containers->Push(temp);
 
-		pFunc = func;
-	}
+	//	pFunc = func;
+	//}
 
 	const void Bind(std::function<InRetValType(ParamTypes...)> func)
 	{
@@ -190,7 +190,7 @@ public:
 	TArray<IIContainer<InRetValType, ParamTypes...>*>* containers = nullptr;
 
 	//IIContainer<InRetValType, ParamTypes...>* container;
-	FFuncPtr pFunc;
+	FFuncPtr pFunc = nullptr;
 };
 
 

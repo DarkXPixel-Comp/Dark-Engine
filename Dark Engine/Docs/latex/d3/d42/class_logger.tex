@@ -1,0 +1,180 @@
+\doxysection{Класс Logger}
+\hypertarget{class_logger}{}\label{class_logger}\index{Logger@{Logger}}
+
+
+{\ttfamily \#include $<$Logger.\+h$>$}
+
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_logger_abc41bfb031d896170c7675fa96a6b30c}{Logger}} ()
+\item 
+void \mbox{\hyperlink{class_logger_a3e60209fe9041c7711f0b550de04a461}{urg\+Log}} (\mbox{\hyperlink{class_f_string}{FString}}, \mbox{\hyperlink{_logger_8h_a78a0e7a0f95eb2eb841806c2da3d345e}{LOGGER\+\_\+\+ENUM}})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Открытые статические члены}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{class_logger_aa6813f6241df9b1b5242ac774aedfe7a}{Initialize}} (size\+\_\+t s)
+\item 
+static void \mbox{\hyperlink{class_logger_abf812910d781f32d1fd8d47ea33386dd}{Exit}} ()
+\item 
+static void \mbox{\hyperlink{class_logger_ae67239dae8c15333f52f364f7a7683a0}{log}} (\mbox{\hyperlink{class_f_string}{FString}}, \mbox{\hyperlink{_logger_8h_a78a0e7a0f95eb2eb841806c2da3d345e}{LOGGER\+\_\+\+ENUM}} severenty=\mbox{\hyperlink{_logger_8h_a78a0e7a0f95eb2eb841806c2da3d345ea3a56c2c000665930df74a9ebf9047316}{LOGGER\+\_\+\+INFO}})
+\item 
+static void \mbox{\hyperlink{class_logger_a67fee12bfb37e5b12e9ad0fd79ca74ac}{logF}} (const char \texorpdfstring{$\ast$}{*}arg,...)
+\item 
+static void \mbox{\hyperlink{class_logger_a032ad30da70b072b7582d1472a5b1f7d}{logF}} (\mbox{\hyperlink{class_f_string}{FString}} \texorpdfstring{$\ast$}{*}arg,...)
+\item 
+static void \mbox{\hyperlink{class_logger_a1de76a42775b5ef2263e6c3af1b0e6a4}{ex\+Log}} (\mbox{\hyperlink{class_f_string}{FString}}, \mbox{\hyperlink{_logger_8h_a78a0e7a0f95eb2eb841806c2da3d345e}{LOGGER\+\_\+\+ENUM}})
+\item 
+static void \mbox{\hyperlink{class_logger_aa6ede5d29daebd92ac39dd6eae6bd483}{log}} (\mbox{\hyperlink{structlog__}{log\+\_\+}} In\+Log)
+\item 
+static void \mbox{\hyperlink{class_logger_a0c9fe183a19aa525406083c9e08cd041}{wait}} ()
+\item 
+static std\+::vector$<$ \mbox{\hyperlink{structlog__}{log\+\_\+}} $>$ \& \mbox{\hyperlink{class_logger_a2476154638e0d2fe6227a1b18a30b3b5}{Get\+Logs}} ()
+\item 
+static \mbox{\hyperlink{_platform_8h_afddf25cca147311c233b23a9d3329bb4}{uint64}} \mbox{\hyperlink{class_logger_a8845a28948ba3c1db2c4e50eb0b9c087}{Get\+Max\+Count\+Logs}} ()
+\item 
+static \mbox{\hyperlink{_platform_8h_afddf25cca147311c233b23a9d3329bb4}{uint64}} \mbox{\hyperlink{class_logger_ac77c7a84a5213c8a4d0f37b279a2b77f}{Get\+Current\+Count\+Logs}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Открытые атрибуты}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{structlog__}{log\+\_\+}} $>$ \mbox{\hyperlink{class_logger_ad2ba5a8801744d321712a023d8e8e92f}{Logs}}
+\item 
+\mbox{\hyperlink{_platform_8h_afddf25cca147311c233b23a9d3329bb4}{uint64}} \mbox{\hyperlink{class_logger_ad3d3171fc2d6ad66d0c6abed66731333}{Count\+Current\+Logs}} = 0
+\item 
+\mbox{\hyperlink{_platform_8h_afddf25cca147311c233b23a9d3329bb4}{uint64}} \mbox{\hyperlink{class_logger_a4b7d863a662792dea5e98af3d2653459}{Max\+Count\+Logs}} = 0
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Друзья}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_logger_a7b9deaca24ca9f842c548076ef1d4b69}{logging}} (\mbox{\hyperlink{class_logger}{Logger}} \texorpdfstring{$\ast$}{*})
+\item 
+void \mbox{\hyperlink{class_logger_a283ceaffb8adaa846091085b33d5a5d0}{record}} (\mbox{\hyperlink{structlog__}{log\+\_\+}} \&)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Конструктор(ы)}
+\Hypertarget{class_logger_abc41bfb031d896170c7675fa96a6b30c}\label{class_logger_abc41bfb031d896170c7675fa96a6b30c} 
+\index{Logger@{Logger}!Logger@{Logger}}
+\index{Logger@{Logger}!Logger@{Logger}}
+\doxysubsubsection{\texorpdfstring{Logger()}{Logger()}}
+{\footnotesize\ttfamily Logger\+::\+Logger (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Методы}
+\Hypertarget{class_logger_abf812910d781f32d1fd8d47ea33386dd}\label{class_logger_abf812910d781f32d1fd8d47ea33386dd} 
+\index{Logger@{Logger}!Exit@{Exit}}
+\index{Exit@{Exit}!Logger@{Logger}}
+\doxysubsubsection{\texorpdfstring{Exit()}{Exit()}}
+{\footnotesize\ttfamily void Logger\+::\+Exit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{class_logger_a1de76a42775b5ef2263e6c3af1b0e6a4}\label{class_logger_a1de76a42775b5ef2263e6c3af1b0e6a4} 
+\index{Logger@{Logger}!exLog@{exLog}}
+\index{exLog@{exLog}!Logger@{Logger}}
+\doxysubsubsection{\texorpdfstring{exLog()}{exLog()}}
+{\footnotesize\ttfamily void Logger\+::ex\+Log (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_f_string}{FString}}}]{log\+Txt,  }\item[{\mbox{\hyperlink{_logger_8h_a78a0e7a0f95eb2eb841806c2da3d345e}{LOGGER\+\_\+\+ENUM}}}]{severenty }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{class_logger_ac77c7a84a5213c8a4d0f37b279a2b77f}\label{class_logger_ac77c7a84a5213c8a4d0f37b279a2b77f} 
+\index{Logger@{Logger}!GetCurrentCountLogs@{GetCurrentCountLogs}}
+\index{GetCurrentCountLogs@{GetCurrentCountLogs}!Logger@{Logger}}
+\doxysubsubsection{\texorpdfstring{GetCurrentCountLogs()}{GetCurrentCountLogs()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{_platform_8h_afddf25cca147311c233b23a9d3329bb4}{uint64}} Logger\+::\+Get\+Current\+Count\+Logs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+\Hypertarget{class_logger_a2476154638e0d2fe6227a1b18a30b3b5}\label{class_logger_a2476154638e0d2fe6227a1b18a30b3b5} 
+\index{Logger@{Logger}!GetLogs@{GetLogs}}
+\index{GetLogs@{GetLogs}!Logger@{Logger}}
+\doxysubsubsection{\texorpdfstring{GetLogs()}{GetLogs()}}
+{\footnotesize\ttfamily static std\+::vector$<$ \mbox{\hyperlink{structlog__}{log\+\_\+}} $>$ \& Logger\+::\+Get\+Logs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+\Hypertarget{class_logger_a8845a28948ba3c1db2c4e50eb0b9c087}\label{class_logger_a8845a28948ba3c1db2c4e50eb0b9c087} 
+\index{Logger@{Logger}!GetMaxCountLogs@{GetMaxCountLogs}}
+\index{GetMaxCountLogs@{GetMaxCountLogs}!Logger@{Logger}}
+\doxysubsubsection{\texorpdfstring{GetMaxCountLogs()}{GetMaxCountLogs()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{_platform_8h_afddf25cca147311c233b23a9d3329bb4}{uint64}} Logger\+::\+Get\+Max\+Count\+Logs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+\Hypertarget{class_logger_aa6813f6241df9b1b5242ac774aedfe7a}\label{class_logger_aa6813f6241df9b1b5242ac774aedfe7a} 
+\index{Logger@{Logger}!Initialize@{Initialize}}
+\index{Initialize@{Initialize}!Logger@{Logger}}
+\doxysubsubsection{\texorpdfstring{Initialize()}{Initialize()}}
+{\footnotesize\ttfamily void Logger\+::\+Initialize (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{class_logger_ae67239dae8c15333f52f364f7a7683a0}\label{class_logger_ae67239dae8c15333f52f364f7a7683a0} 
+\index{Logger@{Logger}!log@{log}}
+\index{log@{log}!Logger@{Logger}}
+\doxysubsubsection{\texorpdfstring{log()}{log()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Logger\+::log (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_f_string}{FString}}}]{log\+Txt,  }\item[{\mbox{\hyperlink{_logger_8h_a78a0e7a0f95eb2eb841806c2da3d345e}{LOGGER\+\_\+\+ENUM}}}]{severenty = {\ttfamily \mbox{\hyperlink{_logger_8h_a78a0e7a0f95eb2eb841806c2da3d345ea3a56c2c000665930df74a9ebf9047316}{LOGGER\+\_\+\+INFO}}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{class_logger_aa6ede5d29daebd92ac39dd6eae6bd483}\label{class_logger_aa6ede5d29daebd92ac39dd6eae6bd483} 
+\index{Logger@{Logger}!log@{log}}
+\index{log@{log}!Logger@{Logger}}
+\doxysubsubsection{\texorpdfstring{log()}{log()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Logger\+::log (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structlog__}{log\+\_\+}}}]{In\+Log }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{class_logger_a67fee12bfb37e5b12e9ad0fd79ca74ac}\label{class_logger_a67fee12bfb37e5b12e9ad0fd79ca74ac} 
+\index{Logger@{Logger}!logF@{logF}}
+\index{logF@{logF}!Logger@{Logger}}
+\doxysubsubsection{\texorpdfstring{logF()}{logF()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Logger\+::logF (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{arg,  }\item[{}]{... }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{class_logger_a032ad30da70b072b7582d1472a5b1f7d}\label{class_logger_a032ad30da70b072b7582d1472a5b1f7d} 
+\index{Logger@{Logger}!logF@{logF}}
+\index{logF@{logF}!Logger@{Logger}}
+\doxysubsubsection{\texorpdfstring{logF()}{logF()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Logger\+::logF (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_f_string}{FString}} \texorpdfstring{$\ast$}{*}}]{arg,  }\item[{}]{... }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{class_logger_a3e60209fe9041c7711f0b550de04a461}\label{class_logger_a3e60209fe9041c7711f0b550de04a461} 
+\index{Logger@{Logger}!urgLog@{urgLog}}
+\index{urgLog@{urgLog}!Logger@{Logger}}
+\doxysubsubsection{\texorpdfstring{urgLog()}{urgLog()}}
+{\footnotesize\ttfamily void Logger\+::urg\+Log (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_f_string}{FString}}}]{log\+Txt,  }\item[{\mbox{\hyperlink{_logger_8h_a78a0e7a0f95eb2eb841806c2da3d345e}{LOGGER\+\_\+\+ENUM}}}]{severinty }\end{DoxyParamCaption})}
+
+\Hypertarget{class_logger_a0c9fe183a19aa525406083c9e08cd041}\label{class_logger_a0c9fe183a19aa525406083c9e08cd041} 
+\index{Logger@{Logger}!wait@{wait}}
+\index{wait@{wait}!Logger@{Logger}}
+\doxysubsubsection{\texorpdfstring{wait()}{wait()}}
+{\footnotesize\ttfamily void Logger\+::wait (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+\doxysubsection{Документация по друзьям класса и функциям, относящимся к классу}
+\Hypertarget{class_logger_a7b9deaca24ca9f842c548076ef1d4b69}\label{class_logger_a7b9deaca24ca9f842c548076ef1d4b69} 
+\index{Logger@{Logger}!logging@{logging}}
+\index{logging@{logging}!Logger@{Logger}}
+\doxysubsubsection{\texorpdfstring{logging}{logging}}
+{\footnotesize\ttfamily void logging (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_logger}{Logger}} \texorpdfstring{$\ast$}{*}}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+\Hypertarget{class_logger_a283ceaffb8adaa846091085b33d5a5d0}\label{class_logger_a283ceaffb8adaa846091085b33d5a5d0} 
+\index{Logger@{Logger}!record@{record}}
+\index{record@{record}!Logger@{Logger}}
+\doxysubsubsection{\texorpdfstring{record}{record}}
+{\footnotesize\ttfamily void record (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structlog__}{log\+\_\+}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+\doxysubsection{Данные класса}
+\Hypertarget{class_logger_ad3d3171fc2d6ad66d0c6abed66731333}\label{class_logger_ad3d3171fc2d6ad66d0c6abed66731333} 
+\index{Logger@{Logger}!CountCurrentLogs@{CountCurrentLogs}}
+\index{CountCurrentLogs@{CountCurrentLogs}!Logger@{Logger}}
+\doxysubsubsection{\texorpdfstring{CountCurrentLogs}{CountCurrentLogs}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_platform_8h_afddf25cca147311c233b23a9d3329bb4}{uint64}} Logger\+::\+Count\+Current\+Logs = 0}
+
+\Hypertarget{class_logger_ad2ba5a8801744d321712a023d8e8e92f}\label{class_logger_ad2ba5a8801744d321712a023d8e8e92f} 
+\index{Logger@{Logger}!Logs@{Logs}}
+\index{Logs@{Logs}!Logger@{Logger}}
+\doxysubsubsection{\texorpdfstring{Logs}{Logs}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{structlog__}{log\+\_\+}}$>$ Logger\+::\+Logs}
+
+\Hypertarget{class_logger_a4b7d863a662792dea5e98af3d2653459}\label{class_logger_a4b7d863a662792dea5e98af3d2653459} 
+\index{Logger@{Logger}!MaxCountLogs@{MaxCountLogs}}
+\index{MaxCountLogs@{MaxCountLogs}!Logger@{Logger}}
+\doxysubsubsection{\texorpdfstring{MaxCountLogs}{MaxCountLogs}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_platform_8h_afddf25cca147311c233b23a9d3329bb4}{uint64}} Logger\+::\+Max\+Count\+Logs = 0}
+
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+Dark Engine/\+Source/\+Runtime/\+Core/\+Logging/\mbox{\hyperlink{_logger_8h}{Logger.\+h}}\item 
+Dark Engine/\+Source/\+Runtime/\+Core/\+Logging/\mbox{\hyperlink{_logger_8cpp}{Logger.\+cpp}}\end{DoxyCompactItemize}

@@ -5,6 +5,9 @@
 #include "D3D12Resources.h"
 #include "RHIResources.h"
 #include "D3D12Texture.h"
+#include "D3D12Util.h"
+
+//DXGI_FORMAT GetDXGIFormat(EPixelFormat PixelFormat);
 
 class FD3D12Viewport : public FRHIViewport , public FD3D12AdapterChild
 {
@@ -16,32 +19,24 @@ public:
 
 	void Resize(uint32 InSizeX, uint32 InSizeY, bool bInIsFullscreen, EPixelFormat InPixelFormat);
 
-	bool Present(bool bVsync);
+	bool Present(int32 bVsync);
 
 	uint32 GetCountBackBuffers() const { return NumBackBuffers; }
 
 	void WaitForFrameEventCompletion() override;
 
+	virtual void Resize(int32 Width, int32 Height, bool bWasMinimized) override;
+
 
 	FORCEINLINE static DXGI_FORMAT GetRenderTargetFormat(EPixelFormat PixelFormat)
 	{
-		switch (PixelFormat)
-		{
-		case PF_Unknown:
-			break;
-		case PF_A32B32G32R32F:
-			break;
-		case PF_R32_FLOAT:
-			break;
-		case PF_R8G8B8A8:
-			return DXGI_FORMAT_R8G8B8A8_UNORM;
-			break;
-		default:
-			break;
-		}
+		return GetDXGIFormat(PixelFormat);
 	}
 
-	FD3D12Texture* GetCurrentBackBuffer() const { return BackBuffers[CurrentBackBufferIndex].get(); }
+	FD3D12Texture* GetCurrentBackBuffer() const { return BackBuffers[CurrentBackBufferIndex].Get(); }
+
+	virtual void* GetNativeSwapChain() const override 
+	{ return SwapChain1.Get(); }
 
 private:
 	void CalculateSwapchainNum(int32 SwapchainNum);
@@ -61,7 +56,7 @@ private:
 	bool bIsValid;
 	uint32 CurrentBackBufferIndex;
 	
-	TArray<TSharedPtr<FD3D12Texture>> BackBuffers;
+	TArray<TRefCountPtr<FD3D12Texture>> BackBuffers;
 	uint32 NumBackBuffers;
 
 	TRefCountPtr<IDXGISwapChain1> SwapChain1;

@@ -3,13 +3,19 @@
 #include <DynamicRHI.h>
 #include "RHICommandList.h"
 #include <CoreGlobals.h>
+#include "Console/GlobalInputOutConsole.h"
+#include <future>
 
 
 void FUIRHIRenderer::Initialize()
 {
-
-
-
+	GGlobalConsole.RegisterConsoleVariableRef(TEXT("r.D3D12.Vsync"), Vsync, TEXT("Vertical sync"))->SetOnChangedCallback([](IConsoleVariable* Var)
+		{
+			if (Var->AsVariable()->GetInt() > 4)
+			{
+				Var->AsVariable()->Set(4);
+			}
+		});
 
 }
 
@@ -31,6 +37,15 @@ void FUIRHIRenderer::CreateViewport(UIWindow* InWindow)
 
 
 
+}
+
+void FUIRHIRenderer::Resize(UIWindow* InWindow, const int32 Width, const int32 Height, const bool bWasMinimized)
+{																	 
+	FViewportInfo* Info = WindowToViewportInfo.find(InWindow)->second;
+	Info->bFullscreen = IsViewportFullscreen(*InWindow);
+	Info->Width = Width;
+	Info->Height = Height;
+	Info->ViewportRHI->Resize(Width, Height, bWasMinimized);
 }
 
 void FUIRHIRenderer::DrawWindows(const TArray<TSharedPtr<UIWindow>>& InWindows)
@@ -62,6 +77,10 @@ void FUIRHIRenderer::DrawWindows(const TArray<TSharedPtr<UIWindow>>& InWindows)
 
 
 				FRHITexture* BackBuffer = RHIGetViewportBackBuffer(ViewInfo->ViewportRHI.get());
+				if (!BackBuffer)
+				{
+					return;
+				}
 				RHICmdList->BeginDrawingViewport(ViewInfo->ViewportRHI.get(), nullptr);
 				RHICmdList->BeginFrame();
 #ifdef IMGUI
@@ -76,12 +95,19 @@ void FUIRHIRenderer::DrawWindows(const TArray<TSharedPtr<UIWindow>>& InWindows)
 				{
 					Widget->DrawImGui();
 				}
-
-
+#ifdef IMGUI
 				ImGui::Render();
 				RHICmdList->EndImGui();
-				RHICmdList->EndFrame();
-				RHICmdList->EndDrawingViewport(ViewInfo->ViewportRHI.get(), true, 1);
+				if (ImGui::GetIO().ConfigFlags & ImGuiConfigFlags_ViewportsEnable)
+				{
+					ImGui::UpdatePlatformWindows();
+					ImGui::RenderPlatformWindowsDefault();
+				}
+#endif
+
+				RHICmdList->EndRenderPass(RPInfo);
+				//RHICmdList->EndFrame();
+				RHICmdList->EndDrawingViewport(ViewInfo->ViewportRHI.get(), true, Vsync);
 
 
 

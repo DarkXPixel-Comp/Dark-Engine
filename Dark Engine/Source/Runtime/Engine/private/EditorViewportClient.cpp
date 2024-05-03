@@ -4,40 +4,49 @@
 #include "RenderGlobals.h"
 #include <Widgets/UIWindow.h>
 #include "Engine/EditorEngine.h"
+#include "Engine/World.h"
+#include "Canvas.h"
 
 
 
 
-FEditorViewportClient::FEditorViewportClient()
+FEditorViewportClient::FEditorViewportClient(UIEditorViewport* InEditorViewport):
+	EditorViewportWidget(InEditorViewport)
 {
+	FSceneInterface* Scene = GetScene();
+
 	Engine->AddViewportClient(this);
 }
 
-void FEditorViewportClient::Draw(FViewport* InViewport, FCanvas* InCanvas)
+
+FWorld* FEditorViewportClient::GetWorld() const
 {
-	GameViewport = (FSceneViewport*)InViewport;
+	FWorld* Result = nullptr;
+
+	Result = GWorld;
+	return Result;
+}
+
+void FEditorViewportClient::Draw(FViewport* InViewport, FCanvas* Canvas)
+{
+	Viewport = InViewport ? InViewport : Viewport;
 	FWorld* World = GetWorld();
 
-	FSceneView SceneView(GameViewport, GetScene(), this);
-
-	
+	FSceneView SceneView(Canvas->GetRenderTarget(), GetScene());
 	SceneView.CalcSceneView();
+	FIntPoint ViewportSize = Viewport->GetSizeXY();
+	FIntPoint Offset = FIntPoint(0, 0);
+	ViewportSize.X = FMath::Max(1, ViewportSize.X);
+	ViewportSize.Y = FMath::Max(1, ViewportSize.Y);
+	SceneView.UnscaledRect = FIntRect(Offset, ViewportSize + Offset);
 
-	GetRenderer()->BeginRenderingView(InCanvas, &SceneView);
 
-	GetRenderer()->RenderUI(RenderTarget);
+	GetRenderer()->BeginRenderingView(Canvas, &SceneView);
 
 
 }
 
 
-
-FSceneViewport* FEditorViewportClient::CreateGameViewport()
-{
-	//GameViewport = new FSceneViewport();
-	//GameViewport->SetSize()
-	return GameViewport;
-}
 
 FSceneInterface* FEditorViewportClient::GetScene() const
 {
@@ -47,8 +56,8 @@ FSceneInterface* FEditorViewportClient::GetScene() const
 		return World->Scene;
 	}
 	return nullptr;
-
 }
+				 
 
 void FEditorViewportClient::Tick(float DeltaTime)
 {

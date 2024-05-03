@@ -32,11 +32,48 @@ function(SettingProject target)
 endfunction()
 
 
+macro(SettingFiles Out)
+	SET(Res "")
+	file(GLOB_RECURSE Result RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "${CMAKE_CURRENT_SOURCE_DIR}/*.h")
+	LIST(APPEND Res ${Result})
+	file(GLOB_RECURSE Result RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "${CMAKE_CURRENT_SOURCE_DIR}/*.cpp")
+	LIST(APPEND Res ${Result})
+	set(${Out} ${Res})
+	#file(GLOB_RECURSE Result RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "${CMAKE_CURRENT_SOURCE_DIR}/public/*.h")
+	#LIST(APPEND Res ${Result})
+	#file(GLOB_RECURSE Result RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "${CMAKE_CURRENT_SOURCE_DIR}/public/*.cpp")
+	#LIST(APPEND Res ${Result})
+	#file(GLOB_RECURSE Result RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "${CMAKE_CURRENT_SOURCE_DIR}/private/*.h")
+	#LIST(APPEND Res ${Result})
+	#file(GLOB_RECURSE Result RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "${CMAKE_CURRENT_SOURCE_DIR}/private/*.cpp")
+	#LIST(APPEND Res ${Result})
+	#set(${Out} ${Res})
+endmacro()
+
+
+MACRO(SUBDIRLIST result curdir)
+  FILE(GLOB children RELATIVE ${curdir} ${curdir}/*)
+  SET(dirlist "")
+  FOREACH(child ${children})
+    IF(IS_DIRECTORY ${curdir}/${child})
+      LIST(APPEND dirlist ${child})
+    ENDIF()
+  ENDFOREACH()
+  SET(${result} ${dirlist})
+ENDMACRO()
 
 
 
 
-project("Dark Engine" VERSION 0.0.10)
+
+
+project("Dark Engine" VERSION 0.1.0.0)
+
+
+if(MSVC)
+	add_compile_options("/MP 12")
+	#add_compile_options("/OPT:NOREF")
+endif()
 
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
@@ -46,6 +83,8 @@ FILE(GLOB_RECURSE sources "Dark Engine/Source/*.cpp")
 #include_directories("")
 
 add_compile_definitions(UBT_COMPILED_PLATFORM=Windows ROOT_DIR="${PROJECT_SOURCE_DIR}")
+
+
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "$<0:>${PROJECT_SOURCE_DIR}/Dark Engine/bin") # 
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "$<0:>${PROJECT_SOURCE_DIR}/Dark Engine/bin/lib") # 

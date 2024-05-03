@@ -1,0 +1,57 @@
+\doxysection{UIShader\+Resource.\+h}
+\hypertarget{_u_i_shader_resource_8h_source}{}\label{_u_i_shader_resource_8h_source}\index{Dark Engine/Source/Runtime/UICore/public/Rendering/UIShaderResource.h@{Dark Engine/Source/Runtime/UICore/public/Rendering/UIShaderResource.h}}
+\mbox{\hyperlink{_u_i_shader_resource_8h}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_core_types_8h}{CoreTypes.h}}"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_r_h_i_resources_8h}{RHIResources.h}}"{}}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{_u_i_shader_resource_8h_a8fe08d44e020bdefb6442c7f588ad140}{EUIShaderResouce}}}
+\DoxyCodeLine{00007\ \{}
+\DoxyCodeLine{00008\ \ \ \ \ \mbox{\hyperlink{_u_i_shader_resource_8h_a8fe08d44e020bdefb6442c7f588ad140ad4b1302c2752a0c8dedff53009f113aa}{NativeTexture}},}
+\DoxyCodeLine{00009\ \ \ \ \ \mbox{\hyperlink{_u_i_shader_resource_8h_a8fe08d44e020bdefb6442c7f588ad140a8f6c6b541c4d5b83b6f27b110820c470}{Material}},}
+\DoxyCodeLine{00010\ \ \ \ \ \mbox{\hyperlink{_u_i_shader_resource_8h_a8fe08d44e020bdefb6442c7f588ad140aa2658079745aba85e114e0e02f5106ad}{PostProcess}},}
+\DoxyCodeLine{00011\ \ \ \ \ \mbox{\hyperlink{_u_i_shader_resource_8h_a8fe08d44e020bdefb6442c7f588ad140a727b8a8d744d88f4d9596d91abfdf277}{Null}}}
+\DoxyCodeLine{00012\ \};}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_f_u_i_shader_resource}{FUIShaderResource}}}
+\DoxyCodeLine{00019\ \{}
+\DoxyCodeLine{00020\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ \mbox{\hyperlink{class_f_u_i_shader_resource_ac720f76bdb38dc969c4ff892c1c46ddd}{GetWidth}}()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ \mbox{\hyperlink{class_f_u_i_shader_resource_aaeac232612d62183e49526aa7b74dcd0}{GetHeight}}()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{_u_i_shader_resource_8h_a8fe08d44e020bdefb6442c7f588ad140}{EUIShaderResouce}}\ \mbox{\hyperlink{class_f_u_i_shader_resource_ab0ac8e7443207d74f6c2a316c8833563}{GetType}}()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_f_u_i_shader_resource_aa2e20b9530ff9541a93085cb08f1f30e}{IsResourceValid}}()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \};}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{comment}{//class\ FUIRenderTarget\ :\ public\ FUIShaderResource}}
+\DoxyCodeLine{00032\ \textcolor{comment}{//\{}}
+\DoxyCodeLine{00033\ \textcolor{comment}{//public:}}
+\DoxyCodeLine{00034\ \textcolor{comment}{//\ \ virtual\ uint32\ GetWidth()\ const\ \{\ return\ NativeTexture-\/>GetSizeX();\ \}}}
+\DoxyCodeLine{00035\ \textcolor{comment}{//\ \ virtual\ uint32\ GetHeight()\ const\ \{\ return\ NativeTexture-\/>GetSizeY();\ \}}}
+\DoxyCodeLine{00036\ \textcolor{comment}{//}}
+\DoxyCodeLine{00037\ \textcolor{comment}{//\ \ virtual\ EUIShaderResouce\ GetType()\ const\ \{\ return\ EUIShaderResouce::NativeTexture;\ \}}}
+\DoxyCodeLine{00038\ \textcolor{comment}{//}}
+\DoxyCodeLine{00039\ \textcolor{comment}{//\ \ virtual\ bool\ IsResourceValid()\ const\ \{\}}}
+\DoxyCodeLine{00040\ \textcolor{comment}{//}}
+\DoxyCodeLine{00041\ \textcolor{comment}{//}}
+\DoxyCodeLine{00042\ \textcolor{comment}{//}}
+\DoxyCodeLine{00043\ \textcolor{comment}{//}}
+\DoxyCodeLine{00044\ \textcolor{comment}{//private:}}
+\DoxyCodeLine{00045\ \textcolor{comment}{//\ \ TSharedPtr<FRHITexture>\ NativeTexture;}}
+\DoxyCodeLine{00046\ \textcolor{comment}{//}}
+\DoxyCodeLine{00047\ \textcolor{comment}{//}}
+\DoxyCodeLine{00048\ \textcolor{comment}{//}}
+\DoxyCodeLine{00049\ \textcolor{comment}{//}}
+\DoxyCodeLine{00050\ \textcolor{comment}{//}}
+\DoxyCodeLine{00051\ \textcolor{comment}{//\};}}
+
+\end{DoxyCode}

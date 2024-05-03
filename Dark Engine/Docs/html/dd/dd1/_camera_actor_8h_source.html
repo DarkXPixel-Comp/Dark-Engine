@@ -1,0 +1,187 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Dark Engine: Исходный файл Dark Engine/Source/Runtime/Engine/Classes/Camera/CameraActor.h</title>
+<link rel="icon" href="../../Logo.png" type="image/x-icon" />
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<script type="text/javascript" src="../../clipboard.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../MiniLogo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Dark Engine<span id="projectnumber">&#160;0.0.50</span>
+   </div>
+   <div id="projectbrief">New game engnie D3D12</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../../',true,false,'search.php','Поиск');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(1); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('dd/dd1/_camera_actor_8h_source.html','../../'); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">CameraActor.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="../../dd/dd1/_camera_actor_8h.html">См. документацию.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once     </span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;<a class="code" href="../../de/deb/_actor_8h.html">../Actor/Actor.h</a>&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;<a class="code" href="../../d1/d7f/_d3_d12_camera_8h.html">D3D12/D3D12Camera.h</a>&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;<a class="code" href="../../dd/d7b/_input_core_8h.html">InputCore.h</a>&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;DirectXMath.h&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;<a class="code" href="../../de/d34/_rotate_component_8h.html">Components/RotateComponent/RotateComponent.h</a>&gt;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="foldopen" id="foldopen00009" data-start="{" data-end="};">
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="../../dc/d9c/class_u_camera_actor.html">    9</a></span><span class="keyword">class </span><a class="code hl_class" href="../../dc/d9c/class_u_camera_actor.html">UCameraActor</a> : <span class="keyword">public</span> <a class="code hl_class" href="../../db/d32/class_a_actor.html">AActor</a> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>{</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    <span class="keyword">typedef</span> <a class="code hl_class" href="../../db/d32/class_a_actor.html">AActor</a> <a class="code hl_class" href="../../db/d32/class_a_actor.html">Super</a>;</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="../../dc/d9c/class_u_camera_actor.html#a2fd329b2a9e753783250b6c9c02a37fa">   13</a></span>    <a class="code hl_function" href="../../dc/d9c/class_u_camera_actor.html#a2fd329b2a9e753783250b6c9c02a37fa">UCameraActor</a>();</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="../../dc/d9c/class_u_camera_actor.html#aa1dea3adce1a7c62c2bc6f4e056d733e">   15</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../dc/d9c/class_u_camera_actor.html#aa1dea3adce1a7c62c2bc6f4e056d733e">OnResize</a>(<span class="keywordtype">long</span>, <span class="keywordtype">long</span>);</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="../../dc/d9c/class_u_camera_actor.html#acae846100e1e68b52511bddd02aeff8f">   17</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../dc/d9c/class_u_camera_actor.html#acae846100e1e68b52511bddd02aeff8f">BeginPlay</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="../../dc/d9c/class_u_camera_actor.html#a4e1aa1b3879817cd1838b6e5e7e8e5b6">   18</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../dc/d9c/class_u_camera_actor.html#a4e1aa1b3879817cd1838b6e5e7e8e5b6">Update</a>(<span class="keywordtype">float</span> DeltaTime) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="../../dc/d9c/class_u_camera_actor.html#a7115fdf2c7a0f193670bc60ad2ead173">   19</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../dc/d9c/class_u_camera_actor.html#a7115fdf2c7a0f193670bc60ad2ead173">Destroy</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="../../dc/d9c/class_u_camera_actor.html#aeece6bd5de3df535ba0f71942d5acc6f">   20</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../dc/d9c/class_u_camera_actor.html#aeece6bd5de3df535ba0f71942d5acc6f">SetupPlayerController</a>(<a class="code hl_class" href="../../d9/dc7/class_f_input_core.html">FInputCore</a>* controller) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="../../dc/d9c/class_u_camera_actor.html#a1fb13abdd45b8986cd84b54208f11adf">   21</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../dc/d9c/class_u_camera_actor.html#a1fb13abdd45b8986cd84b54208f11adf">MouseLook</a>(<span class="keywordtype">float</span> x, <span class="keywordtype">float</span> y);</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="../../dc/d9c/class_u_camera_actor.html#a3a6c9892e5d7922d7c06a44224c3bb0c">   22</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../dc/d9c/class_u_camera_actor.html#a3a6c9892e5d7922d7c06a44224c3bb0c">W</a>();</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="../../dc/d9c/class_u_camera_actor.html#afea56d3827d25347d8028c3ff6dfaa1c">   23</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../dc/d9c/class_u_camera_actor.html#afea56d3827d25347d8028c3ff6dfaa1c">S</a>();</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="../../dc/d9c/class_u_camera_actor.html#acac7682ba872fb0e3bf9cc56659fca17">   24</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../dc/d9c/class_u_camera_actor.html#acac7682ba872fb0e3bf9cc56659fca17">A</a>();</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="../../dc/d9c/class_u_camera_actor.html#a189c2b15e36a8bc815fe25bd698828b4">   25</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../dc/d9c/class_u_camera_actor.html#a189c2b15e36a8bc815fe25bd698828b4">D</a>();</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="../../dc/d9c/class_u_camera_actor.html#a32f640d8668345d74f05499b63c06b3f">   26</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../dc/d9c/class_u_camera_actor.html#a32f640d8668345d74f05499b63c06b3f">Space</a>();</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="../../dc/d9c/class_u_camera_actor.html#ad86b53ea26e7f1e7c5453bc693ab01f1">   27</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../dc/d9c/class_u_camera_actor.html#ad86b53ea26e7f1e7c5453bc693ab01f1">Action</a>(<a class="code hl_enumeration" href="../../dd/d7b/_input_core_8h.html#af20302d31e77274d05d1998475591a5a">eInputActionState</a> action);</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="../../dc/d9c/class_u_camera_actor.html#a50ef4e7449b93b32e5ffa97c2fa9b747">   28</a></span>    <a class="code hl_struct" href="../../d0/da2/struct_d3_d12_camera.html">D3D12Camera</a>&amp; <a class="code hl_function" href="../../dc/d9c/class_u_camera_actor.html#a50ef4e7449b93b32e5ffa97c2fa9b747">GetCamera</a>() { <span class="keywordflow">return</span> <a class="code hl_variable" href="../../dc/d9c/class_u_camera_actor.html#a25065da654d3ed68adf4dddd314f04c4">m_camera</a>; }</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="../../dc/d9c/class_u_camera_actor.html#aaadfde38e9c8df98e7a07fb48ebaaee2">   32</a></span>    <a class="code hl_class" href="../../d2/dfc/class_u_rotate_component.html">URotateComponent</a>* <a class="code hl_variable" href="../../dc/d9c/class_u_camera_actor.html#aaadfde38e9c8df98e7a07fb48ebaaee2">m_rotateComponent</a>;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="../../dc/d9c/class_u_camera_actor.html#a25065da654d3ed68adf4dddd314f04c4">   35</a></span>    <a class="code hl_struct" href="../../d0/da2/struct_d3_d12_camera.html">D3D12Camera</a> <a class="code hl_variable" href="../../dc/d9c/class_u_camera_actor.html#a25065da654d3ed68adf4dddd314f04c4">m_camera</a>;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="keywordtype">float</span> sensevity = 0.09;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keywordtype">float</span> mouseSensevity = 0.5;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keywordtype">float</span> Speed = 0.1f;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    DirectX::XMFLOAT2 Controller;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>};</div>
+</div>
+<div class="ttc" id="a_actor_8h_html"><div class="ttname"><a href="../../de/deb/_actor_8h.html">Actor.h</a></div></div>
+<div class="ttc" id="a_d3_d12_camera_8h_html"><div class="ttname"><a href="../../d1/d7f/_d3_d12_camera_8h.html">D3D12Camera.h</a></div></div>
+<div class="ttc" id="a_input_core_8h_html"><div class="ttname"><a href="../../dd/d7b/_input_core_8h.html">InputCore.h</a></div></div>
+<div class="ttc" id="a_input_core_8h_html_af20302d31e77274d05d1998475591a5a"><div class="ttname"><a href="../../dd/d7b/_input_core_8h.html#af20302d31e77274d05d1998475591a5a">eInputActionState</a></div><div class="ttdeci">eInputActionState</div><div class="ttdef"><b>Definition</b> InputCore.h:12</div></div>
+<div class="ttc" id="a_rotate_component_8h_html"><div class="ttname"><a href="../../de/d34/_rotate_component_8h.html">RotateComponent.h</a></div></div>
+<div class="ttc" id="aclass_a_actor_html"><div class="ttname"><a href="../../db/d32/class_a_actor.html">AActor</a></div><div class="ttdef"><b>Definition</b> Actor.h:17</div></div>
+<div class="ttc" id="aclass_f_input_core_html"><div class="ttname"><a href="../../d9/dc7/class_f_input_core.html">FInputCore</a></div><div class="ttdef"><b>Definition</b> InputCore.h:41</div></div>
+<div class="ttc" id="aclass_u_camera_actor_html"><div class="ttname"><a href="../../dc/d9c/class_u_camera_actor.html">UCameraActor</a></div><div class="ttdef"><b>Definition</b> CameraActor.h:10</div></div>
+<div class="ttc" id="aclass_u_camera_actor_html_a189c2b15e36a8bc815fe25bd698828b4"><div class="ttname"><a href="../../dc/d9c/class_u_camera_actor.html#a189c2b15e36a8bc815fe25bd698828b4">UCameraActor::D</a></div><div class="ttdeci">void D()</div></div>
+<div class="ttc" id="aclass_u_camera_actor_html_a1fb13abdd45b8986cd84b54208f11adf"><div class="ttname"><a href="../../dc/d9c/class_u_camera_actor.html#a1fb13abdd45b8986cd84b54208f11adf">UCameraActor::MouseLook</a></div><div class="ttdeci">void MouseLook(float x, float y)</div></div>
+<div class="ttc" id="aclass_u_camera_actor_html_a25065da654d3ed68adf4dddd314f04c4"><div class="ttname"><a href="../../dc/d9c/class_u_camera_actor.html#a25065da654d3ed68adf4dddd314f04c4">UCameraActor::m_camera</a></div><div class="ttdeci">D3D12Camera m_camera</div><div class="ttdef"><b>Definition</b> CameraActor.h:35</div></div>
+<div class="ttc" id="aclass_u_camera_actor_html_a2fd329b2a9e753783250b6c9c02a37fa"><div class="ttname"><a href="../../dc/d9c/class_u_camera_actor.html#a2fd329b2a9e753783250b6c9c02a37fa">UCameraActor::UCameraActor</a></div><div class="ttdeci">UCameraActor()</div></div>
+<div class="ttc" id="aclass_u_camera_actor_html_a32f640d8668345d74f05499b63c06b3f"><div class="ttname"><a href="../../dc/d9c/class_u_camera_actor.html#a32f640d8668345d74f05499b63c06b3f">UCameraActor::Space</a></div><div class="ttdeci">void Space()</div></div>
+<div class="ttc" id="aclass_u_camera_actor_html_a3a6c9892e5d7922d7c06a44224c3bb0c"><div class="ttname"><a href="../../dc/d9c/class_u_camera_actor.html#a3a6c9892e5d7922d7c06a44224c3bb0c">UCameraActor::W</a></div><div class="ttdeci">void W()</div></div>
+<div class="ttc" id="aclass_u_camera_actor_html_a4e1aa1b3879817cd1838b6e5e7e8e5b6"><div class="ttname"><a href="../../dc/d9c/class_u_camera_actor.html#a4e1aa1b3879817cd1838b6e5e7e8e5b6">UCameraActor::Update</a></div><div class="ttdeci">void Update(float DeltaTime) override</div></div>
+<div class="ttc" id="aclass_u_camera_actor_html_a50ef4e7449b93b32e5ffa97c2fa9b747"><div class="ttname"><a href="../../dc/d9c/class_u_camera_actor.html#a50ef4e7449b93b32e5ffa97c2fa9b747">UCameraActor::GetCamera</a></div><div class="ttdeci">D3D12Camera &amp; GetCamera()</div><div class="ttdef"><b>Definition</b> CameraActor.h:28</div></div>
+<div class="ttc" id="aclass_u_camera_actor_html_a7115fdf2c7a0f193670bc60ad2ead173"><div class="ttname"><a href="../../dc/d9c/class_u_camera_actor.html#a7115fdf2c7a0f193670bc60ad2ead173">UCameraActor::Destroy</a></div><div class="ttdeci">void Destroy() override</div></div>
+<div class="ttc" id="aclass_u_camera_actor_html_aa1dea3adce1a7c62c2bc6f4e056d733e"><div class="ttname"><a href="../../dc/d9c/class_u_camera_actor.html#aa1dea3adce1a7c62c2bc6f4e056d733e">UCameraActor::OnResize</a></div><div class="ttdeci">void OnResize(long, long)</div></div>
+<div class="ttc" id="aclass_u_camera_actor_html_aaadfde38e9c8df98e7a07fb48ebaaee2"><div class="ttname"><a href="../../dc/d9c/class_u_camera_actor.html#aaadfde38e9c8df98e7a07fb48ebaaee2">UCameraActor::m_rotateComponent</a></div><div class="ttdeci">URotateComponent * m_rotateComponent</div><div class="ttdef"><b>Definition</b> CameraActor.h:32</div></div>
+<div class="ttc" id="aclass_u_camera_actor_html_acac7682ba872fb0e3bf9cc56659fca17"><div class="ttname"><a href="../../dc/d9c/class_u_camera_actor.html#acac7682ba872fb0e3bf9cc56659fca17">UCameraActor::A</a></div><div class="ttdeci">void A()</div></div>
+<div class="ttc" id="aclass_u_camera_actor_html_acae846100e1e68b52511bddd02aeff8f"><div class="ttname"><a href="../../dc/d9c/class_u_camera_actor.html#acae846100e1e68b52511bddd02aeff8f">UCameraActor::BeginPlay</a></div><div class="ttdeci">void BeginPlay() override</div></div>
+<div class="ttc" id="aclass_u_camera_actor_html_ad86b53ea26e7f1e7c5453bc693ab01f1"><div class="ttname"><a href="../../dc/d9c/class_u_camera_actor.html#ad86b53ea26e7f1e7c5453bc693ab01f1">UCameraActor::Action</a></div><div class="ttdeci">void Action(eInputActionState action)</div></div>
+<div class="ttc" id="aclass_u_camera_actor_html_aeece6bd5de3df535ba0f71942d5acc6f"><div class="ttname"><a href="../../dc/d9c/class_u_camera_actor.html#aeece6bd5de3df535ba0f71942d5acc6f">UCameraActor::SetupPlayerController</a></div><div class="ttdeci">void SetupPlayerController(FInputCore *controller) override</div></div>
+<div class="ttc" id="aclass_u_camera_actor_html_afea56d3827d25347d8028c3ff6dfaa1c"><div class="ttname"><a href="../../dc/d9c/class_u_camera_actor.html#afea56d3827d25347d8028c3ff6dfaa1c">UCameraActor::S</a></div><div class="ttdeci">void S()</div></div>
+<div class="ttc" id="aclass_u_rotate_component_html"><div class="ttname"><a href="../../d2/dfc/class_u_rotate_component.html">URotateComponent</a></div><div class="ttdef"><b>Definition</b> RotateComponent.h:11</div></div>
+<div class="ttc" id="astruct_d3_d12_camera_html"><div class="ttname"><a href="../../d0/da2/struct_d3_d12_camera.html">D3D12Camera</a></div><div class="ttdef"><b>Definition</b> D3D12Camera.h:6</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../dir_55043db21ba5ddd7c561d2c5a5a38944.html">Dark Engine</a></li><li class="navelem"><a class="el" href="../../dir_e00b54220e1e1486ac9971b606d33054.html">Source</a></li><li class="navelem"><a class="el" href="../../dir_ae01c8af07818b260cc3481e8588b277.html">Runtime</a></li><li class="navelem"><a class="el" href="../../dir_736522237f23468e79442f3fc4ecd19b.html">Engine</a></li><li class="navelem"><a class="el" href="../../dir_8e5f7f07800deb66a56f516b5eaf6fef.html">Classes</a></li><li class="navelem"><a class="el" href="../../dir_95dfa3d2027421e2036bce55c0e2d073.html">Camera</a></li><li class="navelem"><a class="el" href="../../dd/dd1/_camera_actor_8h.html">CameraActor.h</a></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
+</body>
+</html>

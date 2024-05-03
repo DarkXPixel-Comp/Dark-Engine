@@ -1,0 +1,146 @@
+\doxysection{Структура D3\+DX12\+\_\+\+MESH\+\_\+\+SHADER\+\_\+\+PIPELINE\+\_\+\+STATE\+\_\+\+DESC}
+\hypertarget{struct_d3_d_x12___m_e_s_h___s_h_a_d_e_r___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c}{}\label{struct_d3_d_x12___m_e_s_h___s_h_a_d_e_r___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c}\index{D3DX12\_MESH\_SHADER\_PIPELINE\_STATE\_DESC@{D3DX12\_MESH\_SHADER\_PIPELINE\_STATE\_DESC}}
+
+
+{\ttfamily \#include $<$d3dx12.\+h$>$}
+
+\doxysubsubsection*{Открытые атрибуты}
+\begin{DoxyCompactItemize}
+\item 
+ID3\+D12\+Root\+Signature \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_d3_d_x12___m_e_s_h___s_h_a_d_e_r___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c_a8d665167664e656c430f44d6cd6d8a5c}{p\+Root\+Signature}}
+\item 
+D3\+D12\+\_\+\+SHADER\+\_\+\+BYTECODE \mbox{\hyperlink{struct_d3_d_x12___m_e_s_h___s_h_a_d_e_r___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c_a547e4574e56f86dd08d68d0a6abbb45e}{AS}}
+\item 
+D3\+D12\+\_\+\+SHADER\+\_\+\+BYTECODE \mbox{\hyperlink{struct_d3_d_x12___m_e_s_h___s_h_a_d_e_r___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c_a5df989f1866c0f0bdc089440bbb3268e}{MS}}
+\item 
+D3\+D12\+\_\+\+SHADER\+\_\+\+BYTECODE \mbox{\hyperlink{struct_d3_d_x12___m_e_s_h___s_h_a_d_e_r___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c_a5a95c7df6b68eb56ea20db28d31dd2f2}{PS}}
+\item 
+D3\+D12\+\_\+\+BLEND\+\_\+\+DESC \mbox{\hyperlink{struct_d3_d_x12___m_e_s_h___s_h_a_d_e_r___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c_ab5cf1eb360e1451ab5727bf525174d9e}{Blend\+State}}
+\item 
+UINT \mbox{\hyperlink{struct_d3_d_x12___m_e_s_h___s_h_a_d_e_r___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c_a1d3551122b0d666bd7751d78e3104059}{Sample\+Mask}}
+\item 
+D3\+D12\+\_\+\+RASTERIZER\+\_\+\+DESC \mbox{\hyperlink{struct_d3_d_x12___m_e_s_h___s_h_a_d_e_r___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c_a92f17d025cc8a10d3d4d66e298e4c97e}{Rasterizer\+State}}
+\item 
+D3\+D12\+\_\+\+DEPTH\+\_\+\+STENCIL\+\_\+\+DESC \mbox{\hyperlink{struct_d3_d_x12___m_e_s_h___s_h_a_d_e_r___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c_a347b09fcdd8e60a25703c65052792cd2}{Depth\+Stencil\+State}}
+\item 
+D3\+D12\+\_\+\+PRIMITIVE\+\_\+\+TOPOLOGY\+\_\+\+TYPE \mbox{\hyperlink{struct_d3_d_x12___m_e_s_h___s_h_a_d_e_r___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c_a06257ef454409bcd974a9ad1c215071a}{Primitive\+Topology\+Type}}
+\item 
+UINT \mbox{\hyperlink{struct_d3_d_x12___m_e_s_h___s_h_a_d_e_r___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c_afbd508be093efe4d55a547a38f12d867}{Num\+Render\+Targets}}
+\item 
+DXGI\+\_\+\+FORMAT \mbox{\hyperlink{struct_d3_d_x12___m_e_s_h___s_h_a_d_e_r___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c_a1b386b9345e2fe36a70b5bdc3311e0c2}{RTVFormats}} \mbox{[}D3\+D12\+\_\+\+SIMULTANEOUS\+\_\+\+RENDER\+\_\+\+TARGET\+\_\+\+COUNT\mbox{]}
+\item 
+DXGI\+\_\+\+FORMAT \mbox{\hyperlink{struct_d3_d_x12___m_e_s_h___s_h_a_d_e_r___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c_a1e269269b50253025cf3c141362ff058}{DSVFormat}}
+\item 
+DXGI\+\_\+\+SAMPLE\+\_\+\+DESC \mbox{\hyperlink{struct_d3_d_x12___m_e_s_h___s_h_a_d_e_r___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c_afbf0c169ba8dff94971d19abed8a6cc3}{Sample\+Desc}}
+\item 
+UINT \mbox{\hyperlink{struct_d3_d_x12___m_e_s_h___s_h_a_d_e_r___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c_a4c56548cf5eca88b79541c17260f8966}{Node\+Mask}}
+\item 
+D3\+D12\+\_\+\+CACHED\+\_\+\+PIPELINE\+\_\+\+STATE \mbox{\hyperlink{struct_d3_d_x12___m_e_s_h___s_h_a_d_e_r___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c_af8bdc1849a543fe2a0f0e8e5d85e991d}{Cached\+PSO}}
+\item 
+D3\+D12\+\_\+\+PIPELINE\+\_\+\+STATE\+\_\+\+FLAGS \mbox{\hyperlink{struct_d3_d_x12___m_e_s_h___s_h_a_d_e_r___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c_a75ea6f8ce39a29d1414abfce575263c9}{Flags}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Данные класса}
+\Hypertarget{struct_d3_d_x12___m_e_s_h___s_h_a_d_e_r___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c_a547e4574e56f86dd08d68d0a6abbb45e}\label{struct_d3_d_x12___m_e_s_h___s_h_a_d_e_r___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c_a547e4574e56f86dd08d68d0a6abbb45e} 
+\index{D3DX12\_MESH\_SHADER\_PIPELINE\_STATE\_DESC@{D3DX12\_MESH\_SHADER\_PIPELINE\_STATE\_DESC}!AS@{AS}}
+\index{AS@{AS}!D3DX12\_MESH\_SHADER\_PIPELINE\_STATE\_DESC@{D3DX12\_MESH\_SHADER\_PIPELINE\_STATE\_DESC}}
+\doxysubsubsection{\texorpdfstring{AS}{AS}}
+{\footnotesize\ttfamily D3\+D12\+\_\+\+SHADER\+\_\+\+BYTECODE D3\+DX12\+\_\+\+MESH\+\_\+\+SHADER\+\_\+\+PIPELINE\+\_\+\+STATE\+\_\+\+DESC\+::\+AS}
+
+\Hypertarget{struct_d3_d_x12___m_e_s_h___s_h_a_d_e_r___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c_ab5cf1eb360e1451ab5727bf525174d9e}\label{struct_d3_d_x12___m_e_s_h___s_h_a_d_e_r___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c_ab5cf1eb360e1451ab5727bf525174d9e} 
+\index{D3DX12\_MESH\_SHADER\_PIPELINE\_STATE\_DESC@{D3DX12\_MESH\_SHADER\_PIPELINE\_STATE\_DESC}!BlendState@{BlendState}}
+\index{BlendState@{BlendState}!D3DX12\_MESH\_SHADER\_PIPELINE\_STATE\_DESC@{D3DX12\_MESH\_SHADER\_PIPELINE\_STATE\_DESC}}
+\doxysubsubsection{\texorpdfstring{BlendState}{BlendState}}
+{\footnotesize\ttfamily D3\+D12\+\_\+\+BLEND\+\_\+\+DESC D3\+DX12\+\_\+\+MESH\+\_\+\+SHADER\+\_\+\+PIPELINE\+\_\+\+STATE\+\_\+\+DESC\+::\+Blend\+State}
+
+\Hypertarget{struct_d3_d_x12___m_e_s_h___s_h_a_d_e_r___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c_af8bdc1849a543fe2a0f0e8e5d85e991d}\label{struct_d3_d_x12___m_e_s_h___s_h_a_d_e_r___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c_af8bdc1849a543fe2a0f0e8e5d85e991d} 
+\index{D3DX12\_MESH\_SHADER\_PIPELINE\_STATE\_DESC@{D3DX12\_MESH\_SHADER\_PIPELINE\_STATE\_DESC}!CachedPSO@{CachedPSO}}
+\index{CachedPSO@{CachedPSO}!D3DX12\_MESH\_SHADER\_PIPELINE\_STATE\_DESC@{D3DX12\_MESH\_SHADER\_PIPELINE\_STATE\_DESC}}
+\doxysubsubsection{\texorpdfstring{CachedPSO}{CachedPSO}}
+{\footnotesize\ttfamily D3\+D12\+\_\+\+CACHED\+\_\+\+PIPELINE\+\_\+\+STATE D3\+DX12\+\_\+\+MESH\+\_\+\+SHADER\+\_\+\+PIPELINE\+\_\+\+STATE\+\_\+\+DESC\+::\+Cached\+PSO}
+
+\Hypertarget{struct_d3_d_x12___m_e_s_h___s_h_a_d_e_r___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c_a347b09fcdd8e60a25703c65052792cd2}\label{struct_d3_d_x12___m_e_s_h___s_h_a_d_e_r___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c_a347b09fcdd8e60a25703c65052792cd2} 
+\index{D3DX12\_MESH\_SHADER\_PIPELINE\_STATE\_DESC@{D3DX12\_MESH\_SHADER\_PIPELINE\_STATE\_DESC}!DepthStencilState@{DepthStencilState}}
+\index{DepthStencilState@{DepthStencilState}!D3DX12\_MESH\_SHADER\_PIPELINE\_STATE\_DESC@{D3DX12\_MESH\_SHADER\_PIPELINE\_STATE\_DESC}}
+\doxysubsubsection{\texorpdfstring{DepthStencilState}{DepthStencilState}}
+{\footnotesize\ttfamily D3\+D12\+\_\+\+DEPTH\+\_\+\+STENCIL\+\_\+\+DESC D3\+DX12\+\_\+\+MESH\+\_\+\+SHADER\+\_\+\+PIPELINE\+\_\+\+STATE\+\_\+\+DESC\+::\+Depth\+Stencil\+State}
+
+\Hypertarget{struct_d3_d_x12___m_e_s_h___s_h_a_d_e_r___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c_a1e269269b50253025cf3c141362ff058}\label{struct_d3_d_x12___m_e_s_h___s_h_a_d_e_r___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c_a1e269269b50253025cf3c141362ff058} 
+\index{D3DX12\_MESH\_SHADER\_PIPELINE\_STATE\_DESC@{D3DX12\_MESH\_SHADER\_PIPELINE\_STATE\_DESC}!DSVFormat@{DSVFormat}}
+\index{DSVFormat@{DSVFormat}!D3DX12\_MESH\_SHADER\_PIPELINE\_STATE\_DESC@{D3DX12\_MESH\_SHADER\_PIPELINE\_STATE\_DESC}}
+\doxysubsubsection{\texorpdfstring{DSVFormat}{DSVFormat}}
+{\footnotesize\ttfamily DXGI\+\_\+\+FORMAT D3\+DX12\+\_\+\+MESH\+\_\+\+SHADER\+\_\+\+PIPELINE\+\_\+\+STATE\+\_\+\+DESC\+::\+DSVFormat}
+
+\Hypertarget{struct_d3_d_x12___m_e_s_h___s_h_a_d_e_r___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c_a75ea6f8ce39a29d1414abfce575263c9}\label{struct_d3_d_x12___m_e_s_h___s_h_a_d_e_r___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c_a75ea6f8ce39a29d1414abfce575263c9} 
+\index{D3DX12\_MESH\_SHADER\_PIPELINE\_STATE\_DESC@{D3DX12\_MESH\_SHADER\_PIPELINE\_STATE\_DESC}!Flags@{Flags}}
+\index{Flags@{Flags}!D3DX12\_MESH\_SHADER\_PIPELINE\_STATE\_DESC@{D3DX12\_MESH\_SHADER\_PIPELINE\_STATE\_DESC}}
+\doxysubsubsection{\texorpdfstring{Flags}{Flags}}
+{\footnotesize\ttfamily D3\+D12\+\_\+\+PIPELINE\+\_\+\+STATE\+\_\+\+FLAGS D3\+DX12\+\_\+\+MESH\+\_\+\+SHADER\+\_\+\+PIPELINE\+\_\+\+STATE\+\_\+\+DESC\+::\+Flags}
+
+\Hypertarget{struct_d3_d_x12___m_e_s_h___s_h_a_d_e_r___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c_a5df989f1866c0f0bdc089440bbb3268e}\label{struct_d3_d_x12___m_e_s_h___s_h_a_d_e_r___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c_a5df989f1866c0f0bdc089440bbb3268e} 
+\index{D3DX12\_MESH\_SHADER\_PIPELINE\_STATE\_DESC@{D3DX12\_MESH\_SHADER\_PIPELINE\_STATE\_DESC}!MS@{MS}}
+\index{MS@{MS}!D3DX12\_MESH\_SHADER\_PIPELINE\_STATE\_DESC@{D3DX12\_MESH\_SHADER\_PIPELINE\_STATE\_DESC}}
+\doxysubsubsection{\texorpdfstring{MS}{MS}}
+{\footnotesize\ttfamily D3\+D12\+\_\+\+SHADER\+\_\+\+BYTECODE D3\+DX12\+\_\+\+MESH\+\_\+\+SHADER\+\_\+\+PIPELINE\+\_\+\+STATE\+\_\+\+DESC\+::\+MS}
+
+\Hypertarget{struct_d3_d_x12___m_e_s_h___s_h_a_d_e_r___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c_a4c56548cf5eca88b79541c17260f8966}\label{struct_d3_d_x12___m_e_s_h___s_h_a_d_e_r___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c_a4c56548cf5eca88b79541c17260f8966} 
+\index{D3DX12\_MESH\_SHADER\_PIPELINE\_STATE\_DESC@{D3DX12\_MESH\_SHADER\_PIPELINE\_STATE\_DESC}!NodeMask@{NodeMask}}
+\index{NodeMask@{NodeMask}!D3DX12\_MESH\_SHADER\_PIPELINE\_STATE\_DESC@{D3DX12\_MESH\_SHADER\_PIPELINE\_STATE\_DESC}}
+\doxysubsubsection{\texorpdfstring{NodeMask}{NodeMask}}
+{\footnotesize\ttfamily UINT D3\+DX12\+\_\+\+MESH\+\_\+\+SHADER\+\_\+\+PIPELINE\+\_\+\+STATE\+\_\+\+DESC\+::\+Node\+Mask}
+
+\Hypertarget{struct_d3_d_x12___m_e_s_h___s_h_a_d_e_r___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c_afbd508be093efe4d55a547a38f12d867}\label{struct_d3_d_x12___m_e_s_h___s_h_a_d_e_r___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c_afbd508be093efe4d55a547a38f12d867} 
+\index{D3DX12\_MESH\_SHADER\_PIPELINE\_STATE\_DESC@{D3DX12\_MESH\_SHADER\_PIPELINE\_STATE\_DESC}!NumRenderTargets@{NumRenderTargets}}
+\index{NumRenderTargets@{NumRenderTargets}!D3DX12\_MESH\_SHADER\_PIPELINE\_STATE\_DESC@{D3DX12\_MESH\_SHADER\_PIPELINE\_STATE\_DESC}}
+\doxysubsubsection{\texorpdfstring{NumRenderTargets}{NumRenderTargets}}
+{\footnotesize\ttfamily UINT D3\+DX12\+\_\+\+MESH\+\_\+\+SHADER\+\_\+\+PIPELINE\+\_\+\+STATE\+\_\+\+DESC\+::\+Num\+Render\+Targets}
+
+\Hypertarget{struct_d3_d_x12___m_e_s_h___s_h_a_d_e_r___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c_a06257ef454409bcd974a9ad1c215071a}\label{struct_d3_d_x12___m_e_s_h___s_h_a_d_e_r___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c_a06257ef454409bcd974a9ad1c215071a} 
+\index{D3DX12\_MESH\_SHADER\_PIPELINE\_STATE\_DESC@{D3DX12\_MESH\_SHADER\_PIPELINE\_STATE\_DESC}!PrimitiveTopologyType@{PrimitiveTopologyType}}
+\index{PrimitiveTopologyType@{PrimitiveTopologyType}!D3DX12\_MESH\_SHADER\_PIPELINE\_STATE\_DESC@{D3DX12\_MESH\_SHADER\_PIPELINE\_STATE\_DESC}}
+\doxysubsubsection{\texorpdfstring{PrimitiveTopologyType}{PrimitiveTopologyType}}
+{\footnotesize\ttfamily D3\+D12\+\_\+\+PRIMITIVE\+\_\+\+TOPOLOGY\+\_\+\+TYPE D3\+DX12\+\_\+\+MESH\+\_\+\+SHADER\+\_\+\+PIPELINE\+\_\+\+STATE\+\_\+\+DESC\+::\+Primitive\+Topology\+Type}
+
+\Hypertarget{struct_d3_d_x12___m_e_s_h___s_h_a_d_e_r___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c_a8d665167664e656c430f44d6cd6d8a5c}\label{struct_d3_d_x12___m_e_s_h___s_h_a_d_e_r___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c_a8d665167664e656c430f44d6cd6d8a5c} 
+\index{D3DX12\_MESH\_SHADER\_PIPELINE\_STATE\_DESC@{D3DX12\_MESH\_SHADER\_PIPELINE\_STATE\_DESC}!pRootSignature@{pRootSignature}}
+\index{pRootSignature@{pRootSignature}!D3DX12\_MESH\_SHADER\_PIPELINE\_STATE\_DESC@{D3DX12\_MESH\_SHADER\_PIPELINE\_STATE\_DESC}}
+\doxysubsubsection{\texorpdfstring{pRootSignature}{pRootSignature}}
+{\footnotesize\ttfamily ID3\+D12\+Root\+Signature \texorpdfstring{$\ast$}{*} D3\+DX12\+\_\+\+MESH\+\_\+\+SHADER\+\_\+\+PIPELINE\+\_\+\+STATE\+\_\+\+DESC\+::p\+Root\+Signature}
+
+\Hypertarget{struct_d3_d_x12___m_e_s_h___s_h_a_d_e_r___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c_a5a95c7df6b68eb56ea20db28d31dd2f2}\label{struct_d3_d_x12___m_e_s_h___s_h_a_d_e_r___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c_a5a95c7df6b68eb56ea20db28d31dd2f2} 
+\index{D3DX12\_MESH\_SHADER\_PIPELINE\_STATE\_DESC@{D3DX12\_MESH\_SHADER\_PIPELINE\_STATE\_DESC}!PS@{PS}}
+\index{PS@{PS}!D3DX12\_MESH\_SHADER\_PIPELINE\_STATE\_DESC@{D3DX12\_MESH\_SHADER\_PIPELINE\_STATE\_DESC}}
+\doxysubsubsection{\texorpdfstring{PS}{PS}}
+{\footnotesize\ttfamily D3\+D12\+\_\+\+SHADER\+\_\+\+BYTECODE D3\+DX12\+\_\+\+MESH\+\_\+\+SHADER\+\_\+\+PIPELINE\+\_\+\+STATE\+\_\+\+DESC\+::\+PS}
+
+\Hypertarget{struct_d3_d_x12___m_e_s_h___s_h_a_d_e_r___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c_a92f17d025cc8a10d3d4d66e298e4c97e}\label{struct_d3_d_x12___m_e_s_h___s_h_a_d_e_r___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c_a92f17d025cc8a10d3d4d66e298e4c97e} 
+\index{D3DX12\_MESH\_SHADER\_PIPELINE\_STATE\_DESC@{D3DX12\_MESH\_SHADER\_PIPELINE\_STATE\_DESC}!RasterizerState@{RasterizerState}}
+\index{RasterizerState@{RasterizerState}!D3DX12\_MESH\_SHADER\_PIPELINE\_STATE\_DESC@{D3DX12\_MESH\_SHADER\_PIPELINE\_STATE\_DESC}}
+\doxysubsubsection{\texorpdfstring{RasterizerState}{RasterizerState}}
+{\footnotesize\ttfamily D3\+D12\+\_\+\+RASTERIZER\+\_\+\+DESC D3\+DX12\+\_\+\+MESH\+\_\+\+SHADER\+\_\+\+PIPELINE\+\_\+\+STATE\+\_\+\+DESC\+::\+Rasterizer\+State}
+
+\Hypertarget{struct_d3_d_x12___m_e_s_h___s_h_a_d_e_r___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c_a1b386b9345e2fe36a70b5bdc3311e0c2}\label{struct_d3_d_x12___m_e_s_h___s_h_a_d_e_r___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c_a1b386b9345e2fe36a70b5bdc3311e0c2} 
+\index{D3DX12\_MESH\_SHADER\_PIPELINE\_STATE\_DESC@{D3DX12\_MESH\_SHADER\_PIPELINE\_STATE\_DESC}!RTVFormats@{RTVFormats}}
+\index{RTVFormats@{RTVFormats}!D3DX12\_MESH\_SHADER\_PIPELINE\_STATE\_DESC@{D3DX12\_MESH\_SHADER\_PIPELINE\_STATE\_DESC}}
+\doxysubsubsection{\texorpdfstring{RTVFormats}{RTVFormats}}
+{\footnotesize\ttfamily DXGI\+\_\+\+FORMAT D3\+DX12\+\_\+\+MESH\+\_\+\+SHADER\+\_\+\+PIPELINE\+\_\+\+STATE\+\_\+\+DESC\+::\+RTVFormats}
+
+\Hypertarget{struct_d3_d_x12___m_e_s_h___s_h_a_d_e_r___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c_afbf0c169ba8dff94971d19abed8a6cc3}\label{struct_d3_d_x12___m_e_s_h___s_h_a_d_e_r___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c_afbf0c169ba8dff94971d19abed8a6cc3} 
+\index{D3DX12\_MESH\_SHADER\_PIPELINE\_STATE\_DESC@{D3DX12\_MESH\_SHADER\_PIPELINE\_STATE\_DESC}!SampleDesc@{SampleDesc}}
+\index{SampleDesc@{SampleDesc}!D3DX12\_MESH\_SHADER\_PIPELINE\_STATE\_DESC@{D3DX12\_MESH\_SHADER\_PIPELINE\_STATE\_DESC}}
+\doxysubsubsection{\texorpdfstring{SampleDesc}{SampleDesc}}
+{\footnotesize\ttfamily DXGI\+\_\+\+SAMPLE\+\_\+\+DESC D3\+DX12\+\_\+\+MESH\+\_\+\+SHADER\+\_\+\+PIPELINE\+\_\+\+STATE\+\_\+\+DESC\+::\+Sample\+Desc}
+
+\Hypertarget{struct_d3_d_x12___m_e_s_h___s_h_a_d_e_r___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c_a1d3551122b0d666bd7751d78e3104059}\label{struct_d3_d_x12___m_e_s_h___s_h_a_d_e_r___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c_a1d3551122b0d666bd7751d78e3104059} 
+\index{D3DX12\_MESH\_SHADER\_PIPELINE\_STATE\_DESC@{D3DX12\_MESH\_SHADER\_PIPELINE\_STATE\_DESC}!SampleMask@{SampleMask}}
+\index{SampleMask@{SampleMask}!D3DX12\_MESH\_SHADER\_PIPELINE\_STATE\_DESC@{D3DX12\_MESH\_SHADER\_PIPELINE\_STATE\_DESC}}
+\doxysubsubsection{\texorpdfstring{SampleMask}{SampleMask}}
+{\footnotesize\ttfamily UINT D3\+DX12\+\_\+\+MESH\+\_\+\+SHADER\+\_\+\+PIPELINE\+\_\+\+STATE\+\_\+\+DESC\+::\+Sample\+Mask}
+
+
+
+Объявления и описания членов структур находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+Dark Engine/\+Source/\+Runtime/\+D3\+D12\+RHI/public/\mbox{\hyperlink{_d3_d12_r_h_i_2public_2d3dx12_8h}{d3dx12.\+h}}\item 
+Dark Engine/\+Source/\+Runtime/\+Render/\+D3\+D12/\mbox{\hyperlink{_render_2_d3_d12_2d3dx12_8h}{d3dx12.\+h}}\end{DoxyCompactItemize}

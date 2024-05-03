@@ -8,13 +8,13 @@ struct FGenericWindowDefinition
 {
 	FString Title;
 
-	float XPositionOnScreen;
-	float YPositionOnScreen;
+	float XPositionOnScreen = 0;
+	float YPositionOnScreen = 0;
 
-	float WidthOnScreen;
-	float HeightOnScreen;
+	float WidthOnScreen = 0;
+	float HeightOnScreen = 0;
 
-	bool bHasWindowBorder;
+	bool bHasWindowBorder = true;
 	int32 CornerRadius = 5;
 	
 

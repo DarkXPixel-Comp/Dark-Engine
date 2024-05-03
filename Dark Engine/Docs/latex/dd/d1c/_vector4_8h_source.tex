@@ -1,0 +1,50 @@
+\doxysection{Vector4.\+h}
+\hypertarget{_vector4_8h_source}{}\label{_vector4_8h_source}\index{Dark Engine/Source/Runtime/Core/Public/Math/Vector4.h@{Dark Engine/Source/Runtime/Core/Public/Math/Vector4.h}}
+\mbox{\hyperlink{_vector4_8h}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once\ \ \ \ \ }}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <type\_traits>}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_d_e}{DE}}}
+\DoxyCodeLine{00006\ \{}
+\DoxyCodeLine{00007\ \ \ \ \ \textcolor{keyword}{namespace\ }Math}
+\DoxyCodeLine{00008\ \ \ \ \ \{}
+\DoxyCodeLine{00009\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector4}{TVector4}}}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_assert}(std::is\_floating\_point\_v<T>,\ \textcolor{stringliteral}{"{}T\ must\ be\ floating\ point"{}});}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector4_a05ba7584b11d46cefcafaec84dc65655}{FDark}}\ =\ T;}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{union}}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ T\ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector4_a14fe27ff8e193d0e85f14e11c6846a70}{X}};}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ T\ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector4_a5f3cc329f4dce40a1a1b4780d9765bc9}{Y}};}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ T\ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector4_adc84918d9f2c6abfd6a626d2e0fd813e}{Z}};}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ T\ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector4_a3a6a0f9d3c9fbefc416d27b9f5d5a1e9}{W}};}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ T\ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector4_a2d44ba6e4b73fab2cb4f11469e86fa20}{XYZW}}[4];}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ TVector4<T>\ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector4_ad4409963b1620ebf3f4c6def0e6a2d2d}{ZeroVectorOneW}};}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*explicit\ TVector4(void):}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ X(0),\ Y(0),\ Z(0),\ W(0)}}
+\DoxyCodeLine{00033\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \{}}
+\DoxyCodeLine{00034\ \textcolor{comment}{}}
+\DoxyCodeLine{00035\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \}*/}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector4_ab9ca24546a4b2c6a2eee7a35b6295ba7}{TVector4}}(T\ InX\ =\ 0,\ T\ InY\ =\ 0,\ T\ InZ\ =\ 0,\ T\ InW\ =\ 0)\ :}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector4_a14fe27ff8e193d0e85f14e11c6846a70}{X}}(InX),\ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector4_a5f3cc329f4dce40a1a1b4780d9765bc9}{Y}}(InY),\ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector4_adc84918d9f2c6abfd6a626d2e0fd813e}{Z}}(InZ),\ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector4_a3a6a0f9d3c9fbefc416d27b9f5d5a1e9}{W}}(InW)}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00044\ \ \ \ \ \}}
+\DoxyCodeLine{00045\ \}}
+
+\end{DoxyCode}

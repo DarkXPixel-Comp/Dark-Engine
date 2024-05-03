@@ -1,0 +1,736 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Dark Engine: Файл Dark Engine/Source/Runtime/RHI/public/RHIDefines.h</title>
+<link rel="icon" href="../../Logo.png" type="image/x-icon" />
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<script type="text/javascript" src="../../clipboard.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../MiniLogo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Dark Engine<span id="projectnumber">&#160;0.0.50</span>
+   </div>
+   <div id="projectbrief">New game engnie D3D12</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../../',true,false,'search.php','Поиск');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('de/df7/_r_h_i_defines_8h.html','../../'); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Классы</a> &#124;
+<a href="#enum-members">Перечисления</a> &#124;
+<a href="#func-members">Функции</a>  </div>
+  <div class="headertitle"><div class="title">Файл RHIDefines.h</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d5/db6/_pixel_format_8h_source.html">PixelFormat.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../db/d04/_core_types_8h_source.html">CoreTypes.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d0/d23/_enum_class_flags_8h_source.html">Misc/EnumClassFlags.h</a>&quot;</code><br />
+</div>
+<p><a href="../../de/df7/_r_h_i_defines_8h_source.html">См. исходные тексты.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Классы</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d95/struct_f_r_h_i_descriptor_handle.html">FRHIDescriptorHandle</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/df1/struct_f_rasterizer_state_initializer.html">FRasterizerStateInitializer</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d65/struct_f_depth_stencil_state_initializer.html">FDepthStencilStateInitializer</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+Перечисления</h2></td></tr>
+<tr class="memitem:accfdbf6612e46ffde28b934e051fb990" id="r_accfdbf6612e46ffde28b934e051fb990"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#accfdbf6612e46ffde28b934e051fb990">ERHIInterfaceType</a> { <a class="el" href="#accfdbf6612e46ffde28b934e051fb990a7acdf85c69cc3c5305456a293524386e">Hidden</a>
+, <a class="el" href="#accfdbf6612e46ffde28b934e051fb990abbb93ef26e3c101ff11cdd21cab08a94">Null</a>
+, <a class="el" href="#accfdbf6612e46ffde28b934e051fb990afac777d230cd7175697748a8c5260df6">D3D12</a>
+ }</td></tr>
+<tr class="separator:accfdbf6612e46ffde28b934e051fb990"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac956879f51692c0e19acc90d06b8405d" id="r_ac956879f51692c0e19acc90d06b8405d"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac956879f51692c0e19acc90d06b8405d">ERHIResourceType</a> { <br />
+&#160;&#160;<a class="el" href="#ac956879f51692c0e19acc90d06b8405dae447205e8c895e24bd4ccd1cd2d642e0">RRT_None</a>
+, <a class="el" href="#ac956879f51692c0e19acc90d06b8405da024eb38ecf701931a1084a493f55172f">RRT_SamplerState</a>
+, <a class="el" href="#ac956879f51692c0e19acc90d06b8405daa03b263dc3693fd721d3f46f9e7e7565">RRT_Buffer</a>
+, <a class="el" href="#ac956879f51692c0e19acc90d06b8405dac839ebb92f338258f9bc7ac49361ff25">RRT_Texture</a>
+, <br />
+&#160;&#160;<a class="el" href="#ac956879f51692c0e19acc90d06b8405daae9cf62771e36244e5a982349b43c28b">RRT_Viewport</a>
+, <a class="el" href="#ac956879f51692c0e19acc90d06b8405daf0ad1ed419e1f440a5e93f66e4c1b765">RRT_GraphicsPipelineState</a>
+, <a class="el" href="#ac956879f51692c0e19acc90d06b8405daa0b0d26bdd3db7601c01e519f7e41405">RRT_ComputePipelineState</a>
+, <a class="el" href="#ac956879f51692c0e19acc90d06b8405da94ac0f7e9f101bb8b55af84a2760f765">RRT_VertexDeclaration</a>
+, <br />
+&#160;&#160;<a class="el" href="#ac956879f51692c0e19acc90d06b8405da7d3c2a77a8acae9a89609100f0181246">RRT_VertexShader</a>
+, <a class="el" href="#ac956879f51692c0e19acc90d06b8405da2ea581ed52fe5bf116b07af8ba1685b2">RRT_PixelShader</a>
+, <a class="el" href="#ac956879f51692c0e19acc90d06b8405daa777b95fd3d35399772791dc5f129ef2">RRT_GeometryShader</a>
+, <a class="el" href="#ac956879f51692c0e19acc90d06b8405dadda3a72932f109a2a7bfd3246034b93c">RRT_MeshShader</a>
+, <br />
+&#160;&#160;<a class="el" href="#ac956879f51692c0e19acc90d06b8405dae0226696d71f7f855298d551de320d59">RRT_ComputeShader</a>
+, <a class="el" href="#ac956879f51692c0e19acc90d06b8405da972680fa9ce0cce93b0b34e5bfa2ff45">RRT_RasterizerState</a>
+, <a class="el" href="#ac956879f51692c0e19acc90d06b8405da494834eee7090379b911008578ac49b3">RRT_DepthStencilState</a>
+, <a class="el" href="#ac956879f51692c0e19acc90d06b8405da91cc1fbd30b01ef597369bf9b9a5380f">RRT_UniformBuffer</a>
+<br />
+ }</td></tr>
+<tr class="separator:ac956879f51692c0e19acc90d06b8405d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9457a748b9d30acc00348bdc63f5de4e" id="r_a9457a748b9d30acc00348bdc63f5de4e"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9457a748b9d30acc00348bdc63f5de4e">ERHIDescriptorHeapType</a> : uint8 { <br />
+&#160;&#160;<a class="el" href="#a9457a748b9d30acc00348bdc63f5de4ea012a2f66a0b392542ffb7370b87426dc">Standart</a> = 0
+, <a class="el" href="#a9457a748b9d30acc00348bdc63f5de4ea5bca2f066df1fe641b2b779db2a63c0a">Sampler</a>
+, <a class="el" href="#a9457a748b9d30acc00348bdc63f5de4ea9b0bffda4bcb312168c0d6537cb04b4d">RenderTarget</a>
+, <a class="el" href="#a9457a748b9d30acc00348bdc63f5de4ea2fa8076285272883c91e14402975a441">DepthStencil</a>
+, <br />
+&#160;&#160;<a class="el" href="#a9457a748b9d30acc00348bdc63f5de4eae93f994f01c537c4e2f7d8528c3eb5e9">Count</a>
+, <a class="el" href="#a9457a748b9d30acc00348bdc63f5de4ea4bbb8f967da6d1a610596d7257179c2b">Invalid</a> = MAX_uint8
+<br />
+ }</td></tr>
+<tr class="separator:a9457a748b9d30acc00348bdc63f5de4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af413b380a05199bf583ef1763e38391a" id="r_af413b380a05199bf583ef1763e38391a"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af413b380a05199bf583ef1763e38391a">ERasterizerFillMode</a> { <a class="el" href="#af413b380a05199bf583ef1763e38391aa055bf204f5b385717ed0f080754be084">RFM_Solid</a>
+, <a class="el" href="#af413b380a05199bf583ef1763e38391aa20ba26a61b72923e3a407e6b16150a3f">RFM_Wireframe</a>
+, <a class="el" href="#af413b380a05199bf583ef1763e38391aa4fd65633f914339664b0429281b4a6e3">ERasterizerFillMode_Num</a>
+ }</td></tr>
+<tr class="separator:af413b380a05199bf583ef1763e38391a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6cd66fd4d6635d02bc14021437da69df" id="r_a6cd66fd4d6635d02bc14021437da69df"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6cd66fd4d6635d02bc14021437da69df">ERasterizerCullMode</a> { <a class="el" href="#a6cd66fd4d6635d02bc14021437da69dfa271a10c418f6b658888cb520121da9e6">RCM_None</a>
+, <a class="el" href="#a6cd66fd4d6635d02bc14021437da69dfadb4db5364d5983680c9570fba17401d8">RCM_Back</a>
+, <a class="el" href="#a6cd66fd4d6635d02bc14021437da69dfabcb588eea5fe17d6ce163c1064a111d3">RCM_Forward</a>
+, <a class="el" href="#a6cd66fd4d6635d02bc14021437da69dfa0848960368234ddea8cc41fa3d193381">ERasterizerCullMode_Num</a>
+ }</td></tr>
+<tr class="separator:a6cd66fd4d6635d02bc14021437da69df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0d493b8bbf232691b130e325d8d99c7" id="r_af0d493b8bbf232691b130e325d8d99c7"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af0d493b8bbf232691b130e325d8d99c7">ERasterizerDepthClipMode</a> { <a class="el" href="#af0d493b8bbf232691b130e325d8d99c7a5de17f57c05a3020a53ed5ac5b6bd6c7">RDCM_DepthClip</a>
+, <a class="el" href="#af0d493b8bbf232691b130e325d8d99c7a9d10a533aaf9dcbb376642dabf8c4579">RDCM_DepthClamp</a>
+, <a class="el" href="#af0d493b8bbf232691b130e325d8d99c7aa8a04f3b949d4064ad7b90ff1bb7fd4a">ERasterizerDepthClipMode_Num</a>
+ }</td></tr>
+<tr class="separator:af0d493b8bbf232691b130e325d8d99c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ed07c557df6373ed4d4b22ff061d633" id="r_a5ed07c557df6373ed4d4b22ff061d633"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5ed07c557df6373ed4d4b22ff061d633">EDepthFunc</a> { <br />
+&#160;&#160;<a class="el" href="#a5ed07c557df6373ed4d4b22ff061d633a4b8456d4a898783d2c72ece64ff3e0c8">DF_Never</a>
+, <a class="el" href="#a5ed07c557df6373ed4d4b22ff061d633a456c7a4bf7db2dbe524427511bd9b02b">DF_Less</a>
+, <a class="el" href="#a5ed07c557df6373ed4d4b22ff061d633a9ef7c6bc2d1404fc38d0b36cb4abeea8">DF_Equal</a>
+, <a class="el" href="#a5ed07c557df6373ed4d4b22ff061d633affefc0b9c94dbc2926de09708180211b">DF_LessOrEqual</a>
+, <br />
+&#160;&#160;<a class="el" href="#a5ed07c557df6373ed4d4b22ff061d633a849673b7562bad61e254f318e9d2fe44">DF_Greater</a>
+, <a class="el" href="#a5ed07c557df6373ed4d4b22ff061d633af57f3f876a885104b8340ee46b010732">DF_NotEqual</a>
+, <a class="el" href="#a5ed07c557df6373ed4d4b22ff061d633a4a103ebc7d52ed488a82704ae83c5d46">DF_GreaterOrEqual</a>
+, <a class="el" href="#a5ed07c557df6373ed4d4b22ff061d633aea8c638e95c9a75fba850d84c9e50fc7">DF_Always</a>
+, <br />
+&#160;&#160;<a class="el" href="#a5ed07c557df6373ed4d4b22ff061d633ac7011b4f711f730e603679d54e89c8f4">EDepthFunc_Num</a>
+<br />
+ }</td></tr>
+<tr class="separator:a5ed07c557df6373ed4d4b22ff061d633"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a901385acc26a3c55dfee19fccdc73b1b" id="r_a901385acc26a3c55dfee19fccdc73b1b"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a901385acc26a3c55dfee19fccdc73b1b">ERHIBindlessConfiguration</a> { <a class="el" href="#a901385acc26a3c55dfee19fccdc73b1babcfaccebf745acfd5e75351095a5394a">Disable</a>
+, <a class="el" href="#a901385acc26a3c55dfee19fccdc73b1bacf9faa81b7b3aeb9ed4c0f6eb2ba6e52">AllShaders</a>
+, <a class="el" href="#a901385acc26a3c55dfee19fccdc73b1ba726ae3bb8e535b356c7e344f24d651cf">RayTracingShaders</a>
+ }</td></tr>
+<tr class="separator:a901385acc26a3c55dfee19fccdc73b1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ba013d0ba7c7b1e63e78d1b19238b1f" id="r_a5ba013d0ba7c7b1e63e78d1b19238b1f"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5ba013d0ba7c7b1e63e78d1b19238b1f">EVertexElementType</a> : uint8 { <br />
+&#160;&#160;<a class="el" href="#a5ba013d0ba7c7b1e63e78d1b19238b1fafe7710b64861f23a50d26a12a5ed4096">VET_None</a>
+, <a class="el" href="#a5ba013d0ba7c7b1e63e78d1b19238b1fa42016900020f557f1c912bc439d8d26c">VET_Float1</a>
+, <a class="el" href="#a5ba013d0ba7c7b1e63e78d1b19238b1fafeeb7b8235277b46cc2fef914e72c37d">VET_Float2</a>
+, <a class="el" href="#a5ba013d0ba7c7b1e63e78d1b19238b1fa737ebbc75059efc8a83b0544c7deddea">VET_Float3</a>
+, <br />
+&#160;&#160;<a class="el" href="#a5ba013d0ba7c7b1e63e78d1b19238b1faacda3767ab1528fa359718576d182938">VET_Float4</a>
+, <a class="el" href="#a5ba013d0ba7c7b1e63e78d1b19238b1fa6119a2798cf60f1f0320d37b27e64114">VET_Color</a>
+, <a class="el" href="#a5ba013d0ba7c7b1e63e78d1b19238b1fa407d8a357e3b8148502bd3be0857111d">VET_Short2</a>
+, <a class="el" href="#a5ba013d0ba7c7b1e63e78d1b19238b1fac298b3ae18444cf49880e4d3f244b1aa">VET_Short3</a>
+, <br />
+&#160;&#160;<a class="el" href="#a5ba013d0ba7c7b1e63e78d1b19238b1fa1ed73ae3545ab162112b86705199a2f4">VET_Short4</a>
+, <a class="el" href="#a5ba013d0ba7c7b1e63e78d1b19238b1facbe8055f5ba6ee9dbf4469fd67cab7b5">VET_UInt</a>
+<br />
+ }</td></tr>
+<tr class="separator:a5ba013d0ba7c7b1e63e78d1b19238b1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a790a925a3358fc56173b2ffb0f607c5f" id="r_a790a925a3358fc56173b2ffb0f607c5f"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a790a925a3358fc56173b2ffb0f607c5f">ERHIAccess</a> { <br />
+&#160;&#160;<a class="el" href="#a790a925a3358fc56173b2ffb0f607c5fa88183b946cc5f0e8c96b2e66e1c74a7e">Unknown</a> = 0
+, <a class="el" href="#a790a925a3358fc56173b2ffb0f607c5faa0aac243c3603df5e9458c01f4d48d4f">CpuRead</a> = 1 &lt;&lt; 0
+, <a class="el" href="#a790a925a3358fc56173b2ffb0f607c5fadd058df87f5c88e3285a28ad7406a3c6">Present</a> = 1 &lt;&lt; 1
+, <a class="el" href="#a790a925a3358fc56173b2ffb0f607c5fa9b4ca42c29ad44078049099371cf37ae">VertexOrIndexBuffer</a> = 1 &lt;&lt; 2
+, <br />
+&#160;&#160;<a class="el" href="#a790a925a3358fc56173b2ffb0f607c5fa7bab7e5a5c4af7c1283d86b9e2715b42">SRVGraphics</a> = 1 &lt;&lt; 3
+, <a class="el" href="#a790a925a3358fc56173b2ffb0f607c5fa82a533132e0f92199196ee9b715f190f">UAVCompute</a> = 1 &lt;&lt; 4
+, <a class="el" href="#a790a925a3358fc56173b2ffb0f607c5fa83e447e8ddbd323a34bbd671d10e495b">UAVGraphics</a> = 1 &lt;&lt; 5
+, <a class="el" href="#a790a925a3358fc56173b2ffb0f607c5faad2d89100e475427fae2882f2d5dcc36">RTV</a> = 1 &lt;&lt; 6
+, <br />
+&#160;&#160;<a class="el" href="#a790a925a3358fc56173b2ffb0f607c5fa8ff7eeaefc98868e476e7ea4ae4dab46">CopyDesc</a> = 1 &lt;&lt; 7
+, <a class="el" href="#a790a925a3358fc56173b2ffb0f607c5fa94cae2b00d0fd160345a5f81c973430e">DSVWrite</a> = 1 &lt;&lt; 8
+<br />
+ }</td></tr>
+<tr class="separator:a790a925a3358fc56173b2ffb0f607c5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a89725d5f41ceac2e574ddc988f06775e" id="r_a89725d5f41ceac2e574ddc988f06775e"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a89725d5f41ceac2e574ddc988f06775e">EShaderType</a> : uint8 { <br />
+&#160;&#160;<a class="el" href="#a89725d5f41ceac2e574ddc988f06775ea051ebc9c5c563958123bdbdc3bb9330d">ST_Vertex</a> = 0
+, <a class="el" href="#a89725d5f41ceac2e574ddc988f06775eaab25221b5f2d9ea48444894c11f81f20">ST_Mesh</a> = 1
+, <a class="el" href="#a89725d5f41ceac2e574ddc988f06775ea135f8248df527333f4407f04072fdf74">ST_Pixel</a>
+, <a class="el" href="#a89725d5f41ceac2e574ddc988f06775eae3f6fd79e0c21a0b595127fe2159e7fa">ST_Geometry</a>
+, <br />
+&#160;&#160;<a class="el" href="#a89725d5f41ceac2e574ddc988f06775ea64d9c4eef6dc34ee3db598ddc5a62080">ST_Compute</a>
+, <a class="el" href="#a89725d5f41ceac2e574ddc988f06775ea2648260272820badf60777ffbc9af05a">ST_RayGen</a>
+, <a class="el" href="#a89725d5f41ceac2e574ddc988f06775ea317d4605f4d225e25f2d842d943b42e5">ST_RayMiss</a>
+, <a class="el" href="#a89725d5f41ceac2e574ddc988f06775ea2c54251a14421c0a87e5839da2d9828b">ST_RayHitGroup</a>
+, <br />
+&#160;&#160;<a class="el" href="#a89725d5f41ceac2e574ddc988f06775ea79db9a16aa1a909a0d6e6e180d546b24">ST_RayCallable</a>
+, <a class="el" href="#a89725d5f41ceac2e574ddc988f06775ea0b4c48c40017cfe6d46ba6148631ad2b">ST_NumTypes</a>
+, <a class="el" href="#a89725d5f41ceac2e574ddc988f06775ea4fae784dad21e1f04799045f97c79662">ST_NumStandartTypes</a> = 6
+<br />
+ }</td></tr>
+<tr class="separator:a89725d5f41ceac2e574ddc988f06775e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88766b590f50d1be1f95dd3e944e5901" id="r_a88766b590f50d1be1f95dd3e944e5901"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a88766b590f50d1be1f95dd3e944e5901">ETextureDimension</a> { <br />
+&#160;&#160;<a class="el" href="#a88766b590f50d1be1f95dd3e944e5901aa6e2bae752d3bf4e34cb392bca789995">Texture2D</a>
+, <a class="el" href="#a88766b590f50d1be1f95dd3e944e5901a5452f0008bbc07c796bb4ac7d284928d">Texture2DArray</a>
+, <a class="el" href="#a88766b590f50d1be1f95dd3e944e5901a89c915587e16bcf8963be7cf41a0d9fd">Texture3D</a>
+, <a class="el" href="#a88766b590f50d1be1f95dd3e944e5901a0a152d9f3e1df14068c5857fb3352505">TextureCube</a>
+, <br />
+&#160;&#160;<a class="el" href="#a88766b590f50d1be1f95dd3e944e5901ab134787bfc1bdfe2d470e04468c1aa72">TextureCubeArray</a>
+<br />
+ }</td></tr>
+<tr class="separator:a88766b590f50d1be1f95dd3e944e5901"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4ae7462d4e6cb213ec4f7673da42d5d" id="r_ad4ae7462d4e6cb213ec4f7673da42d5d"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad4ae7462d4e6cb213ec4f7673da42d5d">ETextureCreateFlags</a> : uint64 { <br />
+&#160;&#160;<a class="el" href="#ad4ae7462d4e6cb213ec4f7673da42d5da6adf97f83acf6453d4a6a4b1070f3754">None</a> = 0
+, <a class="el" href="#ad4ae7462d4e6cb213ec4f7673da42d5da7fb6f3f2503cf1dabaf0828090fb28c7">RenderTargetable</a> = 1ull &lt;&lt; 0
+, <a class="el" href="#ad4ae7462d4e6cb213ec4f7673da42d5da04cffe69e79489d4009faa6ff3b3f63c">DepthStencilTargetable</a> = 1ull &lt;&lt; 1
+, <a class="el" href="#ad4ae7462d4e6cb213ec4f7673da42d5dada4ef1bdf2d2fce1cfc6fd62870a44ef">ShaderResource</a> = 1ull &lt;&lt; 2
+, <br />
+&#160;&#160;<a class="el" href="#ad4ae7462d4e6cb213ec4f7673da42d5da91ec33559e30fbe63429c9278f16615a">CPUWritable</a> = 1ull &lt;&lt; 3
+, <a class="el" href="#ad4ae7462d4e6cb213ec4f7673da42d5da971fd8cc345d8bd9f92e9f7d88fdf20c">Dynamic</a> = 1ull &lt;&lt; 4
+, <a class="el" href="#ad4ae7462d4e6cb213ec4f7673da42d5da6902d76cea698982754404da77e5e08a">UAV</a> = 1ull &lt;&lt; 5
+, <a class="el" href="#ad4ae7462d4e6cb213ec4f7673da42d5da4bd0b268a06e1b23b88e1173ac618c2a">Presentable</a> = 1ull &lt;&lt; 6
+, <br />
+&#160;&#160;<a class="el" href="#ad4ae7462d4e6cb213ec4f7673da42d5dab96c9fe0c41d8ea013a2268d393252c4">CPUReadBack</a> = 1ull &lt;&lt; 7
+<br />
+ }</td></tr>
+<tr class="separator:ad4ae7462d4e6cb213ec4f7673da42d5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a44efee7815674a346059a25f9b3c2085" id="r_a44efee7815674a346059a25f9b3c2085"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a44efee7815674a346059a25f9b3c2085">EUniformBufferUsage</a> { <a class="el" href="#a44efee7815674a346059a25f9b3c2085a7c39490990586f7f06f54ad441765bef">UniformBuffer_SingleDraw</a>
+, <a class="el" href="#a44efee7815674a346059a25f9b3c2085a9c65b87282dc12ebb64e932079673d99">UniformBuffer_SingleFrame</a>
+, <a class="el" href="#a44efee7815674a346059a25f9b3c2085a1b1994c530bb2d846c2d90698db2bd1a">UniformBuffer_MultiFrame</a>
+ }</td></tr>
+<tr class="separator:a44efee7815674a346059a25f9b3c2085"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74b58e6e8443baea529ab6f701abadb7" id="r_a74b58e6e8443baea529ab6f701abadb7"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a74b58e6e8443baea529ab6f701abadb7">EResourceLockMode</a> { <a class="el" href="#a74b58e6e8443baea529ab6f701abadb7a320a4c1860fea1017826ac768721ff53">RLM_ReadOnly</a>
+, <a class="el" href="#a74b58e6e8443baea529ab6f701abadb7a29070f058d91713586e592d3c49b9523">RLM_WriteOnly</a>
+, <a class="el" href="#a74b58e6e8443baea529ab6f701abadb7af882e6aa27deeb9cbef34f23d8688024">RLM_WriteOnly_NoOverwrite</a>
+, <a class="el" href="#a74b58e6e8443baea529ab6f701abadb7afda294b0cee1b8dcb40d2ceec48a4953">RML_Num</a>
+ }</td></tr>
+<tr class="separator:a74b58e6e8443baea529ab6f701abadb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5bd84af81d7da8da271f976754778e0" id="r_af5bd84af81d7da8da271f976754778e0"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af5bd84af81d7da8da271f976754778e0">EPrimitiveType</a> : uint32 { <br />
+&#160;&#160;<a class="el" href="#af5bd84af81d7da8da271f976754778e0a3404e9799dbedd4db8523336da6f8ed1">PT_TriangleList</a>
+, <a class="el" href="#af5bd84af81d7da8da271f976754778e0ae906a8eb232c68bebf2f9a3917cae3ee">PT_TriangleStrip</a>
+, <a class="el" href="#af5bd84af81d7da8da271f976754778e0a309dc6e6c82a3f4062a375ca8a14b2af">PT_LineList</a>
+, <a class="el" href="#af5bd84af81d7da8da271f976754778e0a67b631228816cddb240b04aecfdbfc06">PT_QuadList</a>
+, <br />
+&#160;&#160;<a class="el" href="#af5bd84af81d7da8da271f976754778e0a1d7c216fd1333edd2777b20b5eb1fb77">PT_PointList</a>
+, <a class="el" href="#af5bd84af81d7da8da271f976754778e0a6355c64e2ba8877af2780b70fe1354c7">PT_Num</a>
+<br />
+ }</td></tr>
+<tr class="separator:af5bd84af81d7da8da271f976754778e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Функции</h2></td></tr>
+<tr class="memitem:aade84abb93ac428caadc393a087d97b9" id="r_aade84abb93ac428caadc393a087d97b9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aade84abb93ac428caadc393a087d97b9">ENUM_CLASS_FLAGS</a> (<a class="el" href="#ad4ae7462d4e6cb213ec4f7673da42d5d">ETextureCreateFlags</a>)</td></tr>
+<tr class="separator:aade84abb93ac428caadc393a087d97b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Перечисления</h2>
+<a id="a5ed07c557df6373ed4d4b22ff061d633" name="a5ed07c557df6373ed4d4b22ff061d633"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ed07c557df6373ed4d4b22ff061d633">&#9670;&#160;</a></span>EDepthFunc</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#a5ed07c557df6373ed4d4b22ff061d633">EDepthFunc</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Элементы перечислений</th></tr><tr><td class="fieldname"><a id="a5ed07c557df6373ed4d4b22ff061d633a4b8456d4a898783d2c72ece64ff3e0c8" name="a5ed07c557df6373ed4d4b22ff061d633a4b8456d4a898783d2c72ece64ff3e0c8"></a>DF_Never&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a5ed07c557df6373ed4d4b22ff061d633a456c7a4bf7db2dbe524427511bd9b02b" name="a5ed07c557df6373ed4d4b22ff061d633a456c7a4bf7db2dbe524427511bd9b02b"></a>DF_Less&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a5ed07c557df6373ed4d4b22ff061d633a9ef7c6bc2d1404fc38d0b36cb4abeea8" name="a5ed07c557df6373ed4d4b22ff061d633a9ef7c6bc2d1404fc38d0b36cb4abeea8"></a>DF_Equal&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a5ed07c557df6373ed4d4b22ff061d633affefc0b9c94dbc2926de09708180211b" name="a5ed07c557df6373ed4d4b22ff061d633affefc0b9c94dbc2926de09708180211b"></a>DF_LessOrEqual&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a5ed07c557df6373ed4d4b22ff061d633a849673b7562bad61e254f318e9d2fe44" name="a5ed07c557df6373ed4d4b22ff061d633a849673b7562bad61e254f318e9d2fe44"></a>DF_Greater&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a5ed07c557df6373ed4d4b22ff061d633af57f3f876a885104b8340ee46b010732" name="a5ed07c557df6373ed4d4b22ff061d633af57f3f876a885104b8340ee46b010732"></a>DF_NotEqual&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a5ed07c557df6373ed4d4b22ff061d633a4a103ebc7d52ed488a82704ae83c5d46" name="a5ed07c557df6373ed4d4b22ff061d633a4a103ebc7d52ed488a82704ae83c5d46"></a>DF_GreaterOrEqual&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a5ed07c557df6373ed4d4b22ff061d633aea8c638e95c9a75fba850d84c9e50fc7" name="a5ed07c557df6373ed4d4b22ff061d633aea8c638e95c9a75fba850d84c9e50fc7"></a>DF_Always&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a5ed07c557df6373ed4d4b22ff061d633ac7011b4f711f730e603679d54e89c8f4" name="a5ed07c557df6373ed4d4b22ff061d633ac7011b4f711f730e603679d54e89c8f4"></a>EDepthFunc_Num&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="af5bd84af81d7da8da271f976754778e0" name="af5bd84af81d7da8da271f976754778e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5bd84af81d7da8da271f976754778e0">&#9670;&#160;</a></span>EPrimitiveType</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#af5bd84af81d7da8da271f976754778e0">EPrimitiveType</a> : <a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Элементы перечислений</th></tr><tr><td class="fieldname"><a id="af5bd84af81d7da8da271f976754778e0a3404e9799dbedd4db8523336da6f8ed1" name="af5bd84af81d7da8da271f976754778e0a3404e9799dbedd4db8523336da6f8ed1"></a>PT_TriangleList&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="af5bd84af81d7da8da271f976754778e0ae906a8eb232c68bebf2f9a3917cae3ee" name="af5bd84af81d7da8da271f976754778e0ae906a8eb232c68bebf2f9a3917cae3ee"></a>PT_TriangleStrip&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="af5bd84af81d7da8da271f976754778e0a309dc6e6c82a3f4062a375ca8a14b2af" name="af5bd84af81d7da8da271f976754778e0a309dc6e6c82a3f4062a375ca8a14b2af"></a>PT_LineList&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="af5bd84af81d7da8da271f976754778e0a67b631228816cddb240b04aecfdbfc06" name="af5bd84af81d7da8da271f976754778e0a67b631228816cddb240b04aecfdbfc06"></a>PT_QuadList&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="af5bd84af81d7da8da271f976754778e0a1d7c216fd1333edd2777b20b5eb1fb77" name="af5bd84af81d7da8da271f976754778e0a1d7c216fd1333edd2777b20b5eb1fb77"></a>PT_PointList&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="af5bd84af81d7da8da271f976754778e0a6355c64e2ba8877af2780b70fe1354c7" name="af5bd84af81d7da8da271f976754778e0a6355c64e2ba8877af2780b70fe1354c7"></a>PT_Num&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="a6cd66fd4d6635d02bc14021437da69df" name="a6cd66fd4d6635d02bc14021437da69df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6cd66fd4d6635d02bc14021437da69df">&#9670;&#160;</a></span>ERasterizerCullMode</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#a6cd66fd4d6635d02bc14021437da69df">ERasterizerCullMode</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Элементы перечислений</th></tr><tr><td class="fieldname"><a id="a6cd66fd4d6635d02bc14021437da69dfa271a10c418f6b658888cb520121da9e6" name="a6cd66fd4d6635d02bc14021437da69dfa271a10c418f6b658888cb520121da9e6"></a>RCM_None&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a6cd66fd4d6635d02bc14021437da69dfadb4db5364d5983680c9570fba17401d8" name="a6cd66fd4d6635d02bc14021437da69dfadb4db5364d5983680c9570fba17401d8"></a>RCM_Back&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a6cd66fd4d6635d02bc14021437da69dfabcb588eea5fe17d6ce163c1064a111d3" name="a6cd66fd4d6635d02bc14021437da69dfabcb588eea5fe17d6ce163c1064a111d3"></a>RCM_Forward&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a6cd66fd4d6635d02bc14021437da69dfa0848960368234ddea8cc41fa3d193381" name="a6cd66fd4d6635d02bc14021437da69dfa0848960368234ddea8cc41fa3d193381"></a>ERasterizerCullMode_Num&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="af0d493b8bbf232691b130e325d8d99c7" name="af0d493b8bbf232691b130e325d8d99c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af0d493b8bbf232691b130e325d8d99c7">&#9670;&#160;</a></span>ERasterizerDepthClipMode</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#af0d493b8bbf232691b130e325d8d99c7">ERasterizerDepthClipMode</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Элементы перечислений</th></tr><tr><td class="fieldname"><a id="af0d493b8bbf232691b130e325d8d99c7a5de17f57c05a3020a53ed5ac5b6bd6c7" name="af0d493b8bbf232691b130e325d8d99c7a5de17f57c05a3020a53ed5ac5b6bd6c7"></a>RDCM_DepthClip&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="af0d493b8bbf232691b130e325d8d99c7a9d10a533aaf9dcbb376642dabf8c4579" name="af0d493b8bbf232691b130e325d8d99c7a9d10a533aaf9dcbb376642dabf8c4579"></a>RDCM_DepthClamp&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="af0d493b8bbf232691b130e325d8d99c7aa8a04f3b949d4064ad7b90ff1bb7fd4a" name="af0d493b8bbf232691b130e325d8d99c7aa8a04f3b949d4064ad7b90ff1bb7fd4a"></a>ERasterizerDepthClipMode_Num&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="af413b380a05199bf583ef1763e38391a" name="af413b380a05199bf583ef1763e38391a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af413b380a05199bf583ef1763e38391a">&#9670;&#160;</a></span>ERasterizerFillMode</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#af413b380a05199bf583ef1763e38391a">ERasterizerFillMode</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Элементы перечислений</th></tr><tr><td class="fieldname"><a id="af413b380a05199bf583ef1763e38391aa055bf204f5b385717ed0f080754be084" name="af413b380a05199bf583ef1763e38391aa055bf204f5b385717ed0f080754be084"></a>RFM_Solid&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="af413b380a05199bf583ef1763e38391aa20ba26a61b72923e3a407e6b16150a3f" name="af413b380a05199bf583ef1763e38391aa20ba26a61b72923e3a407e6b16150a3f"></a>RFM_Wireframe&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="af413b380a05199bf583ef1763e38391aa4fd65633f914339664b0429281b4a6e3" name="af413b380a05199bf583ef1763e38391aa4fd65633f914339664b0429281b4a6e3"></a>ERasterizerFillMode_Num&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="a74b58e6e8443baea529ab6f701abadb7" name="a74b58e6e8443baea529ab6f701abadb7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74b58e6e8443baea529ab6f701abadb7">&#9670;&#160;</a></span>EResourceLockMode</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#a74b58e6e8443baea529ab6f701abadb7">EResourceLockMode</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Элементы перечислений</th></tr><tr><td class="fieldname"><a id="a74b58e6e8443baea529ab6f701abadb7a320a4c1860fea1017826ac768721ff53" name="a74b58e6e8443baea529ab6f701abadb7a320a4c1860fea1017826ac768721ff53"></a>RLM_ReadOnly&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a74b58e6e8443baea529ab6f701abadb7a29070f058d91713586e592d3c49b9523" name="a74b58e6e8443baea529ab6f701abadb7a29070f058d91713586e592d3c49b9523"></a>RLM_WriteOnly&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a74b58e6e8443baea529ab6f701abadb7af882e6aa27deeb9cbef34f23d8688024" name="a74b58e6e8443baea529ab6f701abadb7af882e6aa27deeb9cbef34f23d8688024"></a>RLM_WriteOnly_NoOverwrite&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a74b58e6e8443baea529ab6f701abadb7afda294b0cee1b8dcb40d2ceec48a4953" name="a74b58e6e8443baea529ab6f701abadb7afda294b0cee1b8dcb40d2ceec48a4953"></a>RML_Num&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="a790a925a3358fc56173b2ffb0f607c5f" name="a790a925a3358fc56173b2ffb0f607c5f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a790a925a3358fc56173b2ffb0f607c5f">&#9670;&#160;</a></span>ERHIAccess</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#a790a925a3358fc56173b2ffb0f607c5f">ERHIAccess</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Элементы перечислений</th></tr><tr><td class="fieldname"><a id="a790a925a3358fc56173b2ffb0f607c5fa88183b946cc5f0e8c96b2e66e1c74a7e" name="a790a925a3358fc56173b2ffb0f607c5fa88183b946cc5f0e8c96b2e66e1c74a7e"></a>Unknown&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a790a925a3358fc56173b2ffb0f607c5faa0aac243c3603df5e9458c01f4d48d4f" name="a790a925a3358fc56173b2ffb0f607c5faa0aac243c3603df5e9458c01f4d48d4f"></a>CpuRead&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a790a925a3358fc56173b2ffb0f607c5fadd058df87f5c88e3285a28ad7406a3c6" name="a790a925a3358fc56173b2ffb0f607c5fadd058df87f5c88e3285a28ad7406a3c6"></a>Present&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a790a925a3358fc56173b2ffb0f607c5fa9b4ca42c29ad44078049099371cf37ae" name="a790a925a3358fc56173b2ffb0f607c5fa9b4ca42c29ad44078049099371cf37ae"></a>VertexOrIndexBuffer&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a790a925a3358fc56173b2ffb0f607c5fa7bab7e5a5c4af7c1283d86b9e2715b42" name="a790a925a3358fc56173b2ffb0f607c5fa7bab7e5a5c4af7c1283d86b9e2715b42"></a>SRVGraphics&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a790a925a3358fc56173b2ffb0f607c5fa82a533132e0f92199196ee9b715f190f" name="a790a925a3358fc56173b2ffb0f607c5fa82a533132e0f92199196ee9b715f190f"></a>UAVCompute&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a790a925a3358fc56173b2ffb0f607c5fa83e447e8ddbd323a34bbd671d10e495b" name="a790a925a3358fc56173b2ffb0f607c5fa83e447e8ddbd323a34bbd671d10e495b"></a>UAVGraphics&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a790a925a3358fc56173b2ffb0f607c5faad2d89100e475427fae2882f2d5dcc36" name="a790a925a3358fc56173b2ffb0f607c5faad2d89100e475427fae2882f2d5dcc36"></a>RTV&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a790a925a3358fc56173b2ffb0f607c5fa8ff7eeaefc98868e476e7ea4ae4dab46" name="a790a925a3358fc56173b2ffb0f607c5fa8ff7eeaefc98868e476e7ea4ae4dab46"></a>CopyDesc&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a790a925a3358fc56173b2ffb0f607c5fa94cae2b00d0fd160345a5f81c973430e" name="a790a925a3358fc56173b2ffb0f607c5fa94cae2b00d0fd160345a5f81c973430e"></a>DSVWrite&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="a901385acc26a3c55dfee19fccdc73b1b" name="a901385acc26a3c55dfee19fccdc73b1b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a901385acc26a3c55dfee19fccdc73b1b">&#9670;&#160;</a></span>ERHIBindlessConfiguration</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#a901385acc26a3c55dfee19fccdc73b1b">ERHIBindlessConfiguration</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Элементы перечислений</th></tr><tr><td class="fieldname"><a id="a901385acc26a3c55dfee19fccdc73b1babcfaccebf745acfd5e75351095a5394a" name="a901385acc26a3c55dfee19fccdc73b1babcfaccebf745acfd5e75351095a5394a"></a>Disable&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a901385acc26a3c55dfee19fccdc73b1bacf9faa81b7b3aeb9ed4c0f6eb2ba6e52" name="a901385acc26a3c55dfee19fccdc73b1bacf9faa81b7b3aeb9ed4c0f6eb2ba6e52"></a>AllShaders&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a901385acc26a3c55dfee19fccdc73b1ba726ae3bb8e535b356c7e344f24d651cf" name="a901385acc26a3c55dfee19fccdc73b1ba726ae3bb8e535b356c7e344f24d651cf"></a>RayTracingShaders&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="a9457a748b9d30acc00348bdc63f5de4e" name="a9457a748b9d30acc00348bdc63f5de4e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9457a748b9d30acc00348bdc63f5de4e">&#9670;&#160;</a></span>ERHIDescriptorHeapType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#a9457a748b9d30acc00348bdc63f5de4e">ERHIDescriptorHeapType</a> : <a class="el" href="../../d2/dc9/_platform_8h.html#a40bc01dd090acd02a79b5dc13e08abe6">uint8</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Элементы перечислений</th></tr><tr><td class="fieldname"><a id="a9457a748b9d30acc00348bdc63f5de4ea012a2f66a0b392542ffb7370b87426dc" name="a9457a748b9d30acc00348bdc63f5de4ea012a2f66a0b392542ffb7370b87426dc"></a>Standart&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a9457a748b9d30acc00348bdc63f5de4ea5bca2f066df1fe641b2b779db2a63c0a" name="a9457a748b9d30acc00348bdc63f5de4ea5bca2f066df1fe641b2b779db2a63c0a"></a>Sampler&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a9457a748b9d30acc00348bdc63f5de4ea9b0bffda4bcb312168c0d6537cb04b4d" name="a9457a748b9d30acc00348bdc63f5de4ea9b0bffda4bcb312168c0d6537cb04b4d"></a>RenderTarget&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a9457a748b9d30acc00348bdc63f5de4ea2fa8076285272883c91e14402975a441" name="a9457a748b9d30acc00348bdc63f5de4ea2fa8076285272883c91e14402975a441"></a>DepthStencil&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a9457a748b9d30acc00348bdc63f5de4eae93f994f01c537c4e2f7d8528c3eb5e9" name="a9457a748b9d30acc00348bdc63f5de4eae93f994f01c537c4e2f7d8528c3eb5e9"></a>Count&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a9457a748b9d30acc00348bdc63f5de4ea4bbb8f967da6d1a610596d7257179c2b" name="a9457a748b9d30acc00348bdc63f5de4ea4bbb8f967da6d1a610596d7257179c2b"></a>Invalid&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="accfdbf6612e46ffde28b934e051fb990" name="accfdbf6612e46ffde28b934e051fb990"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#accfdbf6612e46ffde28b934e051fb990">&#9670;&#160;</a></span>ERHIInterfaceType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#accfdbf6612e46ffde28b934e051fb990">ERHIInterfaceType</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Элементы перечислений</th></tr><tr><td class="fieldname"><a id="accfdbf6612e46ffde28b934e051fb990a7acdf85c69cc3c5305456a293524386e" name="accfdbf6612e46ffde28b934e051fb990a7acdf85c69cc3c5305456a293524386e"></a>Hidden&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="accfdbf6612e46ffde28b934e051fb990abbb93ef26e3c101ff11cdd21cab08a94" name="accfdbf6612e46ffde28b934e051fb990abbb93ef26e3c101ff11cdd21cab08a94"></a>Null&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="accfdbf6612e46ffde28b934e051fb990afac777d230cd7175697748a8c5260df6" name="accfdbf6612e46ffde28b934e051fb990afac777d230cd7175697748a8c5260df6"></a>D3D12&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="ac956879f51692c0e19acc90d06b8405d" name="ac956879f51692c0e19acc90d06b8405d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac956879f51692c0e19acc90d06b8405d">&#9670;&#160;</a></span>ERHIResourceType</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#ac956879f51692c0e19acc90d06b8405d">ERHIResourceType</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Элементы перечислений</th></tr><tr><td class="fieldname"><a id="ac956879f51692c0e19acc90d06b8405dae447205e8c895e24bd4ccd1cd2d642e0" name="ac956879f51692c0e19acc90d06b8405dae447205e8c895e24bd4ccd1cd2d642e0"></a>RRT_None&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ac956879f51692c0e19acc90d06b8405da024eb38ecf701931a1084a493f55172f" name="ac956879f51692c0e19acc90d06b8405da024eb38ecf701931a1084a493f55172f"></a>RRT_SamplerState&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ac956879f51692c0e19acc90d06b8405daa03b263dc3693fd721d3f46f9e7e7565" name="ac956879f51692c0e19acc90d06b8405daa03b263dc3693fd721d3f46f9e7e7565"></a>RRT_Buffer&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ac956879f51692c0e19acc90d06b8405dac839ebb92f338258f9bc7ac49361ff25" name="ac956879f51692c0e19acc90d06b8405dac839ebb92f338258f9bc7ac49361ff25"></a>RRT_Texture&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ac956879f51692c0e19acc90d06b8405daae9cf62771e36244e5a982349b43c28b" name="ac956879f51692c0e19acc90d06b8405daae9cf62771e36244e5a982349b43c28b"></a>RRT_Viewport&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ac956879f51692c0e19acc90d06b8405daf0ad1ed419e1f440a5e93f66e4c1b765" name="ac956879f51692c0e19acc90d06b8405daf0ad1ed419e1f440a5e93f66e4c1b765"></a>RRT_GraphicsPipelineState&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ac956879f51692c0e19acc90d06b8405daa0b0d26bdd3db7601c01e519f7e41405" name="ac956879f51692c0e19acc90d06b8405daa0b0d26bdd3db7601c01e519f7e41405"></a>RRT_ComputePipelineState&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ac956879f51692c0e19acc90d06b8405da94ac0f7e9f101bb8b55af84a2760f765" name="ac956879f51692c0e19acc90d06b8405da94ac0f7e9f101bb8b55af84a2760f765"></a>RRT_VertexDeclaration&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ac956879f51692c0e19acc90d06b8405da7d3c2a77a8acae9a89609100f0181246" name="ac956879f51692c0e19acc90d06b8405da7d3c2a77a8acae9a89609100f0181246"></a>RRT_VertexShader&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ac956879f51692c0e19acc90d06b8405da2ea581ed52fe5bf116b07af8ba1685b2" name="ac956879f51692c0e19acc90d06b8405da2ea581ed52fe5bf116b07af8ba1685b2"></a>RRT_PixelShader&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ac956879f51692c0e19acc90d06b8405daa777b95fd3d35399772791dc5f129ef2" name="ac956879f51692c0e19acc90d06b8405daa777b95fd3d35399772791dc5f129ef2"></a>RRT_GeometryShader&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ac956879f51692c0e19acc90d06b8405dadda3a72932f109a2a7bfd3246034b93c" name="ac956879f51692c0e19acc90d06b8405dadda3a72932f109a2a7bfd3246034b93c"></a>RRT_MeshShader&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ac956879f51692c0e19acc90d06b8405dae0226696d71f7f855298d551de320d59" name="ac956879f51692c0e19acc90d06b8405dae0226696d71f7f855298d551de320d59"></a>RRT_ComputeShader&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ac956879f51692c0e19acc90d06b8405da972680fa9ce0cce93b0b34e5bfa2ff45" name="ac956879f51692c0e19acc90d06b8405da972680fa9ce0cce93b0b34e5bfa2ff45"></a>RRT_RasterizerState&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ac956879f51692c0e19acc90d06b8405da494834eee7090379b911008578ac49b3" name="ac956879f51692c0e19acc90d06b8405da494834eee7090379b911008578ac49b3"></a>RRT_DepthStencilState&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ac956879f51692c0e19acc90d06b8405da91cc1fbd30b01ef597369bf9b9a5380f" name="ac956879f51692c0e19acc90d06b8405da91cc1fbd30b01ef597369bf9b9a5380f"></a>RRT_UniformBuffer&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="a89725d5f41ceac2e574ddc988f06775e" name="a89725d5f41ceac2e574ddc988f06775e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89725d5f41ceac2e574ddc988f06775e">&#9670;&#160;</a></span>EShaderType</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#a89725d5f41ceac2e574ddc988f06775e">EShaderType</a> : <a class="el" href="../../d2/dc9/_platform_8h.html#a40bc01dd090acd02a79b5dc13e08abe6">uint8</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Элементы перечислений</th></tr><tr><td class="fieldname"><a id="a89725d5f41ceac2e574ddc988f06775ea051ebc9c5c563958123bdbdc3bb9330d" name="a89725d5f41ceac2e574ddc988f06775ea051ebc9c5c563958123bdbdc3bb9330d"></a>ST_Vertex&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a89725d5f41ceac2e574ddc988f06775eaab25221b5f2d9ea48444894c11f81f20" name="a89725d5f41ceac2e574ddc988f06775eaab25221b5f2d9ea48444894c11f81f20"></a>ST_Mesh&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a89725d5f41ceac2e574ddc988f06775ea135f8248df527333f4407f04072fdf74" name="a89725d5f41ceac2e574ddc988f06775ea135f8248df527333f4407f04072fdf74"></a>ST_Pixel&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a89725d5f41ceac2e574ddc988f06775eae3f6fd79e0c21a0b595127fe2159e7fa" name="a89725d5f41ceac2e574ddc988f06775eae3f6fd79e0c21a0b595127fe2159e7fa"></a>ST_Geometry&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a89725d5f41ceac2e574ddc988f06775ea64d9c4eef6dc34ee3db598ddc5a62080" name="a89725d5f41ceac2e574ddc988f06775ea64d9c4eef6dc34ee3db598ddc5a62080"></a>ST_Compute&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a89725d5f41ceac2e574ddc988f06775ea2648260272820badf60777ffbc9af05a" name="a89725d5f41ceac2e574ddc988f06775ea2648260272820badf60777ffbc9af05a"></a>ST_RayGen&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a89725d5f41ceac2e574ddc988f06775ea317d4605f4d225e25f2d842d943b42e5" name="a89725d5f41ceac2e574ddc988f06775ea317d4605f4d225e25f2d842d943b42e5"></a>ST_RayMiss&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a89725d5f41ceac2e574ddc988f06775ea2c54251a14421c0a87e5839da2d9828b" name="a89725d5f41ceac2e574ddc988f06775ea2c54251a14421c0a87e5839da2d9828b"></a>ST_RayHitGroup&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a89725d5f41ceac2e574ddc988f06775ea79db9a16aa1a909a0d6e6e180d546b24" name="a89725d5f41ceac2e574ddc988f06775ea79db9a16aa1a909a0d6e6e180d546b24"></a>ST_RayCallable&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a89725d5f41ceac2e574ddc988f06775ea0b4c48c40017cfe6d46ba6148631ad2b" name="a89725d5f41ceac2e574ddc988f06775ea0b4c48c40017cfe6d46ba6148631ad2b"></a>ST_NumTypes&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a89725d5f41ceac2e574ddc988f06775ea4fae784dad21e1f04799045f97c79662" name="a89725d5f41ceac2e574ddc988f06775ea4fae784dad21e1f04799045f97c79662"></a>ST_NumStandartTypes&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="ad4ae7462d4e6cb213ec4f7673da42d5d" name="ad4ae7462d4e6cb213ec4f7673da42d5d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4ae7462d4e6cb213ec4f7673da42d5d">&#9670;&#160;</a></span>ETextureCreateFlags</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#ad4ae7462d4e6cb213ec4f7673da42d5d">ETextureCreateFlags</a> : <a class="el" href="../../d2/dc9/_platform_8h.html#afddf25cca147311c233b23a9d3329bb4">uint64</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Элементы перечислений</th></tr><tr><td class="fieldname"><a id="ad4ae7462d4e6cb213ec4f7673da42d5da6adf97f83acf6453d4a6a4b1070f3754" name="ad4ae7462d4e6cb213ec4f7673da42d5da6adf97f83acf6453d4a6a4b1070f3754"></a>None&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ad4ae7462d4e6cb213ec4f7673da42d5da7fb6f3f2503cf1dabaf0828090fb28c7" name="ad4ae7462d4e6cb213ec4f7673da42d5da7fb6f3f2503cf1dabaf0828090fb28c7"></a>RenderTargetable&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ad4ae7462d4e6cb213ec4f7673da42d5da04cffe69e79489d4009faa6ff3b3f63c" name="ad4ae7462d4e6cb213ec4f7673da42d5da04cffe69e79489d4009faa6ff3b3f63c"></a>DepthStencilTargetable&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ad4ae7462d4e6cb213ec4f7673da42d5dada4ef1bdf2d2fce1cfc6fd62870a44ef" name="ad4ae7462d4e6cb213ec4f7673da42d5dada4ef1bdf2d2fce1cfc6fd62870a44ef"></a>ShaderResource&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ad4ae7462d4e6cb213ec4f7673da42d5da91ec33559e30fbe63429c9278f16615a" name="ad4ae7462d4e6cb213ec4f7673da42d5da91ec33559e30fbe63429c9278f16615a"></a>CPUWritable&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ad4ae7462d4e6cb213ec4f7673da42d5da971fd8cc345d8bd9f92e9f7d88fdf20c" name="ad4ae7462d4e6cb213ec4f7673da42d5da971fd8cc345d8bd9f92e9f7d88fdf20c"></a>Dynamic&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ad4ae7462d4e6cb213ec4f7673da42d5da6902d76cea698982754404da77e5e08a" name="ad4ae7462d4e6cb213ec4f7673da42d5da6902d76cea698982754404da77e5e08a"></a>UAV&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ad4ae7462d4e6cb213ec4f7673da42d5da4bd0b268a06e1b23b88e1173ac618c2a" name="ad4ae7462d4e6cb213ec4f7673da42d5da4bd0b268a06e1b23b88e1173ac618c2a"></a>Presentable&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ad4ae7462d4e6cb213ec4f7673da42d5dab96c9fe0c41d8ea013a2268d393252c4" name="ad4ae7462d4e6cb213ec4f7673da42d5dab96c9fe0c41d8ea013a2268d393252c4"></a>CPUReadBack&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="a88766b590f50d1be1f95dd3e944e5901" name="a88766b590f50d1be1f95dd3e944e5901"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a88766b590f50d1be1f95dd3e944e5901">&#9670;&#160;</a></span>ETextureDimension</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#a88766b590f50d1be1f95dd3e944e5901">ETextureDimension</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Элементы перечислений</th></tr><tr><td class="fieldname"><a id="a88766b590f50d1be1f95dd3e944e5901aa6e2bae752d3bf4e34cb392bca789995" name="a88766b590f50d1be1f95dd3e944e5901aa6e2bae752d3bf4e34cb392bca789995"></a>Texture2D&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a88766b590f50d1be1f95dd3e944e5901a5452f0008bbc07c796bb4ac7d284928d" name="a88766b590f50d1be1f95dd3e944e5901a5452f0008bbc07c796bb4ac7d284928d"></a>Texture2DArray&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a88766b590f50d1be1f95dd3e944e5901a89c915587e16bcf8963be7cf41a0d9fd" name="a88766b590f50d1be1f95dd3e944e5901a89c915587e16bcf8963be7cf41a0d9fd"></a>Texture3D&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a88766b590f50d1be1f95dd3e944e5901a0a152d9f3e1df14068c5857fb3352505" name="a88766b590f50d1be1f95dd3e944e5901a0a152d9f3e1df14068c5857fb3352505"></a>TextureCube&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a88766b590f50d1be1f95dd3e944e5901ab134787bfc1bdfe2d470e04468c1aa72" name="a88766b590f50d1be1f95dd3e944e5901ab134787bfc1bdfe2d470e04468c1aa72"></a>TextureCubeArray&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="a44efee7815674a346059a25f9b3c2085" name="a44efee7815674a346059a25f9b3c2085"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44efee7815674a346059a25f9b3c2085">&#9670;&#160;</a></span>EUniformBufferUsage</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#a44efee7815674a346059a25f9b3c2085">EUniformBufferUsage</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Элементы перечислений</th></tr><tr><td class="fieldname"><a id="a44efee7815674a346059a25f9b3c2085a7c39490990586f7f06f54ad441765bef" name="a44efee7815674a346059a25f9b3c2085a7c39490990586f7f06f54ad441765bef"></a>UniformBuffer_SingleDraw&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a44efee7815674a346059a25f9b3c2085a9c65b87282dc12ebb64e932079673d99" name="a44efee7815674a346059a25f9b3c2085a9c65b87282dc12ebb64e932079673d99"></a>UniformBuffer_SingleFrame&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a44efee7815674a346059a25f9b3c2085a1b1994c530bb2d846c2d90698db2bd1a" name="a44efee7815674a346059a25f9b3c2085a1b1994c530bb2d846c2d90698db2bd1a"></a>UniformBuffer_MultiFrame&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="a5ba013d0ba7c7b1e63e78d1b19238b1f" name="a5ba013d0ba7c7b1e63e78d1b19238b1f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ba013d0ba7c7b1e63e78d1b19238b1f">&#9670;&#160;</a></span>EVertexElementType</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#a5ba013d0ba7c7b1e63e78d1b19238b1f">EVertexElementType</a> : <a class="el" href="../../d2/dc9/_platform_8h.html#a40bc01dd090acd02a79b5dc13e08abe6">uint8</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Элементы перечислений</th></tr><tr><td class="fieldname"><a id="a5ba013d0ba7c7b1e63e78d1b19238b1fafe7710b64861f23a50d26a12a5ed4096" name="a5ba013d0ba7c7b1e63e78d1b19238b1fafe7710b64861f23a50d26a12a5ed4096"></a>VET_None&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a5ba013d0ba7c7b1e63e78d1b19238b1fa42016900020f557f1c912bc439d8d26c" name="a5ba013d0ba7c7b1e63e78d1b19238b1fa42016900020f557f1c912bc439d8d26c"></a>VET_Float1&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a5ba013d0ba7c7b1e63e78d1b19238b1fafeeb7b8235277b46cc2fef914e72c37d" name="a5ba013d0ba7c7b1e63e78d1b19238b1fafeeb7b8235277b46cc2fef914e72c37d"></a>VET_Float2&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a5ba013d0ba7c7b1e63e78d1b19238b1fa737ebbc75059efc8a83b0544c7deddea" name="a5ba013d0ba7c7b1e63e78d1b19238b1fa737ebbc75059efc8a83b0544c7deddea"></a>VET_Float3&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a5ba013d0ba7c7b1e63e78d1b19238b1faacda3767ab1528fa359718576d182938" name="a5ba013d0ba7c7b1e63e78d1b19238b1faacda3767ab1528fa359718576d182938"></a>VET_Float4&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a5ba013d0ba7c7b1e63e78d1b19238b1fa6119a2798cf60f1f0320d37b27e64114" name="a5ba013d0ba7c7b1e63e78d1b19238b1fa6119a2798cf60f1f0320d37b27e64114"></a>VET_Color&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a5ba013d0ba7c7b1e63e78d1b19238b1fa407d8a357e3b8148502bd3be0857111d" name="a5ba013d0ba7c7b1e63e78d1b19238b1fa407d8a357e3b8148502bd3be0857111d"></a>VET_Short2&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a5ba013d0ba7c7b1e63e78d1b19238b1fac298b3ae18444cf49880e4d3f244b1aa" name="a5ba013d0ba7c7b1e63e78d1b19238b1fac298b3ae18444cf49880e4d3f244b1aa"></a>VET_Short3&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a5ba013d0ba7c7b1e63e78d1b19238b1fa1ed73ae3545ab162112b86705199a2f4" name="a5ba013d0ba7c7b1e63e78d1b19238b1fa1ed73ae3545ab162112b86705199a2f4"></a>VET_Short4&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a5ba013d0ba7c7b1e63e78d1b19238b1facbe8055f5ba6ee9dbf4469fd67cab7b5" name="a5ba013d0ba7c7b1e63e78d1b19238b1facbe8055f5ba6ee9dbf4469fd67cab7b5"></a>VET_UInt&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Функции</h2>
+<a id="aade84abb93ac428caadc393a087d97b9" name="aade84abb93ac428caadc393a087d97b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aade84abb93ac428caadc393a087d97b9">&#9670;&#160;</a></span>ENUM_CLASS_FLAGS()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ENUM_CLASS_FLAGS </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#ad4ae7462d4e6cb213ec4f7673da42d5d">ETextureCreateFlags</a></td>          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../dir_55043db21ba5ddd7c561d2c5a5a38944.html">Dark Engine</a></li><li class="navelem"><a class="el" href="../../dir_e00b54220e1e1486ac9971b606d33054.html">Source</a></li><li class="navelem"><a class="el" href="../../dir_ae01c8af07818b260cc3481e8588b277.html">Runtime</a></li><li class="navelem"><a class="el" href="../../dir_36f40cf2346c3a351d59e1803b4d918d.html">RHI</a></li><li class="navelem"><a class="el" href="../../dir_c109a2ed3ccf3db39eee5b1cbca42152.html">public</a></li><li class="navelem"><a class="el" href="../../de/df7/_r_h_i_defines_8h.html">RHIDefines.h</a></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
+</body>
+</html>

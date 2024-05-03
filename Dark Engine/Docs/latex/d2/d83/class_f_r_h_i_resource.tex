@@ -1,0 +1,143 @@
+\doxysection{Класс FRHIResource}
+\hypertarget{class_f_r_h_i_resource}{}\label{class_f_r_h_i_resource}\index{FRHIResource@{FRHIResource}}
+
+
+{\ttfamily \#include $<$RHIResources.\+h$>$}
+
+Граф наследования\+:FRHIResource\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=12.000000cm]{d2/d83/class_f_r_h_i_resource}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_f_r_h_i_resource_aa6ad5b29a1b8786b083f89a7b4f4f2cf}{FRHIResource}} (\mbox{\hyperlink{_r_h_i_defines_8h_ac956879f51692c0e19acc90d06b8405d}{ERHIResource\+Type}} In\+Resource\+Type)
+\item 
+virtual \mbox{\hyperlink{class_f_r_h_i_resource_a43b3eb835d6770a4f0ca910ce5a9f71d}{\texorpdfstring{$\sim$}{\string~}\+FRHIResource}} ()
+\item 
+bool \mbox{\hyperlink{class_f_r_h_i_resource_ab52bf70d01e6cd87f7f85ad25415ef02}{Is\+Valid}} () const
+\item 
+void \mbox{\hyperlink{class_f_r_h_i_resource_acf6a7d025a3f7d093609730cae8668e9}{Set\+Valid}} (bool In\+Is\+Valid)
+\item 
+void \mbox{\hyperlink{class_f_r_h_i_resource_a6628a0e931fbf79f2c3deead02a9ee8b}{Delete}} ()
+\item 
+\mbox{\hyperlink{_r_h_i_defines_8h_ac956879f51692c0e19acc90d06b8405d}{ERHIResource\+Type}} \mbox{\hyperlink{class_f_r_h_i_resource_a2aff4c7ff357ad84bb0934492a4bf893}{Get\+Resource\+Type}} () const
+\item 
+const \mbox{\hyperlink{class_f_string}{FString}} \& \mbox{\hyperlink{class_f_r_h_i_resource_ac4ddb4518bc615c9c64c33812db4d244}{Get\+Name}} () const
+\item 
+void \mbox{\hyperlink{class_f_r_h_i_resource_a7ced010aaca4140fe3d61a235e3cfb09}{Set\+Name}} (\mbox{\hyperlink{class_f_string}{FString}} In\+Name)
+\end{DoxyCompactItemize}
+\doxysubsection*{Открытые члены унаследованные от \mbox{\hyperlink{class_f_ref_counted_object}{FRef\+Counted\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_f_ref_counted_object_a3ae3edbc4c5caf1b150c3b261185e9b3}{FRef\+Counted\+Object}} ()
+\item 
+virtual \mbox{\hyperlink{class_f_ref_counted_object_a1dbde45df03ba584126c3f68883e1e2e}{\texorpdfstring{$\sim$}{\string~}\+FRef\+Counted\+Object}} ()
+\item 
+\mbox{\hyperlink{class_f_ref_counted_object_ac92d8ab8cedefb3c5bb731a609800832}{FRef\+Counted\+Object}} (const \mbox{\hyperlink{class_f_ref_counted_object}{FRef\+Counted\+Object}} \&Rhs)=delete
+\item 
+\mbox{\hyperlink{class_f_ref_counted_object}{FRef\+Counted\+Object}} \& \mbox{\hyperlink{class_f_ref_counted_object_a8d0313b3999b0a7f268b76058b7c5c18}{operator=}} (const \mbox{\hyperlink{class_f_ref_counted_object}{FRef\+Counted\+Object}} \&Rhs)=delete
+\item 
+\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} \mbox{\hyperlink{class_f_ref_counted_object_a8e5a493f34a64331f86fc1f69934dea0}{Add\+Ref}} () const
+\item 
+\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} \mbox{\hyperlink{class_f_ref_counted_object_ab350f7dff1cb3cbb729c10008be874bc}{Release}} () const
+\item 
+\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} \mbox{\hyperlink{class_f_ref_counted_object_af2b7744952475e6be883443e2380f33e}{Get\+Ref\+Count}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Защищенные данные}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_r_h_i_defines_8h_ac956879f51692c0e19acc90d06b8405d}{ERHIResource\+Type}} \mbox{\hyperlink{class_f_r_h_i_resource_a27fba66710a9c548f069a6a3cd1f53ab}{Resource\+Type}}
+\item 
+\mbox{\hyperlink{class_f_string}{FString}} \mbox{\hyperlink{class_f_r_h_i_resource_a48df619fc4822732625e1fdd081fcda9}{Name}} = \mbox{\hyperlink{_platform_8h_a2978f60d40d64f3605b5a99f66f292a9}{TEXT}}("{}RHIResource"{})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Друзья}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_f_r_h_i_resource_aba80ea68fc7993fbf75e1fa7f1e8005f}{FRHICommand\+List\+Immediate}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Конструктор(ы)}
+\Hypertarget{class_f_r_h_i_resource_aa6ad5b29a1b8786b083f89a7b4f4f2cf}\label{class_f_r_h_i_resource_aa6ad5b29a1b8786b083f89a7b4f4f2cf} 
+\index{FRHIResource@{FRHIResource}!FRHIResource@{FRHIResource}}
+\index{FRHIResource@{FRHIResource}!FRHIResource@{FRHIResource}}
+\doxysubsubsection{\texorpdfstring{FRHIResource()}{FRHIResource()}}
+{\footnotesize\ttfamily FRHIResource\+::\+FRHIResource (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_r_h_i_defines_8h_ac956879f51692c0e19acc90d06b8405d}{ERHIResource\+Type}}}]{In\+Resource\+Type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_f_r_h_i_resource_a43b3eb835d6770a4f0ca910ce5a9f71d}\label{class_f_r_h_i_resource_a43b3eb835d6770a4f0ca910ce5a9f71d} 
+\index{FRHIResource@{FRHIResource}!````~FRHIResource@{\texorpdfstring{$\sim$}{\string~}FRHIResource}}
+\index{````~FRHIResource@{\texorpdfstring{$\sim$}{\string~}FRHIResource}!FRHIResource@{FRHIResource}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}FRHIResource()}{\string~FRHIResource()}}
+{\footnotesize\ttfamily virtual FRHIResource\+::\texorpdfstring{$\sim$}{\string~}\+FRHIResource (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+\doxysubsection{Методы}
+\Hypertarget{class_f_r_h_i_resource_a6628a0e931fbf79f2c3deead02a9ee8b}\label{class_f_r_h_i_resource_a6628a0e931fbf79f2c3deead02a9ee8b} 
+\index{FRHIResource@{FRHIResource}!Delete@{Delete}}
+\index{Delete@{Delete}!FRHIResource@{FRHIResource}}
+\doxysubsubsection{\texorpdfstring{Delete()}{Delete()}}
+{\footnotesize\ttfamily void FRHIResource\+::\+Delete (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_f_r_h_i_resource_ac4ddb4518bc615c9c64c33812db4d244}\label{class_f_r_h_i_resource_ac4ddb4518bc615c9c64c33812db4d244} 
+\index{FRHIResource@{FRHIResource}!GetName@{GetName}}
+\index{GetName@{GetName}!FRHIResource@{FRHIResource}}
+\doxysubsubsection{\texorpdfstring{GetName()}{GetName()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{class_f_string}{FString}} \& FRHIResource\+::\+Get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_f_r_h_i_resource_a2aff4c7ff357ad84bb0934492a4bf893}\label{class_f_r_h_i_resource_a2aff4c7ff357ad84bb0934492a4bf893} 
+\index{FRHIResource@{FRHIResource}!GetResourceType@{GetResourceType}}
+\index{GetResourceType@{GetResourceType}!FRHIResource@{FRHIResource}}
+\doxysubsubsection{\texorpdfstring{GetResourceType()}{GetResourceType()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_r_h_i_defines_8h_ac956879f51692c0e19acc90d06b8405d}{ERHIResource\+Type}} FRHIResource\+::\+Get\+Resource\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_f_r_h_i_resource_ab52bf70d01e6cd87f7f85ad25415ef02}\label{class_f_r_h_i_resource_ab52bf70d01e6cd87f7f85ad25415ef02} 
+\index{FRHIResource@{FRHIResource}!IsValid@{IsValid}}
+\index{IsValid@{IsValid}!FRHIResource@{FRHIResource}}
+\doxysubsubsection{\texorpdfstring{IsValid()}{IsValid()}}
+{\footnotesize\ttfamily bool FRHIResource\+::\+Is\+Valid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_f_r_h_i_resource_a7ced010aaca4140fe3d61a235e3cfb09}\label{class_f_r_h_i_resource_a7ced010aaca4140fe3d61a235e3cfb09} 
+\index{FRHIResource@{FRHIResource}!SetName@{SetName}}
+\index{SetName@{SetName}!FRHIResource@{FRHIResource}}
+\doxysubsubsection{\texorpdfstring{SetName()}{SetName()}}
+{\footnotesize\ttfamily void FRHIResource\+::\+Set\+Name (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_f_string}{FString}}}]{In\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_f_r_h_i_resource_acf6a7d025a3f7d093609730cae8668e9}\label{class_f_r_h_i_resource_acf6a7d025a3f7d093609730cae8668e9} 
+\index{FRHIResource@{FRHIResource}!SetValid@{SetValid}}
+\index{SetValid@{SetValid}!FRHIResource@{FRHIResource}}
+\doxysubsubsection{\texorpdfstring{SetValid()}{SetValid()}}
+{\footnotesize\ttfamily void FRHIResource\+::\+Set\+Valid (\begin{DoxyParamCaption}\item[{bool}]{In\+Is\+Valid }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Документация по друзьям класса и функциям, относящимся к классу}
+\Hypertarget{class_f_r_h_i_resource_aba80ea68fc7993fbf75e1fa7f1e8005f}\label{class_f_r_h_i_resource_aba80ea68fc7993fbf75e1fa7f1e8005f} 
+\index{FRHIResource@{FRHIResource}!FRHICommandListImmediate@{FRHICommandListImmediate}}
+\index{FRHICommandListImmediate@{FRHICommandListImmediate}!FRHIResource@{FRHIResource}}
+\doxysubsubsection{\texorpdfstring{FRHICommandListImmediate}{FRHICommandListImmediate}}
+{\footnotesize\ttfamily friend class \mbox{\hyperlink{class_f_r_h_i_command_list_immediate}{FRHICommand\+List\+Immediate}}\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+\doxysubsection{Данные класса}
+\Hypertarget{class_f_r_h_i_resource_a48df619fc4822732625e1fdd081fcda9}\label{class_f_r_h_i_resource_a48df619fc4822732625e1fdd081fcda9} 
+\index{FRHIResource@{FRHIResource}!Name@{Name}}
+\index{Name@{Name}!FRHIResource@{FRHIResource}}
+\doxysubsubsection{\texorpdfstring{Name}{Name}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_f_string}{FString}} FRHIResource\+::\+Name = \mbox{\hyperlink{_platform_8h_a2978f60d40d64f3605b5a99f66f292a9}{TEXT}}("{}RHIResource"{})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_f_r_h_i_resource_a27fba66710a9c548f069a6a3cd1f53ab}\label{class_f_r_h_i_resource_a27fba66710a9c548f069a6a3cd1f53ab} 
+\index{FRHIResource@{FRHIResource}!ResourceType@{ResourceType}}
+\index{ResourceType@{ResourceType}!FRHIResource@{FRHIResource}}
+\doxysubsubsection{\texorpdfstring{ResourceType}{ResourceType}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_r_h_i_defines_8h_ac956879f51692c0e19acc90d06b8405d}{ERHIResource\+Type}} FRHIResource\+::\+Resource\+Type\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Объявления и описания членов класса находятся в файле\+:\begin{DoxyCompactItemize}
+\item 
+Dark Engine/\+Source/\+Runtime/\+RHI/public/\mbox{\hyperlink{_r_h_i_resources_8h}{RHIResources.\+h}}\end{DoxyCompactItemize}

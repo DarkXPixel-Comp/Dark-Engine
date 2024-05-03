@@ -7,9 +7,11 @@
 //#include "Engine/SceneViewport.h"
 
 
+
+
 class FSceneViewport;
 
-class UIViewport : public UIWidget
+class UIViewport : public virtual UIWidget
 {
 public:
 	UIViewport();
@@ -25,13 +27,6 @@ protected:
 	TSharedPtr<FSceneViewport> Viewport;
 	TSharedPtr<FViewportClient>	ViewportClient;
 	FVector2D ViewportSize;
-
-private:
 	float Delta = 0.f;
-
-
-
-
-
 
 };

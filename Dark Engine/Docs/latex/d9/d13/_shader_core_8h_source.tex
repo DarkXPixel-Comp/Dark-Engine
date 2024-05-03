@@ -1,0 +1,105 @@
+\doxysection{Shader\+Core.\+h}
+\hypertarget{_shader_core_8h_source}{}\label{_shader_core_8h_source}\index{Dark Engine/Source/Runtime/Renderer/public/ShaderCore.h@{Dark Engine/Source/Runtime/Renderer/public/ShaderCore.h}}
+\mbox{\hyperlink{_shader_core_8h}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_unordored_map_8h}{Containers/UnordoredMap.h}}"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_dark_string_8h}{Containers/DarkString.h}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_log_macros_8h}{Logging/LogMacros.h}}"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <variant>}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \mbox{\hyperlink{_log_macros_8h_a66c06938995cf7354bd4997344688e38}{DECLARE\_LOG\_CATEGORY}}(LogShaders,\ Display)}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ class\ \mbox{\hyperlink{class_f_shader_compiler_definitions}{FShaderCompilerDefinitions}}}
+\DoxyCodeLine{00012\ \{}
+\DoxyCodeLine{00013\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00014\ \ \ \ \ \mbox{\hyperlink{class_f_shader_compiler_definitions_ab8b76a65492ffb4a7867be9ff5222df9}{FShaderCompilerDefinitions}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_shader_compiler_definitions_aa8052f44050cc05f13cafc0bbb1b9f96}{SetDefine}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}}*\ Name,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}}*\ Value)}
+\DoxyCodeLine{00017\ \ \ \ \ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ Definitions.emplace(Name,\ Value);}
+\DoxyCodeLine{00019\ \ \ \ \ \}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_shader_compiler_definitions_ae4200b22263973c3bf2c444ba692c476}{SetDefine}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}}*\ Name,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_f_string}{FString}}\&\ Value)}
+\DoxyCodeLine{00022\ \ \ \ \ \{}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ Definitions.emplace(Name,\ Value);}
+\DoxyCodeLine{00024\ \ \ \ \ \}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_shader_compiler_definitions_a0840dcaf53bd6d04a11150bdee29cc44}{SetDefine}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}}*\ Name,\ \textcolor{keywordtype}{bool}\ Value)}
+\DoxyCodeLine{00027\ \ \ \ \ \{}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ Definitions.emplace(Name,\ Value\ ?\ \mbox{\hyperlink{_platform_8h_a2978f60d40d64f3605b5a99f66f292a9}{TEXT}}(\textcolor{stringliteral}{"{}1"{}})\ :\ \mbox{\hyperlink{_platform_8h_a2978f60d40d64f3605b5a99f66f292a9}{TEXT}}(\textcolor{stringliteral}{"{}0"{}}));}
+\DoxyCodeLine{00029\ \ \ \ \ \}}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_shader_compiler_definitions_a13e1d9b59a04b38d51edd0a728d9da38}{SetDefine}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}}*\ Name,\ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ Value)}
+\DoxyCodeLine{00031\ \ \ \ \ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ Definitions.emplace(Name,\ \mbox{\hyperlink{class_f_string_a1dfcf0015234ee1810ed318e32dc6543}{FString::PrintF}}(\mbox{\hyperlink{_platform_8h_a2978f60d40d64f3605b5a99f66f292a9}{TEXT}}(\textcolor{stringliteral}{"{}\%u"{}}),\ Value));}
+\DoxyCodeLine{00033\ \ \ \ \ \}}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_shader_compiler_definitions_a4227ccc4e265e4073376c8e21dbbe7e3}{SetDefine}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}}*\ Name,\ \mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}\ Value)}
+\DoxyCodeLine{00035\ \ \ \ \ \{}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ Definitions.emplace(Name,\ \mbox{\hyperlink{class_f_string_a1dfcf0015234ee1810ed318e32dc6543}{FString::PrintF}}(\mbox{\hyperlink{_platform_8h_a2978f60d40d64f3605b5a99f66f292a9}{TEXT}}(\textcolor{stringliteral}{"{}\%i"{}}),\ Value));}
+\DoxyCodeLine{00037\ \ \ \ \ \}}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_shader_compiler_definitions_a4306b4ea1ccd232c2bbf05c058c43106}{SetDefine}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}}*\ Name,\ \textcolor{keywordtype}{float}\ Value)}
+\DoxyCodeLine{00039\ \ \ \ \ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ Definitions.emplace(Name,\ \mbox{\hyperlink{class_f_string_a1dfcf0015234ee1810ed318e32dc6543}{FString::PrintF}}(\mbox{\hyperlink{_platform_8h_a2978f60d40d64f3605b5a99f66f292a9}{TEXT}}(\textcolor{stringliteral}{"{}\%f"{}}),\ Value));}
+\DoxyCodeLine{00041\ \ \ \ \ \}}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keyword}{const}\ TMap<FString,\ FString>\&\ \mbox{\hyperlink{class_f_shader_compiler_definitions_a170fc20204b2ce5b53500df04d15136a}{GetDefinitionMap}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00043\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Definitions;}
+\DoxyCodeLine{00045\ \ \ \ \ \}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00048\ \ \ \ \ TMap<FString,\ FString>\ Definitions;}
+\DoxyCodeLine{00049\ \};}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_f_shader_compiler_environment}{FShaderCompilerEnvironment}}}
+\DoxyCodeLine{00052\ \{}
+\DoxyCodeLine{00053\ \ \ \ \ \mbox{\hyperlink{class_f_shader_compiler_definitions}{FShaderCompilerDefinitions}}\ \mbox{\hyperlink{struct_f_shader_compiler_environment_a769f8fe1e9091daaadf7138641998543}{Definitions}};}
+\DoxyCodeLine{00054\ \ \ \ \ TMap<FString,\ std::variant<bool,\ float,\ int32,\ uint32,\ FString>>\ \mbox{\hyperlink{struct_f_shader_compiler_environment_a3b3bd9972d2a62a85ec12fe1826f693a}{CompileArgs}};}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \};}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_f_shader_compiler_input}{FShaderCompilerInput}}}
+\DoxyCodeLine{00062\ \{}
+\DoxyCodeLine{00063\ \ \ \ \ \mbox{\hyperlink{class_f_string}{FString}}\ \ \mbox{\hyperlink{struct_f_shader_compiler_input_ab0dd72c619e45656eef73a3420ee7041}{ShaderFormat}};}
+\DoxyCodeLine{00064\ \ \ \ \ \mbox{\hyperlink{class_f_string}{FString}}\ \mbox{\hyperlink{struct_f_shader_compiler_input_acc0f421843de6b9347438d95e6acb112}{SourceFilePath}};}
+\DoxyCodeLine{00065\ \ \ \ \ \mbox{\hyperlink{class_f_string}{FString}}\ \mbox{\hyperlink{struct_f_shader_compiler_input_a15f1a9506ef85875bf870544cc26a138}{EntryPoint}};}
+\DoxyCodeLine{00066\ \ \ \ \ \mbox{\hyperlink{class_f_string}{FString}}\ \mbox{\hyperlink{struct_f_shader_compiler_input_a76f5355a5358abaf449dcc67be9b796c}{ShaderName}};}
+\DoxyCodeLine{00067\ \ \ \ \ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ \mbox{\hyperlink{struct_f_shader_compiler_input_a88445dce09a2c4dfbbd20023bc4be517}{ShaderType}};}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_f_shader_type}{FShaderType}}*\ \mbox{\hyperlink{struct_f_shader_compiler_input_a313a65ea27ab7c5a6e1034656ece289e}{Type}};}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ \mbox{\hyperlink{struct_f_shader_compiler_environment}{FShaderCompilerEnvironment}}\ \mbox{\hyperlink{struct_f_shader_compiler_input_aafddcda9d053821ad5e8ef67c396842a}{Environment}};}
+\DoxyCodeLine{00071\ \};}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_f_shader_preprocess_output}{FShaderPreprocessOutput}}}
+\DoxyCodeLine{00074\ \{}
+\DoxyCodeLine{00075\ \ \ \ \ \mbox{\hyperlink{class_f_string}{FString}}\ \mbox{\hyperlink{struct_f_shader_preprocess_output_a76bc4c4f2b9c5dee87c44214ea1e4bdf}{PreprocessedSource}};}
+\DoxyCodeLine{00076\ \ \ \ \ \mbox{\hyperlink{class_f_string}{FString}}\ \mbox{\hyperlink{struct_f_shader_preprocess_output_aae804f7d7d1815b2539243b6e3db5714}{OriginalPreprocessedSource}};}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_f_shader_preprocess_output_a69142fbcf09878074cfee9073517ea4c}{PreprocessTime}};}
+\DoxyCodeLine{00078\ \};}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_f_shader_code}{FShaderCode}}}
+\DoxyCodeLine{00081\ \{}
+\DoxyCodeLine{00082\ \ \ \ \ TArray<uint8>\ \mbox{\hyperlink{struct_f_shader_code_a7f5b781a06a71d249f5ebfeabb60e109}{ShaderCodeWithOptionalData}};}
+\DoxyCodeLine{00083\ \};}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_f_shader_compiler_output}{FShaderCompilerOutput}}}
+\DoxyCodeLine{00087\ \{}
+\DoxyCodeLine{00088\ \ \ \ \ \mbox{\hyperlink{struct_f_shader_code}{FShaderCode}}\ \mbox{\hyperlink{struct_f_shader_compiler_output_a0efc612169e4dcf83fbca156c0f9d392}{ShaderCode}};}
+\DoxyCodeLine{00089\ \ \ \ \ std::size\_t\ \mbox{\hyperlink{struct_f_shader_compiler_output_a8ee27c0a85539c47031ad207e927e573}{ShaderHash}}\ =\ 0;}
+\DoxyCodeLine{00090\ \};}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_f_shader_bounds}{FShaderBounds}}}
+\DoxyCodeLine{00094\ \{}
+\DoxyCodeLine{00095\ \ \ \ \ \mbox{\hyperlink{_platform_8h_a40bc01dd090acd02a79b5dc13e08abe6}{uint8}}\ \mbox{\hyperlink{struct_f_shader_bounds_af7039766da808173f52a333b8d90c146}{SamplerCount}};}
+\DoxyCodeLine{00096\ \ \ \ \ \mbox{\hyperlink{_platform_8h_a40bc01dd090acd02a79b5dc13e08abe6}{uint8}}\ \mbox{\hyperlink{struct_f_shader_bounds_ae4d49b9139098564d7c19a73fe278751}{ConstantBufferCount}};}
+\DoxyCodeLine{00097\ \ \ \ \ \mbox{\hyperlink{_platform_8h_a40bc01dd090acd02a79b5dc13e08abe6}{uint8}}\ \mbox{\hyperlink{struct_f_shader_bounds_a88f855ceb0e60b57a1a10e6d78f558ad}{ShaderResourceCount}};}
+\DoxyCodeLine{00098\ \ \ \ \ \mbox{\hyperlink{_platform_8h_a40bc01dd090acd02a79b5dc13e08abe6}{uint8}}\ \mbox{\hyperlink{struct_f_shader_bounds_a589a5029efee46a1ea4d5806035f597f}{UnorderedAccessCount}};}
+\DoxyCodeLine{00099\ \};}
+
+\end{DoxyCode}

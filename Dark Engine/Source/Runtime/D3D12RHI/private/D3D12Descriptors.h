@@ -4,6 +4,7 @@
 #include "D3D12RHICommon.h"
 #include <d3d12.h>
 #include "RHIDefines.h"
+#include "Templates/RefCounting.h"
 
 
 class FD3D12DescriptorHeap;
@@ -14,13 +15,13 @@ FORCEINLINE D3D12_DESCRIPTOR_HEAP_TYPE GetD3D12DescriptorHeapType(ERHIDescriptor
 {
 	switch (HeapType)
 	{
-	case Standart:
+	case ERHIDescriptorHeapType::Standart:
 		return D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV;
-	case Sampler:
+	case ERHIDescriptorHeapType::Sampler:
 		return D3D12_DESCRIPTOR_HEAP_TYPE_SAMPLER;
-	case RenderTarget:
+	case ERHIDescriptorHeapType::RenderTarget:
 		return D3D12_DESCRIPTOR_HEAP_TYPE_RTV;
-	case DepthStencil:
+	case ERHIDescriptorHeapType::DepthStencil:
 		return D3D12_DESCRIPTOR_HEAP_TYPE_DSV;
 	default:
 		return D3D12_DESCRIPTOR_HEAP_TYPE();
@@ -32,13 +33,13 @@ FORCEINLINE uint32 GetCpuDescriptorHeapSize(ERHIDescriptorHeapType HeapType)
 {
 	switch (HeapType)
 	{
-	case Standart:
+	case ERHIDescriptorHeapType::Standart:
 		return 2048;
-	case Sampler:
+	case ERHIDescriptorHeapType::Sampler:
 		return 128;
-	case RenderTarget:
+	case ERHIDescriptorHeapType::RenderTarget:
 		return 256;
-	case DepthStencil:
+	case ERHIDescriptorHeapType::DepthStencil:
 		return 256;
 	}
 
@@ -68,6 +69,11 @@ struct FD3D12CpuFreeRange
 {
 	uint64 Start;
 	uint64 End;
+
+	bool operator==(const FD3D12CpuFreeRange& Other)
+	{
+		return Start == Other.Start && End == Other.End;
+	}
 };
 
 struct FD3D12CpuEntry
@@ -83,19 +89,25 @@ struct FD3D12CpuEntry
 };
 
 
-class FD3D12DescriptorHeap : public FD3D12DeviceChild
+class FD3D12DescriptorHeap : public FD3D12DeviceChild, public FRefCountedObject
 {
 public:
 	FD3D12DescriptorHeap(FD3D12Device* InDevice, ID3D12DescriptorHeap* InHeap, uint32 InNumDescriptors,
 		ERHIDescriptorHeapType InType, D3D12_DESCRIPTOR_HEAP_FLAGS InFlags);
 
-	~FD3D12DescriptorHeap() {}
+	~FD3D12DescriptorHeap()
+	{
+
+	}
 
 	ID3D12DescriptorHeap* GetHeap() const { return Heap.Get(); }
 	ERHIDescriptorHeapType GetType() const { return Type; }
 	D3D12_DESCRIPTOR_HEAP_FLAGS GetFlags() const { return Flags; }
-	D3D12_CPU_DESCRIPTOR_HANDLE GetCPUSlotHandle(uint32 Slot) { return CD3DX12_CPU_DESCRIPTOR_HANDLE(CpuBase, Slot, DescriptorSize); }
-	D3D12_GPU_DESCRIPTOR_HANDLE GetGPUSlotHandle(uint32 Slot) { return CD3DX12_GPU_DESCRIPTOR_HANDLE(GpuBase, Slot, DescriptorSize); }
+	D3D12_CPU_DESCRIPTOR_HANDLE GetCPUSlotHandle(uint32 Slot) const { return CD3DX12_CPU_DESCRIPTOR_HANDLE(CpuBase, Slot, DescriptorSize); }
+	D3D12_GPU_DESCRIPTOR_HANDLE GetGPUSlotHandle(uint32 Slot) const 
+	{
+		return CD3DX12_GPU_DESCRIPTOR_HANDLE(GpuBase, Slot, DescriptorSize);
+	}
 								
 private:
 	TRefCountPtr<ID3D12DescriptorHeap> Heap;
@@ -156,17 +168,6 @@ private:
 
 
 
-class FD3D12BindlessDescriptorManager : public FD3D12DeviceChild
-{
-public:
-	FD3D12BindlessDescriptorManager(FD3D12Device* InDevice);
-	~FD3D12BindlessDescriptorManager();
-
-	void Init();
-
-
-};
-
 
 class FD3D12CpuDescriptorManager : public FD3D12DeviceChild
 {
@@ -197,3 +198,8 @@ private:
 
 FD3D12DescriptorHeap* CreateDescriptorHeap(FD3D12Device* Device, const TCHAR* DebugName, ERHIDescriptorHeapType HeapType,
 	uint32 NumDescriptors, D3D12_DESCRIPTOR_HEAP_FLAGS Flags);
+
+void CopyDescriptors(FD3D12Device* Device, FD3D12DescriptorHeap* TargetHeap,
+	FD3D12DescriptorHeap* SourceHeap, uint32 NumDescriptors);
+void CopyDescriptor(FD3D12Device* Device, FD3D12DescriptorHeap* TargetHeap,
+	FRHIDescriptorHandle Handle, D3D12_CPU_DESCRIPTOR_HANDLE SourceCpuHandle);

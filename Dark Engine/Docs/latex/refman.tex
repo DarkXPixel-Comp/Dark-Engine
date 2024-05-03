@@ -1,0 +1,1288 @@
+  % Handle batch mode
+  % to overcome problems with too many open files
+  \let\mypdfximage\pdfximage\def\pdfximage{\immediate\mypdfximage}
+  \pdfminorversion=7
+  % Set document class depending on configuration
+  \documentclass[twoside]{book}
+  %% moved from doxygen.sty due to workaround for LaTex 2019 version and unmaintained tabu package
+  \usepackage{ifthen}
+  \ifx\requestedLaTeXdate\undefined
+    \usepackage{array}
+  \else
+    \usepackage{array}[=2016-10-06]
+  \fi
+  %%
+  % Packages required by doxygen
+  \makeatletter
+  \providecommand\IfFormatAtLeastTF{\@ifl@t@r\fmtversion}
+  % suppress package identification of infwarerr as it contains the word "warning"
+  \let\@@protected@wlog\protected@wlog
+  \def\protected@wlog#1{\wlog{package info suppressed}}
+  \RequirePackage{infwarerr}
+  \let\protected@wlog\@@protected@wlog
+  \makeatother
+  \IfFormatAtLeastTF{2016/01/01}{}{\usepackage{fixltx2e}} % for \textsubscript
+  \IfFormatAtLeastTF{2015/01/01}{\pdfsuppresswarningpagegroup=1}{}
+  \usepackage{doxygen}
+  \usepackage{graphicx}
+  \usepackage[utf8]{inputenc}
+  \usepackage{makeidx}
+  \PassOptionsToPackage{warn}{textcomp}
+  \usepackage{textcomp}
+  \usepackage[nointegrals]{wasysym}
+  \usepackage{ifxetex}
+  % NLS support packages
+  \usepackage[T2A]{fontenc}
+\usepackage[russian]{babel}
+  % Define default fonts
+  % Font selection
+  \usepackage[T1]{fontenc}
+  % set main and monospaced font
+  \usepackage[scaled=.90]{helvet}
+\usepackage{courier}
+\renewcommand{\familydefault}{\sfdefault}
+  \doxyallsectionsfont{%
+    \fontseries{bc}\selectfont%
+    \color{darkgray}%
+  }
+  \renewcommand{\DoxyLabelFont}{%
+    \fontseries{bc}\selectfont%
+    \color{darkgray}%
+  }
+  \newcommand{\+}{\discretionary{\mbox{\scriptsize$\hookleftarrow$}}{}{}}
+   % Arguments of doxygenemoji:
+   % 1) ':<text>:' form of the emoji, already LaTeX-escaped
+   % 2) file with the name of the emoji without the .png extension
+   % in case image exist use this otherwise use the ':<text>:' form
+   \newcommand{\doxygenemoji}[2]{%
+     \IfFileExists{./#2.png}{\raisebox{-0.1em}{\includegraphics[height=0.9em]{./#2.png}}}{#1}%
+   }
+  % Page & text layout
+  \usepackage{geometry}
+  \geometry{%
+    a4paper,%
+    top=2.5cm,%
+    bottom=2.5cm,%
+    left=2.5cm,%
+    right=2.5cm%
+  }
+  \usepackage{changepage}
+  % Allow a bit of overflow to go unnoticed by other means
+  \tolerance=750
+  \hfuzz=15pt
+  \hbadness=750
+  \setlength{\emergencystretch}{15pt}
+  \setlength{\parindent}{0cm}
+  \newcommand{\doxynormalparskip}{\setlength{\parskip}{3ex plus 2ex minus 2ex}}
+  \newcommand{\doxytocparskip}{\setlength{\parskip}{1ex plus 0ex minus 0ex}}
+  \doxynormalparskip
+  % Redefine paragraph/subparagraph environments, using sectsty fonts
+  \makeatletter
+  \renewcommand{\paragraph}{%
+    \@startsection{paragraph}{4}{0ex}{-1.0ex}{1.0ex}{%
+      \normalfont\normalsize\bfseries\SS@parafont%
+    }%
+  }
+  \renewcommand{\subparagraph}{%
+    \@startsection{subparagraph}{5}{0ex}{-1.0ex}{1.0ex}{%
+      \normalfont\normalsize\bfseries\SS@subparafont%
+    }%
+  }
+  \makeatother
+  \makeatletter
+  \newcommand\hrulefilll{\leavevmode\leaders\hrule\hskip 0pt plus 1filll\kern\z@}
+  \makeatother
+  % Headers & footers
+  \usepackage{fancyhdr}
+  \pagestyle{fancyplain}
+  \renewcommand{\footrulewidth}{0.4pt}
+  \fancypagestyle{fancyplain}{
+    \fancyhf{}
+    \fancyhead[LE, RO]{\bfseries\thepage}
+    \fancyhead[LO]{\bfseries\rightmark}
+    \fancyhead[RE]{\bfseries\leftmark}
+    \fancyfoot[LO, RE]{\bfseries\scriptsize Создано системой Doxygen }
+  }
+  \fancypagestyle{plain}{
+    \fancyhf{}
+    \fancyfoot[LO, RE]{\bfseries\scriptsize Создано системой Doxygen }
+    \renewcommand{\headrulewidth}{0pt}
+  }
+  \pagestyle{fancyplain}
+  \renewcommand{\chaptermark}[1]{%
+    \markboth{#1}{}%
+  }
+  \renewcommand{\sectionmark}[1]{%
+    \markright{\thesection\ #1}%
+  }
+  % ToC, LoF, LoT, bibliography, and index
+  % Indices & bibliography
+  \usepackage{natbib}
+  \usepackage[titles]{tocloft}
+  \setcounter{tocdepth}{3}
+  \setcounter{secnumdepth}{5}
+  % creating indexes
+  \makeindex
+  \usepackage{newunicodechar}
+  \makeatletter
+    \def\doxynewunicodechar#1#2{%
+    \@tempswafalse
+    \edef\nuc@tempa{\detokenize{#1}}%
+    \if\relax\nuc@tempa\relax
+      \nuc@emptyargerr
+    \else
+      \edef\@tempb{\expandafter\@car\nuc@tempa\@nil}%
+      \nuc@check
+      \if@tempswa
+        \@namedef{u8:\nuc@tempa}{#2}%
+      \fi
+    \fi
+  }
+  \makeatother
+  \doxynewunicodechar{⁻}{${}^{-}$}% Superscript minus
+  \doxynewunicodechar{²}{${}^{2}$}% Superscript two
+  \doxynewunicodechar{³}{${}^{3}$}% Superscript three
+  % Hyperlinks
+    % Hyperlinks (required, but should be loaded last)
+    \ifpdf
+      \usepackage[pdftex,pagebackref=true]{hyperref}
+    \else
+      \ifxetex
+        \usepackage[pagebackref=true]{hyperref}
+      \else
+        \usepackage[ps2pdf,pagebackref=true]{hyperref}
+      \fi
+    \fi
+    \hypersetup{%
+      colorlinks=true,%
+      linkcolor=blue,%
+      citecolor=blue,%
+      unicode,%
+      pdftitle={Dark Engine},%
+      pdfsubject={New game engnie D3\+D12}%
+    }
+  % Custom commands used by the header
+  % Custom commands
+  \newcommand{\clearemptydoublepage}{%
+    \newpage{\pagestyle{empty}\cleardoublepage}%
+  }
+  % caption style definition
+  \usepackage{caption}
+  \captionsetup{labelsep=space,justification=centering,font={bf},singlelinecheck=off,skip=4pt,position=top}
+  % in page table of contents
+  \IfFormatAtLeastTF{2023/05/01}{\usepackage[deeplevels]{etoc}}{\usepackage[deeplevels]{etoc_doxygen}}
+  \etocsettocstyle{\doxytocparskip}{\doxynormalparskip}
+  \etocsetlevel{subsubsubsection}{4}
+  \etocsetlevel{subsubsubsubsection}{5}
+  \etocsetlevel{subsubsubsubsubsection}{6}
+  \etocsetlevel{subsubsubsubsubsubsection}{7}
+  \etocsetlevel{paragraph}{8}
+  \etocsetlevel{subparagraph}{9}
+  % prevent numbers overlap the titles in toc
+  \renewcommand{\numberline}[1]{#1~}
+% End of preamble, now comes the document contents
+%===== C O N T E N T S =====
+\begin{document}
+  \raggedbottom
+  % Titlepage & ToC
+    % To avoid duplicate page anchors due to reuse of same numbers for
+    % the index (be it as roman numbers)
+    \hypersetup{pageanchor=false,
+                bookmarksnumbered=true,
+                pdfencoding=unicode
+               }
+  \pagenumbering{alph}
+  \begin{titlepage}
+  \vspace*{7cm}
+  \begin{center}%
+  {\Large Dark Engine}\\
+  [1ex]\large 0.\+0.\+50 \\
+  \vspace*{1cm}
+  {\large Создано системой Doxygen 1.10.0}\\
+  \end{center}
+  \end{titlepage}
+  \clearemptydoublepage
+  \pagenumbering{roman}
+  \tableofcontents
+  \clearemptydoublepage
+  \pagenumbering{arabic}
+  % re-enable anchors again
+  \hypersetup{pageanchor=true}
+%--- Begin generated contents ---
+\input{index}
+\input{dd/da0/todo}
+\chapter{Алфавитный указатель пространств имен}
+\input{namespaces}
+\chapter{Иерархический список классов}
+\input{hierarchy}
+\chapter{Алфавитный указатель классов}
+\input{annotated}
+\chapter{Список файлов}
+\input{files}
+\chapter{Пространства имен}
+\input{d3/dc4/namespace_d3_d12_shader_utils}
+\input{d7/d91/namespace_d3_d12_shader_utils_1_1_static_root_signature_constants}
+\input{d8/d9d/namespace_d_e}
+\input{d8/d37/namespace_d_e_1_1_math}
+\input{dc/d21/namespace_d_e_1_1_s_s_e}
+\input{d0/d74/namespace_d_e_1_1_s_s_e4}
+\input{d4/d6c/namespace_d_x12}
+\input{de/da4/namespace_e_log_verbosity}
+\input{dc/d6c/namespace_e_mouse_buttons}
+\input{db/de5/namespaceispc}
+\input{d3/d82/namespace_test_script}
+\input{d8/d55/namespace_v_k}
+\chapter{Классы}
+\input{db/d32/class_a_actor}
+\input{de/d6b/class_application}
+\input{d7/da2/class_application_core}
+\input{d2/d30/struct_array_reserve}
+\input{d9/d26/class_a_test_actor}
+\input{d7/d63/struct_bucket}
+\input{db/d19/class_command_console}
+\input{db/d73/class_core}
+\input{df/d4c/class_core_d_object}
+\input{d0/da2/struct_d3_d12_camera}
+\input{da/d35/struct_d3_d12_light}
+\input{d7/df2/class_d3_d12_material}
+\input{d3/de7/struct_d3_d12_material_constants}
+\input{de/d21/class_d3_d12_model}
+\input{d6/de9/struct_d3_d12_pass_constants}
+\input{db/d06/class_d3_d12_pipeline_shader_root_signature}
+\input{df/d68/class_d3_d12_renderer}
+\input{d3/d92/class_d3_d12_r_h_i}
+\input{d9/db4/class_d3_d12_scene}
+\input{d1/d40/class_d3_d12_shader}
+\input{d6/dcb/struct_d3_d12_shader_desc}
+\input{d3/ddd/class_d3_d12_texture}
+\input{d8/d57/class_d3_d12_upload_buffer_resource}
+\input{df/d45/class_d3_d_util}
+\input{de/db4/class_d_ed_engine}
+\input{d3/dfd/class_d_editor}
+\input{d9/d94/class_d_editor_engine}
+\input{db/d0c/class_d_object}
+\input{dc/d38/class_editor}
+\input{d8/d9b/class_engine}
+\input{d2/dec/struct_d3_d12_renderer_1_1_f_acceleration_buffers}
+\input{d7/d41/struct_f_allocation_data}
+\input{d0/de2/class_f_base_console}
+\input{db/d5f/struct_f_bound_shader_state_input}
+\input{d2/d57/class_f_canvas}
+\input{de/d7f/struct_f_c_m_d_parameter}
+\input{d8/dce/struct_f_color}
+\input{d6/d70/struct_f_color3}
+\input{dc/de0/struct_f_r_h_i_render_pass_info_1_1_f_color_entry}
+\input{da/de1/class_f_config_cache}
+\input{d8/db3/class_f_console_command}
+\input{da/de9/struct_f_console_log}
+\input{da/d13/class_f_console_std}
+\input{d2/d28/class_f_console_variable_ref}
+\input{d8/da7/class_f_core_delegates}
+\input{d1/d3e/struct_f_d3_d12___g_r_a_p_h_i_c_s___p_i_p_e_l_i_n_e___s_t_a_t_e___d_e_s_c}
+\input{d6/db4/class_f_d3_d12_adapter}
+\input{d5/d6e/class_f_d3_d12_adapter_child}
+\input{d6/d09/struct_f_d3_d12_adapter_desc}
+\input{d3/dd0/class_f_d3_d12_base_shader_resource}
+\input{d0/d93/class_f_d3_d12_bindless_descriptor_heap_manager}
+\input{d4/de3/class_f_d3_d12_bindless_descriptor_manager}
+\input{d5/d14/class_f_d3_d12_buffer}
+\input{d7/dc0/class_f_d3_d12_command_allocator}
+\input{d3/d12/class_f_d3_d12_command_context}
+\input{d3/dda/class_f_d3_d12_command_context_base}
+\input{d5/d3e/class_f_d3_d12_command_list}
+\input{d9/d50/class_f_d3_d12_compute_shader}
+\input{da/d40/class_f_d3_d12_constant_buffer}
+\input{d2/d52/struct_f_d3_d12_constant_buffer_cache}
+\input{d1/d3a/class_f_d3_d12_context_common}
+\input{d2/d75/struct_f_d3_d12_cpu_descriptor}
+\input{d5/dcf/class_f_d3_d12_cpu_descriptor_manager}
+\input{d1/d87/struct_f_d3_d12_cpu_entry}
+\input{d5/d7d/struct_f_d3_d12_cpu_free_range}
+\input{d2/d81/class_f_d3_d12_depth_stencil_view}
+\input{d1/dd3/class_f_d3_d12_descriptor_heap}
+\input{d5/dfc/class_f_d3_d12_descriptor_heap_manager}
+\input{d7/db4/class_f_d3_d12_descriptor_manager}
+\input{d1/d79/class_f_d3_d12_device}
+\input{d2/d98/struct_f_d3_d12_device_basic_info}
+\input{d8/d20/class_f_d3_d12_device_child}
+\input{d3/d95/class_f_d3_d12_dynamic_r_h_i}
+\input{dc/dbf/class_f_d3_d12_dynamic_r_h_i_module}
+\input{db/daf/class_f_d3_d12_geometry_shader}
+\input{d7/de6/struct_f_d3_d12_graphics_pipeline_state}
+\input{d8/d13/class_f_d3_d12_heap}
+\input{da/dd3/struct_f_d3_d12_index_buffer_cache}
+\input{d4/d3c/struct_f_d3_d12_locked_resource}
+\input{d5/d41/class_f_d3_d12_mesh}
+\input{d6/dc1/struct_f_d3_d12_payload}
+\input{d2/d08/struct_f_d3_d12_payload_base}
+\input{dc/dc1/struct_f_d3_d12_pipeline_state}
+\input{dc/d9f/class_f_d3_d12_pipeline_state_manager}
+\input{dd/d1d/class_f_d3_d12_pixel_shader}
+\input{df/d45/class_f_d3_d12_queue}
+\input{d4/d27/class_f_d3_d12_rasterizer_state}
+\input{d5/d25/class_f_d3_d12_render_target_view}
+\input{d7/d81/class_f_d3_d12_resource}
+\input{d3/d27/class_f_d3_d12_resource_barrier_batcher}
+\input{d3/dd6/struct_f_d3_d12_resource_cache}
+\input{d6/d83/struct_f_d3_d12_resource_desc}
+\input{d3/dfd/class_f_d3_d12_resource_location}
+\input{d0/d1e/class_f_d3_d12_root_signature}
+\input{d5/de9/class_f_d3_d12_root_signature_desc}
+\input{d5/d99/class_f_d3_d12_root_signature_manager}
+\input{dd/df1/struct_f_d3_d12_shader_data}
+\input{df/dd0/class_f_d3_d12_shader_resource_view}
+\input{d3/dfd/class_f_d3_d12_state_cache}
+\input{d7/d30/class_f_d3_d12_sync_point}
+\input{d6/d36/class_f_d3_d12_texture}
+\input{d0/d49/class_f_d3_d12_uniform_buffer}
+\input{d6/dfd/struct_f_d3_d12_vertex_buffer_cache}
+\input{d3/d63/class_f_d3_d12_vertex_declaration}
+\input{de/d35/class_f_d3_d12_vertex_shader}
+\input{db/d6f/class_f_d3_d12_view}
+\input{d3/d1d/class_f_d3_d12_viewport}
+\input{d0/d2e/class_f_d3_d_shader_format}
+\input{d8/da0/struct_f_debug}
+\input{da/d4c/struct_f_r_h_i_render_pass_info_1_1_f_depth_stencil_entry}
+\input{d0/d65/struct_f_depth_stencil_state_initializer}
+\input{d8/d73/struct_f_dxc_arguments}
+\input{de/d38/class_f_dynamic_r_h_i}
+\input{df/df6/struct_f_editor_layout}
+\input{d8/d82/class_f_editor_viewport_client}
+\input{d3/df8/class_f_editor_widget}
+\input{d2/df6/class_f_engine_loop}
+\input{de/d24/struct_f_ensure_handler_args}
+\input{d7/dbe/struct_f_filter_vertex}
+\input{db/d89/class_f_filter_vertex_declaration}
+\input{d4/d85/struct_f_fractal_params}
+\input{da/d21/class_f_fractal_shader_p_s}
+\input{d4/def/class_f_fractal_shader_v_s}
+\input{d4/dee/class_f_game_timer}
+\input{d6/db2/class_f_game_viewport_client}
+\input{df/d5f/class_f_generic_application}
+\input{d8/d30/class_f_generic_application_handler}
+\input{d1/d87/struct_f_generic_platform_application_misc}
+\input{d9/d78/struct_f_generic_platform_math}
+\input{d2/dac/struct_f_generic_platform_memory}
+\input{dc/dc9/struct_f_generic_platform_misc}
+\input{d9/d62/struct_f_generic_platform_string}
+\input{d0/d85/class_f_generic_window}
+\input{d9/d4d/struct_f_generic_window_definition}
+\input{db/d6e/class_f_global_input_out_console}
+\input{de/dcc/class_f_global_shader}
+\input{d0/d61/class_f_global_shader_map}
+\input{d6/d52/class_f_global_shader_type}
+\input{d0/db6/class_f_global_shader_type_compiler}
+\input{d7/d4f/class_f_graphics_pipeline_state}
+\input{d2/d2e/class_f_graphics_pipeline_state_initializer}
+\input{d9/dc7/class_f_input_core}
+\input{dd/d1f/class_f_level_editor_viewport_client}
+\input{df/ddd/struct_f_log_category}
+\input{d5/df4/struct_f_log_category_base}
+\input{d7/d4d/struct_f_log_record}
+\input{d0/d85/struct_f_d3_d12_payload_base_1_1_f_manual_fence}
+\input{d0/d42/class_f_material_shader}
+\input{d1/d85/struct_f_math}
+\input{df/da4/struct_f_memory}
+\input{d8/dfc/class_f_mesh_material_shader}
+\input{d6/df6/struct_f_microsoft_platform_math_base}
+\input{dc/da7/struct_f_minimal_view_info}
+\input{d5/da6/class_f_module_manager}
+\input{db/d0e/struct_f_msg}
+\input{d2/dc6/class_f_noncopyble}
+\input{d0/dbf/struct_f_object_constructor}
+\input{de/d81/struct_f_object_properties}
+\input{d8/de7/class_f_one_color_v_s}
+\input{d8/d79/class_t_sized_heap_allocator_1_1_for_any_element_type}
+\input{d0/d17/class_t_sized_heap_allocator_1_1_for_element_type}
+\input{d3/d88/class_f_shader_type_1_1_f_parameters}
+\input{d6/dde/class_f_paths}
+\input{dc/d79/class_f_pipeline_state}
+\input{de/d96/class_f_pipeline_state_cache}
+\input{dd/d2a/class_f_primitive_component_id}
+\input{dc/df1/struct_f_rasterizer_state_initializer}
+\input{dc/dba/class_f_ref_counted_object}
+\input{dc/d23/class_f_renderer}
+\input{dd/d5b/class_f_render_mesh}
+\input{d3/d1d/class_f_render_resource}
+\input{d7/d9f/class_f_render_target}
+\input{d2/d7e/struct_f_r_h_i_batched_shader_parameters}
+\input{d9/d24/class_f_r_h_i_buffer}
+\input{d7/d2f/struct_f_r_h_i_buffer_desc}
+\input{d9/dfe/class_f_r_h_i_command_list}
+\input{d6/d36/class_f_r_h_i_command_list_base}
+\input{d2/d3a/class_f_r_h_i_command_list_executor}
+\input{d3/d7d/class_f_r_h_i_command_list_immediate}
+\input{dd/de6/class_f_r_h_i_compute_command_list}
+\input{de/d0a/class_f_r_h_i_compute_pipeline_state}
+\input{d0/deb/class_f_r_h_i_compute_shader}
+\input{d1/dc4/class_f_r_h_i_depth_render_target_view}
+\input{d9/db1/class_f_r_h_i_depth_stencil_state}
+\input{dd/d95/struct_f_r_h_i_descriptor_handle}
+\input{d6/d35/class_f_r_h_i_geometry_shader}
+\input{de/dfc/class_f_r_h_i_graphics_pipeline_state}
+\input{da/d86/class_f_r_h_i_graphics_shader}
+\input{d4/d06/class_f_r_h_i_pixel_shader}
+\input{d3/dcd/class_f_r_h_i_rasterizer_state}
+\input{dc/dcb/struct_f_r_h_i_render_pass_info}
+\input{db/d0c/class_f_r_h_i_render_target_view}
+\input{d2/d83/class_f_r_h_i_resource}
+\input{d3/d38/class_f_r_h_i_sampler_state}
+\input{d7/d1b/class_f_r_h_i_set_render_target_info}
+\input{db/d66/class_f_r_h_i_shader}
+\input{d2/d8e/struct_f_r_h_i_shader_parameter}
+\input{dd/dbe/struct_f_r_h_i_shader_parameter_resource}
+\input{d3/d6d/class_f_r_h_i_texture}
+\input{d5/d82/struct_f_r_h_i_texture_create_desc}
+\input{d5/dcb/struct_f_r_h_i_texture_desc}
+\input{da/df0/class_f_r_h_i_uniform_buffer}
+\input{d6/de6/class_f_r_h_i_vertex_declaration}
+\input{d0/d98/class_f_r_h_i_vertex_shader}
+\input{d9/d3c/class_f_r_h_i_view}
+\input{d5/dbb/class_f_r_h_i_viewable_resource}
+\input{da/d58/struct_f_r_h_i_view_desc}
+\input{d0/d5f/class_f_r_h_i_viewport}
+\input{d0/d2e/struct_d3_d12_shader_utils_1_1_f_root_signature_creator}
+\input{d4/dfa/class_f_scene}
+\input{de/db5/class_f_scene_interface}
+\input{d9/d98/class_f_scene_render}
+\input{d6/d2c/class_f_scene_view}
+\input{d5/d14/class_f_scene_viewport}
+\input{d9/d99/class_f_scope_lock}
+\input{d5/dcd/class_f_screen_rectangle_index_buffer}
+\input{d3/df8/class_f_screen_rectangle_p_s}
+\input{d5/db0/class_f_screen_rectangle_vertex_buffer}
+\input{d6/da9/class_f_screen_rectangle_v_s}
+\input{dc/dee/struct_f_script_container_element}
+\input{da/d06/class_f_sea_shader_p_s}
+\input{d7/d0f/class_f_sea_shader_v_s}
+\input{dd/d3a/class_f_shader}
+\input{d8/df6/struct_f_shader_bounds}
+\input{d2/d84/struct_f_shader_code}
+\input{d3/d5f/struct_f_shader_code_resource_counts}
+\input{d3/d35/struct_f_shader_compiled_initializer_type}
+\input{d1/d8b/class_f_shader_compile_job}
+\input{d0/d3b/class_f_shader_compiler_definitions}
+\input{da/d3c/struct_f_shader_compiler_environment}
+\input{df/da0/struct_f_shader_compiler_input}
+\input{db/d88/struct_f_shader_compiler_output}
+\input{dc/d03/struct_f_shader_map_resource_code_1_1_f_shader_entry}
+\input{df/d76/class_f_shader_map_base}
+\input{d3/dca/class_f_shader_map_content}
+\input{db/db7/class_f_shader_map_resource_code}
+\input{d9/d30/class_f_shader_pipeline_type}
+\input{df/dc2/struct_f_shader_preprocess_output}
+\input{d0/d2f/class_f_shader_type}
+\input{d3/d0f/class_f_shader_type_registration}
+\input{de/dd7/struct_f_static_basic_log_record}
+\input{d9/dcb/class_f_string}
+\input{df/dc4/class_f_u_i_element_batcher}
+\input{d1/dd0/class_f_u_i_renderer}
+\input{dc/dc0/class_f_u_i_r_h_i_renderer}
+\input{d2/de5/class_f_u_i_shader_resource}
+\input{df/de9/struct_f_vertex_element}
+\input{dd/d2b/class_f_view_info}
+\input{d1/d29/class_f_viewport}
+\input{db/d13/struct_f_viewport_camera_transform}
+\input{db/d3f/class_f_viewport_client}
+\input{d5/d63/struct_f_viewport_info}
+\input{d9/d5a/class_f_vulkan_dynamic_r_h_i}
+\input{d4/d01/class_f_vulkan_dynamic_r_h_i_module}
+\input{df/d57/class_f_windows_application}
+\input{d8/d87/struct_f_windows_application_misc}
+\input{d2/d88/class_f_windows_critical_section}
+\input{dd/d3b/struct_f_windows_platform_memory}
+\input{dc/dcd/struct_f_windows_platform_misc}
+\input{d5/dde/struct_f_windows_platform_string}
+\input{dc/d32/struct_f_windows_platform_types}
+\input{d4/d9c/class_f_windows_system_wide_critical_section}
+\input{da/d32/class_f_windows_vulkan_loader}
+\input{d8/dd5/class_f_windows_window}
+\input{d1/d0e/class_f_world}
+\input{da/d3d/structstd_1_1hash_3_01_f_bound_shader_state_input_01_4}
+\input{da/d20/structstd_1_1hash_3_01_f_graphics_pipeline_state_initializer_01_4}
+\input{d0/d02/structstd_1_1hash_3_01_f_string_01_4}
+\input{d1/d04/structstd_1_1hash_3_01_f_vertex_element_01_4}
+\input{d3/df9/structstd_1_1hash_3_01_t_array_3_01_t_01_4_01_4}
+\input{d4/d15/class_i_console_command}
+\input{d9/dd0/class_i_console_object}
+\input{d7/dd4/class_i_console_variable}
+\input{d0/d47/class_i_container}
+\input{d4/d5e/struct_i_d3_d12_dynamic_r_h_i}
+\input{da/d93/class_i_dynamic_r_h_i}
+\input{dd/d82/class_i_dynamic_r_h_i_module}
+\input{d5/d14/class_i_i_container}
+\input{d1/d28/class_i_module_interface}
+\input{d4/d7b/class_input}
+\input{d7/d4c/class_i_renderer}
+\input{d8/d41/class_i_r_h_i_command_context}
+\input{d2/db5/class_i_r_h_i_compute_context}
+\input{d6/d3f/class_i_scene_renderer}
+\input{d0/da5/class_i_shader_format}
+\input{d2/d11/class_i_u_i_viewport}
+\input{d7/d24/class_i_vulkan_loader}
+\input{da/d90/class_i_windows_message_handler}
+\input{d4/d44/class_launch}
+\input{d5/d41/structlog__}
+\input{d3/d42/class_logger}
+\input{dc/ddc/struct_ray_gen_constant_buffer}
+\input{da/d7f/class_render}
+\input{d4/d44/class_renderer}
+\input{d8/d8e/class_r_h_i}
+\input{d6/db1/class_t_array}
+\input{df/d02/class_t_bit_array}
+\input{da/d96/struct_t_bits_to_size_type}
+\input{d4/db6/struct_t_bits_to_size_type_3_0116_01_4}
+\input{d9/dd8/struct_t_bits_to_size_type_3_0132_01_4}
+\input{d1/d92/struct_t_bits_to_size_type_3_0164_01_4}
+\input{d4/d30/struct_t_bits_to_size_type_3_018_01_4}
+\input{de/d2a/class_t_choose_class}
+\input{dd/df8/class_t_choose_class_3_01false_00_01_true_class_00_01_false_class_01_4}
+\input{d2/d6c/class_t_choose_class_3_01true_00_01_true_class_00_01_false_class_01_4}
+\input{d6/d79/class_t_console_variable_data}
+\input{d9/d74/struct_t_dark_platform_math_s_s_e4_base}
+\input{d0/d71/struct_t_dark_platform_math_s_s_e_base}
+\input{d2/d96/class_t_delegate}
+\input{dc/d77/class_t_enable_if}
+\input{db/df2/class_t_enable_if_3_01false_00_01_result_01_4}
+\input{d8/dd5/class_t_enable_if_3_01true_00_01_result_01_4}
+\input{d2/d3a/class_t_func_container}
+\input{df/de8/class_t_function}
+\input{d3/d48/class_t_global_ptr}
+\input{d8/d58/class_t_global_render_resource}
+\input{d3/def/struct_d_e_1_1_math_1_1_t_int_point}
+\input{d8/d10/struct_d_e_1_1_math_1_1_t_int_rect}
+\input{da/d3f/struct_t_is_floating_point}
+\input{d0/d84/struct_t_is_floating_point_3_01const_01_t_01_4}
+\input{d3/d19/struct_t_is_floating_point_3_01const_01volatile_01_t_01_4}
+\input{d1/d8d/struct_t_is_floating_point_3_01double_01_4}
+\input{d3/de6/struct_t_is_floating_point_3_01float_01_4}
+\input{d2/d21/struct_t_is_floating_point_3_01long_01double_01_4}
+\input{d3/dd2/struct_t_is_floating_point_3_01volatile_01_t_01_4}
+\input{d9/d9d/struct_t_is_integer}
+\input{d0/d08/struct_t_is_integer_3_01const_01_t_01_4}
+\input{d1/d6f/struct_t_is_integer_3_01const_01volatile_01_t_01_4}
+\input{d2/d42/struct_t_is_integer_3_01int16_01_4}
+\input{dc/dee/struct_t_is_integer_3_01int32_01_4}
+\input{df/d94/struct_t_is_integer_3_01int64_01_4}
+\input{d3/dfd/struct_t_is_integer_3_01int8_01_4}
+\input{d6/d60/struct_t_is_integer_3_01uint16_01_4}
+\input{dd/d8d/struct_t_is_integer_3_01uint32_01_4}
+\input{dd/dc0/struct_t_is_integer_3_01uint64_01_4}
+\input{d3/dee/struct_t_is_integer_3_01uint8_01_4}
+\input{d7/df6/struct_t_is_integer_3_01volatile_01_t_01_4}
+\input{de/d0c/struct_t_is_pointer}
+\input{d3/d35/struct_t_is_pointer_3_01const_01_t_01_4}
+\input{df/d0c/struct_t_is_pointer_3_01const_01volatile_01_t_01_4}
+\input{dc/d44/struct_t_is_pointer_3_01_t_01_5_01_4}
+\input{d9/d8d/struct_t_is_pointer_3_01volatile_01_t_01_4}
+\input{d8/d35/struct_t_is_signed}
+\input{da/de4/struct_t_is_signed_3_01const_01_t_01_4}
+\input{d9/d2b/struct_t_is_signed_3_01const_01volatile_01_t_01_4}
+\input{d8/da5/struct_t_is_signed_3_01int16_01_4}
+\input{d7/db0/struct_t_is_signed_3_01int32_01_4}
+\input{de/dc0/struct_t_is_signed_3_01int64_01_4}
+\input{d3/d4f/struct_t_is_signed_3_01int8_01_4}
+\input{d2/d05/struct_t_is_signed_3_01volatile_01_t_01_4}
+\input{da/d0c/struct_t_make_unsigned}
+\input{d2/da3/struct_t_make_unsigned_3_01const_01_t_01_4}
+\input{d4/d6f/struct_t_make_unsigned_3_01const_01volatile_01_t_01_4}
+\input{de/dd9/struct_t_make_unsigned_3_01int16_01_4}
+\input{db/d57/struct_t_make_unsigned_3_01int32_01_4}
+\input{df/d09/struct_t_make_unsigned_3_01int64_01_4}
+\input{de/d13/struct_t_make_unsigned_3_01int8_01_4}
+\input{d1/d17/struct_t_make_unsigned_3_01uint16_01_4}
+\input{df/de0/struct_t_make_unsigned_3_01uint32_01_4}
+\input{d4/dae/struct_t_make_unsigned_3_01uint64_01_4}
+\input{d4/d3a/struct_t_make_unsigned_3_01uint8_01_4}
+\input{d9/da6/struct_t_make_unsigned_3_01volatile_01_t_01_4}
+\input{d1/de5/struct_d_e_1_1_math_1_1_t_matrix}
+\input{d8/d94/class_t_memory}
+\input{d3/d2d/class_t_method_containter}
+\input{d8/d5b/class_t_multi_cast_delegate}
+\input{d8/dc0/struct_t_numeric_limits}
+\input{d6/d7a/struct_t_numeric_limits_3_01const_01_numeric_type_01_4}
+\input{d8/db8/struct_t_numeric_limits_3_01const_01volatile_01_numeric_type_01_4}
+\input{d9/d02/struct_t_numeric_limits_3_01double_01_4}
+\input{dc/d8e/struct_t_numeric_limits_3_01float_01_4}
+\input{d3/d2d/struct_t_numeric_limits_3_01int16_01_4}
+\input{d6/ddd/struct_t_numeric_limits_3_01int32_01_4}
+\input{da/da8/struct_t_numeric_limits_3_01int64_01_4}
+\input{dd/d31/struct_t_numeric_limits_3_01int8_01_4}
+\input{da/dc0/struct_t_numeric_limits_3_01uint16_01_4}
+\input{d2/d66/struct_t_numeric_limits_3_01uint32_01_4}
+\input{d9/dae/struct_t_numeric_limits_3_01uint64_01_4}
+\input{d2/dec/struct_t_numeric_limits_3_01uint8_01_4}
+\input{dc/d23/struct_t_numeric_limits_3_01volatile_01_numeric_type_01_4}
+\input{de/d86/struct_d_e_1_1_math_1_1_t_perspective_matrix}
+\input{dc/ddb/struct_d_e_1_1_math_1_1_t_plane}
+\input{d0/d81/struct_t_remove_reference}
+\input{da/d13/struct_t_remove_reference_3_01_t_01_6_01_4}
+\input{d9/d63/struct_t_remove_reference_3_01_t_01_6_6_01_4}
+\input{d7/dde/struct_d_e_1_1_math_1_1_t_rotator}
+\input{dc/de2/class_t_shader_map}
+\input{d5/d77/class_t_shader_ref_base}
+\input{df/d9e/class_t_sized_default_allocator}
+\input{d0/da7/class_t_sized_heap_allocator}
+\input{db/d96/class_t_static_array}
+\input{d6/d11/struct_d_e_1_1_math_1_1_t_vector}
+\input{d3/dba/struct_d_e_1_1_math_1_1_t_vector2}
+\input{d1/de1/struct_d_e_1_1_math_1_1_t_vector4}
+\input{d6/dfb/class_u_actor_component}
+\input{dc/d9c/class_u_camera_actor}
+\input{d8/d0e/class_u_i_application}
+\input{da/d03/class_u_i_button}
+\input{d7/d40/class_u_i_console}
+\input{d3/d1a/class_u_i_core}
+\input{d6/d82/class_u_i_dock}
+\input{db/dad/class_u_i_editor_settings}
+\input{d6/d8f/class_u_i_editor_viewport}
+\input{d4/d09/class_u_i_level_viewport}
+\input{d6/df1/class_u_i_logs}
+\input{d4/dcf/class_u_i_main_menu_bar}
+\input{dc/d54/class_u_i_menu}
+\input{de/d77/class_u_i_menu_item}
+\input{d0/d04/class_u_i_side_widget}
+\input{d1/d5e/class_u_i_viewport}
+\input{d1/d68/class_u_i_widget}
+\input{d6/d77/class_u_i_widget_test}
+\input{df/dab/class_u_i_window}
+\input{d2/d5a/class_u_mesh_component}
+\input{d7/d0b/class_u_object}
+\input{d4/d4e/class_u_primitive_component}
+\input{d2/dfc/class_u_rotate_component}
+\input{dd/dd2/class_u_scene_component}
+\input{da/d95/struct_vertex_default}
+\input{d9/d57/struct_vertex_pos_color}
+\input{de/d02/struct_viewport}
+\chapter{Файлы}
+\input{d5/d24/_application_core_8module_8sharpmake_8cs}
+\input{d6/d2e/_windows_application_8cpp}
+\input{d4/da5/_windows_application_misc_8cpp}
+\input{db/d9d/_windows_window_8cpp}
+\input{df/d1e/_generic_application_8h}
+\input{df/d1e/_generic_application_8h_source}
+\input{d9/d12/_generic_application_handler_8h}
+\input{d9/d12/_generic_application_handler_8h_source}
+\input{db/d1c/_generic_application_misc_8h}
+\input{db/d1c/_generic_application_misc_8h_source}
+\input{d8/d9a/_generic_window_8h}
+\input{d8/d9a/_generic_window_8h_source}
+\input{dc/d2d/_generic_window_definition_8h}
+\input{dc/d2d/_generic_window_definition_8h_source}
+\input{de/d53/_platform_application_misc_8h}
+\input{de/d53/_platform_application_misc_8h_source}
+\input{d1/d35/_windows_application_8h}
+\input{d1/d35/_windows_application_8h_source}
+\input{dc/d23/_windows_application_misc_8h}
+\input{dc/d23/_windows_application_misc_8h_source}
+\input{de/dd7/_windows_window_8h}
+\input{de/dd7/_windows_window_8h_source}
+\input{d0/d42/_application_8cpp}
+\input{d9/da3/_application_8h}
+\input{d9/da3/_application_8h_source}
+\input{d4/d20/_command_line_8cpp}
+\input{d3/d6b/_command_line_8h}
+\input{d3/d6b/_command_line_8h_source}
+\input{d4/d09/_core_8h}
+\input{d4/d09/_core_8h_source}
+\input{d9/d39/_core_8module_8sharpmake_8cs}
+\input{d1/d4a/_core_defines_8h}
+\input{d1/d4a/_core_defines_8h_source}
+\input{dc/d5e/_core_minimal_8h}
+\input{dc/d5e/_core_minimal_8h_source}
+\input{da/d5a/_core_platform_8h}
+\input{da/d5a/_core_platform_8h_source}
+\input{db/d04/_core_types_8h}
+\input{db/d04/_core_types_8h_source}
+\input{d9/dfd/_delegate_8h}
+\input{d9/dfd/_delegate_8h_source}
+\input{de/d27/_logger_8cpp}
+\input{d6/dec/_logger_8h}
+\input{d6/dec/_logger_8h_source}
+\input{d0/dc6/_t_global_ptr_8h}
+\input{d0/dc6/_t_global_ptr_8h_source}
+\input{df/d8c/_t_memory_8cpp}
+\input{d6/d5a/_t_memory_8h}
+\input{d6/d5a/_t_memory_8h_source}
+\input{dc/d27/_t_unique_ptr_8h}
+\input{dc/d27/_t_unique_ptr_8h_source}
+\input{de/d6b/_base_console_8cpp}
+\input{d1/d78/_console_std_8cpp}
+\input{d8/d2d/_global_input_out_console_8cpp}
+\input{dc/de3/_dark_string_8cpp}
+\input{d8/d40/_core_globals_8cpp}
+\input{da/d1f/_generic_platform_memory_8cpp}
+\input{da/d8b/_generic_platform_misc_8cpp}
+\input{d4/d7d/_log_marcros_8cpp}
+\input{d8/d77/_structed_log_8cpp}
+\input{df/d93/_dark_math_8cpp}
+\input{df/dcc/_assertion_macros_8cpp}
+\input{d7/dd3/_config_8cpp}
+\input{df/d29/_core_delegates_8cpp}
+\input{d2/dcf/_paths_8cpp}
+\input{d9/d5a/_windows_critical_section_8cpp}
+\input{d3/dcc/_windows_platform_memory_8cpp}
+\input{d0/dd8/_windows_platform_misc_8cpp}
+\input{d6/d97/_base_console_8h}
+\input{d6/d97/_base_console_8h_source}
+\input{d1/dc4/_console_std_8h}
+\input{d1/dc4/_console_std_8h_source}
+\input{d1/dfd/_global_input_out_console_8h}
+\input{d1/dfd/_global_input_out_console_8h_source}
+\input{d3/dc5/_array_8h}
+\input{d3/dc5/_array_8h_source}
+\input{d2/d56/_bit_array_8h}
+\input{d2/d56/_bit_array_8h_source}
+\input{dc/db6/_container_allocation_polices_8h}
+\input{dc/db6/_container_allocation_polices_8h_source}
+\input{de/d45/_dark_string_8h}
+\input{de/d45/_dark_string_8h_source}
+\input{dc/d1f/_list_8h}
+\input{dc/d1f/_list_8h_source}
+\input{df/d65/_static_array_8h}
+\input{df/d65/_static_array_8h_source}
+\input{da/d88/_unordored_map_8h}
+\input{da/d88/_unordored_map_8h_source}
+\input{d5/d64/_core_fwd_8h}
+\input{d5/d64/_core_fwd_8h_source}
+\input{db/d21/_core_globals_8h}
+\input{db/d21/_core_globals_8h_source}
+\input{df/d23/_generic_platform_8h}
+\input{df/d23/_generic_platform_8h_source}
+\input{d6/d0b/_generic_platform_math_8h}
+\input{d6/d0b/_generic_platform_math_8h_source}
+\input{de/d8d/_generic_platform_memory_8h}
+\input{de/d8d/_generic_platform_memory_8h_source}
+\input{df/dad/_generic_platform_misc_8h}
+\input{df/dad/_generic_platform_misc_8h_source}
+\input{d3/d55/_generic_platform_string_8h}
+\input{d3/d55/_generic_platform_string_8h_source}
+\input{df/d05/_critical_section_8h}
+\input{df/d05/_critical_section_8h_source}
+\input{da/d8b/_dark_memory_8h}
+\input{da/d8b/_dark_memory_8h_source}
+\input{dc/d2b/_f_memory_8inl}
+\input{d2/dc9/_platform_8h}
+\input{d2/dc9/_platform_8h_source}
+\input{db/dc0/_platform_math_8h}
+\input{db/dc0/_platform_math_8h_source}
+\input{d7/db6/_platform_memory_8h}
+\input{d7/db6/_platform_memory_8h_source}
+\input{d7/d0c/_platform_misc_8h}
+\input{d7/d0c/_platform_misc_8h_source}
+\input{d5/dd3/_platform_string_8h}
+\input{d5/dd3/_platform_string_8h_source}
+\input{d0/db9/_preprocessor_helpers_8h}
+\input{d0/db9/_preprocessor_helpers_8h_source}
+\input{de/d19/_log_category_8h}
+\input{de/d19/_log_category_8h_source}
+\input{d7/dcd/_log_macros_8h}
+\input{d7/dcd/_log_macros_8h_source}
+\input{de/dd9/_structed_log_8h}
+\input{de/dd9/_structed_log_8h_source}
+\input{d7/d8b/_dark_math_utility_8h}
+\input{d7/d8b/_dark_math_utility_8h_source}
+\input{de/d3a/_dark_platform_math_s_s_e_8h}
+\input{de/d3a/_dark_platform_math_s_s_e_8h_source}
+\input{d6/da8/_dark_platform_math_s_s_e4_8h}
+\input{d6/da8/_dark_platform_math_s_s_e4_8h_source}
+\input{d7/d8d/_int_point_8h}
+\input{d7/d8d/_int_point_8h_source}
+\input{d2/d31/_int_rect_8h}
+\input{d2/d31/_int_rect_8h_source}
+\input{d0/df6/_math_fwd_8h}
+\input{d0/df6/_math_fwd_8h_source}
+\input{d0/d45/_matrix_8h}
+\input{d0/d45/_matrix_8h_source}
+\input{dd/d20/_numeric_limits_8h}
+\input{dd/d20/_numeric_limits_8h_source}
+\input{d3/d7d/_persperctive_matrix_8h}
+\input{d3/d7d/_persperctive_matrix_8h_source}
+\input{d6/dbf/_plane_8h}
+\input{d6/dbf/_plane_8h_source}
+\input{d6/dc8/_rotator_8h}
+\input{d6/dc8/_rotator_8h_source}
+\input{d4/d7f/_vector_8h}
+\input{d4/d7f/_vector_8h_source}
+\input{d1/dae/_vector2_d_8h}
+\input{d1/dae/_vector2_d_8h_source}
+\input{dd/d1c/_vector4_8h}
+\input{dd/d1c/_vector4_8h_source}
+\input{d7/d36/_microsoft_platform_math_8h}
+\input{d7/d36/_microsoft_platform_math_8h_source}
+\input{da/d69/_microsoft_2_minimal_windows_api_8h}
+\input{da/d69/_microsoft_2_minimal_windows_api_8h_source}
+\input{d4/dfd/_windows_2_minimal_windows_api_8h}
+\input{d4/dfd/_windows_2_minimal_windows_api_8h_source}
+\input{d4/d75/_assertion_macros_8h}
+\input{d4/d75/_assertion_macros_8h_source}
+\input{d4/d71/_config_8h}
+\input{d4/d71/_config_8h_source}
+\input{dc/d17/_core_delegates_8h}
+\input{dc/d17/_core_delegates_8h_source}
+\input{d0/d23/_enum_class_flags_8h}
+\input{d0/d23/_enum_class_flags_8h_source}
+\input{d9/d7b/_paths_8h}
+\input{d9/d7b/_paths_8h_source}
+\input{d6/df1/_scope_lock_8h}
+\input{d6/df1/_scope_lock_8h_source}
+\input{d6/d29/_var_args_8h}
+\input{d6/d29/_var_args_8h_source}
+\input{da/d28/_module_interface_8h}
+\input{da/d28/_module_interface_8h_source}
+\input{d7/dd1/_module_manager_8h}
+\input{d7/dd1/_module_manager_8h_source}
+\input{d2/d5c/_m_s_v_c_platform_8h}
+\input{d2/d5c/_m_s_v_c_platform_8h_source}
+\input{d9/d54/_align_template_8h}
+\input{d9/d54/_align_template_8h_source}
+\input{d4/d69/_choose_class_8h}
+\input{d4/d69/_choose_class_8h_source}
+\input{de/d85/_dark_template_8h}
+\input{de/d85/_dark_template_8h_source}
+\input{d5/da7/_dark_type_traits_8h}
+\input{d5/da7/_dark_type_traits_8h_source}
+\input{dd/dd8/_enable_if_8h}
+\input{dd/dd8/_enable_if_8h_source}
+\input{d8/d9b/_is_floating_point_8h}
+\input{d8/d9b/_is_floating_point_8h_source}
+\input{d0/dc3/_is_integer_8h}
+\input{d0/dc3/_is_integer_8h_source}
+\input{dd/ddc/_is_pointer_8h}
+\input{dd/ddc/_is_pointer_8h_source}
+\input{db/d0a/_is_signed_8h}
+\input{db/d0a/_is_signed_8h_source}
+\input{d1/dd0/_make_unsigned_8h}
+\input{d1/dd0/_make_unsigned_8h_source}
+\input{d3/d13/_ref_counting_8h}
+\input{d3/d13/_ref_counting_8h_source}
+\input{dd/de9/_post_windows_api_8h}
+\input{dd/de9/_post_windows_api_8h_source}
+\input{d3/d60/_pre_windows_api_8h}
+\input{d3/d60/_pre_windows_api_8h_source}
+\input{de/dbf/_windows_critical_section_8h}
+\input{de/dbf/_windows_critical_section_8h_source}
+\input{d0/d2c/_windows_platform_8h}
+\input{d0/d2c/_windows_platform_8h_source}
+\input{de/dec/_windows_platform_math_8h}
+\input{de/dec/_windows_platform_math_8h_source}
+\input{dd/d47/_windows_platform_memory_8h}
+\input{dd/d47/_windows_platform_memory_8h_source}
+\input{d9/d53/_windows_platform_misc_8h}
+\input{d9/d53/_windows_platform_misc_8h_source}
+\input{d7/d4c/_windows_platform_string_8h}
+\input{d7/d4c/_windows_platform_string_8h_source}
+\input{d9/d06/_windows_system_includes_8h}
+\input{d9/d06/_windows_system_includes_8h_source}
+\input{da/d29/_per_engine_settings_8cpp}
+\input{d7/d24/_per_engine_settings_8h}
+\input{d7/d24/_per_engine_settings_8h_source}
+\input{d4/d24/_game_timer_8cpp}
+\input{df/d69/_game_timer_8h}
+\input{df/d69/_game_timer_8h_source}
+\input{df/d9c/_core_d_object_8module_8sharpmake_8cs}
+\input{d5/dd2/_core_d_object_8h}
+\input{d5/dd2/_core_d_object_8h_source}
+\input{dd/d03/_d_object_8h}
+\input{dd/d03/_d_object_8h_source}
+\input{d3/ddc/_d3_d12_r_h_i_8module_8sharpmake_8cs}
+\input{dc/def/_d3_d12_adapter_8cpp}
+\input{db/d73/_d3_d12_adapter_8h}
+\input{db/d73/_d3_d12_adapter_8h_source}
+\input{db/d67/_d3_d12_bindless_descriptors_8cpp}
+\input{d7/d2a/_d3_d12_bindless_descriptors_8h}
+\input{d7/d2a/_d3_d12_bindless_descriptors_8h_source}
+\input{df/d34/_d3_d12_command_context_8cpp}
+\input{d8/d8b/_d3_d12_command_context_8h}
+\input{d8/d8b/_d3_d12_command_context_8h_source}
+\input{de/d0e/_d3_d12_command_list_8cpp}
+\input{d6/d5e/_d3_d12_command_list_8h}
+\input{d6/d5e/_d3_d12_command_list_8h_source}
+\input{dc/dec/_d3_d12_constant_buffer_8cpp}
+\input{d4/d3c/_d3_d12_constant_buffer_8h}
+\input{d4/d3c/_d3_d12_constant_buffer_8h_source}
+\input{d0/dd4/_d3_d12_descriptors_8cpp}
+\input{d1/d6c/_d3_d12_descriptors_8h}
+\input{d1/d6c/_d3_d12_descriptors_8h_source}
+\input{de/d23/_d3_d12_device_8cpp}
+\input{d7/d20/_d3_d12_device_8h}
+\input{d7/d20/_d3_d12_device_8h_source}
+\input{db/d2a/_d3_d12_pipeline_state_8cpp}
+\input{dc/dc8/_d3_d12_pipeline_state_8h}
+\input{dc/dc8/_d3_d12_pipeline_state_8h_source}
+\input{d6/dd6/_d3_d12_queue_8h}
+\input{d6/dd6/_d3_d12_queue_8h_source}
+\input{dd/dae/_d3_d12_resources_8cpp}
+\input{d2/d22/_d3_d12_resources_8h}
+\input{d2/d22/_d3_d12_resources_8h_source}
+\input{d7/d2e/_d3_d12_r_h_i_common_8h}
+\input{d7/d2e/_d3_d12_r_h_i_common_8h_source}
+\input{de/db0/_d3_d12_r_h_i_private_8cpp}
+\input{d7/d10/_d3_d12_r_h_i_private_8h}
+\input{d7/d10/_d3_d12_r_h_i_private_8h_source}
+\input{d5/d84/_d3_d12_root_signature_8cpp}
+\input{df/d0f/_d3_d12_root_signature_8h}
+\input{df/d0f/_d3_d12_root_signature_8h_source}
+\input{dc/dd2/_d3_d12_r_h_i_2private_2_d3_d12_shader_8h}
+\input{dc/dd2/_d3_d12_r_h_i_2private_2_d3_d12_shader_8h_source}
+\input{dd/d0f/_render_2_d3_d12_2_d3_d12_shader_8h}
+\input{dd/d0f/_render_2_d3_d12_2_d3_d12_shader_8h_source}
+\input{dc/dcf/_d3_d12_state_cache_8cpp}
+\input{dd/d9e/_d3_d12_state_cache_8h}
+\input{dd/d9e/_d3_d12_state_cache_8h_source}
+\input{d4/d8c/_d3_d12_submission_8h}
+\input{d4/d8c/_d3_d12_submission_8h_source}
+\input{d5/d21/_d3_d12_texture_8cpp}
+\input{d6/d48/_d3_d12_r_h_i_2private_2_d3_d12_texture_8h}
+\input{d6/d48/_d3_d12_r_h_i_2private_2_d3_d12_texture_8h_source}
+\input{d1/dae/_render_2_d3_d12_2_d3_d12_texture_8h}
+\input{d1/dae/_render_2_d3_d12_2_d3_d12_texture_8h_source}
+\input{d9/d88/_d3_d12_util_8h}
+\input{d9/d88/_d3_d12_util_8h_source}
+\input{db/d3f/_d3_d12_view_8cpp}
+\input{db/d66/_d3_d12_view_8h}
+\input{db/d66/_d3_d12_view_8h_source}
+\input{d1/d70/_d3_d12_viewport_8cpp}
+\input{d6/d14/_d3_d12_viewport_8h}
+\input{d6/d14/_d3_d12_viewport_8h_source}
+\input{d5/d0d/_windows_d3_d12_device_8cpp}
+\input{de/d94/_d3_d12_defines_8h}
+\input{de/d94/_d3_d12_defines_8h_source}
+\input{de/db1/_d3_d12_dynamic_r_h_i_8h}
+\input{de/db1/_d3_d12_dynamic_r_h_i_8h_source}
+\input{d8/da3/_d3_d12_r_h_i_8h}
+\input{d8/da3/_d3_d12_r_h_i_8h_source}
+\input{dd/d62/_d3_d12_root_signature_definitions_8h}
+\input{dd/d62/_d3_d12_root_signature_definitions_8h_source}
+\input{de/d0d/_d3_d12_third_party_8h}
+\input{de/d0d/_d3_d12_third_party_8h_source}
+\input{dd/d9d/_d3_d12_r_h_i_2public_2d3dx12_8h}
+\input{dd/d9d/_d3_d12_r_h_i_2public_2d3dx12_8h_source}
+\input{db/dad/_render_2_d3_d12_2d3dx12_8h}
+\input{db/dad/_render_2_d3_d12_2d3dx12_8h_source}
+\input{d5/daf/_windows_d3_d12_third_party_8h}
+\input{d5/daf/_windows_d3_d12_third_party_8h_source}
+\input{d7/d4a/_editor_8module_8sharpmake_8cs}
+\input{d4/dfc/_d_editor_8cpp}
+\input{da/d68/_d_editor_8h}
+\input{da/d68/_d_editor_8h_source}
+\input{d4/d59/_actor_8cpp}
+\input{de/deb/_actor_8h}
+\input{de/deb/_actor_8h_source}
+\input{db/dbb/_camera_actor_8cpp}
+\input{dd/dd1/_camera_actor_8h}
+\input{dd/dd1/_camera_actor_8h_source}
+\input{df/dbc/_camera_types_8h}
+\input{df/dbc/_camera_types_8h_source}
+\input{df/d73/_actor_component_8cpp}
+\input{dd/d85/_actor_component_8h}
+\input{dd/d85/_actor_component_8h_source}
+\input{d3/dce/_mesh_component_8h}
+\input{d3/dce/_mesh_component_8h_source}
+\input{dc/d6e/_primitive_component_8cpp}
+\input{d6/db4/_primitive_component_8h}
+\input{d6/db4/_primitive_component_8h_source}
+\input{d8/d21/_rotate_component_8cpp}
+\input{de/d34/_rotate_component_8h}
+\input{de/d34/_rotate_component_8h_source}
+\input{d4/d9b/_u_scene_component_8cpp}
+\input{d5/d88/_u_scene_component_8h}
+\input{d5/d88/_u_scene_component_8h_source}
+\input{d0/da2/_file_helpers_8h}
+\input{d0/da2/_file_helpers_8h_source}
+\input{dd/d05/_editor_engine_8h}
+\input{dd/d05/_editor_engine_8h_source}
+\input{d9/d00/_editor_viewport_client_8h}
+\input{d9/d00/_editor_viewport_client_8h_source}
+\input{de/dcf/_engine_8h}
+\input{de/dcf/_engine_8h_source}
+\input{d3/d86/_game_viewport_client_8h}
+\input{d3/d86/_game_viewport_client_8h_source}
+\input{d7/df2/_level_editor_viewport_8h}
+\input{d7/df2/_level_editor_viewport_8h_source}
+\input{dd/dd8/_engine_2_classes_2_engine_2_scene_viewport_8h}
+\input{dd/dd8/_engine_2_classes_2_engine_2_scene_viewport_8h_source}
+\input{de/d3a/_u_i_core_2public_2_rendering_2_scene_viewport_8h}
+\input{de/d3a/_u_i_core_2public_2_rendering_2_scene_viewport_8h_source}
+\input{d8/d86/_world_8h}
+\input{d8/d86/_world_8h_source}
+\input{d4/d95/_test_actor_8cpp}
+\input{d0/d7a/_test_actor_8h}
+\input{d0/d7a/_test_actor_8h_source}
+\input{d5/d86/_u_object_8cpp}
+\input{d3/df5/_u_object_8h}
+\input{d3/df5/_u_object_8h_source}
+\input{de/d1c/_engine_8module_8sharpmake_8cs}
+\input{d6/d96/_camera_types_8cpp}
+\input{dc/d41/_canvas_8cpp}
+\input{d1/dc2/_dark_client_8cpp}
+\input{db/d53/_d_engine_8cpp}
+\input{dd/d5b/_editor_engine_8cpp}
+\input{d2/d79/_editor_viewport_client_8cpp}
+\input{d4/d68/_engine_8cpp}
+\input{d0/d0c/_scene_view_8cpp}
+\input{da/dce/_scene_viewport_8cpp}
+\input{d0/dd5/_world_8cpp}
+\input{d5/d17/_canvas_8h}
+\input{d5/d17/_canvas_8h_source}
+\input{d3/d26/_dark_client_8h}
+\input{d3/d26/_dark_client_8h_source}
+\input{dd/d36/_d_engine_8h}
+\input{dd/d36/_d_engine_8h_source}
+\input{d0/d94/_scene_interface_8h}
+\input{d0/d94/_scene_interface_8h_source}
+\input{d7/d51/_scene_types_8h}
+\input{d7/d51/_scene_types_8h_source}
+\input{dc/d7a/_scene_view_8h}
+\input{dc/d7a/_scene_view_8h_source}
+\input{dc/d55/_viewport_client_8h}
+\input{dc/d55/_viewport_client_8h_source}
+\input{db/dc2/_input_8module_8sharpmake_8cs}
+\input{df/d91/_input_core_8cpp}
+\input{dd/d7b/_input_core_8h}
+\input{dd/d7b/_input_core_8h_source}
+\input{dc/d8b/_launch_8cpp}
+\input{da/d1d/_launch_engine_loop_8cpp}
+\input{d3/d0b/_launch_windows_8cpp}
+\input{d0/df0/_launch_engine_loop_8h}
+\input{d0/df0/_launch_engine_loop_8h_source}
+\input{d8/d01/resource_8h}
+\input{d8/d01/resource_8h_source}
+\input{de/d94/_d3_d12_8h}
+\input{de/d94/_d3_d12_8h_source}
+\input{d9/dd9/_d3_d12_camera_8cpp}
+\input{d1/d7f/_d3_d12_camera_8h}
+\input{d1/d7f/_d3_d12_camera_8h_source}
+\input{d8/d03/_d3_d12_main_8cpp}
+\input{dd/dce/_d3_d12_main_8h}
+\input{dd/dce/_d3_d12_main_8h_source}
+\input{df/d4f/_d3_d12_material_8h}
+\input{df/d4f/_d3_d12_material_8h_source}
+\input{db/d7f/_d3_d12_mesh_8cpp}
+\input{da/d93/_d3_d12_mesh_8h}
+\input{da/d93/_d3_d12_mesh_8h_source}
+\input{d5/dd1/_d3_d12_model_8cpp}
+\input{d6/d2f/_d3_d12_model_8h}
+\input{d6/d2f/_d3_d12_model_8h_source}
+\input{d0/d32/_d3_d12_p_s_o_8cpp}
+\input{df/d8d/_d3_d12_p_s_o_8h}
+\input{df/d8d/_d3_d12_p_s_o_8h_source}
+\input{d2/d61/_d3_d12_render_8cpp}
+\input{d0/d2b/_d3_d12_render_8h}
+\input{d0/d2b/_d3_d12_render_8h_source}
+\input{d0/dd8/_d3_d12_resource_8cpp}
+\input{de/d49/_d3_d12_resource_8h}
+\input{de/d49/_d3_d12_resource_8h_source}
+\input{d5/db2/_d3_d12_scene_8cpp}
+\input{d7/d10/_d3_d12_scene_8h}
+\input{d7/d10/_d3_d12_scene_8h_source}
+\input{db/d95/_d3_d12_shader_8cpp}
+\input{d5/d95/_d3_d12_types_8cpp}
+\input{d4/d8b/_d3_d12_types_8h}
+\input{d4/d8b/_d3_d12_types_8h_source}
+\input{d6/d96/_d3_d12_utils_8cpp}
+\input{d5/dc5/_d3_d12_utils_8h}
+\input{d5/dc5/_d3_d12_utils_8h_source}
+\input{da/d84/_renderer_8cpp}
+\input{d3/da0/_renderer_8h}
+\input{d3/da0/_renderer_8h_source}
+\input{d1/dc4/_launch_8module_8sharpmake_8cs}
+\input{df/d6c/_open_g_l_render_8h}
+\input{df/d6c/_open_g_l_render_8h_source}
+\input{d6/d58/_render_8module_8sharpmake_8cs}
+\input{d1/dba/_clear_quad_8cpp}
+\input{db/d83/_fractal_render_8cpp}
+\input{db/d08/_global_resource_8cpp}
+\input{da/d66/_global_shader_8cpp}
+\input{d4/db9/_indirect_light_rendering_8cpp}
+\input{da/d70/_indirect_light_rendering_8h}
+\input{da/d70/_indirect_light_rendering_8h_source}
+\input{d4/d5c/_render_globals_8cpp}
+\input{d4/d40/_render_resource_8cpp}
+\input{d1/d3a/_scene_private_8cpp}
+\input{d5/dbc/_scene_private_8h}
+\input{d5/dbc/_scene_private_8h_source}
+\input{db/db8/_scene_renderer_8cpp}
+\input{dd/dac/_scene_renderer_8h}
+\input{dd/dac/_scene_renderer_8h_source}
+\input{d7/d2e/_scene_rendering_8cpp}
+\input{d6/dda/_scene_rendering_8h}
+\input{d6/dda/_scene_rendering_8h_source}
+\input{db/d67/_sea_scape_8cpp}
+\input{d5/d16/_shader_8cpp}
+\input{d5/d7e/_shader_compiler_8cpp}
+\input{d5/d16/_common_render_resources_8h}
+\input{d5/d16/_common_render_resources_8h_source}
+\input{d6/d1f/_global_resource_8h}
+\input{d6/d1f/_global_resource_8h_source}
+\input{dd/d5a/_global_shader_8h}
+\input{dd/d5a/_global_shader_8h_source}
+\input{dc/d91/_i_shader_format_8h}
+\input{dc/d91/_i_shader_format_8h_source}
+\input{dd/d3d/_material_shader_8h}
+\input{dd/d3d/_material_shader_8h_source}
+\input{d7/dbc/_mesh_material_shader_8h}
+\input{d7/dbc/_mesh_material_shader_8h_source}
+\input{dd/da6/_renderer_interface_8h}
+\input{dd/da6/_renderer_interface_8h_source}
+\input{d7/d7c/_render_globals_8h}
+\input{d7/d7c/_render_globals_8h_source}
+\input{d5/d7b/_render_resource_8h}
+\input{d5/d7b/_render_resource_8h_source}
+\input{d8/d34/_shader_8h}
+\input{d8/d34/_shader_8h_source}
+\input{d5/d25/_shader_compiler_8h}
+\input{d5/d25/_shader_compiler_8h_source}
+\input{d9/d13/_shader_core_8h}
+\input{d9/d13/_shader_core_8h_source}
+\input{de/dc5/_renderer_8module_8sharpmake_8cs}
+\input{d3/dcd/_dynamic_r_h_i_8cpp}
+\input{dc/dd0/_pipeline_state_cache_8cpp}
+\input{d1/dc3/_r_h_i_8cpp}
+\input{d6/d7d/_r_h_i_command_list_8cpp}
+\input{d5/dfb/_r_h_i_resources_8cpp}
+\input{d2/d3a/_windows_dynamic_r_h_i_8cpp}
+\input{d2/d3a/_windows_dynamic_r_h_i_8cpp_source}
+\input{d8/db0/_dynamic_r_h_i_8h}
+\input{d8/db0/_dynamic_r_h_i_8h_source}
+\input{df/db5/_pipeline_state_cache_8h}
+\input{df/db5/_pipeline_state_cache_8h_source}
+\input{d5/db6/_pixel_format_8h}
+\input{d5/db6/_pixel_format_8h_source}
+\input{d5/dfb/_r_h_i_8h}
+\input{d5/dfb/_r_h_i_8h_source}
+\input{d1/d1d/_r_h_i_command_list_8h}
+\input{d1/d1d/_r_h_i_command_list_8h_source}
+\input{d0/dc7/_r_h_i_context_8h}
+\input{d0/dc7/_r_h_i_context_8h_source}
+\input{de/df7/_r_h_i_defines_8h}
+\input{de/df7/_r_h_i_defines_8h_source}
+\input{d3/dca/_r_h_i_pipeline_8h}
+\input{d3/dca/_r_h_i_pipeline_8h_source}
+\input{db/dec/_r_h_i_resources_8h}
+\input{db/dec/_r_h_i_resources_8h_source}
+\input{de/d30/_r_h_i_shader_parameters_8h}
+\input{de/d30/_r_h_i_shader_parameters_8h_source}
+\input{d5/d95/_r_h_i_8module_8sharpmake_8cs}
+\input{de/d00/_u_i_application_8cpp}
+\input{d5/dac/_u_i_renderer_8cpp}
+\input{de/d24/_u_i_r_h_i_renderer_8cpp}
+\input{d9/dd1/_u_i_button_8cpp}
+\input{da/d11/_u_i_console_8cpp}
+\input{df/dbf/_u_i_dock_8cpp}
+\input{de/da1/_u_i_editor_settings_8cpp}
+\input{da/db3/_u_i_editor_viewport_8cpp}
+\input{db/d9c/_u_i_logs_8cpp}
+\input{d5/d01/_u_i_main_menu_bar_8cpp}
+\input{da/d20/_u_i_menu_8cpp}
+\input{d1/ddd/_u_i_node_editor_8cpp}
+\input{d2/d2a/private_2_widgets_2_u_i_side_widget_8cpp}
+\input{d7/d87/public_2_widgets_2_u_i_side_widget_8cpp}
+\input{dd/da3/_u_i_viewport_8cpp}
+\input{dd/da3/_u_i_widget_8cpp}
+\input{d1/d9c/_u_i_widget_test_8cpp}
+\input{df/d5e/_u_i_window_8cpp}
+\input{d4/d9e/_u_i_application_8h}
+\input{d4/d9e/_u_i_application_8h_source}
+\input{d7/dab/_u_i_imgui_8h}
+\input{d7/dab/_u_i_imgui_8h_source}
+\input{de/d5c/_element_batcher_8h}
+\input{de/d5c/_element_batcher_8h_source}
+\input{dc/db6/_rendering_common_8h}
+\input{dc/db6/_rendering_common_8h_source}
+\input{d2/def/_u_i_renderer_8h}
+\input{d2/def/_u_i_renderer_8h_source}
+\input{d6/d68/_u_i_r_h_i_renderer_8h}
+\input{d6/d68/_u_i_r_h_i_renderer_8h_source}
+\input{da/d84/_u_i_shader_resource_8h}
+\input{da/d84/_u_i_shader_resource_8h_source}
+\input{d6/d52/_u_i_common_8h}
+\input{d6/d52/_u_i_common_8h_source}
+\input{de/d9c/_u_i_core_8h}
+\input{de/d9c/_u_i_core_8h_source}
+\input{d8/d27/_u_i_button_8h}
+\input{d8/d27/_u_i_button_8h_source}
+\input{d4/db9/_u_i_console_8h}
+\input{d4/db9/_u_i_console_8h_source}
+\input{d5/d3d/_u_i_dock_8h}
+\input{d5/d3d/_u_i_dock_8h_source}
+\input{d0/d20/_u_i_editor_settings_8h}
+\input{d0/d20/_u_i_editor_settings_8h_source}
+\input{d2/de4/_u_i_editor_viewport_8h}
+\input{d2/de4/_u_i_editor_viewport_8h_source}
+\input{db/ded/_u_i_image_8h}
+\input{db/ded/_u_i_image_8h_source}
+\input{d6/dd9/_u_i_level_editor_8h}
+\input{d6/dd9/_u_i_level_editor_8h_source}
+\input{d2/d6d/_u_i_level_viewport_8h}
+\input{d2/d6d/_u_i_level_viewport_8h_source}
+\input{d0/d97/_u_i_logs_8h}
+\input{d0/d97/_u_i_logs_8h_source}
+\input{d0/d2c/_u_i_main_menu_bar_8h}
+\input{d0/d2c/_u_i_main_menu_bar_8h_source}
+\input{da/dad/_u_i_menu_8h}
+\input{da/dad/_u_i_menu_8h_source}
+\input{d6/d7b/_u_i_node_editor_8h}
+\input{d6/d7b/_u_i_node_editor_8h_source}
+\input{dc/d1a/_u_i_side_widget_8h}
+\input{dc/d1a/_u_i_side_widget_8h_source}
+\input{dc/d61/_u_i_viewport_8h}
+\input{dc/d61/_u_i_viewport_8h_source}
+\input{d5/dc2/_u_i_widget_8h}
+\input{d5/dc2/_u_i_widget_8h_source}
+\input{d6/d24/_u_i_widget_test_8h}
+\input{d6/d24/_u_i_widget_test_8h_source}
+\input{d3/d30/_u_i_window_8h}
+\input{d3/d30/_u_i_window_8h_source}
+\input{d4/d9a/_u_i_core_8module_8sharpmake_8cs}
+\input{db/d59/_vulkan_common_8h}
+\input{db/d59/_vulkan_common_8h_source}
+\input{d6/da1/_vulkan_dynamic_r_h_i_8cpp}
+\input{d1/da6/_vulkan_interfaces_8cpp}
+\input{d3/d65/_vulkan_interfaces_8h}
+\input{d3/d65/_vulkan_interfaces_8h_source}
+\input{d5/d4f/_vulkan_private_dynamic_r_h_i_8h}
+\input{d5/d4f/_vulkan_private_dynamic_r_h_i_8h_source}
+\input{dd/d0a/_vulkan_util_8h}
+\input{dd/d0a/_vulkan_util_8h_source}
+\input{d1/dec/_windows_vulkan_loader_8h}
+\input{d1/dec/_windows_vulkan_loader_8h_source}
+\input{d1/d79/_vulkan_dynamic_r_h_i_8h}
+\input{d1/d79/_vulkan_dynamic_r_h_i_8h_source}
+\input{d5/d94/_d3_d_shader_compiler_8cpp}
+\input{de/dfa/_d3_d_shader_format_8cpp}
+\input{d2/d8d/_d3_d_shader_compiler_8h}
+\input{d2/d8d/_d3_d_shader_compiler_8h_source}
+\input{df/d8c/_d3_d_shader_format_8h}
+\input{df/d8c/_d3_d_shader_format_8h_source}
+\input{db/d92/_generate_project_8py}
+\input{d2/dcb/_test_script_8py}
+\input{d1/d48/_blur_8hlsl}
+\input{db/d97/_common_8hlsl}
+\input{d2/dde/_forest_8hlsl}
+\input{d1/d79/_fractal_shader_8hlsl}
+\input{db/d86/_increase_bright_8hlsl}
+\input{d6/dcf/_lighting_utils_8hlsl}
+\input{df/d82/_pixel_shader_8hlsl}
+\input{d9/d88/_post_process_8hlsl}
+\input{d8/de6/_random_shader_8hlsl}
+\input{d6/d14/_screen_rectangle_8hlsl}
+\input{d3/d83/_seascape_8hlsl}
+\input{d2/d20/_skybox_8hlsl}
+\input{dc/d0b/_skybox_pixel_8hlsl}
+\input{da/dae/_test_shader_8_h_l_s_l}
+\input{d0/d06/t_sest_shader_8hlsl}
+\input{d2/df6/_vertex_shader_8hlsl}
+\input{dc/d14/_title_8md}
+\input{d6/d5e/_definitions_8h}
+\input{d6/d5e/_definitions_8h_source}
+%--- End generated contents ---
+% Index
+  \backmatter
+  \newpage
+  \phantomsection
+  \clearemptydoublepage
+  \addcontentsline{toc}{chapter}{\indexname}
+  \printindex
+% Required for some languages (in combination with latexdocumentpre from the header)
+\end{document}

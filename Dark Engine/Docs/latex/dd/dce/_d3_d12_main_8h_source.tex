@@ -1,0 +1,56 @@
+\doxysection{D3\+D12\+Main.\+h}
+\hypertarget{_d3_d12_main_8h_source}{}\label{_d3_d12_main_8h_source}\index{Dark Engine/Source/Runtime/Render/D3D12/D3D12Main.h@{Dark Engine/Source/Runtime/Render/D3D12/D3D12Main.h}}
+\mbox{\hyperlink{_d3_d12_main_8h}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <dxgi1\_6.h>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <DirectXMath.h>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <d3dcompiler.h>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <wrl.h>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_core_types_8h}{CoreTypes.h}}"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_dark_string_8h}{Containers/DarkString.h}}"{}}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{_d3_d12_8h}{d3d12.h}}>}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_render_2_d3_d12_2d3dx12_8h}{d3dx12.h}}"{}}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#pragma\ comment(lib,\ "{}D3D12.lib"{})}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#pragma\ comment(lib,\ "{}DXGI.lib"{})}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#pragma\ comment(lib,\ "{}DirectXTK12.lib"{})}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#pragma\ comment(lib,\ "{}assimp-\/vc143-\/mtd.lib"{})}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#pragma\ comment(lib,\ "{}dxcompiler.lib"{})}}
+\DoxyCodeLine{00024\ \textcolor{comment}{//\#pragma\ comment(lib,\ "{}D3Dcompiler\_47.lib"{})}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{keyword}{using\ namespace\ }DirectX;}
+\DoxyCodeLine{00027\ \textcolor{keyword}{using\ namespace\ }Microsoft::WRL;}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{typedef}\ ComPtr<ID3D12Resource>\ \mbox{\hyperlink{_d3_d12_main_8h_ab8eaee8f45f36954297ee6146eb6db20}{Resource}};}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#ifndef\ \_DEBUG}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#define\ DXCall(x)\ x}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00034\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_d3_d12_util_8h_a629c58836a825b77141f59781e2082ad}{VerifyD3D12Result}}(HRESULT\ hr,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{_platform_8h_ac65a9f028228aed366b4d8f24a8ab9e9}{ANSICHAR}}*\ Code,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{_platform_8h_ac65a9f028228aed366b4d8f24a8ab9e9}{ANSICHAR}}*\ Filename,\ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ Line)}
+\DoxyCodeLine{00035\ \{}
+\DoxyCodeLine{00036\ \ \ \ \ \mbox{\hyperlink{class_f_string}{FString}}\ Error\ =\ Code;}
+\DoxyCodeLine{00037\ \}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#define\ DXCall(x)\ \{HRESULT\ Result\ =\ x;\ if(FAILED(Result))\ \{VerifyD3D12Result(Result,\ \#x,\ \_\_FILE\_\_,\ \_\_LINE\_\_);\}\}}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ \_DEBUG}}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#define\ checked(x)\ if(!x)\ \{\ throw;\ \ \}}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#define\ DXAlloc(x,\ y)\ new\ x(y)}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ }
+
+\end{DoxyCode}

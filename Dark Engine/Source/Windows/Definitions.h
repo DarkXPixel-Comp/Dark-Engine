@@ -47,8 +47,8 @@
 #define DBT_COMPILED_PLATFORM Win64
 #define NDIS_MINIPORT_MAJOR_VERSION 0
 #define WIN32 1
-#define _WIN32_WINNT 0x0601
-#define WINVER 0x0601
+//#define _WIN32_WINNT 0x0605
+//#define WINVER 0x0605
 #define PLATFORM_WINDOWS 1
 #define PLATFORM_MICROSOFT 1
 #define OVERRIDE_PLATFORM_HEADER_NAME Windows
@@ -85,7 +85,7 @@
 #define UE_MODULE_NAME "Core"
 #define UE_PLUGIN_NAME ""
 #define BUILDSETTINGS_API DLLIMPORT
-#define WITH_PIX_EVENT_RUNTIME 1
+#define WITH_PIX_EVENT_RUNTIME 0
 #define DERIVEDDATACACHE_API DLLIMPORT
 #define TARGETPLATFORM_API DLLIMPORT
 #define TEXTUREFORMAT_API DLLIMPORT
@@ -111,6 +111,8 @@
 #define ANALYTICS_API DLLIMPORT
 #define DIRECTORYWATCHER_API DLLIMPORT
 #define DO_CHECK
+#undef CORE_API
+#undef _WIN64
 #define CORE_API
 #define TEST_API __declspec(dllimport)
 #define _WIN64
@@ -118,4 +120,7 @@
 #define IMGUI
 #define GIsEditor true
 #define MAX_RENDER_TARGETS 8
-#define USE_PIX
+#define _CRT_SECURE_NO_WARNINGS 1
+//#define USE_PIX
+#define D3D12_DEBUG	1
+#pragma warning(disable: 6031)

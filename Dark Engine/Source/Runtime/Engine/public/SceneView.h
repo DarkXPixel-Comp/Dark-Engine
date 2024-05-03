@@ -12,24 +12,16 @@
 class FSceneView
 {
 public:
-	FSceneView(const FRenderTarget* InRenderTarget, FSceneInterface* InSceneInterface, FEditorViewportClient* InViewportClient);
+	FSceneView(const FRenderTarget* InRenderTarget, FSceneInterface* InSceneInterface);
 	void CalcSceneView();
-	void SetSceneRenderer(ISceneRenderer* InSceneRenderer) { SceneRenderer = InSceneRenderer; }
-	ISceneRenderer* GetSceneRenderer() const { return SceneRenderer; }
 
 
 
 public:
-	FMatrix ProjectionMatrix;
-	FIntRect ViewRect;
-	FSceneInterface* Scene;
-	uint32 FrameNumber;
-	uint64 FrameCounter = 0;
-	const FRenderTarget* RenderTarget;
+	const class FRenderTarget* RenderTarget = nullptr;
+	FSceneInterface* Scene = nullptr;
+	FIntRect UnscaledRect;
 
-private:
-	FEditorViewportClient* ViewportClient;
-	ISceneRenderer* SceneRenderer;
 
 
 

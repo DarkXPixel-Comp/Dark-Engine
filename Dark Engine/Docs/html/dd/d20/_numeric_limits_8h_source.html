@@ -1,0 +1,541 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Dark Engine: Исходный файл Dark Engine/Source/Runtime/Core/Public/Math/NumericLimits.h</title>
+<link rel="icon" href="../../Logo.png" type="image/x-icon" />
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<script type="text/javascript" src="../../clipboard.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../MiniLogo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Dark Engine<span id="projectnumber">&#160;0.0.50</span>
+   </div>
+   <div id="projectbrief">New game engnie D3D12</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../../',true,false,'search.php','Поиск');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(1); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('dd/d20/_numeric_limits_8h_source.html','../../'); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">NumericLimits.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="../../dd/d20/_numeric_limits_8h.html">См. документацию.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="../../db/d04/_core_types_8h.html">CoreTypes.h</a>&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno"><a class="line" href="../../dd/d20/_numeric_limits_8h.html#a5b567be528e8c1cc9e024ac163b568d3">    6</a></span><span class="preprocessor">#define MIN_uint8       ((uint8)    0x00)</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="../../dd/d20/_numeric_limits_8h.html#adb2684fc2f0837a95369061856f3e9b9">    7</a></span><span class="preprocessor">#define MIN_uint16      ((uint16)   0x0000)</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="../../dd/d20/_numeric_limits_8h.html#af009a3690f2cf76d02b106bed2394cb1">    8</a></span><span class="preprocessor">#define MIN_uint32      ((uint32)   0x00000000)</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="../../dd/d20/_numeric_limits_8h.html#a45d752b8e6c1aa2d17718886943c1cea">    9</a></span><span class="preprocessor">#define MIN_uint64      ((uint64)   0x0000000000000000)</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="../../dd/d20/_numeric_limits_8h.html#a4b4ae19af8fd81d07652834fa9a8ef7f">   10</a></span><span class="preprocessor">#define MIN_int8        ((int8)     -128)</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="../../dd/d20/_numeric_limits_8h.html#a3302a3ea5770656c52f570e1c2dc61ff">   11</a></span><span class="preprocessor">#define MIN_int16       ((int16)    -32768)</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="../../dd/d20/_numeric_limits_8h.html#a788ccc1c1eac91297300a51f947bf30b">   12</a></span><span class="preprocessor">#define MIN_int32       ((int32)    0x80000000)</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="../../dd/d20/_numeric_limits_8h.html#ac873eab0de204ec4f00ce10895092168">   13</a></span><span class="preprocessor">#define MIN_int64       ((int64)    0x8000000000000000)</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="../../dd/d20/_numeric_limits_8h.html#ac7bee8babeb8a797f90711530c15710e">   15</a></span><span class="preprocessor">#define MAX_uint8       ((uint8)    0xff)</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="../../dd/d20/_numeric_limits_8h.html#aa1062aff3b8717c82c04237f279d398c">   16</a></span><span class="preprocessor">#define MAX_uint16      ((uint16)   0xffff)</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="../../dd/d20/_numeric_limits_8h.html#ac22fdba0a24c4462f516e0d93b213795">   17</a></span><span class="preprocessor">#define MAX_uint32      ((uint32)   0xffffffff)</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="../../dd/d20/_numeric_limits_8h.html#afb76ed4ccd46132884081088fff64bbf">   18</a></span><span class="preprocessor">#define MAX_uint64      ((uint64)   0xffffffffffffffff)</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="../../dd/d20/_numeric_limits_8h.html#af939da5bf494bd8c08d5606b1031769e">   19</a></span><span class="preprocessor">#define MAX_int8        ((int8)     0x7f)</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="../../dd/d20/_numeric_limits_8h.html#a5e3826997831b9ec8579031aa9c77013">   20</a></span><span class="preprocessor">#define MAX_int16       ((int16)    0x7fff)</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="../../dd/d20/_numeric_limits_8h.html#a0ca55812fa35a6bb8e78c8f9cf293713">   21</a></span><span class="preprocessor">#define MAX_int32       ((int32)    0x7fffffff)</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="../../dd/d20/_numeric_limits_8h.html#aaa195147b9f6e6faf2000cf0646ded5e">   22</a></span><span class="preprocessor">#define MAX_int64       ((int64)    0x7fffffffffffffff)</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="../../dd/d20/_numeric_limits_8h.html#a8cbdd15904cc864a4d2eb717af34427e">   24</a></span><span class="preprocessor">#define MIN_flt         (1.175494351e-38F)          </span><span class="comment">/* min positive value */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="../../dd/d20/_numeric_limits_8h.html#a4efa20579dc3c11f9d34d6f375ad30c2">   25</a></span><span class="preprocessor">#define MAX_flt         (3.402823466e+38F)</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="../../dd/d20/_numeric_limits_8h.html#a90da3bd5e897f7b590f13b4b825b4789">   26</a></span><span class="preprocessor">#define MIN_dbl         (2.2250738585072014e-308)   </span><span class="comment">/* min positive value */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="../../dd/d20/_numeric_limits_8h.html#a27a8841e372e8afbc4b050886d45e34b">   27</a></span><span class="preprocessor">#define MAX_dbl         (1.7976931348623158e+308)   </span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> NumericType&gt;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="../../d8/dc0/struct_t_numeric_limits.html">   35</a></span><span class="keyword">struct </span><a class="code hl_struct" href="../../d8/dc0/struct_t_numeric_limits.html">TNumericLimits</a>;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> NumericType&gt;</div>
+<div class="foldopen" id="foldopen00042" data-start="{" data-end="};">
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="../../d6/d7a/struct_t_numeric_limits_3_01const_01_numeric_type_01_4.html">   42</a></span><span class="keyword">struct </span><a class="code hl_struct" href="../../d8/dc0/struct_t_numeric_limits.html">TNumericLimits</a>&lt;const NumericType&gt;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    : <span class="keyword">public</span> <a class="code hl_struct" href="../../d8/dc0/struct_t_numeric_limits.html">TNumericLimits</a>&lt;NumericType&gt;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>{ };</div>
+</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> NumericType&gt;</div>
+<div class="foldopen" id="foldopen00051" data-start="{" data-end="};">
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="../../dc/d23/struct_t_numeric_limits_3_01volatile_01_numeric_type_01_4.html">   51</a></span><span class="keyword">struct </span><a class="code hl_struct" href="../../d8/dc0/struct_t_numeric_limits.html">TNumericLimits</a>&lt;volatile NumericType&gt;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    : <span class="keyword">public</span> <a class="code hl_struct" href="../../d8/dc0/struct_t_numeric_limits.html">TNumericLimits</a>&lt;NumericType&gt;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>{ };</div>
+</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> NumericType&gt;</div>
+<div class="foldopen" id="foldopen00060" data-start="{" data-end="};">
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="../../d8/db8/struct_t_numeric_limits_3_01const_01volatile_01_numeric_type_01_4.html">   60</a></span><span class="keyword">struct </span><a class="code hl_struct" href="../../d8/dc0/struct_t_numeric_limits.html">TNumericLimits</a>&lt;const volatile NumericType&gt;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    : <span class="keyword">public</span> <a class="code hl_struct" href="../../d8/dc0/struct_t_numeric_limits.html">TNumericLimits</a>&lt;NumericType&gt;</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>{ };</div>
+</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="keyword">template</span>&lt;&gt;</div>
+<div class="foldopen" id="foldopen00066" data-start="{" data-end="};">
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="../../d2/dec/struct_t_numeric_limits_3_01uint8_01_4.html">   66</a></span><span class="keyword">struct </span><a class="code hl_struct" href="../../d8/dc0/struct_t_numeric_limits.html">TNumericLimits</a>&lt;<a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a40bc01dd090acd02a79b5dc13e08abe6">uint8</a>&gt;</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>{</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="../../d2/dec/struct_t_numeric_limits_3_01uint8_01_4.html#abec2f3d92c7a78fec61b059a22e3439a">   68</a></span>    <span class="keyword">typedef</span> <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a40bc01dd090acd02a79b5dc13e08abe6">uint8</a> <a class="code hl_typedef" href="../../d2/dec/struct_t_numeric_limits_3_01uint8_01_4.html#abec2f3d92c7a78fec61b059a22e3439a">NumericType</a>;</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="foldopen" id="foldopen00070" data-start="{" data-end="}">
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="../../d2/dec/struct_t_numeric_limits_3_01uint8_01_4.html#a4dc2309204822cffd410beffb77428b5">   70</a></span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <a class="code hl_typedef" href="../../d2/dec/struct_t_numeric_limits_3_01uint8_01_4.html#abec2f3d92c7a78fec61b059a22e3439a">NumericType</a> <a class="code hl_function" href="../../d2/dec/struct_t_numeric_limits_3_01uint8_01_4.html#a4dc2309204822cffd410beffb77428b5">Min</a>()</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    {</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        <span class="keywordflow">return</span> <a class="code hl_define" href="../../dd/d20/_numeric_limits_8h.html#a5b567be528e8c1cc9e024ac163b568d3">MIN_uint8</a>;</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    }</div>
+</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="foldopen" id="foldopen00075" data-start="{" data-end="}">
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="../../d2/dec/struct_t_numeric_limits_3_01uint8_01_4.html#a95e93c1b78abb041017ef7a123cfe81e">   75</a></span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <a class="code hl_typedef" href="../../d2/dec/struct_t_numeric_limits_3_01uint8_01_4.html#abec2f3d92c7a78fec61b059a22e3439a">NumericType</a> <a class="code hl_function" href="../../d2/dec/struct_t_numeric_limits_3_01uint8_01_4.html#a95e93c1b78abb041017ef7a123cfe81e">Max</a>()</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    {</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        <span class="keywordflow">return</span> <a class="code hl_define" href="../../dd/d20/_numeric_limits_8h.html#ac7bee8babeb8a797f90711530c15710e">MAX_uint8</a>;</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    }</div>
+</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="foldopen" id="foldopen00080" data-start="{" data-end="}">
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="../../d2/dec/struct_t_numeric_limits_3_01uint8_01_4.html#a90b0a7d17c8ec84aa79fa7fee6b87239">   80</a></span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <a class="code hl_typedef" href="../../d2/dec/struct_t_numeric_limits_3_01uint8_01_4.html#abec2f3d92c7a78fec61b059a22e3439a">NumericType</a> <a class="code hl_function" href="../../d2/dec/struct_t_numeric_limits_3_01uint8_01_4.html#a90b0a7d17c8ec84aa79fa7fee6b87239">Lowest</a>()</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    {</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        <span class="keywordflow">return</span> Min();</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    }</div>
+</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>};</div>
+</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="keyword">template</span>&lt;&gt;</div>
+<div class="foldopen" id="foldopen00088" data-start="{" data-end="};">
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="../../da/dc0/struct_t_numeric_limits_3_01uint16_01_4.html">   88</a></span><span class="keyword">struct </span><a class="code hl_struct" href="../../d8/dc0/struct_t_numeric_limits.html">TNumericLimits</a>&lt;<a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a55934b7aafc849240fa69ea0339c0ab7">uint16</a>&gt;</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>{</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno"><a class="line" href="../../da/dc0/struct_t_numeric_limits_3_01uint16_01_4.html#ab3376ab468551e89a5775a842a5165d6">   90</a></span>    <span class="keyword">typedef</span> <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a55934b7aafc849240fa69ea0339c0ab7">uint16</a> <a class="code hl_typedef" href="../../da/dc0/struct_t_numeric_limits_3_01uint16_01_4.html#ab3376ab468551e89a5775a842a5165d6">NumericType</a>;</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="foldopen" id="foldopen00092" data-start="{" data-end="}">
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno"><a class="line" href="../../da/dc0/struct_t_numeric_limits_3_01uint16_01_4.html#a0a6a51533705d1dd579212be6f5928c1">   92</a></span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <a class="code hl_typedef" href="../../da/dc0/struct_t_numeric_limits_3_01uint16_01_4.html#ab3376ab468551e89a5775a842a5165d6">NumericType</a> <a class="code hl_function" href="../../da/dc0/struct_t_numeric_limits_3_01uint16_01_4.html#a0a6a51533705d1dd579212be6f5928c1">Min</a>()</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    {</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        <span class="keywordflow">return</span> <a class="code hl_define" href="../../dd/d20/_numeric_limits_8h.html#adb2684fc2f0837a95369061856f3e9b9">MIN_uint16</a>;</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    }</div>
+</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
+<div class="foldopen" id="foldopen00097" data-start="{" data-end="}">
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno"><a class="line" href="../../da/dc0/struct_t_numeric_limits_3_01uint16_01_4.html#a108fe3b4a1819a7236f4412a4ed4f802">   97</a></span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <a class="code hl_typedef" href="../../da/dc0/struct_t_numeric_limits_3_01uint16_01_4.html#ab3376ab468551e89a5775a842a5165d6">NumericType</a> <a class="code hl_function" href="../../da/dc0/struct_t_numeric_limits_3_01uint16_01_4.html#a108fe3b4a1819a7236f4412a4ed4f802">Max</a>()</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    {</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>        <span class="keywordflow">return</span> <a class="code hl_define" href="../../dd/d20/_numeric_limits_8h.html#aa1062aff3b8717c82c04237f279d398c">MAX_uint16</a>;</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    }</div>
+</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
+<div class="foldopen" id="foldopen00102" data-start="{" data-end="}">
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno"><a class="line" href="../../da/dc0/struct_t_numeric_limits_3_01uint16_01_4.html#aaa112ef2c66a3d9433b686253b54d38c">  102</a></span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <a class="code hl_typedef" href="../../da/dc0/struct_t_numeric_limits_3_01uint16_01_4.html#ab3376ab468551e89a5775a842a5165d6">NumericType</a> <a class="code hl_function" href="../../da/dc0/struct_t_numeric_limits_3_01uint16_01_4.html#aaa112ef2c66a3d9433b686253b54d38c">Lowest</a>()</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    {</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>        <span class="keywordflow">return</span> Min();</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    }</div>
+</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>};</div>
+</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="keyword">template</span>&lt;&gt;</div>
+<div class="foldopen" id="foldopen00110" data-start="{" data-end="};">
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno"><a class="line" href="../../d2/d66/struct_t_numeric_limits_3_01uint32_01_4.html">  110</a></span><span class="keyword">struct </span><a class="code hl_struct" href="../../d8/dc0/struct_t_numeric_limits.html">TNumericLimits</a>&lt;<a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a>&gt;</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>{</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno"><a class="line" href="../../d2/d66/struct_t_numeric_limits_3_01uint32_01_4.html#a4772e0b72bf6820cdb5d1a5e18b8a2b9">  112</a></span>    <span class="keyword">typedef</span> <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> <a class="code hl_typedef" href="../../d2/d66/struct_t_numeric_limits_3_01uint32_01_4.html#a4772e0b72bf6820cdb5d1a5e18b8a2b9">NumericType</a>;</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
+<div class="foldopen" id="foldopen00114" data-start="{" data-end="}">
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno"><a class="line" href="../../d2/d66/struct_t_numeric_limits_3_01uint32_01_4.html#aaac9cda9bce5087365f6aa02231cc4c5">  114</a></span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <a class="code hl_typedef" href="../../d2/d66/struct_t_numeric_limits_3_01uint32_01_4.html#a4772e0b72bf6820cdb5d1a5e18b8a2b9">NumericType</a> <a class="code hl_function" href="../../d2/d66/struct_t_numeric_limits_3_01uint32_01_4.html#aaac9cda9bce5087365f6aa02231cc4c5">Min</a>()</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    {</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>        <span class="keywordflow">return</span> <a class="code hl_define" href="../../dd/d20/_numeric_limits_8h.html#af009a3690f2cf76d02b106bed2394cb1">MIN_uint32</a>;</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    }</div>
+</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
+<div class="foldopen" id="foldopen00119" data-start="{" data-end="}">
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno"><a class="line" href="../../d2/d66/struct_t_numeric_limits_3_01uint32_01_4.html#af384dc878ad41efbee16062b7a57438f">  119</a></span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <a class="code hl_typedef" href="../../d2/d66/struct_t_numeric_limits_3_01uint32_01_4.html#a4772e0b72bf6820cdb5d1a5e18b8a2b9">NumericType</a> <a class="code hl_function" href="../../d2/d66/struct_t_numeric_limits_3_01uint32_01_4.html#af384dc878ad41efbee16062b7a57438f">Max</a>()</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    {</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>        <span class="keywordflow">return</span> <a class="code hl_define" href="../../dd/d20/_numeric_limits_8h.html#ac22fdba0a24c4462f516e0d93b213795">MAX_uint32</a>;</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    }</div>
+</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span> </div>
+<div class="foldopen" id="foldopen00124" data-start="{" data-end="}">
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno"><a class="line" href="../../d2/d66/struct_t_numeric_limits_3_01uint32_01_4.html#ae6184704475d9a3f41644380a3fdbbe1">  124</a></span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <a class="code hl_typedef" href="../../d2/d66/struct_t_numeric_limits_3_01uint32_01_4.html#a4772e0b72bf6820cdb5d1a5e18b8a2b9">NumericType</a> <a class="code hl_function" href="../../d2/d66/struct_t_numeric_limits_3_01uint32_01_4.html#ae6184704475d9a3f41644380a3fdbbe1">Lowest</a>()</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    {</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>        <span class="keywordflow">return</span> Min();</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    }</div>
+</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>};</div>
+</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span> </div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span><span class="keyword">template</span>&lt;&gt;</div>
+<div class="foldopen" id="foldopen00132" data-start="{" data-end="};">
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno"><a class="line" href="../../d9/dae/struct_t_numeric_limits_3_01uint64_01_4.html">  132</a></span><span class="keyword">struct </span><a class="code hl_struct" href="../../d8/dc0/struct_t_numeric_limits.html">TNumericLimits</a>&lt;<a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#afddf25cca147311c233b23a9d3329bb4">uint64</a>&gt;</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>{</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno"><a class="line" href="../../d9/dae/struct_t_numeric_limits_3_01uint64_01_4.html#acb9c94ae8afece8e7db1ccdec146ad06">  134</a></span>    <span class="keyword">typedef</span> <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#afddf25cca147311c233b23a9d3329bb4">uint64</a> <a class="code hl_typedef" href="../../d9/dae/struct_t_numeric_limits_3_01uint64_01_4.html#acb9c94ae8afece8e7db1ccdec146ad06">NumericType</a>;</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span> </div>
+<div class="foldopen" id="foldopen00136" data-start="{" data-end="}">
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno"><a class="line" href="../../d9/dae/struct_t_numeric_limits_3_01uint64_01_4.html#a6c2e034334bc36e4d8dc21961216a57e">  136</a></span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <a class="code hl_typedef" href="../../d9/dae/struct_t_numeric_limits_3_01uint64_01_4.html#acb9c94ae8afece8e7db1ccdec146ad06">NumericType</a> <a class="code hl_function" href="../../d9/dae/struct_t_numeric_limits_3_01uint64_01_4.html#a6c2e034334bc36e4d8dc21961216a57e">Min</a>()</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>    {</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>        <span class="keywordflow">return</span> <a class="code hl_define" href="../../dd/d20/_numeric_limits_8h.html#a45d752b8e6c1aa2d17718886943c1cea">MIN_uint64</a>;</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    }</div>
+</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span> </div>
+<div class="foldopen" id="foldopen00141" data-start="{" data-end="}">
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno"><a class="line" href="../../d9/dae/struct_t_numeric_limits_3_01uint64_01_4.html#a1f2ddf64555b48d2d26f5969e3e3f53c">  141</a></span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <a class="code hl_typedef" href="../../d9/dae/struct_t_numeric_limits_3_01uint64_01_4.html#acb9c94ae8afece8e7db1ccdec146ad06">NumericType</a> <a class="code hl_function" href="../../d9/dae/struct_t_numeric_limits_3_01uint64_01_4.html#a1f2ddf64555b48d2d26f5969e3e3f53c">Max</a>()</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>    {</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>        <span class="keywordflow">return</span> <a class="code hl_define" href="../../dd/d20/_numeric_limits_8h.html#afb76ed4ccd46132884081088fff64bbf">MAX_uint64</a>;</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>    }</div>
+</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span> </div>
+<div class="foldopen" id="foldopen00146" data-start="{" data-end="}">
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno"><a class="line" href="../../d9/dae/struct_t_numeric_limits_3_01uint64_01_4.html#a13dbd1bacb0e3dc8c740c44817e1f290">  146</a></span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <a class="code hl_typedef" href="../../d9/dae/struct_t_numeric_limits_3_01uint64_01_4.html#acb9c94ae8afece8e7db1ccdec146ad06">NumericType</a> <a class="code hl_function" href="../../d9/dae/struct_t_numeric_limits_3_01uint64_01_4.html#a13dbd1bacb0e3dc8c740c44817e1f290">Lowest</a>()</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>    {</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>        <span class="keywordflow">return</span> Min();</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>    }</div>
+</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>};</div>
+</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span> </div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span> </div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span><span class="keyword">template</span>&lt;&gt;</div>
+<div class="foldopen" id="foldopen00154" data-start="{" data-end="};">
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno"><a class="line" href="../../dd/d31/struct_t_numeric_limits_3_01int8_01_4.html">  154</a></span><span class="keyword">struct </span><a class="code hl_struct" href="../../d8/dc0/struct_t_numeric_limits.html">TNumericLimits</a>&lt;<a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a246fcaeb7b4e208e08c0683b1f507494">int8</a>&gt;</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>{</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno"><a class="line" href="../../dd/d31/struct_t_numeric_limits_3_01int8_01_4.html#a5f0939070d807d0c5924e2e75963d2a6">  156</a></span>    <span class="keyword">typedef</span> <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a246fcaeb7b4e208e08c0683b1f507494">int8</a> <a class="code hl_typedef" href="../../dd/d31/struct_t_numeric_limits_3_01int8_01_4.html#a5f0939070d807d0c5924e2e75963d2a6">NumericType</a>;</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span> </div>
+<div class="foldopen" id="foldopen00158" data-start="{" data-end="}">
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno"><a class="line" href="../../dd/d31/struct_t_numeric_limits_3_01int8_01_4.html#a660369dd86367d34012c52e1a10a227e">  158</a></span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <a class="code hl_typedef" href="../../dd/d31/struct_t_numeric_limits_3_01int8_01_4.html#a5f0939070d807d0c5924e2e75963d2a6">NumericType</a> <a class="code hl_function" href="../../dd/d31/struct_t_numeric_limits_3_01int8_01_4.html#a660369dd86367d34012c52e1a10a227e">Min</a>()</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>    {</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>        <span class="keywordflow">return</span> <a class="code hl_define" href="../../dd/d20/_numeric_limits_8h.html#a4b4ae19af8fd81d07652834fa9a8ef7f">MIN_int8</a>;</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>    }</div>
+</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span> </div>
+<div class="foldopen" id="foldopen00163" data-start="{" data-end="}">
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno"><a class="line" href="../../dd/d31/struct_t_numeric_limits_3_01int8_01_4.html#aec71bd2a7379f42c1e561a36da4df93a">  163</a></span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <a class="code hl_typedef" href="../../dd/d31/struct_t_numeric_limits_3_01int8_01_4.html#a5f0939070d807d0c5924e2e75963d2a6">NumericType</a> <a class="code hl_function" href="../../dd/d31/struct_t_numeric_limits_3_01int8_01_4.html#aec71bd2a7379f42c1e561a36da4df93a">Max</a>()</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>    {</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>        <span class="keywordflow">return</span> <a class="code hl_define" href="../../dd/d20/_numeric_limits_8h.html#af939da5bf494bd8c08d5606b1031769e">MAX_int8</a>;</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>    }</div>
+</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span> </div>
+<div class="foldopen" id="foldopen00168" data-start="{" data-end="}">
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno"><a class="line" href="../../dd/d31/struct_t_numeric_limits_3_01int8_01_4.html#a11a31479b7a19dd2beb960fd07728192">  168</a></span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <a class="code hl_typedef" href="../../dd/d31/struct_t_numeric_limits_3_01int8_01_4.html#a5f0939070d807d0c5924e2e75963d2a6">NumericType</a> <a class="code hl_function" href="../../dd/d31/struct_t_numeric_limits_3_01int8_01_4.html#a11a31479b7a19dd2beb960fd07728192">Lowest</a>()</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>    {</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>        <span class="keywordflow">return</span> Min();</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>    }</div>
+</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>};</div>
+</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span> </div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span> </div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span><span class="keyword">template</span>&lt;&gt;</div>
+<div class="foldopen" id="foldopen00176" data-start="{" data-end="};">
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno"><a class="line" href="../../d3/d2d/struct_t_numeric_limits_3_01int16_01_4.html">  176</a></span><span class="keyword">struct </span><a class="code hl_struct" href="../../d8/dc0/struct_t_numeric_limits.html">TNumericLimits</a>&lt;<a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a1bd80c51a4b4f984eaeb341a689a989d">int16</a>&gt;</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>{</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno"><a class="line" href="../../d3/d2d/struct_t_numeric_limits_3_01int16_01_4.html#a734eb2697095bf7d19e28b0fa5e96c59">  178</a></span>    <span class="keyword">typedef</span> <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a1bd80c51a4b4f984eaeb341a689a989d">int16</a> <a class="code hl_typedef" href="../../d3/d2d/struct_t_numeric_limits_3_01int16_01_4.html#a734eb2697095bf7d19e28b0fa5e96c59">NumericType</a>;</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span> </div>
+<div class="foldopen" id="foldopen00180" data-start="{" data-end="}">
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno"><a class="line" href="../../d3/d2d/struct_t_numeric_limits_3_01int16_01_4.html#a366ff6e442ccbc0be4074b6dd151cd72">  180</a></span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <a class="code hl_typedef" href="../../d3/d2d/struct_t_numeric_limits_3_01int16_01_4.html#a734eb2697095bf7d19e28b0fa5e96c59">NumericType</a> <a class="code hl_function" href="../../d3/d2d/struct_t_numeric_limits_3_01int16_01_4.html#a366ff6e442ccbc0be4074b6dd151cd72">Min</a>()</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>    {</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>        <span class="keywordflow">return</span> <a class="code hl_define" href="../../dd/d20/_numeric_limits_8h.html#a3302a3ea5770656c52f570e1c2dc61ff">MIN_int16</a>;</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>    }</div>
+</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span> </div>
+<div class="foldopen" id="foldopen00185" data-start="{" data-end="}">
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno"><a class="line" href="../../d3/d2d/struct_t_numeric_limits_3_01int16_01_4.html#a05493d67a43a1954e12eea64327f9aa2">  185</a></span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <a class="code hl_typedef" href="../../d3/d2d/struct_t_numeric_limits_3_01int16_01_4.html#a734eb2697095bf7d19e28b0fa5e96c59">NumericType</a> <a class="code hl_function" href="../../d3/d2d/struct_t_numeric_limits_3_01int16_01_4.html#a05493d67a43a1954e12eea64327f9aa2">Max</a>()</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>    {</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>        <span class="keywordflow">return</span> <a class="code hl_define" href="../../dd/d20/_numeric_limits_8h.html#a5e3826997831b9ec8579031aa9c77013">MAX_int16</a>;</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>    }</div>
+</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span> </div>
+<div class="foldopen" id="foldopen00190" data-start="{" data-end="}">
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno"><a class="line" href="../../d3/d2d/struct_t_numeric_limits_3_01int16_01_4.html#a15f25d51b285791b021515d1136a7486">  190</a></span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <a class="code hl_typedef" href="../../d3/d2d/struct_t_numeric_limits_3_01int16_01_4.html#a734eb2697095bf7d19e28b0fa5e96c59">NumericType</a> <a class="code hl_function" href="../../d3/d2d/struct_t_numeric_limits_3_01int16_01_4.html#a15f25d51b285791b021515d1136a7486">Lowest</a>()</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>    {</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>        <span class="keywordflow">return</span> Min();</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>    }</div>
+</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>};</div>
+</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span> </div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span> </div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span><span class="keyword">template</span>&lt;&gt;</div>
+<div class="foldopen" id="foldopen00198" data-start="{" data-end="};">
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno"><a class="line" href="../../d6/ddd/struct_t_numeric_limits_3_01int32_01_4.html">  198</a></span><span class="keyword">struct </span><a class="code hl_struct" href="../../d8/dc0/struct_t_numeric_limits.html">TNumericLimits</a>&lt;<a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a84083085985fb180ad38b9c32e3937da">int32</a>&gt;</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>{</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno"><a class="line" href="../../d6/ddd/struct_t_numeric_limits_3_01int32_01_4.html#aec87247d34bf73fdc9ea0e02fbb7e187">  200</a></span>    <span class="keyword">typedef</span> <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a84083085985fb180ad38b9c32e3937da">int32</a> <a class="code hl_typedef" href="../../d6/ddd/struct_t_numeric_limits_3_01int32_01_4.html#aec87247d34bf73fdc9ea0e02fbb7e187">NumericType</a>;</div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span> </div>
+<div class="foldopen" id="foldopen00202" data-start="{" data-end="}">
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno"><a class="line" href="../../d6/ddd/struct_t_numeric_limits_3_01int32_01_4.html#a04159d7055e830f379ddc0a57faa4cbf">  202</a></span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <a class="code hl_typedef" href="../../d6/ddd/struct_t_numeric_limits_3_01int32_01_4.html#aec87247d34bf73fdc9ea0e02fbb7e187">NumericType</a> <a class="code hl_function" href="../../d6/ddd/struct_t_numeric_limits_3_01int32_01_4.html#a04159d7055e830f379ddc0a57faa4cbf">Min</a>()</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>    {</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>        <span class="keywordflow">return</span> <a class="code hl_define" href="../../dd/d20/_numeric_limits_8h.html#a788ccc1c1eac91297300a51f947bf30b">MIN_int32</a>;</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>    }</div>
+</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span> </div>
+<div class="foldopen" id="foldopen00207" data-start="{" data-end="}">
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno"><a class="line" href="../../d6/ddd/struct_t_numeric_limits_3_01int32_01_4.html#a9aeb3450337ca2e06e7ef2ca0574e6c8">  207</a></span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <a class="code hl_typedef" href="../../d6/ddd/struct_t_numeric_limits_3_01int32_01_4.html#aec87247d34bf73fdc9ea0e02fbb7e187">NumericType</a> <a class="code hl_function" href="../../d6/ddd/struct_t_numeric_limits_3_01int32_01_4.html#a9aeb3450337ca2e06e7ef2ca0574e6c8">Max</a>()</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>    {</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>        <span class="keywordflow">return</span> <a class="code hl_define" href="../../dd/d20/_numeric_limits_8h.html#a0ca55812fa35a6bb8e78c8f9cf293713">MAX_int32</a>;</div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>    }</div>
+</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span> </div>
+<div class="foldopen" id="foldopen00212" data-start="{" data-end="}">
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno"><a class="line" href="../../d6/ddd/struct_t_numeric_limits_3_01int32_01_4.html#a5578354c4717e6466544012e9eed9e1c">  212</a></span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <a class="code hl_typedef" href="../../d6/ddd/struct_t_numeric_limits_3_01int32_01_4.html#aec87247d34bf73fdc9ea0e02fbb7e187">NumericType</a> <a class="code hl_function" href="../../d6/ddd/struct_t_numeric_limits_3_01int32_01_4.html#a5578354c4717e6466544012e9eed9e1c">Lowest</a>()</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>    {</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>        <span class="keywordflow">return</span> Min();</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>    }</div>
+</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>};</div>
+</div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span> </div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span> </div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span><span class="keyword">template</span>&lt;&gt;</div>
+<div class="foldopen" id="foldopen00220" data-start="{" data-end="};">
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno"><a class="line" href="../../da/da8/struct_t_numeric_limits_3_01int64_01_4.html">  220</a></span><span class="keyword">struct </span><a class="code hl_struct" href="../../d8/dc0/struct_t_numeric_limits.html">TNumericLimits</a>&lt;<a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a89241ea7101f26f05a4f1efd6be26b32">int64</a>&gt;</div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>{</div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno"><a class="line" href="../../da/da8/struct_t_numeric_limits_3_01int64_01_4.html#a83c5bbeae6944e590d0bf708e21cbaa4">  222</a></span>    <span class="keyword">typedef</span> <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a89241ea7101f26f05a4f1efd6be26b32">int64</a> <a class="code hl_typedef" href="../../da/da8/struct_t_numeric_limits_3_01int64_01_4.html#a83c5bbeae6944e590d0bf708e21cbaa4">NumericType</a>;</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span> </div>
+<div class="foldopen" id="foldopen00224" data-start="{" data-end="}">
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno"><a class="line" href="../../da/da8/struct_t_numeric_limits_3_01int64_01_4.html#aeaf0ea578fbcab84b5289491985553b5">  224</a></span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <a class="code hl_typedef" href="../../da/da8/struct_t_numeric_limits_3_01int64_01_4.html#a83c5bbeae6944e590d0bf708e21cbaa4">NumericType</a> <a class="code hl_function" href="../../da/da8/struct_t_numeric_limits_3_01int64_01_4.html#aeaf0ea578fbcab84b5289491985553b5">Min</a>()</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>    {</div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>        <span class="keywordflow">return</span> <a class="code hl_define" href="../../dd/d20/_numeric_limits_8h.html#ac873eab0de204ec4f00ce10895092168">MIN_int64</a>;</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>    }</div>
+</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span> </div>
+<div class="foldopen" id="foldopen00229" data-start="{" data-end="}">
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno"><a class="line" href="../../da/da8/struct_t_numeric_limits_3_01int64_01_4.html#a180159ebfe13acb142bbb10b67d5f46d">  229</a></span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <a class="code hl_typedef" href="../../da/da8/struct_t_numeric_limits_3_01int64_01_4.html#a83c5bbeae6944e590d0bf708e21cbaa4">NumericType</a> <a class="code hl_function" href="../../da/da8/struct_t_numeric_limits_3_01int64_01_4.html#a180159ebfe13acb142bbb10b67d5f46d">Max</a>()</div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>    {</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>        <span class="keywordflow">return</span> <a class="code hl_define" href="../../dd/d20/_numeric_limits_8h.html#aaa195147b9f6e6faf2000cf0646ded5e">MAX_int64</a>;</div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>    }</div>
+</div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span> </div>
+<div class="foldopen" id="foldopen00234" data-start="{" data-end="}">
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno"><a class="line" href="../../da/da8/struct_t_numeric_limits_3_01int64_01_4.html#aab8fef765af406defdab5313ff774da7">  234</a></span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <a class="code hl_typedef" href="../../da/da8/struct_t_numeric_limits_3_01int64_01_4.html#a83c5bbeae6944e590d0bf708e21cbaa4">NumericType</a> <a class="code hl_function" href="../../da/da8/struct_t_numeric_limits_3_01int64_01_4.html#aab8fef765af406defdab5313ff774da7">Lowest</a>()</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>    {</div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>        <span class="keywordflow">return</span> Min();</div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>    }</div>
+</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>};</div>
+</div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span> </div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span> </div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span><span class="keyword">template</span>&lt;&gt;</div>
+<div class="foldopen" id="foldopen00242" data-start="{" data-end="};">
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno"><a class="line" href="../../dc/d8e/struct_t_numeric_limits_3_01float_01_4.html">  242</a></span><span class="keyword">struct </span><a class="code hl_struct" href="../../d8/dc0/struct_t_numeric_limits.html">TNumericLimits</a>&lt;float&gt;</div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>{</div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno"><a class="line" href="../../dc/d8e/struct_t_numeric_limits_3_01float_01_4.html#abba4f315129daeb5b0a5d3a5f1c351a0">  244</a></span>    <span class="keyword">typedef</span> <span class="keywordtype">float</span> <a class="code hl_typedef" href="../../dc/d8e/struct_t_numeric_limits_3_01float_01_4.html#abba4f315129daeb5b0a5d3a5f1c351a0">NumericType</a>;</div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span> </div>
+<div class="foldopen" id="foldopen00246" data-start="{" data-end="}">
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno"><a class="line" href="../../dc/d8e/struct_t_numeric_limits_3_01float_01_4.html#a3f8622c23a95a66358618dcf99ea8f7d">  246</a></span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <a class="code hl_typedef" href="../../dc/d8e/struct_t_numeric_limits_3_01float_01_4.html#abba4f315129daeb5b0a5d3a5f1c351a0">NumericType</a> <a class="code hl_function" href="../../dc/d8e/struct_t_numeric_limits_3_01float_01_4.html#a3f8622c23a95a66358618dcf99ea8f7d">Min</a>()</div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>    {</div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>        <span class="keywordflow">return</span> <a class="code hl_define" href="../../dd/d20/_numeric_limits_8h.html#a8cbdd15904cc864a4d2eb717af34427e">MIN_flt</a>;</div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>    }</div>
+</div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span> </div>
+<div class="foldopen" id="foldopen00251" data-start="{" data-end="}">
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno"><a class="line" href="../../dc/d8e/struct_t_numeric_limits_3_01float_01_4.html#a80705e56a758e424a5375983875f126c">  251</a></span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <a class="code hl_typedef" href="../../dc/d8e/struct_t_numeric_limits_3_01float_01_4.html#abba4f315129daeb5b0a5d3a5f1c351a0">NumericType</a> <a class="code hl_function" href="../../dc/d8e/struct_t_numeric_limits_3_01float_01_4.html#a80705e56a758e424a5375983875f126c">Max</a>()</div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>    {</div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>        <span class="keywordflow">return</span> <a class="code hl_define" href="../../dd/d20/_numeric_limits_8h.html#a4efa20579dc3c11f9d34d6f375ad30c2">MAX_flt</a>;</div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>    }</div>
+</div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span> </div>
+<div class="foldopen" id="foldopen00256" data-start="{" data-end="}">
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno"><a class="line" href="../../dc/d8e/struct_t_numeric_limits_3_01float_01_4.html#a6e95c08bc7d99e7ba299ae4b47a8377d">  256</a></span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <a class="code hl_typedef" href="../../dc/d8e/struct_t_numeric_limits_3_01float_01_4.html#abba4f315129daeb5b0a5d3a5f1c351a0">NumericType</a> <a class="code hl_function" href="../../dc/d8e/struct_t_numeric_limits_3_01float_01_4.html#a6e95c08bc7d99e7ba299ae4b47a8377d">Lowest</a>()</div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>    {</div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>        <span class="keywordflow">return</span> -Max();</div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>    }</div>
+</div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>};</div>
+</div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span> </div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span> </div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span><span class="keyword">template</span>&lt;&gt;</div>
+<div class="foldopen" id="foldopen00264" data-start="{" data-end="};">
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno"><a class="line" href="../../d9/d02/struct_t_numeric_limits_3_01double_01_4.html">  264</a></span><span class="keyword">struct </span><a class="code hl_struct" href="../../d8/dc0/struct_t_numeric_limits.html">TNumericLimits</a>&lt;double&gt;</div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>{</div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno"><a class="line" href="../../d9/d02/struct_t_numeric_limits_3_01double_01_4.html#a5b73cc854a70d8f3dfb62f08767587ed">  266</a></span>    <span class="keyword">typedef</span> <span class="keywordtype">double</span> <a class="code hl_typedef" href="../../d9/d02/struct_t_numeric_limits_3_01double_01_4.html#a5b73cc854a70d8f3dfb62f08767587ed">NumericType</a>;</div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span> </div>
+<div class="foldopen" id="foldopen00268" data-start="{" data-end="}">
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno"><a class="line" href="../../d9/d02/struct_t_numeric_limits_3_01double_01_4.html#a9dbb160aae816fb10d81d8618f5187cf">  268</a></span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <a class="code hl_typedef" href="../../d9/d02/struct_t_numeric_limits_3_01double_01_4.html#a5b73cc854a70d8f3dfb62f08767587ed">NumericType</a> <a class="code hl_function" href="../../d9/d02/struct_t_numeric_limits_3_01double_01_4.html#a9dbb160aae816fb10d81d8618f5187cf">Min</a>()</div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>    {</div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>        <span class="keywordflow">return</span> <a class="code hl_define" href="../../dd/d20/_numeric_limits_8h.html#a90da3bd5e897f7b590f13b4b825b4789">MIN_dbl</a>;</div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>    }</div>
+</div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span> </div>
+<div class="foldopen" id="foldopen00273" data-start="{" data-end="}">
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno"><a class="line" href="../../d9/d02/struct_t_numeric_limits_3_01double_01_4.html#ae624972ad6e4c80049f3b8877872d421">  273</a></span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <a class="code hl_typedef" href="../../d9/d02/struct_t_numeric_limits_3_01double_01_4.html#a5b73cc854a70d8f3dfb62f08767587ed">NumericType</a> <a class="code hl_function" href="../../d9/d02/struct_t_numeric_limits_3_01double_01_4.html#ae624972ad6e4c80049f3b8877872d421">Max</a>()</div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>    {</div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>        <span class="keywordflow">return</span> <a class="code hl_define" href="../../dd/d20/_numeric_limits_8h.html#a27a8841e372e8afbc4b050886d45e34b">MAX_dbl</a>;</div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>    }</div>
+</div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span> </div>
+<div class="foldopen" id="foldopen00278" data-start="{" data-end="}">
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno"><a class="line" href="../../d9/d02/struct_t_numeric_limits_3_01double_01_4.html#a400575965f956b21621138edefe75d7d">  278</a></span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <a class="code hl_typedef" href="../../d9/d02/struct_t_numeric_limits_3_01double_01_4.html#a5b73cc854a70d8f3dfb62f08767587ed">NumericType</a> <a class="code hl_function" href="../../d9/d02/struct_t_numeric_limits_3_01double_01_4.html#a400575965f956b21621138edefe75d7d">Lowest</a>()</div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>    {</div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>        <span class="keywordflow">return</span> -Max();</div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>    }</div>
+</div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>};</div>
+</div>
+<div class="ttc" id="a_core_types_8h_html"><div class="ttname"><a href="../../db/d04/_core_types_8h.html">CoreTypes.h</a></div></div>
+<div class="ttc" id="a_numeric_limits_8h_html_a0ca55812fa35a6bb8e78c8f9cf293713"><div class="ttname"><a href="../../dd/d20/_numeric_limits_8h.html#a0ca55812fa35a6bb8e78c8f9cf293713">MAX_int32</a></div><div class="ttdeci">#define MAX_int32</div><div class="ttdef"><b>Definition</b> NumericLimits.h:21</div></div>
+<div class="ttc" id="a_numeric_limits_8h_html_a27a8841e372e8afbc4b050886d45e34b"><div class="ttname"><a href="../../dd/d20/_numeric_limits_8h.html#a27a8841e372e8afbc4b050886d45e34b">MAX_dbl</a></div><div class="ttdeci">#define MAX_dbl</div><div class="ttdef"><b>Definition</b> NumericLimits.h:27</div></div>
+<div class="ttc" id="a_numeric_limits_8h_html_a3302a3ea5770656c52f570e1c2dc61ff"><div class="ttname"><a href="../../dd/d20/_numeric_limits_8h.html#a3302a3ea5770656c52f570e1c2dc61ff">MIN_int16</a></div><div class="ttdeci">#define MIN_int16</div><div class="ttdef"><b>Definition</b> NumericLimits.h:11</div></div>
+<div class="ttc" id="a_numeric_limits_8h_html_a45d752b8e6c1aa2d17718886943c1cea"><div class="ttname"><a href="../../dd/d20/_numeric_limits_8h.html#a45d752b8e6c1aa2d17718886943c1cea">MIN_uint64</a></div><div class="ttdeci">#define MIN_uint64</div><div class="ttdef"><b>Definition</b> NumericLimits.h:9</div></div>
+<div class="ttc" id="a_numeric_limits_8h_html_a4b4ae19af8fd81d07652834fa9a8ef7f"><div class="ttname"><a href="../../dd/d20/_numeric_limits_8h.html#a4b4ae19af8fd81d07652834fa9a8ef7f">MIN_int8</a></div><div class="ttdeci">#define MIN_int8</div><div class="ttdef"><b>Definition</b> NumericLimits.h:10</div></div>
+<div class="ttc" id="a_numeric_limits_8h_html_a4efa20579dc3c11f9d34d6f375ad30c2"><div class="ttname"><a href="../../dd/d20/_numeric_limits_8h.html#a4efa20579dc3c11f9d34d6f375ad30c2">MAX_flt</a></div><div class="ttdeci">#define MAX_flt</div><div class="ttdef"><b>Definition</b> NumericLimits.h:25</div></div>
+<div class="ttc" id="a_numeric_limits_8h_html_a5b567be528e8c1cc9e024ac163b568d3"><div class="ttname"><a href="../../dd/d20/_numeric_limits_8h.html#a5b567be528e8c1cc9e024ac163b568d3">MIN_uint8</a></div><div class="ttdeci">#define MIN_uint8</div><div class="ttdef"><b>Definition</b> NumericLimits.h:6</div></div>
+<div class="ttc" id="a_numeric_limits_8h_html_a5e3826997831b9ec8579031aa9c77013"><div class="ttname"><a href="../../dd/d20/_numeric_limits_8h.html#a5e3826997831b9ec8579031aa9c77013">MAX_int16</a></div><div class="ttdeci">#define MAX_int16</div><div class="ttdef"><b>Definition</b> NumericLimits.h:20</div></div>
+<div class="ttc" id="a_numeric_limits_8h_html_a788ccc1c1eac91297300a51f947bf30b"><div class="ttname"><a href="../../dd/d20/_numeric_limits_8h.html#a788ccc1c1eac91297300a51f947bf30b">MIN_int32</a></div><div class="ttdeci">#define MIN_int32</div><div class="ttdef"><b>Definition</b> NumericLimits.h:12</div></div>
+<div class="ttc" id="a_numeric_limits_8h_html_a8cbdd15904cc864a4d2eb717af34427e"><div class="ttname"><a href="../../dd/d20/_numeric_limits_8h.html#a8cbdd15904cc864a4d2eb717af34427e">MIN_flt</a></div><div class="ttdeci">#define MIN_flt</div><div class="ttdef"><b>Definition</b> NumericLimits.h:24</div></div>
+<div class="ttc" id="a_numeric_limits_8h_html_a90da3bd5e897f7b590f13b4b825b4789"><div class="ttname"><a href="../../dd/d20/_numeric_limits_8h.html#a90da3bd5e897f7b590f13b4b825b4789">MIN_dbl</a></div><div class="ttdeci">#define MIN_dbl</div><div class="ttdef"><b>Definition</b> NumericLimits.h:26</div></div>
+<div class="ttc" id="a_numeric_limits_8h_html_aa1062aff3b8717c82c04237f279d398c"><div class="ttname"><a href="../../dd/d20/_numeric_limits_8h.html#aa1062aff3b8717c82c04237f279d398c">MAX_uint16</a></div><div class="ttdeci">#define MAX_uint16</div><div class="ttdef"><b>Definition</b> NumericLimits.h:16</div></div>
+<div class="ttc" id="a_numeric_limits_8h_html_aaa195147b9f6e6faf2000cf0646ded5e"><div class="ttname"><a href="../../dd/d20/_numeric_limits_8h.html#aaa195147b9f6e6faf2000cf0646ded5e">MAX_int64</a></div><div class="ttdeci">#define MAX_int64</div><div class="ttdef"><b>Definition</b> NumericLimits.h:22</div></div>
+<div class="ttc" id="a_numeric_limits_8h_html_ac22fdba0a24c4462f516e0d93b213795"><div class="ttname"><a href="../../dd/d20/_numeric_limits_8h.html#ac22fdba0a24c4462f516e0d93b213795">MAX_uint32</a></div><div class="ttdeci">#define MAX_uint32</div><div class="ttdef"><b>Definition</b> NumericLimits.h:17</div></div>
+<div class="ttc" id="a_numeric_limits_8h_html_ac7bee8babeb8a797f90711530c15710e"><div class="ttname"><a href="../../dd/d20/_numeric_limits_8h.html#ac7bee8babeb8a797f90711530c15710e">MAX_uint8</a></div><div class="ttdeci">#define MAX_uint8</div><div class="ttdef"><b>Definition</b> NumericLimits.h:15</div></div>
+<div class="ttc" id="a_numeric_limits_8h_html_ac873eab0de204ec4f00ce10895092168"><div class="ttname"><a href="../../dd/d20/_numeric_limits_8h.html#ac873eab0de204ec4f00ce10895092168">MIN_int64</a></div><div class="ttdeci">#define MIN_int64</div><div class="ttdef"><b>Definition</b> NumericLimits.h:13</div></div>
+<div class="ttc" id="a_numeric_limits_8h_html_adb2684fc2f0837a95369061856f3e9b9"><div class="ttname"><a href="../../dd/d20/_numeric_limits_8h.html#adb2684fc2f0837a95369061856f3e9b9">MIN_uint16</a></div><div class="ttdeci">#define MIN_uint16</div><div class="ttdef"><b>Definition</b> NumericLimits.h:7</div></div>
+<div class="ttc" id="a_numeric_limits_8h_html_af009a3690f2cf76d02b106bed2394cb1"><div class="ttname"><a href="../../dd/d20/_numeric_limits_8h.html#af009a3690f2cf76d02b106bed2394cb1">MIN_uint32</a></div><div class="ttdeci">#define MIN_uint32</div><div class="ttdef"><b>Definition</b> NumericLimits.h:8</div></div>
+<div class="ttc" id="a_numeric_limits_8h_html_af939da5bf494bd8c08d5606b1031769e"><div class="ttname"><a href="../../dd/d20/_numeric_limits_8h.html#af939da5bf494bd8c08d5606b1031769e">MAX_int8</a></div><div class="ttdeci">#define MAX_int8</div><div class="ttdef"><b>Definition</b> NumericLimits.h:19</div></div>
+<div class="ttc" id="a_numeric_limits_8h_html_afb76ed4ccd46132884081088fff64bbf"><div class="ttname"><a href="../../dd/d20/_numeric_limits_8h.html#afb76ed4ccd46132884081088fff64bbf">MAX_uint64</a></div><div class="ttdeci">#define MAX_uint64</div><div class="ttdef"><b>Definition</b> NumericLimits.h:18</div></div>
+<div class="ttc" id="a_platform_8h_html_a1bd80c51a4b4f984eaeb341a689a989d"><div class="ttname"><a href="../../d2/dc9/_platform_8h.html#a1bd80c51a4b4f984eaeb341a689a989d">int16</a></div><div class="ttdeci">FPlatformTypes::int16 int16</div><div class="ttdef"><b>Definition</b> Platform.h:40</div></div>
+<div class="ttc" id="a_platform_8h_html_a246fcaeb7b4e208e08c0683b1f507494"><div class="ttname"><a href="../../d2/dc9/_platform_8h.html#a246fcaeb7b4e208e08c0683b1f507494">int8</a></div><div class="ttdeci">FPlatformTypes::int8 int8</div><div class="ttdef"><b>Definition</b> Platform.h:38</div></div>
+<div class="ttc" id="a_platform_8h_html_a40bc01dd090acd02a79b5dc13e08abe6"><div class="ttname"><a href="../../d2/dc9/_platform_8h.html#a40bc01dd090acd02a79b5dc13e08abe6">uint8</a></div><div class="ttdeci">FPlatformTypes::uint8 uint8</div><div class="ttdef"><b>Definition</b> Platform.h:39</div></div>
+<div class="ttc" id="a_platform_8h_html_a55934b7aafc849240fa69ea0339c0ab7"><div class="ttname"><a href="../../d2/dc9/_platform_8h.html#a55934b7aafc849240fa69ea0339c0ab7">uint16</a></div><div class="ttdeci">FPlatformTypes::uint16 uint16</div><div class="ttdef"><b>Definition</b> Platform.h:41</div></div>
+<div class="ttc" id="a_platform_8h_html_a84083085985fb180ad38b9c32e3937da"><div class="ttname"><a href="../../d2/dc9/_platform_8h.html#a84083085985fb180ad38b9c32e3937da">int32</a></div><div class="ttdeci">FPlatformTypes::int32 int32</div><div class="ttdef"><b>Definition</b> Platform.h:42</div></div>
+<div class="ttc" id="a_platform_8h_html_a89241ea7101f26f05a4f1efd6be26b32"><div class="ttname"><a href="../../d2/dc9/_platform_8h.html#a89241ea7101f26f05a4f1efd6be26b32">int64</a></div><div class="ttdeci">FPlatformTypes::int64 int64</div><div class="ttdef"><b>Definition</b> Platform.h:44</div></div>
+<div class="ttc" id="a_platform_8h_html_a8c7a127091efbdfc5a16939041653e05"><div class="ttname"><a href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a></div><div class="ttdeci">FPlatformTypes::uint32 uint32</div><div class="ttdef"><b>Definition</b> Platform.h:43</div></div>
+<div class="ttc" id="a_platform_8h_html_afddf25cca147311c233b23a9d3329bb4"><div class="ttname"><a href="../../d2/dc9/_platform_8h.html#afddf25cca147311c233b23a9d3329bb4">uint64</a></div><div class="ttdeci">FPlatformTypes::uint64 uint64</div><div class="ttdef"><b>Definition</b> Platform.h:45</div></div>
+<div class="ttc" id="astruct_t_numeric_limits_3_01double_01_4_html_a400575965f956b21621138edefe75d7d"><div class="ttname"><a href="../../d9/d02/struct_t_numeric_limits_3_01double_01_4.html#a400575965f956b21621138edefe75d7d">TNumericLimits&lt; double &gt;::Lowest</a></div><div class="ttdeci">static constexpr NumericType Lowest()</div><div class="ttdef"><b>Definition</b> NumericLimits.h:278</div></div>
+<div class="ttc" id="astruct_t_numeric_limits_3_01double_01_4_html_a5b73cc854a70d8f3dfb62f08767587ed"><div class="ttname"><a href="../../d9/d02/struct_t_numeric_limits_3_01double_01_4.html#a5b73cc854a70d8f3dfb62f08767587ed">TNumericLimits&lt; double &gt;::NumericType</a></div><div class="ttdeci">double NumericType</div><div class="ttdef"><b>Definition</b> NumericLimits.h:266</div></div>
+<div class="ttc" id="astruct_t_numeric_limits_3_01double_01_4_html_a9dbb160aae816fb10d81d8618f5187cf"><div class="ttname"><a href="../../d9/d02/struct_t_numeric_limits_3_01double_01_4.html#a9dbb160aae816fb10d81d8618f5187cf">TNumericLimits&lt; double &gt;::Min</a></div><div class="ttdeci">static constexpr NumericType Min()</div><div class="ttdef"><b>Definition</b> NumericLimits.h:268</div></div>
+<div class="ttc" id="astruct_t_numeric_limits_3_01double_01_4_html_ae624972ad6e4c80049f3b8877872d421"><div class="ttname"><a href="../../d9/d02/struct_t_numeric_limits_3_01double_01_4.html#ae624972ad6e4c80049f3b8877872d421">TNumericLimits&lt; double &gt;::Max</a></div><div class="ttdeci">static constexpr NumericType Max()</div><div class="ttdef"><b>Definition</b> NumericLimits.h:273</div></div>
+<div class="ttc" id="astruct_t_numeric_limits_3_01float_01_4_html_a3f8622c23a95a66358618dcf99ea8f7d"><div class="ttname"><a href="../../dc/d8e/struct_t_numeric_limits_3_01float_01_4.html#a3f8622c23a95a66358618dcf99ea8f7d">TNumericLimits&lt; float &gt;::Min</a></div><div class="ttdeci">static constexpr NumericType Min()</div><div class="ttdef"><b>Definition</b> NumericLimits.h:246</div></div>
+<div class="ttc" id="astruct_t_numeric_limits_3_01float_01_4_html_a6e95c08bc7d99e7ba299ae4b47a8377d"><div class="ttname"><a href="../../dc/d8e/struct_t_numeric_limits_3_01float_01_4.html#a6e95c08bc7d99e7ba299ae4b47a8377d">TNumericLimits&lt; float &gt;::Lowest</a></div><div class="ttdeci">static constexpr NumericType Lowest()</div><div class="ttdef"><b>Definition</b> NumericLimits.h:256</div></div>
+<div class="ttc" id="astruct_t_numeric_limits_3_01float_01_4_html_a80705e56a758e424a5375983875f126c"><div class="ttname"><a href="../../dc/d8e/struct_t_numeric_limits_3_01float_01_4.html#a80705e56a758e424a5375983875f126c">TNumericLimits&lt; float &gt;::Max</a></div><div class="ttdeci">static constexpr NumericType Max()</div><div class="ttdef"><b>Definition</b> NumericLimits.h:251</div></div>
+<div class="ttc" id="astruct_t_numeric_limits_3_01float_01_4_html_abba4f315129daeb5b0a5d3a5f1c351a0"><div class="ttname"><a href="../../dc/d8e/struct_t_numeric_limits_3_01float_01_4.html#abba4f315129daeb5b0a5d3a5f1c351a0">TNumericLimits&lt; float &gt;::NumericType</a></div><div class="ttdeci">float NumericType</div><div class="ttdef"><b>Definition</b> NumericLimits.h:244</div></div>
+<div class="ttc" id="astruct_t_numeric_limits_3_01int16_01_4_html_a05493d67a43a1954e12eea64327f9aa2"><div class="ttname"><a href="../../d3/d2d/struct_t_numeric_limits_3_01int16_01_4.html#a05493d67a43a1954e12eea64327f9aa2">TNumericLimits&lt; int16 &gt;::Max</a></div><div class="ttdeci">static constexpr NumericType Max()</div><div class="ttdef"><b>Definition</b> NumericLimits.h:185</div></div>
+<div class="ttc" id="astruct_t_numeric_limits_3_01int16_01_4_html_a15f25d51b285791b021515d1136a7486"><div class="ttname"><a href="../../d3/d2d/struct_t_numeric_limits_3_01int16_01_4.html#a15f25d51b285791b021515d1136a7486">TNumericLimits&lt; int16 &gt;::Lowest</a></div><div class="ttdeci">static constexpr NumericType Lowest()</div><div class="ttdef"><b>Definition</b> NumericLimits.h:190</div></div>
+<div class="ttc" id="astruct_t_numeric_limits_3_01int16_01_4_html_a366ff6e442ccbc0be4074b6dd151cd72"><div class="ttname"><a href="../../d3/d2d/struct_t_numeric_limits_3_01int16_01_4.html#a366ff6e442ccbc0be4074b6dd151cd72">TNumericLimits&lt; int16 &gt;::Min</a></div><div class="ttdeci">static constexpr NumericType Min()</div><div class="ttdef"><b>Definition</b> NumericLimits.h:180</div></div>
+<div class="ttc" id="astruct_t_numeric_limits_3_01int16_01_4_html_a734eb2697095bf7d19e28b0fa5e96c59"><div class="ttname"><a href="../../d3/d2d/struct_t_numeric_limits_3_01int16_01_4.html#a734eb2697095bf7d19e28b0fa5e96c59">TNumericLimits&lt; int16 &gt;::NumericType</a></div><div class="ttdeci">int16 NumericType</div><div class="ttdef"><b>Definition</b> NumericLimits.h:178</div></div>
+<div class="ttc" id="astruct_t_numeric_limits_3_01int32_01_4_html_a04159d7055e830f379ddc0a57faa4cbf"><div class="ttname"><a href="../../d6/ddd/struct_t_numeric_limits_3_01int32_01_4.html#a04159d7055e830f379ddc0a57faa4cbf">TNumericLimits&lt; int32 &gt;::Min</a></div><div class="ttdeci">static constexpr NumericType Min()</div><div class="ttdef"><b>Definition</b> NumericLimits.h:202</div></div>
+<div class="ttc" id="astruct_t_numeric_limits_3_01int32_01_4_html_a5578354c4717e6466544012e9eed9e1c"><div class="ttname"><a href="../../d6/ddd/struct_t_numeric_limits_3_01int32_01_4.html#a5578354c4717e6466544012e9eed9e1c">TNumericLimits&lt; int32 &gt;::Lowest</a></div><div class="ttdeci">static constexpr NumericType Lowest()</div><div class="ttdef"><b>Definition</b> NumericLimits.h:212</div></div>
+<div class="ttc" id="astruct_t_numeric_limits_3_01int32_01_4_html_a9aeb3450337ca2e06e7ef2ca0574e6c8"><div class="ttname"><a href="../../d6/ddd/struct_t_numeric_limits_3_01int32_01_4.html#a9aeb3450337ca2e06e7ef2ca0574e6c8">TNumericLimits&lt; int32 &gt;::Max</a></div><div class="ttdeci">static constexpr NumericType Max()</div><div class="ttdef"><b>Definition</b> NumericLimits.h:207</div></div>
+<div class="ttc" id="astruct_t_numeric_limits_3_01int32_01_4_html_aec87247d34bf73fdc9ea0e02fbb7e187"><div class="ttname"><a href="../../d6/ddd/struct_t_numeric_limits_3_01int32_01_4.html#aec87247d34bf73fdc9ea0e02fbb7e187">TNumericLimits&lt; int32 &gt;::NumericType</a></div><div class="ttdeci">int32 NumericType</div><div class="ttdef"><b>Definition</b> NumericLimits.h:200</div></div>
+<div class="ttc" id="astruct_t_numeric_limits_3_01int64_01_4_html_a180159ebfe13acb142bbb10b67d5f46d"><div class="ttname"><a href="../../da/da8/struct_t_numeric_limits_3_01int64_01_4.html#a180159ebfe13acb142bbb10b67d5f46d">TNumericLimits&lt; int64 &gt;::Max</a></div><div class="ttdeci">static constexpr NumericType Max()</div><div class="ttdef"><b>Definition</b> NumericLimits.h:229</div></div>
+<div class="ttc" id="astruct_t_numeric_limits_3_01int64_01_4_html_a83c5bbeae6944e590d0bf708e21cbaa4"><div class="ttname"><a href="../../da/da8/struct_t_numeric_limits_3_01int64_01_4.html#a83c5bbeae6944e590d0bf708e21cbaa4">TNumericLimits&lt; int64 &gt;::NumericType</a></div><div class="ttdeci">int64 NumericType</div><div class="ttdef"><b>Definition</b> NumericLimits.h:222</div></div>
+<div class="ttc" id="astruct_t_numeric_limits_3_01int64_01_4_html_aab8fef765af406defdab5313ff774da7"><div class="ttname"><a href="../../da/da8/struct_t_numeric_limits_3_01int64_01_4.html#aab8fef765af406defdab5313ff774da7">TNumericLimits&lt; int64 &gt;::Lowest</a></div><div class="ttdeci">static constexpr NumericType Lowest()</div><div class="ttdef"><b>Definition</b> NumericLimits.h:234</div></div>
+<div class="ttc" id="astruct_t_numeric_limits_3_01int64_01_4_html_aeaf0ea578fbcab84b5289491985553b5"><div class="ttname"><a href="../../da/da8/struct_t_numeric_limits_3_01int64_01_4.html#aeaf0ea578fbcab84b5289491985553b5">TNumericLimits&lt; int64 &gt;::Min</a></div><div class="ttdeci">static constexpr NumericType Min()</div><div class="ttdef"><b>Definition</b> NumericLimits.h:224</div></div>
+<div class="ttc" id="astruct_t_numeric_limits_3_01int8_01_4_html_a11a31479b7a19dd2beb960fd07728192"><div class="ttname"><a href="../../dd/d31/struct_t_numeric_limits_3_01int8_01_4.html#a11a31479b7a19dd2beb960fd07728192">TNumericLimits&lt; int8 &gt;::Lowest</a></div><div class="ttdeci">static constexpr NumericType Lowest()</div><div class="ttdef"><b>Definition</b> NumericLimits.h:168</div></div>
+<div class="ttc" id="astruct_t_numeric_limits_3_01int8_01_4_html_a5f0939070d807d0c5924e2e75963d2a6"><div class="ttname"><a href="../../dd/d31/struct_t_numeric_limits_3_01int8_01_4.html#a5f0939070d807d0c5924e2e75963d2a6">TNumericLimits&lt; int8 &gt;::NumericType</a></div><div class="ttdeci">int8 NumericType</div><div class="ttdef"><b>Definition</b> NumericLimits.h:156</div></div>
+<div class="ttc" id="astruct_t_numeric_limits_3_01int8_01_4_html_a660369dd86367d34012c52e1a10a227e"><div class="ttname"><a href="../../dd/d31/struct_t_numeric_limits_3_01int8_01_4.html#a660369dd86367d34012c52e1a10a227e">TNumericLimits&lt; int8 &gt;::Min</a></div><div class="ttdeci">static constexpr NumericType Min()</div><div class="ttdef"><b>Definition</b> NumericLimits.h:158</div></div>
+<div class="ttc" id="astruct_t_numeric_limits_3_01int8_01_4_html_aec71bd2a7379f42c1e561a36da4df93a"><div class="ttname"><a href="../../dd/d31/struct_t_numeric_limits_3_01int8_01_4.html#aec71bd2a7379f42c1e561a36da4df93a">TNumericLimits&lt; int8 &gt;::Max</a></div><div class="ttdeci">static constexpr NumericType Max()</div><div class="ttdef"><b>Definition</b> NumericLimits.h:163</div></div>
+<div class="ttc" id="astruct_t_numeric_limits_3_01uint16_01_4_html_a0a6a51533705d1dd579212be6f5928c1"><div class="ttname"><a href="../../da/dc0/struct_t_numeric_limits_3_01uint16_01_4.html#a0a6a51533705d1dd579212be6f5928c1">TNumericLimits&lt; uint16 &gt;::Min</a></div><div class="ttdeci">static constexpr NumericType Min()</div><div class="ttdef"><b>Definition</b> NumericLimits.h:92</div></div>
+<div class="ttc" id="astruct_t_numeric_limits_3_01uint16_01_4_html_a108fe3b4a1819a7236f4412a4ed4f802"><div class="ttname"><a href="../../da/dc0/struct_t_numeric_limits_3_01uint16_01_4.html#a108fe3b4a1819a7236f4412a4ed4f802">TNumericLimits&lt; uint16 &gt;::Max</a></div><div class="ttdeci">static constexpr NumericType Max()</div><div class="ttdef"><b>Definition</b> NumericLimits.h:97</div></div>
+<div class="ttc" id="astruct_t_numeric_limits_3_01uint16_01_4_html_aaa112ef2c66a3d9433b686253b54d38c"><div class="ttname"><a href="../../da/dc0/struct_t_numeric_limits_3_01uint16_01_4.html#aaa112ef2c66a3d9433b686253b54d38c">TNumericLimits&lt; uint16 &gt;::Lowest</a></div><div class="ttdeci">static constexpr NumericType Lowest()</div><div class="ttdef"><b>Definition</b> NumericLimits.h:102</div></div>
+<div class="ttc" id="astruct_t_numeric_limits_3_01uint16_01_4_html_ab3376ab468551e89a5775a842a5165d6"><div class="ttname"><a href="../../da/dc0/struct_t_numeric_limits_3_01uint16_01_4.html#ab3376ab468551e89a5775a842a5165d6">TNumericLimits&lt; uint16 &gt;::NumericType</a></div><div class="ttdeci">uint16 NumericType</div><div class="ttdef"><b>Definition</b> NumericLimits.h:90</div></div>
+<div class="ttc" id="astruct_t_numeric_limits_3_01uint32_01_4_html_a4772e0b72bf6820cdb5d1a5e18b8a2b9"><div class="ttname"><a href="../../d2/d66/struct_t_numeric_limits_3_01uint32_01_4.html#a4772e0b72bf6820cdb5d1a5e18b8a2b9">TNumericLimits&lt; uint32 &gt;::NumericType</a></div><div class="ttdeci">uint32 NumericType</div><div class="ttdef"><b>Definition</b> NumericLimits.h:112</div></div>
+<div class="ttc" id="astruct_t_numeric_limits_3_01uint32_01_4_html_aaac9cda9bce5087365f6aa02231cc4c5"><div class="ttname"><a href="../../d2/d66/struct_t_numeric_limits_3_01uint32_01_4.html#aaac9cda9bce5087365f6aa02231cc4c5">TNumericLimits&lt; uint32 &gt;::Min</a></div><div class="ttdeci">static constexpr NumericType Min()</div><div class="ttdef"><b>Definition</b> NumericLimits.h:114</div></div>
+<div class="ttc" id="astruct_t_numeric_limits_3_01uint32_01_4_html_ae6184704475d9a3f41644380a3fdbbe1"><div class="ttname"><a href="../../d2/d66/struct_t_numeric_limits_3_01uint32_01_4.html#ae6184704475d9a3f41644380a3fdbbe1">TNumericLimits&lt; uint32 &gt;::Lowest</a></div><div class="ttdeci">static constexpr NumericType Lowest()</div><div class="ttdef"><b>Definition</b> NumericLimits.h:124</div></div>
+<div class="ttc" id="astruct_t_numeric_limits_3_01uint32_01_4_html_af384dc878ad41efbee16062b7a57438f"><div class="ttname"><a href="../../d2/d66/struct_t_numeric_limits_3_01uint32_01_4.html#af384dc878ad41efbee16062b7a57438f">TNumericLimits&lt; uint32 &gt;::Max</a></div><div class="ttdeci">static constexpr NumericType Max()</div><div class="ttdef"><b>Definition</b> NumericLimits.h:119</div></div>
+<div class="ttc" id="astruct_t_numeric_limits_3_01uint64_01_4_html_a13dbd1bacb0e3dc8c740c44817e1f290"><div class="ttname"><a href="../../d9/dae/struct_t_numeric_limits_3_01uint64_01_4.html#a13dbd1bacb0e3dc8c740c44817e1f290">TNumericLimits&lt; uint64 &gt;::Lowest</a></div><div class="ttdeci">static constexpr NumericType Lowest()</div><div class="ttdef"><b>Definition</b> NumericLimits.h:146</div></div>
+<div class="ttc" id="astruct_t_numeric_limits_3_01uint64_01_4_html_a1f2ddf64555b48d2d26f5969e3e3f53c"><div class="ttname"><a href="../../d9/dae/struct_t_numeric_limits_3_01uint64_01_4.html#a1f2ddf64555b48d2d26f5969e3e3f53c">TNumericLimits&lt; uint64 &gt;::Max</a></div><div class="ttdeci">static constexpr NumericType Max()</div><div class="ttdef"><b>Definition</b> NumericLimits.h:141</div></div>
+<div class="ttc" id="astruct_t_numeric_limits_3_01uint64_01_4_html_a6c2e034334bc36e4d8dc21961216a57e"><div class="ttname"><a href="../../d9/dae/struct_t_numeric_limits_3_01uint64_01_4.html#a6c2e034334bc36e4d8dc21961216a57e">TNumericLimits&lt; uint64 &gt;::Min</a></div><div class="ttdeci">static constexpr NumericType Min()</div><div class="ttdef"><b>Definition</b> NumericLimits.h:136</div></div>
+<div class="ttc" id="astruct_t_numeric_limits_3_01uint64_01_4_html_acb9c94ae8afece8e7db1ccdec146ad06"><div class="ttname"><a href="../../d9/dae/struct_t_numeric_limits_3_01uint64_01_4.html#acb9c94ae8afece8e7db1ccdec146ad06">TNumericLimits&lt; uint64 &gt;::NumericType</a></div><div class="ttdeci">uint64 NumericType</div><div class="ttdef"><b>Definition</b> NumericLimits.h:134</div></div>
+<div class="ttc" id="astruct_t_numeric_limits_3_01uint8_01_4_html_a4dc2309204822cffd410beffb77428b5"><div class="ttname"><a href="../../d2/dec/struct_t_numeric_limits_3_01uint8_01_4.html#a4dc2309204822cffd410beffb77428b5">TNumericLimits&lt; uint8 &gt;::Min</a></div><div class="ttdeci">static constexpr NumericType Min()</div><div class="ttdef"><b>Definition</b> NumericLimits.h:70</div></div>
+<div class="ttc" id="astruct_t_numeric_limits_3_01uint8_01_4_html_a90b0a7d17c8ec84aa79fa7fee6b87239"><div class="ttname"><a href="../../d2/dec/struct_t_numeric_limits_3_01uint8_01_4.html#a90b0a7d17c8ec84aa79fa7fee6b87239">TNumericLimits&lt; uint8 &gt;::Lowest</a></div><div class="ttdeci">static constexpr NumericType Lowest()</div><div class="ttdef"><b>Definition</b> NumericLimits.h:80</div></div>
+<div class="ttc" id="astruct_t_numeric_limits_3_01uint8_01_4_html_a95e93c1b78abb041017ef7a123cfe81e"><div class="ttname"><a href="../../d2/dec/struct_t_numeric_limits_3_01uint8_01_4.html#a95e93c1b78abb041017ef7a123cfe81e">TNumericLimits&lt; uint8 &gt;::Max</a></div><div class="ttdeci">static constexpr NumericType Max()</div><div class="ttdef"><b>Definition</b> NumericLimits.h:75</div></div>
+<div class="ttc" id="astruct_t_numeric_limits_3_01uint8_01_4_html_abec2f3d92c7a78fec61b059a22e3439a"><div class="ttname"><a href="../../d2/dec/struct_t_numeric_limits_3_01uint8_01_4.html#abec2f3d92c7a78fec61b059a22e3439a">TNumericLimits&lt; uint8 &gt;::NumericType</a></div><div class="ttdeci">uint8 NumericType</div><div class="ttdef"><b>Definition</b> NumericLimits.h:68</div></div>
+<div class="ttc" id="astruct_t_numeric_limits_html"><div class="ttname"><a href="../../d8/dc0/struct_t_numeric_limits.html">TNumericLimits</a></div><div class="ttdef"><b>Definition</b> NumericLimits.h:35</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../dir_55043db21ba5ddd7c561d2c5a5a38944.html">Dark Engine</a></li><li class="navelem"><a class="el" href="../../dir_e00b54220e1e1486ac9971b606d33054.html">Source</a></li><li class="navelem"><a class="el" href="../../dir_ae01c8af07818b260cc3481e8588b277.html">Runtime</a></li><li class="navelem"><a class="el" href="../../dir_59f1d85f259666bc4c18ba498cded78a.html">Core</a></li><li class="navelem"><a class="el" href="../../dir_78d6767ad0aceff322a7926558f8cdbd.html">Public</a></li><li class="navelem"><a class="el" href="../../dir_833018f0033ec75f1603954d79dfb0a1.html">Math</a></li><li class="navelem"><a class="el" href="../../dd/d20/_numeric_limits_8h.html">NumericLimits.h</a></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
+</body>
+</html>

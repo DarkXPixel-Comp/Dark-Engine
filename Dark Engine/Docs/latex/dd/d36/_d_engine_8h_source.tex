@@ -1,0 +1,31 @@
+\doxysection{DEngine.\+h}
+\hypertarget{_d_engine_8h_source}{}\label{_d_engine_8h_source}\index{Dark Engine/Source/Runtime/Engine/public/DEngine.h@{Dark Engine/Source/Runtime/Engine/public/DEngine.h}}
+\mbox{\hyperlink{_d_engine_8h}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{_core_8h}{Core.h}}>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_renderer_8h}{D3D12/Renderer.h}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{_windows_window_8h}{Windows/WindowsWindow.h}}>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{_delegate_8h}{Delegate/Delegate.h}}>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{_t_unique_ptr_8h}{Memory/TUniquePtr.h}}>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{_input_core_8h}{InputCore.h}}>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{_t_memory_8h}{Memory/TMemory.h}}>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_d_editor_8h}{DEditor.h}}"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <chrono>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <Windows.h>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#ifdef\ \_WIN64}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#elif}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#error\ This\ OS\ not\ support}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#endif\ }}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \mbox{\hyperlink{_delegate_8h_ad677cf1f8225ce2d1bca408d3e87fcbe}{DECLARE\_MULTICAST\_DELEGATE\_OneParam}}(FOnTick,\ \textcolor{keywordtype}{float});}
+\DoxyCodeLine{00022\ \mbox{\hyperlink{_delegate_8h_ac9633c7824fa5dcbd6d16c2adeddeb02}{DECLARE\_MULTICAST\_DELEGATE}}(FOnRenderInterface);}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ }
+
+\end{DoxyCode}

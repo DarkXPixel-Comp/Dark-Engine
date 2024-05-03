@@ -1,0 +1,63 @@
+\doxysection{Dark\+Client.\+h}
+\hypertarget{_dark_client_8h_source}{}\label{_dark_client_8h_source}\index{Dark Engine/Source/Runtime/Engine/public/DarkClient.h@{Dark Engine/Source/Runtime/Engine/public/DarkClient.h}}
+\mbox{\hyperlink{_dark_client_8h}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_viewport_client_8h}{ViewportClient.h}}"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_r_h_i_resources_8h}{RHIResources.h}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_t_unique_ptr_8h}{Memory/TUniquePtr.h}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_int_point_8h}{Math/IntPoint.h}}"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_f_render_target}{FRenderTarget}}}
+\DoxyCodeLine{00013\ \{}
+\DoxyCodeLine{00014\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keyword}{const}\ TRefCountPtr<FRHITexture>\&\ \mbox{\hyperlink{class_f_render_target_a4dcbbfca003dfe7c337ea133e7db7417}{GetRenderTargetTexture}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_int_point}{FIntPoint}}\ \mbox{\hyperlink{class_f_render_target_a510f693c58f8f2dc1c03e3deaded26df}{GetSizeXY}}()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_f_render_target_af06fa59b44adcc5f0cbd839c50fae49f}{GetDisplayGamma}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ 0;\ \};}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00027\ \ \ \ \ TRefCountPtr<FRHITexture>\ \mbox{\hyperlink{class_f_render_target_a727d916da992b5487c63fbb9fba35c52}{RenderTargetTextureRHI}};}
+\DoxyCodeLine{00028\ \};}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_f_viewport}{FViewport}}\ \ \ \ \ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_f_render_target}{FRenderTarget}}}
+\DoxyCodeLine{00034\ \{}
+\DoxyCodeLine{00035\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00036\ \ \ \ \ \mbox{\hyperlink{class_f_viewport_ae71bbdda5af6b40a8ef98c43e6aa8724}{FViewport}}(\mbox{\hyperlink{class_f_viewport_client}{FViewportClient}}*\ InViewportClient);}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_viewport_a48f4c9a3650460cdcb231a6e07c5d8b6}{Draw}}();}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ \mbox{\hyperlink{class_f_viewport_client}{FViewportClient}}*\ \mbox{\hyperlink{class_f_viewport_af6293f93d4281c5c5a50ed9b1b96a98e}{GetClient}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ ViewportClient;\ \}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_viewport_a5a7bca8ca78ff0f7c9dd45340b963d5e}{SetSize}}(\mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}\ InSizeX,\ \mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}\ InSizeY)\ \{\ SizeX\ =\ InSizeX;\ SizeY\ =\ InSizeY;\ \}}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{comment}{//FIntPoint\ GetSize()\ const\ \{\ return\ FIntPoint(SizeX,\ SizeY);\ \}}}
+\DoxyCodeLine{00044\ \ \ \ \ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_int_point}{FIntPoint}}\ \mbox{\hyperlink{class_f_viewport_a9bfcca5dae74d9467fcbab3b0db868e2}{GetSizeXY}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{_math_fwd_8h_af5577845559ff81e49036ff088d51cbf}{FIntPoint}}(SizeX,\ SizeY);\ \}}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_f_viewport_a988b141e089931afca6a23b095adc004}{GetDisplayGamma}}()\textcolor{keyword}{\ const\ override\ }\{\ \textcolor{keywordflow}{return}\ 0;\ \}}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_viewport_a13206beddc732fb76002f64d7133304d}{Resize}}(\mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}\ InSizeX,\ \mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}\ InSizeY)\ =\ 0;}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_int_point}{FIntPoint}}\ \mbox{\hyperlink{class_f_viewport_a12011ddb1544378e270c70e71bb96a79}{ViewportSize}}\ =\ \mbox{\hyperlink{_math_fwd_8h_af5577845559ff81e49036ff088d51cbf}{FIntPoint}}();}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00052\ \ \ \ \ \mbox{\hyperlink{class_f_viewport_client}{FViewportClient}}*\ ViewportClient;}
+\DoxyCodeLine{00053\ \ \ \ \ \mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}\ SizeX;}
+\DoxyCodeLine{00054\ \ \ \ \ \mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}\ SizeY;}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \};}
+
+\end{DoxyCode}
