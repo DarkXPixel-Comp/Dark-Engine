@@ -9,11 +9,39 @@ UIConsole::UIConsole():
 	GGlobalConsole.OnAddConsoleMessage.Bind(this, &UIConsole::OnLogAdd);
 }
 
-int InputCallback(ImGuiInputTextCallbackData* data)
+int32 InputCallback(ImGuiInputTextCallbackData* data)
 {
 	UIConsole* CurrentConsole = (UIConsole*)data->UserData;
 
+	if (data->EventFlag == ImGuiInputTextFlags_CallbackEdit)
+	{
+		CurrentConsole->CompletionState = 0;
+		CurrentConsole->CompletionDirty = true;
+		CurrentConsole->CompletionBuf.Empty();
+	}
+	
+	if (data->EventFlag == ImGuiInputTextFlags_CallbackCompletion)
+	{
+		if (CurrentConsole->CompletionDirty)
+		{
+			CurrentConsole->CompletionBuf = GGlobalConsole.InputText(data->Buf, true);
+			CurrentConsole->CompletionDirty = false;
+		}
 
+		if (CurrentConsole->CompletionState < CurrentConsole->CompletionBuf.Num())
+		{
+			FString& Str = CurrentConsole->CompletionBuf[CurrentConsole->CompletionState++];
+			strcpy(data->Buf, !Str);
+			data->BufTextLen = Str.Len();
+			data->BufDirty = true;
+			data->CursorPos = data->BufTextLen;
+		}
+		if (CurrentConsole->CompletionState >= CurrentConsole->CompletionBuf.Num())
+		{
+			CurrentConsole->CompletionState = 0;
+		}
+
+	}
 	if (data->EventFlag == ImGuiInputTextFlags_CallbackHistory)
 	{
 		if (data->EventKey == ImGuiKey_UpArrow && CurrentConsole->CurrentIndex > 0)
@@ -77,14 +105,17 @@ void UIConsole::DrawImGui()
 		ImGui::EndChild();
 
 		if (ImGui::InputText("Input", InputText, 256, ImGuiInputTextFlags_EnterReturnsTrue |
-			ImGuiInputTextFlags_CallbackHistory | ImGuiInputTextFlags_CallbackEdit
+			ImGuiInputTextFlags_CallbackHistory | ImGuiInputTextFlags_CallbackEdit | ImGuiInputTextFlags_CallbackCompletion | ImGuiInputTextFlags_CallbackEdit
 			, InputCallback, this))
 		{
 			ImGui::SetKeyboardFocusHere(-1);
 			GGlobalConsole.InputText(InputText);
 			++ScrollToBottom;
-			History.Add(InputText);
-			CurrentIndex = History.Num();
+			if (strcmp(InputText, "") != 0)
+			{
+				History.Add(InputText);
+				CurrentIndex = History.Num();
+			}
 			FMemory::Memzero(InputText, 256);
 		}
 

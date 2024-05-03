@@ -16,9 +16,14 @@ public:
 	TArray<FString>	History;
 	int32 CurrentIndex = 0;
 
+	int32 CompletionState = 0;
+	bool CompletionDirty = true;
+	TArray<FString>	CompletionBuf;
+
 private:
 	int32 ScrollToBottom = 1;
 	char InputText[256] = "";
+	
 	//TArray<struct FConsoleLog> Messages;
 
 

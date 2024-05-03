@@ -100,6 +100,7 @@ public:
 
 	std::vector<ElementType>& GetVector() { return _vector; }
 
+
 	ElementType PopBack() { if (_vector.size() == 0) return nullptr; auto it = _vector.end() - 1; auto result = *it; _vector.erase(it); return result; }
 
 	template<typename OtherElementType>

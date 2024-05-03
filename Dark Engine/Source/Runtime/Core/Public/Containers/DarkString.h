@@ -128,6 +128,19 @@ public:
 
 	TCHAR& operator[](int32 Index);
 
+	bool StartsWith(const FString& Other) const
+	{
+		return _string.starts_with(Other._string);
+	}
+
+	bool MinStartsWithMin(const FString& Other) const
+	{
+		std::wstring Str1 = _string;
+		std::wstring Str2 = Other._string;
+		std::transform(Str1.begin(), Str1.end(), Str1.begin(), towlower);
+		std::transform(Str2.begin(), Str2.end(), Str2.begin(), towlower);
+		return Str1.starts_with(Str2);
+	}
 
 	FString& Replace(TCHAR Str1, TCHAR Str2)
 	{

@@ -52,36 +52,6 @@ void FSceneRender::RenderQuad(FRHICommandListImmediate& RHICmdList)
 	FRHIPixelShader* RHIPixelShader = PixelShader.GetPixelShader();
 	TRefCountPtr<FRHIVertexDeclaration> RHIVertexDeclaration = GFilterVertexDeclaration->VertexDeclaration;//RHICreateVertexDeclaration(Elements);
 
-	FRHITextureCreateDesc Test(TEXT("TEST"), ETextureDimension::Texture2D);
-	Test.Extent = FIntPoint(1024, 1023);
-	Test.SetFormat(EPixelFormat::PF_B8G8R8A8_UNORM);
-
-
-	static TRefCountPtr<FRHITexture> Texture = RHICreateTexture(Test);
-
-	static bool Test1 = true;
-
-	uint32 Stride;
-	uint64 LockSize;
-	if (Test1)
-	{
-		void* Data = RHILockTexture2D(Texture.Get(), 0, RLM_WriteOnly, Stride, &LockSize);
-		TArray<uint8> RandArray(LockSize);
-
-		for (uint64 i = 0; i < LockSize; i++)
-		{
-			RandArray[i] = FMath::RandRange(0, 0xFF);
-		}
-
-		FMemory::Memcpy(Data, RandArray.GetData(), LockSize);
-	/*	FMath::RandRange(0, 0xFF);
-		FMemory::Memset(Data, FMath::RandRange(0, 0xFF), LockSize);*/
-
-		RHIUnlockTexture2D(Texture.Get(), 0);
-		Test1 = false;
-	}
-
-
 	FRasterizerStateInitializer RasterState;
 	RasterState.bAllowMSAA = false;
 	RasterState.CullMode = RCM_None;
@@ -96,34 +66,11 @@ void FSceneRender::RenderQuad(FRHICommandListImmediate& RHICmdList)
 	Initializer.RasterizerState = RHICreateRasterizerState(RasterState);
 
 
-	float TestFloat = 0.7;
-	static TRefCountPtr<FRHIUniformBuffer> UniformBuffer = RHICreateUniformBuffer(&TestFloat, sizeof(TestFloat), EUniformBufferUsage::UniformBuffer_SingleDraw);
-
-	TArray<uint8> Parameters;
-	TArray<FRHIShaderParameterResource>	BindlessParameters;
-	TArray<FRHIShaderParameterResource>	ResourceParameters;
-
-	FRHIShaderParameterResource BindlessTexture;
-	BindlessTexture.Resource = Texture.Get();
-
-	FRHIShaderParameterResource ResourceFloat;
-	ResourceFloat.Type = FRHIShaderParameterResource::EType::UniformBuffer;
-	ResourceFloat.Resource = UniformBuffer.Get();
-	ResourceFloat.Index = 1;
-
-	ResourceParameters.Add(ResourceFloat);
-
-	BindlessParameters.Add(BindlessTexture);
-
-
-	//FRHIRenderTargetView RenderTarget(SceneView->RenderTarget->GetRenderTargetTexture().Get());
-
 	FRHIRenderPassInfo RenderPassInfo(SceneView->RenderTarget->GetRenderTargetTexture().Get());
 	RHICmdList.BeginRenderPass(RenderPassInfo);
 
 	TRefCountPtr<FRHIGraphicsPipelineState> PipelineState = RHICreateGraphicsPipelineState(Initializer);
 	RHICmdList.SetGraphicsPipelineState(PipelineState.Get(), Initializer.BoundShaderState);
-	RHICmdList.SetShaderParameters(RHIPixelShader, Parameters, BindlessParameters, ResourceParameters);
 
 	RHICmdList.RHISetViewport(SceneView->ViewRect.LeftUp.X, SceneView->ViewRect.LeftUp.Y, 0.1f, SceneView->ViewRect.RightDown.X, SceneView->ViewRect.RightDown.Y, 100);
 	RHICmdList.SetStreamSource(0, GRenctangleVertexBuffer->VertexBuffer.Get(), 0, sizeof(FFilterVertex));

@@ -153,7 +153,7 @@ public:
 	virtual void AddLog(const FString& Text, FVector3f Color = FVector3f(1, 1, 1), float Time = 0.f);
 	void Update(float DeltaTime);
 	void RemoveLog();
-	void InputText(const FString& Text);
+	TArray<FString> InputText(const FString& Text, bool Check = false);
 
 
 	IConsoleObject* AddConsoleObject(const TCHAR* Name, IConsoleObject* Obj, const TCHAR* Description = TEXT(""));

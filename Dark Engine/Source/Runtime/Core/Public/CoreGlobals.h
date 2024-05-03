@@ -9,6 +9,7 @@
 extern bool GIsRequestingExit;
 extern bool GIsTitleBarHovered;
 extern class FConfigCache* GConfig;
+extern int32 GRenderMode; //<-TEST
 
 FORCEINLINE bool IsExitRequested()
 {

@@ -1,6 +1,7 @@
 #include "SceneRendering.h"
 #include "IndirectLightRendering.h"
 #include "GlobalShader.h"
+#include "CoreGlobals.h"
 
 FSceneRender::FSceneRender(const FSceneView* InView) :
 	Scene(InView->Scene ? InView->Scene->GetRenderScene() : nullptr)
@@ -17,16 +18,21 @@ void FSceneRender::Render(FRHICommandListImmediate& CmdList)
 {
 	//RenderLight();
 
-	//RenderQuad(CmdList);
-	//RenderFractal(CmdList);
-	RenderSeaScape(CmdList);
-
-
-
-
-
-
-
+	switch (GRenderMode)
+	{
+	case 0:
+		RenderQuad(CmdList);
+		break;
+	case 1:
+		RenderFractal(CmdList);
+		break;
+	case 2:
+		RenderSeaScape(CmdList);
+		break;
+	default:
+		RenderQuad(CmdList);
+		break;
+	}
 }
 
 
