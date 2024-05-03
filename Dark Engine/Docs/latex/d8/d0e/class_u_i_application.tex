@@ -17,6 +17,8 @@ virtual bool \mbox{\hyperlink{class_u_i_application_a1fa43803f539079cb74eb759fd6
 \item 
 virtual bool \mbox{\hyperlink{class_u_i_application_acaff68b8f3d23410948ccbbcd5319c57}{On\+Mouse\+Down}} (const \mbox{\hyperlink{_t_unique_ptr_8h_ab7a7d47ba593c2489fecf3f003f56c53}{TShared\+Ptr}}$<$ \mbox{\hyperlink{class_f_generic_window}{FGeneric\+Window}} $>$ \&Window, const \mbox{\hyperlink{namespace_e_mouse_buttons_ad8e0d01f817db033b785df665a734868}{EMouse\+Buttons\+::\+Type}} Button, const \mbox{\hyperlink{_math_fwd_8h_a37d063b0aaf05e8e7934ce3c52b620c0}{FVector2D}} Cursor\+Pos)
 \item 
+virtual bool \mbox{\hyperlink{class_u_i_application_ada15bd06e9e4d358b5a2b2e7f347bd24}{On\+Window\+Draw}} (const \mbox{\hyperlink{_t_unique_ptr_8h_ab7a7d47ba593c2489fecf3f003f56c53}{TShared\+Ptr}}$<$ \mbox{\hyperlink{class_f_generic_window}{FGeneric\+Window}} $>$ \&Window) override
+\item 
 virtual bool \mbox{\hyperlink{class_u_i_application_a76a70396c2d31dea5c208fbad9f4e61b}{On\+Mouse\+Up}} (const \mbox{\hyperlink{namespace_e_mouse_buttons_ad8e0d01f817db033b785df665a734868}{EMouse\+Buttons\+::\+Type}} Button, const \mbox{\hyperlink{_math_fwd_8h_a37d063b0aaf05e8e7934ce3c52b620c0}{FVector2D}} Cursor\+Pos) override
 \item 
 virtual bool \mbox{\hyperlink{class_u_i_application_a0e85f34c70354cb8c697c1aaa6ce8cb5}{On\+Moved\+Window}} (const \mbox{\hyperlink{_t_unique_ptr_8h_ab7a7d47ba593c2489fecf3f003f56c53}{TShared\+Ptr}}$<$ \mbox{\hyperlink{class_f_generic_window}{FGeneric\+Window}} $>$ \&Window, \mbox{\hyperlink{_math_fwd_8h_af5577845559ff81e49036ff088d51cbf}{FInt\+Point}} New\+Position) override
@@ -71,6 +73,9 @@ FOn\+Mouse\+Down \mbox{\hyperlink{class_u_i_application_a33a659fe419b68fe8dbe0ce
 FOn\+Mouse\+Up \mbox{\hyperlink{class_u_i_application_ad7e6f9dc938ef1bc1640a6e4a1bd08a3}{On\+Mouse\+Up\+Delegate}}
 \end{DoxyCompactItemize}
 
+
+\doxysubsection{Подробное описание}
+Main class for UIEngine Handler for OS messages 
 
 \doxysubsection{Методы}
 \Hypertarget{class_u_i_application_a0b98dc2e2c66695599d7ad20d22f2bac}\label{class_u_i_application_a0b98dc2e2c66695599d7ad20d22f2bac} 
@@ -176,6 +181,16 @@ FOn\+Mouse\+Up \mbox{\hyperlink{class_u_i_application_ad7e6f9dc938ef1bc1640a6e4a
 
 
 Переопределяет метод предка \mbox{\hyperlink{class_f_generic_application_handler_aed22f7375f2a4c8d2d43e7d54cc02e03}{FGeneric\+Application\+Handler}}.
+
+\Hypertarget{class_u_i_application_ada15bd06e9e4d358b5a2b2e7f347bd24}\label{class_u_i_application_ada15bd06e9e4d358b5a2b2e7f347bd24} 
+\index{UIApplication@{UIApplication}!OnWindowDraw@{OnWindowDraw}}
+\index{OnWindowDraw@{OnWindowDraw}!UIApplication@{UIApplication}}
+\doxysubsubsection{\texorpdfstring{OnWindowDraw()}{OnWindowDraw()}}
+{\footnotesize\ttfamily bool UIApplication\+::\+On\+Window\+Draw (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{_t_unique_ptr_8h_ab7a7d47ba593c2489fecf3f003f56c53}{TShared\+Ptr}}$<$ \mbox{\hyperlink{class_f_generic_window}{FGeneric\+Window}} $>$ \&}]{Window }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Переопределяет метод предка \mbox{\hyperlink{class_f_generic_application_handler_abe2566d2eb80847ccf9e1bac8d725122}{FGeneric\+Application\+Handler}}.
 
 \Hypertarget{class_u_i_application_ac2265dc18e49701fa43149cbb0f8c2b5}\label{class_u_i_application_ac2265dc18e49701fa43149cbb0f8c2b5} 
 \index{UIApplication@{UIApplication}!RegisterGameViewport@{RegisterGameViewport}}

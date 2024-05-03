@@ -6,11 +6,15 @@
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Dark Engine: Исходный файл Dark Engine/Source/Runtime/Core/Public/Containers/BitArray.h</title>
-<link rel="icon" href="../../Logo.ico" type="image/x-icon" />
+<link rel="icon" href="../../Logo.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../clipboard.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
 <script type="text/javascript" src="../../cookie.js"></script>
 <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../search/searchdata.js"></script>
@@ -23,9 +27,9 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
-  <td id="projectlogo"><img alt="Logo" src="../../Logo.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="../../MiniLogo.png"/></td>
   <td id="projectalign">
-   <div id="projectname">Dark Engine<span id="projectnumber">&#160;0.0.40</span>
+   <div id="projectname">Dark Engine<span id="projectnumber">&#160;0.0.50</span>
    </div>
    <div id="projectbrief">New game engnie D3D12</div>
   </td>
@@ -56,6 +60,23 @@ $(function() {
 $(function() { codefold.init(1); });
 /* @license-end */
 </script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('d2/d56/_bit_array_8h_source.html','../../'); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -77,11 +98,6 @@ $(function() { codefold.init(1); });
 </div>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="../../dir_55043db21ba5ddd7c561d2c5a5a38944.html">Dark Engine</a></li><li class="navelem"><a class="el" href="../../dir_e00b54220e1e1486ac9971b606d33054.html">Source</a></li><li class="navelem"><a class="el" href="../../dir_ae01c8af07818b260cc3481e8588b277.html">Runtime</a></li><li class="navelem"><a class="el" href="../../dir_59f1d85f259666bc4c18ba498cded78a.html">Core</a></li><li class="navelem"><a class="el" href="../../dir_78d6767ad0aceff322a7926558f8cdbd.html">Public</a></li><li class="navelem"><a class="el" href="../../dir_1470264d3b4ea4808c3b9f65ddf49b06.html">Containers</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle"><div class="title">BitArray.h</div></div>
 </div><!--header-->
@@ -204,14 +220,14 @@ $(function() { codefold.init(1); });
 <div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>};</div>
 </div>
 <div class="ttc" id="a_array_8h_html"><div class="ttname"><a href="../../d3/dc5/_array_8h.html">Array.h</a></div></div>
-<div class="ttc" id="a_assertion_macros_8h_html_a586e110623cde145b8a5bdefb429e144"><div class="ttname"><a href="../../d4/d75/_assertion_macros_8h.html#a586e110623cde145b8a5bdefb429e144">check</a></div><div class="ttdeci">#define check(expr)</div><div class="ttdef"><b>Definition</b> AssertionMacros.h:138</div></div>
+<div class="ttc" id="a_assertion_macros_8h_html_a586e110623cde145b8a5bdefb429e144"><div class="ttname"><a href="../../d4/d75/_assertion_macros_8h.html#a586e110623cde145b8a5bdefb429e144">check</a></div><div class="ttdeci">#define check(expr)</div><div class="ttdef"><b>Definition</b> AssertionMacros.h:146</div></div>
 <div class="ttc" id="a_core_types_8h_html"><div class="ttname"><a href="../../db/d04/_core_types_8h.html">CoreTypes.h</a></div></div>
 <div class="ttc" id="a_platform_8h_html_a40bc01dd090acd02a79b5dc13e08abe6"><div class="ttname"><a href="../../d2/dc9/_platform_8h.html#a40bc01dd090acd02a79b5dc13e08abe6">uint8</a></div><div class="ttdeci">FPlatformTypes::uint8 uint8</div><div class="ttdef"><b>Definition</b> Platform.h:39</div></div>
 <div class="ttc" id="a_platform_8h_html_a89241ea7101f26f05a4f1efd6be26b32"><div class="ttname"><a href="../../d2/dc9/_platform_8h.html#a89241ea7101f26f05a4f1efd6be26b32">int64</a></div><div class="ttdeci">FPlatformTypes::int64 int64</div><div class="ttdef"><b>Definition</b> Platform.h:44</div></div>
 <div class="ttc" id="a_platform_8h_html_afddf25cca147311c233b23a9d3329bb4"><div class="ttname"><a href="../../d2/dc9/_platform_8h.html#afddf25cca147311c233b23a9d3329bb4">uint64</a></div><div class="ttdeci">FPlatformTypes::uint64 uint64</div><div class="ttdef"><b>Definition</b> Platform.h:45</div></div>
 <div class="ttc" id="a_platform_math_8h_html"><div class="ttname"><a href="../../db/dc0/_platform_math_8h.html">PlatformMath.h</a></div></div>
-<div class="ttc" id="aclass_t_array_html_a1e6aa393e57ba5ba2e349e2cb161da51"><div class="ttname"><a href="../../d6/db1/class_t_array.html#a1e6aa393e57ba5ba2e349e2cb161da51">TArray::Resize</a></div><div class="ttdeci">void Resize(SizeType Count)</div><div class="ttdef"><b>Definition</b> Array.h:88</div></div>
-<div class="ttc" id="aclass_t_array_html_a8d3e11a710d9f6c9222989c2f639be51"><div class="ttname"><a href="../../d6/db1/class_t_array.html#a8d3e11a710d9f6c9222989c2f639be51">TArray::GetSize</a></div><div class="ttdeci">SizeType GetSize() const</div><div class="ttdef"><b>Definition</b> Array.h:80</div></div>
+<div class="ttc" id="aclass_t_array_html_a1e6aa393e57ba5ba2e349e2cb161da51"><div class="ttname"><a href="../../d6/db1/class_t_array.html#a1e6aa393e57ba5ba2e349e2cb161da51">TArray::Resize</a></div><div class="ttdeci">void Resize(SizeType Count)</div><div class="ttdef"><b>Definition</b> Array.h:97</div></div>
+<div class="ttc" id="aclass_t_array_html_a8d3e11a710d9f6c9222989c2f639be51"><div class="ttname"><a href="../../d6/db1/class_t_array.html#a8d3e11a710d9f6c9222989c2f639be51">TArray::GetSize</a></div><div class="ttdeci">SizeType GetSize() const</div><div class="ttdef"><b>Definition</b> Array.h:89</div></div>
 <div class="ttc" id="aclass_t_bit_array_html"><div class="ttname"><a href="../../df/d02/class_t_bit_array.html">TBitArray</a></div><div class="ttdef"><b>Definition</b> BitArray.h:9</div></div>
 <div class="ttc" id="aclass_t_bit_array_html_a29952414d8bb720719cf632d07c2754b"><div class="ttname"><a href="../../df/d02/class_t_bit_array.html#a29952414d8bb720719cf632d07c2754b">TBitArray::Resize</a></div><div class="ttdeci">FORCEINLINE void Resize(uint64 InNumBits, bool bEmpty=false, bool bValue=false)</div><div class="ttdef"><b>Definition</b> BitArray.h:28</div></div>
 <div class="ttc" id="aclass_t_bit_array_html_a3fe66a356abe76a159d1ff44a47a85ed"><div class="ttname"><a href="../../df/d02/class_t_bit_array.html#a3fe66a356abe76a159d1ff44a47a85ed">TBitArray::TBitArray</a></div><div class="ttdeci">TBitArray(bool bValue, uint64 InNumBits)</div><div class="ttdef"><b>Definition</b> BitArray.h:15</div></div>
@@ -222,9 +238,13 @@ $(function() { codefold.init(1); });
 <div class="ttc" id="aclass_t_bit_array_html_ad8bea3b9267b4a6935f8d735a89acd5e"><div class="ttname"><a href="../../df/d02/class_t_bit_array.html#ad8bea3b9267b4a6935f8d735a89acd5e">TBitArray::TBitArray</a></div><div class="ttdeci">TBitArray()</div><div class="ttdef"><b>Definition</b> BitArray.h:11</div></div>
 <div class="ttc" id="aclass_t_bit_array_html_af5f3743a50c273e88eeb2c4727e06817"><div class="ttname"><a href="../../df/d02/class_t_bit_array.html#af5f3743a50c273e88eeb2c4727e06817">TBitArray::Init</a></div><div class="ttdeci">FORCEINLINE void Init(bool bValue, uint64 InNumBits)</div><div class="ttdef"><b>Definition</b> BitArray.h:20</div></div>
 </div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../dir_55043db21ba5ddd7c561d2c5a5a38944.html">Dark Engine</a></li><li class="navelem"><a class="el" href="../../dir_e00b54220e1e1486ac9971b606d33054.html">Source</a></li><li class="navelem"><a class="el" href="../../dir_ae01c8af07818b260cc3481e8588b277.html">Runtime</a></li><li class="navelem"><a class="el" href="../../dir_59f1d85f259666bc4c18ba498cded78a.html">Core</a></li><li class="navelem"><a class="el" href="../../dir_78d6767ad0aceff322a7926558f8cdbd.html">Public</a></li><li class="navelem"><a class="el" href="../../dir_1470264d3b4ea4808c3b9f65ddf49b06.html">Containers</a></li><li class="navelem"><a class="el" href="../../d2/d56/_bit_array_8h.html">BitArray.h</a></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
 </body>
 </html>

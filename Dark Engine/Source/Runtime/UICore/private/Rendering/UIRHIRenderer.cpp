@@ -4,6 +4,7 @@
 #include "RHICommandList.h"
 #include <CoreGlobals.h>
 #include "Console/GlobalInputOutConsole.h"
+#include <future>
 
 
 void FUIRHIRenderer::Initialize()
@@ -94,9 +95,8 @@ void FUIRHIRenderer::DrawWindows(const TArray<TSharedPtr<UIWindow>>& InWindows)
 				{
 					Widget->DrawImGui();
 				}
-				ImGui::Render();
-
 #ifdef IMGUI
+				ImGui::Render();
 				RHICmdList->EndImGui();
 				if (ImGui::GetIO().ConfigFlags & ImGuiConfigFlags_ViewportsEnable)
 				{

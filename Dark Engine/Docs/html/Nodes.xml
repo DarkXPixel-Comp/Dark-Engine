@@ -6,6 +6,10 @@
       <Path>index.html</Path>
       <Subnodes>
        <Node>
+        <Name>Список задач</Name>
+        <Path>dd/da0/todo.html</Path>
+       </Node>
+       <Node>
         <Name>Пространства имен</Name>
         <Path>namespaces.html</Path>
       <Subnodes>
@@ -965,6 +969,11 @@
                   <Path>d1/de1/struct_d_e_1_1_math_1_1_t_vector4.html</Path>
                   <Anchor>adc84918d9f2c6abfd6a626d2e0fd813e</Anchor>
                  </Node>
+                 <Node>
+                  <Name>ZeroVectorOneW</Name>
+                  <Path>d1/de1/struct_d_e_1_1_math_1_1_t_vector4.html</Path>
+                  <Anchor>ad4409963b1620ebf3f4c6def0e6a2d2d</Anchor>
+                 </Node>
                 </Subnodes>
                </Node>
               </Subnodes>
@@ -1145,6 +1154,27 @@
            <Node>
             <Name>TestScript</Name>
             <Path>d3/d82/namespace_test_script.html</Path>
+           </Node>
+           <Node>
+            <Name>VK</Name>
+            <Path>d8/d55/namespace_v_k.html</Path>
+          <Subnodes>
+             <Node>
+              <Name>vkCreateInstance</Name>
+              <Path>d8/d55/namespace_v_k.html</Path>
+              <Anchor>ad2ccbf9b5f293c7e9437164040fefc23</Anchor>
+             </Node>
+             <Node>
+              <Name>vkGetDeviceProcAddr</Name>
+              <Path>d8/d55/namespace_v_k.html</Path>
+              <Anchor>af4e4bdc56e4e32580c8b854619d0c8e4</Anchor>
+             </Node>
+             <Node>
+              <Name>vkGetInstanceProcAddr</Name>
+              <Path>d8/d55/namespace_v_k.html</Path>
+              <Anchor>a7e495ef484a9794eac8a1bebb52287e4</Anchor>
+             </Node>
+            </Subnodes>
            </Node>
           </Subnodes>
          </Node>
@@ -2016,6 +2046,11 @@
                   <Path>d1/de1/struct_d_e_1_1_math_1_1_t_vector4.html</Path>
                   <Anchor>adc84918d9f2c6abfd6a626d2e0fd813e</Anchor>
                  </Node>
+                 <Node>
+                  <Name>ZeroVectorOneW</Name>
+                  <Path>d1/de1/struct_d_e_1_1_math_1_1_t_vector4.html</Path>
+                  <Anchor>ad4409963b1620ebf3f4c6def0e6a2d2d</Anchor>
+                 </Node>
                 </Subnodes>
                </Node>
               </Subnodes>
@@ -2268,6 +2303,22 @@
               <Name>Configure</Name>
               <Path>d7/da2/class_application_core.html</Path>
               <Anchor>afccd54c46d4096c711a27d9aebe43564</Anchor>
+             </Node>
+            </Subnodes>
+           </Node>
+           <Node>
+            <Name>ArrayReserve</Name>
+            <Path>d2/d30/struct_array_reserve.html</Path>
+          <Subnodes>
+             <Node>
+              <Name>ArrayReserve</Name>
+              <Path>d2/d30/struct_array_reserve.html</Path>
+              <Anchor>a94b5d3358980702b2889cb9f5b011c64</Anchor>
+             </Node>
+             <Node>
+              <Name>Reserve</Name>
+              <Path>d2/d30/struct_array_reserve.html</Path>
+              <Anchor>a9ab3b4769e1ee92216ce2f12790aa4d2</Anchor>
              </Node>
             </Subnodes>
            </Node>
@@ -3767,6 +3818,22 @@
             </Subnodes>
            </Node>
            <Node>
+            <Name>FConfigCache</Name>
+            <Path>da/de1/class_f_config_cache.html</Path>
+          <Subnodes>
+             <Node>
+              <Name>InitConfigFiles</Name>
+              <Path>da/de1/class_f_config_cache.html</Path>
+              <Anchor>a0c707c85bc1c550d24a5f2ab8d52a4b8</Anchor>
+             </Node>
+             <Node>
+              <Name>InitConfigSystem</Name>
+              <Path>da/de1/class_f_config_cache.html</Path>
+              <Anchor>ae72000248f10b990adfd9275664a6376</Anchor>
+             </Node>
+            </Subnodes>
+           </Node>
+           <Node>
             <Name>FConsoleCommand</Name>
             <Path>d8/db3/class_f_console_command.html</Path>
           <Subnodes>
@@ -4495,6 +4562,11 @@
               <Anchor>a28b0c9be8894b10a09a2879c13ffb4a7</Anchor>
              </Node>
              <Node>
+              <Name>RHISetShaderParameters</Name>
+              <Path>d3/d12/class_f_d3_d12_command_context.html</Path>
+              <Anchor>a7796e58a91f5d2d8d53427b1fd9683a2</Anchor>
+             </Node>
+             <Node>
               <Name>RHISetStreamSource</Name>
               <Path>d3/d12/class_f_d3_d12_command_context.html</Path>
               <Anchor>aafe452fbbdfa0543b9027d6cce14b7ec</Anchor>
@@ -4513,6 +4585,16 @@
               <Name>SetRenderTargetsAndClear</Name>
               <Path>d3/d12/class_f_d3_d12_command_context.html</Path>
               <Anchor>ad5a33d9735595fdae57ba62eeb4cc6ed</Anchor>
+             </Node>
+             <Node>
+              <Name>BoundUniformBuffers</Name>
+              <Path>d3/d12/class_f_d3_d12_command_context.html</Path>
+              <Anchor>a81a7eca673d5c7d6b207f9f1b3e51433</Anchor>
+             </Node>
+             <Node>
+              <Name>DirtyUniformBuffers</Name>
+              <Path>d3/d12/class_f_d3_d12_command_context.html</Path>
+              <Anchor>af120bfeb7cbd8d63a3991c6f15dcb476</Anchor>
              </Node>
              <Node>
               <Name>StageConstantBuffers</Name>
@@ -4639,9 +4721,45 @@
               <Anchor>a417aacd1153f68b14312d17e922b5af0</Anchor>
              </Node>
              <Node>
+              <Name>Reset</Name>
+              <Path>da/d40/class_f_d3_d12_constant_buffer.html</Path>
+              <Anchor>a3e20eb0b9970ab51eacb6b3172a8a099</Anchor>
+             </Node>
+             <Node>
               <Name>UpdateConstant</Name>
               <Path>da/d40/class_f_d3_d12_constant_buffer.html</Path>
               <Anchor>a63807d00ecb840e3e749e59edf37d8cb</Anchor>
+             </Node>
+             <Node>
+              <Name>UpdateConstant</Name>
+              <Path>da/d40/class_f_d3_d12_constant_buffer.html</Path>
+              <Anchor>a72a4e7979771a149d6f718f1584c6509</Anchor>
+             </Node>
+             <Node>
+              <Name>Version</Name>
+              <Path>da/d40/class_f_d3_d12_constant_buffer.html</Path>
+              <Anchor>a36e6aaf227c4cff7dd38def8a9e6e399</Anchor>
+             </Node>
+            </Subnodes>
+           </Node>
+           <Node>
+            <Name>FD3D12ConstantBufferCache</Name>
+            <Path>d2/d52/struct_f_d3_d12_constant_buffer_cache.html</Path>
+          <Subnodes>
+             <Node>
+              <Name>FD3D12ConstantBufferCache</Name>
+              <Path>d2/d52/struct_f_d3_d12_constant_buffer_cache.html</Path>
+              <Anchor>acdc4b3ac6b464c3f80c4b40e38f31cc8</Anchor>
+             </Node>
+             <Node>
+              <Name>Clear</Name>
+              <Path>d2/d52/struct_f_d3_d12_constant_buffer_cache.html</Path>
+              <Anchor>a83fb486bf1a4fe8be7e384a174aebaef</Anchor>
+             </Node>
+             <Node>
+              <Name>CurrentGPUVirtualAddress</Name>
+              <Path>d2/d52/struct_f_d3_d12_constant_buffer_cache.html</Path>
+              <Anchor>a73914a88f1f9d3a5e3dbf1cb798ff6e0</Anchor>
              </Node>
             </Subnodes>
            </Node>
@@ -4675,6 +4793,11 @@
               <Name>FD3D12ContextCommon</Name>
               <Path>d1/d3a/class_f_d3_d12_context_common.html</Path>
               <Anchor>a2a3433ba9fa6ee8d6e8cc47764bbe174</Anchor>
+             </Node>
+             <Node>
+              <Name>AddLockedResource</Name>
+              <Path>d1/d3a/class_f_d3_d12_context_common.html</Path>
+              <Anchor>adbedaccc3c2333fa6a752d906823b726</Anchor>
              </Node>
              <Node>
               <Name>CloseCommandList</Name>
@@ -5184,9 +5307,19 @@
               <Anchor>a2664387fa33d073f0b5b1ceec28d477a</Anchor>
              </Node>
              <Node>
+              <Name>RHICreateRasterizerState</Name>
+              <Path>d3/d95/class_f_d3_d12_dynamic_r_h_i.html</Path>
+              <Anchor>a20dc88cb60f0c261039d3a5eb63eb7ae</Anchor>
+             </Node>
+             <Node>
               <Name>RHICreateTexture</Name>
               <Path>d3/d95/class_f_d3_d12_dynamic_r_h_i.html</Path>
               <Anchor>aee878a7a93d17b765d8071e0a8f384c8</Anchor>
+             </Node>
+             <Node>
+              <Name>RHICreateUniformBuffer</Name>
+              <Path>d3/d95/class_f_d3_d12_dynamic_r_h_i.html</Path>
+              <Anchor>a0976e9e739363d62e30c46eaf18ef4b4</Anchor>
              </Node>
              <Node>
               <Name>RHICreateVertexDeclaration</Name>
@@ -5257,6 +5390,11 @@
               <Name>RHIUnlockTexture2D</Name>
               <Path>d3/d95/class_f_d3_d12_dynamic_r_h_i.html</Path>
               <Anchor>a2064f6c0494e7f990caf75e535d356d8</Anchor>
+             </Node>
+             <Node>
+              <Name>RHIUpdateUniformBuffer</Name>
+              <Path>d3/d95/class_f_d3_d12_dynamic_r_h_i.html</Path>
+              <Anchor>a948e37847cad89796a0bfe56406d789b</Anchor>
              </Node>
              <Node>
               <Name>Shutdown</Name>
@@ -5665,6 +5803,17 @@
             </Subnodes>
            </Node>
            <Node>
+            <Name>FD3D12RasterizerState</Name>
+            <Path>d4/d27/class_f_d3_d12_rasterizer_state.html</Path>
+          <Subnodes>
+             <Node>
+              <Name>Desc</Name>
+              <Path>d4/d27/class_f_d3_d12_rasterizer_state.html</Path>
+              <Anchor>aadd80b1e2babb50c5846b8cfcab0f20d</Anchor>
+             </Node>
+            </Subnodes>
+           </Node>
+           <Node>
             <Name>FD3D12RenderTargetView</Name>
             <Path>d5/d25/class_f_d3_d12_render_target_view.html</Path>
           <Subnodes>
@@ -5754,6 +5903,37 @@
               <Name>AddTransition</Name>
               <Path>d3/d27/class_f_d3_d12_resource_barrier_batcher.html</Path>
               <Anchor>ae2d7ea4dcdf7312399f38b3593260791</Anchor>
+             </Node>
+            </Subnodes>
+           </Node>
+           <Node>
+            <Name>FD3D12ResourceCache</Name>
+            <Path>d3/dd6/struct_f_d3_d12_resource_cache.html</Path>
+          <Subnodes>
+             <Node>
+              <Name>CleanSlot</Name>
+              <Path>d3/dd6/struct_f_d3_d12_resource_cache.html</Path>
+              <Anchor>a2bc5093c72a9bd5fc9609c899bb90393</Anchor>
+             </Node>
+             <Node>
+              <Name>CleanSlots</Name>
+              <Path>d3/dd6/struct_f_d3_d12_resource_cache.html</Path>
+              <Anchor>a18f01bcedd3101709e0beeabe582093d</Anchor>
+             </Node>
+             <Node>
+              <Name>DirtySlot</Name>
+              <Path>d3/dd6/struct_f_d3_d12_resource_cache.html</Path>
+              <Anchor>ac1be96f86840b136496d480c93e4384d</Anchor>
+             </Node>
+             <Node>
+              <Name>IsSlotDirty</Name>
+              <Path>d3/dd6/struct_f_d3_d12_resource_cache.html</Path>
+              <Anchor>a93f3c817b58d63628c1dfa367f3e272f</Anchor>
+             </Node>
+             <Node>
+              <Name>DirtySlotMask</Name>
+              <Path>d3/dd6/struct_f_d3_d12_resource_cache.html</Path>
+              <Anchor>a25bf2f01dc0a63b29e0e47b832ecdc00</Anchor>
              </Node>
             </Subnodes>
            </Node>
@@ -5859,9 +6039,24 @@
               <Anchor>abdd865e52e30a36d927a1667e32a7142</Anchor>
              </Node>
              <Node>
+              <Name>GetCBVDBindSlot</Name>
+              <Path>d0/d1e/class_f_d3_d12_root_signature.html</Path>
+              <Anchor>a90e1e5177c0c8c0a4911977fef95b0e2</Anchor>
+             </Node>
+             <Node>
+              <Name>GetCBVDTBindSlot</Name>
+              <Path>d0/d1e/class_f_d3_d12_root_signature.html</Path>
+              <Anchor>af11ba52bd5526151317fc35b1974e0c3</Anchor>
+             </Node>
+             <Node>
               <Name>GetRootSignature</Name>
               <Path>d0/d1e/class_f_d3_d12_root_signature.html</Path>
               <Anchor>ae784f16051b72c8fd60581b5c7928136</Anchor>
+             </Node>
+             <Node>
+              <Name>GetSRVDTBindSlot</Name>
+              <Path>d0/d1e/class_f_d3_d12_root_signature.html</Path>
+              <Anchor>a1e9c404bd24e8f4ef97164acc511e7bf</Anchor>
              </Node>
              <Node>
               <Name>Init</Name>
@@ -5969,6 +6164,11 @@
               <Anchor>ac90b8586835187309296b7478b9d98e8</Anchor>
              </Node>
              <Node>
+              <Name>ApplyConstants</Name>
+              <Path>d3/dfd/class_f_d3_d12_state_cache.html</Path>
+              <Anchor>ad72d6da178c97e44e020c91effeeacce</Anchor>
+             </Node>
+             <Node>
               <Name>ApplyState</Name>
               <Path>d3/dfd/class_f_d3_d12_state_cache.html</Path>
               <Anchor>acdf0dc1386cb89f997be64ddb4cf0691</Anchor>
@@ -5982,6 +6182,21 @@
               <Name>GetVertexCount</Name>
               <Path>d3/dfd/class_f_d3_d12_state_cache.html</Path>
               <Anchor>ac3cc4c1e0ee85140b5624ade92c8d42b</Anchor>
+             </Node>
+             <Node>
+              <Name>QueueBindlessSRV</Name>
+              <Path>d3/dfd/class_f_d3_d12_state_cache.html</Path>
+              <Anchor>a85e5d40a9ffb18d16efa21536b0def34</Anchor>
+             </Node>
+             <Node>
+              <Name>SetConstantBuffer</Name>
+              <Path>d3/dfd/class_f_d3_d12_state_cache.html</Path>
+              <Anchor>a8c81df9794e6149523d0602b849eb915</Anchor>
+             </Node>
+             <Node>
+              <Name>SetConstantsFromUniformBuffer</Name>
+              <Path>d3/dfd/class_f_d3_d12_state_cache.html</Path>
+              <Anchor>a56f3f08d9904ce828c8f7bdd9c5dfa5e</Anchor>
              </Node>
              <Node>
               <Name>SetGrapicsPipelineState</Name>
@@ -6022,6 +6237,11 @@
               <Name>bNeedSetRootSignature</Name>
               <Path>d3/dfd/class_f_d3_d12_state_cache.html</Path>
               <Anchor>a45055b8c35a73f84ec23026b465b8db5</Anchor>
+             </Node>
+             <Node>
+              <Name>CBVCache</Name>
+              <Path>d3/dfd/class_f_d3_d12_state_cache.html</Path>
+              <Anchor>aaba5025dcf89cf81626c63a910f24494</Anchor>
              </Node>
              <Node>
               <Name>Common</Name>
@@ -6114,6 +6334,11 @@
               <Anchor>ab08f97e9ee0daf5c10b603050f03e53b</Anchor>
              </Node>
              <Node>
+              <Name>QueuedBindlessSRVs</Name>
+              <Path>d3/dfd/class_f_d3_d12_state_cache.html</Path>
+              <Anchor>a194d5b631af3f172610592eb2c2595ce</Anchor>
+             </Node>
+             <Node>
               <Name>RenderTargetArray</Name>
               <Path>d3/dfd/class_f_d3_d12_state_cache.html</Path>
               <Anchor>a6d20ce8969726ab333847aea8d98a924</Anchor>
@@ -6171,6 +6396,11 @@
               <Anchor>aef4113b2e8cd6d09af3d572ddd027095</Anchor>
              </Node>
              <Node>
+              <Name>GetBindlessHandle</Name>
+              <Path>d6/d36/class_f_d3_d12_texture.html</Path>
+              <Anchor>a42aaa626af58cf4a2446d24c4db82bf3</Anchor>
+             </Node>
+             <Node>
               <Name>GetNativeShaderResourceView</Name>
               <Path>d6/d36/class_f_d3_d12_texture.html</Path>
               <Anchor>a8e1adbcc24d75ef86980a6f44b45b847</Anchor>
@@ -6184,6 +6414,11 @@
               <Name>GetResourceDescFromTextureDesc</Name>
               <Path>d6/d36/class_f_d3_d12_texture.html</Path>
               <Anchor>a71bab57ec5e814552efd074dd96fdcff</Anchor>
+             </Node>
+             <Node>
+              <Name>GetShaderResourceView</Name>
+              <Path>d6/d36/class_f_d3_d12_texture.html</Path>
+              <Anchor>a8472209bbbadb29a713d92444466dae8</Anchor>
              </Node>
              <Node>
               <Name>GetSize</Name>
@@ -6224,6 +6459,27 @@
               <Name>ShaderResourceView</Name>
               <Path>d6/d36/class_f_d3_d12_texture.html</Path>
               <Anchor>a18e70b321014f64e1808faf067c7fe4a</Anchor>
+             </Node>
+            </Subnodes>
+           </Node>
+           <Node>
+            <Name>FD3D12UniformBuffer</Name>
+            <Path>d0/d49/class_f_d3_d12_uniform_buffer.html</Path>
+          <Subnodes>
+             <Node>
+              <Name>FD3D12UniformBuffer</Name>
+              <Path>d0/d49/class_f_d3_d12_uniform_buffer.html</Path>
+              <Anchor>aed6ee1f48f54db2155b28a772a0f1490</Anchor>
+             </Node>
+             <Node>
+              <Name>ResourceLocation</Name>
+              <Path>d0/d49/class_f_d3_d12_uniform_buffer.html</Path>
+              <Anchor>a764159933bce301b093be9bf57dd9c48</Anchor>
+             </Node>
+             <Node>
+              <Name>UniformBufferUsage</Name>
+              <Path>d0/d49/class_f_d3_d12_uniform_buffer.html</Path>
+              <Anchor>ad398194a75adce9412bf8d16a7f3d87d</Anchor>
              </Node>
             </Subnodes>
            </Node>
@@ -6307,7 +6563,7 @@
              <Node>
               <Name>GetBindlessHandle</Name>
               <Path>db/d6f/class_f_d3_d12_view.html</Path>
-              <Anchor>a732c77b465aa2e77c3c569d7601946d7</Anchor>
+              <Anchor>a2a0e7b098ae53f287c237d6e4ada3fb6</Anchor>
              </Node>
              <Node>
               <Name>GetCpuHandle</Name>
@@ -6420,6 +6676,22 @@
             </Subnodes>
            </Node>
            <Node>
+            <Name>FDepthStencilStateInitializer</Name>
+            <Path>d0/d65/struct_f_depth_stencil_state_initializer.html</Path>
+          <Subnodes>
+             <Node>
+              <Name>bEnable</Name>
+              <Path>d0/d65/struct_f_depth_stencil_state_initializer.html</Path>
+              <Anchor>aabb5752ab1c1e87f1d8973c32cac25b4</Anchor>
+             </Node>
+             <Node>
+              <Name>Func</Name>
+              <Path>d0/d65/struct_f_depth_stencil_state_initializer.html</Path>
+              <Anchor>ae9f85e18c8235bc2ee2966fa7465b396</Anchor>
+             </Node>
+            </Subnodes>
+           </Node>
+           <Node>
             <Name>FDxcArguments</Name>
             <Path>d8/d73/struct_f_dxc_arguments.html</Path>
           <Subnodes>
@@ -6470,9 +6742,19 @@
               <Anchor>a53d0ed0d31f17f76afa082d2ea9f4f4b</Anchor>
              </Node>
              <Node>
+              <Name>RHICreateRasterizerState</Name>
+              <Path>de/d38/class_f_dynamic_r_h_i.html</Path>
+              <Anchor>a5cb35963ad6e49192091556074aa7c59</Anchor>
+             </Node>
+             <Node>
               <Name>RHICreateTexture</Name>
               <Path>de/d38/class_f_dynamic_r_h_i.html</Path>
               <Anchor>a6441be808da157cf46d617bb998272a1</Anchor>
+             </Node>
+             <Node>
+              <Name>RHICreateUniformBuffer</Name>
+              <Path>de/d38/class_f_dynamic_r_h_i.html</Path>
+              <Anchor>a00495758d56da1761d91f843bfda3ea6</Anchor>
              </Node>
              <Node>
               <Name>RHICreateVertexDeclaration</Name>
@@ -6523,6 +6805,11 @@
               <Name>RHIUnlockTexture2D</Name>
               <Path>de/d38/class_f_dynamic_r_h_i.html</Path>
               <Anchor>a94741c19da2ffb044dcfb5611f9d7e87</Anchor>
+             </Node>
+             <Node>
+              <Name>RHIUpdateUniformBuffer</Name>
+              <Path>de/d38/class_f_dynamic_r_h_i.html</Path>
+              <Anchor>a3da5ee99b27e2866e613e804ca189321</Anchor>
              </Node>
              <Node>
               <Name>Shutdown</Name>
@@ -6755,15 +7042,43 @@
             <Path>db/d89/class_f_filter_vertex_declaration.html</Path>
           <Subnodes>
              <Node>
-              <Name>Init</Name>
+              <Name>InitRHI</Name>
               <Path>db/d89/class_f_filter_vertex_declaration.html</Path>
-              <Anchor>a343e15df62fb71b3af6194a8f78c93d7</Anchor>
+              <Anchor>a263d4b67343e134f342e8f13ba5018d1</Anchor>
              </Node>
              <Node>
               <Name>VertexDeclaration</Name>
               <Path>db/d89/class_f_filter_vertex_declaration.html</Path>
               <Anchor>a18c82e3ba6917f16d54883fdaf9b3221</Anchor>
              </Node>
+            </Subnodes>
+           </Node>
+           <Node>
+            <Name>FFractalParams</Name>
+            <Path>d4/d85/struct_f_fractal_params.html</Path>
+          <Subnodes>
+             <Node>
+              <Name>Resolution</Name>
+              <Path>d4/d85/struct_f_fractal_params.html</Path>
+              <Anchor>aafd13ec0ac757eb2cd573777484f9c24</Anchor>
+             </Node>
+             <Node>
+              <Name>Time</Name>
+              <Path>d4/d85/struct_f_fractal_params.html</Path>
+              <Anchor>a491ea733f51294e770147c22a61cc93c</Anchor>
+             </Node>
+            </Subnodes>
+           </Node>
+           <Node>
+            <Name>FFractalShaderPS</Name>
+            <Path>da/d21/class_f_fractal_shader_p_s.html</Path>
+          <Subnodes>
+            </Subnodes>
+           </Node>
+           <Node>
+            <Name>FFractalShaderVS</Name>
+            <Path>d4/def/class_f_fractal_shader_v_s.html</Path>
+          <Subnodes>
             </Subnodes>
            </Node>
            <Node>
@@ -6937,6 +7252,11 @@
               <Name>OnSizeChanged</Name>
               <Path>d8/d30/class_f_generic_application_handler.html</Path>
               <Anchor>aed22f7375f2a4c8d2d43e7d54cc02e03</Anchor>
+             </Node>
+             <Node>
+              <Name>OnWindowDraw</Name>
+              <Path>d8/d30/class_f_generic_application_handler.html</Path>
+              <Anchor>abe2566d2eb80847ccf9e1bac8d725122</Anchor>
              </Node>
             </Subnodes>
            </Node>
@@ -7560,6 +7880,11 @@
               <Anchor>aedea784d5646076533504d06c3a5f211</Anchor>
              </Node>
              <Node>
+              <Name>RasterizerState</Name>
+              <Path>d2/d2e/class_f_graphics_pipeline_state_initializer.html</Path>
+              <Anchor>ac51e4484788f1687ba0247ec8835b07f</Anchor>
+             </Node>
+             <Node>
               <Name>RenderTargetFormats</Name>
               <Path>d2/d2e/class_f_graphics_pipeline_state_initializer.html</Path>
               <Anchor>a728f03f0a7b302bd1b1fb08a0ded404c</Anchor>
@@ -8005,6 +8330,11 @@
               <Anchor>aac3a3fe830f0028ebad67f39d6f66a36</Anchor>
              </Node>
              <Node>
+              <Name>ConfigDir</Name>
+              <Path>d6/dde/class_f_paths.html</Path>
+              <Anchor>a4e5991600cc16200f89d0177aba214d2</Anchor>
+             </Node>
+             <Node>
               <Name>ContentDir</Name>
               <Path>d6/dde/class_f_paths.html</Path>
               <Anchor>a58fbea1de84f8ab52b26ae642bd98a73</Anchor>
@@ -8113,6 +8443,52 @@
             </Subnodes>
            </Node>
            <Node>
+            <Name>FRasterizerStateInitializer</Name>
+            <Path>dc/df1/struct_f_rasterizer_state_initializer.html</Path>
+          <Subnodes>
+             <Node>
+              <Name>FRasterizerStateInitializer</Name>
+              <Path>dc/df1/struct_f_rasterizer_state_initializer.html</Path>
+              <Anchor>a1559a7ba00ea5bc9908aa1fc5dce545e</Anchor>
+             </Node>
+             <Node>
+              <Name>FRasterizerStateInitializer</Name>
+              <Path>dc/df1/struct_f_rasterizer_state_initializer.html</Path>
+              <Anchor>a962e20baf2d3d70e385e9e4762240edf</Anchor>
+             </Node>
+             <Node>
+              <Name>bAllowMSAA</Name>
+              <Path>dc/df1/struct_f_rasterizer_state_initializer.html</Path>
+              <Anchor>a6e9a430cd5cfc23c47a4e221534c36e8</Anchor>
+             </Node>
+             <Node>
+              <Name>bEnableLineAA</Name>
+              <Path>dc/df1/struct_f_rasterizer_state_initializer.html</Path>
+              <Anchor>a2cbf2529bf4479291e675c1ad7cee7de</Anchor>
+             </Node>
+             <Node>
+              <Name>CullMode</Name>
+              <Path>dc/df1/struct_f_rasterizer_state_initializer.html</Path>
+              <Anchor>a84f2bdc0ff4b405b1bde4940fb4583fa</Anchor>
+             </Node>
+             <Node>
+              <Name>DepthBias</Name>
+              <Path>dc/df1/struct_f_rasterizer_state_initializer.html</Path>
+              <Anchor>a19a585ea921492b081391e43269e0809</Anchor>
+             </Node>
+             <Node>
+              <Name>DepthClipMode</Name>
+              <Path>dc/df1/struct_f_rasterizer_state_initializer.html</Path>
+              <Anchor>a4a399415f7b0c35567b89f03426417a3</Anchor>
+             </Node>
+             <Node>
+              <Name>FillMode</Name>
+              <Path>dc/df1/struct_f_rasterizer_state_initializer.html</Path>
+              <Anchor>a3470aef86e8085fcda6e37c270f70074</Anchor>
+             </Node>
+            </Subnodes>
+           </Node>
+           <Node>
             <Name>FRefCountedObject</Name>
             <Path>dc/dba/class_f_ref_counted_object.html</Path>
           <Subnodes>
@@ -8188,19 +8564,14 @@
             <Path>d3/d1d/class_f_render_resource.html</Path>
           <Subnodes>
              <Node>
-              <Name>CreateRHIBuffer</Name>
-              <Path>d3/d1d/class_f_render_resource.html</Path>
-              <Anchor>a48ad21f6b121dfc49ee5618792bfb18a</Anchor>
-             </Node>
-             <Node>
               <Name>InitResource</Name>
               <Path>d3/d1d/class_f_render_resource.html</Path>
-              <Anchor>ab4ff6575fd0a7ac3a3569e01970f39e1</Anchor>
+              <Anchor>a441921e1b26dc1244c2e633b2f2634fe</Anchor>
              </Node>
              <Node>
               <Name>InitRHI</Name>
               <Path>d3/d1d/class_f_render_resource.html</Path>
-              <Anchor>a4afb82c1ee639defd1884c4457e623c3</Anchor>
+              <Anchor>a8fc15acd85dc1a4b9e318218d1c67efc</Anchor>
              </Node>
              <Node>
               <Name>ReleaseRHI</Name>
@@ -8237,6 +8608,32 @@
               <Name>RenderTargetTextureRHI</Name>
               <Path>d7/d9f/class_f_render_target.html</Path>
               <Anchor>a727d916da992b5487c63fbb9fba35c52</Anchor>
+             </Node>
+            </Subnodes>
+           </Node>
+           <Node>
+            <Name>FRHIBatchedShaderParameters</Name>
+            <Path>d2/d7e/struct_f_r_h_i_batched_shader_parameters.html</Path>
+          <Subnodes>
+             <Node>
+              <Name>BindlessParameters</Name>
+              <Path>d2/d7e/struct_f_r_h_i_batched_shader_parameters.html</Path>
+              <Anchor>a314ea0bc5e0c31e17ceed324f54535ed</Anchor>
+             </Node>
+             <Node>
+              <Name>Parameters</Name>
+              <Path>d2/d7e/struct_f_r_h_i_batched_shader_parameters.html</Path>
+              <Anchor>a741a1f174019e1a7912d6fb82f5b9d08</Anchor>
+             </Node>
+             <Node>
+              <Name>ParametersData</Name>
+              <Path>d2/d7e/struct_f_r_h_i_batched_shader_parameters.html</Path>
+              <Anchor>a7db839b41e8ff35cc36027024667113f</Anchor>
+             </Node>
+             <Node>
+              <Name>ResourceParameters</Name>
+              <Path>d2/d7e/struct_f_r_h_i_batched_shader_parameters.html</Path>
+              <Anchor>a749826411d633f26187cb29b11a10e5b</Anchor>
              </Node>
             </Subnodes>
            </Node>
@@ -8497,6 +8894,16 @@
               <Anchor>acaea61b77d043d0b9dfeebdb8312f93c</Anchor>
              </Node>
              <Node>
+              <Name>SetRenderTargets</Name>
+              <Path>d3/d7d/class_f_r_h_i_command_list_immediate.html</Path>
+              <Anchor>ae266542bf42356df87dc133b9ff8851b</Anchor>
+             </Node>
+             <Node>
+              <Name>SetShaderParameters</Name>
+              <Path>d3/d7d/class_f_r_h_i_command_list_immediate.html</Path>
+              <Anchor>a48dab530df7b9117e907e988fa5a3c2a</Anchor>
+             </Node>
+             <Node>
               <Name>FRHICommandListExecutor</Name>
               <Path>d3/d7d/class_f_r_h_i_command_list_immediate.html</Path>
               <Anchor>ad7bbd4a69812463cf41e01e634f7db21</Anchor>
@@ -8544,6 +8951,17 @@
               <Name>Texture</Name>
               <Path>d1/dc4/class_f_r_h_i_depth_render_target_view.html</Path>
               <Anchor>ab2a707935433552662da85ce21bb6c01</Anchor>
+             </Node>
+            </Subnodes>
+           </Node>
+           <Node>
+            <Name>FRHIDepthStencilState</Name>
+            <Path>d9/db1/class_f_r_h_i_depth_stencil_state.html</Path>
+          <Subnodes>
+             <Node>
+              <Name>FRHIDepthStencilState</Name>
+              <Path>d9/db1/class_f_r_h_i_depth_stencil_state.html</Path>
+              <Anchor>a304eac9a31032f5e5984faa7a9a7eb5e</Anchor>
              </Node>
             </Subnodes>
            </Node>
@@ -8623,6 +9041,22 @@
             </Subnodes>
            </Node>
            <Node>
+            <Name>FRHIRasterizerState</Name>
+            <Path>d3/dcd/class_f_r_h_i_rasterizer_state.html</Path>
+          <Subnodes>
+             <Node>
+              <Name>FRHIRasterizerState</Name>
+              <Path>d3/dcd/class_f_r_h_i_rasterizer_state.html</Path>
+              <Anchor>ae3863050c63764395023cc132aabcb9d</Anchor>
+             </Node>
+             <Node>
+              <Name>Initializer</Name>
+              <Path>d3/dcd/class_f_r_h_i_rasterizer_state.html</Path>
+              <Anchor>aedcac073f5f20ee9a60339601779470d</Anchor>
+             </Node>
+            </Subnodes>
+           </Node>
+           <Node>
             <Name>FRHIRenderPassInfo</Name>
             <Path>dc/dcb/struct_f_r_h_i_render_pass_info.html</Path>
           <Subnodes>
@@ -8698,6 +9132,11 @@
               <Name>FRHIRenderTargetView</Name>
               <Path>db/d0c/class_f_r_h_i_render_target_view.html</Path>
               <Anchor>a79eba45d1404222e6c43dc0cd28cf8ee</Anchor>
+             </Node>
+             <Node>
+              <Name>FRHIRenderTargetView</Name>
+              <Path>db/d0c/class_f_r_h_i_render_target_view.html</Path>
+              <Anchor>a57fbea3b9c03a95fefa0da3528470e0d</Anchor>
              </Node>
              <Node>
               <Name>ArraySlice</Name>
@@ -8781,6 +9220,16 @@
             <Name>FRHISamplerState</Name>
             <Path>d3/d38/class_f_r_h_i_sampler_state.html</Path>
           <Subnodes>
+             <Node>
+              <Name>FRHISamplerState</Name>
+              <Path>d3/d38/class_f_r_h_i_sampler_state.html</Path>
+              <Anchor>a372deb617d93f3f3af368532fff2354d</Anchor>
+             </Node>
+             <Node>
+              <Name>GetBindlessHandle</Name>
+              <Path>d3/d38/class_f_r_h_i_sampler_state.html</Path>
+              <Anchor>afa7f861825ab7c0280c9abaa34b2f318</Anchor>
+             </Node>
             </Subnodes>
            </Node>
            <Node>
@@ -8862,6 +9311,85 @@
               <Name>UniformBufferNames</Name>
               <Path>db/d66/class_f_r_h_i_shader.html</Path>
               <Anchor>af94c0dee491af8e8a7551353338d8577</Anchor>
+             </Node>
+            </Subnodes>
+           </Node>
+           <Node>
+            <Name>FRHIShaderParameter</Name>
+            <Path>d2/d8e/struct_f_r_h_i_shader_parameter.html</Path>
+          <Subnodes>
+             <Node>
+              <Name>BaseIndex</Name>
+              <Path>d2/d8e/struct_f_r_h_i_shader_parameter.html</Path>
+              <Anchor>aea268fda39b65a91ad57e5561ea72c3b</Anchor>
+             </Node>
+             <Node>
+              <Name>BufferIndex</Name>
+              <Path>d2/d8e/struct_f_r_h_i_shader_parameter.html</Path>
+              <Anchor>a79071694015285fe1e1f53f9890eeb37</Anchor>
+             </Node>
+             <Node>
+              <Name>ByteOffset</Name>
+              <Path>d2/d8e/struct_f_r_h_i_shader_parameter.html</Path>
+              <Anchor>a66cab6ea77039c26951f7307762d0380</Anchor>
+             </Node>
+             <Node>
+              <Name>ByteSize</Name>
+              <Path>d2/d8e/struct_f_r_h_i_shader_parameter.html</Path>
+              <Anchor>ac53803d30d76dfcd1f45e8451b0ed401</Anchor>
+             </Node>
+            </Subnodes>
+           </Node>
+           <Node>
+            <Name>FRHIShaderParameterResource</Name>
+            <Path>dd/dbe/struct_f_r_h_i_shader_parameter_resource.html</Path>
+          <Subnodes>
+             <Node>
+              <Name>EType</Name>
+              <Path>dd/dbe/struct_f_r_h_i_shader_parameter_resource.html</Path>
+              <Anchor>a358b1fed8b255eebd09484ce8071b4a0</Anchor>
+            <Subnodes>
+               <Node>
+                <Name>Texture</Name>
+                <Path>dd/dbe/struct_f_r_h_i_shader_parameter_resource.html</Path>
+                <Anchor>a358b1fed8b255eebd09484ce8071b4a0aa3e8ae43188ae76d38f414b2bdb0077b</Anchor>
+               </Node>
+               <Node>
+                <Name>ResourceView</Name>
+                <Path>dd/dbe/struct_f_r_h_i_shader_parameter_resource.html</Path>
+                <Anchor>a358b1fed8b255eebd09484ce8071b4a0a96b24e5aea0cfbcee3016cf70b5c898f</Anchor>
+               </Node>
+               <Node>
+                <Name>UAV</Name>
+                <Path>dd/dbe/struct_f_r_h_i_shader_parameter_resource.html</Path>
+                <Anchor>a358b1fed8b255eebd09484ce8071b4a0a6902d76cea698982754404da77e5e08a</Anchor>
+               </Node>
+               <Node>
+                <Name>Sampler</Name>
+                <Path>dd/dbe/struct_f_r_h_i_shader_parameter_resource.html</Path>
+                <Anchor>a358b1fed8b255eebd09484ce8071b4a0a5bca2f066df1fe641b2b779db2a63c0a</Anchor>
+               </Node>
+               <Node>
+                <Name>UniformBuffer</Name>
+                <Path>dd/dbe/struct_f_r_h_i_shader_parameter_resource.html</Path>
+                <Anchor>a358b1fed8b255eebd09484ce8071b4a0a88f133adfed6c854e5731cdffbf208cf</Anchor>
+               </Node>
+              </Subnodes>
+             </Node>
+             <Node>
+              <Name>Index</Name>
+              <Path>dd/dbe/struct_f_r_h_i_shader_parameter_resource.html</Path>
+              <Anchor>a3ac74ef9fbac9944a1e7fae6b0478d02</Anchor>
+             </Node>
+             <Node>
+              <Name>Resource</Name>
+              <Path>dd/dbe/struct_f_r_h_i_shader_parameter_resource.html</Path>
+              <Anchor>a66c56c9a119ec5007cfc2c5984069bfb</Anchor>
+             </Node>
+             <Node>
+              <Name>Type</Name>
+              <Path>dd/dbe/struct_f_r_h_i_shader_parameter_resource.html</Path>
+              <Anchor>ac8f10aa31f8a592d39ed48a523b7527f</Anchor>
              </Node>
             </Subnodes>
            </Node>
@@ -9055,6 +9583,17 @@
               <Name>NumSamples</Name>
               <Path>d5/dcb/struct_f_r_h_i_texture_desc.html</Path>
               <Anchor>acf3617bfc2579f4c65327bb00fb25d07</Anchor>
+             </Node>
+            </Subnodes>
+           </Node>
+           <Node>
+            <Name>FRHIUniformBuffer</Name>
+            <Path>da/df0/class_f_r_h_i_uniform_buffer.html</Path>
+          <Subnodes>
+             <Node>
+              <Name>FRHIUniformBuffer</Name>
+              <Path>da/df0/class_f_r_h_i_uniform_buffer.html</Path>
+              <Anchor>aa62bc0e12e31998f2e95d69b10bbf2a2</Anchor>
              </Node>
             </Subnodes>
            </Node>
@@ -9270,9 +9809,19 @@
               <Anchor>a8f72c20a07a2133525fc127fe8fbb1b1</Anchor>
              </Node>
              <Node>
+              <Name>RenderFractal</Name>
+              <Path>d9/d98/class_f_scene_render.html</Path>
+              <Anchor>acf888870519cd651f2118b8e789dbc43</Anchor>
+             </Node>
+             <Node>
               <Name>RenderQuad</Name>
               <Path>d9/d98/class_f_scene_render.html</Path>
               <Anchor>a3b0c1052d2b6dd82336010fbcdc0b8f9</Anchor>
+             </Node>
+             <Node>
+              <Name>RenderSeaScape</Name>
+              <Path>d9/d98/class_f_scene_render.html</Path>
+              <Anchor>a6aa517383c2c061d38383834751ef902</Anchor>
              </Node>
              <Node>
               <Name>Scene</Name>
@@ -9379,9 +9928,9 @@
             <Path>d5/dcd/class_f_screen_rectangle_index_buffer.html</Path>
           <Subnodes>
              <Node>
-              <Name>Init</Name>
+              <Name>InitRHI</Name>
               <Path>d5/dcd/class_f_screen_rectangle_index_buffer.html</Path>
-              <Anchor>ae41dc6d35eecc3941889ac3b46d72560</Anchor>
+              <Anchor>a70a1ac847fb9409d7b70b49b0cbfe739</Anchor>
              </Node>
              <Node>
               <Name>IndexBuffer</Name>
@@ -9401,9 +9950,9 @@
             <Path>d5/db0/class_f_screen_rectangle_vertex_buffer.html</Path>
           <Subnodes>
              <Node>
-              <Name>Init</Name>
+              <Name>InitRHI</Name>
               <Path>d5/db0/class_f_screen_rectangle_vertex_buffer.html</Path>
-              <Anchor>af801cb25e7746578881518dc3270f6a4</Anchor>
+              <Anchor>a5acc88004d416594ed43b943f9db1d0b</Anchor>
              </Node>
              <Node>
               <Name>VertexBuffer</Name>
@@ -9421,6 +9970,18 @@
            <Node>
             <Name>FScriptContainerElement</Name>
             <Path>dc/dee/struct_f_script_container_element.html</Path>
+           </Node>
+           <Node>
+            <Name>FSeaShaderPS</Name>
+            <Path>da/d06/class_f_sea_shader_p_s.html</Path>
+          <Subnodes>
+            </Subnodes>
+           </Node>
+           <Node>
+            <Name>FSeaShaderVS</Name>
+            <Path>d7/d0f/class_f_sea_shader_v_s.html</Path>
+          <Subnodes>
+            </Subnodes>
            </Node>
            <Node>
             <Name>FShader</Name>
@@ -10572,6 +11133,38 @@
             </Subnodes>
            </Node>
            <Node>
+            <Name>FVulkanDynamicRHI</Name>
+            <Path>d9/d5a/class_f_vulkan_dynamic_r_h_i.html</Path>
+          <Subnodes>
+             <Node>
+              <Name>FVulkanDynamicRHI</Name>
+              <Path>d9/d5a/class_f_vulkan_dynamic_r_h_i.html</Path>
+              <Anchor>ad3755fcece0abbd31a1e3d98f3dc8fda</Anchor>
+             </Node>
+             <Node>
+              <Name>Init</Name>
+              <Path>d9/d5a/class_f_vulkan_dynamic_r_h_i.html</Path>
+              <Anchor>a3e2c29708ecde48e337ba58d81fad4be</Anchor>
+             </Node>
+            </Subnodes>
+           </Node>
+           <Node>
+            <Name>FVulkanDynamicRHIModule</Name>
+            <Path>d4/d01/class_f_vulkan_dynamic_r_h_i_module.html</Path>
+          <Subnodes>
+             <Node>
+              <Name>FVulkanDynamicRHIModule</Name>
+              <Path>d4/d01/class_f_vulkan_dynamic_r_h_i_module.html</Path>
+              <Anchor>ab09a13a16dd5e0a7b7c5937dd7f11212</Anchor>
+             </Node>
+             <Node>
+              <Name>CreateRHI</Name>
+              <Path>d4/d01/class_f_vulkan_dynamic_r_h_i_module.html</Path>
+              <Anchor>a11f8106c1848e8dea1a6a82b71dfc350</Anchor>
+             </Node>
+            </Subnodes>
+           </Node>
+           <Node>
             <Name>FWindowsApplication</Name>
             <Path>df/d57/class_f_windows_application.html</Path>
           <Subnodes>
@@ -10759,6 +11352,17 @@
               <Name>Release</Name>
               <Path>d4/d9c/class_f_windows_system_wide_critical_section.html</Path>
               <Anchor>a75a30b9734c5277b17f00cd6bfc57f0e</Anchor>
+             </Node>
+            </Subnodes>
+           </Node>
+           <Node>
+            <Name>FWindowsVulkanLoader</Name>
+            <Path>da/d32/class_f_windows_vulkan_loader.html</Path>
+          <Subnodes>
+             <Node>
+              <Name>LoadVulkanFunctions</Name>
+              <Path>da/d32/class_f_windows_vulkan_loader.html</Path>
+              <Anchor>a69d7c97127aab038843c78c283e33829</Anchor>
              </Node>
             </Subnodes>
            </Node>
@@ -11340,6 +11944,11 @@
               <Anchor>a061c664135960a65e5621f825c60f1a3</Anchor>
              </Node>
              <Node>
+              <Name>RHISetShaderParameters</Name>
+              <Path>d8/d41/class_i_r_h_i_command_context.html</Path>
+              <Anchor>a92e5f9edd22895ef70874bba33a0986e</Anchor>
+             </Node>
+             <Node>
               <Name>RHISetShaderSampler</Name>
               <Path>d8/d41/class_i_r_h_i_command_context.html</Path>
               <Anchor>af864f58a8b6e84873ee53bdf5bb41c9f</Anchor>
@@ -11358,6 +11967,11 @@
               <Name>RHISetViewport</Name>
               <Path>d8/d41/class_i_r_h_i_command_context.html</Path>
               <Anchor>aa0b576b0c387de3588a9137555593c74</Anchor>
+             </Node>
+             <Node>
+              <Name>SetRenderTargets</Name>
+              <Path>d8/d41/class_i_r_h_i_command_context.html</Path>
+              <Anchor>abe2194fead74407f7fe7c251c1132445</Anchor>
              </Node>
             </Subnodes>
            </Node>
@@ -11430,6 +12044,17 @@
               <Name>OnMouseLeave</Name>
               <Path>d2/d11/class_i_u_i_viewport.html</Path>
               <Anchor>af96c1d44a939031cb3ca90f1146103a5</Anchor>
+             </Node>
+            </Subnodes>
+           </Node>
+           <Node>
+            <Name>IVulkanLoader</Name>
+            <Path>d7/d24/class_i_vulkan_loader.html</Path>
+          <Subnodes>
+             <Node>
+              <Name>LoadVulkanFunctions</Name>
+              <Path>d7/d24/class_i_vulkan_loader.html</Path>
+              <Anchor>abaea3549451d014eab04137640513c99</Anchor>
              </Node>
             </Subnodes>
            </Node>
@@ -11719,6 +12344,11 @@
               <Name>TArray</Name>
               <Path>d6/db1/class_t_array.html</Path>
               <Anchor>aa3ef505f135950ad7a7eb5ba70db2ada</Anchor>
+             </Node>
+             <Node>
+              <Name>TArray</Name>
+              <Path>d6/db1/class_t_array.html</Path>
+              <Anchor>a63d16220e3dc7872790ea48b747a1f66</Anchor>
              </Node>
              <Node>
               <Name>TArray</Name>
@@ -12181,6 +12811,47 @@
               <Name>Reset</Name>
               <Path>d3/d48/class_t_global_ptr.html</Path>
               <Anchor>a3932867ea53cec8693b50769f3526c61</Anchor>
+             </Node>
+            </Subnodes>
+           </Node>
+           <Node>
+            <Name>TGlobalRenderResource</Name>
+            <Path>d8/d58/class_t_global_render_resource.html</Path>
+          <Subnodes>
+             <Node>
+              <Name>TGlobalRenderResource</Name>
+              <Path>d8/d58/class_t_global_render_resource.html</Path>
+              <Anchor>a13c9464f9110683e0e8aca7ab21a8315</Anchor>
+             </Node>
+             <Node>
+              <Name>~TGlobalRenderResource</Name>
+              <Path>d8/d58/class_t_global_render_resource.html</Path>
+              <Anchor>a4f070ba2e3e67b8e8d0a924a59b5914f</Anchor>
+             </Node>
+             <Node>
+              <Name>GetInitArray</Name>
+              <Path>d8/d58/class_t_global_render_resource.html</Path>
+              <Anchor>ad55986117a04c1f7d8f0ea499fe0e7c1</Anchor>
+             </Node>
+             <Node>
+              <Name>GetResource</Name>
+              <Path>d8/d58/class_t_global_render_resource.html</Path>
+              <Anchor>a145a4c1541c23fceab212fd67cb44c13</Anchor>
+             </Node>
+             <Node>
+              <Name>IsValid</Name>
+              <Path>d8/d58/class_t_global_render_resource.html</Path>
+              <Anchor>a3bce3a7b58786c4d2de7b3c17a9445f5</Anchor>
+             </Node>
+             <Node>
+              <Name>operator*</Name>
+              <Path>d8/d58/class_t_global_render_resource.html</Path>
+              <Anchor>a8fbc28d0349d02b17e886e00f674b5c7</Anchor>
+             </Node>
+             <Node>
+              <Name>operator-&gt;</Name>
+              <Path>d8/d58/class_t_global_render_resource.html</Path>
+              <Anchor>a9574cdcc32c9d17783e4f2d89b9ea7da</Anchor>
              </Node>
             </Subnodes>
            </Node>
@@ -13178,6 +13849,11 @@
               <Name>OnSizeChanged</Name>
               <Path>d8/d0e/class_u_i_application.html</Path>
               <Anchor>a1fa43803f539079cb74eb759fd67a323</Anchor>
+             </Node>
+             <Node>
+              <Name>OnWindowDraw</Name>
+              <Path>d8/d0e/class_u_i_application.html</Path>
+              <Anchor>ada15bd06e9e4d358b5a2b2e7f347bd24</Anchor>
              </Node>
              <Node>
               <Name>RegisterGameViewport</Name>
@@ -14298,6 +14974,10 @@
             <Path>de/d6b/class_application.html</Path>
            </Node>
            <Node>
+            <Name>ArrayReserve</Name>
+            <Path>d2/d30/struct_array_reserve.html</Path>
+           </Node>
+           <Node>
             <Name>BASE</Name>
             <Path></Path>
           <Subnodes>
@@ -14558,6 +15238,10 @@
             <Path>dc/de0/struct_f_r_h_i_render_pass_info_1_1_f_color_entry.html</Path>
            </Node>
            <Node>
+            <Name>FConfigCache</Name>
+            <Path>da/de1/class_f_config_cache.html</Path>
+           </Node>
+           <Node>
             <Name>FConsoleLog</Name>
             <Path>da/de9/struct_f_console_log.html</Path>
            </Node>
@@ -14714,6 +15398,10 @@
               <Path>d6/d36/class_f_d3_d12_texture.html</Path>
              </Node>
              <Node>
+              <Name>FD3D12UniformBuffer</Name>
+              <Path>d0/d49/class_f_d3_d12_uniform_buffer.html</Path>
+             </Node>
+             <Node>
               <Name>FD3D12View</Name>
               <Path>db/d6f/class_f_d3_d12_view.html</Path>
             <Subnodes>
@@ -14754,6 +15442,20 @@
            <Node>
             <Name>FD3D12ResourceBarrierBatcher</Name>
             <Path>d3/d27/class_f_d3_d12_resource_barrier_batcher.html</Path>
+           </Node>
+           <Node>
+            <Name>FD3D12ResourceCache&lt; ResourceSlotMask &gt;</Name>
+            <Path>d3/dd6/struct_f_d3_d12_resource_cache.html</Path>
+           </Node>
+           <Node>
+            <Name>FD3D12ResourceCache&lt; uint16 &gt;</Name>
+            <Path>d3/dd6/struct_f_d3_d12_resource_cache.html</Path>
+          <Subnodes>
+             <Node>
+              <Name>FD3D12ConstantBufferCache</Name>
+              <Path>d2/d52/struct_f_d3_d12_constant_buffer_cache.html</Path>
+             </Node>
+            </Subnodes>
            </Node>
            <Node>
             <Name>FD3D12RootSignatureDesc</Name>
@@ -14798,6 +15500,10 @@
             <Path>da/d4c/struct_f_r_h_i_render_pass_info_1_1_f_depth_stencil_entry.html</Path>
            </Node>
            <Node>
+            <Name>FDepthStencilStateInitializer</Name>
+            <Path>d0/d65/struct_f_depth_stencil_state_initializer.html</Path>
+           </Node>
+           <Node>
             <Name>FDxcArguments</Name>
             <Path>d8/d73/struct_f_dxc_arguments.html</Path>
            </Node>
@@ -14805,6 +15511,10 @@
             <Name>FDynamicRHI</Name>
             <Path>de/d38/class_f_dynamic_r_h_i.html</Path>
           <Subnodes>
+             <Node>
+              <Name>FVulkanDynamicRHI</Name>
+              <Path>d9/d5a/class_f_vulkan_dynamic_r_h_i.html</Path>
+             </Node>
              <Node>
               <Name>ID3D12DynamicRHI</Name>
               <Path>d4/d5e/struct_i_d3_d12_dynamic_r_h_i.html</Path>
@@ -14838,8 +15548,8 @@
             <Path>d7/dbe/struct_f_filter_vertex.html</Path>
            </Node>
            <Node>
-            <Name>FFilterVertexDeclaration</Name>
-            <Path>db/d89/class_f_filter_vertex_declaration.html</Path>
+            <Name>FFractalParams</Name>
+            <Path>d4/d85/struct_f_fractal_params.html</Path>
            </Node>
            <Node>
             <Name>FGameTimer</Name>
@@ -15068,6 +15778,10 @@
             <Path>dd/d2a/class_f_primitive_component_id.html</Path>
            </Node>
            <Node>
+            <Name>FRasterizerStateInitializer</Name>
+            <Path>dc/df1/struct_f_rasterizer_state_initializer.html</Path>
+           </Node>
+           <Node>
             <Name>FRefCountedObject</Name>
             <Path>dc/dba/class_f_ref_counted_object.html</Path>
           <Subnodes>
@@ -15098,12 +15812,26 @@
                 <Path>de/d0a/class_f_r_h_i_compute_pipeline_state.html</Path>
                </Node>
                <Node>
+                <Name>FRHIDepthStencilState</Name>
+                <Path>d9/db1/class_f_r_h_i_depth_stencil_state.html</Path>
+               </Node>
+               <Node>
                 <Name>FRHIGraphicsPipelineState</Name>
                 <Path>de/dfc/class_f_r_h_i_graphics_pipeline_state.html</Path>
               <Subnodes>
                  <Node>
                   <Name>FD3D12GraphicsPipelineState</Name>
                   <Path>d7/de6/struct_f_d3_d12_graphics_pipeline_state.html</Path>
+                 </Node>
+                </Subnodes>
+               </Node>
+               <Node>
+                <Name>FRHIRasterizerState</Name>
+                <Path>d3/dcd/class_f_r_h_i_rasterizer_state.html</Path>
+              <Subnodes>
+                 <Node>
+                  <Name>FD3D12RasterizerState</Name>
+                  <Path>d4/d27/class_f_d3_d12_rasterizer_state.html</Path>
                  </Node>
                 </Subnodes>
                </Node>
@@ -15174,6 +15902,16 @@
                 </Subnodes>
                </Node>
                <Node>
+                <Name>FRHIUniformBuffer</Name>
+                <Path>da/df0/class_f_r_h_i_uniform_buffer.html</Path>
+              <Subnodes>
+                 <Node>
+                  <Name>FD3D12UniformBuffer</Name>
+                  <Path>d0/d49/class_f_d3_d12_uniform_buffer.html</Path>
+                 </Node>
+                </Subnodes>
+               </Node>
+               <Node>
                 <Name>FRHIVertexDeclaration</Name>
                 <Path>d6/de6/class_f_r_h_i_vertex_declaration.html</Path>
               <Subnodes>
@@ -15218,6 +15956,20 @@
            <Node>
             <Name>FRenderResource</Name>
             <Path>d3/d1d/class_f_render_resource.html</Path>
+          <Subnodes>
+             <Node>
+              <Name>FFilterVertexDeclaration</Name>
+              <Path>db/d89/class_f_filter_vertex_declaration.html</Path>
+             </Node>
+             <Node>
+              <Name>FScreenRectangleIndexBuffer</Name>
+              <Path>d5/dcd/class_f_screen_rectangle_index_buffer.html</Path>
+             </Node>
+             <Node>
+              <Name>FScreenRectangleVertexBuffer</Name>
+              <Path>d5/db0/class_f_screen_rectangle_vertex_buffer.html</Path>
+             </Node>
+            </Subnodes>
            </Node>
            <Node>
             <Name>FRenderTarget</Name>
@@ -15234,6 +15986,10 @@
               </Subnodes>
              </Node>
             </Subnodes>
+           </Node>
+           <Node>
+            <Name>FRHIBatchedShaderParameters</Name>
+            <Path>d2/d7e/struct_f_r_h_i_batched_shader_parameters.html</Path>
            </Node>
            <Node>
             <Name>FRHIBufferDesc</Name>
@@ -15262,6 +16018,14 @@
            <Node>
             <Name>FRHISetRenderTargetInfo</Name>
             <Path>d7/d1b/class_f_r_h_i_set_render_target_info.html</Path>
+           </Node>
+           <Node>
+            <Name>FRHIShaderParameter</Name>
+            <Path>d2/d8e/struct_f_r_h_i_shader_parameter.html</Path>
+           </Node>
+           <Node>
+            <Name>FRHIShaderParameterResource</Name>
+            <Path>dd/dbe/struct_f_r_h_i_shader_parameter_resource.html</Path>
            </Node>
            <Node>
             <Name>FRHITextureDesc</Name>
@@ -15306,14 +16070,6 @@
             <Path>d9/d99/class_f_scope_lock.html</Path>
            </Node>
            <Node>
-            <Name>FScreenRectangleIndexBuffer</Name>
-            <Path>d5/dcd/class_f_screen_rectangle_index_buffer.html</Path>
-           </Node>
-           <Node>
-            <Name>FScreenRectangleVertexBuffer</Name>
-            <Path>d5/db0/class_f_screen_rectangle_vertex_buffer.html</Path>
-           </Node>
-           <Node>
             <Name>FScriptContainerElement</Name>
             <Path>dc/dee/struct_f_script_container_element.html</Path>
            </Node>
@@ -15326,6 +16082,14 @@
               <Path>de/dcc/class_f_global_shader.html</Path>
             <Subnodes>
                <Node>
+                <Name>FFractalShaderPS</Name>
+                <Path>da/d21/class_f_fractal_shader_p_s.html</Path>
+               </Node>
+               <Node>
+                <Name>FFractalShaderVS</Name>
+                <Path>d4/def/class_f_fractal_shader_v_s.html</Path>
+               </Node>
+               <Node>
                 <Name>FOneColorVS</Name>
                 <Path>d8/de7/class_f_one_color_v_s.html</Path>
                </Node>
@@ -15336,6 +16100,14 @@
                <Node>
                 <Name>FScreenRectangleVS</Name>
                 <Path>d6/da9/class_f_screen_rectangle_v_s.html</Path>
+               </Node>
+               <Node>
+                <Name>FSeaShaderPS</Name>
+                <Path>da/d06/class_f_sea_shader_p_s.html</Path>
+               </Node>
+               <Node>
+                <Name>FSeaShaderVS</Name>
+                <Path>d7/d0f/class_f_sea_shader_v_s.html</Path>
                </Node>
               </Subnodes>
              </Node>
@@ -15567,6 +16339,10 @@
               <Name>FD3D12DynamicRHIModule</Name>
               <Path>dc/dbf/class_f_d3_d12_dynamic_r_h_i_module.html</Path>
              </Node>
+             <Node>
+              <Name>FVulkanDynamicRHIModule</Name>
+              <Path>d4/d01/class_f_vulkan_dynamic_r_h_i_module.html</Path>
+             </Node>
             </Subnodes>
            </Node>
            <Node>
@@ -15648,6 +16424,16 @@
              <Node>
               <Name>FSceneViewport</Name>
               <Path>d5/d14/class_f_scene_viewport.html</Path>
+             </Node>
+            </Subnodes>
+           </Node>
+           <Node>
+            <Name>IVulkanLoader</Name>
+            <Path>d7/d24/class_i_vulkan_loader.html</Path>
+          <Subnodes>
+             <Node>
+              <Name>FWindowsVulkanLoader</Name>
+              <Path>da/d32/class_f_windows_vulkan_loader.html</Path>
              </Node>
             </Subnodes>
            </Node>
@@ -15750,6 +16536,10 @@
             <Path>d6/db1/class_t_array.html</Path>
            </Node>
            <Node>
+            <Name>TArray&lt; FD3D12LockedResource &gt;</Name>
+            <Path>d6/db1/class_t_array.html</Path>
+           </Node>
+           <Node>
             <Name>TArray&lt; FD3D12Payload * &gt;</Name>
             <Path>d6/db1/class_t_array.html</Path>
            </Node>
@@ -15763,6 +16553,10 @@
            </Node>
            <Node>
             <Name>TArray&lt; FD3D12ResourceBarrier &gt;</Name>
+            <Path>d6/db1/class_t_array.html</Path>
+           </Node>
+           <Node>
+            <Name>TArray&lt; FD3D12ShaderResourceView * &gt;</Name>
             <Path>d6/db1/class_t_array.html</Path>
            </Node>
            <Node>
@@ -15783,6 +16577,14 @@
            </Node>
            <Node>
             <Name>TArray&lt; FRHIRenderPassInfo::FColorEntry &gt;</Name>
+            <Path>d6/db1/class_t_array.html</Path>
+           </Node>
+           <Node>
+            <Name>TArray&lt; FRHIShaderParameter &gt;</Name>
+            <Path>d6/db1/class_t_array.html</Path>
+           </Node>
+           <Node>
+            <Name>TArray&lt; FRHIShaderParameterResource &gt;</Name>
             <Path>d6/db1/class_t_array.html</Path>
            </Node>
            <Node>
@@ -15924,6 +16726,10 @@
            <Node>
             <Name>TGlobalPtr&lt; T &gt;</Name>
             <Path>d3/d48/class_t_global_ptr.html</Path>
+           </Node>
+           <Node>
+            <Name>TGlobalRenderResource&lt; T &gt;</Name>
+            <Path>d8/d58/class_t_global_render_resource.html</Path>
            </Node>
            <Node>
             <Name>DE::Math::TIntPoint&lt; IntType &gt;</Name>
@@ -16926,6 +17732,11 @@
                             <Name>OnSizeChanged</Name>
                             <Path>d8/d30/class_f_generic_application_handler.html</Path>
                             <Anchor>aed22f7375f2a4c8d2d43e7d54cc02e03</Anchor>
+                           </Node>
+                           <Node>
+                            <Name>OnWindowDraw</Name>
+                            <Path>d8/d30/class_f_generic_application_handler.html</Path>
+                            <Anchor>abe2566d2eb80847ccf9e1bac8d725122</Anchor>
                            </Node>
                           </Subnodes>
                          </Node>
@@ -18601,6 +19412,10 @@
                         </Subnodes>
                        </Node>
                        <Node>
+                        <Name>Config.cpp</Name>
+                        <Path>d7/dd3/_config_8cpp.html</Path>
+                       </Node>
+                       <Node>
                         <Name>CoreDelegates.cpp</Name>
                         <Path>df/d29/_core_delegates_8cpp.html</Path>
                        </Node>
@@ -18639,6 +19454,11 @@
                       <Name>CoreGlobals.cpp</Name>
                       <Path>d8/d40/_core_globals_8cpp.html</Path>
                     <Subnodes>
+                       <Node>
+                        <Name>GConfig</Name>
+                        <Path>d8/d40/_core_globals_8cpp.html</Path>
+                        <Anchor>aedbcc88595a373fd07415d3cbb96e218</Anchor>
+                       </Node>
                        <Node>
                         <Name>GIsRequestingExit</Name>
                         <Path>d8/d40/_core_globals_8cpp.html</Path>
@@ -19123,6 +19943,22 @@
                         <Path>d3/dc5/_array_8h.html</Path>
                       <Subnodes>
                          <Node>
+                          <Name>ArrayReserve</Name>
+                          <Path>d2/d30/struct_array_reserve.html</Path>
+                        <Subnodes>
+                           <Node>
+                            <Name>ArrayReserve</Name>
+                            <Path>d2/d30/struct_array_reserve.html</Path>
+                            <Anchor>a94b5d3358980702b2889cb9f5b011c64</Anchor>
+                           </Node>
+                           <Node>
+                            <Name>Reserve</Name>
+                            <Path>d2/d30/struct_array_reserve.html</Path>
+                            <Anchor>a9ab3b4769e1ee92216ce2f12790aa4d2</Anchor>
+                           </Node>
+                          </Subnodes>
+                         </Node>
+                         <Node>
                           <Name>TArray&lt; ElementType &gt;</Name>
                           <Path>d6/db1/class_t_array.html</Path>
                         <Subnodes>
@@ -19135,6 +19971,11 @@
                             <Name>TArray</Name>
                             <Path>d6/db1/class_t_array.html</Path>
                             <Anchor>aa3ef505f135950ad7a7eb5ba70db2ada</Anchor>
+                           </Node>
+                           <Node>
+                            <Name>TArray</Name>
+                            <Path>d6/db1/class_t_array.html</Path>
+                            <Anchor>a63d16220e3dc7872790ea48b747a1f66</Anchor>
                            </Node>
                            <Node>
                             <Name>TArray</Name>
@@ -22546,6 +23387,11 @@
                             <Path>d1/de1/struct_d_e_1_1_math_1_1_t_vector4.html</Path>
                             <Anchor>adc84918d9f2c6abfd6a626d2e0fd813e</Anchor>
                            </Node>
+                           <Node>
+                            <Name>ZeroVectorOneW</Name>
+                            <Path>d1/de1/struct_d_e_1_1_math_1_1_t_vector4.html</Path>
+                            <Anchor>ad4409963b1620ebf3f4c6def0e6a2d2d</Anchor>
+                           </Node>
                           </Subnodes>
                          </Node>
                         </Subnodes>
@@ -22670,6 +23516,28 @@
                         </Subnodes>
                        </Node>
                        <Node>
+                        <Name>Config.h</Name>
+                        <Path>d4/d71/_config_8h.html</Path>
+                      <Subnodes>
+                         <Node>
+                          <Name>FConfigCache</Name>
+                          <Path>da/de1/class_f_config_cache.html</Path>
+                        <Subnodes>
+                           <Node>
+                            <Name>InitConfigFiles</Name>
+                            <Path>da/de1/class_f_config_cache.html</Path>
+                            <Anchor>a0c707c85bc1c550d24a5f2ab8d52a4b8</Anchor>
+                           </Node>
+                           <Node>
+                            <Name>InitConfigSystem</Name>
+                            <Path>da/de1/class_f_config_cache.html</Path>
+                            <Anchor>ae72000248f10b990adfd9275664a6376</Anchor>
+                           </Node>
+                          </Subnodes>
+                         </Node>
+                        </Subnodes>
+                       </Node>
+                       <Node>
                         <Name>CoreDelegates.h</Name>
                         <Path>dc/d17/_core_delegates_8h.html</Path>
                       <Subnodes>
@@ -22749,6 +23617,11 @@
                             <Name>CombineDir</Name>
                             <Path>d6/dde/class_f_paths.html</Path>
                             <Anchor>aac3a3fe830f0028ebad67f39d6f66a36</Anchor>
+                           </Node>
+                           <Node>
+                            <Name>ConfigDir</Name>
+                            <Path>d6/dde/class_f_paths.html</Path>
+                            <Anchor>a4e5991600cc16200f89d0177aba214d2</Anchor>
                            </Node>
                            <Node>
                             <Name>ContentDir</Name>
@@ -23041,6 +23914,31 @@
                           <Name>DE_ARRAY_COUNT</Name>
                           <Path>de/d85/_dark_template_8h.html</Path>
                           <Anchor>a65a9a0605dd44912118be3a866b27089</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>BitMask</Name>
+                          <Path>de/d85/_dark_template_8h.html</Path>
+                          <Anchor>a5e3f3fc2408448746761ecb4c7ed8d80</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>BitMask&lt; uint16 &gt;</Name>
+                          <Path>de/d85/_dark_template_8h.html</Path>
+                          <Anchor>a62a62fff03dc22ee9c7da6b83f7d3bc1</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>BitMask&lt; uint32 &gt;</Name>
+                          <Path>de/d85/_dark_template_8h.html</Path>
+                          <Anchor>a623ac80688a1f8b56509bb8da9d20208</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>BitMask&lt; uint64 &gt;</Name>
+                          <Path>de/d85/_dark_template_8h.html</Path>
+                          <Anchor>ad1e15f26c2fce27690c85c85069bd87d</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>BitMask&lt; uint8 &gt;</Name>
+                          <Path>de/d85/_dark_template_8h.html</Path>
+                          <Anchor>aee28b4873fcbc01e8b2273f22fe18724</Anchor>
                          </Node>
                          <Node>
                           <Name>MoveTemp</Name>
@@ -23975,9 +24873,14 @@
                         <Anchor>a5440566ea4d305cba9cce5e54116e94d</Anchor>
                        </Node>
                        <Node>
+                        <Name>GConfig</Name>
+                        <Path>db/d21/_core_globals_8h.html</Path>
+                        <Anchor>a79ecfad895559da885ca719cc642af16</Anchor>
+                       </Node>
+                       <Node>
                         <Name>GIsRequestingExit</Name>
                         <Path>db/d21/_core_globals_8h.html</Path>
-                        <Anchor>af6114f34aeb192e591dea3b8c3dc95f6</Anchor>
+                        <Anchor>a993cee07f9ba1cc5c622e6752a849f58</Anchor>
                        </Node>
                        <Node>
                         <Name>GIsTitleBarHovered</Name>
@@ -24639,6 +25542,11 @@
                           <Anchor>a2a3433ba9fa6ee8d6e8cc47764bbe174</Anchor>
                          </Node>
                          <Node>
+                          <Name>AddLockedResource</Name>
+                          <Path>d1/d3a/class_f_d3_d12_context_common.html</Path>
+                          <Anchor>adbedaccc3c2333fa6a752d906823b726</Anchor>
+                         </Node>
+                         <Node>
                           <Name>CloseCommandList</Name>
                           <Path>d1/d3a/class_f_d3_d12_context_common.html</Path>
                           <Anchor>a18d216ac97e7aa1f2ad8e5f0e7f07167</Anchor>
@@ -24821,6 +25729,11 @@
                           <Anchor>a28b0c9be8894b10a09a2879c13ffb4a7</Anchor>
                          </Node>
                          <Node>
+                          <Name>RHISetShaderParameters</Name>
+                          <Path>d3/d12/class_f_d3_d12_command_context.html</Path>
+                          <Anchor>a7796e58a91f5d2d8d53427b1fd9683a2</Anchor>
+                         </Node>
+                         <Node>
                           <Name>RHISetStreamSource</Name>
                           <Path>d3/d12/class_f_d3_d12_command_context.html</Path>
                           <Anchor>aafe452fbbdfa0543b9027d6cce14b7ec</Anchor>
@@ -24839,6 +25752,16 @@
                           <Name>SetRenderTargetsAndClear</Name>
                           <Path>d3/d12/class_f_d3_d12_command_context.html</Path>
                           <Anchor>ad5a33d9735595fdae57ba62eeb4cc6ed</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>BoundUniformBuffers</Name>
+                          <Path>d3/d12/class_f_d3_d12_command_context.html</Path>
+                          <Anchor>a81a7eca673d5c7d6b207f9f1b3e51433</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>DirtyUniformBuffers</Name>
+                          <Path>d3/d12/class_f_d3_d12_command_context.html</Path>
+                          <Anchor>af120bfeb7cbd8d63a3991c6f15dcb476</Anchor>
                          </Node>
                          <Node>
                           <Name>StageConstantBuffers</Name>
@@ -25011,9 +25934,24 @@
                           <Anchor>a417aacd1153f68b14312d17e922b5af0</Anchor>
                          </Node>
                          <Node>
+                          <Name>Reset</Name>
+                          <Path>da/d40/class_f_d3_d12_constant_buffer.html</Path>
+                          <Anchor>a3e20eb0b9970ab51eacb6b3172a8a099</Anchor>
+                         </Node>
+                         <Node>
                           <Name>UpdateConstant</Name>
                           <Path>da/d40/class_f_d3_d12_constant_buffer.html</Path>
                           <Anchor>a63807d00ecb840e3e749e59edf37d8cb</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>UpdateConstant</Name>
+                          <Path>da/d40/class_f_d3_d12_constant_buffer.html</Path>
+                          <Anchor>a72a4e7979771a149d6f718f1584c6509</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>Version</Name>
+                          <Path>da/d40/class_f_d3_d12_constant_buffer.html</Path>
+                          <Anchor>a36e6aaf227c4cff7dd38def8a9e6e399</Anchor>
                          </Node>
                         </Subnodes>
                        </Node>
@@ -25594,6 +26532,17 @@
                          </Node>
                         </Subnodes>
                        </Node>
+                       <Node>
+                        <Name>FD3D12RasterizerState</Name>
+                        <Path>d4/d27/class_f_d3_d12_rasterizer_state.html</Path>
+                      <Subnodes>
+                         <Node>
+                          <Name>Desc</Name>
+                          <Path>d4/d27/class_f_d3_d12_rasterizer_state.html</Path>
+                          <Anchor>aadd80b1e2babb50c5846b8cfcab0f20d</Anchor>
+                         </Node>
+                        </Subnodes>
+                       </Node>
                       </Subnodes>
                      </Node>
                      <Node>
@@ -25935,6 +26884,27 @@
                          </Node>
                         </Subnodes>
                        </Node>
+                       <Node>
+                        <Name>FD3D12UniformBuffer</Name>
+                        <Path>d0/d49/class_f_d3_d12_uniform_buffer.html</Path>
+                      <Subnodes>
+                         <Node>
+                          <Name>FD3D12UniformBuffer</Name>
+                          <Path>d0/d49/class_f_d3_d12_uniform_buffer.html</Path>
+                          <Anchor>aed6ee1f48f54db2155b28a772a0f1490</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>ResourceLocation</Name>
+                          <Path>d0/d49/class_f_d3_d12_uniform_buffer.html</Path>
+                          <Anchor>a764159933bce301b093be9bf57dd9c48</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>UniformBufferUsage</Name>
+                          <Path>d0/d49/class_f_d3_d12_uniform_buffer.html</Path>
+                          <Anchor>ad398194a75adce9412bf8d16a7f3d87d</Anchor>
+                         </Node>
+                        </Subnodes>
+                       </Node>
                       </Subnodes>
                      </Node>
                      <Node>
@@ -26088,9 +27058,19 @@
                           <Anchor>a2664387fa33d073f0b5b1ceec28d477a</Anchor>
                          </Node>
                          <Node>
+                          <Name>RHICreateRasterizerState</Name>
+                          <Path>d3/d95/class_f_d3_d12_dynamic_r_h_i.html</Path>
+                          <Anchor>a20dc88cb60f0c261039d3a5eb63eb7ae</Anchor>
+                         </Node>
+                         <Node>
                           <Name>RHICreateTexture</Name>
                           <Path>d3/d95/class_f_d3_d12_dynamic_r_h_i.html</Path>
                           <Anchor>aee878a7a93d17b765d8071e0a8f384c8</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>RHICreateUniformBuffer</Name>
+                          <Path>d3/d95/class_f_d3_d12_dynamic_r_h_i.html</Path>
+                          <Anchor>a0976e9e739363d62e30c46eaf18ef4b4</Anchor>
                          </Node>
                          <Node>
                           <Name>RHICreateVertexDeclaration</Name>
@@ -26163,6 +27143,11 @@
                           <Anchor>a2064f6c0494e7f990caf75e535d356d8</Anchor>
                          </Node>
                          <Node>
+                          <Name>RHIUpdateUniformBuffer</Name>
+                          <Path>d3/d95/class_f_d3_d12_dynamic_r_h_i.html</Path>
+                          <Anchor>a948e37847cad89796a0bfe56406d789b</Anchor>
+                         </Node>
+                         <Node>
                           <Name>Shutdown</Name>
                           <Path>d3/d95/class_f_d3_d12_dynamic_r_h_i.html</Path>
                           <Anchor>a4bc12b2207ebd568adfb1b9e9d85e756</Anchor>
@@ -26220,9 +27205,24 @@
                           <Anchor>abdd865e52e30a36d927a1667e32a7142</Anchor>
                          </Node>
                          <Node>
+                          <Name>GetCBVDBindSlot</Name>
+                          <Path>d0/d1e/class_f_d3_d12_root_signature.html</Path>
+                          <Anchor>a90e1e5177c0c8c0a4911977fef95b0e2</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>GetCBVDTBindSlot</Name>
+                          <Path>d0/d1e/class_f_d3_d12_root_signature.html</Path>
+                          <Anchor>af11ba52bd5526151317fc35b1974e0c3</Anchor>
+                         </Node>
+                         <Node>
                           <Name>GetRootSignature</Name>
                           <Path>d0/d1e/class_f_d3_d12_root_signature.html</Path>
                           <Anchor>ae784f16051b72c8fd60581b5c7928136</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>GetSRVDTBindSlot</Name>
+                          <Path>d0/d1e/class_f_d3_d12_root_signature.html</Path>
+                          <Anchor>a1e9c404bd24e8f4ef97164acc511e7bf</Anchor>
                          </Node>
                          <Node>
                           <Name>Init</Name>
@@ -26254,6 +27254,58 @@
                           <Name>GetRootSignature</Name>
                           <Path>d5/d99/class_f_d3_d12_root_signature_manager.html</Path>
                           <Anchor>ae36d18349297758b44055ecb943d3b36</Anchor>
+                         </Node>
+                        </Subnodes>
+                       </Node>
+                       <Node>
+                        <Name>ERootParameterKeys</Name>
+                        <Path>df/d0f/_d3_d12_root_signature_8h.html</Path>
+                        <Anchor>a63ef258198b89b8ea8576180716d3d27</Anchor>
+                      <Subnodes>
+                         <Node>
+                          <Name>PS_SRVs</Name>
+                          <Path>df/d0f/_d3_d12_root_signature_8h.html</Path>
+                          <Anchor>a63ef258198b89b8ea8576180716d3d27af72a36c840220fd45db2b1ecfb307f6f</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>PS_CBVs</Name>
+                          <Path>df/d0f/_d3_d12_root_signature_8h.html</Path>
+                          <Anchor>a63ef258198b89b8ea8576180716d3d27a762324a880a9e91f16dcc169626c94a9</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>PS_RootCBVs</Name>
+                          <Path>df/d0f/_d3_d12_root_signature_8h.html</Path>
+                          <Anchor>a63ef258198b89b8ea8576180716d3d27a4324d756a5aacb25202ab1aed1fc369e</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>PS_Samplers</Name>
+                          <Path>df/d0f/_d3_d12_root_signature_8h.html</Path>
+                          <Anchor>a63ef258198b89b8ea8576180716d3d27a601e32ae22b6d66490948b3044a2a79f</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>VS_SRVs</Name>
+                          <Path>df/d0f/_d3_d12_root_signature_8h.html</Path>
+                          <Anchor>a63ef258198b89b8ea8576180716d3d27a27326a2388bd847cd9d8e85ad5192bad</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>VS_CBVs</Name>
+                          <Path>df/d0f/_d3_d12_root_signature_8h.html</Path>
+                          <Anchor>a63ef258198b89b8ea8576180716d3d27a18641b6a05f36b3f9c0b3a96ed3f468d</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>VS_RootCBVs</Name>
+                          <Path>df/d0f/_d3_d12_root_signature_8h.html</Path>
+                          <Anchor>a63ef258198b89b8ea8576180716d3d27ad8ab7e6e3fed84e94751b3739e5a21f6</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>VS_Samplers</Name>
+                          <Path>df/d0f/_d3_d12_root_signature_8h.html</Path>
+                          <Anchor>a63ef258198b89b8ea8576180716d3d27a025b6f80c9f708f7a60b528ab8d10b34</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>RPK_Count</Name>
+                          <Path>df/d0f/_d3_d12_root_signature_8h.html</Path>
+                          <Anchor>a63ef258198b89b8ea8576180716d3d27abba859a50d1a732171a6eefd0fed8942</Anchor>
                          </Node>
                         </Subnodes>
                        </Node>
@@ -26391,6 +27443,37 @@
                       <Path>dd/d9e/_d3_d12_state_cache_8h.html</Path>
                     <Subnodes>
                        <Node>
+                        <Name>FD3D12ResourceCache&lt; ResourceSlotMask &gt;</Name>
+                        <Path>d3/dd6/struct_f_d3_d12_resource_cache.html</Path>
+                      <Subnodes>
+                         <Node>
+                          <Name>CleanSlot</Name>
+                          <Path>d3/dd6/struct_f_d3_d12_resource_cache.html</Path>
+                          <Anchor>a2bc5093c72a9bd5fc9609c899bb90393</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>CleanSlots</Name>
+                          <Path>d3/dd6/struct_f_d3_d12_resource_cache.html</Path>
+                          <Anchor>a18f01bcedd3101709e0beeabe582093d</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>DirtySlot</Name>
+                          <Path>d3/dd6/struct_f_d3_d12_resource_cache.html</Path>
+                          <Anchor>ac1be96f86840b136496d480c93e4384d</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>IsSlotDirty</Name>
+                          <Path>d3/dd6/struct_f_d3_d12_resource_cache.html</Path>
+                          <Anchor>a93f3c817b58d63628c1dfa367f3e272f</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>DirtySlotMask</Name>
+                          <Path>d3/dd6/struct_f_d3_d12_resource_cache.html</Path>
+                          <Anchor>a25bf2f01dc0a63b29e0e47b832ecdc00</Anchor>
+                         </Node>
+                        </Subnodes>
+                       </Node>
+                       <Node>
                         <Name>FD3D12VertexBufferCache</Name>
                         <Path>d6/dfd/struct_f_d3_d12_vertex_buffer_cache.html</Path>
                       <Subnodes>
@@ -26448,6 +27531,27 @@
                         </Subnodes>
                        </Node>
                        <Node>
+                        <Name>FD3D12ConstantBufferCache</Name>
+                        <Path>d2/d52/struct_f_d3_d12_constant_buffer_cache.html</Path>
+                      <Subnodes>
+                         <Node>
+                          <Name>FD3D12ConstantBufferCache</Name>
+                          <Path>d2/d52/struct_f_d3_d12_constant_buffer_cache.html</Path>
+                          <Anchor>acdc4b3ac6b464c3f80c4b40e38f31cc8</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>Clear</Name>
+                          <Path>d2/d52/struct_f_d3_d12_constant_buffer_cache.html</Path>
+                          <Anchor>a83fb486bf1a4fe8be7e384a174aebaef</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>CurrentGPUVirtualAddress</Name>
+                          <Path>d2/d52/struct_f_d3_d12_constant_buffer_cache.html</Path>
+                          <Anchor>a73914a88f1f9d3a5e3dbf1cb798ff6e0</Anchor>
+                         </Node>
+                        </Subnodes>
+                       </Node>
+                       <Node>
                         <Name>FD3D12StateCache</Name>
                         <Path>d3/dfd/class_f_d3_d12_state_cache.html</Path>
                       <Subnodes>
@@ -26455,6 +27559,11 @@
                           <Name>FD3D12StateCache</Name>
                           <Path>d3/dfd/class_f_d3_d12_state_cache.html</Path>
                           <Anchor>ac90b8586835187309296b7478b9d98e8</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>ApplyConstants</Name>
+                          <Path>d3/dfd/class_f_d3_d12_state_cache.html</Path>
+                          <Anchor>ad72d6da178c97e44e020c91effeeacce</Anchor>
                          </Node>
                          <Node>
                           <Name>ApplyState</Name>
@@ -26470,6 +27579,21 @@
                           <Name>GetVertexCount</Name>
                           <Path>d3/dfd/class_f_d3_d12_state_cache.html</Path>
                           <Anchor>ac3cc4c1e0ee85140b5624ade92c8d42b</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>QueueBindlessSRV</Name>
+                          <Path>d3/dfd/class_f_d3_d12_state_cache.html</Path>
+                          <Anchor>a85e5d40a9ffb18d16efa21536b0def34</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>SetConstantBuffer</Name>
+                          <Path>d3/dfd/class_f_d3_d12_state_cache.html</Path>
+                          <Anchor>a8c81df9794e6149523d0602b849eb915</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>SetConstantsFromUniformBuffer</Name>
+                          <Path>d3/dfd/class_f_d3_d12_state_cache.html</Path>
+                          <Anchor>a56f3f08d9904ce828c8f7bdd9c5dfa5e</Anchor>
                          </Node>
                          <Node>
                           <Name>SetGrapicsPipelineState</Name>
@@ -26510,6 +27634,11 @@
                           <Name>bNeedSetRootSignature</Name>
                           <Path>d3/dfd/class_f_d3_d12_state_cache.html</Path>
                           <Anchor>a45055b8c35a73f84ec23026b465b8db5</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>CBVCache</Name>
+                          <Path>d3/dfd/class_f_d3_d12_state_cache.html</Path>
+                          <Anchor>aaba5025dcf89cf81626c63a910f24494</Anchor>
                          </Node>
                          <Node>
                           <Name>Common</Name>
@@ -26600,6 +27729,11 @@
                           <Name>PrimitiveTypeOffset</Name>
                           <Path>d3/dfd/class_f_d3_d12_state_cache.html</Path>
                           <Anchor>ab08f97e9ee0daf5c10b603050f03e53b</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>QueuedBindlessSRVs</Name>
+                          <Path>d3/dfd/class_f_d3_d12_state_cache.html</Path>
+                          <Anchor>a194d5b631af3f172610592eb2c2595ce</Anchor>
                          </Node>
                          <Node>
                           <Name>RenderTargetArray</Name>
@@ -26798,6 +27932,11 @@
                           <Anchor>aef4113b2e8cd6d09af3d572ddd027095</Anchor>
                          </Node>
                          <Node>
+                          <Name>GetBindlessHandle</Name>
+                          <Path>d6/d36/class_f_d3_d12_texture.html</Path>
+                          <Anchor>a42aaa626af58cf4a2446d24c4db82bf3</Anchor>
+                         </Node>
+                         <Node>
                           <Name>GetNativeShaderResourceView</Name>
                           <Path>d6/d36/class_f_d3_d12_texture.html</Path>
                           <Anchor>a8e1adbcc24d75ef86980a6f44b45b847</Anchor>
@@ -26811,6 +27950,11 @@
                           <Name>GetResourceDescFromTextureDesc</Name>
                           <Path>d6/d36/class_f_d3_d12_texture.html</Path>
                           <Anchor>a71bab57ec5e814552efd074dd96fdcff</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>GetShaderResourceView</Name>
+                          <Path>d6/d36/class_f_d3_d12_texture.html</Path>
+                          <Anchor>a8472209bbbadb29a713d92444466dae8</Anchor>
                          </Node>
                          <Node>
                           <Name>GetSize</Name>
@@ -26916,6 +28060,16 @@
                         <Anchor>aa05665b3cc0abac0b0390387534b5867</Anchor>
                        </Node>
                        <Node>
+                        <Name>TranslateCullMode</Name>
+                        <Path>d9/d88/_d3_d12_util_8h.html</Path>
+                        <Anchor>a0f3bc729480cea982bf54666f0a42cf7</Anchor>
+                       </Node>
+                       <Node>
+                        <Name>TranslateFillMode</Name>
+                        <Path>d9/d88/_d3_d12_util_8h.html</Path>
+                        <Anchor>a5ba4674843b254e3f7df8b024bb43c15</Anchor>
+                       </Node>
+                       <Node>
                         <Name>VerifyD3D12Result</Name>
                         <Path>d9/d88/_d3_d12_util_8h.html</Path>
                         <Anchor>a629c58836a825b77141f59781e2082ad</Anchor>
@@ -26952,7 +28106,7 @@
                          <Node>
                           <Name>GetBindlessHandle</Name>
                           <Path>db/d6f/class_f_d3_d12_view.html</Path>
-                          <Anchor>a732c77b465aa2e77c3c569d7601946d7</Anchor>
+                          <Anchor>a2a0e7b098ae53f287c237d6e4ada3fb6</Anchor>
                          </Node>
                          <Node>
                           <Name>GetCpuHandle</Name>
@@ -31111,6 +32265,71 @@
                       </Subnodes>
                      </Node>
                      <Node>
+                      <Name>FractalRender.cpp</Name>
+                      <Path>db/d83/_fractal_render_8cpp.html</Path>
+                    <Subnodes>
+                       <Node>
+                        <Name>FFractalShaderVS</Name>
+                        <Path>d4/def/class_f_fractal_shader_v_s.html</Path>
+                      <Subnodes>
+                        </Subnodes>
+                       </Node>
+                       <Node>
+                        <Name>FFractalShaderPS</Name>
+                        <Path>da/d21/class_f_fractal_shader_p_s.html</Path>
+                      <Subnodes>
+                        </Subnodes>
+                       </Node>
+                       <Node>
+                        <Name>FFractalParams</Name>
+                        <Path>d4/d85/struct_f_fractal_params.html</Path>
+                      <Subnodes>
+                         <Node>
+                          <Name>Resolution</Name>
+                          <Path>d4/d85/struct_f_fractal_params.html</Path>
+                          <Anchor>aafd13ec0ac757eb2cd573777484f9c24</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>Time</Name>
+                          <Path>d4/d85/struct_f_fractal_params.html</Path>
+                          <Anchor>a491ea733f51294e770147c22a61cc93c</Anchor>
+                         </Node>
+                        </Subnodes>
+                       </Node>
+                       <Node>
+                        <Name>IMPLEMENT_GLOBAL_SHADER</Name>
+                        <Path>db/d83/_fractal_render_8cpp.html</Path>
+                        <Anchor>ab1bac8c4459a98b5b4ec2758f3a40630</Anchor>
+                       </Node>
+                       <Node>
+                        <Name>IMPLEMENT_GLOBAL_SHADER</Name>
+                        <Path>db/d83/_fractal_render_8cpp.html</Path>
+                        <Anchor>ab58a7d23040e956471fe38992508d0b8</Anchor>
+                       </Node>
+                      </Subnodes>
+                     </Node>
+                     <Node>
+                      <Name>GlobalResource.cpp</Name>
+                      <Path>db/d08/_global_resource_8cpp.html</Path>
+                    <Subnodes>
+                       <Node>
+                        <Name>GetInitializingRenderResources</Name>
+                        <Path>db/d08/_global_resource_8cpp.html</Path>
+                        <Anchor>a0c1c9f5f6edc609a259ddaf0cc86c389</Anchor>
+                       </Node>
+                       <Node>
+                        <Name>InitGlobalRenderResources</Name>
+                        <Path>db/d08/_global_resource_8cpp.html</Path>
+                        <Anchor>ab152c5d41f0a3776dffc95d33c9f7c8f</Anchor>
+                       </Node>
+                       <Node>
+                        <Name>InitializeArray</Name>
+                        <Path>db/d08/_global_resource_8cpp.html</Path>
+                        <Anchor>af38581adf3190762480b76d60fb6cc87</Anchor>
+                       </Node>
+                      </Subnodes>
+                     </Node>
+                     <Node>
                       <Name>GlobalShader.cpp</Name>
                       <Path>da/d66/_global_shader_8cpp.html</Path>
                      </Node>
@@ -31141,22 +32360,25 @@
                         <Anchor>a66eda68ef1dc29915ef12da2077a91a8</Anchor>
                        </Node>
                        <Node>
-                        <Name>RenderLight</Name>
+                        <Name>GFilterVertexDeclaration</Name>
                         <Path>d4/db9/_indirect_light_rendering_8cpp.html</Path>
-                        <Anchor>a26355850ae7b3d45a950f2ddb7b3d52b</Anchor>
+                        <Anchor>aa59fa97a418adb24c1c88381c0f01772</Anchor>
+                       </Node>
+                       <Node>
+                        <Name>GRenctangleIndexBuffer</Name>
+                        <Path>d4/db9/_indirect_light_rendering_8cpp.html</Path>
+                        <Anchor>a373165a7f928bf9b0e6898b2407336ac</Anchor>
+                       </Node>
+                       <Node>
+                        <Name>GRenctangleVertexBuffer</Name>
+                        <Path>d4/db9/_indirect_light_rendering_8cpp.html</Path>
+                        <Anchor>ac0630135eb46a4b6a45b640c1bd9762a</Anchor>
                        </Node>
                       </Subnodes>
                      </Node>
                      <Node>
                       <Name>IndirectLightRendering.h</Name>
                       <Path>da/d70/_indirect_light_rendering_8h.html</Path>
-                    <Subnodes>
-                       <Node>
-                        <Name>RenderLight</Name>
-                        <Path>da/d70/_indirect_light_rendering_8h.html</Path>
-                        <Anchor>a26355850ae7b3d45a950f2ddb7b3d52b</Anchor>
-                       </Node>
-                      </Subnodes>
                      </Node>
                      <Node>
                       <Name>RenderGlobals.cpp</Name>
@@ -31321,9 +32543,19 @@
                           <Anchor>a8f72c20a07a2133525fc127fe8fbb1b1</Anchor>
                          </Node>
                          <Node>
+                          <Name>RenderFractal</Name>
+                          <Path>d9/d98/class_f_scene_render.html</Path>
+                          <Anchor>acf888870519cd651f2118b8e789dbc43</Anchor>
+                         </Node>
+                         <Node>
                           <Name>RenderQuad</Name>
                           <Path>d9/d98/class_f_scene_render.html</Path>
                           <Anchor>a3b0c1052d2b6dd82336010fbcdc0b8f9</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>RenderSeaScape</Name>
+                          <Path>d9/d98/class_f_scene_render.html</Path>
+                          <Anchor>a6aa517383c2c061d38383834751ef902</Anchor>
                          </Node>
                          <Node>
                           <Name>Scene</Name>
@@ -31336,6 +32568,50 @@
                           <Anchor>ae5384a639c5dc99892f1933df8b5dfea</Anchor>
                          </Node>
                         </Subnodes>
+                       </Node>
+                      </Subnodes>
+                     </Node>
+                     <Node>
+                      <Name>SeaScape.cpp</Name>
+                      <Path>db/d67/_sea_scape_8cpp.html</Path>
+                    <Subnodes>
+                       <Node>
+                        <Name>FSeaShaderVS</Name>
+                        <Path>d7/d0f/class_f_sea_shader_v_s.html</Path>
+                      <Subnodes>
+                        </Subnodes>
+                       </Node>
+                       <Node>
+                        <Name>FSeaShaderPS</Name>
+                        <Path>da/d06/class_f_sea_shader_p_s.html</Path>
+                      <Subnodes>
+                        </Subnodes>
+                       </Node>
+                       <Node>
+                        <Name>FFractalParams</Name>
+                        <Path>d4/d85/struct_f_fractal_params.html</Path>
+                      <Subnodes>
+                         <Node>
+                          <Name>Resolution</Name>
+                          <Path>d4/d85/struct_f_fractal_params.html</Path>
+                          <Anchor>aafd13ec0ac757eb2cd573777484f9c24</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>Time</Name>
+                          <Path>d4/d85/struct_f_fractal_params.html</Path>
+                          <Anchor>a491ea733f51294e770147c22a61cc93c</Anchor>
+                         </Node>
+                        </Subnodes>
+                       </Node>
+                       <Node>
+                        <Name>IMPLEMENT_GLOBAL_SHADER</Name>
+                        <Path>db/d67/_sea_scape_8cpp.html</Path>
+                        <Anchor>a37dd2b5bcd7a69e631f3825c5ac629e3</Anchor>
+                       </Node>
+                       <Node>
+                        <Name>IMPLEMENT_GLOBAL_SHADER</Name>
+                        <Path>db/d67/_sea_scape_8cpp.html</Path>
+                        <Anchor>a90ec9f4bcbfa208de24530ca84c0028b</Anchor>
                        </Node>
                       </Subnodes>
                      </Node>
@@ -31447,9 +32723,9 @@
                         <Path>db/d89/class_f_filter_vertex_declaration.html</Path>
                       <Subnodes>
                          <Node>
-                          <Name>Init</Name>
+                          <Name>InitRHI</Name>
                           <Path>db/d89/class_f_filter_vertex_declaration.html</Path>
-                          <Anchor>a343e15df62fb71b3af6194a8f78c93d7</Anchor>
+                          <Anchor>a263d4b67343e134f342e8f13ba5018d1</Anchor>
                          </Node>
                          <Node>
                           <Name>VertexDeclaration</Name>
@@ -31463,9 +32739,9 @@
                         <Path>d5/db0/class_f_screen_rectangle_vertex_buffer.html</Path>
                       <Subnodes>
                          <Node>
-                          <Name>Init</Name>
+                          <Name>InitRHI</Name>
                           <Path>d5/db0/class_f_screen_rectangle_vertex_buffer.html</Path>
-                          <Anchor>af801cb25e7746578881518dc3270f6a4</Anchor>
+                          <Anchor>a5acc88004d416594ed43b943f9db1d0b</Anchor>
                          </Node>
                          <Node>
                           <Name>VertexBuffer</Name>
@@ -31479,9 +32755,9 @@
                         <Path>d5/dcd/class_f_screen_rectangle_index_buffer.html</Path>
                       <Subnodes>
                          <Node>
-                          <Name>Init</Name>
+                          <Name>InitRHI</Name>
                           <Path>d5/dcd/class_f_screen_rectangle_index_buffer.html</Path>
-                          <Anchor>ae41dc6d35eecc3941889ac3b46d72560</Anchor>
+                          <Anchor>a70a1ac847fb9409d7b70b49b0cbfe739</Anchor>
                          </Node>
                          <Node>
                           <Name>IndexBuffer</Name>
@@ -31489,6 +32765,78 @@
                           <Anchor>a761fe45c4c13eb4b5ee0bba3de675d9e</Anchor>
                          </Node>
                         </Subnodes>
+                       </Node>
+                       <Node>
+                        <Name>GFilterVertexDeclaration</Name>
+                        <Path>d5/d16/_common_render_resources_8h.html</Path>
+                        <Anchor>aa59fa97a418adb24c1c88381c0f01772</Anchor>
+                       </Node>
+                       <Node>
+                        <Name>GRenctangleIndexBuffer</Name>
+                        <Path>d5/d16/_common_render_resources_8h.html</Path>
+                        <Anchor>a373165a7f928bf9b0e6898b2407336ac</Anchor>
+                       </Node>
+                       <Node>
+                        <Name>GRenctangleVertexBuffer</Name>
+                        <Path>d5/d16/_common_render_resources_8h.html</Path>
+                        <Anchor>ac0630135eb46a4b6a45b640c1bd9762a</Anchor>
+                       </Node>
+                      </Subnodes>
+                     </Node>
+                     <Node>
+                      <Name>GlobalResource.h</Name>
+                      <Path>d6/d1f/_global_resource_8h.html</Path>
+                    <Subnodes>
+                       <Node>
+                        <Name>TGlobalRenderResource&lt; T &gt;</Name>
+                        <Path>d8/d58/class_t_global_render_resource.html</Path>
+                      <Subnodes>
+                         <Node>
+                          <Name>TGlobalRenderResource</Name>
+                          <Path>d8/d58/class_t_global_render_resource.html</Path>
+                          <Anchor>a13c9464f9110683e0e8aca7ab21a8315</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>~TGlobalRenderResource</Name>
+                          <Path>d8/d58/class_t_global_render_resource.html</Path>
+                          <Anchor>a4f070ba2e3e67b8e8d0a924a59b5914f</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>GetInitArray</Name>
+                          <Path>d8/d58/class_t_global_render_resource.html</Path>
+                          <Anchor>ad55986117a04c1f7d8f0ea499fe0e7c1</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>GetResource</Name>
+                          <Path>d8/d58/class_t_global_render_resource.html</Path>
+                          <Anchor>a145a4c1541c23fceab212fd67cb44c13</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>IsValid</Name>
+                          <Path>d8/d58/class_t_global_render_resource.html</Path>
+                          <Anchor>a3bce3a7b58786c4d2de7b3c17a9445f5</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>operator*</Name>
+                          <Path>d8/d58/class_t_global_render_resource.html</Path>
+                          <Anchor>a8fbc28d0349d02b17e886e00f674b5c7</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>operator-&gt;</Name>
+                          <Path>d8/d58/class_t_global_render_resource.html</Path>
+                          <Anchor>a9574cdcc32c9d17783e4f2d89b9ea7da</Anchor>
+                         </Node>
+                        </Subnodes>
+                       </Node>
+                       <Node>
+                        <Name>GetInitializingRenderResources</Name>
+                        <Path>d6/d1f/_global_resource_8h.html</Path>
+                        <Anchor>a0c1c9f5f6edc609a259ddaf0cc86c389</Anchor>
+                       </Node>
+                       <Node>
+                        <Name>InitGlobalRenderResources</Name>
+                        <Path>d6/d1f/_global_resource_8h.html</Path>
+                        <Anchor>ab152c5d41f0a3776dffc95d33c9f7c8f</Anchor>
                        </Node>
                       </Subnodes>
                      </Node>
@@ -31664,19 +33012,14 @@
                         <Path>d3/d1d/class_f_render_resource.html</Path>
                       <Subnodes>
                          <Node>
-                          <Name>CreateRHIBuffer</Name>
-                          <Path>d3/d1d/class_f_render_resource.html</Path>
-                          <Anchor>a48ad21f6b121dfc49ee5618792bfb18a</Anchor>
-                         </Node>
-                         <Node>
                           <Name>InitResource</Name>
                           <Path>d3/d1d/class_f_render_resource.html</Path>
-                          <Anchor>ab4ff6575fd0a7ac3a3569e01970f39e1</Anchor>
+                          <Anchor>a441921e1b26dc1244c2e633b2f2634fe</Anchor>
                          </Node>
                          <Node>
                           <Name>InitRHI</Name>
                           <Path>d3/d1d/class_f_render_resource.html</Path>
-                          <Anchor>a4afb82c1ee639defd1884c4457e623c3</Anchor>
+                          <Anchor>a8fc15acd85dc1a4b9e318218d1c67efc</Anchor>
                          </Node>
                          <Node>
                           <Name>ReleaseRHI</Name>
@@ -32521,9 +33864,19 @@
                           <Anchor>a53d0ed0d31f17f76afa082d2ea9f4f4b</Anchor>
                          </Node>
                          <Node>
+                          <Name>RHICreateRasterizerState</Name>
+                          <Path>de/d38/class_f_dynamic_r_h_i.html</Path>
+                          <Anchor>a5cb35963ad6e49192091556074aa7c59</Anchor>
+                         </Node>
+                         <Node>
                           <Name>RHICreateTexture</Name>
                           <Path>de/d38/class_f_dynamic_r_h_i.html</Path>
                           <Anchor>a6441be808da157cf46d617bb998272a1</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>RHICreateUniformBuffer</Name>
+                          <Path>de/d38/class_f_dynamic_r_h_i.html</Path>
+                          <Anchor>a00495758d56da1761d91f843bfda3ea6</Anchor>
                          </Node>
                          <Node>
                           <Name>RHICreateVertexDeclaration</Name>
@@ -32576,6 +33929,11 @@
                           <Anchor>a94741c19da2ffb044dcfb5611f9d7e87</Anchor>
                          </Node>
                          <Node>
+                          <Name>RHIUpdateUniformBuffer</Name>
+                          <Path>de/d38/class_f_dynamic_r_h_i.html</Path>
+                          <Anchor>a3da5ee99b27e2866e613e804ca189321</Anchor>
+                         </Node>
+                         <Node>
                           <Name>Shutdown</Name>
                           <Path>de/d38/class_f_dynamic_r_h_i.html</Path>
                           <Anchor>a09975cc271feb70604c7a04ec7e8d34d</Anchor>
@@ -32624,9 +33982,19 @@
                         <Anchor>a756d5c579d92e465b0fe00d857a29998</Anchor>
                        </Node>
                        <Node>
+                        <Name>RHICreateRasterizerState</Name>
+                        <Path>d8/db0/_dynamic_r_h_i_8h.html</Path>
+                        <Anchor>a2539f19aaf4b8b466c5e4917e168a628</Anchor>
+                       </Node>
+                       <Node>
                         <Name>RHICreateTexture</Name>
                         <Path>d8/db0/_dynamic_r_h_i_8h.html</Path>
                         <Anchor>a97675cc79124d5cfb88070b186caabe2</Anchor>
+                       </Node>
+                       <Node>
+                        <Name>RHICreateUniformBuffer</Name>
+                        <Path>d8/db0/_dynamic_r_h_i_8h.html</Path>
+                        <Anchor>a7f419d09ffe4241adaed158f4b581968</Anchor>
                        </Node>
                        <Node>
                         <Name>RHICreateVertexDeclaration</Name>
@@ -32662,6 +34030,11 @@
                         <Name>RHIUnlockTexture2D</Name>
                         <Path>d8/db0/_dynamic_r_h_i_8h.html</Path>
                         <Anchor>ac3a4172ed3b1066dcd454f51e53244b4</Anchor>
+                       </Node>
+                       <Node>
+                        <Name>RHIUpdateUniformBuffer</Name>
+                        <Path>d8/db0/_dynamic_r_h_i_8h.html</Path>
+                        <Anchor>a1fe76f1d9aab0c5589e5526976b6c8db</Anchor>
                        </Node>
                        <Node>
                         <Name>GDynamicRHI</Name>
@@ -32945,6 +34318,16 @@
                           <Anchor>acaea61b77d043d0b9dfeebdb8312f93c</Anchor>
                          </Node>
                          <Node>
+                          <Name>SetRenderTargets</Name>
+                          <Path>d3/d7d/class_f_r_h_i_command_list_immediate.html</Path>
+                          <Anchor>ae266542bf42356df87dc133b9ff8851b</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>SetShaderParameters</Name>
+                          <Path>d3/d7d/class_f_r_h_i_command_list_immediate.html</Path>
+                          <Anchor>a48dab530df7b9117e907e988fa5a3c2a</Anchor>
+                         </Node>
+                         <Node>
                           <Name>FRHICommandListExecutor</Name>
                           <Path>d3/d7d/class_f_r_h_i_command_list_immediate.html</Path>
                           <Anchor>ad7bbd4a69812463cf41e01e634f7db21</Anchor>
@@ -33079,6 +34462,11 @@
                           <Anchor>a061c664135960a65e5621f825c60f1a3</Anchor>
                          </Node>
                          <Node>
+                          <Name>RHISetShaderParameters</Name>
+                          <Path>d8/d41/class_i_r_h_i_command_context.html</Path>
+                          <Anchor>a92e5f9edd22895ef70874bba33a0986e</Anchor>
+                         </Node>
+                         <Node>
                           <Name>RHISetShaderSampler</Name>
                           <Path>d8/d41/class_i_r_h_i_command_context.html</Path>
                           <Anchor>af864f58a8b6e84873ee53bdf5bb41c9f</Anchor>
@@ -33097,6 +34485,11 @@
                           <Name>RHISetViewport</Name>
                           <Path>d8/d41/class_i_r_h_i_command_context.html</Path>
                           <Anchor>aa0b576b0c387de3588a9137555593c74</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>SetRenderTargets</Name>
+                          <Path>d8/d41/class_i_r_h_i_command_context.html</Path>
+                          <Anchor>abe2194fead74407f7fe7c251c1132445</Anchor>
                          </Node>
                         </Subnodes>
                        </Node>
@@ -33138,6 +34531,120 @@
                         </Subnodes>
                        </Node>
                        <Node>
+                        <Name>FRasterizerStateInitializer</Name>
+                        <Path>dc/df1/struct_f_rasterizer_state_initializer.html</Path>
+                      <Subnodes>
+                         <Node>
+                          <Name>FRasterizerStateInitializer</Name>
+                          <Path>dc/df1/struct_f_rasterizer_state_initializer.html</Path>
+                          <Anchor>a1559a7ba00ea5bc9908aa1fc5dce545e</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>FRasterizerStateInitializer</Name>
+                          <Path>dc/df1/struct_f_rasterizer_state_initializer.html</Path>
+                          <Anchor>a962e20baf2d3d70e385e9e4762240edf</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>bAllowMSAA</Name>
+                          <Path>dc/df1/struct_f_rasterizer_state_initializer.html</Path>
+                          <Anchor>a6e9a430cd5cfc23c47a4e221534c36e8</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>bEnableLineAA</Name>
+                          <Path>dc/df1/struct_f_rasterizer_state_initializer.html</Path>
+                          <Anchor>a2cbf2529bf4479291e675c1ad7cee7de</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>CullMode</Name>
+                          <Path>dc/df1/struct_f_rasterizer_state_initializer.html</Path>
+                          <Anchor>a84f2bdc0ff4b405b1bde4940fb4583fa</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>DepthBias</Name>
+                          <Path>dc/df1/struct_f_rasterizer_state_initializer.html</Path>
+                          <Anchor>a19a585ea921492b081391e43269e0809</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>DepthClipMode</Name>
+                          <Path>dc/df1/struct_f_rasterizer_state_initializer.html</Path>
+                          <Anchor>a4a399415f7b0c35567b89f03426417a3</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>FillMode</Name>
+                          <Path>dc/df1/struct_f_rasterizer_state_initializer.html</Path>
+                          <Anchor>a3470aef86e8085fcda6e37c270f70074</Anchor>
+                         </Node>
+                        </Subnodes>
+                       </Node>
+                       <Node>
+                        <Name>FDepthStencilStateInitializer</Name>
+                        <Path>d0/d65/struct_f_depth_stencil_state_initializer.html</Path>
+                      <Subnodes>
+                         <Node>
+                          <Name>bEnable</Name>
+                          <Path>d0/d65/struct_f_depth_stencil_state_initializer.html</Path>
+                          <Anchor>aabb5752ab1c1e87f1d8973c32cac25b4</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>Func</Name>
+                          <Path>d0/d65/struct_f_depth_stencil_state_initializer.html</Path>
+                          <Anchor>ae9f85e18c8235bc2ee2966fa7465b396</Anchor>
+                         </Node>
+                        </Subnodes>
+                       </Node>
+                       <Node>
+                        <Name>EDepthFunc</Name>
+                        <Path>de/df7/_r_h_i_defines_8h.html</Path>
+                        <Anchor>a5ed07c557df6373ed4d4b22ff061d633</Anchor>
+                      <Subnodes>
+                         <Node>
+                          <Name>DF_Never</Name>
+                          <Path>de/df7/_r_h_i_defines_8h.html</Path>
+                          <Anchor>a5ed07c557df6373ed4d4b22ff061d633a4b8456d4a898783d2c72ece64ff3e0c8</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>DF_Less</Name>
+                          <Path>de/df7/_r_h_i_defines_8h.html</Path>
+                          <Anchor>a5ed07c557df6373ed4d4b22ff061d633a456c7a4bf7db2dbe524427511bd9b02b</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>DF_Equal</Name>
+                          <Path>de/df7/_r_h_i_defines_8h.html</Path>
+                          <Anchor>a5ed07c557df6373ed4d4b22ff061d633a9ef7c6bc2d1404fc38d0b36cb4abeea8</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>DF_LessOrEqual</Name>
+                          <Path>de/df7/_r_h_i_defines_8h.html</Path>
+                          <Anchor>a5ed07c557df6373ed4d4b22ff061d633affefc0b9c94dbc2926de09708180211b</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>DF_Greater</Name>
+                          <Path>de/df7/_r_h_i_defines_8h.html</Path>
+                          <Anchor>a5ed07c557df6373ed4d4b22ff061d633a849673b7562bad61e254f318e9d2fe44</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>DF_NotEqual</Name>
+                          <Path>de/df7/_r_h_i_defines_8h.html</Path>
+                          <Anchor>a5ed07c557df6373ed4d4b22ff061d633af57f3f876a885104b8340ee46b010732</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>DF_GreaterOrEqual</Name>
+                          <Path>de/df7/_r_h_i_defines_8h.html</Path>
+                          <Anchor>a5ed07c557df6373ed4d4b22ff061d633a4a103ebc7d52ed488a82704ae83c5d46</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>DF_Always</Name>
+                          <Path>de/df7/_r_h_i_defines_8h.html</Path>
+                          <Anchor>a5ed07c557df6373ed4d4b22ff061d633aea8c638e95c9a75fba850d84c9e50fc7</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>EDepthFunc_Num</Name>
+                          <Path>de/df7/_r_h_i_defines_8h.html</Path>
+                          <Anchor>a5ed07c557df6373ed4d4b22ff061d633ac7011b4f711f730e603679d54e89c8f4</Anchor>
+                         </Node>
+                        </Subnodes>
+                       </Node>
+                       <Node>
                         <Name>EPrimitiveType</Name>
                         <Path>de/df7/_r_h_i_defines_8h.html</Path>
                         <Anchor>af5bd84af81d7da8da271f976754778e0</Anchor>
@@ -33171,6 +34678,77 @@
                           <Name>PT_Num</Name>
                           <Path>de/df7/_r_h_i_defines_8h.html</Path>
                           <Anchor>af5bd84af81d7da8da271f976754778e0a6355c64e2ba8877af2780b70fe1354c7</Anchor>
+                         </Node>
+                        </Subnodes>
+                       </Node>
+                       <Node>
+                        <Name>ERasterizerCullMode</Name>
+                        <Path>de/df7/_r_h_i_defines_8h.html</Path>
+                        <Anchor>a6cd66fd4d6635d02bc14021437da69df</Anchor>
+                      <Subnodes>
+                         <Node>
+                          <Name>RCM_None</Name>
+                          <Path>de/df7/_r_h_i_defines_8h.html</Path>
+                          <Anchor>a6cd66fd4d6635d02bc14021437da69dfa271a10c418f6b658888cb520121da9e6</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>RCM_Back</Name>
+                          <Path>de/df7/_r_h_i_defines_8h.html</Path>
+                          <Anchor>a6cd66fd4d6635d02bc14021437da69dfadb4db5364d5983680c9570fba17401d8</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>RCM_Forward</Name>
+                          <Path>de/df7/_r_h_i_defines_8h.html</Path>
+                          <Anchor>a6cd66fd4d6635d02bc14021437da69dfabcb588eea5fe17d6ce163c1064a111d3</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>ERasterizerCullMode_Num</Name>
+                          <Path>de/df7/_r_h_i_defines_8h.html</Path>
+                          <Anchor>a6cd66fd4d6635d02bc14021437da69dfa0848960368234ddea8cc41fa3d193381</Anchor>
+                         </Node>
+                        </Subnodes>
+                       </Node>
+                       <Node>
+                        <Name>ERasterizerDepthClipMode</Name>
+                        <Path>de/df7/_r_h_i_defines_8h.html</Path>
+                        <Anchor>af0d493b8bbf232691b130e325d8d99c7</Anchor>
+                      <Subnodes>
+                         <Node>
+                          <Name>RDCM_DepthClip</Name>
+                          <Path>de/df7/_r_h_i_defines_8h.html</Path>
+                          <Anchor>af0d493b8bbf232691b130e325d8d99c7a5de17f57c05a3020a53ed5ac5b6bd6c7</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>RDCM_DepthClamp</Name>
+                          <Path>de/df7/_r_h_i_defines_8h.html</Path>
+                          <Anchor>af0d493b8bbf232691b130e325d8d99c7a9d10a533aaf9dcbb376642dabf8c4579</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>ERasterizerDepthClipMode_Num</Name>
+                          <Path>de/df7/_r_h_i_defines_8h.html</Path>
+                          <Anchor>af0d493b8bbf232691b130e325d8d99c7aa8a04f3b949d4064ad7b90ff1bb7fd4a</Anchor>
+                         </Node>
+                        </Subnodes>
+                       </Node>
+                       <Node>
+                        <Name>ERasterizerFillMode</Name>
+                        <Path>de/df7/_r_h_i_defines_8h.html</Path>
+                        <Anchor>af413b380a05199bf583ef1763e38391a</Anchor>
+                      <Subnodes>
+                         <Node>
+                          <Name>RFM_Solid</Name>
+                          <Path>de/df7/_r_h_i_defines_8h.html</Path>
+                          <Anchor>af413b380a05199bf583ef1763e38391aa055bf204f5b385717ed0f080754be084</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>RFM_Wireframe</Name>
+                          <Path>de/df7/_r_h_i_defines_8h.html</Path>
+                          <Anchor>af413b380a05199bf583ef1763e38391aa20ba26a61b72923e3a407e6b16150a3f</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>ERasterizerFillMode_Num</Name>
+                          <Path>de/df7/_r_h_i_defines_8h.html</Path>
+                          <Anchor>af413b380a05199bf583ef1763e38391aa4fd65633f914339664b0429281b4a6e3</Anchor>
                          </Node>
                         </Subnodes>
                        </Node>
@@ -33409,6 +34987,21 @@
                           <Path>de/df7/_r_h_i_defines_8h.html</Path>
                           <Anchor>ac956879f51692c0e19acc90d06b8405dae0226696d71f7f855298d551de320d59</Anchor>
                          </Node>
+                         <Node>
+                          <Name>RRT_RasterizerState</Name>
+                          <Path>de/df7/_r_h_i_defines_8h.html</Path>
+                          <Anchor>ac956879f51692c0e19acc90d06b8405da972680fa9ce0cce93b0b34e5bfa2ff45</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>RRT_DepthStencilState</Name>
+                          <Path>de/df7/_r_h_i_defines_8h.html</Path>
+                          <Anchor>ac956879f51692c0e19acc90d06b8405da494834eee7090379b911008578ac49b3</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>RRT_UniformBuffer</Name>
+                          <Path>de/df7/_r_h_i_defines_8h.html</Path>
+                          <Anchor>ac956879f51692c0e19acc90d06b8405da91cc1fbd30b01ef597369bf9b9a5380f</Anchor>
+                         </Node>
                         </Subnodes>
                        </Node>
                        <Node>
@@ -33460,6 +35053,11 @@
                           <Name>ST_RayCallable</Name>
                           <Path>de/df7/_r_h_i_defines_8h.html</Path>
                           <Anchor>a89725d5f41ceac2e574ddc988f06775ea79db9a16aa1a909a0d6e6e180d546b24</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>ST_NumTypes</Name>
+                          <Path>de/df7/_r_h_i_defines_8h.html</Path>
+                          <Anchor>a89725d5f41ceac2e574ddc988f06775ea0b4c48c40017cfe6d46ba6148631ad2b</Anchor>
                          </Node>
                          <Node>
                           <Name>ST_NumStandartTypes</Name>
@@ -33549,6 +35147,28 @@
                           <Name>TextureCubeArray</Name>
                           <Path>de/df7/_r_h_i_defines_8h.html</Path>
                           <Anchor>a88766b590f50d1be1f95dd3e944e5901ab134787bfc1bdfe2d470e04468c1aa72</Anchor>
+                         </Node>
+                        </Subnodes>
+                       </Node>
+                       <Node>
+                        <Name>EUniformBufferUsage</Name>
+                        <Path>de/df7/_r_h_i_defines_8h.html</Path>
+                        <Anchor>a44efee7815674a346059a25f9b3c2085</Anchor>
+                      <Subnodes>
+                         <Node>
+                          <Name>UniformBuffer_SingleDraw</Name>
+                          <Path>de/df7/_r_h_i_defines_8h.html</Path>
+                          <Anchor>a44efee7815674a346059a25f9b3c2085a7c39490990586f7f06f54ad441765bef</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>UniformBuffer_SingleFrame</Name>
+                          <Path>de/df7/_r_h_i_defines_8h.html</Path>
+                          <Anchor>a44efee7815674a346059a25f9b3c2085a9c65b87282dc12ebb64e932079673d99</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>UniformBuffer_MultiFrame</Name>
+                          <Path>de/df7/_r_h_i_defines_8h.html</Path>
+                          <Anchor>a44efee7815674a346059a25f9b3c2085a1b1994c530bb2d846c2d90698db2bd1a</Anchor>
                          </Node>
                         </Subnodes>
                        </Node>
@@ -34284,9 +35904,57 @@
                         </Subnodes>
                        </Node>
                        <Node>
+                        <Name>FRHIRasterizerState</Name>
+                        <Path>d3/dcd/class_f_r_h_i_rasterizer_state.html</Path>
+                      <Subnodes>
+                         <Node>
+                          <Name>FRHIRasterizerState</Name>
+                          <Path>d3/dcd/class_f_r_h_i_rasterizer_state.html</Path>
+                          <Anchor>ae3863050c63764395023cc132aabcb9d</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>Initializer</Name>
+                          <Path>d3/dcd/class_f_r_h_i_rasterizer_state.html</Path>
+                          <Anchor>aedcac073f5f20ee9a60339601779470d</Anchor>
+                         </Node>
+                        </Subnodes>
+                       </Node>
+                       <Node>
+                        <Name>FRHIDepthStencilState</Name>
+                        <Path>d9/db1/class_f_r_h_i_depth_stencil_state.html</Path>
+                      <Subnodes>
+                         <Node>
+                          <Name>FRHIDepthStencilState</Name>
+                          <Path>d9/db1/class_f_r_h_i_depth_stencil_state.html</Path>
+                          <Anchor>a304eac9a31032f5e5984faa7a9a7eb5e</Anchor>
+                         </Node>
+                        </Subnodes>
+                       </Node>
+                       <Node>
                         <Name>FRHISamplerState</Name>
                         <Path>d3/d38/class_f_r_h_i_sampler_state.html</Path>
                       <Subnodes>
+                         <Node>
+                          <Name>FRHISamplerState</Name>
+                          <Path>d3/d38/class_f_r_h_i_sampler_state.html</Path>
+                          <Anchor>a372deb617d93f3f3af368532fff2354d</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>GetBindlessHandle</Name>
+                          <Path>d3/d38/class_f_r_h_i_sampler_state.html</Path>
+                          <Anchor>afa7f861825ab7c0280c9abaa34b2f318</Anchor>
+                         </Node>
+                        </Subnodes>
+                       </Node>
+                       <Node>
+                        <Name>FRHIUniformBuffer</Name>
+                        <Path>da/df0/class_f_r_h_i_uniform_buffer.html</Path>
+                      <Subnodes>
+                         <Node>
+                          <Name>FRHIUniformBuffer</Name>
+                          <Path>da/df0/class_f_r_h_i_uniform_buffer.html</Path>
+                          <Anchor>aa62bc0e12e31998f2e95d69b10bbf2a2</Anchor>
+                         </Node>
                         </Subnodes>
                        </Node>
                        <Node>
@@ -34297,6 +35965,11 @@
                           <Name>FRHIRenderTargetView</Name>
                           <Path>db/d0c/class_f_r_h_i_render_target_view.html</Path>
                           <Anchor>a79eba45d1404222e6c43dc0cd28cf8ee</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>FRHIRenderTargetView</Name>
+                          <Path>db/d0c/class_f_r_h_i_render_target_view.html</Path>
+                          <Anchor>a57fbea3b9c03a95fefa0da3528470e0d</Anchor>
                          </Node>
                          <Node>
                           <Name>ArraySlice</Name>
@@ -34528,6 +36201,11 @@
                           <Anchor>aedea784d5646076533504d06c3a5f211</Anchor>
                          </Node>
                          <Node>
+                          <Name>RasterizerState</Name>
+                          <Path>d2/d2e/class_f_graphics_pipeline_state_initializer.html</Path>
+                          <Anchor>ac51e4484788f1687ba0247ec8835b07f</Anchor>
+                         </Node>
+                         <Node>
                           <Name>RenderTargetFormats</Name>
                           <Path>d2/d2e/class_f_graphics_pipeline_state_initializer.html</Path>
                           <Anchor>a728f03f0a7b302bd1b1fb08a0ded404c</Anchor>
@@ -34560,6 +36238,117 @@
                         <Name>FVertexDeclarationElementList</Name>
                         <Path>db/dec/_r_h_i_resources_8h.html</Path>
                         <Anchor>aa77d5af5631a2f543ab68862f67d6f93</Anchor>
+                       </Node>
+                      </Subnodes>
+                     </Node>
+                     <Node>
+                      <Name>RHIShaderParameters.h</Name>
+                      <Path>de/d30/_r_h_i_shader_parameters_8h.html</Path>
+                    <Subnodes>
+                       <Node>
+                        <Name>FRHIShaderParameter</Name>
+                        <Path>d2/d8e/struct_f_r_h_i_shader_parameter.html</Path>
+                      <Subnodes>
+                         <Node>
+                          <Name>BaseIndex</Name>
+                          <Path>d2/d8e/struct_f_r_h_i_shader_parameter.html</Path>
+                          <Anchor>aea268fda39b65a91ad57e5561ea72c3b</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>BufferIndex</Name>
+                          <Path>d2/d8e/struct_f_r_h_i_shader_parameter.html</Path>
+                          <Anchor>a79071694015285fe1e1f53f9890eeb37</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>ByteOffset</Name>
+                          <Path>d2/d8e/struct_f_r_h_i_shader_parameter.html</Path>
+                          <Anchor>a66cab6ea77039c26951f7307762d0380</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>ByteSize</Name>
+                          <Path>d2/d8e/struct_f_r_h_i_shader_parameter.html</Path>
+                          <Anchor>ac53803d30d76dfcd1f45e8451b0ed401</Anchor>
+                         </Node>
+                        </Subnodes>
+                       </Node>
+                       <Node>
+                        <Name>FRHIShaderParameterResource</Name>
+                        <Path>dd/dbe/struct_f_r_h_i_shader_parameter_resource.html</Path>
+                      <Subnodes>
+                         <Node>
+                          <Name>EType</Name>
+                          <Path>dd/dbe/struct_f_r_h_i_shader_parameter_resource.html</Path>
+                          <Anchor>a358b1fed8b255eebd09484ce8071b4a0</Anchor>
+                        <Subnodes>
+                           <Node>
+                            <Name>Texture</Name>
+                            <Path>dd/dbe/struct_f_r_h_i_shader_parameter_resource.html</Path>
+                            <Anchor>a358b1fed8b255eebd09484ce8071b4a0aa3e8ae43188ae76d38f414b2bdb0077b</Anchor>
+                           </Node>
+                           <Node>
+                            <Name>ResourceView</Name>
+                            <Path>dd/dbe/struct_f_r_h_i_shader_parameter_resource.html</Path>
+                            <Anchor>a358b1fed8b255eebd09484ce8071b4a0a96b24e5aea0cfbcee3016cf70b5c898f</Anchor>
+                           </Node>
+                           <Node>
+                            <Name>UAV</Name>
+                            <Path>dd/dbe/struct_f_r_h_i_shader_parameter_resource.html</Path>
+                            <Anchor>a358b1fed8b255eebd09484ce8071b4a0a6902d76cea698982754404da77e5e08a</Anchor>
+                           </Node>
+                           <Node>
+                            <Name>Sampler</Name>
+                            <Path>dd/dbe/struct_f_r_h_i_shader_parameter_resource.html</Path>
+                            <Anchor>a358b1fed8b255eebd09484ce8071b4a0a5bca2f066df1fe641b2b779db2a63c0a</Anchor>
+                           </Node>
+                           <Node>
+                            <Name>UniformBuffer</Name>
+                            <Path>dd/dbe/struct_f_r_h_i_shader_parameter_resource.html</Path>
+                            <Anchor>a358b1fed8b255eebd09484ce8071b4a0a88f133adfed6c854e5731cdffbf208cf</Anchor>
+                           </Node>
+                          </Subnodes>
+                         </Node>
+                         <Node>
+                          <Name>Index</Name>
+                          <Path>dd/dbe/struct_f_r_h_i_shader_parameter_resource.html</Path>
+                          <Anchor>a3ac74ef9fbac9944a1e7fae6b0478d02</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>Resource</Name>
+                          <Path>dd/dbe/struct_f_r_h_i_shader_parameter_resource.html</Path>
+                          <Anchor>a66c56c9a119ec5007cfc2c5984069bfb</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>Type</Name>
+                          <Path>dd/dbe/struct_f_r_h_i_shader_parameter_resource.html</Path>
+                          <Anchor>ac8f10aa31f8a592d39ed48a523b7527f</Anchor>
+                         </Node>
+                        </Subnodes>
+                       </Node>
+                       <Node>
+                        <Name>FRHIBatchedShaderParameters</Name>
+                        <Path>d2/d7e/struct_f_r_h_i_batched_shader_parameters.html</Path>
+                      <Subnodes>
+                         <Node>
+                          <Name>BindlessParameters</Name>
+                          <Path>d2/d7e/struct_f_r_h_i_batched_shader_parameters.html</Path>
+                          <Anchor>a314ea0bc5e0c31e17ceed324f54535ed</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>Parameters</Name>
+                          <Path>d2/d7e/struct_f_r_h_i_batched_shader_parameters.html</Path>
+                          <Anchor>a741a1f174019e1a7912d6fb82f5b9d08</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>ParametersData</Name>
+                          <Path>d2/d7e/struct_f_r_h_i_batched_shader_parameters.html</Path>
+                          <Anchor>a7db839b41e8ff35cc36027024667113f</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>ResourceParameters</Name>
+                          <Path>d2/d7e/struct_f_r_h_i_batched_shader_parameters.html</Path>
+                          <Anchor>a749826411d633f26187cb29b11a10e5b</Anchor>
+                         </Node>
+                        </Subnodes>
                        </Node>
                       </Subnodes>
                      </Node>
@@ -34941,6 +36730,11 @@
                             <Name>OnSizeChanged</Name>
                             <Path>d8/d0e/class_u_i_application.html</Path>
                             <Anchor>a1fa43803f539079cb74eb759fd67a323</Anchor>
+                           </Node>
+                           <Node>
+                            <Name>OnWindowDraw</Name>
+                            <Path>d8/d0e/class_u_i_application.html</Path>
+                            <Anchor>ada15bd06e9e4d358b5a2b2e7f347bd24</Anchor>
                            </Node>
                            <Node>
                             <Name>RegisterGameViewport</Name>
@@ -36161,8 +37955,135 @@
                     <Path>dir_4a11ffa798cb1740fe58613dc54f0db6.html</Path>
                   <Subnodes>
                      <Node>
+                      <Name>Windows</Name>
+                      <Path>dir_42e397e8249770deee9ff1c435fe4697.html</Path>
+                    <Subnodes>
+                       <Node>
+                        <Name>WindowsVulkanLoader.h</Name>
+                        <Path>d1/dec/_windows_vulkan_loader_8h.html</Path>
+                      <Subnodes>
+                         <Node>
+                          <Name>FWindowsVulkanLoader</Name>
+                          <Path>da/d32/class_f_windows_vulkan_loader.html</Path>
+                        <Subnodes>
+                           <Node>
+                            <Name>LoadVulkanFunctions</Name>
+                            <Path>da/d32/class_f_windows_vulkan_loader.html</Path>
+                            <Anchor>a69d7c97127aab038843c78c283e33829</Anchor>
+                           </Node>
+                          </Subnodes>
+                         </Node>
+                        </Subnodes>
+                       </Node>
+                      </Subnodes>
+                     </Node>
+                     <Node>
+                      <Name>VulkanCommon.h</Name>
+                      <Path>db/d59/_vulkan_common_8h.html</Path>
+                    <Subnodes>
+                       <Node>
+                        <Name>DECLARE_LOG_CATEGORY</Name>
+                        <Path>db/d59/_vulkan_common_8h.html</Path>
+                        <Anchor>a9017cf80c5e1fb7f114f1442704711bb</Anchor>
+                       </Node>
+                      </Subnodes>
+                     </Node>
+                     <Node>
                       <Name>VulkanDynamicRHI.cpp</Name>
                       <Path>d6/da1/_vulkan_dynamic_r_h_i_8cpp.html</Path>
+                    <Subnodes>
+                       <Node>
+                        <Name>VkCall</Name>
+                        <Path>d6/da1/_vulkan_dynamic_r_h_i_8cpp.html</Path>
+                        <Anchor>ab7bb2e844567c5074317d9d50c2f6270</Anchor>
+                       </Node>
+                       <Node>
+                        <Name>GVulkanLoader</Name>
+                        <Path>d6/da1/_vulkan_dynamic_r_h_i_8cpp.html</Path>
+                        <Anchor>ab1bd0e63210c54ae91c9e13d97be6461</Anchor>
+                       </Node>
+                      </Subnodes>
+                     </Node>
+                     <Node>
+                      <Name>VulkanInterfaces.cpp</Name>
+                      <Path>d1/da6/_vulkan_interfaces_8cpp.html</Path>
+                    <Subnodes>
+                       <Node>
+                        <Name>vkCreateInstance</Name>
+                        <Path>d1/da6/_vulkan_interfaces_8cpp.html</Path>
+                        <Anchor>ad2ccbf9b5f293c7e9437164040fefc23</Anchor>
+                       </Node>
+                       <Node>
+                        <Name>vkGetDeviceProcAddr</Name>
+                        <Path>d1/da6/_vulkan_interfaces_8cpp.html</Path>
+                        <Anchor>af4e4bdc56e4e32580c8b854619d0c8e4</Anchor>
+                       </Node>
+                       <Node>
+                        <Name>vkGetInstanceProcAddr</Name>
+                        <Path>d1/da6/_vulkan_interfaces_8cpp.html</Path>
+                        <Anchor>a7e495ef484a9794eac8a1bebb52287e4</Anchor>
+                       </Node>
+                      </Subnodes>
+                     </Node>
+                     <Node>
+                      <Name>VulkanInterfaces.h</Name>
+                      <Path>d3/d65/_vulkan_interfaces_8h.html</Path>
+                    <Subnodes>
+                       <Node>
+                        <Name>IVulkanLoader</Name>
+                        <Path>d7/d24/class_i_vulkan_loader.html</Path>
+                      <Subnodes>
+                         <Node>
+                          <Name>LoadVulkanFunctions</Name>
+                          <Path>d7/d24/class_i_vulkan_loader.html</Path>
+                          <Anchor>abaea3549451d014eab04137640513c99</Anchor>
+                         </Node>
+                        </Subnodes>
+                       </Node>
+                      </Subnodes>
+                     </Node>
+                     <Node>
+                      <Name>VulkanPrivateDynamicRHI.h</Name>
+                      <Path>d5/d4f/_vulkan_private_dynamic_r_h_i_8h.html</Path>
+                    <Subnodes>
+                       <Node>
+                        <Name>FVulkanDynamicRHI</Name>
+                        <Path>d9/d5a/class_f_vulkan_dynamic_r_h_i.html</Path>
+                      <Subnodes>
+                         <Node>
+                          <Name>FVulkanDynamicRHI</Name>
+                          <Path>d9/d5a/class_f_vulkan_dynamic_r_h_i.html</Path>
+                          <Anchor>ad3755fcece0abbd31a1e3d98f3dc8fda</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>Init</Name>
+                          <Path>d9/d5a/class_f_vulkan_dynamic_r_h_i.html</Path>
+                          <Anchor>a3e2c29708ecde48e337ba58d81fad4be</Anchor>
+                         </Node>
+                        </Subnodes>
+                       </Node>
+                      </Subnodes>
+                     </Node>
+                     <Node>
+                      <Name>VulkanUtil.h</Name>
+                      <Path>dd/d0a/_vulkan_util_8h.html</Path>
+                    <Subnodes>
+                       <Node>
+                        <Name>VkCall</Name>
+                        <Path>dd/d0a/_vulkan_util_8h.html</Path>
+                        <Anchor>ab7bb2e844567c5074317d9d50c2f6270</Anchor>
+                       </Node>
+                       <Node>
+                        <Name>LogVkError</Name>
+                        <Path>dd/d0a/_vulkan_util_8h.html</Path>
+                        <Anchor>a972831e8c0ba2623da1ebf10c566004d</Anchor>
+                       </Node>
+                       <Node>
+                        <Name>VerifyVkResult</Name>
+                        <Path>dd/d0a/_vulkan_util_8h.html</Path>
+                        <Anchor>ad5546bb1652a695d15860136a4f937b0</Anchor>
+                       </Node>
+                      </Subnodes>
                      </Node>
                     </Subnodes>
                    </Node>
@@ -36173,6 +38094,24 @@
                      <Node>
                       <Name>VulkanDynamicRHI.h</Name>
                       <Path>d1/d79/_vulkan_dynamic_r_h_i_8h.html</Path>
+                    <Subnodes>
+                       <Node>
+                        <Name>FVulkanDynamicRHIModule</Name>
+                        <Path>d4/d01/class_f_vulkan_dynamic_r_h_i_module.html</Path>
+                      <Subnodes>
+                         <Node>
+                          <Name>FVulkanDynamicRHIModule</Name>
+                          <Path>d4/d01/class_f_vulkan_dynamic_r_h_i_module.html</Path>
+                          <Anchor>ab09a13a16dd5e0a7b7c5937dd7f11212</Anchor>
+                         </Node>
+                         <Node>
+                          <Name>CreateRHI</Name>
+                          <Path>d4/d01/class_f_vulkan_dynamic_r_h_i_module.html</Path>
+                          <Anchor>a11f8106c1848e8dea1a6a82b71dfc350</Anchor>
+                         </Node>
+                        </Subnodes>
+                       </Node>
+                      </Subnodes>
                      </Node>
                     </Subnodes>
                    </Node>
@@ -36298,6 +38237,14 @@
                   <Path>db/d97/_common_8hlsl.html</Path>
                  </Node>
                  <Node>
+                  <Name>Forest.hlsl</Name>
+                  <Path>d2/dde/_forest_8hlsl.html</Path>
+                 </Node>
+                 <Node>
+                  <Name>FractalShader.hlsl</Name>
+                  <Path>d1/d79/_fractal_shader_8hlsl.html</Path>
+                 </Node>
+                 <Node>
                   <Name>IncreaseBright.hlsl</Name>
                   <Path>db/d86/_increase_bright_8hlsl.html</Path>
                  </Node>
@@ -36320,6 +38267,10 @@
                  <Node>
                   <Name>ScreenRectangle.hlsl</Name>
                   <Path>d6/d14/_screen_rectangle_8hlsl.html</Path>
+                 </Node>
+                 <Node>
+                  <Name>Seascape.hlsl</Name>
+                  <Path>d3/d83/_seascape_8hlsl.html</Path>
                  </Node>
                  <Node>
                   <Name>Skybox.hlsl</Name>

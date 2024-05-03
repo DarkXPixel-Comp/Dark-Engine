@@ -22,6 +22,12 @@ void \mbox{\hyperlink{class_f_d3_d12_root_signature_a7f087385e6be21ef209eace8521
 void \mbox{\hyperlink{class_f_d3_d12_root_signature_accf0ccef8036ad8224941bcdb8dff7df}{Init}} (const D3\+D12\+\_\+\+VERSIONED\+\_\+\+ROOT\+\_\+\+SIGNATURE\+\_\+\+DESC \&In\+Desc)
 \item 
 ID3\+D12\+Root\+Signature \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_f_d3_d12_root_signature_ae784f16051b72c8fd60581b5c7928136}{Get\+Root\+Signature}} () const
+\item 
+FORCEINLINE \mbox{\hyperlink{_platform_8h_a40bc01dd090acd02a79b5dc13e08abe6}{uint8}} \mbox{\hyperlink{class_f_d3_d12_root_signature_a90e1e5177c0c8c0a4911977fef95b0e2}{Get\+CBVDBind\+Slot}} (\mbox{\hyperlink{_r_h_i_defines_8h_a89725d5f41ceac2e574ddc988f06775e}{EShader\+Type}} Type) const
+\item 
+FORCEINLINE \mbox{\hyperlink{_platform_8h_a40bc01dd090acd02a79b5dc13e08abe6}{uint8}} \mbox{\hyperlink{class_f_d3_d12_root_signature_af11ba52bd5526151317fc35b1974e0c3}{Get\+CBVDTBind\+Slot}} (\mbox{\hyperlink{_r_h_i_defines_8h_a89725d5f41ceac2e574ddc988f06775e}{EShader\+Type}} Type) const
+\item 
+FORCEINLINE \mbox{\hyperlink{_platform_8h_a40bc01dd090acd02a79b5dc13e08abe6}{uint8}} \mbox{\hyperlink{class_f_d3_d12_root_signature_a1e9c404bd24e8f4ef97164acc511e7bf}{Get\+SRVDTBind\+Slot}} (\mbox{\hyperlink{_r_h_i_defines_8h_a89725d5f41ceac2e574ddc988f06775e}{EShader\+Type}} Type) const
 \end{DoxyCompactItemize}
 \doxysubsection*{Открытые члены унаследованные от \mbox{\hyperlink{class_f_d3_d12_adapter_child}{FD3\+D12\+Adapter\+Child}}}
 \begin{DoxyCompactItemize}
@@ -61,11 +67,29 @@ void \mbox{\hyperlink{class_f_d3_d12_adapter_child_afb5e1b6b2fcf9bb306172ada964d
 
 
 \doxysubsection{Методы}
+\Hypertarget{class_f_d3_d12_root_signature_a90e1e5177c0c8c0a4911977fef95b0e2}\label{class_f_d3_d12_root_signature_a90e1e5177c0c8c0a4911977fef95b0e2} 
+\index{FD3D12RootSignature@{FD3D12RootSignature}!GetCBVDBindSlot@{GetCBVDBindSlot}}
+\index{GetCBVDBindSlot@{GetCBVDBindSlot}!FD3D12RootSignature@{FD3D12RootSignature}}
+\doxysubsubsection{\texorpdfstring{GetCBVDBindSlot()}{GetCBVDBindSlot()}}
+{\footnotesize\ttfamily FORCEINLINE \mbox{\hyperlink{_platform_8h_a40bc01dd090acd02a79b5dc13e08abe6}{uint8}} FD3\+D12\+Root\+Signature\+::\+Get\+CBVDBind\+Slot (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_r_h_i_defines_8h_a89725d5f41ceac2e574ddc988f06775e}{EShader\+Type}}}]{Type }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_f_d3_d12_root_signature_af11ba52bd5526151317fc35b1974e0c3}\label{class_f_d3_d12_root_signature_af11ba52bd5526151317fc35b1974e0c3} 
+\index{FD3D12RootSignature@{FD3D12RootSignature}!GetCBVDTBindSlot@{GetCBVDTBindSlot}}
+\index{GetCBVDTBindSlot@{GetCBVDTBindSlot}!FD3D12RootSignature@{FD3D12RootSignature}}
+\doxysubsubsection{\texorpdfstring{GetCBVDTBindSlot()}{GetCBVDTBindSlot()}}
+{\footnotesize\ttfamily FORCEINLINE \mbox{\hyperlink{_platform_8h_a40bc01dd090acd02a79b5dc13e08abe6}{uint8}} FD3\+D12\+Root\+Signature\+::\+Get\+CBVDTBind\+Slot (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_r_h_i_defines_8h_a89725d5f41ceac2e574ddc988f06775e}{EShader\+Type}}}]{Type }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
 \Hypertarget{class_f_d3_d12_root_signature_ae784f16051b72c8fd60581b5c7928136}\label{class_f_d3_d12_root_signature_ae784f16051b72c8fd60581b5c7928136} 
 \index{FD3D12RootSignature@{FD3D12RootSignature}!GetRootSignature@{GetRootSignature}}
 \index{GetRootSignature@{GetRootSignature}!FD3D12RootSignature@{FD3D12RootSignature}}
 \doxysubsubsection{\texorpdfstring{GetRootSignature()}{GetRootSignature()}}
 {\footnotesize\ttfamily ID3\+D12\+Root\+Signature \texorpdfstring{$\ast$}{*} FD3\+D12\+Root\+Signature\+::\+Get\+Root\+Signature (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_f_d3_d12_root_signature_a1e9c404bd24e8f4ef97164acc511e7bf}\label{class_f_d3_d12_root_signature_a1e9c404bd24e8f4ef97164acc511e7bf} 
+\index{FD3D12RootSignature@{FD3D12RootSignature}!GetSRVDTBindSlot@{GetSRVDTBindSlot}}
+\index{GetSRVDTBindSlot@{GetSRVDTBindSlot}!FD3D12RootSignature@{FD3D12RootSignature}}
+\doxysubsubsection{\texorpdfstring{GetSRVDTBindSlot()}{GetSRVDTBindSlot()}}
+{\footnotesize\ttfamily FORCEINLINE \mbox{\hyperlink{_platform_8h_a40bc01dd090acd02a79b5dc13e08abe6}{uint8}} FD3\+D12\+Root\+Signature\+::\+Get\+SRVDTBind\+Slot (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_r_h_i_defines_8h_a89725d5f41ceac2e574ddc988f06775e}{EShader\+Type}}}]{Type }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 \Hypertarget{class_f_d3_d12_root_signature_a7f087385e6be21ef209eace852137448}\label{class_f_d3_d12_root_signature_a7f087385e6be21ef209eace852137448} 
 \index{FD3D12RootSignature@{FD3D12RootSignature}!Init@{Init}}

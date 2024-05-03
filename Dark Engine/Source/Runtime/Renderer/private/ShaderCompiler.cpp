@@ -7,6 +7,7 @@
 #include "Timer/GameTimer.h"
 #include "Containers/Array.h"
 #include "Containers/DarkString.h"
+#include <future>
 
 
 
@@ -115,11 +116,23 @@ void ProcessCompiledShaderMap(TArray<TSharedPtr<FShaderCompileJob>>& Jobs)
 
 void FGlobalShaderTypeCompiler::FinishCompilation(FString MaterialName, TArray<TSharedPtr<FShaderCompileJob>>& Jobs)
 {
+	TArray<std::shared_future<void>> FuturesArray;
+	FuturesArray.Reserve(Jobs.GetSize());
 	for (auto& It : Jobs)
 	{
-		CompileShader(*It);
+		FuturesArray.Push(std::async(std::launch::async, [&It]()
+			{
+				CompileShader(*It);
+			}).share());
 	}
 
+	for (auto& i : FuturesArray)
+	{
+		if (i.wait_for(std::chrono::seconds(10)) != std::future_status::ready)
+		{
+			DE_LOG(LogShaders, Error, TEXT("Timeout shader compiling"));
+		}		
+	}
 	ProcessCompiledShaderMap(Jobs);
 
 }

@@ -6,6 +6,7 @@
 {\ttfamily \#include $<$RHICommand\+List.\+h$>$}\newline
 {\ttfamily \#include "{}Common\+Render\+Resources.\+h"{}}\newline
 {\ttfamily \#include "{}Scene\+Rendering.\+h"{}}\newline
+{\ttfamily \#include "{}Global\+Resource.\+h"{}}\newline
 \doxysubsubsection*{Классы}
 \begin{DoxyCompactItemize}
 \item 
@@ -19,8 +20,15 @@ class \mbox{\hyperlink{class_f_screen_rectangle_p_s}{FScreen\+Rectangle\+PS}}
 \mbox{\hyperlink{_indirect_light_rendering_8cpp_a66eda68ef1dc29915ef12da2077a91a8}{IMPLEMENT\+\_\+\+GLOBAL\+\_\+\+SHADER}} (\mbox{\hyperlink{class_f_screen_rectangle_v_s}{FScreen\+Rectangle\+VS}}, "{}Screen\+Rectangle.\+hlsl"{}, "{}VSMain"{}, \mbox{\hyperlink{_r_h_i_defines_8h_a89725d5f41ceac2e574ddc988f06775ea051ebc9c5c563958123bdbdc3bb9330d}{ST\+\_\+\+Vertex}})
 \item 
 \mbox{\hyperlink{_indirect_light_rendering_8cpp_a51fe408dd95db3740d6a232b6946bf58}{IMPLEMENT\+\_\+\+GLOBAL\+\_\+\+SHADER}} (\mbox{\hyperlink{class_f_screen_rectangle_p_s}{FScreen\+Rectangle\+PS}}, "{}Screen\+Rectangle.\+hlsl"{}, "{}PSMain"{}, \mbox{\hyperlink{_r_h_i_defines_8h_a89725d5f41ceac2e574ddc988f06775ea135f8248df527333f4407f04072fdf74}{ST\+\_\+\+Pixel}})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Переменные}
+\begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{_indirect_light_rendering_8cpp_a26355850ae7b3d45a950f2ddb7b3d52b}{Render\+Light}} ()
+\mbox{\hyperlink{class_t_global_render_resource}{TGlobal\+Render\+Resource}}$<$ \mbox{\hyperlink{class_f_screen_rectangle_vertex_buffer}{FScreen\+Rectangle\+Vertex\+Buffer}} $>$ \mbox{\hyperlink{_indirect_light_rendering_8cpp_ac0630135eb46a4b6a45b640c1bd9762a}{GRenctangle\+Vertex\+Buffer}}
+\item 
+\mbox{\hyperlink{class_t_global_render_resource}{TGlobal\+Render\+Resource}}$<$ \mbox{\hyperlink{class_f_screen_rectangle_index_buffer}{FScreen\+Rectangle\+Index\+Buffer}} $>$ \mbox{\hyperlink{_indirect_light_rendering_8cpp_a373165a7f928bf9b0e6898b2407336ac}{GRenctangle\+Index\+Buffer}}
+\item 
+\mbox{\hyperlink{class_t_global_render_resource}{TGlobal\+Render\+Resource}}$<$ \mbox{\hyperlink{class_f_filter_vertex_declaration}{FFilter\+Vertex\+Declaration}} $>$ \mbox{\hyperlink{_indirect_light_rendering_8cpp_aa59fa97a418adb24c1c88381c0f01772}{GFilter\+Vertex\+Declaration}}
 \end{DoxyCompactItemize}
 
 
@@ -37,9 +45,24 @@ void \mbox{\hyperlink{_indirect_light_rendering_8cpp_a26355850ae7b3d45a950f2ddb7
 \doxysubsubsection{\texorpdfstring{IMPLEMENT\_GLOBAL\_SHADER()}{IMPLEMENT\_GLOBAL\_SHADER()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily IMPLEMENT\+\_\+\+GLOBAL\+\_\+\+SHADER (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_f_screen_rectangle_v_s}{FScreen\+Rectangle\+VS}}}]{,  }\item[{"{}Screen\+Rectangle.\+hlsl"{}}]{,  }\item[{"{}VSMain"{}}]{,  }\item[{\mbox{\hyperlink{_r_h_i_defines_8h_a89725d5f41ceac2e574ddc988f06775ea051ebc9c5c563958123bdbdc3bb9330d}{ST\+\_\+\+Vertex}}}]{ }\end{DoxyParamCaption})}
 
-\Hypertarget{_indirect_light_rendering_8cpp_a26355850ae7b3d45a950f2ddb7b3d52b}\label{_indirect_light_rendering_8cpp_a26355850ae7b3d45a950f2ddb7b3d52b} 
-\index{IndirectLightRendering.cpp@{IndirectLightRendering.cpp}!RenderLight@{RenderLight}}
-\index{RenderLight@{RenderLight}!IndirectLightRendering.cpp@{IndirectLightRendering.cpp}}
-\doxysubsubsection{\texorpdfstring{RenderLight()}{RenderLight()}}
-{\footnotesize\ttfamily void Render\+Light (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+\doxysubsection{Переменные}
+\Hypertarget{_indirect_light_rendering_8cpp_aa59fa97a418adb24c1c88381c0f01772}\label{_indirect_light_rendering_8cpp_aa59fa97a418adb24c1c88381c0f01772} 
+\index{IndirectLightRendering.cpp@{IndirectLightRendering.cpp}!GFilterVertexDeclaration@{GFilterVertexDeclaration}}
+\index{GFilterVertexDeclaration@{GFilterVertexDeclaration}!IndirectLightRendering.cpp@{IndirectLightRendering.cpp}}
+\doxysubsubsection{\texorpdfstring{GFilterVertexDeclaration}{GFilterVertexDeclaration}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_t_global_render_resource}{TGlobal\+Render\+Resource}}$<$\mbox{\hyperlink{class_f_filter_vertex_declaration}{FFilter\+Vertex\+Declaration}}$>$ GFilter\+Vertex\+Declaration}
+
+\Hypertarget{_indirect_light_rendering_8cpp_a373165a7f928bf9b0e6898b2407336ac}\label{_indirect_light_rendering_8cpp_a373165a7f928bf9b0e6898b2407336ac} 
+\index{IndirectLightRendering.cpp@{IndirectLightRendering.cpp}!GRenctangleIndexBuffer@{GRenctangleIndexBuffer}}
+\index{GRenctangleIndexBuffer@{GRenctangleIndexBuffer}!IndirectLightRendering.cpp@{IndirectLightRendering.cpp}}
+\doxysubsubsection{\texorpdfstring{GRenctangleIndexBuffer}{GRenctangleIndexBuffer}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_t_global_render_resource}{TGlobal\+Render\+Resource}}$<$\mbox{\hyperlink{class_f_screen_rectangle_index_buffer}{FScreen\+Rectangle\+Index\+Buffer}}$>$ GRenctangle\+Index\+Buffer}
+
+\Hypertarget{_indirect_light_rendering_8cpp_ac0630135eb46a4b6a45b640c1bd9762a}\label{_indirect_light_rendering_8cpp_ac0630135eb46a4b6a45b640c1bd9762a} 
+\index{IndirectLightRendering.cpp@{IndirectLightRendering.cpp}!GRenctangleVertexBuffer@{GRenctangleVertexBuffer}}
+\index{GRenctangleVertexBuffer@{GRenctangleVertexBuffer}!IndirectLightRendering.cpp@{IndirectLightRendering.cpp}}
+\doxysubsubsection{\texorpdfstring{GRenctangleVertexBuffer}{GRenctangleVertexBuffer}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_t_global_render_resource}{TGlobal\+Render\+Resource}}$<$\mbox{\hyperlink{class_f_screen_rectangle_vertex_buffer}{FScreen\+Rectangle\+Vertex\+Buffer}}$>$ GRenctangle\+Vertex\+Buffer}
 

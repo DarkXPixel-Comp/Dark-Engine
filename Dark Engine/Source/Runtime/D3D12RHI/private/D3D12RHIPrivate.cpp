@@ -314,7 +314,8 @@ void FD3D12DynamicRHI::RHIUnlockBuffer(FRHIBuffer* BufferRHI)
 		Context.TransitionResource(Buffer->ResourceLocation.GetResource(),
 			D3D12_RESOURCE_STATE_COPY_DEST, CurrentState, 0);
 
-		Context.FlushCommands();
+		Context.AddLockedResource(LockedData);
+		//Context.FlushCommands();
 	}
 
 	LockedData.Reset();

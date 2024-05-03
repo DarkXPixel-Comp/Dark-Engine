@@ -11,6 +11,7 @@
 #include <Runtime/D3D12RHI/public/d3dx12.h>
 #include "Timer/GameTimer.h"
 #include "Misc/Paths.h"
+#include "Engine/Engine.h"
 
 
 
@@ -86,6 +87,13 @@ TSharedPtr<FGenericWindow> UIApplication::MakeWindow(TSharedPtr<UIWindow> InUIWi
 
 
 
+bool UIApplication::OnWindowDraw(const TSharedPtr<FGenericWindow>& Window)
+{
+	//FGameTimer::Tick();
+	////Engine->Tick(1);
+	//DrawWindows();
+	return true;
+}
 
 
 bool UIApplication::OnSizeChanged(const TSharedPtr<FGenericWindow>& InWindow, const int32 Width, const int32 Height, bool bWasMinimized)
@@ -94,8 +102,6 @@ bool UIApplication::OnSizeChanged(const TSharedPtr<FGenericWindow>& InWindow, co
 	Renderer->Resize(Window, Width, Height, bWasMinimized);
 	Window->SetSizeViewport(FVector2f(Width, Height));
 
-	/*FGameTimer::Tick();
-	TickAndDrawWidgets(FGameTimer::DeltaTime());*/
 	DrawWindows();
 	return true;
 }
@@ -111,7 +117,6 @@ bool UIApplication::OnMouseDown(const TSharedPtr<FGenericWindow>& InWindow,
 	OnMouseDownDelegate.BroadCast(Window, Button, CursorPos);
 
 
-
 	return true;
 }
 
@@ -124,15 +129,14 @@ bool UIApplication::OnMouseUp(const EMouseButtons::Type Button, const FVector2D 
 
 bool UIApplication::OnMovedWindow(const TSharedPtr<FGenericWindow>& Window, FIntPoint NewPosition)
 {
-	/*FGameTimer::Tick();
-	TickAndDrawWidgets(FGameTimer::DeltaTime());*/
+	//FGameTimer::Tick();
+	//TickAndDrawWidgets(FGameTimer::DeltaTime());
 	return true;
 }
 
 bool UIApplication::OnMovingWindow(const TSharedPtr<FGenericWindow>& Window, FIntRect NewRect)
 {
-	/*FGameTimer::Tick();
-	TickAndDrawWidgets(FGameTimer::DeltaTime());*/
+	DrawWindows();
 	return true;
 }
 
@@ -141,8 +145,6 @@ void UIApplication::InitializeRenderer(TSharedPtr<FUIRenderer> InRenderer)
 	check(InRenderer);
 	Renderer = InRenderer;
 	Renderer->Initialize();
-
-
 }
 
 void UIApplication::Tick()
@@ -263,13 +265,6 @@ void embraceTheDarkness()
 	colors[ImGuiCol_ModalWindowDimBg] = ImVec4(1.00f, 0.00f, 0.00f, 0.35f);
 
 	ImGuiStyle& style = ImGui::GetStyle();
-	//style.WindowPadding = ImVec2(10.f, 10.f);
-	//style.FramePadding = ImVec2(8.0f, 6.0f);
-	//style.ItemSpacing = ImVec2(6.0f, 6.0f);
-	//style.ChildRounding = 6.0f;
-	//style.PopupRounding = 6.0f;
-	//style.FrameRounding = 6.0f;
-	//style.WindowTitleAlign = ImVec2(0.5f, 0.5f);
 	style.WindowPadding = ImVec2(8.00f, 8.00f);
 	style.FramePadding = ImVec2(5.00f, 2.00f);
 	style.CellPadding = ImVec2(6.00f, 6.00f);

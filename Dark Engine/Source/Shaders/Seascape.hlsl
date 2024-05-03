@@ -1,5 +1,6 @@
 #include "Common.hlsl"
 
+//#define AA
 
 static const int NUM_STEPS = 8;
 static const float PI	 	= 3.1415;
@@ -221,6 +222,21 @@ void PSMain(in float2 uv : TEXCOORD, in float4 InPosition : SV_POSITION, out flo
 	Pos *= Params.Resolution;
 	float2 newUv = uv;
 	newUv.y = 1 - newUv.y;
+	
+#ifdef AA
+	float3 col = float3(0, 0, 0);
+	for(int i = -5; i <= 5; ++i)
+	{
+		for(int j = -5; j <= 5; ++j)
+		{
+			float2 NewNewUv = newUv + float2(i / 10, j / 10);
+			col += getPixel(Pos, Time, NewNewUv);
+		}
+	}
+	col /= 100;
+#else
 	float3 col = getPixel(Pos, Time, newUv);
+#endif
+	
 	Color = float4(col, 1);
 }

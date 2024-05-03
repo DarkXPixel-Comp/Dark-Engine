@@ -34,99 +34,118 @@
 \DoxyCodeLine{00034\ \ \ \ \ \textcolor{keyword}{virtual}\ TRefCountPtr<FRHIBuffer>\ \mbox{\hyperlink{class_f_dynamic_r_h_i_a9df31b485e80af97a63c004118a2b664}{RHICreateBuffer}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_f_r_h_i_buffer_desc}{FRHIBufferDesc}}\&\ CreateDesc,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}}*\ DebugName,\ \mbox{\hyperlink{_r_h_i_defines_8h_a790a925a3358fc56173b2ffb0f607c5f}{ERHIAccess}}\ InitialState)\ =\ 0;}
 \DoxyCodeLine{00035\ \ \ \ \ \textcolor{keyword}{virtual}\ TRefCountPtr<FRHITexture>\ \mbox{\hyperlink{class_f_dynamic_r_h_i_a6441be808da157cf46d617bb998272a1}{RHICreateTexture}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_f_r_h_i_texture_create_desc}{FRHITextureCreateDesc}}\&\ CreateDesc)\ =\ 0;}
 \DoxyCodeLine{00036\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{class_f_dynamic_r_h_i_af273516e480d8c36b9d6fe8dc49f9957}{RHILockTexture2D}}(\mbox{\hyperlink{class_f_r_h_i_texture}{FRHITexture}}*\ TextureRHI,\ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ MipIndex,\ \mbox{\hyperlink{_r_h_i_defines_8h_a74b58e6e8443baea529ab6f701abadb7}{EResourceLockMode}}\ LockMode,\ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\&\ DestStride,\ \textcolor{keywordtype}{bool}\ bLockWithinMiptail,\ \mbox{\hyperlink{_platform_8h_afddf25cca147311c233b23a9d3329bb4}{uint64}}*\ OutLockedByteCount)\ =\ 0;}
-\DoxyCodeLine{00037\ \ \ \ \ \textcolor{comment}{//virtual\ TRefCountPtr<FRHIBuffer>\ RHICreateBuffer(const\ FRHIBufferDesc\&\ CreateDesc,\ const\ TCHAR*\ DebugName,\ ERHIAccess\ InitialState)\ =\ 0;}}
-\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{class_f_dynamic_r_h_i_ae59571e204c5365c3b21962b1101b026}{RHILockBuffer}}(\mbox{\hyperlink{class_f_r_h_i_buffer}{FRHIBuffer}}*\ BufferRHI,\ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ Offset,\ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ \mbox{\hyperlink{_d3_d12_utils_8h_a49802c782fb40bd8e79835ef12871ddeaff9abf2b1a689f70a77a18da50c01d9f}{Size}},\ \mbox{\hyperlink{_r_h_i_defines_8h_a74b58e6e8443baea529ab6f701abadb7}{EResourceLockMode}}\ LockMode)\ =\ 0;}
-\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \ \mbox{\hyperlink{class_f_dynamic_r_h_i_a7123858ea467546ddfad559b895900dc}{RHIUnlockBuffer}}(\mbox{\hyperlink{class_f_r_h_i_buffer}{FRHIBuffer}}*\ BufferRHI)\ =\ 0;}
-\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keyword}{virtual}\ TRefCountPtr<FRHIGraphicsPipelineState>\ \mbox{\hyperlink{class_f_dynamic_r_h_i_af8532d4d041297a0a3d05aa30e9a4330}{RHICreateGraphicsPipelineState}}(\textcolor{keyword}{const}\ \textcolor{keyword}{class}\ \mbox{\hyperlink{class_f_graphics_pipeline_state_initializer}{FGraphicsPipelineStateInitializer}}\&\ Initializer)\ =\ 0;}
-\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keyword}{virtual}\ TRefCountPtr<FRHIVertexDeclaration>\ \mbox{\hyperlink{class_f_dynamic_r_h_i_a2401a4be0e19b756b5091d68534c567a}{RHICreateVertexDeclaration}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_t_array}{FVertexDeclarationElementList}}\&\ Elements)\ =\ 0;}
-\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keyword}{virtual}\ TRefCountPtr<FRHIVertexShader>\ \mbox{\hyperlink{class_f_dynamic_r_h_i_a2c6ef6a9b044a8222d38129d13630fa9}{RHICreateVertexShader}}(\textcolor{keyword}{const}\ TArray<uint8>\&\ Code,\ \textcolor{keyword}{const}\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_f_shader_bounds}{FShaderBounds}}\&\ Bounds)\ =\ 0;}
-\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keyword}{virtual}\ TRefCountPtr<FRHIPixelShader>\ \mbox{\hyperlink{class_f_dynamic_r_h_i_a53d0ed0d31f17f76afa082d2ea9f4f4b}{RHICreatePixelShader}}(\textcolor{keyword}{const}\ TArray<uint8>\&\ Code,\ \textcolor{keyword}{const}\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_f_shader_bounds}{FShaderBounds}}\&\ Bounds)\ =\ 0;}
-\DoxyCodeLine{00044\ }
-\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_dynamic_r_h_i_a94741c19da2ffb044dcfb5611f9d7e87}{RHIUnlockTexture2D}}(\mbox{\hyperlink{class_f_r_h_i_texture}{FRHITexture}}*\ TextureRHI,\ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ MipIndex,\ \textcolor{keywordtype}{bool}\ bLockWithinMiptail)\ =\ 0;}
-\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{_r_h_i_defines_8h_accfdbf6612e46ffde28b934e051fb990}{ERHIInterfaceType}}\ \mbox{\hyperlink{class_f_dynamic_r_h_i_a4fad1dc7f9e8744d4cd7df6ea792f137}{GetInterfaceType}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{_r_h_i_defines_8h_accfdbf6612e46ffde28b934e051fb990a7acdf85c69cc3c5305456a293524386e}{ERHIInterfaceType::Hidden}};\ \}}
-\DoxyCodeLine{00047\ }
-\DoxyCodeLine{00048\ \};}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keyword}{virtual}\ TRefCountPtr<FRHIUniformBuffer>\ \mbox{\hyperlink{class_f_dynamic_r_h_i_a00495758d56da1761d91f843bfda3ea6}{RHICreateUniformBuffer}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ Contents,\ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ \mbox{\hyperlink{_d3_d12_utils_8h_a49802c782fb40bd8e79835ef12871ddeaff9abf2b1a689f70a77a18da50c01d9f}{Size}},\ \mbox{\hyperlink{_r_h_i_defines_8h_a44efee7815674a346059a25f9b3c2085}{EUniformBufferUsage}}\ Usage)\ =\ 0;}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_dynamic_r_h_i_a3da5ee99b27e2866e613e804ca189321}{RHIUpdateUniformBuffer}}(\mbox{\hyperlink{class_f_r_h_i_uniform_buffer}{FRHIUniformBuffer}}*\ BufferRHI,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ Contents,\ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ \mbox{\hyperlink{_d3_d12_utils_8h_a49802c782fb40bd8e79835ef12871ddeaff9abf2b1a689f70a77a18da50c01d9f}{Size}})\ =\ 0;}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{class_f_dynamic_r_h_i_ae59571e204c5365c3b21962b1101b026}{RHILockBuffer}}(\mbox{\hyperlink{class_f_r_h_i_buffer}{FRHIBuffer}}*\ BufferRHI,\ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ Offset,\ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ \mbox{\hyperlink{_d3_d12_utils_8h_a49802c782fb40bd8e79835ef12871ddeaff9abf2b1a689f70a77a18da50c01d9f}{Size}},\ \mbox{\hyperlink{_r_h_i_defines_8h_a74b58e6e8443baea529ab6f701abadb7}{EResourceLockMode}}\ LockMode)\ =\ 0;}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \ \mbox{\hyperlink{class_f_dynamic_r_h_i_a7123858ea467546ddfad559b895900dc}{RHIUnlockBuffer}}(\mbox{\hyperlink{class_f_r_h_i_buffer}{FRHIBuffer}}*\ BufferRHI)\ =\ 0;}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keyword}{virtual}\ TRefCountPtr<FRHIGraphicsPipelineState>\ \mbox{\hyperlink{class_f_dynamic_r_h_i_af8532d4d041297a0a3d05aa30e9a4330}{RHICreateGraphicsPipelineState}}(\textcolor{keyword}{const}\ \textcolor{keyword}{class}\ \mbox{\hyperlink{class_f_graphics_pipeline_state_initializer}{FGraphicsPipelineStateInitializer}}\&\ Initializer)\ =\ 0;}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keyword}{virtual}\ TRefCountPtr<FRHIVertexDeclaration>\ \mbox{\hyperlink{class_f_dynamic_r_h_i_a2401a4be0e19b756b5091d68534c567a}{RHICreateVertexDeclaration}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_t_array}{FVertexDeclarationElementList}}\&\ Elements)\ =\ 0;}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keyword}{virtual}\ TRefCountPtr<FRHIVertexShader>\ \mbox{\hyperlink{class_f_dynamic_r_h_i_a2c6ef6a9b044a8222d38129d13630fa9}{RHICreateVertexShader}}(\textcolor{keyword}{const}\ TArray<uint8>\&\ Code,\ \textcolor{keyword}{const}\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_f_shader_bounds}{FShaderBounds}}\&\ Bounds)\ =\ 0;}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keyword}{virtual}\ TRefCountPtr<FRHIPixelShader>\ \mbox{\hyperlink{class_f_dynamic_r_h_i_a53d0ed0d31f17f76afa082d2ea9f4f4b}{RHICreatePixelShader}}(\textcolor{keyword}{const}\ TArray<uint8>\&\ Code,\ \textcolor{keyword}{const}\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_f_shader_bounds}{FShaderBounds}}\&\ Bounds)\ =\ 0;}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keyword}{virtual}\ TRefCountPtr<FRHIRasterizerState>\ \mbox{\hyperlink{class_f_dynamic_r_h_i_a5cb35963ad6e49192091556074aa7c59}{RHICreateRasterizerState}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_f_rasterizer_state_initializer}{FRasterizerStateInitializer}}\&\ Initializer)\ =\ 0;}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_dynamic_r_h_i_a94741c19da2ffb044dcfb5611f9d7e87}{RHIUnlockTexture2D}}(\mbox{\hyperlink{class_f_r_h_i_texture}{FRHITexture}}*\ TextureRHI,\ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ MipIndex,\ \textcolor{keywordtype}{bool}\ bLockWithinMiptail)\ =\ 0;}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{_r_h_i_defines_8h_accfdbf6612e46ffde28b934e051fb990}{ERHIInterfaceType}}\ \mbox{\hyperlink{class_f_dynamic_r_h_i_a4fad1dc7f9e8744d4cd7df6ea792f137}{GetInterfaceType}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{_r_h_i_defines_8h_accfdbf6612e46ffde28b934e051fb990a7acdf85c69cc3c5305456a293524386e}{ERHIInterfaceType::Hidden}};\ \}}
 \DoxyCodeLine{00049\ }
-\DoxyCodeLine{00050\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_f_dynamic_r_h_i}{FDynamicRHI}}*\ \mbox{\hyperlink{_dynamic_r_h_i_8h_a7f476220c09bed9c45bc8cdcfde73e72}{GDynamicRHI}};}
+\DoxyCodeLine{00050\ \};}
 \DoxyCodeLine{00051\ }
-\DoxyCodeLine{00052\ }
-\DoxyCodeLine{00053\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_i_dynamic_r_h_i}{IDynamicRHI}}}
-\DoxyCodeLine{00054\ \{}
-\DoxyCodeLine{00055\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_f_dynamic_r_h_i}{FDynamicRHI}}*\ \mbox{\hyperlink{class_i_dynamic_r_h_i_a2b2d7bd6f35bafeced4cbfe17075b362}{CreateRHI}}()\ =\ 0;}
-\DoxyCodeLine{00057\ \};}
-\DoxyCodeLine{00058\ }
-\DoxyCodeLine{00059\ }
-\DoxyCodeLine{00060\ \mbox{\hyperlink{class_f_dynamic_r_h_i}{FDynamicRHI}}*\ \mbox{\hyperlink{_dynamic_r_h_i_8h_a6f7bbd40a88c402c937b168491aa55d5}{PlatformCreateDynamicRHI}}();}
+\DoxyCodeLine{00052\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_f_dynamic_r_h_i}{FDynamicRHI}}*\ \mbox{\hyperlink{_dynamic_r_h_i_8h_a7f476220c09bed9c45bc8cdcfde73e72}{GDynamicRHI}};}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_i_dynamic_r_h_i}{IDynamicRHI}}}
+\DoxyCodeLine{00056\ \{}
+\DoxyCodeLine{00057\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_f_dynamic_r_h_i}{FDynamicRHI}}*\ \mbox{\hyperlink{class_i_dynamic_r_h_i_a2b2d7bd6f35bafeced4cbfe17075b362}{CreateRHI}}()\ =\ 0;}
+\DoxyCodeLine{00059\ \};}
+\DoxyCodeLine{00060\ }
 \DoxyCodeLine{00061\ }
-\DoxyCodeLine{00062\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_dynamic_r_h_i_8h_a457a483a7a2b29076ac07499b10b5a9b}{DynamicRHIShutdown}}();}
+\DoxyCodeLine{00062\ \mbox{\hyperlink{class_f_dynamic_r_h_i}{FDynamicRHI}}*\ \mbox{\hyperlink{_dynamic_r_h_i_8h_a6f7bbd40a88c402c937b168491aa55d5}{PlatformCreateDynamicRHI}}();}
 \DoxyCodeLine{00063\ }
-\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00064\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_dynamic_r_h_i_8h_a457a483a7a2b29076ac07499b10b5a9b}{DynamicRHIShutdown}}();}
 \DoxyCodeLine{00065\ }
-\DoxyCodeLine{00073\ TSharedPtr<FRHIViewport>\ \mbox{\hyperlink{_dynamic_r_h_i_8h_a64677140780b5d96ff87159949c72381}{CreateRHIViewport}}(\textcolor{keywordtype}{void}*\ WindowHandle,\ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ SizeX,\ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ SizeY,\ \textcolor{keywordtype}{bool}\ bIsFullscreen);}
-\DoxyCodeLine{00074\ }
-\DoxyCodeLine{00075\ }
-\DoxyCodeLine{00081\ FORCEINLINE\ \mbox{\hyperlink{class_f_r_h_i_texture}{FRHITexture}}*\ \mbox{\hyperlink{_dynamic_r_h_i_8h_a74b21e28a063d0dac2be752b7a81072f}{RHIGetViewportBackBuffer}}(\mbox{\hyperlink{class_f_r_h_i_viewport}{FRHIViewport}}*\ \mbox{\hyperlink{struct_viewport}{Viewport}})}
-\DoxyCodeLine{00082\ \{}
-\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{_dynamic_r_h_i_8h_a7f476220c09bed9c45bc8cdcfde73e72}{GDynamicRHI}}-\/>\mbox{\hyperlink{class_f_dynamic_r_h_i_a3fc08ca3ca63a1731b0ace83af3b0746}{RHIGetViewportBackBuffer}}(\mbox{\hyperlink{struct_viewport}{Viewport}});}
-\DoxyCodeLine{00084\ \}}
-\DoxyCodeLine{00085\ }
-\DoxyCodeLine{00086\ }
-\DoxyCodeLine{00095\ FORCEINLINE\ TRefCountPtr<FRHIBuffer>\ \mbox{\hyperlink{_dynamic_r_h_i_8h_a9f813715cdf25d3557fa66873b435201}{RHICreateBuffer}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_f_r_h_i_buffer_desc}{FRHIBufferDesc}}\&\ CreateDesc,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}}*\ DebugName,\ \mbox{\hyperlink{_r_h_i_defines_8h_a790a925a3358fc56173b2ffb0f607c5f}{ERHIAccess}}\ InitialState)}
-\DoxyCodeLine{00096\ \{}
-\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{_dynamic_r_h_i_8h_a7f476220c09bed9c45bc8cdcfde73e72}{GDynamicRHI}}-\/>\mbox{\hyperlink{class_f_dynamic_r_h_i_a9df31b485e80af97a63c004118a2b664}{RHICreateBuffer}}(CreateDesc,\ DebugName,\ InitialState);}
-\DoxyCodeLine{00098\ \}}
-\DoxyCodeLine{00099\ }
-\DoxyCodeLine{00105\ FORCEINLINE\ TRefCountPtr<FRHITexture>\ \mbox{\hyperlink{_dynamic_r_h_i_8h_a97675cc79124d5cfb88070b186caabe2}{RHICreateTexture}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_f_r_h_i_texture_create_desc}{FRHITextureCreateDesc}}\&\ CreateDesc)}
-\DoxyCodeLine{00106\ \{}
-\DoxyCodeLine{00107\ \ \ \ \ \textcolor{comment}{//FRHICommandListImmediate\&\ RHICmdList\ =\ FRHICommandListExecutor::GetImmediateCommandList();}}
-\DoxyCodeLine{00108\ }
-\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{_dynamic_r_h_i_8h_a7f476220c09bed9c45bc8cdcfde73e72}{GDynamicRHI}}-\/>\mbox{\hyperlink{class_f_dynamic_r_h_i_a6441be808da157cf46d617bb998272a1}{RHICreateTexture}}(CreateDesc);}
-\DoxyCodeLine{00110\ \}}
-\DoxyCodeLine{00111\ }
-\DoxyCodeLine{00112\ }
-\DoxyCodeLine{00113\ FORCEINLINE\ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{_dynamic_r_h_i_8h_aaae12c584cc160195bae750b5ff58855}{RHILockTexture2D}}(\mbox{\hyperlink{class_f_r_h_i_texture}{FRHITexture}}*\ TextureRHI,\ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ MipIndex,\ \mbox{\hyperlink{_r_h_i_defines_8h_a74b58e6e8443baea529ab6f701abadb7}{EResourceLockMode}}\ LockMode,}
-\DoxyCodeLine{00114\ \ \ \ \ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\&\ DestStride,\ \mbox{\hyperlink{_platform_8h_afddf25cca147311c233b23a9d3329bb4}{uint64}}*\ OutLockedByteCount,\ \textcolor{keywordtype}{bool}\ bLockWithinMiptail\ =\ \textcolor{keyword}{false})}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00075\ TSharedPtr<FRHIViewport>\ \mbox{\hyperlink{_dynamic_r_h_i_8h_a64677140780b5d96ff87159949c72381}{CreateRHIViewport}}(\textcolor{keywordtype}{void}*\ WindowHandle,\ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ SizeX,\ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ SizeY,\ \textcolor{keywordtype}{bool}\ bIsFullscreen);}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00083\ FORCEINLINE\ \mbox{\hyperlink{class_f_r_h_i_texture}{FRHITexture}}*\ \mbox{\hyperlink{_dynamic_r_h_i_8h_a74b21e28a063d0dac2be752b7a81072f}{RHIGetViewportBackBuffer}}(\mbox{\hyperlink{class_f_r_h_i_viewport}{FRHIViewport}}*\ \mbox{\hyperlink{struct_viewport}{Viewport}})}
+\DoxyCodeLine{00084\ \{}
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{_dynamic_r_h_i_8h_a7f476220c09bed9c45bc8cdcfde73e72}{GDynamicRHI}}-\/>\mbox{\hyperlink{class_f_dynamic_r_h_i_a3fc08ca3ca63a1731b0ace83af3b0746}{RHIGetViewportBackBuffer}}(\mbox{\hyperlink{struct_viewport}{Viewport}});}
+\DoxyCodeLine{00086\ \}}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00097\ FORCEINLINE\ TRefCountPtr<FRHIBuffer>\ \mbox{\hyperlink{_dynamic_r_h_i_8h_a9f813715cdf25d3557fa66873b435201}{RHICreateBuffer}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_f_r_h_i_buffer_desc}{FRHIBufferDesc}}\&\ CreateDesc,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}}*\ DebugName,\ \mbox{\hyperlink{_r_h_i_defines_8h_a790a925a3358fc56173b2ffb0f607c5f}{ERHIAccess}}\ InitialState)}
+\DoxyCodeLine{00098\ \{}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{_dynamic_r_h_i_8h_a7f476220c09bed9c45bc8cdcfde73e72}{GDynamicRHI}}-\/>\mbox{\hyperlink{class_f_dynamic_r_h_i_a9df31b485e80af97a63c004118a2b664}{RHICreateBuffer}}(CreateDesc,\ DebugName,\ InitialState);}
+\DoxyCodeLine{00100\ \}}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00107\ FORCEINLINE\ TRefCountPtr<FRHITexture>\ \mbox{\hyperlink{_dynamic_r_h_i_8h_a97675cc79124d5cfb88070b186caabe2}{RHICreateTexture}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_f_r_h_i_texture_create_desc}{FRHITextureCreateDesc}}\&\ CreateDesc)}
+\DoxyCodeLine{00108\ \{}
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{comment}{//FRHICommandListImmediate\&\ RHICmdList\ =\ FRHICommandListExecutor::GetImmediateCommandList();}}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{_dynamic_r_h_i_8h_a7f476220c09bed9c45bc8cdcfde73e72}{GDynamicRHI}}-\/>\mbox{\hyperlink{class_f_dynamic_r_h_i_a6441be808da157cf46d617bb998272a1}{RHICreateTexture}}(CreateDesc);}
+\DoxyCodeLine{00112\ \}}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ FORCEINLINE\ TRefCountPtr<FRHIRasterizerState>\ \mbox{\hyperlink{_dynamic_r_h_i_8h_a2539f19aaf4b8b466c5e4917e168a628}{RHICreateRasterizerState}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_f_rasterizer_state_initializer}{FRasterizerStateInitializer}}\&\ Initializer)}
 \DoxyCodeLine{00115\ \{}
-\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{_dynamic_r_h_i_8h_a7f476220c09bed9c45bc8cdcfde73e72}{GDynamicRHI}}-\/>\mbox{\hyperlink{class_f_dynamic_r_h_i_af273516e480d8c36b9d6fe8dc49f9957}{RHILockTexture2D}}(TextureRHI,\ MipIndex,\ LockMode,\ DestStride,\ bLockWithinMiptail,\ OutLockedByteCount);}
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{_dynamic_r_h_i_8h_a7f476220c09bed9c45bc8cdcfde73e72}{GDynamicRHI}}-\/>\mbox{\hyperlink{class_f_dynamic_r_h_i_a5cb35963ad6e49192091556074aa7c59}{RHICreateRasterizerState}}(Initializer);}
 \DoxyCodeLine{00117\ \}}
 \DoxyCodeLine{00118\ }
-\DoxyCodeLine{00119\ FORCEINLINE\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_dynamic_r_h_i_8h_ac3a4172ed3b1066dcd454f51e53244b4}{RHIUnlockTexture2D}}(\mbox{\hyperlink{class_f_r_h_i_texture}{FRHITexture}}*\ TextureRHI,\ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ MipIndex,\ \textcolor{keywordtype}{bool}\ bLockWithinMiptail\ =\ \textcolor{keyword}{false})}
+\DoxyCodeLine{00119\ FORCEINLINE\ TRefCountPtr<FRHIUniformBuffer>\ \mbox{\hyperlink{_dynamic_r_h_i_8h_a7f419d09ffe4241adaed158f4b581968}{RHICreateUniformBuffer}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ Contents,\ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ \mbox{\hyperlink{_d3_d12_utils_8h_a49802c782fb40bd8e79835ef12871ddeaff9abf2b1a689f70a77a18da50c01d9f}{Size}},\ \mbox{\hyperlink{_r_h_i_defines_8h_a44efee7815674a346059a25f9b3c2085}{EUniformBufferUsage}}\ Usage)}
 \DoxyCodeLine{00120\ \{}
-\DoxyCodeLine{00121\ \ \ \ \ \mbox{\hyperlink{_dynamic_r_h_i_8h_a7f476220c09bed9c45bc8cdcfde73e72}{GDynamicRHI}}-\/>\mbox{\hyperlink{class_f_dynamic_r_h_i_a94741c19da2ffb044dcfb5611f9d7e87}{RHIUnlockTexture2D}}(TextureRHI,\ MipIndex,\ bLockWithinMiptail);}
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{_dynamic_r_h_i_8h_a7f476220c09bed9c45bc8cdcfde73e72}{GDynamicRHI}}-\/>\mbox{\hyperlink{class_f_dynamic_r_h_i_a00495758d56da1761d91f843bfda3ea6}{RHICreateUniformBuffer}}(Contents,\ \mbox{\hyperlink{_d3_d12_utils_8h_a49802c782fb40bd8e79835ef12871ddeaff9abf2b1a689f70a77a18da50c01d9f}{Size}},\ Usage);}
 \DoxyCodeLine{00122\ \}}
-\DoxyCodeLine{00123\ FORCEINLINE\ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{_dynamic_r_h_i_8h_a4e523b52ef7c31b49d6321fae61270ba}{RHILockBuffer}}(\mbox{\hyperlink{class_f_r_h_i_buffer}{FRHIBuffer}}*\ BufferRHI,\ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ Offset,\ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ \mbox{\hyperlink{_d3_d12_utils_8h_a49802c782fb40bd8e79835ef12871ddeaff9abf2b1a689f70a77a18da50c01d9f}{Size}},\ \mbox{\hyperlink{_r_h_i_defines_8h_a74b58e6e8443baea529ab6f701abadb7}{EResourceLockMode}}\ LockMode)}
-\DoxyCodeLine{00124\ \{}
-\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{_dynamic_r_h_i_8h_a7f476220c09bed9c45bc8cdcfde73e72}{GDynamicRHI}}-\/>\mbox{\hyperlink{class_f_dynamic_r_h_i_ae59571e204c5365c3b21962b1101b026}{RHILockBuffer}}(BufferRHI,\ Offset,\ \mbox{\hyperlink{_d3_d12_utils_8h_a49802c782fb40bd8e79835ef12871ddeaff9abf2b1a689f70a77a18da50c01d9f}{Size}},\ LockMode);}
-\DoxyCodeLine{00126\ \}}
-\DoxyCodeLine{00127\ FORCEINLINE\ \textcolor{keywordtype}{void}\ \ \mbox{\hyperlink{_dynamic_r_h_i_8h_a884dd5454688e9402c4e13f4e671370b}{RHIUnlockBuffer}}(\mbox{\hyperlink{class_f_r_h_i_buffer}{FRHIBuffer}}*\ BufferRHI)}
-\DoxyCodeLine{00128\ \{}
-\DoxyCodeLine{00129\ \ \ \ \ \mbox{\hyperlink{_dynamic_r_h_i_8h_a7f476220c09bed9c45bc8cdcfde73e72}{GDynamicRHI}}-\/>\mbox{\hyperlink{class_f_dynamic_r_h_i_a7123858ea467546ddfad559b895900dc}{RHIUnlockBuffer}}(BufferRHI);}
-\DoxyCodeLine{00130\ \}}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ FORCEINLINE\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_dynamic_r_h_i_8h_a1fe76f1d9aab0c5589e5526976b6c8db}{RHIUpdateUniformBuffer}}(\mbox{\hyperlink{class_f_r_h_i_uniform_buffer}{FRHIUniformBuffer}}*\ BufferRHI,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ Contents,\ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ \mbox{\hyperlink{_d3_d12_utils_8h_a49802c782fb40bd8e79835ef12871ddeaff9abf2b1a689f70a77a18da50c01d9f}{Size}})}
+\DoxyCodeLine{00125\ \{}
+\DoxyCodeLine{00126\ \ \ \ \ \mbox{\hyperlink{_dynamic_r_h_i_8h_a7f476220c09bed9c45bc8cdcfde73e72}{GDynamicRHI}}-\/>\mbox{\hyperlink{class_f_dynamic_r_h_i_a3da5ee99b27e2866e613e804ca189321}{RHIUpdateUniformBuffer}}(BufferRHI,\ Contents,\ \mbox{\hyperlink{_d3_d12_utils_8h_a49802c782fb40bd8e79835ef12871ddeaff9abf2b1a689f70a77a18da50c01d9f}{Size}});}
+\DoxyCodeLine{00127\ \}}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ }
 \DoxyCodeLine{00131\ }
-\DoxyCodeLine{00132\ }
-\DoxyCodeLine{00133\ FORCEINLINE\ TRefCountPtr<FRHIGraphicsPipelineState>\ \mbox{\hyperlink{_dynamic_r_h_i_8h_a50c6da8a09f76e48d7115dde7f4cd97d}{RHICreateGraphicsPipelineState}}(\textcolor{keyword}{const}\ \textcolor{keyword}{class}\ \mbox{\hyperlink{class_f_graphics_pipeline_state_initializer}{FGraphicsPipelineStateInitializer}}\&\ Initializer)}
+\DoxyCodeLine{00132\ FORCEINLINE\ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{_dynamic_r_h_i_8h_aaae12c584cc160195bae750b5ff58855}{RHILockTexture2D}}(\mbox{\hyperlink{class_f_r_h_i_texture}{FRHITexture}}*\ TextureRHI,\ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ MipIndex,\ \mbox{\hyperlink{_r_h_i_defines_8h_a74b58e6e8443baea529ab6f701abadb7}{EResourceLockMode}}\ LockMode,}
+\DoxyCodeLine{00133\ \ \ \ \ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\&\ DestStride,\ \mbox{\hyperlink{_platform_8h_afddf25cca147311c233b23a9d3329bb4}{uint64}}*\ OutLockedByteCount,\ \textcolor{keywordtype}{bool}\ bLockWithinMiptail\ =\ \textcolor{keyword}{false})}
 \DoxyCodeLine{00134\ \{}
-\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{_dynamic_r_h_i_8h_a7f476220c09bed9c45bc8cdcfde73e72}{GDynamicRHI}}-\/>\mbox{\hyperlink{class_f_dynamic_r_h_i_af8532d4d041297a0a3d05aa30e9a4330}{RHICreateGraphicsPipelineState}}(Initializer);}
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{_dynamic_r_h_i_8h_a7f476220c09bed9c45bc8cdcfde73e72}{GDynamicRHI}}-\/>\mbox{\hyperlink{class_f_dynamic_r_h_i_af273516e480d8c36b9d6fe8dc49f9957}{RHILockTexture2D}}(TextureRHI,\ MipIndex,\ LockMode,\ DestStride,\ bLockWithinMiptail,\ OutLockedByteCount);}
 \DoxyCodeLine{00136\ \}}
 \DoxyCodeLine{00137\ }
-\DoxyCodeLine{00138\ FORCEINLINE\ TRefCountPtr<FRHIVertexShader>\ \mbox{\hyperlink{_dynamic_r_h_i_8h_afc60b329fd99f6e3e24deb6b88769ab2}{RHICreateVertexShader}}(\textcolor{keyword}{const}\ TArray<uint8>\&\ Code,\ \textcolor{keyword}{const}\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_f_shader_bounds}{FShaderBounds}}\&\ Bounds)}
+\DoxyCodeLine{00138\ FORCEINLINE\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_dynamic_r_h_i_8h_ac3a4172ed3b1066dcd454f51e53244b4}{RHIUnlockTexture2D}}(\mbox{\hyperlink{class_f_r_h_i_texture}{FRHITexture}}*\ TextureRHI,\ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ MipIndex,\ \textcolor{keywordtype}{bool}\ bLockWithinMiptail\ =\ \textcolor{keyword}{false})}
 \DoxyCodeLine{00139\ \{}
-\DoxyCodeLine{00140\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{_dynamic_r_h_i_8h_a7f476220c09bed9c45bc8cdcfde73e72}{GDynamicRHI}}-\/>\mbox{\hyperlink{class_f_dynamic_r_h_i_a2c6ef6a9b044a8222d38129d13630fa9}{RHICreateVertexShader}}(Code,\ Bounds);}
+\DoxyCodeLine{00140\ \ \ \ \ \mbox{\hyperlink{_dynamic_r_h_i_8h_a7f476220c09bed9c45bc8cdcfde73e72}{GDynamicRHI}}-\/>\mbox{\hyperlink{class_f_dynamic_r_h_i_a94741c19da2ffb044dcfb5611f9d7e87}{RHIUnlockTexture2D}}(TextureRHI,\ MipIndex,\ bLockWithinMiptail);}
 \DoxyCodeLine{00141\ \}}
-\DoxyCodeLine{00142\ }
-\DoxyCodeLine{00143\ FORCEINLINE\ TRefCountPtr<FRHIVertexDeclaration>\mbox{\hyperlink{_dynamic_r_h_i_8h_a7517b77b859e55ad7c2bd4b4d932faf3}{RHICreateVertexDeclaration}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_t_array}{FVertexDeclarationElementList}}\&\ Elements)}
-\DoxyCodeLine{00144\ \{}
-\DoxyCodeLine{00145\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{_dynamic_r_h_i_8h_a7f476220c09bed9c45bc8cdcfde73e72}{GDynamicRHI}}-\/>\mbox{\hyperlink{class_f_dynamic_r_h_i_a2401a4be0e19b756b5091d68534c567a}{RHICreateVertexDeclaration}}(Elements);}
-\DoxyCodeLine{00146\ \}}
-\DoxyCodeLine{00147\ }
-\DoxyCodeLine{00148\ }
-\DoxyCodeLine{00149\ }
-\DoxyCodeLine{00150\ FORCEINLINE\ TRefCountPtr<FRHIPixelShader>\ \mbox{\hyperlink{_dynamic_r_h_i_8h_a756d5c579d92e465b0fe00d857a29998}{RHICreatePixelShader}}(\textcolor{keyword}{const}\ TArray<uint8>\&\ Code,\ \textcolor{keyword}{const}\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_f_shader_bounds}{FShaderBounds}}\&\ Bounds)}
-\DoxyCodeLine{00151\ \{}
-\DoxyCodeLine{00152\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{_dynamic_r_h_i_8h_a7f476220c09bed9c45bc8cdcfde73e72}{GDynamicRHI}}-\/>\mbox{\hyperlink{class_f_dynamic_r_h_i_a53d0ed0d31f17f76afa082d2ea9f4f4b}{RHICreatePixelShader}}(Code,\ Bounds);}
-\DoxyCodeLine{00153\ \}}
-\DoxyCodeLine{00154\ }
-\DoxyCodeLine{00155\ }
+\DoxyCodeLine{00142\ FORCEINLINE\ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{_dynamic_r_h_i_8h_a4e523b52ef7c31b49d6321fae61270ba}{RHILockBuffer}}(\mbox{\hyperlink{class_f_r_h_i_buffer}{FRHIBuffer}}*\ BufferRHI,\ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ Offset,\ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ \mbox{\hyperlink{_d3_d12_utils_8h_a49802c782fb40bd8e79835ef12871ddeaff9abf2b1a689f70a77a18da50c01d9f}{Size}},\ \mbox{\hyperlink{_r_h_i_defines_8h_a74b58e6e8443baea529ab6f701abadb7}{EResourceLockMode}}\ LockMode)}
+\DoxyCodeLine{00143\ \{}
+\DoxyCodeLine{00144\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{_dynamic_r_h_i_8h_a7f476220c09bed9c45bc8cdcfde73e72}{GDynamicRHI}}-\/>\mbox{\hyperlink{class_f_dynamic_r_h_i_ae59571e204c5365c3b21962b1101b026}{RHILockBuffer}}(BufferRHI,\ Offset,\ \mbox{\hyperlink{_d3_d12_utils_8h_a49802c782fb40bd8e79835ef12871ddeaff9abf2b1a689f70a77a18da50c01d9f}{Size}},\ LockMode);}
+\DoxyCodeLine{00145\ \}}
+\DoxyCodeLine{00146\ FORCEINLINE\ \textcolor{keywordtype}{void}\ \ \mbox{\hyperlink{_dynamic_r_h_i_8h_a884dd5454688e9402c4e13f4e671370b}{RHIUnlockBuffer}}(\mbox{\hyperlink{class_f_r_h_i_buffer}{FRHIBuffer}}*\ BufferRHI)}
+\DoxyCodeLine{00147\ \{}
+\DoxyCodeLine{00148\ \ \ \ \ \mbox{\hyperlink{_dynamic_r_h_i_8h_a7f476220c09bed9c45bc8cdcfde73e72}{GDynamicRHI}}-\/>\mbox{\hyperlink{class_f_dynamic_r_h_i_a7123858ea467546ddfad559b895900dc}{RHIUnlockBuffer}}(BufferRHI);}
+\DoxyCodeLine{00149\ \}}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00152\ FORCEINLINE\ TRefCountPtr<FRHIGraphicsPipelineState>\ \mbox{\hyperlink{_dynamic_r_h_i_8h_a50c6da8a09f76e48d7115dde7f4cd97d}{RHICreateGraphicsPipelineState}}(\textcolor{keyword}{const}\ \textcolor{keyword}{class}\ \mbox{\hyperlink{class_f_graphics_pipeline_state_initializer}{FGraphicsPipelineStateInitializer}}\&\ Initializer)}
+\DoxyCodeLine{00153\ \{}
+\DoxyCodeLine{00154\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{_dynamic_r_h_i_8h_a7f476220c09bed9c45bc8cdcfde73e72}{GDynamicRHI}}-\/>\mbox{\hyperlink{class_f_dynamic_r_h_i_af8532d4d041297a0a3d05aa30e9a4330}{RHICreateGraphicsPipelineState}}(Initializer);}
+\DoxyCodeLine{00155\ \}}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00157\ FORCEINLINE\ TRefCountPtr<FRHIVertexShader>\ \mbox{\hyperlink{_dynamic_r_h_i_8h_afc60b329fd99f6e3e24deb6b88769ab2}{RHICreateVertexShader}}(\textcolor{keyword}{const}\ TArray<uint8>\&\ Code,\ \textcolor{keyword}{const}\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_f_shader_bounds}{FShaderBounds}}\&\ Bounds)}
+\DoxyCodeLine{00158\ \{}
+\DoxyCodeLine{00159\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{_dynamic_r_h_i_8h_a7f476220c09bed9c45bc8cdcfde73e72}{GDynamicRHI}}-\/>\mbox{\hyperlink{class_f_dynamic_r_h_i_a2c6ef6a9b044a8222d38129d13630fa9}{RHICreateVertexShader}}(Code,\ Bounds);}
+\DoxyCodeLine{00160\ \}}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00162\ FORCEINLINE\ TRefCountPtr<FRHIVertexDeclaration>\mbox{\hyperlink{_dynamic_r_h_i_8h_a7517b77b859e55ad7c2bd4b4d932faf3}{RHICreateVertexDeclaration}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_t_array}{FVertexDeclarationElementList}}\&\ Elements)}
+\DoxyCodeLine{00163\ \{}
+\DoxyCodeLine{00164\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{_dynamic_r_h_i_8h_a7f476220c09bed9c45bc8cdcfde73e72}{GDynamicRHI}}-\/>\mbox{\hyperlink{class_f_dynamic_r_h_i_a2401a4be0e19b756b5091d68534c567a}{RHICreateVertexDeclaration}}(Elements);}
+\DoxyCodeLine{00165\ \}}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00167\ }
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00169\ FORCEINLINE\ TRefCountPtr<FRHIPixelShader>\ \mbox{\hyperlink{_dynamic_r_h_i_8h_a756d5c579d92e465b0fe00d857a29998}{RHICreatePixelShader}}(\textcolor{keyword}{const}\ TArray<uint8>\&\ Code,\ \textcolor{keyword}{const}\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_f_shader_bounds}{FShaderBounds}}\&\ Bounds)}
+\DoxyCodeLine{00170\ \{}
+\DoxyCodeLine{00171\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{_dynamic_r_h_i_8h_a7f476220c09bed9c45bc8cdcfde73e72}{GDynamicRHI}}-\/>\mbox{\hyperlink{class_f_dynamic_r_h_i_a53d0ed0d31f17f76afa082d2ea9f4f4b}{RHICreatePixelShader}}(Code,\ Bounds);}
+\DoxyCodeLine{00172\ \}}
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00174\ }
 
 \end{DoxyCode}

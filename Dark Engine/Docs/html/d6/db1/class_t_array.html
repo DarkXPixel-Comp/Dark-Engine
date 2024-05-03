@@ -6,11 +6,15 @@
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Dark Engine: Шаблон класса TArray&lt; ElementType &gt;</title>
-<link rel="icon" href="../../Logo.ico" type="image/x-icon" />
+<link rel="icon" href="../../Logo.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../clipboard.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
 <script type="text/javascript" src="../../cookie.js"></script>
 <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../search/searchdata.js"></script>
@@ -23,9 +27,9 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
-  <td id="projectlogo"><img alt="Logo" src="../../Logo.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="../../MiniLogo.png"/></td>
   <td id="projectalign">
-   <div id="projectname">Dark Engine<span id="projectnumber">&#160;0.0.40</span>
+   <div id="projectname">Dark Engine<span id="projectnumber">&#160;0.0.50</span>
    </div>
    <div id="projectbrief">New game engnie D3D12</div>
   </td>
@@ -51,6 +55,23 @@ $(function() {
 /* @license-end */
 </script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('d6/db1/class_t_array.html','../../'); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -72,7 +93,6 @@ $(function() {
 </div>
 </div>
 
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Открытые члены</a> &#124;
@@ -103,6 +123,8 @@ $(function() {
 <tr class="separator:a18e02173e1e0d6b6af74ec0bf5ebfb34"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa3ef505f135950ad7a7eb5ba70db2ada" id="r_aa3ef505f135950ad7a7eb5ba70db2ada"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa3ef505f135950ad7a7eb5ba70db2ada">TArray</a> (SizeType <a class="el" href="../../d5/dc5/_d3_d12_utils_8h.html#a49802c782fb40bd8e79835ef12871ddeaff9abf2b1a689f70a77a18da50c01d9f">Size</a>)</td></tr>
 <tr class="separator:aa3ef505f135950ad7a7eb5ba70db2ada"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63d16220e3dc7872790ea48b747a1f66" id="r_a63d16220e3dc7872790ea48b747a1f66"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a63d16220e3dc7872790ea48b747a1f66">TArray</a> (const <a class="el" href="../../d2/d30/struct_array_reserve.html">ArrayReserve</a> &amp;InReserve)</td></tr>
+<tr class="separator:a63d16220e3dc7872790ea48b747a1f66"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a878678629907fa10be69a38a9dbf2480" id="r_a878678629907fa10be69a38a9dbf2480"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a878678629907fa10be69a38a9dbf2480">TArray</a> (std::initializer_list&lt; ElementType &gt; Elements)</td></tr>
 <tr class="separator:a878678629907fa10be69a38a9dbf2480"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af97a0510344e2df938a0ccf5f9d026fc" id="r_af97a0510344e2df938a0ccf5f9d026fc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af97a0510344e2df938a0ccf5f9d026fc">TArray</a> (std::vector&lt; ElementType &gt; Elements)</td></tr>
@@ -189,7 +211,7 @@ $(function() {
 </table>
 <h2 class="groupheader">Конструктор(ы)</h2>
 <a id="a18e02173e1e0d6b6af74ec0bf5ebfb34" name="a18e02173e1e0d6b6af74ec0bf5ebfb34"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a18e02173e1e0d6b6af74ec0bf5ebfb34">&#9670;&#160;</a></span>TArray() <span class="overload">[1/5]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a18e02173e1e0d6b6af74ec0bf5ebfb34">&#9670;&#160;</a></span>TArray() <span class="overload">[1/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -216,7 +238,7 @@ template&lt;typename ElementType &gt; </div>
 </div>
 </div>
 <a id="aa3ef505f135950ad7a7eb5ba70db2ada" name="aa3ef505f135950ad7a7eb5ba70db2ada"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa3ef505f135950ad7a7eb5ba70db2ada">&#9670;&#160;</a></span>TArray() <span class="overload">[2/5]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3ef505f135950ad7a7eb5ba70db2ada">&#9670;&#160;</a></span>TArray() <span class="overload">[2/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -242,8 +264,35 @@ template&lt;typename ElementType &gt; </div>
 
 </div>
 </div>
+<a id="a63d16220e3dc7872790ea48b747a1f66" name="a63d16220e3dc7872790ea48b747a1f66"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63d16220e3dc7872790ea48b747a1f66">&#9670;&#160;</a></span>TArray() <span class="overload">[3/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename ElementType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt; ElementType &gt;<a class="el" href="../../d6/db1/class_t_array.html">::TArray</a> </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d2/d30/struct_array_reserve.html">ArrayReserve</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>InReserve</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a878678629907fa10be69a38a9dbf2480" name="a878678629907fa10be69a38a9dbf2480"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a878678629907fa10be69a38a9dbf2480">&#9670;&#160;</a></span>TArray() <span class="overload">[3/5]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a878678629907fa10be69a38a9dbf2480">&#9670;&#160;</a></span>TArray() <span class="overload">[4/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -270,7 +319,7 @@ template&lt;typename ElementType &gt; </div>
 </div>
 </div>
 <a id="af97a0510344e2df938a0ccf5f9d026fc" name="af97a0510344e2df938a0ccf5f9d026fc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af97a0510344e2df938a0ccf5f9d026fc">&#9670;&#160;</a></span>TArray() <span class="overload">[4/5]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#af97a0510344e2df938a0ccf5f9d026fc">&#9670;&#160;</a></span>TArray() <span class="overload">[5/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -297,7 +346,7 @@ template&lt;typename ElementType &gt; </div>
 </div>
 </div>
 <a id="a30c260de3aaae2f02b0cd5024e9e3119" name="a30c260de3aaae2f02b0cd5024e9e3119"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a30c260de3aaae2f02b0cd5024e9e3119">&#9670;&#160;</a></span>TArray() <span class="overload">[5/5]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a30c260de3aaae2f02b0cd5024e9e3119">&#9670;&#160;</a></span>TArray() <span class="overload">[6/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1265,9 +1314,13 @@ template&lt;typename ElementType &gt; </div>
 <li>Dark Engine/Source/Runtime/Core/Public/Containers/<a class="el" href="../../d3/dc5/_array_8h_source.html">Array.h</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../d6/db1/class_t_array.html">TArray</a></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
 </body>
 </html>

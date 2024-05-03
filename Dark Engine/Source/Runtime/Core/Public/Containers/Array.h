@@ -15,6 +15,13 @@ using TSet = std::set<Args...>;
 
 
 
+struct ArrayReserve
+{
+	ArrayReserve(uint64 InReserve): Reserve(InReserve)
+	{}
+
+	uint64 Reserve;
+};
 
 
 template <typename ElementType>
@@ -26,6 +33,8 @@ public:
 	TArray() { }
 
 	TArray(SizeType Size) : _vector(Size) {}
+
+	TArray(const ArrayReserve& InReserve) { Reserve(InReserve.Reserve); }
 
 	TArray(std::initializer_list<ElementType> Elements) : _vector(Elements) {}
 

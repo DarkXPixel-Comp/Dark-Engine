@@ -5,5 +5,6 @@ var searchData=
   ['zaxisvector_2',['ZAxisVector',['../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a5bf33accc35da656eec3762c94bfd8c0',1,'DE::Math::TVector']]],
   ['zerorotator_3',['ZeroRotator',['../d7/dde/struct_d_e_1_1_math_1_1_t_rotator.html#af519a359222b0b2b756af578c9cbe104',1,'DE::Math::TRotator']]],
   ['zerovalue_4',['ZeroValue',['../d3/def/struct_d_e_1_1_math_1_1_t_int_point.html#a85fcdcfef931dc078cc570c5ccb112a5',1,'DE::Math::TIntPoint']]],
-  ['zerovector_5',['ZeroVector',['../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a2ebc6e4acd75aeeb4e796a22a6c73888',1,'DE::Math::TVector']]]
+  ['zerovector_5',['ZeroVector',['../d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a2ebc6e4acd75aeeb4e796a22a6c73888',1,'DE::Math::TVector']]],
+  ['zerovectoronew_6',['ZeroVectorOneW',['../d1/de1/struct_d_e_1_1_math_1_1_t_vector4.html#ad4409963b1620ebf3f4c6def0e6a2d2d',1,'DE::Math::TVector4']]]
 ];

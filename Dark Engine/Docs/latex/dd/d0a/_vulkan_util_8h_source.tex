@@ -1,0 +1,124 @@
+\doxysection{Vulkan\+Util.\+h}
+\hypertarget{_vulkan_util_8h_source}{}\label{_vulkan_util_8h_source}\index{Dark Engine/Source/Runtime/VulkanRHI/private/VulkanUtil.h@{Dark Engine/Source/Runtime/VulkanRHI/private/VulkanUtil.h}}
+\mbox{\hyperlink{_vulkan_util_8h}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}Vulkan/vulkan.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_vulkan_common_8h}{VulkanCommon.h}}"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_vulkan_util_8h_a972831e8c0ba2623da1ebf10c566004d}{LogVkError}}(VkResult\ Result)}
+\DoxyCodeLine{00009\ \{}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{_vulkan_util_8h_ad5546bb1652a695d15860136a4f937b0}{VerifyVkResult}}(VkResult\ Result)}
+\DoxyCodeLine{00014\ \{}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordflow}{switch}\ (Result)}
+\DoxyCodeLine{00016\ \ \ \ \ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordflow}{case}\ VK\_SUCCESS:}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordflow}{case}\ VK\_NOT\_READY:}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordflow}{case}\ VK\_TIMEOUT:}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordflow}{case}\ VK\_EVENT\_SET:}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordflow}{case}\ VK\_EVENT\_RESET:}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordflow}{case}\ VK\_INCOMPLETE:}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordflow}{case}\ VK\_ERROR\_OUT\_OF\_HOST\_MEMORY:}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordflow}{case}\ VK\_ERROR\_OUT\_OF\_DEVICE\_MEMORY:}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordflow}{case}\ VK\_ERROR\_INITIALIZATION\_FAILED:}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordflow}{case}\ VK\_ERROR\_DEVICE\_LOST:}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordflow}{case}\ VK\_ERROR\_MEMORY\_MAP\_FAILED:}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordflow}{case}\ VK\_ERROR\_LAYER\_NOT\_PRESENT:}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordflow}{case}\ VK\_ERROR\_EXTENSION\_NOT\_PRESENT:}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordflow}{case}\ VK\_ERROR\_FEATURE\_NOT\_PRESENT:}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordflow}{case}\ VK\_ERROR\_INCOMPATIBLE\_DRIVER:}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordflow}{case}\ VK\_ERROR\_TOO\_MANY\_OBJECTS:}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordflow}{case}\ VK\_ERROR\_FORMAT\_NOT\_SUPPORTED:}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordflow}{case}\ VK\_ERROR\_FRAGMENTED\_POOL:}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordflow}{case}\ VK\_ERROR\_UNKNOWN:}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordflow}{case}\ VK\_ERROR\_OUT\_OF\_POOL\_MEMORY:}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordflow}{case}\ VK\_ERROR\_INVALID\_EXTERNAL\_HANDLE:}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordflow}{case}\ VK\_ERROR\_FRAGMENTATION:}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordflow}{case}\ VK\_ERROR\_INVALID\_OPAQUE\_CAPTURE\_ADDRESS:}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordflow}{case}\ VK\_PIPELINE\_COMPILE\_REQUIRED:}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordflow}{case}\ VK\_ERROR\_SURFACE\_LOST\_KHR:}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordflow}{case}\ VK\_ERROR\_NATIVE\_WINDOW\_IN\_USE\_KHR:}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordflow}{case}\ VK\_SUBOPTIMAL\_KHR:}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordflow}{case}\ VK\_ERROR\_OUT\_OF\_DATE\_KHR:}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordflow}{case}\ VK\_ERROR\_INCOMPATIBLE\_DISPLAY\_KHR:}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordflow}{case}\ VK\_ERROR\_VALIDATION\_FAILED\_EXT:}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordflow}{case}\ VK\_ERROR\_INVALID\_SHADER\_NV:}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordflow}{case}\ VK\_ERROR\_IMAGE\_USAGE\_NOT\_SUPPORTED\_KHR:}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordflow}{case}\ VK\_ERROR\_VIDEO\_PICTURE\_LAYOUT\_NOT\_SUPPORTED\_KHR:}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordflow}{case}\ VK\_ERROR\_VIDEO\_PROFILE\_OPERATION\_NOT\_SUPPORTED\_KHR:}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordflow}{case}\ VK\_ERROR\_VIDEO\_PROFILE\_FORMAT\_NOT\_SUPPORTED\_KHR:}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordflow}{case}\ VK\_ERROR\_VIDEO\_PROFILE\_CODEC\_NOT\_SUPPORTED\_KHR:}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordflow}{case}\ VK\_ERROR\_VIDEO\_STD\_VERSION\_NOT\_SUPPORTED\_KHR:}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordflow}{case}\ VK\_ERROR\_INVALID\_DRM\_FORMAT\_MODIFIER\_PLANE\_LAYOUT\_EXT:}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keywordflow}{case}\ VK\_ERROR\_NOT\_PERMITTED\_KHR:}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keywordflow}{case}\ VK\_ERROR\_FULL\_SCREEN\_EXCLUSIVE\_MODE\_LOST\_EXT:}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keywordflow}{case}\ VK\_THREAD\_IDLE\_KHR:}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keywordflow}{case}\ VK\_THREAD\_DONE\_KHR:}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keywordflow}{case}\ VK\_OPERATION\_DEFERRED\_KHR:}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keywordflow}{case}\ VK\_OPERATION\_NOT\_DEFERRED\_KHR:}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordflow}{case}\ VK\_ERROR\_INVALID\_VIDEO\_STD\_PARAMETERS\_KHR:}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keywordflow}{case}\ VK\_ERROR\_COMPRESSION\_EXHAUSTED\_EXT:}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keywordflow}{case}\ VK\_ERROR\_INCOMPATIBLE\_SHADER\_BINARY\_EXT:}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00112\ \ \ \ \ \}}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00115\ \}}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ \textcolor{preprocessor}{\#define\ VkCall(x)\ \{VkResult\ Result\ =\ x;\ if(!VerifyVkResult(Result))\ \{LogVkError(Result);\}\}}}
+
+\end{DoxyCode}

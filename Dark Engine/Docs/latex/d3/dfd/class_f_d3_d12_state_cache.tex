@@ -15,6 +15,10 @@
 \item 
 \mbox{\hyperlink{class_f_d3_d12_state_cache_ac90b8586835187309296b7478b9d98e8}{FD3\+D12\+State\+Cache}} (\mbox{\hyperlink{class_f_d3_d12_command_context}{FD3\+D12\+Command\+Context}} \&Cmd\+Context)
 \item 
+void \mbox{\hyperlink{class_f_d3_d12_state_cache_a8c81df9794e6149523d0602b849eb915}{Set\+Constant\+Buffer}} (\mbox{\hyperlink{_r_h_i_defines_8h_a89725d5f41ceac2e574ddc988f06775e}{EShader\+Type}} Shader\+Type, \mbox{\hyperlink{class_f_d3_d12_constant_buffer}{FD3\+D12\+Constant\+Buffer}} \&Buffer, bool b\+Discard\+Constants)
+\item 
+void \mbox{\hyperlink{class_f_d3_d12_state_cache_a56f3f08d9904ce828c8f7bdd9c5dfa5e}{Set\+Constants\+From\+Uniform\+Buffer}} (\mbox{\hyperlink{_r_h_i_defines_8h_a89725d5f41ceac2e574ddc988f06775e}{EShader\+Type}} Shader\+Type, \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} Slot\+Index, \mbox{\hyperlink{class_f_d3_d12_uniform_buffer}{FD3\+D12\+Uniform\+Buffer}} \texorpdfstring{$\ast$}{*}In\+Buffer)
+\item 
 void \mbox{\hyperlink{class_f_d3_d12_state_cache_a5d79873d4b6d6acfbc67e1106b6e9eba}{Set\+Grapics\+Pipeline\+State}} (class \mbox{\hyperlink{struct_f_d3_d12_graphics_pipeline_state}{FD3\+D12\+Graphics\+Pipeline\+State}} \texorpdfstring{$\ast$}{*}Graphics\+Pipeline\+State)
 \item 
 void \mbox{\hyperlink{class_f_d3_d12_state_cache_a3a2c9da2528fbe1bef5a567bd1ff944a}{Set\+New\+Shader\+Data}} (\mbox{\hyperlink{_r_h_i_defines_8h_a89725d5f41ceac2e574ddc988f06775e}{EShader\+Type}} In\+Type, const class \mbox{\hyperlink{struct_f_d3_d12_shader_data}{FD3\+D12\+Shader\+Data}} \texorpdfstring{$\ast$}{*}In\+Shader\+Data)
@@ -29,7 +33,11 @@ void \mbox{\hyperlink{class_f_d3_d12_state_cache_a33cb5e2d29d543a70a617258419928
 \item 
 void \mbox{\hyperlink{class_f_d3_d12_state_cache_acdf0dc1386cb89f997be64ddb4cf0691}{Apply\+State}} (bool b\+Is\+Compute=false)
 \item 
+void \mbox{\hyperlink{class_f_d3_d12_state_cache_ad72d6da178c97e44e020c91effeeacce}{Apply\+Constants}} (\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} Start\+Stage, \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} End\+Stage, const class \mbox{\hyperlink{class_f_d3_d12_root_signature}{FD3\+D12\+Root\+Signature}} \texorpdfstring{$\ast$}{*}Root\+Signature)
+\item 
 void \mbox{\hyperlink{class_f_d3_d12_state_cache_a6723314b3eb8675ee1504b97e8ef6e24}{Dirty\+State\+For\+New\+Command\+List}} ()
+\item 
+void \mbox{\hyperlink{class_f_d3_d12_state_cache_a85e5d40a9ffb18d16efa21536b0def34}{Queue\+Bindless\+SRV}} (\mbox{\hyperlink{_r_h_i_defines_8h_a89725d5f41ceac2e574ddc988f06775e}{EShader\+Type}} Type, class \mbox{\hyperlink{class_f_d3_d12_shader_resource_view}{FD3\+D12\+Shader\+Resource\+View}} \texorpdfstring{$\ast$}{*}SRV)
 \item 
 \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} \mbox{\hyperlink{class_f_d3_d12_state_cache_ac3cc4c1e0ee85140b5624ade92c8d42b}{Get\+Vertex\+Count}} (\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} Num\+Primitives) const
 \end{DoxyCompactItemize}
@@ -60,6 +68,12 @@ void \mbox{\hyperlink{class_f_d3_d12_device_child_ab64c047f38c63c5890fb361eac5f3
 
 
 \doxysubsection{Методы}
+\Hypertarget{class_f_d3_d12_state_cache_ad72d6da178c97e44e020c91effeeacce}\label{class_f_d3_d12_state_cache_ad72d6da178c97e44e020c91effeeacce} 
+\index{FD3D12StateCache@{FD3D12StateCache}!ApplyConstants@{ApplyConstants}}
+\index{ApplyConstants@{ApplyConstants}!FD3D12StateCache@{FD3D12StateCache}}
+\doxysubsubsection{\texorpdfstring{ApplyConstants()}{ApplyConstants()}}
+{\footnotesize\ttfamily void FD3\+D12\+State\+Cache\+::\+Apply\+Constants (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}}]{Start\+Stage,  }\item[{\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}}]{End\+Stage,  }\item[{const class \mbox{\hyperlink{class_f_d3_d12_root_signature}{FD3\+D12\+Root\+Signature}} \texorpdfstring{$\ast$}{*}}]{Root\+Signature }\end{DoxyParamCaption})}
+
 \Hypertarget{class_f_d3_d12_state_cache_acdf0dc1386cb89f997be64ddb4cf0691}\label{class_f_d3_d12_state_cache_acdf0dc1386cb89f997be64ddb4cf0691} 
 \index{FD3D12StateCache@{FD3D12StateCache}!ApplyState@{ApplyState}}
 \index{ApplyState@{ApplyState}!FD3D12StateCache@{FD3D12StateCache}}
@@ -77,6 +91,24 @@ void \mbox{\hyperlink{class_f_d3_d12_device_child_ab64c047f38c63c5890fb361eac5f3
 \index{GetVertexCount@{GetVertexCount}!FD3D12StateCache@{FD3D12StateCache}}
 \doxysubsubsection{\texorpdfstring{GetVertexCount()}{GetVertexCount()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} FD3\+D12\+State\+Cache\+::\+Get\+Vertex\+Count (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}}]{Num\+Primitives }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_f_d3_d12_state_cache_a85e5d40a9ffb18d16efa21536b0def34}\label{class_f_d3_d12_state_cache_a85e5d40a9ffb18d16efa21536b0def34} 
+\index{FD3D12StateCache@{FD3D12StateCache}!QueueBindlessSRV@{QueueBindlessSRV}}
+\index{QueueBindlessSRV@{QueueBindlessSRV}!FD3D12StateCache@{FD3D12StateCache}}
+\doxysubsubsection{\texorpdfstring{QueueBindlessSRV()}{QueueBindlessSRV()}}
+{\footnotesize\ttfamily void FD3\+D12\+State\+Cache\+::\+Queue\+Bindless\+SRV (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_r_h_i_defines_8h_a89725d5f41ceac2e574ddc988f06775e}{EShader\+Type}}}]{Type,  }\item[{class \mbox{\hyperlink{class_f_d3_d12_shader_resource_view}{FD3\+D12\+Shader\+Resource\+View}} \texorpdfstring{$\ast$}{*}}]{SRV }\end{DoxyParamCaption})}
+
+\Hypertarget{class_f_d3_d12_state_cache_a8c81df9794e6149523d0602b849eb915}\label{class_f_d3_d12_state_cache_a8c81df9794e6149523d0602b849eb915} 
+\index{FD3D12StateCache@{FD3D12StateCache}!SetConstantBuffer@{SetConstantBuffer}}
+\index{SetConstantBuffer@{SetConstantBuffer}!FD3D12StateCache@{FD3D12StateCache}}
+\doxysubsubsection{\texorpdfstring{SetConstantBuffer()}{SetConstantBuffer()}}
+{\footnotesize\ttfamily void FD3\+D12\+State\+Cache\+::\+Set\+Constant\+Buffer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_r_h_i_defines_8h_a89725d5f41ceac2e574ddc988f06775e}{EShader\+Type}}}]{Shader\+Type,  }\item[{\mbox{\hyperlink{class_f_d3_d12_constant_buffer}{FD3\+D12\+Constant\+Buffer}} \&}]{Buffer,  }\item[{bool}]{b\+Discard\+Constants }\end{DoxyParamCaption})}
+
+\Hypertarget{class_f_d3_d12_state_cache_a56f3f08d9904ce828c8f7bdd9c5dfa5e}\label{class_f_d3_d12_state_cache_a56f3f08d9904ce828c8f7bdd9c5dfa5e} 
+\index{FD3D12StateCache@{FD3D12StateCache}!SetConstantsFromUniformBuffer@{SetConstantsFromUniformBuffer}}
+\index{SetConstantsFromUniformBuffer@{SetConstantsFromUniformBuffer}!FD3D12StateCache@{FD3D12StateCache}}
+\doxysubsubsection{\texorpdfstring{SetConstantsFromUniformBuffer()}{SetConstantsFromUniformBuffer()}}
+{\footnotesize\ttfamily void FD3\+D12\+State\+Cache\+::\+Set\+Constants\+From\+Uniform\+Buffer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_r_h_i_defines_8h_a89725d5f41ceac2e574ddc988f06775e}{EShader\+Type}}}]{Shader\+Type,  }\item[{\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}}]{Slot\+Index,  }\item[{\mbox{\hyperlink{class_f_d3_d12_uniform_buffer}{FD3\+D12\+Uniform\+Buffer}} \texorpdfstring{$\ast$}{*}}]{In\+Buffer }\end{DoxyParamCaption})}
 
 \Hypertarget{class_f_d3_d12_state_cache_a5d79873d4b6d6acfbc67e1106b6e9eba}\label{class_f_d3_d12_state_cache_a5d79873d4b6d6acfbc67e1106b6e9eba} 
 \index{FD3D12StateCache@{FD3D12StateCache}!SetGrapicsPipelineState@{SetGrapicsPipelineState}}
@@ -128,6 +160,12 @@ void \mbox{\hyperlink{class_f_d3_d12_device_child_ab64c047f38c63c5890fb361eac5f3
 \index{bNeedSetRootSignature@{bNeedSetRootSignature}!FD3D12StateCache@{FD3D12StateCache}}
 \doxysubsubsection{\texorpdfstring{bNeedSetRootSignature}{bNeedSetRootSignature}}
 {\footnotesize\ttfamily bool FD3\+D12\+State\+Cache\+::b\+Need\+Set\+Root\+Signature = true}
+
+\Hypertarget{class_f_d3_d12_state_cache_aaba5025dcf89cf81626c63a910f24494}\label{class_f_d3_d12_state_cache_aaba5025dcf89cf81626c63a910f24494} 
+\index{FD3D12StateCache@{FD3D12StateCache}!CBVCache@{CBVCache}}
+\index{CBVCache@{CBVCache}!FD3D12StateCache@{FD3D12StateCache}}
+\doxysubsubsection{\texorpdfstring{CBVCache}{CBVCache}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_f_d3_d12_constant_buffer_cache}{FD3\+D12\+Constant\+Buffer\+Cache}} FD3\+D12\+State\+Cache\+::\+CBVCache = \{\}}
 
 \Hypertarget{class_f_d3_d12_state_cache_a219f7d10ea827e7b5259b62335378f56}\label{class_f_d3_d12_state_cache_a219f7d10ea827e7b5259b62335378f56} 
 \index{FD3D12StateCache@{FD3D12StateCache}!Common@{Common}}
@@ -236,6 +274,12 @@ void \mbox{\hyperlink{class_f_d3_d12_device_child_ab64c047f38c63c5890fb361eac5f3
 \index{PrimitiveTypeOffset@{PrimitiveTypeOffset}!FD3D12StateCache@{FD3D12StateCache}}
 \doxysubsubsection{\texorpdfstring{PrimitiveTypeOffset}{PrimitiveTypeOffset}}
 {\footnotesize\ttfamily \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} FD3\+D12\+State\+Cache\+::\+Primitive\+Type\+Offset}
+
+\Hypertarget{class_f_d3_d12_state_cache_a194d5b631af3f172610592eb2c2595ce}\label{class_f_d3_d12_state_cache_a194d5b631af3f172610592eb2c2595ce} 
+\index{FD3D12StateCache@{FD3D12StateCache}!QueuedBindlessSRVs@{QueuedBindlessSRVs}}
+\index{QueuedBindlessSRVs@{QueuedBindlessSRVs}!FD3D12StateCache@{FD3D12StateCache}}
+\doxysubsubsection{\texorpdfstring{QueuedBindlessSRVs}{QueuedBindlessSRVs}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_t_array}{TArray}}$<$\mbox{\hyperlink{class_f_d3_d12_shader_resource_view}{FD3\+D12\+Shader\+Resource\+View}}\texorpdfstring{$\ast$}{*}$>$ FD3\+D12\+State\+Cache\+::\+Queued\+Bindless\+SRVs\mbox{[}\mbox{\hyperlink{_r_h_i_defines_8h_a89725d5f41ceac2e574ddc988f06775ea4fae784dad21e1f04799045f97c79662}{ST\+\_\+\+Num\+Standart\+Types}}\mbox{]}}
 
 \Hypertarget{class_f_d3_d12_state_cache_a6d20ce8969726ab333847aea8d98a924}\label{class_f_d3_d12_state_cache_a6d20ce8969726ab333847aea8d98a924} 
 \index{FD3D12StateCache@{FD3D12StateCache}!RenderTargetArray@{RenderTargetArray}}

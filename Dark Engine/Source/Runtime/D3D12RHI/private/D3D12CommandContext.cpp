@@ -131,10 +131,9 @@ void FD3D12ContextCommon::FlushCommands(ED3D12FlushFlags Flags)
 		CloseCommandList();
 
 		Queue.CommandQueue->ExecuteCommandLists(1, Lists);
-		Queue.WaitFrame();
+		Queue.WaitFrame();	
 
-		
-
+		LockedResources.Empty();
 	}
 }
 

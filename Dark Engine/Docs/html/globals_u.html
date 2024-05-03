@@ -6,11 +6,15 @@
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Dark Engine: Список членов всех файлов</title>
-<link rel="icon" href="Logo.ico" type="image/x-icon" />
+<link rel="icon" href="Logo.png" type="image/x-icon" />
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
@@ -23,9 +27,9 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
-  <td id="projectlogo"><img alt="Logo" src="Logo.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="MiniLogo.png"/></td>
   <td id="projectalign">
-   <div id="projectname">Dark Engine<span id="projectnumber">&#160;0.0.40</span>
+   <div id="projectname">Dark Engine<span id="projectnumber">&#160;0.0.50</span>
    </div>
    <div id="projectbrief">New game engnie D3D12</div>
   </td>
@@ -52,6 +56,22 @@ $(function() {
 </script>
 <div id="main-nav"></div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('globals_u.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -99,6 +119,9 @@ $(function() {
 <li>uint64&#160;:&#160;<a class="el" href="d2/dc9/_platform_8h.html#afddf25cca147311c233b23a9d3329bb4">Platform.h</a></li>
 <li>uint8&#160;:&#160;<a class="el" href="d2/dc9/_platform_8h.html#a40bc01dd090acd02a79b5dc13e08abe6">Platform.h</a></li>
 <li>UNICODE&#160;:&#160;<a class="el" href="d6/d5e/_definitions_8h.html#a09ecca53f2cd1b8d1c566bedb245e141">Definitions.h</a></li>
+<li>UniformBuffer_MultiFrame&#160;:&#160;<a class="el" href="de/df7/_r_h_i_defines_8h.html#a44efee7815674a346059a25f9b3c2085a1b1994c530bb2d846c2d90698db2bd1a">RHIDefines.h</a></li>
+<li>UniformBuffer_SingleDraw&#160;:&#160;<a class="el" href="de/df7/_r_h_i_defines_8h.html#a44efee7815674a346059a25f9b3c2085a7c39490990586f7f06f54ad441765bef">RHIDefines.h</a></li>
+<li>UniformBuffer_SingleFrame&#160;:&#160;<a class="el" href="de/df7/_r_h_i_defines_8h.html#a44efee7815674a346059a25f9b3c2085a9c65b87282dc12ebb64e932079673d99">RHIDefines.h</a></li>
 <li>unimplemented&#160;:&#160;<a class="el" href="d4/d75/_assertion_macros_8h.html#ab3768d7ad059c7b54a15a9fdbdcab303">AssertionMacros.h</a></li>
 <li>UNLIKELY&#160;:&#160;<a class="el" href="d2/dc9/_platform_8h.html#ab10d0a221f4d7a706701b806c8135fd7">Platform.h</a></li>
 <li>USE_BUNDLED_DBGHELP&#160;:&#160;<a class="el" href="d6/d5e/_definitions_8h.html#aca8fb51ab3565348876b49e8dedf32b2">Definitions.h</a></li>
@@ -119,9 +142,12 @@ $(function() {
 <li>UTF8TEXT_PASTE&#160;:&#160;<a class="el" href="d2/dc9/_platform_8h.html#a28fd3964b6aae505ae27b0b0a66524ff">Platform.h</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
 </body>
 </html>

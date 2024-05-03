@@ -18,5 +18,6 @@ var searchData=
   ['iscenerenderer_15',['ISceneRenderer',['../d6/d3f/class_i_scene_renderer.html',1,'']]],
   ['ishaderformat_16',['IShaderFormat',['../d0/da5/class_i_shader_format.html',1,'']]],
   ['iuiviewport_17',['IUIViewport',['../d2/d11/class_i_u_i_viewport.html',1,'']]],
-  ['iwindowsmessagehandler_18',['IWindowsMessageHandler',['../da/d90/class_i_windows_message_handler.html',1,'']]]
+  ['ivulkanloader_18',['IVulkanLoader',['../d7/d24/class_i_vulkan_loader.html',1,'']]],
+  ['iwindowsmessagehandler_19',['IWindowsMessageHandler',['../da/d90/class_i_windows_message_handler.html',1,'']]]
 ];

@@ -6,11 +6,15 @@
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Dark Engine: Cписок членов класса</title>
-<link rel="icon" href="../../Logo.ico" type="image/x-icon" />
+<link rel="icon" href="../../Logo.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../clipboard.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
 <script type="text/javascript" src="../../cookie.js"></script>
 <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../search/searchdata.js"></script>
@@ -23,9 +27,9 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
-  <td id="projectlogo"><img alt="Logo" src="../../Logo.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="../../MiniLogo.png"/></td>
   <td id="projectalign">
-   <div id="projectname">Dark Engine<span id="projectnumber">&#160;0.0.40</span>
+   <div id="projectname">Dark Engine<span id="projectnumber">&#160;0.0.50</span>
    </div>
    <div id="projectbrief">New game engnie D3D12</div>
   </td>
@@ -51,6 +55,23 @@ $(function() {
 /* @license-end */
 </script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('d8/d41/class_i_r_h_i_command_context.html','../../'); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -72,7 +93,6 @@ $(function() {
 </div>
 </div>
 
-</div><!-- top -->
 <div class="header">
   <div class="headertitle"><div class="title">IRHICommandContext Cписок членов класса</div></div>
 </div><!--header-->
@@ -97,14 +117,19 @@ $(function() {
   <tr class="even"><td class="entry"><a class="el" href="../../d2/db5/class_i_r_h_i_compute_context.html#a3228620d5f77b5a095d67177f0d0a971">RHISetComputePipelineState</a>(FRHIComputePipelineState *ComputePipelineState)</td><td class="entry"><a class="el" href="../../d2/db5/class_i_r_h_i_compute_context.html">IRHIComputeContext</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
   <tr class="odd"><td class="entry"><a class="el" href="../../d8/d41/class_i_r_h_i_command_context.html#a3a90c2d8763f94ca834b2e8d3a4fa1c5">RHISetGraphicsPipelineState</a>(class FRHIGraphicsPipelineState *GraphicsPSO, const FBoundShaderStateInput &amp;ShaderInput)=0</td><td class="entry"><a class="el" href="../../d8/d41/class_i_r_h_i_command_context.html">IRHICommandContext</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="../../d8/d41/class_i_r_h_i_command_context.html#a061c664135960a65e5621f825c60f1a3">RHISetScissorRect</a>(bool bEnable, uint32 MinX, uint32 MinY, uint32 MaxX, uint32 MaxY)</td><td class="entry"><a class="el" href="../../d8/d41/class_i_r_h_i_command_context.html">IRHICommandContext</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="../../d8/d41/class_i_r_h_i_command_context.html#af864f58a8b6e84873ee53bdf5bb41c9f">RHISetShaderSampler</a>(FRHIGraphicsShader *Shader, uint32 SamplerIndex, FRHISamplerState *State)</td><td class="entry"><a class="el" href="../../d8/d41/class_i_r_h_i_command_context.html">IRHICommandContext</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="../../d8/d41/class_i_r_h_i_command_context.html#adb2f56473c82780610734dbe213efb29">RHISetShaderTexture</a>(FRHIGraphicsShader *Shader, uint32 TextureIndex, FRHITexture *Texture)</td><td class="entry"><a class="el" href="../../d8/d41/class_i_r_h_i_command_context.html">IRHICommandContext</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="../../d8/d41/class_i_r_h_i_command_context.html#a3a39de659290f300dc94d04fea9c47d3">RHISetStreamSource</a>(uint32 StreamIndex, FRHIBuffer *VertexBuffer, uint32 Offset, uint32 Stride)=0</td><td class="entry"><a class="el" href="../../d8/d41/class_i_r_h_i_command_context.html">IRHICommandContext</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="../../d8/d41/class_i_r_h_i_command_context.html#aa0b576b0c387de3588a9137555593c74">RHISetViewport</a>(float MinX, float MinY, float MinZ, float MaxX, float MaxY, float MaxZ)=0</td><td class="entry"><a class="el" href="../../d8/d41/class_i_r_h_i_command_context.html">IRHICommandContext</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="../../d8/d41/class_i_r_h_i_command_context.html#a92e5f9edd22895ef70874bba33a0986e">RHISetShaderParameters</a>(FRHIGraphicsShader *Shader, TArray&lt; uint8 &gt; &amp;InParameters, TArray&lt; FRHIShaderParameterResource &gt; &amp;InBindlessParameters, TArray&lt; FRHIShaderParameterResource &gt; &amp;InResourceParameters)=0</td><td class="entry"><a class="el" href="../../d8/d41/class_i_r_h_i_command_context.html">IRHICommandContext</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d8/d41/class_i_r_h_i_command_context.html#af864f58a8b6e84873ee53bdf5bb41c9f">RHISetShaderSampler</a>(FRHIGraphicsShader *Shader, uint32 SamplerIndex, FRHISamplerState *State)</td><td class="entry"><a class="el" href="../../d8/d41/class_i_r_h_i_command_context.html">IRHICommandContext</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="../../d8/d41/class_i_r_h_i_command_context.html#adb2f56473c82780610734dbe213efb29">RHISetShaderTexture</a>(FRHIGraphicsShader *Shader, uint32 TextureIndex, FRHITexture *Texture)</td><td class="entry"><a class="el" href="../../d8/d41/class_i_r_h_i_command_context.html">IRHICommandContext</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d8/d41/class_i_r_h_i_command_context.html#a3a39de659290f300dc94d04fea9c47d3">RHISetStreamSource</a>(uint32 StreamIndex, FRHIBuffer *VertexBuffer, uint32 Offset, uint32 Stride)=0</td><td class="entry"><a class="el" href="../../d8/d41/class_i_r_h_i_command_context.html">IRHICommandContext</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="../../d8/d41/class_i_r_h_i_command_context.html#aa0b576b0c387de3588a9137555593c74">RHISetViewport</a>(float MinX, float MinY, float MinZ, float MaxX, float MaxY, float MaxZ)=0</td><td class="entry"><a class="el" href="../../d8/d41/class_i_r_h_i_command_context.html">IRHICommandContext</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d8/d41/class_i_r_h_i_command_context.html#abe2194fead74407f7fe7c251c1132445">SetRenderTargets</a>(int32 NumRenderTargets, const FRHIRenderTargetView *RenderTargetsRHI, const FRHIDepthRenderTargetView *DepthStencilViewRHI, bool bClear=false)=0</td><td class="entry"><a class="el" href="../../d8/d41/class_i_r_h_i_command_context.html">IRHICommandContext</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
 </table></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
 </body>
 </html>

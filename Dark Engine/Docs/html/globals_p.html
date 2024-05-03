@@ -6,11 +6,15 @@
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Dark Engine: Список членов всех файлов</title>
-<link rel="icon" href="Logo.ico" type="image/x-icon" />
+<link rel="icon" href="Logo.png" type="image/x-icon" />
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
@@ -23,9 +27,9 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
-  <td id="projectlogo"><img alt="Logo" src="Logo.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="MiniLogo.png"/></td>
   <td id="projectalign">
-   <div id="projectname">Dark Engine<span id="projectnumber">&#160;0.0.40</span>
+   <div id="projectname">Dark Engine<span id="projectnumber">&#160;0.0.50</span>
    </div>
    <div id="projectbrief">New game engnie D3D12</div>
   </td>
@@ -52,6 +56,22 @@ $(function() {
 </script>
 <div id="main-nav"></div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('globals_p.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -145,6 +165,10 @@ $(function() {
 <li>PreprocessShaderInternal()&#160;:&#160;<a class="el" href="d5/d7e/_shader_compiler_8cpp.html#ab4fa5b19edd7c58d7475e578392fd584">ShaderCompiler.cpp</a></li>
 <li>PrintLine&#160;:&#160;<a class="el" href="d3/d6b/_command_line_8h.html#a4ebfeaa819ddc7b0039496d16b2adb37">CommandLine.h</a></li>
 <li>ProcessCompiledShaderMap()&#160;:&#160;<a class="el" href="d5/d7e/_shader_compiler_8cpp.html#a6385d29419c173266bfd80bd2dc7aff8">ShaderCompiler.cpp</a></li>
+<li>PS_CBVs&#160;:&#160;<a class="el" href="df/d0f/_d3_d12_root_signature_8h.html#a63ef258198b89b8ea8576180716d3d27a762324a880a9e91f16dcc169626c94a9">D3D12RootSignature.h</a></li>
+<li>PS_RootCBVs&#160;:&#160;<a class="el" href="df/d0f/_d3_d12_root_signature_8h.html#a63ef258198b89b8ea8576180716d3d27a4324d756a5aacb25202ab1aed1fc369e">D3D12RootSignature.h</a></li>
+<li>PS_Samplers&#160;:&#160;<a class="el" href="df/d0f/_d3_d12_root_signature_8h.html#a63ef258198b89b8ea8576180716d3d27a601e32ae22b6d66490948b3044a2a79f">D3D12RootSignature.h</a></li>
+<li>PS_SRVs&#160;:&#160;<a class="el" href="df/d0f/_d3_d12_root_signature_8h.html#a63ef258198b89b8ea8576180716d3d27af72a36c840220fd45db2b1ecfb307f6f">D3D12RootSignature.h</a></li>
 <li>PT_LineList&#160;:&#160;<a class="el" href="de/df7/_r_h_i_defines_8h.html#af5bd84af81d7da8da271f976754778e0a309dc6e6c82a3f4062a375ca8a14b2af">RHIDefines.h</a></li>
 <li>PT_Num&#160;:&#160;<a class="el" href="de/df7/_r_h_i_defines_8h.html#af5bd84af81d7da8da271f976754778e0a6355c64e2ba8877af2780b70fe1354c7">RHIDefines.h</a></li>
 <li>PT_PointList&#160;:&#160;<a class="el" href="de/df7/_r_h_i_defines_8h.html#af5bd84af81d7da8da271f976754778e0a1d7c216fd1333edd2777b20b5eb1fb77">RHIDefines.h</a></li>
@@ -153,9 +177,12 @@ $(function() {
 <li>PT_TriangleStrip&#160;:&#160;<a class="el" href="de/df7/_r_h_i_defines_8h.html#af5bd84af81d7da8da271f976754778e0ae906a8eb232c68bebf2f9a3917cae3ee">RHIDefines.h</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
 </body>
 </html>

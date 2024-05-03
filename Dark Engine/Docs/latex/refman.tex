@@ -196,7 +196,7 @@
   \vspace*{7cm}
   \begin{center}%
   {\Large Dark Engine}\\
-  [1ex]\large 0.\+0.\+40 \\
+  [1ex]\large 0.\+0.\+50 \\
   \vspace*{1cm}
   {\large Создано системой Doxygen 1.10.0}\\
   \end{center}
@@ -210,6 +210,7 @@
   \hypersetup{pageanchor=true}
 %--- Begin generated contents ---
 \input{index}
+\input{dd/da0/todo}
 \chapter{Алфавитный указатель пространств имен}
 \input{namespaces}
 \chapter{Иерархический список классов}
@@ -230,10 +231,12 @@
 \input{dc/d6c/namespace_e_mouse_buttons}
 \input{db/de5/namespaceispc}
 \input{d3/d82/namespace_test_script}
+\input{d8/d55/namespace_v_k}
 \chapter{Классы}
 \input{db/d32/class_a_actor}
 \input{de/d6b/class_application}
 \input{d7/da2/class_application_core}
+\input{d2/d30/struct_array_reserve}
 \input{d9/d26/class_a_test_actor}
 \input{d7/d63/struct_bucket}
 \input{db/d19/class_command_console}
@@ -269,6 +272,7 @@
 \input{d8/dce/struct_f_color}
 \input{d6/d70/struct_f_color3}
 \input{dc/de0/struct_f_r_h_i_render_pass_info_1_1_f_color_entry}
+\input{da/de1/class_f_config_cache}
 \input{d8/db3/class_f_console_command}
 \input{da/de9/struct_f_console_log}
 \input{da/d13/class_f_console_std}
@@ -288,6 +292,7 @@
 \input{d5/d3e/class_f_d3_d12_command_list}
 \input{d9/d50/class_f_d3_d12_compute_shader}
 \input{da/d40/class_f_d3_d12_constant_buffer}
+\input{d2/d52/struct_f_d3_d12_constant_buffer_cache}
 \input{d1/d3a/class_f_d3_d12_context_common}
 \input{d2/d75/struct_f_d3_d12_cpu_descriptor}
 \input{d5/dcf/class_f_d3_d12_cpu_descriptor_manager}
@@ -314,9 +319,11 @@
 \input{dc/d9f/class_f_d3_d12_pipeline_state_manager}
 \input{dd/d1d/class_f_d3_d12_pixel_shader}
 \input{df/d45/class_f_d3_d12_queue}
+\input{d4/d27/class_f_d3_d12_rasterizer_state}
 \input{d5/d25/class_f_d3_d12_render_target_view}
 \input{d7/d81/class_f_d3_d12_resource}
 \input{d3/d27/class_f_d3_d12_resource_barrier_batcher}
+\input{d3/dd6/struct_f_d3_d12_resource_cache}
 \input{d6/d83/struct_f_d3_d12_resource_desc}
 \input{d3/dfd/class_f_d3_d12_resource_location}
 \input{d0/d1e/class_f_d3_d12_root_signature}
@@ -327,6 +334,7 @@
 \input{d3/dfd/class_f_d3_d12_state_cache}
 \input{d7/d30/class_f_d3_d12_sync_point}
 \input{d6/d36/class_f_d3_d12_texture}
+\input{d0/d49/class_f_d3_d12_uniform_buffer}
 \input{d6/dfd/struct_f_d3_d12_vertex_buffer_cache}
 \input{d3/d63/class_f_d3_d12_vertex_declaration}
 \input{de/d35/class_f_d3_d12_vertex_shader}
@@ -335,6 +343,7 @@
 \input{d0/d2e/class_f_d3_d_shader_format}
 \input{d8/da0/struct_f_debug}
 \input{da/d4c/struct_f_r_h_i_render_pass_info_1_1_f_depth_stencil_entry}
+\input{d0/d65/struct_f_depth_stencil_state_initializer}
 \input{d8/d73/struct_f_dxc_arguments}
 \input{de/d38/class_f_dynamic_r_h_i}
 \input{df/df6/struct_f_editor_layout}
@@ -344,6 +353,9 @@
 \input{de/d24/struct_f_ensure_handler_args}
 \input{d7/dbe/struct_f_filter_vertex}
 \input{db/d89/class_f_filter_vertex_declaration}
+\input{d4/d85/struct_f_fractal_params}
+\input{da/d21/class_f_fractal_shader_p_s}
+\input{d4/def/class_f_fractal_shader_v_s}
 \input{d4/dee/class_f_game_timer}
 \input{d6/db2/class_f_game_viewport_client}
 \input{df/d5f/class_f_generic_application}
@@ -387,11 +399,13 @@
 \input{dc/d79/class_f_pipeline_state}
 \input{de/d96/class_f_pipeline_state_cache}
 \input{dd/d2a/class_f_primitive_component_id}
+\input{dc/df1/struct_f_rasterizer_state_initializer}
 \input{dc/dba/class_f_ref_counted_object}
 \input{dc/d23/class_f_renderer}
 \input{dd/d5b/class_f_render_mesh}
 \input{d3/d1d/class_f_render_resource}
 \input{d7/d9f/class_f_render_target}
+\input{d2/d7e/struct_f_r_h_i_batched_shader_parameters}
 \input{d9/d24/class_f_r_h_i_buffer}
 \input{d7/d2f/struct_f_r_h_i_buffer_desc}
 \input{d9/dfe/class_f_r_h_i_command_list}
@@ -402,20 +416,25 @@
 \input{de/d0a/class_f_r_h_i_compute_pipeline_state}
 \input{d0/deb/class_f_r_h_i_compute_shader}
 \input{d1/dc4/class_f_r_h_i_depth_render_target_view}
+\input{d9/db1/class_f_r_h_i_depth_stencil_state}
 \input{dd/d95/struct_f_r_h_i_descriptor_handle}
 \input{d6/d35/class_f_r_h_i_geometry_shader}
 \input{de/dfc/class_f_r_h_i_graphics_pipeline_state}
 \input{da/d86/class_f_r_h_i_graphics_shader}
 \input{d4/d06/class_f_r_h_i_pixel_shader}
+\input{d3/dcd/class_f_r_h_i_rasterizer_state}
 \input{dc/dcb/struct_f_r_h_i_render_pass_info}
 \input{db/d0c/class_f_r_h_i_render_target_view}
 \input{d2/d83/class_f_r_h_i_resource}
 \input{d3/d38/class_f_r_h_i_sampler_state}
 \input{d7/d1b/class_f_r_h_i_set_render_target_info}
 \input{db/d66/class_f_r_h_i_shader}
+\input{d2/d8e/struct_f_r_h_i_shader_parameter}
+\input{dd/dbe/struct_f_r_h_i_shader_parameter_resource}
 \input{d3/d6d/class_f_r_h_i_texture}
 \input{d5/d82/struct_f_r_h_i_texture_create_desc}
 \input{d5/dcb/struct_f_r_h_i_texture_desc}
+\input{da/df0/class_f_r_h_i_uniform_buffer}
 \input{d6/de6/class_f_r_h_i_vertex_declaration}
 \input{d0/d98/class_f_r_h_i_vertex_shader}
 \input{d9/d3c/class_f_r_h_i_view}
@@ -434,6 +453,8 @@
 \input{d5/db0/class_f_screen_rectangle_vertex_buffer}
 \input{d6/da9/class_f_screen_rectangle_v_s}
 \input{dc/dee/struct_f_script_container_element}
+\input{da/d06/class_f_sea_shader_p_s}
+\input{d7/d0f/class_f_sea_shader_v_s}
 \input{dd/d3a/class_f_shader}
 \input{d8/df6/struct_f_shader_bounds}
 \input{d2/d84/struct_f_shader_code}
@@ -464,6 +485,8 @@
 \input{db/d13/struct_f_viewport_camera_transform}
 \input{db/d3f/class_f_viewport_client}
 \input{d5/d63/struct_f_viewport_info}
+\input{d9/d5a/class_f_vulkan_dynamic_r_h_i}
+\input{d4/d01/class_f_vulkan_dynamic_r_h_i_module}
 \input{df/d57/class_f_windows_application}
 \input{d8/d87/struct_f_windows_application_misc}
 \input{d2/d88/class_f_windows_critical_section}
@@ -472,6 +495,7 @@
 \input{d5/dde/struct_f_windows_platform_string}
 \input{dc/d32/struct_f_windows_platform_types}
 \input{d4/d9c/class_f_windows_system_wide_critical_section}
+\input{da/d32/class_f_windows_vulkan_loader}
 \input{d8/dd5/class_f_windows_window}
 \input{d1/d0e/class_f_world}
 \input{da/d3d/structstd_1_1hash_3_01_f_bound_shader_state_input_01_4}
@@ -495,6 +519,7 @@
 \input{d6/d3f/class_i_scene_renderer}
 \input{d0/da5/class_i_shader_format}
 \input{d2/d11/class_i_u_i_viewport}
+\input{d7/d24/class_i_vulkan_loader}
 \input{da/d90/class_i_windows_message_handler}
 \input{d4/d44/class_launch}
 \input{d5/d41/structlog__}
@@ -523,6 +548,7 @@
 \input{d2/d3a/class_t_func_container}
 \input{df/de8/class_t_function}
 \input{d3/d48/class_t_global_ptr}
+\input{d8/d58/class_t_global_render_resource}
 \input{d3/def/struct_d_e_1_1_math_1_1_t_int_point}
 \input{d8/d10/struct_d_e_1_1_math_1_1_t_int_rect}
 \input{da/d3f/struct_t_is_floating_point}
@@ -691,6 +717,7 @@
 \input{d8/d77/_structed_log_8cpp}
 \input{df/d93/_dark_math_8cpp}
 \input{df/dcc/_assertion_macros_8cpp}
+\input{d7/dd3/_config_8cpp}
 \input{df/d29/_core_delegates_8cpp}
 \input{d2/dcf/_paths_8cpp}
 \input{d9/d5a/_windows_critical_section_8cpp}
@@ -789,6 +816,8 @@
 \input{d4/dfd/_windows_2_minimal_windows_api_8h_source}
 \input{d4/d75/_assertion_macros_8h}
 \input{d4/d75/_assertion_macros_8h_source}
+\input{d4/d71/_config_8h}
+\input{d4/d71/_config_8h_source}
 \input{dc/d17/_core_delegates_8h}
 \input{dc/d17/_core_delegates_8h_source}
 \input{d0/d23/_enum_class_flags_8h}
@@ -1062,6 +1091,8 @@
 \input{df/d6c/_open_g_l_render_8h_source}
 \input{d6/d58/_render_8module_8sharpmake_8cs}
 \input{d1/dba/_clear_quad_8cpp}
+\input{db/d83/_fractal_render_8cpp}
+\input{db/d08/_global_resource_8cpp}
 \input{da/d66/_global_shader_8cpp}
 \input{d4/db9/_indirect_light_rendering_8cpp}
 \input{da/d70/_indirect_light_rendering_8h}
@@ -1077,10 +1108,13 @@
 \input{d7/d2e/_scene_rendering_8cpp}
 \input{d6/dda/_scene_rendering_8h}
 \input{d6/dda/_scene_rendering_8h_source}
+\input{db/d67/_sea_scape_8cpp}
 \input{d5/d16/_shader_8cpp}
 \input{d5/d7e/_shader_compiler_8cpp}
 \input{d5/d16/_common_render_resources_8h}
 \input{d5/d16/_common_render_resources_8h_source}
+\input{d6/d1f/_global_resource_8h}
+\input{d6/d1f/_global_resource_8h_source}
 \input{dd/d5a/_global_shader_8h}
 \input{dd/d5a/_global_shader_8h_source}
 \input{dc/d91/_i_shader_format_8h}
@@ -1127,6 +1161,8 @@
 \input{d3/dca/_r_h_i_pipeline_8h_source}
 \input{db/dec/_r_h_i_resources_8h}
 \input{db/dec/_r_h_i_resources_8h_source}
+\input{de/d30/_r_h_i_shader_parameters_8h}
+\input{de/d30/_r_h_i_shader_parameters_8h_source}
 \input{d5/d95/_r_h_i_8module_8sharpmake_8cs}
 \input{de/d00/_u_i_application_8cpp}
 \input{d5/dac/_u_i_renderer_8cpp}
@@ -1199,7 +1235,18 @@
 \input{d3/d30/_u_i_window_8h}
 \input{d3/d30/_u_i_window_8h_source}
 \input{d4/d9a/_u_i_core_8module_8sharpmake_8cs}
+\input{db/d59/_vulkan_common_8h}
+\input{db/d59/_vulkan_common_8h_source}
 \input{d6/da1/_vulkan_dynamic_r_h_i_8cpp}
+\input{d1/da6/_vulkan_interfaces_8cpp}
+\input{d3/d65/_vulkan_interfaces_8h}
+\input{d3/d65/_vulkan_interfaces_8h_source}
+\input{d5/d4f/_vulkan_private_dynamic_r_h_i_8h}
+\input{d5/d4f/_vulkan_private_dynamic_r_h_i_8h_source}
+\input{dd/d0a/_vulkan_util_8h}
+\input{dd/d0a/_vulkan_util_8h_source}
+\input{d1/dec/_windows_vulkan_loader_8h}
+\input{d1/dec/_windows_vulkan_loader_8h_source}
 \input{d1/d79/_vulkan_dynamic_r_h_i_8h}
 \input{d1/d79/_vulkan_dynamic_r_h_i_8h_source}
 \input{d5/d94/_d3_d_shader_compiler_8cpp}
@@ -1212,12 +1259,15 @@
 \input{d2/dcb/_test_script_8py}
 \input{d1/d48/_blur_8hlsl}
 \input{db/d97/_common_8hlsl}
+\input{d2/dde/_forest_8hlsl}
+\input{d1/d79/_fractal_shader_8hlsl}
 \input{db/d86/_increase_bright_8hlsl}
 \input{d6/dcf/_lighting_utils_8hlsl}
 \input{df/d82/_pixel_shader_8hlsl}
 \input{d9/d88/_post_process_8hlsl}
 \input{d8/de6/_random_shader_8hlsl}
 \input{d6/d14/_screen_rectangle_8hlsl}
+\input{d3/d83/_seascape_8hlsl}
 \input{d2/d20/_skybox_8hlsl}
 \input{dc/d0b/_skybox_pixel_8hlsl}
 \input{da/dae/_test_shader_8_h_l_s_l}

@@ -6,11 +6,15 @@
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Dark Engine: Файл Dark Engine/Source/Runtime/RHI/public/DynamicRHI.h</title>
-<link rel="icon" href="../../Logo.ico" type="image/x-icon" />
+<link rel="icon" href="../../Logo.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../clipboard.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
 <script type="text/javascript" src="../../cookie.js"></script>
 <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../search/searchdata.js"></script>
@@ -23,9 +27,9 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
-  <td id="projectlogo"><img alt="Logo" src="../../Logo.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="../../MiniLogo.png"/></td>
   <td id="projectalign">
-   <div id="projectname">Dark Engine<span id="projectnumber">&#160;0.0.40</span>
+   <div id="projectname">Dark Engine<span id="projectnumber">&#160;0.0.50</span>
    </div>
    <div id="projectbrief">New game engnie D3D12</div>
   </td>
@@ -51,6 +55,23 @@ $(function() {
 /* @license-end */
 </script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('d8/db0/_dynamic_r_h_i_8h.html','../../'); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -72,11 +93,6 @@ $(function() {
 </div>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="../../dir_55043db21ba5ddd7c561d2c5a5a38944.html">Dark Engine</a></li><li class="navelem"><a class="el" href="../../dir_e00b54220e1e1486ac9971b606d33054.html">Source</a></li><li class="navelem"><a class="el" href="../../dir_ae01c8af07818b260cc3481e8588b277.html">Runtime</a></li><li class="navelem"><a class="el" href="../../dir_36f40cf2346c3a351d59e1803b4d918d.html">RHI</a></li><li class="navelem"><a class="el" href="../../dir_c109a2ed3ccf3db39eee5b1cbca42152.html">public</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Классы</a> &#124;
@@ -115,6 +131,12 @@ $(function() {
 <tr class="separator:a9f813715cdf25d3557fa66873b435201"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a97675cc79124d5cfb88070b186caabe2" id="r_a97675cc79124d5cfb88070b186caabe2"><td class="memItemLeft" align="right" valign="top">FORCEINLINE <a class="el" href="../../dc/d27/_t_unique_ptr_8h.html#a0e0f00349c59b03cfd84d025bb3d6d91">TRefCountPtr</a>&lt; <a class="el" href="../../d3/d6d/class_f_r_h_i_texture.html">FRHITexture</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a97675cc79124d5cfb88070b186caabe2">RHICreateTexture</a> (const <a class="el" href="../../d5/d82/struct_f_r_h_i_texture_create_desc.html">FRHITextureCreateDesc</a> &amp;CreateDesc)</td></tr>
 <tr class="separator:a97675cc79124d5cfb88070b186caabe2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2539f19aaf4b8b466c5e4917e168a628" id="r_a2539f19aaf4b8b466c5e4917e168a628"><td class="memItemLeft" align="right" valign="top">FORCEINLINE <a class="el" href="../../dc/d27/_t_unique_ptr_8h.html#a0e0f00349c59b03cfd84d025bb3d6d91">TRefCountPtr</a>&lt; <a class="el" href="../../d3/dcd/class_f_r_h_i_rasterizer_state.html">FRHIRasterizerState</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2539f19aaf4b8b466c5e4917e168a628">RHICreateRasterizerState</a> (const <a class="el" href="../../dc/df1/struct_f_rasterizer_state_initializer.html">FRasterizerStateInitializer</a> &amp;Initializer)</td></tr>
+<tr class="separator:a2539f19aaf4b8b466c5e4917e168a628"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f419d09ffe4241adaed158f4b581968" id="r_a7f419d09ffe4241adaed158f4b581968"><td class="memItemLeft" align="right" valign="top">FORCEINLINE <a class="el" href="../../dc/d27/_t_unique_ptr_8h.html#a0e0f00349c59b03cfd84d025bb3d6d91">TRefCountPtr</a>&lt; <a class="el" href="../../da/df0/class_f_r_h_i_uniform_buffer.html">FRHIUniformBuffer</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7f419d09ffe4241adaed158f4b581968">RHICreateUniformBuffer</a> (const void *Contents, <a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> <a class="el" href="../../d5/dc5/_d3_d12_utils_8h.html#a49802c782fb40bd8e79835ef12871ddeaff9abf2b1a689f70a77a18da50c01d9f">Size</a>, <a class="el" href="../../de/df7/_r_h_i_defines_8h.html#a44efee7815674a346059a25f9b3c2085">EUniformBufferUsage</a> Usage)</td></tr>
+<tr class="separator:a7f419d09ffe4241adaed158f4b581968"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1fe76f1d9aab0c5589e5526976b6c8db" id="r_a1fe76f1d9aab0c5589e5526976b6c8db"><td class="memItemLeft" align="right" valign="top">FORCEINLINE void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1fe76f1d9aab0c5589e5526976b6c8db">RHIUpdateUniformBuffer</a> (<a class="el" href="../../da/df0/class_f_r_h_i_uniform_buffer.html">FRHIUniformBuffer</a> *BufferRHI, const void *Contents, <a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> <a class="el" href="../../d5/dc5/_d3_d12_utils_8h.html#a49802c782fb40bd8e79835ef12871ddeaff9abf2b1a689f70a77a18da50c01d9f">Size</a>)</td></tr>
+<tr class="separator:a1fe76f1d9aab0c5589e5526976b6c8db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaae12c584cc160195bae750b5ff58855" id="r_aaae12c584cc160195bae750b5ff58855"><td class="memItemLeft" align="right" valign="top">FORCEINLINE void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaae12c584cc160195bae750b5ff58855">RHILockTexture2D</a> (<a class="el" href="../../d3/d6d/class_f_r_h_i_texture.html">FRHITexture</a> *TextureRHI, <a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> MipIndex, <a class="el" href="../../de/df7/_r_h_i_defines_8h.html#a74b58e6e8443baea529ab6f701abadb7">EResourceLockMode</a> LockMode, <a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> &amp;DestStride, <a class="el" href="../../d2/dc9/_platform_8h.html#afddf25cca147311c233b23a9d3329bb4">uint64</a> *OutLockedByteCount, bool bLockWithinMiptail=false)</td></tr>
 <tr class="separator:aaae12c584cc160195bae750b5ff58855"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac3a4172ed3b1066dcd454f51e53244b4" id="r_ac3a4172ed3b1066dcd454f51e53244b4"><td class="memItemLeft" align="right" valign="top">FORCEINLINE void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac3a4172ed3b1066dcd454f51e53244b4">RHIUnlockTexture2D</a> (<a class="el" href="../../d3/d6d/class_f_r_h_i_texture.html">FRHITexture</a> *TextureRHI, <a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> MipIndex, bool bLockWithinMiptail=false)</td></tr>
@@ -293,6 +315,23 @@ $(function() {
 
 </div>
 </div>
+<a id="a2539f19aaf4b8b466c5e4917e168a628" name="a2539f19aaf4b8b466c5e4917e168a628"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2539f19aaf4b8b466c5e4917e168a628">&#9670;&#160;</a></span>RHICreateRasterizerState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FORCEINLINE <a class="el" href="../../dc/d27/_t_unique_ptr_8h.html#a0e0f00349c59b03cfd84d025bb3d6d91">TRefCountPtr</a>&lt; <a class="el" href="../../d3/dcd/class_f_r_h_i_rasterizer_state.html">FRHIRasterizerState</a> &gt; RHICreateRasterizerState </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../dc/df1/struct_f_rasterizer_state_initializer.html">FRasterizerStateInitializer</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Initializer</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a97675cc79124d5cfb88070b186caabe2" name="a97675cc79124d5cfb88070b186caabe2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a97675cc79124d5cfb88070b186caabe2">&#9670;&#160;</a></span>RHICreateTexture()</h2>
 
@@ -314,6 +353,32 @@ $(function() {
   </dd>
 </dl>
 <dl class="section return"><dt>Возвращает</dt><dd>RefCount object <a class="el" href="../../d3/d6d/class_f_r_h_i_texture.html">FRHITexture</a> </dd></dl>
+
+</div>
+</div>
+<a id="a7f419d09ffe4241adaed158f4b581968" name="a7f419d09ffe4241adaed158f4b581968"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f419d09ffe4241adaed158f4b581968">&#9670;&#160;</a></span>RHICreateUniformBuffer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FORCEINLINE <a class="el" href="../../dc/d27/_t_unique_ptr_8h.html#a0e0f00349c59b03cfd84d025bb3d6d91">TRefCountPtr</a>&lt; <a class="el" href="../../da/df0/class_f_r_h_i_uniform_buffer.html">FRHIUniformBuffer</a> &gt; RHICreateUniformBuffer </td>
+          <td>(</td>
+          <td class="paramtype">const void *</td>          <td class="paramname"><span class="paramname"><em>Contents</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a></td>          <td class="paramname"><span class="paramname"><em>Size</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../de/df7/_r_h_i_defines_8h.html#a44efee7815674a346059a25f9b3c2085">EUniformBufferUsage</a></td>          <td class="paramname"><span class="paramname"><em>Usage</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -494,6 +559,32 @@ $(function() {
 
 </div>
 </div>
+<a id="a1fe76f1d9aab0c5589e5526976b6c8db" name="a1fe76f1d9aab0c5589e5526976b6c8db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1fe76f1d9aab0c5589e5526976b6c8db">&#9670;&#160;</a></span>RHIUpdateUniformBuffer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FORCEINLINE void RHIUpdateUniformBuffer </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../da/df0/class_f_r_h_i_uniform_buffer.html">FRHIUniformBuffer</a> *</td>          <td class="paramname"><span class="paramname"><em>BufferRHI</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const void *</td>          <td class="paramname"><span class="paramname"><em>Contents</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a></td>          <td class="paramname"><span class="paramname"><em>Size</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Переменные</h2>
 <a id="a7f476220c09bed9c45bc8cdcfde73e72" name="a7f476220c09bed9c45bc8cdcfde73e72"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7f476220c09bed9c45bc8cdcfde73e72">&#9670;&#160;</a></span>GDynamicRHI</h2>
@@ -518,9 +609,13 @@ $(function() {
 </div>
 </div>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../dir_55043db21ba5ddd7c561d2c5a5a38944.html">Dark Engine</a></li><li class="navelem"><a class="el" href="../../dir_e00b54220e1e1486ac9971b606d33054.html">Source</a></li><li class="navelem"><a class="el" href="../../dir_ae01c8af07818b260cc3481e8588b277.html">Runtime</a></li><li class="navelem"><a class="el" href="../../dir_36f40cf2346c3a351d59e1803b4d918d.html">RHI</a></li><li class="navelem"><a class="el" href="../../dir_c109a2ed3ccf3db39eee5b1cbca42152.html">public</a></li><li class="navelem"><a class="el" href="../../d8/db0/_dynamic_r_h_i_8h.html">DynamicRHI.h</a></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
 </body>
 </html>

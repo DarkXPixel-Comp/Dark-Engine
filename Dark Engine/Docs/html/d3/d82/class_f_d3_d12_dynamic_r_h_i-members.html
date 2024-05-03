@@ -6,11 +6,15 @@
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Dark Engine: Cписок членов класса</title>
-<link rel="icon" href="../../Logo.ico" type="image/x-icon" />
+<link rel="icon" href="../../Logo.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../clipboard.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
 <script type="text/javascript" src="../../cookie.js"></script>
 <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../search/searchdata.js"></script>
@@ -23,9 +27,9 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
-  <td id="projectlogo"><img alt="Logo" src="../../Logo.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="../../MiniLogo.png"/></td>
   <td id="projectalign">
-   <div id="projectname">Dark Engine<span id="projectnumber">&#160;0.0.40</span>
+   <div id="projectname">Dark Engine<span id="projectnumber">&#160;0.0.50</span>
    </div>
    <div id="projectbrief">New game engnie D3D12</div>
   </td>
@@ -51,6 +55,23 @@ $(function() {
 /* @license-end */
 </script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('d3/d95/class_f_d3_d12_dynamic_r_h_i.html','../../'); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -72,7 +93,6 @@ $(function() {
 </div>
 </div>
 
-</div><!-- top -->
 <div class="header">
   <div class="headertitle"><div class="title">FD3D12DynamicRHI Cписок членов класса</div></div>
 </div><!--header-->
@@ -96,7 +116,9 @@ $(function() {
   <tr class="odd"><td class="entry"><a class="el" href="../../d3/d95/class_f_d3_d12_dynamic_r_h_i.html#a007eb4dc40a844d1a97edca8afd8388c">RHICreateGraphicsPipelineState</a>(const class FGraphicsPipelineStateInitializer &amp;Initalizer) override</td><td class="entry"><a class="el" href="../../d3/d95/class_f_d3_d12_dynamic_r_h_i.html">FD3D12DynamicRHI</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="../../d3/d95/class_f_d3_d12_dynamic_r_h_i.html#a2664387fa33d073f0b5b1ceec28d477a">RHICreatePixelShader</a>(const TArray&lt; uint8 &gt; &amp;Code, const FShaderBounds &amp;Bounds) override</td><td class="entry"><a class="el" href="../../d3/d95/class_f_d3_d12_dynamic_r_h_i.html">FD3D12DynamicRHI</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
   <tr class="odd"><td class="entry"><a class="el" href="../../de/d38/class_f_dynamic_r_h_i.html#a53d0ed0d31f17f76afa082d2ea9f4f4b">ID3D12DynamicRHI::RHICreatePixelShader</a>(const TArray&lt; uint8 &gt; &amp;Code, const struct FShaderBounds &amp;Bounds)=0</td><td class="entry"><a class="el" href="../../de/d38/class_f_dynamic_r_h_i.html">FDynamicRHI</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="../../d3/d95/class_f_d3_d12_dynamic_r_h_i.html#aee878a7a93d17b765d8071e0a8f384c8">RHICreateTexture</a>(const FRHITextureCreateDesc &amp;CreateDesc)</td><td class="entry"><a class="el" href="../../d3/d95/class_f_d3_d12_dynamic_r_h_i.html">FD3D12DynamicRHI</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d3/d95/class_f_d3_d12_dynamic_r_h_i.html#a20dc88cb60f0c261039d3a5eb63eb7ae">RHICreateRasterizerState</a>(const FRasterizerStateInitializer &amp;Initializer) override</td><td class="entry"><a class="el" href="../../d3/d95/class_f_d3_d12_dynamic_r_h_i.html">FD3D12DynamicRHI</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="../../d3/d95/class_f_d3_d12_dynamic_r_h_i.html#aee878a7a93d17b765d8071e0a8f384c8">RHICreateTexture</a>(const FRHITextureCreateDesc &amp;CreateDesc)</td><td class="entry"><a class="el" href="../../d3/d95/class_f_d3_d12_dynamic_r_h_i.html">FD3D12DynamicRHI</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d3/d95/class_f_d3_d12_dynamic_r_h_i.html#a0976e9e739363d62e30c46eaf18ef4b4">RHICreateUniformBuffer</a>(const void *Contents, uint32 Size, EUniformBufferUsage Usage)</td><td class="entry"><a class="el" href="../../d3/d95/class_f_d3_d12_dynamic_r_h_i.html">FD3D12DynamicRHI</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
   <tr class="odd"><td class="entry"><a class="el" href="../../d3/d95/class_f_d3_d12_dynamic_r_h_i.html#a350e2d323c103150e00d8ea8aa4e3abb">RHICreateVertexDeclaration</a>(const FVertexDeclarationElementList &amp;Elements) override</td><td class="entry"><a class="el" href="../../d3/d95/class_f_d3_d12_dynamic_r_h_i.html">FD3D12DynamicRHI</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="../../d3/d95/class_f_d3_d12_dynamic_r_h_i.html#a7d48a63682b11494bf3ab6b2a996dad4">RHICreateVertexShader</a>(const TArray&lt; uint8 &gt; &amp;Code, const FShaderBounds &amp;Bounds) override</td><td class="entry"><a class="el" href="../../d3/d95/class_f_d3_d12_dynamic_r_h_i.html">FD3D12DynamicRHI</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
   <tr class="odd"><td class="entry"><a class="el" href="../../de/d38/class_f_dynamic_r_h_i.html#a2c6ef6a9b044a8222d38129d13630fa9">ID3D12DynamicRHI::RHICreateVertexShader</a>(const TArray&lt; uint8 &gt; &amp;Code, const struct FShaderBounds &amp;Bounds)=0</td><td class="entry"><a class="el" href="../../de/d38/class_f_dynamic_r_h_i.html">FDynamicRHI</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
@@ -112,12 +134,16 @@ $(function() {
   <tr class="odd"><td class="entry"><a class="el" href="../../d3/d95/class_f_d3_d12_dynamic_r_h_i.html#a4f013c925b2c7b9f3b022cb4cd876feb">RHILockTexture2D</a>(FRHITexture *TextureRHI, uint32 MipIndex, EResourceLockMode LockMode, uint32 &amp;DestStride, bool bLockWithinMiptail, uint64 *OutLockedByteCount)</td><td class="entry"><a class="el" href="../../d3/d95/class_f_d3_d12_dynamic_r_h_i.html">FD3D12DynamicRHI</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="../../d3/d95/class_f_d3_d12_dynamic_r_h_i.html#a8d3afa1e82b487df17f0b660a43963dc">RHIUnlockBuffer</a>(FRHIBuffer *BufferRHI)</td><td class="entry"><a class="el" href="../../d3/d95/class_f_d3_d12_dynamic_r_h_i.html">FD3D12DynamicRHI</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
   <tr class="odd"><td class="entry"><a class="el" href="../../d3/d95/class_f_d3_d12_dynamic_r_h_i.html#a2064f6c0494e7f990caf75e535d356d8">RHIUnlockTexture2D</a>(FRHITexture *Texture, uint32 MipIndex, bool bLockWithinMiptail)</td><td class="entry"><a class="el" href="../../d3/d95/class_f_d3_d12_dynamic_r_h_i.html">FD3D12DynamicRHI</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="../../d3/d95/class_f_d3_d12_dynamic_r_h_i.html#a4bc12b2207ebd568adfb1b9e9d85e756">Shutdown</a>() override</td><td class="entry"><a class="el" href="../../d3/d95/class_f_d3_d12_dynamic_r_h_i.html">FD3D12DynamicRHI</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="../../d3/d95/class_f_d3_d12_dynamic_r_h_i.html#aee3f72b1a2c68c3a396a23dc20533cdb">~FD3D12DynamicRHI</a>()</td><td class="entry"><a class="el" href="../../d3/d95/class_f_d3_d12_dynamic_r_h_i.html">FD3D12DynamicRHI</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d3/d95/class_f_d3_d12_dynamic_r_h_i.html#a948e37847cad89796a0bfe56406d789b">RHIUpdateUniformBuffer</a>(FRHIUniformBuffer *BufferRHI, const void *Contents, uint32 Size)</td><td class="entry"><a class="el" href="../../d3/d95/class_f_d3_d12_dynamic_r_h_i.html">FD3D12DynamicRHI</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="../../d3/d95/class_f_d3_d12_dynamic_r_h_i.html#a4bc12b2207ebd568adfb1b9e9d85e756">Shutdown</a>() override</td><td class="entry"><a class="el" href="../../d3/d95/class_f_d3_d12_dynamic_r_h_i.html">FD3D12DynamicRHI</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d3/d95/class_f_d3_d12_dynamic_r_h_i.html#aee3f72b1a2c68c3a396a23dc20533cdb">~FD3D12DynamicRHI</a>()</td><td class="entry"><a class="el" href="../../d3/d95/class_f_d3_d12_dynamic_r_h_i.html">FD3D12DynamicRHI</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
 </body>
 </html>

@@ -1,0 +1,68 @@
+\doxysection{Шаблон структуры FD3\+D12\+Resource\+Cache\texorpdfstring{$<$}{<} Resource\+Slot\+Mask \texorpdfstring{$>$}{>}}
+\hypertarget{struct_f_d3_d12_resource_cache}{}\label{struct_f_d3_d12_resource_cache}\index{FD3D12ResourceCache$<$ ResourceSlotMask $>$@{FD3D12ResourceCache$<$ ResourceSlotMask $>$}}
+
+
+{\ttfamily \#include $<$D3\+D12\+State\+Cache.\+h$>$}
+
+\doxysubsubsection*{Открытые статические члены}
+\begin{DoxyCompactItemize}
+\item 
+static FORCEINLINE void \mbox{\hyperlink{struct_f_d3_d12_resource_cache_a2bc5093c72a9bd5fc9609c899bb90393}{Clean\+Slot}} (Resource\+Slot\+Mask \&Slot\+Mask, \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} Slot\+Index)
+\item 
+static FORCEINLINE void \mbox{\hyperlink{struct_f_d3_d12_resource_cache_a18f01bcedd3101709e0beeabe582093d}{Clean\+Slots}} (Resource\+Slot\+Mask \&Slot\+Mask, \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} Num\+Slots)
+\item 
+static FORCEINLINE void \mbox{\hyperlink{struct_f_d3_d12_resource_cache_ac1be96f86840b136496d480c93e4384d}{Dirty\+Slot}} (Resource\+Slot\+Mask \&Slot\+Mask, \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} Slot\+Index)
+\item 
+static FORCEINLINE bool \mbox{\hyperlink{struct_f_d3_d12_resource_cache_a93f3c817b58d63628c1dfa367f3e272f}{Is\+Slot\+Dirty}} (const Resource\+Slot\+Mask \&Slot\+Mask, \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}} Slot\+Index)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Открытые атрибуты}
+\begin{DoxyCompactItemize}
+\item 
+Resource\+Slot\+Mask \mbox{\hyperlink{struct_f_d3_d12_resource_cache_a25bf2f01dc0a63b29e0e47b832ecdc00}{Dirty\+Slot\+Mask}} \mbox{[}\mbox{\hyperlink{_r_h_i_defines_8h_a89725d5f41ceac2e574ddc988f06775ea4fae784dad21e1f04799045f97c79662}{ST\+\_\+\+Num\+Standart\+Types}}\mbox{]} = \{\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Методы}
+\Hypertarget{struct_f_d3_d12_resource_cache_a2bc5093c72a9bd5fc9609c899bb90393}\label{struct_f_d3_d12_resource_cache_a2bc5093c72a9bd5fc9609c899bb90393} 
+\index{FD3D12ResourceCache$<$ ResourceSlotMask $>$@{FD3D12ResourceCache$<$ ResourceSlotMask $>$}!CleanSlot@{CleanSlot}}
+\index{CleanSlot@{CleanSlot}!FD3D12ResourceCache$<$ ResourceSlotMask $>$@{FD3D12ResourceCache$<$ ResourceSlotMask $>$}}
+\doxysubsubsection{\texorpdfstring{CleanSlot()}{CleanSlot()}}
+{\footnotesize\ttfamily template$<$typename Resource\+Slot\+Mask $>$ \\
+static FORCEINLINE void \mbox{\hyperlink{struct_f_d3_d12_resource_cache}{FD3\+D12\+Resource\+Cache}}$<$ Resource\+Slot\+Mask $>$\+::\+Clean\+Slot (\begin{DoxyParamCaption}\item[{Resource\+Slot\+Mask \&}]{Slot\+Mask,  }\item[{\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}}]{Slot\+Index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+\Hypertarget{struct_f_d3_d12_resource_cache_a18f01bcedd3101709e0beeabe582093d}\label{struct_f_d3_d12_resource_cache_a18f01bcedd3101709e0beeabe582093d} 
+\index{FD3D12ResourceCache$<$ ResourceSlotMask $>$@{FD3D12ResourceCache$<$ ResourceSlotMask $>$}!CleanSlots@{CleanSlots}}
+\index{CleanSlots@{CleanSlots}!FD3D12ResourceCache$<$ ResourceSlotMask $>$@{FD3D12ResourceCache$<$ ResourceSlotMask $>$}}
+\doxysubsubsection{\texorpdfstring{CleanSlots()}{CleanSlots()}}
+{\footnotesize\ttfamily template$<$typename Resource\+Slot\+Mask $>$ \\
+static FORCEINLINE void \mbox{\hyperlink{struct_f_d3_d12_resource_cache}{FD3\+D12\+Resource\+Cache}}$<$ Resource\+Slot\+Mask $>$\+::\+Clean\+Slots (\begin{DoxyParamCaption}\item[{Resource\+Slot\+Mask \&}]{Slot\+Mask,  }\item[{\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}}]{Num\+Slots }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+\Hypertarget{struct_f_d3_d12_resource_cache_ac1be96f86840b136496d480c93e4384d}\label{struct_f_d3_d12_resource_cache_ac1be96f86840b136496d480c93e4384d} 
+\index{FD3D12ResourceCache$<$ ResourceSlotMask $>$@{FD3D12ResourceCache$<$ ResourceSlotMask $>$}!DirtySlot@{DirtySlot}}
+\index{DirtySlot@{DirtySlot}!FD3D12ResourceCache$<$ ResourceSlotMask $>$@{FD3D12ResourceCache$<$ ResourceSlotMask $>$}}
+\doxysubsubsection{\texorpdfstring{DirtySlot()}{DirtySlot()}}
+{\footnotesize\ttfamily template$<$typename Resource\+Slot\+Mask $>$ \\
+static FORCEINLINE void \mbox{\hyperlink{struct_f_d3_d12_resource_cache}{FD3\+D12\+Resource\+Cache}}$<$ Resource\+Slot\+Mask $>$\+::\+Dirty\+Slot (\begin{DoxyParamCaption}\item[{Resource\+Slot\+Mask \&}]{Slot\+Mask,  }\item[{\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}}]{Slot\+Index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+\Hypertarget{struct_f_d3_d12_resource_cache_a93f3c817b58d63628c1dfa367f3e272f}\label{struct_f_d3_d12_resource_cache_a93f3c817b58d63628c1dfa367f3e272f} 
+\index{FD3D12ResourceCache$<$ ResourceSlotMask $>$@{FD3D12ResourceCache$<$ ResourceSlotMask $>$}!IsSlotDirty@{IsSlotDirty}}
+\index{IsSlotDirty@{IsSlotDirty}!FD3D12ResourceCache$<$ ResourceSlotMask $>$@{FD3D12ResourceCache$<$ ResourceSlotMask $>$}}
+\doxysubsubsection{\texorpdfstring{IsSlotDirty()}{IsSlotDirty()}}
+{\footnotesize\ttfamily template$<$typename Resource\+Slot\+Mask $>$ \\
+static FORCEINLINE bool \mbox{\hyperlink{struct_f_d3_d12_resource_cache}{FD3\+D12\+Resource\+Cache}}$<$ Resource\+Slot\+Mask $>$\+::\+Is\+Slot\+Dirty (\begin{DoxyParamCaption}\item[{const Resource\+Slot\+Mask \&}]{Slot\+Mask,  }\item[{\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}}]{Slot\+Index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+\doxysubsection{Данные класса}
+\Hypertarget{struct_f_d3_d12_resource_cache_a25bf2f01dc0a63b29e0e47b832ecdc00}\label{struct_f_d3_d12_resource_cache_a25bf2f01dc0a63b29e0e47b832ecdc00} 
+\index{FD3D12ResourceCache$<$ ResourceSlotMask $>$@{FD3D12ResourceCache$<$ ResourceSlotMask $>$}!DirtySlotMask@{DirtySlotMask}}
+\index{DirtySlotMask@{DirtySlotMask}!FD3D12ResourceCache$<$ ResourceSlotMask $>$@{FD3D12ResourceCache$<$ ResourceSlotMask $>$}}
+\doxysubsubsection{\texorpdfstring{DirtySlotMask}{DirtySlotMask}}
+{\footnotesize\ttfamily template$<$typename Resource\+Slot\+Mask $>$ \\
+Resource\+Slot\+Mask \mbox{\hyperlink{struct_f_d3_d12_resource_cache}{FD3\+D12\+Resource\+Cache}}$<$ Resource\+Slot\+Mask $>$\+::\+Dirty\+Slot\+Mask\mbox{[}\mbox{\hyperlink{_r_h_i_defines_8h_a89725d5f41ceac2e574ddc988f06775ea4fae784dad21e1f04799045f97c79662}{ST\+\_\+\+Num\+Standart\+Types}}\mbox{]} = \{\}}
+
+
+
+Объявления и описания членов структуры находятся в файле\+:\begin{DoxyCompactItemize}
+\item 
+Dark Engine/\+Source/\+Runtime/\+D3\+D12\+RHI/private/\mbox{\hyperlink{_d3_d12_state_cache_8h}{D3\+D12\+State\+Cache.\+h}}\end{DoxyCompactItemize}

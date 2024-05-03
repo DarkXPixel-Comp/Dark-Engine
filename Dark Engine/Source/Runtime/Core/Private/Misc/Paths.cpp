@@ -26,6 +26,10 @@ CORE_API FString FPaths::EngineContentDir()
 {
 	return EngineDir() + "Content/";
 }
+CORE_API FString FPaths::ConfigDir()
+{
+	return EngineDir() + TEXT("Config");
+}
 
 CORE_API FString FPaths::RootDir()
 {

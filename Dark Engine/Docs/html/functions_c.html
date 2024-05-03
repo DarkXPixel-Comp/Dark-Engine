@@ -6,11 +6,15 @@
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Dark Engine: Члены классов</title>
-<link rel="icon" href="Logo.ico" type="image/x-icon" />
+<link rel="icon" href="Logo.png" type="image/x-icon" />
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
@@ -23,9 +27,9 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
-  <td id="projectlogo"><img alt="Logo" src="Logo.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="MiniLogo.png"/></td>
   <td id="projectalign">
-   <div id="projectname">Dark Engine<span id="projectnumber">&#160;0.0.40</span>
+   <div id="projectname">Dark Engine<span id="projectnumber">&#160;0.0.50</span>
    </div>
    <div id="projectbrief">New game engnie D3D12</div>
   </td>
@@ -52,6 +56,22 @@ $(function() {
 </script>
 <div id="main-nav"></div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('functions_c.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -90,10 +110,13 @@ $(function() {
 <li>Cast()&#160;:&#160;<a class="el" href="d7/d0b/class_u_object.html#af8ea2fea786bcb06b31fc65fcac31ae7">UObject</a></li>
 <li>Category&#160;:&#160;<a class="el" href="d7/d4d/struct_f_log_record.html#a72788c2452534cf34726d1e8cb99d449">FLogRecord</a></li>
 <li>CBSRUAHandleSize&#160;:&#160;<a class="el" href="df/d68/class_d3_d12_renderer.html#a07232bdb9cb19d0f437a160b7458f6fd">D3D12Renderer</a></li>
+<li>CBVCache&#160;:&#160;<a class="el" href="d3/dfd/class_f_d3_d12_state_cache.html#aaba5025dcf89cf81626c63a910f24494">FD3D12StateCache</a></li>
 <li>CheckParameterCmdLine()&#160;:&#160;<a class="el" href="de/d6b/class_application.html#a8150e2b9988b2daf5f91bba5adc56ae7">Application</a></li>
 <li>CheckVerifyFailedImpl()&#160;:&#160;<a class="el" href="d8/da0/struct_f_debug.html#a354e0faa9aa8bba08177a191ce94a497">FDebug</a></li>
 <li>ChildWidgets&#160;:&#160;<a class="el" href="d1/d68/class_u_i_widget.html#a8f093ba7a489ca144ab6d1647d3f683f">UIWidget</a></li>
-<li>Clear()&#160;:&#160;<a class="el" href="db/d19/class_command_console.html#a5716052f7805a3c12b6d1480a87cde0f">CommandConsole</a>, <a class="el" href="da/dd3/struct_f_d3_d12_index_buffer_cache.html#a30ccfe18e787484b6b0d1a69dc1d256e">FD3D12IndexBufferCache</a>, <a class="el" href="d3/dfd/class_f_d3_d12_resource_location.html#a924c0726731a3c09c21ce8d660fdb6ea">FD3D12ResourceLocation</a>, <a class="el" href="d6/dfd/struct_f_d3_d12_vertex_buffer_cache.html#afb364d294075eaef39619c0e8039e691">FD3D12VertexBufferCache</a></li>
+<li>CleanSlot()&#160;:&#160;<a class="el" href="d3/dd6/struct_f_d3_d12_resource_cache.html#a2bc5093c72a9bd5fc9609c899bb90393">FD3D12ResourceCache&lt; ResourceSlotMask &gt;</a></li>
+<li>CleanSlots()&#160;:&#160;<a class="el" href="d3/dd6/struct_f_d3_d12_resource_cache.html#a18f01bcedd3101709e0beeabe582093d">FD3D12ResourceCache&lt; ResourceSlotMask &gt;</a></li>
+<li>Clear()&#160;:&#160;<a class="el" href="db/d19/class_command_console.html#a5716052f7805a3c12b6d1480a87cde0f">CommandConsole</a>, <a class="el" href="d2/d52/struct_f_d3_d12_constant_buffer_cache.html#a83fb486bf1a4fe8be7e384a174aebaef">FD3D12ConstantBufferCache</a>, <a class="el" href="da/dd3/struct_f_d3_d12_index_buffer_cache.html#a30ccfe18e787484b6b0d1a69dc1d256e">FD3D12IndexBufferCache</a>, <a class="el" href="d3/dfd/class_f_d3_d12_resource_location.html#a924c0726731a3c09c21ce8d660fdb6ea">FD3D12ResourceLocation</a>, <a class="el" href="d6/dfd/struct_f_d3_d12_vertex_buffer_cache.html#afb364d294075eaef39619c0e8039e691">FD3D12VertexBufferCache</a></li>
 <li>ClearTextureColor()&#160;:&#160;<a class="el" href="d3/d7d/class_f_r_h_i_command_list_immediate.html#adc5a701d267391d05ce4bb6fc3c82de1">FRHICommandListImmediate</a></li>
 <li>Close()&#160;:&#160;<a class="el" href="d5/d3e/class_f_d3_d12_command_list.html#a46825530d36ee1cd620f30abde522d74">FD3D12CommandList</a></li>
 <li>CloseCommandList()&#160;:&#160;<a class="el" href="d3/d12/class_f_d3_d12_command_context.html#a556817c3c3ba75da49173a06c675f13f">FD3D12CommandContext</a>, <a class="el" href="d1/d3a/class_f_d3_d12_context_common.html#a18d216ac97e7aa1f2ad8e5f0e7f07167">FD3D12ContextCommon</a></li>
@@ -121,6 +144,7 @@ $(function() {
 <li>ComponentMax()&#160;:&#160;<a class="el" href="d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a79cfdc610972c00a2ad9961a0adc34d7">DE::Math::TVector&lt; T &gt;</a></li>
 <li>ComponentMin()&#160;:&#160;<a class="el" href="d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#aec06673e335169e45b54d84913a8b2e6">DE::Math::TVector&lt; T &gt;</a></li>
 <li>Compute&#160;:&#160;<a class="el" href="d3/dfd/class_f_d3_d12_state_cache.html#a31b71dbd63df07b93d3dd4f4479d6934">FD3D12StateCache</a></li>
+<li>ConfigDir()&#160;:&#160;<a class="el" href="d6/dde/class_f_paths.html#a4e5991600cc16200f89d0177aba214d2">FPaths</a></li>
 <li>Configure()&#160;:&#160;<a class="el" href="d7/da2/class_application_core.html#afccd54c46d4096c711a27d9aebe43564">ApplicationCore</a>, <a class="el" href="db/d73/class_core.html#a740979851b3cac797c2cc23027256830">Core</a>, <a class="el" href="df/d4c/class_core_d_object.html#a0d09e5c95931a87d6b1bb19bcb7fb1c2">CoreDObject</a>, <a class="el" href="d3/d92/class_d3_d12_r_h_i.html#a88f30b07b0667cca37813cb15e2e2bed">D3D12RHI</a>, <a class="el" href="dc/d38/class_editor.html#a24066e6e05f832074f1352fa684fc63d">Editor</a>, <a class="el" href="d8/d9b/class_engine.html#a038bcbe65049721a25dcde312f8d4950">Engine</a>, <a class="el" href="d4/d7b/class_input.html#a39751412df4086551ccba1b6ddef9c1f">Input</a>, <a class="el" href="d4/d44/class_launch.html#a5321f447b495ae7d268b580d99fa1599">Launch</a>, <a class="el" href="da/d7f/class_render.html#af20b809f00010b0376c3a8d4db7fdaf5">Render</a>, <a class="el" href="d4/d44/class_renderer.html#a5dcd7f77ab2120faf76bd05609cfbb40">Renderer</a>, <a class="el" href="d8/d8e/class_r_h_i.html#a1e21f792a3360b12bd9b02a858d7aefe">RHI</a>, <a class="el" href="d3/d1a/class_u_i_core.html#ac26957120cb03300eeaa6b159b09f375">UICore</a></li>
 <li>ConstantBufferCount&#160;:&#160;<a class="el" href="d8/df6/struct_f_shader_bounds.html#ae4d49b9139098564d7c19a73fe278751">FShaderBounds</a></li>
 <li>ConstructEditorViewportClient()&#160;:&#160;<a class="el" href="d6/d8f/class_u_i_editor_viewport.html#aea18e12c30b0a6b8c85f5b460f879321">UIEditorViewport</a></li>
@@ -153,8 +177,7 @@ $(function() {
 <li>CreateGameViewport()&#160;:&#160;<a class="el" href="d6/db2/class_f_game_viewport_client.html#ad67fa1a9a9e59b9d91785b35e46d561f">FGameViewportClient</a></li>
 <li>CreateGameWindow()&#160;:&#160;<a class="el" href="d9/d94/class_d_editor_engine.html#ac07bd1885be615dabdf3d232a572dc76">DEditorEngine</a></li>
 <li>CreatePipeline()&#160;:&#160;<a class="el" href="df/d45/class_d3_d_util.html#a85c4db17827bb80a73946f5d9935bb1a">D3DUtil</a></li>
-<li>CreateRHI()&#160;:&#160;<a class="el" href="dc/dbf/class_f_d3_d12_dynamic_r_h_i_module.html#aa86f6d8310c49c13bea0d439e22e70c0">FD3D12DynamicRHIModule</a>, <a class="el" href="da/d93/class_i_dynamic_r_h_i.html#a2b2d7bd6f35bafeced4cbfe17075b362">IDynamicRHI</a>, <a class="el" href="dd/d82/class_i_dynamic_r_h_i_module.html#a54d71fef31e64ca3d5fea82873b7c453">IDynamicRHIModule</a></li>
-<li>CreateRHIBuffer()&#160;:&#160;<a class="el" href="d3/d1d/class_f_render_resource.html#a48ad21f6b121dfc49ee5618792bfb18a">FRenderResource</a></li>
+<li>CreateRHI()&#160;:&#160;<a class="el" href="dc/dbf/class_f_d3_d12_dynamic_r_h_i_module.html#aa86f6d8310c49c13bea0d439e22e70c0">FD3D12DynamicRHIModule</a>, <a class="el" href="d4/d01/class_f_vulkan_dynamic_r_h_i_module.html#a11f8106c1848e8dea1a6a82b71dfc350">FVulkanDynamicRHIModule</a>, <a class="el" href="da/d93/class_i_dynamic_r_h_i.html#a2b2d7bd6f35bafeced4cbfe17075b362">IDynamicRHI</a>, <a class="el" href="dd/d82/class_i_dynamic_r_h_i_module.html#a54d71fef31e64ca3d5fea82873b7c453">IDynamicRHIModule</a></li>
 <li>CreateRootDevice()&#160;:&#160;<a class="el" href="d6/db4/class_f_d3_d12_adapter.html#afec340664a96a35be262c9df31e77c8d">FD3D12Adapter</a></li>
 <li>CreateView()&#160;:&#160;<a class="el" href="df/dd0/class_f_d3_d12_shader_resource_view.html#aeef0775e1192b5125625df54c8f35ea0">FD3D12ShaderResourceView</a></li>
 <li>CreateViewport()&#160;:&#160;<a class="el" href="d1/dd0/class_f_u_i_renderer.html#aaee51c314ea43b7974d7da490bd7f9ab">FUIRenderer</a>, <a class="el" href="dc/dc0/class_f_u_i_r_h_i_renderer.html#adeccbda03e83fcb6549e1fcad983aade">FUIRHIRenderer</a>, <a class="el" href="df/dab/class_u_i_window.html#a867f7aca6052526a7be51f656f22cffd">UIWindow</a></li>
@@ -164,8 +187,10 @@ $(function() {
 <li>CreteView()&#160;:&#160;<a class="el" href="d5/d25/class_f_d3_d12_render_target_view.html#a65cd4f6aa440062e5a6808c81c517cb9">FD3D12RenderTargetView</a></li>
 <li>Cross()&#160;:&#160;<a class="el" href="d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#afda5484b610e96346bd1b476fe4f4dbb">DE::Math::TVector&lt; T &gt;</a></li>
 <li>CrossProduct()&#160;:&#160;<a class="el" href="d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a7350a5806e38af2a173c1afd1528aed1">DE::Math::TVector&lt; T &gt;</a></li>
+<li>CullMode&#160;:&#160;<a class="el" href="dc/df1/struct_f_rasterizer_state_initializer.html#a84f2bdc0ff4b405b1bde4940fb4583fa">FRasterizerStateInitializer</a></li>
 <li>CurrentBackBufferIndex&#160;:&#160;<a class="el" href="df/d68/class_d3_d12_renderer.html#a552610928ec0ea485f5248368a3eb325">D3D12Renderer</a></li>
 <li>CurrentDepthStencilTarget&#160;:&#160;<a class="el" href="d3/dfd/class_f_d3_d12_state_cache.html#abd998ef83ca758b391be0ab2340def56">FD3D12StateCache</a></li>
+<li>CurrentGPUVirtualAddress&#160;:&#160;<a class="el" href="d2/d52/struct_f_d3_d12_constant_buffer_cache.html#a73914a88f1f9d3a5e3dbf1cb798ff6e0">FD3D12ConstantBufferCache</a></li>
 <li>CurrentIndex&#160;:&#160;<a class="el" href="d7/d40/class_u_i_console.html#adc575b7ee1b174ea647329dee4ee8f90">UIConsole</a></li>
 <li>CurrentIndexBufferLocation&#160;:&#160;<a class="el" href="da/dd3/struct_f_d3_d12_index_buffer_cache.html#a4c412d8f712e45dad6d4a99eb4f04a4e">FD3D12IndexBufferCache</a></li>
 <li>CurrentIndexBufferView&#160;:&#160;<a class="el" href="da/dd3/struct_f_d3_d12_index_buffer_cache.html#a189c96887c2ed76c7e3f990635af3f13">FD3D12IndexBufferCache</a></li>
@@ -184,9 +209,12 @@ $(function() {
 <li>CurrentViewport&#160;:&#160;<a class="el" href="d3/dfd/class_f_d3_d12_state_cache.html#a69240c1fbcf3468cc14c95da0e3f53bb">FD3D12StateCache</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
 </body>
 </html>

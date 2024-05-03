@@ -6,11 +6,15 @@
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Dark Engine: Члены классов</title>
-<link rel="icon" href="Logo.ico" type="image/x-icon" />
+<link rel="icon" href="Logo.png" type="image/x-icon" />
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
@@ -23,9 +27,9 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
-  <td id="projectlogo"><img alt="Logo" src="Logo.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="MiniLogo.png"/></td>
   <td id="projectalign">
-   <div id="projectname">Dark Engine<span id="projectnumber">&#160;0.0.40</span>
+   <div id="projectname">Dark Engine<span id="projectnumber">&#160;0.0.50</span>
    </div>
    <div id="projectbrief">New game engnie D3D12</div>
   </td>
@@ -52,6 +56,22 @@ $(function() {
 </script>
 <div id="main-nav"></div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('functions_g.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -93,11 +113,13 @@ $(function() {
 <li>GetAspectRatio()&#160;:&#160;<a class="el" href="d8/dd5/class_f_windows_window.html#a4b6d858493b2b9a4fc5349d361a82a9f">FWindowsWindow</a></li>
 <li>GetBackMemoryPoolSize()&#160;:&#160;<a class="el" href="dd/d3b/struct_f_windows_platform_memory.html#a6d09f8a79d6f0982ad8322d999718583">FWindowsPlatformMemory</a></li>
 <li>GetBindlessDescriptorManager()&#160;:&#160;<a class="el" href="d1/d79/class_f_d3_d12_device.html#ac73b900989a63acefce93e2a3a2a2ac1">FD3D12Device</a></li>
-<li>GetBindlessHandle()&#160;:&#160;<a class="el" href="db/d6f/class_f_d3_d12_view.html#a732c77b465aa2e77c3c569d7601946d7">FD3D12View</a></li>
+<li>GetBindlessHandle()&#160;:&#160;<a class="el" href="d6/d36/class_f_d3_d12_texture.html#a42aaa626af58cf4a2446d24c4db82bf3">FD3D12Texture</a>, <a class="el" href="db/d6f/class_f_d3_d12_view.html#a2a0e7b098ae53f287c237d6e4ada3fb6">FD3D12View</a>, <a class="el" href="d3/d38/class_f_r_h_i_sampler_state.html#afa7f861825ab7c0280c9abaa34b2f318">FRHISamplerState</a></li>
 <li>GetBit()&#160;:&#160;<a class="el" href="df/d02/class_t_bit_array.html#a8df990741689277823c8b228f8932164">TBitArray</a></li>
 <li>GetBool()&#160;:&#160;<a class="el" href="d2/d28/class_f_console_variable_ref.html#ae1cde82353527a82edb379fc00b40cba">FConsoleVariableRef&lt; T &gt;</a>, <a class="el" href="d7/dd4/class_i_console_variable.html#a17b0b12bd6b2ebd0516e6a0f2d8b9981">IConsoleVariable</a></li>
 <li>GetCamera()&#160;:&#160;<a class="el" href="d9/db4/class_d3_d12_scene.html#a458e4fee3e54159e640cf28169874736">D3D12Scene</a>, <a class="el" href="dc/d9c/class_u_camera_actor.html#a50ef4e7449b93b32e5ffa97c2fa9b747">UCameraActor</a></li>
 <li>GetCategoryName()&#160;:&#160;<a class="el" href="d5/df4/struct_f_log_category_base.html#a17aec63e22fc3eb9851c09cb307d8d62">FLogCategoryBase</a></li>
+<li>GetCBVDBindSlot()&#160;:&#160;<a class="el" href="d0/d1e/class_f_d3_d12_root_signature.html#a90e1e5177c0c8c0a4911977fef95b0e2">FD3D12RootSignature</a></li>
+<li>GetCBVDTBindSlot()&#160;:&#160;<a class="el" href="d0/d1e/class_f_d3_d12_root_signature.html#af11ba52bd5526151317fc35b1974e0c3">FD3D12RootSignature</a></li>
 <li>GetClampedToMaxSize()&#160;:&#160;<a class="el" href="d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a4e24bc3dfbec527d0e5f18eabf61c200">DE::Math::TVector&lt; T &gt;</a></li>
 <li>GetClampedToMaxSize2D()&#160;:&#160;<a class="el" href="d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#aa5fbf250975563ae0fc7cd0b3f93441a">DE::Math::TVector&lt; T &gt;</a></li>
 <li>GetClampedToSize()&#160;:&#160;<a class="el" href="d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#a4ec0c65590df6ecc83ffaef39e7bcb43">DE::Math::TVector&lt; T &gt;</a></li>
@@ -159,6 +181,7 @@ $(function() {
 <li>GetImGuiContext()&#160;:&#160;<a class="el" href="df/dab/class_u_i_window.html#a5dbb10e8b84baac03967299cf1a35553">UIWindow</a></li>
 <li>GetImmediateCommandList()&#160;:&#160;<a class="el" href="d2/d3a/class_f_r_h_i_command_list_executor.html#a5ae612979d49a56daaa48327342fc24d">FRHICommandListExecutor</a></li>
 <li>GetIndex()&#160;:&#160;<a class="el" href="dd/d95/struct_f_r_h_i_descriptor_handle.html#a104031c58d1c997350e7b785dd26e5d9">FRHIDescriptorHandle</a></li>
+<li>GetInitArray()&#160;:&#160;<a class="el" href="d8/d58/class_t_global_render_resource.html#ad55986117a04c1f7d8f0ea499fe0e7c1">TGlobalRenderResource&lt; T &gt;</a></li>
 <li>GetInitializer()&#160;:&#160;<a class="el" href="d6/de6/class_f_r_h_i_vertex_declaration.html#a31b22a873db39b319f747ccf77891407">FRHIVertexDeclaration</a></li>
 <li>GetInitPositionInScreen()&#160;:&#160;<a class="el" href="df/dab/class_u_i_window.html#a166ab465dd1062cb8b9799aa1dd533cb">UIWindow</a></li>
 <li>GetInitSizeInScreen()&#160;:&#160;<a class="el" href="df/dab/class_u_i_window.html#ad30d8d61e9bd631a81ca8e6bba09491b">UIWindow</a></li>
@@ -217,7 +240,7 @@ $(function() {
 <li>GetRenderTargetTexture()&#160;:&#160;<a class="el" href="d7/d9f/class_f_render_target.html#a4dcbbfca003dfe7c337ea133e7db7417">FRenderTarget</a></li>
 <li>GetResouce()&#160;:&#160;<a class="el" href="d3/dd0/class_f_d3_d12_base_shader_resource.html#a9553ed5f7e788d0fa77dcd8500e587c1">FD3D12BaseShaderResource</a></li>
 <li>GetResoulution()&#160;:&#160;<a class="el" href="d6/d8f/class_u_i_editor_viewport.html#a495b57aabe74775124b0397c41b32187">UIEditorViewport</a></li>
-<li>GetResource()&#160;:&#160;<a class="el" href="d8/d57/class_d3_d12_upload_buffer_resource.html#a5b80659dc1e73899f021eddf4cd3356a">D3D12UploadBufferResource&lt; T &gt;</a>, <a class="el" href="d5/d25/class_f_d3_d12_render_target_view.html#a3ee91a962e8e8c468962a355d78ded2e">FD3D12RenderTargetView</a>, <a class="el" href="d7/d81/class_f_d3_d12_resource.html#a3a784affd080d510b410e2cf2a34b3c4">FD3D12Resource</a>, <a class="el" href="d3/dfd/class_f_d3_d12_resource_location.html#a44d09c882c765d976117fa147f56a6eb">FD3D12ResourceLocation</a>, <a class="el" href="d6/d36/class_f_d3_d12_texture.html#aad79c193282f416b2f573548f5b1a07b">FD3D12Texture</a></li>
+<li>GetResource()&#160;:&#160;<a class="el" href="d8/d57/class_d3_d12_upload_buffer_resource.html#a5b80659dc1e73899f021eddf4cd3356a">D3D12UploadBufferResource&lt; T &gt;</a>, <a class="el" href="d5/d25/class_f_d3_d12_render_target_view.html#a3ee91a962e8e8c468962a355d78ded2e">FD3D12RenderTargetView</a>, <a class="el" href="d7/d81/class_f_d3_d12_resource.html#a3a784affd080d510b410e2cf2a34b3c4">FD3D12Resource</a>, <a class="el" href="d3/dfd/class_f_d3_d12_resource_location.html#a44d09c882c765d976117fa147f56a6eb">FD3D12ResourceLocation</a>, <a class="el" href="d6/d36/class_f_d3_d12_texture.html#aad79c193282f416b2f573548f5b1a07b">FD3D12Texture</a>, <a class="el" href="d8/d58/class_t_global_render_resource.html#a145a4c1541c23fceab212fd67cb44c13">TGlobalRenderResource&lt; T &gt;</a></li>
 <li>GetResourceCode()&#160;:&#160;<a class="el" href="df/d76/class_f_shader_map_base.html#a134e7bcd8b003e9f961f533ba9cdb0e8">FShaderMapBase</a></li>
 <li>GetResourceDescFromTextureDesc()&#160;:&#160;<a class="el" href="d6/d36/class_f_d3_d12_texture.html#a71bab57ec5e814552efd074dd96fdcff">FD3D12Texture</a></li>
 <li>GetResourceType()&#160;:&#160;<a class="el" href="d2/d83/class_f_r_h_i_resource.html#a2aff4c7ff357ad84bb0934492a4bf893">FRHIResource</a></li>
@@ -236,10 +259,12 @@ $(function() {
 <li>GetShaderByteCode()&#160;:&#160;<a class="el" href="dd/df1/struct_f_d3_d12_shader_data.html#acbc48932c398e4ec0ebbac1f9ef31420">FD3D12ShaderData</a></li>
 <li>GetShaderFilename()&#160;:&#160;<a class="el" href="d0/d2f/class_f_shader_type.html#a531bae5492010cf3b85a8574cc3b6f45">FShaderType</a></li>
 <li>GetShaderName()&#160;:&#160;<a class="el" href="db/d66/class_f_r_h_i_shader.html#aaf53a4ca42f6bdf3488502afc97da199">FRHIShader</a></li>
+<li>GetShaderResourceView()&#160;:&#160;<a class="el" href="d6/d36/class_f_d3_d12_texture.html#a8472209bbbadb29a713d92444466dae8">FD3D12Texture</a></li>
 <li>GetShaderType()&#160;:&#160;<a class="el" href="d0/d2f/class_f_shader_type.html#afa8bf63d8ca0f225c934a45cb0287e9c">FShaderType</a></li>
 <li>GetSignVector()&#160;:&#160;<a class="el" href="d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#ac49fc5af786b5249be75af6f6298a799">DE::Math::TVector&lt; T &gt;</a></li>
 <li>GetSize()&#160;:&#160;<a class="el" href="d3/dfd/class_f_d3_d12_resource_location.html#ad0b63e3d332f9c6c8b1a0017db191487">FD3D12ResourceLocation</a>, <a class="el" href="d6/d36/class_f_d3_d12_texture.html#ab1a5101d98bd6070d765904373d83f91">FD3D12Texture</a>, <a class="el" href="d0/d85/class_f_generic_window.html#a3793f6e7c750b1ad30970dade24b090f">FGenericWindow</a>, <a class="el" href="d9/d24/class_f_r_h_i_buffer.html#ad7cf0a4acdbeb18e887c42df2347ec2f">FRHIBuffer</a>, <a class="el" href="d3/d6d/class_f_r_h_i_texture.html#ab1fce33142452b58789342a03f384afe">FRHITexture</a>, <a class="el" href="d5/d14/class_f_scene_viewport.html#aa25a38ccd4e3e2d544fb5b9fb2f955a6">FSceneViewport</a>, <a class="el" href="d2/d11/class_i_u_i_viewport.html#a3e2cfdaf01d6e43fe77d140c8a1d7624">IUIViewport</a>, <a class="el" href="d6/db1/class_t_array.html#a8d3e11a710d9f6c9222989c2f639be51">TArray&lt; ElementType &gt;</a></li>
 <li>GetSizeXY()&#160;:&#160;<a class="el" href="d7/d9f/class_f_render_target.html#a510f693c58f8f2dc1c03e3deaded26df">FRenderTarget</a>, <a class="el" href="d1/d29/class_f_viewport.html#a9bfcca5dae74d9467fcbab3b0db868e2">FViewport</a></li>
+<li>GetSRVDTBindSlot()&#160;:&#160;<a class="el" href="d0/d1e/class_f_d3_d12_root_signature.html#a1e9c404bd24e8f4ef97164acc511e7bf">FD3D12RootSignature</a></li>
 <li>GetStaticSamples()&#160;:&#160;<a class="el" href="df/d45/class_d3_d_util.html#a33ddf7ded682c80de6a9b16ecd4b4d1e">D3DUtil</a></li>
 <li>GetStr()&#160;:&#160;<a class="el" href="d9/dcb/class_f_string.html#a07f2563a2ad7456ddf5c2c4e8a755a7f">FString</a></li>
 <li>GetStride()&#160;:&#160;<a class="el" href="d9/d24/class_f_r_h_i_buffer.html#a8891d5f077230ecea03dff033b50911a">FRHIBuffer</a></li>
@@ -278,9 +303,12 @@ $(function() {
 <li>GridSnap()&#160;:&#160;<a class="el" href="d6/d11/struct_d_e_1_1_math_1_1_t_vector.html#ae6759a10dc5038cfc56d60f93c4e42e2">DE::Math::TVector&lt; T &gt;</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
 </body>
 </html>

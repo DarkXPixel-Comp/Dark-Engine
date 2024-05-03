@@ -18,6 +18,8 @@ var searchData=
   ['genericwindowdefinition_2eh_15',['GenericWindowDefinition.h',['../dc/d2d/_generic_window_definition_8h.html',1,'']]],
   ['globalinputoutconsole_2ecpp_16',['GlobalInputOutConsole.cpp',['../d8/d2d/_global_input_out_console_8cpp.html',1,'']]],
   ['globalinputoutconsole_2eh_17',['GlobalInputOutConsole.h',['../d1/dfd/_global_input_out_console_8h.html',1,'']]],
-  ['globalshader_2ecpp_18',['GlobalShader.cpp',['../da/d66/_global_shader_8cpp.html',1,'']]],
-  ['globalshader_2eh_19',['GlobalShader.h',['../dd/d5a/_global_shader_8h.html',1,'']]]
+  ['globalresource_2ecpp_18',['GlobalResource.cpp',['../db/d08/_global_resource_8cpp.html',1,'']]],
+  ['globalresource_2eh_19',['GlobalResource.h',['../d6/d1f/_global_resource_8h.html',1,'']]],
+  ['globalshader_2ecpp_20',['GlobalShader.cpp',['../da/d66/_global_shader_8cpp.html',1,'']]],
+  ['globalshader_2eh_21',['GlobalShader.h',['../dd/d5a/_global_shader_8h.html',1,'']]]
 ];

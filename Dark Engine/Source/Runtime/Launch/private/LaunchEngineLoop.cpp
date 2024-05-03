@@ -231,7 +231,6 @@ int32 FEngineLoop::Init()
 void FEngineLoop::Tick()
 {
 	Engine->Tick(1);
-
 	UIApplication::Get()->Tick();
 }
 

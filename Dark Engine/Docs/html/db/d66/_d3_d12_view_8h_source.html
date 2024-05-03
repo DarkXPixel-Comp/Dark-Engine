@@ -6,11 +6,15 @@
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Dark Engine: Исходный файл Dark Engine/Source/Runtime/D3D12RHI/private/D3D12View.h</title>
-<link rel="icon" href="../../Logo.ico" type="image/x-icon" />
+<link rel="icon" href="../../Logo.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../clipboard.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
 <script type="text/javascript" src="../../cookie.js"></script>
 <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../search/searchdata.js"></script>
@@ -23,9 +27,9 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
-  <td id="projectlogo"><img alt="Logo" src="../../Logo.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="../../MiniLogo.png"/></td>
   <td id="projectalign">
-   <div id="projectname">Dark Engine<span id="projectnumber">&#160;0.0.40</span>
+   <div id="projectname">Dark Engine<span id="projectnumber">&#160;0.0.50</span>
    </div>
    <div id="projectbrief">New game engnie D3D12</div>
   </td>
@@ -56,6 +60,23 @@ $(function() {
 $(function() { codefold.init(1); });
 /* @license-end */
 </script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('db/d66/_d3_d12_view_8h_source.html','../../'); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -77,11 +98,6 @@ $(function() { codefold.init(1); });
 </div>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="../../dir_55043db21ba5ddd7c561d2c5a5a38944.html">Dark Engine</a></li><li class="navelem"><a class="el" href="../../dir_e00b54220e1e1486ac9971b606d33054.html">Source</a></li><li class="navelem"><a class="el" href="../../dir_ae01c8af07818b260cc3481e8588b277.html">Runtime</a></li><li class="navelem"><a class="el" href="../../dir_69d1b7a79a04d24cd43f7c84d74c5d6d.html">D3D12RHI</a></li><li class="navelem"><a class="el" href="../../dir_975782192f4e5579da5ceb9eedcf6dc7.html">private</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle"><div class="title">D3D12View.h</div></div>
 </div><!--header-->
@@ -114,7 +130,7 @@ $(function() { codefold.init(1); });
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keyword">virtual</span> <a class="code hl_function" href="../../db/d6f/class_f_d3_d12_view.html#a20635c5ebb16716d3929791200482cd0">~FD3D12View</a>();</div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="../../db/d6f/class_f_d3_d12_view.html#a1ac0e296001119f749bdd4cba3a88828">   25</a></span>    <a class="code hl_struct" href="../../d2/d75/struct_f_d3_d12_cpu_descriptor.html">FD3D12CpuDescriptor</a> <a class="code hl_function" href="../../db/d6f/class_f_d3_d12_view.html#a1ac0e296001119f749bdd4cba3a88828">GetCpuHandle</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="../../db/d6f/class_f_d3_d12_view.html#ac67249d81b5a5d4ab5adc88c287ae70c">CpuHandle</a>; }</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="../../db/d6f/class_f_d3_d12_view.html#a732c77b465aa2e77c3c569d7601946d7">   26</a></span>    <a class="code hl_struct" href="../../dd/d95/struct_f_r_h_i_descriptor_handle.html">FRHIDescriptorHandle</a> <a class="code hl_function" href="../../db/d6f/class_f_d3_d12_view.html#a732c77b465aa2e77c3c569d7601946d7">GetBindlessHandle</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="../../db/d6f/class_f_d3_d12_view.html#a78db449a9f8f1c4950c57617cc3a58d3">BindlessHandle</a>; }</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="../../db/d6f/class_f_d3_d12_view.html#a2a0e7b098ae53f287c237d6e4ada3fb6">   26</a></span>    FORCEINLINE <a class="code hl_struct" href="../../dd/d95/struct_f_r_h_i_descriptor_handle.html">FRHIDescriptorHandle</a> <a class="code hl_function" href="../../db/d6f/class_f_d3_d12_view.html#a2a0e7b098ae53f287c237d6e4ada3fb6">GetBindlessHandle</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="../../db/d6f/class_f_d3_d12_view.html#a78db449a9f8f1c4950c57617cc3a58d3">BindlessHandle</a>; }</div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="../../db/d6f/class_f_d3_d12_view.html#ab9874124be35475bbb20015bd6192b66">   28</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../db/d6f/class_f_d3_d12_view.html#ab9874124be35475bbb20015bd6192b66">UpdateDescriptor</a>() {}</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    </div>
@@ -183,11 +199,11 @@ $(function() { codefold.init(1); });
 <div class="ttc" id="a_d3_d12_device_8h_html"><div class="ttname"><a href="../../d7/d20/_d3_d12_device_8h.html">D3D12Device.h</a></div></div>
 <div class="ttc" id="a_d3_d12_main_8h_html_ab8eaee8f45f36954297ee6146eb6db20"><div class="ttname"><a href="../../dd/dce/_d3_d12_main_8h.html#ab8eaee8f45f36954297ee6146eb6db20">Resource</a></div><div class="ttdeci">ComPtr&lt; ID3D12Resource &gt; Resource</div><div class="ttdef"><b>Definition</b> D3D12Main.h:29</div></div>
 <div class="ttc" id="a_d3_d12_r_h_i_common_8h_html"><div class="ttname"><a href="../../d7/d2e/_d3_d12_r_h_i_common_8h.html">D3D12RHICommon.h</a></div></div>
-<div class="ttc" id="a_r_h_i_defines_8h_html_a9457a748b9d30acc00348bdc63f5de4e"><div class="ttname"><a href="../../de/df7/_r_h_i_defines_8h.html#a9457a748b9d30acc00348bdc63f5de4e">ERHIDescriptorHeapType</a></div><div class="ttdeci">ERHIDescriptorHeapType</div><div class="ttdef"><b>Definition</b> RHIDefines.h:33</div></div>
+<div class="ttc" id="a_r_h_i_defines_8h_html_a9457a748b9d30acc00348bdc63f5de4e"><div class="ttname"><a href="../../de/df7/_r_h_i_defines_8h.html#a9457a748b9d30acc00348bdc63f5de4e">ERHIDescriptorHeapType</a></div><div class="ttdeci">ERHIDescriptorHeapType</div><div class="ttdef"><b>Definition</b> RHIDefines.h:36</div></div>
 <div class="ttc" id="a_r_h_i_defines_8h_html_a9457a748b9d30acc00348bdc63f5de4ea012a2f66a0b392542ffb7370b87426dc"><div class="ttname"><a href="../../de/df7/_r_h_i_defines_8h.html#a9457a748b9d30acc00348bdc63f5de4ea012a2f66a0b392542ffb7370b87426dc">ERHIDescriptorHeapType::Standart</a></div><div class="ttdeci">@ Standart</div></div>
 <div class="ttc" id="a_r_h_i_defines_8h_html_a9457a748b9d30acc00348bdc63f5de4ea2fa8076285272883c91e14402975a441"><div class="ttname"><a href="../../de/df7/_r_h_i_defines_8h.html#a9457a748b9d30acc00348bdc63f5de4ea2fa8076285272883c91e14402975a441">ERHIDescriptorHeapType::DepthStencil</a></div><div class="ttdeci">@ DepthStencil</div></div>
 <div class="ttc" id="a_r_h_i_defines_8h_html_a9457a748b9d30acc00348bdc63f5de4ea9b0bffda4bcb312168c0d6537cb04b4d"><div class="ttname"><a href="../../de/df7/_r_h_i_defines_8h.html#a9457a748b9d30acc00348bdc63f5de4ea9b0bffda4bcb312168c0d6537cb04b4d">ERHIDescriptorHeapType::RenderTarget</a></div><div class="ttdeci">@ RenderTarget</div></div>
-<div class="ttc" id="aclass_f_d3_d12_bindless_descriptor_manager_html_aff807cffeefcb599e61a0f8c8d3c9a48"><div class="ttname"><a href="../../d4/de3/class_f_d3_d12_bindless_descriptor_manager.html#aff807cffeefcb599e61a0f8c8d3c9a48">FD3D12BindlessDescriptorManager::Allocate</a></div><div class="ttdeci">FRHIDescriptorHandle Allocate(ERHIDescriptorHeapType InType)</div><div class="ttdef"><b>Definition</b> D3D12BindlessDescriptors.cpp:161</div></div>
+<div class="ttc" id="aclass_f_d3_d12_bindless_descriptor_manager_html_aff807cffeefcb599e61a0f8c8d3c9a48"><div class="ttname"><a href="../../d4/de3/class_f_d3_d12_bindless_descriptor_manager.html#aff807cffeefcb599e61a0f8c8d3c9a48">FD3D12BindlessDescriptorManager::Allocate</a></div><div class="ttdeci">FRHIDescriptorHandle Allocate(ERHIDescriptorHeapType InType)</div><div class="ttdef"><b>Definition</b> D3D12BindlessDescriptors.cpp:160</div></div>
 <div class="ttc" id="aclass_f_d3_d12_depth_stencil_view_html"><div class="ttname"><a href="../../d2/d81/class_f_d3_d12_depth_stencil_view.html">FD3D12DepthStencilView</a></div><div class="ttdef"><b>Definition</b> D3D12View.h:71</div></div>
 <div class="ttc" id="aclass_f_d3_d12_device_child_html"><div class="ttname"><a href="../../d8/d20/class_f_d3_d12_device_child.html">FD3D12DeviceChild</a></div><div class="ttdef"><b>Definition</b> D3D12RHICommon.h:36</div></div>
 <div class="ttc" id="aclass_f_d3_d12_device_child_html_afeb899a6e833b3f986e49def99db540c"><div class="ttname"><a href="../../d8/d20/class_f_d3_d12_device_child.html#afeb899a6e833b3f986e49def99db540c">FD3D12DeviceChild::Parent</a></div><div class="ttdeci">FD3D12Device * Parent</div><div class="ttdef"><b>Definition</b> D3D12RHICommon.h:38</div></div>
@@ -206,18 +222,22 @@ $(function() { codefold.init(1); });
 <div class="ttc" id="aclass_f_d3_d12_view_html_a1ac0e296001119f749bdd4cba3a88828"><div class="ttname"><a href="../../db/d6f/class_f_d3_d12_view.html#a1ac0e296001119f749bdd4cba3a88828">FD3D12View::GetCpuHandle</a></div><div class="ttdeci">FD3D12CpuDescriptor GetCpuHandle() const</div><div class="ttdef"><b>Definition</b> D3D12View.h:25</div></div>
 <div class="ttc" id="aclass_f_d3_d12_view_html_a20635c5ebb16716d3929791200482cd0"><div class="ttname"><a href="../../db/d6f/class_f_d3_d12_view.html#a20635c5ebb16716d3929791200482cd0">FD3D12View::~FD3D12View</a></div><div class="ttdeci">virtual ~FD3D12View()</div><div class="ttdef"><b>Definition</b> D3D12View.cpp:17</div></div>
 <div class="ttc" id="aclass_f_d3_d12_view_html_a29650c8b034d1078a35edbebfe151be0"><div class="ttname"><a href="../../db/d6f/class_f_d3_d12_view.html#a29650c8b034d1078a35edbebfe151be0">FD3D12View::UpdateBindlessSlot</a></div><div class="ttdeci">void UpdateBindlessSlot()</div><div class="ttdef"><b>Definition</b> D3D12View.cpp:27</div></div>
-<div class="ttc" id="aclass_f_d3_d12_view_html_a732c77b465aa2e77c3c569d7601946d7"><div class="ttname"><a href="../../db/d6f/class_f_d3_d12_view.html#a732c77b465aa2e77c3c569d7601946d7">FD3D12View::GetBindlessHandle</a></div><div class="ttdeci">FRHIDescriptorHandle GetBindlessHandle() const</div><div class="ttdef"><b>Definition</b> D3D12View.h:26</div></div>
+<div class="ttc" id="aclass_f_d3_d12_view_html_a2a0e7b098ae53f287c237d6e4ada3fb6"><div class="ttname"><a href="../../db/d6f/class_f_d3_d12_view.html#a2a0e7b098ae53f287c237d6e4ada3fb6">FD3D12View::GetBindlessHandle</a></div><div class="ttdeci">FORCEINLINE FRHIDescriptorHandle GetBindlessHandle() const</div><div class="ttdef"><b>Definition</b> D3D12View.h:26</div></div>
 <div class="ttc" id="aclass_f_d3_d12_view_html_a78db449a9f8f1c4950c57617cc3a58d3"><div class="ttname"><a href="../../db/d6f/class_f_d3_d12_view.html#a78db449a9f8f1c4950c57617cc3a58d3">FD3D12View::BindlessHandle</a></div><div class="ttdeci">FRHIDescriptorHandle BindlessHandle</div><div class="ttdef"><b>Definition</b> D3D12View.h:34</div></div>
 <div class="ttc" id="aclass_f_d3_d12_view_html_a927604391872870901f7a0036e5694fe"><div class="ttname"><a href="../../db/d6f/class_f_d3_d12_view.html#a927604391872870901f7a0036e5694fe">FD3D12View::HeapType</a></div><div class="ttdeci">ERHIDescriptorHeapType HeapType</div><div class="ttdef"><b>Definition</b> D3D12View.h:35</div></div>
 <div class="ttc" id="aclass_f_d3_d12_view_html_aaede394124fed49472158bcd77fb0c5a"><div class="ttname"><a href="../../db/d6f/class_f_d3_d12_view.html#aaede394124fed49472158bcd77fb0c5a">FD3D12View::FD3D12View</a></div><div class="ttdeci">FD3D12View(FD3D12Device *Parent, ERHIDescriptorHeapType InHeapType)</div><div class="ttdef"><b>Definition</b> D3D12View.h:11</div></div>
 <div class="ttc" id="aclass_f_d3_d12_view_html_ab9874124be35475bbb20015bd6192b66"><div class="ttname"><a href="../../db/d6f/class_f_d3_d12_view.html#ab9874124be35475bbb20015bd6192b66">FD3D12View::UpdateDescriptor</a></div><div class="ttdeci">virtual void UpdateDescriptor()</div><div class="ttdef"><b>Definition</b> D3D12View.h:28</div></div>
 <div class="ttc" id="aclass_f_d3_d12_view_html_ac67249d81b5a5d4ab5adc88c287ae70c"><div class="ttname"><a href="../../db/d6f/class_f_d3_d12_view.html#ac67249d81b5a5d4ab5adc88c287ae70c">FD3D12View::CpuHandle</a></div><div class="ttdeci">FD3D12CpuDescriptor CpuHandle</div><div class="ttdef"><b>Definition</b> D3D12View.h:33</div></div>
 <div class="ttc" id="astruct_f_d3_d12_cpu_descriptor_html"><div class="ttname"><a href="../../d2/d75/struct_f_d3_d12_cpu_descriptor.html">FD3D12CpuDescriptor</a></div><div class="ttdef"><b>Definition</b> D3D12Descriptors.h:51</div></div>
-<div class="ttc" id="astruct_f_r_h_i_descriptor_handle_html"><div class="ttname"><a href="../../dd/d95/struct_f_r_h_i_descriptor_handle.html">FRHIDescriptorHandle</a></div><div class="ttdef"><b>Definition</b> RHIDefines.h:124</div></div>
+<div class="ttc" id="astruct_f_r_h_i_descriptor_handle_html"><div class="ttname"><a href="../../dd/d95/struct_f_r_h_i_descriptor_handle.html">FRHIDescriptorHandle</a></div><div class="ttdef"><b>Definition</b> RHIDefines.h:175</div></div>
 </div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../dir_55043db21ba5ddd7c561d2c5a5a38944.html">Dark Engine</a></li><li class="navelem"><a class="el" href="../../dir_e00b54220e1e1486ac9971b606d33054.html">Source</a></li><li class="navelem"><a class="el" href="../../dir_ae01c8af07818b260cc3481e8588b277.html">Runtime</a></li><li class="navelem"><a class="el" href="../../dir_69d1b7a79a04d24cd43f7c84d74c5d6d.html">D3D12RHI</a></li><li class="navelem"><a class="el" href="../../dir_975782192f4e5579da5ceb9eedcf6dc7.html">private</a></li><li class="navelem"><a class="el" href="../../db/d66/_d3_d12_view_8h.html">D3D12View.h</a></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
 </body>
 </html>

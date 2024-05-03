@@ -6,11 +6,15 @@
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Dark Engine: Класс FD3D12StateCache</title>
-<link rel="icon" href="../../Logo.ico" type="image/x-icon" />
+<link rel="icon" href="../../Logo.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../clipboard.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
 <script type="text/javascript" src="../../cookie.js"></script>
 <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../search/searchdata.js"></script>
@@ -23,9 +27,9 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
-  <td id="projectlogo"><img alt="Logo" src="../../Logo.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="../../MiniLogo.png"/></td>
   <td id="projectalign">
-   <div id="projectname">Dark Engine<span id="projectnumber">&#160;0.0.40</span>
+   <div id="projectname">Dark Engine<span id="projectnumber">&#160;0.0.50</span>
    </div>
    <div id="projectbrief">New game engnie D3D12</div>
   </td>
@@ -51,6 +55,23 @@ $(function() {
 /* @license-end */
 </script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('d3/dfd/class_f_d3_d12_state_cache.html','../../'); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -72,7 +93,6 @@ $(function() {
 </div>
 </div>
 
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Открытые члены</a> &#124;
@@ -98,6 +118,10 @@ $(function() {
 Открытые члены</h2></td></tr>
 <tr class="memitem:ac90b8586835187309296b7478b9d98e8" id="r_ac90b8586835187309296b7478b9d98e8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac90b8586835187309296b7478b9d98e8">FD3D12StateCache</a> (<a class="el" href="../../d3/d12/class_f_d3_d12_command_context.html">FD3D12CommandContext</a> &amp;CmdContext)</td></tr>
 <tr class="separator:ac90b8586835187309296b7478b9d98e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c81df9794e6149523d0602b849eb915" id="r_a8c81df9794e6149523d0602b849eb915"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8c81df9794e6149523d0602b849eb915">SetConstantBuffer</a> (<a class="el" href="../../de/df7/_r_h_i_defines_8h.html#a89725d5f41ceac2e574ddc988f06775e">EShaderType</a> ShaderType, <a class="el" href="../../da/d40/class_f_d3_d12_constant_buffer.html">FD3D12ConstantBuffer</a> &amp;Buffer, bool bDiscardConstants)</td></tr>
+<tr class="separator:a8c81df9794e6149523d0602b849eb915"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56f3f08d9904ce828c8f7bdd9c5dfa5e" id="r_a56f3f08d9904ce828c8f7bdd9c5dfa5e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a56f3f08d9904ce828c8f7bdd9c5dfa5e">SetConstantsFromUniformBuffer</a> (<a class="el" href="../../de/df7/_r_h_i_defines_8h.html#a89725d5f41ceac2e574ddc988f06775e">EShaderType</a> ShaderType, <a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> SlotIndex, <a class="el" href="../../d0/d49/class_f_d3_d12_uniform_buffer.html">FD3D12UniformBuffer</a> *InBuffer)</td></tr>
+<tr class="separator:a56f3f08d9904ce828c8f7bdd9c5dfa5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5d79873d4b6d6acfbc67e1106b6e9eba" id="r_a5d79873d4b6d6acfbc67e1106b6e9eba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5d79873d4b6d6acfbc67e1106b6e9eba">SetGrapicsPipelineState</a> (class <a class="el" href="../../d7/de6/struct_f_d3_d12_graphics_pipeline_state.html">FD3D12GraphicsPipelineState</a> *GraphicsPipelineState)</td></tr>
 <tr class="separator:a5d79873d4b6d6acfbc67e1106b6e9eba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3a2c9da2528fbe1bef5a567bd1ff944a" id="r_a3a2c9da2528fbe1bef5a567bd1ff944a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3a2c9da2528fbe1bef5a567bd1ff944a">SetNewShaderData</a> (<a class="el" href="../../de/df7/_r_h_i_defines_8h.html#a89725d5f41ceac2e574ddc988f06775e">EShaderType</a> InType, const class <a class="el" href="../../dd/df1/struct_f_d3_d12_shader_data.html">FD3D12ShaderData</a> *InShaderData)</td></tr>
@@ -112,8 +136,12 @@ $(function() {
 <tr class="separator:a33cb5e2d29d543a70a617258419928c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acdf0dc1386cb89f997be64ddb4cf0691" id="r_acdf0dc1386cb89f997be64ddb4cf0691"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acdf0dc1386cb89f997be64ddb4cf0691">ApplyState</a> (bool bIsCompute=false)</td></tr>
 <tr class="separator:acdf0dc1386cb89f997be64ddb4cf0691"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad72d6da178c97e44e020c91effeeacce" id="r_ad72d6da178c97e44e020c91effeeacce"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad72d6da178c97e44e020c91effeeacce">ApplyConstants</a> (<a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> StartStage, <a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> EndStage, const class <a class="el" href="../../d0/d1e/class_f_d3_d12_root_signature.html">FD3D12RootSignature</a> *RootSignature)</td></tr>
+<tr class="separator:ad72d6da178c97e44e020c91effeeacce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6723314b3eb8675ee1504b97e8ef6e24" id="r_a6723314b3eb8675ee1504b97e8ef6e24"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6723314b3eb8675ee1504b97e8ef6e24">DirtyStateForNewCommandList</a> ()</td></tr>
 <tr class="separator:a6723314b3eb8675ee1504b97e8ef6e24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85e5d40a9ffb18d16efa21536b0def34" id="r_a85e5d40a9ffb18d16efa21536b0def34"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a85e5d40a9ffb18d16efa21536b0def34">QueueBindlessSRV</a> (<a class="el" href="../../de/df7/_r_h_i_defines_8h.html#a89725d5f41ceac2e574ddc988f06775e">EShaderType</a> Type, class <a class="el" href="../../df/dd0/class_f_d3_d12_shader_resource_view.html">FD3D12ShaderResourceView</a> *SRV)</td></tr>
+<tr class="separator:a85e5d40a9ffb18d16efa21536b0def34"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac3cc4c1e0ee85140b5624ade92c8d42b" id="r_ac3cc4c1e0ee85140b5624ade92c8d42b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac3cc4c1e0ee85140b5624ade92c8d42b">GetVertexCount</a> (<a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> NumPrimitives) const</td></tr>
 <tr class="separator:ac3cc4c1e0ee85140b5624ade92c8d42b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_f_d3_d12_device_child"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_f_d3_d12_device_child')"><img src="../../closed.png" alt="-"/>&#160;Открытые члены унаследованные от <a class="el" href="../../d8/d20/class_f_d3_d12_device_child.html">FD3D12DeviceChild</a></td></tr>
@@ -149,6 +177,32 @@ $(function() {
 </div>
 </div>
 <h2 class="groupheader">Методы</h2>
+<a id="ad72d6da178c97e44e020c91effeeacce" name="ad72d6da178c97e44e020c91effeeacce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad72d6da178c97e44e020c91effeeacce">&#9670;&#160;</a></span>ApplyConstants()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FD3D12StateCache::ApplyConstants </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a></td>          <td class="paramname"><span class="paramname"><em>StartStage</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a></td>          <td class="paramname"><span class="paramname"><em>EndStage</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const class <a class="el" href="../../d0/d1e/class_f_d3_d12_root_signature.html">FD3D12RootSignature</a> *</td>          <td class="paramname"><span class="paramname"><em>RootSignature</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="acdf0dc1386cb89f997be64ddb4cf0691" name="acdf0dc1386cb89f997be64ddb4cf0691"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acdf0dc1386cb89f997be64ddb4cf0691">&#9670;&#160;</a></span>ApplyState()</h2>
 
@@ -204,6 +258,79 @@ $(function() {
 <span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a85e5d40a9ffb18d16efa21536b0def34" name="a85e5d40a9ffb18d16efa21536b0def34"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85e5d40a9ffb18d16efa21536b0def34">&#9670;&#160;</a></span>QueueBindlessSRV()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FD3D12StateCache::QueueBindlessSRV </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../de/df7/_r_h_i_defines_8h.html#a89725d5f41ceac2e574ddc988f06775e">EShaderType</a></td>          <td class="paramname"><span class="paramname"><em>Type</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">class <a class="el" href="../../df/dd0/class_f_d3_d12_shader_resource_view.html">FD3D12ShaderResourceView</a> *</td>          <td class="paramname"><span class="paramname"><em>SRV</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8c81df9794e6149523d0602b849eb915" name="a8c81df9794e6149523d0602b849eb915"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c81df9794e6149523d0602b849eb915">&#9670;&#160;</a></span>SetConstantBuffer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FD3D12StateCache::SetConstantBuffer </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../de/df7/_r_h_i_defines_8h.html#a89725d5f41ceac2e574ddc988f06775e">EShaderType</a></td>          <td class="paramname"><span class="paramname"><em>ShaderType</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/d40/class_f_d3_d12_constant_buffer.html">FD3D12ConstantBuffer</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Buffer</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>bDiscardConstants</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a56f3f08d9904ce828c8f7bdd9c5dfa5e" name="a56f3f08d9904ce828c8f7bdd9c5dfa5e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56f3f08d9904ce828c8f7bdd9c5dfa5e">&#9670;&#160;</a></span>SetConstantsFromUniformBuffer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FD3D12StateCache::SetConstantsFromUniformBuffer </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../de/df7/_r_h_i_defines_8h.html#a89725d5f41ceac2e574ddc988f06775e">EShaderType</a></td>          <td class="paramname"><span class="paramname"><em>ShaderType</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a></td>          <td class="paramname"><span class="paramname"><em>SlotIndex</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d0/d49/class_f_d3_d12_uniform_buffer.html">FD3D12UniformBuffer</a> *</td>          <td class="paramname"><span class="paramname"><em>InBuffer</em></span>&#160;)</td>
+        </tr>
+      </table>
 </div><div class="memdoc">
 
 </div>
@@ -393,6 +520,20 @@ $(function() {
       <table class="memname">
         <tr>
           <td class="memname">bool FD3D12StateCache::bNeedSetRootSignature = true</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aaba5025dcf89cf81626c63a910f24494" name="aaba5025dcf89cf81626c63a910f24494"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaba5025dcf89cf81626c63a910f24494">&#9670;&#160;</a></span>CBVCache</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d52/struct_f_d3_d12_constant_buffer_cache.html">FD3D12ConstantBufferCache</a> FD3D12StateCache::CBVCache = {}</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -651,6 +792,20 @@ $(function() {
 
 </div>
 </div>
+<a id="a194d5b631af3f172610592eb2c2595ce" name="a194d5b631af3f172610592eb2c2595ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a194d5b631af3f172610592eb2c2595ce">&#9670;&#160;</a></span>QueuedBindlessSRVs</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/db1/class_t_array.html">TArray</a>&lt;<a class="el" href="../../df/dd0/class_f_d3_d12_shader_resource_view.html">FD3D12ShaderResourceView</a>*&gt; FD3D12StateCache::QueuedBindlessSRVs[<a class="el" href="../../de/df7/_r_h_i_defines_8h.html#a89725d5f41ceac2e574ddc988f06775ea4fae784dad21e1f04799045f97c79662">ST_NumStandartTypes</a>]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a6d20ce8969726ab333847aea8d98a924" name="a6d20ce8969726ab333847aea8d98a924"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6d20ce8969726ab333847aea8d98a924">&#9670;&#160;</a></span>RenderTargetArray</h2>
 
@@ -684,9 +839,13 @@ $(function() {
 <li>Dark Engine/Source/Runtime/D3D12RHI/private/<a class="el" href="../../dc/dcf/_d3_d12_state_cache_8cpp.html">D3D12StateCache.cpp</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../d3/dfd/class_f_d3_d12_state_cache.html">FD3D12StateCache</a></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
 </body>
 </html>

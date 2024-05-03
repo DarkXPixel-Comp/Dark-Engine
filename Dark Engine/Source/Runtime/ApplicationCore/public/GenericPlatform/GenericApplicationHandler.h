@@ -66,6 +66,8 @@ public:
 		return false;
 	}
 
-
-
+	virtual bool OnWindowDraw(const TSharedPtr<FGenericWindow>& Window)
+	{
+		return false;
+	}
 };

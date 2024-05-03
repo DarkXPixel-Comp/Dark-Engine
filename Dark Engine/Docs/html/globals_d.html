@@ -6,11 +6,15 @@
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Dark Engine: Список членов всех файлов</title>
-<link rel="icon" href="Logo.ico" type="image/x-icon" />
+<link rel="icon" href="Logo.png" type="image/x-icon" />
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
@@ -23,9 +27,9 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
-  <td id="projectlogo"><img alt="Logo" src="Logo.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="MiniLogo.png"/></td>
   <td id="projectalign">
-   <div id="projectname">Dark Engine<span id="projectnumber">&#160;0.0.40</span>
+   <div id="projectname">Dark Engine<span id="projectnumber">&#160;0.0.50</span>
    </div>
    <div id="projectbrief">New game engnie D3D12</div>
   </td>
@@ -52,6 +56,22 @@ $(function() {
 </script>
 <div id="main-nav"></div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('globals_d.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -177,7 +197,7 @@ $(function() {
 <li>DECLARE_DELEGATE_ThreeParams&#160;:&#160;<a class="el" href="d9/dfd/_delegate_8h.html#acd57d3d75b21a94468dec87798574f2d">Delegate.h</a></li>
 <li>DECLARE_DELEGATE_TwoParams&#160;:&#160;<a class="el" href="d9/dfd/_delegate_8h.html#a4eae0977f942381940609c468e4435cd">Delegate.h</a></li>
 <li>DECLARE_GLOBAL_SHADER&#160;:&#160;<a class="el" href="dd/d5a/_global_shader_8h.html#a1f1427678250ebe1d92ed05b536f6628">GlobalShader.h</a></li>
-<li>DECLARE_LOG_CATEGORY&#160;:&#160;<a class="el" href="d7/dcd/_log_macros_8h.html#a66c06938995cf7354bd4997344688e38">LogMacros.h</a>, <a class="el" href="df/dcc/_assertion_macros_8cpp.html#a0d99968e4ab5300aac0a17bd3deb1b2b">AssertionMacros.cpp</a>, <a class="el" href="dc/def/_d3_d12_adapter_8cpp.html#af232fc5de66cecd5426990e84bafaa4c">D3D12Adapter.cpp</a>, <a class="el" href="d7/d2e/_d3_d12_r_h_i_common_8h.html#a8a8c24e419ce0e317b4ed05c793c12cd">D3D12RHICommon.h</a>, <a class="el" href="da/d1d/_launch_engine_loop_8cpp.html#a9ef0162a687396d81bc90409eba688c5">LaunchEngineLoop.cpp</a>, <a class="el" href="d3/d0b/_launch_windows_8cpp.html#a56c9c3e0f5c44305f8256e549f9c910e">LaunchWindows.cpp</a>, <a class="el" href="d6/d52/_u_i_common_8h.html#a10ed9c061e8e7b06d6b589bca9f640e7">UICommon.h</a></li>
+<li>DECLARE_LOG_CATEGORY&#160;:&#160;<a class="el" href="d7/dcd/_log_macros_8h.html#a66c06938995cf7354bd4997344688e38">LogMacros.h</a>, <a class="el" href="df/dcc/_assertion_macros_8cpp.html#a0d99968e4ab5300aac0a17bd3deb1b2b">AssertionMacros.cpp</a>, <a class="el" href="dc/def/_d3_d12_adapter_8cpp.html#af232fc5de66cecd5426990e84bafaa4c">D3D12Adapter.cpp</a>, <a class="el" href="d7/d2e/_d3_d12_r_h_i_common_8h.html#a8a8c24e419ce0e317b4ed05c793c12cd">D3D12RHICommon.h</a>, <a class="el" href="da/d1d/_launch_engine_loop_8cpp.html#a9ef0162a687396d81bc90409eba688c5">LaunchEngineLoop.cpp</a>, <a class="el" href="d3/d0b/_launch_windows_8cpp.html#a56c9c3e0f5c44305f8256e549f9c910e">LaunchWindows.cpp</a>, <a class="el" href="d6/d52/_u_i_common_8h.html#a10ed9c061e8e7b06d6b589bca9f640e7">UICommon.h</a>, <a class="el" href="db/d59/_vulkan_common_8h.html#a9017cf80c5e1fb7f114f1442704711bb">VulkanCommon.h</a></li>
 <li>DECLARE_MULTICAST_DELEGATE&#160;:&#160;<a class="el" href="d9/dfd/_delegate_8h.html#ac9633c7824fa5dcbd6d16c2adeddeb02">Delegate.h</a>, <a class="el" href="de/dd7/_windows_window_8h.html#a669c8cfd1bfa1bce37877109f66eed29">WindowsWindow.h</a>, <a class="el" href="dd/d36/_d_engine_8h.html#a92d69eb860d335599105faae81f29bbc">DEngine.h</a>, <a class="el" href="dd/d7b/_input_core_8h.html#aa125ee1de9256e41181423f1b109b4a6">InputCore.h</a>, <a class="el" href="d8/d27/_u_i_button_8h.html#a0a21da96b4713192df137d1821a36f74">UIButton.h</a>, <a class="el" href="da/dad/_u_i_menu_8h.html#a3e4bb0e7f1cdb8b64510eed661167e77">UIMenu.h</a></li>
 <li>DECLARE_MULTICAST_DELEGATE_EightParams&#160;:&#160;<a class="el" href="d9/dfd/_delegate_8h.html#ae403bff7d853c619e0862029e8e2b8ec">Delegate.h</a></li>
 <li>DECLARE_MULTICAST_DELEGATE_FiveParams&#160;:&#160;<a class="el" href="d9/dfd/_delegate_8h.html#a48c41e6db87583ec93b91b1cda2f9530">Delegate.h</a></li>
@@ -199,6 +219,14 @@ $(function() {
 <li>DESKTOPPLATFORM_API&#160;:&#160;<a class="el" href="d6/d5e/_definitions_8h.html#a121c08d96ffbf1fc0efca2f78be7460b">Definitions.h</a></li>
 <li>DEVELOP_CLASS&#160;:&#160;<a class="el" href="d4/d09/_core_8h.html#a7ae4b8f3db797cca42ddffc13527bfc0">Core.h</a></li>
 <li>DEVELOPERSETTINGS_API&#160;:&#160;<a class="el" href="d6/d5e/_definitions_8h.html#a97e9505018027350e09112fccfa00f35">Definitions.h</a></li>
+<li>DF_Always&#160;:&#160;<a class="el" href="de/df7/_r_h_i_defines_8h.html#a5ed07c557df6373ed4d4b22ff061d633aea8c638e95c9a75fba850d84c9e50fc7">RHIDefines.h</a></li>
+<li>DF_Equal&#160;:&#160;<a class="el" href="de/df7/_r_h_i_defines_8h.html#a5ed07c557df6373ed4d4b22ff061d633a9ef7c6bc2d1404fc38d0b36cb4abeea8">RHIDefines.h</a></li>
+<li>DF_Greater&#160;:&#160;<a class="el" href="de/df7/_r_h_i_defines_8h.html#a5ed07c557df6373ed4d4b22ff061d633a849673b7562bad61e254f318e9d2fe44">RHIDefines.h</a></li>
+<li>DF_GreaterOrEqual&#160;:&#160;<a class="el" href="de/df7/_r_h_i_defines_8h.html#a5ed07c557df6373ed4d4b22ff061d633a4a103ebc7d52ed488a82704ae83c5d46">RHIDefines.h</a></li>
+<li>DF_Less&#160;:&#160;<a class="el" href="de/df7/_r_h_i_defines_8h.html#a5ed07c557df6373ed4d4b22ff061d633a456c7a4bf7db2dbe524427511bd9b02b">RHIDefines.h</a></li>
+<li>DF_LessOrEqual&#160;:&#160;<a class="el" href="de/df7/_r_h_i_defines_8h.html#a5ed07c557df6373ed4d4b22ff061d633affefc0b9c94dbc2926de09708180211b">RHIDefines.h</a></li>
+<li>DF_Never&#160;:&#160;<a class="el" href="de/df7/_r_h_i_defines_8h.html#a5ed07c557df6373ed4d4b22ff061d633a4b8456d4a898783d2c72ece64ff3e0c8">RHIDefines.h</a></li>
+<li>DF_NotEqual&#160;:&#160;<a class="el" href="de/df7/_r_h_i_defines_8h.html#a5ed07c557df6373ed4d4b22ff061d633af57f3f876a885104b8340ee46b010732">RHIDefines.h</a></li>
 <li>DIRECTORYWATCHER_API&#160;:&#160;<a class="el" href="d6/d5e/_definitions_8h.html#aef83029347f3cd61e0c6c81ae1de7d92">Definitions.h</a></li>
 <li>DLLEXPORT&#160;:&#160;<a class="el" href="d0/d2c/_windows_platform_8h.html#a808e08638be3cba36e36759e5b150de0">WindowsPlatform.h</a></li>
 <li>DLLIMPORT&#160;:&#160;<a class="el" href="d0/d2c/_windows_platform_8h.html#aae8fdf6bcc88c172ca8a75ad80f17a95">WindowsPlatform.h</a></li>
@@ -208,9 +236,12 @@ $(function() {
 <li>DynamicRHIShutdown()&#160;:&#160;<a class="el" href="d2/d3a/_windows_dynamic_r_h_i_8cpp.html#a457a483a7a2b29076ac07499b10b5a9b">WindowsDynamicRHI.cpp</a>, <a class="el" href="d8/db0/_dynamic_r_h_i_8h.html#a457a483a7a2b29076ac07499b10b5a9b">DynamicRHI.h</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
 </body>
 </html>

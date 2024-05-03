@@ -104,6 +104,11 @@ int32 FWindowsApplication::ProcessMessage(HWND hWnd, uint32 Msg, WPARAM wParam, 
 			GIsRequestingExit = true;
 			return 0;
 
+		/*case WM_PAINT:
+		{
+			MessageHandler->OnWindowDraw(CurrentWindow);
+			return 0;
+		}*/
 
 	/*	case WM_PAINT:
 		{

@@ -5,54 +5,64 @@
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
 \DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_r_h_i_resources_8h}{RHIResources.h}}"{}}}
 \DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_array_8h}{Containers/Array.h}}"{}}}
-\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_r_h_i_shader_parameters_8h}{RHIShaderParameters.h}}"{}}}
 \DoxyCodeLine{00005\ }
-\DoxyCodeLine{00006\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_i_r_h_i_compute_context}{IRHIComputeContext}}}
-\DoxyCodeLine{00007\ \{}
-\DoxyCodeLine{00008\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_i_r_h_i_compute_context_a3228620d5f77b5a095d67177f0d0a971}{RHISetComputePipelineState}}(\mbox{\hyperlink{class_f_r_h_i_compute_pipeline_state}{FRHIComputePipelineState}}*\ ComputePipelineState)\ \{\}}
-\DoxyCodeLine{00010\ \ \ \ \ }
-\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_i_r_h_i_compute_context_ac586a014226cf3cc3534edf82f713fd5}{RHIDispatchComputeShader}}(\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ ThreadGroupCountX,\ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ ThreadGroupCountY,\ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ ThreadGroupCountZ)\ \{\}}
-\DoxyCodeLine{00012\ }
-\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_i_r_h_i_compute_context_aa9cc5024ea20c2436f8ddc89aa24be2a}{RHIDispatchIndirectComputeShader}}(\mbox{\hyperlink{class_f_r_h_i_buffer}{FRHIBuffer}}*\ InBuffer,\ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ ArgumentOffset)\ \{\}}
-\DoxyCodeLine{00014\ }
-\DoxyCodeLine{00015\ \ \ \ \ \textcolor{comment}{//virtual\ void\ RHIClearUAVFloat(FRHIUn)}}
-\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_i_r_h_i_compute_context}{IRHIComputeContext}}}
+\DoxyCodeLine{00008\ \{}
+\DoxyCodeLine{00009\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_i_r_h_i_compute_context_a3228620d5f77b5a095d67177f0d0a971}{RHISetComputePipelineState}}(\mbox{\hyperlink{class_f_r_h_i_compute_pipeline_state}{FRHIComputePipelineState}}*\ ComputePipelineState)\ \{\}}
+\DoxyCodeLine{00011\ \ \ \ \ }
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_i_r_h_i_compute_context_ac586a014226cf3cc3534edf82f713fd5}{RHIDispatchComputeShader}}(\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ ThreadGroupCountX,\ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ ThreadGroupCountY,\ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ ThreadGroupCountZ)\ \{\}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_i_r_h_i_compute_context_aa9cc5024ea20c2436f8ddc89aa24be2a}{RHIDispatchIndirectComputeShader}}(\mbox{\hyperlink{class_f_r_h_i_buffer}{FRHIBuffer}}*\ InBuffer,\ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ ArgumentOffset)\ \{\}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{comment}{//virtual\ void\ RHIClearUAVFloat(FRHIUn)}}
 \DoxyCodeLine{00017\ }
 \DoxyCodeLine{00018\ }
 \DoxyCodeLine{00019\ }
 \DoxyCodeLine{00020\ }
 \DoxyCodeLine{00021\ }
 \DoxyCodeLine{00022\ }
-\DoxyCodeLine{00023\ \};}
-\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \};}
 \DoxyCodeLine{00025\ }
 \DoxyCodeLine{00026\ }
 \DoxyCodeLine{00027\ }
 \DoxyCodeLine{00028\ }
-\DoxyCodeLine{00029\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_i_r_h_i_command_context}{IRHICommandContext}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_i_r_h_i_compute_context}{IRHIComputeContext}}}
-\DoxyCodeLine{00030\ \{}
-\DoxyCodeLine{00031\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_i_r_h_i_command_context_a7d0aa131ee738047cab127901d55f9f8}{RHIBeginDrawingViewport}}(\mbox{\hyperlink{class_f_r_h_i_viewport}{FRHIViewport}}*\ \mbox{\hyperlink{struct_viewport}{Viewport}},\ \mbox{\hyperlink{class_f_r_h_i_texture}{FRHITexture}}*\ \mbox{\hyperlink{_r_h_i_defines_8h_a9457a748b9d30acc00348bdc63f5de4ea9b0bffda4bcb312168c0d6537cb04b4d}{RenderTarget}})\ =\ 0;}
-\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_i_r_h_i_command_context_a436ec235e25ad15f4a4cdd4ae0dc13be}{RHIEndDrawingViewport}}(\mbox{\hyperlink{class_f_r_h_i_viewport}{FRHIViewport}}*\ \mbox{\hyperlink{struct_viewport}{Viewport}},\ \textcolor{keywordtype}{bool}\ bPresent,\ \mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}\ Vsync)\ =\ 0;}
-\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_i_r_h_i_command_context_a3b32a73d30f021c13ff4f3890d815cc6}{RHIBeginFrame}}()\ =\ 0;}
-\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_i_r_h_i_command_context_a2386d2f02841a5684468d7beb7a1fc7c}{RHIBeginRenderPass}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_f_r_h_i_render_pass_info}{FRHIRenderPassInfo}}\&\ InInfo)\ =\ 0;}
-\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_i_r_h_i_command_context_a745a4a29a8a3692f9d268a07df2522da}{RHIEndRenderPass}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_f_r_h_i_render_pass_info}{FRHIRenderPassInfo}}\&\ InInfo)\ =\ 0;}
-\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_i_r_h_i_command_context_a9c270bca1093d983140d6621816b34c4}{RHIEndFrame}}()\ =\ 0;}
-\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_i_r_h_i_command_context_a49198de67731fe374e18ade7db8d1a9c}{BeginScene}}()\ \{\}}
-\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_i_r_h_i_command_context_a90c4cf317f608a59d4523633c6d57e93}{EndScene}}()\ \{\}}
-\DoxyCodeLine{00040\ \ \ \ \ \textcolor{comment}{//virtual\ void\ RHISetStreamSource(uint32\ StreamIndex,\ FRHIBuffer*\ VertexBuffer,\ uint32\ Offset)\ =\ 0;}}
-\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_i_r_h_i_command_context_aa0b576b0c387de3588a9137555593c74}{RHISetViewport}}(\textcolor{keywordtype}{float}\ MinX,\ \textcolor{keywordtype}{float}\ MinY,\ \textcolor{keywordtype}{float}\ MinZ,\ \textcolor{keywordtype}{float}\ MaxX,\ \textcolor{keywordtype}{float}\ MaxY,\ \textcolor{keywordtype}{float}\ MaxZ)\ =\ 0;}
-\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_i_r_h_i_command_context_a061c664135960a65e5621f825c60f1a3}{RHISetScissorRect}}(\textcolor{keywordtype}{bool}\ bEnable,\ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ MinX,\ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ MinY,\ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ MaxX,\ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ MaxY)\ \{\}}
-\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_i_r_h_i_command_context_a3a90c2d8763f94ca834b2e8d3a4fa1c5}{RHISetGraphicsPipelineState}}(\textcolor{keyword}{class}\ \mbox{\hyperlink{class_f_r_h_i_graphics_pipeline_state}{FRHIGraphicsPipelineState}}*\ GraphicsPSO,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_f_bound_shader_state_input}{FBoundShaderStateInput}}\&\ ShaderInput)\ =\ 0;}
-\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_i_r_h_i_command_context_adb2f56473c82780610734dbe213efb29}{RHISetShaderTexture}}(\mbox{\hyperlink{class_f_r_h_i_graphics_shader}{FRHIGraphicsShader}}*\ Shader,\ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ TextureIndex,\ \mbox{\hyperlink{class_f_r_h_i_texture}{FRHITexture}}*\ Texture)\ \{\}}
-\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_i_r_h_i_command_context_af864f58a8b6e84873ee53bdf5bb41c9f}{RHISetShaderSampler}}(\mbox{\hyperlink{class_f_r_h_i_graphics_shader}{FRHIGraphicsShader}}*\ Shader,\ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ SamplerIndex,\ \mbox{\hyperlink{class_f_r_h_i_sampler_state}{FRHISamplerState}}*\ State)\ \{\}}
-\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_i_r_h_i_command_context_abdc8d79607cb9a68c6d79d6a7116f57c}{RHIBeginImGui}}()\ =\ 0;}
-\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_i_r_h_i_command_context_a2e14b0f1f38950719884854721ecfb51}{RHIEndImGui}}()\ =\ 0;}
-\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_i_r_h_i_command_context_a5214f20c38de1bfbf9e69435142156a1}{RHIClearTextureColor}}(\mbox{\hyperlink{class_f_r_h_i_texture}{FRHITexture}}*\ InTexture,\ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector}{FVector}}\ InColor)\ =\ 0;}
-\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_i_r_h_i_command_context_a3a39de659290f300dc94d04fea9c47d3}{RHISetStreamSource}}(\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ StreamIndex,\ \mbox{\hyperlink{class_f_r_h_i_buffer}{FRHIBuffer}}*\ VertexBuffer,\ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ Offset,\ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ Stride)\ =\ 0;}
-\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_i_r_h_i_command_context_a7defddc4d40bb54c9fae77b57b462b2c}{RHIDrawIndexedPrimitive}}(\mbox{\hyperlink{class_f_r_h_i_buffer}{FRHIBuffer}}*\ IndexBufferRHI,\ \mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}\ BaseVertexIndex,\ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ FirstInstance,\ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ NumVertices,\ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ StartIndex,\ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ NumPrimitives,\ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ NumInstances)\ =\ 0;}
-\DoxyCodeLine{00051\ }
-\DoxyCodeLine{00052\ \};}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_i_r_h_i_command_context}{IRHICommandContext}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_i_r_h_i_compute_context}{IRHIComputeContext}}}
+\DoxyCodeLine{00031\ \{}
+\DoxyCodeLine{00032\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_i_r_h_i_command_context_a7d0aa131ee738047cab127901d55f9f8}{RHIBeginDrawingViewport}}(\mbox{\hyperlink{class_f_r_h_i_viewport}{FRHIViewport}}*\ \mbox{\hyperlink{struct_viewport}{Viewport}},\ \mbox{\hyperlink{class_f_r_h_i_texture}{FRHITexture}}*\ \mbox{\hyperlink{_r_h_i_defines_8h_a9457a748b9d30acc00348bdc63f5de4ea9b0bffda4bcb312168c0d6537cb04b4d}{RenderTarget}})\ =\ 0;}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_i_r_h_i_command_context_a436ec235e25ad15f4a4cdd4ae0dc13be}{RHIEndDrawingViewport}}(\mbox{\hyperlink{class_f_r_h_i_viewport}{FRHIViewport}}*\ \mbox{\hyperlink{struct_viewport}{Viewport}},\ \textcolor{keywordtype}{bool}\ bPresent,\ \mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}\ Vsync)\ =\ 0;}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_i_r_h_i_command_context_a3b32a73d30f021c13ff4f3890d815cc6}{RHIBeginFrame}}()\ =\ 0;}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_i_r_h_i_command_context_a2386d2f02841a5684468d7beb7a1fc7c}{RHIBeginRenderPass}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_f_r_h_i_render_pass_info}{FRHIRenderPassInfo}}\&\ InInfo)\ =\ 0;}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_i_r_h_i_command_context_a745a4a29a8a3692f9d268a07df2522da}{RHIEndRenderPass}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_f_r_h_i_render_pass_info}{FRHIRenderPassInfo}}\&\ InInfo)\ =\ 0;}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_i_r_h_i_command_context_a9c270bca1093d983140d6621816b34c4}{RHIEndFrame}}()\ =\ 0;}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_i_r_h_i_command_context_a49198de67731fe374e18ade7db8d1a9c}{BeginScene}}()\ \{\}}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_i_r_h_i_command_context_a90c4cf317f608a59d4523633c6d57e93}{EndScene}}()\ \{\}}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{comment}{//virtual\ void\ RHISetStreamSource(uint32\ StreamIndex,\ FRHIBuffer*\ VertexBuffer,\ uint32\ Offset)\ =\ 0;}}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_i_r_h_i_command_context_aa0b576b0c387de3588a9137555593c74}{RHISetViewport}}(\textcolor{keywordtype}{float}\ MinX,\ \textcolor{keywordtype}{float}\ MinY,\ \textcolor{keywordtype}{float}\ MinZ,\ \textcolor{keywordtype}{float}\ MaxX,\ \textcolor{keywordtype}{float}\ MaxY,\ \textcolor{keywordtype}{float}\ MaxZ)\ =\ 0;}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_i_r_h_i_command_context_a061c664135960a65e5621f825c60f1a3}{RHISetScissorRect}}(\textcolor{keywordtype}{bool}\ bEnable,\ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ MinX,\ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ MinY,\ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ MaxX,\ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ MaxY)\ \{\}}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_i_r_h_i_command_context_a3a90c2d8763f94ca834b2e8d3a4fa1c5}{RHISetGraphicsPipelineState}}(\textcolor{keyword}{class}\ \mbox{\hyperlink{class_f_r_h_i_graphics_pipeline_state}{FRHIGraphicsPipelineState}}*\ GraphicsPSO,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_f_bound_shader_state_input}{FBoundShaderStateInput}}\&\ ShaderInput)\ =\ 0;}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_i_r_h_i_command_context_adb2f56473c82780610734dbe213efb29}{RHISetShaderTexture}}(\mbox{\hyperlink{class_f_r_h_i_graphics_shader}{FRHIGraphicsShader}}*\ Shader,\ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ TextureIndex,\ \mbox{\hyperlink{class_f_r_h_i_texture}{FRHITexture}}*\ Texture)\ \{\}}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_i_r_h_i_command_context_af864f58a8b6e84873ee53bdf5bb41c9f}{RHISetShaderSampler}}(\mbox{\hyperlink{class_f_r_h_i_graphics_shader}{FRHIGraphicsShader}}*\ Shader,\ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ SamplerIndex,\ \mbox{\hyperlink{class_f_r_h_i_sampler_state}{FRHISamplerState}}*\ State)\ \{\}}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_i_r_h_i_command_context_abdc8d79607cb9a68c6d79d6a7116f57c}{RHIBeginImGui}}()\ =\ 0;}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_i_r_h_i_command_context_a2e14b0f1f38950719884854721ecfb51}{RHIEndImGui}}()\ =\ 0;}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_i_r_h_i_command_context_a5214f20c38de1bfbf9e69435142156a1}{RHIClearTextureColor}}(\mbox{\hyperlink{class_f_r_h_i_texture}{FRHITexture}}*\ InTexture,\ \mbox{\hyperlink{struct_d_e_1_1_math_1_1_t_vector}{FVector}}\ InColor)\ =\ 0;}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_i_r_h_i_command_context_a3a39de659290f300dc94d04fea9c47d3}{RHISetStreamSource}}(\mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ StreamIndex,\ \mbox{\hyperlink{class_f_r_h_i_buffer}{FRHIBuffer}}*\ VertexBuffer,\ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ Offset,\ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ Stride)\ =\ 0;}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_i_r_h_i_command_context_a7defddc4d40bb54c9fae77b57b462b2c}{RHIDrawIndexedPrimitive}}(\mbox{\hyperlink{class_f_r_h_i_buffer}{FRHIBuffer}}*\ IndexBufferRHI,\ \mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}\ BaseVertexIndex,\ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ FirstInstance,\ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ NumVertices,\ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ StartIndex,\ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ NumPrimitives,\ \mbox{\hyperlink{_platform_8h_a8c7a127091efbdfc5a16939041653e05}{uint32}}\ NumInstances)\ =\ 0;}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_i_r_h_i_command_context_a92e5f9edd22895ef70874bba33a0986e}{RHISetShaderParameters}}(}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_f_r_h_i_graphics_shader}{FRHIGraphicsShader}}*\ Shader,}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ TArray<uint8>\&\ InParameters,}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ TArray<FRHIShaderParameterResource>\&\ InBindlessParameters,}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ TArray<FRHIShaderParameterResource>\&\ InResourceParameters)\ =\ 0;}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_i_r_h_i_command_context_abe2194fead74407f7fe7c251c1132445}{SetRenderTargets}}(\mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}\ NumRenderTargets,}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_f_r_h_i_render_target_view}{FRHIRenderTargetView}}*\ RenderTargetsRHI,}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_f_r_h_i_depth_render_target_view}{FRHIDepthRenderTargetView}}*\ DepthStencilViewRHI,}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ bClear\ =\ \textcolor{keyword}{false})\ =\ 0;}
+\DoxyCodeLine{00062\ \};}
 
 \end{DoxyCode}

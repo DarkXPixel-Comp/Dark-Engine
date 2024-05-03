@@ -43,6 +43,11 @@ public:
 	void TransitionResource(ID3D12Resource* Resource, D3D12_RESOURCE_STATES Before, D3D12_RESOURCE_STATES After, uint32 SubResource);
 	void TransitionResource(FD3D12Resource* Resource, D3D12_RESOURCE_STATES After, uint32 SubResource);
 
+	void AddLockedResource(const FD3D12LockedResource& Resource)
+	{
+		LockedResources.Add(Resource);
+	}
+
 	FD3D12CommandList& GetCommandList()
 	{
 		if (!CommandList)
@@ -92,6 +97,7 @@ private:
 	class FD3D12CommandList* CommandList = nullptr;
 	class FD3D12ResourceBarrierBatcher ResourceBarrierBatcher;
 	TArray<FD3D12Payload*> Payloads;
+	TArray<FD3D12LockedResource> LockedResources;
 
 	
 

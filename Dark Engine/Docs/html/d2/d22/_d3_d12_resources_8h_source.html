@@ -6,11 +6,15 @@
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Dark Engine: Исходный файл Dark Engine/Source/Runtime/D3D12RHI/private/D3D12Resources.h</title>
-<link rel="icon" href="../../Logo.ico" type="image/x-icon" />
+<link rel="icon" href="../../Logo.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../clipboard.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
 <script type="text/javascript" src="../../cookie.js"></script>
 <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../search/searchdata.js"></script>
@@ -23,9 +27,9 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
-  <td id="projectlogo"><img alt="Logo" src="../../Logo.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="../../MiniLogo.png"/></td>
   <td id="projectalign">
-   <div id="projectname">Dark Engine<span id="projectnumber">&#160;0.0.40</span>
+   <div id="projectname">Dark Engine<span id="projectnumber">&#160;0.0.50</span>
    </div>
    <div id="projectbrief">New game engnie D3D12</div>
   </td>
@@ -56,6 +60,23 @@ $(function() {
 $(function() { codefold.init(1); });
 /* @license-end */
 </script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('d2/d22/_d3_d12_resources_8h_source.html','../../'); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -77,11 +98,6 @@ $(function() { codefold.init(1); });
 </div>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="../../dir_55043db21ba5ddd7c561d2c5a5a38944.html">Dark Engine</a></li><li class="navelem"><a class="el" href="../../dir_e00b54220e1e1486ac9971b606d33054.html">Source</a></li><li class="navelem"><a class="el" href="../../dir_ae01c8af07818b260cc3481e8588b277.html">Runtime</a></li><li class="navelem"><a class="el" href="../../dir_69d1b7a79a04d24cd43f7c84d74c5d6d.html">D3D12RHI</a></li><li class="navelem"><a class="el" href="../../dir_975782192f4e5579da5ceb9eedcf6dc7.html">private</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle"><div class="title">D3D12Resources.h</div></div>
 </div><!--header-->
@@ -224,199 +240,236 @@ $(function() { codefold.init(1); });
 <div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
 <div class="line"><a id="l00120" name="l00120"></a><span class="lineno"><a class="line" href="../../d3/dfd/class_f_d3_d12_resource_location.html#aee1b702d220bab7c9584c10de88d1808">  120</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d3/dfd/class_f_d3_d12_resource_location.html#aee1b702d220bab7c9584c10de88d1808">SetSize</a>(<a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#afddf25cca147311c233b23a9d3329bb4">uint64</a> InValue) { Size = InValue; }</div>
 <div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno"><a class="line" href="../../d3/dfd/class_f_d3_d12_resource_location.html#a924c0726731a3c09c21ce8d660fdb6ea">  122</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d3/dfd/class_f_d3_d12_resource_location.html#a924c0726731a3c09c21ce8d660fdb6ea">Clear</a>();</div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span> </div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno"><a class="line" href="../../d3/dfd/class_f_d3_d12_resource_location.html#abe20269dc925846a9e4e904cd19a6ed3">  124</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d3/dfd/class_f_d3_d12_resource_location.html#abe20269dc925846a9e4e904cd19a6ed3">SetGPUVirtualAddress</a>(D3D12_GPU_VIRTUAL_ADDRESS InAddress) { GPUVirtualAddress = InAddress; }</div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>                                                                  </div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    D3D12_GPU_VIRTUAL_ADDRESS GPUVirtualAddress;</div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    TRefCountPtr&lt;FD3D12Resource&gt; <a class="code hl_typedef" href="../../dd/dce/_d3_d12_main_8h.html#ab8eaee8f45f36954297ee6146eb6db20">Resource</a>;</div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    <a class="code hl_class" href="../../d3/dd0/class_f_d3_d12_base_shader_resource.html">FD3D12BaseShaderResource</a>* Owner; </div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    <span class="keywordtype">void</span>* MappedAddress = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#afddf25cca147311c233b23a9d3329bb4">uint64</a> Size = 0;</div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>};</div>
+<div class="foldopen" id="foldopen00122" data-start="{" data-end="}">
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno"><a class="line" href="../../d3/dfd/class_f_d3_d12_resource_location.html#a924c0726731a3c09c21ce8d660fdb6ea">  122</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d3/dfd/class_f_d3_d12_resource_location.html#a924c0726731a3c09c21ce8d660fdb6ea">Clear</a>()</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    {</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>        <span class="keywordflow">if</span> (<a class="code hl_typedef" href="../../dd/dce/_d3_d12_main_8h.html#ab8eaee8f45f36954297ee6146eb6db20">Resource</a>)</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>        {</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>            GPUVirtualAddress = D3D12_GPU_VIRTUAL_ADDRESS();</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>            <span class="keywordflow">if</span> (MappedAddress)</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>            {</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>                D3D12_RANGE Range = { 0, 0 };</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>                <a class="code hl_typedef" href="../../dd/dce/_d3_d12_main_8h.html#ab8eaee8f45f36954297ee6146eb6db20">Resource</a>-&gt;GetResource()-&gt;Unmap(0, &amp;Range);</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>                MappedAddress = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>            }</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>            Owner = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>            Size = 0;</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>            <a class="code hl_typedef" href="../../dd/dce/_d3_d12_main_8h.html#ab8eaee8f45f36954297ee6146eb6db20">Resource</a>.Reset();</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>        }</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>    }</div>
 </div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span> </div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span> </div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span> </div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span> </div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span> </div>
 <div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span> </div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span> </div>
-<div class="foldopen" id="foldopen00140" data-start="{" data-end="};">
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno"><a class="line" href="../../d8/d13/class_f_d3_d12_heap.html">  140</a></span><span class="keyword">class </span><a class="code hl_class" href="../../d8/d13/class_f_d3_d12_heap.html">FD3D12Heap</a> : <span class="keyword">public</span> <a class="code hl_class" href="../../d8/d20/class_f_d3_d12_device_child.html">FD3D12DeviceChild</a></div>
-<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>{</div>
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno"><a class="line" href="../../d8/d13/class_f_d3_d12_heap.html#aedbe15b24c36fd80f3bab9040b06f33b">  143</a></span>    <a class="code hl_function" href="../../d8/d13/class_f_d3_d12_heap.html#aedbe15b24c36fd80f3bab9040b06f33b">FD3D12Heap</a>(<a class="code hl_class" href="../../d1/d79/class_f_d3_d12_device.html">FD3D12Device</a>* InDevice);</div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span> </div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno"><a class="line" href="../../d8/d13/class_f_d3_d12_heap.html#abf95a1d20637db61057844bd205bc33b">  145</a></span>    ID3D12Heap* <a class="code hl_function" href="../../d8/d13/class_f_d3_d12_heap.html#abf95a1d20637db61057844bd205bc33b">GetHeap</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span> </div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d8/d13/class_f_d3_d12_heap.html#a3a2e3abb900a4a13f187fad673b41e3d">SetHeap</a>(ID3D12Heap* InHeap, <span class="keyword">const</span> <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a74140f1ff3f7a51b1ac752f90283f3d6">TCHAR</a>* InName, <span class="keywordtype">bool</span> bForceGetGPUAddress);</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno"><a class="line" href="../../d3/dfd/class_f_d3_d12_resource_location.html#abe20269dc925846a9e4e904cd19a6ed3">  139</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d3/dfd/class_f_d3_d12_resource_location.html#abe20269dc925846a9e4e904cd19a6ed3">SetGPUVirtualAddress</a>(D3D12_GPU_VIRTUAL_ADDRESS InAddress) { GPUVirtualAddress = InAddress; }</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>                                                                  </div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>    D3D12_GPU_VIRTUAL_ADDRESS GPUVirtualAddress;</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>    TRefCountPtr&lt;FD3D12Resource&gt; <a class="code hl_typedef" href="../../dd/dce/_d3_d12_main_8h.html#ab8eaee8f45f36954297ee6146eb6db20">Resource</a>;</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>    <a class="code hl_class" href="../../d3/dd0/class_f_d3_d12_base_shader_resource.html">FD3D12BaseShaderResource</a>* Owner; </div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>    <span class="keywordtype">void</span>* MappedAddress = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>    <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#afddf25cca147311c233b23a9d3329bb4">uint64</a> Size = 0;</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>};</div>
+</div>
 <div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span> </div>
-<div class="line"><a id="l00149" name="l00149"></a><span class="lineno"><a class="line" href="../../d8/d13/class_f_d3_d12_heap.html#ad68e85eafff3cefc0c948b9df9cf81e2">  149</a></span>    D3D12_GPU_VIRTUAL_ADDRESS <a class="code hl_function" href="../../d8/d13/class_f_d3_d12_heap.html#ad68e85eafff3cefc0c948b9df9cf81e2">GetGPUVirtualAddress</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> GPUVirtualAddress; }</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span> </div>
 <div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span> </div>
 <div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span> </div>
 <div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span> </div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>    TRefCountPtr&lt;ID3D12Heap&gt; Heap;</div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a74140f1ff3f7a51b1ac752f90283f3d6">TCHAR</a>* HeapName;</div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>    D3D12_HEAP_DESC HeapDesc;</div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>    D3D12_GPU_VIRTUAL_ADDRESS GPUVirtualAddress = 0;</div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>};</div>
-</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span> </div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span> </div>
+<div class="foldopen" id="foldopen00155" data-start="{" data-end="};">
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno"><a class="line" href="../../d8/d13/class_f_d3_d12_heap.html">  155</a></span><span class="keyword">class </span><a class="code hl_class" href="../../d8/d13/class_f_d3_d12_heap.html">FD3D12Heap</a> : <span class="keyword">public</span> <a class="code hl_class" href="../../d8/d20/class_f_d3_d12_device_child.html">FD3D12DeviceChild</a></div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>{</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno"><a class="line" href="../../d8/d13/class_f_d3_d12_heap.html#aedbe15b24c36fd80f3bab9040b06f33b">  158</a></span>    <a class="code hl_function" href="../../d8/d13/class_f_d3_d12_heap.html#aedbe15b24c36fd80f3bab9040b06f33b">FD3D12Heap</a>(<a class="code hl_class" href="../../d1/d79/class_f_d3_d12_device.html">FD3D12Device</a>* InDevice);</div>
 <div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span> </div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span> </div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno"><a class="line" href="../../d8/d13/class_f_d3_d12_heap.html#abf95a1d20637db61057844bd205bc33b">  160</a></span>    ID3D12Heap* <a class="code hl_function" href="../../d8/d13/class_f_d3_d12_heap.html#abf95a1d20637db61057844bd205bc33b">GetHeap</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span> </div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span> </div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d8/d13/class_f_d3_d12_heap.html#a3a2e3abb900a4a13f187fad673b41e3d">SetHeap</a>(ID3D12Heap* InHeap, <span class="keyword">const</span> <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a74140f1ff3f7a51b1ac752f90283f3d6">TCHAR</a>* InName, <span class="keywordtype">bool</span> bForceGetGPUAddress);</div>
 <div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span> </div>
-<div class="foldopen" id="foldopen00164" data-start="{" data-end="};">
-<div class="line"><a id="l00164" name="l00164"></a><span class="lineno"><a class="line" href="../../d3/dd0/class_f_d3_d12_base_shader_resource.html">  164</a></span><span class="keyword">class </span><a class="code hl_class" href="../../d3/dd0/class_f_d3_d12_base_shader_resource.html">FD3D12BaseShaderResource</a> : <span class="keyword">public</span> <a class="code hl_class" href="../../d8/d20/class_f_d3_d12_device_child.html">FD3D12DeviceChild</a></div>
-<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>{</div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span><span class="keyword">public</span>:</div>
-<div class="foldopen" id="foldopen00167" data-start="{" data-end="}">
-<div class="line"><a id="l00167" name="l00167"></a><span class="lineno"><a class="line" href="../../d3/dd0/class_f_d3_d12_base_shader_resource.html#a98967de27785645274657806327e5a6d">  167</a></span>    <a class="code hl_function" href="../../d3/dd0/class_f_d3_d12_base_shader_resource.html#a98967de27785645274657806327e5a6d">FD3D12BaseShaderResource</a>(<a class="code hl_class" href="../../d1/d79/class_f_d3_d12_device.html">FD3D12Device</a>* InParent) :</div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>        <a class="code hl_class" href="../../d8/d20/class_f_d3_d12_device_child.html">FD3D12DeviceChild</a>(InParent),</div>
-<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>        <a class="code hl_variable" href="../../d3/dd0/class_f_d3_d12_base_shader_resource.html#a5457bf31e7f1d9eb78295b5c98017df1">ResourceLocation</a>(InParent)</div>
-<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>    {</div>
-<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>        <a class="code hl_variable" href="../../d3/dd0/class_f_d3_d12_base_shader_resource.html#a5457bf31e7f1d9eb78295b5c98017df1">ResourceLocation</a>.<a class="code hl_function" href="../../d3/dfd/class_f_d3_d12_resource_location.html#ab07101d711eb2a6b4b8ad0c1bd7f8046">SetOwner</a>(<span class="keyword">this</span>);</div>
-<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>    }</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno"><a class="line" href="../../d8/d13/class_f_d3_d12_heap.html#ad68e85eafff3cefc0c948b9df9cf81e2">  164</a></span>    D3D12_GPU_VIRTUAL_ADDRESS <a class="code hl_function" href="../../d8/d13/class_f_d3_d12_heap.html#ad68e85eafff3cefc0c948b9df9cf81e2">GetGPUVirtualAddress</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> GPUVirtualAddress; }</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span> </div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span> </div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span> </div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>    TRefCountPtr&lt;ID3D12Heap&gt; Heap;</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>    <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a74140f1ff3f7a51b1ac752f90283f3d6">TCHAR</a>* HeapName;</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>    D3D12_HEAP_DESC HeapDesc;</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>    D3D12_GPU_VIRTUAL_ADDRESS GPUVirtualAddress = 0;</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>};</div>
 </div>
-<div class="foldopen" id="foldopen00173" data-start="{" data-end="}">
-<div class="line"><a id="l00173" name="l00173"></a><span class="lineno"><a class="line" href="../../d3/dd0/class_f_d3_d12_base_shader_resource.html#a88c90926f84d55cf4f5301213476b89e">  173</a></span>    <a class="code hl_function" href="../../d3/dd0/class_f_d3_d12_base_shader_resource.html#a88c90926f84d55cf4f5301213476b89e">~FD3D12BaseShaderResource</a>()</div>
-<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>    {</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span> </div>
 <div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span> </div>
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>    }</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span> </div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span> </div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span> </div>
+<div class="foldopen" id="foldopen00179" data-start="{" data-end="};">
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno"><a class="line" href="../../d3/dd0/class_f_d3_d12_base_shader_resource.html">  179</a></span><span class="keyword">class </span><a class="code hl_class" href="../../d3/dd0/class_f_d3_d12_base_shader_resource.html">FD3D12BaseShaderResource</a> : <span class="keyword">public</span> <a class="code hl_class" href="../../d8/d20/class_f_d3_d12_device_child.html">FD3D12DeviceChild</a></div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>{</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span><span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00182" data-start="{" data-end="}">
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno"><a class="line" href="../../d3/dd0/class_f_d3_d12_base_shader_resource.html#a98967de27785645274657806327e5a6d">  182</a></span>    <a class="code hl_function" href="../../d3/dd0/class_f_d3_d12_base_shader_resource.html#a98967de27785645274657806327e5a6d">FD3D12BaseShaderResource</a>(<a class="code hl_class" href="../../d1/d79/class_f_d3_d12_device.html">FD3D12Device</a>* InParent) :</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>        <a class="code hl_class" href="../../d8/d20/class_f_d3_d12_device_child.html">FD3D12DeviceChild</a>(InParent),</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>        <a class="code hl_variable" href="../../d3/dd0/class_f_d3_d12_base_shader_resource.html#a5457bf31e7f1d9eb78295b5c98017df1">ResourceLocation</a>(InParent)</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>    {</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>        <a class="code hl_variable" href="../../d3/dd0/class_f_d3_d12_base_shader_resource.html#a5457bf31e7f1d9eb78295b5c98017df1">ResourceLocation</a>.<a class="code hl_function" href="../../d3/dfd/class_f_d3_d12_resource_location.html#ab07101d711eb2a6b4b8ad0c1bd7f8046">SetOwner</a>(<span class="keyword">this</span>);</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>    }</div>
 </div>
-<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>    </div>
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno"><a class="line" href="../../d3/dd0/class_f_d3_d12_base_shader_resource.html#a9553ed5f7e788d0fa77dcd8500e587c1">  179</a></span>    <a class="code hl_class" href="../../d7/d81/class_f_d3_d12_resource.html">FD3D12Resource</a>* <a class="code hl_function" href="../../d3/dd0/class_f_d3_d12_base_shader_resource.html#a9553ed5f7e788d0fa77dcd8500e587c1">GetResouce</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d3/dd0/class_f_d3_d12_base_shader_resource.html#a5457bf31e7f1d9eb78295b5c98017df1">ResourceLocation</a>.<a class="code hl_function" href="../../d3/dfd/class_f_d3_d12_resource_location.html#a44d09c882c765d976117fa147f56a6eb">GetResource</a>(); }</div>
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span> </div>
-<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span> </div>
-<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span> </div>
-<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00184" name="l00184"></a><span class="lineno"><a class="line" href="../../d3/dd0/class_f_d3_d12_base_shader_resource.html#a5457bf31e7f1d9eb78295b5c98017df1">  184</a></span>    <a class="code hl_class" href="../../d3/dfd/class_f_d3_d12_resource_location.html">FD3D12ResourceLocation</a> <a class="code hl_variable" href="../../d3/dd0/class_f_d3_d12_base_shader_resource.html#a5457bf31e7f1d9eb78295b5c98017df1">ResourceLocation</a>;</div>
-<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>};</div>
+<div class="foldopen" id="foldopen00188" data-start="{" data-end="}">
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno"><a class="line" href="../../d3/dd0/class_f_d3_d12_base_shader_resource.html#a88c90926f84d55cf4f5301213476b89e">  188</a></span>    <a class="code hl_function" href="../../d3/dd0/class_f_d3_d12_base_shader_resource.html#a88c90926f84d55cf4f5301213476b89e">~FD3D12BaseShaderResource</a>()</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>    {</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>    }</div>
 </div>
-<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span> </div>
-<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span> </div>
-<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span> </div>
-<div class="foldopen" id="foldopen00189" data-start="{" data-end="};">
-<div class="line"><a id="l00189" name="l00189"></a><span class="lineno"><a class="line" href="../../d4/d3c/struct_f_d3_d12_locked_resource.html">  189</a></span><span class="keyword">struct </span><a class="code hl_struct" href="../../d4/d3c/struct_f_d3_d12_locked_resource.html">FD3D12LockedResource</a> : <span class="keyword">public</span> <a class="code hl_class" href="../../d8/d20/class_f_d3_d12_device_child.html">FD3D12DeviceChild</a></div>
-<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>{</div>
-<div class="foldopen" id="foldopen00191" data-start="{" data-end="}">
-<div class="line"><a id="l00191" name="l00191"></a><span class="lineno"><a class="line" href="../../d4/d3c/struct_f_d3_d12_locked_resource.html#a8ea9fdfd539b8c6f67e7974404bb0e93">  191</a></span>    <a class="code hl_function" href="../../d4/d3c/struct_f_d3_d12_locked_resource.html#a8ea9fdfd539b8c6f67e7974404bb0e93">FD3D12LockedResource</a>(<a class="code hl_class" href="../../d1/d79/class_f_d3_d12_device.html">FD3D12Device</a>* InDevice) :</div>
-<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>        <a class="code hl_class" href="../../d8/d20/class_f_d3_d12_device_child.html">FD3D12DeviceChild</a>(InDevice),</div>
-<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>        <a class="code hl_variable" href="../../d4/d3c/struct_f_d3_d12_locked_resource.html#ab2b305317718afad5023829cd9eb4522">LockedOffset</a>(0),</div>
-<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>        <a class="code hl_variable" href="../../d4/d3c/struct_f_d3_d12_locked_resource.html#ae25ae992868a668baeeae53e3a6eba6c">LockedPitch</a>(0),</div>
-<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>        <a class="code hl_variable" href="../../d4/d3c/struct_f_d3_d12_locked_resource.html#a2ae37cc2a58ababa9304347b3dfcfcad">bLocked</a>(false),</div>
-<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>        <a class="code hl_variable" href="../../d4/d3c/struct_f_d3_d12_locked_resource.html#a7dac85e38166387d96a3b5926d398420">bLockedForReadOnly</a>(false),</div>
-<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>        <a class="code hl_variable" href="../../d4/d3c/struct_f_d3_d12_locked_resource.html#a79d4bc21362428dc2306e5d7e147bf14">bHasNeverBeenLocked</a>(true),</div>
-<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>        <a class="code hl_variable" href="../../d4/d3c/struct_f_d3_d12_locked_resource.html#a792ae96b01c73f4f4f13ada58a667135">MappedAddress</a>(nullptr)</div>
-<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>    {}</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>    </div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno"><a class="line" href="../../d3/dd0/class_f_d3_d12_base_shader_resource.html#a9553ed5f7e788d0fa77dcd8500e587c1">  193</a></span>    <a class="code hl_class" href="../../d7/d81/class_f_d3_d12_resource.html">FD3D12Resource</a>* <a class="code hl_function" href="../../d3/dd0/class_f_d3_d12_base_shader_resource.html#a9553ed5f7e788d0fa77dcd8500e587c1">GetResouce</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d3/dd0/class_f_d3_d12_base_shader_resource.html#a5457bf31e7f1d9eb78295b5c98017df1">ResourceLocation</a>.<a class="code hl_function" href="../../d3/dfd/class_f_d3_d12_resource_location.html#a44d09c882c765d976117fa147f56a6eb">GetResource</a>(); }</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span> </div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span> </div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span> </div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno"><a class="line" href="../../d3/dd0/class_f_d3_d12_base_shader_resource.html#a5457bf31e7f1d9eb78295b5c98017df1">  198</a></span>    <a class="code hl_class" href="../../d3/dfd/class_f_d3_d12_resource_location.html">FD3D12ResourceLocation</a> <a class="code hl_variable" href="../../d3/dd0/class_f_d3_d12_base_shader_resource.html#a5457bf31e7f1d9eb78295b5c98017df1">ResourceLocation</a>;</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>};</div>
 </div>
 <div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span> </div>
-<div class="foldopen" id="foldopen00201" data-start="{" data-end="}">
-<div class="line"><a id="l00201" name="l00201"></a><span class="lineno"><a class="line" href="../../d4/d3c/struct_f_d3_d12_locked_resource.html#a881653fd1a2e56f6239241ec6356452f">  201</a></span>    FORCEINLINE <span class="keywordtype">void</span> <a class="code hl_function" href="../../d4/d3c/struct_f_d3_d12_locked_resource.html#a881653fd1a2e56f6239241ec6356452f">Reset</a>()</div>
-<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>    {</div>
-<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>        <a class="code hl_typedef" href="../../dd/dce/_d3_d12_main_8h.html#ab8eaee8f45f36954297ee6146eb6db20">Resource</a>.Reset();</div>
-<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>        <a class="code hl_variable" href="../../d4/d3c/struct_f_d3_d12_locked_resource.html#a2ae37cc2a58ababa9304347b3dfcfcad">bLocked</a> = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>        <a class="code hl_variable" href="../../d4/d3c/struct_f_d3_d12_locked_resource.html#a7dac85e38166387d96a3b5926d398420">bLockedForReadOnly</a> = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>        <a class="code hl_variable" href="../../d4/d3c/struct_f_d3_d12_locked_resource.html#ab2b305317718afad5023829cd9eb4522">LockedOffset</a> = 0;</div>
-<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>        <a class="code hl_variable" href="../../d4/d3c/struct_f_d3_d12_locked_resource.html#ae25ae992868a668baeeae53e3a6eba6c">LockedPitch</a> = 0;</div>
-<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>    }</div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span> </div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span> </div>
+<div class="foldopen" id="foldopen00203" data-start="{" data-end="};">
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno"><a class="line" href="../../d4/d3c/struct_f_d3_d12_locked_resource.html">  203</a></span><span class="keyword">struct </span><a class="code hl_struct" href="../../d4/d3c/struct_f_d3_d12_locked_resource.html">FD3D12LockedResource</a> : <span class="keyword">public</span> <a class="code hl_class" href="../../d8/d20/class_f_d3_d12_device_child.html">FD3D12DeviceChild</a></div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>{</div>
+<div class="foldopen" id="foldopen00205" data-start="{" data-end="}">
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno"><a class="line" href="../../d4/d3c/struct_f_d3_d12_locked_resource.html#a8ea9fdfd539b8c6f67e7974404bb0e93">  205</a></span>    <a class="code hl_function" href="../../d4/d3c/struct_f_d3_d12_locked_resource.html#a8ea9fdfd539b8c6f67e7974404bb0e93">FD3D12LockedResource</a>(<a class="code hl_class" href="../../d1/d79/class_f_d3_d12_device.html">FD3D12Device</a>* InDevice) :</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>        <a class="code hl_class" href="../../d8/d20/class_f_d3_d12_device_child.html">FD3D12DeviceChild</a>(InDevice),</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>        <a class="code hl_variable" href="../../d4/d3c/struct_f_d3_d12_locked_resource.html#ab2b305317718afad5023829cd9eb4522">LockedOffset</a>(0),</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>        <a class="code hl_variable" href="../../d4/d3c/struct_f_d3_d12_locked_resource.html#ae25ae992868a668baeeae53e3a6eba6c">LockedPitch</a>(0),</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>        <a class="code hl_variable" href="../../d4/d3c/struct_f_d3_d12_locked_resource.html#a2ae37cc2a58ababa9304347b3dfcfcad">bLocked</a>(false),</div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>        <a class="code hl_variable" href="../../d4/d3c/struct_f_d3_d12_locked_resource.html#a7dac85e38166387d96a3b5926d398420">bLockedForReadOnly</a>(false),</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>        <a class="code hl_variable" href="../../d4/d3c/struct_f_d3_d12_locked_resource.html#a79d4bc21362428dc2306e5d7e147bf14">bHasNeverBeenLocked</a>(true),</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>        <a class="code hl_variable" href="../../d4/d3c/struct_f_d3_d12_locked_resource.html#a792ae96b01c73f4f4f13ada58a667135">MappedAddress</a>(nullptr)</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>    {}</div>
 </div>
-<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span> </div>
-<div class="line"><a id="l00210" name="l00210"></a><span class="lineno"><a class="line" href="../../d4/d3c/struct_f_d3_d12_locked_resource.html#a5f6519324053bce9d5c647befb07827c">  210</a></span>    TRefCountPtr&lt;ID3D12Resource&gt; <a class="code hl_variable" href="../../d4/d3c/struct_f_d3_d12_locked_resource.html#a5f6519324053bce9d5c647befb07827c">Resource</a>;</div>
-<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>    <span class="comment">//FD3D12ResourceLocation ResourceLocation;</span></div>
-<div class="line"><a id="l00212" name="l00212"></a><span class="lineno"><a class="line" href="../../d4/d3c/struct_f_d3_d12_locked_resource.html#ab2b305317718afad5023829cd9eb4522">  212</a></span>    <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> <a class="code hl_variable" href="../../d4/d3c/struct_f_d3_d12_locked_resource.html#ab2b305317718afad5023829cd9eb4522">LockedOffset</a>;</div>
-<div class="line"><a id="l00213" name="l00213"></a><span class="lineno"><a class="line" href="../../d4/d3c/struct_f_d3_d12_locked_resource.html#ae25ae992868a668baeeae53e3a6eba6c">  213</a></span>    <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> <a class="code hl_variable" href="../../d4/d3c/struct_f_d3_d12_locked_resource.html#ae25ae992868a668baeeae53e3a6eba6c">LockedPitch</a>;</div>
-<div class="line"><a id="l00214" name="l00214"></a><span class="lineno"><a class="line" href="../../d4/d3c/struct_f_d3_d12_locked_resource.html#a2ae37cc2a58ababa9304347b3dfcfcad">  214</a></span>    <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> <a class="code hl_variable" href="../../d4/d3c/struct_f_d3_d12_locked_resource.html#a2ae37cc2a58ababa9304347b3dfcfcad">bLocked</a> : 1;</div>
-<div class="line"><a id="l00215" name="l00215"></a><span class="lineno"><a class="line" href="../../d4/d3c/struct_f_d3_d12_locked_resource.html#a7dac85e38166387d96a3b5926d398420">  215</a></span>    <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> <a class="code hl_variable" href="../../d4/d3c/struct_f_d3_d12_locked_resource.html#a7dac85e38166387d96a3b5926d398420">bLockedForReadOnly</a> : 1;</div>
-<div class="line"><a id="l00216" name="l00216"></a><span class="lineno"><a class="line" href="../../d4/d3c/struct_f_d3_d12_locked_resource.html#a79d4bc21362428dc2306e5d7e147bf14">  216</a></span>    <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> <a class="code hl_variable" href="../../d4/d3c/struct_f_d3_d12_locked_resource.html#a79d4bc21362428dc2306e5d7e147bf14">bHasNeverBeenLocked</a> : 1;</div>
-<div class="line"><a id="l00217" name="l00217"></a><span class="lineno"><a class="line" href="../../d4/d3c/struct_f_d3_d12_locked_resource.html#a792ae96b01c73f4f4f13ada58a667135">  217</a></span>    <span class="keywordtype">void</span>* <a class="code hl_variable" href="../../d4/d3c/struct_f_d3_d12_locked_resource.html#a792ae96b01c73f4f4f13ada58a667135">MappedAddress</a>;</div>
-<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span> </div>
-<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>};</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span> </div>
+<div class="foldopen" id="foldopen00215" data-start="{" data-end="}">
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno"><a class="line" href="../../d4/d3c/struct_f_d3_d12_locked_resource.html#a881653fd1a2e56f6239241ec6356452f">  215</a></span>    FORCEINLINE <span class="keywordtype">void</span> <a class="code hl_function" href="../../d4/d3c/struct_f_d3_d12_locked_resource.html#a881653fd1a2e56f6239241ec6356452f">Reset</a>()</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>    {</div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>        <a class="code hl_typedef" href="../../dd/dce/_d3_d12_main_8h.html#ab8eaee8f45f36954297ee6146eb6db20">Resource</a>.Reset();</div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>        <a class="code hl_variable" href="../../d4/d3c/struct_f_d3_d12_locked_resource.html#a2ae37cc2a58ababa9304347b3dfcfcad">bLocked</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>        <a class="code hl_variable" href="../../d4/d3c/struct_f_d3_d12_locked_resource.html#a7dac85e38166387d96a3b5926d398420">bLockedForReadOnly</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>        <a class="code hl_variable" href="../../d4/d3c/struct_f_d3_d12_locked_resource.html#ab2b305317718afad5023829cd9eb4522">LockedOffset</a> = 0;</div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>        <a class="code hl_variable" href="../../d4/d3c/struct_f_d3_d12_locked_resource.html#ae25ae992868a668baeeae53e3a6eba6c">LockedPitch</a> = 0;</div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>    }</div>
 </div>
-<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span> </div>
-<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span> </div>
-<div class="foldopen" id="foldopen00222" data-start="{" data-end="};">
-<div class="line"><a id="l00222" name="l00222"></a><span class="lineno"><a class="line" href="../../d5/d14/class_f_d3_d12_buffer.html">  222</a></span><span class="keyword">class </span><a class="code hl_class" href="../../d5/d14/class_f_d3_d12_buffer.html">FD3D12Buffer</a> : <span class="keyword">public</span> <a class="code hl_class" href="../../d9/d24/class_f_r_h_i_buffer.html">FRHIBuffer</a>, <span class="keyword">public</span> <a class="code hl_class" href="../../d3/dd0/class_f_d3_d12_base_shader_resource.html">FD3D12BaseShaderResource</a></div>
-<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>{</div>
-<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span><span class="keyword">public</span>:</div>
-<div class="foldopen" id="foldopen00225" data-start="{" data-end="}">
-<div class="line"><a id="l00225" name="l00225"></a><span class="lineno"><a class="line" href="../../d5/d14/class_f_d3_d12_buffer.html#ab0e3c49c66be01023dc650d8ad2bd8a8">  225</a></span>    <a class="code hl_function" href="../../d5/d14/class_f_d3_d12_buffer.html#ab0e3c49c66be01023dc650d8ad2bd8a8">FD3D12Buffer</a>(<a class="code hl_class" href="../../d1/d79/class_f_d3_d12_device.html">FD3D12Device</a>* InParent, <span class="keyword">const</span> <a class="code hl_struct" href="../../d7/d2f/struct_f_r_h_i_buffer_desc.html">FRHIBufferDesc</a>&amp; Desc):</div>
-<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>        <a class="code hl_class" href="../../d9/d24/class_f_r_h_i_buffer.html">FRHIBuffer</a>(Desc),</div>
-<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>        <a class="code hl_class" href="../../d3/dd0/class_f_d3_d12_base_shader_resource.html">FD3D12BaseShaderResource</a>(InParent),</div>
-<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>        <a class="code hl_variable" href="../../d5/d14/class_f_d3_d12_buffer.html#a015193996658bf06f6b05688e95572d0">LockedData</a>(InParent)</div>
-<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>    {}</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span> </div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno"><a class="line" href="../../d4/d3c/struct_f_d3_d12_locked_resource.html#a5f6519324053bce9d5c647befb07827c">  224</a></span>    TRefCountPtr&lt;ID3D12Resource&gt; <a class="code hl_variable" href="../../d4/d3c/struct_f_d3_d12_locked_resource.html#a5f6519324053bce9d5c647befb07827c">Resource</a>;</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>    <span class="comment">//FD3D12ResourceLocation ResourceLocation;</span></div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno"><a class="line" href="../../d4/d3c/struct_f_d3_d12_locked_resource.html#ab2b305317718afad5023829cd9eb4522">  226</a></span>    <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> <a class="code hl_variable" href="../../d4/d3c/struct_f_d3_d12_locked_resource.html#ab2b305317718afad5023829cd9eb4522">LockedOffset</a>;</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno"><a class="line" href="../../d4/d3c/struct_f_d3_d12_locked_resource.html#ae25ae992868a668baeeae53e3a6eba6c">  227</a></span>    <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> <a class="code hl_variable" href="../../d4/d3c/struct_f_d3_d12_locked_resource.html#ae25ae992868a668baeeae53e3a6eba6c">LockedPitch</a>;</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno"><a class="line" href="../../d4/d3c/struct_f_d3_d12_locked_resource.html#a2ae37cc2a58ababa9304347b3dfcfcad">  228</a></span>    <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> <a class="code hl_variable" href="../../d4/d3c/struct_f_d3_d12_locked_resource.html#a2ae37cc2a58ababa9304347b3dfcfcad">bLocked</a> : 1;</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno"><a class="line" href="../../d4/d3c/struct_f_d3_d12_locked_resource.html#a7dac85e38166387d96a3b5926d398420">  229</a></span>    <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> <a class="code hl_variable" href="../../d4/d3c/struct_f_d3_d12_locked_resource.html#a7dac85e38166387d96a3b5926d398420">bLockedForReadOnly</a> : 1;</div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno"><a class="line" href="../../d4/d3c/struct_f_d3_d12_locked_resource.html#a79d4bc21362428dc2306e5d7e147bf14">  230</a></span>    <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> <a class="code hl_variable" href="../../d4/d3c/struct_f_d3_d12_locked_resource.html#a79d4bc21362428dc2306e5d7e147bf14">bHasNeverBeenLocked</a> : 1;</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno"><a class="line" href="../../d4/d3c/struct_f_d3_d12_locked_resource.html#a792ae96b01c73f4f4f13ada58a667135">  231</a></span>    <span class="keywordtype">void</span>* <a class="code hl_variable" href="../../d4/d3c/struct_f_d3_d12_locked_resource.html#a792ae96b01c73f4f4f13ada58a667135">MappedAddress</a>;</div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span> </div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>};</div>
 </div>
-<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span> </div>
-<div class="foldopen" id="foldopen00231" data-start="{" data-end="}">
-<div class="line"><a id="l00231" name="l00231"></a><span class="lineno"><a class="line" href="../../d5/d14/class_f_d3_d12_buffer.html#af541445a76956248e44bf23e179fdc28">  231</a></span>    <span class="keyword">virtual</span> <a class="code hl_function" href="../../d5/d14/class_f_d3_d12_buffer.html#af541445a76956248e44bf23e179fdc28">~FD3D12Buffer</a>()</div>
-<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>    {</div>
-<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>    }</div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span> </div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span> </div>
+<div class="foldopen" id="foldopen00236" data-start="{" data-end="};">
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno"><a class="line" href="../../d5/d14/class_f_d3_d12_buffer.html">  236</a></span><span class="keyword">class </span><a class="code hl_class" href="../../d5/d14/class_f_d3_d12_buffer.html">FD3D12Buffer</a> : <span class="keyword">public</span> <a class="code hl_class" href="../../d9/d24/class_f_r_h_i_buffer.html">FRHIBuffer</a>, <span class="keyword">public</span> <a class="code hl_class" href="../../d3/dd0/class_f_d3_d12_base_shader_resource.html">FD3D12BaseShaderResource</a></div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>{</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span><span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00239" data-start="{" data-end="}">
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno"><a class="line" href="../../d5/d14/class_f_d3_d12_buffer.html#ab0e3c49c66be01023dc650d8ad2bd8a8">  239</a></span>    <a class="code hl_function" href="../../d5/d14/class_f_d3_d12_buffer.html#ab0e3c49c66be01023dc650d8ad2bd8a8">FD3D12Buffer</a>(<a class="code hl_class" href="../../d1/d79/class_f_d3_d12_device.html">FD3D12Device</a>* InParent, <span class="keyword">const</span> <a class="code hl_struct" href="../../d7/d2f/struct_f_r_h_i_buffer_desc.html">FRHIBufferDesc</a>&amp; Desc):</div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>        <a class="code hl_class" href="../../d9/d24/class_f_r_h_i_buffer.html">FRHIBuffer</a>(Desc),</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>        <a class="code hl_class" href="../../d3/dd0/class_f_d3_d12_base_shader_resource.html">FD3D12BaseShaderResource</a>(InParent),</div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>        <a class="code hl_variable" href="../../d5/d14/class_f_d3_d12_buffer.html#a015193996658bf06f6b05688e95572d0">LockedData</a>(InParent)</div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>    {}</div>
 </div>
-<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d5/d14/class_f_d3_d12_buffer.html#a3bdb5d34c47dd2ddf32bdc15266481fd">UploadResourceData</a>(<span class="keyword">class</span> <a class="code hl_class" href="../../d6/d36/class_f_r_h_i_command_list_base.html">FRHICommandListBase</a>&amp; InRHICmdList, <span class="keyword">const</span> <span class="keywordtype">void</span>* Buffer, <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> SizeBuffer,</div>
-<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>        D3D12_RESOURCE_STATES InDestinationState, <span class="keyword">const</span> <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a74140f1ff3f7a51b1ac752f90283f3d6">TCHAR</a>* <a class="code hl_variable" href="../../d2/d83/class_f_r_h_i_resource.html#a48df619fc4822732625e1fdd081fcda9">Name</a> = <span class="keyword">nullptr</span>);</div>
-<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span> </div>
-<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span> </div>
-<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span> </div>
-<div class="line"><a id="l00239" name="l00239"></a><span class="lineno"><a class="line" href="../../d5/d14/class_f_d3_d12_buffer.html#a015193996658bf06f6b05688e95572d0">  239</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="../../d4/d3c/struct_f_d3_d12_locked_resource.html">FD3D12LockedResource</a> <a class="code hl_variable" href="../../d5/d14/class_f_d3_d12_buffer.html#a015193996658bf06f6b05688e95572d0">LockedData</a>;</div>
-<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span> </div>
-<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span> </div>
-<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>};</div>
-</div>
-<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span> </div>
 <div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span> </div>
-<div class="foldopen" id="foldopen00245" data-start="{" data-end="};">
-<div class="line"><a id="l00245" name="l00245"></a><span class="lineno"><a class="line" href="../../d3/d27/class_f_d3_d12_resource_barrier_batcher.html">  245</a></span><span class="keyword">class </span><a class="code hl_class" href="../../d3/d27/class_f_d3_d12_resource_barrier_batcher.html">FD3D12ResourceBarrierBatcher</a></div>
-<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>{</div>
-<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>    <span class="keyword">struct </span>FD3D12ResourceBarrier : <span class="keyword">public</span> D3D12_RESOURCE_BARRIER</div>
-<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>    {</div>
-<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>        FD3D12ResourceBarrier() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>        FD3D12ResourceBarrier(D3D12_RESOURCE_BARRIER&amp;&amp; Barrier) : D3D12_RESOURCE_BARRIER(<a class="code hl_function" href="../../de/d85/_dark_template_8h.html#a003eb64f2a7754a2bfdd60ab750e59ce">MoveTemp</a>(Barrier)) {}</div>
-<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>    };</div>
+<div class="foldopen" id="foldopen00245" data-start="{" data-end="}">
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno"><a class="line" href="../../d5/d14/class_f_d3_d12_buffer.html#af541445a76956248e44bf23e179fdc28">  245</a></span>    <span class="keyword">virtual</span> <a class="code hl_function" href="../../d5/d14/class_f_d3_d12_buffer.html#af541445a76956248e44bf23e179fdc28">~FD3D12Buffer</a>()</div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>    {</div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>    }</div>
+</div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d5/d14/class_f_d3_d12_buffer.html#a3bdb5d34c47dd2ddf32bdc15266481fd">UploadResourceData</a>(<span class="keyword">class</span> <a class="code hl_class" href="../../d6/d36/class_f_r_h_i_command_list_base.html">FRHICommandListBase</a>&amp; InRHICmdList, <span class="keyword">const</span> <span class="keywordtype">void</span>* Buffer, <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> SizeBuffer,</div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>        D3D12_RESOURCE_STATES InDestinationState, <span class="keyword">const</span> <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a74140f1ff3f7a51b1ac752f90283f3d6">TCHAR</a>* <a class="code hl_variable" href="../../d2/d83/class_f_r_h_i_resource.html#a48df619fc4822732625e1fdd081fcda9">Name</a> = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span> </div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span> </div>
 <div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span> </div>
-<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span> </div>
-<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d3/d27/class_f_d3_d12_resource_barrier_batcher.html#ae2d7ea4dcdf7312399f38b3593260791">AddTransition</a>(<a class="code hl_class" href="../../d7/d81/class_f_d3_d12_resource.html">FD3D12Resource</a>* pResource, D3D12_RESOURCE_STATES Before, D3D12_RESOURCE_STATES After, <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> SubResource);</div>
-<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span> </div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno"><a class="line" href="../../d5/d14/class_f_d3_d12_buffer.html#a015193996658bf06f6b05688e95572d0">  253</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="../../d4/d3c/struct_f_d3_d12_locked_resource.html">FD3D12LockedResource</a> <a class="code hl_variable" href="../../d5/d14/class_f_d3_d12_buffer.html#a015193996658bf06f6b05688e95572d0">LockedData</a>;</div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span> </div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span> </div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>};</div>
+</div>
 <div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span> </div>
-<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>    TArray&lt;FD3D12ResourceBarrier&gt; Barriers;</div>
-<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span> </div>
-<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span> </div>
-<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>};</div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span> </div>
+<div class="foldopen" id="foldopen00259" data-start="{" data-end="};">
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno"><a class="line" href="../../d3/d27/class_f_d3_d12_resource_barrier_batcher.html">  259</a></span><span class="keyword">class </span><a class="code hl_class" href="../../d3/d27/class_f_d3_d12_resource_barrier_batcher.html">FD3D12ResourceBarrierBatcher</a></div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>{</div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>    <span class="keyword">struct </span>FD3D12ResourceBarrier : <span class="keyword">public</span> D3D12_RESOURCE_BARRIER</div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>    {</div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>        FD3D12ResourceBarrier() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>        FD3D12ResourceBarrier(D3D12_RESOURCE_BARRIER&amp;&amp; Barrier) : D3D12_RESOURCE_BARRIER(<a class="code hl_function" href="../../de/d85/_dark_template_8h.html#a003eb64f2a7754a2bfdd60ab750e59ce">MoveTemp</a>(Barrier)) {}</div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>    };</div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span> </div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span> </div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d3/d27/class_f_d3_d12_resource_barrier_batcher.html#ae2d7ea4dcdf7312399f38b3593260791">AddTransition</a>(<a class="code hl_class" href="../../d7/d81/class_f_d3_d12_resource.html">FD3D12Resource</a>* pResource, D3D12_RESOURCE_STATES Before, D3D12_RESOURCE_STATES After, <a class="code hl_typedef" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> SubResource);</div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span> </div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span> </div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>    TArray&lt;FD3D12ResourceBarrier&gt; Barriers;</div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span> </div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span> </div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>};</div>
+</div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span> </div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span> </div>
+<div class="foldopen" id="foldopen00279" data-start="{" data-end="};">
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno"><a class="line" href="../../d0/d49/class_f_d3_d12_uniform_buffer.html">  279</a></span><span class="keyword">class </span><a class="code hl_class" href="../../d0/d49/class_f_d3_d12_uniform_buffer.html">FD3D12UniformBuffer</a> : <span class="keyword">public</span> <a class="code hl_class" href="../../da/df0/class_f_r_h_i_uniform_buffer.html">FRHIUniformBuffer</a>, <span class="keyword">public</span> <a class="code hl_class" href="../../d8/d20/class_f_d3_d12_device_child.html">FD3D12DeviceChild</a></div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>{</div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span><span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00282" data-start="{" data-end="}">
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno"><a class="line" href="../../d0/d49/class_f_d3_d12_uniform_buffer.html#aed6ee1f48f54db2155b28a772a0f1490">  282</a></span>    <a class="code hl_function" href="../../d0/d49/class_f_d3_d12_uniform_buffer.html#aed6ee1f48f54db2155b28a772a0f1490">FD3D12UniformBuffer</a>(<span class="keyword">class</span> <a class="code hl_class" href="../../d1/d79/class_f_d3_d12_device.html">FD3D12Device</a>* InParent, <a class="code hl_enumeration" href="../../de/df7/_r_h_i_defines_8h.html#a44efee7815674a346059a25f9b3c2085">EUniformBufferUsage</a> InUniformBufferUsage):</div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>        <a class="code hl_class" href="../../d8/d20/class_f_d3_d12_device_child.html">FD3D12DeviceChild</a>(InParent),</div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>        <a class="code hl_variable" href="../../d0/d49/class_f_d3_d12_uniform_buffer.html#a764159933bce301b093be9bf57dd9c48">ResourceLocation</a>(InParent),</div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>        <a class="code hl_variable" href="../../d0/d49/class_f_d3_d12_uniform_buffer.html#ad398194a75adce9412bf8d16a7f3d87d">UniformBufferUsage</a>(InUniformBufferUsage)</div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>    {}</div>
+</div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span> </div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno"><a class="line" href="../../d0/d49/class_f_d3_d12_uniform_buffer.html#a764159933bce301b093be9bf57dd9c48">  288</a></span>    <a class="code hl_class" href="../../d3/dfd/class_f_d3_d12_resource_location.html">FD3D12ResourceLocation</a> <a class="code hl_variable" href="../../d0/d49/class_f_d3_d12_uniform_buffer.html#a764159933bce301b093be9bf57dd9c48">ResourceLocation</a>;</div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span> </div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno"><a class="line" href="../../d0/d49/class_f_d3_d12_uniform_buffer.html#ad398194a75adce9412bf8d16a7f3d87d">  290</a></span>    <a class="code hl_enumeration" href="../../de/df7/_r_h_i_defines_8h.html#a44efee7815674a346059a25f9b3c2085">EUniformBufferUsage</a> <a class="code hl_variable" href="../../d0/d49/class_f_d3_d12_uniform_buffer.html#ad398194a75adce9412bf8d16a7f3d87d">UniformBufferUsage</a>;</div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span> </div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>};</div>
 </div>
 <div class="ttc" id="a_d3_d12_8h_html"><div class="ttname"><a href="../../de/d94/_d3_d12_8h.html">D3D12.h</a></div></div>
 <div class="ttc" id="a_d3_d12_main_8h_html_ab8eaee8f45f36954297ee6146eb6db20"><div class="ttname"><a href="../../dd/dce/_d3_d12_main_8h.html#ab8eaee8f45f36954297ee6146eb6db20">Resource</a></div><div class="ttdeci">ComPtr&lt; ID3D12Resource &gt; Resource</div><div class="ttdef"><b>Definition</b> D3D12Main.h:29</div></div>
 <div class="ttc" id="a_d3_d12_r_h_i_common_8h_html"><div class="ttname"><a href="../../d7/d2e/_d3_d12_r_h_i_common_8h.html">D3D12RHICommon.h</a></div></div>
 <div class="ttc" id="a_dark_template_8h_html"><div class="ttname"><a href="../../de/d85/_dark_template_8h.html">DarkTemplate.h</a></div></div>
-<div class="ttc" id="a_dark_template_8h_html_a003eb64f2a7754a2bfdd60ab750e59ce"><div class="ttname"><a href="../../de/d85/_dark_template_8h.html#a003eb64f2a7754a2bfdd60ab750e59ce">MoveTemp</a></div><div class="ttdeci">TRemoveReference&lt; T &gt;::Type &amp;&amp; MoveTemp(T &amp;&amp;Obj)</div><div class="ttdef"><b>Definition</b> DarkTemplate.h:13</div></div>
+<div class="ttc" id="a_dark_template_8h_html_a003eb64f2a7754a2bfdd60ab750e59ce"><div class="ttname"><a href="../../de/d85/_dark_template_8h.html#a003eb64f2a7754a2bfdd60ab750e59ce">MoveTemp</a></div><div class="ttdeci">TRemoveReference&lt; T &gt;::Type &amp;&amp; MoveTemp(T &amp;&amp;Obj)</div><div class="ttdef"><b>Definition</b> DarkTemplate.h:14</div></div>
 <div class="ttc" id="a_platform_8h_html_a74140f1ff3f7a51b1ac752f90283f3d6"><div class="ttname"><a href="../../d2/dc9/_platform_8h.html#a74140f1ff3f7a51b1ac752f90283f3d6">TCHAR</a></div><div class="ttdeci">FPlatformTypes::TCHAR TCHAR</div><div class="ttdef"><b>Definition</b> Platform.h:48</div></div>
 <div class="ttc" id="a_platform_8h_html_a8c7a127091efbdfc5a16939041653e05"><div class="ttname"><a href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a></div><div class="ttdeci">FPlatformTypes::uint32 uint32</div><div class="ttdef"><b>Definition</b> Platform.h:43</div></div>
 <div class="ttc" id="a_platform_8h_html_afddf25cca147311c233b23a9d3329bb4"><div class="ttname"><a href="../../d2/dc9/_platform_8h.html#afddf25cca147311c233b23a9d3329bb4">uint64</a></div><div class="ttdeci">FPlatformTypes::uint64 uint64</div><div class="ttdef"><b>Definition</b> Platform.h:45</div></div>
+<div class="ttc" id="a_r_h_i_defines_8h_html_a44efee7815674a346059a25f9b3c2085"><div class="ttname"><a href="../../de/df7/_r_h_i_defines_8h.html#a44efee7815674a346059a25f9b3c2085">EUniformBufferUsage</a></div><div class="ttdeci">EUniformBufferUsage</div><div class="ttdef"><b>Definition</b> RHIDefines.h:167</div></div>
 <div class="ttc" id="a_ref_counting_8h_html"><div class="ttname"><a href="../../d3/d13/_ref_counting_8h.html">RefCounting.h</a></div></div>
 <div class="ttc" id="a_t_unique_ptr_8h_html"><div class="ttname"><a href="../../dc/d27/_t_unique_ptr_8h.html">TUniquePtr.h</a></div></div>
-<div class="ttc" id="aclass_f_d3_d12_base_shader_resource_html"><div class="ttname"><a href="../../d3/dd0/class_f_d3_d12_base_shader_resource.html">FD3D12BaseShaderResource</a></div><div class="ttdef"><b>Definition</b> D3D12Resources.h:165</div></div>
-<div class="ttc" id="aclass_f_d3_d12_base_shader_resource_html_a5457bf31e7f1d9eb78295b5c98017df1"><div class="ttname"><a href="../../d3/dd0/class_f_d3_d12_base_shader_resource.html#a5457bf31e7f1d9eb78295b5c98017df1">FD3D12BaseShaderResource::ResourceLocation</a></div><div class="ttdeci">FD3D12ResourceLocation ResourceLocation</div><div class="ttdef"><b>Definition</b> D3D12Resources.h:184</div></div>
-<div class="ttc" id="aclass_f_d3_d12_base_shader_resource_html_a88c90926f84d55cf4f5301213476b89e"><div class="ttname"><a href="../../d3/dd0/class_f_d3_d12_base_shader_resource.html#a88c90926f84d55cf4f5301213476b89e">FD3D12BaseShaderResource::~FD3D12BaseShaderResource</a></div><div class="ttdeci">~FD3D12BaseShaderResource()</div><div class="ttdef"><b>Definition</b> D3D12Resources.h:173</div></div>
-<div class="ttc" id="aclass_f_d3_d12_base_shader_resource_html_a9553ed5f7e788d0fa77dcd8500e587c1"><div class="ttname"><a href="../../d3/dd0/class_f_d3_d12_base_shader_resource.html#a9553ed5f7e788d0fa77dcd8500e587c1">FD3D12BaseShaderResource::GetResouce</a></div><div class="ttdeci">FD3D12Resource * GetResouce() const</div><div class="ttdef"><b>Definition</b> D3D12Resources.h:179</div></div>
-<div class="ttc" id="aclass_f_d3_d12_base_shader_resource_html_a98967de27785645274657806327e5a6d"><div class="ttname"><a href="../../d3/dd0/class_f_d3_d12_base_shader_resource.html#a98967de27785645274657806327e5a6d">FD3D12BaseShaderResource::FD3D12BaseShaderResource</a></div><div class="ttdeci">FD3D12BaseShaderResource(FD3D12Device *InParent)</div><div class="ttdef"><b>Definition</b> D3D12Resources.h:167</div></div>
-<div class="ttc" id="aclass_f_d3_d12_buffer_html"><div class="ttname"><a href="../../d5/d14/class_f_d3_d12_buffer.html">FD3D12Buffer</a></div><div class="ttdef"><b>Definition</b> D3D12Resources.h:223</div></div>
-<div class="ttc" id="aclass_f_d3_d12_buffer_html_a015193996658bf06f6b05688e95572d0"><div class="ttname"><a href="../../d5/d14/class_f_d3_d12_buffer.html#a015193996658bf06f6b05688e95572d0">FD3D12Buffer::LockedData</a></div><div class="ttdeci">struct FD3D12LockedResource LockedData</div><div class="ttdef"><b>Definition</b> D3D12Resources.h:239</div></div>
+<div class="ttc" id="aclass_f_d3_d12_base_shader_resource_html"><div class="ttname"><a href="../../d3/dd0/class_f_d3_d12_base_shader_resource.html">FD3D12BaseShaderResource</a></div><div class="ttdef"><b>Definition</b> D3D12Resources.h:180</div></div>
+<div class="ttc" id="aclass_f_d3_d12_base_shader_resource_html_a5457bf31e7f1d9eb78295b5c98017df1"><div class="ttname"><a href="../../d3/dd0/class_f_d3_d12_base_shader_resource.html#a5457bf31e7f1d9eb78295b5c98017df1">FD3D12BaseShaderResource::ResourceLocation</a></div><div class="ttdeci">FD3D12ResourceLocation ResourceLocation</div><div class="ttdef"><b>Definition</b> D3D12Resources.h:198</div></div>
+<div class="ttc" id="aclass_f_d3_d12_base_shader_resource_html_a88c90926f84d55cf4f5301213476b89e"><div class="ttname"><a href="../../d3/dd0/class_f_d3_d12_base_shader_resource.html#a88c90926f84d55cf4f5301213476b89e">FD3D12BaseShaderResource::~FD3D12BaseShaderResource</a></div><div class="ttdeci">~FD3D12BaseShaderResource()</div><div class="ttdef"><b>Definition</b> D3D12Resources.h:188</div></div>
+<div class="ttc" id="aclass_f_d3_d12_base_shader_resource_html_a9553ed5f7e788d0fa77dcd8500e587c1"><div class="ttname"><a href="../../d3/dd0/class_f_d3_d12_base_shader_resource.html#a9553ed5f7e788d0fa77dcd8500e587c1">FD3D12BaseShaderResource::GetResouce</a></div><div class="ttdeci">FD3D12Resource * GetResouce() const</div><div class="ttdef"><b>Definition</b> D3D12Resources.h:193</div></div>
+<div class="ttc" id="aclass_f_d3_d12_base_shader_resource_html_a98967de27785645274657806327e5a6d"><div class="ttname"><a href="../../d3/dd0/class_f_d3_d12_base_shader_resource.html#a98967de27785645274657806327e5a6d">FD3D12BaseShaderResource::FD3D12BaseShaderResource</a></div><div class="ttdeci">FD3D12BaseShaderResource(FD3D12Device *InParent)</div><div class="ttdef"><b>Definition</b> D3D12Resources.h:182</div></div>
+<div class="ttc" id="aclass_f_d3_d12_buffer_html"><div class="ttname"><a href="../../d5/d14/class_f_d3_d12_buffer.html">FD3D12Buffer</a></div><div class="ttdef"><b>Definition</b> D3D12Resources.h:237</div></div>
+<div class="ttc" id="aclass_f_d3_d12_buffer_html_a015193996658bf06f6b05688e95572d0"><div class="ttname"><a href="../../d5/d14/class_f_d3_d12_buffer.html#a015193996658bf06f6b05688e95572d0">FD3D12Buffer::LockedData</a></div><div class="ttdeci">struct FD3D12LockedResource LockedData</div><div class="ttdef"><b>Definition</b> D3D12Resources.h:253</div></div>
 <div class="ttc" id="aclass_f_d3_d12_buffer_html_a3bdb5d34c47dd2ddf32bdc15266481fd"><div class="ttname"><a href="../../d5/d14/class_f_d3_d12_buffer.html#a3bdb5d34c47dd2ddf32bdc15266481fd">FD3D12Buffer::UploadResourceData</a></div><div class="ttdeci">void UploadResourceData(class FRHICommandListBase &amp;InRHICmdList, const void *Buffer, uint32 SizeBuffer, D3D12_RESOURCE_STATES InDestinationState, const TCHAR *Name=nullptr)</div><div class="ttdef"><b>Definition</b> D3D12Resources.cpp:93</div></div>
-<div class="ttc" id="aclass_f_d3_d12_buffer_html_ab0e3c49c66be01023dc650d8ad2bd8a8"><div class="ttname"><a href="../../d5/d14/class_f_d3_d12_buffer.html#ab0e3c49c66be01023dc650d8ad2bd8a8">FD3D12Buffer::FD3D12Buffer</a></div><div class="ttdeci">FD3D12Buffer(FD3D12Device *InParent, const FRHIBufferDesc &amp;Desc)</div><div class="ttdef"><b>Definition</b> D3D12Resources.h:225</div></div>
-<div class="ttc" id="aclass_f_d3_d12_buffer_html_af541445a76956248e44bf23e179fdc28"><div class="ttname"><a href="../../d5/d14/class_f_d3_d12_buffer.html#af541445a76956248e44bf23e179fdc28">FD3D12Buffer::~FD3D12Buffer</a></div><div class="ttdeci">virtual ~FD3D12Buffer()</div><div class="ttdef"><b>Definition</b> D3D12Resources.h:231</div></div>
+<div class="ttc" id="aclass_f_d3_d12_buffer_html_ab0e3c49c66be01023dc650d8ad2bd8a8"><div class="ttname"><a href="../../d5/d14/class_f_d3_d12_buffer.html#ab0e3c49c66be01023dc650d8ad2bd8a8">FD3D12Buffer::FD3D12Buffer</a></div><div class="ttdeci">FD3D12Buffer(FD3D12Device *InParent, const FRHIBufferDesc &amp;Desc)</div><div class="ttdef"><b>Definition</b> D3D12Resources.h:239</div></div>
+<div class="ttc" id="aclass_f_d3_d12_buffer_html_af541445a76956248e44bf23e179fdc28"><div class="ttname"><a href="../../d5/d14/class_f_d3_d12_buffer.html#af541445a76956248e44bf23e179fdc28">FD3D12Buffer::~FD3D12Buffer</a></div><div class="ttdeci">virtual ~FD3D12Buffer()</div><div class="ttdef"><b>Definition</b> D3D12Resources.h:245</div></div>
 <div class="ttc" id="aclass_f_d3_d12_device_child_html"><div class="ttname"><a href="../../d8/d20/class_f_d3_d12_device_child.html">FD3D12DeviceChild</a></div><div class="ttdef"><b>Definition</b> D3D12RHICommon.h:36</div></div>
 <div class="ttc" id="aclass_f_d3_d12_device_child_html_afeb899a6e833b3f986e49def99db540c"><div class="ttname"><a href="../../d8/d20/class_f_d3_d12_device_child.html#afeb899a6e833b3f986e49def99db540c">FD3D12DeviceChild::Parent</a></div><div class="ttdeci">FD3D12Device * Parent</div><div class="ttdef"><b>Definition</b> D3D12RHICommon.h:38</div></div>
 <div class="ttc" id="aclass_f_d3_d12_device_html"><div class="ttname"><a href="../../d1/d79/class_f_d3_d12_device.html">FD3D12Device</a></div><div class="ttdoc">Main D3D12Device.</div><div class="ttdef"><b>Definition</b> D3D12Device.h:60</div></div>
-<div class="ttc" id="aclass_f_d3_d12_heap_html"><div class="ttname"><a href="../../d8/d13/class_f_d3_d12_heap.html">FD3D12Heap</a></div><div class="ttdef"><b>Definition</b> D3D12Resources.h:141</div></div>
+<div class="ttc" id="aclass_f_d3_d12_heap_html"><div class="ttname"><a href="../../d8/d13/class_f_d3_d12_heap.html">FD3D12Heap</a></div><div class="ttdef"><b>Definition</b> D3D12Resources.h:156</div></div>
 <div class="ttc" id="aclass_f_d3_d12_heap_html_a3a2e3abb900a4a13f187fad673b41e3d"><div class="ttname"><a href="../../d8/d13/class_f_d3_d12_heap.html#a3a2e3abb900a4a13f187fad673b41e3d">FD3D12Heap::SetHeap</a></div><div class="ttdeci">void SetHeap(ID3D12Heap *InHeap, const TCHAR *InName, bool bForceGetGPUAddress)</div><div class="ttdef"><b>Definition</b> D3D12Resources.cpp:9</div></div>
 <div class="ttc" id="aclass_f_d3_d12_heap_html_abf95a1d20637db61057844bd205bc33b"><div class="ttname"><a href="../../d8/d13/class_f_d3_d12_heap.html#abf95a1d20637db61057844bd205bc33b">FD3D12Heap::GetHeap</a></div><div class="ttdeci">ID3D12Heap * GetHeap() const</div></div>
-<div class="ttc" id="aclass_f_d3_d12_heap_html_ad68e85eafff3cefc0c948b9df9cf81e2"><div class="ttname"><a href="../../d8/d13/class_f_d3_d12_heap.html#ad68e85eafff3cefc0c948b9df9cf81e2">FD3D12Heap::GetGPUVirtualAddress</a></div><div class="ttdeci">D3D12_GPU_VIRTUAL_ADDRESS GetGPUVirtualAddress() const</div><div class="ttdef"><b>Definition</b> D3D12Resources.h:149</div></div>
+<div class="ttc" id="aclass_f_d3_d12_heap_html_ad68e85eafff3cefc0c948b9df9cf81e2"><div class="ttname"><a href="../../d8/d13/class_f_d3_d12_heap.html#ad68e85eafff3cefc0c948b9df9cf81e2">FD3D12Heap::GetGPUVirtualAddress</a></div><div class="ttdeci">D3D12_GPU_VIRTUAL_ADDRESS GetGPUVirtualAddress() const</div><div class="ttdef"><b>Definition</b> D3D12Resources.h:164</div></div>
 <div class="ttc" id="aclass_f_d3_d12_heap_html_aedbe15b24c36fd80f3bab9040b06f33b"><div class="ttname"><a href="../../d8/d13/class_f_d3_d12_heap.html#aedbe15b24c36fd80f3bab9040b06f33b">FD3D12Heap::FD3D12Heap</a></div><div class="ttdeci">FD3D12Heap(FD3D12Device *InDevice)</div></div>
-<div class="ttc" id="aclass_f_d3_d12_resource_barrier_batcher_html"><div class="ttname"><a href="../../d3/d27/class_f_d3_d12_resource_barrier_batcher.html">FD3D12ResourceBarrierBatcher</a></div><div class="ttdef"><b>Definition</b> D3D12Resources.h:246</div></div>
+<div class="ttc" id="aclass_f_d3_d12_resource_barrier_batcher_html"><div class="ttname"><a href="../../d3/d27/class_f_d3_d12_resource_barrier_batcher.html">FD3D12ResourceBarrierBatcher</a></div><div class="ttdef"><b>Definition</b> D3D12Resources.h:260</div></div>
 <div class="ttc" id="aclass_f_d3_d12_resource_barrier_batcher_html_ae2d7ea4dcdf7312399f38b3593260791"><div class="ttname"><a href="../../d3/d27/class_f_d3_d12_resource_barrier_batcher.html#ae2d7ea4dcdf7312399f38b3593260791">FD3D12ResourceBarrierBatcher::AddTransition</a></div><div class="ttdeci">bool AddTransition(FD3D12Resource *pResource, D3D12_RESOURCE_STATES Before, D3D12_RESOURCE_STATES After, uint32 SubResource)</div><div class="ttdef"><b>Definition</b> D3D12Resources.cpp:39</div></div>
 <div class="ttc" id="aclass_f_d3_d12_resource_html"><div class="ttname"><a href="../../d7/d81/class_f_d3_d12_resource.html">FD3D12Resource</a></div><div class="ttdef"><b>Definition</b> D3D12Resources.h:31</div></div>
 <div class="ttc" id="aclass_f_d3_d12_resource_html_a10c6e339f70440d73de8fad70ae4e6ac"><div class="ttname"><a href="../../d7/d81/class_f_d3_d12_resource.html#a10c6e339f70440d73de8fad70ae4e6ac">FD3D12Resource::GetDesc</a></div><div class="ttdeci">const FD3D12ResourceDesc &amp; GetDesc() const</div><div class="ttdef"><b>Definition</b> D3D12Resources.h:77</div></div>
@@ -434,37 +487,46 @@ $(function() { codefold.init(1); });
 <div class="ttc" id="aclass_f_d3_d12_resource_location_html_a44d09c882c765d976117fa147f56a6eb"><div class="ttname"><a href="../../d3/dfd/class_f_d3_d12_resource_location.html#a44d09c882c765d976117fa147f56a6eb">FD3D12ResourceLocation::GetResource</a></div><div class="ttdeci">FD3D12Resource * GetResource() const</div><div class="ttdef"><b>Definition</b> D3D12Resources.h:93</div></div>
 <div class="ttc" id="aclass_f_d3_d12_resource_location_html_a54ce545b6528d58d7b0887dc87b79292"><div class="ttname"><a href="../../d3/dfd/class_f_d3_d12_resource_location.html#a54ce545b6528d58d7b0887dc87b79292">FD3D12ResourceLocation::AsStandAlone</a></div><div class="ttdeci">void AsStandAlone(FD3D12Resource *InResource, uint64 InSize, const D3D12_HEAP_PROPERTIES *HeapProperties)</div><div class="ttdef"><b>Definition</b> D3D12Resources.h:106</div></div>
 <div class="ttc" id="aclass_f_d3_d12_resource_location_html_a6e90362958369fde607443e72e8327fa"><div class="ttname"><a href="../../d3/dfd/class_f_d3_d12_resource_location.html#a6e90362958369fde607443e72e8327fa">FD3D12ResourceLocation::SetResource</a></div><div class="ttdeci">void SetResource(FD3D12Resource *InResource)</div><div class="ttdef"><b>Definition</b> D3D12Resources.h:92</div></div>
-<div class="ttc" id="aclass_f_d3_d12_resource_location_html_a924c0726731a3c09c21ce8d660fdb6ea"><div class="ttname"><a href="../../d3/dfd/class_f_d3_d12_resource_location.html#a924c0726731a3c09c21ce8d660fdb6ea">FD3D12ResourceLocation::Clear</a></div><div class="ttdeci">void Clear()</div></div>
+<div class="ttc" id="aclass_f_d3_d12_resource_location_html_a924c0726731a3c09c21ce8d660fdb6ea"><div class="ttname"><a href="../../d3/dfd/class_f_d3_d12_resource_location.html#a924c0726731a3c09c21ce8d660fdb6ea">FD3D12ResourceLocation::Clear</a></div><div class="ttdeci">void Clear()</div><div class="ttdef"><b>Definition</b> D3D12Resources.h:122</div></div>
 <div class="ttc" id="aclass_f_d3_d12_resource_location_html_a9a9dadadeb01062d8a22f12241d683aa"><div class="ttname"><a href="../../d3/dfd/class_f_d3_d12_resource_location.html#a9a9dadadeb01062d8a22f12241d683aa">FD3D12ResourceLocation::GetGPUVirtualAddress</a></div><div class="ttdeci">D3D12_GPU_VIRTUAL_ADDRESS GetGPUVirtualAddress() const</div><div class="ttdef"><b>Definition</b> D3D12Resources.h:94</div></div>
 <div class="ttc" id="aclass_f_d3_d12_resource_location_html_ab07101d711eb2a6b4b8ad0c1bd7f8046"><div class="ttname"><a href="../../d3/dfd/class_f_d3_d12_resource_location.html#ab07101d711eb2a6b4b8ad0c1bd7f8046">FD3D12ResourceLocation::SetOwner</a></div><div class="ttdeci">void SetOwner(FD3D12BaseShaderResource *InOwner)</div><div class="ttdef"><b>Definition</b> D3D12Resources.h:95</div></div>
-<div class="ttc" id="aclass_f_d3_d12_resource_location_html_abe20269dc925846a9e4e904cd19a6ed3"><div class="ttname"><a href="../../d3/dfd/class_f_d3_d12_resource_location.html#abe20269dc925846a9e4e904cd19a6ed3">FD3D12ResourceLocation::SetGPUVirtualAddress</a></div><div class="ttdeci">void SetGPUVirtualAddress(D3D12_GPU_VIRTUAL_ADDRESS InAddress)</div><div class="ttdef"><b>Definition</b> D3D12Resources.h:124</div></div>
+<div class="ttc" id="aclass_f_d3_d12_resource_location_html_abe20269dc925846a9e4e904cd19a6ed3"><div class="ttname"><a href="../../d3/dfd/class_f_d3_d12_resource_location.html#abe20269dc925846a9e4e904cd19a6ed3">FD3D12ResourceLocation::SetGPUVirtualAddress</a></div><div class="ttdeci">void SetGPUVirtualAddress(D3D12_GPU_VIRTUAL_ADDRESS InAddress)</div><div class="ttdef"><b>Definition</b> D3D12Resources.h:139</div></div>
 <div class="ttc" id="aclass_f_d3_d12_resource_location_html_ad0b63e3d332f9c6c8b1a0017db191487"><div class="ttname"><a href="../../d3/dfd/class_f_d3_d12_resource_location.html#ad0b63e3d332f9c6c8b1a0017db191487">FD3D12ResourceLocation::GetSize</a></div><div class="ttdeci">uint64 GetSize() const</div><div class="ttdef"><b>Definition</b> D3D12Resources.h:99</div></div>
 <div class="ttc" id="aclass_f_d3_d12_resource_location_html_ae3dc47880d86073f96d38ec7d11e3d6d"><div class="ttname"><a href="../../d3/dfd/class_f_d3_d12_resource_location.html#ae3dc47880d86073f96d38ec7d11e3d6d">FD3D12ResourceLocation::GetMappedBaseAddress</a></div><div class="ttdeci">void * GetMappedBaseAddress() const</div><div class="ttdef"><b>Definition</b> D3D12Resources.h:97</div></div>
 <div class="ttc" id="aclass_f_d3_d12_resource_location_html_aee1b702d220bab7c9584c10de88d1808"><div class="ttname"><a href="../../d3/dfd/class_f_d3_d12_resource_location.html#aee1b702d220bab7c9584c10de88d1808">FD3D12ResourceLocation::SetSize</a></div><div class="ttdeci">void SetSize(uint64 InValue)</div><div class="ttdef"><b>Definition</b> D3D12Resources.h:120</div></div>
+<div class="ttc" id="aclass_f_d3_d12_uniform_buffer_html"><div class="ttname"><a href="../../d0/d49/class_f_d3_d12_uniform_buffer.html">FD3D12UniformBuffer</a></div><div class="ttdef"><b>Definition</b> D3D12Resources.h:280</div></div>
+<div class="ttc" id="aclass_f_d3_d12_uniform_buffer_html_a764159933bce301b093be9bf57dd9c48"><div class="ttname"><a href="../../d0/d49/class_f_d3_d12_uniform_buffer.html#a764159933bce301b093be9bf57dd9c48">FD3D12UniformBuffer::ResourceLocation</a></div><div class="ttdeci">FD3D12ResourceLocation ResourceLocation</div><div class="ttdef"><b>Definition</b> D3D12Resources.h:288</div></div>
+<div class="ttc" id="aclass_f_d3_d12_uniform_buffer_html_ad398194a75adce9412bf8d16a7f3d87d"><div class="ttname"><a href="../../d0/d49/class_f_d3_d12_uniform_buffer.html#ad398194a75adce9412bf8d16a7f3d87d">FD3D12UniformBuffer::UniformBufferUsage</a></div><div class="ttdeci">EUniformBufferUsage UniformBufferUsage</div><div class="ttdef"><b>Definition</b> D3D12Resources.h:290</div></div>
+<div class="ttc" id="aclass_f_d3_d12_uniform_buffer_html_aed6ee1f48f54db2155b28a772a0f1490"><div class="ttname"><a href="../../d0/d49/class_f_d3_d12_uniform_buffer.html#aed6ee1f48f54db2155b28a772a0f1490">FD3D12UniformBuffer::FD3D12UniformBuffer</a></div><div class="ttdeci">FD3D12UniformBuffer(class FD3D12Device *InParent, EUniformBufferUsage InUniformBufferUsage)</div><div class="ttdef"><b>Definition</b> D3D12Resources.h:282</div></div>
 <div class="ttc" id="aclass_f_r_h_i_buffer_html"><div class="ttname"><a href="../../d9/d24/class_f_r_h_i_buffer.html">FRHIBuffer</a></div><div class="ttdef"><b>Definition</b> RHIResources.h:155</div></div>
 <div class="ttc" id="aclass_f_r_h_i_command_list_base_html"><div class="ttname"><a href="../../d6/d36/class_f_r_h_i_command_list_base.html">FRHICommandListBase</a></div><div class="ttdef"><b>Definition</b> RHICommandList.h:11</div></div>
 <div class="ttc" id="aclass_f_r_h_i_resource_html_a48df619fc4822732625e1fdd081fcda9"><div class="ttname"><a href="../../d2/d83/class_f_r_h_i_resource.html#a48df619fc4822732625e1fdd081fcda9">FRHIResource::Name</a></div><div class="ttdeci">FString Name</div><div class="ttdef"><b>Definition</b> RHIResources.h:77</div></div>
+<div class="ttc" id="aclass_f_r_h_i_uniform_buffer_html"><div class="ttname"><a href="../../da/df0/class_f_r_h_i_uniform_buffer.html">FRHIUniformBuffer</a></div><div class="ttdef"><b>Definition</b> RHIResources.h:487</div></div>
 <div class="ttc" id="aclass_f_ref_counted_object_html"><div class="ttname"><a href="../../dc/dba/class_f_ref_counted_object.html">FRefCountedObject</a></div><div class="ttdef"><b>Definition</b> RefCounting.h:6</div></div>
 <div class="ttc" id="aclass_f_string_html"><div class="ttname"><a href="../../d9/dcb/class_f_string.html">FString</a></div><div class="ttdef"><b>Definition</b> DarkString.h:17</div></div>
-<div class="ttc" id="astruct_f_d3_d12_locked_resource_html"><div class="ttname"><a href="../../d4/d3c/struct_f_d3_d12_locked_resource.html">FD3D12LockedResource</a></div><div class="ttdef"><b>Definition</b> D3D12Resources.h:190</div></div>
-<div class="ttc" id="astruct_f_d3_d12_locked_resource_html_a2ae37cc2a58ababa9304347b3dfcfcad"><div class="ttname"><a href="../../d4/d3c/struct_f_d3_d12_locked_resource.html#a2ae37cc2a58ababa9304347b3dfcfcad">FD3D12LockedResource::bLocked</a></div><div class="ttdeci">uint32 bLocked</div><div class="ttdef"><b>Definition</b> D3D12Resources.h:214</div></div>
-<div class="ttc" id="astruct_f_d3_d12_locked_resource_html_a5f6519324053bce9d5c647befb07827c"><div class="ttname"><a href="../../d4/d3c/struct_f_d3_d12_locked_resource.html#a5f6519324053bce9d5c647befb07827c">FD3D12LockedResource::Resource</a></div><div class="ttdeci">TRefCountPtr&lt; ID3D12Resource &gt; Resource</div><div class="ttdef"><b>Definition</b> D3D12Resources.h:210</div></div>
-<div class="ttc" id="astruct_f_d3_d12_locked_resource_html_a792ae96b01c73f4f4f13ada58a667135"><div class="ttname"><a href="../../d4/d3c/struct_f_d3_d12_locked_resource.html#a792ae96b01c73f4f4f13ada58a667135">FD3D12LockedResource::MappedAddress</a></div><div class="ttdeci">void * MappedAddress</div><div class="ttdef"><b>Definition</b> D3D12Resources.h:217</div></div>
-<div class="ttc" id="astruct_f_d3_d12_locked_resource_html_a79d4bc21362428dc2306e5d7e147bf14"><div class="ttname"><a href="../../d4/d3c/struct_f_d3_d12_locked_resource.html#a79d4bc21362428dc2306e5d7e147bf14">FD3D12LockedResource::bHasNeverBeenLocked</a></div><div class="ttdeci">uint32 bHasNeverBeenLocked</div><div class="ttdef"><b>Definition</b> D3D12Resources.h:216</div></div>
-<div class="ttc" id="astruct_f_d3_d12_locked_resource_html_a7dac85e38166387d96a3b5926d398420"><div class="ttname"><a href="../../d4/d3c/struct_f_d3_d12_locked_resource.html#a7dac85e38166387d96a3b5926d398420">FD3D12LockedResource::bLockedForReadOnly</a></div><div class="ttdeci">uint32 bLockedForReadOnly</div><div class="ttdef"><b>Definition</b> D3D12Resources.h:215</div></div>
-<div class="ttc" id="astruct_f_d3_d12_locked_resource_html_a881653fd1a2e56f6239241ec6356452f"><div class="ttname"><a href="../../d4/d3c/struct_f_d3_d12_locked_resource.html#a881653fd1a2e56f6239241ec6356452f">FD3D12LockedResource::Reset</a></div><div class="ttdeci">FORCEINLINE void Reset()</div><div class="ttdef"><b>Definition</b> D3D12Resources.h:201</div></div>
-<div class="ttc" id="astruct_f_d3_d12_locked_resource_html_a8ea9fdfd539b8c6f67e7974404bb0e93"><div class="ttname"><a href="../../d4/d3c/struct_f_d3_d12_locked_resource.html#a8ea9fdfd539b8c6f67e7974404bb0e93">FD3D12LockedResource::FD3D12LockedResource</a></div><div class="ttdeci">FD3D12LockedResource(FD3D12Device *InDevice)</div><div class="ttdef"><b>Definition</b> D3D12Resources.h:191</div></div>
-<div class="ttc" id="astruct_f_d3_d12_locked_resource_html_ab2b305317718afad5023829cd9eb4522"><div class="ttname"><a href="../../d4/d3c/struct_f_d3_d12_locked_resource.html#ab2b305317718afad5023829cd9eb4522">FD3D12LockedResource::LockedOffset</a></div><div class="ttdeci">uint32 LockedOffset</div><div class="ttdef"><b>Definition</b> D3D12Resources.h:212</div></div>
-<div class="ttc" id="astruct_f_d3_d12_locked_resource_html_ae25ae992868a668baeeae53e3a6eba6c"><div class="ttname"><a href="../../d4/d3c/struct_f_d3_d12_locked_resource.html#ae25ae992868a668baeeae53e3a6eba6c">FD3D12LockedResource::LockedPitch</a></div><div class="ttdeci">uint32 LockedPitch</div><div class="ttdef"><b>Definition</b> D3D12Resources.h:213</div></div>
+<div class="ttc" id="astruct_f_d3_d12_locked_resource_html"><div class="ttname"><a href="../../d4/d3c/struct_f_d3_d12_locked_resource.html">FD3D12LockedResource</a></div><div class="ttdef"><b>Definition</b> D3D12Resources.h:204</div></div>
+<div class="ttc" id="astruct_f_d3_d12_locked_resource_html_a2ae37cc2a58ababa9304347b3dfcfcad"><div class="ttname"><a href="../../d4/d3c/struct_f_d3_d12_locked_resource.html#a2ae37cc2a58ababa9304347b3dfcfcad">FD3D12LockedResource::bLocked</a></div><div class="ttdeci">uint32 bLocked</div><div class="ttdef"><b>Definition</b> D3D12Resources.h:228</div></div>
+<div class="ttc" id="astruct_f_d3_d12_locked_resource_html_a5f6519324053bce9d5c647befb07827c"><div class="ttname"><a href="../../d4/d3c/struct_f_d3_d12_locked_resource.html#a5f6519324053bce9d5c647befb07827c">FD3D12LockedResource::Resource</a></div><div class="ttdeci">TRefCountPtr&lt; ID3D12Resource &gt; Resource</div><div class="ttdef"><b>Definition</b> D3D12Resources.h:224</div></div>
+<div class="ttc" id="astruct_f_d3_d12_locked_resource_html_a792ae96b01c73f4f4f13ada58a667135"><div class="ttname"><a href="../../d4/d3c/struct_f_d3_d12_locked_resource.html#a792ae96b01c73f4f4f13ada58a667135">FD3D12LockedResource::MappedAddress</a></div><div class="ttdeci">void * MappedAddress</div><div class="ttdef"><b>Definition</b> D3D12Resources.h:231</div></div>
+<div class="ttc" id="astruct_f_d3_d12_locked_resource_html_a79d4bc21362428dc2306e5d7e147bf14"><div class="ttname"><a href="../../d4/d3c/struct_f_d3_d12_locked_resource.html#a79d4bc21362428dc2306e5d7e147bf14">FD3D12LockedResource::bHasNeverBeenLocked</a></div><div class="ttdeci">uint32 bHasNeverBeenLocked</div><div class="ttdef"><b>Definition</b> D3D12Resources.h:230</div></div>
+<div class="ttc" id="astruct_f_d3_d12_locked_resource_html_a7dac85e38166387d96a3b5926d398420"><div class="ttname"><a href="../../d4/d3c/struct_f_d3_d12_locked_resource.html#a7dac85e38166387d96a3b5926d398420">FD3D12LockedResource::bLockedForReadOnly</a></div><div class="ttdeci">uint32 bLockedForReadOnly</div><div class="ttdef"><b>Definition</b> D3D12Resources.h:229</div></div>
+<div class="ttc" id="astruct_f_d3_d12_locked_resource_html_a881653fd1a2e56f6239241ec6356452f"><div class="ttname"><a href="../../d4/d3c/struct_f_d3_d12_locked_resource.html#a881653fd1a2e56f6239241ec6356452f">FD3D12LockedResource::Reset</a></div><div class="ttdeci">FORCEINLINE void Reset()</div><div class="ttdef"><b>Definition</b> D3D12Resources.h:215</div></div>
+<div class="ttc" id="astruct_f_d3_d12_locked_resource_html_a8ea9fdfd539b8c6f67e7974404bb0e93"><div class="ttname"><a href="../../d4/d3c/struct_f_d3_d12_locked_resource.html#a8ea9fdfd539b8c6f67e7974404bb0e93">FD3D12LockedResource::FD3D12LockedResource</a></div><div class="ttdeci">FD3D12LockedResource(FD3D12Device *InDevice)</div><div class="ttdef"><b>Definition</b> D3D12Resources.h:205</div></div>
+<div class="ttc" id="astruct_f_d3_d12_locked_resource_html_ab2b305317718afad5023829cd9eb4522"><div class="ttname"><a href="../../d4/d3c/struct_f_d3_d12_locked_resource.html#ab2b305317718afad5023829cd9eb4522">FD3D12LockedResource::LockedOffset</a></div><div class="ttdeci">uint32 LockedOffset</div><div class="ttdef"><b>Definition</b> D3D12Resources.h:226</div></div>
+<div class="ttc" id="astruct_f_d3_d12_locked_resource_html_ae25ae992868a668baeeae53e3a6eba6c"><div class="ttname"><a href="../../d4/d3c/struct_f_d3_d12_locked_resource.html#ae25ae992868a668baeeae53e3a6eba6c">FD3D12LockedResource::LockedPitch</a></div><div class="ttdeci">uint32 LockedPitch</div><div class="ttdef"><b>Definition</b> D3D12Resources.h:227</div></div>
 <div class="ttc" id="astruct_f_d3_d12_resource_desc_html"><div class="ttname"><a href="../../d6/d83/struct_f_d3_d12_resource_desc.html">FD3D12ResourceDesc</a></div><div class="ttdef"><b>Definition</b> D3D12Resources.h:18</div></div>
 <div class="ttc" id="astruct_f_d3_d12_resource_desc_html_a0c479a972df4c640dae6c5371d1402ce"><div class="ttname"><a href="../../d6/d83/struct_f_d3_d12_resource_desc.html#a0c479a972df4c640dae6c5371d1402ce">FD3D12ResourceDesc::FD3D12ResourceDesc</a></div><div class="ttdeci">FD3D12ResourceDesc(const D3D12_RESOURCE_DESC &amp;Other)</div><div class="ttdef"><b>Definition</b> D3D12Resources.h:23</div></div>
 <div class="ttc" id="astruct_f_d3_d12_resource_desc_html_a59b99db38f18856aac7b36accfe93380"><div class="ttname"><a href="../../d6/d83/struct_f_d3_d12_resource_desc.html#a59b99db38f18856aac7b36accfe93380">FD3D12ResourceDesc::FD3D12ResourceDesc</a></div><div class="ttdeci">FD3D12ResourceDesc()=default</div></div>
 <div class="ttc" id="astruct_f_d3_d12_resource_desc_html_aa0914b9ea85e115a8601161d94a56404"><div class="ttname"><a href="../../d6/d83/struct_f_d3_d12_resource_desc.html#aa0914b9ea85e115a8601161d94a56404">FD3D12ResourceDesc::FD3D12ResourceDesc</a></div><div class="ttdeci">FD3D12ResourceDesc(const CD3DX12_RESOURCE_DESC &amp;Other)</div><div class="ttdef"><b>Definition</b> D3D12Resources.h:20</div></div>
 <div class="ttc" id="astruct_f_r_h_i_buffer_desc_html"><div class="ttname"><a href="../../d7/d2f/struct_f_r_h_i_buffer_desc.html">FRHIBufferDesc</a></div><div class="ttdef"><b>Definition</b> RHIResources.h:128</div></div>
 </div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../dir_55043db21ba5ddd7c561d2c5a5a38944.html">Dark Engine</a></li><li class="navelem"><a class="el" href="../../dir_e00b54220e1e1486ac9971b606d33054.html">Source</a></li><li class="navelem"><a class="el" href="../../dir_ae01c8af07818b260cc3481e8588b277.html">Runtime</a></li><li class="navelem"><a class="el" href="../../dir_69d1b7a79a04d24cd43f7c84d74c5d6d.html">D3D12RHI</a></li><li class="navelem"><a class="el" href="../../dir_975782192f4e5579da5ceb9eedcf6dc7.html">private</a></li><li class="navelem"><a class="el" href="../../d2/d22/_d3_d12_resources_8h.html">D3D12Resources.h</a></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
 </body>
 </html>

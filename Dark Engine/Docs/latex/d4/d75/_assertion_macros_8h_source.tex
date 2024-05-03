@@ -5,135 +5,143 @@
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
 \DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_preprocessor_helpers_8h}{HAL/PreprocessorHelpers.h}}"{}}}
 \DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_core_types_8h}{CoreTypes.h}}"{}}}
-\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <cassert>}}
 \DoxyCodeLine{00005\ }
 \DoxyCodeLine{00006\ }
 \DoxyCodeLine{00007\ }
-\DoxyCodeLine{00008\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_e_log_verbosity}{ELogVerbosity}}}
-\DoxyCodeLine{00009\ \{}
-\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{namespace_e_log_verbosity_ab6bab2e0ab6887ab14ba3dda79944252}{Type}}\ :\ \mbox{\hyperlink{_platform_8h_a40bc01dd090acd02a79b5dc13e08abe6}{uint8}};}
-\DoxyCodeLine{00011\ \}}
-\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_e_log_verbosity}{ELogVerbosity}}}
+\DoxyCodeLine{00010\ \{}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{namespace_e_log_verbosity_ab6bab2e0ab6887ab14ba3dda79944252}{Type}}\ :\ \mbox{\hyperlink{_platform_8h_a40bc01dd090acd02a79b5dc13e08abe6}{uint8}};}
+\DoxyCodeLine{00012\ \}}
 \DoxyCodeLine{00013\ }
-\DoxyCodeLine{00014\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_f_ensure_handler_args}{FEnsureHandlerArgs}}}
-\DoxyCodeLine{00015\ \{}
-\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{_platform_8h_ac65a9f028228aed366b4d8f24a8ab9e9}{ANSICHAR}}*\ \mbox{\hyperlink{struct_f_ensure_handler_args_afd9174d998305ba234a6af318cede23c}{Expression}};}
-\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}}*\ \mbox{\hyperlink{struct_f_ensure_handler_args_a092814bfee10d5782e9c94a60d4684e7}{Message}};}
-\DoxyCodeLine{00018\ \};}
-\DoxyCodeLine{00019\ }
-\DoxyCodeLine{00020\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ FuncType>\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_t_function}{TFunction}};}
-\DoxyCodeLine{00021\ }
-\DoxyCodeLine{00022\ \mbox{\hyperlink{_core_platform_8h_a94070b76c7d4ff7927f14814f3f53e40}{DENGINE\_API}}\ \ \mbox{\hyperlink{class_t_function}{TFunction}}<bool(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_f_ensure_handler_args}{FEnsureHandlerArgs}}\&\ Args)>\ \mbox{\hyperlink{_assertion_macros_8h_a8e66319cf5655cdc033d9ee56f4319da}{SetEnsureHandler}}(\mbox{\hyperlink{class_t_function}{TFunction}}<\textcolor{keywordtype}{bool}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_f_ensure_handler_args}{FEnsureHandlerArgs}}\&\ Args)>\ EnsureHandler);}
-\DoxyCodeLine{00023\ }
-\DoxyCodeLine{00024\ \mbox{\hyperlink{_core_platform_8h_a94070b76c7d4ff7927f14814f3f53e40}{DENGINE\_API}}\ \ \mbox{\hyperlink{class_t_function}{TFunction}}<bool(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_f_ensure_handler_args}{FEnsureHandlerArgs}}\&\ Args)>\ \mbox{\hyperlink{_assertion_macros_8h_a6c79724bb15b598c698ebe3143bb0ecc}{GetEnsureHandler}}();}
-\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_f_ensure_handler_args}{FEnsureHandlerArgs}}}
+\DoxyCodeLine{00016\ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{_platform_8h_ac65a9f028228aed366b4d8f24a8ab9e9}{ANSICHAR}}*\ \mbox{\hyperlink{struct_f_ensure_handler_args_afd9174d998305ba234a6af318cede23c}{Expression}};}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}}*\ \mbox{\hyperlink{struct_f_ensure_handler_args_a092814bfee10d5782e9c94a60d4684e7}{Message}};}
+\DoxyCodeLine{00019\ \};}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ FuncType>\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_t_function}{TFunction}};}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \mbox{\hyperlink{_core_platform_8h_a94070b76c7d4ff7927f14814f3f53e40}{DENGINE\_API}}\ \ \mbox{\hyperlink{class_t_function}{TFunction}}<bool(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_f_ensure_handler_args}{FEnsureHandlerArgs}}\&\ Args)>\ \mbox{\hyperlink{_assertion_macros_8h_a8e66319cf5655cdc033d9ee56f4319da}{SetEnsureHandler}}(\mbox{\hyperlink{class_t_function}{TFunction}}<\textcolor{keywordtype}{bool}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_f_ensure_handler_args}{FEnsureHandlerArgs}}\&\ Args)>\ EnsureHandler);}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \mbox{\hyperlink{_core_platform_8h_a94070b76c7d4ff7927f14814f3f53e40}{DENGINE\_API}}\ \ \mbox{\hyperlink{class_t_function}{TFunction}}<bool(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_f_ensure_handler_args}{FEnsureHandlerArgs}}\&\ Args)>\ \mbox{\hyperlink{_assertion_macros_8h_a6c79724bb15b598c698ebe3143bb0ecc}{GetEnsureHandler}}();}
 \DoxyCodeLine{00026\ }
 \DoxyCodeLine{00027\ }
 \DoxyCodeLine{00028\ }
 \DoxyCodeLine{00029\ }
-\DoxyCodeLine{00030\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_f_debug}{FDebug}}}
-\DoxyCodeLine{00031\ \{}
-\DoxyCodeLine{00032\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{_core_platform_8h_a94070b76c7d4ff7927f14814f3f53e40}{DENGINE\_API}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{_windows_platform_8h_a5a3872cc14d02a851fcb9ca4ee08a81b}{VARARGS}}\ \ \ \mbox{\hyperlink{struct_f_debug_a354e0faa9aa8bba08177a191ce94a497}{CheckVerifyFailedImpl}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{_platform_8h_ac65a9f028228aed366b4d8f24a8ab9e9}{ANSICHAR}}*\ Expr,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{_platform_8h_ac65a9f028228aed366b4d8f24a8ab9e9}{ANSICHAR}}*\ File,\ \mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}\ Line,\ \textcolor{keywordtype}{void}*\ ProgramCounter,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}}*\ Format,\ ...);}
-\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{_core_platform_8h_a94070b76c7d4ff7927f14814f3f53e40}{DENGINE\_API}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{struct_f_debug_a5dfceb799b0961f8d4bb6770dfdcd92c}{LogAssertFailedMessageImplV}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{_platform_8h_ac65a9f028228aed366b4d8f24a8ab9e9}{ANSICHAR}}*\ Expr,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{_platform_8h_ac65a9f028228aed366b4d8f24a8ab9e9}{ANSICHAR}}*\ File,\ \mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}\ Line,\ \textcolor{keywordtype}{void}*\ ProgramCounter,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}}*\ Fmt,\ va\_list\ Args);}
-\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_f_debug}{FDebug}}}
+\DoxyCodeLine{00032\ \{}
+\DoxyCodeLine{00033\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{_core_platform_8h_a94070b76c7d4ff7927f14814f3f53e40}{DENGINE\_API}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{_windows_platform_8h_a5a3872cc14d02a851fcb9ca4ee08a81b}{VARARGS}}\ \ \ \mbox{\hyperlink{struct_f_debug_a354e0faa9aa8bba08177a191ce94a497}{CheckVerifyFailedImpl}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{_platform_8h_ac65a9f028228aed366b4d8f24a8ab9e9}{ANSICHAR}}*\ Expr,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{_platform_8h_ac65a9f028228aed366b4d8f24a8ab9e9}{ANSICHAR}}*\ File,\ \mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}\ Line,\ \textcolor{keywordtype}{void}*\ ProgramCounter,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}}*\ Format,\ ...);}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{_core_platform_8h_a94070b76c7d4ff7927f14814f3f53e40}{DENGINE\_API}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{struct_f_debug_a5dfceb799b0961f8d4bb6770dfdcd92c}{LogAssertFailedMessageImplV}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{_platform_8h_ac65a9f028228aed366b4d8f24a8ab9e9}{ANSICHAR}}*\ Expr,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{_platform_8h_ac65a9f028228aed366b4d8f24a8ab9e9}{ANSICHAR}}*\ File,\ \mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}}\ Line,\ \textcolor{keywordtype}{void}*\ ProgramCounter,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{_platform_8h_a74140f1ff3f7a51b1ac752f90283f3d6}{TCHAR}}*\ Fmt,\ va\_list\ Args);}
 \DoxyCodeLine{00036\ }
 \DoxyCodeLine{00037\ }
-\DoxyCodeLine{00038\ \};}
-\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \};}
 \DoxyCodeLine{00040\ }
 \DoxyCodeLine{00041\ }
 \DoxyCodeLine{00042\ }
 \DoxyCodeLine{00043\ }
 \DoxyCodeLine{00044\ }
 \DoxyCodeLine{00045\ }
-\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#ifdef\ DO\_CHECK}}
-\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#ifndef\ checkCode}}
-\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#define\ checkCode(\ Code\ )\ \ \ \ \ \ \ do\ \{\ Code;\ \}\ while\ (\ false\ );}}
-\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#ifndef\ verify}}
-\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#define\ verify(expr)\ \ \ \ \ \ \ \ \ \ \ \ DE\_CHECK\_IMPL(expr)}}
-\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#ifndef\ check}}
-\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#define\ check(expr)\ \ \ \ \ \ \ \ \ \ \ \ \ DE\_CHECK\_IMPL(expr)}}
-\DoxyCodeLine{00055\ \textcolor{preprocessor}{\#ifndef\ checkSlow}}
-\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#define\ checkSlow(expr)\ \ \ \ \ \ \ \ \ check(expr)}}
-\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{00058\ }
-\DoxyCodeLine{00059\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{00060\ }
-\DoxyCodeLine{00061\ \textcolor{comment}{//\ Technically\ we\ could\ use\ just\ the\ \_F\ version\ (lambda-\/based)\ for\ asserts}}
-\DoxyCodeLine{00062\ \textcolor{comment}{//\ both\ with\ and\ without\ formatted\ messages.\ However\ MSVC\ emits\ extra}}
-\DoxyCodeLine{00063\ \textcolor{comment}{//\ unnecessary\ instructions\ when\ using\ a\ lambda;\ hence\ the\ Exec()\ impl.}}
-\DoxyCodeLine{00064\ \textcolor{preprocessor}{\#define\ DE\_CHECK\_IMPL(expr)\ \(\backslash\)}}
-\DoxyCodeLine{00065\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ \(\backslash\)}}
-\DoxyCodeLine{00066\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ if(UNLIKELY(!(expr)))\ \(\backslash\)}}
-\DoxyCodeLine{00067\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \{\ \(\backslash\)}}
-\DoxyCodeLine{00068\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ if\ (FDebug::CheckVerifyFailedImpl(\#expr,\ \_\_FILE\_\_,\ \_\_LINE\_\_,\ PLATFORM\_RETURN\_ADDRESS(),\ TEXT("{}"{})))\ \(\backslash\)}}
-\DoxyCodeLine{00069\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\ \(\backslash\)}}
-\DoxyCodeLine{00070\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ if(IsDebuggerPresent())\(\backslash\)}}
-\DoxyCodeLine{00071\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{PLATFORM\_BREAK();\}\ \(\backslash\)}}
-\DoxyCodeLine{00072\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \(\backslash\)}}
-\DoxyCodeLine{00073\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \}\ \(\backslash\)}}
-\DoxyCodeLine{00074\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \}}}
-\DoxyCodeLine{00075\ }
-\DoxyCodeLine{00080\ \textcolor{preprocessor}{\#ifndef\ verifyf}}
-\DoxyCodeLine{00081\ \textcolor{preprocessor}{\#define\ verifyf(expr,\ format,\ \ ...)\ \ \ \ \ DE\_CHECK\_F\_IMPL(expr,\ format,\ \#\#\_\_VA\_ARGS\_\_)}}
-\DoxyCodeLine{00082\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{00083\ \textcolor{preprocessor}{\#ifndef\ checkf}}
-\DoxyCodeLine{00084\ \textcolor{preprocessor}{\#define\ checkf(expr,\ format,\ \ ...)\ \ \ \ \ \ DE\_CHECK\_F\_IMPL(expr,\ format,\ \#\#\_\_VA\_ARGS\_\_)}}
-\DoxyCodeLine{00085\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{00086\ }
-\DoxyCodeLine{00087\ \textcolor{preprocessor}{\#define\ DE\_CHECK\_F\_IMPL(expr,\ format,\ ...)\ \(\backslash\)}}
-\DoxyCodeLine{00088\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ \(\backslash\)}}
-\DoxyCodeLine{00089\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ if(UNLIKELY(!(expr)))\ \(\backslash\)}}
-\DoxyCodeLine{00090\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \{\ \(\backslash\)}}
-\DoxyCodeLine{00091\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ if\ (FDebug::CheckVerifyFailedImpl(\#expr,\ \_\_FILE\_\_,\ \_\_LINE\_\_,\ PLATFORM\_RETURN\_ADDRESS(),\ format,\ \#\#\_\_VA\_ARGS\_\_))\ \(\backslash\)}}
-\DoxyCodeLine{00092\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\ \(\backslash\)}}
-\DoxyCodeLine{00093\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PLATFORM\_BREAK();\ \(\backslash\)}}
-\DoxyCodeLine{00094\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \(\backslash\)}}
-\DoxyCodeLine{00095\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \}\ \(\backslash\)}}
-\DoxyCodeLine{00096\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \}}}
-\DoxyCodeLine{00097\ }
-\DoxyCodeLine{00101\ \textcolor{preprocessor}{\#ifndef\ checkNoEntry}}
-\DoxyCodeLine{00102\ \textcolor{preprocessor}{\#define\ checkNoEntry()\ \ \ \ \ \ \ check(!"{}Enclosing\ block\ should\ never\ be\ called"{})}}
-\DoxyCodeLine{00103\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{00104\ }
-\DoxyCodeLine{00108\ \textcolor{preprocessor}{\#ifndef\ checkNoReentry}}
-\DoxyCodeLine{00109\ \textcolor{preprocessor}{\#define\ checkNoReentry()\ \ \ \ \ \{\ static\ bool\ s\_beenHere\#\#\_\_LINE\_\_\ =\ false;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00110\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ check(\ !"{}Enclosing\ block\ was\ called\ more\ than\ once"{}\ ||\ !s\_beenHere\#\#\_\_LINE\_\_\ );\ \ \ \(\backslash\)}}
-\DoxyCodeLine{00111\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ s\_beenHere\#\#\_\_LINE\_\_\ =\ trDE;\ \}}}
-\DoxyCodeLine{00112\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{00113\ }
-\DoxyCodeLine{00114\ \textcolor{keyword}{class\ }FRecursionScopeMarker}
-\DoxyCodeLine{00115\ \{}
-\DoxyCodeLine{00116\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00117\ \ \ \ \ FRecursionScopeMarker(\mbox{\hyperlink{_platform_8h_a55934b7aafc849240fa69ea0339c0ab7}{uint16}}\&\ InCounter)\ :\ Counter(InCounter)\ \{\ ++Counter;\ \}}
-\DoxyCodeLine{00118\ \ \ \ \ \string~FRecursionScopeMarker()\ \{\ -\/-\/Counter;\ \}}
-\DoxyCodeLine{00119\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00120\ \ \ \ \ \mbox{\hyperlink{_platform_8h_a55934b7aafc849240fa69ea0339c0ab7}{uint16}}\&\ Counter;}
-\DoxyCodeLine{00121\ \};}
-\DoxyCodeLine{00122\ }
-\DoxyCodeLine{00126\ \textcolor{preprocessor}{\#ifndef\ checkNoRecursion}}
-\DoxyCodeLine{00127\ \textcolor{preprocessor}{\#define\ checkNoRecursion()\ \ static\ uint16\ RecursionCounter\#\#\_\_LINE\_\_\ =\ 0;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00128\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ check(\ !"{}Enclosing\ block\ was\ entered\ recursively"{}\ ||\ RecursionCounter\#\#\_\_LINE\_\_\ ==\ 0\ );\ \ \(\backslash\)}}
-\DoxyCodeLine{00129\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ const\ FRecursionScopeMarker\ ScopeMarker\#\#\_\_LINE\_\_(\ RecursionCounter\#\#\_\_LINE\_\_\ )}}
-\DoxyCodeLine{00130\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{00131\ }
-\DoxyCodeLine{00132\ \textcolor{preprocessor}{\#ifndef\ unimplemented}}
-\DoxyCodeLine{00133\ \textcolor{preprocessor}{\#define\ unimplemented()\ \ \ \ \ check(!"{}Unimplemented\ function\ called"{})}}
-\DoxyCodeLine{00134\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{00135\ }
-\DoxyCodeLine{00136\ \textcolor{preprocessor}{\#else}}
-\DoxyCodeLine{00137\ \textcolor{preprocessor}{\#define\ checkCode(...)}}
-\DoxyCodeLine{00138\ \textcolor{preprocessor}{\#define\ check(expr)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\ \}}}
-\DoxyCodeLine{00139\ \textcolor{preprocessor}{\#define\ checkf(expr,\ format,\ ...)\ \ \ \{\ \}}}
-\DoxyCodeLine{00140\ \textcolor{preprocessor}{\#define\ checkNoEntry()}}
-\DoxyCodeLine{00141\ \textcolor{preprocessor}{\#define\ checkNoReentry()}}
-\DoxyCodeLine{00142\ \textcolor{preprocessor}{\#define\ checkNoRecursion()}}
-\DoxyCodeLine{00143\ \textcolor{preprocessor}{\#define\ verify(expr)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\ if(UNLIKELY(!(expr)))\{\ \ \}\ \}}}
-\DoxyCodeLine{00144\ \textcolor{preprocessor}{\#define\ verifyf(expr,\ format,\ ...)\ \ \{\ if(UNLIKELY(!(expr)))\{\ \ \}\ \}}}
-\DoxyCodeLine{00145\ \textcolor{preprocessor}{\#define\ unimplemented()\ \ \ \ \ \ \ \ \ \ \ \ \ \{\ \ \}}}
-\DoxyCodeLine{00146\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#ifdef\ DO\_CHECK}}
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#ifndef\ checkCode}}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#define\ checkCode(\ Code\ )\ \ \ \ \ \ \ do\ \{\ Code;\ \}\ while\ (\ false\ );}}
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#ifndef\ verify}}
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#define\ verify(expr)\ \ \ \ \ \ \ \ \ \ \ \ DE\_CHECK\_IMPL(expr)}}
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#ifndef\ check}}
+\DoxyCodeLine{00055\ \textcolor{preprocessor}{\#define\ check(expr)\ \ \ \ \ \ \ \ \ \ \ \ \ DE\_CHECK\_IMPL(expr)}}
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#ifndef\ checkSlow}}
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#define\ checkSlow(expr)\ \ \ \ \ \ \ \ \ check(expr)}}
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00059\ \textcolor{preprocessor}{\#ifndef\ checkAssert}}
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\#define\ checkAssert(expr)\ \ \ \(\backslash\)}}
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\{\(\backslash\)}}
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\ \ \ \ if(UNLIKELY(!(expr)))\ \{\ assert(expr);\}\(\backslash\)}}
+\DoxyCodeLine{00063\ \textcolor{preprocessor}{\}}}
+\DoxyCodeLine{00064\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00065\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \textcolor{comment}{//\ Technically\ we\ could\ use\ just\ the\ \_F\ version\ (lambda-\/based)\ for\ asserts}}
+\DoxyCodeLine{00068\ \textcolor{comment}{//\ both\ with\ and\ without\ formatted\ messages.\ However\ MSVC\ emits\ extra}}
+\DoxyCodeLine{00069\ \textcolor{comment}{//\ unnecessary\ instructions\ when\ using\ a\ lambda;\ hence\ the\ Exec()\ impl.}}
+\DoxyCodeLine{00070\ \textcolor{preprocessor}{\#define\ DE\_CHECK\_IMPL(expr)\ \(\backslash\)}}
+\DoxyCodeLine{00071\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00072\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ if(UNLIKELY(!(expr)))\ \(\backslash\)}}
+\DoxyCodeLine{00073\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00074\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ if\ (FDebug::CheckVerifyFailedImpl(\#expr,\ \_\_FILE\_\_,\ \_\_LINE\_\_,\ PLATFORM\_RETURN\_ADDRESS(),\ TEXT("{}"{})))\ \(\backslash\)}}
+\DoxyCodeLine{00075\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00076\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ if(IsDebuggerPresent())\(\backslash\)}}
+\DoxyCodeLine{00077\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\ \ \(\backslash\)}}
+\DoxyCodeLine{00078\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PLATFORM\_BREAK();\(\backslash\)}}
+\DoxyCodeLine{00079\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \(\backslash\)}}
+\DoxyCodeLine{00080\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \(\backslash\)}}
+\DoxyCodeLine{00081\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \}\ \(\backslash\)}}
+\DoxyCodeLine{00082\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00088\ \textcolor{preprocessor}{\#ifndef\ verifyf}}
+\DoxyCodeLine{00089\ \textcolor{preprocessor}{\#define\ verifyf(expr,\ format,\ \ ...)\ \ \ \ \ DE\_CHECK\_F\_IMPL(expr,\ format,\ \#\#\_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{00090\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00091\ \textcolor{preprocessor}{\#ifndef\ checkf}}
+\DoxyCodeLine{00092\ \textcolor{preprocessor}{\#define\ checkf(expr,\ format,\ \ ...)\ \ \ \ \ \ DE\_CHECK\_F\_IMPL(expr,\ format,\ \#\#\_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{00093\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \textcolor{preprocessor}{\#define\ DE\_CHECK\_F\_IMPL(expr,\ format,\ ...)\ \(\backslash\)}}
+\DoxyCodeLine{00096\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00097\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ if(UNLIKELY(!(expr)))\ \(\backslash\)}}
+\DoxyCodeLine{00098\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00099\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ if\ (FDebug::CheckVerifyFailedImpl(\#expr,\ \_\_FILE\_\_,\ \_\_LINE\_\_,\ PLATFORM\_RETURN\_ADDRESS(),\ format,\ \#\#\_\_VA\_ARGS\_\_))\ \(\backslash\)}}
+\DoxyCodeLine{00100\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00101\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PLATFORM\_BREAK();\ \(\backslash\)}}
+\DoxyCodeLine{00102\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \(\backslash\)}}
+\DoxyCodeLine{00103\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \}\ \(\backslash\)}}
+\DoxyCodeLine{00104\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00109\ \textcolor{preprocessor}{\#ifndef\ checkNoEntry}}
+\DoxyCodeLine{00110\ \textcolor{preprocessor}{\#define\ checkNoEntry()\ \ \ \ \ \ \ check(!"{}Enclosing\ block\ should\ never\ be\ called"{})}}
+\DoxyCodeLine{00111\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00116\ \textcolor{preprocessor}{\#ifndef\ checkNoReentry}}
+\DoxyCodeLine{00117\ \textcolor{preprocessor}{\#define\ checkNoReentry()\ \ \ \ \ \{\ static\ bool\ s\_beenHere\#\#\_\_LINE\_\_\ =\ false;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00118\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ check(\ !"{}Enclosing\ block\ was\ called\ more\ than\ once"{}\ ||\ !s\_beenHere\#\#\_\_LINE\_\_\ );\ \ \ \(\backslash\)}}
+\DoxyCodeLine{00119\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ s\_beenHere\#\#\_\_LINE\_\_\ =\ trDE;\ \}}}
+\DoxyCodeLine{00120\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \textcolor{keyword}{class\ }FRecursionScopeMarker}
+\DoxyCodeLine{00123\ \{}
+\DoxyCodeLine{00124\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00125\ \ \ \ \ FRecursionScopeMarker(\mbox{\hyperlink{_platform_8h_a55934b7aafc849240fa69ea0339c0ab7}{uint16}}\&\ InCounter)\ :\ Counter(InCounter)\ \{\ ++Counter;\ \}}
+\DoxyCodeLine{00126\ \ \ \ \ \string~FRecursionScopeMarker()\ \{\ -\/-\/Counter;\ \}}
+\DoxyCodeLine{00127\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00128\ \ \ \ \ \mbox{\hyperlink{_platform_8h_a55934b7aafc849240fa69ea0339c0ab7}{uint16}}\&\ Counter;}
+\DoxyCodeLine{00129\ \};}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00134\ \textcolor{preprocessor}{\#ifndef\ checkNoRecursion}}
+\DoxyCodeLine{00135\ \textcolor{preprocessor}{\#define\ checkNoRecursion()\ \ static\ uint16\ RecursionCounter\#\#\_\_LINE\_\_\ =\ 0;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00136\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ check(\ !"{}Enclosing\ block\ was\ entered\ recursively"{}\ ||\ RecursionCounter\#\#\_\_LINE\_\_\ ==\ 0\ );\ \ \(\backslash\)}}
+\DoxyCodeLine{00137\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ const\ FRecursionScopeMarker\ ScopeMarker\#\#\_\_LINE\_\_(\ RecursionCounter\#\#\_\_LINE\_\_\ )}}
+\DoxyCodeLine{00138\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00140\ \textcolor{preprocessor}{\#ifndef\ unimplemented}}
+\DoxyCodeLine{00141\ \textcolor{preprocessor}{\#define\ unimplemented()\ \ \ \ \ check(!"{}Unimplemented\ function\ called"{})}}
+\DoxyCodeLine{00142\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00144\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00145\ \textcolor{preprocessor}{\#define\ checkCode(...)}}
+\DoxyCodeLine{00146\ \textcolor{preprocessor}{\#define\ check(expr)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\ \}}}
+\DoxyCodeLine{00147\ \textcolor{preprocessor}{\#define\ checkf(expr,\ format,\ ...)\ \ \ \{\ \}}}
+\DoxyCodeLine{00148\ \textcolor{preprocessor}{\#define\ checkNoEntry()}}
+\DoxyCodeLine{00149\ \textcolor{preprocessor}{\#define\ checkNoReentry()}}
+\DoxyCodeLine{00150\ \textcolor{preprocessor}{\#define\ checkNoRecursion()}}
+\DoxyCodeLine{00151\ \textcolor{preprocessor}{\#define\ verify(expr)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\ if(UNLIKELY(!(expr)))\{\ \ \}\ \}}}
+\DoxyCodeLine{00152\ \textcolor{preprocessor}{\#define\ verifyf(expr,\ format,\ ...)\ \ \{\ if(UNLIKELY(!(expr)))\{\ \ \}\ \}}}
+\DoxyCodeLine{00153\ \textcolor{preprocessor}{\#define\ unimplemented()\ \ \ \ \ \ \ \ \ \ \ \ \ \{\ \ \}}}
+\DoxyCodeLine{00154\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

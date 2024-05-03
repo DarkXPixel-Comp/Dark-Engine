@@ -6,11 +6,15 @@
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Dark Engine: Файл Dark Engine/Source/Runtime/D3D12RHI/private/D3D12Util.h</title>
-<link rel="icon" href="../../Logo.ico" type="image/x-icon" />
+<link rel="icon" href="../../Logo.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../clipboard.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
 <script type="text/javascript" src="../../cookie.js"></script>
 <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../search/searchdata.js"></script>
@@ -23,9 +27,9 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
-  <td id="projectlogo"><img alt="Logo" src="../../Logo.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="../../MiniLogo.png"/></td>
   <td id="projectalign">
-   <div id="projectname">Dark Engine<span id="projectnumber">&#160;0.0.40</span>
+   <div id="projectname">Dark Engine<span id="projectnumber">&#160;0.0.50</span>
    </div>
    <div id="projectbrief">New game engnie D3D12</div>
   </td>
@@ -51,6 +55,23 @@ $(function() {
 /* @license-end */
 </script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('d9/d88/_d3_d12_util_8h.html','../../'); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -72,11 +93,6 @@ $(function() {
 </div>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="../../dir_55043db21ba5ddd7c561d2c5a5a38944.html">Dark Engine</a></li><li class="navelem"><a class="el" href="../../dir_e00b54220e1e1486ac9971b606d33054.html">Source</a></li><li class="navelem"><a class="el" href="../../dir_ae01c8af07818b260cc3481e8588b277.html">Runtime</a></li><li class="navelem"><a class="el" href="../../dir_69d1b7a79a04d24cd43f7c84d74c5d6d.html">D3D12RHI</a></li><li class="navelem"><a class="el" href="../../dir_975782192f4e5579da5ceb9eedcf6dc7.html">private</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#namespaces">Пространства имен</a> &#124;
@@ -104,6 +120,10 @@ $(function() {
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Функции</h2></td></tr>
+<tr class="memitem:a0f3bc729480cea982bf54666f0a42cf7" id="r_a0f3bc729480cea982bf54666f0a42cf7"><td class="memItemLeft" align="right" valign="top">static D3D12_CULL_MODE&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0f3bc729480cea982bf54666f0a42cf7">TranslateCullMode</a> (<a class="el" href="../../de/df7/_r_h_i_defines_8h.html#a6cd66fd4d6635d02bc14021437da69df">ERasterizerCullMode</a> CullMode)</td></tr>
+<tr class="separator:a0f3bc729480cea982bf54666f0a42cf7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ba4674843b254e3f7df8b024bb43c15" id="r_a5ba4674843b254e3f7df8b024bb43c15"><td class="memItemLeft" align="right" valign="top">static D3D12_FILL_MODE&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5ba4674843b254e3f7df8b024bb43c15">TranslateFillMode</a> (<a class="el" href="../../de/df7/_r_h_i_defines_8h.html#af413b380a05199bf583ef1763e38391a">ERasterizerFillMode</a> FillMode)</td></tr>
+<tr class="separator:a5ba4674843b254e3f7df8b024bb43c15"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af095c73fb61404dd5508139bf2bcae61" id="r_af095c73fb61404dd5508139bf2bcae61"><td class="memItemLeft" align="right" valign="top">static FORCEINLINE D3D_PRIMITIVE_TOPOLOGY&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af095c73fb61404dd5508139bf2bcae61">GetD3D12PrimitiveTopology</a> (<a class="el" href="../../d2/dc9/_platform_8h.html#a8c7a127091efbdfc5a16939041653e05">uint32</a> PrimitiveTopology)</td></tr>
 <tr class="separator:af095c73fb61404dd5508139bf2bcae61"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1148ba9d0de8a596562321bb600291f9" id="r_a1148ba9d0de8a596562321bb600291f9"><td class="memItemLeft" align="right" valign="top">FORCEINLINE D3D12_RESOURCE_STATES&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1148ba9d0de8a596562321bb600291f9">GetD3D12ResourceState</a> (<a class="el" href="../../de/df7/_r_h_i_defines_8h.html#a790a925a3358fc56173b2ffb0f607c5f">ERHIAccess</a> InRHIAccess)</td></tr>
@@ -312,6 +332,56 @@ $(function() {
 
 </div>
 </div>
+<a id="a0f3bc729480cea982bf54666f0a42cf7" name="a0f3bc729480cea982bf54666f0a42cf7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f3bc729480cea982bf54666f0a42cf7">&#9670;&#160;</a></span>TranslateCullMode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static D3D12_CULL_MODE TranslateCullMode </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../de/df7/_r_h_i_defines_8h.html#a6cd66fd4d6635d02bc14021437da69df">ERasterizerCullMode</a></td>          <td class="paramname"><span class="paramname"><em>CullMode</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5ba4674843b254e3f7df8b024bb43c15" name="a5ba4674843b254e3f7df8b024bb43c15"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ba4674843b254e3f7df8b024bb43c15">&#9670;&#160;</a></span>TranslateFillMode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static D3D12_FILL_MODE TranslateFillMode </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../de/df7/_r_h_i_defines_8h.html#af413b380a05199bf583ef1763e38391a">ERasterizerFillMode</a></td>          <td class="paramname"><span class="paramname"><em>FillMode</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a629c58836a825b77141f59781e2082ad" name="a629c58836a825b77141f59781e2082ad"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a629c58836a825b77141f59781e2082ad">&#9670;&#160;</a></span>VerifyD3D12Result()</h2>
 
@@ -377,9 +447,13 @@ $(function() {
 </div>
 </div>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../dir_55043db21ba5ddd7c561d2c5a5a38944.html">Dark Engine</a></li><li class="navelem"><a class="el" href="../../dir_e00b54220e1e1486ac9971b606d33054.html">Source</a></li><li class="navelem"><a class="el" href="../../dir_ae01c8af07818b260cc3481e8588b277.html">Runtime</a></li><li class="navelem"><a class="el" href="../../dir_69d1b7a79a04d24cd43f7c84d74c5d6d.html">D3D12RHI</a></li><li class="navelem"><a class="el" href="../../dir_975782192f4e5579da5ceb9eedcf6dc7.html">private</a></li><li class="navelem"><a class="el" href="../../d9/d88/_d3_d12_util_8h.html">D3D12Util.h</a></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
 </body>
 </html>

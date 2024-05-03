@@ -32,8 +32,9 @@ var searchData=
   ['_7efwindowscriticalsection_29',['~FWindowsCriticalSection',['../d2/d88/class_f_windows_critical_section.html#a69880b14852219f3053a44a07bdeaa8b',1,'FWindowsCriticalSection']]],
   ['_7efwindowssystemwidecriticalsection_30',['~FWindowsSystemWideCriticalSection',['../d4/d9c/class_f_windows_system_wide_critical_section.html#ab15ccb13ffd431b25d286031d2a39bc5',1,'FWindowsSystemWideCriticalSection']]],
   ['_7efwindowswindow_31',['~FWindowsWindow',['../d8/dd5/class_f_windows_window.html#a8b68b1a72a12ae5865fd7f1a4e8a409d',1,'FWindowsWindow']]],
-  ['_7etmemory_32',['~TMemory',['../d8/d94/class_t_memory.html#aff7b9a4d0a8ef8b0b27068b9eb52e26d',1,'TMemory']]],
-  ['_7etmulticastdelegate_33',['~TMultiCastDelegate',['../d8/d5b/class_t_multi_cast_delegate.html#ab9e8ed7b6e7482fe4b9bad5897db3c86',1,'TMultiCastDelegate']]],
-  ['_7euiwindow_34',['~UIWindow',['../df/dab/class_u_i_window.html#a025d64297387ecbc4e291428f4a525e3',1,'UIWindow']]],
-  ['_7euobject_35',['~UObject',['../d7/d0b/class_u_object.html#a1863523a3e28e4379fc28b3cc1cd582c',1,'UObject']]]
+  ['_7etglobalrenderresource_32',['~TGlobalRenderResource',['../d8/d58/class_t_global_render_resource.html#a4f070ba2e3e67b8e8d0a924a59b5914f',1,'TGlobalRenderResource']]],
+  ['_7etmemory_33',['~TMemory',['../d8/d94/class_t_memory.html#aff7b9a4d0a8ef8b0b27068b9eb52e26d',1,'TMemory']]],
+  ['_7etmulticastdelegate_34',['~TMultiCastDelegate',['../d8/d5b/class_t_multi_cast_delegate.html#ab9e8ed7b6e7482fe4b9bad5897db3c86',1,'TMultiCastDelegate']]],
+  ['_7euiwindow_35',['~UIWindow',['../df/dab/class_u_i_window.html#a025d64297387ecbc4e291428f4a525e3',1,'UIWindow']]],
+  ['_7euobject_36',['~UObject',['../d7/d0b/class_u_object.html#a1863523a3e28e4379fc28b3cc1cd582c',1,'UObject']]]
 ];

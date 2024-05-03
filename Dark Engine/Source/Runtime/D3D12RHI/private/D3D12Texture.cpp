@@ -407,6 +407,7 @@ void FD3D12Texture::Unlock(FRHICommandListImmediate* RHICmdList, uint32 MipIndex
 
 	if (!LockedResource->bLockedForReadOnly)
 	{
+		FD3D12CommandContext& DefaultContext = GetParentDevice()->GetDefaultCommandContext();
 		FD3D12Resource* Resource = GetResource();
 		
 		const D3D12_RESOURCE_DESC& ResourceDesc = Resource->GetDesc();
@@ -424,6 +425,8 @@ void FD3D12Texture::Unlock(FRHICommandListImmediate* RHICmdList, uint32 MipIndex
 		CD3DX12_TEXTURE_COPY_LOCATION SourceCopyLocation(LockedResource->Resource.Get(), PlacedTexture2D);
 
 		UpdateTexture(Subresource, 0, 0, 0, SourceCopyLocation);
+
+		DefaultContext.AddLockedResource(*LockedResource);
 	}
 
 
@@ -452,7 +455,7 @@ void FD3D12Texture::UpdateTexture(uint32 MipIndex, uint32 DestX, uint32 DestY, u
 	DefaultContext.TransitionResource(GetResource(), D3D12_RESOURCE_STATE_COPY_DEST,
 		CurrentState, MipIndex);
 
-	DefaultContext.FlushCommands();
+	//DefaultContext.FlushCommands();
 }
 
 

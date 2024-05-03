@@ -5,7 +5,7 @@
 %%For: 
 %Magnification: 1.00
 %%Orientation: Portrait
-%%BoundingBox: 0 0 500 669.291321
+%%BoundingBox: 0 0 500 708.661438
 %%Pages: 0
 %%BeginSetup
 %%EndSetup
@@ -19,12 +19,12 @@
 /marginwidth 10 def
 /distx 20 def
 /disty 40 def
-/boundaspect 0.747059 def  % aspect ratio of the BoundingBox (width/height)
+/boundaspect 0.705556 def  % aspect ratio of the BoundingBox (width/height)
 /boundx 500 def
 /boundy boundx boundaspect div def
 /xspacing 0 def
 /yspacing 0 def
-/rows 17 def
+/rows 18 def
 /cols 2 def
 /scalefactor 0 def
 /boxfont /Times-Roman findfont fontheight scalefont def
@@ -189,6 +189,7 @@ boxfont setfont
 (FD3D12ResourceLocation) cw
 (FD3D12StateCache) cw
 (FD3D12Texture) cw
+(FD3D12UniformBuffer) cw
 (FD3D12View) cw
 /boxwidth boxwidth marginwidth 2 mul add def
 /xspacing boxwidth distx add def
@@ -201,39 +202,42 @@ boundx scalefactor div boundy scalefactor div scale
 
 % ----- classes -----
 
- (FD3D12DeviceChild) 0.000000 16.000000 box
- (FD3D12BaseShaderResource) 1.000000 15.000000 box
-1.000000 15.000000 mark
- (FD3D12BindlessDescriptorHeapManager) 1.000000 14.000000 box
- (FD3D12BindlessDescriptorManager) 1.000000 13.000000 box
- (FD3D12CommandContext) 1.000000 12.000000 box
- (FD3D12ConstantBuffer) 1.000000 11.000000 box
- (FD3D12CpuDescriptorManager) 1.000000 10.000000 box
- (FD3D12DescriptorHeap) 1.000000 9.000000 box
- (FD3D12DescriptorHeapManager) 1.000000 8.000000 box
- (FD3D12DescriptorManager) 1.000000 7.000000 box
- (FD3D12Heap) 1.000000 6.000000 box
- (FD3D12LockedResource) 1.000000 5.000000 box
- (FD3D12Resource) 1.000000 4.000000 box
- (FD3D12ResourceLocation) 1.000000 3.000000 box
- (FD3D12StateCache) 1.000000 2.000000 box
- (FD3D12Texture) 1.000000 1.000000 box
+ (FD3D12DeviceChild) 0.000000 17.000000 box
+ (FD3D12BaseShaderResource) 1.000000 16.000000 box
+1.000000 16.000000 mark
+ (FD3D12BindlessDescriptorHeapManager) 1.000000 15.000000 box
+ (FD3D12BindlessDescriptorManager) 1.000000 14.000000 box
+ (FD3D12CommandContext) 1.000000 13.000000 box
+ (FD3D12ConstantBuffer) 1.000000 12.000000 box
+ (FD3D12CpuDescriptorManager) 1.000000 11.000000 box
+ (FD3D12DescriptorHeap) 1.000000 10.000000 box
+ (FD3D12DescriptorHeapManager) 1.000000 9.000000 box
+ (FD3D12DescriptorManager) 1.000000 8.000000 box
+ (FD3D12Heap) 1.000000 7.000000 box
+ (FD3D12LockedResource) 1.000000 6.000000 box
+ (FD3D12Resource) 1.000000 5.000000 box
+ (FD3D12ResourceLocation) 1.000000 4.000000 box
+ (FD3D12StateCache) 1.000000 3.000000 box
+ (FD3D12Texture) 1.000000 2.000000 box
+ (FD3D12UniformBuffer) 1.000000 1.000000 box
  (FD3D12View) 1.000000 0.000000 box
 1.000000 0.000000 mark
 
 % ----- relations -----
 
 solid
-1 0.000000 15.250000 out
+1 0.000000 16.250000 out
+solid
+0 0.000000 16.500000 hedge
 solid
 0 0.000000 15.500000 hedge
 solid
 0 0.000000 14.500000 hedge
 solid
 0 0.000000 13.500000 hedge
-solid
-0 0.000000 12.500000 hedge
 dotted
+0 0.000000 12.500000 hedge
+solid
 0 0.000000 11.500000 hedge
 solid
 0 0.000000 10.500000 hedge
@@ -258,4 +262,4 @@ solid
 solid
 0 0.000000 0.500000 hedge
 solid
-0.000000 16.000000 0.500000 vedge
+0.000000 17.000000 0.500000 vedge

@@ -30,6 +30,8 @@ virtual bool \mbox{\hyperlink{class_f_generic_application_handler_a02349a480acfb
 virtual bool \mbox{\hyperlink{class_f_generic_application_handler_aed22f7375f2a4c8d2d43e7d54cc02e03}{On\+Size\+Changed}} (const \mbox{\hyperlink{_t_unique_ptr_8h_ab7a7d47ba593c2489fecf3f003f56c53}{TShared\+Ptr}}$<$ \mbox{\hyperlink{class_f_generic_window}{FGeneric\+Window}} $>$ \&Window, const \mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}} Width, const \mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}} Height, bool b\+Was\+Minimized=false)
 \item 
 virtual bool \mbox{\hyperlink{class_f_generic_application_handler_adb3b887f47e580f22cfc2d722af7c305}{On\+Resize}} (const \mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}} Width, const \mbox{\hyperlink{_platform_8h_a84083085985fb180ad38b9c32e3937da}{int32}} Height, const bool b\+Fullscreen)
+\item 
+virtual bool \mbox{\hyperlink{class_f_generic_application_handler_abe2566d2eb80847ccf9e1bac8d725122}{On\+Window\+Draw}} (const \mbox{\hyperlink{_t_unique_ptr_8h_ab7a7d47ba593c2489fecf3f003f56c53}{TShared\+Ptr}}$<$ \mbox{\hyperlink{class_f_generic_window}{FGeneric\+Window}} $>$ \&Window)
 \end{DoxyCompactItemize}
 
 
@@ -107,6 +109,16 @@ virtual bool \mbox{\hyperlink{class_f_generic_application_handler_adb3b887f47e58
 
 
 Переопределяется в \mbox{\hyperlink{class_u_i_application_a1fa43803f539079cb74eb759fd67a323}{UIApplication}}.
+
+\Hypertarget{class_f_generic_application_handler_abe2566d2eb80847ccf9e1bac8d725122}\label{class_f_generic_application_handler_abe2566d2eb80847ccf9e1bac8d725122} 
+\index{FGenericApplicationHandler@{FGenericApplicationHandler}!OnWindowDraw@{OnWindowDraw}}
+\index{OnWindowDraw@{OnWindowDraw}!FGenericApplicationHandler@{FGenericApplicationHandler}}
+\doxysubsubsection{\texorpdfstring{OnWindowDraw()}{OnWindowDraw()}}
+{\footnotesize\ttfamily virtual bool FGeneric\+Application\+Handler\+::\+On\+Window\+Draw (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{_t_unique_ptr_8h_ab7a7d47ba593c2489fecf3f003f56c53}{TShared\+Ptr}}$<$ \mbox{\hyperlink{class_f_generic_window}{FGeneric\+Window}} $>$ \&}]{Window }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Переопределяется в \mbox{\hyperlink{class_u_i_application_ada15bd06e9e4d358b5a2b2e7f347bd24}{UIApplication}}.
 
 
 

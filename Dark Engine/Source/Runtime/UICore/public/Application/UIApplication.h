@@ -20,7 +20,10 @@ DECLARE_MULTICAST_DELEGATE_TwoParams(FOnMouseUp, const EMouseButtons::Type, cons
 
 
 
-//STATIC CLASS
+/**
+* Main class for UIEngine
+* Handler for OS messages
+*/
 class UIApplication	: public FGenericApplicationHandler
 {
 public:
@@ -37,6 +40,7 @@ public:
 	virtual bool OnSizeChanged(const TSharedPtr<FGenericWindow>& Window, const int32 Width, const int32 Height, bool bWasMinimized = false);
 	virtual bool OnMouseDown(const TSharedPtr<FGenericWindow>& Window, const EMouseButtons::Type Button,
 		const FVector2D CursorPos);
+	virtual bool OnWindowDraw(const TSharedPtr<FGenericWindow>& Window) override;
 	virtual bool OnMouseUp(const EMouseButtons::Type Button,
 		const FVector2D CursorPos) override;
 	virtual bool OnMovedWindow(const TSharedPtr<FGenericWindow>& Window, FIntPoint NewPosition) override;
