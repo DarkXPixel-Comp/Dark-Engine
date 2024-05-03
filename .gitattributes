@@ -1,5 +1,5 @@
 # Auto detect text files and perform LF normalization
 # * text=c++
 # * linguist-vendored
-Dark Engine/docs/* linguist-documentation
+"Dark Engine/docs/*" linguist-documentation
 
