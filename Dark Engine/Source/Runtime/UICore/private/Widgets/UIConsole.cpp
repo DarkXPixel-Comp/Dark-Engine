@@ -93,7 +93,7 @@ void UIConsole::DrawImGui()
 			ImGuiChildFlags_None, ImGuiWindowFlags_HorizontalScrollbar);
 		for (const auto& Log : Logs)
 		{
-			ImGui::TextColored(ImVec4(Log.Color.X, Log.Color.Y, Log.Color.Z, 1), Log.Log.ToString().c_str());
+			ImGui::TextColored(ImVec4(Log.Color.X, Log.Color.Y, Log.Color.Z, 1), Log.Log.GetUTF8());
 		}
 
 		if (ScrollToBottom)

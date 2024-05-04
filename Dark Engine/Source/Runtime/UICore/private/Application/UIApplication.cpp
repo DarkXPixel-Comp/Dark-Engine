@@ -8,7 +8,7 @@
 #include "d3d12.h"
 #include "DescriptorHeap.h"
 #include <dxgi.h>
-#include <Runtime/D3D12RHI/public/d3dx12.h>
+//#include <d3dx12.h>
 #include "Timer/GameTimer.h"
 #include "Misc/Paths.h"
 #include "Engine/Engine.h"

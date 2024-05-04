@@ -38,7 +38,6 @@ public:
 		if (Res >= 0 && Res < sizeof(Buf))
 		{
 			*this += Buf;
-			bChangedString = true;
 		}
 		return *this;
 	}
@@ -46,13 +45,11 @@ public:
 	void PopBack()
 	{
 		_string.erase(_string.begin() + _string.size() - 1);
-		bChangedString = true;
 	}
 
 	void PopFirst()
 	{
 		_string.erase(_string.begin());
-		bChangedString = true;
 	}
 
 	TCHAR Back() const

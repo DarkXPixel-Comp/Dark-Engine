@@ -27,9 +27,7 @@ FD3D12DynamicRHI::FD3D12DynamicRHI(const TArray<TSharedPtr<FD3D12Adapter>>& InCh
 
 	FeatureLevel = GetAdapter().GetFeatureLevel();
 
-
-
-
+	GGlobalConsole.RegisterConsoleVariable(TEXT("r.D3D12.DebugMessages"), false, TEXT("Add callback message d3d12 debug"));
 }
 
 FD3D12DynamicRHI::~FD3D12DynamicRHI()

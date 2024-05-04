@@ -2,6 +2,9 @@
 #include "D3D12RHICommon.h"	
 #include "D3D12RootSignature.h"
 #include "Containers/UnordoredMap.h"
+#include "d3d12shader.h"
+#include "dxcapi.h"
+
 
 class FD3D12PipelineState;
 class FD3D12VertexShader;

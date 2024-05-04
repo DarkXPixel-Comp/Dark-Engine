@@ -6,6 +6,7 @@
 #include "RHIResources.h"
 #include "D3D12PipelineState.h"
 
+
 FD3D12ContextCommon::FD3D12ContextCommon(FD3D12Device* InDevice, ED3D12QueueType InQueueType, bool InbIsDefaultContext):
 	Device(InDevice),
 	QueueType(InQueueType),

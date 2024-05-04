@@ -9,6 +9,12 @@
 #include <shlobj.h>
 #include <Logger.h>
 
+
+
+extern "C" { __declspec(dllexport) extern const UINT D3D12SDKVersion = 613; }
+
+extern "C" { __declspec(dllexport) extern const char* D3D12SDKPath = ".\\D3D12\\"; }
+
 static std::wstring GetLatestWinPixGpuCapturerPath_Cpp17()
 {
 	LPWSTR programFilesPath = nullptr;
@@ -95,7 +101,9 @@ void GetResourceTiers(ID3D12Device* Device, D3D12_RESOURCE_BINDING_TIER& OutReso
 D3D_SHADER_MODEL FindHighestShaderModel(ID3D12Device* Device)
 {
 	const D3D_SHADER_MODEL ShadersModelsForCheck[] =
-	{
+	{	
+		D3D_SHADER_MODEL_6_9,
+		D3D_SHADER_MODEL_6_8,
 		D3D_SHADER_MODEL_6_7,
 		D3D_SHADER_MODEL_6_6,
 		D3D_SHADER_MODEL_6_5,

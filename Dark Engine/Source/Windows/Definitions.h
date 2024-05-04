@@ -122,5 +122,4 @@
 #define MAX_RENDER_TARGETS 8
 #define _CRT_SECURE_NO_WARNINGS 1
 //#define USE_PIX
-#define D3D12_DEBUG	1
 #pragma warning(disable: 6031)

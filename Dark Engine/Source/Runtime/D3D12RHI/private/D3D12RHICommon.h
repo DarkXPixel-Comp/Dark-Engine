@@ -1,8 +1,6 @@
 #pragma once
 #include "D3D12RHI.h"
 #include "D3D12ThirdParty.h"
-
-
 #include "Logging/LogMacros.h"
 
 DECLARE_LOG_CATEGORY(D3D12RHI, Log);

@@ -107,10 +107,11 @@ void FD3D12Adapter::InitializeDevices()
 {
 	if (!RootDevice)
 	{
-		CreateRootDevice(true);
+		CreateRootDevice(D3D12_DEBUG);
 	}
 
 	Devices[0] = MakeShareble(new FD3D12Device(this));
+
 
 
 
@@ -152,7 +153,7 @@ void FD3D12Adapter::CreateRootDevice(bool bWithDebug)
 
 	if (!bDeviceCreated)
 	{
-		DXCall(D3D12CreateDevice(NULL, D3D_FEATURE_LEVEL_12_0,
+		DXCall(D3D12CreateDevice(TempAdapter.Get(), D3D_FEATURE_LEVEL_12_0,
 			IID_PPV_ARGS(&RootDevice)));
 
 		RootDevice->QueryInterface(IID_PPV_ARGS(&RootDevice2));
@@ -166,10 +167,34 @@ void FD3D12Adapter::CreateRootDevice(bool bWithDebug)
 	if (bWithDebug)
 	{
 		DXCall(RootDevice->QueryInterface(IID_PPV_ARGS(&InfoQueue)));
-		DWORD Out = 0;
+	}
 
-		InfoQueue->RegisterMessageCallback(D3D12MessageCallBack, D3D12_MESSAGE_CALLBACK_FLAG_NONE,
-			nullptr, &Out);
+	IConsoleVariable* Var = GGlobalConsole.FindConsoleVariable(TEXT("r.D3D12.DebugMessages"));
+	if (Var && Var->IsVariableBool())
+	{
+		Var->SetOnChangedCallback([this](IConsoleVariable* Obj) 
+			{
+				SetDebugMessages(Obj->GetBool());
+			});
+		SetDebugMessages(Var->GetBool());
+	}
+}
+
+void FD3D12Adapter::SetDebugMessages(bool bOn)
+{
+	if (bDebugDevice && bOn != bCallbackEnable)
+	{
+		if (bOn)
+		{
+			InfoQueue->RegisterMessageCallback(D3D12MessageCallBack, D3D12_MESSAGE_CALLBACK_FLAG_NONE,
+				nullptr, &CallbackCoockie);
+			bCallbackEnable = true;
+		}
+		else
+		{
+			InfoQueue->UnregisterMessageCallback(CallbackCoockie);
+			bCallbackEnable = false;
+		}
 	}
 }
 

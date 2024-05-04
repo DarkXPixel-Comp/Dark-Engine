@@ -71,6 +71,7 @@ public:
 	IDXGIFactory5* GetDXGIFactory()	const { return DXGIFactory.Get(); }
 
 	void CreateRootDevice(bool bWithDebug = false);
+	void SetDebugMessages(bool bOn);
 	void CreateDXGIFactory(bool bWithDebug = false);
 
 	FD3D12Device* GetDevice(uint32 Index = 0) const { return Devices[Index].get(); }
@@ -94,9 +95,12 @@ private:
 
 	ComPtr<ID3D12InfoQueue1> InfoQueue;
 
-	bool bDebugDevice;
+	bool bDebugDevice = false;
 	bool bDeviceCreated;
 	bool bDestroyed = false;
+
+	DWORD CallbackCoockie;
+	bool bCallbackEnable = false;
 
 	TArray<FD3D12Viewport*>	Viewports;
 

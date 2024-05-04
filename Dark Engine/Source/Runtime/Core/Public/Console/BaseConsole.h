@@ -42,7 +42,11 @@ public:
 		return Data;
 	}
 
-
+	void SetValue(const T& Value)
+	{
+		Data = Value;
+	}
+	
 private:
 	T Data;
 
@@ -183,6 +187,15 @@ public:
 		return ConsoleObjects;
 	}
 
+	IConsoleVariable* FindConsoleVariable(const TCHAR* Name) const
+	{
+		auto It = ConsoleObjects.find(FString(Name));
+		if (It != ConsoleObjects.end())
+		{
+			return It->second->AsVariable();
+		}
+		return nullptr;
+	}
 
 private:
 	void ParseInput(FString& InputOutCommands, TArray<FString>& OutArgs);

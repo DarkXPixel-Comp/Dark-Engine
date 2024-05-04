@@ -1,7 +1,6 @@
 #include "D3D12RootSignature.h"
 #include "RHIResources.h"
 #include "D3D12Adapter.h"
-#include "d3dx12.h"
 #include "D3D12Util.h"
 #include "D3D12Shader.h"
 

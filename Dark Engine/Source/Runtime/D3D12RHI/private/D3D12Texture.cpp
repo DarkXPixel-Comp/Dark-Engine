@@ -4,6 +4,7 @@
 #include "D3D12CommandContext.h"
 
 
+
 D3D12_RESOURCE_DIMENSION GetD3D12Dimension(ETextureDimension InDimension)
 {
 	switch (InDimension)

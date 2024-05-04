@@ -15,7 +15,7 @@
 		{
 			"name": "Win64-Release",
 			"generator": "Ninja",
-			"configurationType": "Release",
+			"configurationType": "RelWithDebInfo",
 			"buildRoot": "${projectDir}\\Dark Engine\\Intermediate\\Build\\${name}",
 			"installRoot": "${projectDir}\\Dark Engine",
 			"cmakeCommandArgs": "",

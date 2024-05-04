@@ -1,6 +1,5 @@
 #include "D3D12Resources.h"
 #include "D3D12Util.h"
-#include "d3dx12.h"
 #include "D3D12Device.h"
 #include "D3D12CommandContext.h"
 

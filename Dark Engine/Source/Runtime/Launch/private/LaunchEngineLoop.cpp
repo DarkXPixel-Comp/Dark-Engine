@@ -161,7 +161,6 @@ int32 FEngineLoop::PreInit(const TCHAR* CmdLine)
 
 	GGlobalConsole.RegisterConsoleVariableRef(TEXT("g.Renderer.RenderMode"), GRenderMode);
 
-
 	DE_LOG(Launch, Log, TEXT("FEngineLoop Pre init (%s)"), CmdLine);
 
 	FShaderTypeRegistration::CommitAll();

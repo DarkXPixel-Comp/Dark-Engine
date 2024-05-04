@@ -2,7 +2,6 @@
 
 #include "D3D12Defines.h"
 #include "HAL/Platform.h"
-#include "D3D12ThirdParty.h"
 #include "D3D12DynamicRHI.h"
 #include "Memory/TUniquePtr.h"
 #include "Containers/Array.h"
