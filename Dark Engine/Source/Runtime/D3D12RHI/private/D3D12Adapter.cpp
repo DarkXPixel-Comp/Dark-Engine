@@ -47,10 +47,11 @@ void D3D12MessageCallBack(D3D12_MESSAGE_CATEGORY Category, D3D12_MESSAGE_SEVERIT
 
 
 FD3D12AdapterDesc::FD3D12AdapterDesc() = default;
-FD3D12AdapterDesc::FD3D12AdapterDesc(const DXGI_ADAPTER_DESC& InDesc, int32 InAdapterIndex)
+FD3D12AdapterDesc::FD3D12AdapterDesc(const DXGI_ADAPTER_DESC& InDesc, int32 InAdapterIndex, const FD3D12DeviceBasicInfo& InBasicInfo)
 	: Desc(InDesc)
 	, AdapterIndex(InAdapterIndex)
-	, MaxSupportFeatureLevel(D3D_FEATURE_LEVEL_12_0 /*temp*/)
+	, MaxSupportFeatureLevel(D3D_FEATURE_LEVEL_12_0 /*temp*/),
+	BasicInfo(InBasicInfo)
 	//, RootSignatureManager(this), PipelineStateCache(this), DefaultContextRedirector(this)
 {
 
@@ -166,7 +167,11 @@ void FD3D12Adapter::CreateRootDevice(bool bWithDebug)
 
 	if (bWithDebug)
 	{
-		DXCall(RootDevice->QueryInterface(IID_PPV_ARGS(&InfoQueue)));
+		RootDevice->QueryInterface(IID_PPV_ARGS(&InfoQueue));
+		if (!InfoQueue)
+		{
+			DE_LOG(D3D12RHI, Warning, TEXT("This device not support d3d12 callbacks"));
+		}
 	}
 
 	IConsoleVariable* Var = GGlobalConsole.FindConsoleVariable(TEXT("r.D3D12.DebugMessages"));
@@ -182,7 +187,7 @@ void FD3D12Adapter::CreateRootDevice(bool bWithDebug)
 
 void FD3D12Adapter::SetDebugMessages(bool bOn)
 {
-	if (bDebugDevice && bOn != bCallbackEnable)
+	if (InfoQueue && bOn != bCallbackEnable)
 	{
 		if (bOn)
 		{

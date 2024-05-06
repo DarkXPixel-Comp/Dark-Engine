@@ -32,6 +32,7 @@ FD3D12DynamicRHI::FD3D12DynamicRHI(const TArray<TSharedPtr<FD3D12Adapter>>& InCh
 
 FD3D12DynamicRHI::~FD3D12DynamicRHI()
 {
+
 }
 
 void FD3D12DynamicRHI::Init()

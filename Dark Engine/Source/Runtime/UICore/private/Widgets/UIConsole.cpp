@@ -63,12 +63,12 @@ int32 InputCallback(ImGuiInputTextCallbackData* data)
 			CurrentConsole->CurrentIndex++;
 			if (CurrentConsole->History.IsValidIndex(CurrentConsole->CurrentIndex))
 			{
-				strcpy(data->Buf, !CurrentConsole->History[CurrentConsole->CurrentIndex]);
+				strcpy(data->Buf, CurrentConsole->History[CurrentConsole->CurrentIndex].GetUTF8());
 				//data->Buf = CurrentConsole->History[CurrentConsole->CurrentIndex].ToString().data();
 				data->BufTextLen = lstrlenW(*CurrentConsole->History[CurrentConsole->CurrentIndex]);
 				data->BufDirty = true;
 				data->CursorPos = data->BufTextLen;
-				//data->BufSize = CurrentConsole->History[CurrentConsole->CurrentIndex].Len();
+				data->BufSize = CurrentConsole->History[CurrentConsole->CurrentIndex].Len();
 			}
 		}
 		else if (data->EventKey == ImGuiKey_DownArrow)

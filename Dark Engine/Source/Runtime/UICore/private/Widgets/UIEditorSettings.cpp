@@ -39,7 +39,7 @@ UIEditorSettings::UIEditorSettings() : UIWidget(TEXT("UIEditorSettings"))
 
 void UIEditorSettings::DrawImGui()
 {
-	if (ImGui::Begin(-Name, IsWidgetClose(), ImGuiWindowFlags_Modal))
+	if (ImGui::Begin(!Name, IsWidgetClose(), ImGuiWindowFlags_Modal))
 	{
 		ImGui::Text("Viewport");
 

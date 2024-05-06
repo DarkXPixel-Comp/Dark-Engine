@@ -81,8 +81,12 @@ FD3D12PipelineState* FD3D12PipelineStateManager::GetPipelineState(const FGraphic
 		HRESULT hr = S_OK;
 		if (PipelineLibrary)
 		{
-			DXCall(hr = PipelineLibrary->LoadPipeline(*Hash, &StreamDesc,
-				IID_PPV_ARGS(&PipelineState)));
+			hr = PipelineLibrary->LoadPipeline(*Hash, &StreamDesc,
+				IID_PPV_ARGS(&PipelineState));
+			if (hr == E_INVALIDARG)
+			{
+				DE_LOG(D3D12RHI, Log, TEXT("PSO not precached. Hash: %s"), *Hash);
+			}
 		}
 
 		if (PipelineState)

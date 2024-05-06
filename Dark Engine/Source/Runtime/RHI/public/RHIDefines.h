@@ -202,6 +202,7 @@ enum EResourceLockMode
 
 enum EPrimitiveType : uint32
 {
+	PT_None,
 	PT_TriangleList,
 	PT_TriangleStrip,
 	PT_LineList,

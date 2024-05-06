@@ -24,7 +24,7 @@ struct FD3D12DeviceBasicInfo
 struct FD3D12AdapterDesc
 {
 	FD3D12AdapterDesc();
-	FD3D12AdapterDesc(const DXGI_ADAPTER_DESC& InDesc, int32 InAdapterIndex);
+	FD3D12AdapterDesc(const DXGI_ADAPTER_DESC& InDesc, int32 InAdapterIndex, const FD3D12DeviceBasicInfo& BasicInfo);
 
 	bool IsValid() const;
 
@@ -36,6 +36,7 @@ struct FD3D12AdapterDesc
 
 
 	DXGI_ADAPTER_DESC Desc = {};
+	FD3D12DeviceBasicInfo BasicInfo;
 	int32 AdapterIndex = -1;
 	D3D_FEATURE_LEVEL MaxSupportFeatureLevel;
 

@@ -83,6 +83,11 @@ void FD3D12DynamicRHIModule::Shutdown()
 		//i.reset();
 		i->Destroy();
 	}
+	if (GD3D12RHI)
+	{
+		delete GD3D12RHI;
+		GD3D12RHI = nullptr;
+	}
 }
 
 
@@ -192,7 +197,7 @@ void FD3D12DynamicRHIModule::FindAdapter()
 
 
 
-	HRESULT hr = D3D12EnableExperimentalFeatures(1, &D3D12ExperimentalShaderModels, nullptr, nullptr);
+	//HRESULT hr = D3D12EnableExperimentalFeatures(1, &D3D12ExperimentalShaderModels, nullptr, nullptr);
 	Microsoft::WRL::ComPtr<IDXGIFactory7> DXGIFactory;
 	CreateDXGIFactory2(0, IID_PPV_ARGS(&DXGIFactory));
 	if (!DXGIFactory)
@@ -219,7 +224,7 @@ void FD3D12DynamicRHIModule::FindAdapter()
 				DXGI_ADAPTER_DESC AdapterDesc = {};
 				TempAdapter->GetDesc(&AdapterDesc);
 
-				FD3D12AdapterDesc CurrentAdapter(AdapterDesc, AdapterIndex);
+				FD3D12AdapterDesc CurrentAdapter(AdapterDesc, AdapterIndex, DeviceInfo);
 
 				if (CurrentAdapter.Desc.DedicatedVideoMemory > BestMemoryAdapter.Desc.DedicatedVideoMemory)
 				{
@@ -241,6 +246,7 @@ void FD3D12DynamicRHIModule::FindAdapter()
 		ChosenAdapters.Add(NewAdapter);
 		DE_LOG(D3D12RHI, Log, TEXT("Choose device: %s with %iMB"), BestMemoryAdapter.Desc.Description,
 			BestMemoryAdapter.Desc.DedicatedVideoMemory / (1024 * 1024));
+		DE_LOG(D3D12RHI, Log, TEXT("Max shader model: %s"), *ToStringD3DShaderModel(BestMemoryAdapter.BasicInfo.MaxShaderModel));
 	}
 	else
 	{

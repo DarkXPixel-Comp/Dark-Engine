@@ -42,6 +42,7 @@ void RHIExit()
 {
 	GDynamicRHI->Shutdown();
 	DynamicRHIShutdown();
+	GDynamicRHI = nullptr;
 }
 
 

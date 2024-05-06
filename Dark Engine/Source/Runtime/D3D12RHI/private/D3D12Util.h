@@ -1,7 +1,28 @@
 #pragma once
+#include "D3D12/d3d12.h"
 #include "D3D12Resources.h"
-#include <d3d12.h>
+//#include <d3d12.h>
 #include <comdef.h>
+
+static FString ToStringD3DShaderModel(D3D_SHADER_MODEL InShaderModel)
+{
+	switch (InShaderModel)
+	{
+	//case D3D_SHADER_MODEL_NONE: return TEXT("D3D_SHADER_MODEL_NONE");
+	case D3D_SHADER_MODEL_5_1:  return TEXT("D3D_SHADE_MODEL_5_1");
+	case D3D_SHADER_MODEL_6_0:  return TEXT("D3D_SHADE_MODEL_6_0");
+	case D3D_SHADER_MODEL_6_1:  return TEXT("D3D_SHADE_MODEL_6_1");
+	case D3D_SHADER_MODEL_6_2:  return TEXT("D3D_SHADE_MODEL_6_2");
+	case D3D_SHADER_MODEL_6_3:  return TEXT("D3D_SHADE_MODEL_6_3");
+	case D3D_SHADER_MODEL_6_4:  return TEXT("D3D_SHADE_MODEL_6_4");
+	case D3D_SHADER_MODEL_6_5:  return TEXT("D3D_SHADE_MODEL_6_5");
+	case D3D_SHADER_MODEL_6_6:  return TEXT("D3D_SHADE_MODEL_6_6");
+	case D3D_SHADER_MODEL_6_7:  return TEXT("D3D_SHADE_MODEL_6_7");
+	case D3D_SHADER_MODEL_6_8:  return TEXT("D3D_SHADE_MODEL_6_8");
+	case D3D_SHADER_MODEL_6_9:  return TEXT("D3D_SHADE_MODEL_6_9");
+	default: return TEXT("NONE");
+	}
+}
 
 
 static DXGI_FORMAT GDXGIFormats[EPixelFormat::Count] = 
@@ -41,6 +62,7 @@ static FORCEINLINE D3D_PRIMITIVE_TOPOLOGY GetD3D12PrimitiveTopology(uint32 Primi
 {
 	static const uint8 D3D12PrimitiveTopology[] =
 	{
+		D3D_PRIMITIVE_TOPOLOGY_UNDEFINED,
 		D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST,
 		D3D_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP,
 		D3D_PRIMITIVE_TOPOLOGY_LINELIST,

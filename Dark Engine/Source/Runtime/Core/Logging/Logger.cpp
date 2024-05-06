@@ -25,14 +25,21 @@ void Logger::Initialize(size_t s)
 
 	inst->severity = (s);
 	inst->isWork = true;
-	inst->Logs.resize(256);
+	inst->logs.reserve(256);
+	inst->TempLogs.reserve(256);
+
 
 	std::thread th(logging, inst); th.detach();
 
 	inst->log("The system started successfully", LOGGER_ENUM::LOGGER_INFO);
 
-	//inst << FString("s")
+	FString Path = TEXT("logs/latest/latest.log");
 
+	std::wofstream fout(*Path, std::ios_base::trunc);
+	if (fout.is_open())
+	{
+		fout.close();
+	}
 
 }
 
@@ -44,7 +51,6 @@ void Logger::Exit()
 		inst->wait();
 		inst->isWork = false;
 		inst->logs.clear();
-		inst->Logs.clear();
 		delete inst;
 		inst = nullptr;
 	}
@@ -53,6 +59,8 @@ void Logger::Exit()
 void record(log_& obj)
 {
 	FString folder = "logs/";
+	FString Path = TEXT("logs/latest/latest.log");
+
 
 	tm ltm;
 	localtime_s(&ltm, &obj.time);
@@ -63,6 +71,7 @@ void record(log_& obj)
 	//std::ofstream fout;	
 
 	std::wofstream fout;
+	std::wofstream Latest(*Path, std::ios_base::app);
 
 
 	FString out = folder.ToString() + std::to_string(ltm.tm_year - 100 + 2000) +
@@ -76,14 +85,16 @@ void record(log_& obj)
 
 	fout.imbue(std::locale(".utf-8"));
 
-	if (!fout.is_open())
+	if (!fout.is_open() || !Latest.is_open())
 	{
 		return;
 	}
 
 
-	fout << *obj.Result << L"\n";
+	fout << *obj.Result << TEXT("\n");
+	Latest << *obj.Result << TEXT("\n");
 
+	Latest.close();
 	fout.close();
 }
 
@@ -103,9 +114,18 @@ void logging(Logger* obj)
 {
 	while (obj->isWork)
 	{
-		std::vector<log_> TempLogs = obj->logs;
-		obj->logs.clear();
-
+		std::vector<log_>& TempLogs = obj->TempLogs;
+		if (obj->logs.size())
+		{
+			obj->Mutex.lock();
+			TempLogs = obj->logs;
+			obj->logs.clear();
+			obj->Mutex.unlock();
+		}
+		else
+		{
+			TempLogs.clear();
+		}
 		for (auto& i : TempLogs)
 		{
 			if (i.ModernLog)
@@ -117,45 +137,7 @@ void logging(Logger* obj)
 			{
 				record(i);
 			}
-			//std::cout << it->txt;
-
-
-			if (obj->CountCurrentLogs >= 256)
-			{
-				obj->CountCurrentLogs = 0;
-			}
-			obj->Logs[obj->CountCurrentLogs++] = i;
-			obj->MaxCountLogs = FPlatformMath::Max(obj->MaxCountLogs, obj->CountCurrentLogs);
 		}
-		//while (!TempLogs.empty())
-		//{
-		//	auto it = obj->logs.begin();
-
-		//	if (it == obj->logs.end())
-		//		continue;
-
-		//	if (it->ModernLog)
-		//	{
-		//		ModernLog(*it);
-		//		record(*it);
-		//	}
-		//	else
-		//	{
-		//		record(*it);
-		//	}
-		//	//std::cout << it->txt;
-
-		//	
-		//	if (obj->CountCurrentLogs >= 256)
-		//	{
-		//		obj->CountCurrentLogs = 0;
-		//	}
-		//	obj->Logs[obj->CountCurrentLogs++] = *it;
-		//	obj->MaxCountLogs = FPlatformMath::Max(obj->MaxCountLogs, obj->CountCurrentLogs);
-
-		//	TempLogs.erase(it);
-		//}
-
 		std::this_thread::sleep_for(std::chrono::microseconds(1000));
 	}
 
@@ -275,8 +257,20 @@ void Logger::log(log_ InLog)
 {
 	if (inst && inst->isWork)
 	{
+		inst->Mutex.lock();
 		InLog.time = time(0);
 		inst->logs.push_back(InLog);
+		inst->Mutex.unlock();
+	}
+}
+
+void Logger::ClearLogs()
+{	 
+	if(inst->logs.size() != 0)
+	{
+		inst->Mutex.lock();
+		inst->logs.clear();
+		inst->Mutex.unlock();
 	}
 }
 

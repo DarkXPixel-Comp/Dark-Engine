@@ -14,7 +14,7 @@
 
 #include "../CommandLine/CommandLine.h"
 #include "Math/MathFwd.h"
-//#include "Containers/Array.h"
+#include "Containers/Array.h"
 
 
 
@@ -79,24 +79,21 @@ public:
 #endif // _WIN32
 	static void wait();
 
-	static std::vector<log_>& GetLogs() { return inst->Logs; }
+	//static std::vector<log_>& GetLogs() { return inst->Logs; }
 
-	static uint64 GetMaxCountLogs() { return inst->MaxCountLogs; }
-	static uint64 GetCurrentCountLogs() { return inst->CountCurrentLogs; }
+
+private:
+	static void ClearLogs();
 
 public:
-	//TArray<log_> Logs;
-	//TArray<int> Logs;
-	std::vector<log_> Logs;
-	uint64 CountCurrentLogs = 0;
-	uint64 MaxCountLogs = 0;
-
+	std::vector<log_> TempLogs;
 
 private:
 	size_t severity = 0;
 	std::vector <log_> logs;
 	bool isWork = true;
 	const uint64 MAX_LOGS = 1024;
+	mutable std::mutex Mutex;
 private:
 	static Logger* inst;
 };

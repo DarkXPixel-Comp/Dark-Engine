@@ -45,7 +45,8 @@ public:
 
 	void GetCompilerArgs(TArray<const WCHAR*>& Out) const
 	{
-		//Out.Add(TEXT("Zi"));
+		Out.Add(TEXT("-Zi"));
+		Out.Add(TEXT("-Zss"));
 		Out.Add(TEXT("-E"));
 		Out.Add(*EntryPoint);
 		Out.Add(TEXT("-T"));
@@ -118,15 +119,31 @@ void CompileD3DShader(const FShaderCompilerInput& Input, const FShaderPreprocess
 
 	TRefCountPtr<IDxcBlob> OutResult;
 	TRefCountPtr<IDxcBlob> HashShader;
+	TRefCountPtr<IDxcBlob> PdbDebug;
 	
 
 	if (SUCCEEDED(Result))
 	{
 		TRefCountPtr<IDxcBlobUtf16>	ObjectCodeNameBlob;
 		TRefCountPtr<IDxcBlobUtf16>	ObjectHashBlob;
+		TRefCountPtr<IDxcBlobUtf16>	ObjectPdbBlob;
 		check(CompileResult->HasOutput(DXC_OUT_OBJECT) && "No object code found");
 		CompileResult->GetOutput(DXC_OUT_OBJECT, IID_PPV_ARGS(&OutResult), &ObjectCodeNameBlob);
 		CompileResult->GetOutput(DXC_OUT_SHADER_HASH, IID_PPV_ARGS(&HashShader), &ObjectHashBlob);
+		CompileResult->GetOutput(DXC_OUT_PDB, IID_PPV_ARGS(&PdbDebug), &ObjectPdbBlob);
+
+		DE_LOG(LogShaders, Log, TEXT("Successful shader compile"));
+		std::wstring PdbName = (TCHAR*)ObjectPdbBlob->GetBufferPointer();
+
+
+		ofstream fout;
+		fout.open(*FString::PrintF(TEXT("%s/Debug/%s"), *FPaths::EngineShaderDir(), PdbName.data()), ios::binary);
+		if(fout.is_open())
+		{
+			fout.write((const char*)PdbDebug->GetBufferPointer(), PdbDebug->GetBufferSize());
+			fout.close();
+		}
+		
 	}
 	else
 	{

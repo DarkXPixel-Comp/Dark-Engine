@@ -71,7 +71,7 @@ void UIEditorViewport::DrawImGui()
 		ImGui::SetCursorPos(ImVec2(5, 30));
 		float Fps = 1 / Delta;
 
-		ImGui::Text(-FString::NumToString((int)Fps));
+		ImGui::Text("%i", (int32)Fps);
 		ImGui::End();
 	}
 	

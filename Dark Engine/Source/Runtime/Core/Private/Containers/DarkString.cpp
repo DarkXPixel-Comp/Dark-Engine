@@ -8,18 +8,18 @@
 
 FString::FString(const ANSICHAR* Str)
 {
-	int32 Lenght = (int32)strlen(Str) + 1;
-	_string.resize(Lenght);
-
-	size_t ConvertedChars = 0;
-
-	mbstowcs_s(NULL, _string.data(), Lenght, Str, Lenght - 1);
-
-	if (_string.back() == L'\0')
+	int32 Lenght = (int32)strlen(Str);
+	int sz = MultiByteToWideChar(CP_UTF8, 0, Str, Lenght, 0, 0);
+	if (sz < 1)
 	{
-		_string.pop_back();
+		_string = TEXT("");
 	}
-
+	else
+	{
+		_string.resize(sz);
+		MultiByteToWideChar(CP_UTF8, 0, Str, Lenght,
+			_string.data(), sz);
+	}
 }
 
 FString::FString(const std::wstring& Str)
@@ -40,16 +40,25 @@ std::string FString::ToString() const
 
 const char* FString::GetUTF8() const		 // Change on Multiplatform or FPlatformString
 {
-	std::string Result;
+	if (bChangedString)
+	{
+		std::string Result;
 
-	int sz = WideCharToMultiByte(CP_UTF8, 0, _string.data(), -1, 0, 0, 0, 0);
-	Result.resize(sz);
-	WideCharToMultiByte(CP_UTF8, 0, _string.data(), -1, Result.data(), sz, 0, 0);
+		int sz = WideCharToMultiByte(CP_UTF8, 0, _string.data(), -1, 0, 0, 0, 0);
+		Result.resize(sz);
+		WideCharToMultiByte(CP_UTF8, 0, _string.data(), -1, Result.data(), sz, 0, 0);
 
-	_tempString = Result;
+		_tempString = Result;
+		bChangedString = false;
+	}
 	return _tempString.c_str();
 }
 
+
+const char8_t* FString::GetUTF() const
+{
+	return reinterpret_cast<const char8_t*>(GetUTF8());
+}
 
 FString::FString(const std::string& Str)
 	: FString(Str.data())

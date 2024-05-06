@@ -117,6 +117,12 @@ public:
 		return GetUTF8();
 	}
 
+	/*char* operator+() const
+	{
+		GetUTF8();
+		return _tempString.data();
+	}*/
+
 	FString operator/(const FString& Other)
 	{
 		return FString::PrintF(TEXT("%s/%s"), _string.data(), *Other);
@@ -141,6 +147,7 @@ public:
 
 	FString& Replace(TCHAR Str1, TCHAR Str2)
 	{
+		bChangedString = true;
 		std::replace(_string.begin(), _string.end(), Str1, Str2);
 		return *this;
 	}
@@ -148,6 +155,7 @@ public:
 
 	void Resize(uint32 NewSize)
 	{
+		bChangedString = true;
 		_string.resize(NewSize);
 	}
 
@@ -158,6 +166,7 @@ public:
 
 	std::wstring& GetNativeString()
 	{
+		bChangedString = true;
 		return _string;
 	}
 
@@ -201,12 +210,17 @@ public:
 
 	const char* GetStr() const
 	{
-		_tempString = ToString();
+		if (bChangedString)
+		{
+			_tempString = ToString();
+			bChangedString = false;
+		}
 		return _tempString.c_str();
 	}
 
 	const char* GetUTF8() const;
 
+	const char8_t* GetUTF() const;
 
 
 
@@ -227,7 +241,7 @@ public:
 	}
 
 	const TCHAR* operator*() const { return _string.data(); }
-	TCHAR* operator*() { return _string.data(); }
+	TCHAR* operator*() { bChangedString = true; return _string.data(); }
 
 	bool operator==(const FString& R) const
 	{
@@ -245,8 +259,8 @@ public:
 	}
 
 
-	decltype(auto) begin() { return _string.begin(); }
-	decltype(auto) end() { return _string.end(); }
+	decltype(auto) begin() { bChangedString = true; return _string.begin(); }
+	decltype(auto) end() { bChangedString = true; return _string.end(); }
 
 
 

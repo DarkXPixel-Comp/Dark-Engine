@@ -57,6 +57,10 @@ void VerifyGlobalShaders()
 	{
 		FGlobalShaderTypeCompiler::FinishCompilation(TEXT("Global"), GlobalShaderJobs);
 	}
+	else
+	{
+		DE_LOG(LogShaders, Error, TEXT("GlobalShaderJobs.Num() = 0"));
+	}
 }
 
 void FGlobalShaderTypeCompiler::BeginCompileShader(const FGlobalShaderType* ShaderType,
@@ -68,6 +72,7 @@ void FGlobalShaderTypeCompiler::BeginCompileShader(const FGlobalShaderType* Shad
 	NewJob->Input.ShaderType = ShaderType->GetShaderType();
 	NewJob->Input.Type = (FShaderType*)ShaderType;
 	Jobs.Add(MakeShareble(NewJob));
+	DE_LOG(LogShaders, Log, TEXT("Compile %s"), ShaderType->GetShaderFilename());
 }
 
 
@@ -90,6 +95,7 @@ void CompileShader(FShaderCompileJob& Job)
 		DE_LOG(LogShaders, Fatal, TEXT("Not find shader compiler"));
 	}
 
+	DE_LOG(LogShaders, Log, TEXT("Finish compile %s"), *Job.Input.SourceFilePath);
 	float TimeStart = FGameTimer::GameTime();
 	
 	//PreprocessShaderInternal(Compiler, Job);
@@ -116,23 +122,39 @@ void ProcessCompiledShaderMap(TArray<TSharedPtr<FShaderCompileJob>>& Jobs)
 
 void FGlobalShaderTypeCompiler::FinishCompilation(FString MaterialName, TArray<TSharedPtr<FShaderCompileJob>>& Jobs)
 {
-	TArray<std::shared_future<void>> FuturesArray;
-	FuturesArray.Reserve(Jobs.GetSize());
-	for (auto& It : Jobs)
+	if (ASYNC_SHADER_COMPILING)
 	{
-		FuturesArray.Push(std::async(std::launch::async, [&It]()
-			{
-				CompileShader(*It);
-			}).share());
-	}
-
-	for (auto& i : FuturesArray)
-	{
-		if (i.wait_for(std::chrono::seconds(10)) != std::future_status::ready)
+		TArray<std::shared_future<void>> FuturesArray;
+		FuturesArray.Reserve(Jobs.GetSize());
+		DE_LOG(LogShaders, Log, TEXT("Begin async compiling"));
+		for (auto& It : Jobs)
 		{
-			DE_LOG(LogShaders, Error, TEXT("Timeout shader compiling"));
-		}		
+			FuturesArray.Push(std::async(std::launch::async, [&It]()
+				{
+					DE_LOG(LogShaders, Log, TEXT("Async shader"));
+					CompileShader(*It);
+				}).share());
+		}
+
+		for (auto& i : FuturesArray)
+		{
+			if (i.wait_for(std::chrono::seconds(10)) != std::future_status::ready)
+			{
+				DE_LOG(LogShaders, Error, TEXT("Timeout shader compiling"));
+			}
+		}
 	}
+	else
+	{
+		DE_LOG(LogShaders, Log, TEXT("Begin default compiling"));
+		for (auto& It : Jobs)
+		{
+			DE_LOG(LogShaders, Log, TEXT("Default shader"));
+			CompileShader(*It);
+		}
+
+	}
+	
 	ProcessCompiledShaderMap(Jobs);
 
 }

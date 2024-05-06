@@ -11,7 +11,6 @@ struct FMsg
 	static void LogV(const ANSICHAR* File, int32 Line, const FString& Category, ELogVerbosity::Type Verbosity,
 		const TCHAR* Fmt, va_list Args)
 	{
-		//if (Verbosity != ELogVerbosity::Fatal)
 		{
 			FString Message;
 			Message.AppendV(Fmt, Args);
@@ -45,10 +44,6 @@ struct FMsg
 				break;
 			}
 
-			/*FString Result;
-			Result.AppendV(TEXT("%S: %S: %S"), L"TEST", L"TEST2", L"TEST3")*/
-
-			//FString Result = FString::PrintF(TEXT("%i: %s: %s"), 25, L"TEST2", L"TEST3");
 			FString Result = FString::PrintF(TEXT("[%s] [%s]: %s"), *Category, *Verbose, *Message);
 			CurrentLog.ModernLog = true;
 			CurrentLog.Result = Result;
@@ -110,6 +105,7 @@ void BasicLog(const FLogCategoryBase& Category, const FStaticBasicLogRecord* Log
 	{	 \
 		BasicLog(CategoryName, &LOG_Static, ##__VA_ARGS__);   \
 	}\
+	else {BasicLog(CategoryName, &LOG_Static, ##__VA_ARGS__);}\
 }
 
 

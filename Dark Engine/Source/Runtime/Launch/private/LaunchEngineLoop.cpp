@@ -146,10 +146,10 @@ int32 FEngineLoop::PreInit(const TCHAR* CmdLine)
 			GGlobalConsole.DestroyConsole();
 		});
 
-	//GGlobalConsole.RegisterConsoleCommand(TEXT("g.RequestExit"), [](const TArray<FString>&) 
-	//	{
-	//		RequestExit();
-	//	}, TEXT("Request Exit"));
+	GGlobalConsole.RegisterConsoleCommand(TEXT("g.RequestExit"), [](const TArray<FString>&) 
+		{
+			RequestExit();
+		}, TEXT("Request Exit"));
 
 	GGlobalConsole.RegisterConsoleCommand(TEXT("Suka"), [](const TArray<FString>& Args)
 		{
@@ -161,7 +161,7 @@ int32 FEngineLoop::PreInit(const TCHAR* CmdLine)
 
 	GGlobalConsole.RegisterConsoleVariableRef(TEXT("g.Renderer.RenderMode"), GRenderMode);
 
-	DE_LOG(Launch, Log, TEXT("FEngineLoop Pre init (%s)"), CmdLine);
+	DE_LOG(Launch, Log, TEXT("FEngineLoop Pre init. Cmd: %s"), CmdLine);
 
 	FShaderTypeRegistration::CommitAll();
 

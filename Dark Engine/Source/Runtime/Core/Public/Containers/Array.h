@@ -5,6 +5,7 @@
 #include <set>
 #include "HAL/Platform.h"
 #include <memory>
+#include <mutex>
 
 
 
@@ -192,6 +193,104 @@ private:
 	friend struct std::hash<TArray<ElementType>>;
 };
 
+
+template <typename ElementType>
+class TArrayThreadSafe : public TArray<ElementType>
+{
+	using SizeType = TArray<ElementType>::SizeType;
+public:
+	TArrayThreadSafe() { }
+
+	TArrayThreadSafe(SizeType Size) : TArray<ElementType>(Size) {}
+
+	TArrayThreadSafe(const ArrayReserve& InReserve) : TArray<ElementType>(InReserve) {}
+
+	TArrayThreadSafe(std::initializer_list<ElementType> Elements) : TArray<ElementType>(Elements) {}
+
+	TArrayThreadSafe(std::vector<ElementType> Elements) : TArray<ElementType>(Elements) {}
+
+	template<std::size_t N>
+	TArrayThreadSafe(ElementType(&Elements)[N]) : TArray<ElementType>(Elements) {}
+
+
+	void Add(ElementType&& Item) { std::scoped_lock Lock(Mutex);  return TArray<ElementType>::Add(Item); }
+	void Add(const ElementType& Item) { return TArray<ElementType>::Add(Item);}
+
+	void Push(ElementType&& Item) { std::scoped_lock Lock(Mutex); TArray<ElementType>::Push(Item);}
+	void Push(const ElementType& Item) { std::scoped_lock Lock(Mutex); TArray<ElementType>::Push(Item);}
+
+	template <typename... ArgsType>
+	decltype(auto) Emplace(ArgsType&&... Args) { std::scoped_lock Lock(Mutex); return TArray<ElementType>::Emplace(Args...);}
+
+	template <typename... ArgsType>
+	ElementType& Emplace_GetRef(ArgsType&&...Args)
+	{
+		std::scoped_lock Lock(Mutex);
+		TArray<ElementType>::Emplace_GetRef(Args...);
+		//return Last();
+	}
+
+	SizeType GetSize() const { std::scoped_lock Lock(Mutex); return TArray<ElementType>::Size(); }
+
+	SizeType Num() const { std::scoped_lock Lock(Mutex); return TArray<ElementType>::Num();}
+
+	void Empty() { std::scoped_lock Lock(Mutex); return TArray<ElementType>::Empty();}
+
+	void Reserve(SizeType Count) { std::scoped_lock Lock(Mutex); TArray<ElementType>::Reserve(Count);}
+
+	void Resize(SizeType Count) { std::scoped_lock Lock(Mutex); TArray<ElementType>::Resize(Count);}
+
+	decltype(auto) Erase(auto it) { std::scoped_lock Lock(Mutex); return TArray<ElementType>::Erase(it);}
+
+
+	ElementType PopBack() { std::scoped_lock Lock(Mutex); return TArray<ElementType>::PopBack();}
+
+	template<typename OtherElementType>
+	void Append(TArray<OtherElementType>&& Source) { std::scoped_lock Lock(Mutex); TArray<ElementType>::Append(Source);}
+
+	decltype(auto) Insert(auto Where, auto It1, auto It2) { std::scoped_lock Lock(Mutex); return TArray<ElementType>::Insert(Where, It1, It2);}
+
+	void Remove(const ElementType& Element)
+	{
+		std::scoped_lock Lock(Mutex);
+		TArray<ElementType>::Remove(Element);
+	}
+
+
+	template<typename T>
+	void RemovePtr(T* Element)
+	{
+		std::scoped_lock Lock(Mutex);
+		TArray<ElementType>::RemovePtr(Element);
+	}
+
+	void RemovePtr(ElementType& Element)
+	{
+		std::scoped_lock Lock(Mutex);
+		TArray<ElementType>::RemovePtr(Element);
+	}
+
+
+	bool IsValidIndex(SizeType Index) const
+	{
+		std::scoped_lock Lock(Mutex);
+		return TArray<ElementType>::IsValidIndex(Index);
+	}
+
+
+	TArray<ElementType> operator+(const TArray<ElementType>& R)
+	{
+		std::scoped_lock Lock(Mutex);
+		return TArray<ElementType>::operator+(R);
+	}
+
+private:
+	std::mutex Mutex;
+
+
+};
+
+
 template <class T>
 inline void hash_combine(std::size_t& seed, const T& v)
 {
@@ -217,149 +316,3 @@ struct std::hash<TArray<T>>
 		return Result;
 	}
 };
-
-
-
-
-//template <typename T>
-//using TArray = std::vector<T>;
-
-
-
-
-
-//
-//namespace Develop
-//{
-//	template<typename InElementType, typename InAllocatorType>
-//	class TTArray
-//	{
-//		template<typename OtherInElementType, typename OtherAllocator>
-//		friend class TArray;
-//
-//	public:
-//		typedef typename InAllocatorType::SizeType SizeType;
-//		typedef InElementType ElementType;
-//		typedef InAllocatorType AllocatorType;
-//
-//	private:
-//		using USizeType = typename TMakeUnsigned<SizeType>::Type;
-//
-//		typedef typename TChooseClass<AllocatorType::NeedsElementType,
-//			typename AllocatorType::template ForElementType<ElementType>,
-//			typename AllocatorType::ForAnyElementType
-//		>::Result ElementAllocatorType;
-//
-//	/*	typedef typename TChooseClass<
-//			AllocatorType::NeedsElementType,
-//			typename AllocatorType::template ForElementType<ElementType>,
-//			typename AllocatorType::ForAnyElementType
-//		>::Result ElementAllocatorType;*/
-//
-//		static_assert(TIsSigned<SizeType>::Value, "TArray only supports signed index types");
-//		
-//
-//		//FORCEINLINE TArray()
-//		//	: ArrayNum(0),
-//		//	ArrayMax(AllocatorInstance.GetInitialCapacity())
-//		//{}
-//
-//		FORCEINLINE TTArray(const ElementType* Ptr, SizeType Count)
-//		{
-//			if(Count < 0)
-//			{
-//				Logger::log(TEXT("Trying to resize TArray to an invalid size of %llu"), LOGGER_ERROR);
-//			}
-//
-//			check(Ptr != nullptr || Count == 0);
-//
-//			CopyToEmpty(Ptr, Count, 0);
-//		}
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//		SizeType AllocatorCalculateSlackReserve(SizeType NewArrayMax)
-//		{
-//	/*		if constexpr (TAllocatorTraits<AllocatorType>::SupportsElementAlignment)
-//			{
-//				return AllocatorInstance.CalculateSlackReserve(NewArrayMax, sizeof(ElementType), alignof(ElementType));
-//			}
-//			else
-//			{
-//				return AllocatorInstance.CalculateSlackReserve(NewArrayMax, sizeof(ElementType));
-//			}*/
-//		}
-//
-//
-//
-//
-//
-//		FORCENOINLINE void ResizeForCopy(SizeType NewMax, SizeType PrevMax)
-//		{
-//			if (NewMax)
-//			{
-//				NewMax = AllocatorCalculateSlackReserve(NewMax);
-//			}
-//			if (NewMax > PrevMax)
-//			{
-//				AllocatorResizeAllocation(0, NewMax);
-//				ArrayMax = NewMax;
-//			}
-//			else
-//			{
-//				ArrayMax = PrevMax;
-//			}
-//		}
-//
-//
-//
-//
-//
-//
-//
-//
-//	protected:
-//		ElementAllocatorType AllocatorInstance;
-//		SizeType ArrayNum;
-//		SizeType ArrayMax;
-//
-//
-//
-//		template <typename OtherElementType, typename OtherSizeType>
-//		void CopyToEmpty(const OtherElementType* OtherData, OtherSizeType OtherNum, SizeType PrevMax)
-//		{
-//			SizeType NewNum = (SizeType)OtherNum;
-//			checkf((OtherSizeType)NewNum == OtherNum, TEXT("Invalid number of elements to add to this array type: %lld"), (long long)NewNum);
-//
-//			ArrayNum = NewNum;
-//			if (OtherNum || PrevMax)
-//			{
-//				ResizeForCopy(NewNum, PrevMax);
-//				//ConstructItems<ElementType>(GetData(), OtherData, OtherNum);
-//			}
-//			else
-//			{
-//				ArrayMax = AllocatorInstance.GetInitialCapacity();
-//			}
-//		}
-//
-//	};
-//
-//}
-
-

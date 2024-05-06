@@ -27,6 +27,8 @@ target_include_directories(D3D12RHI PRIVATE "private")
 
 if(${CMAKE_BUILD_TYPE} STREQUAL Debug)
 target_compile_definitions(D3D12RHI PRIVATE D3D12_DEBUG=1)
+elseif(${CMAKE_BUILD_TYPE} STREQUAL RelWithDebInfo)
+target_compile_definitions(D3D12RHI PRIVATE D3D12_DEBUG=1)
 else()
 target_compile_definitions(D3D12RHI PRIVATE D3D12_DEBUG=0)
 endif()
