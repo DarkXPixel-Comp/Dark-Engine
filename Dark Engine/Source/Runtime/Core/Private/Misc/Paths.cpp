@@ -3,12 +3,12 @@
 
 CORE_API FString FPaths::LaunchDir()
 {
-	return EngineDir() + "bin/";
+	return EngineDir() + TEXT("bin/");
 }
 
 CORE_API FString FPaths::EngineDir()
 {
-	FString DefaultEngineDir = RootDir() + "Dark Engine/";
+	FString DefaultEngineDir = RootDir() + TEXT("Dark Engine/");
 	return DefaultEngineDir;
 }
 
@@ -19,12 +19,17 @@ CORE_API FString FPaths::CacheDir()
 
 CORE_API FString FPaths::EngineBinariesDir()
 {
-	return EngineDir() + "bin/";
+	return EngineDir() + TEXT("bin/");
+}
+
+CORE_API FString FPaths::EngineScriptsDir()
+{
+	return EngineDir() + TEXT("Scripts");
 }
 
 CORE_API FString FPaths::EngineContentDir()
 {
-	return EngineDir() + "Content/";
+	return EngineDir() + TEXT("Content/");
 }
 CORE_API FString FPaths::ConfigDir()
 {
@@ -44,10 +49,10 @@ CORE_API FString FPaths::CombineDir(FString Str1, FString Str2)
 
 CORE_API FString FPaths::SourceDir()
 {
-	return CORE_API EngineDir() + "Source/";
+	return CORE_API EngineDir() + TEXT("Source/");
 }
 
 CORE_API FString FPaths::EngineShaderDir()
 {
-	return SourceDir() + "Shaders/";
+	return SourceDir() + TEXT("Shaders/");
 }

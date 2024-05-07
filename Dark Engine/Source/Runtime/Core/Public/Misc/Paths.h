@@ -29,6 +29,8 @@ public:
 
 	static CORE_API FString EngineContentDir();
 
+	static CORE_API FString EngineScriptsDir();
+
 	static CORE_API FString SourceDir();
 
 	static CORE_API FString ConfigDir();

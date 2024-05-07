@@ -189,7 +189,7 @@ void FD3D12Viewport::Init()
 	Factory->MakeWindowAssociation(WindowHandle, DXGI_MWA_NO_WINDOW_CHANGES);
 
 
-	Resize(BufferDesc.Width, BufferDesc.Height, bIsFullscreen, PixelFormat);
+	Resize(BufferDesc.Width, BufferDesc.Height, false, PixelFormat);
 
 
 
@@ -261,18 +261,12 @@ bool FD3D12Viewport::Present(int32 bVsync)
 	DefaultContext.FlushCommands();
 
 	UINT Flags = 0;
-	if (!bVsync && !bIsFullscreen)
-	{
-		//Flags |= DXGI_PRESENT_ALLOW_TEARING;
-	}
 
 	if (SwapChain4)
 	{
 		SwapChain4->Present(bVsync, Flags);
 		CurrentBackBufferIndex = SwapChain4->GetCurrentBackBufferIndex();
 	}
-
-
 
 	return true;
 }

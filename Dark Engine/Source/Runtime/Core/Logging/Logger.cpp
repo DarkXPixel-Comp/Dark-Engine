@@ -16,7 +16,7 @@ Logger::Logger()
 }
 
 
-
+const std::locale DEFAULT_LOCALE(".utf-8");
 
 
 void Logger::Initialize(size_t s)
@@ -83,7 +83,8 @@ void record(log_& obj)
 	
 	fout.open(*out, std::ios::app);
 
-	fout.imbue(std::locale(".utf-8"));
+	fout.imbue(DEFAULT_LOCALE);
+	Latest.imbue(DEFAULT_LOCALE);
 
 	if (!fout.is_open() || !Latest.is_open())
 	{

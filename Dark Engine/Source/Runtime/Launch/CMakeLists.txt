@@ -4,7 +4,7 @@ add_executable(Launch) # "Resource/Windows/app.o"
 
 
 #set(CMAKE_CXX_STANDARD 20)
-target_link_libraries(Launch PRIVATE Core Engine IMGUI RHI ApplicationCore UICore VulkanRHI)
+target_link_libraries(Launch PRIVATE Core Engine IMGUI RHI ApplicationCore UICore VulkanRHI Lua)
 #target_link_libraries(Launch PUBLIC ${LaunchLibs})
 target_compile_features(Launch PUBLIC cxx_std_20)
 

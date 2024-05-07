@@ -2,6 +2,7 @@
 
 
 #include "CoreMinimal.h"
+#include "sol2/sol.hpp"
 
 /**
 *	@author DarkXPixel - https:darkengine.com - <EMAIL> - nahmurin.dima65@gmail.com
@@ -17,6 +18,7 @@ public:
 
 public:
 	int32 PreInit(const TCHAR* CmdLine);
+	int32 TestInit();
 
 	
 	
@@ -28,6 +30,8 @@ public:
 
 
 
+private:
+	sol::state ScriptState;
 
 };
 

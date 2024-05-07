@@ -246,15 +246,22 @@ IConsoleObject* FBaseConsole::AddConsoleObject(const TCHAR* Name, IConsoleObject
 	check(Obj);
 
 	auto It = ConsoleObjects.find(Name);
+	auto DefaultValue = DefaultValues.find(Name);
 
 	IConsoleObject* Object = It != ConsoleObjects.end() ? It->second : nullptr;
 
 	if (Object)
 	{
+		delete Obj;
 		return Object;
 	}
 	else
 	{
+		if (DefaultValue != DefaultValues.end() && Obj->AsVariable())
+		{
+			Obj->AsVariable()->Set(DefaultValue->second);
+			DefaultValues.erase(DefaultValue);
+		}
 		Obj->Description = InDescription;
 		ConsoleObjects.emplace(Name, Obj);
 		return Obj;
@@ -312,6 +319,25 @@ IConsoleVariable* FBaseConsole::RegisterConsoleVariableRef(const TCHAR* Name, FS
 {
 	return (IConsoleVariable*)AddConsoleObject(Name, new FConsoleVariableRef<FString>(RefValue), Description);
 }
+
+
+void FBaseConsole::RegisterDefaultValue(const TCHAR* Name, const FString& Value)
+{
+	auto It = DefaultValues.find(Name);
+
+	if (It != DefaultValues.end())
+	{
+		It->second = Value;;
+	}
+	else
+	{
+		DefaultValues.emplace(Name, Value);
+	}
+}
+
+
+
+
 
 void FBaseConsole::ParseInput(FString& InputOutCommands, TArray<FString>& OutArgs)
 {

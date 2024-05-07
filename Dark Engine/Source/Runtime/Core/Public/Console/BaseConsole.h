@@ -176,6 +176,9 @@ public:
 	class IConsoleVariable* RegisterConsoleVariableRef(const TCHAR* Name, int32& RefValue, const TCHAR* Description = TEXT(""));
 	class IConsoleVariable* RegisterConsoleVariableRef(const TCHAR* Name, bool& RefValue, const TCHAR* Description = TEXT(""));
 
+	void RegisterDefaultValue(const TCHAR* Name, const FString& Value);
+
+
 
 	const TArray<FConsoleLog>& GetLogs() const { return Cache; }
 
@@ -210,4 +213,5 @@ private:
 
 	bool bInit = false;
 	TUnordoredMap<FString, IConsoleObject*>	ConsoleObjects;
+	TUnordoredMap<FString, FString> DefaultValues;
 };

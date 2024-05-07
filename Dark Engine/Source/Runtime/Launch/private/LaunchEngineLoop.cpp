@@ -18,10 +18,12 @@
 #include "Shader.h"
 #include "ShaderCompiler.h"
 #include "Console/GlobalInputOutConsole.h"
-
+#include "Misc/Config.h"
 #include "GlobalResource.h"
-#include "VulkanDynamicRHI.h"
 
+//#include "lua.hpp"
+#include "sol2/sol.hpp"
+#include <iostream>
 
 
 
@@ -119,6 +121,33 @@ public:
 } EditorLayout;
 
 
+int32 Write(lua_State* State)
+{
+	for (size_t i = 1; i < lua_gettop(State) + 1; ++i)
+	{
+		//GGlobalConsole.AddLog(lua_tostring(State, i));
+		//GGlobalConsole.AddLog((const char*)lua_touserdata(State, i));
+		//const void* ptr = lua_topointer(State, i);
+		GGlobalConsole.AddLog(lua_tostring(State, i));
+	}
+
+	return 0;
+}
+
+
+class Test
+{
+public:
+	void test(std::wstring str)
+	{
+		GGlobalConsole.AddLog(str);
+	}
+};
+
+int32 FEngineLoop::TestInit()
+{
+	return 0;
+}
 
 
 
@@ -130,11 +159,19 @@ int32 FEngineLoop::PreInit(const TCHAR* CmdLine)
 
 	Logger::Initialize(LOGGER_INFO | LOGGER_ERROR);
 	FMath::RandInit(time(0));
+	ScriptState.open_libraries(sol::lib::base, sol::lib::os, sol::lib::math);
+	ScriptState.script_file(!(FPaths::EngineScriptsDir() / TEXT("Test/Engine.script")));
+	ScriptState.set_function("print", [](std::wstring str)
+		{
+			GGlobalConsole.AddLog(str);
+		});
 
 	// TEMP!!!!
 	bool bWithOSConsole = FString(CmdLine) == TEXT("-CMD");
 	GGlobalConsole.Initialize(bWithOSConsole);
 	GGlobalConsole.SetAutoClose(false);
+
+	FConfigCache::InitConfigSystem();
 
 	GGlobalConsole.RegisterConsoleCommand(TEXT("c.CreateOS"), [](const TArray<FString>& Args)
 		{
@@ -215,6 +252,14 @@ int32 FEngineLoop::PreInit(const TCHAR* CmdLine)
 
 		});
 
+	TestInit();
+
+	sol::function PreInitFunc = ScriptState["PreInit"];
+	if (PreInitFunc.valid())
+	{
+		PreInitFunc(!FString(CmdLine));
+	}
+
 	return 0;
 
 } 
@@ -233,6 +278,11 @@ void FEngineLoop::Tick()
 {
 	Engine->Tick(1);
 	UIApplication::Get()->Tick();
+	sol::function TickFunc = ScriptState["Tick"];
+	if (TickFunc.valid())
+	{
+		TickFunc();
+	}
 }
 
 void FEngineLoop::Exit()

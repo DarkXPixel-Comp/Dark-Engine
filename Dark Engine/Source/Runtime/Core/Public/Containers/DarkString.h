@@ -82,8 +82,21 @@ public:
 	}
 	static bool FromString(bool& Value, const TCHAR* Buffer)
 	{
-		//Value = std::stoi(Buffer);
-		Value = wcstol(Buffer, nullptr, 10);
+		std::wstring Buf = Buffer;
+		std::transform(Buf.begin(), Buf.end(), Buf.begin(), towlower);
+
+		if (Buf == TEXT("true"))
+		{
+			Value = true;
+		}
+		else if (Buf == TEXT("false"))
+		{
+			Value = false;
+		}
+		else
+		{
+			Value = wcstol(Buffer, nullptr, 10);
+		}
 		return Value;
 	}
 	static FString FromString(FString& Value, const TCHAR* Buffer)
@@ -169,6 +182,13 @@ public:
 		bChangedString = true;
 		return _string;
 	}
+
+	const std::wstring& GetNativeString() const
+	{
+		bChangedString = true;
+		return _string;
+	}
+
 
 
 	int32 Len() const;

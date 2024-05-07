@@ -72,12 +72,13 @@ void UIEditorViewport::DrawImGui()
 		float Fps = 1 / Delta;
 
 		ImGui::Text("%i", (int32)Fps);
+
+		ImGui::SetCursorPos(ImVec2(5, 45));
+		
+		FVector2f Size = Window->GetViewportSize();
+		ImGui::Text("%ix%i", (int32)Size.X, (int32)Size.Y);
 		ImGui::End();
 	}
-	
-	//DE_LOG(UICoreLog, Warning, TEXT("%i"), ImGui::GetFocusID());
-	//ImGui::GetFocusID();
-
 }
 
 void UIEditorViewport::OnResize(int32 NewX, int32 NewY)

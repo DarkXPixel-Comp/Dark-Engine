@@ -38,6 +38,8 @@ macro(SettingFiles Out)
 	LIST(APPEND Res ${Result})
 	file(GLOB_RECURSE Result RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "${CMAKE_CURRENT_SOURCE_DIR}/*.cpp")
 	LIST(APPEND Res ${Result})
+	file(GLOB_RECURSE Result RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "${CMAKE_CURRENT_SOURCE_DIR}/*.c")
+	LIST(APPEND Res ${Result})
 	set(${Out} ${Res})
 	#file(GLOB_RECURSE Result RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "${CMAKE_CURRENT_SOURCE_DIR}/public/*.h")
 	#LIST(APPEND Res ${Result})
@@ -66,7 +68,7 @@ ENDMACRO()
 
 
 
-project("Dark Engine" VERSION 0.1.2.0)
+project("Dark Engine" VERSION 0.1.3.0)
 
 
 if(MSVC)
