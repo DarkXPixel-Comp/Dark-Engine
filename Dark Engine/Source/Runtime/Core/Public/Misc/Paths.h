@@ -27,6 +27,8 @@ public:
 
 	static CORE_API FString EngineShaderDir();
 
+	static CORE_API FString EngineLogDir();
+
 	static CORE_API FString EngineContentDir();
 
 	static CORE_API FString EngineScriptsDir();

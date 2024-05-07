@@ -1,6 +1,7 @@
 #pragma once
 #include "Logger.h"
 #include <Application/Application.h>
+#include "Misc/Paths.h"
 
 
 
@@ -33,7 +34,7 @@ void Logger::Initialize(size_t s)
 
 	inst->log("The system started successfully", LOGGER_ENUM::LOGGER_INFO);
 
-	FString Path = TEXT("logs/latest/latest.log");
+	FString Path = FPaths::EngineLogDir() / TEXT("latest/latest.log"); //TEXT("logs/latest/latest.log");
 
 	std::wofstream fout(*Path, std::ios_base::trunc);
 	if (fout.is_open())
@@ -58,8 +59,8 @@ void Logger::Exit()
 
 void record(log_& obj)
 {
-	FString folder = "logs/";
-	FString Path = TEXT("logs/latest/latest.log");
+	static const FString folder = FPaths::EngineLogDir();
+	static const FString Path = FPaths::EngineLogDir() / TEXT("latest/latest.log");
 
 
 	tm ltm;
@@ -77,7 +78,7 @@ void record(log_& obj)
 	FString out = folder.ToString() + std::to_string(ltm.tm_year - 100 + 2000) +
 		"-" + std::to_string(ltm.tm_mday) + "-" + std::to_string(ltm.tm_mon + 1) + ".log";
 
-	out = FString::PrintF(TEXT("logs/%i-%i-%i.log"), (ltm.tm_year - 100 + 2000), (ltm.tm_mday), (ltm.tm_mon + 1));
+	out = FString::PrintF(TEXT("%s/%i-%i-%i.log"), *folder, (ltm.tm_year - 100 + 2000), (ltm.tm_mday), (ltm.tm_mon + 1));
 
 	//fout.open(folder.ToString() + std::to_string(ltm.tm_year - 100 + 2000) + "-" + std::to_string(ltm.tm_mday) + "-" + std::to_string(ltm.tm_mon + 1) + ".log", std::ios::app);
 	
