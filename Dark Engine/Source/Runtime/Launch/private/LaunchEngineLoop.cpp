@@ -20,6 +20,7 @@
 #include "Console/GlobalInputOutConsole.h"
 #include "Misc/Config.h"
 #include "GlobalResource.h"
+#include "GameTimer.h"
 
 //#include "lua.hpp"
 #include "sol2/sol.hpp"
@@ -173,6 +174,14 @@ int32 FEngineLoop::PreInit(const TCHAR* CmdLine)
 
 	FConfigCache::InitConfigSystem();
 
+	GGlobalConsole.RegisterConsoleVariableRef(TEXT("r.MaxFps"), GMaxFPS, TEXT("Set max fps"))->SetOnChangedCallback([](IConsoleVariable* Var)
+		{
+			if (Var->GetFloat() <= 0)
+			{
+				Var->Set(100000.f);
+			}
+		});
+
 	GGlobalConsole.RegisterConsoleCommand(TEXT("c.CreateOS"), [](const TArray<FString>& Args)
 		{
 			GGlobalConsole.CreateConsoleOS(Args.GetSize() > 0 ? Args[0] : TEXT("Undefined"));
@@ -195,6 +204,7 @@ int32 FEngineLoop::PreInit(const TCHAR* CmdLine)
 				GGlobalConsole.AddLog(i);
 			}
 		}, TEXT("Repeat args"));
+
 
 	GGlobalConsole.RegisterConsoleVariableRef(TEXT("g.Renderer.RenderMode"), GRenderMode);
 
@@ -249,7 +259,6 @@ int32 FEngineLoop::PreInit(const TCHAR* CmdLine)
 				EditorLayout.RootViewport->GetSceneViewport()->Resize(FString::FromString(X, *Args[0]), 
 					FString::FromString(Y, *Args[0]));
 			}
-
 		});
 
 	TestInit();
@@ -276,8 +285,10 @@ int32 FEngineLoop::Init()
 
 void FEngineLoop::Tick()
 {
-	Engine->Tick(1);
-	UIApplication::Get()->Tick();
+	float DeltaTime = FGameTimer::DeltaTime();
+	FGameTimer::Tick();
+	UIApplication::Get()->Tick(DeltaTime);
+	Engine->Tick(DeltaTime);
 	sol::function TickFunc = ScriptState["Tick"];
 	if (TickFunc.valid())
 	{

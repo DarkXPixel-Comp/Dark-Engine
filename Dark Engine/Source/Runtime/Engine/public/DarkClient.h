@@ -45,6 +45,8 @@ public:
 	virtual float GetDisplayGamma() const override { return 0; }
 	virtual void Resize(int32 InSizeX, int32 InSizeY) = 0;
 
+	FIntRect CalculateViewExtents(float AspectRation, const FIntRect& ViewRect);
+
 	FIntPoint ViewportSize = FIntPoint();
 
 

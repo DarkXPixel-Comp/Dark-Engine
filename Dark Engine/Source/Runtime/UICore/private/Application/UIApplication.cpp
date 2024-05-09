@@ -147,13 +147,12 @@ void UIApplication::InitializeRenderer(TSharedPtr<FUIRenderer> InRenderer)
 	Renderer->Initialize();
 }
 
-void UIApplication::Tick()
+void UIApplication::Tick(float DeltaTime)
 {
-	float DeltaTime = FGameTimer::DeltaTime();
+	//float DeltaTime = FGameTimer::DeltaTime();
 
 	TickPlatform(DeltaTime);
 
-	FGameTimer::Tick();
 
 	TickAndDrawWidgets(DeltaTime);
 }

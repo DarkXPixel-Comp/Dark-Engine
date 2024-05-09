@@ -22,6 +22,7 @@ public:
 	{
 		DE_LOG(UICoreLog, Log, TEXT("Create %s"), *Name);
 	}
+	virtual ~UIWidget() = default;
 	virtual void Update(float DeltaTime);
 	virtual void DrawImGui() {}
 	

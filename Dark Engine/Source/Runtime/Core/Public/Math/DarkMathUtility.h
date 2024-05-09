@@ -1,7 +1,7 @@
 #pragma once
 #include "CoreTypes.h"
 #include "HAL/PlatformMath.h"
-#include "Math/MathFwd.h"
+//#include "Math/MathFwd.h"
 #include "DarkPlatformMathSSE.h"
 
 
@@ -144,6 +144,9 @@ struct FMath : public FPlatformMath
 		const int64 Range = (Max - Min) + 1;
 		return Min + RandHelper64(Range);
 	}
+
+
+
 
 
 

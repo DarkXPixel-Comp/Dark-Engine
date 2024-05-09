@@ -9,6 +9,7 @@ class UIConsole : public UIWidget
 {
 public:
 	UIConsole();
+	virtual ~UIConsole() = default;
 
 	void DrawImGui();
 	void OnLogAdd(struct FConsoleLog InLog);

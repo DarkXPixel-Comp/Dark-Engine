@@ -12,4 +12,4 @@ target_include_directories(Lua PRIVATE "private")
 
 SettingProject(Lua)
 
-install(TARGETS Lua)
+#install(TARGETS Lua)

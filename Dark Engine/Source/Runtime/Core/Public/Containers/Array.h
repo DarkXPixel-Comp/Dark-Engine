@@ -105,7 +105,7 @@ public:
 	ElementType PopBack() { if (_vector.size() == 0) return nullptr; auto it = _vector.end() - 1; auto result = *it; _vector.erase(it); return result; }
 
 	template<typename OtherElementType>
-	void Append(TArray<OtherElementType>&& Source) { _vector.append_range(Source); }
+	void Append(TArray<OtherElementType>&& Source) { _vector.insert(_vector.end(), Source._vector.begin(), Source._vector.end()); }
 
 	decltype(auto) Insert(auto Where, auto It1, auto It2) { return _vector.insert(Where, It1, It2); }
 

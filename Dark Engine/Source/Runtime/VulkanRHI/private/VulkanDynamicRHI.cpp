@@ -25,7 +25,7 @@ void FVulkanDynamicRHI::Init()
 	//ApplicationInfo.apiVersion = VK_API_VERSION_1_3;
 	ApplicationInfo.apiVersion = VULKAN_VERSION;
 	//ApplicationInfo.engineVersion = VK_MAKE_API_VERSION(0, 0, 47, 0);
-	ApplicationInfo.engineVersion = VK_MAKE_API_VERSION(VK_ENGINE_VERSION_MAJOR, VK_ENGINE_VERSION_MINOR, VK_ENGINE_VERSION_PATCH, VK_ENGINE_VERSION_TWEAK);
+	ApplicationInfo.engineVersion = VK_MAKE_API_VERSION(VK_ENGINE_VERSION_MAJOR, VK_ENGINE_VERSION_MINOR, VK_ENGINE_VERSION_PATCH, 0);
 	ApplicationInfo.pEngineName = "Dark Engine";
 
 

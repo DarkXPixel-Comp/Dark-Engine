@@ -3,6 +3,7 @@
 #include "Containers/DarkString.h"
 #include "Math/DarkMathUtility.h"
 #include "Math/Vector.h"
+#include "templates/IsFloatingPoint.h"
 
 
 

@@ -10,6 +10,7 @@ class UIEditorViewport : public virtual UIViewport
 {
 public:
 	UIEditorViewport();
+	virtual ~UIEditorViewport() = default;
 	void ConstructEditorViewportClient();
 
 	void Update(float DeltaTime);

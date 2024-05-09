@@ -1,5 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "CoreGlobals.h"
 
 
 
@@ -11,15 +12,21 @@ struct FMinimalViewInfo
 
 	float FOV;
 
-	float NearClipPlane;
+	float PerspectiveNearClipPlane;
 
 	float AspectRatio;
 
 
 	FMatrix CalculateProjectionMatrix() const;
 
-	void CalculateProjectionMatrixGivenViewRectangle(const FMinimalViewInfo& ViewInfo, class FSceneView& InOutProjectionData);
+	static void CalculateProjectionMatrixGivenView(FMinimalViewInfo& ViewInfo, class FViewport* Viewport,class FSceneViewProjectionData& InOutProjectionData);
+	static void CalculateProjectionMatrixGivenViewRectangle(FMinimalViewInfo& ViewInfo, const FIntRect& ConstrainedViewRectangle, class FSceneViewProjectionData& InOutProjectionData);
 
+
+	float GetPerspectiveNearClipPlane() const
+	{
+		return PerspectiveNearClipPlane > 0.f ? PerspectiveNearClipPlane : GNearClippingPlane;
+	}
 
 
 

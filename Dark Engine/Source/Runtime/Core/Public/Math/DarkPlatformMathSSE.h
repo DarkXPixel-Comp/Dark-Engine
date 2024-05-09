@@ -37,6 +37,36 @@ namespace DE
 		{
 			return _mm_cvttsd_si64(_mm_set_sd(InValue));
 		}
+
+		FORCEINLINE int32 RoundToInt32(float F)
+		{
+			return _mm_cvt_ss2si(_mm_set_ss(F + F + 0.5f)) >> 1;
+		}
+
+		FORCEINLINE int32 RoundToInt32(double InValue)
+		{
+			return _mm_cvtsd_si32(_mm_set_sd(InValue + InValue + 0.5f)) >> 1;
+		}
+
+		FORCEINLINE int32 RoundToInt64(double InValue)
+		{
+			return _mm_cvtsd_si64(_mm_set_sd(InValue + InValue + 0.5f)) >> 1;
+		}
+
+		FORCEINLINE int32 CeilToInt32(float F)
+		{
+			return -(_mm_cvt_ss2si(_mm_set_ss(-0.5f - (F + F))) >> 1);
+		}
+
+		FORCEINLINE int32 CeilToInt32(double InValue)
+		{
+			return -(_mm_cvtsd_si32(_mm_set_sd(-0.5 - (InValue + InValue))) >> 1);
+		}
+
+		FORCEINLINE int64 CeilToInt64(double InValue)
+		{
+			return -(_mm_cvtsd_si64(_mm_set_sd(-0.5 - (InValue + InValue))) >> 1);
+		}
 	}
 }
 
@@ -55,6 +85,19 @@ struct TDarkPlatformMathSSEBase : public Base
 	}
 
 
+	template <typename T>
+	static FORCEINLINE int32 RoundToInt32(T F)
+	{
+		return DE::SSE::RoundToInt32(F);
+	}
+
+	static FORCEINLINE int64 RoundToInt64(double F)
+	{
+		return DE::SSE::RoundToInt64(F);
+	}
+
+	static FORCEINLINE int32 RoundToInt(float F) { return RoundToInt32(F); }
+	static FORCEINLINE int64 RoundToInt(double F) { return RoundToInt64(F); }
 
 
 	static FORCEINLINE int32 TruncToInt(float F) { return TruncToInt32(F); }

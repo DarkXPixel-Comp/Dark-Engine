@@ -37,7 +37,7 @@ public:
 
 public:
 	FWindowsWindow() {}
-	~FWindowsWindow();
+	virtual ~FWindowsWindow();
 	void Destroy();
 	void Update();
 

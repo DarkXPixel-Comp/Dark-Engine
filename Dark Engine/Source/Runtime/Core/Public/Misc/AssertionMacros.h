@@ -71,7 +71,7 @@ public:
 		{ \
 			if(UNLIKELY(!(expr))) \
 			{ \
-				if (FDebug::CheckVerifyFailedImpl(#expr, __FILE__, __LINE__, PLATFORM_RETURN_ADDRESS(), TEXT(""))) \
+				if (FDebug::CheckVerifyFailedImpl(#expr, __FILE__, __LINE__, nullptr, TEXT(""))) \
 				{ \
 					if(IsDebuggerPresent())\
 					{  \

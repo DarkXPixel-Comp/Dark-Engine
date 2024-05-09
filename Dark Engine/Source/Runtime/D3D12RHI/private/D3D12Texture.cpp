@@ -321,7 +321,7 @@ void* FD3D12Texture::Lock(FRHICommandListImmediate* RHICmdList, uint32 MipIndex,
 		const D3D12_RESOURCE_DESC ResourceDesc = CD3DX12_RESOURCE_DESC::Buffer(BufferSize,
 			D3D12_RESOURCE_FLAG_NONE);
 		const D3D12_HEAP_PROPERTIES HeapProps = CD3DX12_HEAP_PROPERTIES(D3D12_HEAP_TYPE_UPLOAD);
-		const D3D12_RANGE Range = { 0, BufferSize };
+		const D3D12_RANGE Range = { (SIZE_T)0, (SIZE_T)BufferSize };
 
 		Adapter->GetD3DDevice()->CreateCommittedResource(&HeapProps,
 			D3D12_HEAP_FLAG_NONE, &ResourceDesc,
@@ -380,7 +380,7 @@ void* FD3D12Texture::Lock(FRHICommandListImmediate* RHICmdList, uint32 MipIndex,
 		Context.FlushCommands();
 		LockedResource->LockedPitch = XBytesAligned;
 		
-		const D3D12_RANGE Range = { 0, MipBytesAligned };
+		const D3D12_RANGE Range = { (SIZE_T)0, (SIZE_T)MipBytesAligned };
 		LockedResource->Resource->Map(0, &Range, &Data);
 	}
 	

@@ -269,7 +269,7 @@ void FD3D12StateCache::ApplyState(bool bIsCompute)
 		if (bNeedSetViewports)
 		{
 			bNeedSetViewports = false;
-			D3D12_RECT Rect = {0, 0, PipelineState.Graphics.CurrentViewport[0].Width, PipelineState.Graphics.CurrentViewport[0].Height };
+			D3D12_RECT Rect = {(LONG)0, (LONG)0, (LONG)PipelineState.Graphics.CurrentViewport[0].Width, (LONG)PipelineState.Graphics.CurrentViewport[0].Height };
 			
 			Context.GetGraphicsList()->RSSetViewports(1, &PipelineState.Graphics.CurrentViewport[0]);
 			Context.GetGraphicsList()->RSSetScissorRects(1, &Rect);

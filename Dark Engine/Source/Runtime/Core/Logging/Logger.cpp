@@ -30,7 +30,7 @@ void Logger::Initialize(size_t s)
 	inst->TempLogs.reserve(256);
 
 
-	std::thread th(logging, inst); th.detach();
+	inst->LogThread = std::thread(logging, inst);
 
 	inst->log("The system started successfully", LOGGER_ENUM::LOGGER_INFO);
 
@@ -51,6 +51,7 @@ void Logger::Exit()
 	{
 		inst->wait();
 		inst->isWork = false;
+		inst->LogThread.join();
 		inst->logs.clear();
 		delete inst;
 		inst = nullptr;

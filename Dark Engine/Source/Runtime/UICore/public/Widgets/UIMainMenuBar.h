@@ -8,6 +8,7 @@ class UIMainMenuBar : public UIWidget
 {
 public:
 	UIMainMenuBar();
+	virtual ~UIMainMenuBar() = default;
 
 	virtual void DrawImGui();
 

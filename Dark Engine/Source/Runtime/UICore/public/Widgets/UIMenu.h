@@ -12,6 +12,7 @@ class UIMenu : public UIWidget
 {
 public:
 	UIMenu() {}
+	virtual ~UIMenu() = default;
 
 	virtual void DrawImGui();
 	virtual void Update(float DeltaTime) override;

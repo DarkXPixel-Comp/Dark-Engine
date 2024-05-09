@@ -21,6 +21,8 @@ struct FViewportInfo
 class FUIRHIRenderer : public FUIRenderer
 {
 public:
+	virtual ~FUIRHIRenderer() {}
+
 	void Initialize();
 
 	virtual void Destroy() {}

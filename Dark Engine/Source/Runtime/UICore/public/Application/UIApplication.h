@@ -51,7 +51,7 @@ public:
 	void InitializeRenderer(TSharedPtr<FUIRenderer> InRenderer);
 	TSharedPtr<UIWindow> AddWindow(TSharedPtr<UIWindow> InWindow);
 	void RegisterGameViewport(TSharedPtr<UIViewport> InViewport);
-	void Tick();
+	void Tick(float DeltaTime);
 	void TickPlatform(float DeltaTime);
 	void TickAndDrawWidgets(float DeltaTime);
 	void DrawWindows();

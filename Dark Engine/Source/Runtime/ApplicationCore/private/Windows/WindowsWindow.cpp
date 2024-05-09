@@ -37,7 +37,7 @@ void FWindowsWindow::AdjustWindowRegion(int32 Width, int32 Height)
 
 	HRGN Region = MakeWindowRegionObject(true);
 
-	verify(SetWindowRgn(HWnd, Region, false));
+	check(SetWindowRgn(HWnd, Region, false));
 	//SetWindowRgn(HWnd, CreateWindowRgn(HWnd), TRUE);
 
 
@@ -290,15 +290,15 @@ void FWindowsWindow::Initialize(FWindowsApplication* const Application, const FG
 	if (!InDefinition.bHasWindowBorder)
 	{
 		const DWMNCRENDERINGPOLICY RenderingPolicy = DWMNCRP_DISABLED;
-		verify(SUCCEEDED(DwmSetWindowAttribute(HWnd, DWMWA_NCRENDERING_POLICY, &RenderingPolicy, sizeof(RenderingPolicy))));
+		check(SUCCEEDED(DwmSetWindowAttribute(HWnd, DWMWA_NCRENDERING_POLICY, &RenderingPolicy, sizeof(RenderingPolicy))));
 
 		const BOOL bEnableNCPaint = false;
-		verify(SUCCEEDED(DwmSetWindowAttribute(HWnd, DWMWA_ALLOW_NCPAINT, &bEnableNCPaint, sizeof(bEnableNCPaint))));
+		check(SUCCEEDED(DwmSetWindowAttribute(HWnd, DWMWA_ALLOW_NCPAINT, &bEnableNCPaint, sizeof(bEnableNCPaint))));
 
 
 		WindowStyle |= WS_OVERLAPPED | WS_CAPTION | WS_SYSMENU | WS_MAXIMIZEBOX | WS_MAXIMIZEBOX | WS_THICKFRAME;
 
-		verify(SetWindowLong(HWnd, GWL_STYLE, WindowStyle));
+		check(SetWindowLong(HWnd, GWL_STYLE, WindowStyle));
 
 
 		uint32 SetWindowPosFlags = SWP_NOMOVE | SWP_NOSIZE | SWP_NOZORDER | SWP_FRAMECHANGED;

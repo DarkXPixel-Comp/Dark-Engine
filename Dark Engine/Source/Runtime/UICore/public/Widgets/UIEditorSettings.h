@@ -11,6 +11,7 @@ class UIEditorSettings : public UIWidget
 {
 public:
 	UIEditorSettings();
+	virtual ~UIEditorSettings() = default;
 
 public:
 	void SetEditorViewport(TSharedPtr<UIEditorViewport> InEditorViewport)

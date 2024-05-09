@@ -1,7 +1,7 @@
 #pragma once
 #include <Core.h>
 #include <CoreTypes.h>
-#include <Math/MathFwd.h>
+//#include <Math/MathFwd.h>
 #include <Math/Vector2D.h>
 #include <Math/DarkMathUtility.h>
 #include "Containers/DarkString.h"

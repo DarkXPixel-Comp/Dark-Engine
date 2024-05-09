@@ -1,4 +1,5 @@
 #include "Console/BaseConsole.h"
+#include "Templates/DarkTemplate.h"
 #include <sstream>
 
 uint64 FBaseConsole::StaticID = 0;

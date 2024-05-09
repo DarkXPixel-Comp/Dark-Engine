@@ -27,6 +27,7 @@ class FGenericWindow
 {
 public:
 	FGenericWindow() {}
+	virtual ~FGenericWindow() {}
 
 	virtual bool GetFullScreenInfo(int32& X, int32& Y, int32& Width, int32& Height) { return true; }
 

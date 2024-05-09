@@ -12,6 +12,7 @@ class UIButton : public UIWidget
 {
 public:
 	UIButton() {}
+	virtual ~UIButton() = default;
 	virtual void DrawImGui();
 	virtual void Update(float DeltaTime);
 

@@ -68,11 +68,11 @@ ENDMACRO()
 
 
 
-project("Dark Engine" VERSION 0.1.3.0)
+project("Dark Engine" VERSION 0.1.4.0)
 
 
 if(MSVC)
-	add_compile_options("/MP 12")
+	#add_compile_options("/MP 12")
 	#add_compile_options("/OPT:NOREF")
 endif()
 
@@ -84,7 +84,6 @@ FILE(GLOB_RECURSE sources "Dark Engine/Source/*.cpp")
 #include_directories("")
 
 add_compile_definitions(UBT_COMPILED_PLATFORM=Windows ROOT_DIR="${PROJECT_SOURCE_DIR}")
-
 
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "$<0:>${PROJECT_SOURCE_DIR}/Dark Engine/bin") # 

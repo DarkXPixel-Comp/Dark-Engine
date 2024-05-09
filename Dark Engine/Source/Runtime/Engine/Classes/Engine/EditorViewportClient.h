@@ -58,7 +58,9 @@ private:
 public:
 	FEditorViewportClient(UIEditorViewport* InLevelViewport);	   
 	FEditorViewportClient(const FEditorViewportClient&) = delete;
-	FEditorViewportClient& const operator=(const FEditorViewportClient&) = delete;
+	const FEditorViewportClient& operator=(const FEditorViewportClient&) = delete;
+
+	class FSceneView* CalcSceneView(class FSceneView* const View);
 
 	FViewport* Viewport;
 	FRenderTarget* RenderTarget;
@@ -70,6 +72,8 @@ public:
 	void SetViewport(FViewport* InViewport);
 
 	FSceneInterface* GetScene() const;
+
+	FViewportCameraTransform& GetViewTransform() { return ViewTransform; }
 
 	const FViewportCameraTransform& GetViewTransform() const { return ViewTransform; }
 
@@ -83,9 +87,11 @@ public:
 	virtual void Tick(float DeltaTime);
 
 	FMinimalViewInfo MainViewInfo;
+	FMinimalViewInfo ControllingActorViewInfo;
 
 	float FOV;
 	
+
 
 	//virtual void Init();
 

@@ -10,6 +10,8 @@ extern bool GIsRequestingExit;
 extern bool GIsTitleBarHovered;
 extern class FConfigCache* GConfig;
 extern int32 GRenderMode; //<-TEST
+extern float GMaxFPS;
+extern float GNearClippingPlane;
 
 FORCEINLINE bool IsExitRequested()
 {

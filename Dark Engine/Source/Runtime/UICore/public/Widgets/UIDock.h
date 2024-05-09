@@ -6,6 +6,7 @@ class UIDock : public UIWidget
 {
 public:
 	UIDock(): UIWidget(TEXT("UIDock")) {}
+	virtual ~UIDock() = default;
 
 	void DrawImGui();
 	void Update(float DeltaTime);

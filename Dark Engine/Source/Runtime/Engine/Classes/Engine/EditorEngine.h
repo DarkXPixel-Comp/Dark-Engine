@@ -10,6 +10,8 @@ class DEditorEngine : public DEdEngine
 public:
 	static TSharedPtr<UIWindow>	CreateGameWindow();
 
+	virtual ~DEditorEngine() = default;
+
 public:
 	void Tick(float DeltaTime);
 	void Shutdown();

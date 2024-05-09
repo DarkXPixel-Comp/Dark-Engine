@@ -90,5 +90,16 @@ struct FGenericPlatformMath
 	}
 
 
+	static FORCEINLINE float Tan(float Value) { return tanf(Value); }
+	static FORCEINLINE double Tan(double Value) { return tan(Value); }
+
+	static FORCEINLINE float CoTan(float Value) { return 1.f / Tan(Value); }
+	static FORCEINLINE double CoTan(double Value) { return 1.0 / Tan(Value); }
+
+	static FORCEINLINE float Sin(float Value) { return sinf(Value); }
+	static FORCEINLINE double Sin(double Value) { return sin(Value); }
+
+	static FORCEINLINE float Cos(float Value) { return cosf(Value); }
+	static FORCEINLINE double Cos(double Value) { return cos(Value); }
 
 };

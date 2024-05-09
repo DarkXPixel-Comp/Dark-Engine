@@ -1,6 +1,6 @@
 add_library(ApplicationCore)
 
-find_library(ApplicationCoreLibs Core Engine Input PATHS)
+find_library(ApplicationCoreLibs Core Engine Input)
 
 
 target_compile_features(ApplicationCore PUBLIC cxx_std_20)

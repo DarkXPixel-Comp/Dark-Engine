@@ -8,6 +8,7 @@ class UILevelViewport : public UIEditorViewport
 {
 public:
 	void ConstructLevelEditorViewportClient();
+	virtual ~UILevelViewport() = default;
 
 
 

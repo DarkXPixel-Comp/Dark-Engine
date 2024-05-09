@@ -8,6 +8,7 @@ class UILogs : public UIWidget
 {
 public:
 	UILogs();
+	virtual ~UILogs() = default;
 
 	void DrawImGui();
 	void OnLogAdd();

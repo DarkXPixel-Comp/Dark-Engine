@@ -5,6 +5,7 @@
 class FUIRenderer
 {
 public:
+	virtual ~FUIRenderer() = default;
 	virtual void Initialize() {}
 	virtual void CreateViewport(UIWindow* InWindow) = 0;
 	virtual void DrawWindows(const TArray<TSharedPtr<UIWindow>>& Windows) = 0;

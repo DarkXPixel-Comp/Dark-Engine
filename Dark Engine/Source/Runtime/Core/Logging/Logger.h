@@ -94,6 +94,7 @@ private:
 	bool isWork = true;
 	const uint64 MAX_LOGS = 1024;
 	mutable std::mutex Mutex;
+	std::thread LogThread;
 private:
 	static Logger* inst;
 };
