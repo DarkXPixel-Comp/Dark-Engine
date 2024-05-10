@@ -68,6 +68,20 @@ void UIEditorViewport::DrawImGui()
 		}
 
 
+		FIntPoint Size = FIntPoint(ImSize.x, ImSize.y);
+		ImVec2 CursorPos = { ImGui::GetMousePos().x - ImGui::GetWindowPos().x - 4, ImGui::GetMousePos().y - ImGui::GetWindowPos().y - WindowPadding.y - 2 };
+		if (CursorPos.x < 0 || CursorPos.y < 0 || CursorPos.x > Size.X || CursorPos.y > Size.Y)
+		{
+			MousePosition = FIntPoint(-1, -1);
+		}
+		else
+		{
+			MousePosition = FIntPoint(CursorPos.x, CursorPos.y);
+		}
+
+		EditorViewportClient->SetMousePosition(MousePosition);
+		//ImGui::GetWindowContentRegionMin();
+
 		ImGui::SetCursorPos(ImVec2(5, 30));
 		float Fps = 1 / Delta;
 
@@ -75,8 +89,11 @@ void UIEditorViewport::DrawImGui()
 
 		ImGui::SetCursorPos(ImVec2(5, 45));
 		
-		FVector2f Size = Window->GetViewportSize();
 		ImGui::Text("%ix%i", (int32)Size.X, (int32)Size.Y);
+
+		ImGui::SetCursorPos(ImVec2(5, 60));
+		ImGui::Text("%i %i", MousePosition.X, MousePosition.Y);
+
 		ImGui::End();
 	}
 }

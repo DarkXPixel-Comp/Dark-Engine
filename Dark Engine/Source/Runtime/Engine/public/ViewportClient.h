@@ -24,10 +24,13 @@ public:
 	virtual FWorld* GetWorld() const { return nullptr; }
 
 	void SetSize(FIntPoint InSize) { SizeClient = InSize; }
+
+	void SetMousePosition(FIntPoint InPosition) { MousePosition = InPosition; }
 	
 
 protected:
 	FIntPoint SizeClient;
+	FIntPoint MousePosition = FIntPoint(0, 0);
 	//FRenderTarget* RenderTarget;
 
 	

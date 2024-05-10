@@ -29,6 +29,7 @@ private:
 	TSharedPtr<FSceneViewport> SceneViewport;
 	FIntPoint LastSize;
 	bool SkipImage = false;
+	FIntPoint MousePosition;
 
 
 };

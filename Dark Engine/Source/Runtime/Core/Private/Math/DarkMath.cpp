@@ -28,7 +28,7 @@ template<> const FVector3d FVector3d::BackwardVector(0, 0, -1);
 template<> const FVector3d FVector3d::RightVector(1, 0, 0);
 template<> const FVector3d FVector3d::LeftVector(-1, 0, 0);
 template<> const FVector3d FVector3d::XAxisVector(1, 0, 0);
-template<> const FVector3d FVector3d::YAxisVectorS(0, 1, 0);
+template<> const FVector3d FVector3d::YAxisVector(0, 1, 0);
 template<> const FVector3d FVector3d::ZAxisVector(0, 0, 1);
 template<> const FVector4f FVector4f::ZeroVectorOneW(0, 0, 0, 1);
 
