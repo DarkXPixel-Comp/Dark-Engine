@@ -22,11 +22,11 @@
   ],
   "workflowPresets": [
     {
-      "name": "default",
+      "name": "Win64-Debug",
       "steps": [
         {
           "type": "configure",
-          "name": "default"
+          "name": "Win64-Debug"
         }
       ]
     }
