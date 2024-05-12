@@ -9,7 +9,7 @@ target_link_libraries(Core PRIVATE DTK12)
 #target_link_libraries(Core PRIVATE ${CoreLibs})
 
 
-if(MSVC AND WIN32)
+if(WIN32)
 	target_sources(Core PRIVATE "Public/Windows/WindowsPlatformMisc.h" "Private/Windows/WindowsPlatformMisc.cpp" "Public/Windows/WindowsPlatformMemory.h" "Private/Windows/WindowsPlatformMemory.cpp" "Public/Windows/WindowsPlatformString.h" "Private/Windows/WindowsCriticalSection.cpp") # Windows
 	#set(CORE_SOURCES ${CORE_SOURCES} "Public/Windows/WindowsPlatformMisc.h" "Private/Windows/WindowsPlatformMisc.cpp" "Public/Windows/WindowsPlatformMemory.h" "Private/Windows/WindowsPlatformMemory.cpp")
 
