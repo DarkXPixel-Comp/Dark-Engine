@@ -12,8 +12,8 @@ jobs:
     runs-on: windows-latest
     steps:
     - uses: actions/checkout@v2
-    - name: get-cmake
     - uses: lukka/get-cmake@v3.29.3
+      name: get-cmake
       #with:
         # Optional CMake version, expressed with the semantic version syntax, e.g. '~3.25.0' for the most recent 3.25.x, `ˆ3.25.0` for the most recent 3.x version, or a specific version `3.25.2'. Or `latest` or `latestrc` for the latest stable or release candidate version. If not specified the `latest` is installed.
        # cmakeVersion: # optional
