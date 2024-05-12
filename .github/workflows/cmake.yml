@@ -12,25 +12,18 @@ jobs:
     runs-on: windows-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Installing vcpkg (windows)
-      run: |
-        cd ...
-        git clone https://github.com/Microsoft/vcpkg.git
-        cd vcpkg
-        git checkout --force 2020.01
-        .\bootstrap-vcpkg.bat
-        .\vcpkg.exe install cppzmq:x64-windows
-    - name: Running cmake (windows)
-      run: |
-        cd ${{github.workspace}}
-        mkdir build
-        cd build
-        cmake .. -DCMAKE_TOOLCHAIN_FILE=${{ github.workspace }}
-                  /../vcpkg/scripts/buildsystems/vcpkg.cmake
+    - name: get-cmake
+    - uses: lukka/get-cmake@v3.29.3
+      #with:
+        # Optional CMake version, expressed with the semantic version syntax, e.g. '~3.25.0' for the most recent 3.25.x, `ˆ3.25.0` for the most recent 3.x version, or a specific version `3.25.2'. Or `latest` or `latestrc` for the latest stable or release candidate version. If not specified the `latest` is installed.
+       # cmakeVersion: # optional
+        # Optional Ninja version, same syntax as `cmakeVersion` input. If not specified, `latest` is installed
+       # ninjaVersion: # optional
+        # Optional argument indicating whether to use the cloud based storage of the GitHub cache. Suited for the GitHub-hosted runners.
+        #useCloudCache: # optional, default is true
+        # Optional argument indicating whether to use the local cache on the GitHub runner file system. Suited for the self-hosted GitHub runners.
+        #useLocalCache: # optional
       
-    - name: Build Solution (windows)
-      run: |
-        cd build
-        MSBuild.exe CMakeHelloWorld.sln
+          
       
       
