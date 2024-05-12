@@ -1,33 +1,60 @@
 {
- "version": 6,
+  "version": 6,
   "cmakeMinimumRequired": {
     "major": 3,
-    "minor": 23,
+    "minor": 21,
     "patch": 0
   },
   "configurePresets": [
     {
-      "name": "Win64-Debug",
-      "displayName": "Win64-Debug",
-      "description": "Win64-Debug",
-      "generator": "Ninja",
-      "binaryDir": "${projectDir}/Dark Engine/bin"
+      "name": "ninja",
+      "displayName": "Ninja Configure Settings",
+      "description": "Sets build and install directories",
+      "binaryDir": "${sourceDir}/builds/${presetName}",
+      "generator": "Ninja"
     }
   ],
   "buildPresets": [
     {
-      "name": "Win64-Debug",
-      "configurePreset": "Win64-Debug"
+      "name": "ninja",
+      "configurePreset": "ninja",
+      "displayName": "Build with Ninja",
+      "description": "Build with Ninja"
+    }
+  ],
+  "testPresets": [
+    {
+      "name": "ninja",
+      "configurePreset": "ninja"
     }
   ],
   "workflowPresets": [
     {
-      "name": "Win64-Debug",
+      "name": "ninja-workflow",
       "steps": [
         {
           "type": "configure",
-          "name": "Win64-Debug"
+          "name": "ninja"
+        },
+        {
+          "type": "build",
+          "name": "ninja"
+        },
+        {
+          "type": "test",
+          "name": "ninja"
         }
+      ]
+    }
+  ],
+  "packagePresets": [
+    {
+      "packageName": "default-package-name",
+      "packageVersion": "0.1",
+      "name": "default",
+      "configurePreset": "ninja",
+      "generators": [
+        "TGZ"
       ]
     }
   ]
