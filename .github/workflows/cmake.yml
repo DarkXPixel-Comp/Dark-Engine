@@ -28,6 +28,7 @@ jobs:
       with:
       # Path to CMakeLists.txt.
         cmakeListsTxtPath: ${{ github.workspace }}/CMakeLists.txt # optional, default is ${{ github.workspace }}/CMakeLists.txt
-      
+        configurePreset: Win64-Debug
+        buildPreset: Win64-Debug
       
       
