@@ -23,7 +23,11 @@ jobs:
         #useCloudCache: # optional, default is true
         # Optional argument indicating whether to use the local cache on the GitHub runner file system. Suited for the self-hosted GitHub runners.
         #useLocalCache: # optional
+    - uses: lukka/run-cmake@v10.7
+      name: run-cmake
+      with:
+      # Path to CMakeLists.txt.
+        cmakeListsTxtPath: ${{ github.workspace }}/CMakeLists.txt # optional, default is ${{ github.workspace }}/CMakeLists.txt
       
-          
       
       
