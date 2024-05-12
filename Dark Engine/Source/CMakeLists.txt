@@ -1,4 +1,4 @@
-if(MSVC AND WIN32)
+if(WIN32)
 	include_directories("Windows")
 	add_definitions(/FI "Definitions.h")
 	add_compile_definitions(USING_IMGUI)
