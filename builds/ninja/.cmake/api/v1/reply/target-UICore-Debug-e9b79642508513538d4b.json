@@ -1,0 +1,641 @@
+{
+	"archive" : 
+	{
+		"commandFragments" : 
+		[
+			{
+				"fragment" : "/machine:x64",
+				"role" : "flags"
+			}
+		]
+	},
+	"artifacts" : 
+	[
+		{
+			"path" : "C:/Users/nahmu/source/repos/Dark Engine/Dark Engine/bin/lib/UICore.lib"
+		}
+	],
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_library",
+			"add_compile_options",
+			"add_compile_definitions",
+			"include_directories",
+			"target_include_directories",
+			"SettingProject",
+			"target_link_libraries",
+			"target_sources"
+		],
+		"files" : 
+		[
+			"Dark Engine/Source/Runtime/UICore/CMakeLists.txt",
+			"CMakeLists.txt",
+			"Dark Engine/Source/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 1,
+				"parent" : 0
+			},
+			{
+				"file" : 1
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 74,
+				"parent" : 2
+			},
+			{
+				"command" : 2,
+				"file" : 1,
+				"line" : 85,
+				"parent" : 2
+			},
+			{
+				"file" : 2
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 4,
+				"parent" : 5
+			},
+			{
+				"command" : 3,
+				"file" : 2,
+				"line" : 2,
+				"parent" : 5
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 12,
+				"parent" : 0
+			},
+			{
+				"command" : 5,
+				"file" : 0,
+				"line" : 14,
+				"parent" : 0
+			},
+			{
+				"command" : 4,
+				"file" : 1,
+				"line" : 31,
+				"parent" : 9
+			},
+			{
+				"command" : 6,
+				"file" : 0,
+				"line" : 5,
+				"parent" : 0
+			},
+			{
+				"command" : 7,
+				"file" : 0,
+				"line" : 8,
+				"parent" : 0
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "/DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++latest   /FI Definitions.h"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "\"/MP 12\""
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 4,
+					"define" : "ROOT_DIR=\"C:/Users/nahmu/source/repos/Dark Engine\""
+				},
+				{
+					"backtrace" : 4,
+					"define" : "UBT_COMPILED_PLATFORM=Windows"
+				},
+				{
+					"backtrace" : 6,
+					"define" : "USING_IMGUI"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 7,
+					"path" : "C:/Users/nahmu/source/repos/Dark Engine/Dark Engine/Source/Windows"
+				},
+				{
+					"backtrace" : 8,
+					"path" : "C:/Users/nahmu/source/repos/Dark Engine/Dark Engine/Source/Runtime/UICore/public"
+				},
+				{
+					"backtrace" : 8,
+					"path" : "C:/Users/nahmu/source/repos/Dark Engine/Dark Engine/Source/Runtime/UICore/private"
+				},
+				{
+					"backtrace" : 10,
+					"path" : "C:/Users/nahmu/source/repos/Dark Engine/Dark Engine/Source"
+				},
+				{
+					"backtrace" : 11,
+					"path" : "C:/Users/nahmu/source/repos/Dark Engine/Dark Engine/Source/Runtime/Core/Public"
+				},
+				{
+					"backtrace" : 11,
+					"path" : "C:/Users/nahmu/source/repos/Dark Engine/Dark Engine/Source/Runtime/Core/Timer"
+				},
+				{
+					"backtrace" : 11,
+					"path" : "C:/Users/nahmu/source/repos/Dark Engine/Dark Engine/Source/Runtime/Core/Settings"
+				},
+				{
+					"backtrace" : 11,
+					"path" : "C:/Users/nahmu/source/repos/Dark Engine/Dark Engine/Source/Runtime/Core/Memory"
+				},
+				{
+					"backtrace" : 11,
+					"path" : "C:/Users/nahmu/source/repos/Dark Engine/Dark Engine/Source/Runtime/Core/Logging"
+				},
+				{
+					"backtrace" : 11,
+					"path" : "C:/Users/nahmu/source/repos/Dark Engine/Dark Engine/Source/Runtime/Core/Delegate"
+				},
+				{
+					"backtrace" : 11,
+					"path" : "C:/Users/nahmu/source/repos/Dark Engine/Dark Engine/Source/Runtime/Core/CommandLine"
+				},
+				{
+					"backtrace" : 11,
+					"path" : "C:/Users/nahmu/source/repos/Dark Engine/Dark Engine/Source/Runtime/Core/Application"
+				},
+				{
+					"backtrace" : 11,
+					"path" : "C:/Users/nahmu/source/repos/Dark Engine/Dark Engine/Source/Runtime/Core/../Core"
+				},
+				{
+					"backtrace" : 11,
+					"path" : "C:/Users/nahmu/source/repos/Dark Engine/Dark Engine/Source/Runtime/ApplicationCore/public"
+				},
+				{
+					"backtrace" : 11,
+					"path" : "C:/Users/nahmu/source/repos/Dark Engine/Dark Engine/Source/ThirdParty/DearImGui/public"
+				},
+				{
+					"backtrace" : 11,
+					"path" : "C:/Users/nahmu/source/repos/Dark Engine/Dark Engine/Source/ThirdParty/DTK12/../DTK12"
+				},
+				{
+					"backtrace" : 11,
+					"path" : "C:/Users/nahmu/source/repos/Dark Engine/Dark Engine/Source/Runtime/Engine/public"
+				},
+				{
+					"backtrace" : 11,
+					"path" : "C:/Users/nahmu/source/repos/Dark Engine/Dark Engine/Source/Runtime/Engine/Classes"
+				},
+				{
+					"backtrace" : 11,
+					"path" : "C:/Users/nahmu/source/repos/Dark Engine/Dark Engine/Source/Runtime/Input/public"
+				},
+				{
+					"backtrace" : 11,
+					"path" : "C:/Users/nahmu/source/repos/Dark Engine/Dark Engine/Source/Runtime/Editor/public"
+				},
+				{
+					"backtrace" : 11,
+					"path" : "C:/Users/nahmu/source/repos/Dark Engine/Dark Engine/Source/Runtime/Render/../Render"
+				},
+				{
+					"backtrace" : 11,
+					"path" : "C:/Users/nahmu/source/repos/Dark Engine/Dark Engine/Source/ThirdParty/D3DCompiler/inc"
+				},
+				{
+					"backtrace" : 11,
+					"path" : "C:/Users/nahmu/source/repos/Dark Engine/Dark Engine/Source/ThirdParty/Assimp/include"
+				},
+				{
+					"backtrace" : 11,
+					"path" : "C:/Users/nahmu/source/repos/Dark Engine/Dark Engine/Source/Runtime/RHI/public"
+				},
+				{
+					"backtrace" : 11,
+					"path" : "C:/Users/nahmu/source/repos/Dark Engine/Dark Engine/Source/Runtime/Renderer/public"
+				},
+				{
+					"backtrace" : 11,
+					"path" : "C:/Users/nahmu/source/repos/Dark Engine/Dark Engine/Source/Runtime/Windows/D3DShaderFormat/public"
+				},
+				{
+					"backtrace" : 11,
+					"path" : "C:/Users/nahmu/source/repos/Dark Engine/Dark Engine/Source/Runtime/Windows/D3DShaderFormat/private"
+				},
+				{
+					"backtrace" : 11,
+					"path" : "C:/Users/nahmu/source/repos/Dark Engine/Dark Engine/Source/ThirdParty/Stb/../Stb"
+				}
+			],
+			"language" : "CXX",
+			"languageStandard" : 
+			{
+				"backtraces" : 
+				[
+					11
+				],
+				"standard" : "23"
+			},
+			"sourceIndexes" : 
+			[
+				27,
+				28,
+				29,
+				30,
+				31,
+				32,
+				33,
+				34,
+				35,
+				36,
+				37,
+				38,
+				39,
+				40,
+				41,
+				42,
+				43,
+				44
+			]
+		}
+	],
+	"dependencies" : 
+	[
+		{
+			"id" : "D3DShaderFormat::@4e033450f3533a784737"
+		}
+	],
+	"folder" : 
+	{
+		"name" : "Dark Engine/Source/Runtime"
+	},
+	"id" : "UICore::@9ea2489b7848f73d7a52",
+	"name" : "UICore",
+	"nameOnDisk" : "UICore.lib",
+	"paths" : 
+	{
+		"build" : "Dark Engine/Source/Runtime/UICore",
+		"source" : "Dark Engine/Source/Runtime/UICore"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "public\\Application",
+			"sourceIndexes" : 
+			[
+				0,
+				1
+			]
+		},
+		{
+			"name" : "public\\Rendering",
+			"sourceIndexes" : 
+			[
+				2,
+				3,
+				4,
+				5,
+				6,
+				7
+			]
+		},
+		{
+			"name" : "public",
+			"sourceIndexes" : 
+			[
+				8,
+				9
+			]
+		},
+		{
+			"name" : "public\\Widgets",
+			"sourceIndexes" : 
+			[
+				10,
+				11,
+				12,
+				13,
+				14,
+				15,
+				16,
+				17,
+				18,
+				19,
+				20,
+				21,
+				22,
+				23,
+				24,
+				25,
+				26,
+				44
+			]
+		},
+		{
+			"name" : "private\\Application",
+			"sourceIndexes" : 
+			[
+				27
+			]
+		},
+		{
+			"name" : "private\\Rendering",
+			"sourceIndexes" : 
+			[
+				28,
+				29
+			]
+		},
+		{
+			"name" : "private\\Widgets",
+			"sourceIndexes" : 
+			[
+				30,
+				31,
+				32,
+				33,
+				34,
+				35,
+				36,
+				37,
+				38,
+				39,
+				40,
+				41,
+				42,
+				43
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 12,
+			"path" : "Dark Engine/Source/Runtime/UICore/public/Application/UIApplication.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 12,
+			"path" : "Dark Engine/Source/Runtime/UICore/public/Application/UIImgui.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 12,
+			"path" : "Dark Engine/Source/Runtime/UICore/public/Rendering/ElementBatcher.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 12,
+			"path" : "Dark Engine/Source/Runtime/UICore/public/Rendering/RenderingCommon.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 12,
+			"path" : "Dark Engine/Source/Runtime/UICore/public/Rendering/SceneViewport.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 12,
+			"path" : "Dark Engine/Source/Runtime/UICore/public/Rendering/UIRHIRenderer.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 12,
+			"path" : "Dark Engine/Source/Runtime/UICore/public/Rendering/UIRenderer.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 12,
+			"path" : "Dark Engine/Source/Runtime/UICore/public/Rendering/UIShaderResource.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 12,
+			"path" : "Dark Engine/Source/Runtime/UICore/public/UICommon.h",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 12,
+			"path" : "Dark Engine/Source/Runtime/UICore/public/UICore.h",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 12,
+			"path" : "Dark Engine/Source/Runtime/UICore/public/Widgets/UIButton.h",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 12,
+			"path" : "Dark Engine/Source/Runtime/UICore/public/Widgets/UIConsole.h",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 12,
+			"path" : "Dark Engine/Source/Runtime/UICore/public/Widgets/UIDock.h",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 12,
+			"path" : "Dark Engine/Source/Runtime/UICore/public/Widgets/UIEditorSettings.h",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 12,
+			"path" : "Dark Engine/Source/Runtime/UICore/public/Widgets/UIEditorViewport.h",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 12,
+			"path" : "Dark Engine/Source/Runtime/UICore/public/Widgets/UIImage.h",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 12,
+			"path" : "Dark Engine/Source/Runtime/UICore/public/Widgets/UILevelEditor.h",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 12,
+			"path" : "Dark Engine/Source/Runtime/UICore/public/Widgets/UILevelViewport.h",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 12,
+			"path" : "Dark Engine/Source/Runtime/UICore/public/Widgets/UILogs.h",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 12,
+			"path" : "Dark Engine/Source/Runtime/UICore/public/Widgets/UIMainMenuBar.h",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 12,
+			"path" : "Dark Engine/Source/Runtime/UICore/public/Widgets/UIMenu.h",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 12,
+			"path" : "Dark Engine/Source/Runtime/UICore/public/Widgets/UINodeEditor.h",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 12,
+			"path" : "Dark Engine/Source/Runtime/UICore/public/Widgets/UISideWidget.h",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 12,
+			"path" : "Dark Engine/Source/Runtime/UICore/public/Widgets/UIViewport.h",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 12,
+			"path" : "Dark Engine/Source/Runtime/UICore/public/Widgets/UIWidget.h",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 12,
+			"path" : "Dark Engine/Source/Runtime/UICore/public/Widgets/UIWidgetTest.h",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 12,
+			"path" : "Dark Engine/Source/Runtime/UICore/public/Widgets/UIWindow.h",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 12,
+			"compileGroupIndex" : 0,
+			"path" : "Dark Engine/Source/Runtime/UICore/private/Application/UIApplication.cpp",
+			"sourceGroupIndex" : 4
+		},
+		{
+			"backtrace" : 12,
+			"compileGroupIndex" : 0,
+			"path" : "Dark Engine/Source/Runtime/UICore/private/Rendering/UIRHIRenderer.cpp",
+			"sourceGroupIndex" : 5
+		},
+		{
+			"backtrace" : 12,
+			"compileGroupIndex" : 0,
+			"path" : "Dark Engine/Source/Runtime/UICore/private/Rendering/UIRenderer.cpp",
+			"sourceGroupIndex" : 5
+		},
+		{
+			"backtrace" : 12,
+			"compileGroupIndex" : 0,
+			"path" : "Dark Engine/Source/Runtime/UICore/private/Widgets/UIButton.cpp",
+			"sourceGroupIndex" : 6
+		},
+		{
+			"backtrace" : 12,
+			"compileGroupIndex" : 0,
+			"path" : "Dark Engine/Source/Runtime/UICore/private/Widgets/UIConsole.cpp",
+			"sourceGroupIndex" : 6
+		},
+		{
+			"backtrace" : 12,
+			"compileGroupIndex" : 0,
+			"path" : "Dark Engine/Source/Runtime/UICore/private/Widgets/UIDock.cpp",
+			"sourceGroupIndex" : 6
+		},
+		{
+			"backtrace" : 12,
+			"compileGroupIndex" : 0,
+			"path" : "Dark Engine/Source/Runtime/UICore/private/Widgets/UIEditorSettings.cpp",
+			"sourceGroupIndex" : 6
+		},
+		{
+			"backtrace" : 12,
+			"compileGroupIndex" : 0,
+			"path" : "Dark Engine/Source/Runtime/UICore/private/Widgets/UIEditorViewport.cpp",
+			"sourceGroupIndex" : 6
+		},
+		{
+			"backtrace" : 12,
+			"compileGroupIndex" : 0,
+			"path" : "Dark Engine/Source/Runtime/UICore/private/Widgets/UILogs.cpp",
+			"sourceGroupIndex" : 6
+		},
+		{
+			"backtrace" : 12,
+			"compileGroupIndex" : 0,
+			"path" : "Dark Engine/Source/Runtime/UICore/private/Widgets/UIMainMenuBar.cpp",
+			"sourceGroupIndex" : 6
+		},
+		{
+			"backtrace" : 12,
+			"compileGroupIndex" : 0,
+			"path" : "Dark Engine/Source/Runtime/UICore/private/Widgets/UIMenu.cpp",
+			"sourceGroupIndex" : 6
+		},
+		{
+			"backtrace" : 12,
+			"compileGroupIndex" : 0,
+			"path" : "Dark Engine/Source/Runtime/UICore/private/Widgets/UINodeEditor.cpp",
+			"sourceGroupIndex" : 6
+		},
+		{
+			"backtrace" : 12,
+			"compileGroupIndex" : 0,
+			"path" : "Dark Engine/Source/Runtime/UICore/private/Widgets/UISideWidget.cpp",
+			"sourceGroupIndex" : 6
+		},
+		{
+			"backtrace" : 12,
+			"compileGroupIndex" : 0,
+			"path" : "Dark Engine/Source/Runtime/UICore/private/Widgets/UIViewport.cpp",
+			"sourceGroupIndex" : 6
+		},
+		{
+			"backtrace" : 12,
+			"compileGroupIndex" : 0,
+			"path" : "Dark Engine/Source/Runtime/UICore/private/Widgets/UIWidget.cpp",
+			"sourceGroupIndex" : 6
+		},
+		{
+			"backtrace" : 12,
+			"compileGroupIndex" : 0,
+			"path" : "Dark Engine/Source/Runtime/UICore/private/Widgets/UIWidgetTest.cpp",
+			"sourceGroupIndex" : 6
+		},
+		{
+			"backtrace" : 12,
+			"compileGroupIndex" : 0,
+			"path" : "Dark Engine/Source/Runtime/UICore/private/Widgets/UIWindow.cpp",
+			"sourceGroupIndex" : 6
+		},
+		{
+			"backtrace" : 12,
+			"compileGroupIndex" : 0,
+			"path" : "Dark Engine/Source/Runtime/UICore/public/Widgets/UISideWidget.cpp",
+			"sourceGroupIndex" : 3
+		}
+	],
+	"type" : "STATIC_LIBRARY"
+}

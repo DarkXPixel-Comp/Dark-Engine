@@ -1,0 +1,45 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"install"
+		],
+		"files" : 
+		[
+			"Dark Engine/Source/Runtime/ApplicationCore/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 21,
+				"parent" : 0
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"C:/Users/nahmu/source/repos/Dark Engine/Dark Engine/bin/lib/ApplicationCore.lib"
+			],
+			"targetId" : "ApplicationCore::@0d36fc7ab519ff6dfebf",
+			"targetIndex" : 0,
+			"type" : "target"
+		}
+	],
+	"paths" : 
+	{
+		"build" : "Dark Engine/Source/Runtime/ApplicationCore",
+		"source" : "Dark Engine/Source/Runtime/ApplicationCore"
+	}
+}

@@ -7,7 +7,7 @@ target_link_libraries(D3D12RHI PRIVATE Core RHI IMGUI Renderer)
 target_link_libraries(D3D12RHI PUBLIC WinPix DTK12)
 #target_link_libraries(D3D12RHI PUBLIC ${D3D12RHILibs})
 
-if(MSVC AND WIN32)
+if(WIN32)
 target_sources(D3D12RHI PRIVATE "private/Windows/WindowsD3D12Device.cpp" "public/Windows/WindowsD3D12ThirdParty.h")
 #set(D3D12RHI_Sources ${D3D12RHI_Sources} "private/Windows/WindowsD3D12Device.cpp" "public/Windows/WindowsD3D12ThirdParty.h")
 endif()

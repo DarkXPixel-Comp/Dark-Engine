@@ -15,13 +15,20 @@ set_target_properties(Launch PROPERTIES OUTPUT_NAME "Dark Engine" SUFFIX ".exe")
 #	RUNTIME_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/Dark Engine/bin")
 
 
-if(MSVC AND WIN32)
+if(WIN32)
 	set(CMAKE_AUTORCC ON)
 	set(CMAKE_AUTOMOC ON)
 	set(CMAKE_AUTOUIC ON)
 	set_target_properties(Launch PROPERTIES WIN32_EXECUTABLE 1)
+	#target_link_options(Launch PRIVATE "/SUBSYSTEM:WINDOWS")
 
-	set(LAUNCH_RESOURCES "Resource/Windows/app.rc" "Resource/Windows/Logo.ico" "Resource/Windows/resource.h")
+	if(${CMAKE_GENERATOR} MATCHES Ninja)
+		target_sources(Launch PRIVATE "Resource/Windows/app.o")
+	elseif(${CMAKE_GENERATOR} MATCHES "Visual Studio 17 2022")
+		target_sources(Launch PRIVATE "Resource/Windows/app.rc")
+	endif()
+
+	#set(LAUNCH_RESOURCES "Resource/Windows/app.rc" "Resource/Windows/Logo.ico" "Resource/Windows/resource.h")
 	target_sources(Launch PRIVATE "private/Windows/LaunchWindows.cpp")
 	target_sources(Launch PRIVATE "Resource/Windows/app.o")
 	set(Launch_Sources ${Launch_Sources} "private/Windows/LaunchWindows.cpp")

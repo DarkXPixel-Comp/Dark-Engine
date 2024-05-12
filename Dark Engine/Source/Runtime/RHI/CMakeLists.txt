@@ -7,7 +7,7 @@ target_compile_features(RHI PUBLIC cxx_std_20)
 target_link_libraries(RHI PRIVATE Core D3D12RHI IMGUI Engine)
 #target_link_libraries(RHI PUBLIC ${RHILibs})
 
-if(MSVC AND WIN32)
+if(WIN32)
 	target_sources(RHI PRIVATE "private/Windows/WindowsDynamicRHI.cpp")
 	#set(RHI_Sources ${RHI_Sources} "private/Windows/WindowsDynamicRHI.cpp")
 endif()

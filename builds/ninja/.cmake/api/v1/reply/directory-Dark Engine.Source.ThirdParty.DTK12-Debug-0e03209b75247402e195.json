@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "Dark Engine/Source/ThirdParty/DTK12",
+		"source" : "Dark Engine/Source/ThirdParty/DTK12"
+	}
+}

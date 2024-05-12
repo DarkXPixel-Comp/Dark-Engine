@@ -1,0 +1,526 @@
+{
+	"archive" : 
+	{
+		"commandFragments" : 
+		[
+			{
+				"fragment" : "/machine:x64",
+				"role" : "flags"
+			}
+		]
+	},
+	"artifacts" : 
+	[
+		{
+			"path" : "C:/Users/nahmu/source/repos/Dark Engine/Dark Engine/bin/lib/Renderer.lib"
+		}
+	],
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_library",
+			"install",
+			"add_compile_options",
+			"add_compile_definitions",
+			"include_directories",
+			"target_include_directories",
+			"SettingProject",
+			"target_link_libraries",
+			"target_sources"
+		],
+		"files" : 
+		[
+			"Dark Engine/Source/Runtime/Renderer/CMakeLists.txt",
+			"CMakeLists.txt",
+			"Dark Engine/Source/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 1,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 22,
+				"parent" : 0
+			},
+			{
+				"file" : 1
+			},
+			{
+				"command" : 2,
+				"file" : 1,
+				"line" : 74,
+				"parent" : 3
+			},
+			{
+				"command" : 3,
+				"file" : 1,
+				"line" : 85,
+				"parent" : 3
+			},
+			{
+				"file" : 2
+			},
+			{
+				"command" : 3,
+				"file" : 2,
+				"line" : 4,
+				"parent" : 6
+			},
+			{
+				"command" : 4,
+				"file" : 2,
+				"line" : 2,
+				"parent" : 6
+			},
+			{
+				"command" : 6,
+				"file" : 0,
+				"line" : 18,
+				"parent" : 0
+			},
+			{
+				"command" : 5,
+				"file" : 1,
+				"line" : 31,
+				"parent" : 9
+			},
+			{
+				"command" : 5,
+				"file" : 0,
+				"line" : 20,
+				"parent" : 0
+			},
+			{
+				"command" : 7,
+				"file" : 0,
+				"line" : 7,
+				"parent" : 0
+			},
+			{
+				"command" : 8,
+				"file" : 0,
+				"line" : 16,
+				"parent" : 0
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "/DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++latest   /FI Definitions.h"
+				},
+				{
+					"backtrace" : 4,
+					"fragment" : "\"/MP 12\""
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 5,
+					"define" : "ROOT_DIR=\"C:/Users/nahmu/source/repos/Dark Engine\""
+				},
+				{
+					"backtrace" : 5,
+					"define" : "UBT_COMPILED_PLATFORM=Windows"
+				},
+				{
+					"backtrace" : 7,
+					"define" : "USING_IMGUI"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 8,
+					"path" : "C:/Users/nahmu/source/repos/Dark Engine/Dark Engine/Source/Windows"
+				},
+				{
+					"backtrace" : 10,
+					"path" : "C:/Users/nahmu/source/repos/Dark Engine/Dark Engine/Source"
+				},
+				{
+					"backtrace" : 11,
+					"path" : "C:/Users/nahmu/source/repos/Dark Engine/Dark Engine/Source/Runtime/Renderer/public"
+				},
+				{
+					"backtrace" : 12,
+					"path" : "C:/Users/nahmu/source/repos/Dark Engine/Dark Engine/Source/Runtime/Core/Public"
+				},
+				{
+					"backtrace" : 12,
+					"path" : "C:/Users/nahmu/source/repos/Dark Engine/Dark Engine/Source/Runtime/Core/Timer"
+				},
+				{
+					"backtrace" : 12,
+					"path" : "C:/Users/nahmu/source/repos/Dark Engine/Dark Engine/Source/Runtime/Core/Settings"
+				},
+				{
+					"backtrace" : 12,
+					"path" : "C:/Users/nahmu/source/repos/Dark Engine/Dark Engine/Source/Runtime/Core/Memory"
+				},
+				{
+					"backtrace" : 12,
+					"path" : "C:/Users/nahmu/source/repos/Dark Engine/Dark Engine/Source/Runtime/Core/Logging"
+				},
+				{
+					"backtrace" : 12,
+					"path" : "C:/Users/nahmu/source/repos/Dark Engine/Dark Engine/Source/Runtime/Core/Delegate"
+				},
+				{
+					"backtrace" : 12,
+					"path" : "C:/Users/nahmu/source/repos/Dark Engine/Dark Engine/Source/Runtime/Core/CommandLine"
+				},
+				{
+					"backtrace" : 12,
+					"path" : "C:/Users/nahmu/source/repos/Dark Engine/Dark Engine/Source/Runtime/Core/Application"
+				},
+				{
+					"backtrace" : 12,
+					"path" : "C:/Users/nahmu/source/repos/Dark Engine/Dark Engine/Source/Runtime/Core/../Core"
+				},
+				{
+					"backtrace" : 12,
+					"path" : "C:/Users/nahmu/source/repos/Dark Engine/Dark Engine/Source/Runtime/RHI/public"
+				},
+				{
+					"backtrace" : 12,
+					"path" : "C:/Users/nahmu/source/repos/Dark Engine/Dark Engine/Source/Runtime/Engine/public"
+				},
+				{
+					"backtrace" : 12,
+					"path" : "C:/Users/nahmu/source/repos/Dark Engine/Dark Engine/Source/Runtime/Engine/Classes"
+				},
+				{
+					"backtrace" : 12,
+					"path" : "C:/Users/nahmu/source/repos/Dark Engine/Dark Engine/Source/Runtime/Input/public"
+				},
+				{
+					"backtrace" : 12,
+					"path" : "C:/Users/nahmu/source/repos/Dark Engine/Dark Engine/Source/Runtime/Editor/public"
+				},
+				{
+					"backtrace" : 12,
+					"path" : "C:/Users/nahmu/source/repos/Dark Engine/Dark Engine/Source/Runtime/Render/../Render"
+				},
+				{
+					"backtrace" : 12,
+					"path" : "C:/Users/nahmu/source/repos/Dark Engine/Dark Engine/Source/ThirdParty/DTK12/../DTK12"
+				},
+				{
+					"backtrace" : 12,
+					"path" : "C:/Users/nahmu/source/repos/Dark Engine/Dark Engine/Source/ThirdParty/D3DCompiler/inc"
+				},
+				{
+					"backtrace" : 12,
+					"path" : "C:/Users/nahmu/source/repos/Dark Engine/Dark Engine/Source/ThirdParty/Assimp/include"
+				},
+				{
+					"backtrace" : 12,
+					"path" : "C:/Users/nahmu/source/repos/Dark Engine/Dark Engine/Source/ThirdParty/DearImGui/public"
+				},
+				{
+					"backtrace" : 12,
+					"path" : "C:/Users/nahmu/source/repos/Dark Engine/Dark Engine/Source/Runtime/ApplicationCore/public"
+				},
+				{
+					"backtrace" : 12,
+					"path" : "C:/Users/nahmu/source/repos/Dark Engine/Dark Engine/Source/Runtime/Windows/D3DShaderFormat/public"
+				},
+				{
+					"backtrace" : 12,
+					"path" : "C:/Users/nahmu/source/repos/Dark Engine/Dark Engine/Source/Runtime/Windows/D3DShaderFormat/private"
+				},
+				{
+					"backtrace" : 12,
+					"path" : "C:/Users/nahmu/source/repos/Dark Engine/Dark Engine/Source/Runtime/UICore/public"
+				},
+				{
+					"backtrace" : 12,
+					"path" : "C:/Users/nahmu/source/repos/Dark Engine/Dark Engine/Source/Runtime/UICore/private"
+				},
+				{
+					"backtrace" : 12,
+					"path" : "C:/Users/nahmu/source/repos/Dark Engine/Dark Engine/Source/ThirdParty/Stb/../Stb"
+				}
+			],
+			"language" : "CXX",
+			"languageStandard" : 
+			{
+				"backtraces" : 
+				[
+					12
+				],
+				"standard" : "23"
+			},
+			"sourceIndexes" : 
+			[
+				16,
+				17,
+				18,
+				19,
+				20,
+				21,
+				22,
+				23,
+				24,
+				25,
+				26,
+				27,
+				28
+			]
+		}
+	],
+	"dependencies" : 
+	[
+		{
+			"id" : "UICore::@9ea2489b7848f73d7a52"
+		}
+	],
+	"folder" : 
+	{
+		"name" : "Dark Engine/Source/Runtime"
+	},
+	"id" : "Renderer::@c21223d520e14b069b07",
+	"install" : 
+	{
+		"destinations" : 
+		[
+			{
+				"backtrace" : 2,
+				"path" : "lib"
+			}
+		],
+		"prefix" : 
+		{
+			"path" : "C:/Program Files (x86)/Dark Engine"
+		}
+	},
+	"name" : "Renderer",
+	"nameOnDisk" : "Renderer.lib",
+	"paths" : 
+	{
+		"build" : "Dark Engine/Source/Runtime/Renderer",
+		"source" : "Dark Engine/Source/Runtime/Renderer"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "private",
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2,
+				3,
+				16,
+				17,
+				18,
+				19,
+				20,
+				21,
+				22,
+				23,
+				24,
+				25,
+				26,
+				27,
+				28
+			]
+		},
+		{
+			"name" : "public",
+			"sourceIndexes" : 
+			[
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14,
+				15
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 13,
+			"path" : "Dark Engine/Source/Runtime/Renderer/private/IndirectLightRendering.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 13,
+			"path" : "Dark Engine/Source/Runtime/Renderer/private/ScenePrivate.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 13,
+			"path" : "Dark Engine/Source/Runtime/Renderer/private/SceneRenderer.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 13,
+			"path" : "Dark Engine/Source/Runtime/Renderer/private/SceneRendering.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 13,
+			"path" : "Dark Engine/Source/Runtime/Renderer/public/CommonRenderResources.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 13,
+			"path" : "Dark Engine/Source/Runtime/Renderer/public/GlobalResource.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 13,
+			"path" : "Dark Engine/Source/Runtime/Renderer/public/GlobalShader.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 13,
+			"path" : "Dark Engine/Source/Runtime/Renderer/public/IShaderFormat.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 13,
+			"path" : "Dark Engine/Source/Runtime/Renderer/public/MaterialShader.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 13,
+			"path" : "Dark Engine/Source/Runtime/Renderer/public/MeshMaterialShader.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 13,
+			"path" : "Dark Engine/Source/Runtime/Renderer/public/RenderGlobals.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 13,
+			"path" : "Dark Engine/Source/Runtime/Renderer/public/RenderResource.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 13,
+			"path" : "Dark Engine/Source/Runtime/Renderer/public/RendererInterface.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 13,
+			"path" : "Dark Engine/Source/Runtime/Renderer/public/Shader.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 13,
+			"path" : "Dark Engine/Source/Runtime/Renderer/public/ShaderCompiler.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 13,
+			"path" : "Dark Engine/Source/Runtime/Renderer/public/ShaderCore.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 13,
+			"compileGroupIndex" : 0,
+			"path" : "Dark Engine/Source/Runtime/Renderer/private/ClearQuad.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 13,
+			"compileGroupIndex" : 0,
+			"path" : "Dark Engine/Source/Runtime/Renderer/private/FractalRender.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 13,
+			"compileGroupIndex" : 0,
+			"path" : "Dark Engine/Source/Runtime/Renderer/private/GlobalResource.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 13,
+			"compileGroupIndex" : 0,
+			"path" : "Dark Engine/Source/Runtime/Renderer/private/GlobalShader.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 13,
+			"compileGroupIndex" : 0,
+			"path" : "Dark Engine/Source/Runtime/Renderer/private/IndirectLightRendering.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 13,
+			"compileGroupIndex" : 0,
+			"path" : "Dark Engine/Source/Runtime/Renderer/private/RenderGlobals.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 13,
+			"compileGroupIndex" : 0,
+			"path" : "Dark Engine/Source/Runtime/Renderer/private/RenderResource.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 13,
+			"compileGroupIndex" : 0,
+			"path" : "Dark Engine/Source/Runtime/Renderer/private/ScenePrivate.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 13,
+			"compileGroupIndex" : 0,
+			"path" : "Dark Engine/Source/Runtime/Renderer/private/SceneRenderer.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 13,
+			"compileGroupIndex" : 0,
+			"path" : "Dark Engine/Source/Runtime/Renderer/private/SceneRendering.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 13,
+			"compileGroupIndex" : 0,
+			"path" : "Dark Engine/Source/Runtime/Renderer/private/SeaScape.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 13,
+			"compileGroupIndex" : 0,
+			"path" : "Dark Engine/Source/Runtime/Renderer/private/Shader.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 13,
+			"compileGroupIndex" : 0,
+			"path" : "Dark Engine/Source/Runtime/Renderer/private/ShaderCompiler.cpp",
+			"sourceGroupIndex" : 0
+		}
+	],
+	"type" : "STATIC_LIBRARY"
+}

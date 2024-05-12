@@ -1,0 +1,45 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"install"
+		],
+		"files" : 
+		[
+			"Dark Engine/Source/ThirdParty/DearImGui/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 16,
+				"parent" : 0
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"C:/Users/nahmu/source/repos/Dark Engine/Dark Engine/bin/lib/IMGUI.lib"
+			],
+			"targetId" : "IMGUI::@2b0079a0f0a171dd8238",
+			"targetIndex" : 7,
+			"type" : "target"
+		}
+	],
+	"paths" : 
+	{
+		"build" : "Dark Engine/Source/ThirdParty/DearImGui",
+		"source" : "Dark Engine/Source/ThirdParty/DearImGui"
+	}
+}
