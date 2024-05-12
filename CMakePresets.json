@@ -5,8 +5,7 @@
       "displayName": "Win64-Debug",
       "description": "Win64-Debug",
       "generator": "Ninja",
-      
-      "binaryDir": "${projectDir}/Dark Engine/bin",
-      }
+      "binaryDir": "${projectDir}/Dark Engine/bin"
+    }
   ]
 }
