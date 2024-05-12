@@ -12,8 +12,8 @@ jobs:
     runs-on: windows-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: lukka/run-vcpkg@v11 # Always specify the specific _version_ of the
-      name: Setup anew (or from cache) vcpkg (and does not build any package)
+   # - uses: lukka/run-vcpkg@v11 # Always specify the specific _version_ of the
+   #    name: Setup anew (or from cache) vcpkg (and does not build any package)
       
     - uses: lukka/get-cmake@v3.29.3
       name: get-cmake
