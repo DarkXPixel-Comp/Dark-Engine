@@ -13,5 +13,22 @@
       "generator": "Ninja",
       "binaryDir": "${projectDir}/Dark Engine/bin"
     }
+  ],
+  "buildPresets": [
+    {
+      "name": "Win64-Debug",
+      "configurePreset": "Win64-Debug"
+    }
+  ],
+  "workflowPresets": [
+    {
+      "name": "default",
+      "steps": [
+        {
+          "type": "configure",
+          "name": "default"
+        }
+      ]
+    }
   ]
 }
