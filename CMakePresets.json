@@ -12,8 +12,6 @@
       "description": "Sets build and install directories",
       "binaryDir": "${sourceDir}/builds/${presetName}",
       "generator": "Ninja",
-      "toolset": "host=x64",
-      "architecture": "x64",
       "cacheVariables": {
               "CMAKE_C_COMPILER": "cl.exe",
               "CMAKE_CXX_COMPILER": "cl.exe"
