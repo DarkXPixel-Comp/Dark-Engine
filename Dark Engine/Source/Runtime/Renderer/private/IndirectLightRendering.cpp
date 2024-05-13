@@ -22,7 +22,16 @@ class FScreenRectanglePS : public FGlobalShader
 	DECLARE_SHADER_BOUNDS(0, 2, 0, 0);
 };
 
+class FTestComputeShaderCS : public FGlobalShader
+{
+	DECLARE_GLOBAL_SHADER(FTestComputeShaderCS);
+	SHADER_USE_PARAMETER_STRUCT(FTestComputeShaderCS, FGlobalShader);
+	DECLARE_SHADER_BOUNDS(0, 0, 0, 1);
+};
 
+
+
+IMPLEMENT_GLOBAL_SHADER(FTestComputeShaderCS, "Test.hlsl", "Main", ST_Compute);
 IMPLEMENT_GLOBAL_SHADER(FScreenRectangleVS, "ScreenRectangle.hlsl", "VSMain", ST_Vertex);
 IMPLEMENT_GLOBAL_SHADER(FScreenRectanglePS, "ScreenRectangle.hlsl", "PSMain", ST_Pixel);
 
@@ -32,6 +41,14 @@ TGlobalRenderResource<FScreenRectangleIndexBuffer> GRenctangleIndexBuffer;
 TGlobalRenderResource<FFilterVertexDeclaration>	GFilterVertexDeclaration;
 
 
+struct FQuadParam
+{
+	FVector2f NormalizeMousePosition;
+	FIntPoint MousePosition;
+	FIntPoint Resolution;
+
+
+};
 
 void FSceneRender::RenderQuad(FRHICommandListImmediate& RHICmdList)
 {
@@ -39,6 +56,30 @@ void FSceneRender::RenderQuad(FRHICommandListImmediate& RHICmdList)
 		GGlobalShaderMap->GetShader<FScreenRectangleVS>();
 	TShaderRefBase<FScreenRectanglePS>	PixelShader =
 		GGlobalShaderMap->GetShader<FScreenRectanglePS>();
+	TShaderRefBase<FTestComputeShaderCS> ComputeShader =
+		GGlobalShaderMap->GetShader<FTestComputeShaderCS>();
+
+	auto ComputePSO = RHICreateComputePipelineState(ComputeShader.GetComputeShader());
+
+	TArray<uint8> Parameters;
+	TArray<FRHIShaderParameterResource>	BindlessParameters;
+	TArray<FRHIShaderParameterResource>	ResourceParameters;
+
+	FQuadParam Params;
+	Params.MousePosition = SceneView->ViewInitOptions.CursorPosition;
+	Params.NormalizeMousePosition = SceneView->ViewInitOptions.NormalizeCursorPosition;
+	Params.Resolution = SceneView->RenderTarget->GetSizeXY();
+	static TRefCountPtr<FRHIUniformBuffer> UniformBuffer = RHICreateUniformBuffer(&Params, sizeof(Params), UniformBuffer_MultiFrame);
+	RHIUpdateUniformBuffer(UniformBuffer.Get(), &Params, sizeof(Params));
+
+
+	FRHIShaderParameterResource Param;
+	Param.Type = FRHIShaderParameterResource::EType::UniformBuffer;
+	Param.Resource = UniformBuffer.Get();
+	Param.Index = 0;
+	ResourceParameters.Add(Param);
+
+
 
 	FVertexDeclarationElementList Elements;
 	Elements.Add(FVertexElement(VET_Float4, 0, 0, 0, 0));
@@ -74,7 +115,9 @@ void FSceneRender::RenderQuad(FRHICommandListImmediate& RHICmdList)
 
 	RHICmdList.RHISetViewport(SceneView->ViewRect.LeftUp.X, SceneView->ViewRect.LeftUp.Y, 0.1f, SceneView->ViewRect.RightDown.X, SceneView->ViewRect.RightDown.Y, 100);
 	RHICmdList.SetStreamSource(0, GRenctangleVertexBuffer->VertexBuffer.Get(), 0, sizeof(FFilterVertex));
+	RHICmdList.SetShaderParameters(RHIPixelShader, Parameters, BindlessParameters, ResourceParameters);
 	RHICmdList.DrawIndexedPrimitive(GRenctangleIndexBuffer->IndexBuffer.Get(), 0, 0, 3, 0, 2, 1);
+
 
 	RHICmdList.EndRenderPass(RenderPassInfo);
 

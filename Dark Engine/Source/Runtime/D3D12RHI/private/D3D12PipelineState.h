@@ -35,6 +35,14 @@ struct FD3D12_GRAPHICS_PIPELINE_STATE_DESC
 	CD3DX12_PIPELINE_STATE_STREAM_NODE_MASK NodeMask;
 };
 
+struct FD3D12_COMPUTE_PIPELINE_STATE_DESC
+{
+	CD3DX12_PIPELINE_STATE_STREAM_NODE_MASK NodeMask;
+	CD3DX12_PIPELINE_STATE_STREAM_ROOT_SIGNATURE RootSignature;
+	CD3DX12_PIPELINE_STATE_STREAM_CS ComputeShader;
+
+};
+
 
 
 class FD3D12PipelineStateManager : public FD3D12AdapterChild
@@ -43,13 +51,16 @@ public:
 	FD3D12PipelineStateManager(FD3D12Adapter* InParent);
 
 	FD3D12PipelineState* GetPipelineState(const FGraphicsPipelineStateInitializer& Initializer, const FD3D12RootSignature* InRootSignature);
+	FD3D12PipelineState* GetPipelineState(FD3D12ComputeShader* ComputeShader, uint64 Hash);
 
 	D3D12_PIPELINE_STATE_STREAM_DESC SetPipelineDesc(const FGraphicsPipelineStateInitializer& Initializer, FD3D12_GRAPHICS_PIPELINE_STATE_DESC& PipelineStateDesc, const FD3D12RootSignature* InRootSignature);
+	D3D12_PIPELINE_STATE_STREAM_DESC SetPipelineDesc(FD3D12ComputeShader* ComputeShader, FD3D12_COMPUTE_PIPELINE_STATE_DESC& PipelineStateDesc);
 
 	void CachePSO();
 
 private:
 	TUnordoredMap<FGraphicsPipelineStateInitializer, struct FD3D12PipelineState*> PSOMap;
+	TMap<uint64, struct FD3D12PipelineState*> ComputePSOMap;
 	TRefCountPtr<ID3D12PipelineLibrary1> PipelineLibrary;
 	TArray<uint8> Cache;
 
@@ -67,6 +78,18 @@ struct FD3D12PipelineState : public  FD3D12AdapterChild
 	TRefCountPtr<ID3D12PipelineState> PSO;
 };
 
+
+struct FD3D12ComputePipelineState : public FRHIComputePipelineState
+{
+	FD3D12ComputePipelineState(FD3D12ComputeShader* InComputeShader, const FD3D12RootSignature* InRootSignature, FD3D12PipelineState* InPipelineState);
+
+
+	TRefCountPtr<FD3D12ComputeShader> ComputeShader;
+
+
+	FD3D12PipelineState* PipelineState;
+	const FD3D12RootSignature* const RootSignature;
+};
 
 
 struct FD3D12GraphicsPipelineState : public FRHIGraphicsPipelineState

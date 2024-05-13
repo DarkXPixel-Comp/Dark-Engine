@@ -53,7 +53,7 @@ void FD3D12StateCache::SetConstantsFromUniformBuffer(EShaderType ShaderType, uin
 
 }
 
-void FD3D12StateCache::SetGrapicsPipelineState(FD3D12GraphicsPipelineState* GraphicsPipelineState)
+void FD3D12StateCache::SetGraphicsPipelineState(FD3D12GraphicsPipelineState* GraphicsPipelineState)
 {
 	check(GraphicsPipelineState);
 
@@ -105,6 +105,42 @@ void FD3D12StateCache::SetGrapicsPipelineState(FD3D12GraphicsPipelineState* Grap
 		}
 
 	}
+}
+
+void FD3D12StateCache::SetComputePipelineState(FD3D12ComputePipelineState* ComputePipelineState)
+{
+	check(ComputePipelineState);
+
+	FD3D12ComputePipelineState* CurrentComputePipelineState = PipelineState.Compute.CurrentPipelineStateObject.Get();
+	const bool bForceSet = CurrentComputePipelineState == nullptr;
+
+	if (bForceSet || CurrentComputePipelineState != ComputePipelineState)
+	{
+		if (bForceSet || CurrentComputePipelineState->RootSignature != ComputePipelineState->RootSignature)
+		{
+			PipelineState.Compute.bNeedSetRootSignature = true;
+		}
+
+		if (bForceSet || CurrentComputePipelineState->ComputeShader != ComputePipelineState->ComputeShader)
+		{
+			SetNewShaderData(ST_Compute, ComputePipelineState->ComputeShader.Get());
+		}
+
+		PipelineState.Common.bNeedSetPSO = true;
+		PipelineState.Common.CurrentPipelineState = ComputePipelineState->PipelineState->PSO;
+
+		ID3D12PipelineState* const CurrentPipelineState = PipelineState.Common.CurrentPipelineState.Get();
+		ID3D12PipelineState* const NewPipelineState = ComputePipelineState->PipelineState->PSO.Get();
+
+		if (PipelineState.Common.bNeedSetPSO || CurrentPipelineState != NewPipelineState)
+		{
+			PipelineState.Common.CurrentPipelineState = ComputePipelineState->PipelineState->PSO;
+			Context.GetCommandList().GetGraphicsCommandList()->SetPipelineState(NewPipelineState);
+			PipelineState.Common.bNeedSetPSO = false;
+		}
+
+	}
+
 }
 
 void FD3D12StateCache::SetNewShaderData(EShaderType InType, const FD3D12ShaderData* InShaderData)

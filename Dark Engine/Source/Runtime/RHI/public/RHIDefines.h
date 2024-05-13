@@ -135,7 +135,8 @@ enum EShaderType : uint8
 	ST_RayCallable,
 	ST_NumTypes,
 
-	ST_NumStandartTypes = 6
+	ST_NumStandartTypes = 5,
+	ST_NumGraphicTypes = 4
 };
 
 enum class ETextureDimension

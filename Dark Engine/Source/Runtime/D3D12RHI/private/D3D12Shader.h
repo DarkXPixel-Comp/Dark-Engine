@@ -94,4 +94,6 @@ class FD3D12ComputeShader : public FRHIComputeShader, public FD3D12ShaderData
 public:
 	enum { StaticType = ST_Compute };
 
+	const FD3D12RootSignature* RootSignature = nullptr;
+
 };

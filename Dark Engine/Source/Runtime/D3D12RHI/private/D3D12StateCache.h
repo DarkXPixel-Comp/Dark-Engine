@@ -102,7 +102,8 @@ public:
 	void SetConstantsFromUniformBuffer(EShaderType ShaderType, uint32 SlotIndex, FD3D12UniformBuffer* InBuffer);
 
 
-	void SetGrapicsPipelineState(class FD3D12GraphicsPipelineState* GraphicsPipelineState);
+	void SetGraphicsPipelineState(class FD3D12GraphicsPipelineState* GraphicsPipelineState);
+	void SetComputePipelineState(class FD3D12ComputePipelineState* ComputePipelineState);
 	void SetNewShaderData(EShaderType InType, const class FD3D12ShaderData* InShaderData);
 	void SetStreamSource(FD3D12ResourceLocation* VertexBufferLocation, uint32 StreamIndex, uint32 Offset, uint32 Stride = 0);
 	void SetIndexBuffer(FD3D12ResourceLocation* IndexBufferLocation, DXGI_FORMAT Format, uint32 Offset);
@@ -123,7 +124,7 @@ private:
 	{
 		struct
 		{
-			TRefCountPtr<class FD3D12GraphicsPipelineState> CurrentPipelineStateObject = nullptr;
+			TRefCountPtr<class FD3D12GraphicsPipelineState> CurrentPipelineStateObject;
 
 			FD3D12RenderTargetView* RenderTargetArray[8];
 			uint32 CurrentNumberRenderTargets = 0;
@@ -144,6 +145,11 @@ private:
 
 		struct
 		{
+			TRefCountPtr<class FD3D12ComputePipelineState> CurrentPipelineStateObject;
+			bool bNeedSetRootSignature = true;
+
+
+
 
 		} Compute;
 

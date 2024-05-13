@@ -439,12 +439,23 @@ void FD3D12CommandContext::RHISetGraphicsPipelineState(FRHIGraphicsPipelineState
 	FD3D12GraphicsPipelineState* GraphicsPipelineState = static_cast<FD3D12GraphicsPipelineState*>(GraphicsPSO);
 
 
-	for (uint32 Index = 0; Index < ST_NumStandartTypes; ++Index)
+	for (uint32 Index = 0; Index < ST_NumGraphicTypes; ++Index)
 	{
 		StageConstantBuffers[Index].Reset();
 	}
 
-	StateCache.SetGrapicsPipelineState(GraphicsPipelineState);
+	StateCache.SetGraphicsPipelineState(GraphicsPipelineState);
+}
+
+void FD3D12CommandContext::RHISetComputePipelineState(FRHIComputePipelineState* ComputeState)
+{
+	//FD3D12ComputePipelineState* ComputePipelineState = static_cast<FD3D12ComputePipelineState*>(ComputeState);
+
+	StageConstantBuffers[ST_Compute].Reset();
+
+	StateCache.SetComputePipelineState(nullptr);
+
+
 }
 
 void FD3D12CommandContext::BindUniformBuffer(FRHIShader* Shader, EShaderType ShaderType, uint32 BufferIndex, FD3D12UniformBuffer* InBuffer)
@@ -461,7 +472,6 @@ FD3D12CommandContext::FD3D12CommandContext(FD3D12Device* InParent, ED3D12QueueTy
 	FD3D12DeviceChild(InParent),
 	StageConstantBuffers
 	{
-		FD3D12ConstantBuffer(InParent),
 		FD3D12ConstantBuffer(InParent),
 		FD3D12ConstantBuffer(InParent),
 		FD3D12ConstantBuffer(InParent),

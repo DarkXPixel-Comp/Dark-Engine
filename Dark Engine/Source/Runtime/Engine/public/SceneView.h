@@ -23,6 +23,7 @@ struct FSceneViewInitOptions : FSceneViewProjectionData
 	FVector ViewLocation;
 	FRotator ViewRotation;
 	FIntPoint CursorPosition;
+	FVector2f NormalizeCursorPosition;
 
 	float FOV;
 

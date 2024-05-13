@@ -95,7 +95,7 @@ FD3D12PipelineState* FD3D12PipelineStateManager::GetPipelineState(const FGraphic
 		}
 		else
 		{
-			Result->Create(StreamDesc, InRootSignature);
+			Result->Create(StreamDesc, nullptr);
 			
 			if (Result->PSO)
 			{
@@ -108,7 +108,60 @@ FD3D12PipelineState* FD3D12PipelineStateManager::GetPipelineState(const FGraphic
 		}
 		PSOMap.emplace(Initializer, Result);
 	}
+	else
+	{
+		Result = ItPSO->second;
+	}
 
+	return Result;
+}
+
+FD3D12PipelineState* FD3D12PipelineStateManager::GetPipelineState(FD3D12ComputeShader* ComputeShader, uint64 InHash)
+{
+	FD3D12PipelineState* Result = nullptr;
+	FD3D12_COMPUTE_PIPELINE_STATE_DESC PipelineStateDesc = {};
+	auto ItPSO = ComputePSOMap.find(InHash);
+
+	if (ItPSO == ComputePSOMap.end())
+	{
+		Result = new FD3D12PipelineState(GetParentAdapter());
+		TRefCountPtr<ID3D12PipelineState> PipelineState;
+		FString Hash = FString::NumToString(InHash);
+
+		D3D12_PIPELINE_STATE_STREAM_DESC StreamDesc = SetPipelineDesc(ComputeShader, PipelineStateDesc);
+		HRESULT hr = S_OK;
+
+		if (PipelineLibrary)
+		{
+			hr = PipelineLibrary->LoadPipeline(*Hash, &StreamDesc, IID_PPV_ARGS(&PipelineState));
+			if (hr == E_INVALIDARG)
+			{
+				DE_LOG(D3D12RHI, Log, TEXT("PSO not precached. Hash: %s"), *Hash);
+			}
+		}
+		if (PipelineState)
+		{
+			Result->PSO = PipelineState;
+		}
+		else
+		{
+			Result->Create(StreamDesc, nullptr);
+
+			if (Result->PSO)
+			{
+				if (PipelineLibrary)
+				{
+					PipelineLibrary->StorePipeline(*Hash, Result->PSO.Get());
+				}
+			}
+		}
+
+		ComputePSOMap.emplace(InHash, Result);
+	}
+	else
+	{
+		Result = ItPSO->second;
+	}	
 	return Result;
 }
 
@@ -134,18 +187,6 @@ D3D12_RT_FORMAT_ARRAY GetRTFormatArray(const EPixelFormat Formats[8])
 D3D12_PIPELINE_STATE_STREAM_DESC FD3D12PipelineStateManager::SetPipelineDesc(const FGraphicsPipelineStateInitializer& Initializer,
 	FD3D12_GRAPHICS_PIPELINE_STATE_DESC& PipelineStateDesc, const FD3D12RootSignature* InRootSignature)
 {
-
-	/*D3D12_GRAPHICS_PIPELINE_STATE_DESC PipelineStateDesc = {};
-	PipelineStateDesc.pRootSignature = InRootSignature->GetRootSignature();
-	PipelineStateDesc.InputLayout.pInputElementDescs = ((FD3D12VertexDeclaration*)Initalizer.BoundShaderState.VertexDeclaration)->VertexElements.GetData();
-	PipelineStateDesc.InputLayout.NumElements = ((FD3D12VertexDeclaration*)Initalizer.BoundShaderState.VertexDeclaration)->VertexElements.Num();
-	PipelineStateDesc.VS = ((FD3D12VertexShader*)Initalizer.BoundShaderState.VertexShaderRHI)->GetShaderByteCode();
-	PipelineStateDesc.PS = ((FD3D12PixelShader*)Initalizer.BoundShaderState.PixelShaderRHI)->GetShaderByteCode();
-	PipelineStateDesc.BlendState = CD3DX12_BLEND_DESC(CD3DX12_DEFAULT());
-	PipelineStateDesc.RasterizerState = CD3DX12_RASTERIZER_DESC(CD3DX12_DEFAULT());
-	PipelineStateDesc.DepthStencilState = CD3DX12_DEPTH_STENCIL_DESC(CD3DX12_DEFAULT());
-	PipelineStateDesc.PrimitiveTopologyType = Initalizer.PrimitiveType == PT_TriangleList || Initalizer.PrimitiveType == PT_TriangleStrip ? D3D12_PRIMITIVE_TOPOLOGY_TYPE_TRIANGLE : D3D12_PRIMITIVE_TOPOLOGY_TYPE_UNDEFINED;
-	PipelineStateDesc.SampleDesc = { 1, 0 };*/
 	PipelineStateDesc = {};
 	PipelineStateDesc.RootSignature = InRootSignature->GetRootSignature();
 	PipelineStateDesc.InputLayout = Initializer.BoundShaderState.VertexDeclaration ? static_cast<FD3D12VertexDeclaration*>(Initializer.BoundShaderState.VertexDeclaration)->GetLayoutDsec() : D3D12_INPUT_LAYOUT_DESC();
@@ -165,6 +206,19 @@ D3D12_PIPELINE_STATE_STREAM_DESC FD3D12PipelineStateManager::SetPipelineDesc(con
 
 
 	D3D12_PIPELINE_STATE_STREAM_DESC StreamDesc = { sizeof(PipelineStateDesc), &PipelineStateDesc };
+	return StreamDesc;
+}
+
+D3D12_PIPELINE_STATE_STREAM_DESC FD3D12PipelineStateManager::SetPipelineDesc(FD3D12ComputeShader* ComputeShader, FD3D12_COMPUTE_PIPELINE_STATE_DESC& PipelineStateDesc)
+{
+	PipelineStateDesc = {};
+	PipelineStateDesc.RootSignature = ComputeShader->RootSignature->GetRootSignature();
+	PipelineStateDesc.NodeMask = 1;
+	PipelineStateDesc.ComputeShader = ComputeShader->GetShaderByteCode();
+
+
+	D3D12_PIPELINE_STATE_STREAM_DESC StreamDesc = { sizeof(PipelineStateDesc), &PipelineStateDesc };
+
 	return StreamDesc;
 }
 
@@ -196,4 +250,15 @@ void FD3D12PipelineState::Create(const D3D12_PIPELINE_STATE_STREAM_DESC& Initali
 				 
 
 	DXCall(Device->CreatePipelineState(&Initalizer, IID_PPV_ARGS(&PSO)));
+}
+
+FD3D12ComputePipelineState::FD3D12ComputePipelineState(FD3D12ComputeShader* InComputeShader,
+	const FD3D12RootSignature* InRootSignature, 
+	FD3D12PipelineState* InPipelineState):
+	RootSignature(InRootSignature),
+	PipelineState(InPipelineState),
+	ComputeShader(InComputeShader)
+{
+
+
 }

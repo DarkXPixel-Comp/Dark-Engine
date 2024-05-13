@@ -44,6 +44,8 @@ FSceneView* FEditorViewportClient::CalcSceneView(FSceneView* const View)
 
 	FViewportCameraTransform& ViewTransform = GetViewTransform();
 
+	FIntPoint ViewportResolution = Viewport->GetSizeXY();
+
 	FEditorViewportViewModifierParams ViewParams;
 
 	ViewParams.ViewportClient = this;
@@ -57,11 +59,11 @@ FSceneView* FEditorViewportClient::CalcSceneView(FSceneView* const View)
 	InitOptions.ViewOrigin = ViewParams.ViewInfo.Location;
 
 
-	//InitOptions.ViewRotationMatrix = FInve
 	FMinimalViewInfo::CalculateProjectionMatrixGivenView(MainViewInfo, Viewport, InitOptions);
-
+								   
 	InitOptions.FOV = MainViewInfo.FOV;
-	InitOptions.CursorPosition = FIntPoint(-1, -1);
+	InitOptions.CursorPosition = MousePosition;
+	InitOptions.NormalizeCursorPosition = FVector2f((float)MousePosition.X / (float)ViewportResolution.X, (float)MousePosition.Y / (float)ViewportResolution.Y);
 
 	View->Init(InitOptions);
 	

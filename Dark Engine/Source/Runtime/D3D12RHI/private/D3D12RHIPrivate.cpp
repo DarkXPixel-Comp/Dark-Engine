@@ -105,6 +105,17 @@ FRHITexture* FD3D12DynamicRHI::RHIGetViewportBackBuffer(FRHIViewport* Viewport)
 }
 
 
+TRefCountPtr<FRHIComputeShader> FD3D12DynamicRHI::RHICreateComputeShader(const TArray<uint8>& Code, const FShaderBounds& Bounds)
+{
+	FD3D12ComputeShader* Result = CreateStandartShader<FD3D12ComputeShader>(Code);
+	if (Result)
+	{
+		Result->ResourceCounts = Bounds;
+		Result->RootSignature = GetAdapter().RootSignatureManager->GetRootSignature(Result);
+	}
+	return Result;
+}
+
 TRefCountPtr<FRHIVertexDeclaration> FD3D12DynamicRHI::RHICreateVertexDeclaration(const FVertexDeclarationElementList& Elements)
 {
 	FD3D12VertexElements D3DElements(Elements.Num());
@@ -493,4 +504,27 @@ TRefCountPtr<FRHIGraphicsPipelineState> FD3D12DynamicRHI::RHICreateGraphicsPipel
 
 
 	return GraphicsPipelineState;
-}												   
+}
+
+TRefCountPtr<FRHIComputePipelineState> FD3D12DynamicRHI::RHICreateComputePipelineState(FRHIComputeShader* InComputeShader)
+{
+	check(InComputeShader);
+
+	FD3D12ComputeShader* ComputeShader = static_cast<FD3D12ComputeShader*>(InComputeShader);
+	const FD3D12RootSignature* RootSignature = ComputeShader->RootSignature;
+	uint64 Hash = RootSignature->Hash;
+	hash_without_hash_combine(Hash, ComputeShader->ShaderHash);
+	
+	auto It = ComputePipelineStateCache.find(Hash);
+	if (It != ComputePipelineStateCache.end())
+	{
+		return It->second;
+	}
+
+	FD3D12Device* Device = GetAdapter().GetDevice();
+
+	FD3D12PipelineState* PipelineState = Device->GetPipelineStateManager().GetPipelineState(ComputeShader, Hash);
+	FD3D12ComputePipelineState* ComputePipelineState = new FD3D12ComputePipelineState(ComputeShader, RootSignature, PipelineState);
+	ComputePipelineStateCache.emplace(Hash, ComputePipelineState);
+	return ComputePipelineState;
+}

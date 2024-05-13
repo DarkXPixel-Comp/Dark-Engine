@@ -59,6 +59,15 @@ namespace DE
 				return X != Val.X || Y != Val.Y;
 			}
 
+			template<typename T>
+			TIntPoint<T> operator/(const TIntPoint<T>& Other) const
+			{
+				TIntPoint Result;
+				Result.X = this->X / Other.X;
+				Result.Y = this->Y / Other.Y;
+				return Result;
+			}
+
 
 		};
 

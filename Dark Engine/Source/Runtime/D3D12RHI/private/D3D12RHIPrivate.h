@@ -45,6 +45,7 @@ public:
 
 	virtual FRHITexture* RHIGetViewportBackBuffer(FRHIViewport* Viewport) override;
 
+	virtual TRefCountPtr<FRHIComputeShader>	RHICreateComputeShader(const TArray<uint8>& Code, const FShaderBounds& Bounds);
 	virtual TRefCountPtr<FRHIVertexDeclaration>	RHICreateVertexDeclaration(const FVertexDeclarationElementList& Elements) override;
 	virtual TRefCountPtr<FRHIVertexShader> RHICreateVertexShader(const TArray<uint8>& Code, const FShaderBounds& Bounds) override;
 	virtual TRefCountPtr<FRHIPixelShader> RHICreatePixelShader(const TArray<uint8>& Code, const FShaderBounds& Bounds) override;
@@ -70,7 +71,7 @@ public:
 	virtual void RHIUnlockTexture2D(FRHITexture* Texture, uint32 MipIndex, bool bLockWithinMiptail);
 
 	virtual TRefCountPtr<FRHIGraphicsPipelineState> RHICreateGraphicsPipelineState(const class FGraphicsPipelineStateInitializer& Initalizer) override;
-
+	virtual TRefCountPtr<FRHIComputePipelineState>	RHICreateComputePipelineState(class FRHIComputeShader* InComputeShader);
 
 
 #ifdef IMGUI
@@ -90,5 +91,7 @@ private:
 	D3D_FEATURE_LEVEL FeatureLevel;
 	TMap<uint64, class FRHIVertexDeclaration*> VertexDeclarationMap;
 	TUnordoredMap<class FGraphicsPipelineStateInitializer, TRefCountPtr<class FRHIGraphicsPipelineState>> GraphicsPipelineStateCache;
+	TMap<uint64, TRefCountPtr<class FD3D12ComputePipelineState>> ComputePipelineStateCache;
+
 };
 

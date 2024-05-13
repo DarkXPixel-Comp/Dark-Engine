@@ -29,6 +29,7 @@ class FD3D12RootSignatureDesc
 {
 public:
 	explicit FD3D12RootSignatureDesc(const FBoundShaderStateInput& BSS);
+	explicit FD3D12RootSignatureDesc(const class FD3D12ComputeShader* ComputeShader);
 
 	static constexpr uint32 MaxRootParameters = 32;
 
@@ -55,7 +56,14 @@ public:
 		Init(BSS);
 	}
 
+	FD3D12RootSignature(FD3D12Adapter* InParent, const class FD3D12ComputeShader* ComputeShader)
+		: FD3D12AdapterChild(InParent)
+	{
+		Init(ComputeShader);
+	}
+
 	void Init(const class FBoundShaderStateInput& BSS);
+	void Init(const class FD3D12ComputeShader* ComputeShader);
 	void Init(const D3D12_VERSIONED_ROOT_SIGNATURE_DESC& InDesc);
 
 	ID3D12RootSignature* GetRootSignature() const { return RootSignature.Get(); }
@@ -143,11 +151,14 @@ public:
 	FD3D12RootSignatureManager(FD3D12Adapter* InParent): FD3D12AdapterChild(InParent) {}
 
 	FD3D12RootSignature* GetRootSignature(const class FBoundShaderStateInput& BSS);
+	FD3D12RootSignature* GetRootSignature(const class FD3D12ComputeShader* ComputeShader);
 
 
 private:
 	FD3D12RootSignature* CreateRootSignature(const class FBoundShaderStateInput& BSS);
+	FD3D12RootSignature* CreateRootSignature(const class FD3D12ComputeShader* ComputeShader);
 
 	TUnordoredMap<FBoundShaderStateInput, FD3D12RootSignature*> RootSignatureMap;
+	TMap<uint64, FD3D12RootSignature*> ComputeRootSignatureMap;
 
 };
