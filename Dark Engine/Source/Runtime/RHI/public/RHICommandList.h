@@ -107,6 +107,11 @@ public:
 		GetContext().RHIDispatchComputeShader(ThreadGroupCountX, ThreadGroupCountY, ThreadGroupCountZ);
 	}
 
+	void CopyTexture(FRHITexture* SourceTextureRHI, FRHITexture* DestTextureRHI)
+	{
+		GetContext().RHICopyTexture(SourceTextureRHI, DestTextureRHI);
+	}
+
 };
 
 
@@ -177,7 +182,7 @@ public:
 
 	void SetShaderParameters(
 		FRHIComputeShader* Shader,
-		TArray<uint8> InParameters,
+		TArray<uint8>& InParameters,
 		TArray<FRHIShaderParameterResource>& InBindlessParameters,
 		TArray<FRHIShaderParameterResource>& InResourceParameters)
 	{

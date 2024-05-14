@@ -21,6 +21,8 @@ enum class ED3D12FlushFlags
 	WaitForCompletion
 };
 
+class FD3D12CommandContext;
+
 
 
 class FD3D12ContextCommon
@@ -142,6 +144,7 @@ public:
 	void CommitComputeShaderConstants();
 
 
+
 	void RHIBeginFrame() override;
 	void RHIEndFrame() override;
 	void RHIBeginImGui() override;
@@ -155,6 +158,8 @@ public:
 	void RHIClearTextureColor(FRHITexture* InTexture, FVector InColor);
 	void RHISetShaderParameter(FRHIGraphicsShader* ShaderRHI, uint32 BufferIndex,
 		uint32 Offset, uint32 NumBytes, const void* Data);
+
+	void RHICopyTexture(FRHITexture* SourceTextureRHI, FRHITexture* DestTextureRHI);
 
 	virtual void RHISetViewport(float MinX, float MinY, float MinZ, float MaxX, float MaxY, float MaxZ);
 
@@ -187,4 +192,28 @@ public:
 private:
 	void SettingRenderPass();
 	void BindUniformBuffer(FRHIShader* Shader, EShaderType ShaderType, uint32 BufferIndex, FD3D12UniformBuffer* InBuffer);
+};
+
+class FScopedTransitionResource
+{
+public:
+	FScopedTransitionResource(FD3D12CommandContext& InContext, FD3D12Resource* InResource, D3D12_RESOURCE_STATES After, uint64 InSubresource) :
+		Context(InContext),
+		Resource(InResource),
+		Before(InResource->GetCurrentState()),
+		Subresource(InSubresource)
+	{
+		Context.TransitionResource(Resource, After, Subresource);
+	}
+	~FScopedTransitionResource()
+	{
+		Context.TransitionResource(Resource, Before, Subresource);
+	}
+
+
+private:
+	FD3D12CommandContext& Context;
+	D3D12_RESOURCE_STATES Before;
+	FD3D12Resource* Resource;
+	uint64 Subresource;
 };

@@ -38,6 +38,8 @@ public:
 	void RenderFractal(FRHICommandListImmediate& CmdList);
 	void RenderSeaScape(FRHICommandListImmediate& CmdList);
 
+	void FXAA(FRHICommandListImmediate& CmdList);
+
 
 
 	FScene* Scene;

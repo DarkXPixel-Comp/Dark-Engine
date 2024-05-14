@@ -8,3 +8,4 @@ FConfigCache* GConfig = nullptr;
 int32 GRenderMode = 0;
 float GMaxFPS = 60.f;
 float GNearClippingPlane = 10.f;
+bool GFXAAEnable = false;

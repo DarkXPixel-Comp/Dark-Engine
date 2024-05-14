@@ -175,7 +175,7 @@ FD3D12RootSignatureDesc::FD3D12RootSignatureDesc(const FBoundShaderStateInput& B
 			TableSlots[RootParameterCount].InitAsDescriptorTable(1, &DescriptorRanges[RootParameterCount], D3D12_SHADER_VISIBILITY_VERTEX);
 			++RootParameterCount;
 			RootParameterSize += 1;
-			hash_combine(Hash, VertexShader->ResourceCounts.NumSRVs);
+			hash_combine(Hash, VertexShader->ResourceCounts.NumSRVs * 10);
 		}
 		if (VertexShader->ResourceCounts.NumCBVs > 0)
 		{
@@ -184,6 +184,7 @@ FD3D12RootSignatureDesc::FD3D12RootSignatureDesc(const FBoundShaderStateInput& B
 				TableSlots[RootParameterCount].InitAsConstantBufferView(ShaderRegister, 0, D3D12_ROOT_DESCRIPTOR_FLAG_NONE, D3D12_SHADER_VISIBILITY_VERTEX);
 				++RootParameterCount;
 				RootParameterSize += 2;
+				hash_combine(Hash, VertexShader->ResourceCounts.NumCBVs * 10);
 			}
 			if (VertexShader->ResourceCounts.NumCBVs > 16)
 			{
@@ -191,7 +192,7 @@ FD3D12RootSignatureDesc::FD3D12RootSignatureDesc(const FBoundShaderStateInput& B
 				TableSlots[RootParameterCount].InitAsDescriptorTable(1, &DescriptorRanges[RootParameterCount], D3D12_SHADER_VISIBILITY_VERTEX);
 				++RootParameterCount;
 				RootParameterSize += 1;
-				hash_combine(Hash, VertexShader->ResourceCounts.NumCBVs);
+				hash_combine(Hash, VertexShader->ResourceCounts.NumCBVs * 100);
 			}
 		}
 		if (VertexShader->ResourceCounts.NumSamplers > 0)
@@ -200,7 +201,7 @@ FD3D12RootSignatureDesc::FD3D12RootSignatureDesc(const FBoundShaderStateInput& B
 			TableSlots[RootParameterCount].InitAsDescriptorTable(1, &DescriptorRanges[RootParameterCount], D3D12_SHADER_VISIBILITY_VERTEX);
 			++RootParameterCount;
 			RootParameterSize += 1;
-			hash_combine(Hash, VertexShader->ResourceCounts.NumSamplers);
+			hash_combine(Hash, VertexShader->ResourceCounts.NumSamplers * 52);
 		}
 	}
 
@@ -214,7 +215,7 @@ FD3D12RootSignatureDesc::FD3D12RootSignatureDesc(const FBoundShaderStateInput& B
 			TableSlots[RootParameterCount].InitAsDescriptorTable(1, &DescriptorRanges[RootParameterCount], D3D12_SHADER_VISIBILITY_PIXEL);
 			++RootParameterCount;
 			RootParameterSize += 1;
-			hash_combine(Hash, PixelShader->ResourceCounts.NumSRVs);
+			hash_combine(Hash, PixelShader->ResourceCounts.NumSRVs * 75);
 		}
 		if (PixelShader->ResourceCounts.NumCBVs > 0)
 		{
@@ -223,6 +224,7 @@ FD3D12RootSignatureDesc::FD3D12RootSignatureDesc(const FBoundShaderStateInput& B
 				TableSlots[RootParameterCount].InitAsConstantBufferView(ShaderRegister, 0, D3D12_ROOT_DESCRIPTOR_FLAG_NONE, D3D12_SHADER_VISIBILITY_PIXEL);
 				++RootParameterCount;
 				RootParameterSize += 2;
+				hash_combine(Hash, PixelShader->ResourceCounts.NumCBVs * 24);
 			}
 			if (PixelShader->ResourceCounts.NumCBVs > 16)
 			{
@@ -230,7 +232,7 @@ FD3D12RootSignatureDesc::FD3D12RootSignatureDesc(const FBoundShaderStateInput& B
 				TableSlots[RootParameterCount].InitAsDescriptorTable(1, &DescriptorRanges[RootParameterCount], D3D12_SHADER_VISIBILITY_PIXEL);
 				++RootParameterCount;
 				RootParameterSize += 1;
-				hash_combine(Hash, PixelShader->ResourceCounts.NumCBVs);
+				hash_combine(Hash, PixelShader->ResourceCounts.NumCBVs * 58);
 			}
 		}
 		if (PixelShader->ResourceCounts.NumSamplers > 0)
@@ -239,7 +241,7 @@ FD3D12RootSignatureDesc::FD3D12RootSignatureDesc(const FBoundShaderStateInput& B
 			TableSlots[RootParameterCount].InitAsDescriptorTable(1, &DescriptorRanges[RootParameterCount], D3D12_SHADER_VISIBILITY_PIXEL);
 			++RootParameterCount;
 			RootParameterSize += 1;
-			hash_combine(Hash, PixelShader->ResourceCounts.NumSamplers);
+			hash_combine(Hash, PixelShader->ResourceCounts.NumSamplers * 42);
 		}
 	}
 
@@ -275,7 +277,7 @@ FD3D12RootSignatureDesc::FD3D12RootSignatureDesc(const FD3D12ComputeShader* Comp
 			TableSlots[RootParameterCount].InitAsDescriptorTable(1, &DescriptorRanges[RootParameterCount], D3D12_SHADER_VISIBILITY_ALL);
 			++RootParameterCount;
 			RootParameterSize += 1;
-			hash_combine(Hash, ComputeShader->ResourceCounts.NumSRVs);
+			hash_combine(Hash, ComputeShader->ResourceCounts.NumSRVs * 87);
 		}
 		if (ComputeShader->ResourceCounts.NumCBVs > 0)
 		{
@@ -284,6 +286,7 @@ FD3D12RootSignatureDesc::FD3D12RootSignatureDesc(const FD3D12ComputeShader* Comp
 				TableSlots[RootParameterCount].InitAsConstantBufferView(ShaderRegister, 0, D3D12_ROOT_DESCRIPTOR_FLAG_NONE, D3D12_SHADER_VISIBILITY_ALL);
 				++RootParameterCount;
 				RootParameterSize += 2;
+				hash_combine(Hash, ComputeShader->ResourceCounts.NumSRVs * 2);
 			}
 			if (ComputeShader->ResourceCounts.NumCBVs > 16)
 			{
@@ -291,7 +294,7 @@ FD3D12RootSignatureDesc::FD3D12RootSignatureDesc(const FD3D12ComputeShader* Comp
 				TableSlots[RootParameterCount].InitAsDescriptorTable(1, &DescriptorRanges[RootParameterCount], D3D12_SHADER_VISIBILITY_ALL);
 				++RootParameterCount;
 				RootParameterSize += 1;
-				hash_combine(Hash, ComputeShader->ResourceCounts.NumCBVs);
+				hash_combine(Hash, ComputeShader->ResourceCounts.NumCBVs * 66);
 			}
 		}
 		if (ComputeShader->ResourceCounts.NumSamplers > 0)
@@ -300,7 +303,7 @@ FD3D12RootSignatureDesc::FD3D12RootSignatureDesc(const FD3D12ComputeShader* Comp
 			TableSlots[RootParameterCount].InitAsDescriptorTable(1, &DescriptorRanges[RootParameterCount], D3D12_SHADER_VISIBILITY_ALL);
 			++RootParameterCount;
 			RootParameterSize += 1;
-			hash_combine(Hash, ComputeShader->ResourceCounts.NumSamplers);
+			hash_combine(Hash, ComputeShader->ResourceCounts.NumSamplers * 80);
 		}
 		if (ComputeShader->ResourceCounts.NumUAVs > 0)
 		{
@@ -308,7 +311,7 @@ FD3D12RootSignatureDesc::FD3D12RootSignatureDesc(const FD3D12ComputeShader* Comp
 			TableSlots[RootParameterCount].InitAsDescriptorTable(1, &DescriptorRanges[RootParameterCount], D3D12_SHADER_VISIBILITY_ALL);
 			++RootParameterCount;
 			RootParameterSize += 1;
-			hash_combine(Hash, ComputeShader->ResourceCounts.NumUAVs);
+			hash_combine(Hash, ComputeShader->ResourceCounts.NumUAVs * 33);
 		}
 
 	}

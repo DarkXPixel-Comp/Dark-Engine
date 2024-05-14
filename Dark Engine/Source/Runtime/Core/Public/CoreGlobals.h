@@ -12,6 +12,7 @@ extern class FConfigCache* GConfig;
 extern int32 GRenderMode; //<-TEST
 extern float GMaxFPS;
 extern float GNearClippingPlane;
+extern bool GFXAAEnable;
 
 FORCEINLINE bool IsExitRequested()
 {

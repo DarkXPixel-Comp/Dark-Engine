@@ -5,6 +5,7 @@
 #include "CommonRenderResources.h"
 #include "SceneRendering.h"
 #include "GlobalResource.h"
+#include "GameTimer.h"
 
 
 
@@ -37,8 +38,7 @@ struct FQuadParam
 	FVector2f NormalizeMousePosition;
 	FIntPoint MousePosition;
 	FIntPoint Resolution;
-
-
+	float Time;
 };
 
 void FSceneRender::RenderQuad(FRHICommandListImmediate& RHICmdList)
@@ -57,6 +57,7 @@ void FSceneRender::RenderQuad(FRHICommandListImmediate& RHICmdList)
 	Params.MousePosition = SceneView->ViewInitOptions.CursorPosition;
 	Params.NormalizeMousePosition = SceneView->ViewInitOptions.NormalizeCursorPosition;
 	Params.Resolution = SceneView->RenderTarget->GetSizeXY();
+	Params.Time = FGameTimer::TotalTime();
 	static TRefCountPtr<FRHIUniformBuffer> UniformBuffer = RHICreateUniformBuffer(&Params, sizeof(Params), UniformBuffer_MultiFrame);
 	RHIUpdateUniformBuffer(UniformBuffer.Get(), &Params, sizeof(Params));
 

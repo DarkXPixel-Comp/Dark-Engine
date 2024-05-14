@@ -208,6 +208,8 @@ int32 FEngineLoop::PreInit(const TCHAR* CmdLine)
 
 	GGlobalConsole.RegisterConsoleVariableRef(TEXT("g.Renderer.RenderMode"), GRenderMode);
 
+	GGlobalConsole.RegisterConsoleVariableRef(TEXT("g.RenderSettings.bFXAA"), GFXAAEnable);
+
 	DE_LOG(Launch, Log, TEXT("FEngineLoop Pre init. Cmd: %s"), CmdLine);
 
 	FShaderTypeRegistration::CommitAll();

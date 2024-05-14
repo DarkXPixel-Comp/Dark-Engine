@@ -93,6 +93,7 @@ void CompileShader(FShaderCompileJob& Job)
 	if (!Compiler)
 	{
 		DE_LOG(LogShaders, Fatal, TEXT("Not find shader compiler"));
+		return;
 	}
 
 	DE_LOG(LogShaders, Log, TEXT("Finish compile %s"), *Job.Input.SourceFilePath);
@@ -105,7 +106,6 @@ void CompileShader(FShaderCompileJob& Job)
 	{
 		Compiler->CompileShader(TEXT("Global"), Job.Input, Job.PreprocessOutput, Job.Output);
 	}
-
 }
 
 

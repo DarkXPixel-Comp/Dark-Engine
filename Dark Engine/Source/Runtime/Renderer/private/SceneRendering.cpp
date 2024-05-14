@@ -33,6 +33,9 @@ void FSceneRender::Render(FRHICommandListImmediate& CmdList)
 		RenderQuad(CmdList);
 		break;
 	}
+
+	if(GFXAAEnable)
+		FXAA(CmdList);
 }
 
 

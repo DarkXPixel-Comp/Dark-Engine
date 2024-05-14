@@ -61,6 +61,8 @@ public:
 		TArray<FRHIShaderParameterResource>& InResourceParameters) = 0;
 	virtual void RHIDispatchComputeShader(uint32 ThreadGroupCountX, uint32 ThreadGroupCountY, uint32 ThreadGroupCountZ) = 0;
 
+	virtual void RHICopyTexture(FRHITexture* SourceTextureRHI, FRHITexture* DestTextureRHI) = 0;
+
 	virtual void RHISetComputePipelineState(FRHIComputePipelineState* ComputeState) = 0;
 
 	virtual void SetRenderTargets(int32 NumRenderTargets,

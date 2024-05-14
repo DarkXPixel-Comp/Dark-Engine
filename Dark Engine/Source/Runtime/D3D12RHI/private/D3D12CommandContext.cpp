@@ -350,6 +350,28 @@ void FD3D12CommandContext::RHISetShaderParameter(FRHIGraphicsShader* ShaderRHI, 
 {
 	const EShaderType ShaderType = ShaderRHI->GetType();
 
+}
+
+void FD3D12CommandContext::RHICopyTexture(FRHITexture* SourceTextureRHI, FRHITexture* DestTextureRHI)
+{
+	FD3D12Texture* SourceTexture = static_cast<FD3D12Texture*>(SourceTextureRHI);
+	FD3D12Texture* DestTexture = static_cast<FD3D12Texture*>(DestTextureRHI);
+	FScopedTransitionResource SourceScopedBarrier(*this, SourceTexture->GetResource(), D3D12_RESOURCE_STATE_COPY_SOURCE, 0);
+	FScopedTransitionResource DestScopedBarrier(*this, DestTexture->GetResource(), D3D12_RESOURCE_STATE_COPY_DEST, 0);
+
+
+	const FRHITextureDesc& SourceDesc = SourceTexture->GetDesc();
+	const FRHITextureDesc& DestDesc = DestTexture->GetDesc();
+
+	const uint16 SourceArraySize = SourceDesc.ArraySize * (SourceDesc.IsTextureCube() ? 6 : 1);
+	const uint16 DestArraySize = DestDesc.ArraySize * (DestDesc.IsTextureCube() ? 6 : 1);
+
+
+	const bool bAllTexture = SourceTexture->GetSize() == DestTexture->GetSize();
+	if (bAllTexture)
+	{
+		GetGraphicsList()->CopyResource(DestTexture->GetResource()->GetResource(), SourceTexture->GetResource()->GetResource());
+	}
 
 
 
@@ -461,6 +483,20 @@ void FD3D12CommandContext::RHISetShaderParameters(FRHIComputeShader* Shader, TAr
 
 			switch (Parameter.Type)
 			{
+			case FRHIShaderParameterResource::EType::Texture:
+			{
+				FD3D12Texture* Texture = static_cast<FD3D12Texture*>(Resource);
+				StateCache.QueueBindlessSRV(ST_Compute, Texture->GetShaderResourceView());
+				Handle = Texture->GetBindlessHandle();
+				break;
+			}
+			case FRHIShaderParameterResource::EType::ResourceView:
+			{
+				FD3D12ShaderResourceView* ResourceView = reinterpret_cast<FD3D12ShaderResourceView*>(Resource);
+				StateCache.QueueBindlessSRV(ST_Compute, ResourceView);
+				Handle = ResourceView->GetBindlessHandle();
+				break;
+			}
 			case FRHIShaderParameterResource::EType::UAV:
 			{
 				FD3D12UnorderedAccessView* UAV = reinterpret_cast<FD3D12UnorderedAccessView*>(Resource);

@@ -6,6 +6,7 @@ struct Parameters
 	float2 NormalizeMousePosition;
 	int2 MousePosition;
 	int2 Resolution;
+	float Time;
 };
 
 
@@ -27,11 +28,11 @@ void PSMain(in float2 uv : TEXCOORD, in float4 InPosition : SV_POSITION, out flo
 	//Texture2D Texture = ResourceDescriptorHeap[RenderResource.TextureIndex];
 	//float4 Col = Texture.Load(int3(0, 0, 0));
 	
-	float3 Result = float3(uv.xy, InPosition.x);
+	float3 Result = float3(uv.xy * cos(Params.Time), sin(Params.Time));
 	
 	
 	
-	Result = lerp(Result, float3(cos(uv.x), sin(uv.y), 0) + 0.5, (1.f - clamp(length(Params.NormalizeMousePosition - uv) + 0.5, 0.0f, 0.8f)));
+	Result = lerp(Result, float3(cos(uv.y), sin(uv.x), 0) + 0.5, (1.f - clamp(length(Params.NormalizeMousePosition - uv) + 0.5, 0.0f, 0.8f)));
 	
 	Color = float4(Result.xyz, 1);
 	//Color = float4(TestBuffer.Test, TestBuffer.Test, TestBuffer.Test, 1);
