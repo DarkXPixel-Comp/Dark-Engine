@@ -54,6 +54,14 @@ public:
 		TArray<uint8>& InParameters,
 		TArray<FRHIShaderParameterResource>& InBindlessParameters,
 		TArray<FRHIShaderParameterResource>& InResourceParameters) = 0;
+	virtual void RHISetShaderParameters(
+		FRHIComputeShader* Shader,
+		TArray<uint8>& InParameters,
+		TArray<FRHIShaderParameterResource>& InBindlessParameters,
+		TArray<FRHIShaderParameterResource>& InResourceParameters) = 0;
+	virtual void RHIDispatchComputeShader(uint32 ThreadGroupCountX, uint32 ThreadGroupCountY, uint32 ThreadGroupCountZ) = 0;
+
+	virtual void RHISetComputePipelineState(FRHIComputePipelineState* ComputeState) = 0;
 
 	virtual void SetRenderTargets(int32 NumRenderTargets,
 		const FRHIRenderTargetView* RenderTargetsRHI,

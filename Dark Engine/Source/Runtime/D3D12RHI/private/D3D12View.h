@@ -66,6 +66,19 @@ private:
 	D3D12_GPU_DESCRIPTOR_HANDLE TestGPUHandle;
 };
 
+class FD3D12UnorderedAccessView : public FD3D12View, public FRHIUnorderedAccessView
+{
+public:
+	FD3D12UnorderedAccessView(FD3D12Device* Parent) : FD3D12View(Parent, ERHIDescriptorHeapType::Standart)
+	{}
+
+	void CreateView(const D3D12_UNORDERED_ACCESS_VIEW_DESC& InDesc, class FD3D12Resource* InResource);
+
+
+	class FD3D12Resource* Resource;
+	D3D12_UNORDERED_ACCESS_VIEW_DESC UAVDesc;
+};
+
 
 class FD3D12DepthStencilView : public FD3D12View
 {

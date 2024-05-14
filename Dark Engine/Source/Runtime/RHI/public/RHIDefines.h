@@ -29,7 +29,8 @@ enum ERHIResourceType
 	RRT_ComputeShader,
 	RRT_RasterizerState,
 	RRT_DepthStencilState,
-	RRT_UniformBuffer
+	RRT_UniformBuffer,
+	RRT_UnorderedAccessView
 };
 
 enum class ERHIDescriptorHeapType : uint8

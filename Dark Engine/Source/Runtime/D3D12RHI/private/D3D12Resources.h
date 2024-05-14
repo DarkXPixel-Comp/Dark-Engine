@@ -224,6 +224,7 @@ struct FD3D12LockedResource : public FD3D12DeviceChild
 
 	TRefCountPtr<ID3D12Resource> Resource;
 	//FD3D12ResourceLocation ResourceLocation;
+	D3D12_SUBRESOURCE_FOOTPRINT Footprint = {};
 	uint32 LockedOffset;
 	uint32 LockedPitch;
 	uint32 bLocked : 1;

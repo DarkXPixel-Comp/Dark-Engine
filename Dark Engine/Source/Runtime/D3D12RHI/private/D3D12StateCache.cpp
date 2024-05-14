@@ -125,6 +125,10 @@ void FD3D12StateCache::SetComputePipelineState(FD3D12ComputePipelineState* Compu
 		{
 			SetNewShaderData(ST_Compute, ComputePipelineState->ComputeShader.Get());
 		}
+		if (PipelineState.Compute.CurrentPipelineStateObject.Get() != ComputePipelineState)
+		{
+			PipelineState.Compute.CurrentPipelineStateObject = ComputePipelineState;
+		}
 
 		PipelineState.Common.bNeedSetPSO = true;
 		PipelineState.Common.CurrentPipelineState = ComputePipelineState->PipelineState->PSO;
@@ -268,17 +272,21 @@ void FD3D12StateCache::ApplyState(bool bIsCompute)
 		{
 			Context.GetCommandList().GetGraphicsCommandList()->SetGraphicsRootSignature(PipelineState.Graphics.CurrentPipelineStateObject->RootSignature->GetRootSignature());
 			PipelineState.Graphics.bNeedSetRootSignature = false;
-
-		//	PipelineState.Common.S
+		}
+	}
+	if (bIsCompute)
+	{
+		if (PipelineState.Compute.bNeedSetRootSignature)
+		{
+			Context.GetCommandList().GetGraphicsCommandList()->SetComputeRootSignature(PipelineState.Compute.CurrentPipelineStateObject->RootSignature->GetRootSignature());
+			PipelineState.Compute.bNeedSetRootSignature = false;
 		}
 	}
 
-
-
-
+	
 
 	ID3D12PipelineState* const CurrentPSO = PipelineState.Common.CurrentPipelineState.Get();
-	ID3D12PipelineState* const NewPSO = bIsCompute ? nullptr : 
+	ID3D12PipelineState* const NewPSO = bIsCompute ? PipelineState.Compute.CurrentPipelineStateObject->PipelineState->PSO.Get() :
 		PipelineState.Graphics.CurrentPipelineStateObject->PipelineState->PSO.Get();
 
 	if (PipelineState.Common.bNeedSetPSO || CurrentPSO == nullptr || NewPSO != CurrentPSO)
@@ -316,10 +324,15 @@ void FD3D12StateCache::ApplyState(bool bIsCompute)
 			bNeedSetRTs = false;
 		}
 
+		ApplyConstants(0, ST_Compute,
+			PipelineState.Graphics.CurrentPipelineStateObject->RootSignature);
+	} 
+	else
+	{
+		ApplyConstants(ST_Compute, ST_Compute + 1, PipelineState.Compute.CurrentPipelineStateObject->RootSignature);
 	}
+	
 
-	ApplyConstants(0, ST_Compute,
-		PipelineState.Graphics.CurrentPipelineStateObject->RootSignature);
 }
 
 void FD3D12StateCache::ApplyConstants(uint32 StartStage, uint32 EndStage, const FD3D12RootSignature* RootSignature)
@@ -354,6 +367,10 @@ void FD3D12StateCache::ApplyConstants(uint32 StartStage, uint32 EndStage, const 
 					{
 						Context.GetGraphicsList()->SetGraphicsRootConstantBufferView(BaseIndex + SlotIndex, CurrentGPUVirtualAddress);
 					}
+					else
+					{
+						Context.GetGraphicsList()->SetComputeRootConstantBufferView(BaseIndex + SlotIndex, CurrentGPUVirtualAddress);
+					}
 
 					CurrentDirtyMask &= ~(1 << SlotIndex);
 				}
@@ -366,6 +383,7 @@ void FD3D12StateCache::ApplyConstants(uint32 StartStage, uint32 EndStage, const 
 void FD3D12StateCache::DirtyStateForNewCommandList()
 {
 	PipelineState.Common.bNeedSetPSO = true;
+	PipelineState.Compute.bNeedSetRootSignature = true;
 	PipelineState.Common.CBVCache.Clear();
 	PipelineState.Graphics.bNeedSetRootSignature = true;
 	bNeedSetPrimitiveTopology = true;

@@ -87,6 +87,11 @@ public:
 		GetContext().RHISetGraphicsPipelineState(PipelineState, ShaderInput);
 	}
 
+	void SetComputePipelineState(FRHIComputePipelineState* ComputeState)
+	{
+		GetContext().RHISetComputePipelineState(ComputeState);
+	}
+
 	void SetStreamSource(uint32 StreamIndex, FRHIBuffer* VertexBuffer, uint32 Offset, uint32 Stride)
 	{
 		GetContext().RHISetStreamSource(StreamIndex, VertexBuffer, Offset, Stride);
@@ -95,6 +100,11 @@ public:
 	void DrawIndexedPrimitive(FRHIBuffer* IndexBufferRHI, int32 BaseVertexIndex, uint32 FirstInstance, uint32 NumVertices, uint32 StartIndex, uint32 NumPrimitives, uint32 NumInstances)
 	{
 		GetContext().RHIDrawIndexedPrimitive(IndexBufferRHI, BaseVertexIndex, FirstInstance, NumVertices, StartIndex, NumPrimitives, NumInstances);
+	}
+
+	void DispatchComputeShader(uint32 ThreadGroupCountX, uint32 ThreadGroupCountY, uint32 ThreadGroupCountZ)
+	{
+		GetContext().RHIDispatchComputeShader(ThreadGroupCountX, ThreadGroupCountY, ThreadGroupCountZ);
 	}
 
 };
@@ -159,6 +169,15 @@ public:
 	void SetShaderParameters(
 		FRHIGraphicsShader* Shader,
 		TArray<uint8>& InParameters,
+		TArray<FRHIShaderParameterResource>& InBindlessParameters,
+		TArray<FRHIShaderParameterResource>& InResourceParameters)
+	{
+		GetContext().RHISetShaderParameters(Shader, InParameters, InBindlessParameters, InResourceParameters);
+	}
+
+	void SetShaderParameters(
+		FRHIComputeShader* Shader,
+		TArray<uint8> InParameters,
 		TArray<FRHIShaderParameterResource>& InBindlessParameters,
 		TArray<FRHIShaderParameterResource>& InResourceParameters)
 	{

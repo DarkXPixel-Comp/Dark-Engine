@@ -149,6 +149,13 @@ struct FRHIBufferDesc
 
 
 
+class FRHIUnorderedAccessView : public FRHIResource
+{
+public:
+	FRHIUnorderedAccessView() : FRHIResource(RRT_UnorderedAccessView)
+	{}
+
+};
 
 
 class FRHIBuffer : public FRHIResource
@@ -301,6 +308,7 @@ public:
 	virtual void* GetNativeShaderResourceView() const { return nullptr; }
 	virtual FIntPoint GetSize() const { return TextureDesc.Extent; }
 	virtual const FRHITextureDesc& GetDesc() const { return TextureDesc; }
+	virtual FRHIUnorderedAccessView* GetUnorderedAccessView() const = 0;
 
 protected:
 	FRHITexture(const FRHITextureCreateDesc& InDesc) :

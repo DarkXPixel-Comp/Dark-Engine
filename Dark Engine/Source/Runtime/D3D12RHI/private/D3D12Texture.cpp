@@ -42,6 +42,14 @@ void FD3D12Texture::EmplaceSRV(D3D12_SHADER_RESOURCE_VIEW_DESC const& SRVDesc)
 	ShaderResourceView->CreateView(SRVDesc, GetResource());
 }
 
+void FD3D12Texture::EmplaceUAV(D3D12_UNORDERED_ACCESS_VIEW_DESC const& UAVDesc)
+{
+	check(!UnorderedAccessView);
+
+	UnorderedAccessView = MakeShareble(new FD3D12UnorderedAccessView(GetParentDevice()));
+	UnorderedAccessView->CreateView(UAVDesc, GetResource());
+}
+
 
 void FD3D12Texture::SetResource(FD3D12Resource* InResource)
 {
@@ -62,6 +70,7 @@ void FD3D12Texture::CreateViews()
 	bool bCreateRTV = EnumHasAnyFlags(ResourceDesc.Flags, D3D12_RESOURCE_FLAG_ALLOW_RENDER_TARGET);
 	bool bCreateDSV = EnumHasAnyFlags(ResourceDesc.Flags, D3D12_RESOURCE_FLAG_ALLOW_DEPTH_STENCIL);
 	bool bCreateShaderResource = !EnumHasAnyFlags(ResourceDesc.Flags, D3D12_RESOURCE_FLAG_DENY_SHADER_RESOURCE);
+	bool bCreateUAV = EnumHasAnyFlags(ResourceDesc.Flags, D3D12_RESOURCE_FLAG_ALLOW_UNORDERED_ACCESS);
 
 	FD3D12Device* Device = GetParentDevice();
 
@@ -129,6 +138,36 @@ void FD3D12Texture::CreateViews()
 		}
 
 		//EmplaceDSV();
+	}
+
+	if (bCreateUAV)
+	{
+		D3D12_UNORDERED_ACCESS_VIEW_DESC UAVDesc = {};
+
+		UAVDesc.Format = ResourceFormat;
+		
+		if (bTextureArray && bTexture2D)
+		{
+			UAVDesc.ViewDimension = D3D12_UAV_DIMENSION_TEXTURE2DARRAY;
+			UAVDesc.Texture2DArray.ArraySize = ResourceDesc.DepthOrArraySize;
+			UAVDesc.Texture2DArray.FirstArraySlice = 0;
+			UAVDesc.Texture2DArray.PlaneSlice = 0;
+			UAVDesc.Texture2DArray.MipSlice = 0;
+		}
+		else if (bTexture2D)
+		{
+			UAVDesc.ViewDimension = D3D12_UAV_DIMENSION_TEXTURE2D;
+			UAVDesc.Texture2D.MipSlice = 0;
+			UAVDesc.Texture2D.PlaneSlice = 0;
+		}
+		else if (bTexture3D)
+		{
+			UAVDesc.ViewDimension = D3D12_UAV_DIMENSION_TEXTURE3D;
+			UAVDesc.Texture3D.FirstWSlice = 0;
+			UAVDesc.Texture3D.WSize = -1;
+			UAVDesc.Texture3D.MipSlice = 0;
+		}
+		EmplaceUAV(UAVDesc);
 	}
 
 
@@ -230,6 +269,11 @@ D3D12_RESOURCE_DESC FD3D12Texture::GetResourceDescFromTextureDesc(const FRHIText
 		{
 			bDenyShaderResource = true;
 		}
+
+		if (EnumHasAnyFlags(InDesc.Flags, ETextureCreateFlags::UAV))
+		{
+			Result.Flags |= D3D12_RESOURCE_FLAG_ALLOW_UNORDERED_ACCESS;
+		}
 	}
 	else
 	{
@@ -307,17 +351,27 @@ void* FD3D12Texture::Lock(FRHICommandListImmediate* RHICmdList, uint32 MipIndex,
 	const int32 XBytesAligned = Align(NumBlockX * BlockBytes, FD3D12_TEXTURE_DATA_PITCH_ALIGNMENT);
 	const int32 MipBytesAligned = XBytesAligned * NumBlockY;
 
+	const D3D12_RESOURCE_DESC& CurrentResourceDesc = GetResource()->GetDesc();
+
+	D3D12_PLACED_SUBRESOURCE_FOOTPRINT PlacedTexture2D = {};
+	Device->GetDevice()->GetCopyableFootprints(&CurrentResourceDesc, Subresource, 1, 0, &PlacedTexture2D, nullptr, nullptr, nullptr);
+
+	PlacedTexture2D.Offset = 0;
+	DestStride = PlacedTexture2D.Footprint.RowPitch;
+	const uint64 SubresourceSize = PlacedTexture2D.Footprint.RowPitch * PlacedTexture2D.Footprint.Height * PlacedTexture2D.Footprint.Depth;
+	LockedResource->Footprint = PlacedTexture2D.Footprint;
+
 
 	if (OutLockedByteCount)
 	{
-		*OutLockedByteCount = MipBytesAligned;
+		*OutLockedByteCount = SubresourceSize;
 	}
 
 	void* Data = nullptr;
 
 	if (LockMode == RLM_WriteOnly)
 	{
-		const int32 BufferSize = Align(MipBytesAligned, D3D12_TEXTURE_DATA_PLACEMENT_ALIGNMENT);
+		const int32 BufferSize = Align(SubresourceSize, D3D12_TEXTURE_DATA_PLACEMENT_ALIGNMENT);
 		const D3D12_RESOURCE_DESC ResourceDesc = CD3DX12_RESOURCE_DESC::Buffer(BufferSize,
 			D3D12_RESOURCE_FLAG_NONE);
 		const D3D12_HEAP_PROPERTIES HeapProps = CD3DX12_HEAP_PROPERTIES(D3D12_HEAP_TYPE_UPLOAD);
@@ -328,8 +382,7 @@ void* FD3D12Texture::Lock(FRHICommandListImmediate* RHICmdList, uint32 MipIndex,
 			D3D12_RESOURCE_STATE_GENERIC_READ, nullptr,
 			IID_PPV_ARGS(&LockedResource->Resource));
 
-		DestStride = XBytesAligned;
-		LockedResource->LockedPitch = XBytesAligned;
+	
 
 		LockedResource->Resource->Map(0, &Range, &Data);
 		LockedResource->MappedAddress = Data;
@@ -341,7 +394,7 @@ void* FD3D12Texture::Lock(FRHICommandListImmediate* RHICmdList, uint32 MipIndex,
 		const D3D12_RESOURCE_DESC& TextureDesc = GetResource()->GetDesc();
 		TRefCountPtr<ID3D12Resource> TextureResource;
 
-		const D3D12_RESOURCE_DESC ResourceDesc = CD3DX12_RESOURCE_DESC::Buffer(MipBytesAligned,
+		const D3D12_RESOURCE_DESC ResourceDesc = CD3DX12_RESOURCE_DESC::Buffer(SubresourceSize,
 			D3D12_RESOURCE_FLAG_NONE);
 		const D3D12_HEAP_PROPERTIES HeapProps = CD3DX12_HEAP_PROPERTIES(D3D12_HEAP_TYPE_READBACK);
 
@@ -350,22 +403,15 @@ void* FD3D12Texture::Lock(FRHICommandListImmediate* RHICmdList, uint32 MipIndex,
 
 		LockedResource->Resource = TextureResource;
 
-		D3D12_SUBRESOURCE_FOOTPRINT DestSubresource;
-		DestSubresource.Depth = 1;
-		DestSubresource.Height = MipSizeY;
-		DestSubresource.Width = MipSizeX;
-		DestSubresource.Format = TextureDesc.Format;
-		DestSubresource.RowPitch = XBytesAligned;
 
-		D3D12_PLACED_SUBRESOURCE_FOOTPRINT PlacedTexture2D = {};
-		PlacedTexture2D.Offset = 0;
-		PlacedTexture2D.Footprint = DestSubresource;
+		//LockedResource->
 
 		CD3DX12_TEXTURE_COPY_LOCATION DestCopyLocation(TextureResource.Get(), PlacedTexture2D);
 		CD3DX12_TEXTURE_COPY_LOCATION SourceCopyLocation(GetResource()->GetResource(), Subresource);
 		
 
 		FD3D12CommandContext& Context = Device->GetDefaultCommandContext();
+		Context.TransitionResource(GetResource(), D3D12_RESOURCE_STATE_COPY_SOURCE, 0);
 
 		//Context.FlushCommands();
 		Context.GetCommandList().GetGraphicsCommandList()->CopyTextureRegion
@@ -412,16 +458,10 @@ void FD3D12Texture::Unlock(FRHICommandListImmediate* RHICmdList, uint32 MipIndex
 		FD3D12Resource* Resource = GetResource();
 		
 		const D3D12_RESOURCE_DESC& ResourceDesc = Resource->GetDesc();
-		D3D12_SUBRESOURCE_FOOTPRINT BufferPitchDesc;
-		BufferPitchDesc.Depth = 1;
-		BufferPitchDesc.Width = MipSizeX;
-		BufferPitchDesc.Height = MipSizeY;
-		BufferPitchDesc.Format = ResourceDesc.Format;
-		BufferPitchDesc.RowPitch = LockedResource->LockedPitch;
-
-		D3D12_PLACED_SUBRESOURCE_FOOTPRINT PlacedTexture2D = {};
+		D3D12_PLACED_SUBRESOURCE_FOOTPRINT PlacedTexture2D;
 		PlacedTexture2D.Offset = 0;
-		PlacedTexture2D.Footprint = BufferPitchDesc;
+		PlacedTexture2D.Footprint = LockedResource->Footprint;
+
 
 		CD3DX12_TEXTURE_COPY_LOCATION SourceCopyLocation(LockedResource->Resource.Get(), PlacedTexture2D);
 

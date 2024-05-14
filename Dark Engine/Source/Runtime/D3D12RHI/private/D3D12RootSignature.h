@@ -18,6 +18,9 @@ enum ERootParameterKeys
 	VS_RootCBVs,
 	VS_Samplers,
 
+	CS_RootCBVs,
+	CS_CBVs,
+
 
 
 	RPK_Count
@@ -78,6 +81,7 @@ public:
 		{
 		case ST_Vertex: return BindSlotMap[VS_RootCBVs];
 		case ST_Pixel: return BindSlotMap[PS_RootCBVs];
+		case ST_Compute: return BindSlotMap[CS_RootCBVs];
 		}
 	}
 	FORCEINLINE uint8 GetCBVDTBindSlot(EShaderType Type) const
@@ -86,6 +90,7 @@ public:
 		{
 		case ST_Vertex: return BindSlotMap[VS_CBVs];
 		case ST_Pixel: return BindSlotMap[PS_CBVs];
+		case ST_Compute: return BindSlotMap[CS_CBVs];
 		}
 	}
 	FORCEINLINE uint8 GetSRVDTBindSlot(EShaderType Type) const
@@ -98,7 +103,7 @@ public:
 	}
 
 private:
-	void AnalyzeSinature(const D3D12_ROOT_SIGNATURE_DESC1& Desc, uint32 BindingSpace);
+	void AnalyzeSignature(const D3D12_ROOT_SIGNATURE_DESC1& Desc, uint32 BindingSpace);
 
 	FORCEINLINE void SetCBVDTBindSlot(EShaderType Type, uint8 RootParameterIndex)
 	{
@@ -109,6 +114,9 @@ private:
 			break;
 		case ST_Pixel:
 			BindSlotMap[PS_CBVs] = RootParameterIndex;
+			break;
+		case ST_Compute:
+			BindSlotMap[CS_CBVs] = RootParameterIndex;
 			break;
 		}
 	}
@@ -134,6 +142,8 @@ private:
 		case ST_Pixel:
 			BindSlotMap[PS_RootCBVs] = RootParameterIndex;
 			break;
+		case ST_Compute:
+			BindSlotMap[CS_RootCBVs] = RootParameterIndex;
 		}
 	}
 

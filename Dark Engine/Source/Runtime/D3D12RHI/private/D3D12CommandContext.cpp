@@ -172,9 +172,22 @@ void FD3D12CommandContext::CommitNonComputeShaderConstants()
 
 	for (int32 Index = 0; Index < ST_NumStandartTypes; ++Index)
 	{
-		StateCache.SetConstantBuffer(static_cast<EShaderType>(Index), StageConstantBuffers[Index], false);
+		StateCache.SetConstantBuffer(static_cast<EShaderType>(Index), StageConstantBuffers[Index], bDiscardSharedGraphicsConstants);
 	}
 
+	bDiscardSharedGraphicsConstants = false;
+}
+
+void FD3D12CommandContext::CommitComputeShaderConstants()
+{
+	const FD3D12ComputePipelineState* const ComputePSO = StateCache.GetComputePipelineState();
+	check(ComputePSO);
+
+	//if(ComputePSO->bS)
+
+	StateCache.SetConstantBuffer(ST_Compute, StageConstantBuffers[ST_Compute], bDiscardSharedComputeConstants);
+
+	bDiscardSharedGraphicsConstants = false;
 }
 
 void FD3D12CommandContext::RHIBeginFrame()
@@ -369,6 +382,17 @@ void FD3D12CommandContext::RHIDrawIndexedPrimitive(FRHIBuffer* IndexBufferRHI, i
 		FirstInstance);
 }
 
+void FD3D12CommandContext::RHIDispatchComputeShader(uint32 ThreadGroupCountX, uint32 ThreadGroupCountY, uint32 ThreadGroupCountZ)
+{
+	CommitComputeShaderConstants();
+	//CommitComputeResourceTables();
+
+	StateCache.ApplyState(true);
+
+
+	GetGraphicsList()->Dispatch(ThreadGroupCountX, ThreadGroupCountY, ThreadGroupCountZ);
+}
+
 void FD3D12CommandContext::RHISetShaderParameters(FRHIGraphicsShader* Shader, TArray<uint8>& InParameters, TArray<FRHIShaderParameterResource>& InBindlessParameters, TArray<FRHIShaderParameterResource>& InResourceParameters)
 {
 	EShaderType ShaderType = Shader->GetType();
@@ -397,8 +421,6 @@ void FD3D12CommandContext::RHISetShaderParameters(FRHIGraphicsShader* Shader, TA
 				Handle = ResourceView->GetBindlessHandle();
 				break;
 			}
-			case FRHIShaderParameterResource::EType::UAV:
-				break;
 			case FRHIShaderParameterResource::EType::Sampler:
 				break;
 			}
@@ -427,6 +449,52 @@ void FD3D12CommandContext::RHISetShaderParameters(FRHIGraphicsShader* Shader, TA
 	}
 }
 
+void FD3D12CommandContext::RHISetShaderParameters(FRHIComputeShader* Shader, TArray<uint8>& InParameters, TArray<FRHIShaderParameterResource>& InBindlessParameters, TArray<FRHIShaderParameterResource>& InResourceParameters)
+{
+	FD3D12ConstantBuffer& ConstantBuffer = StageConstantBuffers[ST_Compute];
+
+	for (FRHIShaderParameterResource& Parameter : InBindlessParameters)
+	{
+		if (FRHIResource* Resource = Parameter.Resource)
+		{
+			FRHIDescriptorHandle Handle;
+
+			switch (Parameter.Type)
+			{
+			case FRHIShaderParameterResource::EType::UAV:
+			{
+				FD3D12UnorderedAccessView* UAV = reinterpret_cast<FD3D12UnorderedAccessView*>(Resource);
+				Handle = UAV->GetBindlessHandle();
+				TransitionResource(UAV->Resource, D3D12_RESOURCE_STATE_UNORDERED_ACCESS, 0);
+				break;
+			}
+			}
+
+			if (Handle.IsValid())
+			{
+				const uint32 BindlessIndex = Handle.GetIndex();
+				ConstantBuffer.UpdateConstant(reinterpret_cast<const uint8*>(&BindlessIndex), Parameter.Index * 4, 4);
+			}
+		}
+
+	}
+
+
+	for (FRHIShaderParameterResource& Parameter : InResourceParameters)
+	{
+		if (FRHIResource* Resource = Parameter.Resource)
+		{
+			switch (Parameter.Type)
+			{
+			case FRHIShaderParameterResource::EType::UniformBuffer:
+				BindUniformBuffer(Shader, ST_Compute, Parameter.Index, static_cast<FD3D12UniformBuffer*>(Parameter.Resource));
+				break;
+			}
+		}
+	}
+
+}
+
 void FD3D12CommandContext::RHISetStreamSource(uint32 StreamIndex, FRHIBuffer* VertexBufferRHI, uint32 Offset, uint32 Stride)
 {
 	FD3D12Buffer* VertexBuffer = static_cast<FD3D12Buffer*>(VertexBufferRHI);
@@ -443,18 +511,18 @@ void FD3D12CommandContext::RHISetGraphicsPipelineState(FRHIGraphicsPipelineState
 	{
 		StageConstantBuffers[Index].Reset();
 	}
+	bDiscardSharedGraphicsConstants = true;
 
 	StateCache.SetGraphicsPipelineState(GraphicsPipelineState);
 }
 
 void FD3D12CommandContext::RHISetComputePipelineState(FRHIComputePipelineState* ComputeState)
 {
-	//FD3D12ComputePipelineState* ComputePipelineState = static_cast<FD3D12ComputePipelineState*>(ComputeState);
+	FD3D12ComputePipelineState* ComputePipelineState = static_cast<FD3D12ComputePipelineState*>(ComputeState);
 
 	StageConstantBuffers[ST_Compute].Reset();
 
-	StateCache.SetComputePipelineState(nullptr);
-
+	StateCache.SetComputePipelineState(ComputePipelineState);
 
 }
 

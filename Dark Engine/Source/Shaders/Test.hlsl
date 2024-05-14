@@ -1,8 +1,18 @@
 
-RWTexture2D<float4> Result : register(u0);
+struct BindlessParams
+{
+	uint ResultIndex;
+};
 
-[numthreads(1, 1, 1)]
+
+ConstantBuffer<BindlessParams> Bindless : register(b0);
+
+//RWTexture2D<float4> Result : register(u0);
+
+[numthreads(4, 4, 1)]
 void Main(uint3 ThreadId : SV_DispatchThreadID)
 {
-	Result[ThreadId.xy] = float4(1, 0, 0, 1);
+	RWTexture2D<float4> Result = ResourceDescriptorHeap[Bindless.ResultIndex];
+	
+	Result[ThreadId.xy] = float4(ThreadId.x, ThreadId.y, 0, 0);
 }

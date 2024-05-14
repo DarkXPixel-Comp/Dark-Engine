@@ -22,16 +22,7 @@ class FScreenRectanglePS : public FGlobalShader
 	DECLARE_SHADER_BOUNDS(0, 2, 0, 0);
 };
 
-class FTestComputeShaderCS : public FGlobalShader
-{
-	DECLARE_GLOBAL_SHADER(FTestComputeShaderCS);
-	SHADER_USE_PARAMETER_STRUCT(FTestComputeShaderCS, FGlobalShader);
-	DECLARE_SHADER_BOUNDS(0, 0, 0, 1);
-};
 
-
-
-IMPLEMENT_GLOBAL_SHADER(FTestComputeShaderCS, "Test.hlsl", "Main", ST_Compute);
 IMPLEMENT_GLOBAL_SHADER(FScreenRectangleVS, "ScreenRectangle.hlsl", "VSMain", ST_Vertex);
 IMPLEMENT_GLOBAL_SHADER(FScreenRectanglePS, "ScreenRectangle.hlsl", "PSMain", ST_Pixel);
 
@@ -56,10 +47,7 @@ void FSceneRender::RenderQuad(FRHICommandListImmediate& RHICmdList)
 		GGlobalShaderMap->GetShader<FScreenRectangleVS>();
 	TShaderRefBase<FScreenRectanglePS>	PixelShader =
 		GGlobalShaderMap->GetShader<FScreenRectanglePS>();
-	TShaderRefBase<FTestComputeShaderCS> ComputeShader =
-		GGlobalShaderMap->GetShader<FTestComputeShaderCS>();
 
-	auto ComputePSO = RHICreateComputePipelineState(ComputeShader.GetComputeShader());
 
 	TArray<uint8> Parameters;
 	TArray<FRHIShaderParameterResource>	BindlessParameters;
@@ -72,11 +60,10 @@ void FSceneRender::RenderQuad(FRHICommandListImmediate& RHICmdList)
 	static TRefCountPtr<FRHIUniformBuffer> UniformBuffer = RHICreateUniformBuffer(&Params, sizeof(Params), UniformBuffer_MultiFrame);
 	RHIUpdateUniformBuffer(UniformBuffer.Get(), &Params, sizeof(Params));
 
-
 	FRHIShaderParameterResource Param;
 	Param.Type = FRHIShaderParameterResource::EType::UniformBuffer;
 	Param.Resource = UniformBuffer.Get();
-	Param.Index = 0;
+	Param.Index = 1;
 	ResourceParameters.Add(Param);
 
 
@@ -84,9 +71,6 @@ void FSceneRender::RenderQuad(FRHICommandListImmediate& RHICmdList)
 	FVertexDeclarationElementList Elements;
 	Elements.Add(FVertexElement(VET_Float4, 0, 0, 0, 0));
 	Elements.Add(FVertexElement(VET_Float2, 1, 0, 0, 0));
-
-	//Elements[0].Name = "SV_POSITION";
-	//Elements[1].Name = "TEXCOORD";
 
 
 	FRHIVertexShader* RHIVertexShader = VertexShader.GetVertexShader();

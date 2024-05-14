@@ -8,12 +8,18 @@ target_compile_features(Core PUBLIC cxx_std_20)
 target_link_libraries(Core PRIVATE DTK12)
 #target_link_libraries(Core PRIVATE ${CoreLibs})
 
+set(VERSION_MAJOR ${PROJECT_VERSION_MAJOR})
+set(VERSION_MINOR ${PROJECT_VERSION_MINOR})
+set(VERSION_PATCH ${PROJECT_VERSION_PATCH})
+set(VERSION_TWEAK ${PROJECT_VERSION_TWEAK})
+set(VERSION_PREFIX alpha)
 
 if(WIN32)
 	target_sources(Core PRIVATE "Public/Windows/WindowsPlatformMisc.h" "Private/Windows/WindowsPlatformMisc.cpp" "Public/Windows/WindowsPlatformMemory.h" "Private/Windows/WindowsPlatformMemory.cpp" "Public/Windows/WindowsPlatformString.h" "Private/Windows/WindowsCriticalSection.cpp") # Windows
 	#set(CORE_SOURCES ${CORE_SOURCES} "Public/Windows/WindowsPlatformMisc.h" "Private/Windows/WindowsPlatformMisc.cpp" "Public/Windows/WindowsPlatformMemory.h" "Private/Windows/WindowsPlatformMemory.cpp")
-
 endif()
+
+configure_file("Private/Misc/EngineVersion.cpp.var" "${CMAKE_CURRENT_SOURCE_DIR}/Private/Misc/EngineVersion.cpp" @ONLY)
 
 #set(CORE_SOURCES ${CORE_SOURCES} "Private/CoreGlobals.cpp"
 #"Private/Misc/AssertionMacros.cpp" "Private/Math/DarkMath.cpp" "Application/Application.cpp" "Private/Misc/CoreDelegates.cpp"

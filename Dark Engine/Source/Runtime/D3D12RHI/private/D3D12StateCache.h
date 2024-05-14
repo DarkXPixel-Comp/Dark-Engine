@@ -115,6 +115,8 @@ public:
 	void ApplyConstants(uint32 StartStage, uint32 EndStage, const class FD3D12RootSignature* RootSignature);
 
 
+	FD3D12ComputePipelineState* GetComputePipelineState() const { return PipelineState.Compute.CurrentPipelineStateObject.Get(); };
+
 
 	void DirtyStateForNewCommandList();
 

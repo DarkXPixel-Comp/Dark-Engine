@@ -132,9 +132,14 @@ public:
 	FD3D12UniformBuffer* BoundUniformBuffers[ST_NumStandartTypes][16] = {};
 	uint16 DirtyUniformBuffers[ST_NumStandartTypes] = {};
 
+	bool bDiscardSharedComputeConstants = false;
+	bool bDiscardSharedGraphicsConstants = false;
+
 
 	void CommitGraphicsResourceTables();
+	void CommitComputeResourceTables();
 	void CommitNonComputeShaderConstants();
+	void CommitComputeShaderConstants();
 
 
 	void RHIBeginFrame() override;
@@ -156,11 +161,21 @@ public:
 	virtual void RHIDrawIndexedPrimitive(FRHIBuffer* IndexBuffer, int32 BaseVertexIndex,
 		uint32 FirstInstance, uint32 NumVertices, uint32 StartIndex, uint32 NumPrimitives, uint32 NumInstances);
 
+	virtual void RHIDispatchComputeShader(uint32 ThreadGroupCountX, uint32 ThreadGroupCountY, uint32 ThreadGroupCountZ);
+
 	virtual void RHISetShaderParameters(
 		FRHIGraphicsShader* Shader,
 		TArray<uint8>& InParameters,
 		TArray<FRHIShaderParameterResource>& InBindlessParameters,
 		TArray<FRHIShaderParameterResource>& InResourceParameters);
+
+	virtual void RHISetShaderParameters(
+		FRHIComputeShader* Shader,
+		TArray<uint8>& InParameters,
+		TArray<FRHIShaderParameterResource>& InBindlessParameters,
+		TArray<FRHIShaderParameterResource>& InResourceParameters);
+
+
 
 	//virtual void RHISetShaderUniformBuffer(FRHIGraphicsShader* Shader, uint32 BufferIndex, FRHIUn)
 

@@ -1,7 +1,6 @@
 #include "Common.hlsl"
 
 
-
 struct Parameters
 {
 	float2 NormalizeMousePosition;
@@ -10,9 +9,7 @@ struct Parameters
 };
 
 
-ConstantBuffer<Parameters> Params : register(b0);
-
-
+ConstantBuffer<Parameters> Params : register(b1);
 
 
 
@@ -31,6 +28,7 @@ void PSMain(in float2 uv : TEXCOORD, in float4 InPosition : SV_POSITION, out flo
 	//float4 Col = Texture.Load(int3(0, 0, 0));
 	
 	float3 Result = float3(uv.xy, InPosition.x);
+	
 	
 	
 	Result = lerp(Result, float3(cos(uv.x), sin(uv.y), 0) + 0.5, (1.f - clamp(length(Params.NormalizeMousePosition - uv) + 0.5, 0.0f, 0.8f)));

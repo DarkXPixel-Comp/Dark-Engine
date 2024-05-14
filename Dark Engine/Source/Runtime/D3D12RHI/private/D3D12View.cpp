@@ -42,6 +42,16 @@ void FD3D12ShaderResourceView::CreateView(const D3D12_SHADER_RESOURCE_VIEW_DESC&
 	
 	UpdateBindlessSlot();
 
-	FD3D12BindlessDescriptorManager& BindlessManager = GetParentDevice()->GetBindlessDescriptorManager();
-	TestGPUHandle = BindlessManager.GetGpuHandle(BindlessHandle);
+	/*FD3D12BindlessDescriptorManager& BindlessManager = GetParentDevice()->GetBindlessDescriptorManager();
+	TestGPUHandle = BindlessManager.GetGpuHandle(BindlessHandle);*/
+}
+
+void FD3D12UnorderedAccessView::CreateView(const D3D12_UNORDERED_ACCESS_VIEW_DESC& InDesc, FD3D12Resource* InResource)
+{
+	Resource = InResource;
+	UAVDesc = InDesc;
+
+	Parent->GetDevice()->CreateUnorderedAccessView(Resource->GetResource(), nullptr, &UAVDesc, CpuHandle);
+
+	UpdateBindlessSlot();
 }

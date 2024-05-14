@@ -28,10 +28,16 @@ public:
 	void EmplaceRTV(D3D12_RENDER_TARGET_VIEW_DESC const& RTVDesc, int32 Index);
 	void EmplaceDSV(D3D12_DEPTH_STENCIL_VIEW_DESC const& DSVDesc, int32 Index);
 	void EmplaceSRV(D3D12_SHADER_RESOURCE_VIEW_DESC const& SRVDesc);
+	void EmplaceUAV(D3D12_UNORDERED_ACCESS_VIEW_DESC const& UAVDesc);
 
 	FD3D12Resource* GetResource() const { return Resource.Get(); }
 	void SetResource(FD3D12Resource* InResource);
 	void CreateViews();
+
+	virtual FRHIUnorderedAccessView* GetUnorderedAccessView() const
+	{
+		return reinterpret_cast<FRHIUnorderedAccessView*>(UnorderedAccessView.get());
+	}
 
 	virtual FIntPoint GetSize() const override;
 	virtual void* GetNativeShaderResourceView() const override;
@@ -51,6 +57,8 @@ public:
 public:
 	TArray<TSharedPtr<class FD3D12RenderTargetView>> RenderTargetViews;
 	TSharedPtr<class FD3D12ShaderResourceView> ShaderResourceView;
+	TSharedPtr<class FD3D12UnorderedAccessView> UnorderedAccessView;
+
 
 private:
 	D3D12_GPU_VIRTUAL_ADDRESS GPUVirtualAddress;

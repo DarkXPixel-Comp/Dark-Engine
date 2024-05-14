@@ -127,17 +127,6 @@ void FD3D12Buffer::UploadResourceData(FRHICommandListBase& InRHICmdList, const v
 		FD3D12Resource* Destination = ResourceLocation.GetResource();
 
 		//CommandContext.GetCommandList().GetGraphicsCommandList()->CopyBufferRegion(Destination->GetResource())
-
-		
-
-
-
-
 	}
-
-	
-
-
-
 }
 

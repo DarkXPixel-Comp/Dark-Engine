@@ -83,10 +83,10 @@ void FD3D12RootSignature::Init(const D3D12_VERSIONED_ROOT_SIGNATURE_DESC& InDesc
 	DXCall(Device->CreateRootSignature(0, RootSignatureBlob->GetBufferPointer(), RootSignatureBlob->GetBufferSize(),
 		IID_PPV_ARGS(&RootSignature)));
 
-	AnalyzeSinature(InDesc.Desc_1_1, 0);
+	AnalyzeSignature(InDesc.Desc_1_1, 0);
 }
 
-void FD3D12RootSignature::AnalyzeSinature(const D3D12_ROOT_SIGNATURE_DESC1& Desc, uint32 BindingSpace)
+void FD3D12RootSignature::AnalyzeSignature(const D3D12_ROOT_SIGNATURE_DESC1& Desc, uint32 BindingSpace)
 {
 	FMemory::Memzero(BindSlotMap, sizeof(BindSlotMap));
 
@@ -100,7 +100,7 @@ void FD3D12RootSignature::AnalyzeSinature(const D3D12_ROOT_SIGNATURE_DESC1& Desc
 		switch (CurrentParameter.ShaderVisibility)
 		{
 		case D3D12_SHADER_VISIBILITY_ALL:
-			CurrentShaderType = ST_NumTypes;
+			CurrentShaderType = ST_Compute;
 			break;
 		case D3D12_SHADER_VISIBILITY_VERTEX:
 			CurrentShaderType = ST_Vertex;
