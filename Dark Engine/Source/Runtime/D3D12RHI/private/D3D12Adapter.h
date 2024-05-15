@@ -63,6 +63,7 @@ public:
 	const D3D_FEATURE_LEVEL GetFeatureLevel() const { return Desc.MaxSupportFeatureLevel; }
 	ID3D12Device* GetD3DDevice() const { return RootDevice.Get(); }
 	ID3D12Device2* GetD3DDevice2() const { return RootDevice2.Get(); }
+	ID3D12Device10* GetD3DDevice10() const { return RootDevice10.Get(); }
 
 	const FD3D12AdapterDesc& GetDesc() const { return Desc; }
 	const DXGI_ADAPTER_DESC& GetAdapterDesc() const { return Desc.Desc; }
@@ -85,11 +86,13 @@ public:
 	class FD3D12RootSignatureManager* const RootSignatureManager;
 
 
+	CD3DX12FeatureSupport FeatureSupport;
 
 private:
 	FD3D12AdapterDesc Desc = {};
 	ComPtr<ID3D12Device> RootDevice;
 	ComPtr<ID3D12Device2> RootDevice2;
+	ComPtr<ID3D12Device10> RootDevice10;
 	ComPtr<IDXGIFactory7> DXGIFactory;
 	ComPtr<IDXGIAdapter4> DXGIAdapter;
 	TStaticArray<TSharedPtr<FD3D12Device>, 1> Devices;

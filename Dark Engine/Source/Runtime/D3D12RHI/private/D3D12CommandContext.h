@@ -14,6 +14,16 @@
 class FD3D12Device;
 
 
+struct FD3D12ResourceBarrier
+{
+	D3D12_RESOURCE_STATES After;
+	FD3D12Resource* Resource = nullptr;
+	uint64 Subresource = 0;
+	ID3D12Resource* NativeResource = nullptr;
+	D3D12_RESOURCE_STATES Before;
+};
+
+
 enum class ED3D12FlushFlags
 {
 	None = 0,
@@ -44,6 +54,14 @@ public:
 	void TransitionResource(FD3D12Resource* Resource, D3D12_RESOURCE_STATES Before, D3D12_RESOURCE_STATES After, uint32 SubResource);
 	void TransitionResource(ID3D12Resource* Resource, D3D12_RESOURCE_STATES Before, D3D12_RESOURCE_STATES After, uint32 SubResource);
 	void TransitionResource(FD3D12Resource* Resource, D3D12_RESOURCE_STATES After, uint32 SubResource);
+	void TransitionResource(FD3D12Buffer* Buffer, CD3DX12_BUFFER_BARRIER BufferBarrier);
+	void TransitionResource(FD3D12Texture* Texture, CD3DX12_TEXTURE_BARRIER TextureBarrier);
+	void TransitionResource(const FD3D12ResourceLocation& Resource, CD3DX12_BUFFER_BARRIER BufferBarrier);
+
+	void TransitionBuffer(ID3D12Resource* Resource, CD3DX12_BUFFER_BARRIER Buffer);
+
+	void FlushBarriers();
+	void EnhancedFlushBarriers();
 
 	void AddLockedResource(const FD3D12LockedResource& Resource)
 	{
@@ -67,6 +85,11 @@ public:
 	ID3D12GraphicsCommandList4* GetGraphicsList4()
 	{
 		return GetCommandList().GetGraphicsCommandList4();
+	}
+
+	ID3D12GraphicsCommandList7* GetGraphicsList7()
+	{
+		return GetCommandList().GetGraphicsCommandList7();
 	}
 
 protected:
@@ -93,13 +116,19 @@ protected:
 private:
 	FD3D12Device* const Device;
 	ED3D12QueueType const QueueType;
-	bool const bIsDefualtContext;
+	bool const bIsDefaultContext;
+	bool const bSupportEnhancedBarriers;
 
 	class FD3D12CommandAllocator* CommandAllocator = nullptr;
 	class FD3D12CommandList* CommandList = nullptr;
 	class FD3D12ResourceBarrierBatcher ResourceBarrierBatcher;
 	TArray<FD3D12Payload*> Payloads;
 	TArray<FD3D12LockedResource> LockedResources;
+	TArray<FD3D12ResourceBarrier> Barriers;
+
+	TArray<CD3DX12_BUFFER_BARRIER> BufferBarriers;
+	TArray<CD3DX12_TEXTURE_BARRIER>	TextureBarriers;
+	TArray<CD3DX12_GLOBAL_BARRIER> GlobalBarriers;
 
 	
 
@@ -188,6 +217,7 @@ public:
 	virtual void RHISetGraphicsPipelineState(class FRHIGraphicsPipelineState* GraphicsPSO, const FBoundShaderStateInput& ShaderInput) override;
 
 	virtual void RHISetComputePipelineState(FRHIComputePipelineState* ComputeState);
+	virtual void RHIPreparePixelShaderResources();
 
 private:
 	void SettingRenderPass();

@@ -27,6 +27,19 @@ struct FD3D12ResourceDesc : public D3D12_RESOURCE_DESC
 };
 
 
+struct FD3D12ResourceDesc1 : public D3D12_RESOURCE_DESC1
+{
+	FD3D12ResourceDesc1() = default;
+	FD3D12ResourceDesc1(const CD3DX12_RESOURCE_DESC1& Other) :
+		D3D12_RESOURCE_DESC1(Other)
+	{}
+	FD3D12ResourceDesc1(const D3D12_RESOURCE_DESC1& Other) :
+		D3D12_RESOURCE_DESC1(Other)
+	{}
+};
+
+
+
 
 class FD3D12Resource : public FD3D12DeviceChild, public FRefCountedObject
 {
@@ -38,6 +51,7 @@ private:
 	void* ResourceBaseAddress;
 
 	const class FD3D12ResourceDesc Desc;
+	const class FD3D12ResourceDesc1 Desc1;
 
 	D3D12_RESOURCE_STATES DefaultResourceState;
 	D3D12_RESOURCE_STATES ReadableState;
@@ -62,6 +76,12 @@ public:
 		FD3D12Heap* InHeap = nullptr,
 		D3D12_HEAP_TYPE InHeapType = D3D12_HEAP_TYPE_DEFAULT
 	);
+	FD3D12Resource(
+		FD3D12Device* ParentDevice,
+		ID3D12Resource* InResource,
+		const FD3D12ResourceDesc1& InDesc,
+		D3D12_HEAP_TYPE InHeapType = D3D12_HEAP_TYPE_DEFAULT
+	);
 
 	~FD3D12Resource()
 	{
@@ -76,6 +96,48 @@ public:
 	void SetIsBackBuffer(bool bInBackBuffer) { bBackBuffer = bInBackBuffer; }
 	ID3D12Resource* GetResource() const { return Resource.Get(); }
 	const FD3D12ResourceDesc& GetDesc() const { return Desc; }
+
+	void SetBarrierAccess(D3D12_BARRIER_ACCESS Access)
+	{
+		if (Access == D3D12_BARRIER_ACCESS_NO_ACCESS)
+		{
+			FlagsAccess = (D3D12_BARRIER_ACCESS)(-1);
+		}
+		else if (FlagsAccess == -1)
+		{
+			FlagsAccess = Access;
+		}
+		else
+		{
+			FlagsAccess |= Access;
+		}
+	}
+
+	void EmptyBarrierFlags()
+	{
+		FlagsAccess = (D3D12_BARRIER_ACCESS)(-1);
+		FlagSync = D3D12_BARRIER_SYNC_NONE;
+
+	}
+
+	void SetBarrierSync(D3D12_BARRIER_SYNC Sync)
+	{
+		FlagSync |= Sync;
+	}
+
+	D3D12_BARRIER_ACCESS GetBarrierAccess() const
+	{
+		return FlagsAccess == -1 ? D3D12_BARRIER_ACCESS_NO_ACCESS : FlagsAccess;
+	}
+
+	D3D12_BARRIER_SYNC GetBarrierSync() const
+	{
+		return FlagSync;
+	}
+
+	D3D12_BARRIER_ACCESS FlagsAccess = (D3D12_BARRIER_ACCESS)(-1);
+	D3D12_BARRIER_SYNC FlagSync = D3D12_BARRIER_SYNC_NONE;
+
 
 
 };
@@ -137,6 +199,48 @@ public:
 		}
 	}
 
+	void SetBarrierAccess(D3D12_BARRIER_ACCESS Access)
+	{
+		if (IsValid())
+		{
+			GetResource()->SetBarrierAccess(Access);
+		}
+	}
+
+	void EmptyBarrierFlags()
+	{
+		if (IsValid())
+		{
+			GetResource()->EmptyBarrierFlags();
+		}
+	}
+
+	void SetBarrierSync(D3D12_BARRIER_SYNC Sync)
+	{
+		if (IsValid())
+		{
+			GetResource()->SetBarrierSync(Sync);
+		}
+	}
+
+	D3D12_BARRIER_ACCESS GetBarrierAccess() const
+	{
+		if (IsValid())
+		{
+			return GetResource()->GetBarrierAccess();
+		}
+		return D3D12_BARRIER_ACCESS();
+	}
+
+	D3D12_BARRIER_SYNC GetBarrierSync() const
+	{
+		if (IsValid())
+		{
+			return GetResource()->GetBarrierSync();
+		}
+		return D3D12_BARRIER_SYNC();
+	}
+
 	void SetGPUVirtualAddress(D3D12_GPU_VIRTUAL_ADDRESS InAddress) { GPUVirtualAddress = InAddress; }
 																  
 private:
@@ -194,6 +298,48 @@ public:
 	FD3D12Resource* GetResouce() const { return ResourceLocation.GetResource(); }
 
 
+	void SetBarrierAccess(D3D12_BARRIER_ACCESS Access)
+	{
+		if (ResourceLocation.IsValid())
+		{
+			GetResouce()->SetBarrierAccess(Access);
+		}
+	}
+
+	void EmptyBarrierFlags()
+	{
+		if (ResourceLocation.IsValid())
+		{
+			GetResouce()->EmptyBarrierFlags();
+		}
+	}
+
+	void SetBarrierSync(D3D12_BARRIER_SYNC Sync)
+	{
+		if (ResourceLocation.IsValid())
+		{
+			GetResouce()->SetBarrierSync(Sync);
+		}
+	}
+
+	D3D12_BARRIER_ACCESS GetBarrierAccess() const
+	{
+		if (ResourceLocation.IsValid())
+		{
+			return GetResouce()->GetBarrierAccess();
+		}
+		return D3D12_BARRIER_ACCESS();
+	}
+
+	D3D12_BARRIER_SYNC GetBarrierSync() const
+	{
+		if (ResourceLocation.IsValid())
+		{
+			return GetResouce()->GetBarrierSync();
+		}
+		return D3D12_BARRIER_SYNC();
+	}
+
 
 public:
 	FD3D12ResourceLocation ResourceLocation;
@@ -250,11 +396,8 @@ public:
 	void UploadResourceData(class FRHICommandListBase& InRHICmdList, const void* Buffer, uint32 SizeBuffer,
 		D3D12_RESOURCE_STATES InDestinationState, const TCHAR* Name = nullptr);
 
-
-
+	
 	struct FD3D12LockedResource LockedData;
-
-
 };
 
 

@@ -65,6 +65,7 @@ public:
 	void Destroy();
 
 	FORCEINLINE ID3D12Device* GetDevice() const { return GetParentAdapter()->GetD3DDevice(); } ///< Get ID3D12Device
+	FORCEINLINE ID3D12Device10* GetDevice10() const { return GetParentAdapter()->GetD3DDevice10(); }
 
 
 	FD3D12CommandAllocator* GetCommandAllocator(ED3D12QueueType QueueType);	///< Allocate CommandAllocator like QueueType

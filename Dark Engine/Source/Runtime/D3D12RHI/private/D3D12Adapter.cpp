@@ -113,6 +113,8 @@ void FD3D12Adapter::InitializeDevices()
 
 	Devices[0] = MakeShareble(new FD3D12Device(this));
 
+	FeatureSupport.Init(RootDevice.Get());
+
 
 
 
@@ -134,6 +136,7 @@ void FD3D12Adapter::CreateRootDevice(bool bWithDebug)
 			DebugController->QueryInterface(IID_PPV_ARGS(&DebugController5));
 
 			DebugController5->SetEnableGPUBasedValidation(TRUE);
+			DebugController5->SetEnableSynchronizedCommandQueueValidation(TRUE);
 			DebugController5->SetEnableAutoName(TRUE);
 						
 			DE_LOG(D3D12RHI, Log, TEXT("Debug layer enable"));
@@ -158,6 +161,7 @@ void FD3D12Adapter::CreateRootDevice(bool bWithDebug)
 			IID_PPV_ARGS(&RootDevice)));
 
 		RootDevice->QueryInterface(IID_PPV_ARGS(&RootDevice2));
+		RootDevice->QueryInterface(IID_PPV_ARGS(&RootDevice10));
 	}
 	else
 	{

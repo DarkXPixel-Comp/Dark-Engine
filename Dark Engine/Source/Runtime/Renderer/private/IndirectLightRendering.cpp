@@ -92,8 +92,8 @@ void FSceneRender::RenderQuad(FRHICommandListImmediate& RHICmdList)
 	Initializer.RasterizerState = RHICreateRasterizerState(RasterState);
 
 
-	FRHIRenderPassInfo RenderPassInfo(SceneView->RenderTarget->GetRenderTargetTexture().Get());
-	RHICmdList.BeginRenderPass(RenderPassInfo);
+	/*FRHIRenderPassInfo RenderPassInfo(SceneView->RenderTarget->GetRenderTargetTexture().Get());
+	RHICmdList.BeginRenderPass(RenderPassInfo);*/
 
 	TRefCountPtr<FRHIGraphicsPipelineState> PipelineState = RHICreateGraphicsPipelineState(Initializer);
 	RHICmdList.SetGraphicsPipelineState(PipelineState.Get(), Initializer.BoundShaderState);
@@ -104,6 +104,6 @@ void FSceneRender::RenderQuad(FRHICommandListImmediate& RHICmdList)
 	RHICmdList.DrawIndexedPrimitive(GRenctangleIndexBuffer->IndexBuffer.Get(), 0, 0, 3, 0, 2, 1);
 
 
-	RHICmdList.EndRenderPass(RenderPassInfo);
+	/*RHICmdList.EndRenderPass(RenderPassInfo);*/
 
 }

@@ -54,6 +54,7 @@ public:
 		TArray<uint8>& InParameters,
 		TArray<FRHIShaderParameterResource>& InBindlessParameters,
 		TArray<FRHIShaderParameterResource>& InResourceParameters) = 0;
+	virtual void RHIPreparePixelShaderResources() = 0;
 	virtual void RHISetShaderParameters(
 		FRHIComputeShader* Shader,
 		TArray<uint8>& InParameters,

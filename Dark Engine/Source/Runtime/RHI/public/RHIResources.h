@@ -309,6 +309,7 @@ public:
 	virtual FIntPoint GetSize() const { return TextureDesc.Extent; }
 	virtual const FRHITextureDesc& GetDesc() const { return TextureDesc; }
 	virtual FRHIUnorderedAccessView* GetUnorderedAccessView() const = 0;
+	virtual void PrepareShaderResourceView() = 0;
 
 protected:
 	FRHITexture(const FRHITextureCreateDesc& InDesc) :

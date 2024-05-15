@@ -51,6 +51,7 @@ public:
 
 	ID3D12GraphicsCommandList* GetGraphicsCommandList() const { return GraphicsCommandList.Get(); }
 	ID3D12GraphicsCommandList4* GetGraphicsCommandList4() const { return GraphicsCommandList4.Get(); }
+	ID3D12GraphicsCommandList7* GetGraphicsCommandList7() const { return GraphicsCommandList7.Get(); }
 
 
 
@@ -61,6 +62,7 @@ private:
 		TRefCountPtr<ID3D12GraphicsCommandList>	CopyCommandList;
 		TRefCountPtr<ID3D12GraphicsCommandList>	GraphicsCommandList;
 		TRefCountPtr<ID3D12GraphicsCommandList4>	GraphicsCommandList4;
+		TRefCountPtr<ID3D12GraphicsCommandList7>	GraphicsCommandList7;
 		TRefCountPtr<ID3D12DebugCommandList>	DebugCommandList;
 	};
 

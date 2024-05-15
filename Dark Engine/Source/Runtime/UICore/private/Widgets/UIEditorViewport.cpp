@@ -61,6 +61,9 @@ void UIEditorViewport::DrawImGui()
 		FRHITexture* Texture = SceneViewport->GetRenderTargetTexture().Get();
 		if (Texture)
 		{  
+			FRHICommandListImmediate* RHICmdList = &GRHICommandList.GetImmediateCommandList();
+			Texture->PrepareShaderResourceView();
+			RHICmdList->GetContext().RHIPreparePixelShaderResources();
 			ImGui::SetCursorPos(ImVec2(0, WindowPadding.y));
 			ImVec2 SSize = { static_cast<float>(Texture->GetSize().X),  static_cast<float>(Texture->GetSize().Y) };
 			ImGui::Image(Texture->GetNativeShaderResourceView(), ImSize, ImVec2(0, 0),

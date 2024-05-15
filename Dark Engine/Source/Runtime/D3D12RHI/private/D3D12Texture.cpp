@@ -221,6 +221,12 @@ void FD3D12Texture::CreateViews()
 
 }
 
+void FD3D12Texture::PrepareShaderResourceView()
+{
+	FD3D12CommandContext& Context = GetParentDevice()->GetDefaultCommandContext();
+	Context.TransitionResource(GetResource(), D3D12_RESOURCE_STATE_COMMON, 0);
+}
+
 FIntPoint FD3D12Texture::GetSize() const
 {
 	FIntPoint Result;
@@ -278,6 +284,77 @@ D3D12_RESOURCE_DESC FD3D12Texture::GetResourceDescFromTextureDesc(const FRHIText
 	else
 	{
 		Result = CD3DX12_RESOURCE_DESC::Tex3D
+		(
+			GetDXGIFormat(InDesc.Format),
+			InDesc.Extent.X,
+			InDesc.Extent.Y,
+			InDesc.Depth,
+			InDesc.NumMips
+		);
+
+		if (EnumHasAnyFlags(InDesc.Flags, ETextureCreateFlags::RenderTargetable))
+		{
+			Result.Flags |= D3D12_RESOURCE_FLAG_ALLOW_RENDER_TARGET;
+		}
+	}
+
+	if (bDenyShaderResource)
+	{
+		Result.Flags |= D3D12_RESOURCE_FLAG_DENY_SHADER_RESOURCE;
+	}
+
+	if (EnumHasAnyFlags(InDesc.Flags, ETextureCreateFlags::UAV))
+	{
+		Result.Flags |= D3D12_RESOURCE_FLAG_ALLOW_UNORDERED_ACCESS;
+	}
+
+
+
+	return Result;
+}
+
+D3D12_RESOURCE_DESC1 FD3D12Texture::GetResourceDescFromTextureDesc1(const FRHITextureCreateDesc& InDesc)
+{
+	D3D12_RESOURCE_DESC1 Result = {};
+
+	bool bDenyShaderResource = false;
+
+	if (InDesc.Dimension != ETextureDimension::Texture3D)
+	{
+		Result.Dimension = GetD3D12Dimension(InDesc.Dimension);
+		Result.Alignment = 0;
+		Result.Width = InDesc.Extent.X;
+		Result.Height = InDesc.Extent.Y;
+		Result.Format = GetDXGIFormat(InDesc.Format);
+		Result.Layout = D3D12_TEXTURE_LAYOUT_UNKNOWN;
+		Result.MipLevels = InDesc.NumMips;
+		Result.SampleDesc = { 1, 0 };
+		Result.DepthOrArraySize = InDesc.ArraySize / (InDesc.IsTextureCube() ? 6 : 1);
+		Result.Flags = D3D12_RESOURCE_FLAG_NONE;
+
+		if (EnumHasAnyFlags(InDesc.Flags, ETextureCreateFlags::RenderTargetable))
+		{
+			Result.Flags |= D3D12_RESOURCE_FLAG_ALLOW_RENDER_TARGET;
+		}
+		else if (EnumHasAnyFlags(InDesc.Flags, ETextureCreateFlags::DepthStencilTargetable))
+		{
+			Result.Flags |= D3D12_RESOURCE_FLAG_ALLOW_DEPTH_STENCIL;
+		}
+
+		if (EnumHasAnyFlags(InDesc.Flags, ETextureCreateFlags::DepthStencilTargetable) &&
+			!EnumHasAnyFlags(InDesc.Flags, ETextureCreateFlags::ShaderResource))
+		{
+			bDenyShaderResource = true;
+		}
+
+		if (EnumHasAnyFlags(InDesc.Flags, ETextureCreateFlags::UAV))
+		{
+			Result.Flags |= D3D12_RESOURCE_FLAG_ALLOW_UNORDERED_ACCESS;
+		}
+	}
+	else
+	{
+		Result = CD3DX12_RESOURCE_DESC1::Tex3D
 		(
 			GetDXGIFormat(InDesc.Format),
 			InDesc.Extent.X,
@@ -374,12 +451,13 @@ void* FD3D12Texture::Lock(FRHICommandListImmediate* RHICmdList, uint32 MipIndex,
 		const int32 BufferSize = Align(SubresourceSize, D3D12_TEXTURE_DATA_PLACEMENT_ALIGNMENT);
 		const D3D12_RESOURCE_DESC ResourceDesc = CD3DX12_RESOURCE_DESC::Buffer(BufferSize,
 			D3D12_RESOURCE_FLAG_NONE);
+		const D3D12_RESOURCE_DESC1 ResourceDesc1 = CD3DX12_RESOURCE_DESC1::Buffer(BufferSize);
 		const D3D12_HEAP_PROPERTIES HeapProps = CD3DX12_HEAP_PROPERTIES(D3D12_HEAP_TYPE_UPLOAD);
 		const D3D12_RANGE Range = { (SIZE_T)0, (SIZE_T)BufferSize };
 
-		Adapter->GetD3DDevice()->CreateCommittedResource(&HeapProps,
-			D3D12_HEAP_FLAG_NONE, &ResourceDesc,
-			D3D12_RESOURCE_STATE_GENERIC_READ, nullptr,
+		Adapter->GetD3DDevice10()->CreateCommittedResource3(&HeapProps,
+			D3D12_HEAP_FLAG_NONE, &ResourceDesc1,
+			D3D12_BARRIER_LAYOUT_UNDEFINED, nullptr, nullptr, 0, nullptr,
 			IID_PPV_ARGS(&LockedResource->Resource));
 
 	
@@ -396,23 +474,30 @@ void* FD3D12Texture::Lock(FRHICommandListImmediate* RHICmdList, uint32 MipIndex,
 
 		const D3D12_RESOURCE_DESC ResourceDesc = CD3DX12_RESOURCE_DESC::Buffer(SubresourceSize,
 			D3D12_RESOURCE_FLAG_NONE);
+
+		const D3D12_RESOURCE_DESC1 ResourceDesc1 = CD3DX12_RESOURCE_DESC1::Buffer(SubresourceSize);
+
 		const D3D12_HEAP_PROPERTIES HeapProps = CD3DX12_HEAP_PROPERTIES(D3D12_HEAP_TYPE_READBACK);
 
-		Adapter->GetD3DDevice()->CreateCommittedResource(&HeapProps, D3D12_HEAP_FLAG_NONE,
-			&ResourceDesc, D3D12_RESOURCE_STATE_COPY_DEST, nullptr, IID_PPV_ARGS(&TextureResource));
+		Adapter->GetD3DDevice10()->CreateCommittedResource3(&HeapProps, D3D12_HEAP_FLAG_NONE,
+			&ResourceDesc1, D3D12_BARRIER_LAYOUT_UNDEFINED, nullptr, nullptr, 0, nullptr, IID_PPV_ARGS(&TextureResource));
 
 		LockedResource->Resource = TextureResource;
-
-
-		//LockedResource->
 
 		CD3DX12_TEXTURE_COPY_LOCATION DestCopyLocation(TextureResource.Get(), PlacedTexture2D);
 		CD3DX12_TEXTURE_COPY_LOCATION SourceCopyLocation(GetResource()->GetResource(), Subresource);
 		
 
 		FD3D12CommandContext& Context = Device->GetDefaultCommandContext();
-		Context.TransitionResource(GetResource(), D3D12_RESOURCE_STATE_COPY_SOURCE, 0);
+		//Context.TransitionResource(GetResource(), D3D12_RESOURCE_STATE_COPY_SOURCE, 0);
 
+
+		Context.TransitionResource(this, CD3DX12_TEXTURE_BARRIER(
+			GetBarrierSync(), D3D12_BARRIER_SYNC_COPY,
+			GetBarrierAccess(), D3D12_BARRIER_ACCESS_COPY_SOURCE,
+			BarrierLayout, D3D12_BARRIER_LAYOUT_COPY_SOURCE, nullptr, CD3DX12_BARRIER_SUBRESOURCE_RANGE(Subresource)));
+
+		Context.FlushBarriers();
 		//Context.FlushCommands();
 		Context.GetCommandList().GetGraphicsCommandList()->CopyTextureRegion
 		(
@@ -481,8 +566,15 @@ void FD3D12Texture::UpdateTexture(uint32 MipIndex, uint32 DestX, uint32 DestY, u
 
 	D3D12_RESOURCE_STATES CurrentState = GetResource()->GetCurrentState();
 
-	DefaultContext.TransitionResource(GetResource(), CurrentState,
-		D3D12_RESOURCE_STATE_COPY_DEST, MipIndex);
+	/*DefaultContext.TransitionResource(GetResource(), CurrentState,
+		D3D12_RESOURCE_STATE_COPY_DEST, MipIndex);*/
+
+	DefaultContext.TransitionResource(this, CD3DX12_TEXTURE_BARRIER(
+		GetBarrierSync(), D3D12_BARRIER_SYNC_COPY,
+		GetBarrierAccess(), D3D12_BARRIER_ACCESS_COPY_DEST,
+		BarrierLayout, D3D12_BARRIER_LAYOUT_COPY_DEST, nullptr, CD3DX12_BARRIER_SUBRESOURCE_RANGE(MipIndex)));
+
+	DefaultContext.FlushBarriers();
 
 
 	CD3DX12_TEXTURE_COPY_LOCATION DestCopyLocation(GetResource()->GetResource(), MipIndex);
@@ -493,8 +585,16 @@ void FD3D12Texture::UpdateTexture(uint32 MipIndex, uint32 DestX, uint32 DestY, u
 		DestX, DestY, DestZ, &SourceCopyLocation, nullptr);
 
 
-	DefaultContext.TransitionResource(GetResource(), D3D12_RESOURCE_STATE_COPY_DEST,
-		CurrentState, MipIndex);
+	DefaultContext.TransitionResource(this, CD3DX12_TEXTURE_BARRIER(
+		GetBarrierSync(), D3D12_BARRIER_SYNC_DRAW,
+		GetBarrierAccess(), D3D12_BARRIER_ACCESS_SHADER_RESOURCE,
+		BarrierLayout, D3D12_BARRIER_LAYOUT_SHADER_RESOURCE, nullptr, CD3DX12_BARRIER_SUBRESOURCE_RANGE(MipIndex)));
+
+	SetBarrierSync(D3D12_BARRIER_SYNC_DRAW);
+	SetBarrierAccess(D3D12_BARRIER_ACCESS_SHADER_RESOURCE);
+
+	/*DefaultContext.TransitionResource(GetResource(), D3D12_RESOURCE_STATE_COPY_DEST,
+		CurrentState, MipIndex);*/
 
 	//DefaultContext.FlushCommands();
 }

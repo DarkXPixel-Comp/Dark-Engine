@@ -5,12 +5,14 @@
 #include "D3D12View.h"
 #include "RHIResources.h"
 #include "D3D12PipelineState.h"
+#include <d3dx12/d3dx12_barriers.h>
 
 
 FD3D12ContextCommon::FD3D12ContextCommon(FD3D12Device* InDevice, ED3D12QueueType InQueueType, bool InbIsDefaultContext):
 	Device(InDevice),
 	QueueType(InQueueType),
-	bIsDefualtContext(InbIsDefaultContext)
+	bIsDefaultContext(InbIsDefaultContext),
+	bSupportEnhancedBarriers(D3D12_ENHANCED_BARRIERS && InDevice->GetParentAdapter()->FeatureSupport.EnhancedBarriersSupported())
 {}
 
 void FD3D12ContextCommon::OpenCommandList()
@@ -83,9 +85,7 @@ void FD3D12ContextCommon::TransitionResource(FD3D12Resource* Resource, D3D12_RES
 		Resource->SetState(After);
 		return;
 	}
-	CD3DX12_RESOURCE_BARRIER Barrier = CD3DX12_RESOURCE_BARRIER::Transition(Resource->GetResource(), Before, After);
-	GetCommandList().GetGraphicsCommandList()->ResourceBarrier(1, &Barrier);
-	Resource->SetState(After);
+	Barriers.Add({ After, Resource, SubResource, nullptr, Before });
 }
 
 void FD3D12ContextCommon::TransitionResource(ID3D12Resource* Resource, D3D12_RESOURCE_STATES Before, D3D12_RESOURCE_STATES After, uint32 SubResource)
@@ -94,8 +94,8 @@ void FD3D12ContextCommon::TransitionResource(ID3D12Resource* Resource, D3D12_RES
 	{
 		return;
 	}
-	CD3DX12_RESOURCE_BARRIER Barrier = CD3DX12_RESOURCE_BARRIER::Transition(Resource, Before, After);
-	GetCommandList().GetGraphicsCommandList()->ResourceBarrier(1, &Barrier);
+
+	Barriers.Add({ After, nullptr, SubResource, Resource, Before });
 }
 
 void FD3D12ContextCommon::TransitionResource(FD3D12Resource* Resource, D3D12_RESOURCE_STATES After, uint32 SubResource)
@@ -106,14 +106,120 @@ void FD3D12ContextCommon::TransitionResource(FD3D12Resource* Resource, D3D12_RES
 		Resource->SetState(After);
 		return;
 	}
-	CD3DX12_RESOURCE_BARRIER Barrier = CD3DX12_RESOURCE_BARRIER::Transition(Resource->GetResource(), Before, After);
-	GetCommandList().GetGraphicsCommandList()->ResourceBarrier(1, &Barrier);
-	Resource->SetState(After);
+
+	Barriers.Add({After, Resource, SubResource});
 }
+void FD3D12ContextCommon::TransitionResource(FD3D12Buffer* Buffer, CD3DX12_BUFFER_BARRIER BufferBarrier)
+{
+	if(Buffer)
+		Buffer->GetResouce()->EmptyBarrierFlags();
+	BufferBarrier.pResource = Buffer ? Buffer->GetResouce()->GetResource() : BufferBarrier.pResource;
+	BufferBarriers.Add(BufferBarrier);
+}
+
+void FD3D12ContextCommon::TransitionResource(FD3D12Texture* Texture, CD3DX12_TEXTURE_BARRIER TextureBarrier)
+{
+	if (Texture->GetResource()->GetBarrierAccess() == TextureBarrier.AccessBefore && Texture->GetResource()->GetBarrierSync() == TextureBarrier.SyncBefore && TextureBarrier.LayoutAfter == Texture->BarrierLayout)
+	{
+		return;
+	}
+	Texture->BarrierLayout = TextureBarrier.LayoutAfter;
+	Texture->GetResource()->EmptyBarrierFlags();
+	TextureBarrier.pResource = Texture ? Texture->GetResource()->GetResource() : TextureBarrier.pResource;
+	TextureBarriers.Add(TextureBarrier);
+}
+
+void FD3D12ContextCommon::TransitionResource(const FD3D12ResourceLocation& Resource, CD3DX12_BUFFER_BARRIER BufferBarrier)
+{
+	if (Resource.GetBarrierAccess() == BufferBarrier.AccessBefore && Resource.GetBarrierSync() == BufferBarrier.SyncBefore)
+	{
+		return;
+	}
+	Resource.GetResource()->EmptyBarrierFlags();
+	BufferBarrier.pResource = Resource.GetResource()->GetResource();
+	BufferBarriers.Add(BufferBarrier);
+}
+
+void FD3D12ContextCommon::TransitionBuffer(ID3D12Resource* Resource, CD3DX12_BUFFER_BARRIER BufferBarrier)
+{
+	BufferBarrier.pResource = Resource;
+	BufferBarriers.Add(BufferBarrier);
+}
+
+
+
+
+
+void FD3D12ContextCommon::FlushBarriers()
+{
+	if (true/*bSupportEnhancedBarriers*/)
+	{
+		EnhancedFlushBarriers();
+		//return;
+	}
+	if(Barriers.Num())
+	{
+		TArray<CD3DX12_RESOURCE_BARRIER> ResourceBarriers(ArrayReserve(Barriers.Num()));
+
+		for (int32 i = 0; i < Barriers.Num(); ++i)
+		{
+			FD3D12ResourceBarrier& Current = Barriers[i];
+			
+			D3D12_RESOURCE_STATES Before;
+			if (Current.Resource)
+				Before = Current.Resource->GetCurrentState();
+			else
+				Before = Current.Before;
+
+			if (Before == Current.After)
+			{
+				continue;
+			}
+			ResourceBarriers.Add(CD3DX12_RESOURCE_BARRIER::Transition(
+				Current.Resource ? Current.Resource->GetResource() : Current.NativeResource, Before,
+				Current.After, Current.Subresource));
+			if(Current.Resource)
+				Current.Resource->SetState(Current.After);
+		}
+		GetCommandList().GetGraphicsCommandList()->ResourceBarrier(ResourceBarriers.Num(), ResourceBarriers.GetData());
+		Barriers.Empty();
+	}
+}
+
+void FD3D12ContextCommon::EnhancedFlushBarriers()
+{
+	TArray<CD3DX12_BARRIER_GROUP> BarrierGroups(ArrayReserve(3));
+
+	if (BufferBarriers.Num())
+	{
+		BarrierGroups.Add(CD3DX12_BARRIER_GROUP(BufferBarriers.Num(), BufferBarriers.GetData()));
+		BarrierGroups.Last().Type = D3D12_BARRIER_TYPE_BUFFER;
+	}
+	if (TextureBarriers.Num())
+	{
+		BarrierGroups.Add(CD3DX12_BARRIER_GROUP(TextureBarriers.Num(), TextureBarriers.GetData()));
+		BarrierGroups.Last().Type = D3D12_BARRIER_TYPE_TEXTURE;
+	}
+	if (GlobalBarriers.Num())
+	{
+		BarrierGroups.Add(CD3DX12_BARRIER_GROUP(GlobalBarriers.Num(), GlobalBarriers.GetData()));
+		BarrierGroups.Last().Type = D3D12_BARRIER_TYPE_GLOBAL;
+	}
+
+	BufferBarriers.Empty();
+	TextureBarriers.Empty();
+	GlobalBarriers.Empty();
+
+	if(BarrierGroups.Num())
+		GetGraphicsList7()->Barrier(BarrierGroups.Num(), BarrierGroups.GetData());
+}
+
 
 void FD3D12ContextCommon::FlushCommands(ED3D12FlushFlags Flags)
 {
-	check(bIsDefualtContext);
+	check(bIsDefaultContext);
+
+	FlushBarriers();
 
 	if (Flags == ED3D12FlushFlags::WaitForSubmission)
 	{
@@ -244,8 +350,7 @@ void FD3D12CommandContext::RHIBeginRenderPass(FRHIRenderPassInfo& InInfo)
 		{
 			FD3D12Texture* NewRenderTarget = static_cast<FD3D12Texture*>(RTInfo.ColorRenderTarget[i].Texture);
 			RenderTarget = NewRenderTarget->RenderTargetViews[0].get();
-			TransitionResource(NewRenderTarget->GetResource(),
-				NewRenderTarget->GetResource()->GetCurrentState(), D3D12_RESOURCE_STATE_RENDER_TARGET, 0);
+			TransitionResource(NewRenderTarget->GetResource(), D3D12_RESOURCE_STATE_RENDER_TARGET, 0);
 			RTVDescriptors[i] = RenderTarget->GetCpuHandle();
 
 			RenderTargetPassDescs[i].cpuDescriptor = RTVDescriptors[i];
@@ -262,6 +367,7 @@ void FD3D12CommandContext::RHIBeginRenderPass(FRHIRenderPassInfo& InInfo)
 		NewRenderTargets[i] = RenderTarget;
 	}
 
+	FlushBarriers();
 	GetGraphicsList4()->BeginRenderPass(RenderTargetPassDescs.Num(), RenderTargetPassDescs.GetData(), nullptr, D3D12_RENDER_PASS_FLAG_NONE);
 	StateCache.SetRenderTargets(RTInfo.NumColorRenderTargets, NewRenderTargets, nullptr);
 
@@ -278,9 +384,11 @@ void FD3D12CommandContext::RHIEndRenderPass(FRHIRenderPassInfo& InInfo)
 		if (i < MAX_RENDER_TARGETS && RTInfo.ColorRenderTarget[i].Texture != nullptr)
 		{
 			FD3D12Texture* D3DRenderTarget = static_cast<FD3D12Texture*>(RTInfo.ColorRenderTarget[i].Texture);
-			TransitionResource(D3DRenderTarget->GetResource(), D3D12_RESOURCE_STATE_ALL_SHADER_RESOURCE, 0);
+			//TransitionResource(D3DRenderTarget->GetResource(), D3D12_RESOURCE_STATE_ALL_SHADER_RESOURCE, 0);
 		}
 	}
+
+	//FlushBarriers();
 }
 
 void FD3D12CommandContext::SetRenderTargets(int32 NumRenderTargets, const FRHIRenderTargetView *RenderTargetsRHI, const FRHIDepthRenderTargetView *DepthStencilViewRHI, bool bClear)
@@ -297,8 +405,7 @@ void FD3D12CommandContext::SetRenderTargets(int32 NumRenderTargets, const FRHIRe
 		{
 			FD3D12Texture* NewRenderTarget = static_cast<FD3D12Texture*>(RenderTargetsRHI[i].Texture);
 			RenderTarget = NewRenderTarget->RenderTargetViews[0].get();
-			TransitionResource(NewRenderTarget->GetResource(),
-				NewRenderTarget->GetResource()->GetCurrentState(), D3D12_RESOURCE_STATE_RENDER_TARGET, 0);
+			TransitionResource(NewRenderTarget->GetResource(), D3D12_RESOURCE_STATE_RENDER_TARGET, 0);
 			RTVDescriptors[i] = RenderTarget->GetCpuHandle();
 			if (bClear && NewRenderTarget->IsValid())
 			{
@@ -330,6 +437,7 @@ void FD3D12CommandContext::RHIClearTextureColor(FRHITexture* InTexture, FVector 
 	TransitionResource(D3DTexture->GetResource(), D3DTexture->GetResource()->GetCurrentState(),
 		D3D12_RESOURCE_STATE_RENDER_TARGET, 0);
 
+	FlushBarriers();
 
 	FLOAT Color[4];
 	for (int32 i = 0; i < 3; ++i)
@@ -341,7 +449,7 @@ void FD3D12CommandContext::RHIClearTextureColor(FRHITexture* InTexture, FVector 
 
 	GetCommandList().GetGraphicsCommandList()->ClearRenderTargetView(D3DTexture->RenderTargetViews[0]->GetCpuHandle(),
 		Color, 0, nullptr);
-	TransitionResource(D3DTexture->GetResource(), D3D12_RESOURCE_STATE_RENDER_TARGET,
+	TransitionResource(D3DTexture->GetResource(),
 		D3D12_RESOURCE_STATE_PIXEL_SHADER_RESOURCE, 0);
 
 }
@@ -356,9 +464,13 @@ void FD3D12CommandContext::RHICopyTexture(FRHITexture* SourceTextureRHI, FRHITex
 {
 	FD3D12Texture* SourceTexture = static_cast<FD3D12Texture*>(SourceTextureRHI);
 	FD3D12Texture* DestTexture = static_cast<FD3D12Texture*>(DestTextureRHI);
-	FScopedTransitionResource SourceScopedBarrier(*this, SourceTexture->GetResource(), D3D12_RESOURCE_STATE_COPY_SOURCE, 0);
-	FScopedTransitionResource DestScopedBarrier(*this, DestTexture->GetResource(), D3D12_RESOURCE_STATE_COPY_DEST, 0);
+	/*FScopedTransitionResource SourceScopedBarrier(*this, SourceTexture->GetResource(), D3D12_RESOURCE_STATE_COPY_SOURCE, 0);
+	FScopedTransitionResource DestScopedBarrier(*this, DestTexture->GetResource(), D3D12_RESOURCE_STATE_COPY_DEST, 0);*/
 
+	TransitionResource(SourceTexture->GetResource(), D3D12_RESOURCE_STATE_COPY_SOURCE, 0);
+	TransitionResource(DestTexture->GetResource(), D3D12_RESOURCE_STATE_COPY_DEST, 0);
+
+	FlushBarriers();
 
 	const FRHITextureDesc& SourceDesc = SourceTexture->GetDesc();
 	const FRHITextureDesc& DestDesc = DestTexture->GetDesc();
@@ -400,6 +512,8 @@ void FD3D12CommandContext::RHIDrawIndexedPrimitive(FRHIBuffer* IndexBufferRHI, i
 	StateCache.SetIndexBuffer(&IndexBuffer->ResourceLocation, Format, 0);
 	StateCache.ApplyState(false);
 
+	FlushBarriers();
+
 	GetGraphicsList()->DrawIndexedInstanced(IndexCount, NumInstances, StartIndex, BaseVertexIndex,
 		FirstInstance);
 }
@@ -408,6 +522,7 @@ void FD3D12CommandContext::RHIDispatchComputeShader(uint32 ThreadGroupCountX, ui
 {
 	CommitComputeShaderConstants();
 	//CommitComputeResourceTables();
+	FlushBarriers();
 
 	StateCache.ApplyState(true);
 
@@ -501,7 +616,7 @@ void FD3D12CommandContext::RHISetShaderParameters(FRHIComputeShader* Shader, TAr
 			{
 				FD3D12UnorderedAccessView* UAV = reinterpret_cast<FD3D12UnorderedAccessView*>(Resource);
 				Handle = UAV->GetBindlessHandle();
-				TransitionResource(UAV->Resource, D3D12_RESOURCE_STATE_UNORDERED_ACCESS, 0);
+				//TransitionResource(UAV->Resource, D3D12_RESOURCE_STATE_COMMON, 0);
 				break;
 			}
 			}
@@ -560,6 +675,11 @@ void FD3D12CommandContext::RHISetComputePipelineState(FRHIComputePipelineState* 
 
 	StateCache.SetComputePipelineState(ComputePipelineState);
 
+}
+
+void FD3D12CommandContext::RHIPreparePixelShaderResources()
+{
+	FlushBarriers();
 }
 
 void FD3D12CommandContext::BindUniformBuffer(FRHIShader* Shader, EShaderType ShaderType, uint32 BufferIndex, FD3D12UniformBuffer* InBuffer)

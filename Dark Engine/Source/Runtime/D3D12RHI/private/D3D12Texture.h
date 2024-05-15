@@ -33,6 +33,7 @@ public:
 	FD3D12Resource* GetResource() const { return Resource.Get(); }
 	void SetResource(FD3D12Resource* InResource);
 	void CreateViews();
+	virtual void PrepareShaderResourceView();
 
 	virtual FRHIUnorderedAccessView* GetUnorderedAccessView() const
 	{
@@ -52,12 +53,56 @@ public:
 	void UpdateTexture(uint32 MipIndex, uint32 DestX, uint32 DestY, uint32 DestZ,
 		const D3D12_TEXTURE_COPY_LOCATION& SourceCopyLocation);
 
+	void SetBarrierAccess(D3D12_BARRIER_ACCESS Access)
+	{
+		if (IsValid())
+		{
+			GetResource()->SetBarrierAccess(Access);
+		}
+	}
+
+	void EmptyBarrierFlags()
+	{
+		if (IsValid())
+		{
+			GetResource()->EmptyBarrierFlags();
+		}
+	}
+
+	void SetBarrierSync(D3D12_BARRIER_SYNC Sync)
+	{
+		if (IsValid())
+		{
+			GetResource()->SetBarrierSync(Sync);
+		}
+	}
+
+	D3D12_BARRIER_ACCESS GetBarrierAccess() const
+	{
+		if (IsValid())
+		{
+			return GetResource()->GetBarrierAccess();
+		}
+		return D3D12_BARRIER_ACCESS();
+	}
+
+	D3D12_BARRIER_SYNC GetBarrierSync() const
+	{
+		if (IsValid())
+		{
+			return GetResource()->GetBarrierSync();
+		}
+		return D3D12_BARRIER_SYNC();
+	}
+
 public:
 	static D3D12_RESOURCE_DESC GetResourceDescFromTextureDesc(const FRHITextureCreateDesc& InDesc);
+	static D3D12_RESOURCE_DESC1 GetResourceDescFromTextureDesc1(const FRHITextureCreateDesc& InDesc);
 public:
 	TArray<TSharedPtr<class FD3D12RenderTargetView>> RenderTargetViews;
 	TSharedPtr<class FD3D12ShaderResourceView> ShaderResourceView;
 	TSharedPtr<class FD3D12UnorderedAccessView> UnorderedAccessView;
+	D3D12_BARRIER_LAYOUT BarrierLayout = D3D12_BARRIER_LAYOUT_COMMON;
 
 
 private:
@@ -65,6 +110,7 @@ private:
 	TRefCountPtr<FD3D12Resource> Resource;
 
 	TMap<uint32, FD3D12LockedResource*>	LockedMap;
+
 
 
 

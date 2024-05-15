@@ -4,6 +4,7 @@
 #include "Containers/UnordoredMap.h"
 #include "d3d12shader.h"
 #include "dxcapi.h"
+#include <d3dx12/d3dx12_pipeline_state_stream.h>
 
 
 class FD3D12PipelineState;

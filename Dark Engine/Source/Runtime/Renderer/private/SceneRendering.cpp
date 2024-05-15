@@ -18,6 +18,8 @@ void FSceneRender::Render(FRHICommandListImmediate& CmdList)
 {
 	//RenderLight();
 
+	FRHIRenderPassInfo RenderPassInfo(SceneView->RenderTarget->GetRenderTargetTexture().Get());
+	CmdList.BeginRenderPass(RenderPassInfo);
 	switch (GRenderMode)
 	{
 	case 0:
@@ -33,6 +35,7 @@ void FSceneRender::Render(FRHICommandListImmediate& CmdList)
 		RenderQuad(CmdList);
 		break;
 	}
+	CmdList.EndRenderPass(RenderPassInfo);
 
 	if(GFXAAEnable)
 		FXAA(CmdList);

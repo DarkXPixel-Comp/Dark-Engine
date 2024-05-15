@@ -70,8 +70,8 @@ void FSceneRender::RenderSeaScape(FRHICommandListImmediate& CmdList)
 	TRefCountPtr<FRHIGraphicsPipelineState>	PipelineState = RHICreateGraphicsPipelineState(PSOInitializer);
 
 
-	FRHIRenderPassInfo RenderPassInfo(SceneView->RenderTarget->GetRenderTargetTexture().Get());
-	CmdList.BeginRenderPass(RenderPassInfo);
+	/*FRHIRenderPassInfo RenderPassInfo(SceneView->RenderTarget->GetRenderTargetTexture().Get());
+	CmdList.BeginRenderPass(RenderPassInfo);*/
 	CmdList.SetGraphicsPipelineState(PipelineState.Get(), PSOInitializer.BoundShaderState);
 	CmdList.SetShaderParameters(RHIPixelShader, Parameters, BindlessParameters, ResourceParameters);
 	CmdList.RHISetViewport(SceneView->ViewRect.LeftUp.X, SceneView->ViewRect.LeftUp.Y,
@@ -81,6 +81,6 @@ void FSceneRender::RenderSeaScape(FRHICommandListImmediate& CmdList)
 
 	CmdList.DrawIndexedPrimitive(GRenctangleIndexBuffer->IndexBuffer.Get(), 0, 0, 3, 0, 2, 1);
 
-	CmdList.EndRenderPass(RenderPassInfo);
+	//CmdList.EndRenderPass(RenderPassInfo);
 
 }

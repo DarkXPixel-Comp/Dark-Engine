@@ -170,6 +170,14 @@ void FD3D12StateCache::SetStreamSource(FD3D12ResourceLocation* VertexBufferLocat
 		NewView.SizeInBytes != CurrentView.SizeInBytes ||
 		NewView.StrideInBytes != CurrentView.StrideInBytes || true)
 	{
+		Context.TransitionResource(*VertexBufferLocation, CD3DX12_BUFFER_BARRIER
+		(
+			VertexBufferLocation->GetBarrierSync(), D3D12_BARRIER_SYNC_VERTEX_SHADING,
+			VertexBufferLocation->GetBarrierAccess(), D3D12_BARRIER_ACCESS_VERTEX_BUFFER
+		));
+
+		VertexBufferLocation->SetBarrierSync(D3D12_BARRIER_SYNC_VERTEX_SHADING);
+		VertexBufferLocation->SetBarrierAccess(D3D12_BARRIER_ACCESS_VERTEX_BUFFER);
 		bNeedSetVB = true;
 		PipelineState.Graphics.VBCache.CurrentVertexBufferResources[StreamIndex] = VertexBufferLocation;
 		PipelineState.Graphics.VBCache.NumViews = FMath::Max<uint32>(PipelineState.Graphics.VBCache.NumViews, StreamIndex + 1);
@@ -197,7 +205,16 @@ void FD3D12StateCache::SetIndexBuffer(FD3D12ResourceLocation* IndexBufferLocatio
 		CurrentView.Format = Format;
 		PipelineState.Graphics.IBCache.CurrentIndexBufferLocation = IndexBufferLocation;
 
-		Context.TransitionResource(IndexBufferLocation->GetResource(), D3D12_RESOURCE_STATE_INDEX_BUFFER, 0);
+		//Context.TransitionResource(IndexBufferLocation->GetResource(), D3D12_RESOURCE_STATE_INDEX_BUFFER, 0);
+
+		Context.TransitionResource(*IndexBufferLocation, CD3DX12_BUFFER_BARRIER(
+			IndexBufferLocation->GetBarrierSync(), D3D12_BARRIER_SYNC_INDEX_INPUT,
+			IndexBufferLocation->GetBarrierAccess(), D3D12_BARRIER_ACCESS_INDEX_BUFFER, nullptr));
+
+		IndexBufferLocation->SetBarrierAccess(D3D12_BARRIER_ACCESS_INDEX_BUFFER);
+		IndexBufferLocation->SetBarrierSync(D3D12_BARRIER_SYNC_INDEX_INPUT);
+
+		Context.FlushBarriers();
 		Context.GetCommandList().GetGraphicsCommandList()->IASetIndexBuffer(&PipelineState.Graphics.IBCache.CurrentIndexBufferView);
 	}
 }
