@@ -8,6 +8,7 @@
 #include "D3D12ConstantBuffer.h"
 #include "D3D12StateCache.h"
 #include "RHIShaderParameters.h"
+#include "D3D12BarrierBatcher.h"
 
 
 
@@ -57,6 +58,21 @@ public:
 	void TransitionResource(FD3D12Buffer* Buffer, CD3DX12_BUFFER_BARRIER BufferBarrier);
 	void TransitionResource(FD3D12Texture* Texture, CD3DX12_TEXTURE_BARRIER TextureBarrier);
 	void TransitionResource(const FD3D12ResourceLocation& Resource, CD3DX12_BUFFER_BARRIER BufferBarrier);
+
+	void TransitionResource(FD3D12Buffer* Buffer, D3D12_BARRIER_SYNC AfterSync, D3D12_BARRIER_ACCESS AfterAccess,
+		uint64 Size = UINT64_MAX, uint64 Offset = 0);
+
+	void TransitionResource(FD3D12Texture* InBuffer, D3D12_BARRIER_SYNC AfterSync,
+		D3D12_BARRIER_ACCESS AfterAccess, D3D12_BARRIER_LAYOUT AfterLayout, CD3DX12_BARRIER_SUBRESOURCE_RANGE Subresource = CD3DX12_BARRIER_SUBRESOURCE_RANGE(0));
+
+	void TransitionBuffer(FD3D12ResourceLocation& Resource, D3D12_BARRIER_SYNC AfterSync, D3D12_BARRIER_ACCESS AfterAccess,
+		uint64 Size = UINT64_MAX, uint64 Offset = 0);
+
+	void TransitionBuffer(FD3D12Resource* Resource, D3D12_BARRIER_SYNC AfterSync, D3D12_BARRIER_ACCESS AfterAccess,
+		uint64 Size = UINT64_MAX, uint64 Offset = 0);
+
+	void TransitionTexture(FD3D12Resource* InTexture, D3D12_BARRIER_SYNC AfterSync,
+		D3D12_BARRIER_ACCESS AfterAccess, D3D12_BARRIER_LAYOUT AfterLayout, CD3DX12_BARRIER_SUBRESOURCE_RANGE Subresource = CD3DX12_BARRIER_SUBRESOURCE_RANGE(0));
 
 	void TransitionBuffer(ID3D12Resource* Resource, CD3DX12_BUFFER_BARRIER Buffer);
 
@@ -121,7 +137,7 @@ private:
 
 	class FD3D12CommandAllocator* CommandAllocator = nullptr;
 	class FD3D12CommandList* CommandList = nullptr;
-	class FD3D12ResourceBarrierBatcher ResourceBarrierBatcher;
+	FD3D12BarrierBatcher BarrierBatcher;
 	TArray<FD3D12Payload*> Payloads;
 	TArray<FD3D12LockedResource> LockedResources;
 	TArray<FD3D12ResourceBarrier> Barriers;

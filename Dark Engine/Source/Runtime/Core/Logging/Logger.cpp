@@ -143,8 +143,6 @@ void logging(Logger* obj)
 		}
 		std::this_thread::sleep_for(std::chrono::microseconds(1000));
 	}
-
-
 }
 
 void Logger::log(FString logTxt, LOGGER_ENUM severenty)

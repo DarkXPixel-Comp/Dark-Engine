@@ -113,6 +113,11 @@ public:
 		}
 	}
 
+	void SetBarrierLayout(D3D12_BARRIER_LAYOUT InLayout)
+	{
+		BarrierLayout = InLayout;
+	}
+
 	void EmptyBarrierFlags()
 	{
 		FlagsAccess = (D3D12_BARRIER_ACCESS)(-1);
@@ -135,8 +140,15 @@ public:
 		return FlagSync;
 	}
 
+	D3D12_BARRIER_LAYOUT GetBarrierLayout() const
+	{
+		return BarrierLayout;
+	}
+
+
 	D3D12_BARRIER_ACCESS FlagsAccess = (D3D12_BARRIER_ACCESS)(-1);
 	D3D12_BARRIER_SYNC FlagSync = D3D12_BARRIER_SYNC_NONE;
+	D3D12_BARRIER_LAYOUT BarrierLayout = D3D12_BARRIER_LAYOUT_COMMON;
 
 
 

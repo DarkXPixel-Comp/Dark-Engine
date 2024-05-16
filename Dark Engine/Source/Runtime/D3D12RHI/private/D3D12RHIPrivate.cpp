@@ -323,7 +323,7 @@ FD3D12Texture* FD3D12DynamicRHI::CreateD3D12Texture(const FRHITextureCreateDesc&
 	DX12::SetName(TextureResource, CreateDesc.DebugName);
 
 	NewTexture->CreateViews();
-	NewTexture->BarrierLayout = D3D12_BARRIER_LAYOUT_COMMON;
+	NewTexture->SetBarrierLayout(D3D12_BARRIER_LAYOUT_COMMON);
 
 
 	return NewTexture;
@@ -427,8 +427,10 @@ void FD3D12DynamicRHI::RHIUnlockBuffer(FRHIBuffer* BufferRHI)
 			D3D12_RESOURCE_STATE_COPY_SOURCE, 0);*/
 		//Context.TransitionResource(Buffer->ResourceLocation.GetResource(), D3D12_RESOURCE_STATE_COPY_DEST, 0);
 
-		Context.TransitionResource(Buffer, CD3DX12_BUFFER_BARRIER(Buffer->GetBarrierSync(), D3D12_BARRIER_SYNC_COPY,
-			Buffer->GetBarrierAccess(), D3D12_BARRIER_ACCESS_COPY_DEST, nullptr));
+		/*Context.TransitionResource(Buffer, CD3DX12_BUFFER_BARRIER(Buffer->GetBarrierSync(), D3D12_BARRIER_SYNC_COPY,
+			Buffer->GetBarrierAccess(), D3D12_BARRIER_ACCESS_COPY_DEST, nullptr));*/
+
+		Context.TransitionResource(Buffer, D3D12_BARRIER_SYNC_COPY, D3D12_BARRIER_ACCESS_COPY_DEST);
 
 		Context.TransitionResource((FD3D12Buffer*)nullptr, CD3DX12_BUFFER_BARRIER(D3D12_BARRIER_SYNC_NONE,
 			D3D12_BARRIER_SYNC_COPY, D3D12_BARRIER_ACCESS_NO_ACCESS, D3D12_BARRIER_ACCESS_COPY_SOURCE,
@@ -441,8 +443,8 @@ void FD3D12DynamicRHI::RHIUnlockBuffer(FRHIBuffer* BufferRHI)
 			LockedData.Resource.Get(), 0, LockedData.LockedPitch);
 
 
-		Buffer->SetBarrierSync(D3D12_BARRIER_SYNC_COPY);
-		Buffer->SetBarrierAccess(D3D12_BARRIER_ACCESS_COPY_DEST);
+		/*Buffer->SetBarrierSync(D3D12_BARRIER_SYNC_COPY);
+		Buffer->SetBarrierAccess(D3D12_BARRIER_ACCESS_COPY_DEST);*/
 		Context.AddLockedResource(LockedData);
 	}
 

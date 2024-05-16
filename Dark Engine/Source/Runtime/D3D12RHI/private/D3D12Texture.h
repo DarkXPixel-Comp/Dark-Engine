@@ -77,6 +77,14 @@ public:
 		}
 	}
 
+	void SetBarrierLayout(D3D12_BARRIER_LAYOUT InLayout)
+	{
+		if (IsValid())
+		{
+			GetResource()->SetBarrierLayout(InLayout);
+		}
+	}
+
 	D3D12_BARRIER_ACCESS GetBarrierAccess() const
 	{
 		if (IsValid())
@@ -95,6 +103,15 @@ public:
 		return D3D12_BARRIER_SYNC();
 	}
 
+	D3D12_BARRIER_LAYOUT GetBarrierLayout() const
+	{
+		if (IsValid())
+		{
+			return GetResource()->GetBarrierLayout();
+		}
+		return D3D12_BARRIER_LAYOUT();
+	}
+
 public:
 	static D3D12_RESOURCE_DESC GetResourceDescFromTextureDesc(const FRHITextureCreateDesc& InDesc);
 	static D3D12_RESOURCE_DESC1 GetResourceDescFromTextureDesc1(const FRHITextureCreateDesc& InDesc);
@@ -102,7 +119,6 @@ public:
 	TArray<TSharedPtr<class FD3D12RenderTargetView>> RenderTargetViews;
 	TSharedPtr<class FD3D12ShaderResourceView> ShaderResourceView;
 	TSharedPtr<class FD3D12UnorderedAccessView> UnorderedAccessView;
-	D3D12_BARRIER_LAYOUT BarrierLayout = D3D12_BARRIER_LAYOUT_COMMON;
 
 
 private:

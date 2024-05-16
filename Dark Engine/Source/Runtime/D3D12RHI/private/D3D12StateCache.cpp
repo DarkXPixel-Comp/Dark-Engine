@@ -170,14 +170,19 @@ void FD3D12StateCache::SetStreamSource(FD3D12ResourceLocation* VertexBufferLocat
 		NewView.SizeInBytes != CurrentView.SizeInBytes ||
 		NewView.StrideInBytes != CurrentView.StrideInBytes || true)
 	{
-		Context.TransitionResource(*VertexBufferLocation, CD3DX12_BUFFER_BARRIER
+		/*Context.TransitionResource(*VertexBufferLocation, CD3DX12_BUFFER_BARRIER
 		(
 			VertexBufferLocation->GetBarrierSync(), D3D12_BARRIER_SYNC_VERTEX_SHADING,
 			VertexBufferLocation->GetBarrierAccess(), D3D12_BARRIER_ACCESS_VERTEX_BUFFER
 		));
 
+
+
 		VertexBufferLocation->SetBarrierSync(D3D12_BARRIER_SYNC_VERTEX_SHADING);
-		VertexBufferLocation->SetBarrierAccess(D3D12_BARRIER_ACCESS_VERTEX_BUFFER);
+		VertexBufferLocation->SetBarrierAccess(D3D12_BARRIER_ACCESS_VERTEX_BUFFER);*/
+
+		Context.TransitionBuffer(*VertexBufferLocation, D3D12_BARRIER_SYNC_VERTEX_SHADING, D3D12_BARRIER_ACCESS_VERTEX_BUFFER);
+
 		bNeedSetVB = true;
 		PipelineState.Graphics.VBCache.CurrentVertexBufferResources[StreamIndex] = VertexBufferLocation;
 		PipelineState.Graphics.VBCache.NumViews = FMath::Max<uint32>(PipelineState.Graphics.VBCache.NumViews, StreamIndex + 1);
@@ -207,12 +212,14 @@ void FD3D12StateCache::SetIndexBuffer(FD3D12ResourceLocation* IndexBufferLocatio
 
 		//Context.TransitionResource(IndexBufferLocation->GetResource(), D3D12_RESOURCE_STATE_INDEX_BUFFER, 0);
 
-		Context.TransitionResource(*IndexBufferLocation, CD3DX12_BUFFER_BARRIER(
+		/*Context.TransitionResource(*IndexBufferLocation, CD3DX12_BUFFER_BARRIER(
 			IndexBufferLocation->GetBarrierSync(), D3D12_BARRIER_SYNC_INDEX_INPUT,
 			IndexBufferLocation->GetBarrierAccess(), D3D12_BARRIER_ACCESS_INDEX_BUFFER, nullptr));
 
 		IndexBufferLocation->SetBarrierAccess(D3D12_BARRIER_ACCESS_INDEX_BUFFER);
-		IndexBufferLocation->SetBarrierSync(D3D12_BARRIER_SYNC_INDEX_INPUT);
+		IndexBufferLocation->SetBarrierSync(D3D12_BARRIER_SYNC_INDEX_INPUT);*/
+
+		Context.TransitionBuffer(*IndexBufferLocation, D3D12_BARRIER_SYNC_INDEX_INPUT, D3D12_BARRIER_ACCESS_INDEX_BUFFER);
 
 		Context.FlushBarriers();
 		Context.GetCommandList().GetGraphicsCommandList()->IASetIndexBuffer(&PipelineState.Graphics.IBCache.CurrentIndexBufferView);
@@ -246,7 +253,8 @@ void FD3D12StateCache::SetRenderTargets(uint32 NumRenderTargets, FD3D12RenderTar
 			case D3D12_RTV_DIMENSION_TEXTURE2D:
 			case D3D12_RTV_DIMENSION_TEXTURE2DMS:
 			case D3D12_RTV_DIMENSION_TEXTURE3D:
-				Context.TransitionResource(Resource, D3D12_RESOURCE_STATE_RENDER_TARGET, RTV->GetDesc().Texture2D.MipSlice);
+				//Context.TransitionResource(Resource, D3D12_RESOURCE_STATE_RENDER_TARGET, RTV->GetDesc().Texture2D.MipSlice);
+				//Context.TransitionTexture(Resource, D3D12_BARRIER_SYNC_RENDER_TARGET, D3D12_BARRIER_ACCESS_RENDER_TARGET, D3D12_BARRIER_LAYOUT_RENDER_TARGET);
 				break;
 			case D3D12_RTV_DIMENSION_TEXTURE2DARRAY:
 				break;

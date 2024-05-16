@@ -224,7 +224,8 @@ void FD3D12Texture::CreateViews()
 void FD3D12Texture::PrepareShaderResourceView()
 {
 	FD3D12CommandContext& Context = GetParentDevice()->GetDefaultCommandContext();
-	Context.TransitionResource(GetResource(), D3D12_RESOURCE_STATE_COMMON, 0);
+	//Context.TransitionResource(GetResource(), D3D12_RESOURCE_STATE_COMMON, 0);
+	Context.TransitionResource(this, D3D12_BARRIER_SYNC_ALL_SHADING, D3D12_BARRIER_ACCESS_SHADER_RESOURCE, D3D12_BARRIER_LAYOUT_SHADER_RESOURCE);
 }
 
 FIntPoint FD3D12Texture::GetSize() const
@@ -492,10 +493,13 @@ void* FD3D12Texture::Lock(FRHICommandListImmediate* RHICmdList, uint32 MipIndex,
 		//Context.TransitionResource(GetResource(), D3D12_RESOURCE_STATE_COPY_SOURCE, 0);
 
 
-		Context.TransitionResource(this, CD3DX12_TEXTURE_BARRIER(
+		/*Context.TransitionResource(this, CD3DX12_TEXTURE_BARRIER(
 			GetBarrierSync(), D3D12_BARRIER_SYNC_COPY,
 			GetBarrierAccess(), D3D12_BARRIER_ACCESS_COPY_SOURCE,
-			BarrierLayout, D3D12_BARRIER_LAYOUT_COPY_SOURCE, nullptr, CD3DX12_BARRIER_SUBRESOURCE_RANGE(Subresource)));
+			GetBarrierLayout(), D3D12_BARRIER_LAYOUT_COPY_SOURCE, nullptr, CD3DX12_BARRIER_SUBRESOURCE_RANGE(Subresource)));*/
+
+		Context.TransitionResource(this, D3D12_BARRIER_SYNC_COPY, D3D12_BARRIER_ACCESS_COPY_SOURCE, D3D12_BARRIER_LAYOUT_COPY_SOURCE);
+
 
 		Context.FlushBarriers();
 		//Context.FlushCommands();
@@ -569,10 +573,13 @@ void FD3D12Texture::UpdateTexture(uint32 MipIndex, uint32 DestX, uint32 DestY, u
 	/*DefaultContext.TransitionResource(GetResource(), CurrentState,
 		D3D12_RESOURCE_STATE_COPY_DEST, MipIndex);*/
 
-	DefaultContext.TransitionResource(this, CD3DX12_TEXTURE_BARRIER(
+	/*DefaultContext.TransitionResource(this, CD3DX12_TEXTURE_BARRIER(
 		GetBarrierSync(), D3D12_BARRIER_SYNC_COPY,
 		GetBarrierAccess(), D3D12_BARRIER_ACCESS_COPY_DEST,
-		BarrierLayout, D3D12_BARRIER_LAYOUT_COPY_DEST, nullptr, CD3DX12_BARRIER_SUBRESOURCE_RANGE(MipIndex)));
+		BarrierLayout, D3D12_BARRIER_LAYOUT_COPY_DEST, nullptr, CD3DX12_BARRIER_SUBRESOURCE_RANGE(MipIndex)));*/
+
+	DefaultContext.TransitionResource(this, D3D12_BARRIER_SYNC_COPY,
+		D3D12_BARRIER_ACCESS_COPY_DEST, D3D12_BARRIER_LAYOUT_COPY_DEST, CD3DX12_BARRIER_SUBRESOURCE_RANGE(MipIndex));
 
 	DefaultContext.FlushBarriers();
 
@@ -585,13 +592,15 @@ void FD3D12Texture::UpdateTexture(uint32 MipIndex, uint32 DestX, uint32 DestY, u
 		DestX, DestY, DestZ, &SourceCopyLocation, nullptr);
 
 
-	DefaultContext.TransitionResource(this, CD3DX12_TEXTURE_BARRIER(
+	/*DefaultContext.TransitionResource(this, CD3DX12_TEXTURE_BARRIER(
 		GetBarrierSync(), D3D12_BARRIER_SYNC_DRAW,
 		GetBarrierAccess(), D3D12_BARRIER_ACCESS_SHADER_RESOURCE,
-		BarrierLayout, D3D12_BARRIER_LAYOUT_SHADER_RESOURCE, nullptr, CD3DX12_BARRIER_SUBRESOURCE_RANGE(MipIndex)));
+		GetBarrierLayout(), D3D12_BARRIER_LAYOUT_SHADER_RESOURCE, nullptr, CD3DX12_BARRIER_SUBRESOURCE_RANGE(MipIndex)));*/
 
-	SetBarrierSync(D3D12_BARRIER_SYNC_DRAW);
-	SetBarrierAccess(D3D12_BARRIER_ACCESS_SHADER_RESOURCE);
+	DefaultContext.TransitionResource(this, D3D12_BARRIER_SYNC_DRAW, D3D12_BARRIER_ACCESS_SHADER_RESOURCE, D3D12_BARRIER_LAYOUT_SHADER_RESOURCE);
+
+	/*SetBarrierSync(D3D12_BARRIER_SYNC_DRAW);
+	SetBarrierAccess(D3D12_BARRIER_ACCESS_SHADER_RESOURCE);*/
 
 	/*DefaultContext.TransitionResource(GetResource(), D3D12_RESOURCE_STATE_COPY_DEST,
 		CurrentState, MipIndex);*/

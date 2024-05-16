@@ -119,15 +119,16 @@ void FD3D12ContextCommon::TransitionResource(FD3D12Buffer* Buffer, CD3DX12_BUFFE
 
 void FD3D12ContextCommon::TransitionResource(FD3D12Texture* Texture, CD3DX12_TEXTURE_BARRIER TextureBarrier)
 {
-	if (Texture->GetResource()->GetBarrierAccess() == TextureBarrier.AccessBefore && Texture->GetResource()->GetBarrierSync() == TextureBarrier.SyncBefore && TextureBarrier.LayoutAfter == Texture->BarrierLayout)
+	if (Texture->GetResource()->GetBarrierAccess() == TextureBarrier.AccessBefore && Texture->GetResource()->GetBarrierSync() == TextureBarrier.SyncBefore && TextureBarrier.LayoutAfter == Texture->GetBarrierLayout())
 	{
 		return;
 	}
-	Texture->BarrierLayout = TextureBarrier.LayoutAfter;
+	Texture->SetBarrierLayout(TextureBarrier.LayoutAfter);
 	Texture->GetResource()->EmptyBarrierFlags();
 	TextureBarrier.pResource = Texture ? Texture->GetResource()->GetResource() : TextureBarrier.pResource;
 	TextureBarriers.Add(TextureBarrier);
 }
+
 
 void FD3D12ContextCommon::TransitionResource(const FD3D12ResourceLocation& Resource, CD3DX12_BUFFER_BARRIER BufferBarrier)
 {
@@ -138,6 +139,40 @@ void FD3D12ContextCommon::TransitionResource(const FD3D12ResourceLocation& Resou
 	Resource.GetResource()->EmptyBarrierFlags();
 	BufferBarrier.pResource = Resource.GetResource()->GetResource();
 	BufferBarriers.Add(BufferBarrier);
+}
+
+void FD3D12ContextCommon::TransitionResource(FD3D12Buffer* Buffer, D3D12_BARRIER_SYNC AfterSync, D3D12_BARRIER_ACCESS AfterAccess, uint64 Size, uint64 Offset)
+{
+	check(Buffer);
+	BarrierBatcher.TransitionResource(Buffer, AfterSync, AfterAccess, Size, Offset);
+}
+
+void FD3D12ContextCommon::TransitionResource(FD3D12Texture* Texture, D3D12_BARRIER_SYNC AfterSync, D3D12_BARRIER_ACCESS AfterAccess, D3D12_BARRIER_LAYOUT AfterLayout, CD3DX12_BARRIER_SUBRESOURCE_RANGE Subresource)
+{
+	check(Texture);
+	BarrierBatcher.TransitionResource(Texture, AfterSync, AfterAccess, AfterLayout, Subresource);
+}
+
+void FD3D12ContextCommon::TransitionBuffer(FD3D12ResourceLocation& Resource, D3D12_BARRIER_SYNC AfterSync, D3D12_BARRIER_ACCESS AfterAccess, uint64 Size, uint64 Offset)
+{
+	check(Resource.IsValid());
+
+	BarrierBatcher.TransitionBuffer(Resource, AfterSync, AfterAccess, Size, Offset);
+}
+
+void FD3D12ContextCommon::TransitionBuffer(FD3D12Resource* Resource, D3D12_BARRIER_SYNC AfterSync, D3D12_BARRIER_ACCESS AfterAccess, uint64 Size, uint64 Offset)
+{
+	check(Resource);
+
+	//BarrierBatcher.TransitionBuffer(Resource, AfterSync, AfterAccess, Size, Offset);
+}
+
+void FD3D12ContextCommon::TransitionTexture(FD3D12Resource* InTexture, D3D12_BARRIER_SYNC AfterSync, D3D12_BARRIER_ACCESS AfterAccess, D3D12_BARRIER_LAYOUT AfterLayout, CD3DX12_BARRIER_SUBRESOURCE_RANGE Subresource)
+{
+	check(InTexture);
+
+	BarrierBatcher.TransitionTexture(InTexture, AfterSync, AfterAccess, AfterLayout, Subresource);
+
 }
 
 void FD3D12ContextCommon::TransitionBuffer(ID3D12Resource* Resource, CD3DX12_BUFFER_BARRIER BufferBarrier)
@@ -154,6 +189,7 @@ void FD3D12ContextCommon::FlushBarriers()
 {
 	if (true/*bSupportEnhancedBarriers*/)
 	{
+		BarrierBatcher.FlushBarrierGroups(GetCommandList());
 		EnhancedFlushBarriers();
 		//return;
 	}
@@ -350,7 +386,8 @@ void FD3D12CommandContext::RHIBeginRenderPass(FRHIRenderPassInfo& InInfo)
 		{
 			FD3D12Texture* NewRenderTarget = static_cast<FD3D12Texture*>(RTInfo.ColorRenderTarget[i].Texture);
 			RenderTarget = NewRenderTarget->RenderTargetViews[0].get();
-			TransitionResource(NewRenderTarget->GetResource(), D3D12_RESOURCE_STATE_RENDER_TARGET, 0);
+			//TransitionResource(NewRenderTarget->GetResource(), D3D12_RESOURCE_STATE_RENDER_TARGET, 0);
+			TransitionResource(NewRenderTarget, D3D12_BARRIER_SYNC_RENDER_TARGET, D3D12_BARRIER_ACCESS_RENDER_TARGET, D3D12_BARRIER_LAYOUT_RENDER_TARGET);
 			RTVDescriptors[i] = RenderTarget->GetCpuHandle();
 
 			RenderTargetPassDescs[i].cpuDescriptor = RTVDescriptors[i];
@@ -405,7 +442,8 @@ void FD3D12CommandContext::SetRenderTargets(int32 NumRenderTargets, const FRHIRe
 		{
 			FD3D12Texture* NewRenderTarget = static_cast<FD3D12Texture*>(RenderTargetsRHI[i].Texture);
 			RenderTarget = NewRenderTarget->RenderTargetViews[0].get();
-			TransitionResource(NewRenderTarget->GetResource(), D3D12_RESOURCE_STATE_RENDER_TARGET, 0);
+			//TransitionResource(NewRenderTarget->GetResource(), D3D12_RESOURCE_STATE_RENDER_TARGET, 0);
+			TransitionResource(NewRenderTarget, D3D12_BARRIER_SYNC_RENDER_TARGET, D3D12_BARRIER_ACCESS_RENDER_TARGET, D3D12_BARRIER_LAYOUT_RENDER_TARGET);
 			RTVDescriptors[i] = RenderTarget->GetCpuHandle();
 			if (bClear && NewRenderTarget->IsValid())
 			{
@@ -467,8 +505,12 @@ void FD3D12CommandContext::RHICopyTexture(FRHITexture* SourceTextureRHI, FRHITex
 	/*FScopedTransitionResource SourceScopedBarrier(*this, SourceTexture->GetResource(), D3D12_RESOURCE_STATE_COPY_SOURCE, 0);
 	FScopedTransitionResource DestScopedBarrier(*this, DestTexture->GetResource(), D3D12_RESOURCE_STATE_COPY_DEST, 0);*/
 
-	TransitionResource(SourceTexture->GetResource(), D3D12_RESOURCE_STATE_COPY_SOURCE, 0);
-	TransitionResource(DestTexture->GetResource(), D3D12_RESOURCE_STATE_COPY_DEST, 0);
+	//TransitionResource(SourceTexture->GetResource(), D3D12_RESOURCE_STATE_COPY_SOURCE, 0);
+	//TransitionResource(DestTexture->GetResource(), D3D12_RESOURCE_STATE_COPY_DEST, 0);
+
+	TransitionResource(SourceTexture, D3D12_BARRIER_SYNC_COPY, D3D12_BARRIER_ACCESS_COPY_SOURCE, D3D12_BARRIER_LAYOUT_COPY_SOURCE);
+	TransitionResource(DestTexture, D3D12_BARRIER_SYNC_COPY, D3D12_BARRIER_ACCESS_COPY_DEST, D3D12_BARRIER_LAYOUT_COPY_DEST);
+
 
 	FlushBarriers();
 

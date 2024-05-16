@@ -115,6 +115,8 @@ FD3D12Texture* FD3D12Viewport::GetSwapChainSurface(EPixelFormat PixelFormat, uin
 
 	SwapChainTexture->GetResource()->SetIsBackBuffer(true);
 
+	SwapChainTexture->SetBarrierLayout(D3D12_BARRIER_LAYOUT_COMMON);
+
 
 	return SwapChainTexture;
 
@@ -254,16 +256,19 @@ bool FD3D12Viewport::Present(int32 bVsync)
 	FD3D12Texture* BackBuffer = GetCurrentBackBuffer();
 	FD3D12CommandContext& DefaultContext = Parent->GetDevice()->GetDefaultCommandContext();
 
-	DefaultContext.TransitionResource(BackBuffer->GetResource(), D3D12_RESOURCE_STATE_PRESENT, 0);
-	/*DefaultContext.TransitionResource(BackBuffer, CD3DX12_TEXTURE_BARRIER(
+	//DefaultContext.TransitionResource(BackBuffer->GetResource(), D3D12_RESOURCE_STATE_PRESENT, 0);
+
+	//DefaultContext.TransitionResource(BackBuffer, D3D12_BARRIER_SYNC_ALL, D3D12_BARRIER_ACCESS_COMMON, D3D12_BARRIER_LAYOUT_COMMON);
+
+	DefaultContext.TransitionResource(BackBuffer, CD3DX12_TEXTURE_BARRIER(
 		BackBuffer->GetBarrierSync(), D3D12_BARRIER_SYNC_ALL,
 		BackBuffer->GetBarrierAccess(), D3D12_BARRIER_ACCESS_COMMON,
-		BackBuffer->BarrierLayout, D3D12_BARRIER_LAYOUT_PRESENT, nullptr, CD3DX12_BARRIER_SUBRESOURCE_RANGE(0)));*/
+		BackBuffer->GetBarrierLayout(), D3D12_BARRIER_LAYOUT_PRESENT, nullptr, CD3DX12_BARRIER_SUBRESOURCE_RANGE(0)));
 
-	BackBuffer->SetBarrierSync(D3D12_BARRIER_SYNC_NONE);
-	BackBuffer->SetBarrierAccess(D3D12_BARRIER_ACCESS_NO_ACCESS);
+	/*BackBuffer->SetBarrierSync(D3D12_BARRIER_SYNC_NONE);
+	BackBuffer->SetBarrierAccess(D3D12_BARRIER_ACCESS_NO_ACCESS);*/
 
-	DefaultContext.FlushBarriers();
+	//DefaultContext.FlushBarriers();
 	DefaultContext.FlushCommands();
 
 	UINT Flags = 0;
