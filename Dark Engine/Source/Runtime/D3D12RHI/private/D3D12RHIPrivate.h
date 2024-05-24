@@ -12,6 +12,7 @@
 
 
 
+
 class FD3D12DynamicRHI final :public ID3D12PlatformDynamicRHI
 {
 	static FD3D12DynamicRHI* SingleD3D12RHI;
@@ -19,7 +20,7 @@ class FD3D12DynamicRHI final :public ID3D12PlatformDynamicRHI
 public:
 	static FD3D12DynamicRHI* GetD3D12RHI() { return SingleD3D12RHI; }
 
-	FD3D12DynamicRHI(const TArray<TSharedPtr<FD3D12Adapter>>& InChosenAdapters);
+	FD3D12DynamicRHI(const TArray<TSharedPtr<FD3D12Adapter>>& InChosenAdapters, bool InbUseNvStreamline);
 
 	~FD3D12DynamicRHI();
 
@@ -36,6 +37,7 @@ public:
 	virtual void Shutdown() override;
 
 	virtual TSharedPtr<FRHIViewport> RHICreateViewport(void* WindowHandle, uint32 SizeX, uint32 SizeY, bool bIsFullscreen) override;
+
 
 
 	virtual IRHIComputeContext* RHIGetCommandContext() override;
@@ -80,11 +82,15 @@ public:
 	FRHIDescriptorHandle ImGuiDescriptorHandle;
 #endif
 
+	const bool bUseNvStreamline;
+
 public:
 	FD3D12Texture* CreateEmptyD3D12Texture(const FRHITextureCreateDesc& CreateDesc, FD3D12Device* Device);
 	FD3D12Texture* CreateD3D12Texture(const FRHITextureCreateDesc& CreateDesc, FD3D12Device* Device);
 
 	FD3D12Buffer* CreateD3D12Buffer(class FRHICommandListBase* RHICmdList, const FRHIBufferDesc& BufferDesc, ERHIAccess ResourceState, const TCHAR* DebugName);
+
+
 
 private:
 	TArray<TSharedPtr<FD3D12Adapter>> ChosenAdapters;

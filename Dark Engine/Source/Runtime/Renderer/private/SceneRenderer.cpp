@@ -26,7 +26,7 @@ static void RenderView(FRHICommandListImmediate& RHICmdList, FSceneRender* Scene
 
 
 
-void FRenderer::BeginRenderingView(FCanvas* Canvas,FSceneView* View)
+void FRenderer::BeginRenderingView(FCanvas* Canvas, FSceneView* View)
 {
 	check(Canvas);
 	check(View);

@@ -11,8 +11,11 @@ FSceneView::FSceneView(const FRenderTarget* InRenderTarget, FSceneInterface* InS
 void FSceneView::Init(const FSceneViewInitOptions& InitOptions)
 {
 	ViewInitOptions = InitOptions;
+	ViewLocation = InitOptions.ViewLocation;
+	ViewRotation = InitOptions.ViewRotation;
 
 	FOV = InitOptions.FOV;
+	DesiredFOV = InitOptions.FOV;
 }
 
 

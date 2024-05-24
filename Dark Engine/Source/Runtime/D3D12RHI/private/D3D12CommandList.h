@@ -23,6 +23,8 @@ public:
 
 	operator ID3D12CommandAllocator* () { return CommandAllocator.Get(); }
 
+	uint64 Index = 0;
+
 
 private:
 	TRefCountPtr<ID3D12CommandAllocator> CommandAllocator;
@@ -44,14 +46,18 @@ public:
 	ED3D12QueueType const QueueType;
 
 	void Reset(FD3D12CommandAllocator* NewCommandAllocator);
+	void Reset();
 	void Close();
 
 	bool IsClosed() const { return State.bIsClosed; }
 
 
+	ID3D12CommandList* GetCommandList() const { return CommandList.Get(); }
 	ID3D12GraphicsCommandList* GetGraphicsCommandList() const { return GraphicsCommandList.Get(); }
 	ID3D12GraphicsCommandList4* GetGraphicsCommandList4() const { return GraphicsCommandList4.Get(); }
 	ID3D12GraphicsCommandList7* GetGraphicsCommandList7() const { return GraphicsCommandList7.Get(); }
+
+	FD3D12CommandAllocator* GetCommandAllocator() const { return State.CommandAllocator; }
 
 
 

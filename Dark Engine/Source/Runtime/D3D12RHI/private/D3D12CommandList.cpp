@@ -51,7 +51,9 @@ FD3D12CommandList::FD3D12CommandList(FD3D12CommandAllocator* CommandAllocator):
 		break;
 	}
 
-	FString Name = TEXT("FD3D12CommandList");
+	State.CommandAllocator = CommandAllocator;
+	State.CommandListID = State.NextCommandListID++;
+	FString Name = FString::PrintF(TEXT("FD3D12CommandList%i"), State.CommandListID);
 
 	SetName(CommandList.Get(), *Name);
 }
@@ -68,22 +70,22 @@ void FD3D12CommandList::Reset(FD3D12CommandAllocator* NewCommandAllocator)
 
 	DXCall(GraphicsCommandList->Reset(*NewCommandAllocator, nullptr));
 
-
+	State.CommandAllocator = NewCommandAllocator;
 	State.bIsClosed = false;
+}
+
+void FD3D12CommandList::Reset()
+{
+	State.CommandAllocator = nullptr;
 }
 
 void FD3D12CommandList::Close()
 {
-	State.bIsClosed = true;
-	DXCall(GraphicsCommandList->Close());
-	/*if (CopyCommandList)
+	if(!State.bIsClosed)
 	{
-		DXCall(CopyCommandList->Close());
-	}
-	else
-	{
+		State.bIsClosed = true;
 		DXCall(GraphicsCommandList->Close());
-	}*/
+	}
 }
 
 FD3D12CommandList::FState::FState(FD3D12CommandAllocator* InCommandAllocator):

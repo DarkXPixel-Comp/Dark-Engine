@@ -218,6 +218,10 @@ int32 FEngineLoop::PreInit(const TCHAR* CmdLine)
 
 	DE_LOG(Launch, Log, TEXT("RHI init"));
 
+	if (IsExitRequested())
+	{
+		return -1;
+	}
 
 	CompileGlobalShaders();
 

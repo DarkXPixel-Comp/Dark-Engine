@@ -94,6 +94,17 @@ FORCEINLINE D3D12_RESOURCE_STATES GetD3D12ResourceState(ERHIAccess InRHIAccess)
 	return D3D12_RESOURCE_STATE_COMMON;
 }
 
+FORCEINLINE D3D12_RENDER_PASS_BEGINNING_ACCESS_TYPE GetRenderPassBeginningAccess(ERenderPassBeginMode BeginMode)
+{
+	switch (BeginMode)
+	{
+	case ERenderPassBeginMode::Discard: return D3D12_RENDER_PASS_BEGINNING_ACCESS_TYPE_DISCARD;
+	case ERenderPassBeginMode::Preserve: return D3D12_RENDER_PASS_BEGINNING_ACCESS_TYPE_PRESERVE;
+	case ERenderPassBeginMode::Clear: return D3D12_RENDER_PASS_BEGINNING_ACCESS_TYPE_CLEAR;
+	case ERenderPassBeginMode::NoAccess: return D3D12_RENDER_PASS_BEGINNING_ACCESS_TYPE_NO_ACCESS;
+	default: return D3D12_RENDER_PASS_BEGINNING_ACCESS_TYPE_DISCARD;
+	}
+}
 
 
 FORCEINLINE DXGI_FORMAT GetDXGIFormat(EPixelFormat InFormat)
@@ -131,6 +142,13 @@ FORCEINLINE void VerifyD3D12Result(HRESULT hr, const ANSICHAR* Code, const ANSIC
 
 #define DXCall(x) {HRESULT Result = x; if(FAILED(Result)) {VerifyD3D12Result(Result, #x, __FILE__, __LINE__);}}
 
+
+extern bool UpgradeInterface(void** Interface);
+template<typename T>
+bool UpgradeInterface(Microsoft::WRL::Details::ComPtrRef<T> PtrRef)
+{
+	return UpgradeInterface((void**)PtrRef.GetAddressOf());
+}
 
 
 FORCEINLINE void SetName(ID3D12Object* const Object, const TCHAR* const Name)
@@ -176,6 +194,5 @@ namespace DX12
 			Resource->GetResource()->SetName(Name);
 		}
 	}
-
 }
 

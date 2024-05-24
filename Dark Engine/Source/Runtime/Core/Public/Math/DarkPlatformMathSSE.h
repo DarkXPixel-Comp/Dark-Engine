@@ -48,7 +48,7 @@ namespace DE
 			return _mm_cvtsd_si32(_mm_set_sd(InValue + InValue + 0.5f)) >> 1;
 		}
 
-		FORCEINLINE int32 RoundToInt64(double InValue)
+		FORCEINLINE int64 RoundToInt64(double InValue)
 		{
 			return _mm_cvtsd_si64(_mm_set_sd(InValue + InValue + 0.5f)) >> 1;
 		}

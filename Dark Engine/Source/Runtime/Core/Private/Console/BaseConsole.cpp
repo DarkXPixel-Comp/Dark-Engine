@@ -395,6 +395,8 @@ void FBaseConsole::AddLog(const FString& Text, FVector3f Color, float Time)
 	if (!bInit)
 		return;
 	FScopeLock Lock(&AddLogCriticalSection);
+	if (Cache.Num() > AutoClearCount)
+		Cache.Empty();
 	FConsoleLog Log;
 	Log.Log = Text;
 	Log.Id = StaticID++;

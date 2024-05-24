@@ -13,6 +13,6 @@ struct FGenericPlatformMisc
 
 	static CORE_API FString GetPathModule() { return FString(); }
 
-
+	static CORE_API bool CreateMessageBoxError(const TCHAR* Text, const TCHAR* Caption) { return false; }
 
 };

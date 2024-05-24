@@ -6,7 +6,7 @@
 #include "D3D12CommandContext.h"
 
 
-static const uint32 WindowsDefaultNumBackBuffers = 3;
+static const uint32 WindowsDefaultNumBackBuffers = 2;
 
 
 FD3D12Viewport::FD3D12Viewport(FD3D12Adapter* InParent, HWND InWindowHandle, uint32 InSizeX, uint32 InSizeY,
@@ -140,7 +140,7 @@ void FD3D12Viewport::CalculateSwapchainNum(int32 SwapChainNum)
 void FD3D12Viewport::Init()
 {
 	FD3D12Adapter* Adapter = GetParentAdapter();
-	IDXGIFactory5* Factory = Adapter->GetDXGIFactory();
+	IDXGIFactory7* Factory = Adapter->GetDXGIFactory();
 
 
 	CalculateSwapchainNum(WindowsDefaultNumBackBuffers);
@@ -186,6 +186,7 @@ void FD3D12Viewport::Init()
 		SwapChain1->QueryInterface(IID_PPV_ARGS(&SwapChain3));
 		SwapChain1->QueryInterface(IID_PPV_ARGS(&SwapChain4));
 	}
+	UpgradeInterface(&SwapChain4);
 
 
 	Factory->MakeWindowAssociation(WindowHandle, DXGI_MWA_NO_WINDOW_CHANGES);
@@ -256,19 +257,11 @@ bool FD3D12Viewport::Present(int32 bVsync)
 	FD3D12Texture* BackBuffer = GetCurrentBackBuffer();
 	FD3D12CommandContext& DefaultContext = Parent->GetDevice()->GetDefaultCommandContext();
 
-	//DefaultContext.TransitionResource(BackBuffer->GetResource(), D3D12_RESOURCE_STATE_PRESENT, 0);
-
-	//DefaultContext.TransitionResource(BackBuffer, D3D12_BARRIER_SYNC_ALL, D3D12_BARRIER_ACCESS_COMMON, D3D12_BARRIER_LAYOUT_COMMON);
-
 	DefaultContext.TransitionResource(BackBuffer, CD3DX12_TEXTURE_BARRIER(
 		BackBuffer->GetBarrierSync(), D3D12_BARRIER_SYNC_ALL,
 		BackBuffer->GetBarrierAccess(), D3D12_BARRIER_ACCESS_COMMON,
 		BackBuffer->GetBarrierLayout(), D3D12_BARRIER_LAYOUT_PRESENT, nullptr, CD3DX12_BARRIER_SUBRESOURCE_RANGE(0)));
 
-	/*BackBuffer->SetBarrierSync(D3D12_BARRIER_SYNC_NONE);
-	BackBuffer->SetBarrierAccess(D3D12_BARRIER_ACCESS_NO_ACCESS);*/
-
-	//DefaultContext.FlushBarriers();
 	DefaultContext.FlushCommands();
 
 	UINT Flags = 0;

@@ -5,6 +5,7 @@
 #include "imgui_impl_dx12.h"
 #include <D3D12Util.h>
 #include "D3D12View.h"
+#include "CoreGlobals.h"
 
 #include "DDSTextureLoader.h"
 #include "ResourceUploadBatch.h"
@@ -15,8 +16,9 @@
 
 FD3D12DynamicRHI* FD3D12DynamicRHI::SingleD3D12RHI = nullptr;
 
-FD3D12DynamicRHI::FD3D12DynamicRHI(const TArray<TSharedPtr<FD3D12Adapter>>& InChosenAdapters)
-	: ChosenAdapters(InChosenAdapters)
+FD3D12DynamicRHI::FD3D12DynamicRHI(const TArray<TSharedPtr<FD3D12Adapter>>& InChosenAdapters, bool InbUseNvStreamline)
+	: ChosenAdapters(InChosenAdapters),
+	bUseNvStreamline(InbUseNvStreamline)
 {
 	if (SingleD3D12RHI)
 	{
@@ -46,6 +48,12 @@ void FD3D12DynamicRHI::Init()
 	}
 
 	FD3D12Adapter& Adapter = GetAdapter();
+
+	if (Adapter.bDestroyed)
+	{
+		RequestExit();
+		return;
+	}
 
 	ImGuiDescriptorHeap = CreateDescriptorHeap(
 		Adapter.GetDevice(),

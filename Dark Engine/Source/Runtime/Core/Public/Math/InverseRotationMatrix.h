@@ -25,12 +25,26 @@ namespace DE
 		template<typename T>
 		FORCEINLINE TInverseRotationMatrix<T>::TInverseRotationMatrix(const TRotator<T>& Rotator): TMatrix<T>
 			(
-				TMatrix<T>
+				TMatrix<T>	// yaw
 				(
 					TPlane<T>(+FMath::Cos(Rotator.Yaw * DE_PI / 180.f), -FMath::Sin(Rotator.Yaw * DE_PI / 180.f),	0.f, 0.f),
 					TPlane<T>(+FMath::Sin(Rotator.Yaw * DE_PI / 180.f), +FMath::Cos(Rotator.Yaw * DE_PI / 180.f),	0.f, 0.f),
 					TPlane<T>(0.f,										0.f,										1.f, 0.f),
 					TPlane<T>(0.f,										0.f,										0.f, 1.f)
+				) * 
+				TMatrix<T>  // pitch
+				(
+					TPlane<T>(+FMath::Cos(Rotator.Yaw * DE_PI / 180.f), 0.f, -FMath::Sin(Rotator.Yaw * DE_PI / 180.f), 0.f),
+					TPlane<T>(0.f, 1.f, 0.f, 0.f),
+					TPlane<T>(+FMath::Sin(Rotator.Pitch * DE_PI / 180.f), 0.f, +FMath::Cos(Rotator.Pitch * DE_PI / 180.f), 0.f),
+					TPlane<T>(0.f, 0.f, 0.f, 1.f)
+				) *
+				TMatrix<T> // roll
+				(
+					TPlane<T>(1.f, 0.f, 0.f, 0.f),
+					TPlane<T>(0.f, +FMath::Cos(Rotator.Roll * DE_PI / 180.f), +FMath::Sin(Rotator.Roll * DE_PI / 180.f), 0.f),
+					TPlane<T>(0.f, -FMath::Sin(Rotator.Roll * DE_PI / 180.f), +FMath::Cos(Rotator.Roll * DE_PI / 180.f), 0.f),
+					TPlane<T>(0.f, 0.f, 0.f, 1.f)
 				)
 			)
 		{

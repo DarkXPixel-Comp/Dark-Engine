@@ -35,10 +35,16 @@ template<> const FVector4f FVector4f::ZeroVectorOneW(0, 0, 0, 1);
 template<> const FIntPoint FIntPoint::ZeroValue(0, 0);
 
 
-template<> const FMatrix FMatrix::Identity(1, 0, 0, 0,
+template<> const FMatrix FMatrix::Identity
+										  (1, 0, 0, 0,
 										   0, 1, 0, 0,
 										   0, 0, 1, 0,
 										   0, 0, 0, 1);
+template<> const FMatrix4x4f FMatrix4x4f::Identity
+   (1.f, 0.f, 0.f, 0.f,
+	0.f, 1.f, 0.f, 0.f,
+	0.f, 0.f, 1.f, 0.f,
+	0.f, 0.f, 0.f, 1.f);
 
 
 

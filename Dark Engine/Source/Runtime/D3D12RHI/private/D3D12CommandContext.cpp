@@ -12,7 +12,7 @@ FD3D12ContextCommon::FD3D12ContextCommon(FD3D12Device* InDevice, ED3D12QueueType
 	Device(InDevice),
 	QueueType(InQueueType),
 	bIsDefaultContext(InbIsDefaultContext),
-	bSupportEnhancedBarriers(D3D12_ENHANCED_BARRIERS && InDevice->GetParentAdapter()->FeatureSupport.EnhancedBarriersSupported())
+	bSupportEnhancedBarriers(true)
 {}
 
 void FD3D12ContextCommon::OpenCommandList()
@@ -25,16 +25,16 @@ void FD3D12ContextCommon::OpenCommandList()
 	CommandList = Device->GetCommandList(CommandAllocator);
 
 	ID3D12DescriptorHeap* Heaps[] = { Device->GetBindlessDescriptorManager().
-	GetHeap(ERHIDescriptorHeapType::Standart)->GetHeap() };
+	GetHeap(ERHIDescriptorHeapType::Standart)->GetHeap(),
+		Device->GetBindlessDescriptorManager().GetHeap(ERHIDescriptorHeapType::Sampler)->GetHeap()};
 
-	CommandList->GetGraphicsCommandList()->SetDescriptorHeaps(1, Heaps);
+	CommandList->GetGraphicsCommandList()->SetDescriptorHeaps(DE_ARRAY_COUNT(Heaps), Heaps);
 
 }
 
 void FD3D12ContextCommon::CloseCommandList()
 {
 	CommandList->Close();
-
 	FD3D12Queue& Queue = Device->GetQueue(ED3D12QueueType::Direct);
 	Queue.ObjectPool.Lists.Add(CommandList);
 	Queue.ObjectPool.Allocators.Add(CommandAllocator);
@@ -187,7 +187,7 @@ void FD3D12ContextCommon::TransitionBuffer(ID3D12Resource* Resource, CD3DX12_BUF
 
 void FD3D12ContextCommon::FlushBarriers()
 {
-	if (true/*bSupportEnhancedBarriers*/)
+	if (bSupportEnhancedBarriers)
 	{
 		BarrierBatcher.FlushBarrierGroups(GetCommandList());
 		EnhancedFlushBarriers();
@@ -260,6 +260,7 @@ void FD3D12ContextCommon::FlushCommands(ED3D12FlushFlags Flags)
 	if (Flags == ED3D12FlushFlags::WaitForSubmission)
 	{
 		FD3D12Queue& Queue = Device->GetQueue(ED3D12QueueType::Direct);
+		Queue.Signal();
 		Queue.WaitFrame();
 		return;
 	}
@@ -274,7 +275,8 @@ void FD3D12ContextCommon::FlushCommands(ED3D12FlushFlags Flags)
 		CloseCommandList();
 
 		Queue.CommandQueue->ExecuteCommandLists(1, Lists);
-		Queue.WaitFrame();	
+		Queue.Signal();
+		Queue.WaitFrame();
 
 		LockedResources.Empty();
 	}
@@ -396,7 +398,7 @@ void FD3D12CommandContext::RHIBeginRenderPass(FRHIRenderPassInfo& InInfo)
 			ClearValue.Format = GetDXGIFormat(NewRenderTarget->GetPixelFormat());
 			ClearValue.DepthStencil = { 0, 0 };
 			FMemory::Memcpy(ClearValue.Color, &FVector4f::ZeroVectorOneW, sizeof(FVector4f));
-			RenderTargetPassDescs[i].BeginningAccess.Type = D3D12_RENDER_PASS_BEGINNING_ACCESS_TYPE_CLEAR;
+			RenderTargetPassDescs[i].BeginningAccess.Type = GetRenderPassBeginningAccess(RTInfo.BeginRenderPassMode[i]);
 			RenderTargetPassDescs[i].BeginningAccess.Clear.ClearValue = ClearValue;
 
 			RenderTargetPassDescs[i].EndingAccess.Type = D3D12_RENDER_PASS_ENDING_ACCESS_TYPE_PRESERVE;

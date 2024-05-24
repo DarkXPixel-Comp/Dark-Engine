@@ -3,6 +3,9 @@
 #include "SceneView.h"
 #include "RendererInterface.h"
 #include "RHICommandList.h"
+#include "SceneTextures.h"
+
+
 
 
 class FViewInfo : public FSceneView
@@ -31,16 +34,21 @@ public:
 public: 
 	void Render(FRHICommandListImmediate& CmdList);
 	void Flush() {}
-	//void RenderUI(class FRenderTarget* RenderTarget) {}
 
 
 	void RenderQuad(FRHICommandListImmediate& CmdList);
 	void RenderFractal(FRHICommandListImmediate& CmdList);
 	void RenderSeaScape(FRHICommandListImmediate& CmdList);
 
+
+	void RenderPrePass(FRHICommandListImmediate& CmdList, TRefCountPtr<FRHITexture> SceneDepthTexture);
+
+	void RenderTextureQuad(FRHICommandListImmediate& CmdList, TRefCountPtr<FRHITexture> InTexture);
+
 	void FXAA(FRHICommandListImmediate& CmdList);
 
 
+	static FSceneTextures SceneTextures;
 
 	FScene* Scene;
 	FViewInfo* SceneView;

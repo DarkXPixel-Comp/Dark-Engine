@@ -24,26 +24,12 @@ void FSceneRender::FXAA(FRHICommandListImmediate& CmdList)
 	TShaderRefBase<FFXAAShaderCS> FXAAShader = GGlobalShaderMap->GetShader<FFXAAShaderCS>();
 	TRefCountPtr<FRHITexture> BackBufferTexture = SceneView->RenderTarget->GetRenderTargetTexture();
 
-	static TRefCountPtr<FRHITexture> UAVTexture = RHICreateTexture(FRHITextureCreateDesc::Create2D(TEXT("UAVTextureFXAA"))
-		.SetExtent(BackBufferTexture->GetSize())
-		.SetFlags(ETextureCreateFlags::UAV)
-		.SetFormat(EPixelFormat::PF_R8G8B8A8_UNORM));
-
 	FIntPoint Resolution = BackBufferTexture->GetSize();
 
 	static TRefCountPtr<FRHIUniformBuffer> UniformBuffer =
 		RHICreateUniformBuffer(&Resolution, sizeof(Resolution), UniformBuffer_MultiFrame);
 	RHIUpdateUniformBuffer(UniformBuffer.Get(), &Resolution, sizeof(Resolution));
 
-
-	if (UAVTexture->GetSize() != BackBufferTexture->GetSize())
-	{
-		UAVTexture.Reset();
-		UAVTexture = RHICreateTexture(FRHITextureCreateDesc::Create2D(TEXT("UAVTextureFXAA"))
-			.SetExtent(BackBufferTexture->GetSize())
-			.SetFlags(ETextureCreateFlags::UAV)
-			.SetFormat(EPixelFormat::PF_R8G8B8A8_UNORM));
-	}
 
 	TArray<uint8> Parameters;
 	TArray<FRHIShaderParameterResource>	BindlessParameters;
@@ -58,7 +44,7 @@ void FSceneRender::FXAA(FRHICommandListImmediate& CmdList)
 	FRHIShaderParameterResource OutputTexture;
 	OutputTexture.Index = 1;
 	OutputTexture.Type = FRHIShaderParameterResource::EType::UAV;
-	OutputTexture.Resource = UAVTexture->GetUnorderedAccessView();
+	OutputTexture.Resource = SceneTextures.GBufferA->GetUnorderedAccessView();
 	BindlessParameters.Add(OutputTexture);
 
 	FRHIShaderParameterResource ParamResolution;
@@ -76,6 +62,8 @@ void FSceneRender::FXAA(FRHICommandListImmediate& CmdList)
 	CmdList.SetShaderParameters(RHIFXAAShader, Parameters, BindlessParameters, ResourceParameters);
 	CmdList.DispatchComputeShader(Resolution.X / 32U + 1, Resolution.Y / 32U + 1, 1);
 
-	CmdList.CopyTexture(UAVTexture.Get(), BackBufferTexture.Get());
+	//RenderTextureQuad(CmdList, SceneTextures.GBufferA);
+
+	CmdList.CopyTexture(SceneTextures.GBufferA.Get(), BackBufferTexture.Get());
 	
 }

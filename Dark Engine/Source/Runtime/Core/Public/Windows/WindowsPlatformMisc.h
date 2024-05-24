@@ -47,6 +47,11 @@ struct FWindowsPlatformMisc : public FGenericPlatformMisc
 	}
 
 
+	static CORE_API bool CreateMessageBoxError(const TCHAR* Text, const TCHAR* Caption)
+	{
+		::MessageBox(NULL, Text, Caption, MB_OK | MB_ICONERROR | MB_SYSTEMMODAL);
+		return true;
+	}
 
 
 

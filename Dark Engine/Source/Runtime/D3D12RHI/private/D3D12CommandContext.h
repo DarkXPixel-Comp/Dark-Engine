@@ -35,7 +35,6 @@ enum class ED3D12FlushFlags
 class FD3D12CommandContext;
 
 
-
 class FD3D12ContextCommon
 {
 protected:
@@ -149,7 +148,7 @@ private:
 	
 
 public:
-	void FlushCommands(ED3D12FlushFlags Flags = ED3D12FlushFlags::None);
+	void FlushCommands(ED3D12FlushFlags Flags = ED3D12FlushFlags::WaitForCompletion);
 
 
 

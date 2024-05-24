@@ -6,6 +6,7 @@
 DECLARE_LOG_CATEGORY(D3D12RHI, Log);
 
 
+extern const bool bNvidiaStreamline;
 
 
 class FD3D12Adapter;

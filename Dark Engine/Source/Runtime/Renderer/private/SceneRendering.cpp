@@ -3,6 +3,9 @@
 #include "GlobalShader.h"
 #include "CoreGlobals.h"
 
+FSceneTextures FSceneRender::SceneTextures;
+
+
 FSceneRender::FSceneRender(const FSceneView* InView) :
 	Scene(InView->Scene ? InView->Scene->GetRenderScene() : nullptr)
 {
@@ -17,6 +20,9 @@ FSceneRender::~FSceneRender()
 void FSceneRender::Render(FRHICommandListImmediate& CmdList)
 {
 	//RenderLight();
+
+	SceneTextures.Initialize(SceneView);
+
 
 	FRHIRenderPassInfo RenderPassInfo(SceneView->RenderTarget->GetRenderTargetTexture().Get());
 	CmdList.BeginRenderPass(RenderPassInfo);
@@ -35,10 +41,13 @@ void FSceneRender::Render(FRHICommandListImmediate& CmdList)
 		RenderQuad(CmdList);
 		break;
 	}
+
 	CmdList.EndRenderPass(RenderPassInfo);
 
-	if(GFXAAEnable)
+
+	if (GFXAAEnable)
 		FXAA(CmdList);
+
 }
 
 

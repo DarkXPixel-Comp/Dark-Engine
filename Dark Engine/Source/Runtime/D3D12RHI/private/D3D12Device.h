@@ -35,6 +35,15 @@ public:
 
 	void WaitFrame();
 
+	void Signal();
+
+	void AddCommandList(FD3D12CommandList* InCommandList);
+
+	void CheckCommandAllocators();
+
+	void ExecuteCommandLists();
+
+
 
 
 	struct
@@ -45,6 +54,10 @@ public:
 	} ObjectPool;
 
 
+
+	TArray<FD3D12CommandAllocator*> IndexesToDelete;
+	TArray<FD3D12CommandAllocator*>	AllocatorsToRelease;
+	TArray<FD3D12CommandList*> ListsToExecute;
 
 };
 

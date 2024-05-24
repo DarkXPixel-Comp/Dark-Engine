@@ -15,6 +15,8 @@ void FGlobalInputOutConsole::Initialize(bool bCreateOsConsole)
 	}
 	bInitialize = true;
 
+	RegisterConsoleVariableRef(TEXT("c.AutoClear"), AutoClearCount);
+
 	RegisterConsoleCommand(TEXT("Clear"), [this](const TArray<FString>&)
 		{
 			this->Cache.Empty();

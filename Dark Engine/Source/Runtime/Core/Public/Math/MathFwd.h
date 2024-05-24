@@ -4,10 +4,12 @@
 #include "Vector.h"
 #include "Rotator.h"
 #include "Matrix.h"
+#include "Plane.h"
 #include "IntPoint.h"
 #include "IntRect.h"
 #include "Vector4.h"
 #include "PersperctiveMatrix.h"
+#include "InverseRotationMatrix.h"
 
 
 namespace DE::Math
@@ -20,7 +22,9 @@ namespace DE::Math
 	template<typename T> struct TIntRect;
 	template<typename T> struct TVector4;
 	template<typename T> struct TReversedZPerspectiveMatrix;
-}
+	template<typename T> struct TInverseRotationMatrix;
+	template<typename T> struct TPlane;
+};
 
 
 // ISPC forward declarations
@@ -36,7 +40,8 @@ namespace ispc
 	struct FIntPoint;
 	struct FIntRect;
 	struct FReversedZPerspectiveMatrix;
-}
+	struct FInverseRotationMatrix;
+};
 
 
 using FVector =							DE::Math::TVector<double>;
@@ -56,10 +61,17 @@ using FVector4f =						DE::Math::TVector4<float>;
 
 using FMatrix =							DE::Math::TMatrix<double>;
 using FMatrix4x4f =						DE::Math::TMatrix<float>;
+using FMatrix4x4d =						DE::Math::TMatrix<double>;
 
 using FReversedZPerspectiveMatrix =		DE::Math::TReversedZPerspectiveMatrix<double>;
 using FReversedZPerspectiveMatrix4x4d =	DE::Math::TReversedZPerspectiveMatrix<double>;
 using FReversedZPerspectiveMatrix4x4f = DE::Math::TReversedZPerspectiveMatrix<float>;
 
+using FInverseRotationMatrix =			DE::Math::TInverseRotationMatrix<double>;
+using FInverseRotationMatrix4x4f =		DE::Math::TInverseRotationMatrix<float>;
+using FInverseRotationMatrix4x4d =		DE::Math::TInverseRotationMatrix<double>;
+
 using FIntPoint =						DE::Math::TIntPoint<int32>;
 using FIntRect =						DE::Math::TIntRect<int32>;
+
+using FPlane =							DE::Math::TPlane<double>;

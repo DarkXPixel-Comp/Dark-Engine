@@ -127,7 +127,9 @@ void logging(Logger* obj)
 		}
 		else
 		{
+			obj->Mutex.lock();
 			TempLogs.clear();
+			obj->Mutex.unlock();
 		}
 		for (auto& i : TempLogs)
 		{

@@ -101,6 +101,7 @@ FD3D12Queue::FD3D12Queue(FD3D12Device* InDevice, ED3D12QueueType InQueueType):
 
 
 	DXCall(Device->GetDevice()->CreateCommandQueue(&CommandQueueDesc, IID_PPV_ARGS(&CommandQueue)));
+	UpgradeInterface(&CommandQueue);
 	CommandQueue->SetName(*(FString(GetD3D12CommandQueueTypeName(InQueueType)) + FString(TEXT(" queue"))));
 
 	DXCall(Device->GetDevice()->CreateFence(0, D3D12_FENCE_FLAG_NONE, IID_PPV_ARGS(&Fence)));
@@ -112,11 +113,71 @@ FD3D12Queue::FD3D12Queue(FD3D12Device* InDevice, ED3D12QueueType InQueueType):
 
 void FD3D12Queue::WaitFrame()
 {
-	CommandQueue->Signal(Fence.Get(), ++FenceValue);
 	if (Fence->GetCompletedValue() < FenceValue)
 	{
 		Fence->SetEventOnCompletion(FenceValue, FenceEvent);
 		WaitForSingleObject(FenceEvent, 100000);
 	}
 
+}
+
+void FD3D12Queue::Signal()
+{
+	CommandQueue->Signal(Fence.Get(), ++FenceValue);
+}
+
+void FD3D12Queue::AddCommandList(FD3D12CommandList* InCommandList)
+{
+	if (!InCommandList->IsClosed())
+	{
+		InCommandList->Close();
+	}
+	ListsToExecute.Push(InCommandList);
+}
+
+void FD3D12Queue::CheckCommandAllocators()
+{
+	uint64 WaitValue = Fence->GetCompletedValue();
+
+	for (int32 i = AllocatorsToRelease.Num() - 1; i >= 0; --i)
+	{
+		if (AllocatorsToRelease[i]->Index >= WaitValue)
+		{
+			ObjectPool.Allocators.Add(AllocatorsToRelease[i]);
+			IndexesToDelete.Push(AllocatorsToRelease[i]);
+		}
+	}
+
+	for (uint64 i = 0; i < IndexesToDelete.Num(); i++)
+	{
+		AllocatorsToRelease.Remove(IndexesToDelete[i]);
+	}
+
+	IndexesToDelete.Empty();
+}
+
+void FD3D12Queue::ExecuteCommandLists()
+{
+	ID3D12CommandList* Lists[32];
+
+	for (int32 i = 0; i < ListsToExecute.Num(); ++i)
+	{
+		FD3D12CommandAllocator* Allocator = ListsToExecute[i]->GetCommandAllocator();
+		ListsToExecute[i]->Reset();
+		Lists[i] = ListsToExecute[i]->GetCommandList();
+		ObjectPool.Lists.Add(ListsToExecute[i]);
+		Allocator->Index = FenceValue + 1;
+		AllocatorsToRelease.Add(Allocator);
+		
+	}
+
+	if(ListsToExecute.Num())
+	{
+		CommandQueue->ExecuteCommandLists(ListsToExecute.Num(), Lists);
+		CommandQueue->Signal(Fence.Get(), ++FenceValue);
+		ListsToExecute.Empty();
+	}
+
+
+	//CheckCommandAllocators();
 }

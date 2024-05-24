@@ -1,19 +1,45 @@
 #include "D3D12RHI.h"
 #include "../D3D12RHIPrivate.h"
 #include "../D3D12Adapter.h"
+#include "../D3D12RHICommon.h"
 #include <Templates/DarkTemplate.h>
 #include "Misc/Paths.h"
+#include "sl.h"
+#include "sl_hooks.h"
+#include "sl_dlss.h"
 #include "wrl.h"
+#include "Misc/EngineVersion.h"
 
 #include <filesystem>
 #include <shlobj.h>
 #include <Logger.h>
 
+constexpr const bool bNvidiaStreamline = D3D12_NVIDIA_STREAMLINE;
 
+HMODULE NVStreamLine = NULL;
 
-extern "C" { __declspec(dllexport) extern const UINT D3D12SDKVersion = 613; }
+extern "C" { __declspec(dllexport) extern const UINT D3D12SDKVersion = D3D12_AGILITY_VERSION; }
 
 extern "C" { __declspec(dllexport) extern const char* D3D12SDKPath = ".\\D3D12\\"; }
+
+DECLARE_LOG_CATEGORY(D3D12Streamline, Log);
+
+static void StreamlineCallbackLog(sl::LogType LogType, const char* Msg)
+{
+	switch (LogType)
+	{
+	case sl::LogType::eInfo:
+		DE_LOG(D3D12Streamline, Log, TEXT("%s"), *FString(Msg));
+		break;
+	case sl::LogType::eWarn:
+		DE_LOG(D3D12Streamline, Warning, TEXT("%s"), *FString(Msg));
+		break;
+	case sl::LogType::eError:
+		DE_LOG(D3D12Streamline, Error, TEXT("%s"), *FString(Msg));
+		break;
+	}
+
+}
 
 static std::wstring GetLatestWinPixGpuCapturerPath_Cpp17()
 {
@@ -60,18 +86,78 @@ FD3D12DynamicRHIModule::FD3D12DynamicRHIModule()
 		}
 	}
 #endif
+	if (bNvidiaStreamline)
+	{
+		sl::Preferences Pref = {};
+		sl::Feature Features[] = { NULL };
+		if (D3D12_DEBUG)
+		{
+			Pref.logLevel = sl::LogLevel::eDefault;
+			Pref.logMessageCallback = StreamlineCallbackLog;
+		}
 
+		Pref.flags |= sl::PreferenceFlags::eAllowOTA | sl::PreferenceFlags::eLoadDownloadedPlugins;
+		Pref.engine = sl::EngineType::eCustom;
+		Pref.engineVersion = GetStringVersionA();
+		Pref.renderAPI = sl::RenderAPI::eD3D12;
+		Pref.featuresToLoad = Features;
+		Pref.numFeaturesToLoad = DE_ARRAY_COUNT(Features);
+		
+
+		sl::Result SlResult;
+		if (SL_SUCCEEDED(SlResult, slInit(Pref)))
+		{
+			DE_LOG(D3D12Streamline, Log, TEXT("Streamline init success"));
+		}
+
+	}
 
 
 	FindAdapter();
 }
 
+template <typename T>
+bool InternalUpgradeInterface(T** Interface)
+{
+	if (bNvidiaStreamline)
+	{
+		void* NewInterface;
+		sl::Result Result;
+		if (SL_SUCCEEDED(Result, slGetNativeInterface(*Interface, &NewInterface)))
+		{
+			*Interface = static_cast<T*>(NewInterface);
+			return true;
+		}
+	}
+	return false;
+}
+
+
+bool UpgradeInterface(void** Interface)
+{
+	if (bNvidiaStreamline)
+	{
+		void* NewInterface;
+		sl::Result Result;// = slGetNativeInterface(*Interface, &NewInterface);
+		//Result = slUpgradeInterface(Interface);
+		if (SL_SUCCEEDED(Result, slUpgradeInterface(Interface)))
+		{
+			return true;
+		}
+		if (SL_SUCCEEDED(Result, Result = slGetNativeInterface(*Interface, &NewInterface)))
+		{
+			*Interface = NewInterface;
+			return true;
+		}
+	}
+	return false;
+}
 
 
 FDynamicRHI* FD3D12DynamicRHIModule::CreateRHI()
 {
 	if(ChosenAdapters.GetSize() != 0)
-		GD3D12RHI = new FD3D12DynamicRHI(ChosenAdapters);
+		GD3D12RHI = new FD3D12DynamicRHI(ChosenAdapters, bNvidiaStreamline);
 
 	return GD3D12RHI;
 }
@@ -88,6 +174,9 @@ void FD3D12DynamicRHIModule::Shutdown()
 		delete GD3D12RHI;
 		GD3D12RHI = nullptr;
 	}
+
+	if (bNvidiaStreamline)
+		FreeLibrary(NVStreamLine);
 }
 
 
@@ -185,9 +274,6 @@ bool TestD3D12CreateDevice(IDXGIAdapter* Adapter, FD3D12DeviceBasicInfo& BasicIn
 
 
 
-
-
-
 void FD3D12DynamicRHIModule::FindAdapter()
 {
 	if (ChosenAdapters.GetSize() != 0)
@@ -200,6 +286,9 @@ void FD3D12DynamicRHIModule::FindAdapter()
 	//HRESULT hr = D3D12EnableExperimentalFeatures(1, &D3D12ExperimentalShaderModels, nullptr, nullptr);
 	Microsoft::WRL::ComPtr<IDXGIFactory7> DXGIFactory;
 	CreateDXGIFactory2(0, IID_PPV_ARGS(&DXGIFactory));
+
+	UpgradeInterface(&DXGIFactory);
+
 	if (!DXGIFactory)
 	{
 		return;
@@ -234,8 +323,6 @@ void FD3D12DynamicRHIModule::FindAdapter()
 
 		}
 	}
-
-
 
 
 	TSharedPtr<FD3D12Adapter> NewAdapter;

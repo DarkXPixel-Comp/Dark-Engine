@@ -60,6 +60,14 @@ enum ERasterizerCullMode
 	ERasterizerCullMode_Num
 };
 
+enum class ERenderPassBeginMode
+{
+	Discard,
+	Preserve,
+	Clear,
+	NoAccess
+};
+
 enum ERasterizerDepthClipMode
 {
 	RDCM_DepthClip,

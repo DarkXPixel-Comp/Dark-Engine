@@ -38,6 +38,14 @@ namespace DE
 				RightDown(InRightDown)
 			{}
 
+			FORCEINLINE IntPointType RectToSize() const
+			{
+				IntPointType Result;
+				Result.X = RightDown.X - LeftUp.X;
+				Result.Y = RightDown.Y - LeftUp.Y;
+
+				return Result;
+			}
 
 			bool IsPointInRect(IntPointType Point)
 			{

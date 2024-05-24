@@ -13,7 +13,6 @@ public:
 	virtual class FSceneInterface* AllocateScene(class FWorld* World);
 	virtual void RemoveScene(class FSceneInterface* Scene);
 
-
 private:
 	TArray<class FSceneInterface*> AllocatedScenes;
 

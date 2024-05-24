@@ -58,6 +58,8 @@ public:
 
 	void InitializeDevices();
 
+	bool CheckFeaturesOrCrash();
+
 
 	const int32 GetAdapterIndex() const { return Desc.AdapterIndex; }
 	const D3D_FEATURE_LEVEL GetFeatureLevel() const { return Desc.MaxSupportFeatureLevel; }
@@ -70,7 +72,7 @@ public:
 
 	IDXGIAdapter4* GetAdapter() { return DXGIAdapter.Get(); }
 
-	IDXGIFactory5* GetDXGIFactory()	const { return DXGIFactory.Get(); }
+	IDXGIFactory7* GetDXGIFactory()	const { return DXGIFactory.Get(); }
 
 	void CreateRootDevice(bool bWithDebug = false);
 	void SetDebugMessages(bool bOn);

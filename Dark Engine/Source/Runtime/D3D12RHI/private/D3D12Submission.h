@@ -52,8 +52,6 @@ struct FD3D12PayloadBase
 
 	FD3D12Queue& Queue;
 
-	//struct : public TArray<>
-
 	TArray<FManualFence> FencesToWait;
 	TArray<FManualFence> FencesToSignal;
 	TArray<FD3D12CommandList*> CommandListsToExecute;

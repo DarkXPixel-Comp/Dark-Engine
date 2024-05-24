@@ -99,6 +99,8 @@ public:
 
 	decltype(auto) Erase(auto it) { return _vector.erase(it); }
 
+	void Erase(SizeType Where) { auto It = _vector.begin() + Where; _vector.erase(It); }
+
 	std::vector<ElementType>& GetVector() { return _vector; }
 
 

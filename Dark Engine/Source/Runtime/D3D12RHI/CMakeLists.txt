@@ -2,9 +2,10 @@ add_library(D3D12RHI)
 
 find_library(D3D12RHILibs Core RHI)
 
+
 target_compile_features(D3D12RHI PUBLIC cxx_std_20)
-target_link_libraries(D3D12RHI PRIVATE Core RHI IMGUI Renderer D3D12)
-target_link_libraries(D3D12RHI PUBLIC WinPix DTK12 d3dx12)
+target_link_libraries(D3D12RHI PRIVATE Core RHI IMGUI Renderer D3D12 d3dx12 NvidiaStreamline)
+target_link_libraries(D3D12RHI PUBLIC WinPix DTK12)
 #target_link_libraries(D3D12RHI PUBLIC ${D3D12RHILibs})
 
 #if(MSVC AND WIN32)
@@ -34,6 +35,9 @@ target_compile_definitions(D3D12RHI PRIVATE D3D12_DEBUG=0)
 endif()
 
 target_compile_definitions(D3D12RHI PRIVATE D3D12_ENHANCED_BARRIERS=0)
+target_compile_definitions(D3D12RHI PRIVATE D3D12_NVIDIA_STREAMLINE=0)
+target_compile_definitions(D3D12RHI PRIVATE D3D12_AGILITY_VERSION=614)
+
 
 
 

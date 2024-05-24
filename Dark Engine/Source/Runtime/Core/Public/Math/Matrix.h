@@ -1,5 +1,6 @@
 #pragma once
 #include "Templates/IsFloatingPoint.h"
+#include "MathSSE.h"
 #include "Plane.h"
 
 
@@ -27,6 +28,7 @@ namespace DE
 			FORCEINLINE TMatrix()
 			{}
 
+
 			explicit TMatrix   (T M00, T M01, T M02, T M03,
 								T M10, T M11, T M12, T M13,
 								T M20, T M21, T M22, T M23,
@@ -51,6 +53,8 @@ namespace DE
 			FORCEINLINE TMatrix<T> operator*(const TMatrix<T>& Other) const
 			{
 				TMatrix<T> Result;
+				//MatrixMultiply(&Result, *this, &Other);
+				MatrixMultiply(&Result, this, &Other);
 
 
 				return Result;

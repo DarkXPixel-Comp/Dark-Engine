@@ -1,9 +1,11 @@
 #include "D3D12Adapter.h"
 #include "D3D12Device.h"
 #include "Logging/LogMacros.h"
+#include "CoreGlobals.h"
 #include <D3D12Util.h>
 #include "D3D12RootSignature.h"
 #include "D3D12PipelineState.h"
+#include "sl.h"
 
 
 DECLARE_LOG_CATEGORY(D3D12Callback, Display);
@@ -82,7 +84,7 @@ FD3D12Adapter::~FD3D12Adapter()
 
 void FD3D12Adapter::Destroy()
 {
-	for (const auto& Device : Devices)
+	for (auto& Device : Devices)
 	{
 		Device->Destroy();
 	}
@@ -115,9 +117,23 @@ void FD3D12Adapter::InitializeDevices()
 
 	FeatureSupport.Init(RootDevice.Get());
 
+	CheckFeaturesOrCrash();
+}
 
+bool FD3D12Adapter::CheckFeaturesOrCrash()
+{
+	bool Result = true;
 
+	Result = Result && FeatureSupport.EnhancedBarriersSupported();
 
+	if (!Result)
+	{
+		FPlatformMisc::CreateMessageBoxError(TEXT("Error check features. Your device not support, try update driver"), TEXT("Error D3D12"));
+		Destroy();
+		RequestExit();
+		return false;
+	}
+	return true;
 }
 
 #undef GetMessage
@@ -148,6 +164,7 @@ void FD3D12Adapter::CreateRootDevice(bool bWithDebug)
 	}
 
 	CreateDXGIFactory2(0, IID_PPV_ARGS(&DXGIFactory));
+	UpgradeInterface(&DXGIFactory);
 
 	ComPtr<IDXGIAdapter> TempAdapter;
 
@@ -159,6 +176,10 @@ void FD3D12Adapter::CreateRootDevice(bool bWithDebug)
 	{
 		DXCall(D3D12CreateDevice(TempAdapter.Get(), D3D_FEATURE_LEVEL_12_0,
 			IID_PPV_ARGS(&RootDevice)));
+		if (bNvidiaStreamline)
+		{
+			slSetD3DDevice(RootDevice.Get());
+		}
 
 		RootDevice->QueryInterface(IID_PPV_ARGS(&RootDevice2));
 		RootDevice->QueryInterface(IID_PPV_ARGS(&RootDevice10));

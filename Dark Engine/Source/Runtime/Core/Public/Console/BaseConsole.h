@@ -180,7 +180,13 @@ public:
 
 
 
-	const TArray<FConsoleLog>& GetLogs() const { return Cache; }
+	const TArray<FConsoleLog>& GetLogs() const
+	{
+		FScopeLock Lock(&AddLogCriticalSection); 
+		TempCache = Cache;
+		return TempCache;
+	}
+	//TArray<FConsoleLog> GetLogs() { FScopeLock Lock(&AddLogCriticalSection); }
 
 	FOnAddConsoleInput OnAddConsoleInput;  
 	FOnAddConsoleMessage OnAddConsoleMessage;
@@ -205,8 +211,10 @@ private:
 
 protected:
 	TArray<FConsoleLog> Cache;
+	mutable TArray<FConsoleLog> TempCache;
 	TArray<FString>	Inputs;
 	static uint64 StaticID;
+	int32 AutoClearCount = 1024;
 
 private:
 	mutable FCriticalSection AddLogCriticalSection;

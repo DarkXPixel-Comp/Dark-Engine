@@ -8,6 +8,7 @@
 #include "Canvas.h"
 
 
+
 struct FEditorViewportViewModifierParams
 {
 	FEditorViewportClient* ViewportClient = nullptr;
@@ -59,13 +60,25 @@ FSceneView* FEditorViewportClient::CalcSceneView(FSceneView* const View)
 	InitOptions.ViewOrigin = ViewParams.ViewInfo.Location;
 
 
+	InitOptions.ViewRotationMatrix = FInverseRotationMatrix(ViewParams.ViewInfo.Rotation) * FMatrix
+	(
+		FPlane(0, 0, 1, 0),
+		FPlane(1, 0, 0, 0),
+		FPlane(0, 1, 0, 0),
+		FPlane(0, 0, 0, 1)
+	);
+
 	FMinimalViewInfo::CalculateProjectionMatrixGivenView(MainViewInfo, Viewport, InitOptions);
+
 								   
 	InitOptions.FOV = MainViewInfo.FOV;
 	InitOptions.CursorPosition = MousePosition;
 	InitOptions.NormalizeCursorPosition = FVector2f((float)MousePosition.X / (float)ViewportResolution.X, (float)MousePosition.Y / (float)ViewportResolution.Y);
 
+
 	View->Init(InitOptions);
+
+
 	
 
 
