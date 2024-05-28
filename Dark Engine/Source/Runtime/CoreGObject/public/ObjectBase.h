@@ -1,10 +1,12 @@
 #pragma once
 #include "Containers/DarkString.h"
-#include "Memory/TUniquePtr.h"
 #include "ObjectPtr.h"
+#include "GObjectArray.h"
 
-class GObject;
+
+
 class GClass;
+class GObject;
 
 
 template <typename T>
@@ -21,10 +23,13 @@ using FClassRegistrationInfo = TRegistrationInfo<GClass>;
 
 class GObjectBase
 {
-public:
+protected:
 	GObjectBase() = default;
+public:
+	GObjectBase(GClass* InClass, GObject* InOuter, FString InName, int32 InIndex, int32 InSerialNumber);
 
-	GObjectBase(GClass* InClass, GObject* InOuter, FString InName);
+
+	void DeferredRegister(GClass* StaticClass, const TCHAR* InName);
 
 
 	virtual void RegisterDependencies() {}
@@ -47,8 +52,10 @@ public:
 	}
 
 
+	int32 InternalIndex;
 
 private:
+	void AddObject(FString InName, int32 InInternalNumber = -1, int32 SerialNumber = 0);
 
 
 
@@ -56,7 +63,7 @@ private:
 	TObjectPtr<GObject> OuterPrivate;
 	TObjectPtr<GClass>	ClassPrivate;
 	FString NamePrivate;
-
-
-
 };
+
+
+void GObjectBaseInit();

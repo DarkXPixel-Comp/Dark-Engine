@@ -9,13 +9,14 @@ class GObject;
 
 
 
-void InitializePrivateStaticClass(GClass* SuperStaticClass, GClass* PrivateStaticClass, GClass* WithinStaticClass, const TCHAR* Name);
+void InitializePrivateStaticClass(GClass* SuperStaticClass, GClass* PrivateStaticClass, const TCHAR* Name);
 
 
 
 class GField : public GObject
 {
 	DECLARE_CASETED_CLASS_INTRINSIC_WITH_API(GField, GObject);
+
 
 
 
@@ -51,18 +52,14 @@ public:
 
 	//GClass(const FObjectInitializer& ObjectInitalizer);
 	GClass(GClass* InSuperClass, const FObjectInitializer& ObjectInitalizer);
-	GClass(EStaticConstructor, FString Name, uint32 InSize, uint32 InAlignment, ClassConstructorType InClassConstructor, StaticClassFunctionType InSuperClassFunc, StaticClassFunctionType InWithinClassFunc);
+	GClass(EStaticConstructor, FString Name, uint32 InSize, uint32 InAlignment, ClassConstructorType InClassConstructor, StaticClassFunctionType InSuperClassFunc);
 
-	TObjectPtr<GClass> ClassWithin;
+	//TObjectPtr<GClass> ClassWithin;
+
+	virtual void SetupObjectInitializer(FObjectInitializer&) const {}
 
 
 	void SetSuperStruct(GStruct* NewSuperStruct);
-
-	template<class T>
-	void InternalConstructor(const FObjectInitializer& ObjectInitializer)
-	{
-		T::__DefaultConstructor(ObjectInitializer);
-	}
 
 };
 
@@ -75,5 +72,5 @@ void GetPrivateStaticClassBody(
 	uint32 InSize,
 	uint32 InAlignment,
 	GClass::ClassConstructorType InClassConstructor,
-	GClass::StaticClassFunctionType InSuperClassFunc, GClass::StaticClassFunctionType InWithinClassFunc
+	GClass::StaticClassFunctionType InSuperClassFunc
 );

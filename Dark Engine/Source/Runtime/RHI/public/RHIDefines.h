@@ -60,12 +60,13 @@ enum ERasterizerCullMode
 	ERasterizerCullMode_Num
 };
 
-enum class ERenderPassBeginMode
+enum class ERenderPassMode
 {
 	Discard,
 	Preserve,
+	NoAccess,
 	Clear,
-	NoAccess
+	Resolve
 };
 
 enum ERasterizerDepthClipMode

@@ -536,7 +536,8 @@ struct FRHIRenderPassInfo
 		FRHITexture* RenderTarget = nullptr;
 		int32 ArraySlice = -1;
 		uint8 MipIndex = 0;
-		ERenderPassBeginMode RenderPassBeginMode = ERenderPassBeginMode::Discard;
+		ERenderPassMode RenderPassBeginMode = ERenderPassMode::Discard;
+		ERenderPassMode RenderPassModeEnd = ERenderPassMode::Discard;
 	};
 	TStaticArray<FColorEntry, 8> ColorRenderTargets;
 
@@ -548,11 +549,12 @@ struct FRHIRenderPassInfo
 	FDepthStencilEntry DepthStencilEntry;
 
 	FRHIRenderPassInfo() = default;
-	FRHIRenderPassInfo(FRHITexture* ColorRT, ERenderPassBeginMode BeginMode = ERenderPassBeginMode::Discard)
+	FRHIRenderPassInfo(FRHITexture* ColorRT, ERenderPassMode BeginMode = ERenderPassMode::Discard, ERenderPassMode EndMode = ERenderPassMode::Discard)
 	{
 		check(ColorRT);
 		ColorRenderTargets[0].RenderTarget = ColorRT;
 		ColorRenderTargets[0].RenderPassBeginMode = BeginMode;
+		ColorRenderTargets[0].RenderPassModeEnd = EndMode;
 	}
 	FRHIRenderPassInfo(uint32 NumColorRT, FRHITexture** ColorRT)
 	{
@@ -574,7 +576,8 @@ class FRHISetRenderTargetInfo
 {
 public:
 	FRHIRenderTargetView ColorRenderTarget[MAX_RENDER_TARGETS];
-	ERenderPassBeginMode BeginRenderPassMode[MAX_RENDER_TARGETS];
+	ERenderPassMode BeginRenderPassMode[MAX_RENDER_TARGETS];
+	ERenderPassMode EndRenderPassMode[MAX_RENDER_TARGETS];
 	int32 NumColorRenderTargets = 0;
 	bool bClearColor = false;
 

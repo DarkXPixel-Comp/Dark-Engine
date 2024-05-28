@@ -2,8 +2,13 @@ function PreInit()
    print("PreInit")
 end
 
-function Tick()
+counter = 0
 
+function Tick()
+   if counter < 5 then
+   print("test")
+   end
+   counter = counter + 1
 end
 
 

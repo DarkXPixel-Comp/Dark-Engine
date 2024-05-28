@@ -1,21 +1,25 @@
 #include "Class.h"
+#include "Misc/AssertionMacros.h"
 
+IMPLEMENT_CLASS_NO_AUTO_REGISTRATION(GField);
+IMPLEMENT_CLASS_NO_AUTO_REGISTRATION(GStruct);
+IMPLEMENT_CLASS_NO_AUTO_REGISTRATION(GClass);
 
 void GetPrivateStaticClassBody(const TCHAR* Name, GClass*& ReturnClass, void(*RegisterNativeFunc)(), uint32 InSize, uint32 InAlignment, GClass::ClassConstructorType InClassConstructor,
-	GClass::StaticClassFunctionType InSuperClassFunc, GClass::StaticClassFunctionType InWithinClassFunc)
+	GClass::StaticClassFunctionType InSuperClassFunc)
 {						
-	ReturnClass = ::new GClass(EC_StaticConstructor, Name, InSize, InAlignment, InClassConstructor, InSuperClassFunc, InWithinClassFunc);
+	ReturnClass = ::new GClass(EC_StaticConstructor, Name, InSize, InAlignment, InClassConstructor, InSuperClassFunc);
 
 	check(ReturnClass);
 
-	InitializePrivateStaticClass(InSuperClassFunc(), ReturnClass, InWithinClassFunc(), Name);
+	InitializePrivateStaticClass(InSuperClassFunc(), ReturnClass, Name);
 
 	RegisterNativeFunc();
 
 }
 
 
-void InitializePrivateStaticClass(GClass* SuperStaticClass, GClass* PrivateStaticClass, GClass* WithinStaticClass, const TCHAR* Name)
+void InitializePrivateStaticClass(GClass* SuperStaticClass, GClass* PrivateStaticClass, const TCHAR* Name)
 {
 	if (SuperStaticClass != PrivateStaticClass)
 	{
@@ -25,7 +29,6 @@ void InitializePrivateStaticClass(GClass* SuperStaticClass, GClass* PrivateStati
 	{
 		PrivateStaticClass->SetSuperStruct(nullptr);
 	}
-	PrivateStaticClass->ClassWithin = WithinStaticClass;
 
 	PrivateStaticClass->RegisterDependencies();
 	
@@ -54,7 +57,7 @@ void GStruct::RegisterDependencies()
 
 
 
-GClass::GClass(EStaticConstructor, FString Name, uint32 InSize, uint32 InAlignment, ClassConstructorType InClassConstructor, StaticClassFunctionType InSuperClassFunc, StaticClassFunctionType InWithinClassFunc)
+GClass::GClass(EStaticConstructor, FString Name, uint32 InSize, uint32 InAlignment, ClassConstructorType InClassConstructor, StaticClassFunctionType InSuperClassFunc)
 {
 
 }

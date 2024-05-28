@@ -15,6 +15,7 @@ FRHISetRenderTargetInfo FRHIRenderPassInfo::ConvertToRenderTargetInfo() const
 		Result.ColorRenderTarget[i].MipIndex = ColorRenderTargets[i].MipIndex;
 		Result.ColorRenderTarget[i].ArraySlice = ColorRenderTargets[i].ArraySlice;
 		Result.BeginRenderPassMode[i] = ColorRenderTargets[i].RenderPassBeginMode;
+		Result.EndRenderPassMode[i] = ColorRenderTargets[i].RenderPassModeEnd;
 		++Result.NumColorRenderTargets;
 	}
 

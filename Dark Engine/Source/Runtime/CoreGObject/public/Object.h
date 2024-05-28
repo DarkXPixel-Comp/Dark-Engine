@@ -1,9 +1,11 @@
 #pragma once
 #include "ObjectMacros.h"
 #include "ObjectBase.h"
+#include "Misc/AssertionMacros.h"
 
 
 class GObject;
+class GClass;
 
 
 extern void InitGObject();
@@ -24,14 +26,25 @@ struct FStaticConstructorObjectParameters
 };
 
 
+GObject* StaticConstructObjectInternal(const FStaticConstructorObjectParameters& Params);
 
-template<typename T>
+
+
+template<class T>
 T* NewObject(GObject* Outer, FString Name)
 {
-	//FStaticConstructorObjectParameters Params()
+	FStaticConstructorObjectParameters Params(T::StaticClass());
+	Params.Outer = Outer;
+	Params.Name = Name;
+
+	T* Result = nullptr;
+
+	Result = static_cast<T*>(StaticConstructObjectInternal(Params));
 
 
+	check(Result);
 
+	return Result;
 }
 
 
@@ -69,8 +82,17 @@ private:
 
 	GObject* LastConstructedObject = nullptr;//<- Previously constructed object
 
+private:
+	friend class GObject;
+
 };
 
+
+template<class T>
+void InternalConstructor(const FObjectInitializer& X)
+{
+	T::__DefaultConstructor(X);
+}
 
 /*\brief Game Object
 * Base class for all game objects in Engine
@@ -78,13 +100,15 @@ private:
 */
 class GObject : public GObjectBase
 {
-	DECLARE_CLASS(GObject, GObjectBase);
+	DECLARE_CLASS(GObject, GObject);
+	DEFINE_DEFAULT_CONSTRUCTOR_CALL(GObject);
+	typedef GObject WithinClass;
+
 
 
 	GObject();
 	GObject(const FObjectInitializer& ObjectInitializer);
 	GObject(EStaticConstructor);
-
 
 
 };

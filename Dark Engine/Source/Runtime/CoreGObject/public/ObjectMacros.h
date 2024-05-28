@@ -15,17 +15,25 @@ private:\
 public:	\
 	typedef TSuperClass Super;\
 	typedef TClass ThisClass;\
-	__forceinline static const class GClass* StaticClass()  \
+	inline static class GClass* StaticClass()  \
 	{										   \
 		return GetPrivateStaticClass();			 \
 	}  \
-	void StaticRegisterNatives##TClass() {}
+	static void StaticRegisterNatives##TClass() {}
 	
 #define RELAY_CONSTRUCTOR(TClass, TSuperClass) TClass(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()) : TSuperClass(ObjectInitializer) {}
 
+#define DEFINE_DEFAULT_CONSTRUCTOR_CALL(TClass)\
+		static void __DefaultConstructor(const FObjectInitializer& X) {new ((void*)X.GetObj())TClass;}
+
+#define DECLARE_CLASS_INTINSIC_NO_CTOR(TClass, TSuperClass) \
+	DECLARE_CLASS(TClass, TSuperClass) \
+	DEFINE_DEFAULT_CONSTRUCTOR_CALL(TClass)
+
 #define DECLARE_CASETED_CLASS_INTRINSIC_WITH_API(TClass, TSuperClass)	\
 	DECLARE_CLASS(TClass, TSuperClass) \
-	RELAY_CONSTRUCTOR(TClass, TSuperClass)
+	RELAY_CONSTRUCTOR(TClass, TSuperClass) \
+	DEFINE_DEFAULT_CONSTRUCTOR_CALL(TClass)
 	
 /*
 void GetPrivateStaticClassBody(
@@ -39,23 +47,21 @@ void GetPrivateStaticClassBody(
 );*/
 
 
-#define DEFINE_DEFAULT_CONSTRUCTOR_CALL(TClass)\
-		static void __DefaultConstructor(const FObjectInitializer& X) {new ((void*)X.GetObj())TClass;}
 
 
 #define IMPLEMENT_CLASS_NO_AUTO_REGISTRATION(TClass)\
 FClassRegistrationInfo RegistrationInfo_GClass_##TClass;\
-GClass* TClass::GetPrivateClass()\
+GClass* TClass::GetPrivateStaticClass()\
 {\
 	if(!RegistrationInfo_GClass_##TClass.InnerSingleton)\
     {			   \
 		GetPrivateStaticClassBody((TCHAR*)TEXT(#TClass) + 1, \
 		RegistrationInfo_GClass_##TClass.InnerSingleton, \
-		StaticRegisterNatives##TClass(), \
+		StaticRegisterNatives##TClass, \
 		sizeof(TClass), alignof(TClass), \
 		(GClass::ClassConstructorType)InternalConstructor<TClass>, \
-		&TClass::Super::StaticClass,   \
-		&TClass::WithinClass::StaticClass);	   \
+		&TClass::Super::StaticClass);	   \
 	}\
-}\
+	return RegistrationInfo_GClass_##TClass.InnerSingleton;\
+}
 

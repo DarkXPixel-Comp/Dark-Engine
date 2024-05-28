@@ -1,7 +1,7 @@
 #pragma once
 #include "HAL/Platform.h"
-#include "Object.h"
 #include <utility>
+
 
 class GObject;
 class GClass;
@@ -95,6 +95,12 @@ public:
 	TObjectPtr(T& Object): 
 		ObjectPtr(const_cast<std::remove_const_t<T>*>(&Object))
 	{}
+
+	template <typename U>
+	TObjectPtr(U&& Other)
+	{
+		//ObjectPtr = const_cast<std::remove_const_t<T>*>(Other);
+	}
 
 	template <typename U>
 	FORCEINLINE TObjectPtr<T>& operator=(U&& Other)

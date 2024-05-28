@@ -36,6 +36,9 @@
 
 #include <sol2/config.hpp>
 
+#define SOL_USING_CXX_LUAJIT 1
+//#define SOL_USING_CXX_LUA 1
+#define SOL_NO_LUA_HPP 0
 #define SOL_VERSION_MAJOR 3
 #define SOL_VERSION_MINOR 2
 #define SOL_VERSION_PATCH 3
@@ -62,6 +65,7 @@
 #define SOL_OFF         ^
 #define SOL_DEFAULT_ON  +
 #define SOL_DEFAULT_OFF -
+
 
 #if defined(SOL_BUILD_CXX_MODE)
 	#if (SOL_BUILD_CXX_MODE != 0)

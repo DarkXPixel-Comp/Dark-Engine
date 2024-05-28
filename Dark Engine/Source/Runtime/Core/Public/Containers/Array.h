@@ -104,7 +104,7 @@ public:
 	std::vector<ElementType>& GetVector() { return _vector; }
 
 
-	ElementType PopBack() { if (_vector.size() == 0) return nullptr; auto it = _vector.end() - 1; auto result = *it; _vector.erase(it); return result; }
+	ElementType PopBack() { if (_vector.size() == 0) return	NULL; auto it = _vector.end() - 1; auto result = *it; _vector.erase(it); return result; }
 
 	template<typename OtherElementType>
 	void Append(TArray<OtherElementType>&& Source) { _vector.insert(_vector.end(), Source._vector.begin(), Source._vector.end()); }

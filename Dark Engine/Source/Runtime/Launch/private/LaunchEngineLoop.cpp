@@ -21,6 +21,9 @@
 #include "Misc/Config.h"
 #include "GlobalResource.h"
 #include "GameTimer.h"
+#include "Object.h"
+#include "Python.h"
+
 
 //#include "lua.hpp"
 #include "sol2/sol.hpp"
@@ -28,8 +31,15 @@
 
 
 
+const char* HelloWorld()
+{
+	return "Hello, World";
+}
+
+
 
 DECLARE_LOG_CATEGORY(Launch, Display);
+
 
 
 
@@ -151,6 +161,17 @@ int32 FEngineLoop::TestInit()
 }
 
 
+//int HandleLua(lua_State* L)
+//{
+//	assert(false);
+//	return 0;
+//}
+
+int LuaHandle1(lua_State*, sol::optional<const std::exception&>, sol::string_view)
+{
+	assert(false);
+	return 0;
+}
 
 
 
@@ -160,19 +181,35 @@ int32 FEngineLoop::PreInit(const TCHAR* CmdLine)
 
 	Logger::Initialize(LOGGER_INFO | LOGGER_ERROR);
 	FMath::RandInit(time(0));
+	//ScriptState.set_panic(HandleLua);
+	//ScriptState.set_exception_handler(LuaHandle1);
 	ScriptState.open_libraries(sol::lib::base, sol::lib::os, sol::lib::math);
-	ScriptState.script_file(!(FPaths::EngineScriptsDir() / TEXT("Test/Engine.script")));
-	ScriptState.set_function("print", [](std::wstring str)
-		{
-			GGlobalConsole.AddLog(str);
-		});
-
+//	ScriptState.script_file(!(FPaths::EngineScriptsDir() / TEXT("Test/Engine.script")));
 	// TEMP!!!!
 	bool bWithOSConsole = FString(CmdLine) == TEXT("-CMD");
 	GGlobalConsole.Initialize(bWithOSConsole);
 	GGlobalConsole.SetAutoClose(false);
 
 	FConfigCache::InitConfigSystem();
+
+	InitGObject();
+	auto Res = ScriptState.load_file(!(FPaths::EngineScriptsDir() / TEXT("Test/Engine.script")));
+	if (Res.valid())
+	{
+		ScriptState.script_file(!(FPaths::EngineScriptsDir() / TEXT("Test/Engine.script")));
+	}
+	else
+	{
+		DE_LOG(Launch, Error, TEXT("Error load lua script: %s"), *FString(Res.operator std::string()));
+	}
+
+
+	ScriptState.set_function("print", [](std::wstring str)
+		{
+			GGlobalConsole.AddLog(str);
+		});
+
+
 
 	GGlobalConsole.RegisterConsoleVariableRef(TEXT("r.MaxFps"), GMaxFPS, TEXT("Set max fps"))->SetOnChangedCallback([](IConsoleVariable* Var)
 		{
@@ -269,6 +306,11 @@ int32 FEngineLoop::PreInit(const TCHAR* CmdLine)
 
 	TestInit();
 
+	{
+
+	}
+
+
 	sol::function PreInitFunc = ScriptState["PreInit"];
 	if (PreInitFunc.valid())
 	{
@@ -286,6 +328,7 @@ int32 FEngineLoop::Init()
 	((DEditorEngine*)Engine)->NewMap();
 
 
+
 	return 0;
 }
 
@@ -295,10 +338,18 @@ void FEngineLoop::Tick()
 	FGameTimer::Tick();
 	UIApplication::Get()->Tick(DeltaTime);
 	Engine->Tick(DeltaTime);
-	sol::function TickFunc = ScriptState["Tick"];
+	sol::protected_function TickFunc = ScriptState["Tick"];
+
+	sol::error T = TickFunc();
 	if (TickFunc.valid())
 	{
-		TickFunc();
+		sol::protected_function_result Result = TickFunc();
+		if (!Result.valid())
+		{
+			sol::error err = Result;
+			std::string what = err.what();
+
+		}
 	}
 }
 

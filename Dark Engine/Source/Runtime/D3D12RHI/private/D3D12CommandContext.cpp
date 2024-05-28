@@ -401,7 +401,7 @@ void FD3D12CommandContext::RHIBeginRenderPass(FRHIRenderPassInfo& InInfo)
 			RenderTargetPassDescs[i].BeginningAccess.Type = GetRenderPassBeginningAccess(RTInfo.BeginRenderPassMode[i]);
 			RenderTargetPassDescs[i].BeginningAccess.Clear.ClearValue = ClearValue;
 
-			RenderTargetPassDescs[i].EndingAccess.Type = D3D12_RENDER_PASS_ENDING_ACCESS_TYPE_PRESERVE;
+			RenderTargetPassDescs[i].EndingAccess.Type = GetRenderPassEndingAccess(RTInfo.EndRenderPassMode[i]);
 		}
 		NewRenderTargets[i] = RenderTarget;
 	}

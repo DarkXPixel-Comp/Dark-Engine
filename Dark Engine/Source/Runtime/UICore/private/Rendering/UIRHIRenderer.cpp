@@ -87,7 +87,7 @@ void FUIRHIRenderer::DrawWindows(const TArray<TSharedPtr<UIWindow>>& InWindows)
 				RHICmdList->BeginImGui();
 				Window->GetNativeWindow()->BeginImGui();
 
-				FRHIRenderPassInfo RPInfo(BackBuffer);
+				FRHIRenderPassInfo RPInfo(BackBuffer, ERenderPassMode::Clear, ERenderPassMode::Preserve);
 				RHICmdList->BeginRenderPass(RPInfo);
 				ImGui::NewFrame();
 #endif

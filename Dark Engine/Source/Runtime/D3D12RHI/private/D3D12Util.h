@@ -94,15 +94,28 @@ FORCEINLINE D3D12_RESOURCE_STATES GetD3D12ResourceState(ERHIAccess InRHIAccess)
 	return D3D12_RESOURCE_STATE_COMMON;
 }
 
-FORCEINLINE D3D12_RENDER_PASS_BEGINNING_ACCESS_TYPE GetRenderPassBeginningAccess(ERenderPassBeginMode BeginMode)
+FORCEINLINE D3D12_RENDER_PASS_BEGINNING_ACCESS_TYPE GetRenderPassBeginningAccess(ERenderPassMode BeginMode)
 {
 	switch (BeginMode)
 	{
-	case ERenderPassBeginMode::Discard: return D3D12_RENDER_PASS_BEGINNING_ACCESS_TYPE_DISCARD;
-	case ERenderPassBeginMode::Preserve: return D3D12_RENDER_PASS_BEGINNING_ACCESS_TYPE_PRESERVE;
-	case ERenderPassBeginMode::Clear: return D3D12_RENDER_PASS_BEGINNING_ACCESS_TYPE_CLEAR;
-	case ERenderPassBeginMode::NoAccess: return D3D12_RENDER_PASS_BEGINNING_ACCESS_TYPE_NO_ACCESS;
+	case ERenderPassMode::Discard: return D3D12_RENDER_PASS_BEGINNING_ACCESS_TYPE_DISCARD;
+	case ERenderPassMode::Preserve: return D3D12_RENDER_PASS_BEGINNING_ACCESS_TYPE_PRESERVE;
+	case ERenderPassMode::Clear: return D3D12_RENDER_PASS_BEGINNING_ACCESS_TYPE_CLEAR;
+	case ERenderPassMode::NoAccess: return D3D12_RENDER_PASS_BEGINNING_ACCESS_TYPE_NO_ACCESS;
 	default: return D3D12_RENDER_PASS_BEGINNING_ACCESS_TYPE_DISCARD;
+	}
+}
+
+FORCEINLINE D3D12_RENDER_PASS_ENDING_ACCESS_TYPE GetRenderPassEndingAccess(ERenderPassMode EndMode)
+{
+	switch (EndMode)
+	{
+	case ERenderPassMode::Discard: return D3D12_RENDER_PASS_ENDING_ACCESS_TYPE_DISCARD;
+	case ERenderPassMode::Preserve:	return D3D12_RENDER_PASS_ENDING_ACCESS_TYPE_PRESERVE;
+	case ERenderPassMode::NoAccess:	return D3D12_RENDER_PASS_ENDING_ACCESS_TYPE_NO_ACCESS;
+	case ERenderPassMode::Clear: check(false);
+	case ERenderPassMode::Resolve: return D3D12_RENDER_PASS_ENDING_ACCESS_TYPE_RESOLVE;
+	default: return D3D12_RENDER_PASS_ENDING_ACCESS_TYPE_DISCARD;
 	}
 }
 

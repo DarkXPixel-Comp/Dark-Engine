@@ -2,7 +2,7 @@ add_library(CoreGObject)
 
 
 target_compile_features(CoreGObject PUBLIC cxx_std_20)
-target_link_libraries(CoreGObject PUBLIC Core Engine)
+target_link_libraries(CoreGObject PUBLIC Core Engine Lua)
 #target_link_libraries(Editor PUBLIC ${EditorLibs})
 
 

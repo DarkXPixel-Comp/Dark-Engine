@@ -31,7 +31,9 @@ public:
 
 
 private:
-	sol::state ScriptState;
+	//sol::state ScriptState;
+	sol::state_view ScriptState = luaL_newstate();
+
 
 };
 
