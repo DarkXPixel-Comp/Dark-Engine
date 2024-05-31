@@ -9,6 +9,19 @@
 
 
 
+struct NoInitCopy
+{
+	NoInitCopy() = default;
+
+
+	NoInitCopy(std::wstring& Other)
+	{
+		Buf = new TCHAR[Other.size()];
+		wcscpy(Other.data(), Buf);
+	}
+
+	TCHAR* Buf;
+};
 
 
 
@@ -17,6 +30,9 @@ class FString
 {
 public:
 	FString() : _string(L"") {}
+	explicit FString(ENoInit) : _string(std::move(std::wstring(_string)))
+	{
+	}
 	FString(const ANSICHAR* Str);
 	FString(const WIDECHAR* Str);
 	FString(uint32 Size) : _string(Size ,L'\0') {}
@@ -286,6 +302,7 @@ public:
 
 private:
 	std::wstring _string;
+	std::wstring _internal;
 
 	mutable std::string _tempString;
 	mutable bool bChangedString = true;

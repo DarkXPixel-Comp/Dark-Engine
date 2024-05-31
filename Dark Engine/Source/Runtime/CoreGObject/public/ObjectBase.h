@@ -2,35 +2,33 @@
 #include "Containers/DarkString.h"
 #include "ObjectPtr.h"
 #include "GObjectArray.h"
-
+#include "ObjectMacros.h"
+#include "DeferredRegistry.h"
 
 
 class GClass;
 class GObject;
 
 
-template <typename T>
-struct TRegistrationInfo
-{
-	using TType = T;
 
-	TType* InnerSingleton = nullptr;
-	TType* OuterSingleton = nullptr;
-};
+bool IsClassChildOf(const GClass* Class, const GClass* TestClass);
 
 
-using FClassRegistrationInfo = TRegistrationInfo<GClass>;
 
 class GObjectBase
 {
 protected:
-	GObjectBase() = default;
+	GObjectBase();
 public:
 	GObjectBase(GClass* InClass, GObject* InOuter, FString InName, int32 InIndex, int32 InSerialNumber);
+	GObjectBase(EObjectFlags InFlags);
+
+	bool IsDefaultSubobject() const;
 
 
 	void DeferredRegister(GClass* StaticClass, const TCHAR* InName);
 
+	EObjectFlags GetFlags() const { return Flags; }
 
 	virtual void RegisterDependencies() {}
 
@@ -52,6 +50,28 @@ public:
 	}
 
 
+
+	template<typename OtherClass>
+	bool Is(OtherClass SomeBase)
+	{
+		const GClass* SomeBaseClass = SomeBase;
+
+		const GClass* ThisClass = GetClass();
+
+		return IsClassChildOf(ThisClass, SomeBaseClass);
+	}
+
+
+	GObject* GetTypedOuter(GClass* Class) const;
+
+
+	template<typename T>
+	T* GetTypedOuter() const
+	{
+		return (T*)(GetTypedOuter(T::StaticClass()));
+	}
+
+
 	int32 InternalIndex;
 
 private:
@@ -63,7 +83,11 @@ private:
 	TObjectPtr<GObject> OuterPrivate;
 	TObjectPtr<GClass>	ClassPrivate;
 	FString NamePrivate;
+	EObjectFlags Flags;
 };
 
 
+
 void GObjectBaseInit();
+
+extern void GObjectForceRegister(GObjectBase* Object);

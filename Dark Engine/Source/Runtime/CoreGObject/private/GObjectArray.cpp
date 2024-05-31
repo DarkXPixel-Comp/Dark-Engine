@@ -2,6 +2,7 @@
 #include "ObjectBase.h"
 
 FGObjectArray GGObjectArray;
+uint64 FGObjectArray::CurrentMaxIndex = 0;
 
 
 
@@ -27,7 +28,7 @@ void FGObjectArray::AllocateObjectIndex(GObjectBase* Object)
 	ObjectItem->SerialNumber = 0;
 	Object->InternalIndex = Index;
 
-
+	++CurrentMaxIndex;
 
 
 }

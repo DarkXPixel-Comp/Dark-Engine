@@ -5,9 +5,14 @@
 
 class GLevel : public GObject
 {
-	DECLARE_CASETED_CLASS_INTRINSIC_WITH_API(GLevel, GObject);
+	DECLARE_CLASS_INTINSIC_NO_CTOR(GLevel, GObject);
+
 
 public:
+	GLevel(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get());
+
+
+
 	TArray<TObjectPtr<EEntity>>	Entities;
 
 	class FWorld* OwningWorld;

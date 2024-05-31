@@ -45,7 +45,7 @@ void UIDock::DrawImGui()
 	ImGuiStyle& Style = ImGui::GetStyle();
 	float MinWinSizeX = Style.WindowMinSize.x;
 
-	Style.WindowMinSize.x = 370.f;
+	Style.WindowMinSize.x = 50.f;
 	ImGui::DockSpace(ImGui::GetID("MyDockspace"));
 	//ImGui::DockSpaceOverViewport(Viewport);
 	Style.WindowMinSize.x = MinWinSizeX;

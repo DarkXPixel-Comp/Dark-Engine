@@ -16,6 +16,7 @@ _NODISCARD constexpr auto CountOf(const Container& Cont) noexcept(noexcept(Cont.
 }
 
 #define DE_ARRAY_COUNT(Array) CountOf(Array)
+#define DE_OFFSETOF(Class, Property) ((uint64)&reinterpret_cast<const char volatile&>((((Class*)0)->Property)))
 
 template <typename T> struct TRemoveReference { typedef T Type; };
 template <typename T> struct TRemoveReference<T&> { typedef T Type; };

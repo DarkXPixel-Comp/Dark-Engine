@@ -35,6 +35,8 @@
 #endif
 
 
+enum ENoInit { NoInit };
+
 typedef FPlatformTypes::int8 int8;
 typedef FPlatformTypes::uint8 uint8;
 typedef FPlatformTypes::int16 int16;

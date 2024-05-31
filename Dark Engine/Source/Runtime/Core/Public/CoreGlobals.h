@@ -13,6 +13,7 @@ extern int32 GRenderMode; //<-TEST
 extern float GMaxFPS;
 extern float GNearClippingPlane;
 extern bool GFXAAEnable;
+extern int32 GCurrentEntity;
 
 FORCEINLINE bool IsExitRequested()
 {

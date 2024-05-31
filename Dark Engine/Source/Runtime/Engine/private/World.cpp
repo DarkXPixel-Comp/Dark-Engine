@@ -12,7 +12,29 @@ void FWorld::InitWorld()
 }
 
 
-EEntity* FWorld::SpawnActor(GClass* Class, const FVector& Location, const FRotator& Rotation)
+void FWorld::InitializeNewWorld()
+{
+	CurrentLevel = NewObject<GLevel>(nullptr, TEXT("PersistentLevel"));
+	CurrentLevel->OwningWorld = this;
+
+
+
+	InitWorld();
+
+	EEntity* Test = SpawnEntity(EEntity::StaticClass(), FVector(), FRotator());
+	SpawnEntity(EEntity::StaticClass(), FVector(), FRotator());
+	SpawnEntity(EEntity::StaticClass(), FVector(), FRotator());
+	SpawnEntity(EEntity::StaticClass(), FVector(), FRotator());
+	SpawnEntity(EEntity::StaticClass(), FVector(), FRotator());
+	SpawnEntity(EEntity::StaticClass(), FVector(), FRotator());
+}
+
+const TArray<TObjectPtr<EEntity>>& FWorld::GetEntitiesOnCurrentLevel() const
+{
+	return CurrentLevel->Entities;
+}
+
+EEntity* FWorld::SpawnEntity(GClass* Class, const FVector& Location, const FRotator& Rotation)
 {
 	GLevel* LevelToSpawn = nullptr;
 
@@ -22,7 +44,9 @@ EEntity* FWorld::SpawnActor(GClass* Class, const FVector& Location, const FRotat
 	}
 
 
-	EEntity* const Entity = NewObject<EEntity>(LevelToSpawn, TEXT("test"));
+	EEntity* Entity = NewObject<EEntity>(LevelToSpawn);
+	
+	LevelToSpawn->Entities.Add(Entity);
 
 
 	return Entity;

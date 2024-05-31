@@ -18,6 +18,8 @@ class FGObjectArray
 
 public:
 
+	static uint64 CurrentMaxIndex;
+
 	void AllocateObjectIndex(GObjectBase* Object);
 
 	FGObjectItem* IndexToObject(int32 Index);

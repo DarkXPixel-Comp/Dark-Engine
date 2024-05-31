@@ -29,7 +29,6 @@ void FD3D12ContextCommon::OpenCommandList()
 		Device->GetBindlessDescriptorManager().GetHeap(ERHIDescriptorHeapType::Sampler)->GetHeap()};
 
 	CommandList->GetGraphicsCommandList()->SetDescriptorHeaps(DE_ARRAY_COUNT(Heaps), Heaps);
-
 }
 
 void FD3D12ContextCommon::CloseCommandList()

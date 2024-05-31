@@ -62,7 +62,8 @@ To* CastChecked(From* Src)
 
 	if (Src)
 	{
-		To* Result = Cast<To>(Src);
+		//static_assert(std::is_base_of_v<GObject, From>)
+
 	}
 }
 

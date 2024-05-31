@@ -50,7 +50,7 @@ void DEditorEngine::UpdateViewportClient()
 FWorld* DEditorEngine::NewMap()
 {
 	FWorld* NewWorld = new FWorld();
-	NewWorld->InitWorld();
+	NewWorld->InitializeNewWorld();
 	GWorld = NewWorld;
 	return NewWorld;
 }

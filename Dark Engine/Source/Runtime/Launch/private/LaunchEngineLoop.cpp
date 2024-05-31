@@ -15,6 +15,8 @@
 #include "Widgets/UIEditorViewport.h"
 #include "Widgets/UIEditorSettings.h"
 #include "Widgets/UIConsole.h"
+#include "Widgets/UIWorldOutliner.h"
+#include "Widgets/UIEntityProperties.h"
 #include "Shader.h"
 #include "ShaderCompiler.h"
 #include "Console/GlobalInputOutConsole.h"
@@ -68,6 +70,14 @@ struct FEditorLayout
 		MainDock->SetMainMenuBar(MainMenuBar);
 		MainMenuBar->SetTitle(TEXT("Dark Engine"));
 
+		WorldOutliner = MakeShareble(new UIWorldOutliner());
+		MainDock->AddChild(WorldOutliner);
+
+		EntityProperties = MakeShareble(new UIEntityProperties());
+		MainDock->AddChild(EntityProperties);
+
+
+
 		RootViewport = MakeShareble(new UIEditorViewport());
 		{
 			RootViewport->SetName(TEXT("EditorViewport"));
@@ -77,7 +87,7 @@ struct FEditorLayout
 
 		EditorSettings = MakeShareble(new UIEditorSettings());
 		EditorSettings->SetEditorViewport(RootViewport);
-		//ditorSettings->bHaveCloseButton = true;
+		//EditorSettings->bHaveCloseButton = true;
 
 		TSharedPtr<UIMenuItem> ExitButton = MakeShareble(new UIMenuItem());
 		ExitButton->SetName(TEXT("Exit"));
@@ -128,6 +138,8 @@ public:
 	TSharedPtr<UIDock> MainDock = nullptr;
 	TSharedPtr<UIEditorSettings> EditorSettings;
 	TSharedPtr<UIMainMenuBar> MainMenuBar;
+	TSharedPtr<UIWorldOutliner>	WorldOutliner;
+	TSharedPtr<UIEntityProperties> EntityProperties;
 
 } EditorLayout;
 

@@ -16,7 +16,7 @@ SETTINGFILES(RendererSrc)
 target_sources(Renderer PRIVATE ${RendererSrc} "private/FractalRender.cpp")
 
 SettingProject(Renderer)
-target_compile_definitions(Renderer PRIVATE ASYNC_SHADER_COMPILING=1)
+target_compile_definitions(Renderer PRIVATE ASYNC_SHADER_COMPILING=0)
 
 target_include_directories(Renderer PUBLIC "public")
 

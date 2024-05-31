@@ -5,7 +5,6 @@
 #include <D3D12Util.h>
 #include "D3D12RootSignature.h"
 #include "D3D12PipelineState.h"
-#include "sl.h"
 
 
 DECLARE_LOG_CATEGORY(D3D12Callback, Display);
@@ -176,11 +175,6 @@ void FD3D12Adapter::CreateRootDevice(bool bWithDebug)
 	{
 		DXCall(D3D12CreateDevice(TempAdapter.Get(), D3D_FEATURE_LEVEL_12_0,
 			IID_PPV_ARGS(&RootDevice)));
-		if (bNvidiaStreamline)
-		{
-			slSetD3DDevice(RootDevice.Get());
-		}
-
 		RootDevice->QueryInterface(IID_PPV_ARGS(&RootDevice2));
 		RootDevice->QueryInterface(IID_PPV_ARGS(&RootDevice10));
 	}

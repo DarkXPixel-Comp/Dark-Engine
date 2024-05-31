@@ -70,7 +70,7 @@ TSharedPtr<FGenericWindow> UIApplication::MakeWindow(TSharedPtr<UIWindow> InUIWi
 #ifdef IMGUI
 	InUIWindow->SetImGuiContext(ImGui::CreateContext());
 	InUIWindow->GetImGuiContext()->IO.ConfigFlags |= ImGuiConfigFlags_DockingEnable |
-		ImGuiConfigFlags_ViewportsEnable | ImGuiConfigFlags_NavEnableKeyboard;
+		ImGuiConfigFlags_ViewportsEnable | ImGuiConfigFlags_NavEnableKeyboard | ImGuiConfigFlags_DpiEnableScaleViewports | ImGuiConfigFlags_DpiEnableScaleFonts;
 	InUIWindow->GetImGuiContext()->IO.IniFilename = "../Config/UIImgui.ini";
 //	InUIWindow->GetImGuiContext()->IO.ConfigFlags |= ImGuiConfigFlags_NoMouseCursorChange;
 

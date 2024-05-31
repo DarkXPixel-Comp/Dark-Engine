@@ -1,14 +1,22 @@
 #include "Class.h"
 #include "Misc/AssertionMacros.h"
 
-IMPLEMENT_CLASS_NO_AUTO_REGISTRATION(GField);
-IMPLEMENT_CLASS_NO_AUTO_REGISTRATION(GStruct);
-IMPLEMENT_CLASS_NO_AUTO_REGISTRATION(GClass);
+IMPLEMENT_INTRINSIC_CLASS(GField, GObject);
+IMPLEMENT_INTRINSIC_CLASS(GStruct, GField);
+IMPLEMENT_INTRINSIC_CLASS(GClass, GStruct);
+IMPLEMENT_INTRINSIC_CLASS(GProperty, GObject);
+IMPLEMENT_INTRINSIC_CLASS(GPropertyInt32, GProperty);
+
+
+//IMPLEMENT_CLASS_NO_AUTO_REGISTRATION(GField);
+//IMPLEMENT_CLASS_NO_AUTO_REGISTRATION(GStruct);
+//IMPLEMENT_CLASS_NO_AUTO_REGISTRATION(GClass);
 
 void GetPrivateStaticClassBody(const TCHAR* Name, GClass*& ReturnClass, void(*RegisterNativeFunc)(), uint32 InSize, uint32 InAlignment, GClass::ClassConstructorType InClassConstructor,
 	GClass::StaticClassFunctionType InSuperClassFunc)
-{						
-	ReturnClass = ::new GClass(EC_StaticConstructor, Name, InSize, InAlignment, InClassConstructor, InSuperClassFunc);
+{	
+	ReturnClass = (GClass*)malloc(sizeof(GClass));
+	ReturnClass = ::new(ReturnClass) GClass(EC_StaticConstructor, Name, InSize, InAlignment, InClassConstructor, InSuperClassFunc);
 
 	check(ReturnClass);
 
@@ -39,6 +47,39 @@ void InitializePrivateStaticClass(GClass* SuperStaticClass, GClass* PrivateStati
 
 
 
+GStruct::GStruct(int32 InSize, int32 InAlignment, EObjectFlags InFlags) : 
+	GField(EC_StaticConstructor, InFlags),
+	SuperStruct(nullptr),
+	PropertiesSize(InSize),
+	Alignment(InAlignment)
+{
+
+}
+
+void GStruct::RegisterProperty(GProperty* NewProperty)
+{
+	Properties.Add(NewProperty);
+}
+
+bool GStruct::IsChildOf(const GStruct* SomeBase) const
+{
+	check(this);
+
+	if (SomeBase == nullptr)
+	{
+		return false;
+	}
+
+	for (const GStruct* TempStruct = this; TempStruct; TempStruct = TempStruct->GetSuperStruct())
+	{
+		if (TempStruct == SomeBase)
+		{
+			return true;
+		}
+	}
+	return false;
+}
+
 void GStruct::SetSuperStruct(GStruct* NewSuperStruct)
 {
 	SuperStruct = NewSuperStruct;
@@ -57,7 +98,9 @@ void GStruct::RegisterDependencies()
 
 
 
-GClass::GClass(EStaticConstructor, FString Name, uint32 InSize, uint32 InAlignment, ClassConstructorType InClassConstructor, StaticClassFunctionType InSuperClassFunc)
+GClass::GClass(EStaticConstructor, FString Name, uint32 InSize, uint32 InAlignment, ClassConstructorType InClassConstructor, StaticClassFunctionType InSuperClassFunc):
+	GStruct(InSize, InAlignment),
+	ClassConstructor(InClassConstructor)
 {
 
 }
@@ -67,6 +110,11 @@ void GClass::SetSuperStruct(GStruct* NewSuperStruct)
 {
 	Super::SetSuperStruct(NewSuperStruct);
 
+
+}
+
+GField::GField(EStaticConstructor, EObjectFlags InFlags) : GObject(EC_StaticConstructor, InFlags)
+{
 
 }
 
@@ -87,4 +135,14 @@ GClass* GField::GetOwnerClass() const
 GStruct* GField::GetOwnerStruct() const
 {
 	return nullptr;
+}
+
+GPropertyInt32::GPropertyInt32() : Super()
+{
+	Type = EType::int32;
+}
+
+GPropertyInt32::GPropertyInt32(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer)
+{
+	Type = EType::int32;
 }

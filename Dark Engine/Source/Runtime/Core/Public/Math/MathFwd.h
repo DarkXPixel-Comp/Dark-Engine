@@ -10,6 +10,7 @@
 #include "Vector4.h"
 #include "PersperctiveMatrix.h"
 #include "InverseRotationMatrix.h"
+//#include "Transform.h"
 
 
 namespace DE::Math
@@ -24,6 +25,7 @@ namespace DE::Math
 	template<typename T> struct TReversedZPerspectiveMatrix;
 	template<typename T> struct TInverseRotationMatrix;
 	template<typename T> struct TPlane;
+	template<typename T> struct TTransform;
 };
 
 
@@ -41,6 +43,7 @@ namespace ispc
 	struct FIntRect;
 	struct FReversedZPerspectiveMatrix;
 	struct FInverseRotationMatrix;
+	struct FTransform;
 };
 
 
@@ -75,3 +78,4 @@ using FIntPoint =						DE::Math::TIntPoint<int32>;
 using FIntRect =						DE::Math::TIntRect<int32>;
 
 using FPlane =							DE::Math::TPlane<double>;
+using FTransform =						DE::Math::TTransform<double>;

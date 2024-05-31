@@ -9,6 +9,9 @@
 typedef __m128 VectorRegister4Float;
 typedef __m128d	VectorRegister2Double;
 
+
+
+
 #define SHUFFLEMASK(A0,A1,B2,B3) ( (A0) | ((A1)<<2) | ((B2)<<4) | ((B3)<<6) )
 
 #define SHUFFLEMASK2(A0,A1) ((A0) | ((A1)<<1))
@@ -40,6 +43,12 @@ struct alignas(16) VectorRegister4Double
 		return *this;
 	}
 };
+
+
+template<typename T>
+using TPersistentVectorRegister = std::conditional_t<std::is_same_v<T, float>, VectorRegister4Float, std::conditional_t<std::is_same_v<T, double>, VectorRegister4Double, void>>;
+
+
 
 
 template <int Index>

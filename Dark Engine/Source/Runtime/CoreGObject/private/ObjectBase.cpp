@@ -3,6 +3,7 @@
 #include "Misc/AssertionMacros.h"
 #include "Containers/Array.h"
 #include "Class.h"
+#include "DeferredRegistry.h"
 
 struct FPendingRegistrant
 {
@@ -53,15 +54,29 @@ struct FPendingRegistrantInfo
 };
 
 
-GObjectBase::GObjectBase(GClass* InClass, GObject* InOuter, FString InName, int32, int32)	:
+GObjectBase::GObjectBase() : ClassPrivate(NoInit), OuterPrivate(NoInit), NamePrivate(NoInit)
+{
+
+}
+
+GObjectBase::GObjectBase(GClass* InClass, GObject* InOuter, FString InName, int32 InIndex, int32 InSerialNumber)	:
 	ClassPrivate(InClass),
 	OuterPrivate(InOuter),
 	NamePrivate(InName)
 {
 	check(ClassPrivate);
-	
 
+	AddObject(InName, InIndex, InSerialNumber);
+}
 
+GObjectBase::GObjectBase(EObjectFlags InFlags) : Flags(InFlags), InternalIndex(-1), ClassPrivate(nullptr), OuterPrivate(nullptr)
+{
+
+}
+
+bool GObjectBase::IsDefaultSubobject() const
+{
+	return !EnumHasAnyFlags(Flags, OF_ClassDefaultObject) && GetOuter() && (EnumHasAnyFlags(GetOuter()->GetFlags(), OF_ClassDefaultObject));
 }
 
 void GObjectBase::DeferredRegister(GClass* StaticClass, const TCHAR* InName)
@@ -99,9 +114,28 @@ void GObjectBase::Register(const TCHAR* InName)
 
 }
 
+GObject* GObjectBase::GetTypedOuter(GClass* Class) const
+{
+	GObject* Result = nullptr;
+
+	for (GObject* NextOuter = GetOuter(); Result == nullptr && NextOuter != nullptr; NextOuter = NextOuter->GetOuter())
+	{
+		if (NextOuter->Is(Class))
+		{
+			Result = NextOuter;
+		}
+	}
+	return Result;
+
+	
+
+}
+
 void GObjectBase::AddObject(FString InName, int32 InIndex, int32 InSerialNumber)
 {
 	NamePrivate = InName;
+
+	GGObjectArray.AllocateObjectIndex(this);
 
 
 
@@ -124,8 +158,19 @@ void GObjectForceRegister(GObjectBase* Object)
 }
 
 
+bool IsClassChildOf(const GClass* Class, const GClass* TestClass)
+{
+	return Class->IsChildOf(TestClass);
+}
+
 void GObjectBaseInit()
 {
+	FClassDeferredRegistry& ClassRegistry = FClassDeferredRegistry::Get();
+
+	ClassRegistry.DoPendingInnerRegistrations();
+	ClassRegistry.DoPendingOuterRegistrations();
+
+
 	TArray<FPendingRegistrant> PendingRegistrants;
 	GetPendingAutoRegistrants(PendingRegistrants);
 

@@ -21,6 +21,7 @@ struct FStaticConstructorObjectParameters
 	const GClass* Class;
 	GObject* Outer;
 	FString Name;
+	EObjectFlags Flags = OF_NoFlags;
 
 
 };
@@ -29,9 +30,26 @@ struct FStaticConstructorObjectParameters
 GObject* StaticConstructObjectInternal(const FStaticConstructorObjectParameters& Params);
 
 
+template<class T>
+T* NewObject(GObject* Outer)
+{
+	FStaticConstructorObjectParameters Params(T::StaticClass());
+	Params.Outer = Outer;
+
+	T* Result = nullptr;
+
+	Result = static_cast<T*>(StaticConstructObjectInternal(Params));
+
+
+	check(Result);
+
+	return Result;
+}
+
+
 
 template<class T>
-T* NewObject(GObject* Outer, FString Name)
+T* NewObject(GObject* Outer, FString Name, EObjectFlags Flags = OF_NoFlags)
 {
 	FStaticConstructorObjectParameters Params(T::StaticClass());
 	Params.Outer = Outer;
@@ -55,6 +73,9 @@ public:
 	FObjectInitializer();
 
 	FObjectInitializer(GObject* InObject, GObject* InObjectType);
+
+	FObjectInitializer(GObject* InObject, const FStaticConstructorObjectParameters& StaticParams);
+
 
 	FObjectInitializer(GObject* InObject);
 
@@ -102,13 +123,17 @@ class GObject : public GObjectBase
 {
 	DECLARE_CLASS(GObject, GObject);
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(GObject);
+	DEFINE_CLASS_PROPERTIES(GObject, NULL);
 	typedef GObject WithinClass;
-
-
-
+public:
 	GObject();
 	GObject(const FObjectInitializer& ObjectInitializer);
-	GObject(EStaticConstructor);
+	GObject(EStaticConstructor, EObjectFlags = OF_NoFlags);
+
+	//void RegisterProperty()
+
+
+
 
 
 };

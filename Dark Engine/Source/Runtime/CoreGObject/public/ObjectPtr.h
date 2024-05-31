@@ -7,6 +7,7 @@ class GObject;
 class GClass;
 
 
+
 struct FObjectPtr
 {
 	using FObjectHandle = uint64;
@@ -14,6 +15,10 @@ struct FObjectPtr
 	{
 
 	}
+
+	explicit FObjectPtr(ENoInit) {}
+
+	FObjectPtr(const FObjectPtr& Object) : Handle(FObjectHandle(Object.Handle)) {}
 
 	explicit FObjectPtr(GObject* Object): Handle(reinterpret_cast<FObjectHandle>(Object))
 	{
@@ -72,6 +77,8 @@ private:
 };
 
 
+
+
 template<typename T>
 struct TObjectPtr
 {
@@ -79,6 +86,9 @@ public:
 	using ElementType = T;
 
 	TObjectPtr() : ObjectPtr()
+	{}
+
+	TObjectPtr(ENoInit) : ObjectPtr(NoInit)
 	{}
 
 	TObjectPtr(TObjectPtr<ElementType>&& Other):
@@ -100,6 +110,7 @@ public:
 	TObjectPtr(U&& Other)
 	{
 		//ObjectPtr = const_cast<std::remove_const_t<T>*>(Other);
+		ObjectPtr = static_cast<T*>(Other);
 	}
 
 	template <typename U>
