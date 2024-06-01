@@ -29,6 +29,22 @@ struct FStaticConstructorObjectParameters
 
 GObject* StaticConstructObjectInternal(const FStaticConstructorObjectParameters& Params);
 
+template<class T>
+T* NewObject(GObject* Outer, const GClass* Class, FString Name = FString(), EObjectFlags Flags = OF_NoFlags)
+{
+	FStaticConstructorObjectParameters Params(Class);
+
+	Params.Outer = Outer;
+	Params.Name = Name;
+	Params.Flags = Flags;
+
+	T* Result = nullptr;
+	Result = static_cast<T*>(StaticConstructObjectInternal(Params));
+
+	check(Result);
+	return Result;
+
+}
 
 template<class T>
 T* NewObject(GObject* Outer)
@@ -65,6 +81,7 @@ T* NewObject(GObject* Outer, FString Name, EObjectFlags Flags = OF_NoFlags)
 	return Result;
 }
 
+extern GObject* StaticAllocateObject(const GClass* InClass, GObject* InOuter, FString InName, EObjectFlags InFlags = OF_NoFlags);
 
 
 class FObjectInitializer
@@ -76,8 +93,13 @@ public:
 
 	FObjectInitializer(GObject* InObject, const FStaticConstructorObjectParameters& StaticParams);
 
-
 	FObjectInitializer(GObject* InObject);
+
+	~FObjectInitializer();
+
+	GObject* CreateDefaultSubobject(GObject* Outer, FString Name, const GClass* ReturnType, const GClass* ClassToCreateByDefault);
+
+	void PostInit();
 
 	FORCEINLINE GObject* GetObj() const
 	{
@@ -91,8 +113,42 @@ private:
 	void ConstructInternal();
 
 public:
-	~FObjectInitializer();
 
+private:
+	struct FOverrides
+	{
+		struct FOverrideDetails
+		{
+			const GClass* Class = nullptr;
+			FOverrides* SubOverrides;
+		};
+	};
+
+	struct FSubObjectsToInit
+	{
+		void Add(GObject* SubObject, GObject* Template)
+		{
+			for (int32 Index = 0; Index < SubObjectInits.Num(); ++Index)
+			{
+				check(SubObjectInits[Index].SubObject != SubObject);
+			}
+			SubObjectInits.Emplace(SubObject, Template);
+		}
+
+		struct FSubObjectInit
+		{
+			GObject* SubObject;
+			GObject* Template;
+			FSubObjectInit(GObject* InSubObject, GObject* InTemplate):
+				SubObject(InSubObject),
+				Template(InTemplate)
+			{
+			}
+		};
+		TArray<FSubObjectInit> SubObjectInits = decltype(SubObjectInits)(ArrayReserve(8));
+	} ComponentInits;
+
+	FOverrides SubjectOverrides;
 
 
 
@@ -131,6 +187,17 @@ public:
 	GObject(EStaticConstructor, EObjectFlags = OF_NoFlags);
 
 	//void RegisterProperty()
+
+	GObject* CreateDefaultSubobject(FString Name, GClass* ReturnType, GClass* ClassCreateByDefault);
+
+
+
+	template<class T>
+	T* CreateDefaultSubobject(FString Name)
+	{
+		GClass* ReturnType = T::StaticClass();
+		return static_cast<T*>(CreateDefaultSubobject(Name, ReturnType, ReturnType));
+	}
 
 
 

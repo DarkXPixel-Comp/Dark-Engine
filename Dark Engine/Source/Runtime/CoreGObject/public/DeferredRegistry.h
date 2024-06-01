@@ -44,11 +44,13 @@ public:
 		}
 	}
 
-	void DoPendingOuterRegistrations()
+	template<typename TFunc>
+	void DoPendingOuterRegistrations(TFunc Func)
 	{
 		for (auto& i : Registrations)
 		{
 			OuterRegister(i);
+			Func(i);
 		}
 	}
 

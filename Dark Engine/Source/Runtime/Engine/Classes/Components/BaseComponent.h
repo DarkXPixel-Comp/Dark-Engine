@@ -16,10 +16,15 @@ public:
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, GBaseComponentTickFunction* ThisTickFunction);
 	virtual void EndPlay();
 
+	EEntity* GetOwner() const { return Owner; }
+
+	void RegisterComponent();
+
 
 
 public:
 	GBaseComponentTickFunction ComponentTick;
+	bool bAutoRegister = true;
 
 private:
 	EEntity* Owner;

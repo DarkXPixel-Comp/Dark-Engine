@@ -24,9 +24,9 @@ class EEntity : public GObject
 	DECLARE_CLASS_INTINSIC_NO_CTOR_WITH_PROPERTIES(EEntity, GObject,
 		{
 			DECLARE_PROPERTY_INT32(Test, Test);
-			DECLARE_PROPERTY_INT32(Ahuet, NewProperty);
-			DECLARE_PROPERTY(uint32, uintTest, NameUINT, PROPERTY_META(MIN = 7; MAX = 66));
-			DECLARE_PROPERTY(GObject, ObjectPtr, ObjectPtr);
+			DECLARE_PROPERTY(GObject, SubClass, SubClass);
+			DECLARE_PROPERTY(GObject, BaseComponent, BaseComponent);
+			DECLARE_PROPERTY(GObject, SceneComponent, RenderComponent);
 		});
 
 public:
@@ -34,17 +34,23 @@ public:
 
 	EEntity(const FObjectInitializer& ObjectInitalizer);
 
+	void AddOwnedComponent();
+
+	class GBaseComponent* AddComponentByClass(GClass* Class);
+
+	void FinishAddComponent(GBaseComponent* NewComponent);
+
 	void Init();
 
 	FEntityTickFunction PrimaryTick;
 
-	int32 Test = 4;
-	int32 Ahuet;
-	uint32 uintTest;
-
-	TObjectPtr<GTest> ObjectPtr;
+	
 
 private:
+	int32 Test;
+	TObjectPtr<GTest> SubClass;
+	TObjectPtr<GBaseComponent> BaseComponent;
+	TObjectPtr<class GSceneComponent>	SceneComponent;
 
 
 };

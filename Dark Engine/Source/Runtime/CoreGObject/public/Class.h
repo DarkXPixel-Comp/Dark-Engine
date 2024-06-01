@@ -88,7 +88,9 @@ public:
 		int32,
 		uint64,
 		int64,
-		GObject
+		GObject,
+		FVector,
+		FRotator
 	};
 
 	EType GetType() const { return Type; }
@@ -185,9 +187,25 @@ public:
 	GClass(GClass* InSuperClass, const FObjectInitializer& ObjectInitalizer);
 	GClass(EStaticConstructor, FString Name, uint32 InSize, uint32 InAlignment, ClassConstructorType InClassConstructor, StaticClassFunctionType InSuperClassFunc);
 
+	GClass* GetSuperClass() const
+	{
+		return (GClass*)GetSuperStruct();
+	}
+
+	GObject* CreateDefaultObject();
+
+	GObject* GetDefaultObject() const
+	{
+		const_cast<GClass*>(this)->CreateDefaultObject();
+		return ClassDefaultObject;
+	}
+
+
+	TObjectPtr<GObject>	ClassDefaultObject;
 	//TObjectPtr<GClass> ClassWithin;
 
 	virtual void SetupObjectInitializer(FObjectInitializer&) const {}
+
 
 
 	void SetSuperStruct(GStruct* NewSuperStruct);

@@ -64,7 +64,7 @@ void InitGObject()
 
 
 
-GObject* StaticAllocateObject(const GClass* InClass, GObject* InOuter, FString InName, EObjectFlags InFlags = OF_NoFlags)
+GObject* StaticAllocateObject(const GClass* InClass, GObject* InOuter, FString InName, EObjectFlags InFlags)
 {
 	GObject* Result = nullptr;
 	bool bSubObject = false;
@@ -142,6 +142,13 @@ FObjectInitializer::FObjectInitializer() : Object(nullptr)
 	ConstructInternal();
 }
 
+FObjectInitializer::FObjectInitializer(GObject* InObject, GObject* InObjectType) : 
+	Object(InObject),
+	ObjectType(InObjectType)
+{
+	ConstructInternal();
+}
+
 FObjectInitializer::FObjectInitializer(GObject* InObject, const FStaticConstructorObjectParameters& StaticParams) :
 	Object(InObject),
 	ObjectType(nullptr)
@@ -157,8 +164,9 @@ FObjectInitializer::FObjectInitializer(GObject* InObject) : Object(InObject)
 }
 
 FObjectInitializer& FObjectInitializer::Get()
-{
+{		  
 	FObjectInitializer* Result = AllInitializers.Num() ? AllInitializers.Last() : nullptr;
+	check(Result->GetObj() != nullptr);
 	return *Result;
 }
 
@@ -174,6 +182,47 @@ void FObjectInitializer::ConstructInternal()
 
 FObjectInitializer::~FObjectInitializer()
 {
+	check(AllInitializers.Last() == this);
+	AllInitializers.PopBack();
+}
+
+GObject* FObjectInitializer::CreateDefaultSubobject(GObject* Outer, FString Name, const GClass* ReturnType, const GClass* ClassToCreateByDefault)
+{
+	GObject* Result = nullptr;
+
+	const GClass* OverrideClass = ClassToCreateByDefault;
+
+	if (OverrideClass)
+	{
+		GObject* Template = OverrideClass->GetDefaultObject();
+		EObjectFlags SubobjectFlags = OF_ClassDefaultSubÎbject;
+
+		const bool bOwnerTemplateInNotCDO = !EnumHasAnyFlags(Outer->GetFlags(), OF_ClassDefaultObject);
+
+		FStaticConstructorObjectParameters Params(OverrideClass);
+		Params.Outer = Outer;
+		Params.Name = Name;
+		Params.Flags = SubobjectFlags;
+	
+		Result = StaticConstructObjectInternal(Params);
+
+
+
+		if (EnumHasAnyFlags(Outer->GetFlags(), OF_ClassDefaultObject) && Outer->GetClass()->GetSuperClass())
+		{
+
+		}
+	}
+
+
+
+
+	return Result;
+}
+
+void FObjectInitializer::PostInit()
+{
+
 }
 
 
@@ -200,4 +249,13 @@ GObject::GObject(const FObjectInitializer& ObjectInitializer)
 
 GObject::GObject(EStaticConstructor, EObjectFlags InFlags) : GObjectBase(InFlags)
 {
+}
+
+GObject* GObject::CreateDefaultSubobject(FString Name, GClass* ReturnType, GClass* ClassCreateByDefault)
+{
+	check(AllInitializers.Num());
+	FObjectInitializer* CurrentInitializer = AllInitializers.Last();
+
+	//return nullptr;
+	return CurrentInitializer->CreateDefaultSubobject(this, Name, ReturnType, ClassCreateByDefault);
 }

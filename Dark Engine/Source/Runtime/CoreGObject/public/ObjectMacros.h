@@ -13,7 +13,8 @@ enum EObjectFlags
 {
 	OF_NoFlags = 0,
 	OF_ClassDefaultObject = 1 << 0,
-	OF_MarkAsNative = 1 << 1
+	OF_MarkAsNative = 1 << 1,
+	OF_ClassDefaultSubÎbject = 1 << 2
 };
 
 

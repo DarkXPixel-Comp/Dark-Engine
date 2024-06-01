@@ -168,7 +168,11 @@ void GObjectBaseInit()
 	FClassDeferredRegistry& ClassRegistry = FClassDeferredRegistry::Get();
 
 	ClassRegistry.DoPendingInnerRegistrations();
-	ClassRegistry.DoPendingOuterRegistrations();
+	ClassRegistry.DoPendingOuterRegistrations([](FClassDeferredRegistry::FRegistrant& Registrant)
+		{
+			GClass* Class = Registrant.OuterRegisterFn();
+			Class->GetDefaultObject();
+		});
 
 
 	TArray<FPendingRegistrant> PendingRegistrants;
@@ -182,6 +186,8 @@ void GObjectBaseInit()
 
 		GetPendingAutoRegistrants(PendingRegistrants);
 	}
+
+	
 
 
 }

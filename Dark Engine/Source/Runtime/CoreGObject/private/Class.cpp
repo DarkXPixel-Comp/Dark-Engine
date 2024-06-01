@@ -105,6 +105,36 @@ GClass::GClass(EStaticConstructor, FString Name, uint32 InSize, uint32 InAlignme
 
 }
 
+GObject* GClass::CreateDefaultObject()
+{
+	if (ClassDefaultObject == nullptr)
+	{
+		GClass* ParentClass = GetSuperClass();
+		GObject* ParentDefaultObject = nullptr;
+		if (ParentClass)
+		{
+			GObjectForceRegister(ParentClass);
+			ParentDefaultObject = ParentClass->GetDefaultObject();
+		}
+
+
+		if (ParentDefaultObject != nullptr || this == GObject::StaticClass())
+		{
+			if (ClassDefaultObject == nullptr)
+			{
+				ClassDefaultObject = StaticAllocateObject(this, GetOuter(), "", OF_ClassDefaultObject);
+				check(ClassDefaultObject);
+
+
+				(*ClassConstructor)(FObjectInitializer(ClassDefaultObject, ParentDefaultObject));
+			}
+		}
+	}
+
+
+	return ClassDefaultObject;
+}
+
 
 void GClass::SetSuperStruct(GStruct* NewSuperStruct)
 {

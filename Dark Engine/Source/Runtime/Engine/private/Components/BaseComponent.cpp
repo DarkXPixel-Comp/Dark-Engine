@@ -1,6 +1,8 @@
 #include "Components/BaseComponent.h"
 
 
+IMPLEMENT_INTRINSIC_CLASS(GBaseComponent, GObject);
+
 
 GBaseComponent::GBaseComponent(const FObjectInitializer& ObjectInitializer):
 	Super(ObjectInitializer)
@@ -35,4 +37,9 @@ void GBaseComponent::EndPlay()
 {
 	check(bBeginPlay);
 	bBeginPlay = false;
+}
+
+void GBaseComponent::RegisterComponent()
+{
+	EEntity* Owner = GetOwner();
 }
