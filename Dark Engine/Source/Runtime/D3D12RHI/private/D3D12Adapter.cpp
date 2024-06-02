@@ -135,6 +135,25 @@ bool FD3D12Adapter::CheckFeaturesOrCrash()
 	return true;
 }
 
+void FD3D12Adapter::GetAvailableDynamicSuperResolutions()
+{
+	if (bDeviceCreated && !bDSRDescAvailable)
+	{
+		const uint32 DSRVariantCount = DSRDevice->GetNumSuperResVariants();
+		AvailableSuperResolutions.Resize(DSRVariantCount);
+
+		for (uint32 i = 0; i < DSRVariantCount; ++i)
+		{
+			DSR_SUPERRES_VARIANT_DESC& VariantDesc = AvailableSuperResolutions[i];
+			DSRDevice->GetSuperResVariantDesc(i, &VariantDesc);
+			DE_LOG(D3D12RHI, Log, TEXT("Avalible SR: %s"), *FString(VariantDesc.VariantName));
+		}
+		bDSRDescAvailable = true;
+	}
+
+
+}
+
 #undef GetMessage
 
 void FD3D12Adapter::CreateRootDevice(bool bWithDebug)
@@ -163,7 +182,6 @@ void FD3D12Adapter::CreateRootDevice(bool bWithDebug)
 	}
 
 	CreateDXGIFactory2(0, IID_PPV_ARGS(&DXGIFactory));
-	UpgradeInterface(&DXGIFactory);
 
 	ComPtr<IDXGIAdapter> TempAdapter;
 
@@ -177,6 +195,14 @@ void FD3D12Adapter::CreateRootDevice(bool bWithDebug)
 			IID_PPV_ARGS(&RootDevice)));
 		RootDevice->QueryInterface(IID_PPV_ARGS(&RootDevice2));
 		RootDevice->QueryInterface(IID_PPV_ARGS(&RootDevice10));
+
+		bDeviceCreated = true;
+
+#if D3D12_USING_DIRECTSR
+		DXCall(D3D12GetInterface(CLSID_D3D12DSRDeviceFactory, IID_PPV_ARGS(&DSRDeviceFactory)));
+		DSRDeviceFactory->CreateDSRDevice(RootDevice.Get(), 1, IID_PPV_ARGS(&DSRDevice));
+		GetAvailableDynamicSuperResolutions();
+#endif 
 	}
 	else
 	{

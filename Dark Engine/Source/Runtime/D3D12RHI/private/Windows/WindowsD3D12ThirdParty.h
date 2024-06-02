@@ -21,6 +21,11 @@
 #include <dxgidebug.h>
 #include "WinPixEventRuntime/pix3.h"
 
+#if D3D12_USING_DIRECTSR
+#include "D3D12/directsr.h"
+#endif // D3D12_USING_DIRECTSR
+
+
 
 
 #pragma comment(lib, "D3D12.lib")

@@ -113,12 +113,24 @@ FORCEINLINE D3D12_RENDER_PASS_ENDING_ACCESS_TYPE GetRenderPassEndingAccess(ERend
 	case ERenderPassMode::Discard: return D3D12_RENDER_PASS_ENDING_ACCESS_TYPE_DISCARD;
 	case ERenderPassMode::Preserve:	return D3D12_RENDER_PASS_ENDING_ACCESS_TYPE_PRESERVE;
 	case ERenderPassMode::NoAccess:	return D3D12_RENDER_PASS_ENDING_ACCESS_TYPE_NO_ACCESS;
-	case ERenderPassMode::Clear: check(false);
+	case ERenderPassMode::Clear: check(false) break;
 	case ERenderPassMode::Resolve: return D3D12_RENDER_PASS_ENDING_ACCESS_TYPE_RESOLVE;
 	default: return D3D12_RENDER_PASS_ENDING_ACCESS_TYPE_DISCARD;
 	}
+	return D3D12_RENDER_PASS_ENDING_ACCESS_TYPE_DISCARD;
 }
 
+FORCEINLINE EPixelFormat GetPixelFormat(DXGI_FORMAT InFormat)
+{
+	for (uint32 i = 0; i < DE_ARRAY_COUNT(GDXGIFormats); ++i)
+	{
+		if (InFormat == GDXGIFormats[i])
+		{
+			return (EPixelFormat)i;
+		}
+	}
+	return EPixelFormat::PF_Unknown;
+}
 
 FORCEINLINE DXGI_FORMAT GetDXGIFormat(EPixelFormat InFormat)
 {

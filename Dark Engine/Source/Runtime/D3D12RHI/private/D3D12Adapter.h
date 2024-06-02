@@ -61,6 +61,7 @@ public:
 	bool CheckFeaturesOrCrash();
 
 
+
 	const int32 GetAdapterIndex() const { return Desc.AdapterIndex; }
 	const D3D_FEATURE_LEVEL GetFeatureLevel() const { return Desc.MaxSupportFeatureLevel; }
 	ID3D12Device* GetD3DDevice() const { return RootDevice.Get(); }
@@ -78,6 +79,8 @@ public:
 	void SetDebugMessages(bool bOn);
 	void CreateDXGIFactory(bool bWithDebug = false);
 
+	const TArray<DSR_SUPERRES_VARIANT_DESC>& GetDSRDescs() const { return AvailableSuperResolutions; }
+
 	FD3D12Device* GetDevice(uint32 Index = 0) const { return Devices[Index].get(); }
 
 	TArray<FD3D12Viewport*>& GetViewports() { return Viewports; }
@@ -87,8 +90,10 @@ public:
 
 	class FD3D12RootSignatureManager* const RootSignatureManager;
 
-
 	CD3DX12FeatureSupport FeatureSupport;
+
+private:
+	void GetAvailableDynamicSuperResolutions();
 
 private:
 	FD3D12AdapterDesc Desc = {};
@@ -97,13 +102,17 @@ private:
 	ComPtr<ID3D12Device10> RootDevice10;
 	ComPtr<IDXGIFactory7> DXGIFactory;
 	ComPtr<IDXGIAdapter4> DXGIAdapter;
+	ComPtr<ID3D12DSRDeviceFactory> DSRDeviceFactory;
+	ComPtr<IDSRDevice> DSRDevice;
 	TStaticArray<TSharedPtr<FD3D12Device>, 1> Devices;
+	TArray<DSR_SUPERRES_VARIANT_DESC> AvailableSuperResolutions;
 
 	ComPtr<ID3D12InfoQueue1> InfoQueue;
 
 	bool bDebugDevice = false;
 	bool bDeviceCreated;
 	bool bDestroyed = false;
+	bool bDSRDescAvailable = false;
 
 	DWORD CallbackCoockie;
 	bool bCallbackEnable = false;

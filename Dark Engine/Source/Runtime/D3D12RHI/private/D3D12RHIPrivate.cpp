@@ -100,6 +100,21 @@ TSharedPtr<FRHIViewport> FD3D12DynamicRHI::RHICreateViewport(void* WindowHandle,
 	return MakeShareble(RenderingViewport);
 }
 
+void FD3D12DynamicRHI::GetAvailableDynamicSuperResolutions(TArray<FRHIDynamicSuperResolution>& OutAvaliable)
+{
+	const auto& Descs = GetAdapter().GetDSRDescs();
+	uint32 Counter = 0;
+
+	for (const auto& i : Descs)
+	{
+		FRHIDynamicSuperResolution Desc = {};
+		Desc.Id = Counter++;
+		Desc.Name = i.VariantName;
+		Desc.OptimalFormat = GetPixelFormat(i.OptimalTargetFormat);
+		OutAvaliable.Add(Desc);
+	}
+}
+
 FD3D12CommandContext* FD3D12DynamicRHI::CreateCommandContext(FD3D12Device* InParent, ED3D12QueueType InQueueType, bool InIsDefaultContext)
 {
 	return new FD3D12CommandContext(InParent, InQueueType, InIsDefaultContext);

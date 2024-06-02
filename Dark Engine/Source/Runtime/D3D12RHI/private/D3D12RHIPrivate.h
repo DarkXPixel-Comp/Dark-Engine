@@ -38,7 +38,7 @@ public:
 
 	virtual TSharedPtr<FRHIViewport> RHICreateViewport(void* WindowHandle, uint32 SizeX, uint32 SizeY, bool bIsFullscreen) override;
 
-
+	virtual void GetAvailableDynamicSuperResolutions(TArray<FRHIDynamicSuperResolution>& OutAvaliable);
 
 	virtual IRHIComputeContext* RHIGetCommandContext() override;
 	virtual IRHICommandContext* RHIGetDefaultContext() override;

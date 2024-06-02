@@ -27,6 +27,7 @@ public:
 	virtual void Init() = 0;
 	virtual void PostInit() {}
 	virtual void Shutdown() = 0;
+	virtual void GetAvailableDynamicSuperResolutions(TArray<FRHIDynamicSuperResolution>& OutArray) {}
 	virtual TSharedPtr<FRHIViewport> RHICreateViewport(void* WindowHandle, uint32 SizeX, uint32 SizeY, bool bIsFullscreen) = 0;
 	virtual FRHITexture* RHIGetViewportBackBuffer(FRHIViewport* Viewport) = 0;
 	virtual IRHIComputeContext* RHIGetCommandContext() = 0;

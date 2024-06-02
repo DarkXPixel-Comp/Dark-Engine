@@ -2,6 +2,7 @@
 #include "PixelFormat.h"
 #include "CoreTypes.h"
 #include "Misc/EnumClassFlags.h"
+#include "Containers/DarkString.h"
 
 enum class ERHIInterfaceType
 {
@@ -10,6 +11,12 @@ enum class ERHIInterfaceType
 	D3D12
 };
 
+struct FRHIDynamicSuperResolution
+{
+	uint32 Id;
+	FString Name;
+	EPixelFormat OptimalFormat;
+};
 
 enum ERHIResourceType
 {

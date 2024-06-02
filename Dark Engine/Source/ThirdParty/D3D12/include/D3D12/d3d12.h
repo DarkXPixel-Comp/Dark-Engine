@@ -563,6 +563,13 @@ typedef interface ID3D12GraphicsCommandList10 ID3D12GraphicsCommandList10;
 #endif 	/* __ID3D12GraphicsCommandList10_FWD_DEFINED__ */
 
 
+#ifndef __ID3D12DSRDeviceFactory_FWD_DEFINED__
+#define __ID3D12DSRDeviceFactory_FWD_DEFINED__
+typedef interface ID3D12DSRDeviceFactory ID3D12DSRDeviceFactory;
+
+#endif 	/* __ID3D12DSRDeviceFactory_FWD_DEFINED__ */
+
+
 #ifndef __ID3D12GBVDiagnostics_FWD_DEFINED__
 #define __ID3D12GBVDiagnostics_FWD_DEFINED__
 typedef interface ID3D12GBVDiagnostics ID3D12GBVDiagnostics;
@@ -28763,6 +28770,7 @@ DEFINE_GUID(CLSID_D3D12Tools,                        0xe38216b1, 0x3c8c, 0x4833,
 DEFINE_GUID(CLSID_D3D12DeviceRemovedExtendedData,    0x4a75bbc4, 0x9ff4, 0x4ad8, 0x9f, 0x18, 0xab, 0xae, 0x84, 0xdc, 0x5f, 0xf2);
 DEFINE_GUID(CLSID_D3D12SDKConfiguration,             0x7cda6aca, 0xa03e, 0x49c8, 0x94, 0x58, 0x03, 0x34, 0xd2, 0x0e, 0x07, 0xce);
 DEFINE_GUID(CLSID_D3D12DeviceFactory,                0x114863bf, 0xc386, 0x4aee, 0xb3, 0x9d, 0x8f, 0x0b, 0xbb, 0x06, 0x29, 0x55);
+DEFINE_GUID(CLSID_D3D12DSRDeviceFactory,             0xbb6dd27e, 0x94a9, 0x41a6, 0x9f, 0x1b, 0x13, 0x37, 0x72, 0x17, 0x24, 0x28);
 
 typedef HRESULT (WINAPI* PFN_D3D12_GET_INTERFACE)( _In_ REFCLSID, _In_ REFIID, _COM_Outptr_opt_ void** );
 
@@ -34691,6 +34699,95 @@ EXTERN_C const IID IID_ID3D12GraphicsCommandList10;
 #endif 	/* __ID3D12GraphicsCommandList10_INTERFACE_DEFINED__ */
 
 
+#ifndef __ID3D12DSRDeviceFactory_INTERFACE_DEFINED__
+#define __ID3D12DSRDeviceFactory_INTERFACE_DEFINED__
+
+/* interface ID3D12DSRDeviceFactory */
+/* [unique][local][object][uuid] */ 
+
+
+EXTERN_C const IID IID_ID3D12DSRDeviceFactory;
+
+#if defined(__cplusplus) && !defined(CINTERFACE)
+    
+    MIDL_INTERFACE("f343d1a0-afe3-439f-b13d-cd87a43b70ca")
+    ID3D12DSRDeviceFactory : public IUnknown
+    {
+    public:
+        virtual HRESULT STDMETHODCALLTYPE CreateDSRDevice( 
+            ID3D12Device *pD3D12Device,
+            UINT NodeMask,
+            REFIID riid,
+            _COM_Outptr_  void **ppvDSRDevice) = 0;
+        
+    };
+    
+    
+#else 	/* C style interface */
+
+    typedef struct ID3D12DSRDeviceFactoryVtbl
+    {
+        BEGIN_INTERFACE
+        
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
+        HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
+            ID3D12DSRDeviceFactory * This,
+            REFIID riid,
+            _COM_Outptr_  void **ppvObject);
+        
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
+        ULONG ( STDMETHODCALLTYPE *AddRef )( 
+            ID3D12DSRDeviceFactory * This);
+        
+        DECLSPEC_XFGVIRT(IUnknown, Release)
+        ULONG ( STDMETHODCALLTYPE *Release )( 
+            ID3D12DSRDeviceFactory * This);
+        
+        DECLSPEC_XFGVIRT(ID3D12DSRDeviceFactory, CreateDSRDevice)
+        HRESULT ( STDMETHODCALLTYPE *CreateDSRDevice )( 
+            ID3D12DSRDeviceFactory * This,
+            ID3D12Device *pD3D12Device,
+            UINT NodeMask,
+            REFIID riid,
+            _COM_Outptr_  void **ppvDSRDevice);
+        
+        END_INTERFACE
+    } ID3D12DSRDeviceFactoryVtbl;
+
+    interface ID3D12DSRDeviceFactory
+    {
+        CONST_VTBL struct ID3D12DSRDeviceFactoryVtbl *lpVtbl;
+    };
+
+    
+
+#ifdef COBJMACROS
+
+
+#define ID3D12DSRDeviceFactory_QueryInterface(This,riid,ppvObject)	\
+    ( (This)->lpVtbl -> QueryInterface(This,riid,ppvObject) ) 
+
+#define ID3D12DSRDeviceFactory_AddRef(This)	\
+    ( (This)->lpVtbl -> AddRef(This) ) 
+
+#define ID3D12DSRDeviceFactory_Release(This)	\
+    ( (This)->lpVtbl -> Release(This) ) 
+
+
+#define ID3D12DSRDeviceFactory_CreateDSRDevice(This,pD3D12Device,NodeMask,riid,ppvDSRDevice)	\
+    ( (This)->lpVtbl -> CreateDSRDevice(This,pD3D12Device,NodeMask,riid,ppvDSRDevice) ) 
+
+#endif /* COBJMACROS */
+
+
+#endif 	/* C style interface */
+
+
+
+
+#endif 	/* __ID3D12DSRDeviceFactory_INTERFACE_DEFINED__ */
+
+
 #ifndef __ID3D12GBVDiagnostics_INTERFACE_DEFINED__
 #define __ID3D12GBVDiagnostics_INTERFACE_DEFINED__
 
@@ -34841,7 +34938,7 @@ EXTERN_C const IID IID_ID3D12GBVDiagnostics;
 #endif 	/* __ID3D12GBVDiagnostics_INTERFACE_DEFINED__ */
 
 
-/* interface __MIDL_itf_d3d12_0000_0074 */
+/* interface __MIDL_itf_d3d12_0000_0075 */
 /* [local] */ 
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES) */
@@ -34919,11 +35016,12 @@ DEFINE_GUID(IID_ID3D12GraphicsCommandList7,0xdd171223,0x8b61,0x4769,0x90,0xe3,0x
 DEFINE_GUID(IID_ID3D12GraphicsCommandList8,0xee936ef9,0x599d,0x4d28,0x93,0x8e,0x23,0xc4,0xad,0x05,0xce,0x51);
 DEFINE_GUID(IID_ID3D12GraphicsCommandList9,0x34ed2808,0xffe6,0x4c2b,0xb1,0x1a,0xca,0xbd,0x2b,0x0c,0x59,0xe1);
 DEFINE_GUID(IID_ID3D12GraphicsCommandList10,0x7013c015,0xd161,0x4b63,0xa0,0x8c,0x23,0x85,0x52,0xdd,0x8a,0xcc);
+DEFINE_GUID(IID_ID3D12DSRDeviceFactory,0xf343d1a0,0xafe3,0x439f,0xb1,0x3d,0xcd,0x87,0xa4,0x3b,0x70,0xca);
 DEFINE_GUID(IID_ID3D12GBVDiagnostics,0x597985ab,0x9b75,0x4dbb,0xbe,0x23,0x07,0x61,0x19,0x5b,0xeb,0xee);
 
 
-extern RPC_IF_HANDLE __MIDL_itf_d3d12_0000_0074_v0_0_c_ifspec;
-extern RPC_IF_HANDLE __MIDL_itf_d3d12_0000_0074_v0_0_s_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_d3d12_0000_0075_v0_0_c_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_d3d12_0000_0075_v0_0_s_ifspec;
 
 /* Additional Prototypes for ALL interfaces */
 
