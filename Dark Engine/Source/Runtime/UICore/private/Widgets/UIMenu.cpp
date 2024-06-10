@@ -40,14 +40,35 @@ void UIMenuItem::DrawImGui()
 
 void UIMenuItem::Update(float DeltaTime)
 {
-	if (ChildWidgets.Num() == 1 && ChildWidgets[0]->bHaveCloseButton && (ChildWidgets[0]->IsOpen() != bPressed))
+	if(!DependWidget)
 	{
-		bPressed = ChildWidgets[0]->IsOpen();
-		bLastPressed = bPressed;
+		/*if (ChildWidgets.Num() == 1 && ChildWidgets[0]->bHaveCloseButton && (ChildWidgets[0]->IsOpen() != bPressed))
+		{
+			bPressed = ChildWidgets[0]->IsOpen();
+			bLastPressed = bPressed;
+		}*/
+		if (bPressed != false)
+		{
+			MenuItemDelegate.BroadCast(bPressed);
+			//bLastPressed = bPressed;
+			bPressed = false;
+		}
 	}
-	if (bPressed != bLastPressed)
+	else
 	{
-		MenuItemDelegate.BroadCast(bPressed);
+		if (!bPressed && bLastPressed)
+		{
+			DependWidget->CloseWidget();
+			DependWidget.reset();
+			bLastPressed = bPressed;
+			return;
+		}
+		bPressed = DependWidget->IsOpen();
+		if (!bPressed)
+		{
+			DependWidget.reset();
+		}
+
 		bLastPressed = bPressed;
 	}
 }

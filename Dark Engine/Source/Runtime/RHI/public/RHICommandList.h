@@ -97,6 +97,11 @@ public:
 		GetContext().RHISetStreamSource(StreamIndex, VertexBuffer, Offset, Stride);
 	}
 
+	void SetStreamSource(uint32 StreamIndex, FRHIUniformBuffer* VertexBuffer, uint32 Offset, uint32 Stride)
+	{
+		GetContext().RHISetStreamSource(StreamIndex, VertexBuffer, Offset, Stride);
+	}
+
 	void DrawIndexedPrimitive(FRHIBuffer* IndexBufferRHI, int32 BaseVertexIndex, uint32 FirstInstance, uint32 NumVertices, uint32 StartIndex, uint32 NumPrimitives, uint32 NumInstances)
 	{
 		GetContext().RHIDrawIndexedPrimitive(IndexBufferRHI, BaseVertexIndex, FirstInstance, NumVertices, StartIndex, NumPrimitives, NumInstances);

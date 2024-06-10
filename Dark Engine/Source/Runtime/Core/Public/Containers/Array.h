@@ -66,8 +66,8 @@ public:
 	//decltype(auto) end() const { return _vector.end(); }
 
 
-	void Add(ElementType&& Item) { return _vector.push_back(Item); }
-	void Add(const ElementType& Item) { return _vector.push_back(Item); }
+	SizeType Add(ElementType&& Item) { _vector.push_back(Item); return Num() - 1; }
+	SizeType Add(const ElementType& Item) { _vector.push_back(Item); return Num() - 1;}
 
 	void Push(ElementType&& Item) { _vector.push_back(Item); }
 	void Push(const ElementType& Item) { _vector.push_back(Item); }

@@ -38,14 +38,17 @@ public:
 	virtual void DrawImGui();
 	virtual void Update(float DeltaTime);
 
+	void SetDependWidget(TSharedPtr<UIWidget> InWidget)
+	{
+		DependWidget = InWidget;
+	}
+
 
 
 	FUIMenuItemDelegate MenuItemDelegate;
 private:
 	bool bPressed = false;
 	bool bLastPressed = false;
-
-
-
+	TSharedPtr<UIWidget> DependWidget;
 
 };

@@ -162,7 +162,7 @@ void FD3D12Viewport::Init()
 	
 	if (SwapChain1 == nullptr)
 	{
-		DXGI_SWAP_CHAIN_DESC SwapChainDesc = {};
+		/*DXGI_SWAP_CHAIN_DESC SwapChainDesc = {};
 		SwapChainDesc.BufferDesc = BufferDesc;
 		SwapChainDesc.SampleDesc = { 1, 0 };
 		SwapChainDesc.BufferUsage = DXGI_USAGE_RENDER_TARGET_OUTPUT | DXGI_USAGE_SHADER_INPUT;
@@ -170,14 +170,39 @@ void FD3D12Viewport::Init()
 		SwapChainDesc.OutputWindow = WindowHandle;
 		SwapChainDesc.Windowed = !bIsFullscreen;
 		SwapChainDesc.SwapEffect = DXGI_SWAP_EFFECT_FLIP_DISCARD;
-		SwapChainDesc.Flags = SwapChainFlags;
+		SwapChainDesc.Flags = SwapChainFlags;*/
+
+		DXGI_SWAP_CHAIN_DESC1 SwapChainDesc = {};
+		SwapChainDesc.Width = SizeX;
+		SwapChainDesc.Height = SizeY;
+		SwapChainDesc.BufferCount = NumBackBuffers;
+		SwapChainDesc.BufferUsage = DXGI_USAGE_RENDER_TARGET_OUTPUT | DXGI_USAGE_SHADER_INPUT;
+		SwapChainDesc.Format = GetRenderTargetFormat(PixelFormat);
+		SwapChainDesc.SampleDesc = { 1, 0 };
+		SwapChainDesc.SwapEffect = DXGI_SWAP_EFFECT_FLIP_DISCARD;
+		//SwapChainDesc.Flags = SwapChainFlags;
+		SwapChainDesc.Scaling = DXGI_SCALING_STRETCH;
+		SwapChainDesc.AlphaMode = DXGI_ALPHA_MODE_IGNORE;
+		SwapChainDesc.Stereo = false;
+
 
 
 		TRefCountPtr<IDXGISwapChain> SwapChain;
+		HRESULT hr = S_OK;
 
-		DXCall(Factory->CreateSwapChain(CommandQueue, &SwapChainDesc, &SwapChain));
-		DXCall(SwapChain->QueryInterface(IID_PPV_ARGS(&SwapChain1)));
+		DXGI_SWAP_CHAIN_FULLSCREEN_DESC FullscreenDesc = {};
+		FullscreenDesc.RefreshRate = {0, 0};
+		FullscreenDesc.Scaling = DXGI_MODE_SCALING_STRETCHED;
+		FullscreenDesc.Windowed = false;
+		FullscreenDesc.ScanlineOrdering = DXGI_MODE_SCANLINE_ORDER_PROGRESSIVE;
+
+
+
+		DXCall(hr = Factory->CreateSwapChainForHwnd(CommandQueue, WindowHandle, &SwapChainDesc, nullptr, nullptr, &SwapChain1));
+		
 	}
+
+
 
 
 	if (SwapChain1)
@@ -186,13 +211,13 @@ void FD3D12Viewport::Init()
 		SwapChain1->QueryInterface(IID_PPV_ARGS(&SwapChain3));
 		SwapChain1->QueryInterface(IID_PPV_ARGS(&SwapChain4));
 	}
-	UpgradeInterface(&SwapChain4);
+
 
 
 	Factory->MakeWindowAssociation(WindowHandle, DXGI_MWA_NO_WINDOW_CHANGES);
 
 
-	Resize(BufferDesc.Width, BufferDesc.Height, false, PixelFormat);
+	Resize(BufferDesc.Width, BufferDesc.Height, bIsFullscreen, PixelFormat);
 
 
 
@@ -238,7 +263,7 @@ void FD3D12Viewport::Resize(uint32 InSizeX, uint32 InSizeY, bool bInIsFullscreen
 	}
 
 
-	UINT SwapChainFlags = DXGI_SWAP_CHAIN_FLAG_ALLOW_MODE_SWITCH;
+	UINT SwapChainFlags = 0;//DXGI_SWAP_CHAIN_FLAG_ALLOW_MODE_SWITCH;
 	DXCall(SwapChain1->ResizeBuffers(NumBackBuffers, SizeX, SizeY, GetRenderTargetFormat(InPixelFormat), SwapChainFlags));
 
 	FD3D12Device* Device = Adapter->GetDevice();
@@ -265,6 +290,8 @@ bool FD3D12Viewport::Present(int32 bVsync)
 	DefaultContext.FlushCommands();
 
 	UINT Flags = 0;
+
+	//Flags |= 0;
 
 	if (SwapChain4)
 	{

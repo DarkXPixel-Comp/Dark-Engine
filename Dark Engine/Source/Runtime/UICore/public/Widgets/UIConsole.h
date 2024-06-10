@@ -26,9 +26,4 @@ private:
 	char InputText[256] = "";
 	
 	//TArray<struct FConsoleLog> Messages;
-
-
-
-
-
 };

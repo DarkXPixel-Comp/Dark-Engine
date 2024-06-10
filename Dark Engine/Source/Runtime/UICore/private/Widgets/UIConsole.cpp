@@ -94,6 +94,9 @@ void UIConsole::DrawImGui()
 		for (const auto& Log : Logs)
 		{
 			ImGui::TextColored(ImVec4(Log.Color.X, Log.Color.Y, Log.Color.Z, 1), Log.Log.GetUTF8());
+			//ImGui::LogText(Log.Log.GetUTF8());
+			//ImGui::TextWrapped(Log.Log.GetUTF8());
+
 		}
 
 		if (ScrollToBottom)

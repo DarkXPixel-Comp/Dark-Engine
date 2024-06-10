@@ -206,12 +206,6 @@ GObject* FObjectInitializer::CreateDefaultSubobject(GObject* Outer, FString Name
 	
 		Result = StaticConstructObjectInternal(Params);
 
-
-
-		if (EnumHasAnyFlags(Outer->GetFlags(), OF_ClassDefaultObject) && Outer->GetClass()->GetSuperClass())
-		{
-
-		}
 	}
 
 
@@ -256,6 +250,5 @@ GObject* GObject::CreateDefaultSubobject(FString Name, GClass* ReturnType, GClas
 	check(AllInitializers.Num());
 	FObjectInitializer* CurrentInitializer = AllInitializers.Last();
 
-	//return nullptr;
 	return CurrentInitializer->CreateDefaultSubobject(this, Name, ReturnType, ClassCreateByDefault);
 }

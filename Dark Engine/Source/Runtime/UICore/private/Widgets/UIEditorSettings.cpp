@@ -92,20 +92,20 @@ void UIEditorSettings::DrawImGui()
 
 void UIEditorSettings::Update(float DeltaTime)
 {
+	Super::Update(DeltaTime);
 	if (bChangeSettings)
 	{
 		bChangeSettings = false;
-		if (EditorViewport)
-		{
-			EditorViewport->SetResolution(CurrentSettings.ResolutionViewport.X, CurrentSettings.ResolutionViewport.Y);
-			EditorViewport->SetColorBackground(FVector(CurrentSettings.Color[0], CurrentSettings.Color[1],
-				CurrentSettings.Color[2]));
-			//EditorViewport->SetTexturePath(FString(CurrentSettings.PathTexture));
-			SetTextureBackground(CurrentSettings.PathTexture);
-			UIApplication::Get()->GetRenderer()->SetVsync(CurrentSettings.bVsync);
-		}
+		//if (EditorViewport)
+		//{
+		//	EditorViewport->SetResolution(CurrentSettings.ResolutionViewport.X, CurrentSettings.ResolutionViewport.Y);
+		//	EditorViewport->SetColorBackground(FVector(CurrentSettings.Color[0], CurrentSettings.Color[1],
+		//		CurrentSettings.Color[2]));
+		//	//EditorViewport->SetTexturePath(FString(CurrentSettings.PathTexture));
+		//	SetTextureBackground(CurrentSettings.PathTexture);
+		//	UIApplication::Get()->GetRenderer()->SetVsync(CurrentSettings.bVsync);
+		//}
 	}
-	UIWidget::Update(DeltaTime);
 }
 
 void UIEditorSettings::SetTextureBackground(FString Path)

@@ -1,11 +1,11 @@
 #include "Widgets/UIEntityProperties.h"
 #include "imgui.h"
 #include "CoreGlobals.h"
+#include <cinttypes>
 
 void UIEntityProperties::Update(float DeltaTime)
 {
-
-
+	Super::Update(DeltaTime);
 }
 
 void DrawDragInt32(GProperty* Property, GObject* Entity)
@@ -18,9 +18,15 @@ void DrawDragInt32(GProperty* Property, GObject* Entity)
 void DrawDragUInt32(GProperty* Property, GObject* Entity)
 {
 	uint32* Value = (uint32*)Property->GetValue(Entity);
-	ImGui::DragInt(-Property->GetName(),
+	/*ImGui::DragInt(-Property->GetName(),
 		(int32*)Value, Property->MoveSpeed, Property->MinValue < 0 ? 0 : Property->MinValue, 
-		Property->MaxValue == 0 ? INT32_MAX : Property->MaxValue, "%d");
+		Property->MaxValue == 0 ? INT32_MAX : Property->MaxValue, "%d");*/
+	ImGui::DragScalar(-Property->GetName(),
+		ImGuiDataType_U32, Value, Property->MoveSpeed,
+		Property->MinValue ? &Property->MinValue : nullptr,
+		Property->MaxValue ? &Property->MaxValue : nullptr, "%u",
+		0);
+
 	//ImGui::InputInt(-Property->GetName(), &Value);
 }
 

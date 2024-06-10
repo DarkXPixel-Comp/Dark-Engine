@@ -110,7 +110,12 @@ public:
 	TObjectPtr(U&& Other)
 	{
 		//ObjectPtr = const_cast<std::remove_const_t<T>*>(Other);
-		ObjectPtr = static_cast<T*>(Other);
+		ObjectPtr = (GObject*)static_cast<T*>(Other);
+	}
+
+	FORCEINLINE TObjectPtr<T>& operator=(T& Object)
+	{
+		ObjectPtr = const_cast<std::remove_const_t<T>*>(&Object);
 	}
 
 	template <typename U>
@@ -120,6 +125,22 @@ public:
 		return *this;
 	}
 
+	FORCEINLINE TObjectPtr<T>& operator=(const TObjectPtr<T>& Other)
+	{
+		ObjectPtr = Other.ObjectPtr;
+	}
+
+	FORCEINLINE TObjectPtr<T>& operator=(TObjectPtr<T> Other)
+	{
+		ObjectPtr = Other.ObjectPtr;
+	}
+
+
+	FORCEINLINE TObjectPtr<T>& operator=(T* Other)
+	{
+		ObjectPtr = (GObject*)const_cast<std::remove_const_t<T>*>(Other);
+		return *this;
+	}
 
 	template <typename U>
 	FORCEINLINE TObjectPtr<T>& operator=(const TObjectPtr<U>& Other)

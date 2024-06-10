@@ -13,6 +13,26 @@ public:
 
 	virtual void InitResource(FRHICommandListImmediate& RHICmdList) {}
 
-	void UpdateRHI(FRHICommandList& RHICmdList) {}
+	void UpdateRHI(FRHICommandListImmediate& RHICmdList)
+	{
+		ReleaseRHI();
+		InitRHI(RHICmdList);
+	}
 
+};
+
+class FVertexBuffer : public FRenderResource
+{
+public:
+	virtual void ReleaseRHI() override;
+
+	TRefCountPtr<FRHIBuffer> VertexBufferRHI;
+};
+
+class FIndexBuffer : public FRenderResource
+{
+public:
+	
+
+	TRefCountPtr<FRHIBuffer> IndexBufferRHI;
 };

@@ -46,6 +46,7 @@ public:
 	virtual TRefCountPtr<FRHIComputeShader>	RHICreateComputeShader(const TArray<uint8>& Code, const struct FShaderBounds& Bounds) = 0;
 	virtual TRefCountPtr<FRHIRasterizerState> RHICreateRasterizerState(const FRasterizerStateInitializer& Initializer) = 0;
 	virtual TRefCountPtr<FRHIComputePipelineState>	RHICreateComputePipelineState(class FRHIComputeShader* InComputeShader) = 0;
+	virtual void GetStaticsMemoryToFString(FString& OutString) = 0;
 
 	virtual void RHIUnlockTexture2D(FRHITexture* TextureRHI, uint32 MipIndex, bool bLockWithinMiptail) = 0;
 	virtual ERHIInterfaceType GetInterfaceType() const { return ERHIInterfaceType::Hidden; }
@@ -118,6 +119,13 @@ FORCEINLINE TRefCountPtr<FRHIRasterizerState> RHICreateRasterizerState(const FRa
 {
 	return GDynamicRHI->RHICreateRasterizerState(Initializer);
 }
+
+FORCEINLINE void RHIGetStaticsMemoryToFString(FString& Out)
+{
+	GDynamicRHI->GetStaticsMemoryToFString(Out);
+}
+
+
 
 FORCEINLINE TRefCountPtr<FRHIUniformBuffer>	RHICreateUniformBuffer(const void* Contents, uint32 Size, EUniformBufferUsage Usage)
 {

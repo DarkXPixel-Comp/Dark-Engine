@@ -21,6 +21,7 @@ public:
 		Name(InName)
 	{
 		DE_LOG(UICoreLog, Log, TEXT("Create %s"), *Name);
+		++CounterID;
 	}
 	virtual ~UIWidget() = default;
 	virtual void Update(float DeltaTime);
@@ -32,8 +33,14 @@ public:
 	void SetName(FString InName) { Name = InName; }
 	void AddChild(TSharedPtr<UIWidget> Child)
 	{ 
+		if (AllWidgets.find(Child->Name) != AllWidgets.end())
+		{
+			Child->SetName(FString::PrintF(TEXT("%s%ull"), *Child->Name, CounterID));
+		}
 		Child->Window = Window;
 		Child->Owner = this;
+		Child->bOpen = true;
+		AllWidgets.emplace(Child->Name, Child.get());
 		ChildWidgets.Add(Child);
 	}
 	void RemoveChild(TSharedPtr<UIWidget> Child)
@@ -53,6 +60,8 @@ public:
 		return bOpen;
 	}
 
+	void CloseWidget();
+
 	void SetOpen(bool InbOpen)
 	{
 		bOpen = InbOpen;
@@ -64,22 +73,26 @@ public:
 	FIntRect GetRect() { return Rect; }
 	UIWindow* Window = nullptr;
 	UIWidget* Owner = nullptr;
-	bool bHaveCloseButton = false;
+	bool bHaveCloseButton = true;
  
+protected:
+	typedef UIWidget Super;
+
 
 protected:
 	//void ForEachChild(void(*Func)(UIWidget*));
 	void ForEachChild(std::function<void(UIWidget*)> Func);
-	void CloseWidget();
 	bool* IsWidgetClose()
 	{
-		return bHaveCloseButton ? &bOpen : nullptr;
+		return bHaveCloseButton ? bOpen ? &bOpen : nullptr : nullptr;
 	}
 
 
 private:
 	void InitWindow(UIWindow* InWindow) { Window = InWindow;  }
 	TArray<UIWidget*> DefferedRemoved;
+
+	static uint64 CounterID;
 
 protected:
 	FIntPoint Position;
@@ -89,4 +102,5 @@ protected:
 	FString Name;
 	uint64 Index = 0;
 	bool bOpen = true;
+	static TUnordoredMap<FString, UIWidget*> AllWidgets;
 };

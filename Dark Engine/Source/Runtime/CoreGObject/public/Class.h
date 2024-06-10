@@ -98,7 +98,7 @@ public:
 
 
 	int64 MinValue = 0;
-	int64 MaxValue = 0;
+	int64 MaxValue = INT64_MAX;
 	float MoveSpeed = 1.f;
 
 protected:

@@ -4,7 +4,7 @@
 
 const int32 MAJOR_VERSION = 0;
 const int32 MINOR_VERSION = 1;
-const int32 PATCH_VERSION = 13;
+const int32 PATCH_VERSION = 15;
 const int32 FIX_VERSION = 0;
 const TCHAR* VERSION_PREFIX = TEXT("alpha");
 const constexpr int32 NUMBER_VERSION = MAJOR_VERSION * 1000 + MINOR_VERSION * 100 + PATCH_VERSION * 10 + FIX_VERSION * 1;

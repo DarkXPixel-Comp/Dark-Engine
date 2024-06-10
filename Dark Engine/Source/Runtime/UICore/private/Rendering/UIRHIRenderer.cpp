@@ -4,6 +4,8 @@
 #include "RHICommandList.h"
 #include <CoreGlobals.h>
 #include "Console/GlobalInputOutConsole.h"
+#include "ImGuizmo.h"
+#include "DirectXMath.h"
 #include <future>
 
 
@@ -40,13 +42,20 @@ void FUIRHIRenderer::CreateViewport(UIWindow* InWindow)
 }
 
 void FUIRHIRenderer::Resize(UIWindow* InWindow, const int32 Width, const int32 Height, const bool bWasMinimized)
-{																	 
-	FViewportInfo* Info = WindowToViewportInfo.find(InWindow)->second;
-	Info->bFullscreen = IsViewportFullscreen(*InWindow);
-	Info->Width = Width;
-	Info->Height = Height;
-	Info->ViewportRHI->Resize(Width, Height, bWasMinimized);
+{
+	auto It = WindowToViewportInfo.find(InWindow);
+
+	if (It != WindowToViewportInfo.end())
+	{
+		FViewportInfo* Info = It->second;
+		Info->bFullscreen = IsViewportFullscreen(*InWindow);
+		Info->Width = Width;
+		Info->Height = Height;
+		Info->ViewportRHI->Resize(Width, Height, bWasMinimized);
+	}
 }
+
+using namespace DirectX;
 
 void FUIRHIRenderer::DrawWindows(const TArray<TSharedPtr<UIWindow>>& InWindows)
 {
@@ -63,10 +72,11 @@ void FUIRHIRenderer::DrawWindows(const TArray<TSharedPtr<UIWindow>>& InWindows)
 				FViewportInfo* ViewInfo = nullptr;
 
 
-				FViewportInfo* FoundViewInfo = WindowToViewportInfo.find(Window.get())->second;
-				if (FoundViewInfo)
+				auto It = WindowToViewportInfo.find(Window.get());
+				//FViewportInfo* FoundViewInfo = WindowToViewportInfo.find(Window.get())->second;
+				if (It != WindowToViewportInfo.end())
 				{
-					ViewInfo = FoundViewInfo;
+					ViewInfo = It->second;
 				}
 				else
 				{
@@ -90,6 +100,8 @@ void FUIRHIRenderer::DrawWindows(const TArray<TSharedPtr<UIWindow>>& InWindows)
 				FRHIRenderPassInfo RPInfo(BackBuffer, ERenderPassMode::Clear, ERenderPassMode::Preserve);
 				RHICmdList->BeginRenderPass(RPInfo);
 				ImGui::NewFrame();
+				ImGuizmo::BeginFrame();
+				ImGuizmo::Enable(true);
 #endif
 				for (auto& Widget : Window->GetWidgets())
 				{

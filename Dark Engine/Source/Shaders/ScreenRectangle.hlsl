@@ -13,12 +13,17 @@ struct Parameters
 ConstantBuffer<Parameters> Params : register(b1);
 
 
-
-void VSMain(in float4 Position : Attribute0, in float2 UV : Attribute1, out float2 uv : TEXCOORD, out float4 InPosition : SV_POSITION)
+struct InVS
 {
-	//StructuredBuffer<float3> PositionBuffer = ResourceDescriptorHeap[0];
-	InPosition = Position;
-	uv = UV;
+	float4 Position : Attribute0;
+	float2 UV : Attribute1;
+	float3 Transform : Attribute2;
+};
+
+void VSMain(InVS In, out float2 uv : TEXCOORD, out float4 InPosition : SV_POSITION)
+{
+	InPosition = float4(In.Position + In.Transform, 1.f);
+	uv = In.UV;
 }
 
 void PSMain(in float2 uv : TEXCOORD, in float4 InPosition : SV_POSITION, out float4 Color : SV_Target)

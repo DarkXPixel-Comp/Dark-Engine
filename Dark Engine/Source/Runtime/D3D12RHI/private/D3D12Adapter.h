@@ -61,6 +61,7 @@ public:
 	bool CheckFeaturesOrCrash();
 
 
+	D3D12MA::Allocator* GetMemoryAllocator() const { return MemoryAllocator.Get(); }
 
 	const int32 GetAdapterIndex() const { return Desc.AdapterIndex; }
 	const D3D_FEATURE_LEVEL GetFeatureLevel() const { return Desc.MaxSupportFeatureLevel; }
@@ -100,6 +101,9 @@ private:
 	ComPtr<ID3D12Device> RootDevice;
 	ComPtr<ID3D12Device2> RootDevice2;
 	ComPtr<ID3D12Device10> RootDevice10;
+#if D3D12_USING_MEMORY_ALLOCATOR
+	ComPtr<D3D12MA::Allocator> MemoryAllocator;
+#endif
 	ComPtr<IDXGIFactory7> DXGIFactory;
 	ComPtr<IDXGIAdapter4> DXGIAdapter;
 	ComPtr<ID3D12DSRDeviceFactory> DSRDeviceFactory;

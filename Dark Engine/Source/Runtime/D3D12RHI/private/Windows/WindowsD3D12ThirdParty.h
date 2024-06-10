@@ -10,12 +10,12 @@
 
 #define INITGUID
 
-//extern "C" { __declspec(dllexport) extern const UINT D3D12SDKVersion = 613; }
-//
-//extern "C" { __declspec(dllexport) extern const char* D3D12SDKPath = ".\\D3D12\\"; }
 
 #include "D3D12/d3d12.h"
-#include <d3d12.h>
+#if D3D12_USING_MEMORY_ALLOCATOR
+#include "D3D12MA/D3D12MemAlloc.h"
+#endif
+//#include <d3d12.h>
 #include "d3dx12/d3dx12.h"
 #include <dxgi1_6.h>
 #include <dxgidebug.h>

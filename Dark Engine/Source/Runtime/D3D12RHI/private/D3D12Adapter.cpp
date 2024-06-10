@@ -109,7 +109,12 @@ void FD3D12Adapter::InitializeDevices()
 {
 	if (!RootDevice)
 	{
-		CreateRootDevice(D3D12_DEBUG);
+		IConsoleVariable* Var = GGlobalConsole.RegisterConsoleVariable(TEXT("r.D3D12.Debug"), false);
+		if (Var)
+		{
+			bDebugDevice = Var->GetBool();
+		}
+		CreateRootDevice(bDebugDevice);
 	}
 
 	Devices[0] = MakeShareble(new FD3D12Device(this));
@@ -197,6 +202,15 @@ void FD3D12Adapter::CreateRootDevice(bool bWithDebug)
 		RootDevice->QueryInterface(IID_PPV_ARGS(&RootDevice10));
 
 		bDeviceCreated = true;
+
+#if D3D12_USING_MEMORY_ALLOCATOR
+		D3D12MA::ALLOCATOR_DESC AllocatorDesc = {};
+		AllocatorDesc.pDevice = RootDevice.Get();
+		AllocatorDesc.pAdapter = TempAdapter.Get();
+		AllocatorDesc.Flags = D3D12MA::ALLOCATOR_FLAG_DEFAULT_POOLS_NOT_ZEROED;
+
+		DXCall(D3D12MA::CreateAllocator(&AllocatorDesc, &MemoryAllocator));
+#endif
 
 #if D3D12_USING_DIRECTSR
 		DXCall(D3D12GetInterface(CLSID_D3D12DSRDeviceFactory, IID_PPV_ARGS(&DSRDeviceFactory)));

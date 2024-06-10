@@ -163,6 +163,9 @@ public:
 
 	void RHIBeginDrawingViewport(FRHIViewport* Viewport, FRHITexture* RenderTargetRHI) override;
 	void RHIEndDrawingViewport(FRHIViewport* Viewport, bool bPresent, int32 Vsync) override;
+
+protected:
+	uint64 DrawCallsNum = 0;
 };
 
 class FD3D12CommandContext : public FD3D12ContextCommon, public FD3D12CommandContextBase, public FD3D12DeviceChild
@@ -229,6 +232,7 @@ public:
 	//virtual void RHISetShaderUniformBuffer(FRHIGraphicsShader* Shader, uint32 BufferIndex, FRHIUn)
 
 	virtual void RHISetStreamSource(uint32 StreamIndex, FRHIBuffer* VertexBuffer, uint32 Offset, uint32 Stride) override;
+	virtual void RHISetStreamSource(uint32 StreamIndex, FRHIUniformBuffer* VertexBuffer, uint32 Offset, uint32 Stride) override;
 	virtual void RHISetGraphicsPipelineState(class FRHIGraphicsPipelineState* GraphicsPSO, const FBoundShaderStateInput& ShaderInput) override;
 
 	virtual void RHISetComputePipelineState(FRHIComputePipelineState* ComputeState);
@@ -237,28 +241,32 @@ public:
 private:
 	void SettingRenderPass();
 	void BindUniformBuffer(FRHIShader* Shader, EShaderType ShaderType, uint32 BufferIndex, FD3D12UniformBuffer* InBuffer);
-};
-
-class FScopedTransitionResource
-{
-public:
-	FScopedTransitionResource(FD3D12CommandContext& InContext, FD3D12Resource* InResource, D3D12_RESOURCE_STATES After, uint64 InSubresource) :
-		Context(InContext),
-		Resource(InResource),
-		Before(InResource->GetCurrentState()),
-		Subresource(InSubresource)
-	{
-		Context.TransitionResource(Resource, After, Subresource);
-	}
-	~FScopedTransitionResource()
-	{
-		Context.TransitionResource(Resource, Before, Subresource);
-	}
 
 
 private:
-	FD3D12CommandContext& Context;
-	D3D12_RESOURCE_STATES Before;
-	FD3D12Resource* Resource;
-	uint64 Subresource;
+	//uint64 DrawCallsNum = 0;
 };
+
+//class FScopedTransitionResource
+//{
+//public:
+//	FScopedTransitionResource(FD3D12CommandContext& InContext, FD3D12Resource* InResource, D3D12_RESOURCE_STATES After, uint64 InSubresource) :
+//		Context(InContext),
+//		Resource(InResource),
+//		Before(InResource->GetCurrentState()),
+//		Subresource(InSubresource)
+//	{
+//		Context.TransitionResource(Resource, After, Subresource);
+//	}
+//	~FScopedTransitionResource()
+//	{
+//		Context.TransitionResource(Resource, Before, Subresource);
+//	}
+//
+//
+//private:
+//	FD3D12CommandContext& Context;
+//	D3D12_RESOURCE_STATES Before;
+//	FD3D12Resource* Resource;
+//	uint64 Subresource;
+//};

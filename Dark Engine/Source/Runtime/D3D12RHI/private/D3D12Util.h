@@ -163,6 +163,22 @@ FORCEINLINE void VerifyD3D12Result(HRESULT hr, const ANSICHAR* Code, const ANSIC
 }
 
 
+FORCEINLINE D3D12_RESOURCE_DESC1 ResourceDescToResourceDesc1(const D3D12_RESOURCE_DESC& InDesc)
+{
+	D3D12_RESOURCE_DESC1 Desc = {};
+	Desc.Alignment = InDesc.Alignment;
+	Desc.DepthOrArraySize = InDesc.DepthOrArraySize;
+	Desc.Dimension = InDesc.Dimension;
+	Desc.Flags = InDesc.Flags;
+	Desc.Format = InDesc.Format;
+	Desc.Height = InDesc.Height;
+	Desc.Layout = D3D12_TEXTURE_LAYOUT_UNKNOWN;
+	Desc.MipLevels = InDesc.MipLevels;
+	Desc.SampleDesc = InDesc.SampleDesc;
+	Desc.Width = InDesc.Width;
+	return Desc;
+}
+
 
 
 #define DXCall(x) {HRESULT Result = x; if(FAILED(Result)) {VerifyD3D12Result(Result, #x, __FILE__, __LINE__);}}

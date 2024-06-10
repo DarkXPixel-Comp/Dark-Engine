@@ -54,6 +54,7 @@ public:
 		if (Res >= 0 && Res < sizeof(Buf))
 		{
 			*this += Buf;
+			bChangedString = true;
 		}
 		return *this;
 	}
@@ -61,11 +62,13 @@ public:
 	void PopBack()
 	{
 		_string.erase(_string.begin() + _string.size() - 1);
+		bChangedString = true;
 	}
 
 	void PopFirst()
 	{
 		_string.erase(_string.begin());
+		bChangedString = true;
 	}
 
 	TCHAR Back() const
@@ -133,8 +136,8 @@ public:
 	static FString PrintFInternal(const TCHAR* Fmt, ...);
 
 
-	FString& operator=(const TCHAR* Str) { _string = Str; return *this; }
-	FString& operator=(const FString& Str) { _string = Str._string; return *this; }
+	FString& operator=(const TCHAR* Str) { bChangedString = true; _string = Str; return *this; }
+	FString& operator=(const FString& Str) { bChangedString = true; _string = Str._string; return *this; }
 
 	const char* operator-() const
 	{
@@ -201,7 +204,6 @@ public:
 
 	const std::wstring& GetNativeString() const
 	{
-		bChangedString = true;
 		return _string;
 	}
 
@@ -209,7 +211,7 @@ public:
 
 	int32 Len() const;
 	decltype(auto) Data() const { return _string.c_str(); }
-	TCHAR* Data() { return _string.data(); }
+	TCHAR* Data() { bChangedString = true; return _string.data(); }
 
 	std::string ToString() const;
 
@@ -272,6 +274,7 @@ public:
 	}
 	FString& operator+=(FString R)
 	{
+		bChangedString = true;
 		_string += R._string;
 		return *this;
 	}
@@ -298,6 +301,8 @@ public:
 	decltype(auto) begin() { bChangedString = true; return _string.begin(); }
 	decltype(auto) end() { bChangedString = true; return _string.end(); }
 
+	decltype(auto) begin() const { return _string.begin(); }
+	decltype(auto) end() const { return _string.end(); }
 
 
 private:

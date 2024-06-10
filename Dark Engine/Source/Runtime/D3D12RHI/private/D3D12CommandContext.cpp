@@ -99,14 +99,14 @@ void FD3D12ContextCommon::TransitionResource(ID3D12Resource* Resource, D3D12_RES
 
 void FD3D12ContextCommon::TransitionResource(FD3D12Resource* Resource, D3D12_RESOURCE_STATES After, uint32 SubResource)
 {
-	D3D12_RESOURCE_STATES Before = Resource->GetCurrentState();
+	/*D3D12_RESOURCE_STATES Before = Resource->GetCurrentState();
 	if (Before == After)
 	{
 		Resource->SetState(After);
 		return;
 	}
 
-	Barriers.Add({After, Resource, SubResource});
+	Barriers.Add({After, Resource, SubResource});*/
 }
 void FD3D12ContextCommon::TransitionResource(FD3D12Buffer* Buffer, CD3DX12_BUFFER_BARRIER BufferBarrier)
 {
@@ -192,7 +192,7 @@ void FD3D12ContextCommon::FlushBarriers()
 		EnhancedFlushBarriers();
 		//return;
 	}
-	if(Barriers.Num())
+	/*if(Barriers.Num())
 	{
 		TArray<CD3DX12_RESOURCE_BARRIER> ResourceBarriers(ArrayReserve(Barriers.Num()));
 
@@ -218,7 +218,7 @@ void FD3D12ContextCommon::FlushBarriers()
 		}
 		GetCommandList().GetGraphicsCommandList()->ResourceBarrier(ResourceBarriers.Num(), ResourceBarriers.GetData());
 		Barriers.Empty();
-	}
+	}*/
 }
 
 void FD3D12ContextCommon::EnhancedFlushBarriers()
@@ -302,6 +302,7 @@ void FD3D12CommandContextBase::RHIBeginDrawingViewport(FRHIViewport* RHIViewport
 void FD3D12CommandContextBase::RHIEndDrawingViewport(FRHIViewport *Viewport, bool bPresent, int32 Vsync)
 {
 	FD3D12Viewport* ViewportRHI = reinterpret_cast<FD3D12Viewport*>(Viewport);
+	DrawCallsNum = 0;
 
 	Parent->SetDrawingViewport(nullptr);
 
@@ -473,8 +474,8 @@ void FD3D12CommandContext::RHIClearTextureColor(FRHITexture* InTexture, FVector 
 	FD3D12Texture* D3DTexture = static_cast<FD3D12Texture*>(InTexture);
 
 
-	TransitionResource(D3DTexture->GetResource(), D3DTexture->GetResource()->GetCurrentState(),
-		D3D12_RESOURCE_STATE_RENDER_TARGET, 0);
+	/*TransitionResource(D3DTexture->GetResource(), D3DTexture->GetResource()->GetCurrentState(),
+		D3D12_RESOURCE_STATE_RENDER_TARGET, 0);*/
 
 	FlushBarriers();
 
@@ -559,6 +560,8 @@ void FD3D12CommandContext::RHIDrawIndexedPrimitive(FRHIBuffer* IndexBufferRHI, i
 
 	GetGraphicsList()->DrawIndexedInstanced(IndexCount, NumInstances, StartIndex, BaseVertexIndex,
 		FirstInstance);
+
+	++DrawCallsNum;
 }
 
 void FD3D12CommandContext::RHIDispatchComputeShader(uint32 ThreadGroupCountX, uint32 ThreadGroupCountY, uint32 ThreadGroupCountZ)
@@ -692,6 +695,13 @@ void FD3D12CommandContext::RHISetShaderParameters(FRHIComputeShader* Shader, TAr
 void FD3D12CommandContext::RHISetStreamSource(uint32 StreamIndex, FRHIBuffer* VertexBufferRHI, uint32 Offset, uint32 Stride)
 {
 	FD3D12Buffer* VertexBuffer = static_cast<FD3D12Buffer*>(VertexBufferRHI);
+
+	StateCache.SetStreamSource(&VertexBuffer->ResourceLocation, StreamIndex, Offset, Stride);
+}
+
+void FD3D12CommandContext::RHISetStreamSource(uint32 StreamIndex, FRHIUniformBuffer* VertexBufferRHI, uint32 Offset, uint32 Stride)
+{
+	FD3D12UniformBuffer* VertexBuffer = static_cast<FD3D12UniformBuffer*>(VertexBufferRHI);
 
 	StateCache.SetStreamSource(&VertexBuffer->ResourceLocation, StreamIndex, Offset, Stride);
 }

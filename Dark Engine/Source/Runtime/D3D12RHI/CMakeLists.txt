@@ -38,6 +38,7 @@ target_compile_definitions(D3D12RHI PRIVATE D3D12_ENHANCED_BARRIERS=0)
 target_compile_definitions(D3D12RHI PRIVATE D3D12_NVIDIA_STREAMLINE=0)
 target_compile_definitions(D3D12RHI PRIVATE D3D12_AGILITY_VERSION=714)
 target_compile_definitions(D3D12RHI PRIVATE D3D12_USING_DIRECTSR=1)
+target_compile_definitions(D3D12RHI PRIVATE D3D12_USING_MEMORY_ALLOCATOR=1)
 
 
 

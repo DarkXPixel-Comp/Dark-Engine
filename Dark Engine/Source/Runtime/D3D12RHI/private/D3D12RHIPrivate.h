@@ -29,6 +29,8 @@ public:
 
 	const uint64 GetNumAdapters() const { return /*ChosenAdapters.GetSize()*/0; }
 
+	virtual void GetStaticsMemoryToFString(FString& OutString) override;
+
 	void Init() override;
 
 	void PostInit() override;

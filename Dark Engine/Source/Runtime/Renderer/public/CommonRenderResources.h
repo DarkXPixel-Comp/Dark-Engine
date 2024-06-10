@@ -30,8 +30,11 @@ public:
 	{
 		FVertexDeclarationElementList Elements;
 		uint16 Stride = sizeof(FFilterVertex);
-		Elements.Add(FVertexElement(VET_Float4, 0, 0, 0, Stride));
-		Elements.Add(FVertexElement(VET_Float2, 1, 0, 0, Stride));
+		Elements.Add(FVertexElement(VET_Float4, 0, 0xff, 0, Stride));
+		Elements.Add(FVertexElement(VET_Float2, 1, 0xff, 0, Stride));
+	//	Elements.Add(FVertexElement(VET_Float4, 0, 0, 1, Stride, TEXT("Transform"))); 
+		//Elements.Add(FVertexElement(1, 0, VET_Float3, 0, sizeof(FVector3f), 1, TEXT("SV_Transform")));
+		Elements.Add(FVertexElement(1, 0xff, VET_Float3, 2, Stride, 1));
 		VertexDeclaration = RHICreateVertexDeclaration(Elements);
 	}
 

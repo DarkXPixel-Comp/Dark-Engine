@@ -393,23 +393,35 @@ public:
 
 struct FVertexElement
 {
-	uint8 Offset;
-	uint8 Stride;
-	uint8 AttributeIndex;
-	uint8 bUseInstanceIndex;
+	uint8 Offset = 0;
+	uint8 Stride = 0;
+	uint8 AttributeIndex = 0;
+	uint8 bUseInstanceIndex = 0;
 	EVertexElementType Type;
+	uint8 StreamIndex = 0;
 
 	FString Name = TEXT("");
 
 
 	FVertexElement() {}
 
-	FVertexElement(EVertexElementType InType, uint8 InAttributeIndex, uint8 InOffset, uint8 InbUseInstanceIndex, uint8 InStride) :
+	FVertexElement(uint8 InStreamIndex, uint8 InOffset, EVertexElementType InType, uint8 InAttributeIndex, uint8 InStride, uint8 InbUseInstanceIndex = 0, const TCHAR* InName = TEXT("")) :
 		Type(InType),
 		AttributeIndex(InAttributeIndex),
 		Offset(InOffset),
 		bUseInstanceIndex(InbUseInstanceIndex),
-		Stride(InStride)
+		Stride(InStride),
+		StreamIndex(InStreamIndex),
+		Name(InName)
+	{}
+
+	FVertexElement(EVertexElementType InType, uint8 InAttributeIndex, uint8 InOffset, uint8 InbUseInstanceIndex, uint8 InStride, const TCHAR* InName = TEXT("")) :
+		Type(InType),
+		AttributeIndex(InAttributeIndex),
+		Offset(InOffset),
+		bUseInstanceIndex(InbUseInstanceIndex),
+		Stride(InStride),
+		Name(InName)
 	{}
 };
 

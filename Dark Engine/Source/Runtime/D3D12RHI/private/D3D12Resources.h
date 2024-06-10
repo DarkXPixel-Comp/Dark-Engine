@@ -44,7 +44,8 @@ struct FD3D12ResourceDesc1 : public D3D12_RESOURCE_DESC1
 class FD3D12Resource : public FD3D12DeviceChild, public FRefCountedObject
 {
 private:
-	TRefCountPtr<ID3D12Resource> Resource;
+	TRefCountPtr<ID3D12Resource> Resource = nullptr;
+	TRefCountPtr<D3D12MA::Allocation> Allocation = nullptr;
 	TSharedPtr<FD3D12Heap> Heap;
 
 	D3D12_GPU_VIRTUAL_ADDRESS GPUVirtualAddress;
@@ -83,6 +84,13 @@ public:
 		D3D12_HEAP_TYPE InHeapType = D3D12_HEAP_TYPE_DEFAULT
 	);
 
+	FD3D12Resource(
+		FD3D12Device* ParentDevice,
+		D3D12MA::Allocation* InResource,
+		const FD3D12ResourceDesc1& InDesc,
+		D3D12_HEAP_TYPE InHeapType = D3D12_HEAP_TYPE_DEFAULT
+	);
+
 	~FD3D12Resource()
 	{
 
@@ -90,16 +98,16 @@ public:
 
 	D3D12_GPU_VIRTUAL_ADDRESS GetGPUVirtualAddress() const { return GPUVirtualAddress; }
 
-	D3D12_RESOURCE_STATES GetCurrentState() const { return DefaultResourceState; }
+	//D3D12_RESOURCE_STATES GetCurrentState() const { return DefaultResourceState; }
 	D3D12_HEAP_TYPE GetHeapType() const { return HeapType; }
 	void SetState(D3D12_RESOURCE_STATES State) { DefaultResourceState = State; }
 	void SetIsBackBuffer(bool bInBackBuffer) { bBackBuffer = bInBackBuffer; }
 	ID3D12Resource* GetResource() const { return Resource.Get(); }
-	const FD3D12ResourceDesc& GetDesc() const { return Desc; }
+	const FD3D12ResourceDesc1& GetDesc() const { return Desc1; }
 
 	void SetBarrierAccess(D3D12_BARRIER_ACCESS Access)
 	{
-		if (Access == D3D12_BARRIER_ACCESS_NO_ACCESS)
+		if (Access & D3D12_BARRIER_ACCESS_NO_ACCESS)
 		{
 			FlagsAccess = (D3D12_BARRIER_ACCESS)(-1);
 		}
@@ -373,14 +381,15 @@ struct FD3D12LockedResource : public FD3D12DeviceChild
 
 	FORCEINLINE void Reset()
 	{
-		Resource.Reset();
+		Allocation.Reset();
 		bLocked = false;
 		bLockedForReadOnly = false;
 		LockedOffset = 0;
 		LockedPitch = 0;
 	}
 
-	TRefCountPtr<ID3D12Resource> Resource;
+	TRefCountPtr<D3D12MA::Allocation> Allocation;
+	//TRefCountPtr<ID3D12Resource> Resource;
 	//FD3D12ResourceLocation ResourceLocation;
 	D3D12_SUBRESOURCE_FOOTPRINT Footprint = {};
 	uint32 LockedOffset;

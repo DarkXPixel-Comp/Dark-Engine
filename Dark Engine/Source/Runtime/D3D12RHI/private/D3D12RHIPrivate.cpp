@@ -37,6 +37,16 @@ FD3D12DynamicRHI::~FD3D12DynamicRHI()
 
 }
 
+void FD3D12DynamicRHI::GetStaticsMemoryToFString(FString& OutString)
+{
+	TCHAR* Stats;
+
+	GetAdapter().GetMemoryAllocator()->BuildStatsString(&Stats, FALSE);
+	OutString = Stats;
+
+	GetAdapter().GetMemoryAllocator()->FreeStatsString(Stats);
+}
+
 void FD3D12DynamicRHI::Init()
 {
 	DE_LOG(D3D12RHI, Log, TEXT("Start init"));
@@ -196,10 +206,11 @@ TRefCountPtr<FRHIVertexDeclaration> FD3D12DynamicRHI::RHICreateVertexDeclaration
 		Element.SemanticIndex = Elements[i].AttributeIndex;
 		Element.InputSlotClass = Elements[i].bUseInstanceIndex ? D3D12_INPUT_CLASSIFICATION_PER_INSTANCE_DATA : D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA;
 		Element.InstanceDataStepRate = Elements[i].bUseInstanceIndex ? 1 : 0;
-		Element.AlignedByteOffset = D3D12_APPEND_ALIGNED_ELEMENT;
-		//Element.AlignedByteOffset = Elements[i].Offset;
+		//Element.AlignedByteOffset = D3D12_APPEND_ALIGNED_ELEMENT;
+		Element.AlignedByteOffset = Elements[i].Offset == 0xff ? D3D12_APPEND_ALIGNED_ELEMENT : Elements[i].Offset;
 		Element.SemanticName = Elements[i].Name != TEXT("") ? !Elements[i].Name : "Attribute";
-		Element.InputSlot = 0;
+	//	Element.InputSlot = Elements[i].bUseInstanceIndex ? 1 : 0;
+		Element.InputSlot = Elements[i].StreamIndex;
 	}
 	FD3D12VertexDeclaration* VertexDeclaration = new FD3D12VertexDeclaration(D3DElements);
 
@@ -247,6 +258,7 @@ TRefCountPtr<FRHIRasterizerState> FD3D12DynamicRHI::RHICreateRasterizerState(con
 TRefCountPtr<FRHIUniformBuffer> FD3D12DynamicRHI::RHICreateUniformBuffer(const void* Contents, uint32 Size,EUniformBufferUsage Usage)
 {
 	FD3D12UniformBuffer* Result = new FD3D12UniformBuffer(GetAdapter().GetDevice(), Usage);
+	FD3D12Adapter& Adapter = GetAdapter();
 
 	if (Size > 0)
 	{
@@ -254,14 +266,21 @@ TRefCountPtr<FRHIUniformBuffer> FD3D12DynamicRHI::RHICreateUniformBuffer(const v
 		{
 			void* MappedData = nullptr;
 			TRefCountPtr<ID3D12Resource> NewResource;
+			TRefCountPtr<D3D12MA::Allocation> NewAllocation;
 			const D3D12_RESOURCE_DESC BufferDesc = CD3DX12_RESOURCE_DESC::Buffer(Size);
 			const D3D12_RESOURCE_DESC1 BufferDesc1 = CD3DX12_RESOURCE_DESC1::Buffer(Size);
 			const D3D12_HEAP_PROPERTIES HeapProperties = CD3DX12_HEAP_PROPERTIES(D3D12_HEAP_TYPE_UPLOAD);
-			DXCall(GetAdapter().GetD3DDevice10()->CreateCommittedResource3(&HeapProperties, D3D12_HEAP_FLAG_NONE,
-				&BufferDesc1, D3D12_BARRIER_LAYOUT_UNDEFINED, nullptr, nullptr, 0, nullptr, IID_PPV_ARGS(&NewResource)));
+			D3D12MA::ALLOCATION_DESC AllocationDesc = {};
+			AllocationDesc.HeapType = D3D12_HEAP_TYPE_UPLOAD;
+			/*DXCall(GetAdapter().GetD3DDevice10()->CreateCommittedResource3(&HeapProperties, D3D12_HEAP_FLAG_NONE,
+				&BufferDesc1, D3D12_BARRIER_LAYOUT_UNDEFINED, nullptr, nullptr, 0, nullptr, IID_PPV_ARGS(&NewResource)));*/
+			DXCall(GetAdapter().MemoryAllocator->CreateResource3(&AllocationDesc, &BufferDesc1, D3D12_BARRIER_LAYOUT_UNDEFINED, nullptr, 0, nullptr,&NewAllocation, IID_NULL, NULL));
+
 			Result->ResourceLocation.AsStandAlone(new FD3D12Resource(
-				GetAdapter().GetDevice(), NewResource.Get(), D3D12_RESOURCE_STATE_GENERIC_READ,
-				BufferDesc, nullptr, D3D12_HEAP_TYPE_UPLOAD), Size, &HeapProperties);
+				Adapter.GetDevice(), NewAllocation.Get(), BufferDesc1, D3D12_HEAP_TYPE_UPLOAD), Size, &HeapProperties);
+
+
+
 			MappedData = Result->ResourceLocation.GetMappedBaseAddress();
 
 			FMemory::Memcpy(MappedData, Contents, Size);
@@ -336,12 +355,26 @@ FD3D12Texture* FD3D12DynamicRHI::CreateD3D12Texture(const FRHITextureCreateDesc&
 
 
 	TRefCountPtr<ID3D12Resource> D3DTextureResource;
+	TRefCountPtr<D3D12MA::Allocation> TextureAllocation;
 
-	DXCall(Device->GetDevice10()->CreateCommittedResource3(&TextureHeapProperties, D3D12_HEAP_FLAG_NONE, &TextureDesc1,
-		D3D12_BARRIER_LAYOUT_COMMON, bAllowClearValue ? &ClearValue : nullptr, nullptr, 0, nullptr,IID_PPV_ARGS(&D3DTextureResource)));
+	D3D12MA::ALLOCATION_DESC AllocationDesc = {};
+	AllocationDesc.HeapType = D3D12_HEAP_TYPE_DEFAULT;
 
-	FD3D12Resource* TextureResource = new FD3D12Resource(Device, D3DTextureResource.Get(),
-		D3D12_RESOURCE_STATE_COMMON, TextureDesc);
+	/*DXCall(Device->GetDevice10()->CreateCommittedResource3(&TextureHeapProperties, D3D12_HEAP_FLAG_NONE, &TextureDesc1,
+		D3D12_BARRIER_LAYOUT_COMMON, bAllowClearValue ? &ClearValue : nullptr, nullptr, 0, nullptr,IID_PPV_ARGS(&D3DTextureResource)));*/
+	DXCall(GetAdapter().MemoryAllocator->CreateResource3(&AllocationDesc, &TextureDesc1,
+		D3D12_BARRIER_LAYOUT_COMMON, bAllowClearValue ? &ClearValue : nullptr, 0, nullptr,
+		&TextureAllocation, IID_NULL, NULL));
+
+
+	/*FD3D12Resource* TextureResource = new FD3D12Resource(Device, D3DTextureResource.Get(),
+		D3D12_RESOURCE_STATE_COMMON, TextureDesc);*/
+
+	/*new FD3D12Resource(
+		Adapter.GetDevice(), NewAllocation.Get(), BufferDesc1, D3D12_HEAP_TYPE_UPLOAD)*/
+
+	FD3D12Resource* TextureResource = new FD3D12Resource(Device, TextureAllocation.Get(), TextureDesc1, D3D12_HEAP_TYPE_DEFAULT);
+
 	NewTexture->SetResource(TextureResource);
 	DX12::SetName(TextureResource, CreateDesc.DebugName);
 
@@ -377,16 +410,25 @@ void* FD3D12DynamicRHI::RHILockBuffer(FRHIBuffer* BufferRHI, uint32 Offset, uint
 		LockedData.bLockedForReadOnly = true;
 		TRefCountPtr<ID3D12Resource> NewResource;
 		const D3D12_RESOURCE_DESC BufferDesc = CD3DX12_RESOURCE_DESC::Buffer(Size + Offset, D3D12_RESOURCE_FLAG_NONE);
+		const D3D12_RESOURCE_DESC1 BufferDesc1 = CD3DX12_RESOURCE_DESC1::Buffer(Size + Offset);
 		const D3D12_HEAP_PROPERTIES HeapProperties = CD3DX12_HEAP_PROPERTIES(D3D12_HEAP_TYPE_READBACK);
+		D3D12MA::ALLOCATION_DESC AllocationDesc = {};
+		AllocationDesc.HeapType = D3D12_HEAP_TYPE_READBACK;
+		TRefCountPtr<D3D12MA::Allocation> NewAllocation;
 
-		DXCall(Adapter.GetD3DDevice()->CreateCommittedResource(&HeapProperties, D3D12_HEAP_FLAG_NONE,
-			&BufferDesc, D3D12_RESOURCE_STATE_COPY_DEST, nullptr, IID_PPV_ARGS(&NewResource)));
+		DXCall(Adapter.MemoryAllocator->CreateResource3(&AllocationDesc, &BufferDesc1, D3D12_BARRIER_LAYOUT_UNDEFINED,
+			nullptr, 0, nullptr, &NewAllocation, IID_NULL, NULL));
+
+
+		/*DXCall(Adapter.GetD3DDevice()->CreateCommittedResource(&HeapProperties, D3D12_HEAP_FLAG_NONE,
+			&BufferDesc, D3D12_RESOURCE_STATE_COPY_DEST, nullptr, IID_PPV_ARGS(&NewResource)));*/
 
 		/*FD3D12Resource* StagingBuffer = new FD3D12Resource(Device, NewResource.Get(),
 			D3D12_RESOURCE_STATE_COPY_DEST, BufferDesc, nullptr, D3D12_HEAP_TYPE_UPLOAD);*/
 		FD3D12CommandContext& Context = Device->GetDefaultCommandContext();
 
-		Context.TransitionResource(Resource, Resource->GetCurrentState(), D3D12_RESOURCE_STATE_COPY_SOURCE, 0);
+		//Context.TransitionResource(Resource, Resource->GetCurrentState(), D3D12_RESOURCE_STATE_COPY_SOURCE, 0);
+		Context.TransitionBuffer(Resource, D3D12_BARRIER_SYNC_COPY, D3D12_BARRIER_ACCESS_COPY_SOURCE);
 
 		Context.FlushBarriers();
 		Context.GetCommandList().GetGraphicsCommandList()->CopyBufferRegion(NewResource.Get(), 0,
@@ -395,26 +437,31 @@ void* FD3D12DynamicRHI::RHILockBuffer(FRHIBuffer* BufferRHI, uint32 Offset, uint
 		Context.FlushCommands();
 
 
-		LockedData.Resource = NewResource;
+		LockedData.Allocation = NewAllocation;
 
 		D3D12_RANGE Range{ Offset, Size };
-		NewResource->Map(0, &Range, &LockedData.MappedAddress);
+		NewAllocation->GetResource()->Map(0, &Range, &LockedData.MappedAddress);
 		Data = LockedData.MappedAddress;
 	}
 	else
 	{
-		TRefCountPtr<ID3D12Resource> NewResource;
+		//TRefCountPtr<ID3D12Resource> NewResource;
+		TRefCountPtr<D3D12MA::Allocation> NewAllocation;
 		const D3D12_RESOURCE_DESC BufferDesc = CD3DX12_RESOURCE_DESC::Buffer(Size, D3D12_RESOURCE_FLAG_NONE);
 		const D3D12_RESOURCE_DESC1 BufferDesc1 = CD3DX12_RESOURCE_DESC1::Buffer(Size);
 		const D3D12_HEAP_PROPERTIES HeapProperties = CD3DX12_HEAP_PROPERTIES(D3D12_HEAP_TYPE_UPLOAD);
+		D3D12MA::ALLOCATION_DESC AllocationDesc = {};
+		AllocationDesc.HeapType = D3D12_HEAP_TYPE_UPLOAD;
+		DXCall(Adapter.MemoryAllocator->CreateResource3(&AllocationDesc, &BufferDesc1, D3D12_BARRIER_LAYOUT_UNDEFINED,
+			nullptr, 0, nullptr, &NewAllocation, IID_NULL, NULL));
 
-		DXCall(Adapter.GetD3DDevice10()->CreateCommittedResource3(&HeapProperties, D3D12_HEAP_FLAG_NONE,
-			&BufferDesc1, D3D12_BARRIER_LAYOUT_UNDEFINED, nullptr, nullptr, 0, nullptr, IID_PPV_ARGS(&NewResource)));
+		/*DXCall(Adapter.GetD3DDevice10()->CreateCommittedResource3(&HeapProperties, D3D12_HEAP_FLAG_NONE,
+			&BufferDesc1, D3D12_BARRIER_LAYOUT_UNDEFINED, nullptr, nullptr, 0, nullptr, IID_PPV_ARGS(&NewResource)));*/
 
-		LockedData.Resource = NewResource;
+		LockedData.Allocation = NewAllocation;
 
 		D3D12_RANGE Range{ 0, Size };
-		NewResource->Map(0, &Range, &LockedData.MappedAddress);
+		NewAllocation->GetResource()->Map(0, &Range, &LockedData.MappedAddress);
 		Data = LockedData.MappedAddress;
 	}
 
@@ -441,10 +488,10 @@ void FD3D12DynamicRHI::RHIUnlockBuffer(FRHIBuffer* BufferRHI)
 	if (!LockedData.bLockedForReadOnly)
 	{
 		D3D12_RANGE Range{ 0, LockedData.LockedPitch };
-		LockedData.Resource->Unmap(0, &Range);
+		LockedData.Allocation->GetResource()->Unmap(0, &Range);
 		FD3D12CommandContext& Context = Device->GetDefaultCommandContext();
 
-		D3D12_RESOURCE_STATES CurrentState = Buffer->ResourceLocation.GetResource()->GetCurrentState();
+		//D3D12_RESOURCE_STATES CurrentState = Buffer->ResourceLocation.GetResource()->GetCurrentState();
 
 		/*Context.TransitionResource(LockedData.Resource.Get(), D3D12_RESOURCE_STATE_GENERIC_READ,
 			D3D12_RESOURCE_STATE_COPY_SOURCE, 0);*/
@@ -457,13 +504,13 @@ void FD3D12DynamicRHI::RHIUnlockBuffer(FRHIBuffer* BufferRHI)
 
 		Context.TransitionResource((FD3D12Buffer*)nullptr, CD3DX12_BUFFER_BARRIER(D3D12_BARRIER_SYNC_NONE,
 			D3D12_BARRIER_SYNC_COPY, D3D12_BARRIER_ACCESS_NO_ACCESS, D3D12_BARRIER_ACCESS_COPY_SOURCE,
-			LockedData.Resource.Get()));
+			LockedData.Allocation->GetResource()));
 
 		Context.FlushBarriers();
 
 		Context.GetCommandList().GetGraphicsCommandList()->CopyBufferRegion(Buffer->ResourceLocation.GetResource()->GetResource(),
 			LockedData.LockedOffset,
-			LockedData.Resource.Get(), 0, LockedData.LockedPitch);
+			LockedData.Allocation->GetResource(), 0, LockedData.LockedPitch);
 
 
 		/*Buffer->SetBarrierSync(D3D12_BARRIER_SYNC_COPY);
@@ -486,14 +533,22 @@ FD3D12Buffer* FD3D12DynamicRHI::CreateD3D12Buffer(FRHICommandListBase* RHICmdLis
 	FD3D12Device* Device = GetAdapter().GetDevice();
 	FD3D12Resource* Resource = nullptr;
 	TRefCountPtr<ID3D12Resource> D3DResource;
+	TRefCountPtr<D3D12MA::Allocation> Allocation;
 
 	if (BufferDesc.Size > 0)
 	{
-		DXCall(Device->GetDevice10()->CreateCommittedResource3(
+		/*DXCall(Device->GetDevice10()->CreateCommittedResource3(
 			&HeapProperties,
 			D3D12_HEAP_FLAG_NONE,
-			&Desc1, D3D12_BARRIER_LAYOUT_UNDEFINED, nullptr, nullptr, 0, nullptr, IID_PPV_ARGS(&D3DResource)));
-		Resource = new FD3D12Resource(Device, D3DResource.Get(), InitialState, Desc);
+			&Desc1, D3D12_BARRIER_LAYOUT_UNDEFINED, nullptr, nullptr, 0, nullptr, IID_PPV_ARGS(&D3DResource)));*/
+
+		D3D12MA::ALLOCATION_DESC AllocationDesc = {};
+		AllocationDesc.HeapType = D3D12_HEAP_TYPE_DEFAULT;
+
+		DXCall(GetAdapter().MemoryAllocator->CreateResource3(&AllocationDesc, &Desc1, D3D12_BARRIER_LAYOUT_UNDEFINED, nullptr, 0, nullptr, &Allocation, IID_NULL, NULL));
+
+		//Resource = new FD3D12Resource(Device, D3DResource.Get(), InitialState, Desc);
+		Resource = new FD3D12Resource(Device, Allocation.Get(), Desc1, D3D12_HEAP_TYPE_DEFAULT);
 		Buffer = new FD3D12Buffer(Device, BufferDesc);
 		Buffer->ResourceLocation.SetResource(Resource);
 		DX12::SetName(Resource, DebugName);

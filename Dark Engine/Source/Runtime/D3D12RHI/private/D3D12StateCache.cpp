@@ -170,17 +170,6 @@ void FD3D12StateCache::SetStreamSource(FD3D12ResourceLocation* VertexBufferLocat
 		NewView.SizeInBytes != CurrentView.SizeInBytes ||
 		NewView.StrideInBytes != CurrentView.StrideInBytes || true)
 	{
-		/*Context.TransitionResource(*VertexBufferLocation, CD3DX12_BUFFER_BARRIER
-		(
-			VertexBufferLocation->GetBarrierSync(), D3D12_BARRIER_SYNC_VERTEX_SHADING,
-			VertexBufferLocation->GetBarrierAccess(), D3D12_BARRIER_ACCESS_VERTEX_BUFFER
-		));
-
-
-
-		VertexBufferLocation->SetBarrierSync(D3D12_BARRIER_SYNC_VERTEX_SHADING);
-		VertexBufferLocation->SetBarrierAccess(D3D12_BARRIER_ACCESS_VERTEX_BUFFER);*/
-
 		Context.TransitionBuffer(*VertexBufferLocation, D3D12_BARRIER_SYNC_VERTEX_SHADING, D3D12_BARRIER_ACCESS_VERTEX_BUFFER);
 
 		bNeedSetVB = true;

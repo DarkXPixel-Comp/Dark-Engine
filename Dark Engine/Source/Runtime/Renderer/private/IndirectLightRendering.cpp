@@ -61,6 +61,10 @@ void FSceneRender::RenderQuad(FRHICommandListImmediate& RHICmdList)
 	static TRefCountPtr<FRHIUniformBuffer> UniformBuffer = RHICreateUniformBuffer(&Params, sizeof(Params), UniformBuffer_MultiFrame);
 	RHIUpdateUniformBuffer(UniformBuffer.Get(), &Params, sizeof(Params));
 
+	FVector3f Vec3[2] = {FVector3f(0.5f, 0, 0), FVector3f(-0.5f, 0, 0)};
+	static TRefCountPtr<FRHIUniformBuffer> InstanceBuffer = RHICreateUniformBuffer(Vec3, sizeof(FVector3f) * 2, UniformBuffer_MultiFrame);
+	RHIUpdateUniformBuffer(InstanceBuffer.Get(), Vec3, sizeof(FVector3f) * 2);
+
 	FRHIShaderParameterResource Param;
 	Param.Type = FRHIShaderParameterResource::EType::UniformBuffer;
 	Param.Resource = UniformBuffer.Get();
@@ -100,8 +104,9 @@ void FSceneRender::RenderQuad(FRHICommandListImmediate& RHICmdList)
 
 	RHICmdList.RHISetViewport(SceneView->ViewRect.LeftUp.X, SceneView->ViewRect.LeftUp.Y, 0.1f, SceneView->ViewRect.RightDown.X, SceneView->ViewRect.RightDown.Y, 100);
 	RHICmdList.SetStreamSource(0, GRenctangleVertexBuffer->VertexBuffer.Get(), 0, sizeof(FFilterVertex));
+	RHICmdList.SetStreamSource(1, InstanceBuffer.Get(), 0, sizeof(FVector3f));
 	RHICmdList.SetShaderParameters(RHIPixelShader, Parameters, BindlessParameters, ResourceParameters);
-	RHICmdList.DrawIndexedPrimitive(GRenctangleIndexBuffer->IndexBuffer.Get(), 0, 0, 3, 0, 2, 1);
+	RHICmdList.DrawIndexedPrimitive(GRenctangleIndexBuffer->IndexBuffer.Get(), 0, 0, 3, 6, 1, 2);
 
 
 	/*RHICmdList.EndRenderPass(RenderPassInfo);*/

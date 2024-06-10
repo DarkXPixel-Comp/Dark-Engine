@@ -76,17 +76,15 @@ FD3D12Resource::FD3D12Resource(
 	Heap(InHeap),
 	Desc(InDesc),
 	HeapType(InHeapType),
-	DefaultResourceState(InInitialResourceState)
+	DefaultResourceState(InInitialResourceState),
+	Desc1(ResourceDescToResourceDesc1(InDesc))
 {
-	if (Resource && Desc.Dimension == D3D12_RESOURCE_DIMENSION_BUFFER)
+	if (Resource && Desc1.Dimension == D3D12_RESOURCE_DIMENSION_BUFFER)
 	{
 		GPUVirtualAddress = Resource->GetGPUVirtualAddress();
 	}
 
-	DX12::SetName(this, TEXT("NULL"));
-
-
-
+	DX12::SetName(this, TEXT("FD3D12Resource"));
 }
 
 FD3D12Resource::FD3D12Resource(FD3D12Device* ParentDevice, ID3D12Resource* InResource, const FD3D12ResourceDesc1& InDesc, D3D12_HEAP_TYPE InHeapType):
@@ -96,12 +94,28 @@ FD3D12Resource::FD3D12Resource(FD3D12Device* ParentDevice, ID3D12Resource* InRes
 	HeapType(InHeapType),
 	Desc()
 {
-	if (Resource && Desc.Dimension == D3D12_RESOURCE_DIMENSION_BUFFER)
+	if (Resource && Desc1.Dimension == D3D12_RESOURCE_DIMENSION_BUFFER)
 	{
 		GPUVirtualAddress = Resource->GetGPUVirtualAddress();
 	}
 
-	DX12::SetName(this, TEXT("NULL"));
+	DX12::SetName(this, TEXT("FD3D12Resource"));
+}
+
+FD3D12Resource::FD3D12Resource(FD3D12Device* ParentDevice, D3D12MA::Allocation* InResource, const FD3D12ResourceDesc1& InDesc, D3D12_HEAP_TYPE InHeapType) :
+	FD3D12DeviceChild(ParentDevice),
+	Allocation(InResource),
+	Resource(InResource->GetResource()),
+	Desc1(InDesc),
+	HeapType(InHeapType),
+	Desc()
+{
+	if (GetResource() && Desc1.Dimension == D3D12_RESOURCE_DIMENSION_BUFFER)
+	{
+		GPUVirtualAddress = Resource->GetGPUVirtualAddress();
+	}
+
+	DX12::SetName(this, TEXT("FD3D12Resource"));
 }
 
 void FD3D12Buffer::UploadResourceData(FRHICommandListBase& InRHICmdList, const void* Buffer, uint32 SizeBuffer, D3D12_RESOURCE_STATES InDestinationState, const TCHAR* Name)

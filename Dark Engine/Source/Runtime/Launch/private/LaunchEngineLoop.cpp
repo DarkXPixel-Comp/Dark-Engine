@@ -17,6 +17,7 @@
 #include "Widgets/UIConsole.h"
 #include "Widgets/UIWorldOutliner.h"
 #include "Widgets/UIEntityProperties.h"
+#include "Widgets/UIGPUMemoryStats.h"
 #include "Shader.h"
 #include "ShaderCompiler.h"
 #include "Console/GlobalInputOutConsole.h"
@@ -77,7 +78,6 @@ struct FEditorLayout
 		MainDock->AddChild(EntityProperties);
 
 
-
 		RootViewport = MakeShareble(new UIEditorViewport());
 		{
 			RootViewport->SetName(TEXT("EditorViewport"));
@@ -85,8 +85,6 @@ struct FEditorLayout
 			MainDock->AddChild(RootViewport);
 		}
 
-		EditorSettings = MakeShareble(new UIEditorSettings());
-		EditorSettings->SetEditorViewport(RootViewport);
 		//EditorSettings->bHaveCloseButton = true;
 
 		TSharedPtr<UIMenuItem> ExitButton = MakeShareble(new UIMenuItem());
@@ -100,20 +98,25 @@ struct FEditorLayout
 			});
 		
 
+		TestWidget = MakeShareble(new UIWidgetTest());
+		//MainDock->AddChild(TestWidget);
+
 		TSharedPtr<UIMenuItem> CreateSettings = MakeShareble(new UIMenuItem());
 		CreateSettings->SetName(TEXT("Settings"));
 		CreateSettings->MenuItemDelegate.Bind([&, CreateSettings](bool bPressed)
 			{
 				if (bPressed)
 				{
+					TSharedPtr<UIEditorSettings> EditorSettings = MakeShareble(new UIEditorSettings());
+					EditorSettings->SetEditorViewport(RootViewport);
 					MainDock->AddChild(EditorSettings);
-					CreateSettings->AddChild(EditorSettings);
+				//	CreateSettings->AddChild(EditorSettings);
 				}
-				else
-				{
-					CreateSettings->RemoveChild(EditorSettings);
-					MainDock->RemoveChild(EditorSettings);
-				}
+				//else
+				//{
+				//	//CreateSettings->RemoveChild(EditorSettings);
+				//	MainDock->RemoveChild(EditorSettings);
+				//}
 			});
 
 		TSharedPtr<UIMenu> File = MakeShareble(new UIMenu());
@@ -121,6 +124,26 @@ struct FEditorLayout
 		File->SetName(TEXT("File"));
 		File->AddChild(CreateSettings);
 		File->AddChild(ExitButton);
+
+		//GPUMemoryStats = MakeShareble(new UIGPUMemoryStats());
+		//MainDock->AddChild(GPUMemoryStats);
+
+
+		TSharedPtr<UIMenu> Windows = MakeShareble(new UIMenu());
+		Windows->SetName(TEXT("Windows"));
+		MainMenuBar->AddMenu(Windows);
+		{
+			TSharedPtr<UIMenuItem> CreateGPUStats = MakeShareble(new UIMenuItem());
+			CreateGPUStats->SetName(TEXT("GPUStats"));
+			CreateGPUStats->MenuItemDelegate.Bind([this, CreateGPUStats](bool)
+				{
+					TSharedPtr<UIGPUMemoryStats> GPUStats = MakeShareble(new UIGPUMemoryStats());
+					MainDock->AddChild(GPUStats);
+					CreateGPUStats->SetDependWidget(GPUStats);
+					//CreateGPUStats->AddChild(GPUStats);
+				});
+			Windows->AddChild(CreateGPUStats);
+		}
 	
 	}
 
@@ -128,7 +151,7 @@ struct FEditorLayout
 	{
 		RootViewport.reset();
 		MainDock.reset();
-		EditorSettings.reset();
+		//EditorSettings.reset();
 		MainMenuBar.reset();
 	}
 
@@ -136,10 +159,12 @@ public:
 	UIWindow* RootWindow = nullptr;
 	TSharedPtr<UIEditorViewport> RootViewport = nullptr;
 	TSharedPtr<UIDock> MainDock = nullptr;
-	TSharedPtr<UIEditorSettings> EditorSettings;
+//	TSharedPtr<UIEditorSettings> EditorSettings;
 	TSharedPtr<UIMainMenuBar> MainMenuBar;
 	TSharedPtr<UIWorldOutliner>	WorldOutliner;
 	TSharedPtr<UIEntityProperties> EntityProperties;
+	TSharedPtr<UIWidgetTest> TestWidget;
+	//TSharedPtr<UIGPUMemoryStats> GPUMemoryStats;
 
 } EditorLayout;
 
@@ -312,7 +337,7 @@ int32 FEngineLoop::PreInit(const TCHAR* CmdLine)
 			{
 				int32 X, Y;
 				EditorLayout.RootViewport->GetSceneViewport()->Resize(FString::FromString(X, *Args[0]), 
-					FString::FromString(Y, *Args[0]));
+					FString::FromString(Y, *Args[1]));
 			}
 		});
 

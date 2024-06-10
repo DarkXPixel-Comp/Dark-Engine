@@ -58,7 +58,7 @@ void FD3D12Texture::SetResource(FD3D12Resource* InResource)
 
 void FD3D12Texture::CreateViews()
 {
-	D3D12_RESOURCE_DESC ResourceDesc = GetResource()->GetDesc();
+	D3D12_RESOURCE_DESC1 ResourceDesc = GetResource()->GetDesc();
 	FRHITextureDesc Desc = GetDesc();
 
 	const DXGI_FORMAT ResourceFormat = GetDXGIFormat(Desc.Format);
@@ -429,7 +429,8 @@ void* FD3D12Texture::Lock(FRHICommandListImmediate* RHICmdList, uint32 MipIndex,
 	const int32 XBytesAligned = Align(NumBlockX * BlockBytes, FD3D12_TEXTURE_DATA_PITCH_ALIGNMENT);
 	const int32 MipBytesAligned = XBytesAligned * NumBlockY;
 
-	const D3D12_RESOURCE_DESC& CurrentResourceDesc = GetResource()->GetDesc();
+	const D3D12_RESOURCE_DESC1& CurrentResourceDesc1 = GetResource()->GetDesc();
+	const D3D12_RESOURCE_DESC CurrentResourceDesc = GetResource()->GetResource()->GetDesc();
 
 	D3D12_PLACED_SUBRESOURCE_FOOTPRINT PlacedTexture2D = {};
 	Device->GetDevice()->GetCopyableFootprints(&CurrentResourceDesc, Subresource, 1, 0, &PlacedTexture2D, nullptr, nullptr, nullptr);
@@ -456,22 +457,32 @@ void* FD3D12Texture::Lock(FRHICommandListImmediate* RHICmdList, uint32 MipIndex,
 		const D3D12_HEAP_PROPERTIES HeapProps = CD3DX12_HEAP_PROPERTIES(D3D12_HEAP_TYPE_UPLOAD);
 		const D3D12_RANGE Range = { (SIZE_T)0, (SIZE_T)BufferSize };
 
-		Adapter->GetD3DDevice10()->CreateCommittedResource3(&HeapProps,
+		D3D12MA::ALLOCATION_DESC AllocationDesc = {};
+		AllocationDesc.HeapType = D3D12_HEAP_TYPE_UPLOAD;
+
+
+		Adapter->GetMemoryAllocator()->CreateResource3(&AllocationDesc,
+			&ResourceDesc1,D3D12_BARRIER_LAYOUT_UNDEFINED, nullptr, 0, nullptr, &LockedResource->Allocation, IID_NULL, NULL);
+
+		/*Adapter->GetD3DDevice10()->CreateCommittedResource3(&HeapProps,
 			D3D12_HEAP_FLAG_NONE, &ResourceDesc1,
 			D3D12_BARRIER_LAYOUT_UNDEFINED, nullptr, nullptr, 0, nullptr,
-			IID_PPV_ARGS(&LockedResource->Resource));
+			IID_PPV_ARGS(&LockedResource->Resource));*/
 
 	
 
-		LockedResource->Resource->Map(0, &Range, &Data);
+		LockedResource->Allocation->GetResource()->Map(0, &Range, &Data);
 		LockedResource->MappedAddress = Data;
 	}
 	else
 	{
 		LockedResource->bLockedForReadOnly = true;
+		D3D12MA::ALLOCATION_DESC AllocationDesc = {};
+		AllocationDesc.HeapType = D3D12_HEAP_TYPE_READBACK;
 
-		const D3D12_RESOURCE_DESC& TextureDesc = GetResource()->GetDesc();
+		const D3D12_RESOURCE_DESC1& TextureDesc = GetResource()->GetDesc();
 		TRefCountPtr<ID3D12Resource> TextureResource;
+		TRefCountPtr<D3D12MA::Allocation> TextureAllocation;
 
 		const D3D12_RESOURCE_DESC ResourceDesc = CD3DX12_RESOURCE_DESC::Buffer(SubresourceSize,
 			D3D12_RESOURCE_FLAG_NONE);
@@ -480,10 +491,14 @@ void* FD3D12Texture::Lock(FRHICommandListImmediate* RHICmdList, uint32 MipIndex,
 
 		const D3D12_HEAP_PROPERTIES HeapProps = CD3DX12_HEAP_PROPERTIES(D3D12_HEAP_TYPE_READBACK);
 
-		Adapter->GetD3DDevice10()->CreateCommittedResource3(&HeapProps, D3D12_HEAP_FLAG_NONE,
-			&ResourceDesc1, D3D12_BARRIER_LAYOUT_UNDEFINED, nullptr, nullptr, 0, nullptr, IID_PPV_ARGS(&TextureResource));
+		Adapter->GetMemoryAllocator()->CreateResource3(&AllocationDesc, &TextureDesc, D3D12_BARRIER_LAYOUT_UNDEFINED, nullptr, 0, nullptr, &TextureAllocation);
 
-		LockedResource->Resource = TextureResource;
+
+		/*Adapter->GetD3DDevice10()->CreateCommittedResource3(&HeapProps, D3D12_HEAP_FLAG_NONE,
+			&ResourceDesc1, D3D12_BARRIER_LAYOUT_UNDEFINED, nullptr, nullptr, 0, nullptr, IID_PPV_ARGS(&TextureResource));*/
+
+		//LockedResource->Allocation->SetResource(TextureResource.Get());
+		LockedResource->Allocation = TextureAllocation;
 
 		CD3DX12_TEXTURE_COPY_LOCATION DestCopyLocation(TextureResource.Get(), PlacedTexture2D);
 		CD3DX12_TEXTURE_COPY_LOCATION SourceCopyLocation(GetResource()->GetResource(), Subresource);
@@ -516,7 +531,7 @@ void* FD3D12Texture::Lock(FRHICommandListImmediate* RHICmdList, uint32 MipIndex,
 		LockedResource->LockedPitch = XBytesAligned;
 		
 		const D3D12_RANGE Range = { (SIZE_T)0, (SIZE_T)MipBytesAligned };
-		LockedResource->Resource->Map(0, &Range, &Data);
+		LockedResource->Allocation->GetResource()->Map(0, &Range, &Data);
 	}
 	
 
@@ -546,13 +561,13 @@ void FD3D12Texture::Unlock(FRHICommandListImmediate* RHICmdList, uint32 MipIndex
 		FD3D12CommandContext& DefaultContext = GetParentDevice()->GetDefaultCommandContext();
 		FD3D12Resource* Resource = GetResource();
 		
-		const D3D12_RESOURCE_DESC& ResourceDesc = Resource->GetDesc();
+		const D3D12_RESOURCE_DESC1& ResourceDesc = Resource->GetDesc();
 		D3D12_PLACED_SUBRESOURCE_FOOTPRINT PlacedTexture2D;
 		PlacedTexture2D.Offset = 0;
 		PlacedTexture2D.Footprint = LockedResource->Footprint;
 
 
-		CD3DX12_TEXTURE_COPY_LOCATION SourceCopyLocation(LockedResource->Resource.Get(), PlacedTexture2D);
+		CD3DX12_TEXTURE_COPY_LOCATION SourceCopyLocation(LockedResource->Allocation->GetResource(), PlacedTexture2D);
 
 		UpdateTexture(Subresource, 0, 0, 0, SourceCopyLocation);
 
@@ -568,7 +583,7 @@ void FD3D12Texture::UpdateTexture(uint32 MipIndex, uint32 DestX, uint32 DestY, u
 {
 	FD3D12CommandContext& DefaultContext = GetParentDevice()->GetDefaultCommandContext();
 
-	D3D12_RESOURCE_STATES CurrentState = GetResource()->GetCurrentState();
+	//D3D12_RESOURCE_STATES CurrentState = GetResource()->GetCurrentState();
 
 	/*DefaultContext.TransitionResource(GetResource(), CurrentState,
 		D3D12_RESOURCE_STATE_COPY_DEST, MipIndex);*/
