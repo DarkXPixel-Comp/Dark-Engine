@@ -3,8 +3,8 @@ add_library(Engine)
 find_library(EngineLibs Core Render Input ApplicationCore World Editor RHI)
 
 target_compile_features(Engine PUBLIC cxx_std_20)
-target_link_libraries(Engine PUBLIC Input Editor Core RHI Renderer UICore STB)
-target_link_libraries(Engine PRIVATE ApplicationCore CoreGObject Lua)
+target_link_libraries(Engine PUBLIC Input Editor Core RHI Renderer UICore STB DTK12)
+target_link_libraries(Engine PRIVATE Assimp ApplicationCore CoreGObject Lua)
 #target_link_libraries(Engine PUBLIC ${EngineLibs})
 
 #set(Engine_Sources ${Engine_Sources} "private/DEngine.cpp" "Classes/Actor/Actor.cpp"  "Classes/Camera/CameraActor.cpp" "Classes/Components/ActorComponent/ActorComponent.cpp"
@@ -12,6 +12,9 @@ target_link_libraries(Engine PRIVATE ApplicationCore CoreGObject Lua)
 #"Classes/Components/SceneComponent/USceneComponent.cpp" "Classes/TestActor/TestActor.cpp" "Classes/UObject/UObject.cpp"
 # "Classes/Engine/GameViewportClient.h" "Classes/Engine/SceneViewport.h" "public/ViewportClient.h" "public/DarkClient.h" "Classes/Engine/EditorViewportClient.h")
 
+
+#target_link_libraries(Engine PRIVATE "C:/Users/nahmu/source/repos/Dark Engine/Dark Engine/Source/ThirdParty/Assimp/lib/x64/assimp-vc143-mt.lib")
+#target_include_directories(Engine PRIVATE "C:/Users/nahmu/source/repos/Dark Engine/Dark Engine/Source/ThirdParty/Assimp/include")
 
 SettingFiles(EngineSrc)
 target_sources(Engine PRIVATE ${EngineSrc})

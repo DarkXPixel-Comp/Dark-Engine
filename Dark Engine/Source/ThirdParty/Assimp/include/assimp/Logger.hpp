@@ -39,7 +39,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ----------------------------------------------------------------------
 */
 
-/** @file Logger.h
+/** @file Logger.hpp
  *  @brief Abstract base class 'Logger', base of the logging system.
  */
 #pragma once

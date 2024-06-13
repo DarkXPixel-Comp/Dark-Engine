@@ -2,6 +2,7 @@
 #include "RenderResource.h"
 #include "PositionVertexBuffer.h"
 #include "Misc/EnumClassFlags.h"
+#include "RawIndexBuffer.h"
 
 enum class EVertexStreamUsage : uint8
 {
@@ -66,7 +67,7 @@ class FStaticMeshVertexBuffer : public FRenderResource
 public:
 	void Init(uint32 InNumVertices, uint32 InNumTexCoords);
 
-	void Init(const TArray<FStaticMeshVertex>& InVertices);
+	void Init(const TArray<class FStaticMeshVertex>& InVertices);
 
 
 
@@ -100,6 +101,7 @@ struct FStaticMeshLODResources : public FRefCountedObject
 {
 public:
 	FStaticMeshVertexBuffers VertexBuffers;
+	FRawStaticIndexBuffer IndexBuffer;
 
 
 	void InitResources(class GStaticMesh* Parent, int32 LODIndex);
@@ -114,9 +116,15 @@ public:
 
 class FStaticMeshRenderData
 {
+public:
 	float ScreenSize[8];
 
+	TArray<TRefCountPtr<FStaticMeshLODResources>> LODResources;
+	//TArray<FStaticMeshVe>
 
 
+
+
+	void AllocateLODResources(uint32 NumLODs);
 
 };

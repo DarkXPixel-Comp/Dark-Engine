@@ -6,8 +6,7 @@
 
 UIWorldOutliner::UIWorldOutliner() : UIWidget(TEXT("World Outliner"))
 {
-
-
+	bHaveCloseButton = true;
 }
 
 

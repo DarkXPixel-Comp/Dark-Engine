@@ -37,3 +37,13 @@ void FStaticMeshLODResources::InitResources(GStaticMesh* Parent, int32 LODIndex)
 
 
 }
+
+void FStaticMeshRenderData::AllocateLODResources(uint32 NumLODs)
+{	
+	LODResources.Reserve(NumLODs);
+
+	while (LODResources.Num() < NumLODs)
+	{
+		LODResources.Add(new FStaticMeshLODResources);
+	}
+}

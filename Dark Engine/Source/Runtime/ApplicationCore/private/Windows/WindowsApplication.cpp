@@ -90,7 +90,7 @@ int32 FWindowsApplication::ProcessMessage(HWND hWnd, uint32 Msg, WPARAM wParam, 
 
 		if (ImGui_ImplWin32_WndProcHandler(hWnd, Msg, wParam, lParam))
 		{
-			return true;
+			//return true;
 		}
 		switch (Msg)
 		{

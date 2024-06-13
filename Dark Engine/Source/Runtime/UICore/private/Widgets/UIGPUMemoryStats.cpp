@@ -4,6 +4,7 @@
 
 UIGPUMemoryStats::UIGPUMemoryStats() : UIWidget(TEXT("UIGPUMemoryStats"))
 {
+	bHaveCloseButton = true;
 	RHIGetStaticsMemoryToFString(Stats);
 	Counter = 0;
 }

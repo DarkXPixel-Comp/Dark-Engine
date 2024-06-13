@@ -52,7 +52,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #endif
 
 #include <chrono>
-#include <assimp/DefaultLogger.h>
+#include <assimp/DefaultLogger.hpp>
 #include <assimp/TinyFormatter.h>
 
 #include <map>
@@ -68,9 +68,7 @@ using namespace Formatter;
  */
 class Profiler {
 public:
-    Profiler() {
-        // empty
-    }
+    Profiler() = default;
 
 
     /** Start a named timer */

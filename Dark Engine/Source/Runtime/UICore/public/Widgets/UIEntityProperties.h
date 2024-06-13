@@ -12,7 +12,7 @@
 class UIEntityProperties : public UIWidget
 {
 public:
-	UIEntityProperties() : UIWidget(TEXT("UIEntityProperties")) {}
+	UIEntityProperties() : UIWidget(TEXT("UIEntityProperties")) { bHaveCloseButton = true; }
 	virtual void Update(float DeltaTime);
 
 	virtual void DrawImGui();

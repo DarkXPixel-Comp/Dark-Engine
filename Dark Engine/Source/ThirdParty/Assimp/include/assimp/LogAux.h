@@ -52,12 +52,12 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include <assimp/TinyFormatter.h>
 #include <assimp/Exceptional.h>
-#include <assimp/DefaultLogger.h>
+#include <assimp/DefaultLogger.hpp>
 
 namespace Assimp {
 
 /// @brief Logger class, which will extend the class by log-functions.
-/// @tparam TDeriving 
+/// @tparam TDeriving
 template<class TDeriving>
 class LogFunctions {
 public:

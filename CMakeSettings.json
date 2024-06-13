@@ -1,16 +1,16 @@
 ﻿{
 	"configurations": [
 		{
-			"name": "Win64-Debug",
-			"generator": "Ninja",
-			"configurationType": "Debug",
-			"inheritEnvironments": [ "msvc_x64_x64" ],
+			"buildCommandArgs": "",
 			"buildRoot": "${projectDir}\\Dark Engine\\Intermediate\\Build\\${name}",
 			"cmakeCommandArgs": "",
-			"buildCommandArgs": "",
+			"configurationType": "Debug",
 			"ctestCommandArgs": "",
+			"generator": "Ninja",
+			"inheritEnvironments": [ "msvc_x64_x64" ],
 			"installRoot": "${projectDir}\\Dark Engine\\bin",
-			"intelliSenseMode": "windows-msvc-x64"
+			"intelliSenseMode": "windows-msvc-x64",
+			"name": "Win64-Debug"
 		},
 		{
 			"name": "Win64-Release",

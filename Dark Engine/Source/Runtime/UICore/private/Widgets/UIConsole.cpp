@@ -7,6 +7,7 @@ UIConsole::UIConsole():
 	UIWidget(TEXT("UIConsole"))
 {
 	GGlobalConsole.OnAddConsoleMessage.Bind(this, &UIConsole::OnLogAdd);
+	bHaveCloseButton = true;
 }
 
 int32 InputCallback(ImGuiInputTextCallbackData* data)

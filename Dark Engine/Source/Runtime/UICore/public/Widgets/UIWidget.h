@@ -23,7 +23,10 @@ public:
 		DE_LOG(UICoreLog, Log, TEXT("Create %s"), *Name);
 		++CounterID;
 	}
-	virtual ~UIWidget() = default;
+	virtual ~UIWidget()
+	{
+		DE_LOG(UICoreLog, Log, TEXT("Destroy %s"), *Name);
+	}
 	virtual void Update(float DeltaTime);
 	virtual void DrawImGui() {}
 	
@@ -73,7 +76,7 @@ public:
 	FIntRect GetRect() { return Rect; }
 	UIWindow* Window = nullptr;
 	UIWidget* Owner = nullptr;
-	bool bHaveCloseButton = true;
+	bool bHaveCloseButton = false;
  
 protected:
 	typedef UIWidget Super;

@@ -68,7 +68,12 @@ ENDMACRO()
 
 
 
-project("Dark Engine" VERSION 0.1.15.0)
+project("Dark Engine" VERSION 0.1.16.0)
+
+if(MSVC)
+  set(CMAKE_EXE_LINKER_FLAGS
+      "${CMAKE_EXE_LINKER_FLAGS} /NODEFAULTLIB:libcmt.lib /NODEFAULTLIB:libcmtd.lib")
+endif()
 
 
 if(MSVC)

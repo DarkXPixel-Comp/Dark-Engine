@@ -26,6 +26,7 @@
 #include "GameTimer.h"
 #include "Object.h"
 #include "Python.h"
+#include "SceneResourceBuilder.h"
 
 
 //#include "lua.hpp"
@@ -60,7 +61,7 @@ struct FEditorLayout
 
 		TSharedPtr<UIConsole> Console = MakeShareble(new UIConsole());
 		MainDock->AddChild(Console);
-		Console->SetName(TEXT("Console"));
+		//Console->SetName(TEXT("Console"));
 		/*TSharedPtr<UILogs> Logs = MakeShareble(new UILogs());
 		MainDock->AddChild(Logs);
 		Logs->SetName(TEXT("Logs"));*/
@@ -71,10 +72,10 @@ struct FEditorLayout
 		MainDock->SetMainMenuBar(MainMenuBar);
 		MainMenuBar->SetTitle(TEXT("Dark Engine"));
 
-		WorldOutliner = MakeShareble(new UIWorldOutliner());
+		TSharedPtr<UIWorldOutliner> WorldOutliner = MakeShareble(new UIWorldOutliner());
 		MainDock->AddChild(WorldOutliner);
 
-		EntityProperties = MakeShareble(new UIEntityProperties());
+		TSharedPtr<UIEntityProperties> EntityProperties = MakeShareble(new UIEntityProperties());
 		MainDock->AddChild(EntityProperties);
 
 
@@ -143,6 +144,19 @@ struct FEditorLayout
 					//CreateGPUStats->AddChild(GPUStats);
 				});
 			Windows->AddChild(CreateGPUStats);
+
+			TSharedPtr<UIMenuItem> CreateConsole = MakeShareble(new UIMenuItem());
+			CreateConsole->SetName(TEXT("Console"));
+			CreateConsole->SetDependWidget(Console);
+			CreateConsole->MenuItemDelegate.Bind([CreateConsole, Console, this](bool)
+				{
+					TSharedPtr<UIConsole> NewConsole = MakeShareble(new UIConsole());
+					MainDock->AddChild(NewConsole);
+					CreateConsole->SetDependWidget(NewConsole);
+				});
+
+			Windows->AddChild(CreateConsole);
+
 		}
 	
 	}
@@ -161,8 +175,8 @@ public:
 	TSharedPtr<UIDock> MainDock = nullptr;
 //	TSharedPtr<UIEditorSettings> EditorSettings;
 	TSharedPtr<UIMainMenuBar> MainMenuBar;
-	TSharedPtr<UIWorldOutliner>	WorldOutliner;
-	TSharedPtr<UIEntityProperties> EntityProperties;
+	//TSharedPtr<UIWorldOutliner>	WorldOutliner;
+	//TSharedPtr<UIEntityProperties> EntityProperties;
 	TSharedPtr<UIWidgetTest> TestWidget;
 	//TSharedPtr<UIGPUMemoryStats> GPUMemoryStats;
 
@@ -364,6 +378,8 @@ int32 FEngineLoop::Init()
 	DE_LOG(Launch, Log, TEXT("RHI Post init"));
 	((DEditorEngine*)Engine)->NewMap();
 
+
+	//FSceneResourceBuilder::Build(TEXT("Meshes/Cube.fbx"));
 
 
 	return 0;

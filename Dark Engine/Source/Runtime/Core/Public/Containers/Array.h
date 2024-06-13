@@ -59,6 +59,11 @@ public:
 	constexpr decltype(auto) end() { return _vector.end(); }
 
 
+	FORCEINLINE static constexpr SizeType GetTypeSize()
+	{
+		return sizeof(ElementType);
+	}
+
 	//std::vector<ElementType>::iterator begin()
 
 

@@ -32,7 +32,5 @@ public:
 class FIndexBuffer : public FRenderResource
 {
 public:
-	
-
 	TRefCountPtr<FRHIBuffer> IndexBufferRHI;
 };

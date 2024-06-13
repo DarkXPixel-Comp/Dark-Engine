@@ -3,7 +3,7 @@
 #include "Math/Color.h"
 
 
-struct FStaticMeshVertex
+struct FStaticMeshBuildVertex
 {
 	FVector3f Position;
 
@@ -29,7 +29,7 @@ class FPositionVertexBuffer : public FVertexBuffer
 {
 public:
 	void Init(uint32 NumVertices, bool bNeedCPUAccess = true);
-	void Init(const TArray<FStaticMeshVertex>& InVertices, bool bNeedCPUAccess = true);
+	void Init(const TArray<FStaticMeshBuildVertex>& InVertices, bool bNeedCPUAccess = true);
 
 	void Init(const TArray<FVector3f>& InPositions, bool bNeedCPUAccess = true);
 

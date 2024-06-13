@@ -25,6 +25,7 @@ struct FColor
 
 UIEditorSettings::UIEditorSettings() : UIWidget(TEXT("UIEditorSettings"))
 {
+	bHaveCloseButton = true;
 	FMemory::Memzero(TempSettings.PathTexture, 256);
 
 	GGlobalConsole.RegisterConsoleCommand(TEXT("r.D3D12.Debug.Background"), [this](const TArray<FString>& Args)

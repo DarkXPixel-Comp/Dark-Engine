@@ -20,6 +20,18 @@ template <class T>
 using TWeakPtr = std::weak_ptr<T>;
 
 
+template<class T>
+TUniquePtr<T> MakeUnique(T* ptr)
+{
+	return TUniquePtr<T>(ptr);
+}
+
+template<class T, typename ...Args>
+TUniquePtr<T> MakeUnique(Args&&... args)
+{
+	return std::make_unique<T>(args...);
+}
+
 template <class T>
 TSharedPtr<T> MakeShareble(T* ptr)
 {
@@ -28,7 +40,7 @@ TSharedPtr<T> MakeShareble(T* ptr)
 	//return std::make_shared<T>(ptr);
 }
 template <class T, typename ...Args>
-TSharedPtr<T> MakeShareble(Args... args)
+TSharedPtr<T> MakeShareble(Args&&... args)
 {
 	return std::make_shared<T>(args...);
 }

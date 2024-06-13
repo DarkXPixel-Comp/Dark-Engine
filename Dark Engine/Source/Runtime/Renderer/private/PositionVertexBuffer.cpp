@@ -10,7 +10,7 @@ void FPositionVertexBuffer::Init(uint32 InNumVertices, bool bInNeedCPUAccess)
 }
 
 
-void FPositionVertexBuffer::Init(const TArray<FStaticMeshVertex>& InVertices, bool bNeedCPUAccess)
+void FPositionVertexBuffer::Init(const TArray<FStaticMeshBuildVertex>& InVertices, bool bNeedCPUAccess)
 {
 	Init(InVertices.Num(), bNeedCPUAccess);
 
