@@ -2,6 +2,7 @@
 #include "Object.h"
 #include "PropertyMacros.h"
 #include "Engine/EngineBaseTypes.h"
+#include "Math/MathFwd.h"
 
 
 class GTest : public GObject
@@ -34,19 +35,71 @@ public:
 
 	EEntity(const FObjectInitializer& ObjectInitalizer);
 
-	void AddOwnedComponent();
+	void AddOwnedComponent(class GBaseComponent* Component);
 
 	class GBaseComponent* AddComponentByClass(GClass* Class);
 
-	void FinishAddComponent(GBaseComponent* NewComponent);
+	void FinishAddComponent(class GBaseComponent* NewComponent);
 
 	void Init();
 
+	void SetOwner(EEntity* InOwner);
+
+	virtual	void PreRegisterAllComponents();
+
+	virtual void RegisterAllComponents();
+
+	void SetRootComponent(class GSceneComponent* NewRootComponent);
+
+		
+	class FWorld* GetWorld() const;
+	class GLevel* GetLevel() const;
+
+	template<class T>
+	void GetComponents(TArray<T*>& OutComponents) const
+	{
+		OutComponents.Empty();
+		ForEachComponent_Internal<T>(T::StaticClass(), [&OutComponents](T* InComp)
+			{
+				OutComponents.Add(InComp);
+			});
+	}
+
+
+	template<class T, typename Func>
+	void ForEachComponent_Internal(TSubClassOf<GBaseComponent> ComponentClass, Func InFunc) const
+	{
+		for (auto OwnedComponent : OwnedComponents)
+		{
+			if (OwnedComponent)
+			{
+				if (OwnedComponent->Is(ComponentClass))
+				{
+					InFunc(static_cast<T*>(OwnedComponent));
+				}
+			}
+
+		}
+
+
+	}
+	
+	void PostSpawnInitialize(const FTransform& SpawnTransform, EEntity* InOwner);
+
 	FEntityTickFunction PrimaryTick;
+
+	class GSceneComponent* GetRootComponent() const { return RootComponent; }
 
 	
 
 private:
+	TObjectPtr<EEntity>	Owner;
+	TArray<TObjectPtr<EEntity>>	Children;
+	TObjectPtr<GSceneComponent>	RootComponent;
+	TSet<TObjectPtr<GBaseComponent>> OwnedComponents;
+
+
+
 	int32 Test;
 	TObjectPtr<GTest> SubClass;
 	TObjectPtr<GBaseComponent> BaseComponent;

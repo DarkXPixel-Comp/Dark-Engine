@@ -20,6 +20,6 @@ public:
 
 private:
 	TObjectPtr<class GStaticMeshComponent> MeshComponent;
-	TSubClassOf<GObjectBase> SubClass;
+	TSubClassOf<class GStaticMeshComponent> SubClass;
 	int32 TestProp = -7;
 };

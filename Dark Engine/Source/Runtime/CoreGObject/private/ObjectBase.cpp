@@ -126,9 +126,6 @@ GObject* GObjectBase::GetTypedOuter(GClass* Class) const
 		}
 	}
 	return Result;
-
-	
-
 }
 
 void GObjectBase::AddObject(FString InName, int32 InIndex, int32 InSerialNumber)

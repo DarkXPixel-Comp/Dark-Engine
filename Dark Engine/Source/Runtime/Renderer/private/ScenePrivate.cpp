@@ -13,3 +13,14 @@ FScene::FScene(FWorld* InWorld):
 
 
 }
+
+void FScene::AddPrimitive(GPrimitiveComponent* Primitive)
+{
+	BatchAddPrimitivesImpl(TArray<GPrimitiveComponent*>({Primitive}));
+}
+
+void FScene::BatchAddPrimitivesImpl(TArray<GPrimitiveComponent*> Primitives)
+{
+
+
+}

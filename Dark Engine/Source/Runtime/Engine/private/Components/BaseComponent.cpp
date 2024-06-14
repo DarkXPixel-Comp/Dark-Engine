@@ -1,4 +1,5 @@
 #include "Components/BaseComponent.h"
+#include "Engine/World.h"
 
 
 IMPLEMENT_INTRINSIC_CLASS(GBaseComponent, GObject);
@@ -39,7 +40,73 @@ void GBaseComponent::EndPlay()
 	bBeginPlay = false;
 }
 
+void GBaseComponent::PostInit()
+{
+	if (Owner)
+	{
+		Owner->AddOwnedComponent(this);
+	}
+}
+
+void GBaseComponent::OnRegister()
+{
+	bRegistered = true;
+}
+
+void GBaseComponent::CreateRenderState()
+{
+	DE_LOG(BaseComponentLog, Log, TEXT("Created RenderState"));
+}
+
 void GBaseComponent::RegisterComponent()
 {
-	EEntity* Owner = GetOwner();
+	EEntity* CurrentOwner = GetOwner();
+	FWorld* OwnerWorld = CurrentOwner ? CurrentOwner->GetWorld() : nullptr;
+
+	if (OwnerWorld)
+	{
+		RegisterComponentWithWorld(OwnerWorld);
+	}
+
+
+}
+
+void GBaseComponent::RegisterComponentWithWorld(FWorld* InWorld)
+{
+	if (InWorld == nullptr)
+	{
+		return;
+	}
+
+
+	EEntity* CurrentOwner = GetOwner();
+	World = InWorld;
+	ExecuteRegisterEvents();
+}
+
+void GBaseComponent::ExecuteRegisterEvents()
+{
+	if (!bRegistered)
+	{
+		OnRegister();
+	}
+
+	if (!bRenderStateCreated && World->Scene && ShouldCreateRenderState())
+	{
+		CreateRenderState();
+	}
+}
+
+FWorld* GBaseComponent::GetWorldForCache() const
+{
+	FWorld* Result = nullptr;
+	EEntity* CurrentOwner = GetOwner();
+
+	if (CurrentOwner)
+	{
+		Result = CurrentOwner->GetWorld();
+		World = Result;
+	}
+
+	return Result;
 }

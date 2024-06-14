@@ -190,6 +190,7 @@ public:
 
 	GObject* CreateDefaultSubobject(FString Name, GClass* ReturnType, GClass* ClassCreateByDefault);
 
+	virtual void PostInit() {}
 
 
 	template<class T>

@@ -128,11 +128,13 @@ public:
 	FORCEINLINE TObjectPtr<T>& operator=(const TObjectPtr<T>& Other)
 	{
 		ObjectPtr = Other.ObjectPtr;
+		return *this;
 	}
 
 	FORCEINLINE TObjectPtr<T>& operator=(TObjectPtr<T> Other)
 	{
 		ObjectPtr = Other.ObjectPtr;
+		return *this;
 	}
 
 

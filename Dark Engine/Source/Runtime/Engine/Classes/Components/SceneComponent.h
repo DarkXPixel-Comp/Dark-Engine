@@ -17,6 +17,10 @@ class GSceneComponent : public GBaseComponent
 public:
 	GSceneComponent(const FObjectInitializer& ObjectInitalizer = FObjectInitializer::Get());
 
+	const FRotator& GetRotation() const { return RelativeRotation; }
+	const FVector& GetLocation() const { return RelativeLocation; }
+	const FVector& GetScale() const { return RelativeScale; }
+
 	uint8 bVisible;
 
 

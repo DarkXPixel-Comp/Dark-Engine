@@ -8,17 +8,22 @@ template <class T>
 class TSubClassOf
 {
 public:
-	TSubClassOf() = default;
-	TSubClassOf(GClass* Class) { CurrentClass = Class; } //<- Temp
+	TSubClassOf() { StaticClassPrivate = T::StaticClass(); CurrentClass = StaticClassPrivate; }
+	TSubClassOf(GClass* Class) { CurrentClass = T::StaticClass()->IsChildOf(Class) ? Class : nullptr; StaticClassPrivate = T::StaticClass(); } //<- Temp
 
 	GClass* GetCurrentClass() const { return CurrentClass; }
-	void SetCurrentClass(GClass* InClass) { CurrentClass = InClass; } //<- Temp
+	void SetCurrentClass(GClass* InClass) { CurrentClass = StaticClassPrivate->IsChildOf(InClass) ? InClass : nullptr; } //<- Temp
+	void ForceSetClass(GClass* InClass) { CurrentClass = InClass; }
 
 
+	operator GClass* () const { return CurrentClass; }
 
+
+	GClass* StaticClass() const { return StaticClassPrivate; }
 
 private:
 	GClass* CurrentClass = nullptr;
+	GClass* StaticClassPrivate;
 
 
 };

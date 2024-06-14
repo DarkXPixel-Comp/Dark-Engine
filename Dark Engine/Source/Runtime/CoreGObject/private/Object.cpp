@@ -182,6 +182,8 @@ void FObjectInitializer::ConstructInternal()
 
 FObjectInitializer::~FObjectInitializer()
 {
+	PostInit();
+
 	check(AllInitializers.Last() == this);
 	AllInitializers.PopBack();
 }
@@ -216,7 +218,8 @@ GObject* FObjectInitializer::CreateDefaultSubobject(GObject* Outer, FString Name
 
 void FObjectInitializer::PostInit()
 {
-
+	Object->PostInit();
+	Object = nullptr;
 }
 
 

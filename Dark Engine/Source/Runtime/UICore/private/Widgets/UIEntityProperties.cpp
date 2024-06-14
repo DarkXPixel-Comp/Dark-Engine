@@ -46,7 +46,7 @@ void DrawRotator3(GProperty* Property, GObject* Entity)
 
 void DrawSubClassOf(GProperty* Property, GObject* Entity)
 {
-	TSubClassOf<GObjectBase>* Subclass = (TSubClassOf<GObjectBase>*)Property->GetValue(Entity);
+	TSubClassOf<GObject>* Subclass = (TSubClassOf<GObject>*)Property->GetValue(Entity);
 
 	const auto& Classes = GClass::GetAllClasses();
 
@@ -73,10 +73,12 @@ void DrawSubClassOf(GProperty* Property, GObject* Entity)
 		}
 		for (uint32 i = 0; i < Classes.Num(); ++i)
 		{
+			if (!Subclass->StaticClass()->IsChildOf(Classes[i]))
+				continue;
 			if (ImGui::Selectable(-Classes[i]->GetName(), CurrentId == i))
 			{
 				CurrentId = i;
-				Subclass->SetCurrentClass(Classes[i]);
+				Subclass->ForceSetClass(Classes[i]);
 			}
 
 			if (CurrentId == i)

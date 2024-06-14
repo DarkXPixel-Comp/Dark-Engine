@@ -46,7 +46,8 @@ struct alignas(16) VectorRegister4Double
 
 
 template<typename T>
-using TPersistentVectorRegister = std::conditional_t<std::is_same_v<T, float>, VectorRegister4Float, std::conditional_t<std::is_same_v<T, double>, VectorRegister4Double, void>>;
+using TPersistentVectorRegister = VectorRegister4Double;
+//using TPersistentVectorRegister = std::conditional_t<std::is_same_v<T, float>, VectorRegister4Float, std::conditional_t<std::is_same_v<T, double>, VectorRegister4Double, void>>;
 
 
 

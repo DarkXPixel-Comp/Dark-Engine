@@ -2,6 +2,7 @@
 #include "RenderGlobals.h"
 #include "Engine/Level.h"
 #include "Framework/MeshObject.h"
+#include "Math/Transform.h"
 
 
 FWorld* GWorld = nullptr;
@@ -9,7 +10,7 @@ FWorld* GWorld = nullptr;
 
 void FWorld::InitWorld()
 {
-	GetRenderer()->AllocateScene(this);
+	Scene = GetRenderer()->AllocateScene(this);
 }
 
 
@@ -47,7 +48,8 @@ EEntity* FWorld::SpawnEntity(GClass* Class, const FVector& Location, const FRota
 
 
 	EEntity* Entity = NewObject<EEntity>(LevelToSpawn, Class);
-	
+	Entity->PostSpawnInitialize(FTransform(), nullptr);
+
 	LevelToSpawn->Entities.Add(Entity);
 
 

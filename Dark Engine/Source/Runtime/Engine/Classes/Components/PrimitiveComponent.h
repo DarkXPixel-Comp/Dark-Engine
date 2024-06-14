@@ -12,6 +12,10 @@ public:
 	GPrimitiveComponent(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get());
 	~GPrimitiveComponent();
 
+	constexpr virtual bool ShouldCreateRenderState() const override { return true; }
+
+	virtual void CreateRenderState() override;
+
 
 
 };

@@ -61,7 +61,6 @@ public:
 		return IsClassChildOf(ThisClass, SomeBaseClass);
 	}
 
-
 	GObject* GetTypedOuter(GClass* Class) const;
 
 

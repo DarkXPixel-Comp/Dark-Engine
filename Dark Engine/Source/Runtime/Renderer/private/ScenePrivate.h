@@ -12,6 +12,8 @@ public:
 	virtual FScene* GetRenderScene() override final { return this; }
 	virtual FWorld* GetWorld() final { return World; }
 
+	virtual void AddPrimitive(class GPrimitiveComponent* Primitive) override;
+
 public:
 	void IncrementFrameNumber()
 	{
@@ -19,6 +21,9 @@ public:
 	}
 	int32 GetFrameNumber() const { return SceneFrameNumber; }
 
+
+	
+	void BatchAddPrimitivesImpl(TArray<GPrimitiveComponent*> Primitives);
 
 
 

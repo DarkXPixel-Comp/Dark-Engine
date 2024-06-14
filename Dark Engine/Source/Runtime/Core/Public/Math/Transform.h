@@ -32,15 +32,22 @@ namespace DE
 			TTransform(const TVector<T>& InLocation)
 			{
 				Rotation = { 0, 0, 0, 1 };
-				Location = { InLocation.X, InLocation.Y, InLocation.Z, 0 };
+				Location = { InLocation.X, InLocation.Y, InLocation.Z, 1 };
 				Scale = { 1, 1, 1, 0 };
 			}
 
-			TTransform(const TVector<T>& InScale)
+		/*	TTransform(const TVector<T>& InScale)
 			{
 				Rotation = { 0, 0, 0, 1 };
-				Location = { 0, 0, 0, 0 };
+				Location = { 0, 0, 0, 1 };
 				Scale = { InScale.X, InScale.Y, InScale.Z, 0 };
+			}*/
+
+			TTransform(const TVector<T>& InLocation, const TRotator<T>& InRotation, const TVector<T>& InScale)
+			{
+				/*Location = { (T)InLocation.X, (T)InLocation.Y, (T)InLocation.Z, (T)1 };
+				Rotation = { (T)InRotation.Roll, (T)InRotation.Pitch, (T)InRotation.Yaw, 1 };
+				Scale = { (T)InScale.X, (T)InScale.Y, (T)InScale.Z, 0 };*/
 			}
 		};
 	}

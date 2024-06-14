@@ -1,4 +1,6 @@
 #include "Components/PrimitiveComponent.h"
+#include "Engine/World.h"
+#include "SceneInterface.h"
 
 IMPLEMENT_INTRINSIC_CLASS(GPrimitiveComponent, GSceneComponent);
 
@@ -11,5 +13,15 @@ GPrimitiveComponent::GPrimitiveComponent(const FObjectInitializer& ObjectInitial
 
 GPrimitiveComponent::~GPrimitiveComponent()
 {
+}
+
+void GPrimitiveComponent::CreateRenderState()
+{
+	Super::CreateRenderState();
+	GetWorld()->Scene->AddPrimitive(this);
+	
+
+
+
 }
 
