@@ -8,6 +8,9 @@ IMPLEMENT_INTRINSIC_CLASS(GProperty, GObject);
 IMPLEMENT_INTRINSIC_CLASS(GPropertyInt32, GProperty);
 
 
+TArray<GClass*> AllClasses;
+
+
 //IMPLEMENT_CLASS_NO_AUTO_REGISTRATION(GField);
 //IMPLEMENT_CLASS_NO_AUTO_REGISTRATION(GStruct);
 //IMPLEMENT_CLASS_NO_AUTO_REGISTRATION(GClass);
@@ -41,6 +44,8 @@ void InitializePrivateStaticClass(GClass* SuperStaticClass, GClass* PrivateStati
 	PrivateStaticClass->RegisterDependencies();
 	
 	PrivateStaticClass->Register(Name);
+
+	AllClasses.Add(PrivateStaticClass);
 }
 
 
@@ -104,6 +109,12 @@ GClass::GClass(EStaticConstructor, FString Name, uint32 InSize, uint32 InAlignme
 {
 
 }
+
+const TArray<GClass*>& GClass::GetAllClasses()
+{
+	return AllClasses;
+}
+
 
 GObject* GClass::CreateDefaultObject()
 {

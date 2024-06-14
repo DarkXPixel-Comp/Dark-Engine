@@ -44,7 +44,7 @@ public:
 		return ClassPrivate.Get();
 	}
 
-	FString GetName() const
+	const FString& GetName() const
 	{
 		return NamePrivate;
 	}

@@ -24,7 +24,7 @@ public:
 class FVertexBuffer : public FRenderResource
 {
 public:
-	virtual void ReleaseRHI() override;
+	virtual void ReleaseRHI() override {}
 
 	TRefCountPtr<FRHIBuffer> VertexBufferRHI;
 };

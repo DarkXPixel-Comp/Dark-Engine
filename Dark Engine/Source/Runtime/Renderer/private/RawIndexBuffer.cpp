@@ -5,6 +5,28 @@ FRawStaticIndexBuffer::FRawStaticIndexBuffer()
 {
 }
 
+
+void FRawStaticIndexBuffer::InitRHI(FRHICommandListImmediate& RHICmdList)
+{
+	const uint16 IndexStride = Stride;
+	const uint32 SizeInBytes = IndexStorage.Num();
+
+
+	if (GetNumIndices() > 0)
+	{
+		FRHIBufferDesc BufferDesc;
+		BufferDesc.Size = SizeInBytes;
+		BufferDesc.Stride = IndexStride;
+
+		IndexBufferRHI = RHICreateBuffer(BufferDesc, IndexStride == 4 ? TEXT("FRawStaticIndexBuffer32") :
+			TEXT("FRawStaticIndexBuffer16"), ERHIAccess::VertexOrIndexBuffer | ERHIAccess::SRVGraphics);
+
+		void* Ptr = RHILockBuffer(IndexBufferRHI.Get(), 0, SizeInBytes, RLM_WriteOnly);
+		FMemory::Memcpy(Ptr, IndexStorage.GetData(), SizeInBytes);
+		RHIUnlockBuffer(IndexBufferRHI.Get());
+	}
+}
+
 void FRawStaticIndexBuffer::SetIndices(const TArray<uint32>& InIndices, uint16 InStride)
 {
 	uint32 NumIndices = InIndices.Num();

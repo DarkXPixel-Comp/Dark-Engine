@@ -27,12 +27,23 @@ void FStaticMeshVertexBuffer::InitRHI(FRHICommandListImmediate& RHICmdList)
 void FStaticMeshLODResources::InitResources(GStaticMesh* Parent, int32 LODIndex)
 {
 	FRHICommandListImmediate& CmdList = FRHICommandListExecutor::GetImmediateCommandList();
+	IndexBuffer.InitRHI(CmdList);
 	VertexBuffers.StaticMeshVertexBuffer.InitRHI(CmdList);
+	VertexBuffers.PositionVertexBuffer.InitRHI(CmdList);
 
+	bInitialized = true;
+}
 
+void FStaticMeshRenderData::InitResources(GStaticMesh* Owner)
+{
+	for (uint32 i = 0; i < LODResources.Num(); ++i)
+	{
+		if (LODResources[i]->VertexBuffers.StaticMeshVertexBuffer.GetNumVertices() > 0)
+		{
+			LODResources[i]->InitResources(Owner, i);
+		}
 
-
-
+	}
 
 
 

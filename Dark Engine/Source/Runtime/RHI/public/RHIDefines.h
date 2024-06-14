@@ -139,6 +139,8 @@ enum class ERHIAccess
 
 };
 
+ENUM_CLASS_FLAGS(ERHIAccess);
+
 enum EShaderType : uint8
 {
 	ST_Vertex = 0,

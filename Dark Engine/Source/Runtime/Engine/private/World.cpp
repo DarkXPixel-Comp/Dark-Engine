@@ -1,6 +1,7 @@
 #include "Engine/World.h"
 #include "RenderGlobals.h"
 #include "Engine/Level.h"
+#include "Framework/MeshObject.h"
 
 
 FWorld* GWorld = nullptr;
@@ -27,6 +28,7 @@ void FWorld::InitializeNewWorld()
 	SpawnEntity(EEntity::StaticClass(), FVector(), FRotator());
 	SpawnEntity(EEntity::StaticClass(), FVector(), FRotator());
 	SpawnEntity(EEntity::StaticClass(), FVector(), FRotator());
+	SpawnEntity(EMeshObject::StaticClass(), FVector(), FRotator());
 }
 
 const TArray<TObjectPtr<EEntity>>& FWorld::GetEntitiesOnCurrentLevel() const
@@ -44,7 +46,7 @@ EEntity* FWorld::SpawnEntity(GClass* Class, const FVector& Location, const FRota
 	}
 
 
-	EEntity* Entity = NewObject<EEntity>(LevelToSpawn);
+	EEntity* Entity = NewObject<EEntity>(LevelToSpawn, Class);
 	
 	LevelToSpawn->Entities.Add(Entity);
 

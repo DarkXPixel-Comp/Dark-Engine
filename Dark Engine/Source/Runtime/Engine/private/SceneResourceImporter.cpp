@@ -34,5 +34,11 @@ void FSceneResourceImporter::ProcessNodeStaticMesh(FGraphSceneResource::FGraphSc
 
 TObjectPtr<GStaticMesh> FSceneResourceImporter::ProcessStaticMesh(FGraphSceneResource::FGraphSceneNode::FGraphSceneMesh& Mesh)
 {
-	return TObjectPtr<GStaticMesh>();
+	TObjectPtr<GStaticMesh>	NewMesh = NewObject<GStaticMesh>(nullptr, GStaticMesh::StaticClass(), OF_NoFlags);
+	TArray<FGraphSceneResource::FGraphSceneNode::FGraphSceneMesh*> Meshes;
+	Meshes.Add(&Mesh);
+	NewMesh->BuildFromGraphSceneMeshes(Meshes);
+
+
+	return NewMesh;
 }

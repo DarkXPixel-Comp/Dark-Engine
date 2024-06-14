@@ -27,6 +27,7 @@
 #include "Object.h"
 #include "Python.h"
 #include "SceneResourceBuilder.h"
+#include "SceneResourceImporter.h"
 
 
 //#include "lua.hpp"
@@ -378,7 +379,10 @@ int32 FEngineLoop::Init()
 	DE_LOG(Launch, Log, TEXT("RHI Post init"));
 	((DEditorEngine*)Engine)->NewMap();
 
+	FSceneResourceImporter Importer;
+	Importer.ImportFromFile(TEXT("Meshes/Cube.fbx"));
 
+	auto Meshes = Importer.GetAllStaticMeshes();
 	//FSceneResourceBuilder::Build(TEXT("Meshes/Cube.fbx"));
 
 

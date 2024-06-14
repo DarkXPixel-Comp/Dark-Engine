@@ -90,7 +90,8 @@ public:
 		int64,
 		GObject,
 		FVector,
-		FRotator
+		FRotator,
+		TSubClassOf
 	};
 
 	EType GetType() const { return Type; }
@@ -191,6 +192,8 @@ public:
 	{
 		return (GClass*)GetSuperStruct();
 	}
+
+	static const TArray<GClass*>& GetAllClasses();
 
 	GObject* CreateDefaultObject();
 

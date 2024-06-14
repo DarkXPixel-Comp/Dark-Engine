@@ -69,6 +69,10 @@ public:
 
 	void Init(const TArray<class FStaticMeshVertex>& InVertices);
 
+	FORCEINLINE uint32 GetNumVertices() const
+	{
+		return NumVertices;
+	}
 
 
 	virtual void InitRHI(FRHICommandListImmediate& RHICmdList);
@@ -107,6 +111,8 @@ public:
 	void InitResources(class GStaticMesh* Parent, int32 LODIndex);
 
 
+private:
+	bool bInitialized = false;
 
 
 
@@ -120,7 +126,7 @@ public:
 	float ScreenSize[8];
 
 	TArray<TRefCountPtr<FStaticMeshLODResources>> LODResources;
-	//TArray<FStaticMeshVe>
+	void InitResources(GStaticMesh* Owner);
 
 
 

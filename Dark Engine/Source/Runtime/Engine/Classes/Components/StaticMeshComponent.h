@@ -12,8 +12,8 @@ public:
 	void SetStaticMesh(class GStaticMesh* NewMesh);
 	TObjectPtr<class GStaticMesh> GetStaticMesh() const
 	{
-		return nullptr;
-		//return StaticMesh;
+		//return nullptr;
+		return StaticMesh;
 	}
 
 private:

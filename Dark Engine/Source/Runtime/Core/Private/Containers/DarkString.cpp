@@ -42,13 +42,13 @@ const char* FString::GetUTF8() const		 // Change on Multiplatform or FPlatformSt
 {
 	if (bChangedString)
 	{
-		std::string Result;
+		std::string& Result = _tempString;
 
 		int sz = WideCharToMultiByte(CP_UTF8, 0, _string.data(), -1, 0, 0, 0, 0);
 		Result.resize(sz);
 		WideCharToMultiByte(CP_UTF8, 0, _string.data(), -1, Result.data(), sz, 0, 0);
 
-		_tempString = Result;
+		//_tempString = std::move(Result);
 		bChangedString = false;
 	}
 	return _tempString.c_str();

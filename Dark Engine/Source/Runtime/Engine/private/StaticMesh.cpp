@@ -1,7 +1,10 @@
 #include "Engine/StaticMesh.h"
 #include "SceneResourceBuilder.h"
 #include "PositionVertexBuffer.h"
+#include "Class.h"
 
+
+IMPLEMENT_INTRINSIC_CLASS(GStaticMesh, GObject);
 
 
 void GStaticMesh::BuildFromGraphSceneMeshes(const TArray<FGraphSceneResource::FGraphSceneNode::FGraphSceneMesh*>& GraphSceneMesh)
@@ -28,10 +31,7 @@ void GStaticMesh::BuildFromGraphSceneMeshes(const TArray<FGraphSceneResource::FG
 		BuildFromGraphSceneMesh(*GraphSceneMesh[LODIndex], LODResources);
 	}
 
-	
-	
-
-
+	InitResources();
 }
 
 void GStaticMesh::BuildFromGraphSceneMesh(const FGraphSceneResource::FGraphSceneNode::FGraphSceneMesh& Mesh, FStaticMeshLODResources& LODResources)
@@ -91,6 +91,16 @@ void GStaticMesh::BuildFromGraphSceneMesh(const FGraphSceneResource::FGraphScene
 
 	
 	LODResources.IndexBuffer.SetIndices(Indices, Stride);
+}
+
+void GStaticMesh::InitResources()
+{
+	bRenderDataInitialized = true;
+
+	if (GetRenderData())
+	{
+		GetRenderData()->InitResources(this);
+	}
 }
 
 void GStaticMesh::SetRenderData(TUniquePtr<FStaticMeshRenderData>&& InRenderData)

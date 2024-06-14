@@ -44,6 +44,53 @@ void DrawRotator3(GProperty* Property, GObject* Entity)
 	ImGui::DragScalarN(-Property->GetName(), ImGuiDataType_Double, (void*)Rotator, 3, 1.f, &Property->MinValue, &Property->MaxValue, "%.2f");
 }
 
+void DrawSubClassOf(GProperty* Property, GObject* Entity)
+{
+	TSubClassOf<GObjectBase>* Subclass = (TSubClassOf<GObjectBase>*)Property->GetValue(Entity);
+
+	const auto& Classes = GClass::GetAllClasses();
+
+
+	int32 CurrentId = -1;
+
+
+	if (Subclass->GetCurrentClass())
+	{
+		auto It = std::find(Classes.begin(), Classes.end(), Subclass->GetCurrentClass());
+		CurrentId = (It - Classes.begin());
+	}
+
+	if (ImGui::BeginCombo(-Property->GetName(), Subclass->GetCurrentClass() ? -Subclass->GetCurrentClass()->GetName() : "None"))
+	{	
+		if (ImGui::Selectable("None", CurrentId == -1))
+		{
+			CurrentId = -1;
+			Subclass->SetCurrentClass(nullptr);
+		}
+		if (CurrentId == -1)
+		{
+			//ImGui::SetItemDefaultFocus();
+		}
+		for (uint32 i = 0; i < Classes.Num(); ++i)
+		{
+			if (ImGui::Selectable(-Classes[i]->GetName(), CurrentId == i))
+			{
+				CurrentId = i;
+				Subclass->SetCurrentClass(Classes[i]);
+			}
+
+			if (CurrentId == i)
+			{
+				//ImGui::SetItemDefaultFocus();
+			}
+
+		}
+		ImGui::EndCombo();
+	}
+
+
+}
+
 void DrawCheckBox(GProperty* Property, GObject* Entity)
 {
 	uint8* Value = (uint8*)Property->GetValue(Entity);
@@ -64,6 +111,7 @@ void DrawProperty(GProperty::EType InType, GProperty* Property, GObject* Entity)
 	case GProperty::EType::int64:return;
 	case GProperty::EType::FVector: return DrawVector3(Property, Entity);
 	case GProperty::EType::FRotator: return DrawRotator3(Property, Entity);
+	case GProperty::EType::TSubClassOf: return DrawSubClassOf(Property, Entity);
 	case GProperty::EType::GObject:
 	{
 		GObject* Object = *(GObject**)Property->GetValue(Entity);
@@ -71,14 +119,17 @@ void DrawProperty(GProperty::EType InType, GProperty* Property, GObject* Entity)
 		{
 			return;
 		}
-		ImGui::SeparatorText(-Object->GetName());
-		for (auto& Property : Object->GetClass()->GetProperties())
+		if (Object->GetClass()->GetProperties().Num() > 0)
 		{
-			DrawProperty(Property->GetType(), Property, Object);
+			ImGui::SeparatorText(-Object->GetName());
+			for (auto& Property : Object->GetClass()->GetProperties())
+			{
+				DrawProperty(Property->GetType(), Property, Object);
+			}
 		}
 		break;
 	}
-		break;
+	break;
 	}
 }
 
@@ -93,14 +144,17 @@ void UIEntityProperties::DrawImGui()
 		if (GCurrentEntity != -1)
 		{
 			const auto& Entity = GWorld->GetEntitiesOnCurrentLevel()[GCurrentEntity];
+			GClass* CurrentClass = Entity->GetClass();
 
-			ImGui::Separator();
-
-			for (auto& Property : Entity->GetClass()->GetProperties())
+			while (CurrentClass)
 			{
-				DrawProperty(Property->GetType(), Property, Entity);
+				ImGui::Separator();
+				for (auto& Property : CurrentClass->GetProperties())
+				{
+					DrawProperty(Property->GetType(), Property, Entity);
+				}
+				CurrentClass = CurrentClass->GetSuperClass();
 			}
-
 		}
 
 		ImGui::End();

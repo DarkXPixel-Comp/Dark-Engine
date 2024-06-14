@@ -15,6 +15,8 @@ public:
 	void BuildFromGraphSceneMeshes(const TArray<class FGraphSceneResource::FGraphSceneNode::FGraphSceneMesh*>& GraphSceneMesh);
 	void BuildFromGraphSceneMesh(const class FGraphSceneResource::FGraphSceneNode::FGraphSceneMesh& Mesh, FStaticMeshLODResources& LODResources);
 
+	void InitResources();
+
 	void SetRenderData(TUniquePtr<class FStaticMeshRenderData>&& InRenderData);
 	class FStaticMeshRenderData* GetRenderData() const { return RenderData.get(); }
 										   
@@ -22,6 +24,7 @@ public:
 
 private:
 	TUniquePtr<class FStaticMeshRenderData>	RenderData;
+	bool bRenderDataInitialized = false;
 
 
 

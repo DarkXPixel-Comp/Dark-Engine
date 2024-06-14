@@ -7,6 +7,7 @@ void FPositionVertexBuffer::Init(uint32 InNumVertices, bool bInNeedCPUAccess)
 	bNeedCPUAccess = bInNeedCPUAccess;
 
 	VertexData.Resize(NumVertices);
+	Data = (uint8*)VertexData.GetData();
 }
 
 
@@ -24,8 +25,8 @@ void FPositionVertexBuffer::InitRHI(FRHICommandListImmediate& RHICmdList)
 {
 	VertexBufferRHI = RHICreateBuffer(FRHIBufferDesc(sizeof(FPositionVertex), Stride), TEXT("FPositionVertexBuffer"), ERHIAccess::VertexOrIndexBuffer);
 
-	void* Data = RHILockBuffer(VertexBufferRHI.Get(), 0, VertexBufferRHI->GetSize(), RLM_WriteOnly);
+	void* Ptr = RHILockBuffer(VertexBufferRHI.Get(), 0, VertexBufferRHI->GetSize(), RLM_WriteOnly);
 
-	FMemory::Memcpy(Data, VertexData.GetData(), VertexBufferRHI->GetSize());
+	FMemory::Memcpy(Ptr, VertexData.GetData(), VertexBufferRHI->GetSize());
 	RHIUnlockBuffer(VertexBufferRHI.Get());
 }
