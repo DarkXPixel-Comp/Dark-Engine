@@ -117,6 +117,7 @@ FShaderType::FShaderType
 ):
 	ShaderType(InShaderType),
 	Name(InName),
+	StrName(InName),
 	SourceFileName(InSourceFilename),
 	FunctionName(InFunctionName),
 	Type((EShaderType)InType)

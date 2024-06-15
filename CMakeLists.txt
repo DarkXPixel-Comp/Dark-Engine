@@ -68,7 +68,7 @@ ENDMACRO()
 
 
 
-project("Dark Engine" VERSION 0.1.18.0)
+project("Dark Engine" VERSION 0.1.18.2)
 
 if(MSVC)
   set(CMAKE_EXE_LINKER_FLAGS
@@ -92,8 +92,10 @@ add_compile_definitions(UBT_COMPILED_PLATFORM=Windows ROOT_DIR="${PROJECT_SOURCE
 
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "$<0:>${PROJECT_SOURCE_DIR}/Dark Engine/bin") # 
-set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "$<0:>${PROJECT_SOURCE_DIR}/Dark Engine/bin/lib") # 
-set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "$<0:>${PROJECT_SOURCE_DIR}/Dark Engine/bin/lib") #
+#set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "$<0:>${PROJECT_SOURCE_DIR}/Dark Engine/Intermediate/Build/${NAME}/Libs") #
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "$<0:>${CMAKE_BINARY_DIR}/Libs")
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "$<0:>${CMAKE_BINARY_DIR}/Libs")
+#set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "$<0:>${PROJECT_SOURCE_DIR}/Dark Engine/Intermediate/Build/${NAME}/Libs") #
 
 
 

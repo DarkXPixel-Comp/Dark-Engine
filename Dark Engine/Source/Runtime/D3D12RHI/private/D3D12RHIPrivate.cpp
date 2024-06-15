@@ -236,8 +236,23 @@ TRefCountPtr<FRHIPixelShader> FD3D12DynamicRHI::RHICreatePixelShader(const TArra
 
 TRefCountPtr<FRHIRasterizerState> FD3D12DynamicRHI::RHICreateRasterizerState(const FRasterizerStateInitializer& Initializer)
 {
-	FD3D12RasterizerState* RasterizerState = new FD3D12RasterizerState();
-	RasterizerState->Initializer = Initializer;
+	uint64 Hash = 0;
+	hash_combine(Hash, Initializer);
+	auto It = RasterizerStatesCache.find(Hash);
+
+	FD3D12RasterizerState* RasterizerState;
+
+	if (It != RasterizerStatesCache.end())
+	{
+		RasterizerState = It->second.Get();
+		return RasterizerState;
+	}
+	else
+	{
+		RasterizerState = new FD3D12RasterizerState();
+		RasterizerState->Initializer = Initializer;
+		RasterizerStatesCache.emplace(Hash, RasterizerState);
+	}
 
 	D3D12_RASTERIZER_DESC& RasterizerDesc = RasterizerState->Desc;
 	RasterizerDesc = {};

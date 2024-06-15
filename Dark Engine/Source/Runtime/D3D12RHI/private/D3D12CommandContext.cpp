@@ -176,6 +176,8 @@ void FD3D12ContextCommon::TransitionTexture(FD3D12Resource* InTexture, D3D12_BAR
 
 void FD3D12ContextCommon::TransitionBuffer(ID3D12Resource* Resource, CD3DX12_BUFFER_BARRIER BufferBarrier)
 {
+	//check(Resource);
+	//BarrierBatcher.TransitionBuffer()
 	BufferBarrier.pResource = Resource;
 	BufferBarriers.Add(BufferBarrier);
 }

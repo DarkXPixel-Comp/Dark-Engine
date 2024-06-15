@@ -418,35 +418,51 @@ TArray<FString> FBaseConsole::InputText(const FString& Text, bool Check)
 	Inputs.Add(Text);
 	OnAddConsoleInput.BroadCast(Text);
 	FString Command = Text;
+	//bool bForceCommand = false;
+	std::pair<FString, IConsoleObject*> ForceCommand;
 
 	ParseInput(Command, Args);
 
 	std::copy_if(ConsoleObjects.begin(), ConsoleObjects.end(), std::back_inserter(FindObjects.GetVector()),
-		[&Command](const std::pair<FString, IConsoleObject*>& Obj)
+		[&Command, &ForceCommand](const std::pair<FString, IConsoleObject*>& Obj)
 		{
-			return Obj.first.MinStartsWithMin(Command);
+			if (Obj.first == Command)
+			{
+				ForceCommand = Obj;
+				return false;
+			}
+			return ForceCommand.second ? false : Obj.first.MinStartsWithMin(Command);
 		});
 
 
-	if (FindObjects.Num() == 1 && !Check)
+	if ((FindObjects.Num() == 1 || ForceCommand.second) && !Check)
 	{
-		auto It = FindObjects[0];
-		Command = It.first;
-		if (It.second->AsCommand())
+		std::pair<FString, IConsoleObject*>* It;
+		if (ForceCommand.second)
 		{
-			It.second->AsCommand()->Execute(Args);
+			It = &ForceCommand;
 		}
-		if (It.second->AsVariable())
+
+		else
+		{
+			It = &FindObjects[0];
+			Command = It->first;
+		}
+		if (It->second->AsCommand())
+		{
+			It->second->AsCommand()->Execute(Args);
+		}
+		if (It->second->AsVariable())
 		{
 			if (Args.Num() > 0)
 			{
-				It.second->AsVariable()->Set(Args[0]);
+				It->second->AsVariable()->Set(Args[0]);
 				//AddLog(Command, FVector3f(1, 1, 1));
 				AddLog(FString::PrintF(TEXT("%s %s"), *Command, *Args[0]));
 			}
 			else
 			{
-				AddLog(FString::PrintF(TEXT("%s %s"), *Command, *It.second->AsVariable()->ToString()));
+				AddLog(FString::PrintF(TEXT("%s %s"), *Command, *It->second->AsVariable()->ToString()));
 			}
 		}
 	}

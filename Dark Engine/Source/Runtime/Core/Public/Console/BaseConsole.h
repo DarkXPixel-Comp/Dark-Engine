@@ -214,7 +214,7 @@ protected:
 	mutable TArray<FConsoleLog> TempCache;
 	TArray<FString>	Inputs;
 	static uint64 StaticID;
-	int32 AutoClearCount = 1024;
+	int32 AutoClearCount = 512;
 
 private:
 	mutable FCriticalSection AddLogCriticalSection;

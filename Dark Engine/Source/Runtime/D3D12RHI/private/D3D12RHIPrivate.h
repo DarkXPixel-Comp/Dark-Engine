@@ -100,6 +100,8 @@ private:
 	TMap<uint64, class FRHIVertexDeclaration*> VertexDeclarationMap;
 	TUnordoredMap<class FGraphicsPipelineStateInitializer, TRefCountPtr<class FRHIGraphicsPipelineState>> GraphicsPipelineStateCache;
 	TMap<uint64, TRefCountPtr<class FD3D12ComputePipelineState>> ComputePipelineStateCache;
+	TMap<uint64, TRefCountPtr<class FD3D12RasterizerState>>	RasterizerStatesCache;
+
 
 };
 

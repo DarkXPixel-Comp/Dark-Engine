@@ -73,9 +73,9 @@ void FSceneRender::RenderQuad(FRHICommandListImmediate& RHICmdList)
 
 
 
-	FVertexDeclarationElementList Elements;
-	Elements.Add(FVertexElement(VET_Float4, 0, 0, 0, 0));
-	Elements.Add(FVertexElement(VET_Float2, 1, 0, 0, 0));
+	//FVertexDeclarationElementList Elements;
+	//Elements.Add(FVertexElement(VET_Float4, 0, 0, 0, 0));
+	//Elements.Add(FVertexElement(VET_Float2, 1, 0, 0, 0));
 
 
 	FRHIVertexShader* RHIVertexShader = VertexShader.GetVertexShader();

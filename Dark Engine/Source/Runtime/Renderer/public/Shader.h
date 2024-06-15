@@ -82,6 +82,10 @@ public:
 	{
 		return Name;
 	}
+	FORCEINLINE const FString& GetStringName() const
+	{
+		return StrName;
+	}
 	FORCEINLINE EShaderType GetShaderType() const
 	{
 		return Type;
@@ -100,6 +104,7 @@ public:
 
 private:
 	const TCHAR* Name;
+	const FString StrName;
 	const TCHAR* SourceFileName;
 	const TCHAR* FunctionName;
 	EShaderTypeInternal ShaderType;

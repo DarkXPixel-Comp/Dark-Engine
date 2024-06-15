@@ -94,7 +94,10 @@ void UIConsole::DrawImGui()
 			ImGuiChildFlags_None, ImGuiWindowFlags_HorizontalScrollbar);
 		for (const auto& Log : Logs)
 		{
-			ImGui::TextColored(ImVec4(Log.Color.X, Log.Color.Y, Log.Color.Z, 1), Log.Log.GetUTF8());
+			//ImGui::TextColored(ImVec4(Log.Color.X, Log.Color.Y, Log.Color.Z, 1), Log.Log.GetUTF8());
+			ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(Log.Color.X, Log.Color.Y, Log.Color.Z, 1));
+			ImGui::TextUnformatted(Log.Log.GetUTF8(), Log.Log.GetUTF8() + Log.Log.Len());
+			ImGui::PopStyleColor();
 			//ImGui::LogText(Log.Log.GetUTF8());
 			//ImGui::TextWrapped(Log.Log.GetUTF8());
 

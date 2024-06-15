@@ -3,6 +3,7 @@
 #include "CoreTypes.h"
 #include "Misc/EnumClassFlags.h"
 #include "Containers/DarkString.h"
+#include "Containers/Array.h"
 
 enum class ERHIInterfaceType
 {
@@ -261,6 +262,24 @@ struct FRasterizerStateInitializer
 		bEnableLineAA(InbEnableLineAA)
 	{}
 };
+
+
+template<>
+struct std::hash<FRasterizerStateInitializer>
+{
+	uint64 operator()(const FRasterizerStateInitializer& Other) const
+	{
+		uint64 Result = 0;
+		hash_combine(Result, Other.FillMode);
+		hash_combine(Result, Other.CullMode);
+		hash_combine(Result, Other.DepthClipMode);
+		hash_combine(Result, Other.DepthBias);
+		hash_combine(Result, Other.bAllowMSAA);
+		hash_combine(Result, Other.bEnableLineAA);
+		return Result;
+	}
+};
+
 
 struct FDepthStencilStateInitializer
 {

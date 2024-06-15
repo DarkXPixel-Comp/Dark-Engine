@@ -282,10 +282,11 @@ bool FD3D12Viewport::Present(int32 bVsync)
 	FD3D12Texture* BackBuffer = GetCurrentBackBuffer();
 	FD3D12CommandContext& DefaultContext = Parent->GetDevice()->GetDefaultCommandContext();
 
-	DefaultContext.TransitionResource(BackBuffer, CD3DX12_TEXTURE_BARRIER(
-		BackBuffer->GetBarrierSync(), D3D12_BARRIER_SYNC_ALL,
-		BackBuffer->GetBarrierAccess(), D3D12_BARRIER_ACCESS_COMMON,
-		BackBuffer->GetBarrierLayout(), D3D12_BARRIER_LAYOUT_PRESENT, nullptr, CD3DX12_BARRIER_SUBRESOURCE_RANGE(0)));
+	DefaultContext.TransitionTexture(
+		BackBuffer->GetResource(),
+		D3D12_BARRIER_SYNC_ALL,
+		D3D12_BARRIER_ACCESS_COMMON,
+		D3D12_BARRIER_LAYOUT_PRESENT);
 
 	DefaultContext.FlushCommands();
 
