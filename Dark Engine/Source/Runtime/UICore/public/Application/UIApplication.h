@@ -35,6 +35,8 @@ public:
 	static TSharedPtr<UIApplication> Create(const TSharedPtr<FGenericApplication>& InPlatformApplictation);
 	static TSharedPtr<UIApplication> Create();
 
+	//~UIApplication();
+
 
 public:
 	virtual bool OnSizeChanged(const TSharedPtr<FGenericWindow>& Window, const int32 Width, const int32 Height, bool bWasMinimized = false);
@@ -78,6 +80,8 @@ public:
 
 private:
 	TArray<TSharedPtr<UIWindow>> UIWindows;
+
+	ImGuiContext* IMGUIContext;
 
 	TWeakPtr<UIViewport> GameViewport;
 

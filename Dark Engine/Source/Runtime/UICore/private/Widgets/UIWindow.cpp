@@ -10,11 +10,12 @@ void UIWindow::SetNativeWindow(TSharedPtr<FGenericWindow> InNativeWindow)
 }
 
 UIWindow::~UIWindow()
-{
+{		 
+	Widgets.Empty();
+	if(UIApplication::Get())
+		UIApplication::Get()->GetRenderer()->DestroyViewport(this);
 	NativeWindow->Destroy();
-#ifdef IMGUI
-	ImGui::DestroyContext();
-#endif
+	ImGui::DestroyContext(IMGUIContext);
 }
 
 
@@ -80,12 +81,12 @@ void UIWindow::CreateViewport()
 
 void UIWindow::DrawWindow()
 {	
-	FRHICommandListImmediate& CmdList = FRHICommandListExecutor::GetImmediateCommandList();
-	if (!Viewport)
-	{
-		CreateViewport();
-	}
-	CmdList.BeginDrawingViewport(Viewport.get(), nullptr);
+	//FRHICommandListImmediate& CmdList = FRHICommandListExecutor::GetImmediateCommandList();
+	//if (!Viewport)
+	//{
+	//	CreateViewport();
+	//}
+	//CmdList.BeginDrawingViewport(Viewport.get(), nullptr);
 
 
 

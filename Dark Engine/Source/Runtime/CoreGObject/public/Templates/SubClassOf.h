@@ -12,7 +12,7 @@ public:
 	TSubClassOf(GClass* Class) { CurrentClass = T::StaticClass()->IsChildOf(Class) ? Class : nullptr; StaticClassPrivate = T::StaticClass(); } //<- Temp
 
 	GClass* GetCurrentClass() const { return CurrentClass; }
-	void SetCurrentClass(GClass* InClass) { CurrentClass = StaticClassPrivate->IsChildOf(InClass) ? InClass : nullptr; } //<- Temp
+	void SetCurrentClass(GClass* InClass) { CurrentClass = InClass && InClass->IsChildOf(StaticClassPrivate) ? InClass: nullptr; }
 	void ForceSetClass(GClass* InClass) { CurrentClass = InClass; }
 
 

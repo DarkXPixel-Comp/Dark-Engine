@@ -8,6 +8,7 @@ public:
 	virtual ~FUIRenderer() = default;
 	virtual void Initialize() {}
 	virtual void CreateViewport(UIWindow* InWindow) = 0;
+	virtual void DestroyViewport(UIWindow* InWindow) = 0;
 	virtual void DrawWindows(const TArray<TSharedPtr<UIWindow>>& Windows) = 0;
 	virtual void Resize(UIWindow* InWindow, const int32 Width, const int32 Height, const bool bWasMinimized) = 0;
 

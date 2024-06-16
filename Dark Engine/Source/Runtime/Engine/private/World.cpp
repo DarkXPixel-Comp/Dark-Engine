@@ -3,6 +3,8 @@
 #include "Engine/Level.h"
 #include "Framework/MeshObject.h"
 #include "Math/Transform.h"
+#include "extensions/PxSimpleFactory.h"
+#include "PxRigidStatic.h"
 
 
 FWorld* GWorld = nullptr;
@@ -11,6 +13,12 @@ FWorld* GWorld = nullptr;
 void FWorld::InitWorld()
 {
 	Scene = GetRenderer()->AllocateScene(this);
+
+	physx::PxSceneDesc SceneDesc(GPhysicsCore->GetScaleScene());
+	SceneDesc.userData = this;
+	SceneDesc.gravity = physx::PxVec3(0, -9.8f, 0);
+
+	PhysicScene = GPhysicsCore->CreateScene(SceneDesc);
 }
 
 
@@ -49,6 +57,10 @@ EEntity* FWorld::SpawnEntity(GClass* Class, const FVector& Location, const FRota
 
 	EEntity* Entity = NewObject<EEntity>(LevelToSpawn, Class);
 	Entity->PostSpawnInitialize(FTransform(), nullptr);
+
+	physx::PxMaterial* Material = GPhysicsCore->GetPhysics()->createMaterial(0.5f, 0.5f, 0.6f);
+	physx::PxRigidStatic* Plane = physx::PxCreatePlane(*GPhysicsCore->GetPhysics(), physx::PxPlane(0, 1, 0, 0), *Material);
+	bool Test = PhysicScene->addActor(*Plane);
 
 	LevelToSpawn->Entities.Add(Entity);
 

@@ -69,21 +69,21 @@ void DrawSubClassOf(GProperty* Property, GObject* Entity)
 		}
 		if (CurrentId == -1)
 		{
-			//ImGui::SetItemDefaultFocus();
+			ImGui::SetItemDefaultFocus();
 		}
 		for (uint32 i = 0; i < Classes.Num(); ++i)
 		{
-			if (!Subclass->StaticClass()->IsChildOf(Classes[i]))
+			if (!Classes[i]->IsChildOf(Subclass->StaticClass()))
 				continue;
 			if (ImGui::Selectable(-Classes[i]->GetName(), CurrentId == i))
 			{
 				CurrentId = i;
-				Subclass->ForceSetClass(Classes[i]);
+				Subclass->SetCurrentClass(Classes[i]);
 			}
 
 			if (CurrentId == i)
 			{
-				//ImGui::SetItemDefaultFocus();
+				ImGui::SetItemDefaultFocus();
 			}
 
 		}
@@ -114,6 +114,7 @@ void DrawProperty(GProperty::EType InType, GProperty* Property, GObject* Entity)
 	case GProperty::EType::FVector: return DrawVector3(Property, Entity);
 	case GProperty::EType::FRotator: return DrawRotator3(Property, Entity);
 	case GProperty::EType::TSubClassOf: return DrawSubClassOf(Property, Entity);
+	case GProperty::EType::TObjectPtr:
 	case GProperty::EType::GObject:
 	{
 		GObject* Object = *(GObject**)Property->GetValue(Entity);

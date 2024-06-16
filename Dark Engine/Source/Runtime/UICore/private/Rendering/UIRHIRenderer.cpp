@@ -18,6 +18,29 @@ void FUIRHIRenderer::Initialize()
 				Var->AsVariable()->Set(4);
 			}
 		});
+}
+
+
+FUIRHIRenderer::~FUIRHIRenderer()
+{
+	//WindowToViewportInfo.clear();
+	for (auto& i : WindowToViewportInfo)
+	{
+		//i.second->ViewportRHI->AddRef();
+		i.second->ViewportRHI.Reset();
+	}
+}
+
+void FUIRHIRenderer::DestroyViewport(UIWindow* InWindow)
+{
+	auto It = WindowToViewportInfo.find(InWindow);
+
+	if (It != WindowToViewportInfo.end())
+	{
+		/*FRHIViewport* Temp = It->second->ViewportRHI.get();
+		Temp->AddRef();*/
+		WindowToViewportInfo.erase(It);
+	}
 
 }
 
@@ -86,12 +109,12 @@ void FUIRHIRenderer::DrawWindows(const TArray<TSharedPtr<UIWindow>>& InWindows)
 				bool bVsync = 1;
 
 
-				FRHITexture* BackBuffer = RHIGetViewportBackBuffer(ViewInfo->ViewportRHI.get());
+				FRHITexture* BackBuffer = RHIGetViewportBackBuffer(ViewInfo->ViewportRHI.Get());
 				if (!BackBuffer)
 				{
 					return;
 				}
-				RHICmdList->BeginDrawingViewport(ViewInfo->ViewportRHI.get(), nullptr);
+				RHICmdList->BeginDrawingViewport(ViewInfo->ViewportRHI.Get(), nullptr);
 				RHICmdList->BeginFrame();
 #ifdef IMGUI
 				RHICmdList->BeginImGui();
@@ -119,7 +142,7 @@ void FUIRHIRenderer::DrawWindows(const TArray<TSharedPtr<UIWindow>>& InWindows)
 
 				RHICmdList->EndRenderPass(RPInfo);
 				//RHICmdList->EndFrame();
-				RHICmdList->EndDrawingViewport(ViewInfo->ViewportRHI.get(), true, Vsync);
+				RHICmdList->EndDrawingViewport(ViewInfo->ViewportRHI.Get(), true, Vsync);
 
 
 

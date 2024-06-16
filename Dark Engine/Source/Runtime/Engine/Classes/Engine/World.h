@@ -1,6 +1,8 @@
 #pragma once
 #include "Framework/Entity.h"
 #include "Math/MathFwd.h"
+#include "PhysicsCore.h"
+#include "PxPtr.h"
 
 
 class FWorld
@@ -26,7 +28,7 @@ public:
 
 private:
 	TObjectPtr<class GLevel>  CurrentLevel;
-
+	TPxPtr<physx::PxScene> PhysicScene;
 
 };
 

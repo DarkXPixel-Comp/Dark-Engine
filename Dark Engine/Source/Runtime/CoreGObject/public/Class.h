@@ -68,12 +68,12 @@ public:
 
 	void* GetValue(GObject* Object)
 	{
-		return (void*)(((char*)Object) + Offset);
+		return (void*)(((uint8*)Object) + Offset);
 	}
 
 	int32& GetInt32(GObject* Object)
 	{
-		return *(int32*)(((char*)Object) + Offset);
+		return *(int32*)(((uint8*)Object) + Offset);
 	}
 
 	//virtual void SetPropertyPointer(void* Ptr) {};
@@ -91,7 +91,8 @@ public:
 		GObject,
 		FVector,
 		FRotator,
-		TSubClassOf
+		TSubClassOf,
+		TObjectPtr
 	};
 
 	EType GetType() const { return Type; }

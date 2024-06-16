@@ -173,8 +173,6 @@ void FD3D12DynamicRHIModule::Shutdown()
 		GD3D12RHI = nullptr;
 	}
 
-	if (bNvidiaStreamline)
-		FreeLibrary(NVStreamLine);
 }
 
 
@@ -251,18 +249,17 @@ D3D_FEATURE_LEVEL FindHighestFeatureLevel(ID3D12Device* Device, D3D_FEATURE_LEVE
 
 bool TestD3D12CreateDevice(IDXGIAdapter* Adapter, FD3D12DeviceBasicInfo& BasicInfo)
 {
-	ID3D12Device* Device = nullptr;
+	TRefCountPtr<ID3D12Device> Device = nullptr;
 	D3D_FEATURE_LEVEL MinFeatureLevel = D3D_FEATURE_LEVEL_12_0;
 	const HRESULT D3D12CreateDeviceResult = D3D12CreateDevice(Adapter, MinFeatureLevel, IID_PPV_ARGS(&Device));
 	if (SUCCEEDED(D3D12CreateDeviceResult))
 	{
-		BasicInfo.MaxFeatureLevel = FindHighestFeatureLevel(Device, MinFeatureLevel);
-		BasicInfo.MaxShaderModel = FindHighestShaderModel(Device);
+		BasicInfo.MaxFeatureLevel = FindHighestFeatureLevel(Device.Get(), MinFeatureLevel);
+		BasicInfo.MaxShaderModel = FindHighestShaderModel(Device.Get());
 		BasicInfo.NumDeviceNodes = Device->GetNodeCount();
-		GetResourceTiers(Device, BasicInfo.ResourceBindingTier,
+		GetResourceTiers(Device.Get(), BasicInfo.ResourceBindingTier,
 			BasicInfo.ResourceHeapTier);
-
-		Device->Release();
+		;
 		return true;
 	}
 
@@ -301,9 +298,9 @@ void FD3D12DynamicRHIModule::FindAdapter()
 		if (TempAdapter)
 		{
 			FD3D12DeviceBasicInfo DeviceInfo;
-			auto TestDevice = std::async([&TempAdapter, &DeviceInfo]() -> bool {return TestD3D12CreateDevice(TempAdapter.Get(), DeviceInfo); });
-			auto Status = TestDevice.wait_for(std::chrono::seconds(1));
-			if (Status == std::future_status::ready && TestDevice.get())
+			auto TestDevice = TestD3D12CreateDevice(TempAdapter.Get(), DeviceInfo);//std::async([&TempAdapter, &DeviceInfo]() -> bool {return TestD3D12CreateDevice(TempAdapter.Get(), DeviceInfo); });
+			//auto Status = TestDevice.wait_for(std::chrono::seconds(1));
+			if (TestDevice/*Status == std::future_status::ready && TestDevice.get()*/)
 			{
 				if (DeviceInfo.NumDeviceNodes <= 0)
 				{

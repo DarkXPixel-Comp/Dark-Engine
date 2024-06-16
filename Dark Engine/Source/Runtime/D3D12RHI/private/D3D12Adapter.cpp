@@ -150,13 +150,11 @@ void FD3D12Adapter::GetAvailableDynamicSuperResolutions()
 		for (uint32 i = 0; i < DSRVariantCount; ++i)
 		{
 			DSR_SUPERRES_VARIANT_DESC& VariantDesc = AvailableSuperResolutions[i];
-			DSRDevice->GetSuperResVariantDesc(i, &VariantDesc);
-			DE_LOG(D3D12RHI, Log, TEXT("Avalible SR: %s"), *FString(VariantDesc.VariantName));
+			DXCall(DSRDevice->GetSuperResVariantDesc(i, &VariantDesc));
+			DE_LOG(D3D12RHI, Log, TEXT("Available SR: %s"), *FString(VariantDesc.VariantName));
 		}
 		bDSRDescAvailable = true;
 	}
-
-
 }
 
 #undef GetMessage

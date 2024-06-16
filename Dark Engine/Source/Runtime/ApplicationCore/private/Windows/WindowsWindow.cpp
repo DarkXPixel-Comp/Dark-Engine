@@ -204,6 +204,10 @@ void FWindowsWindow::InitImGui()
 {
 	ImGui_ImplWin32_Init(HWnd);
 }
+void FWindowsWindow::ShutdownImGui()
+{
+	ImGui_ImplWin32_Shutdown();
+}
 #endif
 
 void FWindowsWindow::BeginImGui()

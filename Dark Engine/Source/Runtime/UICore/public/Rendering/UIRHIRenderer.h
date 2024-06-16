@@ -10,7 +10,7 @@ struct FViewportInfo
 	void* WindowHandle;
 	int32 Width;
 	int32 Height;
-	TSharedPtr<FRHIViewport> ViewportRHI;
+	TRefCountPtr<FRHIViewport> ViewportRHI;
 	bool bFullscreen;
 
 
@@ -21,13 +21,14 @@ struct FViewportInfo
 class FUIRHIRenderer : public FUIRenderer
 {
 public:
-	virtual ~FUIRHIRenderer() {}
+	virtual ~FUIRHIRenderer();
 
 	void Initialize();
 
 	virtual void Destroy() {}
 
-	virtual void CreateViewport(UIWindow* InWindow);
+	virtual void CreateViewport(UIWindow* InWindow) override;
+	virtual void DestroyViewport(UIWindow* InWindow) override;
 	virtual void DrawWindows() {}
 	virtual void BeginFrame() {}
 	virtual void EndFrame() {}

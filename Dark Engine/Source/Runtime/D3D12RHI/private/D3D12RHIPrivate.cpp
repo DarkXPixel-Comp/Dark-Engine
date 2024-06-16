@@ -65,15 +65,6 @@ void FD3D12DynamicRHI::Init()
 		return;
 	}
 
-	ImGuiDescriptorHeap = CreateDescriptorHeap(
-		Adapter.GetDevice(),
-		TEXT("ImGuiDescriptorHeap"),
-		ERHIDescriptorHeapType::Standart,
-		1,
-		D3D12_DESCRIPTOR_HEAP_FLAG_SHADER_VISIBLE
-	);
-	DE_LOG(D3D12RHI, Log, TEXT("Create IMGUI Heap"));
-
 
 	GRHICommandList.GetImmediateCommandList().InitializeContexts();
 
@@ -90,24 +81,24 @@ void FD3D12DynamicRHI::Shutdown()
 	}
 }
 
-TSharedPtr<FRHIViewport> FD3D12DynamicRHI::RHICreateViewport(void* WindowHandle, uint32 SizeX, uint32 SizeY, bool bIsFullscreen)
+TRefCountPtr<FRHIViewport> FD3D12DynamicRHI::RHICreateViewport(void* WindowHandle, uint32 SizeX, uint32 SizeY, bool bIsFullscreen)
 {
 	FD3D12Viewport* RenderingViewport = new FD3D12Viewport(&GetAdapter(), HWND(WindowHandle), SizeX, SizeY,
 		bIsFullscreen, EPixelFormat::PF_R8G8B8A8_UNORM);
 	RenderingViewport->Init();
 
 #ifdef IMGUI
-	FD3D12BindlessDescriptorManager& DescriptorManager = GetAdapter().GetDevice()->GetBindlessDescriptorManager();
+	/*FD3D12BindlessDescriptorManager& DescriptorManager = GetAdapter().GetDevice()->GetBindlessDescriptorManager();
 	ImGuiDescriptorHandle = DescriptorManager.Allocate(ERHIDescriptorHeapType::Standart);
 
 	ImGui_ImplDX12_Init(GetAdapter().GetD3DDevice(), RenderingViewport->GetCountBackBuffers(),
 		GetDXGIFormat(EPixelFormat::PF_R8G8B8A8_UNORM),
 		DescriptorManager.GetHeap(ERHIDescriptorHeapType::Standart)->GetHeap(),
 		DescriptorManager.GetHeap(ERHIDescriptorHeapType::Standart)->GetCPUSlotHandle(ImGuiDescriptorHandle.GetIndex()),
-		DescriptorManager.GetGpuHandle(ImGuiDescriptorHandle));
+		DescriptorManager.GetGpuHandle(ImGuiDescriptorHandle));*/
 #endif
 
-	return MakeShareble(RenderingViewport);
+	return RenderingViewport;
 }
 
 void FD3D12DynamicRHI::GetAvailableDynamicSuperResolutions(TArray<FRHIDynamicSuperResolution>& OutAvaliable)

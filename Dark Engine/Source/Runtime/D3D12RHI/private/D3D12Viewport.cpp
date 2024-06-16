@@ -4,6 +4,7 @@
 #include "D3D12Device.h"
 #include "D3D12Util.h"
 #include "D3D12CommandContext.h"
+#include <imgui_impl_dx12.h>
 
 
 static const uint32 WindowsDefaultNumBackBuffers = 2;
@@ -21,6 +22,21 @@ FD3D12Viewport::FD3D12Viewport(FD3D12Adapter* InParent, HWND InWindowHandle, uin
 	GetParentAdapter()->GetViewports().Add(this);
 
 
+}
+
+FD3D12Viewport::~FD3D12Viewport()
+{
+	if (bIsValid)
+	{
+		ImGui_ImplDX12_Shutdown();
+		bIsValid = false;
+	}
+
+
+	GetParentAdapter()->GetDevice()->GetDefaultCommandContext().FlushCommands(ED3D12FlushFlags::WaitForSubmission);
+
+
+	GetParentAdapter()->GetViewports().Remove(this);
 }
 
 DXGI_MODE_DESC FD3D12Viewport::SetupDXGI_MODE_DESC() const
@@ -220,8 +236,29 @@ void FD3D12Viewport::Init()
 	Resize(BufferDesc.Width, BufferDesc.Height, bIsFullscreen, PixelFormat);
 
 
+	ImGuiHeap = CreateDescriptorHeap(
+		Adapter->GetDevice(),
+		TEXT("ImGuiDescriptorHeap"),
+		ERHIDescriptorHeapType::Standart,
+		1,
+		D3D12_DESCRIPTOR_HEAP_FLAG_SHADER_VISIBLE
+	);
+	DE_LOG(D3D12RHI, Log, TEXT("Create IMGUI Heap"));
 
 
+#ifdef IMGUI
+	FD3D12BindlessDescriptorManager& DescriptorManager = Adapter->GetDevice()->GetBindlessDescriptorManager();
+	FRHIDescriptorHandle ImGuiDescriptorHandle = DescriptorManager.Allocate(ERHIDescriptorHeapType::Standart);
+
+	ImGui_ImplDX12_Init(Adapter->GetD3DDevice(), GetCountBackBuffers(),
+		GetDXGIFormat(EPixelFormat::PF_R8G8B8A8_UNORM),
+		DescriptorManager.GetHeap(ERHIDescriptorHeapType::Standart)->GetHeap(),
+		DescriptorManager.GetHeap(ERHIDescriptorHeapType::Standart)->GetCPUSlotHandle(ImGuiDescriptorHandle.GetIndex()),
+		DescriptorManager.GetGpuHandle(ImGuiDescriptorHandle));
+#endif
+
+
+	bIsValid = true;
 }
 
 void FD3D12Viewport::Resize(uint32 InSizeX, uint32 InSizeY, bool bInIsFullscreen, EPixelFormat InPixelFormat)

@@ -38,7 +38,7 @@ public:
 	//virtual void PostInit();
 	virtual void Shutdown() override;
 
-	virtual TSharedPtr<FRHIViewport> RHICreateViewport(void* WindowHandle, uint32 SizeX, uint32 SizeY, bool bIsFullscreen) override;
+	virtual TRefCountPtr<FRHIViewport> RHICreateViewport(void* WindowHandle, uint32 SizeX, uint32 SizeY, bool bIsFullscreen) override;
 
 	virtual void GetAvailableDynamicSuperResolutions(TArray<FRHIDynamicSuperResolution>& OutAvaliable);
 
@@ -79,9 +79,9 @@ public:
 
 
 #ifdef IMGUI
-	FD3D12DescriptorHeap* ImGuiDescriptorHeap;
+	//FD3D12DescriptorHeap* ImGuiDescriptorHeap;
 	//uint32 ImGuiDescriptorHandle = 0;
-	FRHIDescriptorHandle ImGuiDescriptorHandle;
+	//FRHIDescriptorHandle ImGuiDescriptorHandle;
 #endif
 
 	const bool bUseNvStreamline;
@@ -101,7 +101,6 @@ private:
 	TUnordoredMap<class FGraphicsPipelineStateInitializer, TRefCountPtr<class FRHIGraphicsPipelineState>> GraphicsPipelineStateCache;
 	TMap<uint64, TRefCountPtr<class FD3D12ComputePipelineState>> ComputePipelineStateCache;
 	TMap<uint64, TRefCountPtr<class FD3D12RasterizerState>>	RasterizerStatesCache;
-
 
 };
 

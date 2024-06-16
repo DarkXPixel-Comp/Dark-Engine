@@ -28,6 +28,7 @@
 #include "Python.h"
 #include "SceneResourceBuilder.h"
 #include "SceneResourceImporter.h"
+#include "PhysicsCore.h"
 
 
 //#include "lua.hpp"
@@ -316,6 +317,8 @@ int32 FEngineLoop::PreInit(const TCHAR* CmdLine)
 
 	InitGlobalRenderResources();
 
+	InitPhysicsCore();
+
 	Engine = new DEditorEngine();
 
 	DE_LOG(Launch, Log, TEXT("Create Engine"));
@@ -395,6 +398,7 @@ void FEngineLoop::Tick()
 	FGameTimer::Tick();
 	UIApplication::Get()->Tick(DeltaTime);
 	Engine->Tick(DeltaTime);
+
 	sol::protected_function TickFunc = ScriptState["Tick"];
 
 	sol::error T = TickFunc();
@@ -418,7 +422,10 @@ void FEngineLoop::Exit()
 	delete Engine;
 	Engine = nullptr;
 
+	ShutdownPhysicsCore();
+
 	RHIExit();
+
 
 	Logger::Exit();
 

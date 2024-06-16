@@ -12782,10 +12782,10 @@ namespace sol { namespace stack {
 				tracking.use(1);
 				const type indextype = type_of(L_, index);
 				bool success = expected == indextype;
-				if (!success) {
-					// expected type, actual type, message
-					handler(L_, index, expected, indextype, "");
-				}
+				//if (!success) {
+				//	// expected type, actual type, message
+				//	handler(L_, index, expected, indextype, "");
+				//}
 				return success;
 			}
 		}
@@ -17319,7 +17319,7 @@ namespace sol {
 			}
 			else {
 				if constexpr (std::is_same_v<T, error>) {
-#if SOL_IS_ON(SOL_SAFE_PROXIES)
+#if 0//SOL_IS_ON(SOL_SAFE_PROXIES)
 					if (valid()) {
 						type t = type_of(L, target);
 						type_panic_c_str(L, target, t, type::none, "bad get from protected_function_result (is an error)");
@@ -17328,7 +17328,7 @@ namespace sol {
 					return error(detail::direct_error, stack::get<std::string>(L, target));
 				}
 				else {
-#if SOL_IS_ON(SOL_SAFE_PROXIES)
+#if 0//SOL_IS_ON(SOL_SAFE_PROXIES)
 					if (!valid()) {
 						type t = type_of(L, target);
 						type_panic_c_str(L, target, t, type::none, "bad get from protected_function_result (is not an error)");

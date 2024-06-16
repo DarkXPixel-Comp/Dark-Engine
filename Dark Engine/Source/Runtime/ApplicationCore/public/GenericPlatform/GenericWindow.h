@@ -61,6 +61,7 @@ public:
 						  
 #ifdef IMGUI
 	virtual void InitImGui() {}
+	virtual void ShutdownImGui() {}
 	virtual void BeginImGui() {}
 #endif
 

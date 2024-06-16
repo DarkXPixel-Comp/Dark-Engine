@@ -5,7 +5,10 @@
 
 class GStaticMeshComponent : public GMeshComponent
 {
-	DECLARE_CASETED_CLASS_INTRINSIC_WITH_API_WITH_PROPERTIES(GStaticMeshComponent, GMeshComponent);
+	DECLARE_CASETED_CLASS_INTRINSIC_WITH_API_WITH_PROPERTIES(GStaticMeshComponent, GMeshComponent,
+		{
+			DECLARE_PROPERTY_INT32(TTT, TTT);
+		});
 
 
 public:
@@ -18,6 +21,7 @@ public:
 
 private:
 	TObjectPtr<class GStaticMesh> StaticMesh;
+	int32 TTT = -75241;
 
 
 

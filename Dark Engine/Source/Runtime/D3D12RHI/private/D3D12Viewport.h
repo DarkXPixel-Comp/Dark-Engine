@@ -15,6 +15,7 @@ public:
 
 	FD3D12Viewport(FD3D12Adapter* InParent, HWND InWindowHandle, uint32 InSizeX, uint32 InSizeY,
 		bool bInIsFullscreen, EPixelFormat InPixelFormat);
+	~FD3D12Viewport();
 	void Init();
 
 	void Resize(uint32 InSizeX, uint32 InSizeY, bool bInIsFullscreen, EPixelFormat InPixelFormat);
@@ -53,7 +54,7 @@ private:
 	uint32 SizeY;
 	bool bIsFullscreen;
 	EPixelFormat PixelFormat;
-	bool bIsValid;
+	bool bIsValid = false;
 	uint32 CurrentBackBufferIndex;
 	
 	TArray<TRefCountPtr<FD3D12Texture>> BackBuffers;
@@ -63,6 +64,8 @@ private:
 	TRefCountPtr<IDXGISwapChain2> SwapChain2;
 	TRefCountPtr<IDXGISwapChain3> SwapChain3;
 	TRefCountPtr<IDXGISwapChain4> SwapChain4;
+
+	TRefCountPtr<class FD3D12DescriptorHeap> ImGuiHeap;
 
 
 
