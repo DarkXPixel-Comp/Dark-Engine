@@ -18,3 +18,13 @@ void GSceneComponent::SetWorldRotation(FRotator NewRoatation)
 {
 	RelativeRotation = NewRoatation;
 }
+
+FVector GSceneComponent::GetEntityPositionForRenderer()	const
+{
+	/*const GSceneComponent* Top;
+	for (Top = this; Top->GetAtt; ++)
+	{
+
+	}*/
+	return FVector();
+}

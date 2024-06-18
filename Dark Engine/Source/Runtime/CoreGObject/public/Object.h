@@ -200,6 +200,10 @@ public:
 		return static_cast<T*>(CreateDefaultSubobject(Name, ReturnType, ReturnType));
 	}
 
+	void GetDefaultSubobjects(TArray<GObject*>& OutDefaultSubobjects);
+
+
+	virtual void PostLoadSubobjects();
 
 
 

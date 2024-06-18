@@ -255,3 +255,19 @@ GObject* GObject::CreateDefaultSubobject(FString Name, GClass* ReturnType, GClas
 
 	return CurrentInitializer->CreateDefaultSubobject(this, Name, ReturnType, ClassCreateByDefault);
 }
+
+void GObject::GetDefaultSubobjects(TArray<GObject*>& OutDefaultSubobjects)
+{
+	OutDefaultSubobjects.Empty();
+
+
+
+
+
+}
+
+void GObject::PostLoadSubobjects()
+{
+
+
+}

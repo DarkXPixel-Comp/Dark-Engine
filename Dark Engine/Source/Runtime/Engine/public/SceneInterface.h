@@ -10,6 +10,8 @@ public:
 
 	virtual void AddPrimitive(class GPrimitiveComponent* Primitive) = 0;
 
+	virtual bool RequestUniformBufferUpdate(class FPrimitiveSceneInfo& PrimitiveSceneInfo) { return false; }
+
 
 
 

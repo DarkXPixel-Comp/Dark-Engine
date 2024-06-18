@@ -33,6 +33,8 @@ public:
 	const FVector& GetLocation() const { return RelativeLocation; }
 	const FVector& GetScale() const { return RelativeScale; }
 
+	FVector GetEntityPositionForRenderer() const;
+
 	FORCEINLINE const FTransform& GetComponentTransform() const
 	{
 		return ComponentToWorld;
@@ -40,11 +42,19 @@ public:
 
 	uint8 bVisible;
 
+	FORCEINLINE GSceneComponent* GetAttachParent() const
+	{
+		return AttachParent;
+	}
+
 
 private:
 	FVector RelativeLocation;
 	FRotator RelativeRotation;
 	FVector RelativeScale;
 	FTransform ComponentToWorld;
+	TObjectPtr<GSceneComponent>	AttachParent;
+
+
 																	   
 };
