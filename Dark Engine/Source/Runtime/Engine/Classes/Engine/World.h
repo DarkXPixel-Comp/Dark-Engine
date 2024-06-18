@@ -8,7 +8,10 @@
 class FWorld
 {
 public:
+	void BeginPlay();
 	void InitWorld();
+	void Tick(float DeltaTime, bool bFetchPhysic);
+	void FetchPhysic();
 
 	class FSceneInterface* Scene;
 
@@ -21,14 +24,24 @@ public:
 	{
 		return reinterpret_cast<T*>(SpawnEntity(Class));
 	}
+	bool IsSimulate() const { return bInSimulate; }
+
+	const FVector3f& GetGravity() const;
+	void SetGravity(const FVector3f& NewGravity);
 
 	void InitializeNewWorld();
+
+	bool AddPhysicComponent(physx::PxActor* InActor);
 
 	const TArray<TObjectPtr<EEntity>>& GetEntitiesOnCurrentLevel() const;
 
 private:
 	TObjectPtr<class GLevel>  CurrentLevel;
 	TPxPtr<physx::PxScene> PhysicScene;
+	bool bInSimulate = false;
+	FVector3f Gravity;
+	float Counter = 0.f;
+	float StepSize = 0.01f;
 
 };
 

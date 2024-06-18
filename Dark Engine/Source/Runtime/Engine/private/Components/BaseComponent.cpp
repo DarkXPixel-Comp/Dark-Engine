@@ -94,7 +94,17 @@ void GBaseComponent::ExecuteRegisterEvents()
 	if (!bRenderStateCreated && World->Scene && ShouldCreateRenderState())
 	{
 		CreateRenderState();
+		bRenderStateCreated = true;
 	}
+
+	if (!bPhysicStateCreated && World && ShouldCreatePhysicState())
+	{
+		CreatePhysicState();
+		bPhysicStateCreated = true;
+	}
+
+
+
 }
 
 FWorld* GBaseComponent::GetWorldForCache() const

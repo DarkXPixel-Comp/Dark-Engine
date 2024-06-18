@@ -19,6 +19,8 @@ public:
 		return StaticMesh;
 	}
 
+
+	virtual void CreatePhysicState() override;
 private:
 	TObjectPtr<class GStaticMesh> StaticMesh;
 	int32 TTT = -75241;

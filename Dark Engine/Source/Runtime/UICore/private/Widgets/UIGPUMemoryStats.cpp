@@ -15,8 +15,8 @@ void UIGPUMemoryStats::DrawImGui()
 	{
 		ImGui::Text(!Stats);
 		//ImGui::TextUnformatted(!Stats);
-		ImGui::End();
 	}
+	ImGui::End();
 }
 
 

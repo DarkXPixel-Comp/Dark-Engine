@@ -39,8 +39,8 @@ void UIWorldOutliner::DrawImGui()
 
 			ImGui::TreePop();
 		}
-
-		ImGui::End();
 	}
+	ImGui::End();
+
 }
 

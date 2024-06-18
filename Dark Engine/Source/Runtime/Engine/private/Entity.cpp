@@ -5,6 +5,7 @@
 #include "Components/SceneComponent.h"
 #include "Math/Transform.h"
 #include "Engine/World.h"
+#include "Components/PrimitiveComponent.h"
 
 
 
@@ -34,6 +35,44 @@ void EEntity::Init()
 	SceneComponent = (GSceneComponent*)AddComponentByClass(GSceneComponent::StaticClass());*/	\
 	BaseComponent = CreateDefaultSubobject<GBaseComponent>("Base Component");
 	SceneComponent = CreateDefaultSubobject<GSceneComponent>("Scene Component123");
+
+	/*CreateDefaultSubobject<GPrimitiveComponent>("TTT");
+
+	TObjectPtr<GPrimitiveComponent> DefaultObject = GPrimitiveComponent::StaticClass()->ClassDefaultObject;*/
+
+
+
+	PrimaryTick.bCanEverTick = false;
+	PrimaryTick.TickGroup = TG_PrePhysics;
+	PrimaryTick.Target = this;
+}
+
+void EEntity::DispatchBeginPlay()
+{
+	FWorld* World = (!IsBeginPlay()) ? GetWorld() : nullptr;
+
+	if (World)
+	{
+		BeginPlay();
+	}
+}
+
+void EEntity::BeginPlay()
+{
+	TArray<GBaseComponent*>	Components;
+	GetComponents(Components);
+
+
+	for (GBaseComponent* Component : Components)
+	{
+		if (Component->IsRegistered() && !Component->IsBeginPlay())
+		{
+			Component->BeginPlay();
+		}
+	}
+
+	bBeginPlay = true;
+
 }
 
 void EEntity::SetRootComponent(class GSceneComponent* NewRootComponent)
@@ -180,5 +219,14 @@ void EEntity::RegisterAllComponents()
 	if (RootComponent != nullptr && !RootComponent->IsRegistered() && RootComponent->bAutoRegister)
 	{
 		RootComponent->RegisterComponentWithWorld(World);
+	}
+
+	TArray<GBaseComponent*>	Components;
+	GetComponents(Components);
+
+	for (auto& i : Components)
+	{
+		if(!i->IsRegistered())
+			i->RegisterComponentWithWorld(World);
 	}
 }

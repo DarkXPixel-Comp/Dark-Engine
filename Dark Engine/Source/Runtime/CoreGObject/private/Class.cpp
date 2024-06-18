@@ -25,6 +25,7 @@ void GetPrivateStaticClassBody(const TCHAR* Name, GClass*& ReturnClass, void(*Re
 
 	InitializePrivateStaticClass(InSuperClassFunc(), ReturnClass, Name);
 
+	ReturnClass->RegisterSuperProperties();
 	RegisterNativeFunc();
 
 }
@@ -59,6 +60,17 @@ GStruct::GStruct(int32 InSize, int32 InAlignment, EObjectFlags InFlags) :
 	Alignment(InAlignment)
 {
 
+}
+
+void GStruct::RegisterSuperProperties()
+{
+	if(SuperStruct)
+	{
+		for (auto& i : SuperStruct->GetProperties())
+		{
+			Properties.Add(i);
+		}
+	}
 }
 
 void GStruct::RegisterProperty(GProperty* NewProperty)
@@ -180,10 +192,10 @@ GStruct* GField::GetOwnerStruct() const
 
 GPropertyInt32::GPropertyInt32() : Super()
 {
-	Type = EType::int32;
+	Type = EType::Pint32;
 }
 
 GPropertyInt32::GPropertyInt32(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer)
 {
-	Type = EType::int32;
+	Type = EType::Pint32;
 }

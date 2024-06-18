@@ -84,11 +84,9 @@ void UIEditorSettings::DrawImGui()
 			TempSettings = CurrentSettings;
 		}
 
-
-		ImGui::End();
 	}
 
-
+	ImGui::End();
 }
 
 void UIEditorSettings::Update(float DeltaTime)

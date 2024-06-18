@@ -81,7 +81,7 @@ void UIViewport::DrawImGui()
 
 		ImGui::Text(FString::NumToString(Fps).GetStr());
 		//ImGui::Text(FString::FloatToString(Fps).GetStr());
-		ImGui::End();
 	}
+	ImGui::End();
 }
 

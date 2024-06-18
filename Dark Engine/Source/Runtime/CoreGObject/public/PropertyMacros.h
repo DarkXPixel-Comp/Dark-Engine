@@ -11,7 +11,7 @@
 	using PropertyType = GProperty;\
 	GStruct* CurrentStruct = (GStruct*)StaticClass(); \
 	PropertyType* Property = NewObject<PropertyType>(StaticClass(), TEXT(#Name));\
-	Property->SetType(GProperty::EType::TypeProperty);\
+	Property->SetType(GProperty::EType::P##TypeProperty);\
 	Property->SetOffsetProperty(DE_OFFSETOF(ThisClass, PropertyName));\
 	CurrentStruct->RegisterProperty((GProperty*)Property);\
 	Meta;\
@@ -29,4 +29,18 @@
 	int64 MIN = 0; \
 	Code; \
 	Property->SetMinMaxValue(MIN, MAX);\
+}
+
+#define DECLARE_SETTER(Func)	\
+{	  \
+	void(GObject::*Setter)(void*, uint64) = (GProperty::FuncPtr)&ThisClass::__##Func##Setter_Impl;\
+	Property->SetSetter(Setter);\
+}  \
+
+
+#define IMPLEMENT_SETTER(Name, ArgType) \
+	void __##Name##Setter_Impl(void* Data, uint64 Size)	 \
+{			  \
+	check(Size == sizeof(ArgType));\
+	Name(*((ArgType*)Data));\
 }

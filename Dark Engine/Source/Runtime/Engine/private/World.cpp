@@ -1,14 +1,55 @@
 #include "Engine/World.h"
 #include "RenderGlobals.h"
 #include "Engine/Level.h"
+#include "Components/PrimitiveComponent.h"
 #include "Framework/MeshObject.h"
 #include "Math/Transform.h"
 #include "extensions/PxSimpleFactory.h"
 #include "PxRigidStatic.h"
+#include "PxMaterial.h"
+#include "PxSimulationEventCallback.h"
 
 
 FWorld* GWorld = nullptr;
 
+
+class FWorldPhysicsCallback : public physx::PxSimulationEventCallback
+{
+public:
+	FWorldPhysicsCallback(FWorld* InWorld) : World(InWorld)
+	{}
+
+	virtual void onConstraintBreak(physx::PxConstraintInfo* constraints, physx::PxU32 count) {}
+
+	virtual void onWake(physx::PxActor** actors, physx::PxU32 count) {}
+
+
+	virtual void onSleep(physx::PxActor** actors, physx::PxU32 count) {}
+
+	virtual void onContact(const physx::PxContactPairHeader& pairHeader, const physx::PxContactPair* pairs, physx::PxU32 nbPairs) {}
+
+	virtual void onTrigger(physx::PxTriggerPair* pairs, physx::PxU32 count) {}
+
+	virtual void onAdvance(const physx::PxRigidBody* const* BodyBuffer, const physx::PxTransform* PoseBuffer, const physx::PxU32 Count)
+	{
+		for (uint32 i = 0; i < Count; ++i)
+		{
+			GPrimitiveComponent* Component = (GPrimitiveComponent*)BodyBuffer[i]->userData;
+			physx::PxVec3 NewLocation = PoseBuffer->p;
+			physx::PxQuat NewRotation = PoseBuffer->q;
+			Component->SetWorldLocation(FVector(NewLocation.x, NewLocation.y, NewLocation.z));
+			//Component->SetWorldRotation(FRotator(NewRotation))
+		}
+	}
+
+	virtual ~FWorldPhysicsCallback() noexcept {}
+
+private:
+	FWorld* World = nullptr;
+
+};
+
+TUniquePtr<FWorldPhysicsCallback> WorldCallbacks;
 
 void FWorld::InitWorld()
 {
@@ -17,8 +58,79 @@ void FWorld::InitWorld()
 	physx::PxSceneDesc SceneDesc(GPhysicsCore->GetScaleScene());
 	SceneDesc.userData = this;
 	SceneDesc.gravity = physx::PxVec3(0, -9.8f, 0);
+	Gravity = *(FVector3f*)&SceneDesc.gravity;
 
 	PhysicScene = GPhysicsCore->CreateScene(SceneDesc);
+	WorldCallbacks = MakeUnique(new FWorldPhysicsCallback(this));
+
+	PhysicScene->setSimulationEventCallback(WorldCallbacks.get());
+}
+
+const FVector3f& FWorld::GetGravity() const
+{
+	if (PhysicScene)
+	{
+		return Gravity;
+	}
+}
+
+void FWorld::SetGravity(const FVector3f& NewGravity)
+{
+	Gravity = NewGravity;
+	if (PhysicScene)
+	{
+		PhysicScene->setGravity(*(physx::PxVec3*)&Gravity);
+	}
+
+}
+
+
+void FWorld::BeginPlay()
+{
+
+
+
+
+
+}
+
+
+void FWorld::Tick(float DeltaTime, bool InFetchPhysic)
+{
+	//InFetchPhysic = true;
+	if (PhysicScene && !bInSimulate)
+	{
+		Counter += DeltaTime;
+		if (Counter < StepSize)
+		{
+
+		}
+		else
+		{
+			Counter -= StepSize;
+			bInSimulate = true;
+			PhysicScene->simulate(StepSize);
+			if (InFetchPhysic)
+			{
+				FetchPhysic();
+			}
+		}
+	}
+}
+
+void FWorld::FetchPhysic()
+{
+	if (PhysicScene && bInSimulate)
+	{
+		PhysicScene->fetchResults(true);
+		bInSimulate = false;
+	}
+}
+
+bool FWorld::AddPhysicComponent(physx::PxActor* InActor)
+{
+	PhysicScene->addActor(*InActor);
+	return false;
 }
 
 
@@ -58,9 +170,9 @@ EEntity* FWorld::SpawnEntity(GClass* Class, const FVector& Location, const FRota
 	EEntity* Entity = NewObject<EEntity>(LevelToSpawn, Class);
 	Entity->PostSpawnInitialize(FTransform(), nullptr);
 
-	physx::PxMaterial* Material = GPhysicsCore->GetPhysics()->createMaterial(0.5f, 0.5f, 0.6f);
+	/*physx::PxMaterial* Material = GPhysicsCore->GetPhysics()->createMaterial(0.5f, 0.5f, 0.6f);
 	physx::PxRigidStatic* Plane = physx::PxCreatePlane(*GPhysicsCore->GetPhysics(), physx::PxPlane(0, 1, 0, 0), *Material);
-	bool Test = PhysicScene->addActor(*Plane);
+	PhysicScene->addActor(*Plane);*/
 
 	LevelToSpawn->Entities.Add(Entity);
 

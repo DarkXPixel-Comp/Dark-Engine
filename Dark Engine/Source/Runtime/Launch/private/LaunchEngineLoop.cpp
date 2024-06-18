@@ -18,6 +18,7 @@
 #include "Widgets/UIWorldOutliner.h"
 #include "Widgets/UIEntityProperties.h"
 #include "Widgets/UIGPUMemoryStats.h"
+#include "Widgets/UIWorldSettings.h"
 #include "Shader.h"
 #include "ShaderCompiler.h"
 #include "Console/GlobalInputOutConsole.h"
@@ -77,8 +78,12 @@ struct FEditorLayout
 		TSharedPtr<UIWorldOutliner> WorldOutliner = MakeShareble(new UIWorldOutliner());
 		MainDock->AddChild(WorldOutliner);
 
+		TSharedPtr<UIWorldSettings>	WorldSettings = MakeShareble(new UIWorldSettings());
+		MainDock->AddChild(WorldSettings);
+
 		TSharedPtr<UIEntityProperties> EntityProperties = MakeShareble(new UIEntityProperties());
 		MainDock->AddChild(EntityProperties);
+
 
 
 		RootViewport = MakeShareble(new UIEditorViewport());
@@ -388,16 +393,20 @@ int32 FEngineLoop::Init()
 	auto Meshes = Importer.GetAllStaticMeshes();
 	//FSceneResourceBuilder::Build(TEXT("Meshes/Cube.fbx"));
 
-
+	FGameTimer::Start();
+	FGameTimer::Reset();
 	return 0;
 }
 
 void FEngineLoop::Tick()
 {
-	float DeltaTime = FGameTimer::DeltaTime();
 	FGameTimer::Tick();
+	float DeltaTime = FGameTimer::DeltaTime();
+	GWorld->FetchPhysic();
 	UIApplication::Get()->Tick(DeltaTime);
 	Engine->Tick(DeltaTime);
+
+	GWorld->Tick(DeltaTime, false);
 
 	sol::protected_function TickFunc = ScriptState["Tick"];
 

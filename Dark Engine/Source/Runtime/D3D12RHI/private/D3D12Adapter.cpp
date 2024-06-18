@@ -142,6 +142,7 @@ bool FD3D12Adapter::CheckFeaturesOrCrash()
 
 void FD3D12Adapter::GetAvailableDynamicSuperResolutions()
 {
+#if D3D12_USING_DIRECTSR
 	if (bDeviceCreated && !bDSRDescAvailable)
 	{
 		const uint32 DSRVariantCount = DSRDevice->GetNumSuperResVariants();
@@ -155,6 +156,7 @@ void FD3D12Adapter::GetAvailableDynamicSuperResolutions()
 		}
 		bDSRDescAvailable = true;
 	}
+#endif
 }
 
 #undef GetMessage

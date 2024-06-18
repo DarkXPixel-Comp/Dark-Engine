@@ -125,11 +125,10 @@ void UIConsole::DrawImGui()
 			}
 			FMemory::Memzero(InputText, 256);
 		}
-
-		ImGui::End();
 	}
 
 
+	ImGui::End();
 }
 
 void UIConsole::OnLogAdd(FConsoleLog InLog)

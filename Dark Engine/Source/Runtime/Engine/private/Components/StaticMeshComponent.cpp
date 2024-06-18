@@ -1,4 +1,5 @@
 #include "Components/StaticMeshComponent.h"
+#include "Engine/StaticMesh.h"
 
 
 
@@ -15,4 +16,17 @@ void GStaticMeshComponent::SetStaticMesh(GStaticMesh* NewMesh)
 	}
 
 	StaticMesh = NewMesh;
+}
+
+void GStaticMeshComponent::CreatePhysicState()
+{
+	Super::CreatePhysicState();
+
+	if(StaticMesh)
+	{
+		for (auto& i : StaticMesh->GetShapes())
+		{
+			RigidDynamic->attachShape(*i);
+		}
+	}
 }

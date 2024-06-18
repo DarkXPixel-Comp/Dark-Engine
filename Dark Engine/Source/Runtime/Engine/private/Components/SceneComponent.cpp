@@ -8,3 +8,13 @@ GSceneComponent::GSceneComponent(const FObjectInitializer& ObjectInitializer) : 
 {
 	bVisible = true;
 }
+
+void GSceneComponent::SetWorldLocation(FVector NewLocation)
+{
+	RelativeLocation = NewLocation;
+}
+
+void GSceneComponent::SetWorldRotation(FRotator NewRoatation)
+{
+	RelativeRotation = NewRoatation;
+}

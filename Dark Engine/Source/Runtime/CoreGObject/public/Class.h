@@ -12,28 +12,6 @@ class GObject;
 void InitializePrivateStaticClass(GClass* SuperStaticClass, GClass* PrivateStaticClass, const TCHAR* Name);
 
 
-
-/*struct Test
-{
-	int k = 7;
-};
-
-
-using PropPtr = int(Test::*);
-
-
-int main()
-{
-	PropPtr test1 = &Test::k;
-
-	Test ex;
-
-	ex.k = 5;
-
-	std::cout << (Test*)(nullptr)->*test1;
-}
-*/
-
 template<class T>
 struct TProperty
 {
@@ -47,6 +25,8 @@ class GProperty: public GObject
 {
 	DECLARE_CLASS_INTINSIC_NO_CTOR(GProperty, GObject);
 public:
+	using FuncPtr = void(GObject::*)(void*, uint64);
+
 	GProperty() {}
 	GProperty(const FObjectInitializer& ObjectInitializer) {}
 
@@ -61,9 +41,33 @@ public:
 		MaxValue = InMax;
 	}
 
+	void SetSetter(FuncPtr Func)
+	{
+		auto F = Func;
+		Setter = F;
+	}
+
+
 	void SetMoveSpeed(float InMoveSpeed)
 	{
 		MoveSpeed = InMoveSpeed;
+	}
+
+	template<typename T>
+	void SetValue(GObject* Object, T Value)
+	{
+		if(Setter)
+		{
+			(Object->*Setter)(&Value, sizeof(Value));
+			return;
+		}
+		(*(T*)GetValue(Object)) = Value;
+	}
+
+	template<typename T>
+	T* GetValueT(GObject* Object)
+	{
+		return (T*)(((uint8*)Object) + Offset);
 	}
 
 	void* GetValue(GObject* Object)
@@ -80,19 +84,21 @@ public:
 
 	enum class EType
 	{
-		uint8,
-		int8,
-		uint16,
-		int16,
-		uint32,
-		int32,
-		uint64,
-		int64,
-		GObject,
-		FVector,
-		FRotator,
-		TSubClassOf,
-		TObjectPtr
+		Puint8,
+		Pint8,
+		Puint16,
+		Pint16,
+		Puint32,
+		Pint32,
+		Puint64,
+		Pint64,
+		Pfloat,
+		Pdouble,
+		PGObject,
+		PFVector,
+		PFRotator,
+		PTSubClassOf,
+		PTObjectPtr,
 	};
 
 	EType GetType() const { return Type; }
@@ -102,6 +108,7 @@ public:
 	int64 MinValue = 0;
 	int64 MaxValue = INT64_MAX;
 	float MoveSpeed = 1.f;
+	void(GObject::*Setter)(void*, uint64) = nullptr;
 
 protected:
 	EType Type;
@@ -147,6 +154,7 @@ public:
 	GStruct(int32 InSize, int32 InAlignment, EObjectFlags InFlags = OF_NoFlags);
 
 	void RegisterProperty(GProperty* NewProperty);
+	void RegisterSuperProperties();
 
 
 	int32 GetPropertiesSize() const { return PropertiesSize; }

@@ -80,7 +80,9 @@ public:
 	void SetDebugMessages(bool bOn);
 	void CreateDXGIFactory(bool bWithDebug = false);
 
+#if D3D12_USING_DIRECTSR
 	const TArray<DSR_SUPERRES_VARIANT_DESC>& GetDSRDescs() const { return AvailableSuperResolutions; }
+#endif
 
 	FD3D12Device* GetDevice(uint32 Index = 0) const { return Devices[Index].get(); }
 
@@ -107,9 +109,11 @@ private:
 	ComPtr<IDXGIFactory7> DXGIFactory;
 	ComPtr<IDXGIAdapter4> DXGIAdapter;
 	ComPtr<ID3D12DSRDeviceFactory> DSRDeviceFactory;
-	ComPtr<IDSRDevice> DSRDevice;
 	TStaticArray<TSharedPtr<FD3D12Device>, 1> Devices;
+#if D3D12_USING_DIRECTSR
 	TArray<DSR_SUPERRES_VARIANT_DESC> AvailableSuperResolutions;
+	ComPtr<IDSRDevice> DSRDevice;
+#endif
 
 	ComPtr<ID3D12InfoQueue1> InfoQueue;
 

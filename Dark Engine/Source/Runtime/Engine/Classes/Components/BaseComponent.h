@@ -27,10 +27,13 @@ public:
 	virtual void OnRegister();
 
 	virtual void CreateRenderState();
+	virtual void CreatePhysicState() {}
 
 	FORCEINLINE bool IsRegistered() const { return bRegistered; }
 
 	EEntity* GetOwner() const { return Owner; }
+
+	bool IsBeginPlay() const { return bBeginPlay; }
 
 	void RegisterComponent();
 
@@ -39,6 +42,7 @@ public:
 	virtual void ExecuteRegisterEvents();
 
 	constexpr virtual bool ShouldCreateRenderState() const { return false; }
+	constexpr virtual bool ShouldCreatePhysicState() const { return false; }
 
 
 	class FWorld* GetWorld() const { return World ? World : GetWorldForCache(); }
@@ -59,6 +63,7 @@ private:
 	bool bBeginPlay = false;
 	bool bRegistered = false;
 	bool bRenderStateCreated = false;
+	bool bPhysicStateCreated = false;
 
 
 };

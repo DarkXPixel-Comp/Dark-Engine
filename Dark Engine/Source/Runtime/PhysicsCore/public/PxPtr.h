@@ -20,12 +20,17 @@ public:
 		return *this;
 	}
 
-	T* operator*() const
+	T& operator*() const
+	{
+		return *Ptr;
+	}
+
+	T* operator->() const
 	{
 		return Ptr;
 	}
 
-	T* operator->() const
+	operator T* () const
 	{
 		return Ptr;
 	}

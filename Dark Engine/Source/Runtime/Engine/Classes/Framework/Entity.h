@@ -25,15 +25,21 @@ class EEntity : public GObject
 	DECLARE_CLASS_INTINSIC_NO_CTOR_WITH_PROPERTIES(EEntity, GObject,
 		{
 			DECLARE_PROPERTY_INT32(Test, Test);
-			DECLARE_PROPERTY(GObject, SubClass, SubClass);
-			DECLARE_PROPERTY(GObject, BaseComponent, BaseComponent);
-			DECLARE_PROPERTY(GObject, SceneComponent, RenderComponent);
+		//	DECLARE_PROPERTY(GObject, SubClass, SubClass);
+		//	DECLARE_PROPERTY(GObject, BaseComponent, BaseComponent);
+		//	DECLARE_PROPERTY(GObject, SceneComponent, RenderComponent);
 		});
 
 public:
 	EEntity();
 
 	EEntity(const FObjectInitializer& ObjectInitalizer);
+
+	void DispatchBeginPlay();
+
+	virtual void BeginPlay();
+
+
 
 	void AddOwnedComponent(class GBaseComponent* Component);
 
@@ -83,6 +89,10 @@ public:
 
 
 	}
+
+
+	bool IsBeginPlay() const { return bBeginPlay; }
+
 	
 	void PostSpawnInitialize(const FTransform& SpawnTransform, EEntity* InOwner);
 
@@ -93,6 +103,8 @@ public:
 	
 
 private:
+	bool bBeginPlay = false;
+
 	TObjectPtr<EEntity>	Owner;
 	TArray<TObjectPtr<EEntity>>	Children;
 	TObjectPtr<GSceneComponent>	RootComponent;

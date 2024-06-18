@@ -2,6 +2,8 @@
 #include "foundation/PxFoundation.h"
 #include "extensions/PxDefaultAllocator.h"
 #include "foundation/PxErrorCallback.h"
+#include "cudamanager/PxCudaContextManager.h"
+#include "cudamanager/PxCudaContext.h"
 #include "PxPhysics.h"
 #include "Logging/LogMacros.h"
 #include "pvd/PxPvd.h"
@@ -45,10 +47,12 @@ private:
 	physx::PxPhysics* Physics = nullptr;
 	physx::PxPvd* Pvd = nullptr;
 	physx::PxCpuDispatcher* CpuDispatcher = nullptr;
+	physx::PxCudaContextManager* CudaManager = nullptr;
 
 private:
 	bool bPhysXDebug = true;
 	bool bInitExtensions = false;
+	bool bUseCuda = false;
 };
 
 

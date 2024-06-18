@@ -103,6 +103,7 @@ TRefCountPtr<FRHIViewport> FD3D12DynamicRHI::RHICreateViewport(void* WindowHandl
 
 void FD3D12DynamicRHI::GetAvailableDynamicSuperResolutions(TArray<FRHIDynamicSuperResolution>& OutAvaliable)
 {
+#if D3D12_USING_DIRECTSR
 	const auto& Descs = GetAdapter().GetDSRDescs();
 	uint32 Counter = 0;
 
@@ -114,6 +115,7 @@ void FD3D12DynamicRHI::GetAvailableDynamicSuperResolutions(TArray<FRHIDynamicSup
 		Desc.OptimalFormat = GetPixelFormat(i.OptimalTargetFormat);
 		OutAvaliable.Add(Desc);
 	}
+#endif
 }
 
 FD3D12CommandContext* FD3D12DynamicRHI::CreateCommandContext(FD3D12Device* InParent, ED3D12QueueType InQueueType, bool InIsDefaultContext)

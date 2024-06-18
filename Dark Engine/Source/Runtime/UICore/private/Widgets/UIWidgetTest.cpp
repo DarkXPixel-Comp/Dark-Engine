@@ -33,11 +33,10 @@ void UIWidgetTest::DrawImGui()
 		
 		ImGuizmo::DecomposeMatrixToComponents((float*)Mat.M, Translation.XYZ, Rotation.XYZ, Scale.XYZ);
 
-
-		ImGui::End();
 	}
 
 
+	ImGui::End();
 
 
 }

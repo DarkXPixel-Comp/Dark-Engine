@@ -1,8 +1,11 @@
 #include "PhysicsCore.h"
 #include "foundation/PxPhysicsVersion.h"
 #include "common/PxTolerancesScale.h"
+#include "gpu/PxGpu.h"
+#include "gpu/PxPhysicsGpu.h"
 #include "extensions/PxExtensionsAPI.h"
 #include "extensions/PxDefaultCpuDispatcher.h"
+#include "Console/GlobalInputOutConsole.h"
 
 using namespace physx;
 
@@ -34,6 +37,12 @@ PxScene* FPhysicsCore::CreateScene(PxSceneDesc& SceneDesc)
 	if (SceneDesc.filterShader == PxSimulationFilterShader())
 	{
 		SceneDesc.filterShader = PxDefaultSimulationFilterShader;
+	}
+	if(bUseCuda)
+	{
+		SceneDesc.cudaContextManager = CudaManager;
+		SceneDesc.flags |= PxSceneFlag::eENABLE_GPU_DYNAMICS;
+		SceneDesc.broadPhaseType = PxBroadPhaseType::eGPU;
 	}
 	return Physics->createScene(SceneDesc);
 }
@@ -100,13 +109,27 @@ void FPhysicsCore::Init()
 
 	bInitExtensions = PxInitExtensions(*Physics, Pvd);
 
+	GGlobalConsole.RegisterConsoleVariable(TEXT("g.PhysXCoreCount"), 0);
+	auto CoreCount = GGlobalConsole.FindConsoleVariable(TEXT("g.PhysXCoreCount"));
 
-	const uint32 CountThreads = std::thread::hardware_concurrency();
+	GGlobalConsole.RegisterConsoleVariableRef(TEXT("g.PhysXUseCuda"), bUseCuda);
+
+	const uint32 CountThreads = CoreCount && CoreCount->GetInt() > 0 ? CoreCount->GetInt() : std::thread::hardware_concurrency();
 	CpuDispatcher = PxDefaultCpuDispatcherCreate(CountThreads ? CountThreads / 2 : 1);
+
+	if(bUseCuda)
+	{
+		PxCudaContextManagerDesc CudaManagerDesc = {};
+		CudaManager = PxCreateCudaContextManager(*Foundation, CudaManagerDesc, PxGetProfilerCallback());
+	}
 }
 
 void FPhysicsCore::Destroy()
 {
+	if (CudaManager)
+	{
+		CudaManager->releaseContext();
+	}
 	if (bInitExtensions)
 	{
 		PxCloseExtensions();

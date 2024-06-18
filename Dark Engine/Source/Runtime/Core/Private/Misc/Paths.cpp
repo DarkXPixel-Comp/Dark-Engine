@@ -59,5 +59,5 @@ CORE_API FString FPaths::EngineLogDir()
 
 CORE_API FString FPaths::EngineShaderDir()
 {
-	return SourceDir() + TEXT("Shaders/");
+	return EngineDir() + TEXT("Shaders/");
 }

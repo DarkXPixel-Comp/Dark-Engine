@@ -96,9 +96,9 @@ void UIEditorViewport::DrawImGui()
 
 		ImGui::SetCursorPos(ImVec2(5, 60));
 		ImGui::Text("%i %i", MousePosition.X, MousePosition.Y);
-
-		ImGui::End();
 	}
+
+	ImGui::End();
 }
 
 void UIEditorViewport::OnResize(int32 NewX, int32 NewY)

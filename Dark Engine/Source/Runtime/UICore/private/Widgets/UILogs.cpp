@@ -34,8 +34,8 @@ void UILogs::DrawImGui()
 		//ScrollToBottom = false;
 		//LastLogsSize = Logger::GetCurrentCountLogs();
 		
-		ImGui::End();
 	}
+	ImGui::End();
 }
 
 void UILogs::OnLogAdd()

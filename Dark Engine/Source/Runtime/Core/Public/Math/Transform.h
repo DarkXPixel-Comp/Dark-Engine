@@ -49,6 +49,13 @@ namespace DE
 				Rotation = { (T)InRotation.Roll, (T)InRotation.Pitch, (T)InRotation.Yaw, 1 };
 				Scale = { (T)InScale.X, (T)InScale.Y, (T)InScale.Z, 0 };*/
 			}
+
+			FORCEINLINE TMatrix<T> ToMatrixWithScale() const
+			{
+				TMatrix<T> OutMatrix;
+
+				return OutMatrix;
+			}
 		};
 	}
 }

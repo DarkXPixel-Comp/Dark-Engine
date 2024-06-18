@@ -26,7 +26,7 @@ target_sources(D3D12RHI PRIVATE ${D3D12RHISrc})
 target_include_directories(D3D12RHI PUBLIC "public")
 target_include_directories(D3D12RHI PRIVATE "private")
 
-if(${CMAKE_BUILD_TYPE} MATCHES "Debug")
+if(${CMAKE_BUILD_TYPE} MATCHES "Debug")	
 target_compile_definitions(D3D12RHI PRIVATE D3D12_DEBUG=1)
 elseif(${CMAKE_BUILD_TYPE} MATCHES "RelWithDebInfo")
 target_compile_definitions(D3D12RHI PRIVATE D3D12_DEBUG=0)
@@ -37,7 +37,7 @@ endif()
 target_compile_definitions(D3D12RHI PRIVATE D3D12_ENHANCED_BARRIERS=0)
 target_compile_definitions(D3D12RHI PRIVATE D3D12_NVIDIA_STREAMLINE=0)
 target_compile_definitions(D3D12RHI PRIVATE D3D12_AGILITY_VERSION=714)
-target_compile_definitions(D3D12RHI PRIVATE D3D12_USING_DIRECTSR=1)
+target_compile_definitions(D3D12RHI PRIVATE D3D12_USING_DIRECTSR=0)
 target_compile_definitions(D3D12RHI PRIVATE D3D12_USING_MEMORY_ALLOCATOR=1)
 
 
