@@ -12,6 +12,7 @@
 #include "Timer/GameTimer.h"
 #include "Misc/Paths.h"
 #include "Engine/Engine.h"
+#include "optick.h"
 
 
 
@@ -149,6 +150,7 @@ void UIApplication::InitializeRenderer(TSharedPtr<FUIRenderer> InRenderer)
 
 void UIApplication::Tick(float DeltaTime)
 {
+	OPTICK_EVENT();
 	//float DeltaTime = FGameTimer::DeltaTime();
 
 	TickPlatform(DeltaTime);
@@ -172,6 +174,7 @@ void UIApplication::TickPlatform(float DeltaTime)
 
 void UIApplication::TickAndDrawWidgets(float DeltaTime)
 {
+	OPTICK_EVENT("TickAndDrawWidgets");
 	DrawWindows();
 
 	for (auto& Window : UIWindows)

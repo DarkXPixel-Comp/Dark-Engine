@@ -93,6 +93,7 @@ FSceneView* FEditorViewportClient::CalcSceneView(FSceneView* const View)
 
 void FEditorViewportClient::Draw(FViewport* InViewport, FCanvas* Canvas)
 {
+	OPTICK_EVENT("EditorViewportClient Draw");
 	Viewport = InViewport ? InViewport : Viewport;
 	FWorld* World = GetWorld();
 

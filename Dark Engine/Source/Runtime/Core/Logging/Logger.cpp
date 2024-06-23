@@ -115,8 +115,10 @@ void ModernLog(log_& Obj)
 
 void logging(Logger* obj)
 {
+	OPTICK_THREAD("LoggerThread");
 	while (obj->isWork)
 	{
+		OPTICK_FRAME("LogFrame");
 		std::vector<log_>& TempLogs = obj->TempLogs;
 		if (obj->logs.size())
 		{
@@ -133,6 +135,7 @@ void logging(Logger* obj)
 		}
 		for (auto& i : TempLogs)
 		{
+			OPTICK_EVENT("RecordLog");
 			if (i.ModernLog)
 			{
 				ModernLog(i);

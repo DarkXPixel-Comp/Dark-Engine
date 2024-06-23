@@ -14,3 +14,4 @@
 
 #define PLATFORM_RETURN_ADDRESS()	        _ReturnAddress()
 #define PLATFORM_RETURN_ADDRESS_POINTER()	_AddressOfReturnAddress()
+#define PLATFORM_FUNC_NAME __FUNCSIG__

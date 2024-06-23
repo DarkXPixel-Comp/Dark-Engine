@@ -25,6 +25,7 @@
 #include "Misc/Config.h"
 #include "GlobalResource.h"
 #include "GameTimer.h"
+#include "optick.h"
 #include "Object.h"
 #include "Python.h"
 #include "SceneResourceBuilder.h"
@@ -235,6 +236,8 @@ int LuaHandle1(lua_State*, sol::optional<const std::exception&>, sol::string_vie
 
 int32 FEngineLoop::PreInit(const TCHAR* CmdLine)
 {
+	OPTICK_START_CAPTURE();
+	OPTICK_FRAME("PreInit");
 	//setlocale(LC_ALL, ".utf-16");
 
 	Logger::Initialize(LOGGER_INFO | LOGGER_ERROR);
@@ -400,13 +403,14 @@ int32 FEngineLoop::Init()
 
 void FEngineLoop::Tick()
 {
+	OPTICK_FRAME("MainThread");
 	FGameTimer::Tick();
 	float DeltaTime = FGameTimer::DeltaTime();
-	GWorld->FetchPhysic();
+//	GWorld->FetchPhysic();
 	UIApplication::Get()->Tick(DeltaTime);
 	Engine->Tick(DeltaTime);
 
-	GWorld->Tick(DeltaTime, false);
+	GWorld->Tick(DeltaTime, true);
 
 	sol::protected_function TickFunc = ScriptState["Tick"];
 
@@ -439,4 +443,9 @@ void FEngineLoop::Exit()
 	Logger::Exit();
 
 	GGlobalConsole.Destroy();
+
+
+	OPTICK_STOP_CAPTURE();
+	OPTICK_SAVE_CAPTURE(-(FPaths::EngineBinariesDir() + TEXT("ProfilerCaptures/Capture.opt")));
+	OPTICK_SHUTDOWN();
 }

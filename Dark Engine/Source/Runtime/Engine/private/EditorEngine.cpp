@@ -1,4 +1,5 @@
 #include "Engine/EditorEngine.h"
+#include "optick.h"
 
 
 
@@ -20,6 +21,8 @@ TSharedPtr<UIWindow> DEditorEngine::CreateGameWindow()
 
 void DEditorEngine::Tick(float DeltaTime)
 {
+	OPTICK_EVENT("Engine Tick");
+	OPTICK_TAG("DeltaTime", DeltaTime);
 	for (auto& ViewportClient : AllViewportClients)
 	{
 		ViewportClient->Tick(DeltaTime);

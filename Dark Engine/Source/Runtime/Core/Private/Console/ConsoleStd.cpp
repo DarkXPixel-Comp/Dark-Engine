@@ -3,7 +3,8 @@
 #include <io.h>
 #include <fcntl.h>
 #include <iostream>
-#include "thread"
+#include <thread>
+#include "optick.h"
 
 static void BindCrtHandlesToStdHandles(bool bindStdIn, bool bindStdOut, bool bindStdErr)
 {
@@ -140,6 +141,7 @@ void FConsoleStd::CreateConsoleOS(const FString& Label)
 	
 	Thread = std::thread([this]() 
 		{
+			OPTICK_THREAD("ConsoleOSThread");
 			while (this->bInitializeConsole)
 			{
 				FString String;

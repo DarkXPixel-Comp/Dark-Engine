@@ -4,6 +4,7 @@
 #include "D3D12Descriptors.h"
 #include <Logger.h>
 #include "D3D12PipelineState.h"
+#include "optick.h"
 
 
 
@@ -13,11 +14,15 @@ FD3D12Device::FD3D12Device(FD3D12Adapter* InAdapter):
 	BindlessDescriptorManager(this),
 	PipelineStateManager(new FD3D12PipelineStateManager(GetParentAdapter()))
 {
+	//TArray<ID3D12CommandQueue*>	ArrayQueues(ArrayReserve((uint32)ED3D12QueueType::Count));
+	ID3D12CommandQueue* ArrayQueues[(uint32)ED3D12QueueType::Count];
 	for (uint32 i = 0; i < (uint32)ED3D12QueueType::Count; ++i)
 	{
 		Queues.Emplace(this, (ED3D12QueueType)i);
+		ArrayQueues[i] = Queues[i].CommandQueue.Get();
 	}
 
+	OPTICK_GPU_INIT_D3D12(GetParentAdapter()->GetD3DDevice(), ArrayQueues, 1);
 	DE_LOG(D3D12RHI, Log, TEXT("Queues init"));
 
 	for (uint32 HeapType = 0; HeapType < (int32)ERHIDescriptorHeapType::Count; ++HeapType)
@@ -32,8 +37,6 @@ FD3D12Device::FD3D12Device(FD3D12Adapter* InAdapter):
 	DescriptorHeapManager.Init(0, 0);
 
 	DE_LOG(D3D12RHI, Log, TEXT("Descriptor Heap Manager init"));
-
-
 
 
 

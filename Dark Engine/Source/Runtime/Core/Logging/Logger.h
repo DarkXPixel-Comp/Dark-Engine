@@ -7,6 +7,7 @@
 #include <thread>
 #include <mutex>
 #include <vector>
+#include "optick.h"
 
 #ifdef _WIN32
 #include <Windows.h>

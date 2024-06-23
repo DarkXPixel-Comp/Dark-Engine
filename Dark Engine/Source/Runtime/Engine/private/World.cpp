@@ -8,6 +8,7 @@
 #include "PxRigidStatic.h"
 #include "PxMaterial.h"
 #include "PxSimulationEventCallback.h"
+#include "optick.h"
 
 
 FWorld* GWorld = nullptr;
@@ -97,6 +98,8 @@ void FWorld::BeginPlay()
 
 void FWorld::Tick(float DeltaTime, bool InFetchPhysic)
 {
+	OPTICK_EVENT("World Tick");
+	OPTICK_TAG("InFetchPhysic", InFetchPhysic);
 	//InFetchPhysic = true;
 	if (PhysicScene && !bInSimulate)
 	{
@@ -107,6 +110,7 @@ void FWorld::Tick(float DeltaTime, bool InFetchPhysic)
 		}
 		else
 		{
+			OPTICK_CATEGORY("Update physics", Optick::Category::Physics);
 			Counter -= StepSize;
 			bInSimulate = true;
 			PhysicScene->simulate(StepSize);
@@ -136,6 +140,7 @@ bool FWorld::AddPhysicComponent(physx::PxActor* InActor)
 
 void FWorld::InitializeNewWorld()
 {
+	OPTICK_EVENT("InitializeNewWorld");
 	CurrentLevel = NewObject<GLevel>(nullptr, TEXT("PersistentLevel"));
 	CurrentLevel->OwningWorld = this;
 

@@ -6,7 +6,7 @@ set(CMAKE_CXX_STANDARD 20)
 target_compile_features(Core PUBLIC cxx_std_20)
 
 target_link_libraries(Core PRIVATE DirectXMath)
-target_link_libraries(Core PUBLIC CoreGObject)
+target_link_libraries(Core PUBLIC CoreGObject Optick)
 #target_link_libraries(Core PRIVATE ${CoreLibs})
 
 set(VERSION_MAJOR ${PROJECT_VERSION_MAJOR})

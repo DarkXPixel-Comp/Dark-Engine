@@ -5,6 +5,7 @@
 #include "D3D12Util.h"
 #include "D3D12CommandContext.h"
 #include <imgui_impl_dx12.h>
+#include "optick.h"
 
 
 static const uint32 WindowsDefaultNumBackBuffers = 2;
@@ -333,6 +334,8 @@ bool FD3D12Viewport::Present(int32 bVsync)
 
 	if (SwapChain4)
 	{
+		OPTICK_GPU_FLIP(SwapChain4.Get());
+		OPTICK_CATEGORY("Present", Optick::Category::Wait);
 		SwapChain4->Present(bVsync, Flags);
 		CurrentBackBufferIndex = SwapChain4->GetCurrentBackBufferIndex();
 	}

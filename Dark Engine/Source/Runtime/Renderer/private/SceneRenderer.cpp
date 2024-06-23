@@ -11,6 +11,7 @@
 
 static void RenderView(FRHICommandListImmediate& RHICmdList, FSceneRender* SceneRenderer)
 {
+	OPTICK_CATEGORY("RenderView", Optick::Category::Rendering);
 	//FScene* const Scene = SceneRenderer->Scene;
 
 

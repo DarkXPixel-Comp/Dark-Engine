@@ -4,7 +4,7 @@ find_library(D3D12RHILibs Core RHI)
 
 
 target_compile_features(D3D12RHI PUBLIC cxx_std_20)
-target_link_libraries(D3D12RHI PRIVATE Core RHI IMGUI Renderer D3D12 d3dx12)
+target_link_libraries(D3D12RHI PRIVATE Core RHI IMGUI Renderer D3D12 d3dx12 Optick)
 target_link_libraries(D3D12RHI PUBLIC WinPix DTK12)
 #target_link_libraries(D3D12RHI PUBLIC ${D3D12RHILibs})
 

@@ -82,6 +82,7 @@ using namespace DirectX;
 
 void FUIRHIRenderer::DrawWindows(const TArray<TSharedPtr<UIWindow>>& InWindows)
 {
+	OPTICK_EVENT("DrawWindows");
 	FRHICommandListImmediate* RHICmdList = &GRHICommandList.GetImmediateCommandList();
 
 	for (auto& Window : InWindows)

@@ -6,6 +6,7 @@
 #include "RHIResources.h"
 #include "D3D12PipelineState.h"
 #include <d3dx12/d3dx12_barriers.h>
+#include "optick.h"
 
 
 FD3D12ContextCommon::FD3D12ContextCommon(FD3D12Device* InDevice, ED3D12QueueType InQueueType, bool InbIsDefaultContext):
@@ -188,6 +189,7 @@ void FD3D12ContextCommon::TransitionBuffer(ID3D12Resource* Resource, CD3DX12_BUF
 
 void FD3D12ContextCommon::FlushBarriers()
 {
+	OPTICK_GPU_EVENT("FlushBarriers");
 	if (bSupportEnhancedBarriers)
 	{
 		BarrierBatcher.FlushBarrierGroups(GetCommandList());
@@ -254,6 +256,7 @@ void FD3D12ContextCommon::EnhancedFlushBarriers()
 
 void FD3D12ContextCommon::FlushCommands(ED3D12FlushFlags Flags)
 {
+	OPTICK_GPU_EVENT("FlushCommands");
 	check(bIsDefaultContext);
 
 	FlushBarriers();
@@ -376,6 +379,7 @@ void FD3D12CommandContext::RHIEndImGui()
 
 void FD3D12CommandContext::RHIBeginRenderPass(FRHIRenderPassInfo& InInfo)
 {
+	OPTICK_GPU_EVENT("RHIBeginRenderPass");
 	FRHISetRenderTargetInfo RTInfo = InInfo.ConvertToRenderTargetInfo();
 	//SetRenderTargetsAndClear(RTInfo);
 
@@ -416,6 +420,7 @@ void FD3D12CommandContext::RHIBeginRenderPass(FRHIRenderPassInfo& InInfo)
 
 void FD3D12CommandContext::RHIEndRenderPass(FRHIRenderPassInfo& InInfo)
 {
+	OPTICK_GPU_EVENT("RHIEndRenderPass");
 	FRHISetRenderTargetInfo RTInfo = InInfo.ConvertToRenderTargetInfo();
 	GetGraphicsList4()->EndRenderPass();
 
@@ -434,6 +439,7 @@ void FD3D12CommandContext::RHIEndRenderPass(FRHIRenderPassInfo& InInfo)
 
 void FD3D12CommandContext::SetRenderTargets(int32 NumRenderTargets, const FRHIRenderTargetView *RenderTargetsRHI, const FRHIDepthRenderTargetView *DepthStencilViewRHI, bool bClear)
 {
+	OPTICK_GPU_EVENT("SetRenderTargets");
 	//FD3D12Texture* NewDepthTexture = DepthStencilViewRHI ? (FD3D12Texture*)DepthStencilViewRHI->Texture : nullptr;
 
 
@@ -473,6 +479,7 @@ void FD3D12CommandContext::SetRenderTargetsAndClear(const FRHISetRenderTargetInf
 
 void FD3D12CommandContext::RHIClearTextureColor(FRHITexture* InTexture, FVector InColor)
 {
+	OPTICK_GPU_EVENT("RHIClearTextureColor");
 	FD3D12Texture* D3DTexture = static_cast<FD3D12Texture*>(InTexture);
 
 
@@ -504,6 +511,7 @@ void FD3D12CommandContext::RHISetShaderParameter(FRHIGraphicsShader* ShaderRHI, 
 
 void FD3D12CommandContext::RHICopyTexture(FRHITexture* SourceTextureRHI, FRHITexture* DestTextureRHI)
 {
+	OPTICK_GPU_EVENT("RHICopyTexture");
 	FD3D12Texture* SourceTexture = static_cast<FD3D12Texture*>(SourceTextureRHI);
 	FD3D12Texture* DestTexture = static_cast<FD3D12Texture*>(DestTextureRHI);
 	/*FScopedTransitionResource SourceScopedBarrier(*this, SourceTexture->GetResource(), D3D12_RESOURCE_STATE_COPY_SOURCE, 0);
@@ -537,6 +545,7 @@ void FD3D12CommandContext::RHICopyTexture(FRHITexture* SourceTextureRHI, FRHITex
 
 void FD3D12CommandContext::RHISetViewport(float MinX, float MinY, float MinZ, float MaxX, float MaxY, float MaxZ)
 {
+	OPTICK_GPU_EVENT("RHISetViewport");
 	D3D12_VIEWPORT Viewport = { MinX, MinY, (MaxX - MinX), (MaxY - MinY), MinZ, MaxZ };
 
 	StateCache.SetViewport(MinX, MinY, MinZ, MaxX, MaxY, MaxZ);
@@ -544,6 +553,8 @@ void FD3D12CommandContext::RHISetViewport(float MinX, float MinY, float MinZ, fl
 
 void FD3D12CommandContext::RHIDrawIndexedPrimitive(FRHIBuffer* IndexBufferRHI, int32 BaseVertexIndex, uint32 FirstInstance, uint32 NumVertices, uint32 StartIndex, uint32 NumPrimitives, uint32 NumInstances)
 {
+	OPTICK_GPU_EVENT("RHIDrawIndexedPrimitive");
+
 	FD3D12Buffer* IndexBuffer = static_cast<FD3D12Buffer*>(IndexBufferRHI);
 	check(NumPrimitives > 0);
 	check(IndexBuffer->GetSize() > 0);
@@ -568,6 +579,7 @@ void FD3D12CommandContext::RHIDrawIndexedPrimitive(FRHIBuffer* IndexBufferRHI, i
 
 void FD3D12CommandContext::RHIDispatchComputeShader(uint32 ThreadGroupCountX, uint32 ThreadGroupCountY, uint32 ThreadGroupCountZ)
 {
+	OPTICK_GPU_EVENT("RHIDispatchComputeShader");
 	CommitComputeShaderConstants();
 	//CommitComputeResourceTables();
 	FlushBarriers();
@@ -580,6 +592,7 @@ void FD3D12CommandContext::RHIDispatchComputeShader(uint32 ThreadGroupCountX, ui
 
 void FD3D12CommandContext::RHISetShaderParameters(FRHIGraphicsShader* Shader, TArray<uint8>& InParameters, TArray<FRHIShaderParameterResource>& InBindlessParameters, TArray<FRHIShaderParameterResource>& InResourceParameters)
 {
+	OPTICK_GPU_EVENT("RHISetShaderParameters");
 	EShaderType ShaderType = Shader->GetType();
 	FD3D12ConstantBuffer& ConstantBuffer = StageConstantBuffers[ShaderType];
 
@@ -636,6 +649,7 @@ void FD3D12CommandContext::RHISetShaderParameters(FRHIGraphicsShader* Shader, TA
 
 void FD3D12CommandContext::RHISetShaderParameters(FRHIComputeShader* Shader, TArray<uint8>& InParameters, TArray<FRHIShaderParameterResource>& InBindlessParameters, TArray<FRHIShaderParameterResource>& InResourceParameters)
 {
+	OPTICK_GPU_EVENT("RHISetShaderParameters");
 	FD3D12ConstantBuffer& ConstantBuffer = StageConstantBuffers[ST_Compute];
 
 	for (FRHIShaderParameterResource& Parameter : InBindlessParameters)
@@ -696,6 +710,7 @@ void FD3D12CommandContext::RHISetShaderParameters(FRHIComputeShader* Shader, TAr
 
 void FD3D12CommandContext::RHISetStreamSource(uint32 StreamIndex, FRHIBuffer* VertexBufferRHI, uint32 Offset, uint32 Stride)
 {
+	OPTICK_GPU_EVENT("RHISetStreamSource");
 	FD3D12Buffer* VertexBuffer = static_cast<FD3D12Buffer*>(VertexBufferRHI);
 
 	StateCache.SetStreamSource(&VertexBuffer->ResourceLocation, StreamIndex, Offset, Stride);
@@ -703,6 +718,7 @@ void FD3D12CommandContext::RHISetStreamSource(uint32 StreamIndex, FRHIBuffer* Ve
 
 void FD3D12CommandContext::RHISetStreamSource(uint32 StreamIndex, FRHIUniformBuffer* VertexBufferRHI, uint32 Offset, uint32 Stride)
 {
+	OPTICK_GPU_EVENT("RHISetStreamSource");
 	FD3D12UniformBuffer* VertexBuffer = static_cast<FD3D12UniformBuffer*>(VertexBufferRHI);
 
 	StateCache.SetStreamSource(&VertexBuffer->ResourceLocation, StreamIndex, Offset, Stride);
@@ -710,6 +726,7 @@ void FD3D12CommandContext::RHISetStreamSource(uint32 StreamIndex, FRHIUniformBuf
 
 void FD3D12CommandContext::RHISetGraphicsPipelineState(FRHIGraphicsPipelineState* GraphicsPSO, const FBoundShaderStateInput& ShaderInput)
 {
+	OPTICK_GPU_EVENT("RHISetGraphicsPipelineState");
 	FD3D12GraphicsPipelineState* GraphicsPipelineState = static_cast<FD3D12GraphicsPipelineState*>(GraphicsPSO);
 
 
@@ -724,6 +741,7 @@ void FD3D12CommandContext::RHISetGraphicsPipelineState(FRHIGraphicsPipelineState
 
 void FD3D12CommandContext::RHISetComputePipelineState(FRHIComputePipelineState* ComputeState)
 {
+	OPTICK_GPU_EVENT("RHISetComputePipelineState");
 	FD3D12ComputePipelineState* ComputePipelineState = static_cast<FD3D12ComputePipelineState*>(ComputeState);
 
 	StageConstantBuffers[ST_Compute].Reset();
