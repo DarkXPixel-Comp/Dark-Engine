@@ -19,6 +19,12 @@ public:
 		return StaticMesh;
 	}
 
+	virtual FPrimitiveSceneProxy* CreateSceneProxy() override;
+
+	virtual bool ShouldCreateRenderState() const override { return GetStaticMesh(); }
+
+protected:
+	FPrimitiveSceneProxy* CreateStaticMeshSceneProxy();
 
 	virtual void CreatePhysicState() override;
 private:

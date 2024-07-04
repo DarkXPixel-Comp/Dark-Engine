@@ -174,7 +174,7 @@ void UIApplication::TickPlatform(float DeltaTime)
 
 void UIApplication::TickAndDrawWidgets(float DeltaTime)
 {
-	OPTICK_EVENT("TickAndDrawWidgets");
+	OPTICK_EVENT();
 	DrawWindows();
 
 	for (auto& Window : UIWindows)

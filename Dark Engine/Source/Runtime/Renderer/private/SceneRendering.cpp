@@ -24,6 +24,7 @@ void FSceneRender::Render(FRHICommandListImmediate& CmdList)
 	SceneTextures.Initialize(SceneView);
 
 
+	CmdList.BeginFrame();
 	FRHIRenderPassInfo RenderPassInfo(SceneView->RenderTarget->GetRenderTargetTexture().Get(), ERenderPassMode::Clear, ERenderPassMode::Preserve);
 	CmdList.BeginRenderPass(RenderPassInfo);
 	switch (GRenderMode)
@@ -47,6 +48,8 @@ void FSceneRender::Render(FRHICommandListImmediate& CmdList)
 
 	if (GFXAAEnable)
 		FXAA(CmdList);
+
+	CmdList.EndFrame();
 
 }
 

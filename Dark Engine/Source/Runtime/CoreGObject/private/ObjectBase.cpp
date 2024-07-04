@@ -59,10 +59,11 @@ GObjectBase::GObjectBase() : ClassPrivate(NoInit), OuterPrivate(NoInit), NamePri
 
 }
 
-GObjectBase::GObjectBase(GClass* InClass, GObject* InOuter, FString InName, int32 InIndex, int32 InSerialNumber)	:
+GObjectBase::GObjectBase(GClass* InClass, GObject* InOuter,FString InName, int32 InIndex, int32 InSerialNumber, EObjectFlags InFlags) :
 	ClassPrivate(InClass),
 	OuterPrivate(InOuter),
-	NamePrivate(InName)
+	NamePrivate(InName),
+	Flags(InFlags)
 {
 	check(ClassPrivate);
 

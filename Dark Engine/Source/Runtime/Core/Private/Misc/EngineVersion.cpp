@@ -4,9 +4,10 @@
 
 const int32 MAJOR_VERSION = 0;
 const int32 MINOR_VERSION = 1;
-const int32 PATCH_VERSION = 21;
-const int32 FIX_VERSION = 0;
+const int32 PATCH_VERSION = 23;
+const int32 FIX_VERSION = 2;
 const TCHAR* VERSION_PREFIX = TEXT("alpha");
+const TCHAR* BUILD_TYPE_PREFIX = TEXT("RelWithDebInfo");
 const constexpr int32 NUMBER_VERSION = MAJOR_VERSION * 1000 + MINOR_VERSION * 100 + PATCH_VERSION * 10 + FIX_VERSION * 1;
 FString StringVersion;
 
@@ -38,10 +39,16 @@ const TCHAR* GetStringVersionT()
 	StringVersion = FString::PrintF(TEXT("v%i.%i.%i.%i-%s"), MAJOR_VERSION, MINOR_VERSION, PATCH_VERSION, FIX_VERSION, VERSION_PREFIX);
 	return *StringVersion;
 }
+
 const ANSICHAR* GetStringVersionA()
 {
 	GetStringVersionT();
 	return !StringVersion;
+}
+
+const TCHAR* GetStringBuildTypeT()
+{
+	return BUILD_TYPE_PREFIX;
 }
 
 int32 GetNumberVersion()

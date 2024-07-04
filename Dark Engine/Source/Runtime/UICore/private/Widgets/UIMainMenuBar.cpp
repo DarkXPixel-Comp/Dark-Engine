@@ -29,7 +29,8 @@ struct FColor
 };
 
 
-UIMainMenuBar::UIMainMenuBar() : UIWidget(TEXT("UIMainMenuBar"))  
+UIMainMenuBar::UIMainMenuBar() : UIWidget(TEXT("UIMainMenuBar")),
+	Title(FString::PrintF(TEXT("Dark Engine - %s"), GetStringBuildTypeT()))
 {
 	FastLoadIcon(IconTextureRHI, FString::PrintF(TEXT("%sImages/Logo.png"),
 		*FPaths::EngineContentDir()));

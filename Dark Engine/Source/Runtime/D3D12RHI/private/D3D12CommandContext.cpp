@@ -30,6 +30,7 @@ void FD3D12ContextCommon::OpenCommandList()
 		Device->GetBindlessDescriptorManager().GetHeap(ERHIDescriptorHeapType::Sampler)->GetHeap()};
 
 	CommandList->GetGraphicsCommandList()->SetDescriptorHeaps(DE_ARRAY_COUNT(Heaps), Heaps);
+	//OPTICK_GPU_CONTEXT(CommandList->GetGraphicsCommandList());
 }
 
 void FD3D12ContextCommon::CloseCommandList()
@@ -293,6 +294,7 @@ FD3D12CommandContextBase::FD3D12CommandContextBase(FD3D12Adapter* InParent):
 
 void FD3D12CommandContextBase::RHIBeginDrawingViewport(FRHIViewport* RHIViewport, FRHITexture* RenderTargetRHI)
 {
+	OPTICK_GPU_EVENT("RHIBeginDrawingViewport");
 	FD3D12Viewport* Viewport = reinterpret_cast<FD3D12Viewport*>(RHIViewport);
 	Parent->SetDrawingViewport(Viewport);
 	
@@ -317,6 +319,7 @@ void FD3D12CommandContextBase::RHIEndDrawingViewport(FRHIViewport *Viewport, boo
 
 void FD3D12CommandContext::CommitNonComputeShaderConstants()
 {
+	OPTICK_GPU_EVENT("CommitNonComputeShaderConstants");
 	//const FD3D12GraphicsPipelineState* const GraphicPSO = StateCache.Ge
 
 	for (int32 Index = 0; Index < ST_NumStandartTypes; ++Index)
@@ -329,6 +332,7 @@ void FD3D12CommandContext::CommitNonComputeShaderConstants()
 
 void FD3D12CommandContext::CommitComputeShaderConstants()
 {
+	OPTICK_EVENT();
 	const FD3D12ComputePipelineState* const ComputePSO = StateCache.GetComputePipelineState();
 	check(ComputePSO);
 
@@ -341,27 +345,32 @@ void FD3D12CommandContext::CommitComputeShaderConstants()
 
 void FD3D12CommandContext::RHIBeginFrame()
 {	
+	OPTICK_EVENT();
 	FD3D12CommandList& List = GetCommandList();
 	FD3D12Viewport* Viewport = FD3D12AdapterChild::Parent->GetDrawingViewport();
 	//ID3D12DescriptorHeap* Heaps[] = { FD3D12DynamicRHI::GetD3D12RHI()->ImGuiDescriptorHeap->GetHeap() };
 
-	Viewport->GetCurrentBackBuffer();
+	//Viewport->GetCurrentBackBuffer();
 }
 
 void FD3D12CommandContext::RHIEndFrame()
 {
+	OPTICK_EVENT();
+	//Optick::SetGpuContext(Optick::GPUContext());
 	FD3D12CommandList& List = GetCommandList();
+
 	/*FD3D12Viewport* Viewport = FD3D12AdapterChild::Parent->GetDrawingViewport();
 	const FLOAT Color[4] = { 0, 0, 0, 1 };
 
 	List.GetGraphicsCommandList()->ClearRenderTargetView(Viewport->GetCurrentBackBuffer()->RenderTargetViews[0]->GetCpuHandle(),
 		Color, 0, nullptr);
 	Viewport->GetCurrentBackBuffer()->RenderTargetViews[0]->GetCpuHandle();*/
-	FlushCommands();
+	//FlushCommands();
 }
 
 void FD3D12CommandContext::RHIBeginImGui()
 {
+	OPTICK_EVENT();
 #ifdef IMGUI
 	ImGui_ImplDX12_NewFrame();
 #endif
@@ -370,6 +379,7 @@ void FD3D12CommandContext::RHIBeginImGui()
 
 void FD3D12CommandContext::RHIEndImGui()
 {
+	OPTICK_EVENT();
 	FD3D12CommandList& List = GetCommandList();
 
 #ifdef IMGUI
@@ -479,6 +489,7 @@ void FD3D12CommandContext::SetRenderTargetsAndClear(const FRHISetRenderTargetInf
 
 void FD3D12CommandContext::RHIClearTextureColor(FRHITexture* InTexture, FVector InColor)
 {
+	OPTICK_EVENT();
 	OPTICK_GPU_EVENT("RHIClearTextureColor");
 	FD3D12Texture* D3DTexture = static_cast<FD3D12Texture*>(InTexture);
 
@@ -505,12 +516,14 @@ void FD3D12CommandContext::RHIClearTextureColor(FRHITexture* InTexture, FVector 
 
 void FD3D12CommandContext::RHISetShaderParameter(FRHIGraphicsShader* ShaderRHI, uint32 BufferIndex, uint32 Offset, uint32 NumBytes, const void* Data)
 {
+	OPTICK_EVENT();
 	const EShaderType ShaderType = ShaderRHI->GetType();
 
 }
 
 void FD3D12CommandContext::RHICopyTexture(FRHITexture* SourceTextureRHI, FRHITexture* DestTextureRHI)
 {
+	OPTICK_EVENT();
 	OPTICK_GPU_EVENT("RHICopyTexture");
 	FD3D12Texture* SourceTexture = static_cast<FD3D12Texture*>(SourceTextureRHI);
 	FD3D12Texture* DestTexture = static_cast<FD3D12Texture*>(DestTextureRHI);
@@ -545,7 +558,7 @@ void FD3D12CommandContext::RHICopyTexture(FRHITexture* SourceTextureRHI, FRHITex
 
 void FD3D12CommandContext::RHISetViewport(float MinX, float MinY, float MinZ, float MaxX, float MaxY, float MaxZ)
 {
-	OPTICK_GPU_EVENT("RHISetViewport");
+	OPTICK_EVENT();
 	D3D12_VIEWPORT Viewport = { MinX, MinY, (MaxX - MinX), (MaxY - MinY), MinZ, MaxZ };
 
 	StateCache.SetViewport(MinX, MinY, MinZ, MaxX, MaxY, MaxZ);
@@ -579,6 +592,7 @@ void FD3D12CommandContext::RHIDrawIndexedPrimitive(FRHIBuffer* IndexBufferRHI, i
 
 void FD3D12CommandContext::RHIDispatchComputeShader(uint32 ThreadGroupCountX, uint32 ThreadGroupCountY, uint32 ThreadGroupCountZ)
 {
+	OPTICK_EVENT();
 	OPTICK_GPU_EVENT("RHIDispatchComputeShader");
 	CommitComputeShaderConstants();
 	//CommitComputeResourceTables();
@@ -592,6 +606,7 @@ void FD3D12CommandContext::RHIDispatchComputeShader(uint32 ThreadGroupCountX, ui
 
 void FD3D12CommandContext::RHISetShaderParameters(FRHIGraphicsShader* Shader, TArray<uint8>& InParameters, TArray<FRHIShaderParameterResource>& InBindlessParameters, TArray<FRHIShaderParameterResource>& InResourceParameters)
 {
+	OPTICK_EVENT();
 	OPTICK_GPU_EVENT("RHISetShaderParameters");
 	EShaderType ShaderType = Shader->GetType();
 	FD3D12ConstantBuffer& ConstantBuffer = StageConstantBuffers[ShaderType];
@@ -649,7 +664,7 @@ void FD3D12CommandContext::RHISetShaderParameters(FRHIGraphicsShader* Shader, TA
 
 void FD3D12CommandContext::RHISetShaderParameters(FRHIComputeShader* Shader, TArray<uint8>& InParameters, TArray<FRHIShaderParameterResource>& InBindlessParameters, TArray<FRHIShaderParameterResource>& InResourceParameters)
 {
-	OPTICK_GPU_EVENT("RHISetShaderParameters");
+	OPTICK_EVENT();
 	FD3D12ConstantBuffer& ConstantBuffer = StageConstantBuffers[ST_Compute];
 
 	for (FRHIShaderParameterResource& Parameter : InBindlessParameters)
@@ -710,7 +725,7 @@ void FD3D12CommandContext::RHISetShaderParameters(FRHIComputeShader* Shader, TAr
 
 void FD3D12CommandContext::RHISetStreamSource(uint32 StreamIndex, FRHIBuffer* VertexBufferRHI, uint32 Offset, uint32 Stride)
 {
-	OPTICK_GPU_EVENT("RHISetStreamSource");
+	OPTICK_EVENT();
 	FD3D12Buffer* VertexBuffer = static_cast<FD3D12Buffer*>(VertexBufferRHI);
 
 	StateCache.SetStreamSource(&VertexBuffer->ResourceLocation, StreamIndex, Offset, Stride);
@@ -718,7 +733,7 @@ void FD3D12CommandContext::RHISetStreamSource(uint32 StreamIndex, FRHIBuffer* Ve
 
 void FD3D12CommandContext::RHISetStreamSource(uint32 StreamIndex, FRHIUniformBuffer* VertexBufferRHI, uint32 Offset, uint32 Stride)
 {
-	OPTICK_GPU_EVENT("RHISetStreamSource");
+	OPTICK_EVENT();
 	FD3D12UniformBuffer* VertexBuffer = static_cast<FD3D12UniformBuffer*>(VertexBufferRHI);
 
 	StateCache.SetStreamSource(&VertexBuffer->ResourceLocation, StreamIndex, Offset, Stride);
@@ -726,7 +741,7 @@ void FD3D12CommandContext::RHISetStreamSource(uint32 StreamIndex, FRHIUniformBuf
 
 void FD3D12CommandContext::RHISetGraphicsPipelineState(FRHIGraphicsPipelineState* GraphicsPSO, const FBoundShaderStateInput& ShaderInput)
 {
-	OPTICK_GPU_EVENT("RHISetGraphicsPipelineState");
+	OPTICK_EVENT();
 	FD3D12GraphicsPipelineState* GraphicsPipelineState = static_cast<FD3D12GraphicsPipelineState*>(GraphicsPSO);
 
 
@@ -741,7 +756,7 @@ void FD3D12CommandContext::RHISetGraphicsPipelineState(FRHIGraphicsPipelineState
 
 void FD3D12CommandContext::RHISetComputePipelineState(FRHIComputePipelineState* ComputeState)
 {
-	OPTICK_GPU_EVENT("RHISetComputePipelineState");
+	OPTICK_EVENT();
 	FD3D12ComputePipelineState* ComputePipelineState = static_cast<FD3D12ComputePipelineState*>(ComputeState);
 
 	StageConstantBuffers[ST_Compute].Reset();
@@ -752,11 +767,13 @@ void FD3D12CommandContext::RHISetComputePipelineState(FRHIComputePipelineState* 
 
 void FD3D12CommandContext::RHIPreparePixelShaderResources()
 {
+	OPTICK_EVENT();
 	FlushBarriers();
 }
 
 void FD3D12CommandContext::BindUniformBuffer(FRHIShader* Shader, EShaderType ShaderType, uint32 BufferIndex, FD3D12UniformBuffer* InBuffer)
 {
+	OPTICK_EVENT();
 	StateCache.SetConstantsFromUniformBuffer(ShaderType, BufferIndex, InBuffer);
 	BoundUniformBuffers[ShaderType][BufferIndex] = InBuffer;
 	DirtyUniformBuffers[ShaderType] |= (1 << BufferIndex);

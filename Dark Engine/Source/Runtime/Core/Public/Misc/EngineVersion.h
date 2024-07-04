@@ -9,4 +9,5 @@ extern int32 GetFixVersion();
 
 extern const TCHAR* GetStringVersionT();
 extern const ANSICHAR* GetStringVersionA();
+extern const TCHAR* GetStringBuildTypeT();
 extern int32 GetNumberVersion();

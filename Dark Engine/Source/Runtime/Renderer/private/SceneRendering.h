@@ -36,6 +36,8 @@ public:
 	void Flush() {}
 
 
+
+	void RenderTest(FRHICommandListImmediate& CmdList);
 	void RenderQuad(FRHICommandListImmediate& CmdList);
 	void RenderFractal(FRHICommandListImmediate& CmdList);
 	void RenderSeaScape(FRHICommandListImmediate& CmdList);

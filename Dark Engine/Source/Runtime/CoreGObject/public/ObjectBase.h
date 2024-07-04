@@ -20,7 +20,7 @@ class GObjectBase
 protected:
 	GObjectBase();
 public:
-	GObjectBase(GClass* InClass, GObject* InOuter, FString InName, int32 InIndex, int32 InSerialNumber);
+	GObjectBase(GClass* InClass, GObject* InOuter, FString InName, int32 InIndex, int32 InSerialNumber, EObjectFlags InFlags = OF_NoFlags);
 	GObjectBase(EObjectFlags InFlags);
 
 	bool IsDefaultSubobject() const;

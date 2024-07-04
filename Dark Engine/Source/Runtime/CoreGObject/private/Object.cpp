@@ -101,7 +101,7 @@ GObject* StaticAllocateObject(const GClass* InClass, GObject* InOuter, FString I
 	if (!bSubObject)
 	{
 		FMemory::Memzero(Result, TotalSize);
-		new ((void*)Result) GObjectBase(const_cast<GClass*>(InClass), InOuter, InName, Index, SerialNumber);
+		new ((void*)Result) GObjectBase(const_cast<GClass*>(InClass), InOuter, InName, Index, SerialNumber, InFlags);
 	}
 
 

@@ -17,12 +17,39 @@ FScene::FScene(FWorld* InWorld):
 
 }
 
+void FScene::Update()
+{
+	OPTICK_EVENT();
+
+	for (auto& NewPrimitive : AddedPrimitives)
+	{
+		Primitives.Add(NewPrimitive);
+		//Primitives.Add(std::move(NewPrimitive));
+	}
+
+	for (auto& Primitive : UpdatedPrimitives)
+	{
+		Primitive->Proxy->SetTransform(std::move(Primitive->Primitive->GetRenderMatrix()));
+	}
+
+	UpdatedPrimitives.Empty();
+	AddedPrimitives.Empty();
+}
+
 void FScene::AddPrimitive(GPrimitiveComponent* Primitive)
 {
 	BatchAddPrimitivesImpl(TArray<GPrimitiveComponent*>({Primitive}));
 }
 
-void FScene::BatchAddPrimitivesImpl(TArray<GPrimitiveComponent*> Primitives)
+void FScene::UpdatePrimitiveTransform(GPrimitiveComponent* Primitive)
+{
+	if (Primitive->GetSceneProxy())
+	{
+		UpdatedPrimitives.Add(Primitive->GetSceneProxy()->PrimitiveSceneInfo);
+	}
+}
+
+void FScene::BatchAddPrimitivesImpl(TArray<GPrimitiveComponent*> InPrimitives)
 {
 	struct FAddPrimitiveCommand
 	{
@@ -44,14 +71,15 @@ void FScene::BatchAddPrimitivesImpl(TArray<GPrimitiveComponent*> Primitives)
 		FVector RootPosition;
 	};
 
+
 	TArray<FAddPrimitiveCommand> AddCommands;
-	AddCommands.Reserve(Primitives.Num());
+	AddCommands.Reserve(InPrimitives.Num());
 
 
-	for (GPrimitiveComponent* Primitive : Primitives)
+	for (GPrimitiveComponent* Primitive : InPrimitives)
 	{
 		FPrimitiveSceneInfoData& SceneData = Primitive->GetSceneData();
-
+		
 		FPrimitiveSceneProxy* PrimitiveSceneProxy = nullptr;
 		
 		if (!Primitive->GetSceneProxy())
@@ -70,19 +98,17 @@ void FScene::BatchAddPrimitivesImpl(TArray<GPrimitiveComponent*> Primitives)
 
 		FPrimitiveSceneInfo* PrimitiveSceneInfo = new FPrimitiveSceneInfo(Primitive, this);
 		PrimitiveSceneProxy->PrimitiveSceneInfo = PrimitiveSceneInfo;
+		PrimitiveSceneProxy->Scene = this;
 
-		FMatrix RenderMatrix = Primitive->GetRenderMatrix();
+		FMatrix ModelMatrix = Primitive->GetRenderMatrix();
 
-		AddCommands.Emplace(PrimitiveSceneProxy, PrimitiveSceneInfo, RenderMatrix, FVector());
+		AddCommands.Emplace(PrimitiveSceneProxy, PrimitiveSceneInfo, ModelMatrix, FVector());
 	}
 
 
 	for (auto& Command : AddCommands)
 	{
-		Command.PrimitiveSceneProxy->SetTransform(Command.RenderMatrix, Command.RootPosition);
-
-		//AddPrimitiveSceneInfo
+		Command.PrimitiveSceneInfo->Proxy->SetTransform(Command.RenderMatrix);
+		AddedPrimitives.Add(Command.PrimitiveSceneInfo);
 	}
-
-
 }

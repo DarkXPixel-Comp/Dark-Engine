@@ -3,6 +3,7 @@
 #include "Engine/Level.h"
 #include "Components/PrimitiveComponent.h"
 #include "Framework/MeshObject.h"
+#include "SceneInterface.h"
 #include "Math/Transform.h"
 #include "extensions/PxSimpleFactory.h"
 #include "PxRigidStatic.h"
@@ -100,6 +101,12 @@ void FWorld::Tick(float DeltaTime, bool InFetchPhysic)
 {
 	OPTICK_EVENT("World Tick");
 	OPTICK_TAG("InFetchPhysic", InFetchPhysic);
+
+	if (Scene)
+	{
+		Scene->Update();
+	}
+
 	//InFetchPhysic = true;
 	if (PhysicScene && !bInSimulate)
 	{

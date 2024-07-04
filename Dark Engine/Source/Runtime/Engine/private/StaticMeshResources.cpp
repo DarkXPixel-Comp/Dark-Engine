@@ -45,8 +45,7 @@ void FStaticMeshRenderData::InitResources(GStaticMesh* Owner)
 
 	}
 
-
-
+	bIsInitialized = true;
 }
 
 void FStaticMeshRenderData::AllocateLODResources(uint32 NumLODs)

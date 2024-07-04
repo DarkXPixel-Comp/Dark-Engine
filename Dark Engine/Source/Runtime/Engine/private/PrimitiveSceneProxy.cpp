@@ -17,13 +17,7 @@ FPrimitiveSceneProxy::FPrimitiveSceneProxy(const FPrimitiveSceneProxyDesc& InDes
 
 }
 
-void FPrimitiveSceneProxy::SetTransform(const FMatrix& InLocalToWorld, FVector InPosition)
+void FPrimitiveSceneProxy::SetTransform(const FMatrix& InMatrix)
 {
-	LocalToWorld = InLocalToWorld;
-	Position = InPosition;
 
-	if (PrimitiveSceneInfo)
-	{
-		Scene->RequestUniformBufferUpdate(*PrimitiveSceneInfo);
-	}
 }

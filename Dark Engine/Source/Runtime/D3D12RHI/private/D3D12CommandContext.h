@@ -89,6 +89,9 @@ public:
 		{
 			OpenCommandList();
 		}
+#if USE_OPTICK
+		Optick::SetGpuContext(Optick::GPUContext(CommandList->GetGraphicsCommandList(), CommandList->QueueType == ED3D12QueueType::Direct ? Optick::GPUQueueType::GPU_QUEUE_GRAPHICS : Optick::GPU_QUEUE_COMPUTE));
+#endif
 		return *CommandList;
 	}
 

@@ -17,11 +17,18 @@ GPrimitiveComponent::~GPrimitiveComponent()
 }
 
 
-uint64 FPrimitiveSceneInfoData::NextPrimitiveId = 0;
+uint64 FPrimitiveSceneInfoData::NextPrimitiveId = UINT64_MAX;
 
 void GPrimitiveComponent::SetWorldLocation(FVector NewLocation)
 {
 	Super::SetWorldLocation(NewLocation);
+
+	if (!bUpdatePrimitiveSceneDescription)
+	{
+		bUpdatePrimitiveSceneDescription = true;
+		GetWorld()->Scene->UpdatePrimitiveTransform(this);
+	}
+
 	if(!GetWorld()->IsSimulate())
 	{
 		physx::PxTransform Transform = RigidDynamic->getGlobalPose();

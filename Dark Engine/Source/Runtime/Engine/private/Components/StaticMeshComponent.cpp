@@ -18,6 +18,41 @@ void GStaticMeshComponent::SetStaticMesh(GStaticMesh* NewMesh)
 	StaticMesh = NewMesh;
 }
 
+FPrimitiveSceneProxy* GStaticMeshComponent::CreateSceneProxy()
+{
+	if (!GetStaticMesh())
+	{
+		return nullptr;
+	}
+	if (!GetStaticMesh()->GetRenderData())
+	{
+		return nullptr;
+	}
+	if (!GetStaticMesh()->GetRenderData()->IsInitialized())
+	{
+		return nullptr;
+	}
+
+	if (GetStaticMesh()->GetRenderData()->LODResources.Num() == 0)
+	{
+		return nullptr;
+	}
+
+
+	return CreateStaticMeshSceneProxy();
+}
+
+FPrimitiveSceneProxy* GStaticMeshComponent::CreateStaticMeshSceneProxy()
+{
+	FPrimitiveSceneProxy* NewProxy = new FPrimitiveSceneProxy(this, GetName());
+	NewProxy->StaticMesh = GetStaticMesh().Get();
+
+
+
+
+	return NewProxy;
+}
+
 void GStaticMeshComponent::CreatePhysicState()
 {
 	Super::CreatePhysicState();

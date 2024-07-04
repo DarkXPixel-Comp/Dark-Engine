@@ -5,6 +5,7 @@
 #include "Application/UIApplication.h"
 #include "Engine/EditorEngine.h"
 #include "Rendering/UIRHIRenderer.h"
+#include "Misc/ProcessManager.h"
 #include "Widgets/UIMainMenuBar.h"
 #include "UICore.h"
 #include "Misc/Paths.h"
@@ -19,6 +20,7 @@
 #include "Widgets/UIEntityProperties.h"
 #include "Widgets/UIGPUMemoryStats.h"
 #include "Widgets/UIWorldSettings.h"
+#include "Widgets/UIProfiler.h"
 #include "Shader.h"
 #include "ShaderCompiler.h"
 #include "Console/GlobalInputOutConsole.h"
@@ -74,7 +76,7 @@ struct FEditorLayout
 
 		MainMenuBar = MakeShareble(new UIMainMenuBar());
 		MainDock->SetMainMenuBar(MainMenuBar);
-		MainMenuBar->SetTitle(TEXT("Dark Engine"));
+		//MainMenuBar->SetTitle(TEXT("Dark Engine"));
 
 		TSharedPtr<UIWorldOutliner> WorldOutliner = MakeShareble(new UIWorldOutliner());
 		MainDock->AddChild(WorldOutliner);
@@ -165,6 +167,15 @@ struct FEditorLayout
 
 			Windows->AddChild(CreateConsole);
 
+			TSharedPtr<UIMenuItem> CreateProfiler = MakeShareble(new UIMenuItem());
+			CreateProfiler->SetName(TEXT("Profiler"));
+			CreateProfiler->MenuItemDelegate.Bind([this, CreateProfiler](bool)
+				{
+					TSharedPtr<UIProfiler> Profiler = MakeShareble(new UIProfiler());
+					MainDock->AddChild(Profiler);
+					CreateProfiler->SetDependWidget(Profiler);
+				});
+			Windows->AddChild(CreateProfiler);
 		}
 	
 	}
@@ -236,7 +247,7 @@ int LuaHandle1(lua_State*, sol::optional<const std::exception&>, sol::string_vie
 
 int32 FEngineLoop::PreInit(const TCHAR* CmdLine)
 {
-	OPTICK_START_CAPTURE();
+	//OPTICK_START_CAPTURE();
 	OPTICK_FRAME("PreInit");
 	//setlocale(LC_ALL, ".utf-16");
 
@@ -390,10 +401,6 @@ int32 FEngineLoop::Init()
 	DE_LOG(Launch, Log, TEXT("RHI Post init"));
 	((DEditorEngine*)Engine)->NewMap();
 
-	FSceneResourceImporter Importer;
-	Importer.ImportFromFile(TEXT("Meshes/Cube.fbx"));
-
-	auto Meshes = Importer.GetAllStaticMeshes();
 	//FSceneResourceBuilder::Build(TEXT("Meshes/Cube.fbx"));
 
 	FGameTimer::Start();
@@ -412,6 +419,8 @@ void FEngineLoop::Tick()
 
 	GWorld->Tick(DeltaTime, true);
 
+	FProcessManager::UpdateProcesses();
+
 	sol::protected_function TickFunc = ScriptState["Tick"];
 
 	sol::error T = TickFunc();
@@ -427,8 +436,12 @@ void FEngineLoop::Tick()
 	}
 }
 
+
+
+
 void FEngineLoop::Exit()
 {
+	FProcessManager::CloseAllProcesses();
 	EditorLayout.Destroy();
 	UIApplication::Destroy();
 	Engine->Shutdown();
@@ -444,8 +457,10 @@ void FEngineLoop::Exit()
 
 	GGlobalConsole.Destroy();
 
+	//OPTICK_STOP_CAPTURE();
+	//OPTICK_SAVE_CAPTURE(TestSave);
 
-	OPTICK_STOP_CAPTURE();
-	OPTICK_SAVE_CAPTURE(-(FPaths::EngineBinariesDir() + TEXT("ProfilerCaptures/Capture.opt")));
+	/*OPTICK_STOP_CAPTURE();
+	OPTICK_SAVE_CAPTURE(-(FPaths::EngineBinariesDir() + TEXT("ProfilerCaptures/Capture.opt")));*/
 	OPTICK_SHUTDOWN();
 }

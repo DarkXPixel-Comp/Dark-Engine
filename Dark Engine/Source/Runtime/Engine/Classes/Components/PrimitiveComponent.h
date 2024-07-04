@@ -9,12 +9,12 @@
 
 struct FPrimitiveComponentId
 {
-	FPrimitiveComponentId() : PrimIdValue(0)
+	FPrimitiveComponentId() : PrimIdValue(UINT64_MAX)
 	{
 	}
 	FORCEINLINE bool IsValid() const
 	{
-		return PrimIdValue > 0;
+		return PrimIdValue != UINT64_MAX;
 	}
 
 	FORCEINLINE bool operator==(const FPrimitiveComponentId& Other) const
@@ -85,6 +85,8 @@ public:
 
 	virtual FPrimitiveSceneProxy* CreateSceneProxy()
 	{
+		/*SceneProxy = new FPrimitiveSceneProxy(this, GetName());
+		SceneData.SceneProxy = SceneProxy;*/
 		return nullptr;
 	}
 
@@ -95,6 +97,10 @@ protected:
 	TPxPtr<physx::PxRigidDynamic> RigidDynamic;
 	FPrimitiveSceneInfoData SceneData;
 	float Mass = 5.f;
+
+
+private:
+	bool bUpdatePrimitiveSceneDescription = false;
 
 
 };

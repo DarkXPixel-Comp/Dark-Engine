@@ -133,4 +133,11 @@ public:
 
 	void AllocateLODResources(uint32 NumLODs);
 
+	bool IsInitialized() const
+	{
+		return bIsInitialized;
+	}
+	
+	bool bIsInitialized = false;
+
 };

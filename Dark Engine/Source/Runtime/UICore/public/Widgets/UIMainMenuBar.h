@@ -30,7 +30,7 @@ protected:
 	
 	
 private:
-	FString Title = TEXT("Dark Engine");
+	FString Title;
 	TArray<TSharedPtr<class UIMenu>> MenuItems;
 	TRefCountPtr<class FRHITexture> IconTextureRHI;
 	TRefCountPtr<class FRHITexture> MaximizeTextureRHI;

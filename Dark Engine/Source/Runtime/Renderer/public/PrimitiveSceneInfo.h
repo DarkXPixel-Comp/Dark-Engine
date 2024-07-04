@@ -11,8 +11,10 @@ public:
 
 	FPrimitiveComponentId PrimitiveComponentId;
 
+	class GPrimitiveComponent* Primitive = nullptr;
 
-	FPrimitiveSceneInfo(class GPrimitiveComponent* InPrimitive, class FScene* InScene) {}
+
+	FPrimitiveSceneInfo(class GPrimitiveComponent* InPrimitive, class FScene* InScene) : Primitive(InPrimitive) {}
 
 
 };
