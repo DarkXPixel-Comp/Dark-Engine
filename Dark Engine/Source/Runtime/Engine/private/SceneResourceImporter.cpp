@@ -9,8 +9,12 @@ void FSceneResourceImporter::ImportFromFile(const FString& Filename)
 
 TArray<TObjectPtr<GStaticMesh>> FSceneResourceImporter::GetAllStaticMeshes()
 {
-	//FGraphSceneResource::FGraphSceneNode* CurrentNode = CurrentSceneResource.RootNode.get();
 	TArray<TObjectPtr<GStaticMesh>> Meshes;
+	if (!CurrentSceneResource.RootNode)
+	{
+		return Meshes;
+	}
+	//FGraphSceneResource::FGraphSceneNode* CurrentNode = CurrentSceneResource.RootNode.get();
 
 	ProcessNodeStaticMesh(*CurrentSceneResource.RootNode, Meshes);
 

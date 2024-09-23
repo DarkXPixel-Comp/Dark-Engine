@@ -1,0 +1,45 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"install"
+		],
+		"files" : 
+		[
+			"Dark Engine/Source/Runtime/RHI/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 23,
+				"parent" : 0
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"Libs/RHI.lib"
+			],
+			"targetId" : "RHI::@df9728fa5d4dac857767",
+			"targetIndex" : 13,
+			"type" : "target"
+		}
+	],
+	"paths" : 
+	{
+		"build" : "Dark Engine/Source/Runtime/RHI",
+		"source" : "Dark Engine/Source/Runtime/RHI"
+	}
+}

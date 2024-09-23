@@ -1,0 +1,339 @@
+# ninja log v6
+4163	7127	7485413017151279	Dark Engine/Source/Runtime/UICore/CMakeFiles/UICore.dir/private/Widgets/UIWorldOutliner.cpp.obj	221248ad192b208a
+11864	14681	7485413094163462	Dark Engine/Source/Runtime/Engine/CMakeFiles/Engine.dir/private/DarkClient.cpp.obj	7e014d4a78ceb4d9
+107	411	7485412976595993	Dark Engine/Source/ThirdParty/DearImGui/CMakeFiles/IMGUI.dir/private/imgui_spectrum.cpp.obj	984777ed8ae91ce8
+17681	22192	7485413152321884	Dark Engine/Source/Runtime/D3D12RHI/CMakeFiles/D3D12RHI.dir/private/D3D12RootSignature.cpp.obj	b8218f0cabccb709
+85	634	7485412976369626	Dark Engine/Source/ThirdParty/DearImGui/CMakeFiles/IMGUI.dir/private/imgui_demo.cpp.obj	556079b5305f0143
+14331	17681	7485413118827805	Dark Engine/Source/Runtime/Engine/CMakeFiles/Engine.dir/private/SceneViewport.cpp.obj	13f5de5144d9ebc6
+788	5099	7485412983398137	Dark Engine/Source/Runtime/UICore/CMakeFiles/UICore.dir/private/Widgets/UIEditorSettings.cpp.obj	f284504f69c0ffd2
+5099	8999	7485413026517625	Dark Engine/Source/Runtime/Renderer/CMakeFiles/Renderer.dir/private/FractalRender.cpp.obj	991db597c79e88f0
+26349	30716	7485413239011736	Dark Engine/Source/Runtime/Launch/CMakeFiles/Launch.dir/private/LaunchEngineLoop.cpp.obj	a7b64671b7c781
+91	522	7485412976424687	Dark Engine/Source/ThirdParty/DearImGui/CMakeFiles/IMGUI.dir/private/imgui_tables.cpp.obj	b493b6e6b78befe8
+87	623	7485412976389631	Dark Engine/Source/ThirdParty/DearImGui/CMakeFiles/IMGUI.dir/private/imgui_draw.cpp.obj	91cdc27f740ff17f
+110	418	7485412976621026	Dark Engine/Source/ThirdParty/DearImGui/CMakeFiles/IMGUI.dir/private/imdark_extension.cpp.obj	e024b6b15c42f16e
+24304	26913	7485413218559541	Dark Engine/Source/Runtime/Core/CMakeFiles/Core.dir/Private/Logging/StructedLog.cpp.obj	be948b135256d6ac
+104	708	7485412976555956	Dark Engine/Source/ThirdParty/DearImGui/CMakeFiles/IMGUI.dir/private/imgui_stdlib.cpp.obj	c85169281dd9a533
+1578	2481	7485412991292412	Libs/ImGuizmo.lib	3fb2f6ccd40c2115
+124	629	7485412976758630	Dark Engine/Source/ThirdParty/DirectXMath/CMakeFiles/DirectXMath.dir/Stereo3D/Stereo3DMatrixHelper.cpp.obj	850df57efbf2001c
+113	717	7485412976651174	Dark Engine/Source/ThirdParty/DirectXMath/CMakeFiles/DirectXMath.dir/SHMath/DirectXSH.cpp.obj	9a8dbb45c27ed709
+4277	5083	7485413018291439	Libs/D3DShaderFormat.lib	9c43c2119e971152
+4367	7943	7485413019192539	Dark Engine/Source/Runtime/Renderer/CMakeFiles/Renderer.dir/private/DepthRendering.cpp.obj	d867b87aeec60598
+7127	9104	7485413046794297	Dark Engine/Source/Runtime/Renderer/CMakeFiles/Renderer.dir/private/RenderResource.cpp.obj	c77340d6b8412391
+101	788	7485412976521237	Dark Engine/Source/ThirdParty/DearImGui/CMakeFiles/IMGUI.dir/private/imgui_impl_win32.cpp.obj	e2606c351e2c1132
+7292	10592	7485413048437878	Dark Engine/Source/Runtime/Renderer/CMakeFiles/Renderer.dir/private/ScenePrivate.cpp.obj	ae964123eda8af50
+8219	11985	7485413057718846	Dark Engine/Source/Runtime/Renderer/CMakeFiles/Renderer.dir/private/SeaScape.cpp.obj	282c6100d1d7748a
+94	610	7485412976456157	Dark Engine/Source/ThirdParty/DearImGui/CMakeFiles/IMGUI.dir/private/imgui_widgets.cpp.obj	42e828d0a3257d9
+11212	14293	7485413087640061	Dark Engine/Source/Runtime/Engine/CMakeFiles/Engine.dir/private/Components/MeshComponent.cpp.obj	57e3ef7a7f4eae59
+717	3963	7485412982691846	Dark Engine/Source/Runtime/UICore/CMakeFiles/UICore.dir/private/Widgets/UIDock.cpp.obj	ae60b4a05de05aa9
+611	669	7485412981628159	Dark Engine/Source/Runtime/Windows/D3DShaderFormat/CMakeFiles/D3DShaderFormat.dir/private/D3DShaderFormat.cpp.obj	e1d9b0fd21d81ae5
+412	824	7485412979644189	Dark Engine/Source/ThirdParty/ImGuizmo/CMakeFiles/ImGuizmo.dir/ImGuizmo.cpp.obj	2a15182a74990860
+97	839	7485412976496200	Dark Engine/Source/ThirdParty/DearImGui/CMakeFiles/IMGUI.dir/private/imgui_impl_dx12.cpp.obj	dff04fd1808a59e5
+4261	4366	7485413018136160	Dark Engine/Source/Runtime/UICore/CMakeFiles/UICore.dir/public/Widgets/UISideWidget.cpp.obj	d7a341a863c6630
+8979	9122	7485413065316575	Libs/UICore.lib	7d54bde0dc606ea5
+71	1756	7487981936317646	Dark Engine/Source/Runtime/Engine/CMakeFiles/Engine.dir/private/MeshObject.cpp.obj	db844de68f040a04
+81	1438	7485412976326822	Dark Engine/Source/ThirdParty/DearImGui/CMakeFiles/IMGUI.dir/private/imgui.cpp.obj	c10e1d09b386b3a
+3493	7106	7485413010451519	Dark Engine/Source/Runtime/UICore/CMakeFiles/UICore.dir/private/Widgets/UIViewport.cpp.obj	e600e154db8e306a
+419	1551	7485412979704244	Dark Engine/Source/ThirdParty/d3dx12/CMakeFiles/d3dx12.dir/src/d3dx12_property_format_table.cpp.obj	3a0f165503fc7b0b
+6265	9015	7485413038178889	Dark Engine/Source/Runtime/Renderer/CMakeFiles/Renderer.dir/private/GlobalShader.cpp.obj	f38c2dd099262364
+116	1562	7485412976681202	Dark Engine/Source/ThirdParty/DirectXMath/CMakeFiles/DirectXMath.dir/SHMath/DirectXSHD3D11.cpp.obj	dd6cc0f7b58a354d
+1438	1577	7485412989907526	Libs/IMGUI.lib	b11a3df761f4e049
+9105	9229	7485413066570439	Dark Engine/Source/Runtime/RHI/CMakeFiles/RHI.dir/private/RHI.cpp.obj	19fcabb1fbb85fc7
+1552	1584	7485412991034834	Libs/d3dx12.lib	8516065d61b8eb8f
+120	1572	7485412976721244	Dark Engine/Source/ThirdParty/DirectXMath/CMakeFiles/DirectXMath.dir/SHMath/DirectXSHD3D12.cpp.obj	aaf676fa7e7a8913
+1572	2359	7485412991242364	Libs/DirectXMath.lib	4ef949433ec1d160
+3515	7081	7485413010671896	Dark Engine/Source/Runtime/UICore/CMakeFiles/UICore.dir/private/Widgets/UIWidget.cpp.obj	5803fa4a1d35b68
+25236	27176	7485413227878042	Dark Engine/Source/Runtime/Core/CMakeFiles/Core.dir/Private/Misc/ProcessManager.cpp.obj	f3442c22f3bab645
+669	3400	7485412982205359	Dark Engine/Source/Runtime/UICore/CMakeFiles/UICore.dir/private/Widgets/UIButton.cpp.obj	d8d9ce8ac59ca8ad
+3400	3515	7485413009529447	Dark Engine/Source/Runtime/UICore/CMakeFiles/UICore.dir/private/Widgets/UINodeEditor.cpp.obj	7e9c0df6b2442330
+839	4135	7485412983911211	Dark Engine/Source/Runtime/UICore/CMakeFiles/UICore.dir/private/Widgets/UIEntityProperties.cpp.obj	b0055b91ae748cb0
+3453	6279	7485413010050702	Dark Engine/Source/Runtime/UICore/CMakeFiles/UICore.dir/private/Widgets/UIProfiler.cpp.obj	5336f77efc13e5b1
+20675	21874	7485413182313900	Dark Engine/Source/Runtime/CoreGObject/CMakeFiles/CoreGObject.dir/private/GObjectArray.cpp.obj	a2215f467f42a554
+709	3472	7485412982606116	Dark Engine/Source/Runtime/UICore/CMakeFiles/UICore.dir/private/Widgets/UIConsole.cpp.obj	ac38fbdc0929ddca
+635	3493	7485412981869547	Dark Engine/Source/Runtime/UICore/CMakeFiles/UICore.dir/private/Rendering/UIRenderer.cpp.obj	1a7d02cdda57319
+1562	4277	7485412991142094	Dark Engine/Source/Runtime/UICore/CMakeFiles/UICore.dir/private/Widgets/UIGPUMemoryStats.cpp.obj	d620cc3cb1fc5145
+7928	11413	7485413054804300	Dark Engine/Source/Runtime/Renderer/CMakeFiles/Renderer.dir/private/SceneRenderer.cpp.obj	4d372623a743ca15
+25918	28145	7485413234703585	Dark Engine/Source/Runtime/Launch/CMakeFiles/Launch.dir/private/Windows/LaunchWindows.cpp.obj	d345aa7ba398c691
+9015	11396	7485413065678575	Dark Engine/Source/Runtime/RHI/CMakeFiles/RHI.dir/private/DynamicRHI.cpp.obj	a1fbfa194a75270c
+523	3453	7485412980746407	Dark Engine/Source/Runtime/Windows/D3DShaderFormat/CMakeFiles/D3DShaderFormat.dir/private/D3DShaderCompiler.cpp.obj	1a1db422a554b0c1
+41	130	7485412974566014	clean	10cefbc2b3eb0a58
+11877	15164	7485413094288690	Dark Engine/Source/Runtime/Engine/CMakeFiles/Engine.dir/private/EditorEngine.cpp.obj	1e65f30d1fec32d7
+1584	4290	7485412991364925	Dark Engine/Source/Runtime/UICore/CMakeFiles/UICore.dir/private/Widgets/UILogs.cpp.obj	878052d167c1b341
+13740	17141	7485413112925570	Dark Engine/Source/Runtime/Engine/CMakeFiles/Engine.dir/private/SceneResourceBuilder.cpp.obj	1f5257d16e23b99
+2359	6246	7485412999117488	Dark Engine/Source/Runtime/UICore/CMakeFiles/UICore.dir/private/Widgets/UIMainMenuBar.cpp.obj	cbe9425cb40a4e24
+629	4231	7485412981814256	Dark Engine/Source/Runtime/UICore/CMakeFiles/UICore.dir/private/Rendering/UIRHIRenderer.cpp.obj	8de973deb47295c1
+623	4162	7485412981749181	Dark Engine/Source/Runtime/UICore/CMakeFiles/UICore.dir/private/Application/UIApplication.cpp.obj	bb23d013aeb024e4
+824	4261	7485412983768825	Dark Engine/Source/Runtime/UICore/CMakeFiles/UICore.dir/private/Widgets/UIEditorViewport.cpp.obj	513b37e7bd870ac9
+91	1920	7485413696045424	Dark Engine/Source/Runtime/Renderer/CMakeFiles/Renderer.dir/private/IndirectLightRendering.cpp.obj	a543bb0a2bd19279
+3472	6291	7485413010241151	Dark Engine/Source/Runtime/UICore/CMakeFiles/UICore.dir/private/Widgets/UISideWidget.cpp.obj	fafe2d2f54a788b0
+6291	8657	7485413038432088	Dark Engine/Source/Runtime/Renderer/CMakeFiles/Renderer.dir/private/PositionVertexBuffer.cpp.obj	7dad4263e2abb522
+2481	6265	7485413000340151	Dark Engine/Source/Runtime/UICore/CMakeFiles/UICore.dir/private/Widgets/UIMenu.cpp.obj	ab03fdd1c04b6ce8
+3964	7241	7485413015182089	Dark Engine/Source/Runtime/UICore/CMakeFiles/UICore.dir/private/Widgets/UIWidgetTest.cpp.obj	583e1a6b11247420
+13629	13740	7485413111801809	Libs/PhysicsCore.lib	df18bb3a55c7816c
+4136	8219	7485413016905474	Dark Engine/Source/Runtime/UICore/CMakeFiles/UICore.dir/private/Widgets/UIWindow.cpp.obj	7b9f71ad0d0b8028
+4231	7291	7485413017882809	Dark Engine/Source/Runtime/UICore/CMakeFiles/UICore.dir/private/Widgets/UIWorldSettings.cpp.obj	39614aa3cb10edab
+4291	7927	7485413018427299	Dark Engine/Source/Runtime/Renderer/CMakeFiles/Renderer.dir/private/ClearQuad.cpp.obj	22d62344e06b28a7
+5083	8673	7485413026347411	Dark Engine/Source/Runtime/Renderer/CMakeFiles/Renderer.dir/private/FXAA.cpp.obj	aebce4347e9c379d
+6247	8955	7485413037991174	Dark Engine/Source/Runtime/Renderer/CMakeFiles/Renderer.dir/private/GlobalResource.cpp.obj	797a209cb2c467e
+7106	9118	7485413046583941	Dark Engine/Source/Runtime/Renderer/CMakeFiles/Renderer.dir/private/RenderGlobals.cpp.obj	c895a600100a3976
+7081	8979	7485413046330961	Dark Engine/Source/Runtime/Renderer/CMakeFiles/Renderer.dir/private/RawIndexBuffer.cpp.obj	e5a818df73277048
+8955	10821	7485413065076174	Dark Engine/Source/Runtime/Renderer/CMakeFiles/Renderer.dir/private/VertexFactory.cpp.obj	bb8b21c61bb35a5e
+72	1933	7487970340513559	Dark Engine/Source/Runtime/Renderer/CMakeFiles/Renderer.dir/private/RenderTest.cpp.obj	bb0d109a8a2bc1d0
+9123	11211	7485413066747989	Dark Engine/Source/Runtime/RHI/CMakeFiles/RHI.dir/private/RHIResources.cpp.obj	e23d257f29b31c85
+77	2107	7485420529148989	Dark Engine/Source/Runtime/Renderer/CMakeFiles/Renderer.dir/private/SceneRendering.cpp.obj	faff2079067e548a
+8657	11895	7485413062089405	Dark Engine/Source/Runtime/Renderer/CMakeFiles/Renderer.dir/private/Shader.cpp.obj	1b5cb61aeb7b5d77
+23971	25543	7485413215228632	Dark Engine/Source/Runtime/Core/CMakeFiles/Core.dir/Private/Misc/Paths.cpp.obj	6d8c2acab56d4520
+9000	10834	7485413065518386	Dark Engine/Source/Runtime/RHI/CMakeFiles/RHI.dir/private/Windows/WindowsDynamicRHI.cpp.obj	4a8b59dce085450f
+23491	24358	7485413210428754	Dark Engine/Source/Runtime/Core/CMakeFiles/Core.dir/Memory/TMemory.cpp.obj	f01c19389cf8a2b5
+9118	11246	7485413066705947	Dark Engine/Source/Runtime/RHI/CMakeFiles/RHI.dir/private/RHICommandList.cpp.obj	d64a05ecc0a90e05
+84	1644	7487984067327267	Dark Engine/Source/Runtime/Engine/CMakeFiles/Engine.dir/private/World.cpp.obj	87f61a3dda658734
+8674	12002	7485413062279233	Dark Engine/Source/Runtime/Renderer/CMakeFiles/Renderer.dir/private/ShaderCompiler.cpp.obj	22d6d1cff1674cef
+9230	11877	7485413067819909	Dark Engine/Source/Runtime/RHI/CMakeFiles/RHI.dir/private/PipelineStateCache.cpp.obj	5728a6e8c8dc0640
+11986	12472	7485413095381929	Dark Engine/Source/Runtime/Engine/CMakeFiles/Engine.dir/private/Engine.cpp.obj	e236a8c5bd6751d4
+16594	21635	7485413141461646	Dark Engine/Source/Runtime/D3D12RHI/CMakeFiles/D3D12RHI.dir/private/D3D12Device.cpp.obj	a7f22ca286abbbf9
+1934	1996	7487970359139376	Libs/Renderer.lib	7154250af9226a13
+10609	12796	7485413081603373	Dark Engine/Source/Runtime/Input/CMakeFiles/Input.dir/private/InputCore.cpp.obj	69ab8085a05be9db
+11396	14331	7485413089483762	Dark Engine/Source/Runtime/Engine/CMakeFiles/Engine.dir/private/Components/SceneComponent.cpp.obj	2104039301ab5e3e
+10592	13624	7485413081438185	Dark Engine/Source/Runtime/PhysicsCore/CMakeFiles/PhysicsCore.dir/private/PhysicsCore.cpp.obj	8561125de7073685
+23479	24303	7485413210313259	Dark Engine/Source/Runtime/Core/CMakeFiles/Core.dir/Timer/GameTimer.cpp.obj	c4614d3f5eee9ac5
+13146	13629	7485413106985603	Libs/RHI.lib	59a762bf77883835
+11246	14358	7485413087985778	Dark Engine/Source/Runtime/Engine/CMakeFiles/Engine.dir/private/Components/PrimitiveComponent.cpp.obj	8ae6a433a12d0b6f
+10821	13650	7485413083730853	Dark Engine/Source/Runtime/Engine/CMakeFiles/Engine.dir/private/Canvas.cpp.obj	241fc7be6d34c052
+10630	13734	7485413081818989	Dark Engine/Source/Runtime/Engine/CMakeFiles/Engine.dir/private/CameraTypes.cpp.obj	32680c819a6292b4
+11413	14344	7485413089654125	Dark Engine/Source/Runtime/Engine/CMakeFiles/Engine.dir/private/Components/StaticMeshComponent.cpp.obj	9dd8871aa2364e69
+10834	14319	7485413083866099	Dark Engine/Source/Runtime/Engine/CMakeFiles/Engine.dir/private/Components/BaseComponent.cpp.obj	25d0180e407fd1a8
+14695	15070	7485413122469932	Libs/Input.lib	f513b1844bb92e39
+11896	15065	7485413094479041	Dark Engine/Source/Runtime/Engine/CMakeFiles/Engine.dir/private/EditorViewportClient.cpp.obj	ce133bf4c4ba060c
+15065	15577	7485413126175995	Dark Engine/Source/Runtime/Editor/CMakeFiles/Editor.dir/private/DEditor.cpp.obj	fec57820f1474ac9
+13624	15677	7485413111761798	Dark Engine/Source/Runtime/Engine/CMakeFiles/Engine.dir/private/LocalVertexFactory.cpp.obj	eb09746f4b9548b8
+12796	14694	7485413103480923	Dark Engine/Source/Runtime/Engine/CMakeFiles/Engine.dir/private/Level.cpp.obj	2e29b83572e263e5
+14294	16594	7485413118461316	Dark Engine/Source/Runtime/Engine/CMakeFiles/Engine.dir/private/SceneResourceImporter.cpp.obj	d9d64c5ec26419db
+14359	16558	7485413119100062	Dark Engine/Source/Runtime/Engine/CMakeFiles/Engine.dir/private/StaticMeshResources.cpp.obj	39b86d4fc9132a25
+12473	15665	7485413100249702	Dark Engine/Source/Runtime/Engine/CMakeFiles/Engine.dir/private/Entity.cpp.obj	65c15fc249507470
+14345	16903	7485413118962972	Dark Engine/Source/Runtime/Engine/CMakeFiles/Engine.dir/private/StaticMesh.cpp.obj	15b101141ba4c523
+13735	16579	7485413112870091	Dark Engine/Source/Runtime/Engine/CMakeFiles/Engine.dir/private/PrimitiveSceneProxy.cpp.obj	8dd79877642a0d3d
+14319	17699	7485413118716754	Dark Engine/Source/Runtime/Engine/CMakeFiles/Engine.dir/private/SceneView.cpp.obj	492f9e6f79dc1a9
+15070	19681	7485413126221057	Dark Engine/Source/Runtime/D3D12RHI/CMakeFiles/D3D12RHI.dir/private/D3D12Adapter.cpp.obj	3fdeac471c8ce8fa
+16904	19084	7485413144558413	Dark Engine/Source/Runtime/D3D12RHI/CMakeFiles/D3D12RHI.dir/private/D3D12MA/D3D12MemAlloc.cpp.obj	620f9cc17cafeaa3
+42	1514	7487985841753732	build.ninja	473245670abc324f
+1645	1708	7487984082945823	Libs/Engine.lib	4e46273ee7229a4
+15165	19660	7485413127172922	Dark Engine/Source/Runtime/D3D12RHI/CMakeFiles/D3D12RHI.dir/private/D3D12BarrierBatcher.cpp.obj	a90ef5e96559f927
+23086	25235	7485413206378930	Dark Engine/Source/Runtime/Core/CMakeFiles/Core.dir/Private/Misc/CoreDelegates.cpp.obj	3924fd67a33afb63
+16559	21204	7485413141100965	Dark Engine/Source/Runtime/D3D12RHI/CMakeFiles/D3D12RHI.dir/private/D3D12ConstantBuffer.cpp.obj	b7309dc1a5a1d37
+16579	20649	7485413141316349	Dark Engine/Source/Runtime/D3D12RHI/CMakeFiles/D3D12RHI.dir/private/D3D12Descriptors.cpp.obj	5e381a1a8224759f
+25544	27573	7485413230961323	Dark Engine/Source/Runtime/ApplicationCore/CMakeFiles/ApplicationCore.dir/private/Windows/WindowsWindow.cpp.obj	7b5fa845a93eb33e
+15677	20581	7485413132290606	Dark Engine/Source/Runtime/D3D12RHI/CMakeFiles/D3D12RHI.dir/private/D3D12CommandList.cpp.obj	4ac57ecc77c20f6e
+15578	19806	7485413131296327	Dark Engine/Source/Runtime/D3D12RHI/CMakeFiles/D3D12RHI.dir/private/D3D12BindlessDescriptors.cpp.obj	e6471d0df030acaa
+15665	20673	7485413132168284	Dark Engine/Source/Runtime/D3D12RHI/CMakeFiles/D3D12RHI.dir/private/D3D12CommandContext.cpp.obj	29e27cda13cf9747
+20582	20829	7485413181390251	Libs/Editor.lib	3dbb1e3200362586
+20650	21890	7485413182023240	Dark Engine/Source/Runtime/CoreGObject/CMakeFiles/CoreGObject.dir/private/Class.cpp.obj	8bf1f0de9a299a54
+17664	22080	7485413152161436	Dark Engine/Source/Runtime/D3D12RHI/CMakeFiles/D3D12RHI.dir/private/D3D12Resources.cpp.obj	353d93a11fdc72ab
+16929	22170	7485413144813844	Dark Engine/Source/Runtime/D3D12RHI/CMakeFiles/D3D12RHI.dir/private/D3D12PipelineState.cpp.obj	3a8b26b2ac7637a8
+17141	23084	7485413146937621	Dark Engine/Source/Runtime/D3D12RHI/CMakeFiles/D3D12RHI.dir/private/D3D12RHIPrivate.cpp.obj	aa0be8ed106e9cf7
+21636	23093	7485413191889534	Dark Engine/Source/Runtime/CoreGObject/CMakeFiles/CoreGObject.dir/private/ObjectPtr.cpp.obj	af9e31709af3f98a
+21205	23063	7485413187564626	Dark Engine/Source/Runtime/CoreGObject/CMakeFiles/CoreGObject.dir/private/ObjectBase.cpp.obj	8c8dbe51a829b335
+20829	22202	7485413183813246	Dark Engine/Source/Runtime/CoreGObject/CMakeFiles/CoreGObject.dir/private/Object.cpp.obj	7eceb71cc4dfeed7
+21874	23466	7485413194266955	Dark Engine/Source/Runtime/Core/CMakeFiles/Core.dir/Private/Windows/WindowsPlatformMisc.cpp.obj	acbfa5b37e5ab3b5
+21891	23479	7485413194427261	Dark Engine/Source/Runtime/Core/CMakeFiles/Core.dir/Private/Windows/WindowsPlatformMemory.cpp.obj	1936bff5018a45ae
+22081	23491	7485413196326320	Dark Engine/Source/Runtime/Core/CMakeFiles/Core.dir/Private/Windows/WindowsCriticalSection.cpp.obj	d52fb21e2ab7d9f4
+22174	24008	7485413197258092	Dark Engine/Source/Runtime/Core/CMakeFiles/Core.dir/Private/CoreGlobals.cpp.obj	9966713010c030ac
+19089	23970	7485413166412784	Dark Engine/Source/Runtime/D3D12RHI/CMakeFiles/D3D12RHI.dir/private/D3D12Texture.cpp.obj	cc8e41fe8ba5f2e4
+19661	24328	7485413172129798	Dark Engine/Source/Runtime/D3D12RHI/CMakeFiles/D3D12RHI.dir/private/D3D12View.cpp.obj	7af7ddb531b6adb9
+25933	29018	7485413234853897	Dark Engine/Source/Runtime/Launch/CMakeFiles/Launch.dir/private/Launch.cpp.obj	d72ebc707e17356
+23063	24952	7485413206153245	Dark Engine/Source/Runtime/Core/CMakeFiles/Core.dir/Application/Application.cpp.obj	ba01e451e6735ee2
+19084	23992	7485413166357723	Dark Engine/Source/Runtime/D3D12RHI/CMakeFiles/D3D12RHI.dir/private/D3D12StateCache.cpp.obj	7946348cdb0dffdc
+19683	24350	7485413172350247	Dark Engine/Source/Runtime/D3D12RHI/CMakeFiles/D3D12RHI.dir/private/D3D12Viewport.cpp.obj	cddc3139b3a4aee
+22202	24293	7485413197537291	Dark Engine/Source/Runtime/Core/CMakeFiles/Core.dir/Private/Math/DarkMath.cpp.obj	9368304393498f49
+23094	25570	7485413206454146	Dark Engine/Source/Runtime/Core/CMakeFiles/Core.dir/Logging/Logger.cpp.obj	99f9672088c8964c
+22193	24991	7485413197452180	Dark Engine/Source/Runtime/Core/CMakeFiles/Core.dir/Private/Misc/AssertionMacros.cpp.obj	271511cd2d2b1376
+23994	24913	7485413215459622	Dark Engine/Source/Runtime/Core/CMakeFiles/Core.dir/Private/GenericPlatform/GenericPlatformMisc.cpp.obj	64c664809c978f84
+23466	25555	7485413210186235	Dark Engine/Source/Runtime/Core/CMakeFiles/Core.dir/CommandLine/CommandLine.cpp.obj	55632530cf5de1cb
+24293	24935	7485413218454385	Dark Engine/Source/Runtime/Core/CMakeFiles/Core.dir/Private/GenericPlatform/GenericPlatformMemory.cpp.obj	39e4cff5e2222003
+19807	25523	7485413173593108	Dark Engine/Source/Runtime/D3D12RHI/CMakeFiles/D3D12RHI.dir/private/Windows/WindowsD3D12Device.cpp.obj	dc5b69b8da1114f1
+24952	25933	7485413225050000	Dark Engine/Source/Runtime/Core/CMakeFiles/Core.dir/Private/Misc/EngineVersion.cpp.obj	fea4d57979fc6f45
+24009	25918	7485413215604892	Dark Engine/Source/Runtime/Core/CMakeFiles/Core.dir/Private/Containers/DarkString.cpp.obj	52bb44b3c70ee02
+24358	26887	7485413219095593	Dark Engine/Source/Runtime/Core/CMakeFiles/Core.dir/Private/Console/ConsoleStd.cpp.obj	41b0a04485d6ea62
+25524	25922	7485413230790958	Libs/D3D12RHI.lib	9bc2539cd59d7a92
+24350	27142	7485413219025522	Dark Engine/Source/Runtime/Core/CMakeFiles/Core.dir/Private/Console/BaseConsole.cpp.obj	55f496cb88b1bbfc
+24913	26901	7485413224659270	Dark Engine/Source/Runtime/Core/CMakeFiles/Core.dir/Private/Console/GlobalInputOutConsole.cpp.obj	c003d6b3772054b4
+24991	27106	7485413225433282	Dark Engine/Source/Runtime/Core/CMakeFiles/Core.dir/Private/Math/MathSSE.cpp.obj	cf4518e8978d2913
+25923	26349	7485413234748667	Libs/CoreGObject.lib	2e1567255ddddd2b
+24935	27246	7485413224869649	Dark Engine/Source/Runtime/Core/CMakeFiles/Core.dir/Private/Misc/Config.cpp.obj	9e0bbcf3c9bd18fb
+24329	26868	7485413218814948	Dark Engine/Source/Runtime/Core/CMakeFiles/Core.dir/Private/Logging/LogMarcros.cpp.obj	8a085e4e0b291ae3
+25555	27459	7485413231076472	Dark Engine/Source/Runtime/ApplicationCore/CMakeFiles/ApplicationCore.dir/private/Windows/WindowsApplication.cpp.obj	8ce9409c2e4eda91
+83	137	7485413327480663	Libs/Core.lib	47a2d82db6cc7c9a
+25571	27428	7485413231226284	Dark Engine/Source/Runtime/ApplicationCore/CMakeFiles/ApplicationCore.dir/private/Windows/WindowsApplicationMisc.cpp.obj	9b104b8d46d40410
+138	168	7485413328025314	Libs/ApplicationCore.lib	bde7bf2bfe8ee6b0
+1709	1927	7487984083579112	C:/Users/nahmu/source/repos/Dark Engine/Dark Engine/bin/Dark Engine.exe	f0f67eac183ac394
+26869	28986	7485413244210178	Dark Engine/Source/Runtime/Scripting/CMakeFiles/Scripting.dir/private/ScriptState.cpp.obj	b962cc56d6721b35
+59	912	7487985841753732	build.ninja	473245670abc324f
+90	534	7487985844758071	Dark Engine/Source/Runtime/Core/CMakeFiles/Core.dir/Private/Misc/EngineVersion.cpp.obj	fea4d57979fc6f45
+534	643	7487985849194858	Libs/Core.lib	47a2d82db6cc7c9a
+643	846	7487985850287345	C:/Users/nahmu/source/repos/Dark Engine/Dark Engine/bin/Dark Engine.exe	f0f67eac183ac394
+75	1882	7487986129204858	Dark Engine/Source/Runtime/Renderer/CMakeFiles/Renderer.dir/private/SceneRendering.cpp.obj	faff2079067e548a
+1883	1976	7487986147275446	Libs/Renderer.lib	7154250af9226a13
+1976	2204	7487986148214694	C:/Users/nahmu/source/repos/Dark Engine/Dark Engine/bin/Dark Engine.exe	f0f67eac183ac394
+45	138	7487986406947650	clean	d27cb3e86e0f51bd
+119	483	7487986409136950	Dark Engine/Source/ThirdParty/DearImGui/CMakeFiles/IMGUI.dir/private/imgui_spectrum.cpp.obj	984777ed8ae91ce8
+91	574	7487986408856946	Dark Engine/Source/ThirdParty/DearImGui/CMakeFiles/IMGUI.dir/private/imgui_demo.cpp.obj	556079b5305f0143
+122	614	7487986409168427	Dark Engine/Source/ThirdParty/DearImGui/CMakeFiles/IMGUI.dir/private/imdark_extension.cpp.obj	e024b6b15c42f16e
+136	636	7487986409305817	Dark Engine/Source/ThirdParty/DirectXMath/CMakeFiles/DirectXMath.dir/Stereo3D/Stereo3DMatrixHelper.cpp.obj	850df57efbf2001c
+97	659	7487986408916996	Dark Engine/Source/ThirdParty/DearImGui/CMakeFiles/IMGUI.dir/private/imgui_draw.cpp.obj	91cdc27f740ff17f
+112	672	7487986409066891	Dark Engine/Source/ThirdParty/DearImGui/CMakeFiles/IMGUI.dir/private/imgui_impl_win32.cpp.obj	e2606c351e2c1132
+100	685	7487986408942040	Dark Engine/Source/ThirdParty/DearImGui/CMakeFiles/IMGUI.dir/private/imgui_tables.cpp.obj	b493b6e6b78befe8
+126	822	7487986409198449	Dark Engine/Source/ThirdParty/DirectXMath/CMakeFiles/DirectXMath.dir/SHMath/DirectXSH.cpp.obj	9a8dbb45c27ed709
+115	830	7487986409096916	Dark Engine/Source/ThirdParty/DearImGui/CMakeFiles/IMGUI.dir/private/imgui_stdlib.cpp.obj	c85169281dd9a533
+104	836	7487986408986115	Dark Engine/Source/ThirdParty/DearImGui/CMakeFiles/IMGUI.dir/private/imgui_widgets.cpp.obj	42e828d0a3257d9
+636	912	7487986414310785	Dark Engine/Source/Runtime/Windows/D3DShaderFormat/CMakeFiles/D3DShaderFormat.dir/private/D3DShaderFormat.cpp.obj	e1d9b0fd21d81ae5
+108	986	7487986409026158	Dark Engine/Source/ThirdParty/DearImGui/CMakeFiles/IMGUI.dir/private/imgui_impl_dx12.cpp.obj	dff04fd1808a59e5
+485	994	7487986412792395	Dark Engine/Source/ThirdParty/ImGuizmo/CMakeFiles/ImGuizmo.dir/ImGuizmo.cpp.obj	2a15182a74990860
+133	1777	7487986409275797	Dark Engine/Source/ThirdParty/DirectXMath/CMakeFiles/DirectXMath.dir/SHMath/DirectXSHD3D12.cpp.obj	aaf676fa7e7a8913
+84	1795	7487986408786041	Dark Engine/Source/ThirdParty/DearImGui/CMakeFiles/IMGUI.dir/private/imgui.cpp.obj	c10e1d09b386b3a
+129	1809	7487986409233498	Dark Engine/Source/ThirdParty/DirectXMath/CMakeFiles/DirectXMath.dir/SHMath/DirectXSHD3D11.cpp.obj	dd6cc0f7b58a354d
+575	1819	7487986413699641	Dark Engine/Source/ThirdParty/d3dx12/CMakeFiles/d3dx12.dir/src/d3dx12_property_format_table.cpp.obj	3a0f165503fc7b0b
+1795	2238	7487986425895688	Libs/IMGUI.lib	b11a3df761f4e049
+1809	2285	7487986426036044	Libs/DirectXMath.lib	4ef949433ec1d160
+1819	2304	7487986426136973	Libs/d3dx12.lib	8516065d61b8eb8f
+830	3879	7487986416244172	Dark Engine/Source/Runtime/UICore/CMakeFiles/UICore.dir/private/Widgets/UIConsole.cpp.obj	ac38fbdc0929ddca
+614	3912	7487986414090397	Dark Engine/Source/Runtime/Windows/D3DShaderFormat/CMakeFiles/D3DShaderFormat.dir/private/D3DShaderCompiler.cpp.obj	1a1db422a554b0c1
+822	3933	7487986416168980	Dark Engine/Source/Runtime/UICore/CMakeFiles/UICore.dir/private/Widgets/UIButton.cpp.obj	d8d9ce8ac59ca8ad
+2238	3939	7487986430335992	Libs/ImGuizmo.lib	3fb2f6ccd40c2115
+3912	4157	7487986447073127	Dark Engine/Source/Runtime/UICore/CMakeFiles/UICore.dir/private/Widgets/UINodeEditor.cpp.obj	7e9c0df6b2442330
+685	4440	7487986414796749	Dark Engine/Source/Runtime/UICore/CMakeFiles/UICore.dir/private/Rendering/UIRenderer.cpp.obj	1a7d02cdda57319
+994	4462	7487986417892760	Dark Engine/Source/Runtime/UICore/CMakeFiles/UICore.dir/private/Widgets/UIEntityProperties.cpp.obj	b0055b91ae748cb0
+836	4485	7487986416304232	Dark Engine/Source/Runtime/UICore/CMakeFiles/UICore.dir/private/Widgets/UIDock.cpp.obj	ae60b4a05de05aa9
+660	4507	7487986414546299	Dark Engine/Source/Runtime/UICore/CMakeFiles/UICore.dir/private/Application/UIApplication.cpp.obj	bb23d013aeb024e4
+986	4955	7487986417807634	Dark Engine/Source/Runtime/UICore/CMakeFiles/UICore.dir/private/Widgets/UIEditorViewport.cpp.obj	513b37e7bd870ac9
+1778	5039	7487986425718994	Dark Engine/Source/Runtime/UICore/CMakeFiles/UICore.dir/private/Widgets/UIGPUMemoryStats.cpp.obj	d620cc3cb1fc5145
+673	5075	7487986414671473	Dark Engine/Source/Runtime/UICore/CMakeFiles/UICore.dir/private/Rendering/UIRHIRenderer.cpp.obj	8de973deb47295c1
+913	5104	7487986417070789	Dark Engine/Source/Runtime/UICore/CMakeFiles/UICore.dir/private/Widgets/UIEditorSettings.cpp.obj	f284504f69c0ffd2
+5040	5206	7487986458347051	Dark Engine/Source/Runtime/UICore/CMakeFiles/UICore.dir/public/Widgets/UISideWidget.cpp.obj	d7a341a863c6630
+2285	5347	7487986430801918	Dark Engine/Source/Runtime/UICore/CMakeFiles/UICore.dir/private/Widgets/UILogs.cpp.obj	878052d167c1b341
+5076	5352	7487986458716151	Libs/D3DShaderFormat.lib	9c43c2119e971152
+2304	7190	7487986430982245	Dark Engine/Source/Runtime/UICore/CMakeFiles/UICore.dir/private/Widgets/UIMainMenuBar.cpp.obj	cbe9425cb40a4e24
+3879	7205	7487986446737467	Dark Engine/Source/Runtime/UICore/CMakeFiles/UICore.dir/private/Widgets/UIMenu.cpp.obj	ab03fdd1c04b6ce8
+3933	7224	7487986447283514	Dark Engine/Source/Runtime/UICore/CMakeFiles/UICore.dir/private/Widgets/UIProfiler.cpp.obj	5336f77efc13e5b1
+3940	7240	7487986447338594	Dark Engine/Source/Runtime/UICore/CMakeFiles/UICore.dir/private/Widgets/UISideWidget.cpp.obj	fafe2d2f54a788b0
+4157	7570	7487986449560357	Dark Engine/Source/Runtime/UICore/CMakeFiles/UICore.dir/private/Widgets/UIViewport.cpp.obj	e600e154db8e306a
+4508	7591	7487986453024770	Dark Engine/Source/Runtime/UICore/CMakeFiles/UICore.dir/private/Widgets/UIWorldOutliner.cpp.obj	221248ad192b208a
+4486	7606	7487986452804356	Dark Engine/Source/Runtime/UICore/CMakeFiles/UICore.dir/private/Widgets/UIWindow.cpp.obj	7b9f71ad0d0b8028
+4441	7622	7487986452356511	Dark Engine/Source/Runtime/UICore/CMakeFiles/UICore.dir/private/Widgets/UIWidget.cpp.obj	5803fa4a1d35b68
+4463	7991	7487986452581848	Dark Engine/Source/Runtime/UICore/CMakeFiles/UICore.dir/private/Widgets/UIWidgetTest.cpp.obj	583e1a6b11247420
+4956	8488	7487986457549754	Dark Engine/Source/Runtime/UICore/CMakeFiles/UICore.dir/private/Widgets/UIWorldSettings.cpp.obj	39614aa3cb10edab
+5106	9061	7487986459004906	Dark Engine/Source/Runtime/Renderer/CMakeFiles/Renderer.dir/private/ClearQuad.cpp.obj	22d62344e06b28a7
+5206	9080	7487986460008671	Dark Engine/Source/Runtime/Renderer/CMakeFiles/Renderer.dir/private/DepthRendering.cpp.obj	d867b87aeec60598
+5347	9099	7487986461416532	Dark Engine/Source/Runtime/Renderer/CMakeFiles/Renderer.dir/private/FXAA.cpp.obj	aebce4347e9c379d
+7240	9406	7487986480344294	Dark Engine/Source/Runtime/Renderer/CMakeFiles/Renderer.dir/private/PositionVertexBuffer.cpp.obj	7dad4263e2abb522
+7591	9425	7487986483859338	Dark Engine/Source/Runtime/Renderer/CMakeFiles/Renderer.dir/private/RenderGlobals.cpp.obj	c895a600100a3976
+7570	9437	7487986483650145	Dark Engine/Source/Runtime/Renderer/CMakeFiles/Renderer.dir/private/RawIndexBuffer.cpp.obj	e5a818df73277048
+5352	9456	7487986461466388	Dark Engine/Source/Runtime/Renderer/CMakeFiles/Renderer.dir/private/FractalRender.cpp.obj	991db597c79e88f0
+7191	9525	7487986479858539	Dark Engine/Source/Runtime/Renderer/CMakeFiles/Renderer.dir/private/GlobalResource.cpp.obj	797a209cb2c467e
+7607	9539	7487986484008771	Dark Engine/Source/Runtime/Renderer/CMakeFiles/Renderer.dir/private/RenderResource.cpp.obj	c77340d6b8412391
+9437	9999	7487986502325175	Libs/UICore.lib	7d54bde0dc606ea5
+9539	10008	7487986503337390	Dark Engine/Source/Runtime/RHI/CMakeFiles/RHI.dir/private/RHI.cpp.obj	19fcabb1fbb85fc7
+7206	10585	7487986480003835	Dark Engine/Source/Runtime/Renderer/CMakeFiles/Renderer.dir/private/GlobalShader.cpp.obj	f38c2dd099262364
+7224	11169	7487986480194332	Dark Engine/Source/Runtime/Renderer/CMakeFiles/Renderer.dir/private/IndirectLightRendering.cpp.obj	a543bb0a2bd19279
+9425	11308	7487986502195846	Dark Engine/Source/Runtime/Renderer/CMakeFiles/Renderer.dir/private/VertexFactory.cpp.obj	bb8b21c61bb35a5e
+9457	11323	7487986502515538	Dark Engine/Source/Runtime/RHI/CMakeFiles/RHI.dir/private/Windows/WindowsDynamicRHI.cpp.obj	4a8b59dce085450f
+7991	11339	7487986487863684	Dark Engine/Source/Runtime/Renderer/CMakeFiles/Renderer.dir/private/ScenePrivate.cpp.obj	ae964123eda8af50
+7622	11354	7487986484169127	Dark Engine/Source/Runtime/Renderer/CMakeFiles/Renderer.dir/private/RenderTest.cpp.obj	bb0d109a8a2bc1d0
+9526	11369	7487986503197080	Dark Engine/Source/Runtime/RHI/CMakeFiles/RHI.dir/private/DynamicRHI.cpp.obj	a1fbfa194a75270c
+10008	12305	7487986508033026	Dark Engine/Source/Runtime/RHI/CMakeFiles/RHI.dir/private/RHIResources.cpp.obj	e23d257f29b31c85
+8488	12327	7487986492834837	Dark Engine/Source/Runtime/Renderer/CMakeFiles/Renderer.dir/private/SceneRenderer.cpp.obj	4d372623a743ca15
+9099	12340	7487986498942217	Dark Engine/Source/Runtime/Renderer/CMakeFiles/Renderer.dir/private/Shader.cpp.obj	1b5cb61aeb7b5d77
+9061	12739	7487986498566066	Dark Engine/Source/Runtime/Renderer/CMakeFiles/Renderer.dir/private/SceneRendering.cpp.obj	faff2079067e548a
+10000	12752	7487986507942935	Dark Engine/Source/Runtime/RHI/CMakeFiles/RHI.dir/private/RHICommandList.cpp.obj	d64a05ecc0a90e05
+10586	12762	7487986513808953	Dark Engine/Source/Runtime/RHI/CMakeFiles/RHI.dir/private/PipelineStateCache.cpp.obj	5728a6e8c8dc0640
+9081	12777	7487986498757149	Dark Engine/Source/Runtime/Renderer/CMakeFiles/Renderer.dir/private/SeaScape.cpp.obj	282c6100d1d7748a
+12779	13400	7487986535732447	Dark Engine/Source/Runtime/Engine/CMakeFiles/Engine.dir/private/Engine.cpp.obj	e236a8c5bd6751d4
+9406	13418	7487986502015480	Dark Engine/Source/Runtime/Renderer/CMakeFiles/Renderer.dir/private/ShaderCompiler.cpp.obj	22d6d1cff1674cef
+11308	13434	7487986521022559	Dark Engine/Source/Runtime/Input/CMakeFiles/Input.dir/private/InputCore.cpp.obj	69ab8085a05be9db
+11169	14261	7487986519641930	Dark Engine/Source/Runtime/PhysicsCore/CMakeFiles/PhysicsCore.dir/private/PhysicsCore.cpp.obj	8561125de7073685
+11339	14276	7487986521342158	Dark Engine/Source/Runtime/Engine/CMakeFiles/Engine.dir/private/Canvas.cpp.obj	241fc7be6d34c052
+13419	14281	7487986542132593	Libs/Renderer.lib	7154250af9226a13
+11323	14589	7487986521182584	Dark Engine/Source/Runtime/Engine/CMakeFiles/Engine.dir/private/CameraTypes.cpp.obj	32680c819a6292b4
+11369	14601	7487986521633869	Dark Engine/Source/Runtime/Engine/CMakeFiles/Engine.dir/private/Components/MeshComponent.cpp.obj	57e3ef7a7f4eae59
+11355	14614	7487986521493313	Dark Engine/Source/Runtime/Engine/CMakeFiles/Engine.dir/private/Components/BaseComponent.cpp.obj	25d0180e407fd1a8
+14281	15372	7487986550764983	Libs/RHI.lib	59a762bf77883835
+12328	15397	7487986531230570	Dark Engine/Source/Runtime/Engine/CMakeFiles/Engine.dir/private/Components/SceneComponent.cpp.obj	2104039301ab5e3e
+12306	15415	7487986531005133	Dark Engine/Source/Runtime/Engine/CMakeFiles/Engine.dir/private/Components/PrimitiveComponent.cpp.obj	8ae6a433a12d0b6f
+12340	15434	7487986531347263	Dark Engine/Source/Runtime/Engine/CMakeFiles/Engine.dir/private/Components/StaticMeshComponent.cpp.obj	9dd8871aa2364e69
+15372	15442	7487986561677234	Libs/PhysicsCore.lib	df18bb3a55c7816c
+13434	15901	7487986542284164	Dark Engine/Source/Runtime/Engine/CMakeFiles/Engine.dir/private/Level.cpp.obj	2e29b83572e263e5
+12739	16036	7487986535342785	Dark Engine/Source/Runtime/Engine/CMakeFiles/Engine.dir/private/DarkClient.cpp.obj	7e014d4a78ceb4d9
+12752	16076	7487986535472150	Dark Engine/Source/Runtime/Engine/CMakeFiles/Engine.dir/private/EditorEngine.cpp.obj	1e65f30d1fec32d7
+12762	16265	7487986535562173	Dark Engine/Source/Runtime/Engine/CMakeFiles/Engine.dir/private/EditorViewportClient.cpp.obj	ce133bf4c4ba060c
+14261	16281	7487986550559670	Dark Engine/Source/Runtime/Engine/CMakeFiles/Engine.dir/private/LocalVertexFactory.cpp.obj	eb09746f4b9548b8
+16036	16287	7487986568309937	Libs/Input.lib	f513b1844bb92e39
+16077	16314	7487986568715787	Dark Engine/Source/Runtime/Editor/CMakeFiles/Editor.dir/private/DEditor.cpp.obj	fec57820f1474ac9
+13401	17222	7487986541962384	Dark Engine/Source/Runtime/Engine/CMakeFiles/Engine.dir/private/Entity.cpp.obj	65c15fc249507470
+14276	17377	7487986550709873	Dark Engine/Source/Runtime/Engine/CMakeFiles/Engine.dir/private/MeshObject.cpp.obj	db844de68f040a04
+14615	17394	7487986554096402	Dark Engine/Source/Runtime/Engine/CMakeFiles/Engine.dir/private/SceneResourceImporter.cpp.obj	d9d64c5ec26419db
+14589	17449	7487986553839964	Dark Engine/Source/Runtime/Engine/CMakeFiles/Engine.dir/private/PrimitiveSceneProxy.cpp.obj	8dd79877642a0d3d
+15442	17893	7487986562372430	Dark Engine/Source/Runtime/Engine/CMakeFiles/Engine.dir/private/StaticMeshResources.cpp.obj	39b86d4fc9132a25
+14601	17913	7487986553957016	Dark Engine/Source/Runtime/Engine/CMakeFiles/Engine.dir/private/SceneResourceBuilder.cpp.obj	1f5257d16e23b99
+15434	17931	7487986562286781	Dark Engine/Source/Runtime/Engine/CMakeFiles/Engine.dir/private/StaticMesh.cpp.obj	15b101141ba4c523
+15415	18701	7487986562093029	Dark Engine/Source/Runtime/Engine/CMakeFiles/Engine.dir/private/SceneViewport.cpp.obj	13f5de5144d9ebc6
+15398	18818	7487986561922701	Dark Engine/Source/Runtime/Engine/CMakeFiles/Engine.dir/private/SceneView.cpp.obj	492f9e6f79dc1a9
+17894	19652	7487986586881186	Dark Engine/Source/Runtime/D3D12RHI/CMakeFiles/D3D12RHI.dir/private/D3D12MA/D3D12MemAlloc.cpp.obj	620f9cc17cafeaa3
+15902	19706	7487986566967036	Dark Engine/Source/Runtime/Engine/CMakeFiles/Engine.dir/private/World.cpp.obj	87f61a3dda658734
+16282	20792	7487986570763186	Dark Engine/Source/Runtime/D3D12RHI/CMakeFiles/D3D12RHI.dir/private/D3D12BarrierBatcher.cpp.obj	a90ef5e96559f927
+16266	20877	7487986570612049	Dark Engine/Source/Runtime/D3D12RHI/CMakeFiles/D3D12RHI.dir/private/D3D12Adapter.cpp.obj	3fdeac471c8ce8fa
+19706	20883	7487986605013220	Libs/Engine.lib	4e46273ee7229a4
+16287	20900	7487986570823243	Dark Engine/Source/Runtime/D3D12RHI/CMakeFiles/D3D12RHI.dir/private/D3D12BindlessDescriptors.cpp.obj	e6471d0df030acaa
+17222	21843	7487986580167597	Dark Engine/Source/Runtime/D3D12RHI/CMakeFiles/D3D12RHI.dir/private/D3D12CommandList.cpp.obj	4ac57ecc77c20f6e
+17378	21875	7487986581725188	Dark Engine/Source/Runtime/D3D12RHI/CMakeFiles/D3D12RHI.dir/private/D3D12ConstantBuffer.cpp.obj	b7309dc1a5a1d37
+17395	21896	7487986581893725	Dark Engine/Source/Runtime/D3D12RHI/CMakeFiles/D3D12RHI.dir/private/D3D12Descriptors.cpp.obj	5e381a1a8224759f
+16314	21915	7487986571093104	Dark Engine/Source/Runtime/D3D12RHI/CMakeFiles/D3D12RHI.dir/private/D3D12CommandContext.cpp.obj	29e27cda13cf9747
+21844	21921	7487986626416311	Libs/Editor.lib	3dbb1e3200362586
+17450	22996	7487986582444883	Dark Engine/Source/Runtime/D3D12RHI/CMakeFiles/D3D12RHI.dir/private/D3D12Device.cpp.obj	a7f22ca286abbbf9
+21917	23232	7487986627120510	Dark Engine/Source/Runtime/CoreGObject/CMakeFiles/CoreGObject.dir/private/Object.cpp.obj	7eceb71cc4dfeed7
+21875	23317	7487986626702104	Dark Engine/Source/Runtime/CoreGObject/CMakeFiles/CoreGObject.dir/private/Class.cpp.obj	8bf1f0de9a299a54
+17931	23543	7487986587253456	Dark Engine/Source/Runtime/D3D12RHI/CMakeFiles/D3D12RHI.dir/private/D3D12RHIPrivate.cpp.obj	aa0be8ed106e9cf7
+21897	23562	7487986626911456	Dark Engine/Source/Runtime/CoreGObject/CMakeFiles/CoreGObject.dir/private/GObjectArray.cpp.obj	a2215f467f42a554
+18701	23585	7487986594960182	Dark Engine/Source/Runtime/D3D12RHI/CMakeFiles/D3D12RHI.dir/private/D3D12Resources.cpp.obj	353d93a11fdc72ab
+18819	23605	7487986596138029	Dark Engine/Source/Runtime/D3D12RHI/CMakeFiles/D3D12RHI.dir/private/D3D12RootSignature.cpp.obj	b8218f0cabccb709
+21922	23839	7487986627160777	Dark Engine/Source/Runtime/CoreGObject/CMakeFiles/CoreGObject.dir/private/ObjectBase.cpp.obj	8c8dbe51a829b335
+22997	24526	7487986637918072	Dark Engine/Source/Runtime/CoreGObject/CMakeFiles/CoreGObject.dir/private/ObjectPtr.cpp.obj	af9e31709af3f98a
+19652	24578	7487986604461805	Dark Engine/Source/Runtime/D3D12RHI/CMakeFiles/D3D12RHI.dir/private/D3D12StateCache.cpp.obj	7946348cdb0dffdc
+23232	24621	7487986640273336	Dark Engine/Source/Runtime/Core/CMakeFiles/Core.dir/Private/Windows/WindowsPlatformMisc.cpp.obj	acbfa5b37e5ab3b5
+17913	24643	7487986587080666	Dark Engine/Source/Runtime/D3D12RHI/CMakeFiles/D3D12RHI.dir/private/D3D12PipelineState.cpp.obj	3a8b26b2ac7637a8
+23317	24865	7487986641115023	Dark Engine/Source/Runtime/Core/CMakeFiles/Core.dir/Private/Windows/WindowsPlatformMemory.cpp.obj	1936bff5018a45ae
+23544	24882	7487986643395007	Dark Engine/Source/Runtime/Core/CMakeFiles/Core.dir/Private/Windows/WindowsCriticalSection.cpp.obj	d52fb21e2ab7d9f4
+20793	25342	7487986615872493	Dark Engine/Source/Runtime/D3D12RHI/CMakeFiles/D3D12RHI.dir/private/D3D12Texture.cpp.obj	cc8e41fe8ba5f2e4
+20884	25397	7487986616782670	Dark Engine/Source/Runtime/D3D12RHI/CMakeFiles/D3D12RHI.dir/private/D3D12Viewport.cpp.obj	cddc3139b3a4aee
+23562	25438	7487986643565662	Dark Engine/Source/Runtime/Core/CMakeFiles/Core.dir/Private/CoreGlobals.cpp.obj	9966713010c030ac
+24643	25449	7487986654377413	Dark Engine/Source/Runtime/Core/CMakeFiles/Core.dir/Timer/GameTimer.cpp.obj	c4614d3f5eee9ac5
+20878	25669	7487986616729088	Dark Engine/Source/Runtime/D3D12RHI/CMakeFiles/D3D12RHI.dir/private/D3D12View.cpp.obj	7af7ddb531b6adb9
+24866	25925	7487986656602400	Dark Engine/Source/Runtime/Core/CMakeFiles/Core.dir/Memory/TMemory.cpp.obj	f01c19389cf8a2b5
+23605	25945	7487986644001451	Dark Engine/Source/Runtime/Core/CMakeFiles/Core.dir/Private/Math/DarkMath.cpp.obj	9368304393498f49
+23839	26272	7487986646341824	Dark Engine/Source/Runtime/Core/CMakeFiles/Core.dir/Application/Application.cpp.obj	ba01e451e6735ee2
+25343	26280	7487986661378499	Dark Engine/Source/Runtime/Core/CMakeFiles/Core.dir/Private/GenericPlatform/GenericPlatformMisc.cpp.obj	64c664809c978f84
+23585	26296	7487986643796061	Dark Engine/Source/Runtime/Core/CMakeFiles/Core.dir/Private/Misc/AssertionMacros.cpp.obj	271511cd2d2b1376
+25439	26305	7487986662335376	Dark Engine/Source/Runtime/Core/CMakeFiles/Core.dir/Private/GenericPlatform/GenericPlatformMemory.cpp.obj	39e4cff5e2222003
+24883	26401	7487986656772836	Dark Engine/Source/Runtime/Core/CMakeFiles/Core.dir/Private/Misc/Paths.cpp.obj	6d8c2acab56d4520
+24527	26416	7487986653211297	Dark Engine/Source/Runtime/Core/CMakeFiles/Core.dir/Private/Misc/CoreDelegates.cpp.obj	3924fd67a33afb63
+20901	26914	7487986616958183	Dark Engine/Source/Runtime/D3D12RHI/CMakeFiles/D3D12RHI.dir/private/Windows/WindowsD3D12Device.cpp.obj	dc5b69b8da1114f1
+24621	26935	7487986654157008	Dark Engine/Source/Runtime/Core/CMakeFiles/Core.dir/CommandLine/CommandLine.cpp.obj	55632530cf5de1cb
+24579	26969	7487986653742356	Dark Engine/Source/Runtime/Core/CMakeFiles/Core.dir/Logging/Logger.cpp.obj	99f9672088c8964c
+25398	27303	7487986661919594	Dark Engine/Source/Runtime/Core/CMakeFiles/Core.dir/Private/Containers/DarkString.cpp.obj	52bb44b3c70ee02
+26914	27307	7487986677088818	Libs/D3D12RHI.lib	9bc2539cd59d7a92
+26297	27318	7487986670915380	Dark Engine/Source/Runtime/Core/CMakeFiles/Core.dir/Private/Misc/EngineVersion.cpp.obj	fea4d57979fc6f45
+27308	28006	7487986681027840	Libs/CoreGObject.lib	2e1567255ddddd2b
+26401	28314	7487986671958133	Dark Engine/Source/Runtime/Core/CMakeFiles/Core.dir/Private/Misc/ProcessManager.cpp.obj	f3442c22f3bab645
+25449	28332	7487986662435069	Dark Engine/Source/Runtime/Core/CMakeFiles/Core.dir/Private/Logging/StructedLog.cpp.obj	be948b135256d6ac
+26305	28349	7487986671000897	Dark Engine/Source/Runtime/Core/CMakeFiles/Core.dir/Private/Math/MathSSE.cpp.obj	cf4518e8978d2913
+25670	28374	7487986664642235	Dark Engine/Source/Runtime/Core/CMakeFiles/Core.dir/Private/Logging/LogMarcros.cpp.obj	8a085e4e0b291ae3
+26272	28388	7487986670669842	Dark Engine/Source/Runtime/Core/CMakeFiles/Core.dir/Private/Console/GlobalInputOutConsole.cpp.obj	c003d6b3772054b4
+25945	28430	7487986667400425	Dark Engine/Source/Runtime/Core/CMakeFiles/Core.dir/Private/Console/ConsoleStd.cpp.obj	41b0a04485d6ea62
+25925	28522	7487986667197252	Dark Engine/Source/Runtime/Core/CMakeFiles/Core.dir/Private/Console/BaseConsole.cpp.obj	55f496cb88b1bbfc
+26280	28585	7487986670744935	Dark Engine/Source/Runtime/Core/CMakeFiles/Core.dir/Private/Misc/Config.cpp.obj	9e0bbcf3c9bd18fb
+26416	28879	7487986672103305	Dark Engine/Source/Runtime/ApplicationCore/CMakeFiles/ApplicationCore.dir/private/Windows/WindowsWindow.cpp.obj	7b5fa845a93eb33e
+26935	28900	7487986677299195	Dark Engine/Source/Runtime/ApplicationCore/CMakeFiles/ApplicationCore.dir/private/Windows/WindowsApplication.cpp.obj	8ce9409c2e4eda91
+26969	28979	7487986677639895	Dark Engine/Source/Runtime/ApplicationCore/CMakeFiles/ApplicationCore.dir/private/Windows/WindowsApplicationMisc.cpp.obj	9b104b8d46d40410
+27303	29566	7487986680977800	Dark Engine/Source/Runtime/Launch/CMakeFiles/Launch.dir/private/Windows/LaunchWindows.cpp.obj	d345aa7ba398c691
+27318	30502	7487986681127989	Dark Engine/Source/Runtime/Launch/CMakeFiles/Launch.dir/private/Launch.cpp.obj	d72ebc707e17356
+28314	30532	7487986691088614	Dark Engine/Source/Runtime/Scripting/CMakeFiles/Scripting.dir/private/ScriptState.cpp.obj	b962cc56d6721b35
+28006	32266	7487986688011130	Dark Engine/Source/Runtime/Launch/CMakeFiles/Launch.dir/private/LaunchEngineLoop.cpp.obj	a7b64671b7c781
+79	131	7487986769239661	Libs/Core.lib	47a2d82db6cc7c9a
+131	162	7487986769764849	Libs/ApplicationCore.lib	bde7bf2bfe8ee6b0
+162	1486	7487986770062478	C:/Users/nahmu/source/repos/Dark Engine/Dark Engine/bin/Dark Engine.exe	f0f67eac183ac394

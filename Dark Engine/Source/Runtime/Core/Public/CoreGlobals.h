@@ -14,6 +14,7 @@ extern float GMaxFPS;
 extern float GNearClippingPlane;
 extern bool GFXAAEnable;
 extern int32 GCurrentEntity;
+extern FString GAdditionalErrorMsg;
 
 FORCEINLINE bool IsExitRequested()
 {
@@ -23,4 +24,11 @@ FORCEINLINE bool IsExitRequested()
 FORCEINLINE void RequestExit()
 {
 	GIsRequestingExit = true;
+}
+
+FORCEINLINE FString GetAdditionalErrorMsg()
+{
+	FString ErrorMsg = std::move(GAdditionalErrorMsg);
+	GAdditionalErrorMsg = TEXT("");
+	return ErrorMsg;
 }

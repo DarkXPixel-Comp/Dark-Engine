@@ -38,6 +38,7 @@
 //#include "lua.hpp"
 #include "sol2/sol.hpp"
 #include <iostream>
+#include <filesystem>
 
 
 
@@ -244,12 +245,53 @@ int LuaHandle1(lua_State*, sol::optional<const std::exception&>, sol::string_vie
 }
 
 
+const FString VitalFolders[] = {"Content", "Config", "Shaders", "bin"};
+
+
+int32 CheckFiles()
+{
+	int32 AllFilesIsOk = false;
+	int32 NumFiles = 0;
+
+	std::vector<FString> TempFolders(std::begin(VitalFolders), std::end(VitalFolders));
+
+	for (const auto& Entry : std::filesystem::directory_iterator(!FPaths::EngineDir()))
+	{
+		auto& Path = Entry.path();
+		auto str = Path.filename().wstring();
+
+		auto Result = std::find(std::begin(VitalFolders), std::end(VitalFolders), Path.filename().wstring());
+
+		if (Result != std::end(VitalFolders))
+		{
+			++NumFiles;
+			TempFolders.erase(std::find(TempFolders.begin(), TempFolders.end(), *Result));
+		}
+	}
+
+
+	for (auto& LostFile : TempFolders)
+	{
+		GAdditionalErrorMsg += (LostFile + TEXT("\n"));
+	}
+
+
+	return NumFiles == DE_ARRAY_COUNT(VitalFolders);
+
+}
 
 int32 FEngineLoop::PreInit(const TCHAR* CmdLine)
 {
 	//OPTICK_START_CAPTURE();
 	OPTICK_FRAME("PreInit");
 	//setlocale(LC_ALL, ".utf-16");
+
+	if (!CheckFiles())
+	{
+		FPlatformMisc::CreateMessageBoxError(*FString::PrintF(TEXT("Not found all vital files and folders: \n%s"), *GetAdditionalErrorMsg()), TEXT("Error"));
+		RequestExit();
+		return -1;
+	}
 
 	Logger::Initialize(LOGGER_INFO | LOGGER_ERROR);
 	FMath::RandInit(time(0));

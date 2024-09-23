@@ -8,11 +8,8 @@
 
 DECLARE_LOG_CATEGORY(StaticMeshBuilder, Log);
 
-//#pragma comment(lib, "assimp-vc143-mt.lib")
 
-;
-
-void FSceneResourceBuilder::BuildGraphScene(FString Path, FGraphSceneResource& SceneGraph)
+int32 FSceneResourceBuilder::BuildGraphScene(FString Path, FGraphSceneResource& SceneGraph)
 {
 	Path = FString::PrintF(TEXT("%s%s"), *FPaths::EngineContentDir(), *Path);
 	//const aiScene* Scene = Importer.ReadFile(!Path, aiProcess_Triangulate | aiProcess_GenNormals | aiProcess_OptimizeMeshes);
@@ -23,12 +20,14 @@ void FSceneResourceBuilder::BuildGraphScene(FString Path, FGraphSceneResource& S
 		//aiGetErrorString();
 		DE_LOG(StaticMeshBuilder, Error, TEXT("Failed to build scene resources %s - %s"), *Path, *FString(aiGetErrorString()));
 		aiReleaseImport(Scene);
-		return;
+		return 0;
 	}
 
 	BuildNode(Scene, Scene->mRootNode, SceneGraph.AddRootNode());
 
 	aiReleaseImport(Scene);
+
+	return 1;
 }
 
 void FSceneResourceBuilder::BuildNode(const class aiScene* Scene, aiNode* Node, FGraphSceneResource::FGraphSceneNode* GraphNode)

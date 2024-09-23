@@ -31,10 +31,13 @@ public:
 	void BatchAddPrimitivesImpl(TArray<GPrimitiveComponent*> Primitives);
 
 
+	TArray<GPrimitiveComponent*> AddedPrimitives;
+	TArray<GPrimitiveComponent*> Primitives;
+	TArray<GPrimitiveComponent*> UpdatedPrimitives;
 
-	TArray<FPrimitiveSceneInfo*> AddedPrimitives;
+	/*TArray<FPrimitiveSceneInfo*> AddedPrimitives;
 	TArray<FPrimitiveSceneInfo*> Primitives;
-	TArray<FPrimitiveSceneInfo*> UpdatedPrimitives;
+	TArray<FPrimitiveSceneInfo*> UpdatedPrimitives;*/
 
 
 

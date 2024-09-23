@@ -17,6 +17,8 @@ class EMeshObject : public EEntity
 public:
 	EMeshObject(const FObjectInitializer& ObjectInitalizer = FObjectInitializer::Get());
 
+	virtual void BeginPlay() override;
+
 
 
 private:

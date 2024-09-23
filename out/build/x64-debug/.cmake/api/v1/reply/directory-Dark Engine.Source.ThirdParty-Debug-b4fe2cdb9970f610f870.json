@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "Dark Engine/Source/ThirdParty",
+		"source" : "Dark Engine/Source/ThirdParty"
+	}
+}

@@ -63,7 +63,7 @@ struct FGraphSceneResource
 class FSceneResourceBuilder
 {
 public:
-	static void BuildGraphScene(FString Path, FGraphSceneResource& OutGraphScene);
+	static int32 BuildGraphScene(FString Path, FGraphSceneResource& OutGraphScene);
 
 private:
 	static void BuildNode(const class aiScene* Scene, class aiNode* Node, FGraphSceneResource::FGraphSceneNode* SceneGraph);

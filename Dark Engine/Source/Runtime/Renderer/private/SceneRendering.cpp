@@ -27,6 +27,8 @@ void FSceneRender::Render(FRHICommandListImmediate& CmdList)
 	CmdList.BeginFrame();
 	FRHIRenderPassInfo RenderPassInfo(SceneView->RenderTarget->GetRenderTargetTexture().Get(), ERenderPassMode::Clear, ERenderPassMode::Preserve);
 	CmdList.BeginRenderPass(RenderPassInfo);
+
+	//RenderTest(CmdList);
 	switch (GRenderMode)
 	{
 	case 0:

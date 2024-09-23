@@ -55,7 +55,7 @@ void FD3D12StateCache::SetConstantsFromUniformBuffer(EShaderType ShaderType, uin
 
 void FD3D12StateCache::SetGraphicsPipelineState(FD3D12GraphicsPipelineState* GraphicsPipelineState)
 {
-	check(GraphicsPipelineState);
+	check(GraphicsPipelineState && GraphicsPipelineState->PipelineState && GraphicsPipelineState->PipelineState->PSO);
 
 	TRefCountPtr<FD3D12GraphicsPipelineState> CurrentPipelineState = PipelineState.Graphics.CurrentPipelineStateObject;
 	const bool bForceSet = CurrentPipelineState == nullptr;
@@ -97,7 +97,7 @@ void FD3D12StateCache::SetGraphicsPipelineState(FD3D12GraphicsPipelineState* Gra
 		ID3D12PipelineState* const CurrentPipelineState = PipelineState.Common.CurrentPipelineState.Get();
 		ID3D12PipelineState* const NewPipelineState = GraphicsPipelineState->PipelineState->PSO.Get();
 
-		if (PipelineState.Common.bNeedSetPSO || CurrentPipelineState != NewPipelineState)
+		if ((PipelineState.Common.bNeedSetPSO || CurrentPipelineState != NewPipelineState) && NewPipelineState)
 		{
 			PipelineState.Common.CurrentPipelineState = GraphicsPipelineState->PipelineState->PSO;
 			Context.GetCommandList().GetGraphicsCommandList()->SetPipelineState(NewPipelineState);

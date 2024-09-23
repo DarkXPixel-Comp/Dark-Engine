@@ -73,6 +73,8 @@ public:
 
 	virtual FMatrix GetRenderMatrix() const;
 
+	FMatrix RenderMatrix = FMatrix::Identity;
+
 
 	IMPLEMENT_SETTER(SetMass, float);
 

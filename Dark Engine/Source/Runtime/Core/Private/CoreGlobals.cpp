@@ -10,3 +10,4 @@ float GMaxFPS = 60.f;
 float GNearClippingPlane = 10.f;
 bool GFXAAEnable = false;
 int32 GCurrentEntity = -1;
+FString GAdditionalErrorMsg;

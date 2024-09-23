@@ -5,6 +5,7 @@
 #include <fstream>
 #include <filesystem>
 #include "Misc/Paths.h"
+#include "CoreGlobals.h"
 
 #include "D3D12RHICommon.h"
 
@@ -104,6 +105,11 @@ FD3D12PipelineState* FD3D12PipelineStateManager::GetPipelineState(const FGraphic
 					PipelineLibrary->StorePipeline(*Hash, Result->PSO.Get());
 				}
 				//CachePSO();
+			}
+			else
+			{
+				check(false);
+				RequestExit();
 			}
 		}
 		PSOMap.emplace(Initializer, Result);

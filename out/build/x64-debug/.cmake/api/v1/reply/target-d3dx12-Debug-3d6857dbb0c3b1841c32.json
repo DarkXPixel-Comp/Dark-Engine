@@ -1,0 +1,300 @@
+{
+	"archive" : 
+	{
+		"commandFragments" : 
+		[
+			{
+				"fragment" : "/machine:x64",
+				"role" : "flags"
+			}
+		]
+	},
+	"artifacts" : 
+	[
+		{
+			"path" : "Libs/d3dx12.lib"
+		}
+	],
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_library",
+			"install",
+			"add_compile_definitions",
+			"include_directories",
+			"target_include_directories",
+			"SettingProject",
+			"target_link_libraries",
+			"target_compile_features",
+			"target_sources"
+		],
+		"files" : 
+		[
+			"Dark Engine/Source/ThirdParty/d3dx12/CMakeLists.txt",
+			"CMakeLists.txt",
+			"Dark Engine/Source/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 1,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 16,
+				"parent" : 0
+			},
+			{
+				"file" : 1
+			},
+			{
+				"command" : 2,
+				"file" : 1,
+				"line" : 91,
+				"parent" : 3
+			},
+			{
+				"file" : 2
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 4,
+				"parent" : 5
+			},
+			{
+				"command" : 3,
+				"file" : 2,
+				"line" : 2,
+				"parent" : 5
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 6,
+				"parent" : 0
+			},
+			{
+				"command" : 5,
+				"file" : 0,
+				"line" : 14,
+				"parent" : 0
+			},
+			{
+				"command" : 4,
+				"file" : 1,
+				"line" : 31,
+				"parent" : 9
+			},
+			{
+				"command" : 6,
+				"file" : 0,
+				"line" : 5,
+				"parent" : 0
+			},
+			{
+				"command" : 7,
+				"file" : 0,
+				"line" : 3,
+				"parent" : 0
+			},
+			{
+				"command" : 8,
+				"file" : 0,
+				"line" : 8,
+				"parent" : 0
+			},
+			{
+				"command" : 8,
+				"file" : 0,
+				"line" : 9,
+				"parent" : 0
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "/DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++20   /FI Definitions.h"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 4,
+					"define" : "ROOT_DIR=\"C:/Users/nahmu/source/repos/Dark Engine\""
+				},
+				{
+					"backtrace" : 4,
+					"define" : "UBT_COMPILED_PLATFORM=Windows"
+				},
+				{
+					"backtrace" : 6,
+					"define" : "USING_IMGUI"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 7,
+					"path" : "C:/Users/nahmu/source/repos/Dark Engine/Dark Engine/Source/Windows"
+				},
+				{
+					"backtrace" : 8,
+					"path" : "C:/Users/nahmu/source/repos/Dark Engine/Dark Engine/Source/ThirdParty/d3dx12/include"
+				},
+				{
+					"backtrace" : 10,
+					"path" : "C:/Users/nahmu/source/repos/Dark Engine/Dark Engine/Source"
+				},
+				{
+					"backtrace" : 11,
+					"path" : "C:/Users/nahmu/source/repos/Dark Engine/Dark Engine/Source/ThirdParty/D3D12/include"
+				}
+			],
+			"language" : "CXX",
+			"languageStandard" : 
+			{
+				"backtraces" : 
+				[
+					12
+				],
+				"standard" : "20"
+			},
+			"sourceIndexes" : 
+			[
+				0
+			]
+		}
+	],
+	"folder" : 
+	{
+		"name" : "Dark Engine/Source/ThirdParty"
+	},
+	"id" : "d3dx12::@3b4c1faa215d60596338",
+	"install" : 
+	{
+		"destinations" : 
+		[
+			{
+				"backtrace" : 2,
+				"path" : "lib"
+			}
+		],
+		"prefix" : 
+		{
+			"path" : "C:/Users/nahmu/source/repos/Dark Engine/out/install/x64-debug"
+		}
+	},
+	"name" : "d3dx12",
+	"nameOnDisk" : "d3dx12.lib",
+	"paths" : 
+	{
+		"build" : "Dark Engine/Source/ThirdParty/d3dx12",
+		"source" : "Dark Engine/Source/ThirdParty/d3dx12"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "src",
+			"sourceIndexes" : 
+			[
+				0
+			]
+		},
+		{
+			"name" : "include\\d3dx12",
+			"sourceIndexes" : 
+			[
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 13,
+			"compileGroupIndex" : 0,
+			"path" : "Dark Engine/Source/ThirdParty/d3dx12/src/d3dx12_property_format_table.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 14,
+			"path" : "Dark Engine/Source/ThirdParty/d3dx12/include/d3dx12/d3dx12.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 14,
+			"path" : "Dark Engine/Source/ThirdParty/d3dx12/include/d3dx12/d3dx12_barriers.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 14,
+			"path" : "Dark Engine/Source/ThirdParty/d3dx12/include/d3dx12/d3dx12_check_feature_support.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 14,
+			"path" : "Dark Engine/Source/ThirdParty/d3dx12/include/d3dx12/d3dx12_core.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 14,
+			"path" : "Dark Engine/Source/ThirdParty/d3dx12/include/d3dx12/d3dx12_default.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 14,
+			"path" : "Dark Engine/Source/ThirdParty/d3dx12/include/d3dx12/d3dx12_pipeline_state_stream.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 14,
+			"path" : "Dark Engine/Source/ThirdParty/d3dx12/include/d3dx12/d3dx12_property_format_table.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 14,
+			"path" : "Dark Engine/Source/ThirdParty/d3dx12/include/d3dx12/d3dx12_render_pass.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 14,
+			"path" : "Dark Engine/Source/ThirdParty/d3dx12/include/d3dx12/d3dx12_resource_helpers.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 14,
+			"path" : "Dark Engine/Source/ThirdParty/d3dx12/include/d3dx12/d3dx12_root_signature.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 14,
+			"path" : "Dark Engine/Source/ThirdParty/d3dx12/include/d3dx12/d3dx12_state_object.h",
+			"sourceGroupIndex" : 1
+		}
+	],
+	"type" : "STATIC_LIBRARY"
+}

@@ -89,11 +89,10 @@ void FWorld::SetGravity(const FVector3f& NewGravity)
 
 void FWorld::BeginPlay()
 {
-
-
-
-
-
+	for (auto &i : CurrentLevel->Entities)
+	{			   
+		i->BeginPlay();
+	}
 }
 
 

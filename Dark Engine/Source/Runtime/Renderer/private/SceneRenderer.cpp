@@ -12,11 +12,14 @@
 static void RenderView(FRHICommandListImmediate& RHICmdList, FSceneRender* SceneRenderer)
 {
 	OPTICK_CATEGORY("RenderView", Optick::Category::Rendering);
-	//FScene* const Scene = SceneRenderer->Scene;
+	FScene* const Scene = SceneRenderer->Scene;
 
 
 	//RHICmdList.BeginRenderPass(RenderPassInfo);
-	SceneRenderer->Render(RHICmdList);
+	if(Scene)
+	{
+		SceneRenderer->Render(RHICmdList);
+	}
 	//RHICmdList.EndRenderPass(RenderPassInfo);
 	SceneRenderer->Flush();
 

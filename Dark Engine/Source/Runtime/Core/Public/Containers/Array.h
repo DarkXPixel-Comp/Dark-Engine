@@ -94,6 +94,8 @@ public:
 
 	SizeType GetSize() const { return _vector.size(); }
 
+	SizeType size() const { return _vector.size(); }
+
 	SizeType Num() const { return _vector.size(); }
 
 	void Empty() { return _vector.clear(); }

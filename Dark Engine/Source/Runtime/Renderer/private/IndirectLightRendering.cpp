@@ -61,7 +61,7 @@ void FSceneRender::RenderQuad(FRHICommandListImmediate& RHICmdList)
 	static TRefCountPtr<FRHIUniformBuffer> UniformBuffer = RHICreateUniformBuffer(&Params, sizeof(Params), UniformBuffer_MultiFrame);
 	RHIUpdateUniformBuffer(UniformBuffer.Get(), &Params, sizeof(Params));
 
-	FVector3f Vec3[2] = {FVector3f(0.5f, 0, 0), FVector3f(-0.5f, 0, 0)};
+	FVector3f Vec3[2] = {FVector3f(0.5f, 0, 0), FVector3f(-0.5f, +0.2f, 0)};
 	static TRefCountPtr<FRHIUniformBuffer> InstanceBuffer = RHICreateUniformBuffer(Vec3, sizeof(FVector3f) * 2, UniformBuffer_MultiFrame);
 	RHIUpdateUniformBuffer(InstanceBuffer.Get(), Vec3, sizeof(FVector3f) * 2);
 

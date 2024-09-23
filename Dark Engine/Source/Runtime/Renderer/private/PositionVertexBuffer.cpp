@@ -23,7 +23,7 @@ void FPositionVertexBuffer::Init(const TArray<FStaticMeshBuildVertex>& InVertice
 
 void FPositionVertexBuffer::InitRHI(FRHICommandListImmediate& RHICmdList)
 {
-	VertexBufferRHI = RHICreateBuffer(FRHIBufferDesc(sizeof(FPositionVertex), Stride), TEXT("FPositionVertexBuffer"), ERHIAccess::VertexOrIndexBuffer);
+	VertexBufferRHI = RHICreateBuffer(FRHIBufferDesc(VertexData.size() * Stride, Stride), TEXT("FPositionVertexBuffer"), ERHIAccess::VertexOrIndexBuffer);
 
 	void* Ptr = RHILockBuffer(VertexBufferRHI.Get(), 0, VertexBufferRHI->GetSize(), RLM_WriteOnly);
 

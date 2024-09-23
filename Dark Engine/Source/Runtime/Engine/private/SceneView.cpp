@@ -3,7 +3,7 @@
 
 
 FSceneView::FSceneView(const FRenderTarget* InRenderTarget, FSceneInterface* InSceneInterface):
-	RenderTarget(InRenderTarget)
+	RenderTarget(InRenderTarget), Scene(InSceneInterface)
 {
 
 }
