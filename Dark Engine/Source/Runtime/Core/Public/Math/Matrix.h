@@ -26,7 +26,9 @@ namespace DE
 			static const TMatrix Identity;
 
 			FORCEINLINE TMatrix()
-			{}
+			{
+				*this = Identity;
+			}
 
 
 			explicit TMatrix   (T M00, T M01, T M02, T M03,

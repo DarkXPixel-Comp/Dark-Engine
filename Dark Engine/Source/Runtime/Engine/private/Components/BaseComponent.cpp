@@ -84,6 +84,22 @@ void GBaseComponent::RegisterComponentWithWorld(FWorld* InWorld)
 	ExecuteRegisterEvents();
 }
 
+void GBaseComponent::UnRegisterComponent()
+{
+	EEntity* CurrentOwner = GetOwner();
+	FWorld* OwnerWorld = CurrentOwner ? CurrentOwner->GetWorld() : nullptr;
+
+	if (OwnerWorld)
+	{
+		UnRegisterComponentWithWorld(OwnerWorld);
+	}
+}
+
+void GBaseComponent::UnRegisterComponentWithWorld(FWorld* InWorld)
+{
+
+}
+
 void GBaseComponent::ExecuteRegisterEvents()
 {
 	if (!bRegistered)

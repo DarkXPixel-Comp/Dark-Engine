@@ -10,6 +10,7 @@ class FWorld
 public:
 	void BeginPlay();
 	void InitWorld();
+	void EndPlay();
 	void Tick(float DeltaTime, bool bFetchPhysic);
 	void FetchPhysic();
 
@@ -42,6 +43,8 @@ private:
 	FVector3f Gravity;
 	float Counter = 0.f;
 	float StepSize = 0.01f;
+
+	bool bBeginPlay = false;
 
 };
 

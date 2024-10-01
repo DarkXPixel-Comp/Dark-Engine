@@ -13,6 +13,7 @@ class EMeshObject : public EEntity
 		DECLARE_PROPERTY_INT32(TestProp, TestProp);
 		DECLARE_PROPERTY(TSubClassOf, SubClass, SubClass);
 		DECLARE_PROPERTY(TObjectPtr, MeshComponent, MeshComponent);
+		DECLARE_PROPERTY(TObjectPtr, CameraComponent, CameraComponent);
 		});
 public:
 	EMeshObject(const FObjectInitializer& ObjectInitalizer = FObjectInitializer::Get());
@@ -23,6 +24,7 @@ public:
 
 private:
 	TObjectPtr<class GStaticMeshComponent> MeshComponent;
+	TObjectPtr<class GCameraComponent> CameraComponent;
 	TSubClassOf<class GPrimitiveComponent> SubClass;
 	int32 TestProp = -7;
 };

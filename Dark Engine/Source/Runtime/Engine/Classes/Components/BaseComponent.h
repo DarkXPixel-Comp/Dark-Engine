@@ -35,9 +35,13 @@ public:
 
 	bool IsBeginPlay() const { return bBeginPlay; }
 
-	void RegisterComponent();
+	virtual void RegisterComponent();
 
-	void RegisterComponentWithWorld(class FWorld* InWorld);
+	virtual void RegisterComponentWithWorld(class FWorld* InWorld);
+
+	virtual void UnRegisterComponent();
+
+	virtual void UnRegisterComponentWithWorld(class FWorld* InWorld);
 
 	virtual void ExecuteRegisterEvents();
 

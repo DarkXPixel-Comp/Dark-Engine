@@ -68,6 +68,21 @@ void FWorld::InitWorld()
 	PhysicScene->setSimulationEventCallback(WorldCallbacks.get());
 }
 
+void FWorld::EndPlay()
+{
+	for (auto& i : CurrentLevel->Entities)
+	{
+		if (i->IsBeginPlay())
+		{
+			i->EndPlay();
+		}
+	}
+	bBeginPlay = false;
+
+
+
+}
+
 const FVector3f& FWorld::GetGravity() const
 {
 	if (PhysicScene)
@@ -91,8 +106,12 @@ void FWorld::BeginPlay()
 {
 	for (auto &i : CurrentLevel->Entities)
 	{			   
-		i->BeginPlay();
+		if(!i->IsBeginPlay())
+		{
+			i->BeginPlay();
+		}
 	}
+	bBeginPlay = true;
 }
 
 
@@ -186,6 +205,11 @@ EEntity* FWorld::SpawnEntity(GClass* Class, const FVector& Location, const FRota
 	PhysicScene->addActor(*Plane);*/
 
 	LevelToSpawn->Entities.Add(Entity);
+
+	if (bBeginPlay)
+	{
+		Entity->BeginPlay();
+	}
 
 
 	return Entity;

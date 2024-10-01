@@ -75,6 +75,24 @@ void EEntity::BeginPlay()
 
 }
 
+
+void EEntity::EndPlay()
+{
+	TArray<GBaseComponent*>	Components;
+	GetComponents(Components);
+
+
+	for (GBaseComponent* Component : Components)
+	{
+		if (Component->IsRegistered() && Component->IsBeginPlay())
+		{
+			Component->EndPlay();
+		}
+	}
+	bBeginPlay = false;
+}
+
+
 void EEntity::SetRootComponent(class GSceneComponent* NewRootComponent)
 {
 	if (NewRootComponent == nullptr || NewRootComponent->GetOwner() == this)

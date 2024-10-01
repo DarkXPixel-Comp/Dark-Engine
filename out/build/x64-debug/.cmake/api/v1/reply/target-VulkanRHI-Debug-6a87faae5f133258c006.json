@@ -176,7 +176,7 @@
 				},
 				{
 					"backtrace" : 9,
-					"define" : "VK_ENGINE_VERSION_PATCH=24"
+					"define" : "VK_ENGINE_VERSION_PATCH=25"
 				},
 				{
 					"backtrace" : 10,

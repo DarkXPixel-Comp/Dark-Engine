@@ -444,9 +444,15 @@ int32 FEngineLoop::Init()
 	((DEditorEngine*)Engine)->NewMap();
 
 	//FSceneResourceBuilder::Build(TEXT("Meshes/Cube.fbx"));
+	FSceneResourceImporter Importer;
+	Importer.ImportFromFile(TEXT("Meshes/Cube.fbx"));
+	Importer.GetAllStaticMeshes();
 
 	FGameTimer::Start();
 	FGameTimer::Reset();
+
+	GWorld->BeginPlay();
+
 	return 0;
 }
 
@@ -483,6 +489,8 @@ void FEngineLoop::Tick()
 
 void FEngineLoop::Exit()
 {
+	GWorld->EndPlay();
+
 	FProcessManager::CloseAllProcesses();
 	EditorLayout.Destroy();
 	UIApplication::Destroy();

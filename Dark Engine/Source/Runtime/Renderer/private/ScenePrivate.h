@@ -3,6 +3,7 @@
 #include "Engine/World.h"
 #include "CoreTypes.h"
 #include "PrimitiveSceneProxy.h"
+#include "Components/CameraComponent.h"
 
 class FScene : public FSceneInterface
 {
@@ -19,6 +20,14 @@ public:
 
 	virtual void UpdatePrimitiveTransform(class GPrimitiveComponent* Primitive) override;
 
+	virtual void SetCamera(GCameraComponent* InCamera) override
+	{
+		Camera = InCamera;
+		UpdateCamera(InCamera);
+	}
+
+	virtual void UpdateCamera(GCameraComponent* InCamera) override;
+
 public:
 	void IncrementFrameNumber()
 	{
@@ -34,6 +43,8 @@ public:
 	TArray<GPrimitiveComponent*> AddedPrimitives;
 	TArray<GPrimitiveComponent*> Primitives;
 	TArray<GPrimitiveComponent*> UpdatedPrimitives;
+
+	GCameraComponent* Camera = nullptr;
 
 	/*TArray<FPrimitiveSceneInfo*> AddedPrimitives;
 	TArray<FPrimitiveSceneInfo*> Primitives;

@@ -144,7 +144,7 @@ CMAKE_INSTALL_SYSCONFDIR:PATH=etc
 CMAKE_LINKER:FILEPATH=C:/Program Files/Microsoft Visual Studio/2022/Preview/VC/Tools/MSVC/14.42.34226/bin/Hostx64/x64/link.exe
 
 //make program
-CMAKE_MAKE_PROGRAM:FILEPATH=C:/PROGRA~1/MICROS~2/2022/Preview/Common7/IDE/COMMON~1/MICROS~1/CMake/Ninja/ninja.exe
+CMAKE_MAKE_PROGRAM:FILEPATH=C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe
 
 //Flags used by the linker during the creation of modules during
 // all build types.
@@ -179,7 +179,7 @@ CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 CMAKE_PROJECT_NAME:STATIC=Dark Engine
 
 //Value Computed by CMake
-CMAKE_PROJECT_VERSION:STATIC=0.1.24.0
+CMAKE_PROJECT_VERSION:STATIC=0.1.25.0
 
 //Value Computed by CMake
 CMAKE_PROJECT_VERSION_MAJOR:STATIC=0
@@ -188,7 +188,7 @@ CMAKE_PROJECT_VERSION_MAJOR:STATIC=0
 CMAKE_PROJECT_VERSION_MINOR:STATIC=1
 
 //Value Computed by CMake
-CMAKE_PROJECT_VERSION_PATCH:STATIC=24
+CMAKE_PROJECT_VERSION_PATCH:STATIC=25
 
 //Value Computed by CMake
 CMAKE_PROJECT_VERSION_TWEAK:STATIC=0

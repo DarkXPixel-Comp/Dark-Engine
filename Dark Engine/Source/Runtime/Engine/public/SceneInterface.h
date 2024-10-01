@@ -16,6 +16,9 @@ public:
 
 	virtual void Update() = 0;
 
+	virtual void SetCamera(class GCameraComponent* Camera) = 0;
+
+	virtual void UpdateCamera(class GCameraComponent* InCamera) = 0;
 
 
 

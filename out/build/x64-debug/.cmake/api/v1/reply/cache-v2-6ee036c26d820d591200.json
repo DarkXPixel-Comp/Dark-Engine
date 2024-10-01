@@ -847,7 +847,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "C:/PROGRA~1/MICROS~2/2022/Preview/Common7/IDE/COMMON~1/MICROS~1/CMake/Ninja/ninja.exe"
+			"value" : "C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe"
 		},
 		{
 			"name" : "CMAKE_MODULE_LINKER_FLAGS",
@@ -1015,7 +1015,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "0.1.24.0"
+			"value" : "0.1.25.0"
 		},
 		{
 			"name" : "CMAKE_PROJECT_VERSION_MAJOR",
@@ -1051,7 +1051,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "24"
+			"value" : "25"
 		},
 		{
 			"name" : "CMAKE_PROJECT_VERSION_TWEAK",

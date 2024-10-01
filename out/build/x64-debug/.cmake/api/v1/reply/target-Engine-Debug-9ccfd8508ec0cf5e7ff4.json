@@ -292,7 +292,6 @@
 			},
 			"sourceIndexes" : 
 			[
-				30,
 				31,
 				32,
 				33,
@@ -314,7 +313,9 @@
 				49,
 				50,
 				51,
-				52
+				52,
+				53,
+				54
 			]
 		}
 	],
@@ -353,21 +354,21 @@
 				2,
 				3,
 				4,
-				5
+				5,
+				6
 			]
 		},
 		{
 			"name" : "Classes\\Editor",
 			"sourceIndexes" : 
 			[
-				6
+				7
 			]
 		},
 		{
 			"name" : "Classes\\Engine",
 			"sourceIndexes" : 
 			[
-				7,
 				8,
 				9,
 				10,
@@ -376,22 +377,22 @@
 				13,
 				14,
 				15,
-				16
+				16,
+				17
 			]
 		},
 		{
 			"name" : "Classes\\Framework",
 			"sourceIndexes" : 
 			[
-				17,
-				18
+				18,
+				19
 			]
 		},
 		{
 			"name" : "public",
 			"sourceIndexes" : 
 			[
-				19,
 				20,
 				21,
 				22,
@@ -401,17 +402,16 @@
 				26,
 				27,
 				28,
-				29
+				29,
+				30
 			]
 		},
 		{
 			"name" : "private",
 			"sourceIndexes" : 
 			[
-				30,
 				31,
-				37,
-				38,
+				32,
 				39,
 				40,
 				41,
@@ -425,18 +425,21 @@
 				49,
 				50,
 				51,
-				52
+				52,
+				53,
+				54
 			]
 		},
 		{
 			"name" : "private\\Components",
 			"sourceIndexes" : 
 			[
-				32,
 				33,
 				34,
 				35,
-				36
+				36,
+				37,
+				38
 			]
 		}
 	],
@@ -450,6 +453,11 @@
 		{
 			"backtrace" : 13,
 			"path" : "Dark Engine/Source/Runtime/Engine/Classes/Components/BaseComponent.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 13,
+			"path" : "Dark Engine/Source/Runtime/Engine/Classes/Components/CameraComponent.h",
 			"sourceGroupIndex" : 1
 		},
 		{
@@ -608,6 +616,12 @@
 			"backtrace" : 13,
 			"compileGroupIndex" : 0,
 			"path" : "Dark Engine/Source/Runtime/Engine/private/Components/BaseComponent.cpp",
+			"sourceGroupIndex" : 7
+		},
+		{
+			"backtrace" : 13,
+			"compileGroupIndex" : 0,
+			"path" : "Dark Engine/Source/Runtime/Engine/private/Components/CameraComponent.cpp",
 			"sourceGroupIndex" : 7
 		},
 		{

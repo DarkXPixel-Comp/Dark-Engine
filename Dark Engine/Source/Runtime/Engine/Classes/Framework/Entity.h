@@ -39,6 +39,8 @@ public:
 
 	virtual void BeginPlay();
 
+	virtual void EndPlay();
+
 
 
 	void AddOwnedComponent(class GBaseComponent* Component);

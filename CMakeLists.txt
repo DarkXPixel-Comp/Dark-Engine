@@ -68,7 +68,7 @@ ENDMACRO()
 
 
 
-project("Dark Engine" VERSION 0.1.24.0)
+project("Dark Engine" VERSION 0.1.25.0)
 
 if(MSVC)
   set(CMAKE_EXE_LINKER_FLAGS

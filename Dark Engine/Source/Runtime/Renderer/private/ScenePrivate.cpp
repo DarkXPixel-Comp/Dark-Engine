@@ -4,6 +4,7 @@
 #include "PrimitiveSceneProxy.h"
 #include "PrimitiveSceneInfo.h"
 
+#include <DirectXMath.h>
 
 
 FScene::FScene(FWorld* InWorld):
@@ -46,6 +47,19 @@ void FScene::UpdatePrimitiveTransform(GPrimitiveComponent* Primitive)
 	{
 		UpdatedPrimitives.Add(Primitive);
 	}
+}
+
+void FScene::UpdateCamera(GCameraComponent* InCamera)
+{
+	FCameraMatrices& Matrices = InCamera->CameraMatrices;
+
+
+	//TODO: Create View Proj Matrices  Example: (https://github.com/DarkXPixel-Comp/Dark-Engine/blob/a21760284bb3f01ad63c2360d63dc6cd46ab207d/Dark%20Engine/Source/Runtime/Render/D3D12/D3D12Utils.h)
+	//DirectX::XMMatrixLookAtLH()
+
+
+
+
 }
 
 void FScene::BatchAddPrimitivesImpl(TArray<GPrimitiveComponent*> InPrimitives)
