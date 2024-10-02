@@ -23,11 +23,11 @@ public:
 	void SetWorldRotation(FRotator NewRoatation);
 
 
-	void SetWorldLocation(void* Data, uint64)
-	{
-		FVector* Vector = (FVector*)Data;
-		SetWorldLocation(*Vector);
-	}
+	//void SetWorldLocation(void* Data, uint64)
+	//{
+	//	FVector* Vector = (FVector*)Data;
+	//	SetWorldLocation(*Vector);
+	//}
 
 	const FRotator& GetRotation() const { return RelativeRotation; }
 	const FVector& GetLocation() const { return RelativeLocation; }

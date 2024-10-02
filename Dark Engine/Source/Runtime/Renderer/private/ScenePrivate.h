@@ -20,6 +20,8 @@ public:
 
 	virtual void UpdatePrimitiveTransform(class GPrimitiveComponent* Primitive) override;
 
+	void UpdateMatrixPrimitive(class GPrimitiveComponent* Primitive);
+
 	virtual void SetCamera(GCameraComponent* InCamera) override
 	{
 		Camera = InCamera;

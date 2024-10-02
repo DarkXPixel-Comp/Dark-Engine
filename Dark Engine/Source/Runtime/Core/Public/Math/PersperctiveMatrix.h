@@ -17,7 +17,17 @@ namespace DE
 		{
 			TPerspectiveMatrix(T HalfFovX, T HalfFovY, T MultFovX, T MultFovY,T MinZ, T MaxZ);
 			TPerspectiveMatrix(T HalfFov, T Width, T Height, T MinZ, T MaxZ);
-			TPerspectiveMatrix(T HalfFov, T Width, T Height, T MinZ);
+			//TPerspectiveMatrix(T HalfFov, T Width, T Height, T MinZ);
+			TPerspectiveMatrix(T FovY, T AspectRatio, T MinZ, T MaxZ) :
+				TMatrix<T>
+				(
+					TPlane<T>((1 / FMath::Tan(FovY / 2)) / AspectRatio, 0, 0, 0),
+					TPlane<T>(0, 1 / FMath::Tan(FovY / 2), 0, 0),
+					TPlane<T>(0, 0, MaxZ / (MaxZ - MinZ), 1),
+					TPlane<T>(0, 0,  (-(MaxZ / (MaxZ - MinZ))) * MinZ, 0)
+				)
+			{
+			}
 
 		};
 

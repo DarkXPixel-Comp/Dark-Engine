@@ -22,6 +22,7 @@ namespace DE::Math
 	template<typename T> struct TIntPoint;
 	template<typename T> struct TIntRect;
 	template<typename T> struct TVector4;
+	template<typename T> struct TPerspectiveMatrix;
 	template<typename T> struct TReversedZPerspectiveMatrix;
 	template<typename T> struct TInverseRotationMatrix;
 	template<typename T> struct TPlane;
@@ -46,6 +47,7 @@ namespace ispc
 	struct FInverseRotationMatrix;
 	struct FTransform;
 	struct TLookToMatrix;
+	struct TPerspectiveMatrix;
 };
 
 
@@ -71,6 +73,10 @@ using FMatrix4x4d =						DE::Math::TMatrix<double>;
 using FReversedZPerspectiveMatrix =		DE::Math::TReversedZPerspectiveMatrix<double>;
 using FReversedZPerspectiveMatrix4x4d =	DE::Math::TReversedZPerspectiveMatrix<double>;
 using FReversedZPerspectiveMatrix4x4f = DE::Math::TReversedZPerspectiveMatrix<float>;
+
+using FPerspectiveMatrix =				DE::Math::TPerspectiveMatrix<double>;
+using FPerspectiveMatrix4x4d =			DE::Math::TPerspectiveMatrix<double>;
+using FPerspectiveMatrix4x4f =			DE::Math::TPerspectiveMatrix<float>;
 
 using FLookToMatrix =					DE::Math::TLookToMatrix<double>;
 using FLookToMatrix4x4d =				DE::Math::TLookToMatrix<double>;

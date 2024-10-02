@@ -4,7 +4,9 @@
 #include "PrimitiveSceneProxy.h"
 #include "PrimitiveSceneInfo.h"
 #include "Math/LookToMatrix.h"
+#include "Math/PersperctiveMatrix.h"
 #include "Math/Vector.h"
+#include "DynamicRHI.h"
 
 #include "DirectXMath.h"
 
@@ -31,7 +33,8 @@ void FScene::Update()
 
 	for (auto& Primitive : UpdatedPrimitives)
 	{
-		Primitive->RenderMatrix = Primitive->GetRenderMatrix();
+		UpdateMatrixPrimitive(Primitive);
+		Primitive->PrimitiveUpdate();
 	}
 
 	UpdatedPrimitives.Empty();
@@ -45,10 +48,19 @@ void FScene::AddPrimitive(GPrimitiveComponent* Primitive)
 
 void FScene::UpdatePrimitiveTransform(GPrimitiveComponent* Primitive)
 {
-	if (Primitive->GetSceneProxy())
+	UpdatedPrimitives.Add(Primitive);
+}
+
+void FScene::UpdateMatrixPrimitive(GPrimitiveComponent* Primitive)
+{
+	check(Primitive);
+	Primitive->RenderMatrix = Primitive->GetRenderMatrix();
+	if (!Primitive->RHIRenderMatrix)
 	{
-		UpdatedPrimitives.Add(Primitive);
+		Primitive->RHIRenderMatrix = RHICreateUniformBuffer(&Primitive->RenderMatrix, sizeof(FMatrix), UniformBuffer_MultiFrame);
 	}
+
+	RHIUpdateUniformBuffer(Primitive->RHIRenderMatrix.Get(), &Primitive->RenderMatrix, sizeof(FMatrix));
 }
 
 void FScene::UpdateCamera(GCameraComponent* InCamera)
@@ -56,11 +68,9 @@ void FScene::UpdateCamera(GCameraComponent* InCamera)
 	check(InCamera == Camera);
 	FCameraMatrices& Matrices = InCamera->CameraMatrices;
 
-	FVector Loc = InCamera->GetLocation();
-	FVector FrontVector = InCamera->GetRotation().GetForwardVector();
-
 	Matrices.ViewMatrix = FLookToMatrix(InCamera->GetLocation(), InCamera->GetRotation().GetForwardVector(), FVector(0, 1, 0));
-
+	Matrices.ProjectionMatrix = FPerspectiveMatrix(FMath::DegreesToRadians(InCamera->GetFOV()), InCamera->GetAspectRatio(), InCamera->GetNearZ(), InCamera->GetFarZ());
+	Matrices.ViewProjectionMatrix = Matrices.ViewMatrix * Matrices.ProjectionMatrix;
 }
 
 void FScene::BatchAddPrimitivesImpl(TArray<GPrimitiveComponent*> InPrimitives)
@@ -68,7 +78,8 @@ void FScene::BatchAddPrimitivesImpl(TArray<GPrimitiveComponent*> InPrimitives)
 	for (GPrimitiveComponent* Primitive : InPrimitives)
 	{
 		check(Primitive);
-		Primitive->RenderMatrix = Primitive->GetRenderMatrix();
+		//Primitive->RenderMatrix = Primitive->GetRenderMatrix();
+		UpdateMatrixPrimitive(Primitive);
 		AddedPrimitives.Add(Primitive);
 	}
 }

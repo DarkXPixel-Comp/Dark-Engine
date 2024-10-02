@@ -5,6 +5,7 @@
 #include "PxRigidDynamic.h"
 #include "PxPtr.h"
 #include "PrimitiveSceneProxy.h"
+#include "RHIResources.h"
 
 
 struct FPrimitiveComponentId
@@ -71,9 +72,13 @@ public:
 
 	FPrimitiveSceneInfoData& GetSceneData() { return SceneData; }
 
+	void PrimitiveUpdate() { bUpdatePrimitiveSceneDescription = false; }
+
 	virtual FMatrix GetRenderMatrix() const;
 
 	FMatrix RenderMatrix = FMatrix::Identity;
+
+	TRefCountPtr<FRHIUniformBuffer> RHIRenderMatrix;//<-- Temp
 
 
 	IMPLEMENT_SETTER(SetMass, float);

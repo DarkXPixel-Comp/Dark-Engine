@@ -39,6 +39,7 @@ void GPrimitiveComponent::SetWorldLocation(FVector NewLocation)
 
 FMatrix GPrimitiveComponent::GetRenderMatrix() const
 {
+	//TODO: Create GetRenderMatrix
 	return GetComponentTransform().ToMatrixWithScale();
 }
 
