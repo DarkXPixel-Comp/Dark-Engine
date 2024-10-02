@@ -2,6 +2,7 @@
 
 
 #include "IntPoint.h"
+#include <Math/MathFwd.h>
 
 
 namespace DE

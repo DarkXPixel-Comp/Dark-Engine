@@ -1,6 +1,7 @@
 #pragma once
 #include "RenderResource.h"
 #include "Math/Color.h"
+#include "Math/Vector2D.h"
 
 
 struct FStaticMeshBuildVertex

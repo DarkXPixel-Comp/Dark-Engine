@@ -1,6 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "CoreGlobals.h"
+#include "Math/Rotator.h"
 
 
 

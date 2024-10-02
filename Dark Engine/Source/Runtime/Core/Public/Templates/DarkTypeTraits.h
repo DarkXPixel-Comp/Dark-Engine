@@ -1,7 +1,6 @@
 #pragma once
 
 
-#include <CoreTypes.h>
 #include <Templates/EnableIf.h>
 #include <type_traits>
 #include "IsFloatingPoint.h"

@@ -1,6 +1,6 @@
 #include "Math/MathSSE.h"
-#include "Math/MathFwd.h"
 #include "DirectXMath.h"
+#include "Math/Matrix.h"
 
 
 
@@ -12,6 +12,13 @@ void MatrixMultiply(FMatrix4x4f* Result, const FMatrix4x4f* Matrix1, const FMatr
 	DirectX::XMMATRIX* B = (DirectX::XMMATRIX*)Matrix2;
 	*R = DirectX::XMMatrixMultiply(*A, *B);
 }
+
+template<>
+void MatrixTranspose(FMatrix4x4f* Matrix)
+{
+
+}
+
 
 template<>
 void MatrixMultiply(FMatrix4x4d* Result, const FMatrix4x4d* Matrix1, const FMatrix4x4d* Matrix2)
@@ -62,7 +69,4 @@ void MatrixMultiply(FMatrix4x4d* Result, const FMatrix4x4d* Matrix1, const FMatr
 	VectorStore(R1, ResultDst[1]);
 	VectorStore(R2, ResultDst[2]);
 	VectorStore(R3, ResultDst[3]);
-
-
-
 }

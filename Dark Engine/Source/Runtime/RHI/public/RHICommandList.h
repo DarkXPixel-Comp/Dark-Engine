@@ -1,4 +1,6 @@
 #pragma once
+#include "Math/Vector.h"
+
 #include "Templates/DarkTemplate.h"
 #include "CoreTypes.h"
 #include "RHIResources.h"

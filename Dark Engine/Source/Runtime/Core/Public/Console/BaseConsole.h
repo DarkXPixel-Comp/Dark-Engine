@@ -4,6 +4,7 @@
 #include "Containers/UnordoredMap.h"
 #include "Delegate/Delegate.h"
 #include "Misc/ScopeLock.h"
+#include "Math/Vector.h"
 
 
 DECLARE_DELEGATE_OneParam(FOnAddConsoleInput, FString);

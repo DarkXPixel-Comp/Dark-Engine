@@ -3,8 +3,10 @@
 #include "Components/PrimitiveComponent.h"
 #include "PrimitiveSceneProxy.h"
 #include "PrimitiveSceneInfo.h"
+#include "Math/LookToMatrix.h"
+#include "Math/Vector.h"
 
-#include <DirectXMath.h>
+#include "DirectXMath.h"
 
 
 FScene::FScene(FWorld* InWorld):
@@ -51,14 +53,13 @@ void FScene::UpdatePrimitiveTransform(GPrimitiveComponent* Primitive)
 
 void FScene::UpdateCamera(GCameraComponent* InCamera)
 {
+	check(InCamera == Camera);
 	FCameraMatrices& Matrices = InCamera->CameraMatrices;
 
+	FVector Loc = InCamera->GetLocation();
+	FVector FrontVector = InCamera->GetRotation().GetForwardVector();
 
-	//TODO: Create View Proj Matrices  Example: (https://github.com/DarkXPixel-Comp/Dark-Engine/blob/a21760284bb3f01ad63c2360d63dc6cd46ab207d/Dark%20Engine/Source/Runtime/Render/D3D12/D3D12Utils.h)
-	//DirectX::XMMatrixLookAtLH()
-
-
-
+	Matrices.ViewMatrix = FLookToMatrix(InCamera->GetLocation(), InCamera->GetRotation().GetForwardVector(), FVector(0, 1, 0));
 
 }
 

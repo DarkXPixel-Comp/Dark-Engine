@@ -1,7 +1,5 @@
 #pragma once
 
-#include <CoreTypes.h>
-
 
 template <bool Predicate, typename Result = void>
 class TEnableIf;

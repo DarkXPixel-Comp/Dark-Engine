@@ -3,6 +3,7 @@
 #include "CoreTypes.h"
 #include "Containers/DarkString.h"
 #include "CoreMinimal.h"
+#include "Math/IntRect.h"
 
 
 enum EWindowMode

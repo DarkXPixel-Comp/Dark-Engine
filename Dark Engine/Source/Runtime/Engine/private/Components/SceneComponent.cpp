@@ -28,3 +28,8 @@ FVector GSceneComponent::GetEntityPositionForRenderer()	const
 	}*/
 	return FVector();
 }
+
+FVector GSceneComponent::GetFrontVector() const
+{
+	return GetLocation() + GetRotation().GetForwardVector();
+}

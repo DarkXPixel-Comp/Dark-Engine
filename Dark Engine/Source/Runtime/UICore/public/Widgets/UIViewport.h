@@ -2,8 +2,8 @@
 #include "CoreMinimal.h"
 #include "Rendering/RenderingCommon.h"
 #include "UIWidget.h"
-#include "Math/MathFwd.h"
 #include "Engine/EditorViewportClient.h"
+#include "Math/Vector2D.h"
 //#include "Engine/SceneViewport.h"
 
 

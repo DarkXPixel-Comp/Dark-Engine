@@ -14,7 +14,7 @@
 #endif // _WIN32
 
 #include "../CommandLine/CommandLine.h"
-#include "Math/MathFwd.h"
+#include "Math/Vector.h"
 #include "Containers/Array.h"
 
 

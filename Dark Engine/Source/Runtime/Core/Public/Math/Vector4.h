@@ -1,5 +1,6 @@
 #pragma once	 
 #include <type_traits>
+#include "Math/MathFwd.h"
 
 
 namespace DE

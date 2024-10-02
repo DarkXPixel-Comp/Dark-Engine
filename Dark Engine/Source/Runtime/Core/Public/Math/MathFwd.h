@@ -1,15 +1,15 @@
 #pragma once
 #include <HAL/Platform.h>
-#include "Vector2D.h"
-#include "Vector.h"
-#include "Rotator.h"
-#include "Matrix.h"
-#include "Plane.h"
-#include "IntPoint.h"
-#include "IntRect.h"
-#include "Vector4.h"
-#include "PersperctiveMatrix.h"
-#include "InverseRotationMatrix.h"
+//#include "Vector2D.h"
+//#include "Vector.h"
+//#include "Rotator.h"
+//#include "Matrix.h"
+//#include "Plane.h"
+//#include "IntPoint.h"
+//#include "IntRect.h"
+//#include "Vector4.h"
+//#include "PersperctiveMatrix.h"
+//#include "InverseRotationMatrix.h"
 //#include "Transform.h"
 
 
@@ -26,6 +26,7 @@ namespace DE::Math
 	template<typename T> struct TInverseRotationMatrix;
 	template<typename T> struct TPlane;
 	template<typename T> struct TTransform;
+	template<typename T> struct TLookToMatrix;
 };
 
 
@@ -44,6 +45,7 @@ namespace ispc
 	struct FReversedZPerspectiveMatrix;
 	struct FInverseRotationMatrix;
 	struct FTransform;
+	struct TLookToMatrix;
 };
 
 
@@ -69,6 +71,11 @@ using FMatrix4x4d =						DE::Math::TMatrix<double>;
 using FReversedZPerspectiveMatrix =		DE::Math::TReversedZPerspectiveMatrix<double>;
 using FReversedZPerspectiveMatrix4x4d =	DE::Math::TReversedZPerspectiveMatrix<double>;
 using FReversedZPerspectiveMatrix4x4f = DE::Math::TReversedZPerspectiveMatrix<float>;
+
+using FLookToMatrix =					DE::Math::TLookToMatrix<double>;
+using FLookToMatrix4x4d =				DE::Math::TLookToMatrix<double>;
+using FLookToMatrix4x4f =				DE::Math::TLookToMatrix<double>;
+
 
 using FInverseRotationMatrix =			DE::Math::TInverseRotationMatrix<double>;
 using FInverseRotationMatrix4x4f =		DE::Math::TInverseRotationMatrix<float>;

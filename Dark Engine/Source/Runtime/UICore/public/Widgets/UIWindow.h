@@ -5,6 +5,7 @@
 #include "UIWidget.h"
 #include "DarkClient.h"
 #include "imgui.h"
+#include "Math/Vector2D.h"
 
 
 class UIWindow

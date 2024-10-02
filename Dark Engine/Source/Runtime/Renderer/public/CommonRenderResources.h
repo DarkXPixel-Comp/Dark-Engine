@@ -1,9 +1,10 @@
 #pragma once
-#include "Math/MathFwd.h"
 #include "RHIResources.h"
 #include "DynamicRHI.h"
 #include "RenderResource.h"
 #include "GlobalResource.h"
+#include "Math/Vector4.h"
+#include "Math/Vector2D.h"
 
 
 struct FFilterVertex

@@ -2,6 +2,7 @@
 #include "Templates/IsFloatingPoint.h"
 #include "MathSSE.h"
 #include "Plane.h"
+#include "Math/MathFwd.h"
 
 
 
@@ -77,6 +78,27 @@ namespace DE
 
 				return Result;
 			}
+
+			FORCEINLINE void Transpose()
+			{
+				std::swap(M[0][1], M[1][0]);
+				std::swap(M[0][2], M[2][0]);
+				std::swap(M[0][3], M[3][0]);
+
+				std::swap(M[1][3], M[3][1]);
+				std::swap(M[2][3], M[3][2]);
+
+				std::swap(M[1][2], M[2][1]);
+			}
+
+			FORCEINLINE TMatrix<T> GetTranspose() const
+			{
+				TMatrix<T> Result = *this;
+				Result.Transpose();
+				return Result;
+			}
+
+
 
 
 		};

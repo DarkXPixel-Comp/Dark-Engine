@@ -517,7 +517,8 @@
 				56,
 				57,
 				60,
-				61
+				61,
+				65
 			]
 		},
 		{
@@ -921,6 +922,11 @@
 			"compileGroupIndex" : 0,
 			"path" : "Dark Engine/Source/Runtime/Core/Private/Misc/ProcessManager.cpp",
 			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 14,
+			"path" : "Dark Engine/Source/Runtime/Core/Public/Math/LookToMatrix.h",
+			"sourceGroupIndex" : 16
 		}
 	],
 	"type" : "STATIC_LIBRARY"

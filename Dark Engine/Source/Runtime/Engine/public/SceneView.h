@@ -5,6 +5,7 @@
 #include "RendererInterface.h"
 #include "SceneView.h"
 #include "DarkClient.h"
+#include "Math/Matrix.h"
 
 
 struct FSceneViewProjectionData

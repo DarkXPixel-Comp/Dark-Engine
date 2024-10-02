@@ -5,6 +5,7 @@
 #include "D3D12View.h"
 #include "RHIResources.h"
 #include "D3D12PipelineState.h"
+#include "Math/Vector4.h"
 #include <d3dx12/d3dx12_barriers.h>
 #include "optick.h"
 

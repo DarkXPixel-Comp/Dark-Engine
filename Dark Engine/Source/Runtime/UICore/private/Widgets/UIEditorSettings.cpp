@@ -7,6 +7,7 @@
 #include "stb_image.h"
 #include "Misc/Paths.h"
 #include "Console/GlobalInputOutConsole.h"
+#include "Math/DarkMathUtility.h"
 
 
 struct FColor

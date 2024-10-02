@@ -11,10 +11,10 @@ public:
 	FScene(FWorld* InWorld);
 
 
-	virtual FScene* GetRenderScene() override final { return this; }
-	virtual FWorld* GetWorld() final { return World; }
+	virtual FScene* GetRenderScene() override { return this; }
+	virtual FWorld* GetWorld() { return World; }
 
-	virtual void Update() override final;
+	virtual void Update() override;
 
 	virtual void AddPrimitive(class GPrimitiveComponent* Primitive) override;
 
@@ -23,7 +23,10 @@ public:
 	virtual void SetCamera(GCameraComponent* InCamera) override
 	{
 		Camera = InCamera;
-		UpdateCamera(InCamera);
+		if (InCamera != nullptr)
+		{
+			UpdateCamera(InCamera);
+		}
 	}
 
 	virtual void UpdateCamera(GCameraComponent* InCamera) override;

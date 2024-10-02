@@ -1,8 +1,7 @@
 #pragma once
 #include "Templates/IsInteger.h"
-#include <CoreTypes.h>
 #include <Math/MathFwd.h>
-#include <Math/Vector2D.h>
+//#include <Math/Vector2D.h>
 
 
 namespace DE

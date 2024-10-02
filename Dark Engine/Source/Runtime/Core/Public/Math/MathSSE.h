@@ -119,6 +119,9 @@ FORCEINLINE VectorRegister4Double VectorMultiplyAdd(const VectorRegister4Double&
 template<typename T>
 void MatrixMultiply(T* Result, const T* Matrix1, const T* Matrix2);
 
+template<typename T>
+void MatrixTranspose(T* Matrix);
+
 //__m128 VectorMultiply(const __m128& Vec1, const __m128& Vec2)
 //{
 //	return _mm_mul_ps(Vec1, Vec2);

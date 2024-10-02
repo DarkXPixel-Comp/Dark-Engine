@@ -146,7 +146,11 @@ struct FMath : public FPlatformMath
 	}
 
 
+	static FORCEINLINE constexpr float DegreesToRadians(float Degrees) { return Degrees * (DE_PI / 180.f); }
+	static FORCEINLINE constexpr double DegreesToRadians(double Degrees) { return Degrees * (static_cast<double>(DE_PI) / 180.0); }
 
+	static FORCEINLINE constexpr float RadiansToDegrees(float Radians) { return Radians * (180.f / DE_PI); }
+	static FORCEINLINE constexpr double RadiansToDegrees(double Radians) { return Radians * (180.0 / static_cast<double>(DE_PI)); }
 
 
 

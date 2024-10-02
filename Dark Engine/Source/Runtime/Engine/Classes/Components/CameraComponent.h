@@ -2,6 +2,7 @@
 
 
 #include "Components/SceneComponent.h"
+#include "Math/Matrix.h"
 
 
 struct FCameraMatrices

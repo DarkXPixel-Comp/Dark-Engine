@@ -101,5 +101,4 @@ struct FGenericPlatformMath
 
 	static FORCEINLINE float Cos(float Value) { return cosf(Value); }
 	static FORCEINLINE double Cos(double Value) { return cos(Value); }
-
 };

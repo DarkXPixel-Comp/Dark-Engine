@@ -1,7 +1,7 @@
 #pragma once
 #include "Memory/TUniquePtr.h"
 #include "GenericWindow.h"
-#include "Math/MathFwd.h"
+#include "Math/Vector2D.h"
 
 
 namespace EMouseButtons

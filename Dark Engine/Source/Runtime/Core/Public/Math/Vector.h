@@ -1,13 +1,12 @@
 #pragma once
-#include <Core.h>
-#include <CoreTypes.h>
+#include <Math/MathFwd.h>
+//#include <CoreTypes.h>
 //#include <Math/MathFwd.h>
-#include <Math/Vector2D.h>
+//#include <Math/Vector2D.h>
 #include <Math/DarkMathUtility.h>
-#include "Containers/DarkString.h"
+//#include "Containers/DarkString.h"
 #include "Templates/DarkTypeTraits.h"
 #include <type_traits>
-
 
 
 #pragma warning(push)
@@ -355,6 +354,18 @@ namespace DE
 			T SizeSquared2D() const
 			{
 				return X * X + Y * Y;
+			}
+
+			TVector<T> GetNegative() const
+			{
+				return TVector<T>(-X, -Y, -Z);
+			}
+
+			void Negative()
+			{
+				X = -X;
+				Y = -Y;
+				Z = -Z;
 			}
 
 			/**
@@ -709,6 +720,26 @@ namespace DE
 		inline bool TVector<T>::AllComponentEqual(T Tolerance) const
 		{
 			return FMath::Abs(X - Y) < Tolerance && FMath::Abs(Y - Z) < Tolerance;
+		}
+
+		template<typename T>
+		inline TVector<T> TVector<T>::GetUnsafeNormal() const
+		{
+			T Len = Length();
+			if (Len > 0)
+			{
+				Len = 1.f / Len;
+			}
+			return TVector<T>(X * Len, Y * Len, Z * Len);
+		}
+
+		template<typename T>
+		inline bool TVector<T>::Normalize(T Tolerance)
+		{
+			if (Length() == 0)
+				return false;
+			*this = GetUnsafeNormal();
+			return true;
 		}
 
 		template<typename T>

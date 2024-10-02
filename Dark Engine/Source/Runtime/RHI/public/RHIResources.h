@@ -4,8 +4,9 @@
 #include "Containers/Array.h"
 #include "Containers/StaticArray.h"
 #include "Misc/AssertionMacros.h"
-#include "Math/MathFwd.h"
+#include "Math/IntPoint.h"
 #include "Templates/RefCounting.h"
+#include "Memory/TUniquePtr.h"
 
 
 

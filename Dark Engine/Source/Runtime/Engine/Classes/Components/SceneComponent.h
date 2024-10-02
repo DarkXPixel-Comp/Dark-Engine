@@ -33,6 +33,8 @@ public:
 	const FVector& GetLocation() const { return RelativeLocation; }
 	const FVector& GetScale() const { return RelativeScale; }
 
+	FVector GetFrontVector() const;
+
 	FVector GetEntityPositionForRenderer() const;
 
 	FORCEINLINE const FTransform& GetComponentTransform() const

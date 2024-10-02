@@ -1,9 +1,8 @@
 #pragma once
-#include "CoreTypes.h"
-#include "Containers/DarkString.h"
 #include "Math/DarkMathUtility.h"
-#include "Math/Vector.h"
 #include "templates/IsFloatingPoint.h"
+#include "Math/Vector.h"
+#include "Math/MathFwd.h"
 
 
 
@@ -47,6 +46,17 @@ namespace DE
 
 		public:
 			DENGINE_API static const TRotator<T> ZeroRotator;
+
+
+
+			TVector<T> GetForwardVector() const
+			{
+				TVector<T> Result;
+				Result.X = -(FMath::Cos(FMath::DegreesToRadians(Yaw))) * FMath::Cos(FMath::DegreesToRadians(Pitch));
+				Result.Y = -FMath::Sin(FMath::DegreesToRadians(Pitch));
+				Result.Z = FMath::Sin(FMath::DegreesToRadians(Yaw)) * FMath::Cos(FMath::DegreesToRadians(Pitch));
+				return Result;
+			}
 
 
 

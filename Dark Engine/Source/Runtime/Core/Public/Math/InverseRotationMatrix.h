@@ -1,9 +1,8 @@
 #pragma once
-#include <CoreMinimal.h>
-#include <Math/MathFwd.h>
 #include "Math/Matrix.h"
 #include "Rotator.h"
 #include "Plane.h"
+#include <Math/MathFwd.h>
 
 
 

@@ -1,5 +1,6 @@
 #pragma once
 #include "DarkClient.h"
+#include "Math/IntRect.h"
 
 
 class FSceneInterface;

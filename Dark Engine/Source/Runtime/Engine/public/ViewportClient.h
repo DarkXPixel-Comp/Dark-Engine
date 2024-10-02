@@ -2,7 +2,7 @@
 
 #include "DarkClient.h"
 #include "Engine/World.h"
-#include "Math/MathFwd.h"
+#include "Math/IntPoint.h"
 
 
 class FViewport;

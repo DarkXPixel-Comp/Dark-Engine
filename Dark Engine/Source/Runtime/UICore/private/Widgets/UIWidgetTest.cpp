@@ -3,6 +3,7 @@
 #include "imgui_internal.h"
 #include "ImGuizmo.h"
 #include "DirectXMath.h"
+#include "Math/Matrix.h"
 
 
 using namespace DirectX;

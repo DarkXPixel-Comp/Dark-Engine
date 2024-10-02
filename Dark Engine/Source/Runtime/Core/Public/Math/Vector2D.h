@@ -1,7 +1,7 @@
 #pragma once
+#include "Math/MathFwd.h"
+#include <type_traits>
 
-#include <CoreTypes.h>
-#include <Core.h>
 
 
 namespace DE

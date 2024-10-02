@@ -1,5 +1,5 @@
 #pragma once
-#include "Math/MathFwd.h"
+#include "Math/IntRect.h"
 #include "Containers/Array.h"
 #include "Memory/TUniquePtr.h"
 #include <functional>
