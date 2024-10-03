@@ -7,12 +7,14 @@
 #include "Math/PersperctiveMatrix.h"
 #include "Math/Vector.h"
 #include "DynamicRHI.h"
+#include "BS_thread_pool.hpp"
 
 #include "DirectXMath.h"
 
 
 FScene::FScene(FWorld* InWorld):
-	World(InWorld)
+	World(InWorld),
+	UpdateThreadPool(std::thread::hardware_concurrency() / 2)
 {
 
 
@@ -33,9 +35,14 @@ void FScene::Update()
 
 	for (auto& Primitive : UpdatedPrimitives)
 	{
-		UpdateMatrixPrimitive(Primitive);
-		Primitive->PrimitiveUpdate();
+		UpdateThreadPool.submit_task([&Primitive, this]()
+			{
+				UpdateMatrixPrimitive(Primitive);
+				Primitive->PrimitiveUpdate();
+			});
 	}
+
+	UpdateThreadPool.wait();
 
 	UpdatedPrimitives.Empty();
 	AddedPrimitives.Empty();

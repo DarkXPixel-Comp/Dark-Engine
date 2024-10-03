@@ -7,6 +7,7 @@
 #include "Timer/GameTimer.h"
 #include "Containers/Array.h"
 #include "Containers/DarkString.h"
+#include "BS_thread_pool.hpp"
 #include <future>
 
 
@@ -124,29 +125,19 @@ void FGlobalShaderTypeCompiler::FinishCompilation(FString MaterialName, TArray<T
 {
 	if (ASYNC_SHADER_COMPILING)
 	{
-		TArray<std::shared_future<void>> FuturesArray;
-		FuturesArray.Reserve(Jobs.GetSize());
-		DE_LOG(LogShaders, Log, TEXT("Begin async compiling"));
+		DE_LOG(LogShaders, Log, TEXT("Begin Async shader compiling"));
+		BS::thread_pool ThreadPool(std::thread::hardware_concurrency() / 2);
+
 		for (auto& It : Jobs)
 		{
-			FuturesArray.Push(std::async(std::launch::async, [&It]()
-				{
-					DE_LOG(LogShaders, Log, TEXT("Async shader"));
-					CompileShader(*It);
-				}).share());
+			ThreadPool.submit_task([&It]() { CompileShader(*It); });
 		}
 
-		for (auto& i : FuturesArray)
-		{
-			if (i.wait_for(std::chrono::seconds(10)) != std::future_status::ready)
-			{
-				DE_LOG(LogShaders, Error, TEXT("Timeout shader compiling"));
-			}
-		}
+		ThreadPool.wait();
 	}
 	else
 	{
-		DE_LOG(LogShaders, Log, TEXT("Begin default compiling"));
+		DE_LOG(LogShaders, Log, TEXT("Begin default shader compiling"));
 		for (auto& It : Jobs)
 		{
 			DE_LOG(LogShaders, Log, TEXT("Default shader"));

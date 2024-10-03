@@ -1,6 +1,5 @@
 add_library(Core)
 
-find_library(CoreLibs DTK12)
 
 set(CMAKE_CXX_STANDARD 20)
 target_compile_features(Core PUBLIC cxx_std_20)

@@ -3,6 +3,7 @@
 #include "Engine/World.h"
 #include "CoreTypes.h"
 #include "PrimitiveSceneProxy.h"
+#include "BS_thread_pool.hpp"
 #include "Components/CameraComponent.h"
 
 class FScene : public FSceneInterface
@@ -60,6 +61,7 @@ public:
 private:
 	FWorld* World;
 	uint32 SceneFrameNumber;
+	BS::thread_pool UpdateThreadPool;
 
 
 
