@@ -56,6 +56,8 @@ class GPrimitiveComponent : public GSceneComponent
 	DECLARE_CLASS_INTINSIC_NO_CTOR_WITH_PROPERTIES(GPrimitiveComponent, GSceneComponent,
 		{
 			DECLARE_PROPERTY(float, Mass, Mass, PROPERTY_META(DECLARE_SETTER(SetMass)));
+			DECLARE_PROPERTY(uint8, bEnablePhysics, EnablePhysics, PROPERTY_META(DECLARE_SETTER(SetEnablePhysics)));
+			DECLARE_PROPERTY(uint8, bEnableGravity, EnableGravity, PROPERTY_META(DECLARE_SETTER(SetEnableGravity)));
 		});
 
 public:
@@ -66,6 +68,8 @@ public:
 	constexpr virtual bool ShouldCreatePhysicState() const override { return true; }
 
 	virtual void SetWorldLocation(FVector NewLocation) override;
+	virtual void SetWorldRotation(FRotator NewRotation)	override;
+	virtual void SetWorldScale(FVector NewScale) override;
 
 	virtual void CreateRenderState() override;
 	virtual void CreatePhysicState() override;
@@ -97,13 +101,37 @@ public:
 		return nullptr;
 	}
 
+	IMPLEMENT_SETTER(SetEnablePhysics, bool)
+	void SetEnablePhysics(bool bEnable)
+	{
+		bEnablePhysics = bEnable;
+		UpdatePhysiñFlags();
+	}
+
+	IMPLEMENT_SETTER(SetEnableGravity, bool)
+	void SetEnableGravity(bool bEnable)
+	{
+		bEnableGravity = bEnable;
+		UpdatePhysiñFlags();
+	}
+
+
+
+
 	FPrimitiveSceneProxy* SceneProxy = nullptr;
 	FPrimitiveSceneProxy* GetSceneProxy() const { check(SceneProxy == SceneData.SceneProxy); return SceneData.SceneProxy; }
+
+
+protected:
+	virtual void UpdatePhysiñFlags() final;
 
 protected:
 	TPxPtr<physx::PxRigidDynamic> RigidDynamic;
 	FPrimitiveSceneInfoData SceneData;
 	float Mass = 5.f;
+	bool bEnablePhysics = true;
+	bool bEnableGravity = true;
+
 
 
 private:

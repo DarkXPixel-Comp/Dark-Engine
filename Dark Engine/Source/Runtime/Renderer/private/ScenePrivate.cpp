@@ -42,6 +42,8 @@ void FScene::Update()
 			});
 	}
 
+	UpdateCamera(Camera);
+
 	UpdateThreadPool.wait();
 
 	UpdatedPrimitives.Empty();
@@ -73,6 +75,10 @@ void FScene::UpdateMatrixPrimitive(GPrimitiveComponent* Primitive)
 void FScene::UpdateCamera(GCameraComponent* InCamera)
 {
 	check(InCamera == Camera);
+	if (InCamera == nullptr)
+	{
+		return;
+	}
 	FCameraMatrices& Matrices = InCamera->CameraMatrices;
 
 	Matrices.ViewMatrix = FLookToMatrix(InCamera->GetLocation(), InCamera->GetRotation().GetForwardVector(), FVector(0, 1, 0));

@@ -3,6 +3,7 @@
 #include "Math/Matrix.h"
 #include "Math/Vector.h"
 #include <Math/MathFwd.h>
+#include "DirectXMath.h"
 
 namespace DE
 {
@@ -22,16 +23,15 @@ namespace DE
 
 				TVector<T> NegativeEyePosition = EyePosition.GetNegative();
 
-				TVector<T> D0(R0.Dot(NegativeEyePosition));
-				TVector<T> D1(R1.Dot(NegativeEyePosition));
-				TVector<T> D2(R2.Dot(NegativeEyePosition));
-
+				T D0(R0.Dot(NegativeEyePosition));
+				T D1(R1.Dot(NegativeEyePosition));
+				T D2(R2.Dot(NegativeEyePosition));
 				
 				auto M = this->M;
 
-				M[0][0] = R0[0]; M[0][1] = R0[1]; M[0][2] = R0[2]; M[0][3] = 0;
-				M[1][0] = R1[0]; M[1][1] = R1[1]; M[1][2] = R1[2]; M[1][3] = 0;
-				M[2][0] = R2[0]; M[2][1] = R2[1]; M[2][2] = R2[2]; M[2][3] = 0;
+				M[0][0] = R0[0]; M[0][1] = R0[1]; M[0][2] = R0[2]; M[0][3] = D0;
+				M[1][0] = R1[0]; M[1][1] = R1[1]; M[1][2] = R1[2]; M[1][3] = D1;
+				M[2][0] = R2[0]; M[2][1] = R2[1]; M[2][2] = R2[2]; M[2][3] = D2;
 				M[3][0] = 0;	 M[3][1] = 0;	  M[3][2] = 0;	   M[3][3] = 1;
 
 				this->Transpose();

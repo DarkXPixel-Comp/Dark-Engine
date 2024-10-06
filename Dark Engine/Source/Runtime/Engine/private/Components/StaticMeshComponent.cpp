@@ -16,6 +16,8 @@ void GStaticMeshComponent::SetStaticMesh(GStaticMesh* NewMesh)
 	}
 
 	StaticMesh = NewMesh;
+
+	CreateRenderState();
 }
 
 FPrimitiveSceneProxy* GStaticMeshComponent::CreateSceneProxy()

@@ -21,7 +21,7 @@ struct TProperty
 
 
 
-class GProperty: public GObject
+class GProperty : public GObject
 {
 	DECLARE_CLASS_INTINSIC_NO_CTOR(GProperty, GObject);
 public:
@@ -56,7 +56,7 @@ public:
 	template<typename T>
 	void SetValue(GObject* Object, T Value)
 	{
-		if(Setter)
+		if (Setter)
 		{
 			(Object->*Setter)(&Value, sizeof(Value));
 			return;
@@ -68,6 +68,12 @@ public:
 	T* GetValueT(GObject* Object)
 	{
 		return (T*)(((uint8*)Object) + Offset);
+	}
+
+	template<typename T>
+	T& GetValueTRef(GObject* Object)
+	{
+		return *((T*)(((uint8*)Object) + Offset));
 	}
 
 	void* GetValue(GObject* Object)

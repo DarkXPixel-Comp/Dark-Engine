@@ -58,19 +58,51 @@ void GPrimitiveComponent::CreatePhysicState()
 	RigidDynamic->setMass(Mass);
 	RigidDynamic->userData = this;
 
-	physx::PxRigidBodyExt::updateMassAndInertia(*RigidDynamic, 10.0f);
+	//RigidDynamic->setRigidBodyFlag(physx::PxRigidBodyFlag::eENABLE_POSE_INTEGRATION_PREVIEW, true);
+	UpdatePhysiñFlags();
 
-	//RigidDynamic->setAngularVelocity(physx::PxVec3(15.f, 1.f, 7.f));
-	//RigidDynamic->setMass(Mass);
-	//RigidDynamic->setActorFlag(physx::PxActorFlag::eDISABLE_GRAVITY, false);
-	//RigidDynamic->setActorFlag(physx::PxActorFlag::eDISABLE_SIMULATION, false);
-	//RigidDynamic->setSleepThreshold(99999.f);
-	//RigidDynamic->setWakeCounter(99999.f);
-	RigidDynamic->setRigidBodyFlag(physx::PxRigidBodyFlag::eENABLE_POSE_INTEGRATION_PREVIEW, true);
+
 
 	GetWorld()->AddPhysicComponent(RigidDynamic);
 
+	///GetWorld()->phy
+
 	auto Pos = RigidDynamic->getGlobalPose();
+}
+
+
+void GPrimitiveComponent::UpdatePhysiñFlags()
+{
+	RigidDynamic->setActorFlag(physx::PxActorFlag::eDISABLE_GRAVITY, !bEnableGravity);
+	RigidDynamic->setActorFlag(physx::PxActorFlag::eDISABLE_SIMULATION, !bEnablePhysics);
+}
+
+
+void GPrimitiveComponent::SetWorldScale(FVector NewScale)
+{
+	Super::SetWorldScale(NewScale);
+
+	if (!bUpdatePrimitiveSceneDescription)
+	{
+		bUpdatePrimitiveSceneDescription = true;
+		GetWorld()->Scene->UpdatePrimitiveTransform(this);
+	}
 
 }
 
+void GPrimitiveComponent::SetWorldRotation(FRotator NewRotation)
+{
+	Super::SetWorldRotation(NewRotation);
+
+	if (!bUpdatePrimitiveSceneDescription)
+	{
+		bUpdatePrimitiveSceneDescription = true;
+		GetWorld()->Scene->UpdatePrimitiveTransform(this);
+	}
+
+	if (!GetWorld()->IsSimulate())
+	{
+		physx::PxTransform Transform = RigidDynamic->getGlobalPose();
+		RigidDynamic->setGlobalPose(Transform);
+	}
+}

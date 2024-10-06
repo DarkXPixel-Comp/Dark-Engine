@@ -245,6 +245,8 @@ void EEntity::RegisterAllComponents()
 	for (auto& i : Components)
 	{
 		if(!i->IsRegistered())
+		{
 			i->RegisterComponentWithWorld(World);
+		}
 	}
 }

@@ -9,15 +9,47 @@ GSceneComponent::GSceneComponent(const FObjectInitializer& ObjectInitializer) : 
 	bVisible = true;
 }
 
-void GSceneComponent::SetWorldLocation(FVector NewLocation)
+
+void GSceneComponent::SetWorldScale(FVector NewScale)
 {
-	RelativeLocation = NewLocation;
+	FVector NewRelativeScale = NewScale;
+	if (GetAttachParent() != nullptr && IsRelativeScale())
+	{
+		FTransform ParentToWorld = GetAttachParent()->GetComponentTransform();
+		//NewRelativeLocation = ParentToWorld.InverseTransformPosition(NewRelativeLocation);
+	}
+
+	RelativeScale = NewRelativeScale;
+	ComponentToWorld.SetScale(NewRelativeScale);
 }
+
 
 void GSceneComponent::SetWorldRotation(FRotator NewRoatation)
 {
-	RelativeRotation = NewRoatation;
+	FRotator NewRelativeRotation = NewRoatation;
+	if (GetAttachParent() != nullptr && IsRelativeRotation())
+	{
+		FTransform ParentToWorld = GetAttachParent()->GetComponentTransform();
+		//NewRelativeLocation = ParentToWorld.InverseTransformPosition(NewRelativeLocation);
+	}
+
+	RelativeRotation = NewRelativeRotation;
+	ComponentToWorld.SetRotation(NewRelativeRotation);
 }
+
+void GSceneComponent::SetWorldLocation(FVector NewLocation)
+{
+	FVector NewRelativeLocation = NewLocation;
+	if (GetAttachParent() != nullptr && IsRelativeLocation())
+	{
+		FTransform ParentToWorld = GetAttachParent()->GetComponentTransform();
+		NewRelativeLocation = ParentToWorld.InverseTransformPosition(NewRelativeLocation);
+	}
+
+	RelativeLocation = NewRelativeLocation;
+	ComponentToWorld.SetLocation(NewRelativeLocation);
+}
+
 
 FVector GSceneComponent::GetEntityPositionForRenderer()	const
 {

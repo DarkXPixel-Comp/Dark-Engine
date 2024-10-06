@@ -11,8 +11,8 @@ class GSceneComponent : public GBaseComponent
 		{
 			DECLARE_PROPERTY(uint8, bVisible, Visible);
 			DECLARE_PROPERTY(FVector, RelativeLocation, Location, PROPERTY_META(DECLARE_SETTER(SetWorldLocation)));
-			DECLARE_PROPERTY(FVector, RelativeScale, Scale);
-			DECLARE_PROPERTY(FRotator, RelativeRotation, Rotation);
+			DECLARE_PROPERTY(FVector, RelativeScale, Scale, PROPERTY_META(DECLARE_SETTER(SetWorldScale)));
+			DECLARE_PROPERTY(FRotator, RelativeRotation, Rotation, PROPERTY_META(DECLARE_SETTER(SetWorldRotation)));
 		});
 
 public:
@@ -20,14 +20,22 @@ public:
 
 	IMPLEMENT_SETTER(SetWorldLocation, FVector);
 	virtual void SetWorldLocation(FVector NewLocation);
-	void SetWorldRotation(FRotator NewRoatation);
+	void __SetWorldRotationSetter_Impl(void* Data, uint64 Size) {
+		{
+			if ((!!(!(Size == sizeof(FRotator))))) {
+				if (FDebug::CheckVerifyFailedImpl("Size == sizeof(FRotator)", "C:\\Users\\nahmu\\source\\repos\\Dark Engine\\Dark Engine\\Source\\Runtime\\Engine\\Classes\\Components\\SceneComponent.h", 23, nullptr, L"")) {
+					if (true) {
+						(__nop(), __debugbreak());
+					}
+				}
+			}
+		}; SetWorldRotation(*((FRotator*)Data));
+	};
+	virtual void SetWorldRotation(FRotator NewRotation);
+	IMPLEMENT_SETTER(SetWorldScale, FVector);
+	virtual void SetWorldScale(FVector NewScale);
 
 
-	//void SetWorldLocation(void* Data, uint64)
-	//{
-	//	FVector* Vector = (FVector*)Data;
-	//	SetWorldLocation(*Vector);
-	//}
 
 	const FRotator& GetRotation() const { return RelativeRotation; }
 	const FVector& GetLocation() const { return RelativeLocation; }
@@ -50,12 +58,34 @@ public:
 	}
 
 
+	bool IsRelativeLocation() const
+	{
+		return bRelativeLocation;
+	}
+	bool IsRelativeRotation() const
+	{
+		return bRelativeRotation;
+	}
+
+	bool IsRelativeScale() const
+	{
+		return bRelataiveScale;
+	}
+
+protected:
+	
+
 private:
 	FVector RelativeLocation;
 	FRotator RelativeRotation;
-	FVector RelativeScale;
+	FVector RelativeScale = {1, 1, 1};
 	FTransform ComponentToWorld;
 	TObjectPtr<GSceneComponent>	AttachParent;
+	TArray<TObjectPtr<GSceneComponent>>	ChildComponents;
+
+	bool bRelativeLocation = true;
+	bool bRelativeRotation = true;
+	bool bRelataiveScale = true;
 
 
 																	   

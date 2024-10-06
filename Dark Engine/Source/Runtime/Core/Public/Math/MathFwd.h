@@ -65,6 +65,8 @@ using FVector2f =						DE::Math::TVector2<float>;
 using FRotator3f =						DE::Math::TRotator<float>;
 
 using FVector4f =						DE::Math::TVector4<float>;
+using FVector4 =						DE::Math::TVector4<double>;
+using FVector4d =						DE::Math::TVector4<double>;
 
 using FMatrix =							DE::Math::TMatrix<double>;
 using FMatrix4x4f =						DE::Math::TMatrix<float>;

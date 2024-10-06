@@ -56,6 +56,7 @@ void GBaseComponent::OnRegister()
 void GBaseComponent::CreateRenderState()
 {
 	DE_LOG(BaseComponentLog, Log, TEXT("Created RenderState"));
+	bRenderStateCreated = true;
 }
 
 void GBaseComponent::RegisterComponent()

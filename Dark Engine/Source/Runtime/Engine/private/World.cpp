@@ -59,7 +59,7 @@ void FWorld::InitWorld()
 
 	physx::PxSceneDesc SceneDesc(GPhysicsCore->GetScaleScene());
 	SceneDesc.userData = this;
-	SceneDesc.gravity = physx::PxVec3(0, -9.8f, 0);
+	SceneDesc.gravity = physx::PxVec3(0, 0.f, 0);
 	Gravity = *(FVector3f*)&SceneDesc.gravity;
 
 	PhysicScene = GPhysicsCore->CreateScene(SceneDesc);

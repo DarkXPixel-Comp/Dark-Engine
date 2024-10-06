@@ -5,6 +5,8 @@
 #include <xmmintrin.h>
 #include <emmintrin.h>
 
+#include "Vector4.h"
+
 
 typedef __m128 VectorRegister4Float;
 typedef __m128d	VectorRegister2Double;
@@ -42,12 +44,19 @@ struct alignas(16) VectorRegister4Double
 		ZW = _mm_cvtps_pd(_mm_movehl_ps(FloatVector, FloatVector));
 		return *this;
 	}
+
+	FORCEINLINE FVector4d GetVector() const
+	{
+		const FVector4d* Result = reinterpret_cast<const FVector4d*>(this);
+		return *Result;
+	}
+
 };
 
 
 template<typename T>
-using TPersistentVectorRegister = VectorRegister4Double;
-//using TPersistentVectorRegister = std::conditional_t<std::is_same_v<T, float>, VectorRegister4Float, std::conditional_t<std::is_same_v<T, double>, VectorRegister4Double, void>>;
+//using TPersistentVectorRegister = VectorRegister4Double;
+using TPersistentVectorRegister = std::conditional_t<std::is_same_v<T, float>, VectorRegister4Float, std::conditional_t<std::is_same_v<T, double>, VectorRegister4Double, void>>;
 
 
 
@@ -87,6 +96,72 @@ FORCEINLINE VectorRegister4Double VectorLoad(const double* Ptr)
 	Result.ZW = _mm_loadu_pd((double*)(Ptr + 2));
 	return Result;
 }
+
+FORCEINLINE void VectorStoreFloat3(const VectorRegister4Float& Vec, float Ptr[3])
+{
+	float* F = (float*)&Vec;
+
+	Ptr[0] = F[0];
+	Ptr[1] = F[1];
+	Ptr[2] = F[2];
+}
+
+FORCEINLINE void VectorStoreFloat3(const VectorRegister4Double& Vec, double Ptr[3])
+{
+	double* F = (double*)&Vec;
+
+	Ptr[0] = F[0];
+	Ptr[1] = F[1];
+	Ptr[2] = F[2];
+}
+
+
+
+FORCEINLINE VectorRegister4Float MakeVectorRegisterFloat(float X, float Y, float Z, float W)
+{
+	return _mm_setr_ps(X, Y, Z, W);
+}
+
+FORCEINLINE VectorRegister4Float VectorLoadFloat3(float Arr[3])
+{
+	return MakeVectorRegisterFloat(Arr[0], Arr[1], Arr[2], 0);
+}
+
+FORCEINLINE VectorRegister4Float VectorSubtract(const VectorRegister4Float& Vec1, const VectorRegister4Float& Vec2)
+{
+	return _mm_sub_ps(Vec1, Vec2);
+}
+
+
+FORCEINLINE VectorRegister4Double VectorSubtract(const VectorRegister4Double& Vec1, const VectorRegister4Double& Vec2)
+{
+	VectorRegister4Double Result;
+	Result.XY = _mm_sub_pd(Vec1.XY, Vec2.XY);
+	Result.ZW = _mm_sub_pd(Vec1.ZW, Vec2.ZW);
+
+	return Result;
+}
+
+
+FORCEINLINE VectorRegister4Double VectorSet_W0(const VectorRegister4Double& Vec)
+{
+	VectorRegister4Double Result;
+	Result.XY = Vec.XY;
+	Result.ZW = _mm_move_sd(_mm_setzero_pd(), Vec.ZW);
+
+	return Result;
+}
+
+FORCEINLINE VectorRegister4Double VectorLoadFloat3(const double Arr[3])
+{
+	VectorRegister4Double Result;
+	Result.XY = _mm_loadu_pd(Arr);
+	Result.ZW = _mm_load_sd(Arr + 2);
+	return Result;
+}
+
+
+
 
 FORCEINLINE void VectorStore(const VectorRegister4Double& Vec, double* Dest)
 {

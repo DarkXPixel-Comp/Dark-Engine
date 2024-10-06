@@ -28,17 +28,19 @@ void FSceneRender::Render(FRHICommandListImmediate& CmdList)
 	FRHIRenderPassInfo RenderPassInfo(SceneView->RenderTarget->GetRenderTargetTexture().Get(), ERenderPassMode::Clear, ERenderPassMode::Preserve);
 	CmdList.BeginRenderPass(RenderPassInfo);
 
-	//RenderTest(CmdList);
 	switch (GRenderMode)
 	{
 	case 0:
-		RenderQuad(CmdList);
+		RenderTest(CmdList);
 		break;
 	case 1:
 		RenderFractal(CmdList);
 		break;
 	case 2:
 		RenderSeaScape(CmdList);
+		break;
+	case 3:
+		RenderQuad(CmdList);
 		break;
 	default:
 		RenderQuad(CmdList);

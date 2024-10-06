@@ -2,39 +2,49 @@
 #include "imgui.h"
 #include "CoreGlobals.h"
 #include <cinttypes>
+#include "Math/Rotator.h"
 
 void UIEntityProperties::Update(float DeltaTime)
 {
 	Super::Update(DeltaTime);
 }
 
+std::string GetPropertyName(GProperty* Property, GObject* Entity)
+{
+	return (-Property->GetName()) + std::string("##") + std::string(-Entity->GetName());
+}
+
 void DrawDragInt32(GProperty* Property, GObject* Entity)
 {
-	int32& Value = Property->GetInt32(Entity);
-	ImGui::DragInt(-Property->GetName(), &Value, Property->MoveSpeed, Property->MinValue, Property->MaxValue, "%d");
+	int32& Value = Property->GetValueTRef<int32>(Entity);
+	if (ImGui::DragInt(GetPropertyName(Property, Entity).c_str(), &Value, Property->MoveSpeed, Property->MinValue, Property->MaxValue, "%d"))
+	{
+		Property->SetValue(Entity, Value);
+	}
 	//ImGui::InputInt(-Property->GetName(), &Value);
 }
 
 void DrawDragUInt32(GProperty* Property, GObject* Entity)
 {
-	uint32* Value = (uint32*)Property->GetValue(Entity);
+	uint32& Value = Property->GetValueTRef<uint32>(Entity);
 	/*ImGui::DragInt(-Property->GetName(),
 		(int32*)Value, Property->MoveSpeed, Property->MinValue < 0 ? 0 : Property->MinValue, 
 		Property->MaxValue == 0 ? INT32_MAX : Property->MaxValue, "%d");*/
-	ImGui::DragScalar(-Property->GetName(),
-		ImGuiDataType_U32, Value, Property->MoveSpeed,
-		Property->MinValue ? &Property->MinValue : nullptr,
-		Property->MaxValue ? &Property->MaxValue : nullptr, "%u",
-		0);
 
-	//ImGui::InputInt(-Property->GetName(), &Value);
+	if (ImGui::DragScalar(GetPropertyName(Property, Entity).c_str(),
+		ImGuiDataType_U32, &Value, Property->MoveSpeed,
+		Property->MinValue ? &Property->MinValue : nullptr,
+		Property->MaxValue ? &Property->MaxValue : nullptr, "%u", 0))
+	{
+		Property->SetValue(Entity, Value);
+	}
+
 }
 
 void DrawVector3(GProperty* Property, GObject* Entity)
 {
-	FVector Vector = *(FVector*)Property->GetValue(Entity);
-	//ImGui::InputScalarN(-Property->GetName(), ImGuiDataType_Double, (void*)Vector, 3, 0, 0, "%.6f");
-	if(ImGui::DragScalarN(-Property->GetName(), ImGuiDataType_Double, (void*)&Vector, 3, 1.f, &Property->MinValue, &Property->MaxValue, "%.2f"))
+	FVector& Vector = Property->GetValueTRef<FVector>(Entity);
+	if(ImGui::DragScalarN(GetPropertyName(Property, Entity).c_str(), ImGuiDataType_Double, (void*)&Vector, 3, 1.f, &Property->MinValue, &Property->MaxValue, "%.2f"))
 	{
 		Property->SetValue(Entity, Vector);
 	}
@@ -42,9 +52,12 @@ void DrawVector3(GProperty* Property, GObject* Entity)
 
 void DrawRotator3(GProperty* Property, GObject* Entity)
 {
-	FRotator* Rotator = (FRotator*)Property->GetValue(Entity);
+	FRotator& Rotator = Property->GetValueTRef<FRotator>(Entity);
 
-	ImGui::DragScalarN(-Property->GetName(), ImGuiDataType_Double, (void*)Rotator, 3, 1.f, &Property->MinValue, &Property->MaxValue, "%.2f");
+	if (ImGui::DragScalarN(GetPropertyName(Property, Entity).c_str(), ImGuiDataType_Double, (void*)&Rotator, 3, 1.f, &Property->MinValue, &Property->MaxValue, "%.2f"))
+	{
+		Property->SetValue(Entity, Rotator);
+	}
 }
 
 void DrawSubClassOf(GProperty* Property, GObject* Entity)
@@ -63,7 +76,7 @@ void DrawSubClassOf(GProperty* Property, GObject* Entity)
 		CurrentId = (It - Classes.begin());
 	}
 
-	if (ImGui::BeginCombo(-Property->GetName(), Subclass->GetCurrentClass() ? -Subclass->GetCurrentClass()->GetName() : "None"))
+	if (ImGui::BeginCombo(GetPropertyName(Property, Entity).c_str(), Subclass->GetCurrentClass() ? GetPropertyName(Property, Entity).c_str() : "None"))
 	{	
 		if (ImGui::Selectable("None", CurrentId == -1))
 		{
@@ -98,14 +111,19 @@ void DrawSubClassOf(GProperty* Property, GObject* Entity)
 
 void DrawCheckBox(GProperty* Property, GObject* Entity)
 {
-	uint8* Value = (uint8*)Property->GetValue(Entity);
-	ImGui::Checkbox(-Property->GetName(), (bool*)Value);
+	uint8 Value = Property->GetValueTRef<uint8>(Entity);
+	bool bValue = Value;
+	if (ImGui::Checkbox(GetPropertyName(Property, Entity).c_str(), &bValue))
+	{
+		Value = bValue ? 0xFF : 0;
+		Property->SetValue(Entity, Value);
+	}
 }
 
 void DrawFloat(GProperty* Property, GObject* Entity)
 {
 	float Value = *Property->GetValueT<float>(Entity);
-	if (ImGui::DragFloat(-Property->GetName(), &Value, 1.f, 0.f, 0.f, "%.2f"))
+	if (ImGui::DragFloat(GetPropertyName(Property, Entity).c_str(), &Value, 1.f, 0.f, 0.f, "%.2f"))
 	{
 		Property->SetValue(Entity, Value);
 	}
@@ -138,7 +156,7 @@ void DrawProperty(GProperty::EType InType, GProperty* Property, GObject* Entity)
 		}
 		if (Object->GetClass()->GetProperties().Num() > 0)
 		{
-			ImGui::SeparatorText(-Object->GetName());
+			ImGui::SeparatorText(GetPropertyName(Property, Entity).c_str());
 			for (auto& Property : Object->GetClass()->GetProperties())
 			{
 				DrawProperty(Property->GetType(), Property, Object);
