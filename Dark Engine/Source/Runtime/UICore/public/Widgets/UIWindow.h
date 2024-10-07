@@ -51,6 +51,16 @@ public:
 	FIntPoint GetMousePosition() const;
 	void SetSizeViewport(FVector2f InSize) { SizeViewport = InSize; }
 
+	void AddDefferedWidgetWithParent(TSharedPtr<UIWidget> InWidget, UIWidget* Parent)
+	{
+		DefferedAddWidgetsWithParent.Add({ InWidget, Parent });
+	}
+
+	TSharedPtr<UIWidget> GetMainWidget() const
+	{
+		return Widgets.size() ? Widgets[0] : nullptr;
+	}
+
 
 private:
 	bool bHasWindowBorder = true;
@@ -64,6 +74,7 @@ private:
 	TArray<TSharedPtr<UIWidget>> Widgets;
 	TArray<TSharedPtr<UIWidget>> DeferedAddWidgets;
 	TArray<TSharedPtr<UIWidget>> DeferedRemoveWidgets;
+	TArray<std::pair<TSharedPtr<UIWidget>, UIWidget*>> DefferedAddWidgetsWithParent;
 	//TSharedPtr<FUIWindowViewport> Viewport;
 	TSharedPtr<FRHIViewport> Viewport;
 	ImGuiContext* IMGUIContext;

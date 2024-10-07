@@ -47,7 +47,14 @@ void UIWindow::Update(float DeltaTime)
 	{
 		Widgets.Remove(Widget);
 	}
+
+	for (auto& Widget : DefferedAddWidgetsWithParent)
+	{
+		Widget.second->AddChild(Widget.first);
+	}
+
 	DeferedAddWidgets.Empty();
+	DefferedAddWidgetsWithParent.Empty();
 	DeferedRemoveWidgets.Empty();
 	
 

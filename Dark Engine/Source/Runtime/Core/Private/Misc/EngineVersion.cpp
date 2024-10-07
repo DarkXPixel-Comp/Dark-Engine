@@ -4,10 +4,10 @@
 
 const int32 MAJOR_VERSION = 0;
 const int32 MINOR_VERSION = 1;
-const int32 PATCH_VERSION = 29;
+const int32 PATCH_VERSION = 30;
 const int32 FIX_VERSION = 0;
 const TCHAR* VERSION_PREFIX = TEXT("alpha");
-const TCHAR* BUILD_TYPE_PREFIX = TEXT("Release");
+const TCHAR* BUILD_TYPE_PREFIX = TEXT("Debug");
 const constexpr int32 NUMBER_VERSION = MAJOR_VERSION * 1000 + MINOR_VERSION * 100 + PATCH_VERSION * 10 + FIX_VERSION * 1;
 FString StringVersion;
 

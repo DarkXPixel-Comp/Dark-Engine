@@ -118,6 +118,12 @@ public:
 
 	decltype(auto) Insert(auto Where, auto It1, auto It2) { return _vector.insert(Where, It1, It2); }
 
+	bool Has(const ElementType& Element)
+	{
+		auto it = std::find(_vector.begin(), _vector.end(), Element);
+		return it != _vector.end();
+	}
+
 	void Remove(const ElementType& Element) 
 	{
 		auto it = std::find(_vector.begin(), _vector.end(), Element);

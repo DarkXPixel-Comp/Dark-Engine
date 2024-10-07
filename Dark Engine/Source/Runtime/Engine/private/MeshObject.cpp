@@ -21,6 +21,6 @@ void EMeshObject::BeginPlay()
 
 	auto Meshes = Importer.GetAllStaticMeshes();
 
-	GStaticMesh* NewMesh = Meshes.GetSize() ? Meshes.First() : nullptr;
+	GStaticMesh* NewMesh = Meshes.GetSize() ? Meshes[0] : nullptr;
 	MeshComponent->SetStaticMesh(NewMesh);
 }

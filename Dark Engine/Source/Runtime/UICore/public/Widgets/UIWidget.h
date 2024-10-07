@@ -40,7 +40,7 @@ public:
 	{ 
 		if (AllWidgets.find(Child->Name) != AllWidgets.end())
 		{
-			Child->SetName(FString::PrintF(TEXT("%s%ull"), *Child->Name, CounterID));
+			Child->SetName(FString::PrintF(TEXT("%s##%ull"), *Child->Name, CounterID));
 		}
 		Child->Window = Window;
 		Child->Owner = this;

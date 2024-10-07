@@ -6,7 +6,6 @@
 
 
 
-
 class UIContentBrowser : public UIWidget
 {
 public:
@@ -17,8 +16,11 @@ public:
 
 private:
 	void ImportAsset();
+	FString GetFile();
 
 private:
 	TRefCountPtr<class FRHITexture>	GreenPlusTexture;
+	
+
 
 };

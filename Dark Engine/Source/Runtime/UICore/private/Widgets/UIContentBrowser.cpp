@@ -3,7 +3,8 @@
 #include "Misc/Paths.h"
 #include "RHIResources.h"
 #include "nfd.h"
-
+#include "Widgets/UIWindow.h"
+#include "Widgets/UIAssetImporter.h"
 UIContentBrowser::UIContentBrowser() : UIWidget(TEXT("UIContentBrowser"))
 {
 	FastLoadIcon(GreenPlusTexture, FString::PrintF(TEXT("%sImages/green_plus.png"),
@@ -14,7 +15,6 @@ UIContentBrowser::UIContentBrowser() : UIWidget(TEXT("UIContentBrowser"))
 void UIContentBrowser::Update(float DeltaTime)
 {
 	Super::Update(DeltaTime);
-
 }
 
 void UIContentBrowser::DrawImGui()
@@ -34,16 +34,23 @@ void UIContentBrowser::DrawImGui()
 
 void UIContentBrowser::ImportAsset()
 {
+	FString Path = GetFile();	
+
+	TSharedPtr<UIAssetImporter>	 AssetImporter = MakeShareble(new UIAssetImporter());
+	Window->AddDefferedWidgetWithParent(AssetImporter, Window->GetMainWidget().get());
+	AssetImporter->ImportAsset(Path);
+}
+
+FString UIContentBrowser::GetFile()
+{
 	nfdchar_t* OutPath = NULL;
 	nfdresult_t Result = NFD_OpenDialog(NULL, NULL, &OutPath);
 	if (Result != NFD_OKAY)
 	{
-		return;
+		return TEXT("");
 	}
 
 	FString Path = OutPath;
 	free(OutPath);
-	DE_LOG(UICoreLog, Log, TEXT("%s"), *Path);
-
-
+	return Path;
 }
