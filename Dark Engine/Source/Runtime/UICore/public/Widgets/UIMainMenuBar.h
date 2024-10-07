@@ -25,8 +25,8 @@ public:
 
 protected:
 	void DrawMenuBar();
-	void FastLoadIcon(TRefCountPtr<class FRHITexture>& InTexture, FString Path);
-	void FastLoadIcon(TRefCountPtr<class FRHITexture>& InTexture, uint8* Bytes, uint64 SizeBytes);
+	//void FastLoadIcon(TRefCountPtr<class FRHITexture>& InTexture, FString Path);
+	//void FastLoadIcon(TRefCountPtr<class FRHITexture>& InTexture, uint8* Bytes, uint64 SizeBytes);
 	
 	
 private:

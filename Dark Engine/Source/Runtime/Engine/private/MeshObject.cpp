@@ -20,6 +20,7 @@ void EMeshObject::BeginPlay()
 	Importer.ImportFromFile(TEXT("Meshes/Cube.fbx"));
 
 	auto Meshes = Importer.GetAllStaticMeshes();
+
 	GStaticMesh* NewMesh = Meshes.GetSize() ? Meshes.First() : nullptr;
 	MeshComponent->SetStaticMesh(NewMesh);
 }

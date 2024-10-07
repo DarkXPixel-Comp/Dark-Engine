@@ -292,119 +292,65 @@ void UIMainMenuBar::DrawMenuBar()
 	ImGui::EndGroup();
 }
 
-void UIMainMenuBar::FastLoadIcon(TRefCountPtr<FRHITexture>& InTexture, FString Path)
-{
-	int32 W, H, Channels;
-
-	uint8* img = stbi_load(-Path,
-		&W, &H, &Channels, 0);
-
-	if (!img)
-	{
-		return;
-	}
-
-
-	const FRHITextureCreateDesc Desc =
-		FRHITextureCreateDesc::Create2D(TEXT("FastIconUI"))
-		.SetExtent(FIntPoint(W, H))
-		.SetFormat(EPixelFormat::PF_R8G8B8A8_UNORM)
-		.SetFlags(ETextureCreateFlags::ShaderResource)
-		.SetInitialState(ERHIAccess::SRVGraphics);
-
-	InTexture = RHICreateTexture(Desc);
-	check(InTexture);
-
-	uint32 Stride;
-	uint64 OutSize;
-	uint8* Color = (uint8*)RHILockTexture2D(InTexture.Get(), 0, RLM_WriteOnly,
-		Stride, &OutSize);
-
-	TArray<FColor> Colors(H * W);
-
-
-	uint32 Index = 0;
-	for (uint8* p = img; p != img + (H * W * Channels); p += Channels)
-	{
-		if (Channels == 3)
-		{
-			Colors[Index] = { *p, *(p + 1), *(p + 2), 0xFF };
-		}
-		else if (Channels == 4)
-		{
-			Colors[Index] = { *p, *(p + 1), *(p + 2), *(p + 3) };
-		}
-		++Index;
-	}
-
-
-
-	for (int32 Y = 0; Y < H; ++Y)
-	{
-		FMemory::Memcpy(Color + Stride * Y, ((uint8*)Colors.GetData()) + ((W * 4) * Y), W * 4);
-	}
-
-	RHIUnlockTexture2D(InTexture.Get(), 0);
-}
-
-void UIMainMenuBar::FastLoadIcon(TRefCountPtr<FRHITexture>& InTexture, uint8* Bytes, uint64 SizeBytes)
-{
-	int32 W, H, Channels;
-
-	/*uint8* img = stbi_load(-FString::PrintF(TEXT("%sImages/Logo.png"), *FPaths::EngineContentDir()),
-		&W, &H, &Channels, 0);*/
-	
-	uint8* img = stbi_load_from_memory(Bytes, SizeBytes, &W, &H, &Channels, 0);
-
-	if (!img)
-	{
-		return;
-	}
-
-
-	const FRHITextureCreateDesc Desc =
-		FRHITextureCreateDesc::Create2D(TEXT("IconTexture"))
-		.SetExtent(FIntPoint(W, H))
-		.SetFormat(EPixelFormat::PF_R8G8B8A8_UNORM)
-		.SetFlags(ETextureCreateFlags::ShaderResource)
-		.SetInitialState(ERHIAccess::SRVGraphics);
-
-	InTexture = RHICreateTexture(Desc);
-	check(InTexture);
-
-	uint32 Stride;
-	uint64 OutSize;
-	uint8* Color = (uint8*)RHILockTexture2D(InTexture.Get(), 0, RLM_WriteOnly,
-		Stride, &OutSize);
-
-	TArray<FColor> Colors(H * W);
-
-
-	uint32 Index = 0;
-	for (uint8* p = img; p != img + (H * W * Channels); p += Channels)
-	{
-		if (Channels == 3)
-		{
-			Colors[Index] = { *p, *(p + 1), *(p + 2), 0xFF };
-		}
-		else if (Channels == 4)
-		{
-			Colors[Index] = { *p, *(p + 1), *(p + 2), *(p + 3) };
-		}
-		++Index;
-	}
-
-
-
-	for (int32 Y = 0; Y < H; ++Y)
-	{
-		FMemory::Memcpy(Color + Stride * Y, ((uint8*)Colors.GetData()) + ((W * 4) * Y), W * 4);
-	}
-
-	RHIUnlockTexture2D(InTexture.Get(), 0);
-
-
-}
+//
+//void UIMainMenuBar::FastLoadIcon(TRefCountPtr<FRHITexture>& InTexture, uint8* Bytes, uint64 SizeBytes)
+//{
+//	int32 W, H, Channels;
+//
+//	/*uint8* img = stbi_load(-FString::PrintF(TEXT("%sImages/Logo.png"), *FPaths::EngineContentDir()),
+//		&W, &H, &Channels, 0);*/
+//	
+//	uint8* img = stbi_load_from_memory(Bytes, SizeBytes, &W, &H, &Channels, 0);
+//
+//	if (!img)
+//	{
+//		return;
+//	}
+//
+//
+//	const FRHITextureCreateDesc Desc =
+//		FRHITextureCreateDesc::Create2D(TEXT("IconTexture"))
+//		.SetExtent(FIntPoint(W, H))
+//		.SetFormat(EPixelFormat::PF_R8G8B8A8_UNORM)
+//		.SetFlags(ETextureCreateFlags::ShaderResource)
+//		.SetInitialState(ERHIAccess::SRVGraphics);
+//
+//	InTexture = RHICreateTexture(Desc);
+//	check(InTexture);
+//
+//	uint32 Stride;
+//	uint64 OutSize;
+//	uint8* Color = (uint8*)RHILockTexture2D(InTexture.Get(), 0, RLM_WriteOnly,
+//		Stride, &OutSize);
+//
+//	TArray<FColor> Colors(H * W);
+//
+//
+//	uint32 Index = 0;
+//	for (uint8* p = img; p != img + (H * W * Channels); p += Channels)
+//	{
+//		if (Channels == 3)
+//		{
+//			Colors[Index] = { *p, *(p + 1), *(p + 2), 0xFF };
+//		}
+//		else if (Channels == 4)
+//		{
+//			Colors[Index] = { *p, *(p + 1), *(p + 2), *(p + 3) };
+//		}
+//		++Index;
+//	}
+//
+//
+//
+//	for (int32 Y = 0; Y < H; ++Y)
+//	{
+//		FMemory::Memcpy(Color + Stride * Y, ((uint8*)Colors.GetData()) + ((W * 4) * Y), W * 4);
+//	}
+//
+//	RHIUnlockTexture2D(InTexture.Get(), 0);
+//
+//
+//}
 
 
 

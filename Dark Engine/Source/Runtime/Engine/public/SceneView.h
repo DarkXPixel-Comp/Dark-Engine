@@ -32,6 +32,7 @@ struct FSceneViewInitOptions : FSceneViewProjectionData
 };
 
 
+
 struct FViewMatrices
 {
 	FViewMatrices()
@@ -57,11 +58,14 @@ struct FViewMatrices
 	FVector2D ProjectionScale;
 	
 	float ScreenScale;
+};
 
 
-
-
-
+struct FPassConstants
+{
+	FViewMatrices ViewMatrices;
+	float Time = 0.f;
+	float FOV;
 };
 
 
@@ -81,6 +85,7 @@ public:
 	FSceneInterface* Scene = nullptr;
 	FIntRect UnscaledRect;
 	FSceneViewInitOptions ViewInitOptions;
+	FPassConstants PassConstants;
 
 	FVector ViewLocation;
 	FRotator ViewRotation;

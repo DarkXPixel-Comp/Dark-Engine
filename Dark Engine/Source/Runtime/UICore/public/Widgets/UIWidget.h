@@ -29,6 +29,8 @@ public:
 	}
 	virtual void Update(float DeltaTime);
 	virtual void DrawImGui() {}
+
+	void FastLoadIcon(TRefCountPtr<class FRHITexture>& InTexture, FString Path);
 	
 	void SetSize(FIntPoint InSize) { Size = InSize; }
 	void SetPostion(FIntPoint InPosition) { Position = InPosition; }

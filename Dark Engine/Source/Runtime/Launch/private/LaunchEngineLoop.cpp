@@ -21,6 +21,7 @@
 #include "Widgets/UIGPUMemoryStats.h"
 #include "Widgets/UIWorldSettings.h"
 #include "Widgets/UIProfiler.h"
+#include "Widgets/UIContentBrowser.h"
 #include "Shader.h"
 #include "ShaderCompiler.h"
 #include "Console/GlobalInputOutConsole.h"
@@ -88,6 +89,8 @@ struct FEditorLayout
 		TSharedPtr<UIEntityProperties> EntityProperties = MakeShareble(new UIEntityProperties());
 		MainDock->AddChild(EntityProperties);
 
+		TSharedPtr<UIContentBrowser> ContentBrowser = MakeShareble(new UIContentBrowser());
+		MainDock->AddChild(ContentBrowser);
 
 
 		RootViewport = MakeShareble(new UIEditorViewport());

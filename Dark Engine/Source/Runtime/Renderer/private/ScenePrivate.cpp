@@ -81,7 +81,10 @@ void FScene::UpdateCamera(GCameraComponent* InCamera)
 	}
 	FCameraMatrices& Matrices = InCamera->CameraMatrices;
 
-	Matrices.ViewMatrix = FLookToMatrix(InCamera->GetLocation(), InCamera->GetRotation().GetForwardVector(), FVector(0, 1, 0));
+	FRotator Rotator = InCamera->GetRotation();
+	Rotator.Yaw += 90.f;
+
+	Matrices.ViewMatrix = FLookToMatrix(InCamera->GetLocation(), Rotator.GetForwardVector(), FVector(0, 1, 0));
 	Matrices.ProjectionMatrix = FPerspectiveMatrix(FMath::DegreesToRadians(InCamera->GetFOV()), InCamera->GetAspectRatio(), InCamera->GetNearZ(), InCamera->GetFarZ());
 	Matrices.ViewProjectionMatrix = Matrices.ViewMatrix * Matrices.ProjectionMatrix;
 }

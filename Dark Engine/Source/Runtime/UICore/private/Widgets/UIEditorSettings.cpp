@@ -8,6 +8,7 @@
 #include "Misc/Paths.h"
 #include "Console/GlobalInputOutConsole.h"
 #include "Math/DarkMathUtility.h"
+#include "nfd.h"
 
 
 struct FColor
@@ -62,15 +63,36 @@ void UIEditorSettings::DrawImGui()
 
 		ImGui::Checkbox("Vsync", &TempSettings.bVsync);
 
+		ImVec2 CachePos = ImGui::GetCursorPos();
+
 		if (ImGui::InputText("Path", TempSettings.PathTexture, 256, ImGuiInputTextFlags_EnterReturnsTrue))
 		{
 			CurrentSettings = TempSettings;
 			bChangeSettings = true;
 		}
+		ImVec2 CachePos2 = ImGui::GetCursorPos();
+
+		CachePos.x += 25 + 256 + ImGui::CalcTextSize("Path").x;
+		ImGui::SetCursorPos(CachePos);
+
+		if (ImGui::Button("Path Button", ImVec2(20, 20)))
+		{
+			nfdchar_t* OutPath = NULL;
+			nfdresult_t Result = NFD_OpenDialog("png,jpg,jpeg", -(FPaths::EngineContentDir().Replace(TEXT('/'), TEXT('\\'))), &OutPath);
+
+			if (Result == NFD_OKAY)
+			{
+				strncpy_s<256>(TempSettings.PathTexture, OutPath, strlen(OutPath));
+				free(OutPath);
+			}
+
+		}
+
+		ImGui::SetCursorPos(CachePos2);
 
 		ImSpinner::SpinnerAtom("Test", 5, 3);
 		
-		ImVec2 CachePos = ImGui::GetCursorPos();
+		CachePos = ImGui::GetCursorPos();
 
 		if (ImGui::Button("Save", ImVec2(50, 20)))
 		{
