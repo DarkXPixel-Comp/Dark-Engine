@@ -8,6 +8,7 @@ target_link_libraries(Launch PRIVATE Core Engine IMGUI RHI ApplicationCore CoreG
 #target_link_libraries(Launch PUBLIC ${LaunchLibs})
 target_compile_features(Launch PUBLIC cxx_std_20)
 
+
 set_target_properties(Launch PROPERTIES OUTPUT_NAME "Dark Engine" SUFFIX ".exe")
 #set_target_properties(Launch PROPERTIES
 #	ARCHIVE_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/Dark Engine/bin"
@@ -20,6 +21,7 @@ if(WIN32)
 	set(CMAKE_AUTOMOC ON)
 	set(CMAKE_AUTOUIC ON)
 	set_target_properties(Launch PROPERTIES WIN32_EXECUTABLE 1)
+	target_link_options(Launch PRIVATE "/WHOLEARCHIVE:Engine.lib")
 	#target_link_options(Launch PRIVATE "/SUBSYSTEM:WINDOWS")
 
 	set(tt ${CMAKE_GENERATOR})

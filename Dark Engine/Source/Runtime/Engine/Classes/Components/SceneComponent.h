@@ -10,9 +10,9 @@ class GSceneComponent : public GBaseComponent
 	DECLARE_CLASS_INTINSIC_NO_CTOR_WITH_PROPERTIES(GSceneComponent, GBaseComponent,
 		{
 			DECLARE_PROPERTY(uint8, bVisible, Visible);
-			DECLARE_PROPERTY(FVector, RelativeLocation, Location, PROPERTY_META(DECLARE_SETTER(SetWorldLocation)));
-			DECLARE_PROPERTY(FVector, RelativeScale, Scale, PROPERTY_META(DECLARE_SETTER(SetWorldScale)));
-			DECLARE_PROPERTY(FRotator, RelativeRotation, Rotation, PROPERTY_META(DECLARE_SETTER(SetWorldRotation)));
+			DECLARE_PROPERTY(FVector, RelativeLocation, Location, PROPERTY_META(DECLARE_SETTER(SetWorldLocation); MoveSpeed=0.5f;));
+			DECLARE_PROPERTY(FVector, RelativeScale, Scale, PROPERTY_META(DECLARE_SETTER(SetWorldScale); MoveSpeed = 0.5f;));
+			DECLARE_PROPERTY(FRotator, RelativeRotation, Rotation, PROPERTY_META(DECLARE_SETTER(SetWorldRotation); MoveSpeed = 0.5f));
 		});
 
 public:
@@ -20,17 +20,7 @@ public:
 
 	IMPLEMENT_SETTER(SetWorldLocation, FVector);
 	virtual void SetWorldLocation(FVector NewLocation);
-	void __SetWorldRotationSetter_Impl(void* Data, uint64 Size) {
-		{
-			if ((!!(!(Size == sizeof(FRotator))))) {
-				if (FDebug::CheckVerifyFailedImpl("Size == sizeof(FRotator)", "C:\\Users\\nahmu\\source\\repos\\Dark Engine\\Dark Engine\\Source\\Runtime\\Engine\\Classes\\Components\\SceneComponent.h", 23, nullptr, L"")) {
-					if (true) {
-						(__nop(), __debugbreak());
-					}
-				}
-			}
-		}; SetWorldRotation(*((FRotator*)Data));
-	};
+	IMPLEMENT_SETTER(SetWorldRotation, FRotator);
 	virtual void SetWorldRotation(FRotator NewRotation);
 	IMPLEMENT_SETTER(SetWorldScale, FVector);
 	virtual void SetWorldScale(FVector NewScale);

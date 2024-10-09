@@ -28,7 +28,7 @@ private:\
 public:	\
 	typedef TSuperClass Super;\
 	typedef TClass ThisClass;\
-	inline static class GClass* StaticClass()  \
+	__declspec(dllexport) inline static class GClass* StaticClass()  \
 	{										   \
 		return GetPrivateStaticClass();			 \
 	}// \
@@ -75,7 +75,7 @@ inline static void StaticRegisterNatives##TClass()\
 
 
 #define IMPLEMENT_CLASS_NO_AUTO_REGISTRATION(TClass)\
-FClassRegistrationInfo RegistrationInfo_GClass_##TClass;\
+__declspec(dllexport) FClassRegistrationInfo RegistrationInfo_GClass_##TClass;\
 GClass* TClass::GetPrivateStaticClass()\
 {\
 	if(!RegistrationInfo_GClass_##TClass.InnerSingleton)\
@@ -93,13 +93,13 @@ GClass* TClass::GetPrivateStaticClass()\
 
 
 #define IMPLEMENT_INTRINSIC_CLASS(TClass, TSuperClass) \
-	class GClass* _Construct_GClass_##TClass(); \
-	extern FClassRegistrationInfo RegistrationInfo_GClass_##TClass;\
+	__declspec(dllexport) class GClass* _Construct_GClass_##TClass(); \
+	__declspec(dllexport) extern FClassRegistrationInfo RegistrationInfo_GClass_##TClass;\
 	struct 	_Construct_GClass_##TClass##_Statics \
 	{\
 		static GClass* Construct() \
 		{  \
-			extern class GClass* _Construct_GClass_##TSuperClass();\
+			extern __declspec(dllexport) class GClass* _Construct_GClass_##TSuperClass();\
 			GClass* SuperClass = _Construct_GClass_##TSuperClass(); \
 			GClass* Class = TClass::StaticClass();\
 			GObjectForceRegister(Class);\

@@ -187,6 +187,13 @@ const TArray<TObjectPtr<EEntity>>& FWorld::GetEntitiesOnCurrentLevel() const
 	return CurrentLevel->Entities;
 }
 
+EEntity* FWorld::SpawnEntity(GClass* Class)
+{
+	return SpawnEntity(Class, FVector(), FRotator());
+}
+
+
+
 EEntity* FWorld::SpawnEntity(GClass* Class, const FVector& Location, const FRotator& Rotation)
 {
 	GLevel* LevelToSpawn = nullptr;

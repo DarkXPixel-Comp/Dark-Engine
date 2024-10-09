@@ -28,7 +28,7 @@ public:
 		DE_LOG(UICoreLog, Log, TEXT("Destroy %s"), *Name);
 	}
 	virtual void Update(float DeltaTime);
-	virtual void DrawImGui() {}
+	virtual void DrawImGui() {} //-< USE ONLY FOR DRAW AND GET USER INPUT. DONT USE FOR CREATE OR UPDATE ANYTHINGS( USE Update(float DeltaTime) )
 
 	void FastLoadIcon(TRefCountPtr<class FRHITexture>& InTexture, FString Path);
 	

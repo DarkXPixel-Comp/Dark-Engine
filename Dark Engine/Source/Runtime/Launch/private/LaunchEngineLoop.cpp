@@ -22,6 +22,7 @@
 #include "Widgets/UIWorldSettings.h"
 #include "Widgets/UIProfiler.h"
 #include "Widgets/UIContentBrowser.h"
+#include "Widgets/UIEntityAdder.h"
 #include "Shader.h"
 #include "ShaderCompiler.h"
 #include "Console/GlobalInputOutConsole.h"
@@ -35,6 +36,8 @@
 #include "SceneResourceImporter.h"
 #include "PhysicsCore.h"
 
+
+//#include "Framework/DefaultCamera.h"
 
 //#include "lua.hpp"
 #include "sol2/sol.hpp"
@@ -51,7 +54,6 @@ const char* HelloWorld()
 
 
 DECLARE_LOG_CATEGORY(Launch, Display);
-
 
 
 
@@ -180,6 +182,16 @@ struct FEditorLayout
 					CreateProfiler->SetDependWidget(Profiler);
 				});
 			Windows->AddChild(CreateProfiler);
+
+			TSharedPtr<UIMenuItem> AdderEntity = MakeShareble(new UIMenuItem());
+			AdderEntity->SetName(TEXT("AddEntity"));
+			AdderEntity->MenuItemDelegate.Bind([this, AdderEntity](bool)
+				{
+					TSharedPtr<UIEntityAdder> Adder = MakeShareble(new UIEntityAdder());
+					MainDock->AddChild(Adder);
+					AdderEntity->SetDependWidget(Adder);
+				});
+			Windows->AddChild(AdderEntity);
 		}
 	
 	}
@@ -251,7 +263,7 @@ int LuaHandle1(lua_State*, sol::optional<const std::exception&>, sol::string_vie
 const FString VitalFolders[] = {"Content", "Config", "Shaders", "bin"};
 
 
-int32 CheckFiles()
+static int32 CheckFiles()
 {
 	int32 AllFilesIsOk = false;
 	int32 NumFiles = 0;
@@ -288,6 +300,7 @@ int32 FEngineLoop::PreInit(const TCHAR* CmdLine)
 	//OPTICK_START_CAPTURE();
 	OPTICK_FRAME("PreInit");
 	//setlocale(LC_ALL, ".utf-16");
+
 
 	if (!CheckFiles())
 	{
@@ -445,11 +458,7 @@ int32 FEngineLoop::Init()
 	RHIPostInit();
 	DE_LOG(Launch, Log, TEXT("RHI Post init"));
 	((DEditorEngine*)Engine)->NewMap();
-
-	//FSceneResourceBuilder::Build(TEXT("Meshes/Cube.fbx"));
-	FSceneResourceImporter Importer;
-	Importer.ImportFromFile(TEXT("Meshes/Cube.fbx"));
-	Importer.GetAllStaticMeshes();
+	
 
 	FGameTimer::Start();
 	FGameTimer::Reset();

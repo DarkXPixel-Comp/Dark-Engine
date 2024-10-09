@@ -66,6 +66,10 @@ void FSceneRender::RenderTest(FRHICommandListImmediate& CmdList)
 
 	for (auto& Primitive : Scene->Primitives)
 	{
+		if (!Primitive->bVisible)
+		{
+			continue;
+		}
 		auto Mesh = ((GStaticMeshComponent*)Primitive)->GetStaticMesh();
 		auto RenderData = Mesh->GetRenderData();
 		check(RenderData->IsInitialized());

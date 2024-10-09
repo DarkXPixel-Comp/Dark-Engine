@@ -44,7 +44,7 @@ void DrawDragUInt32(GProperty* Property, GObject* Entity)
 void DrawVector3(GProperty* Property, GObject* Entity)
 {
 	FVector& Vector = Property->GetValueTRef<FVector>(Entity);
-	if(ImGui::DragScalarN(GetPropertyName(Property, Entity).c_str(), ImGuiDataType_Double, (void*)&Vector, 3, 1.f, &Property->MinValue, &Property->MaxValue, "%.2f"))
+	if(ImGui::DragScalarN(GetPropertyName(Property, Entity).c_str(), ImGuiDataType_Double, (void*)&Vector, 3, Property->MoveSpeed, &Property->MinValue, &Property->MaxValue, "%.2f"))
 	{
 		Property->SetValue(Entity, Vector);
 	}
@@ -54,7 +54,7 @@ void DrawRotator3(GProperty* Property, GObject* Entity)
 {
 	FRotator& Rotator = Property->GetValueTRef<FRotator>(Entity);
 
-	if (ImGui::DragScalarN(GetPropertyName(Property, Entity).c_str(), ImGuiDataType_Double, (void*)&Rotator, 3, 1.f, &Property->MinValue, &Property->MaxValue, "%.2f"))
+	if (ImGui::DragScalarN(GetPropertyName(Property, Entity).c_str(), ImGuiDataType_Double, (void*)&Rotator, 3, Property->MoveSpeed, &Property->MinValue, &Property->MaxValue, "%.2f"))
 	{
 		Property->SetValue(Entity, Rotator);
 	}

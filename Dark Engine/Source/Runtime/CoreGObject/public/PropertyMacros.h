@@ -27,8 +27,10 @@
 {\
 	int64 MAX = 0; \
 	int64 MIN = 0; \
+	float MoveSpeed = 1.f;\
 	Code; \
 	Property->SetMinMaxValue(MIN, MAX);\
+	Property->SetMoveSpeed(MoveSpeed);\
 }
 
 #define DECLARE_SETTER(Func)	\

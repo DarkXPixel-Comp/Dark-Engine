@@ -2,9 +2,16 @@ add_library(Engine)
 
 find_library(EngineLibs Core Render Input ApplicationCore World Editor RHI)
 
+
+#set_target_properties(Engine PROPERTIES LINK_FLAGS "/OPT:NOREF /OPT:NOICF")
+
 target_compile_features(Engine PUBLIC cxx_std_20)
 target_link_libraries(Engine PUBLIC Input Editor Core RHI Renderer UICore STB DTK12 PhysicsCore BSThreadPool)
 target_link_libraries(Engine PRIVATE Assimp ApplicationCore CoreGObject Lua)
+
+
+#add_link_options("/WHOLEARCHIVE")
+#target_link_options(Engine PRIVATE "/WHOLEARCHIVE")
 #target_link_libraries(Engine PUBLIC ${EngineLibs})
 
 #set(Engine_Sources ${Engine_Sources} "private/DEngine.cpp" "Classes/Actor/Actor.cpp"  "Classes/Camera/CameraActor.cpp" "Classes/Components/ActorComponent/ActorComponent.cpp"

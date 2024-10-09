@@ -9,7 +9,6 @@ IMPLEMENT_INTRINSIC_CLASS(EMeshObject, EEntity);
 EMeshObject::EMeshObject(const FObjectInitializer& ObjectInitializer) : EEntity(ObjectInitializer)
 {
 	MeshComponent = CreateDefaultSubobject<GStaticMeshComponent>(TEXT("MeshComponent"));
-	CameraComponent = CreateDefaultSubobject<GCameraComponent>(TEXT("CameraComponent"));
 }
 
 
