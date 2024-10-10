@@ -19,7 +19,7 @@ EEntity::EEntity()
 	Init();
 }
 
-EEntity::EEntity(const FObjectInitializer& ObjectInitializer)
+EEntity::EEntity(const FObjectInitializer& ObjectInitializer) : GObject(ObjectInitializer)
 {
 	Init();
 }

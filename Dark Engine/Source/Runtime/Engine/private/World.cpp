@@ -3,6 +3,9 @@
 #include "Engine/Level.h"
 #include "Components/PrimitiveComponent.h"
 #include "Framework/MeshObject.h"
+#include "Framework/DefaultCamera.h"
+#include "Components/CameraComponent.h"
+#include "Framework/Pawn.h"
 #include "SceneInterface.h"
 #include "Math/Transform.h"
 #include "extensions/PxSimpleFactory.h"
@@ -10,6 +13,7 @@
 #include "PxMaterial.h"
 #include "PxSimulationEventCallback.h"
 #include "optick.h"
+#include "ScriptManager.h"
 
 
 FWorld* GWorld = nullptr;
@@ -103,7 +107,26 @@ void FWorld::SetGravity(const FVector3f& NewGravity)
 
 
 void FWorld::BeginPlay()
-{
+{	
+	TSubClassOf<EPawn> PawnClass;
+	if (ClassForCreatePawn.GetCurrentClass() == EPawn::StaticClass())
+	{
+		PawnClass = EDefaultCamera::StaticClass();
+	}
+	
+
+	CurrentPawn = SpawnEntity<EPawn>(PawnClass);
+
+
+	TArray<GCameraComponent*> CameraComponents;
+	CurrentPawn->GetComponents<GCameraComponent>(CameraComponents);
+
+	if (CameraComponents.size())
+	{
+		Scene->SetCamera(CameraComponents[0]);
+	}
+
+
 	for (auto &i : CurrentLevel->Entities)
 	{			   
 		if(!i->IsBeginPlay())
@@ -126,7 +149,7 @@ void FWorld::Tick(float DeltaTime, bool InFetchPhysic)
 	}
 
 	//InFetchPhysic = true;
-	if (PhysicScene && !bInSimulate)
+	if (bBeginPlay && PhysicScene && !bInSimulate)
 	{
 		Counter += DeltaTime;
 		if (Counter < StepSize)
@@ -149,7 +172,7 @@ void FWorld::Tick(float DeltaTime, bool InFetchPhysic)
 
 void FWorld::FetchPhysic()
 {
-	if (PhysicScene && bInSimulate)
+	if (bBeginPlay && PhysicScene && bInSimulate)
 	{
 		PhysicScene->fetchResults(true);
 		bInSimulate = false;
@@ -160,6 +183,11 @@ bool FWorld::AddPhysicComponent(physx::PxActor* InActor)
 {
 	PhysicScene->addActor(*InActor);
 	return false;
+}
+
+void FWorld::SetCurrentPawn(TObjectPtr<EPawn> InPawn)
+{
+	CurrentPawn = InPawn.Get();
 }
 
 
@@ -179,7 +207,14 @@ void FWorld::InitializeNewWorld()
 	SpawnEntity(EEntity::StaticClass(), FVector(), FRotator());
 	SpawnEntity(EEntity::StaticClass(), FVector(), FRotator());
 	SpawnEntity(EEntity::StaticClass(), FVector(), FRotator());
-	SpawnEntity(EMeshObject::StaticClass(), FVector(), FRotator());
+	EMeshObject* MeshObject = (EMeshObject*)SpawnEntity(EMeshObject::StaticClass(), FVector(), FRotator());
+
+	/*EMeshObject& MeshRef = *MeshObject;
+
+	auto& Lua = FScriptManager::Get()->VMLua;
+	Lua["MeshObject"] = MeshObject;
+
+	auto Result = Lua.script("MeshObject:TestPrint('Hello')");*/
 }
 
 const TArray<TObjectPtr<EEntity>>& FWorld::GetEntitiesOnCurrentLevel() const

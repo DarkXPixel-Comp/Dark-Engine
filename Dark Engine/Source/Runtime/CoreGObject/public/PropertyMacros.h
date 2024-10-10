@@ -17,6 +17,16 @@
 	Meta;\
 }
 
+#define DECLARE_FUNCTION(TClass, FunctionName) \
+{	\
+	CurrentClass->AddFunction(#FunctionName, &##TClass##::##FunctionName);\
+}							   
+
+
+#define DECLARE_USE_SCRIPTS(ON)	\
+{	\
+	StaticClass()->bUseScripts = ON;\
+}
 
 #define DECLARE_PROPERTY_OBJECT()
 #define DECLARE_PROPERTY_INT32(PointerToProperty, Name) \

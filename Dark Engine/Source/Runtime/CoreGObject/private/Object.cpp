@@ -235,10 +235,6 @@ GObject::GObject()
 
 GObject::GObject(const FObjectInitializer& ObjectInitializer)
 {
-	void* Test = this;
-	bool Test1 = ObjectInitializer.Object != nullptr;
-	bool Test2 = ObjectInitializer.Object != this;
-
 	check(!(ObjectInitializer.Object != nullptr && ObjectInitializer.Object != this));
 
 	const_cast<FObjectInitializer&>(ObjectInitializer).Object = this;

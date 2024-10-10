@@ -49,6 +49,11 @@ public:
 		return NamePrivate;
 	}
 
+	void ForceSetName(const FString InName)
+	{
+		NamePrivate = InName;
+	}
+
 
 
 	template<typename OtherClass>

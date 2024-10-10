@@ -2,7 +2,6 @@
 
 
 #include "CoreMinimal.h"
-#include "sol2/sol.hpp"
 
 /**
 *	@author DarkXPixel - https:darkengine.com - <EMAIL> - nahmurin.dima65@gmail.com
@@ -32,7 +31,6 @@ public:
 
 private:
 	//sol::state ScriptState;
-	sol::state_view ScriptState = luaL_newstate();
 
 
 };

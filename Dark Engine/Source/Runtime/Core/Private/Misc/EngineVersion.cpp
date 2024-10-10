@@ -4,7 +4,7 @@
 
 const int32 MAJOR_VERSION = 0;
 const int32 MINOR_VERSION = 1;
-const int32 PATCH_VERSION = 31;
+const int32 PATCH_VERSION = 32;
 const int32 FIX_VERSION = 0;
 const TCHAR* VERSION_PREFIX = TEXT("alpha");
 const TCHAR* BUILD_TYPE_PREFIX = TEXT("Debug");

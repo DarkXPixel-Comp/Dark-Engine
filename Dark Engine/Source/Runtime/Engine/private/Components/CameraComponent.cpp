@@ -19,12 +19,12 @@ void GCameraComponent::BeginPlay()
 {
 	Super::BeginPlay();
 
-	FSceneInterface* const Scene = GetWorld()->Scene;
+	/*FSceneInterface* const Scene = GetWorld()->Scene;
 
 	if (Scene)
 	{
 		Scene->SetCamera(this);
-	}
+	}*/
 }
 
 

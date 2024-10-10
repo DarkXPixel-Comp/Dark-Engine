@@ -36,11 +36,20 @@
 #include "SceneResourceImporter.h"
 #include "PhysicsCore.h"
 
+//extern "C"
+//{
+//#include "lua.h"
+//#include "lualib.h"
+//#include "lauxlib.h"
+//#include "luajit.h"
+//}
+
+#include "ScriptManager.h"
+
 
 //#include "Framework/DefaultCamera.h"
 
 //#include "lua.hpp"
-#include "sol2/sol.hpp"
 #include <iostream>
 #include <filesystem>
 
@@ -218,18 +227,18 @@ public:
 } EditorLayout;
 
 
-int32 Write(lua_State* State)
-{
-	for (size_t i = 1; i < lua_gettop(State) + 1; ++i)
-	{
-		//GGlobalConsole.AddLog(lua_tostring(State, i));
-		//GGlobalConsole.AddLog((const char*)lua_touserdata(State, i));
-		//const void* ptr = lua_topointer(State, i);
-		GGlobalConsole.AddLog(lua_tostring(State, i));
-	}
-
-	return 0;
-}
+//int32 Write(lua_State* State)
+//{
+//	for (size_t i = 1; i < lua_gettop(State) + 1; ++i)
+//	{
+//		//GGlobalConsole.AddLog(lua_tostring(State, i));
+//		//GGlobalConsole.AddLog((const char*)lua_touserdata(State, i));
+//		//const void* ptr = lua_topointer(State, i);
+//		GGlobalConsole.AddLog(lua_tostring(State, i));
+//	}
+//
+//	return 0;
+//}
 
 
 class Test
@@ -253,12 +262,12 @@ int32 FEngineLoop::TestInit()
 //	return 0;
 //}
 
-int LuaHandle1(lua_State*, sol::optional<const std::exception&>, sol::string_view)
-{
-	assert(false);
-	return 0;
-}
-
+//int LuaHandle1(lua_State*, sol::optional<const std::exception&>, sol::string_view)
+//{
+//	assert(false);
+//	return 0;
+//}
+//
 
 const FString VitalFolders[] = {"Content", "Config", "Shaders", "bin"};
 
@@ -300,8 +309,6 @@ int32 FEngineLoop::PreInit(const TCHAR* CmdLine)
 	//OPTICK_START_CAPTURE();
 	OPTICK_FRAME("PreInit");
 	//setlocale(LC_ALL, ".utf-16");
-
-
 	if (!CheckFiles())
 	{
 		FPlatformMisc::CreateMessageBoxError(*FString::PrintF(TEXT("Not found all vital files and folders: \n%s"), *GetAdditionalErrorMsg()), TEXT("Error"));
@@ -313,7 +320,7 @@ int32 FEngineLoop::PreInit(const TCHAR* CmdLine)
 	FMath::RandInit(time(0));
 	//ScriptState.set_panic(HandleLua);
 	//ScriptState.set_exception_handler(LuaHandle1);
-	ScriptState.open_libraries(sol::lib::base, sol::lib::os, sol::lib::math);
+	//ScriptState.open_libraries(sol::lib::base, sol::lib::os, sol::lib::math);
 //	ScriptState.script_file(!(FPaths::EngineScriptsDir() / TEXT("Test/Engine.script")));
 	// TEMP!!!!
 	bool bWithOSConsole = FString(CmdLine) == TEXT("-CMD");
@@ -323,21 +330,21 @@ int32 FEngineLoop::PreInit(const TCHAR* CmdLine)
 	FConfigCache::InitConfigSystem();
 
 	InitGObject();
-	auto Res = ScriptState.load_file(!(FPaths::EngineScriptsDir() / TEXT("Test/Engine.script")));
-	if (Res.valid())
+//	auto Res = ScriptState.load_file(!(FPaths::EngineScriptsDir() / TEXT("Test/Engine.script")));
+	/*if (Res.valid())
 	{
 		ScriptState.script_file(!(FPaths::EngineScriptsDir() / TEXT("Test/Engine.script")));
 	}
 	else
 	{
 		DE_LOG(Launch, Error, TEXT("Error load lua script: %s"), *FString(Res.operator std::string()));
-	}
+	}*/
 
 
-	ScriptState.set_function("print", [](std::wstring str)
+	/*ScriptState.set_function("print", [](std::wstring str)
 		{
 			GGlobalConsole.AddLog(str);
-		});
+		});*/
 
 
 
@@ -436,25 +443,62 @@ int32 FEngineLoop::PreInit(const TCHAR* CmdLine)
 			}
 		});
 
-	TestInit();
 
+
+
+
+
+	auto& LuaState = FScriptManager::Get()->VMLua;
+
+	class Test
 	{
+	public:
+		void test(std::string InText)
+		{
+			DE_LOG(Launch, Log, TEXT("%s"), *FString(InText));
+		}
 
-	}
+		void test2()
+		{
+			DE_LOG(Launch, Log, TEXT("%s"), *TestString);
+		}
+
+	private:
+		FString TestString = TEXT("TTT");
+
+	};
+
+	LuaState.new_usertype<Test>("Test", "test", &Test::test);
+
+	sol::table Table = LuaState["Test"];
+	Table.set_function("test2", &Test::test2);
+
+	Test t;
+
+	LuaState["T"] = &t;
+
+	auto Result = LuaState.script("T:test2()");
 
 
-	sol::function PreInitFunc = ScriptState["PreInit"];
-	if (PreInitFunc.valid())
-	{
-		PreInitFunc(!FString(CmdLine));
-	}
 
 	return 0;
 
 } 
 
+
+struct TT
+{
+	template<typename T>
+	static void Test()
+	{
+
+	}
+};
+
 int32 FEngineLoop::Init()
 {
+	//TT::Test();
+
 	RHIPostInit();
 	DE_LOG(Launch, Log, TEXT("RHI Post init"));
 	((DEditorEngine*)Engine)->NewMap();
@@ -480,20 +524,6 @@ void FEngineLoop::Tick()
 	GWorld->Tick(DeltaTime, true);
 
 	FProcessManager::UpdateProcesses();
-
-	sol::protected_function TickFunc = ScriptState["Tick"];
-
-	sol::error T = TickFunc();
-	if (TickFunc.valid())
-	{
-		sol::protected_function_result Result = TickFunc();
-		if (!Result.valid())
-		{
-			sol::error err = Result;
-			std::string what = err.what();
-
-		}
-	}
 }
 
 
@@ -519,10 +549,5 @@ void FEngineLoop::Exit()
 
 	GGlobalConsole.Destroy();
 
-	//OPTICK_STOP_CAPTURE();
-	//OPTICK_SAVE_CAPTURE(TestSave);
-
-	/*OPTICK_STOP_CAPTURE();
-	OPTICK_SAVE_CAPTURE(-(FPaths::EngineBinariesDir() + TEXT("ProfilerCaptures/Capture.opt")));*/
 	OPTICK_SHUTDOWN();
 }

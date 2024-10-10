@@ -180,6 +180,7 @@ class GObject : public GObjectBase
 	DECLARE_CLASS(GObject, GObject);
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(GObject);
 	DEFINE_CLASS_PROPERTIES(GObject, NULL);
+	DEFINE_CLASS_FUNCTIONS(GObject, NULL);
 	typedef GObject WithinClass;
 public:
 	GObject();

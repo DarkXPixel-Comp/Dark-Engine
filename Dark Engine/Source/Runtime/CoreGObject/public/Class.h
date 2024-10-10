@@ -1,6 +1,9 @@
 #pragma once
 #include "Object.h"
 #include "ObjectMacros.h"
+#include "Memory/TUniquePtr.h"
+#include "ScriptState.h"
+
 
 
 class GStruct;
@@ -195,9 +198,11 @@ class GClass : public GStruct
 
 public:
 	typedef void		(*ClassConstructorType)				(const FObjectInitializer&);
+	typedef void (*FunctionConstructorType)(GClass*);
 	typedef GClass* (*StaticClassFunctionType)();
 
-	ClassConstructorType ClassConstructor;
+	ClassConstructorType ClassConstructor = nullptr;
+	FunctionConstructorType FunctionConstructor = nullptr;
 
 	//GClass(const FObjectInitializer& ObjectInitalizer);
 	GClass(GClass* InSuperClass, const FObjectInitializer& ObjectInitalizer);
@@ -206,6 +211,16 @@ public:
 	GClass* GetSuperClass() const
 	{
 		return (GClass*)GetSuperStruct();
+	}
+
+	void RegisterAllFunctions();
+	template<typename RetValue, typename ClassValue, typename... Params>
+	void AddFunction(const FString& NameFunc, RetValue(ClassValue::*Func)(Params...))
+	{
+		if(ScriptState)
+		{
+			ScriptState->AddFunction(NameFunc, Func);
+		}
 	}
 
 	static const TArray<GClass*>& GetAllClasses();
@@ -220,6 +235,11 @@ public:
 
 
 	TObjectPtr<GObject>	ClassDefaultObject;
+
+	void LoadScriptState(TSharedPtr<FScriptState> InScriptState);
+
+	bool bUseScripts = false;
+
 	//TObjectPtr<GClass> ClassWithin;
 
 	virtual void SetupObjectInitializer(FObjectInitializer&) const {}
@@ -227,6 +247,9 @@ public:
 
 
 	void SetSuperStruct(GStruct* NewSuperStruct);
+
+private:
+	TSharedPtr<FScriptState> ScriptState;
 
 };
 
@@ -236,6 +259,7 @@ void GetPrivateStaticClassBody(
 	const TCHAR* Name,
 	GClass*& ReturnClass,
 	void(*RegisterNativeFunc)(),
+	void(*RegisterFunctions)(GClass*),
 	uint32 InSize,
 	uint32 InAlignment,
 	GClass::ClassConstructorType InClassConstructor,

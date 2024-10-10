@@ -1,5 +1,6 @@
 #pragma once
 #include "Framework/Entity.h"
+#include "Framework/Pawn.h"
 #include "Math/MathFwd.h"
 #include "PhysicsCore.h"
 #include "PxPtr.h"
@@ -34,6 +35,8 @@ public:
 
 	bool AddPhysicComponent(physx::PxActor* InActor);
 
+	void SetCurrentPawn(TObjectPtr<class EPawn> InPawn);
+
 	const TArray<TObjectPtr<EEntity>>& GetEntitiesOnCurrentLevel() const;
 
 private:
@@ -43,6 +46,9 @@ private:
 	FVector3f Gravity;
 	float Counter = 0.f;
 	float StepSize = 0.01f;
+	TObjectPtr<class EPawn>	CurrentPawn = nullptr;
+	TSubClassOf<class EPawn> ClassForCreatePawn;
+
 
 	bool bBeginPlay = false;
 

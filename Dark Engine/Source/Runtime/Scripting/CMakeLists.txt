@@ -2,7 +2,8 @@ add_library(Scripting)
 
 
 target_compile_features(Scripting PUBLIC cxx_std_20)
-target_link_libraries(Scripting PRIVATE Lua Core)
+target_link_libraries(Scripting PRIVATE Core CoreGObject)
+target_link_libraries(Scripting PUBLIC Lua)
 #target_link_libraries(RHI PUBLIC ${RHILibs})
 
 SETTINGFILES(ScriptingSrc)

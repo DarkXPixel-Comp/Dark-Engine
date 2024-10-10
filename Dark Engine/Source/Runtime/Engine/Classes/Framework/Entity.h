@@ -24,10 +24,6 @@ class EEntity : public GObject
 	//DECLARE_CASETED_CLASS_INTRINSIC_WITH_API(GEntity, GObject);
 	DECLARE_CLASS_INTINSIC_NO_CTOR_WITH_PROPERTIES(EEntity, GObject,
 		{
-			DECLARE_PROPERTY_INT32(Test, Test);
-		//	DECLARE_PROPERTY(GObject, SubClass, SubClass);
-		//	DECLARE_PROPERTY(GObject, BaseComponent, BaseComponent);
-		//	DECLARE_PROPERTY(GObject, SceneComponent, RenderComponent);
 		});
 
 public:

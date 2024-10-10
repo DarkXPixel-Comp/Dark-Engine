@@ -2,6 +2,7 @@
 #include "Misc/EnumClassFlags.h"
 #include "HAL/Platform.h"
 #include "DeferredRegistry.h"
+#include "ScriptState.h"
 
 extern void GObjectForceRegister(class GObjectBase* Object);
 
@@ -38,7 +39,13 @@ public:	\
 #define DEFINE_CLASS_PROPERTIES(TClass, Code) \
 public: \
 inline static void StaticRegisterNatives##TClass()\
-{Code;}
+{Code; /*if(StaticClass()->bUseScripts) {StaticClass()->LoadScriptState(TScriptState::GetAndCreateScriptState<TClass>());}*/}
+
+#define DEFINE_CLASS_FUNCTIONS(TClass, Code) \
+public: \
+inline static void StaticRegisterFunctions##TClass(GClass* CurrentClass) \
+{Code;} 
+
 
 	
 #define RELAY_CONSTRUCTOR(TClass, TSuperClass) TClass(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()) : TSuperClass(ObjectInitializer) {}
@@ -52,25 +59,29 @@ inline static void StaticRegisterNatives##TClass()\
 	DECLARE_CLASS(TClass, TSuperClass) \
 	/*DEFINE_DEFAULT_CONSTRUCTOR_CALL(TClass) \	*/ \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(TClass) \
-	DEFINE_CLASS_PROPERTIES(TClass, NULL)
+	DEFINE_CLASS_PROPERTIES(TClass, NULL)	\
+	DEFINE_CLASS_FUNCTIONS(TClass, NULL)
 
 
-#define DECLARE_CLASS_INTINSIC_NO_CTOR_WITH_PROPERTIES(TClass, TSuperClass, PropertiesCode) \
+#define DECLARE_CLASS_INTINSIC_NO_CTOR_WITH_PROPERTIES(TClass, TSuperClass, PropertiesCode, FunctionCode) \
 	DECLARE_CLASS(TClass, TSuperClass) \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(TClass) \
-	DEFINE_CLASS_PROPERTIES(TClass, PropertiesCode)
+	DEFINE_CLASS_PROPERTIES(TClass, PropertiesCode) \
+	DEFINE_CLASS_FUNCTIONS(TClass, FunctionCode)
 
-#define DECLARE_CASETED_CLASS_INTRINSIC_WITH_API_WITH_PROPERTIES(TClass, TSuperClass, PropertiesCode)	\
+#define DECLARE_CASETED_CLASS_INTRINSIC_WITH_API_WITH_PROPERTIES(TClass, TSuperClass, PropertiesCode, FunctionCode)	\
 	DECLARE_CLASS(TClass, TSuperClass) \
 	RELAY_CONSTRUCTOR(TClass, TSuperClass) \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(TClass) \
-	DEFINE_CLASS_PROPERTIES(TClass, PropertiesCode)
+	DEFINE_CLASS_PROPERTIES(TClass, PropertiesCode)	\
+	DEFINE_CLASS_FUNCTIONS(TClass, FunctionCode)
 
 #define DECLARE_CASETED_CLASS_INTRINSIC_WITH_API(TClass, TSuperClass)	\
 	DECLARE_CLASS(TClass, TSuperClass) \
 	RELAY_CONSTRUCTOR(TClass, TSuperClass) \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(TClass) \
-	DEFINE_CLASS_PROPERTIES(TClass, NULL)
+	DEFINE_CLASS_PROPERTIES(TClass, NULL) \
+	DEFINE_CLASS_FUNCTIONS(TClass, NULL)
 	
 
 
@@ -83,6 +94,7 @@ GClass* TClass::GetPrivateStaticClass()\
 		GetPrivateStaticClassBody((TCHAR*)TEXT(#TClass), \
 		RegistrationInfo_GClass_##TClass.InnerSingleton, \
 		StaticRegisterNatives##TClass, \
+		StaticRegisterFunctions##TClass, \
 		sizeof(TClass), alignof(TClass), \
 		(GClass::ClassConstructorType)InternalConstructor<TClass>, \
 		&TClass::Super::StaticClass);	   \
