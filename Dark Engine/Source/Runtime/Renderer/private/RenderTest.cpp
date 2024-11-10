@@ -64,13 +64,17 @@ void FSceneRender::RenderTest(FRHICommandListImmediate& CmdList)
 	static TRefCountPtr<FRHIUniformBuffer> UniformBuffer = RHICreateUniformBuffer(&CBV1, sizeof(FCBV1), UniformBuffer_SingleFrame);
 	RHIUpdateUniformBuffer(UniformBuffer.Get(), &CBV1, sizeof(FCBV1));
 
-	for (auto& Primitive : Scene->Primitives)
+	for (const auto& Primitive : Scene->Primitives)
 	{
-		if (!Primitive->bVisible)
+		if (!Primitive || !Primitive->bVisible)
 		{
 			continue;
 		}
-		auto Mesh = ((GStaticMeshComponent*)Primitive)->GetStaticMesh();
+		GStaticMesh* Mesh = ((GStaticMeshComponent*)Primitive)->GetStaticMesh();
+		if (Mesh == nullptr)
+		{
+			continue;
+		}
 		auto RenderData = Mesh->GetRenderData();
 		check(RenderData->IsInitialized());
 

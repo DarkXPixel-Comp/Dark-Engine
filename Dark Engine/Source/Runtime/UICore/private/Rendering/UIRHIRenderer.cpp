@@ -7,6 +7,7 @@
 #include "ImGuizmo.h"
 #include "DirectXMath.h"
 #include <future>
+#include <optick.h>
 
 
 void FUIRHIRenderer::Initialize()

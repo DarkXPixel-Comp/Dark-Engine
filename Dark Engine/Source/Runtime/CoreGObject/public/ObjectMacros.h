@@ -32,18 +32,21 @@ public:	\
 	__declspec(dllexport) inline static class GClass* StaticClass()  \
 	{										   \
 		return GetPrivateStaticClass();			 \
-	}// \
+	}\
+	virtual class GClass* GetStaticClass() {return TClass::StaticClass();} \
+	virtual ~TClass() {}
+	// \
 	//static void StaticRegisterNatives##TClass() {}
 
 
 #define DEFINE_CLASS_PROPERTIES(TClass, Code) \
 public: \
 inline static void StaticRegisterNatives##TClass()\
-{Code; /*if(StaticClass()->bUseScripts) {StaticClass()->LoadScriptState(TScriptState::GetAndCreateScriptState<TClass>());}*/}
+{Code; }
 
 #define DEFINE_CLASS_FUNCTIONS(TClass, Code) \
 public: \
-inline static void StaticRegisterFunctions##TClass(GClass* CurrentClass) \
+inline static void StaticRegisterFunctions##TClass(GStruct* CurrentClass) \
 {Code;} 
 
 
@@ -97,7 +100,10 @@ GClass* TClass::GetPrivateStaticClass()\
 		StaticRegisterFunctions##TClass, \
 		sizeof(TClass), alignof(TClass), \
 		(GClass::ClassConstructorType)InternalConstructor<TClass>, \
-		&TClass::Super::StaticClass);	   \
+		&TClass::Super::StaticClass);  \
+		GStruct* CurrentClass = (GStruct*)RegistrationInfo_GClass_##TClass.InnerSingleton;	\
+		if(CurrentClass->bUseScripts) {CurrentClass->LoadScriptState(TScriptState::GetAndCreateScriptState<TClass>());}\
+		CurrentClass->RegisterAllFunctions();\
 	}\
 	return RegistrationInfo_GClass_##TClass.InnerSingleton;\
 }

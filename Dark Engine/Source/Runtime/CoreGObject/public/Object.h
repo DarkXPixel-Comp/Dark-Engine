@@ -6,6 +6,7 @@
 
 class GObject;
 class GClass;
+class GStruct;
 
 
 extern void InitGObject();

@@ -9,6 +9,7 @@
 #include "D3D12StateCache.h"
 #include "RHIShaderParameters.h"
 #include "D3D12BarrierBatcher.h"
+#include <optick.h>
 
 
 

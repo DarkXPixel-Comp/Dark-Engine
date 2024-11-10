@@ -201,20 +201,20 @@ void FWorld::InitializeNewWorld()
 
 	InitWorld();
 
-	EEntity* Test = SpawnEntity(EEntity::StaticClass(), FVector(), FRotator());
-	SpawnEntity(EEntity::StaticClass(), FVector(), FRotator());
-	SpawnEntity(EEntity::StaticClass(), FVector(), FRotator());
-	SpawnEntity(EEntity::StaticClass(), FVector(), FRotator());
-	SpawnEntity(EEntity::StaticClass(), FVector(), FRotator());
-	SpawnEntity(EEntity::StaticClass(), FVector(), FRotator());
+	//EEntity* Test = SpawnEntity(EEntity::StaticClass(), FVector(), FRotator());
+	//SpawnEntity(EEntity::StaticClass(), FVector(), FRotator());
+	//SpawnEntity(EEntity::StaticClass(), FVector(), FRotator());
+	//SpawnEntity(EEntity::StaticClass(), FVector(), FRotator());
+	//SpawnEntity(EEntity::StaticClass(), FVector(), FRotator());
+	//SpawnEntity(EEntity::StaticClass(), FVector(), FRotator());
 	EMeshObject* MeshObject = (EMeshObject*)SpawnEntity(EMeshObject::StaticClass(), FVector(), FRotator());
 
-	/*EMeshObject& MeshRef = *MeshObject;
+	//EMeshObject& MeshRef = *MeshObject;
 
-	auto& Lua = FScriptManager::Get()->VMLua;
-	Lua["MeshObject"] = MeshObject;
+	//auto& Lua = FScriptManager::Get()->VMLua;
+	//Lua["MeshObject"] = MeshObject;
 
-	auto Result = Lua.script("MeshObject:TestPrint('Hello')");*/
+	//auto Result = Lua.script("MeshObject:TestPrint('Hello')");
 }
 
 const TArray<TObjectPtr<EEntity>>& FWorld::GetEntitiesOnCurrentLevel() const

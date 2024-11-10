@@ -304,6 +304,31 @@ static int32 CheckFiles()
 
 }
 
+void listGlobals(sol::state& lua) {
+	sol::table globals = lua.globals();
+	for (const auto& pair : globals) {
+		std::string key = pair.first.as<std::string>();
+		sol::type t = pair.second.get_type();
+
+		std::cout << "Name: " << key << ", Type: ";
+
+		switch (t) {
+		case sol::type::none: std::cout << "none"; break;
+		case sol::type::lua_nil: std::cout << "nil"; break;
+		case sol::type::string: std::cout << "string"; break;
+		case sol::type::number: std::cout << "number"; break;
+		case sol::type::thread: std::cout << "thread"; break;
+		case sol::type::boolean: std::cout << "boolean"; break;
+		case sol::type::function: std::cout << "function"; break;
+		case sol::type::userdata: std::cout << "userdata"; break;
+		case sol::type::lightuserdata: std::cout << "lightuserdata"; break;
+		case sol::type::table: std::cout << "table"; break;
+		}
+		std::cout << std::endl;
+	}
+}
+
+
 int32 FEngineLoop::PreInit(const TCHAR* CmdLine)
 {
 	//OPTICK_START_CAPTURE();
@@ -330,21 +355,6 @@ int32 FEngineLoop::PreInit(const TCHAR* CmdLine)
 	FConfigCache::InitConfigSystem();
 
 	InitGObject();
-//	auto Res = ScriptState.load_file(!(FPaths::EngineScriptsDir() / TEXT("Test/Engine.script")));
-	/*if (Res.valid())
-	{
-		ScriptState.script_file(!(FPaths::EngineScriptsDir() / TEXT("Test/Engine.script")));
-	}
-	else
-	{
-		DE_LOG(Launch, Error, TEXT("Error load lua script: %s"), *FString(Res.operator std::string()));
-	}*/
-
-
-	/*ScriptState.set_function("print", [](std::wstring str)
-		{
-			GGlobalConsole.AddLog(str);
-		});*/
 
 
 
@@ -450,35 +460,15 @@ int32 FEngineLoop::PreInit(const TCHAR* CmdLine)
 
 	auto& LuaState = FScriptManager::Get()->VMLua;
 
-	class Test
-	{
-	public:
-		void test(std::string InText)
-		{
-			DE_LOG(Launch, Log, TEXT("%s"), *FString(InText));
-		}
+	auto Result = LuaState.load(
+		R"(
+			function EMeshObject:BeginPlay()
+				TestPrint("HELLLLO")
+			end
+		)");
 
-		void test2()
-		{
-			DE_LOG(Launch, Log, TEXT("%s"), *TestString);
-		}
 
-	private:
-		FString TestString = TEXT("TTT");
-
-	};
-
-	LuaState.new_usertype<Test>("Test", "test", &Test::test);
-
-	sol::table Table = LuaState["Test"];
-	Table.set_function("test2", &Test::test2);
-
-	Test t;
-
-	LuaState["T"] = &t;
-
-	auto Result = LuaState.script("T:test2()");
-
+	listGlobals(LuaState);
 
 
 	return 0;
@@ -486,14 +476,7 @@ int32 FEngineLoop::PreInit(const TCHAR* CmdLine)
 } 
 
 
-struct TT
-{
-	template<typename T>
-	static void Test()
-	{
 
-	}
-};
 
 int32 FEngineLoop::Init()
 {
@@ -508,7 +491,6 @@ int32 FEngineLoop::Init()
 	FGameTimer::Reset();
 
 	GWorld->BeginPlay();
-
 	return 0;
 }
 

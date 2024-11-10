@@ -2,6 +2,7 @@
 #include "Logger.h"
 #include <Application/Application.h>
 #include "Misc/Paths.h"
+#include "optick.h"
 
 
 

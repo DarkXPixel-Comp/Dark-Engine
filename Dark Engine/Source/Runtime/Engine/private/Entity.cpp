@@ -6,6 +6,7 @@
 #include "Math/Transform.h"
 #include "Engine/World.h"
 #include "Components/PrimitiveComponent.h"
+#include "ScriptManager.h"
 
 
 
@@ -72,6 +73,8 @@ void EEntity::BeginPlay()
 	}
 
 	bBeginPlay = true;
+
+	GetStaticClass()->CallFunction(TEXT("BeginPlay"));
 
 }
 

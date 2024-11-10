@@ -10,6 +10,7 @@
 #include "BS_thread_pool.hpp"
 
 #include "DirectXMath.h"
+#include <optick.h>
 
 
 FScene::FScene(FWorld* InWorld):

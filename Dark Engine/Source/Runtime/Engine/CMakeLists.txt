@@ -6,8 +6,8 @@ find_library(EngineLibs Core Render Input ApplicationCore World Editor RHI)
 #set_target_properties(Engine PROPERTIES LINK_FLAGS "/OPT:NOREF /OPT:NOICF")
 
 target_compile_features(Engine PUBLIC cxx_std_20)
-target_link_libraries(Engine PUBLIC Input Editor Core RHI Renderer UICore STB DTK12 PhysicsCore BSThreadPool)
-target_link_libraries(Engine PRIVATE Assimp ApplicationCore CoreGObject Lua)
+target_link_libraries(Engine PUBLIC Input Editor CoreGObject Core RHI Renderer UICore STB DTK12 PhysicsCore BSThreadPool)
+target_link_libraries(Engine PRIVATE Assimp ApplicationCore Lua)
 
 
 #add_link_options("/WHOLEARCHIVE")

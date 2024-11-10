@@ -15,11 +15,11 @@ EMeshObject::EMeshObject(const FObjectInitializer& ObjectInitializer) : EEntity(
 void EMeshObject::BeginPlay()
 {
 	Super::BeginPlay();
-	FSceneResourceImporter Importer;
-	Importer.ImportFromFile(TEXT("Meshes/Cube.fbx"));
+	//FSceneResourceImporter Importer;
+	//Importer.ImportFromFile(TEXT("Meshes/Cube.fbx"));
 
-	auto Meshes = Importer.GetAllStaticMeshes();
+	//auto Meshes = Importer.GetAllStaticMeshes();
 
-	GStaticMesh* NewMesh = Meshes.GetSize() ? Meshes[0] : nullptr;
-	MeshComponent->SetStaticMesh(NewMesh);
+	//GStaticMesh* NewMesh = Meshes.GetSize() && Meshes[0].Get() ? Meshes[0] : nullptr;
+	//MeshComponent->SetStaticMesh(NewMesh);
 }

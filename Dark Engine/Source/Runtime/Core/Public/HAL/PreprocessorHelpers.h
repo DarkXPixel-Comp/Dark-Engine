@@ -1,5 +1,5 @@
 #pragma once
-#include "Definitions.h"
+//#include "Definitions.h"
 
 
 #define PREDPROCESSOR_TO_STRING(x) PREDPROCESSOR_TO_STRING_INNER(x)
@@ -17,7 +17,7 @@
 #ifdef OVERRIDE_PLATFORM_HEADER_NAME
 #define PLATFORM_HEADER_NAME OVERRIDE_PLATFORM_HEADER_NAME
 #else
-#define PLATFROM_HEADER_NAME Windows
+#define PLATFORM_HEADER_NAME Windows
 #endif 
 
 

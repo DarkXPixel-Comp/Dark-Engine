@@ -26,7 +26,11 @@ void FSceneResourceImporter::ProcessNodeStaticMesh(FGraphSceneResource::FGraphSc
 {
 	for (auto& i : Node.Meshes)
 	{
-		Meshes.Add(ProcessStaticMesh(i));
+		TObjectPtr<GStaticMesh>	StaticMesh = ProcessStaticMesh(i);
+		if(StaticMesh)
+		{
+			Meshes.Add(StaticMesh);
+		}
 	}
 
 

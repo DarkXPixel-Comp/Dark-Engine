@@ -5,6 +5,7 @@
 #include "ScenePrivate.h"
 #include "SceneRendering.h"
 #include <RHICommandList.h>
+#include <optick.h>
 
 
 

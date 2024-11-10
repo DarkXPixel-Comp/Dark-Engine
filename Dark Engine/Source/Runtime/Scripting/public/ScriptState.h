@@ -28,6 +28,22 @@ public:
 		}
 	}
 
+	template<typename... Params>
+	void CallFunction(const FString& NameFunc, Params... InParams)
+	{
+		try
+		{
+			sol::optional<sol::function> MaybeFunc = FScriptManager::Get()->VMLua[-NameState]["BeginPlay"];
+			if (MaybeFunc.has_value())
+			{
+				MaybeFunc->call(InParams...);
+			}
+		}
+		catch(...)									 
+		{
+		}
+	}
+
 
 
 private:

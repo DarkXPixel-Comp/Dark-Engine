@@ -16,7 +16,7 @@ TArray<GClass*> AllClasses;
 //IMPLEMENT_CLASS_NO_AUTO_REGISTRATION(GStruct);
 //IMPLEMENT_CLASS_NO_AUTO_REGISTRATION(GClass);
 
-void GetPrivateStaticClassBody(const TCHAR* Name, GClass*& ReturnClass, void(*RegisterNativeFunc)(), void(*RegisterFunctions)(GClass*), uint32 InSize, uint32 InAlignment, GClass::ClassConstructorType InClassConstructor,
+void GetPrivateStaticClassBody(const TCHAR* Name, GClass*& ReturnClass, void(*RegisterNativeFunc)(), void(*RegisterFunctions)(GStruct*), uint32 InSize, uint32 InAlignment, GClass::ClassConstructorType InClassConstructor,
 	GClass::StaticClassFunctionType InSuperClassFunc)
 {	
 	ReturnClass = (GClass*)malloc(sizeof(GClass));
@@ -29,7 +29,7 @@ void GetPrivateStaticClassBody(const TCHAR* Name, GClass*& ReturnClass, void(*Re
 	ReturnClass->RegisterSuperProperties();
 	RegisterNativeFunc();
 	ReturnClass->FunctionConstructor = RegisterFunctions;
-	ReturnClass->RegisterAllFunctions();
+	//ReturnClass->RegisterAllFunctions();
 
 }
 
@@ -119,24 +119,24 @@ void GStruct::RegisterDependencies()
 
 
 
-void GClass::LoadScriptState(TSharedPtr<FScriptState> InScriptState)
+void GStruct::LoadScriptState(TSharedPtr<FScriptState> InScriptState)
 {
 	ScriptState = InScriptState;
 }
 
-void GClass::RegisterAllFunctions()
+void GStruct::RegisterAllFunctions()
 {
 	if (bUseScripts)
 	{
 		//LoadScriptState();
-		GClass* CurrentSuperClass = this;
+		GStruct* CurrentSuperClass = this;
 
-		std::deque<GClass*>	ClassDeque;
+		std::deque<GStruct*>	ClassDeque;
 
 		do
 		{
 			ClassDeque.push_back(CurrentSuperClass);
-		} while (CurrentSuperClass = CurrentSuperClass->GetSuperClass());
+		} while (CurrentSuperClass = CurrentSuperClass->GetSuperStruct());
 
 		while (ClassDeque.size())
 		{

@@ -35,8 +35,6 @@ int32 LaunchWindowsStartup(HINSTANCE hInInstance, HINSTANCE hPrevInstance, char*
 {
 	SetupWindowsEnviroment();
 
-	//setlocale(LC_ALL, ".utf8");
-
 	int32_t ErrorCode = 0;
 	hInstance = hInInstance;
 

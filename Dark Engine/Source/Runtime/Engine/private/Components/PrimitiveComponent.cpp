@@ -12,9 +12,6 @@ GPrimitiveComponent::GPrimitiveComponent(const FObjectInitializer& ObjectInitial
 
 }
 
-GPrimitiveComponent::~GPrimitiveComponent()
-{
-}
 
 
 uint64 FPrimitiveSceneInfoData::NextPrimitiveId = UINT64_MAX;

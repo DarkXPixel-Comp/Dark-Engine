@@ -2,7 +2,7 @@
 	"configurations": [
 		{
 			"buildCommandArgs": "",
-			"buildRoot": "${projectDir}\\Dark Engine\\Intermediate\\Build\\${name}",
+			"buildRoot": "${projectDir}\\Dark Engine\\Intermediate\\Build\\${configurationType}",
 			"cmakeCommandArgs": "",
 			"configurationType": "Debug",
 			"ctestCommandArgs": "",
@@ -16,7 +16,7 @@
 			"name": "Win64-Release",
 			"generator": "Ninja",
 			"configurationType": "Release",
-			"buildRoot": "${projectDir}\\Dark Engine\\Intermediate\\Build\\${name}",
+			"buildRoot": "${projectDir}\\Dark Engine\\Intermediate\\Build\\${configurationType}",
 			"installRoot": "${projectDir}\\Dark Engine",
 			"cmakeCommandArgs": "",
 			"buildCommandArgs": "",
@@ -28,7 +28,7 @@
 			"name": "Win64-Test",
 			"generator": "Ninja",
 			"configurationType": "RelWithDebInfo",
-			"buildRoot": "${projectDir}\\Dark Engine\\Intermediate\\Build\\${name}",
+			"buildRoot": "${projectDir}\\Dark Engine\\Intermediate\\Build\\${configurationType}",
 			"installRoot": "${projectDir}\\Dark Engine",
 			"cmakeCommandArgs": "",
 			"buildCommandArgs": "",

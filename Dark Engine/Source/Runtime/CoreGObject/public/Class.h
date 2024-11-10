@@ -160,10 +160,14 @@ class GStruct : public GField
 {
 	DECLARE_CASETED_CLASS_INTRINSIC_WITH_API(GStruct, GField);
 public:
+	typedef void (*FunctionConstructorType)(GStruct*);
+	FunctionConstructorType FunctionConstructor = nullptr;
+
 	GStruct(int32 InSize, int32 InAlignment, EObjectFlags InFlags = OF_NoFlags);
 
 	void RegisterProperty(GProperty* NewProperty);
 	void RegisterSuperProperties();
+
 
 
 	int32 GetPropertiesSize() const { return PropertiesSize; }
@@ -183,11 +187,37 @@ public:
 	}
 
 
+	template<typename... Params>
+	void CallFunction(const FString& Name, Params... InParams)
+	{
+		if (ScriptState)
+		{
+			ScriptState->CallFunction(Name, InParams...);
+		}
+	}
+
+	void RegisterAllFunctions();
+	template<typename RetValue, typename ClassValue, typename... Params>
+	void AddFunction(const FString& NameFunc, RetValue(ClassValue::* Func)(Params...))
+	{
+		if (ScriptState)
+		{
+			ScriptState->AddFunction(NameFunc, Func);
+		}
+	}
+
+
+	void LoadScriptState(TSharedPtr<FScriptState> InScriptState);
+
+	bool bUseScripts = false;
+
+
 private:
 	TObjectPtr<GStruct>	SuperStruct;
 	TArray<TObjectPtr<GProperty>> Properties;
 	int32 PropertiesSize = 0;
 	int32 Alignment = 0;
+	TSharedPtr<FScriptState> ScriptState;
 
 
 };
@@ -198,11 +228,9 @@ class GClass : public GStruct
 
 public:
 	typedef void		(*ClassConstructorType)				(const FObjectInitializer&);
-	typedef void (*FunctionConstructorType)(GClass*);
 	typedef GClass* (*StaticClassFunctionType)();
 
 	ClassConstructorType ClassConstructor = nullptr;
-	FunctionConstructorType FunctionConstructor = nullptr;
 
 	//GClass(const FObjectInitializer& ObjectInitalizer);
 	GClass(GClass* InSuperClass, const FObjectInitializer& ObjectInitalizer);
@@ -211,16 +239,6 @@ public:
 	GClass* GetSuperClass() const
 	{
 		return (GClass*)GetSuperStruct();
-	}
-
-	void RegisterAllFunctions();
-	template<typename RetValue, typename ClassValue, typename... Params>
-	void AddFunction(const FString& NameFunc, RetValue(ClassValue::*Func)(Params...))
-	{
-		if(ScriptState)
-		{
-			ScriptState->AddFunction(NameFunc, Func);
-		}
 	}
 
 	static const TArray<GClass*>& GetAllClasses();
@@ -236,10 +254,6 @@ public:
 
 	TObjectPtr<GObject>	ClassDefaultObject;
 
-	void LoadScriptState(TSharedPtr<FScriptState> InScriptState);
-
-	bool bUseScripts = false;
-
 	//TObjectPtr<GClass> ClassWithin;
 
 	virtual void SetupObjectInitializer(FObjectInitializer&) const {}
@@ -249,7 +263,6 @@ public:
 	void SetSuperStruct(GStruct* NewSuperStruct);
 
 private:
-	TSharedPtr<FScriptState> ScriptState;
 
 };
 
@@ -259,7 +272,7 @@ void GetPrivateStaticClassBody(
 	const TCHAR* Name,
 	GClass*& ReturnClass,
 	void(*RegisterNativeFunc)(),
-	void(*RegisterFunctions)(GClass*),
+	void(*RegisterFunctions)(GStruct*),
 	uint32 InSize,
 	uint32 InAlignment,
 	GClass::ClassConstructorType InClassConstructor,

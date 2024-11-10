@@ -62,7 +62,6 @@ class GPrimitiveComponent : public GSceneComponent
 
 public:
 	GPrimitiveComponent(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get());
-	~GPrimitiveComponent();
 
 	constexpr virtual bool ShouldCreateRenderState() const override { return true; }
 	constexpr virtual bool ShouldCreatePhysicState() const override { return true; }

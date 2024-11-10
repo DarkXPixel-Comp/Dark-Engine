@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD 20)
 target_compile_features(Core PUBLIC cxx_std_20)
 
 target_link_libraries(Core PRIVATE DirectXMath)
-target_link_libraries(Core PUBLIC CoreGObject Optick)
+target_link_libraries(Core PUBLIC Optick)
 #target_link_libraries(Core PRIVATE ${CoreLibs})
 
 set(VERSION_MAJOR ${PROJECT_VERSION_MAJOR})
@@ -17,17 +17,13 @@ set(BUILD_TYPE_PREFIX ${CMAKE_BUILD_TYPE})
 
 if(WIN32)
 	target_sources(Core PRIVATE "Public/Windows/WindowsPlatformMisc.h" "Private/Windows/WindowsPlatformMisc.cpp" "Public/Windows/WindowsPlatformMemory.h" "Private/Windows/WindowsPlatformMemory.cpp" "Public/Windows/WindowsPlatformString.h" "Private/Windows/WindowsCriticalSection.cpp") # Windows
+	target_compile_definitions(Core PUBLIC "PLATFORM_WINDOWS=1")
 	#set(CORE_SOURCES ${CORE_SOURCES} "Public/Windows/WindowsPlatformMisc.h" "Private/Windows/WindowsPlatformMisc.cpp" "Public/Windows/WindowsPlatformMemory.h" "Private/Windows/WindowsPlatformMemory.cpp")
 endif()
 
 configure_file("Private/Misc/EngineVersion.cpp.var" "${CMAKE_CURRENT_SOURCE_DIR}/Private/Misc/EngineVersion.cpp" @ONLY)
 
-#set(CORE_SOURCES ${CORE_SOURCES} "Private/CoreGlobals.cpp"
-#"Private/Misc/AssertionMacros.cpp" "Private/Math/DarkMath.cpp" "Application/Application.cpp" "Private/Misc/CoreDelegates.cpp"
-#"Logging/Logger.cpp" "CommandLine/CommandLine.cpp" "Timer/GameTimer.cpp" "Memory/TMemory.cpp" "Public/Misc/Paths.h" "Private/Misc/Paths.cpp" "Public/GenericPlatform/GenericPlatformMisc.h" "Public/HAL/PlatformMisc.h" "Private/GenericPlatform/GenericPlatformMisc.cpp" "Private/Containers/DarkString.cpp" "Private/GenericPlatform/GenericPlatformMemory.cpp"
-#"Public/HAL/DarkMemory.h" "Public/HAL/FMemory.inl")
-
-#GroupSourcesByFolder(Core "${CORE_SOURCES}")
+target_compile_definitions(Core PUBLIC "CORE_API=DLLEXPORT")
 
 target_sources(Core PRIVATE "Private/CoreGlobals.cpp"
 "Private/Misc/AssertionMacros.cpp" "Private/Math/DarkMath.cpp" "Application/Application.cpp" "Private/Misc/CoreDelegates.cpp"
