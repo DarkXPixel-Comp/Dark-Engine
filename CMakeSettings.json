@@ -1,40 +1,40 @@
 ﻿{
-	"configurations": [
-		{
-			"buildCommandArgs": "",
-			"buildRoot": "${projectDir}\\Dark Engine\\Intermediate\\Build\\${configurationType}",
-			"cmakeCommandArgs": "",
-			"configurationType": "Debug",
-			"ctestCommandArgs": "",
-			"generator": "Ninja",
-			"inheritEnvironments": [ "msvc_x64_x64" ],
-			"installRoot": "${projectDir}\\Dark Engine\\bin",
-			"intelliSenseMode": "windows-msvc-x64",
-			"name": "Win64-Debug"
-		},
-		{
-			"name": "Win64-Release",
-			"generator": "Ninja",
-			"configurationType": "Release",
-			"buildRoot": "${projectDir}\\Dark Engine\\Intermediate\\Build\\${configurationType}",
-			"installRoot": "${projectDir}\\Dark Engine",
-			"cmakeCommandArgs": "",
-			"buildCommandArgs": "",
-			"ctestCommandArgs": "",
-			"inheritEnvironments": [ "msvc_x64_x64" ],
-			"intelliSenseMode": "windows-msvc-x64"
-		},
-		{
-			"name": "Win64-Test",
-			"generator": "Ninja",
-			"configurationType": "RelWithDebInfo",
-			"buildRoot": "${projectDir}\\Dark Engine\\Intermediate\\Build\\${configurationType}",
-			"installRoot": "${projectDir}\\Dark Engine",
-			"cmakeCommandArgs": "",
-			"buildCommandArgs": "",
-			"ctestCommandArgs": "",
-			"inheritEnvironments": [ "msvc_x64_x64" ],
-			"intelliSenseMode": "windows-msvc-x64"
-		}
-	]
+  "configurations": [
+    {
+      "buildCommandArgs": "",
+      "buildRoot": "${projectDir}\\Dark Engine\\Intermediate\\Build\\${configurationType}",
+      "cmakeCommandArgs": "",
+      "configurationType": "Debug",
+      "ctestCommandArgs": "",
+      "generator": "Ninja",
+      "inheritEnvironments": [ "msvc_x64" ],
+      "installRoot": "${projectDir}\\Dark Engine\\bin",
+      "intelliSenseMode": "windows-msvc-x64",
+      "name": "Win64-Debug"
+    },
+    {
+      "name": "Win64-Release",
+      "generator": "Ninja",
+      "configurationType": "Release",
+      "buildRoot": "${projectDir}\\Dark Engine\\Intermediate\\Build\\${configurationType}",
+      "installRoot": "${projectDir}\\Dark Engine",
+      "cmakeCommandArgs": "",
+      "buildCommandArgs": "",
+      "ctestCommandArgs": "",
+      "inheritEnvironments": [ "msvc_x64_x64" ],
+      "intelliSenseMode": "windows-msvc-x64"
+    },
+    {
+      "name": "Win64-Test",
+      "generator": "Ninja",
+      "configurationType": "RelWithDebInfo",
+      "buildRoot": "${projectDir}\\Dark Engine\\Intermediate\\Build\\${configurationType}",
+      "installRoot": "${projectDir}\\Dark Engine",
+      "cmakeCommandArgs": "",
+      "buildCommandArgs": "",
+      "ctestCommandArgs": "",
+      "inheritEnvironments": [ "msvc_x64_x64" ],
+      "intelliSenseMode": "windows-msvc-x64"
+    }
+  ]
 }

@@ -52,6 +52,27 @@ macro(SettingFiles Out)
 	#set(${Out} ${Res})
 endmacro()
 
+macro(SettingFilesTarget targ)
+	SET(Res "")
+	file(GLOB_RECURSE Result RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "${CMAKE_CURRENT_SOURCE_DIR}/*.h")
+	LIST(APPEND Res ${Result})
+	file(GLOB_RECURSE Result RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "${CMAKE_CURRENT_SOURCE_DIR}/*.cpp")
+	LIST(APPEND Res ${Result})
+	file(GLOB_RECURSE Result RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "${CMAKE_CURRENT_SOURCE_DIR}/*.c")
+	LIST(APPEND Res ${Result})
+	target_sources(${targ} PRIVATE ${Res}})
+	#set(${Out} ${Res})
+	#file(GLOB_RECURSE Result RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "${CMAKE_CURRENT_SOURCE_DIR}/public/*.h")
+	#LIST(APPEND Res ${Result})
+	#file(GLOB_RECURSE Result RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "${CMAKE_CURRENT_SOURCE_DIR}/public/*.cpp")
+	#LIST(APPEND Res ${Result})
+	#file(GLOB_RECURSE Result RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "${CMAKE_CURRENT_SOURCE_DIR}/private/*.h")
+	#LIST(APPEND Res ${Result})
+	#file(GLOB_RECURSE Result RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "${CMAKE_CURRENT_SOURCE_DIR}/private/*.cpp")
+	#LIST(APPEND Res ${Result})
+	#set(${Out} ${Res})
+endmacro()
+
 
 MACRO(SUBDIRLIST result curdir)
   FILE(GLOB children RELATIVE ${curdir} ${curdir}/*)
@@ -95,24 +116,8 @@ add_compile_definitions(UBT_COMPILED_PLATFORM=Windows ROOT_DIR="${PROJECT_SOURCE
 
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "$<0:>${PROJECT_SOURCE_DIR}/Dark Engine/bin") # 
-#set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "$<0:>${PROJECT_SOURCE_DIR}/Dark Engine/Intermediate/Build/${NAME}/Libs") #
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "$<0:>${CMAKE_BINARY_DIR}/Libs")
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "$<0:>${CMAKE_BINARY_DIR}/Libs")
-#set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "$<0:>${PROJECT_SOURCE_DIR}/Dark Engine/Intermediate/Build/${NAME}/Libs") #
-
-
-
-#set(EXECUTABLE_OUTPUT_PATH "${PROJECT_SOURCE_DIR}/Dark Engine/bin")
-#set(LIBRARY_OUTPUT_PATH "${PROJECT_SOURCE_DIR}/Dark Engine/bin/lib")
-#set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/Dark Engine/bin")
-#set(RUNTIME_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/Dark Engine/bin")
-#set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/Dark Engine/bin")
-#set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_<CONFIG> "${PROJECT_SOURCE_DIR}/Dark Engine/bin")
-#set(RUNTIME_OUTPUT_DIRECTORY_<CONFIG> "${PROJECT_SOURCE_DIR}/Dark Engine/bin")
-
-
-
-#add_custom_command()
 
 
 
