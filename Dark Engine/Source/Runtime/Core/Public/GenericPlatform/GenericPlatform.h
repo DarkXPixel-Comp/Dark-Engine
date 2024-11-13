@@ -1,5 +1,5 @@
 #pragma once
-#include "cstdint"
+#include <cstdint>
 
 struct FGenericPlatformTypes
 {
@@ -20,6 +20,4 @@ struct FGenericPlatformTypes
 	typedef uint8 CHAR8;
 	typedef uint16 CHAR16;
 	typedef uint32 CHAR32;
-
-//	typedef WIDECHAR TCHAR;
 };

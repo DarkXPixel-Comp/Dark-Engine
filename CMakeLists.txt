@@ -41,15 +41,6 @@ macro(SettingFiles Out)
 	file(GLOB_RECURSE Result RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "${CMAKE_CURRENT_SOURCE_DIR}/*.c")
 	LIST(APPEND Res ${Result})
 	set(${Out} ${Res})
-	#file(GLOB_RECURSE Result RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "${CMAKE_CURRENT_SOURCE_DIR}/public/*.h")
-	#LIST(APPEND Res ${Result})
-	#file(GLOB_RECURSE Result RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "${CMAKE_CURRENT_SOURCE_DIR}/public/*.cpp")
-	#LIST(APPEND Res ${Result})
-	#file(GLOB_RECURSE Result RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "${CMAKE_CURRENT_SOURCE_DIR}/private/*.h")
-	#LIST(APPEND Res ${Result})
-	#file(GLOB_RECURSE Result RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "${CMAKE_CURRENT_SOURCE_DIR}/private/*.cpp")
-	#LIST(APPEND Res ${Result})
-	#set(${Out} ${Res})
 endmacro()
 
 macro(SettingFilesTarget targ)
@@ -61,16 +52,6 @@ macro(SettingFilesTarget targ)
 	file(GLOB_RECURSE Result RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "${CMAKE_CURRENT_SOURCE_DIR}/*.c")
 	LIST(APPEND Res ${Result})
 	target_sources(${targ} PRIVATE ${Res}})
-	#set(${Out} ${Res})
-	#file(GLOB_RECURSE Result RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "${CMAKE_CURRENT_SOURCE_DIR}/public/*.h")
-	#LIST(APPEND Res ${Result})
-	#file(GLOB_RECURSE Result RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "${CMAKE_CURRENT_SOURCE_DIR}/public/*.cpp")
-	#LIST(APPEND Res ${Result})
-	#file(GLOB_RECURSE Result RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "${CMAKE_CURRENT_SOURCE_DIR}/private/*.h")
-	#LIST(APPEND Res ${Result})
-	#file(GLOB_RECURSE Result RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "${CMAKE_CURRENT_SOURCE_DIR}/private/*.cpp")
-	#LIST(APPEND Res ${Result})
-	#set(${Out} ${Res})
 endmacro()
 
 
@@ -86,23 +67,17 @@ MACRO(SUBDIRLIST result curdir)
 ENDMACRO()
 
 
+#"CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake"
 
-#set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /Od")
-#set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} /OPT:NOREF")
-#set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} /OPT:NOREF")
+set(VCPKG_ROOT "${CMAKE_CURRENT_SOURCE_DIR}/Dark Engine/Programs/vcpkg")
 
+set(CMAKE_TOOLCHAIN_FILE "${VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake")
 
 project("Dark Engine" VERSION 0.1.32.0)
 
 if(MSVC)
   set(CMAKE_EXE_LINKER_FLAGS
       "${CMAKE_EXE_LINKER_FLAGS} /NODEFAULTLIB:libcmt.lib /NODEFAULTLIB:libcmtd.lib")
-endif()
-
-
-if(MSVC)
-	#add_compile_options("/MP 12")
-	#add_compile_options("/OPT:NOREF")
 endif()
 
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)

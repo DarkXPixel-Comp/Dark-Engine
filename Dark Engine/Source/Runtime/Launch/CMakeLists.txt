@@ -3,9 +3,14 @@ add_executable(Launch)
 target_link_libraries(Launch PRIVATE Core)
 target_compile_features(Launch PUBLIC cxx_std_20)
 
+#find_package(imgui CONFIG REQUIRED)
+#target_link_libraries(Launch PRIVATE imgui::imgui)
+
+target_link_libraries(Launch PRIVATE imgui)
+
 if(WIN32)
 	set_target_properties(Launch PROPERTIES OUTPUT_NAME "Dark Engine" SUFFIX ".exe")
-	set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} /ENTRY:WinMain")
+	#set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} /ENTRY:WinMain")
 	set(CMAKE_AUTORCC ON)
 	set(CMAKE_AUTOMOC ON)
 	set(CMAKE_AUTOUIC ON)

@@ -4,6 +4,8 @@
 
 
 
+#include "imgui.h"
+
 int32 WINAPI WinMain(
 	_In_ HINSTANCE hInInstance,
 	_In_opt_ HINSTANCE prevInstance,
@@ -11,7 +13,5 @@ int32 WINAPI WinMain(
 	_In_ int32 nCmdShow
 )
 {
-	//int32 Result = LaunchWindowsStartup(hInInstance, prevInstance, lpCmdLine, nCmdShow, *FString(lpCmdLine));
-
 	return 0;
 }
