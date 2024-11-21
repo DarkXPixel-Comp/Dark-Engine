@@ -1,3 +1,7 @@
+# MyGUI supports compiling itself as a DLL,
+# but it seems platform-related stuff doesn't support dynamic linkage
+vcpkg_check_linkage(ONLY_STATIC_LIBRARY)
+
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO MyGUI/mygui
@@ -10,7 +14,6 @@ vcpkg_from_github(
         opengl.patch
         sdl2-static.patch
         fix-tools-lnk2005.patch
-        platform-lib-static.patch
 )
 
 if(VCPKG_TARGET_ARCHITECTURE STREQUAL "wasm32")
@@ -24,20 +27,15 @@ endif()
 
 vcpkg_check_features(OUT_FEATURE_OPTIONS FEATURE_OPTIONS
     FEATURES
-        plugins MYGUI_BUILD_PLUGINS
         tools MYGUI_BUILD_TOOLS
-    INVERTED_FEATURES
-        obsolete MYGUI_DONT_USE_OBSOLETE
-        plugins MYGUI_DISABLE_PLUGINS
 )
-
-string(COMPARE EQUAL "${VCPKG_LIBRARY_LINKAGE}" "static" MYGUI_STATIC)
 
 vcpkg_cmake_configure(
     SOURCE_PATH "${SOURCE_PATH}"
     OPTIONS
-        -DMYGUI_STATIC=${MYGUI_STATIC}
+        -DMYGUI_STATIC=TRUE
         -DMYGUI_BUILD_DEMOS=FALSE
+        -DMYGUI_BUILD_PLUGINS=TRUE
         -DMYGUI_BUILD_UNITTESTS=FALSE
         -DMYGUI_BUILD_TEST_APP=FALSE
         -DMYGUI_BUILD_WRAPPER=FALSE
@@ -54,7 +52,6 @@ file(REMOVE_RECURSE
 )
 
 vcpkg_fixup_pkgconfig()
-vcpkg_copy_pdbs()
 
 if("tools" IN_LIST FEATURES)
     vcpkg_copy_tools(TOOL_NAMES FontEditor ImageEditor LayoutEditor SkinEditor AUTO_CLEAN)

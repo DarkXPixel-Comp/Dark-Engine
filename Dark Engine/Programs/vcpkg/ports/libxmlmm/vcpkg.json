@@ -1,15 +1,12 @@
 {
   "name": "libxmlmm",
   "version": "0.6.0",
-  "port-version": 4,
+  "port-version": 3,
   "description": "Libxmlmm is a C++ wrapper for libxml 2.0 that only relies on standard C++ and libxml2.",
   "homepage": "https://github.com/rioki/libxmlmm",
   "license": "MIT",
   "dependencies": [
-    {
-      "name": "libxml2",
-      "default-features": false
-    },
+    "libxml2",
     {
       "name": "vcpkg-cmake",
       "host": true

@@ -1,6 +1,6 @@
 add_executable(Launch)
 
-target_link_libraries(Launch PRIVATE Core)
+target_link_libraries(Launch PRIVATE Core Optick)
 target_compile_features(Launch PUBLIC cxx_std_20)
 
 #find_package(imgui CONFIG REQUIRED)
@@ -21,7 +21,7 @@ if(WIN32)
 		target_sources(Launch PRIVATE "Resource/Windows/app.rc")
 	endif()
 
-	target_sources(Launch PRIVATE "Private/Windows/LaunchWindows.cpp")
+	target_sources(Launch PRIVATE "Private/Windows/LaunchWindows.cpp" "Private/Launch.cpp" "Public/LaunchEngineLoop.h" "Private/LaunchEngineLoop.cpp")
 endif()
 
 

@@ -73,7 +73,8 @@ set(VCPKG_ROOT "${CMAKE_CURRENT_SOURCE_DIR}/Dark Engine/Programs/vcpkg")
 
 set(CMAKE_TOOLCHAIN_FILE "${VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake")
 
-project("Dark Engine" VERSION 0.1.32.0)
+project("Dark Engine" VERSION 0.1.3.0)
+set(PROJECT_PREFIX "NewLife")
 
 if(MSVC)
   set(CMAKE_EXE_LINKER_FLAGS

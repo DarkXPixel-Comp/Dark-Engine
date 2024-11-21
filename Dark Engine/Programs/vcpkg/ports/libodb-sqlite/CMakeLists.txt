@@ -47,7 +47,7 @@ if(LIBODB_INSTALL_HEADERS)
     )
     install(
         FILES config.unix.h.in
-        DESTINATION include/odb/sqlite/details
+        DESTINATION include/odb/sqlite/detail
         COMPONENT sqlite
         RENAME config.h
     )

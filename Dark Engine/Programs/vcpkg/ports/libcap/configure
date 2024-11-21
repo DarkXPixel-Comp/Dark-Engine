@@ -21,7 +21,6 @@ BUILD_OPTIONS = \
     "AR=$AR" \
     "BUILD_CC=$CC" \
     "CC=$CC" \
-    "OBJCOPY=$OBJCOPY" \
     "RANLIB=$RANLIB" \
     "lib=lib" \
     "prefix=$prefix"

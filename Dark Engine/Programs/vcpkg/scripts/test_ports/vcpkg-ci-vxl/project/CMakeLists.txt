@@ -1,10 +1,6 @@
 cmake_minimum_required(VERSION 3.7)
 project(vnl-test CXX)
 
-if(APPLE)
-    set(CMAKE_CXX_STANDARD "11")
-endif()
-
 find_package(VXL CONFIG REQUIRED)
 
 # The use file doesn't only set variables,

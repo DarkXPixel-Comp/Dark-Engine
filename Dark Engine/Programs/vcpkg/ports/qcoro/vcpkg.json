@@ -1,9 +1,10 @@
 {
   "name": "qcoro",
-  "version": "0.11.0",
+  "version": "0.10.0",
+  "port-version": 1,
   "description": "Coroutine support for Qt",
-  "homepage": "https://github.com/qcoro/qcoro",
-  "documentation": "https://qcoro.dev/",
+  "homepage": "https://www.github.com/danvratil/qcoro",
+  "documentation": "https://qcoro.dvratil.cz",
   "license": "MIT",
   "dependencies": [
     {
