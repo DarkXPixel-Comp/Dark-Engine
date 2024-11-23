@@ -1,12 +1,9 @@
 add_executable(Launch)
 
-target_link_libraries(Launch PRIVATE Core Optick)
+
+target_link_libraries(Launch PRIVATE Core Optick imgui LibZip Package)
 target_compile_features(Launch PUBLIC cxx_std_20)
 
-#find_package(imgui CONFIG REQUIRED)
-#target_link_libraries(Launch PRIVATE imgui::imgui)
-
-target_link_libraries(Launch PRIVATE imgui)
 
 if(WIN32)
 	set_target_properties(Launch PROPERTIES OUTPUT_NAME "Dark Engine" SUFFIX ".exe")

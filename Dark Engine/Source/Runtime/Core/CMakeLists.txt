@@ -1,4 +1,4 @@
-add_library(Core)
+add_library(Core STATIC)
 
 
 target_compile_features(Core PUBLIC cxx_std_20)

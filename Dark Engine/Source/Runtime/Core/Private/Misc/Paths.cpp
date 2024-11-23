@@ -20,7 +20,7 @@ CORE_API FString FPaths::CacheDir()
 
 CORE_API FString FPaths::EngineBinariesDir()
 {
-	return EngineDir() + TEXT("bin/");
+	return EngineDir() + TEXT("Binaires/");
 }
 
 CORE_API FString FPaths::EngineScriptsDir()

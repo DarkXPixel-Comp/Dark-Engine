@@ -7,9 +7,13 @@
 #include "optick.h"
 #include <vector>
 #include <filesystem>
+#include "imgui.h"
+#include "libzippp.h"
+#include <fstream>
+#include "PackageManager.h"
 
 
-static const FString VitalFolders[] = { "Content", "Config", "Shaders", "bin" };
+static const FString VitalFolders[] = { "Content", "Config", "Shaders", "Binaires" };
 
 static int32 CheckFiles(FString& AdditionalErrorMsg)
 {
@@ -48,7 +52,6 @@ static int32 CheckFiles(FString& AdditionalErrorMsg)
 int32 FEngineLoop::PreInit(const FString& CmdLine)
 {
 	OPTICK_EVENT("PreInit");
-
 	FString ErrorMsg;
 	if (!CheckFiles(ErrorMsg))
 	{
@@ -57,8 +60,22 @@ int32 FEngineLoop::PreInit(const FString& CmdLine)
 		return -1;
 	}
 
+	libzippp::ZipArchive zf("Test.gamearchive");
+	zf.open(libzippp::ZipArchive::New);
+	zf.setCompressionLevel(1);
+
+	zf.addEntry("folder/test/");
+
+	TArray<int8> Buff(1024 * 1024 * 1024);
+
+	std::fstream f("test.arc", std::ios_base::out);
+	f.write((const char*)Buff.GetData(), Buff.Num());
+	f.close();
+
+	zf.addData("folder/test/t.texture", Buff.GetData(), Buff.GetSize());
 
 
+	zf.close();
 
 	return 0;
 }

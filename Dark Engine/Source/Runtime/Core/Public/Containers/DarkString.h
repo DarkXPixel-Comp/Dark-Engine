@@ -165,4 +165,18 @@ public:
 private:
 	StringType String;
 
+	friend struct std::hash<FString>;
+};
+
+template<>
+struct std::hash<FString>
+{
+	std::size_t operator()(const FString& Key) const
+	{
+		using std::size_t;
+		using std::hash;
+		using std::wstring;
+
+		return hash<wstring>()(Key.String);
+	}
 };

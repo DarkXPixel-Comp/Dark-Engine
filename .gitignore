@@ -17,6 +17,7 @@
 # Compiled Dynamic libraries
 *.so
 *.dylib
+*.dll
 .exp
 
 # Fortran module files
@@ -56,5 +57,6 @@ DirectXTK12-main
 Intermediate
 Content
 bin
+Binaires
 Dark Engine/Source/ThirdParty/Vulkan/
 Vulkan

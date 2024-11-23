@@ -67,19 +67,25 @@ MACRO(SUBDIRLIST result curdir)
 ENDMACRO()
 
 
-#"CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake"
-
+#Vars
 set(VCPKG_ROOT "${CMAKE_CURRENT_SOURCE_DIR}/Dark Engine/Programs/vcpkg")
 
 set(CMAKE_TOOLCHAIN_FILE "${VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake")
 
-project("Dark Engine" VERSION 0.1.3.0)
 set(PROJECT_PREFIX "NewLife")
 
 if(MSVC)
-  set(CMAKE_EXE_LINKER_FLAGS
-      "${CMAKE_EXE_LINKER_FLAGS} /NODEFAULTLIB:libcmt.lib /NODEFAULTLIB:libcmtd.lib")
+ # set(CMAKE_EXE_LINKER_FLAGS
+#      "${CMAKE_EXE_LINKER_FLAGS} /NODEFAULTLIB:libcmt.lib /NODEFAULTLIB:libcmtd.lib")
 endif()
+
+if(MSVC AND WIN32 AND NOT MSVC_VERSION VERSION_LESS 142) # Hot reload
+	set(CMAKE_CXX_FLAGS_DEBUG "/MDd /ZI /Ob0 /Od /RTC1")
+endif()
+#
+
+project("Dark Engine" VERSION 0.1.3.0)
+
 
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
@@ -91,7 +97,7 @@ FILE(GLOB_RECURSE sources "Dark Engine/Source/*.cpp")
 add_compile_definitions(UBT_COMPILED_PLATFORM=Windows ROOT_DIR="${PROJECT_SOURCE_DIR}")
 
 
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "$<0:>${PROJECT_SOURCE_DIR}/Dark Engine/bin") # 
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "$<0:>${PROJECT_SOURCE_DIR}/Dark Engine/Binaires") # 
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "$<0:>${CMAKE_BINARY_DIR}/Libs")
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "$<0:>${CMAKE_BINARY_DIR}/Libs")
 
