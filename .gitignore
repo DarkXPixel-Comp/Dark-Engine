@@ -46,17 +46,12 @@
 .cache
 
 .vs
-learn
-x64
-DirectXTK-main
 Models
 Resources
 Textures
 logs
-DirectXTK12-main
 Intermediate
 Content
-bin
 Binaires
-Dark Engine/Source/ThirdParty/Vulkan/
-Vulkan
+
+!Dark Engine/Programs/vcpkg/
