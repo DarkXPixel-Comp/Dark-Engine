@@ -31,7 +31,6 @@
 *.lib
 
 # Executables
-*.exe
 *.out
 *.app
 
@@ -54,4 +53,5 @@ Intermediate
 Content
 Binaires
 
-!Dark Engine/Programs/vcpkg/
+!tls12-download.exe
+
