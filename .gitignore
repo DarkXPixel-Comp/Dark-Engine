@@ -45,12 +45,8 @@
 .cache
 
 .vs
-Models
-Resources
-Textures
 logs
 Intermediate
-Content
 Binaires
 
 !tls12-download.exe

@@ -15,7 +15,7 @@ if(WIN32)
 	if(${CMAKE_GENERATOR} MATCHES Ninja)
 		target_sources(Launch PRIVATE "Resources/Windows/app.rc")
 	elseif(${CMAKE_GENERATOR} MATCHES "Visual Studio 17 2022")
-		target_sources(Launch PRIVATE "Resource/Windows/app.rc")
+		target_sources(Launch PRIVATE "Resources/Windows/app.rc")
 	endif()
 
 	target_sources(Launch PRIVATE "Private/Windows/LaunchWindows.cpp" "Private/Launch.cpp" "Public/LaunchEngineLoop.h" "Private/LaunchEngineLoop.cpp")
