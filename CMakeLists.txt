@@ -105,10 +105,6 @@ ENDMACRO()
 include("${CMAKE_CURRENT_SOURCE_DIR}/cmake/CPM.cmake")
 
 #Vars
-set(VCPKG_ROOT "${CMAKE_CURRENT_SOURCE_DIR}/Dark Engine/Programs/vcpkg")
-
-set(CMAKE_TOOLCHAIN_FILE "${VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake")
-
 set(PROJECT_PREFIX "NewLife")
 
 # Hot reload
