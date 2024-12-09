@@ -1,5 +1,6 @@
-add_library(imgui INTERFACE)
+add_library(ImGui INTERFACE)
 
-find_package(imgui CONFIG REQUIRED)
+CPMAddPackage("gh:ocornut/imgui@1.91.5-docking")
 
-target_link_libraries(imgui INTERFACE imgui::imgui)
+
+target_link_libraries(ImGui INTERFACE imgui::imgui)
