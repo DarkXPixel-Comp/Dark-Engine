@@ -3,7 +3,7 @@ add_library(Package)
 
 target_compile_features(Package PUBLIC cxx_std_20)
 target_link_libraries(Package PUBLIC Core)
-target_link_libraries(Package PRIVATE OpenSSL LibZip)
+target_link_libraries(Package PRIVATE)
 
 SettingFiles(PackageSrc)
 target_sources(Package PRIVATE ${PackageSrc})

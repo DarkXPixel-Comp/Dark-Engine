@@ -11,6 +11,7 @@
 //#include "libzippp.h"
 #include <fstream>
 #include "PackageManager.h"
+#include "imgui.h"
 
 
 static const FString VitalFolders[] = { "Content", "Config", "Shaders", "Binaires" };
@@ -59,6 +60,8 @@ int32 FEngineLoop::PreInit(const FString& CmdLine)
 		RequestExit();
 		return -1;
 	}
+
+	ImGui::CreateContext();
 
 //	/*libzippp::ZipArchive zf("Test.gamearchive");
 //	zf.open(libzippp::ZipArchive::New);
