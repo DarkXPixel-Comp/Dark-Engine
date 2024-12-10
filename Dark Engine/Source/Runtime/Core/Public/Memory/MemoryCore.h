@@ -20,3 +20,9 @@ TSharedPtr<T> MakeShareble(Args... args)
 {
 	return std::make_shared<T>(args...);
 }
+
+template <class T>
+TUniquePtr<T> MakeUnique(T* ptr)
+{
+	return TUniquePtr<T>(ptr);
+}
