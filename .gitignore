@@ -49,5 +49,7 @@ logs
 Intermediate
 Binaires
 
-!tls12-download.exe
-
+!Dark Engine
+!Dark Engine/Binaires
+!Dark Engine/Binaires/D3D12
+!Dark Engine/Binaires/D3D12/*

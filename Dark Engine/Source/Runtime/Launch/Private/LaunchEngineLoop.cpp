@@ -8,6 +8,7 @@
 #include <filesystem>
 #include <fstream>
 #include "PackageManager.h"
+#include "optick.h"
 
 
 static const FString VitalFolders[] = { "Content", "Config", "Shaders", "Binaires" };
@@ -48,7 +49,7 @@ static int32 CheckFiles(FString& AdditionalErrorMsg)
 
 int32 FEngineLoop::PreInit(const FString& CmdLine)
 {
-//	OPTICK_EVENT("PreInit");
+	OPTICK_EVENT("PreInit");
 	FString ErrorMsg;
 	if (!CheckFiles(ErrorMsg))
 	{
