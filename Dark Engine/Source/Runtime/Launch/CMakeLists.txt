@@ -1,7 +1,7 @@
 add_executable(Launch)
 
 
-target_link_libraries(Launch PRIVATE Core ApplicationCore Package ImGui JSON Optick)
+target_link_libraries(Launch PRIVATE Core ApplicationCore Package ImGui JSON Optick Agility)
 target_compile_features(Launch PUBLIC cxx_std_20)
 
 
