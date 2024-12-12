@@ -20,6 +20,8 @@ public:
 
 	void Initialize(class FWindowsApplication* const Application, const FGenericWindowDefinition& InDefinition);
 
+	HWND GetHWND() const;
+
 private:
 	HWND hWnd = NULL;
 

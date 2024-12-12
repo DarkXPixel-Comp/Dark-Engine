@@ -17,7 +17,7 @@ public:
 
 private:
 	static LRESULT AppWndProc(HWND hInWnd, uint32 msg, WPARAM wParam, LPARAM lParam);
-	static bool RegisterClass(const HINSTANCE hInInstance, const HICON hInIcon, const HCURSOR hInCursor);
+	static bool RegisterApplicationClass(const HINSTANCE hInInstance, const HICON hInIcon, const HCURSOR hInCursor);
 
 	LRESULT WndProc(HWND hInWnd, uint32 msg, WPARAM wParam, LPARAM lParam);
 

@@ -1,22 +1,22 @@
 #include "Windows/WindowsApplication.h"
-//#include "Windows/Win"
+#include "Windows/WindowsWindow.h"
 
 TUniquePtr<FWindowsApplication> GWindowsApplication;
 
-//
-//static TSharedPtr< FWindowsWindow > FindWindowByHWND(const TArray< TSharedPtr< FWindowsWindow > >& WindowsToSearch, HWND HandleToFind)
-//{
-//	for (int32 WindowIndex = 0; WindowIndex < WindowsToSearch.Num(); ++WindowIndex)
-//	{
-//		TSharedPtr< FWindowsWindow > Window = WindowsToSearch[WindowIndex];
-//		if (Window->GetHWnd() == HandleToFind)
-//		{
-//			return Window;
-//		}
-//	}
-//
-//	return TSharedPtr< FWindowsWindow >(nullptr);
-//}
+
+static TSharedPtr< FWindowsWindow > FindWindowByHWND(const TArray< TSharedPtr< FWindowsWindow > >& WindowsToSearch, HWND HandleToFind)
+{
+	for (int32 WindowIndex = 0; WindowIndex < WindowsToSearch.Num(); ++WindowIndex)
+	{
+		TSharedPtr< FWindowsWindow > Window = WindowsToSearch[WindowIndex];
+		if (Window->GetHWND() == HandleToFind)
+		{
+			return Window;
+		}
+	}
+
+	return TSharedPtr<FWindowsWindow>(nullptr);
+}
 
 
 FWindowsApplication* FWindowsApplication::CreateWindowsApplication(const HINSTANCE hInstance, const HICON hIcon, const HCURSOR hCursor)
@@ -32,5 +32,19 @@ FWindowsApplication* FWindowsApplication::CreateWindowsApplication(const HINSTAN
 LRESULT FWindowsApplication::AppWndProc(HWND hInWnd, uint32 msg, WPARAM wParam, LPARAM lParam)
 {
 	return GWindowsApplication->ProcessMessage(hInWnd, msg, wParam, lParam);
+}
+
+int32 FWindowsApplication::ProcessMessage(HWND hInWnd, uint32 msg, WPARAM wParam, LPARAM lParam)
+{
+	TSharedPtr<FWindowsWindow> CurrentWindow = FindWindowByHWND(Windows, hInWnd);
+
+	if (CurrentWindow)
+	{
+
+
+	}
+
+
+	return int32();
 }
 

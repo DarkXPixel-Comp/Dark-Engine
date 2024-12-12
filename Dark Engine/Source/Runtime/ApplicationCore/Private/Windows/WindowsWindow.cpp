@@ -8,3 +8,8 @@ void FWindowsWindow::Initialize(FWindowsApplication* const Application, const FG
 
 
 }
+
+HWND FWindowsWindow::GetHWND() const
+{
+	return hWnd;
+}
