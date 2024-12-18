@@ -2,6 +2,7 @@
 
 #include "GenericPlatform/GenericApplication.h"
 #include "Windows/WindowsIncludes.h"
+#include "Windows/WindowsLayout.h"
 #include "Containers/Array.h"
 
 
@@ -29,4 +30,5 @@ private:
 
 private:
 	TArray<TSharedPtr<class FWindowsWindow>> Windows;
+	FPlatformLayout PlatformLayout;
 };

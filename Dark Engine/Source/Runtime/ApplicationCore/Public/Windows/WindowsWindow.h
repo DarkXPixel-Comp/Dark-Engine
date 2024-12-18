@@ -16,6 +16,8 @@ public:
 	void Destroy();
 	void Update();
 
+	bool IsMaximize() const;
+
 	void Tick(float DeltaTime);
 
 	void Initialize(class FWindowsApplication* const Application, const FGenericWindowDefinition& InDefinition);

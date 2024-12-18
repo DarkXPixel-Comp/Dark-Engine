@@ -3,7 +3,7 @@
 #include "Memory/MemoryCore.h"
 
 
-class FGenericWindow
+class APPLICATIONCORE_API FGenericWindow
 {
 public:
 	FGenericWindow() {}

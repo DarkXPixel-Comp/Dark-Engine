@@ -1,5 +1,6 @@
 #include "Windows/WindowsApplication.h"
 #include "Windows/WindowsWindow.h"
+#include "CoreGlobals.h"
 
 TUniquePtr<FWindowsApplication> GWindowsApplication;
 
@@ -40,6 +41,41 @@ int32 FWindowsApplication::ProcessMessage(HWND hInWnd, uint32 msg, WPARAM wParam
 
 	if (CurrentWindow)
 	{
+		switch (msg)
+		{
+		case WM_DESTROY:
+		{
+			Windows.Remove(CurrentWindow);
+			if (Windows.Num() <= 0)
+			{
+				RequestExit();
+			}
+			break;
+		}
+		case WM_QUIT:
+		{
+			RequestExit();
+			break;
+		}
+		case WM_NCHITTEST:
+		{
+			POINT Point;
+			static RECT BorderThickness = PlatformLayout.GetBorderThckness();
+			Point.x = GET_X_LPARAM(lParam);
+			Point.y = GET_Y_LPARAM(lParam);
+			ScreenToClient(hInWnd, &Point);
+
+			if(!CurrentWindow->IsMa)
+			
+
+			break;
+		}
+		default:
+			break;
+		}
+
+
+
 
 
 	}

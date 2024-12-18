@@ -4,6 +4,7 @@ add_library(ApplicationCore)
 target_compile_features(ApplicationCore PUBLIC cxx_std_20)
 target_link_libraries(ApplicationCore PUBLIC Core)
 
+
 SettingFiles(ApplicationCoreSrc)
 target_sources(ApplicationCore PRIVATE ${ApplicationCoreSrc})
 
