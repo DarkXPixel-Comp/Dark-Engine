@@ -112,7 +112,6 @@ int32 FWindowsApplication::ProcessMessage(HWND hInWnd, uint32 msg, WPARAM wParam
 		}
 		case WM_MOVE:
 		{
-			
 		}
 
 		default:
