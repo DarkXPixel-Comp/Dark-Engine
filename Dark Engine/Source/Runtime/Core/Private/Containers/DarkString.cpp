@@ -1,10 +1,29 @@
 #include "Containers/DarkString.h"
 #include "Misc/VarArgs.h"
 #include "Containers/Array.h"
+#include "Platform/Platform.h"
 
 FString::FString(const ANSICHAR* Other)
 {
+#if	PLATFORM_UTF8CHAR
+#else
 	FPlatformString::MultiByteToWideChar(Other, *this);
+#endif
+}
+
+CORE_API std::string FString::ToString() const
+{
+#if	PLATFORM_UTF8CHAR
+#else
+	std::string Result;
+	FPlatformString::WideCharToMultiByte(String.c_str(), Result);
+	return Result;
+#endif
+}
+
+CORE_API std::string FString::operator!() const
+{
+	return ToString();
 }
 
 FString FString::PrintFInternal(const TCHAR* Fmt, ...)

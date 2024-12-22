@@ -8,8 +8,9 @@
 
 class FPackageManager
 {
+	friend class FPackage;
 public:
-	FPackageManager& Get() const
+	static FPackageManager& Get()
 	{
 		static FPackageManager Manager;
 		return Manager;
@@ -22,9 +23,11 @@ private:
 		OpenPackages();
 	}
 
+	void FindPackage(const FString& InName, class FPackage& OutPackage);
 
 private:
 	void OpenPackages();
+	void ReadPackage(const TSharedPtr<class FPackage>& InPackage, void* OutData);
 
 
 
@@ -34,4 +37,6 @@ private:
 
 private:
 	std::unordered_map<FString, TSharedPtr<class FPackage>> Packages;
+	std::unordered_map<FString, std::vector<int8>> CachePackages;
+
 };

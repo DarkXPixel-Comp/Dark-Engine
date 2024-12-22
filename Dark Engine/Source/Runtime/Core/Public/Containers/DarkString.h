@@ -36,6 +36,10 @@ public:
 		return *this;
 	}
 
+	CORE_API std::string ToString() const;
+
+	CORE_API std::string operator!() const;
+
 	CORE_API FString& operator=(const FString& Other)
 	{
 		String = Other.String;

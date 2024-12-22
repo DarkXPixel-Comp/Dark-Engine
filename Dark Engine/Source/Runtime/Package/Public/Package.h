@@ -1,5 +1,6 @@
 #pragma once
 #include "Containers/DarkString.h"
+#include "PackageFormat.h"
 
 
 
@@ -25,4 +26,5 @@ public:
 
 private:
 	FString Name;
+	EPackageFormat PackageFormat;
 };
