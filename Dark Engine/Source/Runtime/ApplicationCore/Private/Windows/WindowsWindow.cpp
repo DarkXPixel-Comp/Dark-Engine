@@ -13,3 +13,13 @@ HWND FWindowsWindow::GetHWND() const
 {
 	return hWnd;
 }
+
+FGenericWindowDefinition FWindowsWindow::GetWndDefinition() const
+{
+	return WndDefinition;
+}
+
+FWindowsLayout* FWindowsWindow::GetWndLayout() 
+{
+	return &WndLayout;
+}

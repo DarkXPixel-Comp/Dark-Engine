@@ -1,11 +1,8 @@
 cmake_minimum_required(VERSION 3.8)
 
 
-<<<<<<< Updated upstream
-#Functions
-=======
+
 #Functions and macros
->>>>>>> Stashed changes
 function(SettingProject target)
   set(SOURCE_GROUP_DELIMITER "/") 
   set(last_dir "")
@@ -59,8 +56,6 @@ macro(SettingFilesTarget targ)
 	target_sources(${targ} PRIVATE ${Res}})
 endmacro()
 
-<<<<<<< Updated upstream
-=======
 
 MACRO(SUBDIRLIST result curdir)
   FILE(GLOB children RELATIVE ${curdir} ${curdir}/*)
@@ -73,7 +68,6 @@ MACRO(SUBDIRLIST result curdir)
   SET(${result} ${dirlist})
 ENDMACRO()
 
->>>>>>> Stashed changes
 function(GroupSourcesByFolder target target_files)
   set(SOURCE_GROUP_DELIMITER "/") 
   set(last_dir "")
@@ -107,75 +101,32 @@ function(GroupSourcesByFolder target target_files)
 endfunction()
 
 
-
-<<<<<<< Updated upstream
-
-MACRO(SUBDIRLIST result curdir)
-  FILE(GLOB children RELATIVE ${curdir} ${curdir}/*)
-  SET(dirlist "")
-  FOREACH(child ${children})
-    IF(IS_DIRECTORY ${curdir}/${child})
-      LIST(APPEND dirlist ${child})
-    ENDIF()
-  ENDFOREACH()
-  SET(${result} ${dirlist})
-ENDMACRO()
-
-=======
->>>>>>> Stashed changes
 #Includes
 include("${CMAKE_CURRENT_SOURCE_DIR}/cmake/CPM.cmake")
 
 #Vars
-<<<<<<< Updated upstream
 set(PROJECT_PREFIX "NewLife")
-
-# Hot reload
-if(MSVC AND WIN32 AND NOT MSVC_VERSION VERSION_LESS 142)
-=======
-set(VCPKG_ROOT "${CMAKE_CURRENT_SOURCE_DIR}/Dark Engine/Programs/vcpkg")
-
-set(CMAKE_TOOLCHAIN_FILE "${VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake")
 
 set(PROJECT_PREFIX "NewLife")
 
 # Hot reload
 if(MSVC AND WIN32 AND NOT MSVC_VERSION VERSION_LESS 142) 
->>>>>>> Stashed changes
 	set(CMAKE_CXX_FLAGS_DEBUG "/MDd /ZI /Ob0 /Od /RTC1")
 endif()
 #
 
-<<<<<<< Updated upstream
-=======
 project("Dark Engine" VERSION 0.1.3.0)
-
->>>>>>> Stashed changes
 
 add_compile_definitions(UBT_COMPILED_PLATFORM=Windows ROOT_DIR="${PROJECT_SOURCE_DIR}")
 
-
-<<<<<<< Updated upstream
-#Output
-=======
 #Output folders
->>>>>>> Stashed changes
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "$<0:>${PROJECT_SOURCE_DIR}/Dark Engine/Binaires") # 
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "$<0:>${CMAKE_BINARY_DIR}/Libs")
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "$<0:>${CMAKE_BINARY_DIR}/Libs")
 
-<<<<<<< Updated upstream
 #Dark Engine
 project("Dark Engine" VERSION 0.1.3.0)
 add_subdirectory("Dark Engine")
 
 
-=======
 
-#Dark Engine
-add_subdirectory("Dark Engine")
-
-
-
-
->>>>>>> Stashed changes

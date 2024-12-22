@@ -7,13 +7,7 @@
 #include <vector>
 #include <filesystem>
 #include <fstream>
-#include "fmt/format.h"
-#include "PackageManager.h"
-<<<<<<< Updated upstream
 #include "optick.h"
-=======
-#include "boost/assert.hpp"
->>>>>>> Stashed changes
 
 
 static const FString VitalFolders[] = { "Content", "Config", "Shaders", "Binaires" };
@@ -61,29 +55,6 @@ int32 FEngineLoop::PreInit(const FString& CmdLine)
 		RequestExit();
 		return -1;
 	}
-
-<<<<<<< Updated upstream
-=======
-	FPackageManager::Get();
-
-	//libzippp::ZipArchive zf("Test.gamearchive");
-	//zf.open(libzippp::ZipArchive::New);
-	//zf.setCompressionLevel(1);
-
-	//zf.addEntry("folder/test/");
-
-	//TArray<int8> Buff(1024 * 1024 * 1024);
-
-	//std::fstream f("test.arc", std::ios_base::out);
-	//f.write((const char*)Buff.GetData(), Buff.Num());
-	//f.close();
-
-	//zf.addData("folder/test/t.texture", Buff.GetData(), Buff.GetSize());
-
-
-	//zf.close();
-
->>>>>>> Stashed changes
 	return 0;
 }
 

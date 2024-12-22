@@ -3,6 +3,7 @@
 #include "GenericPlatform/GenericWindow.h"
 #include "GenericPlatform/GenericWindowDefinition.h"
 #include "Windows/WindowsIncludes.h"
+#include "Windows/WindowsLayout.h"
 
 
 class APPLICATIONCORE_API FWindowsWindow : public FGenericWindow
@@ -24,8 +25,17 @@ public:
 
 	HWND GetHWND() const;
 
+	bool HasBorder() const;
+
+	FGenericWindowDefinition GetWndDefinition() const;
+
+	FWindowsLayout* GetWndLayout();
+
+
 private:
 	HWND hWnd = NULL;
 
 	FGenericWindowDefinition WndDefinition;
+
+	FWindowsLayout WndLayout;
 };

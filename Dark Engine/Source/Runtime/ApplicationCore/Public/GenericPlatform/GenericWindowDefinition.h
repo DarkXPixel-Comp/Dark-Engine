@@ -13,6 +13,19 @@ struct FGenericWindowDefinition
 	float Width = 0.f;
 	float Height = 0.f;
 
-	bool bWindowBorder = true;
+	bool bHasWindowBorder = true;
+
+	int32 LeftBorder = 4;
+	int32 TopBorder = 4;
+	int32 RightBorder = 4;
+	int32 BottomBorder = 4;
+	
+
+	bool bHasWindowPlatformBorder = true;
+
+	bool bMovable = false;
+
+	bool bSizable = false;
+
 	int32 CornerRadius = 5;
 };

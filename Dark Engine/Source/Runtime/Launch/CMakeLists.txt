@@ -1,11 +1,7 @@
 add_executable(Launch)
 
 
-<<<<<<< Updated upstream
 target_link_libraries(Launch PRIVATE Core ApplicationCore Package ImGui JSON Optick Agility)
-=======
-target_link_libraries(Launch PRIVATE Core Optick imgui LibZip Package Fmt Boost::assert)
->>>>>>> Stashed changes
 target_compile_features(Launch PUBLIC cxx_std_20)
 
 
