@@ -30,6 +30,17 @@ FWindowsApplication* FWindowsApplication::CreateWindowsApplication(const HINSTAN
 	return GWindowsApplication.get();
 }
 
+void FWindowsApplication::PumpMessages()
+{
+	MSG Message;
+
+	while (PeekMessage(&Message, NULL, 0, 0, PM_REMOVE))
+	{
+		TranslateMessage(&Message);
+		DispatchMessage(&Message);
+	}
+}
+
 LRESULT FWindowsApplication::AppWndProc(HWND hInWnd, uint32 msg, WPARAM wParam, LPARAM lParam)
 {
 	return GWindowsApplication->ProcessMessage(hInWnd, msg, wParam, lParam);
@@ -128,6 +139,6 @@ int32 FWindowsApplication::ProcessMessage(HWND hInWnd, uint32 msg, WPARAM wParam
 	}
 
 
-	return int32();
+	return DefWindowProc(hInWnd, msg, wParam, lParam);
 }
 

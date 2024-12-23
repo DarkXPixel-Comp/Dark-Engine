@@ -25,6 +25,7 @@ private:
 	virtual void PumpMessages() override;
 
 	int32 ProcessMessage(HWND hInWnd, uint32 msg, WPARAM wParam, LPARAM lParam);
+	
 
 	FWindowsApplication(const HINSTANCE hInIntance, const HICON hInIcon, const HCURSOR hCursor = NULL);
 
