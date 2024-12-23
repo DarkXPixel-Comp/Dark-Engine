@@ -119,16 +119,15 @@ int32 FWindowsApplication::ProcessMessage(HWND hInWnd, uint32 msg, WPARAM wParam
 				}
 				return HTCLIENT;
 			}
-						
 			break;
 		}
 		case WM_MOVE:
 		{
 
-
 		}
 
 		default:
+
 			break;
 		}
 
