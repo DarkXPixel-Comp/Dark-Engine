@@ -36,6 +36,7 @@
 #define DECLARE_DELEGATE_NineParams( DelegateName, Param1Type, Param2Type, Param3Type, Param4Type, Param5Type, Param6Type, Param7Type, Param8Type, Param9Type ) FUNC_DECLARE_DELEGATE( DelegateName, void, Param1Type, Param2Type, Param3Type, Param4Type, Param5Type, Param6Type, Param7Type, Param8Type, Param9Type )
 #define DECLARE_MULTICAST_DELEGATE_NineParams( DelegateName, Param1Type, Param2Type, Param3Type, Param4Type, Param5Type, Param6Type, Param7Type, Param8Type, Param9Type ) FUNC_DECLARE_MULTICAST_DELEGATE( DelegateName, void, Param1Type, Param2Type, Param3Type, Param4Type, Param5Type, Param6Type, Param7Type, Param8Type, Param9Type )
 
+#define DECLARE_DELEGATE_RetVal(ReturnValue, DelegateName) FUNC_DECLARE_DELEGATE(DelegateName, ReturnValue)
 
 
 
@@ -57,8 +58,14 @@ template <typename UserClass, typename InRetValType, typename... ParamTypes>
 class TMethodContainter : public IIContainer<InRetValType, ParamTypes...>
 {
 	using FFuncPtr = InRetValType(UserClass::*)(ParamTypes...);
+	using FuncPtr = std::function<InRetValType(ParamTypes...)>;
 public:
 	TMethodContainter(UserClass* cl, FFuncPtr func) : uClass(cl), pFunc(func)
+	{
+
+	}
+
+	TMethodContainter(UserClass* cl, FuncPtr func) : uClass(cl), pFunction(func)
 	{
 
 	}
@@ -72,6 +79,7 @@ public:
 
 private:
 
+	FuncPtr pFunction;
 	FFuncPtr pFunc;
 	UserClass* uClass;
 };

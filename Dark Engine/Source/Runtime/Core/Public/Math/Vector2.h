@@ -1,5 +1,6 @@
 #pragma once
 #include "Math/MathFwd.h"
+#include <type_traits>
 
 
 namespace DE
@@ -25,6 +26,11 @@ namespace DE
 				T XY[2];
 			};
 
+			/// 2D zero vector (0, 0)
+			CORE_API static const TVector2<T> ZeroVector;
+
+			/// 2D unit vector (1, 1)
+			CORE_API static const TVector2<T> UnitVector;
 		public:
 			TVector2(T InF) : X(InF), Y(InF) {}
 			TVector2() : X(0), Y(0) {}

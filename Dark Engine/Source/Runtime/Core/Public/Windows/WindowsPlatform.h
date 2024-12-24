@@ -15,3 +15,4 @@ typedef FWindowsPlatformTypes FPlatformTypes;
 #define DLLEXPORT __declspec(dllexport)
 #define DLLIMPORT __declspec(dllimport)
 #define FORCEINLINE __forceinline
+#define FORCENOINLINE __declspec(noinline)

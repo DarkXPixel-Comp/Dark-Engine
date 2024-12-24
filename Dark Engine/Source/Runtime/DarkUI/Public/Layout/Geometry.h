@@ -2,6 +2,7 @@
 #include "Platform/Platform.h"
 #include "Math/MathFwd.h"
 #include "Math/Vector2.h"
+#include "Math/Transform2.h"
 
 struct FGeometry
 {
@@ -17,4 +18,7 @@ public:
 
 
 private:
+	FTransform2f RenderTransform;
+
+	const bool bHasRenderTransform = true;
 };

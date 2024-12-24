@@ -115,8 +115,6 @@ if(MSVC AND WIN32 AND NOT MSVC_VERSION VERSION_LESS 142)
 endif()
 #
 
-project("Dark Engine" VERSION 0.1.3.0)
-
 add_compile_definitions(UBT_COMPILED_PLATFORM=Windows ROOT_DIR="${PROJECT_SOURCE_DIR}")
 
 #Output folders
@@ -125,7 +123,7 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "$<0:>${CMAKE_BINARY_DIR}/Libs")
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "$<0:>${CMAKE_BINARY_DIR}/Libs")
 
 #Dark Engine
-project("Dark Engine" VERSION 0.1.3.0)
+project("Dark Engine" VERSION 0.1.10.0)
 add_subdirectory("Dark Engine")
 
 

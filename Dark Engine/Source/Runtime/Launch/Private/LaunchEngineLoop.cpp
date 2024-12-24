@@ -8,6 +8,9 @@
 #include <filesystem>
 #include <fstream>
 #include "optick.h"
+#include "Misc/Attribute.h"
+#include "Widgets/DWindow.h"
+
 
 
 static const FString VitalFolders[] = { "Content", "Config", "Shaders", "Binaires" };
@@ -44,11 +47,23 @@ static int32 CheckFiles(FString& AdditionalErrorMsg)
 }
 
 
+class TTEST
+{
+public:
+	int Getter() const
+	{
+		return 7;
+	}
+};
+
 
 int32 FEngineLoop::PreInit(const FString& CmdLine)
 {
 	OPTICK_EVENT("PreInit");
 	FString ErrorMsg;
+
+	DUIWindow wnd;
+
 	if (!CheckFiles(ErrorMsg))
 	{
 		FPlatformMisc::CreateMessageBoxError(*FString::PrintF(TEXT("Not found all vital files or folders: \n%s"), *ErrorMsg), TEXT("Error vital files"));

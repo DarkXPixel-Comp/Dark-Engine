@@ -2,6 +2,7 @@
 
 #include "Math/MathFwd.h"
 #include "Math/Vector2.h"
+#include "Math/Matrix2x2.h"
 #include <type_traits>
 
 
@@ -18,13 +19,13 @@ namespace DE
 		public:
 			using FDark = T;
 			using Vector2Type = DE::Math::TVector2<T>;
+			using Matrix2Type = DE::Math::TMatrix2x2<T>;
 
 			template<typename VType = float>
 			TTransform2(const DE::Math::TVector2<VType>& Translation)
 			{}
 
-
-		private:
+			Matrix2Type Mat;
 			Vector2Type Translation;
 		};
 
