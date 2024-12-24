@@ -64,6 +64,8 @@ int32 FEngineLoop::PreInit(const FString& CmdLine)
 
 	DUIWindow wnd;
 
+	//DUINew(DUIWindow);
+
 	if (!CheckFiles(ErrorMsg))
 	{
 		FPlatformMisc::CreateMessageBoxError(*FString::PrintF(TEXT("Not found all vital files or folders: \n%s"), *ErrorMsg), TEXT("Error vital files"));

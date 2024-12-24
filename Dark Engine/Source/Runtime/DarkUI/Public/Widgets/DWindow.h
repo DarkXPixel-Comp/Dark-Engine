@@ -14,6 +14,10 @@ public:
 	DarkUI_END_ARGS()
 
 
+public:
+	DarkUI_API void Construct(const FArguments& InArgs);
+
+
 
 
 
