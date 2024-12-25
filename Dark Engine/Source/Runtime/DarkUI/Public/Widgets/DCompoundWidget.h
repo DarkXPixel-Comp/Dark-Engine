@@ -20,7 +20,7 @@ public:
 
 
 protected:
-	DarkUI_API DUICompoundWidget();
+	DarkUI_API DUICompoundWidget() {}
 
 	//struct FCompoundWidgetOneChild
 
