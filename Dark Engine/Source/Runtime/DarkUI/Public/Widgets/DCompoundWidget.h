@@ -19,6 +19,13 @@ public:
 	}
 
 
+protected:
+	DarkUI_API DUICompoundWidget();
+
+	//struct FCompoundWidgetOneChild
+
+
+
 private:
 	FVector2d ContentScale;
 
