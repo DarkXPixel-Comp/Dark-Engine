@@ -1,5 +1,6 @@
 #pragma once
 #include "Containers/DarkString.h"
+#include "SlotBase.h"
 
 
 class DUIWidget;
@@ -34,14 +35,63 @@ public:
 		return Num();
 	}
 
+	virtual TSharedPtr<DUIWidget> GetChildAt(int32 Index) = 0;
+	virtual TSharedPtr<const DUIWidget> GetChildAt(int32 Index) const = 0;
 private:
 	FString Name;
 	DUIWidget* Owner;
 
 };
 
-template<typename SlotType>
-class TSingleWidgetChildrenWithSlot : public FChildren
+template<typename T>
+class TSingleWidgetChildrenWithSlot : public FChildren, public TSlotBase<T>
 {
+public:
+	TSingleWidgetChildrenWithSlot(DUIWidget* InOwner) :
+		FChildren(InOwner),
+		TSlotBase<T>(static_cast<const FChildren&>(*this))
+	{
+
+	}
+	TSingleWidgetChildrenWithSlot(DUIWidget* InOwner, const FString& InName) :
+		FChildren(InOwner, InName),
+		TSlotBase<T>(static_cast<const FChildren&>(*this))
+	{
+
+	}
+
+public:
+	virtual int32 Num() const override { return 1; }
+	virtual TSharedPtr<DUIWidget> GetChildAt(int32 ChildIndex) override
+	{
+		return this->GetWidget();
+	}
+
+	virtual TSharedPtr<const DUIWidget> GetChildAt(int32 ChildIndex) const override
+	{
+		return this->GetWidget();
+	}
+
+	
+public:
+	struct FSlotArguments : public TSlotBase<T>::FSlotArguments
+	{
+		FSlotArguments() : 
+			TSlotBase<T>::FSlotArguments(TSlotBase<T>::ConstructSlotIsFChildren)
+		{}
+
+		typename T::FSlotArguments& operator[](const TSharedPtr<DUIWidget>& InChildWidget)
+		{
+			TSlotBase<T>::FSlotArguments::AttachWidget(InChildWidget);
+			return static_cast<typename T::FSlotArguments&>(*this);
+		}
+	};
+
+	void Construct(FSlotArguments&& InArgs)
+	{
+		TSlotBase<T>::Construct(*this, std::move(InArgs));
+	}
+
+
 
 };

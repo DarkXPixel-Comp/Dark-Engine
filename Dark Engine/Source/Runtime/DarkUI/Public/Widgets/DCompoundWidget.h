@@ -1,5 +1,6 @@
 #pragma once
 #include "Widgets/DWidget.h"
+#include "Layout/Children.h"
 
 
 
@@ -22,8 +23,10 @@ public:
 protected:
 	DarkUI_API DUICompoundWidget() {}
 
-	//struct FCompoundWidgetOneChild
+	struct FCompoundWidgetOneChild : public TSingleWidgetChildrenWithSlot<int>
+	{
 
+	};
 
 
 private:

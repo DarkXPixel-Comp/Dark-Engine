@@ -1,6 +1,6 @@
 #pragma once
-
 #include "Widgets/DCompoundWidget.h"
+#include "Layout/Children.h"
 
 
 class DUIWindow : public DUICompoundWidget
