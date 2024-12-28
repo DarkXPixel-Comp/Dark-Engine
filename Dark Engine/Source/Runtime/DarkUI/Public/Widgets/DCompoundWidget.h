@@ -23,12 +23,6 @@ public:
 protected:
 	DarkUI_API DUICompoundWidget() {}
 
-	struct FCompoundWidgetOneChild : public TSingleWidgetChildrenWithSlot<int>
-	{
-
-	};
-
-
 private:
 	FVector2d ContentScale;
 

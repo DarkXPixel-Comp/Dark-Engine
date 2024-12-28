@@ -1,7 +1,8 @@
 #pragma once
 #include "Containers/DarkString.h"
 #include "SlotBase.h"
-
+#include "Widgets/InvalidateWidgetReason.h"
+#include "Layout/BasicLayotWidgetSlot.h"
 
 class DUIWidget;
 
@@ -15,7 +16,7 @@ public:
 
 	}
 
-	FChildren(std::nullptr_t) = delete;
+	FChildren(std::nullptr_t, const FString& InName = TEXT("Children")) = delete;
 
 	virtual ~FChildren() = default;
 
@@ -61,7 +62,10 @@ public:
 	}
 
 public:
-	virtual int32 Num() const override { return 1; }
+	virtual int32 Num() const override
+	{
+		return 1;
+	}
 	virtual TSharedPtr<DUIWidget> GetChildAt(int32 ChildIndex) override
 	{
 		return this->GetWidget();
@@ -87,11 +91,41 @@ public:
 		}
 	};
 
+public:
+	using TSlotBase<T>::AttachWidget;
+	using TSlotBase<T>::DetachWidget;
+	using TSlotBase<T>::GetWidget;
+	//using TSlotBase<T>::Invalidate;
+
+
 	void Construct(FSlotArguments&& InArgs)
 	{
 		TSlotBase<T>::Construct(*this, std::move(InArgs));
 	}
 
+	T& operator[](const TSharedPtr<DUIWidget>& InChildWidget)
+	{
+		this->AttachWidget(AttachWidget);
+		return static_cast<T&>(*this);
+	}
 
+private:
+	//virtual const FSlotBase& GetSlotAt(int32 ChildIndex) const override
+	//{
+	//	return *this;
+	//}
+};
+
+class FSingleWidgetChildrenWithSlot : public TSingleWidgetChildrenWithSlot<FSingleWidgetChildrenWithSlot>
+{
+public:
+	using TSingleWidgetChildrenWithSlot<FSingleWidgetChildrenWithSlot>::TSingleWidgetChildrenWithSlot;
+};
+
+template<EInvalidateWidgetReason InPaddingInvalidateReason = EInvalidateWidgetReason::Layout>
+class TSingleWidgetChildrenWithBasicLayoutSlot :
+	public TSingleWidgetChildrenWithSlot<TSingleWidgetChildrenWithBasicLayoutSlot<InPaddingInvalidateReason>>,
+	public TPaddingSingleWidgetSlotMixin<TSingleWidgetChildrenWithBasicLayoutSlot<InPaddingInvalidateReason>, InPaddingInvalidateReason>
+{
 
 };
