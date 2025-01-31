@@ -1,6 +1,7 @@
 #pragma once
 #include "Containers/Array.h"
 #include <functional>
+#include "Memory/MemoryCore.h"
 		   
 #define FUNC_DECLARE_MULTICAST_DELEGATE(DelegateName, ReturnType, ...) typedef TMultiCastDelegate<ReturnType, __VA_ARGS__> DelegateName
 #define FUNC_DECLARE_DELEGATE(DelegateName, ReturnType, ...) typedef TDelegate<ReturnType, __VA_ARGS__> DelegateName
@@ -110,26 +111,26 @@ class TDelegate
 public:
 	const void Bind(InRetValType(*func)(ParamTypes...))
 	{
-		container = new TFuncContainer<InRetValType, ParamTypes...>(func);
+		container = MakeUnique(new TFuncContainer<InRetValType, ParamTypes...>(func));
 	}
 
 	const void Bind(std::function<InRetValType(ParamTypes...)> func)
 	{
 		//container = new TFuncContainer<InRetValType, ParamTypes...>(std::forward<InRetValType(*)(ParamTypes...)>(Lambda));
-		container = new TFuncContainer<InRetValType, ParamTypes...>(func);
+		container = MakeUnique(new TFuncContainer<InRetValType, ParamTypes...>(func));
 	}
 
 	template<typename UserClass>
 	const void Bind(UserClass* inUserObject, InRetValType(UserClass::* func)(ParamTypes...))
 	{
-		container = new TMethodContainter<UserClass, InRetValType, ParamTypes...>(inUserObject, func);
+		container = MakeUnique(new TMethodContainter<UserClass, InRetValType, ParamTypes...>(inUserObject, func));
 
 	}
 
 
 
 
-	InRetValType BroadCast(ParamTypes... params)
+	InRetValType BroadCast(ParamTypes... params) const
 	{
 		if (container)
 		{
@@ -137,7 +138,7 @@ public:
 		}
 	}
 
-	IIContainer<InRetValType, ParamTypes...>* container = nullptr;
+	TUniquePtr<IIContainer<InRetValType, ParamTypes...>> container;
 
 };
 

@@ -114,6 +114,16 @@ public:
 		return String.size() != 0 ? String.front() : TEXT('\0');
 	}
 
+	CORE_API size_t size() const
+	{
+		return String.size();
+	}
+
+	CORE_API auto Lenght() const
+	{
+		return String.size();
+	}
+
 	CORE_API bool Contains(const FString& Other)
 	{
 		return String.find(Other.String) != StringType::npos;
@@ -154,6 +164,7 @@ public:
 		Value = Buffer;
 		return Value;
 	}
+
 
 
 

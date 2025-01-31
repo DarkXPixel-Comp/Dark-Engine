@@ -66,5 +66,60 @@ protected:
 
 };
 
+template<typename AttributeMemberType>
+struct TDarkUIAttributeRef
+{
+private:
+	std::weak_ptr<const DUIWidget> Owner;
+	const AttributeMemberType& Attribute;
+};
+													
+struct FDarkUIAttributeNoInvalidationReason
+{
+	static constexpr EInvalidateWidgetReason GetInvalidationReason(const DUIWidget&) { return EInvalidateWidgetReason::None; }
+};																					
+
+
+class IDarkUIAttributeContainer
+{
+public:
+	virtual DUIWidget& GetContainerWidget() const = 0;
+	virtual FString GetContainerName() const = 0;
+	virtual uint32 GetContainerSortOrder() const = 0;
+protected:
+	DarkUI_API void RemoveContainerWidget(DUIWidget& Widget);
+	DarkUI_API void UpdateContainerSortOrder(DUIWidget& Widget);
+};
+
+
 template<typename ContainerType, typename InObjectType, typename InInvalidateReasonPredicate, typename InComparePredicateType, EDarkUIAttributeType InAttributeType>
-//class TDarkUIAttributeBase : 
+class TDarkUIAttributeBase : public FDarkUIAttributeImpl
+{
+public:
+	template<typename AttributeMemberType>
+	friend struct TDarkUIAttributeRef;
+
+	using ObjectType = InObjectType;
+
+	static const EDarkUIAttributeType AttributeType = InAttributeType;
+	static constexpr bool HasDefinedInvalidationReason = !std::is_same<InInvalidateReasonPredicate, FDarkUIAttributeNoInvalidationReason>::value;
+	static_assert(std::is_same<ContainerType, DUIWidget>::value || std::is_same<ContainerType, IDarkUIAttributeContainer>);
+
+public:
+	const ObjectType& Get() const
+	{
+		return Value;
+	}
+
+	void UpdateNow(ContainerType& Widget)
+	{
+
+	}
+
+
+
+private:
+	ObjectType Value;
+
+
+};
