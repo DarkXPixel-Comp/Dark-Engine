@@ -1,7 +1,9 @@
 #pragma once
-#include <vector>
-#include "Platform/Platform.h"
 #include <memory>
+#include <functional>
+#include <vector>
+
+#include "Platform/Platform.h"
 
 
 struct ArrayReserve
@@ -46,6 +48,32 @@ public:
 	constexpr decltype(auto) begin() { return _vector.begin(); }
 	constexpr decltype(auto) end() { return _vector.end(); }
 
+
+	FORCEINLINE bool Contains(const ElementType& Other) const
+	{
+		auto It = std::find(begin(), end(), Other);
+		return It != end();
+	}
+
+	FORCEINLINE bool Contains(std::function<bool(const ElementType&)> func) const
+	{
+		for (const auto& i : *this)
+		{
+			if (func(i))
+				return true;
+		}
+		return false;
+	}
+
+	FORCEINLINE void Sort()
+	{
+		std::sort(begin(), end());
+	}
+
+	FORCEINLINE void Sort(std::function<bool(const ElementType&, const ElementType&)> func)
+	{
+		std::sort(begin(), end(), func);
+	}
 
 	FORCEINLINE static constexpr SizeType GetTypeSize()
 	{

@@ -52,6 +52,7 @@ class IIContainer
 {
 public:
 	virtual InRetValType Call(ParamTypes...) = 0;
+	virtual IIContainer<InRetValType, ParamTypes...>* Copy() const = 0;
 
 };
 
@@ -60,6 +61,8 @@ class TMethodContainter : public IIContainer<InRetValType, ParamTypes...>
 {
 	using FFuncPtr = InRetValType(UserClass::*)(ParamTypes...);
 	using FuncPtr = std::function<InRetValType(ParamTypes...)>;
+	
+	TMethodContainter() = default;
 public:
 	TMethodContainter(UserClass* cl, FFuncPtr func) : uClass(cl), pFunc(func)
 	{
@@ -69,6 +72,14 @@ public:
 	TMethodContainter(UserClass* cl, FuncPtr func) : uClass(cl), pFunction(func)
 	{
 
+	}
+
+	TMethodContainter<UserClass, InRetValType, ParamTypes...>* Copy() const override
+	{
+		TMethodContainter<UserClass, InRetValType, ParamTypes...>* Result = new TMethodContainter<UserClass, InRetValType, ParamTypes...>();
+		Result->pFunc = pFunc;
+		Result->pFunction = pFunction;
+		Result->uClass = uClass;
 	}
 
 
@@ -91,9 +102,18 @@ class TFuncContainer : public IIContainer<InRetValType, ParamTypes...>
 	using FFuncPtr = InRetValType(*)(ParamTypes...);
 	using FuncPtr = std::function<InRetValType(ParamTypes...)>;
 
+	TFuncContainer() = default;
+
 public:
 	TFuncContainer(FFuncPtr func) : pFunc(func) {}
 	TFuncContainer(FuncPtr func) : ppFunc(func) {}
+	
+	IIContainer<InRetValType, ParamTypes...>* Copy() const override
+	{
+		TFuncContainer<InRetValType, ParamTypes...>* Result = new TFuncContainer<InRetValType, ParamTypes...>();
+		Result->pFunc = pFunc;
+		Result->ppFunc = ppFunc;
+	}
 
 	InRetValType Call(ParamTypes... params)
 	{
@@ -109,6 +129,25 @@ template <typename InRetValType, typename... ParamTypes>
 class TDelegate
 {
 public:
+	TDelegate() = default;
+	TDelegate(const TDelegate<InRetValType, ParamTypes...>& Other)
+	{
+		*this = Other;
+	}
+	TDelegate& operator=(const TDelegate<InRetValType, ParamTypes...>& Other)
+	{
+		if (Other.container)
+		{
+			container.reset(Other.container->Copy());
+		}
+		return *this;
+	}
+	TDelegate(TDelegate<InRetValType, ParamTypes...>&&) = default;
+	TDelegate& operator=(TDelegate<InRetValType, ParamTypes...>&& Other) = default;
+
+
+													   
+
 	const void Bind(InRetValType(*func)(ParamTypes...))
 	{
 		container = MakeUnique(new TFuncContainer<InRetValType, ParamTypes...>(func));
