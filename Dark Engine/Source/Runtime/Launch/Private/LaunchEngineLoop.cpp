@@ -10,6 +10,7 @@
 #include "optick.h"
 #include "Misc/Attribute.h"
 #include "Widgets/DWindow.h"
+#include "fmt/format.h"
 
 
 

@@ -2,6 +2,7 @@
 #include "Misc/VarArgs.h"
 #include "Containers/Array.h"
 #include "Platform/Platform.h"
+#include <format>
 
 FString::FString(const ANSICHAR* Other)
 {

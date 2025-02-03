@@ -175,8 +175,6 @@ public:
 	}
 	CORE_API static FString PrintFInternal(const TCHAR* Fmt, ...);
 
-
-
 private:
 	StringType String;
 

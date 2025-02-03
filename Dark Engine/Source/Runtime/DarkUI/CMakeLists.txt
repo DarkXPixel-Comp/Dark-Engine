@@ -1,4 +1,4 @@
-add_library(DarkUI)
+add_library(DarkUI STATIC)
 
 
 target_compile_features(DarkUI PUBLIC cxx_std_20)

@@ -55,6 +55,26 @@ public:
 		return It != end();
 	}
 
+	FORCEINLINE const ElementType* Find(const ElementType& Other) const
+	{
+		for (SizeType i = 0; i < Num(); ++i)
+		{
+			if (Other == _vector[i])
+				return GetData() + i;
+		}
+		return nullptr;
+	}
+
+	FORCEINLINE const ElementType* FindByPredicate(std::function<bool(const ElementType&)> func) const
+	{
+		for (SizeType i = 0; i < Num(); ++i)
+		{
+			if (func(_vector[i]))
+				return GetData() + i;
+		}
+		return nullptr;
+	}
+
 	FORCEINLINE bool Contains(std::function<bool(const ElementType&)> func) const
 	{
 		for (const auto& i : *this)
@@ -78,6 +98,16 @@ public:
 	FORCEINLINE static constexpr SizeType GetTypeSize()
 	{
 		return sizeof(ElementType);
+	}
+
+	FORCEINLINE int64 IndexOfByPredicate(std::function<bool(const ElementType&)> func) const
+	{
+		for (SizeType i = 0; i < Num(); ++i)
+		{
+			if (func)
+				return i;
+		}
+		return -1;
 	}
 
 	//std::vector<ElementType>::iterator begin()
