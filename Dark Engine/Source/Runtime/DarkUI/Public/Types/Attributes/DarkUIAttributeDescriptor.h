@@ -240,9 +240,9 @@ public:
 
 	DarkUI_API const FAttribute* FindMemberAttribute(uint32 AttributeOffset) const;
 
-	DarkUI_API const FAttribute* FindContainedAttribute(const FString ContainerName, uint32 AttributeOffset) const;
+	DarkUI_API const FAttribute* FindContainedAttribute(const FString& ContainerName, uint32 AttributeOffset) const;
 
-	DarkUI_API int32 IndexOfContainer(const FString& AttributeName) const;
+	DarkUI_API int32 IndexOfContainer(const FString& ContainerName) const;
 
 	DarkUI_API int32 IndexOfAttribute(const FString& AttributeName) const;
 
@@ -253,7 +253,7 @@ public:
 private:
 	DarkUI_API FAttribute* FindAttribute(const FString& AttributeName);
 
-	DarkUI_API FContainerInitializer AddContainer(const FString& AttributeName, uint32 Offset);
+	DarkUI_API FContainerInitializer AddContainer(const FString& ContainerName, uint32 Offset);
 
 	DarkUI_API FInitializer::FAttributeEntry AddMemberAttribute(const FString& AttributeName, uint32 Offset, FInvalidateWidgetReasonAttribute ReasonGetter);
 

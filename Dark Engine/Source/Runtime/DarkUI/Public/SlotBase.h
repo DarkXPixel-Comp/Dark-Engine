@@ -1,6 +1,7 @@
 #pragma once
 #include "Platform/Platform.h"
 #include "Memory/MemoryCore.h"
+#include <Widgets/InvalidateWidgetReason.h>
 
 
 
@@ -51,6 +52,16 @@ public:
 	DarkUI_API TSharedPtr<DUIWidget> DetachWidget()
 	{
 		return Widget;
+	}
+
+	DarkUI_API void Invalidate(EInvalidateWidgetReason InvalidateReason);
+
+protected:
+	template<typename TargetValueType, typename SourceValueType>
+	bool SetAttribute(TAttribute<TargetValueType>& TargetValue, const TAttribute<SourceValueType>& SourceValue, EInvalidateWidgetReason InvalidateReason)
+	{
+		//if(TargetValue.)
+		return false;
 	}
 
 

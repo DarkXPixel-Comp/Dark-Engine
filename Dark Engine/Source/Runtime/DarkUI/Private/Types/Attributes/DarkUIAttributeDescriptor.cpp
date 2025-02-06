@@ -102,7 +102,7 @@ void FDarkUIAttributeDescriptor::FContainerInitializer::OverrideInvalidationReas
 	Descriptor.OverrideInvalidationReason(ContainerName, AttributeName, Reason);
 }
 
-DarkUI_API void FDarkUIAttributeDescriptor::FContainerInitializer::OverrideOnValueChanged(const FString& AttributeName, ECallbackOverrideType OverrideType, FAttributeValueChangedDelegate Callback)
+ void FDarkUIAttributeDescriptor::FContainerInitializer::OverrideOnValueChanged(const FString& AttributeName, ECallbackOverrideType OverrideType, FAttributeValueChangedDelegate Callback)
 {
 	Descriptor.OverrideOnValueChanged(ContainerName, AttributeName, OverrideType, Callback);
 }
@@ -330,22 +330,22 @@ FDarkUIAttributeDescriptor::FContainerInitializer FDarkUIAttributeDescriptor::FI
 	return Descriptor.AddContainer(ContainerName, Offset);
 }
 
-DarkUI_API void FDarkUIAttributeDescriptor::FInitializer::OverrideInvalidationReason(const FString& AttributeName, const FInvalidateWidgetReasonAttribute& Reason)
+ void FDarkUIAttributeDescriptor::FInitializer::OverrideInvalidationReason(const FString& AttributeName, const FInvalidateWidgetReasonAttribute& Reason)
 {
 	Descriptor.OverrideInvalidationReason(TEXT(""), AttributeName, Reason);
 }
 
-DarkUI_API void FDarkUIAttributeDescriptor::FInitializer::OverrideInvalidationReason(const FString& AttributeName, FInvalidateWidgetReasonAttribute&& Reason)
+ void FDarkUIAttributeDescriptor::FInitializer::OverrideInvalidationReason(const FString& AttributeName, FInvalidateWidgetReasonAttribute&& Reason)
 {
 	Descriptor.OverrideInvalidationReason(TEXT(""), AttributeName, std::move(Reason));
 }
 
-DarkUI_API void FDarkUIAttributeDescriptor::FInitializer::OverrideOnValueChanged(const FString& AttributeName, ECallbackOverrideType OverrideType, FAttributeValueChangedDelegate Callback)
+ void FDarkUIAttributeDescriptor::FInitializer::OverrideOnValueChanged(const FString& AttributeName, ECallbackOverrideType OverrideType, FAttributeValueChangedDelegate Callback)
 {
 	Descriptor.OverrideOnValueChanged(TEXT(""), AttributeName, OverrideType, Callback);
 }
 
-DarkUI_API void FDarkUIAttributeDescriptor::FInitializer::SetAffectVisibility(const FString& AttributeName, bool bAffectVisibility)
+ void FDarkUIAttributeDescriptor::FInitializer::SetAffectVisibility(const FString& AttributeName, bool bAffectVisibility)
 {
 	FAttribute* Attribute = Descriptor.FindAttribute(AttributeName);
 	if (Attribute)
@@ -367,3 +367,179 @@ const FDarkUIAttributeDescriptor::FContainer* FDarkUIAttributeDescriptor::FindCo
 			return Other.GetName() == ContainerName;
 		});
 }
+
+const FDarkUIAttributeDescriptor::FAttribute* FDarkUIAttributeDescriptor::FindAttribute(const FString& AttributeName) const
+{
+	return Attributes.FindByPredicate([&AttributeName](const FAttribute& Other) { return Other.Name == AttributeName; });
+}
+
+const FDarkUIAttributeDescriptor::FAttribute* FDarkUIAttributeDescriptor::FindMemberAttribute(uint32 AttributeOffset) const
+{
+	return Attributes.FindByPredicate([AttributeOffset](const FAttribute& Other)
+		{
+			return Other.Offset == AttributeOffset &&
+				Other.AttributeType == EDarkUIAttributeType::Member;
+		});
+}
+
+const FDarkUIAttributeDescriptor::FAttribute* FDarkUIAttributeDescriptor::FindContainedAttribute(const FString& ContainerName, uint32 AttributeOffset) const
+{
+	return Attributes.FindByPredicate([&ContainerName, AttributeOffset](const FAttribute& Other) 
+		{
+			return Other.Offset == AttributeOffset &&
+				Other.AttributeType == EDarkUIAttributeType::Contained &&
+				Other.ContainerName == ContainerName;
+		});
+}
+
+int32 FDarkUIAttributeDescriptor::IndexOfContainer(const FString& ContainerName) const
+{
+	return Containers.IndexOfByPredicate([&ContainerName](const FContainer& Other) { return Other.GetName() == ContainerName; });
+}
+
+int32 FDarkUIAttributeDescriptor::IndexOfAttribute(const FString& AttributeName) const
+{
+	return Attributes.IndexOfByPredicate([&AttributeName](const FAttribute& Other) { return Other.Name == AttributeName; });
+}
+
+int32 FDarkUIAttributeDescriptor::IndexOfMemberAttribute(uint32 AttributeOffset) const
+{
+	return  Attributes.IndexOfByPredicate([AttributeOffset](const FAttribute& Other)
+		{
+			return Other.Offset == AttributeOffset &&
+				Other.AttributeType == EDarkUIAttributeType::Member; 
+		});;
+}
+
+int32 FDarkUIAttributeDescriptor::IndexOfContainedAttribute(const FString& ContainerName, uint32 AttributeOffset) const
+{
+	return Attributes.IndexOfByPredicate([&ContainerName, AttributeOffset](const FAttribute& Other)
+		{
+			return Other.Offset == AttributeOffset &&
+				Other.AttributeType == EDarkUIAttributeType::Contained &&
+				Other.ContainerName == ContainerName;
+		});;
+}
+
+FDarkUIAttributeDescriptor::FAttribute* FDarkUIAttributeDescriptor::FindAttribute(const FString& AttributeName)
+{
+	return Attributes.FindByPredicate([&AttributeName](const FAttribute& Other) { return Other.Name == AttributeName; });
+}
+
+FDarkUIAttributeDescriptor::FContainerInitializer FDarkUIAttributeDescriptor::AddContainer(const FString& ContainerName, uint32 Offset)
+{
+	const FContainer* Container = FindContainer(ContainerName);
+	if (!Container)
+	{
+		Containers.Emplace(ContainerName, Offset);
+	}
+	return FContainerInitializer(*this, ContainerName);
+}
+
+FDarkUIAttributeDescriptor::FInitializer::FAttributeEntry FDarkUIAttributeDescriptor::AddMemberAttribute(const FString& AttributeName, uint32 Offset, FInvalidateWidgetReasonAttribute ReasonGetter)
+{
+	int32 NewIndex = -1;
+	FAttribute const *Attribute = FindAttribute(AttributeName);
+	if (!Attribute)
+	{
+		NewIndex = Attributes.Emplace_GetIndex(AttributeName, Offset, std::move(ReasonGetter));
+	}
+	return FInitializer::FAttributeEntry(*this, NewIndex);
+}
+
+FDarkUIAttributeDescriptor::FContainerInitializer::FAttributeEntry FDarkUIAttributeDescriptor::AddContainedAttribute(const FString& ContainerName, const FString& AttributeName, uint32 Offset, FInvalidateWidgetReasonAttribute ReasonGetter)
+{
+	int32 NewIndex = -1;
+	FAttribute const *Attribute = FindAttribute(AttributeName);
+	if (!Attribute)
+	{
+		NewIndex = Attributes.Emplace_GetIndex(ContainerName, AttributeName, Offset, std::move(ReasonGetter));
+	}
+	return FContainerInitializer::FAttributeEntry(*this, ContainerName, NewIndex);
+}
+
+void FDarkUIAttributeDescriptor::OverrideInvalidationReason(const FString& ContainerName, const FString& AttributeName, FInvalidateWidgetReasonAttribute ReasonGetter)
+{
+	FAttribute* Attribute = FindAttribute(AttributeName);
+	if (Attribute && Attribute->ContainerName == ContainerName)
+	{
+		Attribute->InvalidationReason = std::move(ReasonGetter);
+	}
+
+}
+
+void FDarkUIAttributeDescriptor::OverrideOnValueChanged(const FString& ContainerName, const FString& AttributeName, ECallbackOverrideType OverrideType, FAttributeValueChangedDelegate Callback)
+{
+	FAttribute* Attribute = FindAttribute(AttributeName);
+	if (Attribute && Attribute->ContainerName == ContainerName)
+	{
+		switch (OverrideType)
+		{
+		case FDarkUIAttributeDescriptor::ECallbackOverrideType::ReplacePrevious:
+			Attribute->OnValueChanged = std::move(Callback);
+			break;
+		case FDarkUIAttributeDescriptor::ECallbackOverrideType::ExecuteAfterPrevious:
+		case FDarkUIAttributeDescriptor::ECallbackOverrideType::ExecuteBeforePrevious:
+			if (Attribute->OnValueChanged.IsBound() && Callback.IsBound())
+			{
+				FAttributeValueChangedDelegate Previous = Attribute->OnValueChanged;
+				Attribute->OnValueChanged.Bind([Previous{ std::move(Previous) }, Callback{ std::move(Callback) }, OverrideType](DUIWidget& Widget)
+					{
+						if (OverrideType == ECallbackOverrideType::ExecuteBeforePrevious)
+						{
+							Previous.BroadCast(Widget);
+						}
+						Callback.BroadCast(Widget);
+						if (OverrideType == ECallbackOverrideType::ExecuteAfterPrevious)
+						{
+							Previous.BroadCast(Widget);
+						}
+					});
+			}
+			else if (Callback.IsBound())
+			{
+				Attribute->OnValueChanged = std::move(Callback);
+			}
+			break;
+		}
+	}
+}
+
+void FDarkUIAttributeDescriptor::SetPrerequisite(const FString& ContainerName, FAttribute& Attribute, const FString& InPrerequisite)
+{
+	if (InPrerequisite == TEXT(""))
+	{
+		Attribute.Prerequisite = TEXT("");
+	}
+	else
+	{
+		const FAttribute* Prerequisite = FindAttribute(InPrerequisite);
+		if (Prerequisite && Prerequisite->ContainerName == ContainerName)
+		{
+			Attribute.Prerequisite = InPrerequisite;
+			
+			TArray<FString> Recursion;
+			Recursion.Reserve(Attributes.Num());
+			FAttribute const *CurrentAttribute = &Attribute;
+			while (CurrentAttribute->Prerequisite != TEXT(""))
+			{
+				if (Recursion.Contains(CurrentAttribute->Name))
+				{
+					Attribute.Prerequisite = TEXT("");
+					break;
+				}
+				Recursion.Add(CurrentAttribute->Name);
+				CurrentAttribute = FindAttribute(CurrentAttribute->Prerequisite);
+			}
+		}
+		else
+		{
+			Attribute.Prerequisite = TEXT("");
+		}
+	}
+}
+
+void FDarkUIAttributeDescriptor::SetAffectVisibility(FAttribute& Attribute, bool bUpdate)
+{
+	Attribute.bAffectVisibility = bUpdate;
+}	 

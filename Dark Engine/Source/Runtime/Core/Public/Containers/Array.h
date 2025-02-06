@@ -75,6 +75,16 @@ public:
 		return nullptr;
 	}
 
+	FORCEINLINE ElementType* FindByPredicate(std::function<bool(const ElementType&)> func)
+	{
+		for (SizeType i = 0; i < Num(); ++i)
+		{
+			if (func(_vector[i]))
+				return GetData() + i;
+		}
+		return nullptr;
+	}
+
 	FORCEINLINE bool Contains(std::function<bool(const ElementType&)> func) const
 	{
 		for (const auto& i : *this)
@@ -87,12 +97,12 @@ public:
 
 	FORCEINLINE void Sort()
 	{
-		std::sort(begin(), end());
+		//std::sort(begin(), end());
 	}
 
 	FORCEINLINE void Sort(std::function<bool(const ElementType&, const ElementType&)> func)
 	{
-		std::sort(begin(), end(), func);
+		//std::sort(begin(), end(), func);
 	}
 
 	FORCEINLINE static constexpr SizeType GetTypeSize()
@@ -131,6 +141,13 @@ public:
 	{
 		_vector.emplace_back(std::forward<ArgsType>(Args)...);
 		//return Last();
+	}
+
+	template<typename... ArgsType>
+	SizeType Emplace_GetIndex(ArgsType&& ...Args)
+	{
+		_vector.emplace_back(std::forward<ArgsType>(Args)...);
+		return GetSize() - 1;
 	}
 
 

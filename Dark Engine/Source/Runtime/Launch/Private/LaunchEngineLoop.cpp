@@ -10,7 +10,7 @@
 #include "optick.h"
 #include "Misc/Attribute.h"
 #include "Widgets/DWindow.h"
-#include "fmt/format.h"
+#include "Misc/Delegate.h"
 
 
 
@@ -64,6 +64,12 @@ int32 FEngineLoop::PreInit(const FString& CmdLine)
 	FString ErrorMsg;
 
 	DUIWindow wnd;
+
+	TDelegate<void> del;
+	del.Bind([]()
+		{
+			TArray<int32> vec;
+		});
 
 	//DUINew(DUIWindow);
 

@@ -4,6 +4,8 @@
 #include "Widgets/InvalidateWidgetReason.h"
 #include "Layout/BasicLayotWidgetSlot.h"
 
+#include <optional>
+
 class DUIWidget;
 
 class FChildren
@@ -38,6 +40,49 @@ public:
 
 	virtual TSharedPtr<DUIWidget> GetChildAt(int32 Index) = 0;
 	virtual TSharedPtr<const DUIWidget> GetChildAt(int32 Index) const = 0;
+
+protected:
+	struct FWidgetRef
+	{
+	private:
+		std::optional<TSharedPtr<DUIWidget>> WidgetCopy;
+		DUIWidget& WidgetReference;
+	public:
+		enum ECopyConstruct { CopyConstruct };
+		enum ERefConstruct { ReferenceConstruct };
+
+		FWidgetRef(ECopyConstruct, TSharedPtr<DUIWidget> InWidgetCopy) :
+			WidgetCopy(std::move(InWidgetCopy)),
+			WidgetReference(*WidgetCopy.value().get())
+		{}
+
+		FWidgetRef(ERefConstruct, DUIWidget& InWidgetRef) :
+			WidgetCopy(),
+			WidgetReference(InWidgetRef)
+		{}
+		FWidgetRef(const FWidgetRef& Other) : 
+			WidgetCopy(Other.WidgetCopy),
+			WidgetReference(WidgetCopy.has_value() ? *WidgetCopy.value().get() : Other.WidgetReference)
+		{}
+
+		FWidgetRef(FWidgetRef&& Other) :
+			WidgetCopy(std::move(Other.WidgetCopy)),
+			WidgetReference(WidgetCopy.has_value() ? *WidgetCopy.value().get() : Other.WidgetReference)
+		{}
+
+		FWidgetRef& operator=(const FWidgetRef&) = delete;
+		FWidgetRef& operator=(FWidgetRef&&) = delete;
+
+		DUIWidget& GetWidget() const
+		{
+			return WidgetReference;
+		}
+
+
+
+
+	};
+
 private:
 	FString Name;
 	DUIWidget* Owner;
@@ -60,6 +105,8 @@ public:
 	{
 
 	}
+
+	TSingleWidgetChildrenWithSlot(std::nullptr_t) = delete;
 
 public:
 	virtual int32 Num() const override
@@ -109,11 +156,23 @@ public:
 		return static_cast<T&>(*this);
 	}
 
+	T& Expose(T*& OutVarToInit)
+	{
+		OutVarToInit = static_cast<T*>(this);
+		return static_cast<T&>(*this);
+	}
+
 private:
-	//virtual const FSlotBase& GetSlotAt(int32 ChildIndex) const override
-	//{
-	//	return *this;
-	//}
+	/*virtual const FSlotBase& GetSlotAt(int32 ChildIndex) const override
+	{
+		return *this;
+	}
+
+	virtual FWidgetRef GetChildRefAt(int32 ChildIndex) override
+	{
+		return FWidgetRef(FWidgetRef::ReferenceConstruct, *this->GetWidget().Get());
+	}*/
+
 };
 
 class FSingleWidgetChildrenWithSlot : public TSingleWidgetChildrenWithSlot<FSingleWidgetChildrenWithSlot>
@@ -127,5 +186,8 @@ class TSingleWidgetChildrenWithBasicLayoutSlot :
 	public TSingleWidgetChildrenWithSlot<TSingleWidgetChildrenWithBasicLayoutSlot<InPaddingInvalidateReason>>,
 	public TPaddingSingleWidgetSlotMixin<TSingleWidgetChildrenWithBasicLayoutSlot<InPaddingInvalidateReason>, InPaddingInvalidateReason>
 {
+public:
+
+
 
 };

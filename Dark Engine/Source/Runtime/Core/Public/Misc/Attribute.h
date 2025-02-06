@@ -2,13 +2,14 @@
 #include <functional>
 #include "Misc/Delegate.h"
 
+
 template <typename T>
 class TAttribute
 {
 public:
-	using FGetter = std::function<T()>;
+	//using FGetter = std::function<T()>;
 
-	//DECLARE_DELEGATE_RetVal(T, FGetter);
+	DECLARE_DELEGATE_RetVal(T, FGetter);
 
 
 	TAttribute()
@@ -39,20 +40,20 @@ public:
 		, bIsSet(true)
 	{
 		//Getter.Bind(InUserObject, InMethod);
-		Getter = std::bind(InMethod, InUserObject);
+		Getter.Bind(InUserObject, InMethod);
 	}
 
 	template< typename OtherType >
 	void Set(const OtherType& InNewValue)
 	{
-		Getter = FGetter();
+		Getter.Unbind();
 		Value = InNewValue;
 		bIsSet = true;
 	}
 
 	void Set(T&& InNewValue)
 	{
-		Getter = FGetter();
+		Getter.Unbind();
 		Value = std::move(InNewValue);
 		bIsSet = true;
 	}
@@ -65,9 +66,9 @@ public:
 
 	const T& Get() const
 	{
-		if (Getter)
+		if (Getter.IsBound())
 		{
-			Value = Getter();
+			Value = Getter.BroadCast();
 		}
 
 		return Value;
@@ -90,6 +91,23 @@ public:
 		Getter = std::move(InGetter);
 	}
 
+	bool IsBound() const
+	{
+		return Getter.IsBound();
+	}
+
+	bool IdenticalTo(const TAttribute& InOther) const
+	{
+		const bool bIsBound = IsBound();
+
+		if (bIsBound == InOther.IsBound())
+		{
+			if (bIsBound)
+			{
+				//return Getter
+			}
+		}
+	}
 
 private:
 	mutable T Value;
