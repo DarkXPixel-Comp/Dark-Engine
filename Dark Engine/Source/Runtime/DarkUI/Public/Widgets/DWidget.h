@@ -29,14 +29,27 @@ public:
 
 	void MarkPrepassAsDirty() { bNeedsPrepass = true; }
 
+	FORCEINLINE bool IsVolatile() const { return bCachedVolatile; }
+
+	FORCEINLINE void CacheVoltatility()
+	{
+		bCachedVolatile = bForceVolatile || ComputeVolatility();
+	}
+
 protected:
 	DarkUI_API void DUIWidgetConstruct(const FDarkUIBaseNamedArgs& Args);
 
 	bool IsConstructed() const { return false; }
 
+	FORCEINLINE bool _InvalidateVolatility();
+
+	virtual bool ComputeVolatility() const { return false; }
+
 
 private:
 	bool bNeedsPrepass = false;
+	bool bCachedVolatile = true;
+	bool bForceVolatile = true;
 
 
 

@@ -26,7 +26,9 @@ DarkUI_API void DUIWidget::Invalidate(EInvalidateWidgetReason InvalidateReason)
 		InvalidateReason |= EInvalidateWidgetReason::Layout;
 	}
 
-	const bool bVolatilityChanged = EnumHasAnyFlags(InvalidateReason, EInvalidateWidgetReason::Volatility);
+	const bool bVolatilityChanged = EnumHasAnyFlags(InvalidateReason, EInvalidateWidgetReason::Volatility) ? _InvalidateVolatility() : false;
+
+
 
 
 }
@@ -38,4 +40,11 @@ void DUIWidget::DUIWidgetConstruct(const FDarkUIBaseNamedArgs& Args)
 
 
 
+}
+
+bool DUIWidget::_InvalidateVolatility()
+{
+	const bool bWasDirectlyVolatile = IsVolatile();
+	CacheVoltatility();
+	return bWasDirectlyVolatile != IsVolatile();
 }
