@@ -65,12 +65,6 @@ int32 FEngineLoop::PreInit(const FString& CmdLine)
 
 	DUIWindow wnd;
 
-	TDelegate<void> del;
-	del.Bind([]()
-		{
-			TArray<int32> vec;
-		});
-
 	//DUINew(DUIWindow);
 
 	if (!CheckFiles(ErrorMsg))

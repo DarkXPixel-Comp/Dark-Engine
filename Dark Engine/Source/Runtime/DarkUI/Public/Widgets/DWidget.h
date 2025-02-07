@@ -5,6 +5,7 @@
 #include "Layout/Geometry.h"
 
 #include "Math/Rect.h"
+#include "InvalidateWidgetReason.h"
 
 
 
@@ -24,9 +25,18 @@ public:
 
 	DarkUI_API virtual void Tick(const FGeometry& AllottedGeometry, const double InCurrentTime, const float InDeltaTime);
 
+	DarkUI_API void Invalidate(EInvalidateWidgetReason InvalidateReason);
+
+	void MarkPrepassAsDirty() { bNeedsPrepass = true; }
+
 protected:
 	DarkUI_API void DUIWidgetConstruct(const FDarkUIBaseNamedArgs& Args);
 
+	bool IsConstructed() const { return false; }
+
+
+private:
+	bool bNeedsPrepass = false;
 
 
 

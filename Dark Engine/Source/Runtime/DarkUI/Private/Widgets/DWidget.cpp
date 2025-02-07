@@ -5,6 +5,32 @@ void DUIWidget::Tick(const FGeometry& AllottedGeometry, const double InCurrentTi
 
 }
 
+DarkUI_API void DUIWidget::Invalidate(EInvalidateWidgetReason InvalidateReason)
+{
+	if (InvalidateReason == EInvalidateWidgetReason::None || !IsConstructed())
+	{
+		return;
+	}
+
+
+	if (EnumHasAnyFlags(InvalidateReason, EInvalidateWidgetReason::Prepass))
+	{
+		MarkPrepassAsDirty();
+		InvalidateReason |= EInvalidateWidgetReason::Layout;
+	}
+
+	if (EnumHasAnyFlags(InvalidateReason, EInvalidateWidgetReason::ChildOrder) || false)
+	{
+		MarkPrepassAsDirty();
+		InvalidateReason |= EInvalidateWidgetReason::Prepass;
+		InvalidateReason |= EInvalidateWidgetReason::Layout;
+	}
+
+	const bool bVolatilityChanged = EnumHasAnyFlags(InvalidateReason, EInvalidateWidgetReason::Volatility);
+
+
+}
+
 void DUIWidget::DUIWidgetConstruct(const FDarkUIBaseNamedArgs& Args)
 {
 	

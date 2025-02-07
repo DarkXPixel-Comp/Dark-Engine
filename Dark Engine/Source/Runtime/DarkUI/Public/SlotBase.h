@@ -2,6 +2,8 @@
 #include "Platform/Platform.h"
 #include "Memory/MemoryCore.h"
 #include <Widgets/InvalidateWidgetReason.h>
+#include "Misc/Attribute.h"
+
 
 
 
@@ -60,7 +62,20 @@ protected:
 	template<typename TargetValueType, typename SourceValueType>
 	bool SetAttribute(TAttribute<TargetValueType>& TargetValue, const TAttribute<SourceValueType>& SourceValue, EInvalidateWidgetReason InvalidateReason)
 	{
-		//if(TargetValue.)
+		if (!TargetValue.IdenticalTo(SourceValue))
+		{
+			const bool bWasBound = TargetValue.IsBound();
+			const bool bBoudlessChanged = bWasBound != SourceValue.IsBound();
+
+			TargetValue = SourceValue;
+			if (bBoudlessChanged)
+			{
+				InvalidateReason |= EInvalidateWidgetReason::Volatility;
+			}
+			Invalidate(InvalidateReason);
+			return true;
+
+		}
 		return false;
 	}
 

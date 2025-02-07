@@ -104,9 +104,14 @@ public:
 		{
 			if (bIsBound)
 			{
-				//return Getter
+				return Getter.GetHandle() == InOther.Getter.GetHandle();
+			}
+			else
+			{
+				return IsSet() == InOther.bIsSet() && Value == InOther.Value;
 			}
 		}
+		return false;
 	}
 
 private:

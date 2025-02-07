@@ -29,7 +29,7 @@ public:
 
 		bool IsBound() const
 		{
-			return Getter.container.get();
+			return Getter.IsBound();
 		}
 
 		EInvalidateWidgetReason Get(const class DUIWidget& Widget) const

@@ -1,12 +1,7 @@
 #include "Misc/Delegate.h"
 
-IContainer::IContainer()
+uint64 Core::Delegate::GenerateContainerId()
 {
-	static uint64 IdCounter = 0;
-	Id = IdCounter++;
-}
-
-uint64 IContainer::GetID() const
-{
-	return Id;
+	static uint64 CurrentId = 1;
+	return CurrentId++;
 }

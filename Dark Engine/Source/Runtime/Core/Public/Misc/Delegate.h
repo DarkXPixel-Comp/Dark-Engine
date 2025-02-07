@@ -41,58 +41,78 @@
 
 
 
-
-
-class IContainer
+namespace Core::Delegate
 {
-public:
-	IContainer();
-	virtual void Call() = 0;
-	virtual bool IsMethod() const = 0;
-	virtual bool IsFunction() const = 0;
-	virtual uint64 GetID() const final;
-private:
-	uint64 Id = 0;
-};
+	uint64 GenerateContainerId();
+}
+
 
 template<typename InRetValType, typename ...ParamTypes>
 class IIContainer
 {
+	//IIContainer()
+
 public:
+	IIContainer()
+	{
+		Id = Core::Delegate::GenerateContainerId();
+	}
+
+	IIContainer(const IIContainer& Other) : Id(Other.Id)
+	{}
+
+	virtual ~IIContainer() {}
+
 	virtual InRetValType Call(ParamTypes...) = 0;
 	virtual IIContainer<InRetValType, ParamTypes...>* Copy() const = 0;
+	uint64 GetId() const
+	{
+		return Id;
+	}
+
+private:
+	uint64 Id;
 };
 
 template <typename UserClass, typename InRetValType, typename... ParamTypes>
-class TMethodContainter : public IIContainer<InRetValType, ParamTypes...>
+class TMethodContainer : public IIContainer<InRetValType, ParamTypes...>
 {
 	using FFuncPtr = InRetValType(UserClass::*)(ParamTypes...);
 	using FuncPtr = std::function<InRetValType(ParamTypes...)>;
 	
-	TMethodContainter() = default;
+	TMethodContainer() = default;
 public:
-	TMethodContainter(UserClass* cl, FFuncPtr func) : uClass(cl), pFunc(func)
+	TMethodContainer(UserClass* cl, FFuncPtr func) : uClass(cl), pFunc(func)
 	{
 
 	}
 
-	TMethodContainter(UserClass* cl, FuncPtr func) : uClass(cl), pFunction(func)
+	TMethodContainer(UserClass* cl, FuncPtr func) : uClass(cl), pFunction(func)
 	{
 
 	}
 
-	bool operator==(const TMethodContainter& Other)
+	TMethodContainer(const TMethodContainer& Other)
+		: uClass(Other.uClass), pFunc(Other.pFunc), IIContainer<InRetValType, ParamTypes...>(Other)
+	{}
+
+	TMethodContainer(TMethodContainer&& Other) : IIContainer<InRetValType, ParamTypes...>(std::move(Other))
+	{
+		uClass = Other.uClass;
+		pFunc = Other.pFunc;
+		Other.uClass = nullptr;
+		Other.pFunc = nullptr;
+	}
+
+	bool operator==(const TMethodContainer& Other)
 	{
 		return pFunc == Other.pFunc && uClass == Other.uClass;
 	}
 
-	TMethodContainter<UserClass, InRetValType, ParamTypes...>* Copy() const override
+	TMethodContainer<UserClass, InRetValType, ParamTypes...>* Copy() const override
 	{
-		TMethodContainter<UserClass, InRetValType, ParamTypes...>* Result = new TMethodContainter<UserClass, InRetValType, ParamTypes...>();
-		Result->pFunc = pFunc;
-		Result->pFunction = pFunction;
-		Result->uClass = uClass;
-		return Result;
+		//TMethodContainer<UserClass, InRetValType, ParamTypes...>* Result = new TMethodContainer<UserClass, InRetValType, ParamTypes...>();
+		return new TMethodContainer<UserClass, InRetValType, ParamTypes...>(*this);
 	}
 
 	virtual FFuncPtr GetHandle()
@@ -113,8 +133,6 @@ public:
 	{
 		return (uClass->*pFunc)(params...);
 	}
-
-
 private:
 	FuncPtr pFunction;
 	FFuncPtr pFunc;
@@ -124,31 +142,31 @@ private:
 template<typename InRetValType, typename... ParamTypes>
 class TFuncContainer : public IIContainer<InRetValType, ParamTypes...>
 {
-	using FFuncPtr = InRetValType(*)(ParamTypes...);
 	using FuncPtr = std::function<InRetValType(ParamTypes...)>;
 
 	TFuncContainer() = default;
 
 public:
-	TFuncContainer(FFuncPtr func) : pFunc(func) {}
 	TFuncContainer(FuncPtr func) : ppFunc(func) {}
 
-	bool operator==(const TFuncContainer& Other)
+	TFuncContainer(const TFuncContainer& Other) : ppFunc(Other.ppFunc), IIContainer<InRetValType, ParamTypes...>(Other)
 	{
-		return pFunc ? pFunc == Other.pFunc ? Other.pFunc : false : ppFunc == Other.ppFunc ? Other.ppFunc : false;
 	}
-	
-	IIContainer<InRetValType, ParamTypes...>* Copy() const override
+
+	TFuncContainer(TFuncContainer&& Other) : ppFunc(std::move(Other.ppFunc)), IIContainer<InRetValType, ParamTypes...>(std::move(Other))
 	{
-		TFuncContainer<InRetValType, ParamTypes...>* Result = new TFuncContainer<InRetValType, ParamTypes...>();
-		Result->pFunc = pFunc;
-		Result->ppFunc = ppFunc;
-		return Result;
+
+	}
+
+	
+	TFuncContainer<InRetValType, ParamTypes...>* Copy() const override
+	{
+		return new TFuncContainer<InRetValType, ParamTypes...>(*this);
 	}
 
 	InRetValType Call(ParamTypes... params)
 	{
-		return pFunc ? pFunc(params...) : ppFunc(params...);
+		return ppFunc(params...);
 	}
 
 	virtual bool IsMethod() const
@@ -161,7 +179,6 @@ public:
 	}
 
 private:
-	FFuncPtr pFunc = nullptr;
 	FuncPtr ppFunc;
 };
 
@@ -190,15 +207,9 @@ public:
 		return container != nullptr;
 	}
 
-	void Bind(InRetValType(*func)(ParamTypes...))
+	int64 GetHandle() const
 	{
-		container = MakeUnique(new TFuncContainer<InRetValType, ParamTypes...>(func));
-	}
-
-	template<typename Func, typename... ParamTypes>
-	void Bind(Func&& func, ParamTypes&&... Vars)
-	{
-		container = MakeUnique(new TFuncContainer<Func, Vars...>(std::forward<Func>(func)));
+		return container ? container->GetId() : 0;
 	}
 
 	void Bind(std::function<InRetValType(ParamTypes...)> func)
@@ -210,7 +221,7 @@ public:
 	template<typename UserClass>
 	void Bind(UserClass* inUserObject, InRetValType(UserClass::* func)(ParamTypes...))
 	{
-		container = MakeUnique(new TMethodContainter<UserClass, InRetValType, ParamTypes...>(inUserObject, func));
+		container = MakeUnique(new TMethodContainer<UserClass, InRetValType, ParamTypes...>(inUserObject, func));
 
 	}
 
@@ -232,6 +243,7 @@ public:
 		}
 	}
 
+private:
 	TUniquePtr<IIContainer<InRetValType, ParamTypes...>> container;
 };
 
@@ -261,7 +273,7 @@ public:
 	template<typename UserClass>
 	const void Bind(UserClass* inUserObject, InRetValType(UserClass::* func)(ParamTypes...))
 	{
-		IIContainer<InRetValType, ParamTypes...>* temp = new TMethodContainter<UserClass, InRetValType, ParamTypes...>(inUserObject, func);
+		IIContainer<InRetValType, ParamTypes...>* temp = new TMethodContainer<UserClass, InRetValType, ParamTypes...>(inUserObject, func);
 
 		containers->Push(temp);
 	}
