@@ -40,5 +40,9 @@ public:
 
 	static CORE_API FString ProjectContentDir();
 
+	static CORE_API bool FileExists(const FString& Path);
+
+	static CORE_API FString ConvertRelativeToFullPath(const FString& FileName);
+
 	static CORE_API FString CombineDir(FString Str1, FString Str2);
 };

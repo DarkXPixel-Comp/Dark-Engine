@@ -103,6 +103,7 @@ endfunction()
 
 #Includes
 include("${CMAKE_CURRENT_SOURCE_DIR}/cmake/CPM.cmake")
+set(CPM_SOURCE_CACHE "${CMAKE_CURRENT_SOURCE_DIR}/Dark Engine/Intermediate/CPM/")
 
 #Vars
 set(PROJECT_PREFIX "NewLife")
@@ -115,7 +116,6 @@ if(MSVC AND WIN32 AND NOT MSVC_VERSION VERSION_LESS 142)
 endif()
 #
 
-
 #Dark Engine
 project("Dark Engine" VERSION 0.1.11.0)
 
@@ -123,5 +123,6 @@ add_compile_definitions(UBT_COMPILED_PLATFORM=Windows ROOT_DIR="${PROJECT_SOURCE
 
 #Output folders
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "$<0:>${PROJECT_SOURCE_DIR}/Dark Engine/Binaires") # 
+set(CMAKE_BINARY_DIR "${PROJECT_SOURCE_DIR}/Dark Engine/Binaires")
 add_subdirectory("Dark Engine")
 

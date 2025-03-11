@@ -11,6 +11,9 @@
 #include "Misc/Attribute.h"
 #include "Widgets/DWindow.h"
 #include "Misc/Delegate.h"
+#include "physfs.h"
+#include "Modules/ModuleManager.h"
+#include "Windows/WindowsPlatformProcess.h"
 
 
 
@@ -48,22 +51,29 @@ static int32 CheckFiles(FString& AdditionalErrorMsg)
 }
 
 
-class TTEST
+class FModuleStaticTest : public IModule
 {
-public:
-	int Getter() const
+	virtual void StartModule() override
 	{
-		return 7;
+		FPlatformMisc::CreateMessageBoxError(TEXT("1"), TEXT("2"));
 	}
 };
 
+IMPLEMENT_STATIC_MODULE(FModuleStaticTest, StaticTest);
 
 int32 FEngineLoop::PreInit(const FString& CmdLine)
 {
 	OPTICK_EVENT("PreInit");
+
 	FString ErrorMsg;
 
 	DUIWindow wnd;
+
+	FString s = FPlatformProcess::GetModulesDirectory();
+	
+	std::unordered_map<FString, FString> test;
+
+	IModule* h = FModuleManager::Get().GetOrLoadModule(TEXT("OptickCore"));
 
 	//DUINew(DUIWindow);
 

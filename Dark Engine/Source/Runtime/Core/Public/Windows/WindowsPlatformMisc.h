@@ -1,6 +1,7 @@
 #pragma once
 #include "GenericPlatform/GenericPlatformMisc.h"
 #include "Windows/WindowsGlobals.h"
+#include <filesystem>
 
 struct FWindowsPlatformMisc : public FGenericPlatformMisc
 {
@@ -27,6 +28,32 @@ struct FWindowsPlatformMisc : public FGenericPlatformMisc
 		return Path;
 	}
 
+	static void NormalizeWindowsPath(FString& Path)
+	{
+		std::filesystem::absolute(*Path);
+
+
+
+		for (auto& Char : Path)
+		{
+			if (Char == TEXT('/'))
+			{
+				Char = TEXT('\\');
+			}
+		}
+	}
+
+	static CORE_API bool FileExists(const FString& InPath)
+	{
+		FString Path = InPath;
+		NormalizeWindowsPath(Path);
+		DWORD Result = GetFileAttributesW(*Path);
+		if (Result != 0xFFFFFFFF && !(Result & FILE_ATTRIBUTE_DIRECTORY))
+		{
+			return true;
+		}
+		return false;
+	}
 
 	static CORE_API bool CreateMessageBoxError(const TCHAR* Text, const TCHAR* Caption)
 	{

@@ -62,3 +62,16 @@ CORE_API FString FPaths::EngineShaderDir()
 {
 	return EngineDir() + TEXT("Shaders/");
 }
+
+CORE_API bool FPaths::FileExists(const FString& Path)
+{
+	return FPlatformMisc::FileExists(Path);
+}
+
+CORE_API FString FPaths::ConvertRelativeToFullPath(const FString& InFileName)
+{
+	FString FileName = std::filesystem::absolute(*InFileName).generic_wstring();
+
+	FPlatformMisc::NormalizeWindowsPath(FileName);
+	return FileName;
+}

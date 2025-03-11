@@ -2,6 +2,22 @@
 #include "Platform/Platform.h"
 
 
+class FDarkUIInvalidationRoot
+{
+
+};
+
+struct FDarkUIInvalidationRootHandle
+{
+public:
+	FDarkUIInvalidationRootHandle();
+	FDarkUIInvalidationRootHandle(int32 UniqueID);
+
+	int32 GetUniqueID() const;
+
+private:
+};
+
 struct FDarkUIInvalidationWidgetIndex
 {
 	friend class FDarkUIInvalidationWidgetList;
@@ -26,4 +42,9 @@ class FWidgetProxyHandle
 	friend class DUIWidget;
 public:
 	FWidgetProxyHandle() {}
+
+	DarkUI_API bool IsValid(const DUIWidget& Widget) const;
+	DarkUI_API bool IsValid(const DUIWidget* Widget) const;
+
+
 };

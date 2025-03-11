@@ -243,6 +243,15 @@ public:
 		}
 	}
 
+
+	template<typename UserClass>
+	static TDelegate<InRetValType, ParamTypes...> Create(UserClass* InUserObject, InRetValType(UserClass::* func)(ParamTypes...))
+	{
+		TDelegate<InRetValType, ParamTypes...> Delegate;
+		Delegate.Bind(InUserObject, func);
+		return Delegate;
+	}
+
 private:
 	TUniquePtr<IIContainer<InRetValType, ParamTypes...>> container;
 };

@@ -103,7 +103,7 @@ public:
 
 	static const EDarkUIAttributeType AttributeType = InAttributeType;
 	static constexpr bool HasDefinedInvalidationReason = !std::is_same<InInvalidateReasonPredicate, FDarkUIAttributeNoInvalidationReason>::value;
-	static_assert(std::is_same<ContainerType, DUIWidget>::value || std::is_same<ContainerType, IDarkUIAttributeContainer>);
+	static_assert(std::is_same<ContainerType, DUIWidget>::value || std::is_same<ContainerType, IDarkUIAttributeContainer>::value);
 
 public:
 	const ObjectType& Get() const

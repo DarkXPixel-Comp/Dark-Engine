@@ -2,22 +2,22 @@
 	"configurations": [
 		{
 			"buildCommandArgs": "",
-			"buildRoot": "${projectDir}\\Dark Engine\\Intermediate\\Build\\${configurationType}",
 			"cmakeCommandArgs": "",
 			"configurationType": "Debug",
 			"ctestCommandArgs": "",
 			"generator": "Ninja",
-			"inheritEnvironments": [ "msvc_x64" ],
+			"inheritEnvironments": [ "msvc_x64_x64" ],
 			"installRoot": "${projectDir}\\Dark Engine\\Binaires",
 			"intelliSenseMode": "windows-msvc-x64",
-			"name": "Win64-Debug"
+			"name": "Win64-Debug",
+			"buildRoot": "${projectDir}\\Dark Engine\\Intermediate\\Build\\${configurationType}"
 		},
 		{
 			"name": "Win64-Release",
 			"generator": "Ninja",
 			"configurationType": "Release",
 			"buildRoot": "${projectDir}\\Dark Engine\\Intermediate\\Build\\${configurationType}",
-			"installRoot": "${projectDir}\\Dark Engine",
+			"installRoot": "${projectDir}\\Dark Engine\\Binaires",
 			"cmakeCommandArgs": "",
 			"buildCommandArgs": "",
 			"ctestCommandArgs": "",

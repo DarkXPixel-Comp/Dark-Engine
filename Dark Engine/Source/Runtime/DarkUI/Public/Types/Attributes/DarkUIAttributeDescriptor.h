@@ -227,7 +227,7 @@ public:
 		FDarkUIAttributeDescriptor& Descriptor;
 	};
 
-	int32 GetAttributeNum() const
+	uint64 GetAttributeNum() const
 	{
 		return Attributes.Num();
 	}

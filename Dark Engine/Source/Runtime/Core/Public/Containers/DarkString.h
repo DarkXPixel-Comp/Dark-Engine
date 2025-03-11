@@ -124,9 +124,37 @@ public:
 		return String.size();
 	}
 
-	CORE_API bool Contains(const FString& Other)
+	CORE_API bool Contains(const FString& Other) const
 	{
 		return String.find(Other.String) != StringType::npos;
+	}
+
+	CORE_API decltype(auto) begin()	const
+	{
+		return String.begin();
+	}
+
+	CORE_API decltype(auto) begin()
+	{
+		return String.begin();
+	}
+
+	CORE_API decltype(auto) end()
+	{
+		return String.end();
+	}
+
+	CORE_API decltype(auto) end() const
+	{
+		return String.end();
+	}
+
+	CORE_API bool ContainsWithoutCase(const FString& Other) const
+	{
+		StringType Temp0(Lenght(), TEXT('\0')); std::transform(begin(), end(), Temp0.begin(), ::towlower);
+		StringType Temp1(Other.Lenght(), TEXT('\0')); std::transform(Other.begin(), Other.end(), Temp1.begin(), ::towlower);
+
+		return Temp0.find(Temp1) != StringType::npos;
 	}
 
 	CORE_API static int32 FromString(int32& Value, const TCHAR* Buffer)

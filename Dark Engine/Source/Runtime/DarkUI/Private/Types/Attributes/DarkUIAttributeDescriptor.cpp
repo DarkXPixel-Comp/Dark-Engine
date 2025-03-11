@@ -178,7 +178,7 @@ FDarkUIAttributeDescriptor::FInitializer::~FInitializer()
 
 		if (Attribute.ContainerName != TEXT(""))
 		{
-			const int32 FoundIndex = Descriptor.Containers.IndexOfByPredicate([ContainerName = Attribute.ContainerName](const FContainer& Other) -> bool
+			const int32 FoundIndex = (const int32)Descriptor.Containers.IndexOfByPredicate([ContainerName = Attribute.ContainerName](const FContainer& Other) -> bool
 				{
 					return Other.GetName() == ContainerName;
 				});
@@ -196,7 +196,7 @@ FDarkUIAttributeDescriptor::FInitializer::~FInitializer()
 		if (Attribute.Prerequisite != TEXT(""))
 		{
 			const FString Prerequisite = Attribute.Prerequisite;
-			const int32 PrerequisiteIndex = Descriptor.Attributes.IndexOfByPredicate([&Prerequisite](const FAttribute& Other) -> bool
+			const int32 PrerequisiteIndex = (const int32)Descriptor.Attributes.IndexOfByPredicate([&Prerequisite](const FAttribute& Other) -> bool
 				{
 					return Other.GetName() == Prerequisite;
 				});
@@ -394,17 +394,17 @@ const FDarkUIAttributeDescriptor::FAttribute* FDarkUIAttributeDescriptor::FindCo
 
 int32 FDarkUIAttributeDescriptor::IndexOfContainer(const FString& ContainerName) const
 {
-	return Containers.IndexOfByPredicate([&ContainerName](const FContainer& Other) { return Other.GetName() == ContainerName; });
+	return (int32)Containers.IndexOfByPredicate([&ContainerName](const FContainer& Other) { return Other.GetName() == ContainerName; });
 }
 
 int32 FDarkUIAttributeDescriptor::IndexOfAttribute(const FString& AttributeName) const
 {
-	return Attributes.IndexOfByPredicate([&AttributeName](const FAttribute& Other) { return Other.Name == AttributeName; });
+	return (int32)Attributes.IndexOfByPredicate([&AttributeName](const FAttribute& Other) { return Other.Name == AttributeName; });
 }
 
 int32 FDarkUIAttributeDescriptor::IndexOfMemberAttribute(uint32 AttributeOffset) const
 {
-	return  Attributes.IndexOfByPredicate([AttributeOffset](const FAttribute& Other)
+	return (int32)Attributes.IndexOfByPredicate([AttributeOffset](const FAttribute& Other)
 		{
 			return Other.Offset == AttributeOffset &&
 				Other.AttributeType == EDarkUIAttributeType::Member; 
@@ -413,7 +413,7 @@ int32 FDarkUIAttributeDescriptor::IndexOfMemberAttribute(uint32 AttributeOffset)
 
 int32 FDarkUIAttributeDescriptor::IndexOfContainedAttribute(const FString& ContainerName, uint32 AttributeOffset) const
 {
-	return Attributes.IndexOfByPredicate([&ContainerName, AttributeOffset](const FAttribute& Other)
+	return (int32)Attributes.IndexOfByPredicate([&ContainerName, AttributeOffset](const FAttribute& Other)
 		{
 			return Other.Offset == AttributeOffset &&
 				Other.AttributeType == EDarkUIAttributeType::Contained &&
@@ -436,13 +436,14 @@ FDarkUIAttributeDescriptor::FContainerInitializer FDarkUIAttributeDescriptor::Ad
 	return FContainerInitializer(*this, ContainerName);
 }
 
+
 FDarkUIAttributeDescriptor::FInitializer::FAttributeEntry FDarkUIAttributeDescriptor::AddMemberAttribute(const FString& AttributeName, uint32 Offset, FInvalidateWidgetReasonAttribute ReasonGetter)
 {
 	int32 NewIndex = -1;
 	FAttribute const *Attribute = FindAttribute(AttributeName);
 	if (!Attribute)
 	{
-		NewIndex = Attributes.Emplace_GetIndex(AttributeName, Offset, std::move(ReasonGetter));
+		NewIndex = (int32)Attributes.Emplace_GetIndex(AttributeName, Offset, std::move(ReasonGetter));
 	}
 	return FInitializer::FAttributeEntry(*this, NewIndex);
 }
@@ -453,7 +454,7 @@ FDarkUIAttributeDescriptor::FContainerInitializer::FAttributeEntry FDarkUIAttrib
 	FAttribute const *Attribute = FindAttribute(AttributeName);
 	if (!Attribute)
 	{
-		NewIndex = Attributes.Emplace_GetIndex(ContainerName, AttributeName, Offset, std::move(ReasonGetter));
+		NewIndex = (int32)Attributes.Emplace_GetIndex(ContainerName, AttributeName, Offset, std::move(ReasonGetter));
 	}
 	return FContainerInitializer::FAttributeEntry(*this, ContainerName, NewIndex);
 }
