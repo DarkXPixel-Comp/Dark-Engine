@@ -51,16 +51,6 @@ static int32 CheckFiles(FString& AdditionalErrorMsg)
 }
 
 
-class FModuleStaticTest : public IModule
-{
-	virtual void StartModule() override
-	{
-		FPlatformMisc::CreateMessageBoxError(TEXT("1"), TEXT("2"));
-	}
-};
-
-IMPLEMENT_STATIC_MODULE(FModuleStaticTest, StaticTest);
-
 int32 FEngineLoop::PreInit(const FString& CmdLine)
 {
 	OPTICK_EVENT("PreInit");
@@ -69,13 +59,7 @@ int32 FEngineLoop::PreInit(const FString& CmdLine)
 
 	DUIWindow wnd;
 
-	FString s = FPlatformProcess::GetModulesDirectory();
-	
-	std::unordered_map<FString, FString> test;
-
-	IModule* h = FModuleManager::Get().GetOrLoadModule(TEXT("OptickCore"));
-
-	//DUINew(DUIWindow);
+	IModule* h = FModuleManager::Get().GetOrLoadModule(TEXT("Package"));
 
 	if (!CheckFiles(ErrorMsg))
 	{

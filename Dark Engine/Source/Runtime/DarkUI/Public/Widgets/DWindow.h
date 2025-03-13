@@ -15,7 +15,7 @@ public:
 
 
 public:
-	DarkUI_API void Construct(const FArguments& InArgs);
+	DARKUI_API void Construct(const FArguments& InArgs);
 
 
 

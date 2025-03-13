@@ -6,7 +6,7 @@
 
 class DUICompoundWidget : public DUIWidget
 {
-	DUI_DECLARE_WIDGET_API(DUICompoundWidget, DUIWidget, DarkUI_API);
+	DUI_DECLARE_WIDGET_API(DUICompoundWidget, DUIWidget, DARKUI_API);
 
 public:
 	const FVector2d GetContentScale() const
@@ -21,7 +21,7 @@ public:
 
 
 protected:
-	DarkUI_API DUICompoundWidget() {}
+	DARKUI_API DUICompoundWidget() {}
 
 private:
 	FVector2d ContentScale;

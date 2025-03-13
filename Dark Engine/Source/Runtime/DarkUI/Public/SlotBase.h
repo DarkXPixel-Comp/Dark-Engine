@@ -13,15 +13,15 @@ class FChildren;
 class FSlotBase
 {
 public:
-	DarkUI_API FSlotBase();
-	DarkUI_API FSlotBase(const FChildren& InParent);
-	DarkUI_API FSlotBase(TSharedPtr<DUIWidget>& InWidget);
+	DARKUI_API FSlotBase();
+	DARKUI_API FSlotBase(const FChildren& InParent);
+	DARKUI_API FSlotBase(TSharedPtr<DUIWidget>& InWidget);
 
 	FSlotBase(const FSlotBase&) = delete;
 
 	FSlotBase& operator=(const FSlotBase) = delete;
 
-	DarkUI_API virtual ~FSlotBase();
+	DARKUI_API virtual ~FSlotBase();
 
 public:
 	struct FSlotArguments {};
@@ -32,9 +32,9 @@ public:
 		return Owner;
 	}
 
-	DarkUI_API DUIWidget* GetOwnerWidget() const;
+	DARKUI_API DUIWidget* GetOwnerWidget() const { return nullptr; }
 
-	DarkUI_API void SetOwner(const FChildren& Children);
+	DARKUI_API void SetOwner(const FChildren& Children);
 
 	void AttachWidget(TSharedPtr<DUIWidget>&& InWidget)
 	{
@@ -51,12 +51,12 @@ public:
 		return Widget;
 	}
 
-	DarkUI_API TSharedPtr<DUIWidget> DetachWidget()
+	DARKUI_API TSharedPtr<DUIWidget> DetachWidget()
 	{
 		return Widget;
 	}
 
-	DarkUI_API void Invalidate(EInvalidateWidgetReason InvalidateReason);
+	DARKUI_API void Invalidate(EInvalidateWidgetReason InvalidateReason);
 
 protected:
 	template<typename TargetValueType, typename SourceValueType>

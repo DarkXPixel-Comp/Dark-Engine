@@ -1,6 +1,9 @@
 #pragma once
 #include "Containers/DarkString.h"
 #include "PackageFormat.h"
+#include "Modules/Module.h"
+
+PACKAGE_API IModule* InitializeModule();
 
 
 

@@ -1,8 +1,10 @@
 #pragma once
 #include "Containers/DarkString.h"
+#include "Containers/Array.h"
 #include "Windows/WindowsIncludes.h"
 #include "WindowsGlobals.h"
 #include <filesystem>
+#include <set>
 
 
 static TArray<FString> DllDirectoryStack;
@@ -16,15 +18,40 @@ struct FWindowsPlatformProcess
 
 		if (std::filesystem::directory_entry(*FileName).exists())
 		{
-			void* Handle = nullptr;
-			if (Handle = GetModuleHandle(*FileName));
+			HMODULE Handle = GetModuleHandleW(*FileName);
+			if (Handle)
 			{
 				return Handle;
 			}
 
+			TArray<FString> ImportFileNames;
+			std::set<FString> VisitedImportNames;
+			ResolveMissingImportsRecursive(*FileName, SearchPaths, ImportFileNames, VisitedImportNames);
+
+			for (int32 i = 0; i < ImportFileNames.Num(); ++i)
+			{
+				const FString ImportFileName = ImportFileNames[i];
+				if (!GetModuleHandleW(*ImportFileName))
+				{
+					return LoadLibraryW(*ImportFileName);
+				}
+			}
 		}
+		FString FullFileName = FileName;
+		return LoadLibraryW(*FullFileName);
+	}
 
+	static void ResolveMissingImportsRecursive(const FString& FileName, const TArray<FString>& SearchPaths, TArray<FString> ImportFileNames, std::set<FString>& VisitedImportNames);
 
+	static bool ReadLibraryImports(const FString& FileName, TArray<FString>& ImportNames);
+
+	static bool ResolveImport(const FString& Name, const TArray<FString>& SearchPaths, FString& OutFileName);
+
+	static bool ReadLibrartImportsFromMemory(const IMAGE_DOS_HEADER* Header, TArray<FString>& ImportNames);
+
+	static void FreeDllHandle(void* DllHandle)
+	{
+		FreeLibrary((HMODULE)DllHandle);
 	}
 
 	static void* GetDllExport(void* DllHandle, const FString& ProcName)

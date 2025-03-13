@@ -3,9 +3,10 @@
 #include "Platform/PlatformProcess.h"
 #include <filesystem>
 
-std::unordered_map<FString, FDynamicModuleRegistrant*> GMapDynamicModuleRegistrants;
+//CORE_API std::unordered_map<FString, FDynamicModuleRegistrant*> GMapDynamicModuleRegistrants;
+FDynamicModuleRegistrant* GFirstModuleRegistrant;
 
-CORE_API FModuleManager& FModuleManager::Get()
+FModuleManager& FModuleManager::Get()
 {
 	static FModuleManager ModuleManager;
 	return ModuleManager;
@@ -94,15 +95,37 @@ CORE_API IModule* FModuleManager::GetOrLoadModule(const FString& InModuleName)
 			FDynamicModuleRegistrant::FInitializerModuleFunction InitializerFunction = FDynamicModuleRegistrant::FindModule(InModuleName);
 			if (!InitializerFunction)
 			{
-				//InitializerFunction = 
+				InitializerFunction = (FDynamicModuleRegistrant::FInitializerModuleFunction)FPlatformProcess::GetDllExport(FoundModulePtr->Handle, TEXT("InitializeModule"));
+			}
+
+			if (InitializerFunction)
+			{
+				if (FoundModulePtr->Module)
+				{
+					LoadedModule = FoundModulePtr->Module.get();
+				}
+				else
+				{
+					if (FoundModulePtr->Module = MakeUnique<IModule>(InitializerFunction()))
+					{
+						FoundModulePtr->Module->StartModule();
+
+						FoundModulePtr->bIsReady = true;
+						LoadedModule = FoundModulePtr->Module.get();
+					}
+					else
+					{
+						FPlatformProcess::FreeDllHandle(FoundModulePtr->Handle);
+					}
+				}
+				
 			}
 		}
 
 
 	}
 
-
-	return nullptr;
+	return LoadedModule;
 }
 
 CORE_API void FModuleManager::AddModuleToModulesList(const FString& InModuleName, TSharedPtr<FModuleManager::FModuleInfo>& ModuleInfo)
@@ -171,16 +194,41 @@ FDynamicModuleRegistrant::FDynamicModuleRegistrant(const FString& InName, FIniti
 	Name(InName),
 	Function(InFunction)
 {
-	GMapDynamicModuleRegistrants.emplace(Name, this);
+	//GMapDynamicModuleRegistrants.emplace(InName, this);
+	
+	Prev = nullptr;
+	Next = GFirstModuleRegistrant;
+
+	if (GFirstModuleRegistrant)
+		GFirstModuleRegistrant->Prev = this;
+
+	GFirstModuleRegistrant = this;
+
 }
 
 FDynamicModuleRegistrant::~FDynamicModuleRegistrant()
 {
-	GMapDynamicModuleRegistrants.erase(Name);
+	//GMapDynamicModuleRegistrants.erase(Name);
+
+	if (Next)
+		Next->Prev = Prev;
+	if (Prev)
+		Prev->Next = Next;
+	else
+	{
+		GFirstModuleRegistrant = Next;
+	}
 }
 
 FDynamicModuleRegistrant::FInitializerModuleFunction FDynamicModuleRegistrant::FindModule(const FString& Name)
 {
-	auto it = GMapDynamicModuleRegistrants.find(Name);
-	return it == GMapDynamicModuleRegistrants.end() ? nullptr : it->second->Function;
+	//auto it = GMapDynamicModuleRegistrants.find(Name);
+	//return it == GMapDynamicModuleRegistrants.end() ? nullptr : it->second->Function;
+
+	for (FDynamicModuleRegistrant* Entry = GFirstModuleRegistrant; Entry; Entry = Entry->Next)
+	{
+		if (Name == Entry->Name)
+			return Entry->Function;
+	}
+	return nullptr;
 }

@@ -16,16 +16,16 @@ class DUIWidget	:
 	public FDUIControlledConstruction,
 	public std::enable_shared_from_this<DUIWidget>
 {
-	DUI_DECLARE_WIDGET_API(DUIWidget, FDUIControlledConstruction, DarkUI_API);
+	DUI_DECLARE_WIDGET_API(DUIWidget, FDUIControlledConstruction, DARKUI_API);
 
 	template<class WidgetType, typename RequiredArgsPayloadType>
 	friend struct TSlateDecl;
 public:
-	DarkUI_API int32 Paint(const FPaintArgs& Args, const FGeometry& AllottedGeometry, const FRect4f& MyCullingRect, int32 LayerId);
+	DARKUI_API int32 Paint(const FPaintArgs& Args, const FGeometry& AllottedGeometry, const FRect4f& MyCullingRect, int32 LayerId);
 
-	DarkUI_API virtual void Tick(const FGeometry& AllottedGeometry, const double InCurrentTime, const float InDeltaTime);
+	DARKUI_API virtual void Tick(const FGeometry& AllottedGeometry, const double InCurrentTime, const float InDeltaTime);
 
-	DarkUI_API void Invalidate(EInvalidateWidgetReason InvalidateReason);
+	DARKUI_API void Invalidate(EInvalidateWidgetReason InvalidateReason);
 
 	void MarkPrepassAsDirty() { bNeedsPrepass = true; }
 
@@ -37,7 +37,7 @@ public:
 	}
 
 protected:
-	DarkUI_API void DUIWidgetConstruct(const FDarkUIBaseNamedArgs& Args);
+	DARKUI_API void DUIWidgetConstruct(const FDarkUIBaseNamedArgs& Args);
 
 	bool IsConstructed() const { return false; }
 

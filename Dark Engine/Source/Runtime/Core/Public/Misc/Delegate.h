@@ -43,7 +43,7 @@
 
 namespace Core::Delegate
 {
-	uint64 GenerateContainerId();
+	uint64 CORE_API GenerateContainerId();
 }
 
 

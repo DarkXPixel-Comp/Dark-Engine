@@ -1,7 +1,7 @@
 add_executable(Launch)
 
 
-target_link_libraries(Launch PRIVATE Core ApplicationCore DarkUI Package ImGui JSON Optick Agility PhysFS)
+target_link_libraries(Launch PRIVATE Core ApplicationCore DarkUI ImGui JSON Optick Agility PhysFS)
 target_compile_features(Launch PUBLIC cxx_std_20)
 
 
@@ -20,6 +20,9 @@ if(WIN32)
 
 	target_sources(Launch PRIVATE "Private/Windows/LaunchWindows.cpp" "Private/Launch.cpp" "Public/LaunchEngineLoop.h" "Private/LaunchEngineLoop.cpp")
 endif()
+
+
+#add_dependencies(Launch TestModule)
 
 
 SETTINGPROJECT(Launch)

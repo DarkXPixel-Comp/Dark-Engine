@@ -5,7 +5,7 @@ void DUIWidget::Tick(const FGeometry& AllottedGeometry, const double InCurrentTi
 
 }
 
-DarkUI_API void DUIWidget::Invalidate(EInvalidateWidgetReason InvalidateReason)
+void DUIWidget::Invalidate(EInvalidateWidgetReason InvalidateReason)
 {
 	if (InvalidateReason == EInvalidateWidgetReason::None || !IsConstructed())
 	{

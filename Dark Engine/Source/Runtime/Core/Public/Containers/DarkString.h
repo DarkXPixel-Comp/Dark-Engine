@@ -26,7 +26,7 @@ public:
 
 	CORE_API FString(const ANSICHAR* Other);
 
-	CORE_API FString(const TCHAR* Other) : String(Other) {}
+	FString(const TCHAR* Other) : String(Other) {}
 
 	CORE_API FString(const StringType& Other) : String(Other) {}
 
@@ -90,6 +90,11 @@ public:
 			*this += Buffer;
 		}
 		return *this;
+	}
+
+	CORE_API bool operator<(const FString& Other) const
+	{
+		return this->String < Other.String;
 	}
 
 	CORE_API void PopBack()

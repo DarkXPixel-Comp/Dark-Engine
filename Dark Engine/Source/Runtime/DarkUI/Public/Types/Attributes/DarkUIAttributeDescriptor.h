@@ -148,8 +148,8 @@ public:
 	{
 	private:
 		friend FDarkUIAttributeDescriptor;
-		DarkUI_API FContainerInitializer(FDarkUIAttributeDescriptor& InDescriptor, const FString& ContainerName);
-		DarkUI_API FContainerInitializer(FDarkUIAttributeDescriptor& InDescriptor, const FDarkUIAttributeDescriptor& ParentDescriptor, const FString& ContainerName);
+		DARKUI_API FContainerInitializer(FDarkUIAttributeDescriptor& InDescriptor, const FString& ContainerName);
+		DARKUI_API FContainerInitializer(FDarkUIAttributeDescriptor& InDescriptor, const FDarkUIAttributeDescriptor& ParentDescriptor, const FString& ContainerName);
 	
 	public:
 		FContainerInitializer() = delete;
@@ -157,11 +157,11 @@ public:
 
 		struct FAttributeEntry
 		{
-			DarkUI_API FAttributeEntry(FDarkUIAttributeDescriptor& Descriptor, const FString& ContainerName, int32 AttributeIndex);
+			DARKUI_API FAttributeEntry(FDarkUIAttributeDescriptor& Descriptor, const FString& ContainerName, int32 AttributeIndex);
 
-			DarkUI_API FAttributeEntry& UpdatePrerequisite(const FString& Prerequisite);
+			DARKUI_API FAttributeEntry& UpdatePrerequisite(const FString& Prerequisite);
 
-			DarkUI_API FAttributeEntry& OnValueChanged(FAttributeValueChangedDelegate Callback);
+			DARKUI_API FAttributeEntry& OnValueChanged(FAttributeValueChangedDelegate Callback);
 
 		private:
 			FDarkUIAttributeDescriptor& Descriptor;
@@ -169,15 +169,15 @@ public:
 			int32 AttributeIndex;
 		};
 
-		DarkUI_API FAttributeEntry AddContainedAttribute(const FString& AttributeName, uint32 Offset, const FInvalidateWidgetReasonAttribute& Reason);
+		DARKUI_API FAttributeEntry AddContainedAttribute(const FString& AttributeName, uint32 Offset, const FInvalidateWidgetReasonAttribute& Reason);
 
-		DarkUI_API FAttributeEntry AddContainedAttribute(const FString& AttributeName, uint32 Offset, FInvalidateWidgetReasonAttribute&& Reason);
+		DARKUI_API FAttributeEntry AddContainedAttribute(const FString& AttributeName, uint32 Offset, FInvalidateWidgetReasonAttribute&& Reason);
 
-		DarkUI_API void OverrideInvalidationReason(const FString& AttributeName, const FInvalidateWidgetReasonAttribute& Reason);
+		DARKUI_API void OverrideInvalidationReason(const FString& AttributeName, const FInvalidateWidgetReasonAttribute& Reason);
 
-		DarkUI_API void OverrideInvalidationReason(const FString& AttributeName, FInvalidateWidgetReasonAttribute&& Reason);
+		DARKUI_API void OverrideInvalidationReason(const FString& AttributeName, FInvalidateWidgetReasonAttribute&& Reason);
 
-		DarkUI_API void OverrideOnValueChanged(const FString& AttributeName, ECallbackOverrideType OverrideType, FAttributeValueChangedDelegate Callback);
+		DARKUI_API void OverrideOnValueChanged(const FString& AttributeName, ECallbackOverrideType OverrideType, FAttributeValueChangedDelegate Callback);
 	
 	private:
 		FDarkUIAttributeDescriptor& Descriptor;
@@ -187,42 +187,42 @@ public:
 
 	struct FInitializer
 	{
-		DarkUI_API FInitializer(FDarkUIAttributeDescriptor& InDescriptor);
-		DarkUI_API FInitializer(FDarkUIAttributeDescriptor& InDescriptor, const FDarkUIAttributeDescriptor& ParentDescriptor);
+		DARKUI_API FInitializer(FDarkUIAttributeDescriptor& InDescriptor);
+		DARKUI_API FInitializer(FDarkUIAttributeDescriptor& InDescriptor, const FDarkUIAttributeDescriptor& ParentDescriptor);
 		
 		DELETE_COPY(FInitializer);
 
 	public:
-		DarkUI_API ~FInitializer();
+		DARKUI_API ~FInitializer();
 
 		struct FAttributeEntry
 		{
-			DarkUI_API FAttributeEntry(FDarkUIAttributeDescriptor& Descriptor, int32 InAttributeIndex);
+			DARKUI_API FAttributeEntry(FDarkUIAttributeDescriptor& Descriptor, int32 InAttributeIndex);
 
-			DarkUI_API FAttributeEntry& UpdatePrerequisite(const FString& Prerequisite);
+			DARKUI_API FAttributeEntry& UpdatePrerequisite(const FString& Prerequisite);
 
-			DarkUI_API FAttributeEntry& AffectVisibility();
+			DARKUI_API FAttributeEntry& AffectVisibility();
 
-			DarkUI_API FAttributeEntry& OnValueChanged(FAttributeValueChangedDelegate Callback);
+			DARKUI_API FAttributeEntry& OnValueChanged(FAttributeValueChangedDelegate Callback);
 
 		private:
 			FDarkUIAttributeDescriptor& Descriptor;
 			int32 AttributeIndex;
 		};
 
-		DarkUI_API FAttributeEntry AddMemberAttribute(const FString& AttributeName, uint32 Offset, const FInvalidateWidgetReasonAttribute& Reason);
-		DarkUI_API FAttributeEntry AddMemberAttribute(const FString& AttributeName, uint32 Offset, FInvalidateWidgetReasonAttribute&& Reson);
+		DARKUI_API FAttributeEntry AddMemberAttribute(const FString& AttributeName, uint32 Offset, const FInvalidateWidgetReasonAttribute& Reason);
+		DARKUI_API FAttributeEntry AddMemberAttribute(const FString& AttributeName, uint32 Offset, FInvalidateWidgetReasonAttribute&& Reson);
 
-		DarkUI_API FContainerInitializer AddContainer(const FString ContainerName, uint32 Offset);
+		DARKUI_API FContainerInitializer AddContainer(const FString ContainerName, uint32 Offset);
 		
 	public:
-		DarkUI_API void OverrideInvalidationReason(const FString& AttributeName, const FInvalidateWidgetReasonAttribute& Reason);
+		DARKUI_API void OverrideInvalidationReason(const FString& AttributeName, const FInvalidateWidgetReasonAttribute& Reason);
 
-		DarkUI_API void OverrideInvalidationReason(const FString& AttributeName, FInvalidateWidgetReasonAttribute&& Reason);
+		DARKUI_API void OverrideInvalidationReason(const FString& AttributeName, FInvalidateWidgetReasonAttribute&& Reason);
 
-		DarkUI_API void OverrideOnValueChanged(const FString& AttributeName, ECallbackOverrideType OverrideType, FAttributeValueChangedDelegate Callback);
+		DARKUI_API void OverrideOnValueChanged(const FString& AttributeName, ECallbackOverrideType OverrideType, FAttributeValueChangedDelegate Callback);
 
-		DarkUI_API void SetAffectVisibility(const FString& AttributeName, bool bAffectVisibility);
+		DARKUI_API void SetAffectVisibility(const FString& AttributeName, bool bAffectVisibility);
 	private:
 		FDarkUIAttributeDescriptor& Descriptor;
 	};
@@ -232,40 +232,40 @@ public:
 		return Attributes.Num();
 	}
 
-	DarkUI_API const FAttribute& GetAttributeAtIndex(int32 Index) const;
+	DARKUI_API const FAttribute& GetAttributeAtIndex(int32 Index) const;
 
-	DarkUI_API const FContainer* FindContainer(const FString& ContainerName) const;
+	DARKUI_API const FContainer* FindContainer(const FString& ContainerName) const;
 
-	DarkUI_API const FAttribute* FindAttribute(const FString& AttributeName) const;
+	DARKUI_API const FAttribute* FindAttribute(const FString& AttributeName) const;
 
-	DarkUI_API const FAttribute* FindMemberAttribute(uint32 AttributeOffset) const;
+	DARKUI_API const FAttribute* FindMemberAttribute(uint32 AttributeOffset) const;
 
-	DarkUI_API const FAttribute* FindContainedAttribute(const FString& ContainerName, uint32 AttributeOffset) const;
+	DARKUI_API const FAttribute* FindContainedAttribute(const FString& ContainerName, uint32 AttributeOffset) const;
 
-	DarkUI_API int32 IndexOfContainer(const FString& ContainerName) const;
+	DARKUI_API int32 IndexOfContainer(const FString& ContainerName) const;
 
-	DarkUI_API int32 IndexOfAttribute(const FString& AttributeName) const;
+	DARKUI_API int32 IndexOfAttribute(const FString& AttributeName) const;
 
-	DarkUI_API int32 IndexOfMemberAttribute(uint32 AttributeOffset) const;
+	DARKUI_API int32 IndexOfMemberAttribute(uint32 AttributeOffset) const;
 																		 
-	DarkUI_API int32 IndexOfContainedAttribute(const FString& ContainerName, uint32 AttributeOffset) const;
+	DARKUI_API int32 IndexOfContainedAttribute(const FString& ContainerName, uint32 AttributeOffset) const;
 
 private:
-	DarkUI_API FAttribute* FindAttribute(const FString& AttributeName);
+	DARKUI_API FAttribute* FindAttribute(const FString& AttributeName);
 
-	DarkUI_API FContainerInitializer AddContainer(const FString& ContainerName, uint32 Offset);
+	DARKUI_API FContainerInitializer AddContainer(const FString& ContainerName, uint32 Offset);
 
-	DarkUI_API FInitializer::FAttributeEntry AddMemberAttribute(const FString& AttributeName, uint32 Offset, FInvalidateWidgetReasonAttribute ReasonGetter);
+	DARKUI_API FInitializer::FAttributeEntry AddMemberAttribute(const FString& AttributeName, uint32 Offset, FInvalidateWidgetReasonAttribute ReasonGetter);
 
-	DarkUI_API FContainerInitializer::FAttributeEntry AddContainedAttribute(const FString& ContainerName, const FString& AttributeName, uint32 Offset, FInvalidateWidgetReasonAttribute ReasonGetter);
+	DARKUI_API FContainerInitializer::FAttributeEntry AddContainedAttribute(const FString& ContainerName, const FString& AttributeName, uint32 Offset, FInvalidateWidgetReasonAttribute ReasonGetter);
 
-	DarkUI_API void OverrideInvalidationReason(const FString& ContainerName, const FString& AttributeName, FInvalidateWidgetReasonAttribute ReasonGetter);
+	DARKUI_API void OverrideInvalidationReason(const FString& ContainerName, const FString& AttributeName, FInvalidateWidgetReasonAttribute ReasonGetter);
 
-	DarkUI_API void OverrideOnValueChanged(const FString& ContainerName, const FString& AttributeName, ECallbackOverrideType OverrideType, FAttributeValueChangedDelegate Callback);
+	DARKUI_API void OverrideOnValueChanged(const FString& ContainerName, const FString& AttributeName, ECallbackOverrideType OverrideType, FAttributeValueChangedDelegate Callback);
 
-	DarkUI_API void SetPrerequisite(const FString& ContainerName, FAttribute& Attribute, const FString& Prerequisite);
+	DARKUI_API void SetPrerequisite(const FString& ContainerName, FAttribute& Attribute, const FString& Prerequisite);
 
-	DarkUI_API void SetAffectVisibility(FAttribute& Attribute, bool bUpdate);
+	DARKUI_API void SetAffectVisibility(FAttribute& Attribute, bool bUpdate);
 
 private:
 	TArray<FDarkUIAttributeDescriptor::FAttribute> Attributes;

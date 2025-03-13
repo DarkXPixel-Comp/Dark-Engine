@@ -57,11 +57,11 @@ public:
 struct FDarkUIAttributeImpl : public FDarkUIAttributeBase
 {
 protected:
-	DarkUI_API void ProtectedUnregisterAttribute(DUIWidget& Widget, EDarkUIAttributeType AttributeType) const;
-	DarkUI_API void ProtectedRegisterAttribute(DUIWidget& Widget, EDarkUIAttributeType AttributeType, TUniquePtr<IDarkUIAttributeGetter>&& Wrapper);
-	DarkUI_API void ProtectedInvalidateWidget(DUIWidget& Widget, EDarkUIAttributeType AttributeType) const;
-	DarkUI_API bool ProtectedIsBound(const DUIWidget& Widget, EDarkUIAttributeType AttributeType) const;
-	DarkUI_API IDarkUIAttributeGetter* ProtectedFindGetter(const EDarkUIAttributeType AttributeType) const;
+	DARKUI_API void ProtectedUnregisterAttribute(DUIWidget& Widget, EDarkUIAttributeType AttributeType) const;
+	DARKUI_API void ProtectedRegisterAttribute(DUIWidget& Widget, EDarkUIAttributeType AttributeType, TUniquePtr<IDarkUIAttributeGetter>&& Wrapper);
+	DARKUI_API void ProtectedInvalidateWidget(DUIWidget& Widget, EDarkUIAttributeType AttributeType) const;
+	DARKUI_API bool ProtectedIsBound(const DUIWidget& Widget, EDarkUIAttributeType AttributeType) const;
+	DARKUI_API IDarkUIAttributeGetter* ProtectedFindGetter(const EDarkUIAttributeType AttributeType) const;
 
 
 };
@@ -87,8 +87,8 @@ public:
 	virtual FString GetContainerName() const = 0;
 	virtual uint32 GetContainerSortOrder() const = 0;
 protected:
-	DarkUI_API void RemoveContainerWidget(DUIWidget& Widget);
-	DarkUI_API void UpdateContainerSortOrder(DUIWidget& Widget);
+	DARKUI_API void RemoveContainerWidget(DUIWidget& Widget);
+	DARKUI_API void UpdateContainerSortOrder(DUIWidget& Widget);
 };
 
 

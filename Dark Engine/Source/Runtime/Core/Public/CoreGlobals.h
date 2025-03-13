@@ -1,13 +1,13 @@
 #pragma once
 #include "Platform/Platform.h"
 
-FORCEINLINE	void RequestExit()
+FORCEINLINE	void CORE_API RequestExit()
 {
-	extern bool GIsRequestExit;
+	CORE_API extern bool GIsRequestExit;
 	GIsRequestExit = true;
 }
-FORCEINLINE bool IsExitRequested()
+FORCEINLINE bool CORE_API IsExitRequested()
 {
-	extern bool GIsRequestExit;
+	CORE_API extern bool GIsRequestExit;
 	return GIsRequestExit;
 }

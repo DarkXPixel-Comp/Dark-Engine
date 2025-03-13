@@ -1,4 +1,4 @@
-add_library(Package STATIC)
+d_add_library(Package)
 
 
 target_compile_features(Package PUBLIC cxx_std_20)

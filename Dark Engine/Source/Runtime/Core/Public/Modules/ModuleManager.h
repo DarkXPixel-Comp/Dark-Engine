@@ -25,7 +25,7 @@ class FModuleManager
 public:
 	DECLARE_DELEGATE_RetVal(IModule*, FInitStaticModule);
 
-	static CORE_API	FModuleManager& Get();
+	CORE_API static	FModuleManager& Get();
 
 
 	CORE_API ModuleInfoPtr AddModule(const FString& InModuleName);
@@ -103,6 +103,8 @@ public:
 private:
 	FInitializerModuleFunction Function;
 	FString Name;
+	FDynamicModuleRegistrant* Prev;
+	FDynamicModuleRegistrant* Next;
 };
 
 
@@ -112,8 +114,8 @@ private:
 	extern "C" void IMPLEMENT_MODULE_##ModuleName() {}
 	
 
-#define IMPLEMENT_DYNAMIC_MODULE (ModuleClass, ModuleName)	\
+#define IMPLEMENT_DYNAMIC_MODULE(ModuleClass, ModuleName)	\
 	static IModule* Initialize##ModuleName##Module() \
-	{ return new ModuleClass(); } \
+	{ return (IModule*)new ModuleClass(); } \
 	static FDynamicModuleRegistrant ModuleRegistrant##ModuleName(TEXT(#ModuleName), Initialize##ModuleName##Module);  \
 	extern "C" void IMPLEMENT_MODULE_##ModuleName() {}

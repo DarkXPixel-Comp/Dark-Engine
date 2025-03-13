@@ -1,4 +1,4 @@
-add_library(Core STATIC)
+d_add_library(Core)
 
 
 target_compile_features(Core PUBLIC cxx_std_20)
@@ -16,8 +16,9 @@ configure_file("Private/Misc/EngineVersion.cpp.var" "${CMAKE_CURRENT_SOURCE_DIR}
 
 target_compile_definitions(Core PUBLIC "UNICODE=1")
 target_compile_definitions(Core PUBLIC "_UNICODE=1")
-target_compile_definitions(Core PUBLIC "CORE_API=DLLEXPORT")
+#target_compile_definitions(Core PUBLIC "CORE_API=DLLEXPORT")
 target_compile_definitions(Core PUBLIC "_CRT_SECURE_NO_WARNINGS")
+
 
 if(WIN32)
 target_compile_definitions(Core PUBLIC "PLATFORM_HEADER_NAME=Windows")

@@ -7,7 +7,7 @@
 struct FGeometry
 {
 public:
-	DarkUI_API FGeometry();
+	DARKUI_API FGeometry();
 
 	FGeometry(const FGeometry& RHS) = default;
 
