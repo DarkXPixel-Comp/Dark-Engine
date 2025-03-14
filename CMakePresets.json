@@ -1,0 +1,28 @@
+{
+	"version": 3,
+	"configurePresets": [
+		{
+			"name": "Win64-Development",
+			"generator": "Ninja",
+			"binaryDir": "${sourceDir}/Dark Engine/Intermediate/Build/${presetName}",
+			"cacheVariables": {
+				"CMAKE_BUILD_TYPE": "Debug",
+				"CMAKE_CONFIGURATION_NAME": "${presetName}",
+				"DARK_ENGINE_BUILD_TYPE": "DYNAMIC"
+			},
+			"environment": {
+				"INHERIT": "msvc_x64_x64"
+			},
+			"condition": {
+				"type": "equals",
+				"lhs": "${hostSystemName}",
+				"rhs": "Windows"
+			}
+		}
+	],
+	"buildPresets": [
+		{
+			"name": "Win64-Development", "configurePreset": "Win64-Development"
+		}
+	]
+}

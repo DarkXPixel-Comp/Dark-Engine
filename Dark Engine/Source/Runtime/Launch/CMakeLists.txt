@@ -1,7 +1,7 @@
 add_executable(Launch)
 
 
-target_link_libraries(Launch PRIVATE Core ApplicationCore DarkUI ImGui JSON Optick Agility PhysFS)
+target_link_libraries(Launch PRIVATE Core ApplicationCore DarkUI ImGui JSON Optick Agility PhysFS ${SUB_PROJECT})
 target_compile_features(Launch PUBLIC cxx_std_20)
 
 
@@ -26,5 +26,5 @@ endif()
 
 
 SETTINGPROJECT(Launch)
-target_include_directories(Launch PUBLIC "public")
-target_include_directories(Launch PRIVATE "private")
+#target_include_directories(Launch PUBLIC "public")
+#target_include_directories(Launch PRIVATE "private")

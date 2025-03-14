@@ -1,4 +1,4 @@
-d_add_library(Core)
+add_library(Core)
 
 
 target_compile_features(Core PUBLIC cxx_std_20)
@@ -27,6 +27,6 @@ endif()
 SETTINGFILES(CoreSrc)
 target_sources(Core PRIVATE ${CoreSrc})
 
-target_include_directories(Core PUBLIC "Public")
-target_include_directories(Core PRIVATE "Private")
+#target_include_directories(Core PUBLIC "Public")
 SettingProject(Core)
+#message(${CMAKE_INSTALL_PREFIX})

@@ -59,7 +59,7 @@ int32 FEngineLoop::PreInit(const FString& CmdLine)
 
 	DUIWindow wnd;
 
-	IModule* h = FModuleManager::Get().GetOrLoadModule(TEXT("Package"));
+	IModule* h = FModuleManager::Get().GetOrLoadModule(TEXT("Test"));
 
 	if (!CheckFiles(ErrorMsg))
 	{

@@ -15,7 +15,7 @@ public:
 IMPLEMENT_DYNAMIC_MODULE(FTestModule, TestModule);
 	
 
-void test()
+void TESTMODULE_API test()
 {
 
 }

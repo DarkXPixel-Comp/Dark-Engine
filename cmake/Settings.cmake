@@ -40,23 +40,22 @@ else()
 	target_compile_definitions(${target} PRIVATE "${module_name}_API=DLLEXPORT"
 	INTERFACE "${module_name}_API=DLLIMPORT")
 endif()
+
+target_include_directories(${target} 
+    PUBLIC 
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/Public> 
+        $<INSTALL_INTERFACE:include/${target}>
+)
+target_include_directories(${target} PRIVATE "Private")
+
+install(TARGETS ${target} EXPORT DarkEngineConfig)
+if(EXISTS Public)
+install(DIRECTORY Public/ DESTINATION include/${target})
+endif()
 endfunction()
 
 #cmake_language(GET_COMMAND add_library __add_library)
 
-function(d_add_library)
-if(ARGC GREATER 1)
-add_library(${ARGV})
-else()
-if(PROJECT_TYPE_LINK STREQUAL "DYNAMIC")
-	add_library(${ARGV0} SHARED)
-elseif(PROJECT_TYPE_LINK STREQUAL "STATIC")
-	add_library(${ARGV0}} STATIC)
-else()
-	add_library(${ARGV})
-endif()
-endif()
-endfunction()
 
 macro(SettingFiles Out)
 	SET(Res "")
@@ -130,6 +129,21 @@ include("${CMAKE_CURRENT_LIST_DIR}/CPM.cmake")
 set(CPM_SOURCE_CACHE "${CMAKE_CURRENT_LIST_DIR}/../Dark Engine/Intermediate/CPM/")
 
 #Vars
+set(DARK_ENGINE_DIR "${CMAKE_CURRENT_LIST_DIR}/../Dark Engine")
+set(SUB_PROJECT)
+
+if(DARK_ENGINE_BUILD_TYPE STREQUAL "DYNAMIC")
+set(BUILD_SHARED_LIBS ON)
+else()
+set(BUILD_SHARED_LIBS OFF)
+endif()
+
+#set(CMAKE_BINARY_DIR "${DARK_ENGINE_DIR}/TTTT/")
+
+set(CMAKE_INSTALL_PREFIX "${DARK_ENGINE_DIR}/Intermediate/Export" CACHE PATH "Install path" FORCE)
+
+#${projectDir}\Dark Engine\Intermediate\Build\${configurationType}
+#set(CMAKE_BINARY_DIR "${DARK_ENGINE_DIR}/Intermediate/Build/${CMAKE_CO}")
 
 # Hot reload
 if(MSVC AND WIN32 AND NOT MSVC_VERSION VERSION_LESS 142) 
