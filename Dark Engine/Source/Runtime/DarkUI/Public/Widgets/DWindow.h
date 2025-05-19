@@ -16,6 +16,7 @@ public:
 
 	DarkUI_ATTRIBUTE(FString, Title)
 	DarkUI_ARGUMENT(FVector2f, ScreenPosition)
+	DarkUI_ARGUMENT(FVector2f, Size)
 	DarkUI_ARGUMENT(EWindowType, Type)
 	DarkUI_ARGUMENT(bool, AdjustInitialSizeAndPositionForDPIScale)
 	DarkUI_ARGUMENT(bool, IsInitiallyMaximized)
@@ -33,6 +34,17 @@ public:
 		return Type;
 	}
 
+	DARKUI_API void SetScreenPosition(const FVector2f& NewPosition);
+	DARKUI_API void SetSize(FVector2f NewSize);
+
+	DARKUI_API void SetNativeWindow(const TSharedPtr<FGenericWindow>& InNativeWindow);
+
+	DARKUI_API FVector2f GetInitialDesiredSizeInScreen() const;
+
+	DARKUI_API FVector2f GetInitialDesiredPositionInScreen() const;
+
+	DARKUI_API void ShowWindow();
+
 protected:
 	DARKUI_API void SetCachedSize(FVector2f NewSize);
 
@@ -41,6 +53,12 @@ protected:
 	TAttribute<FString> Title;
 	EWindowType Type;
 	TSharedPtr<FGenericWindow> NativeWindow;
+	FVector2f Size;
+	FVector2f ScreenPosition;
+	FVector2f InitialDesiredScreenPosition;
+	FVector2f InitialDesiredSize;
+
+	bool bHasEverBeenShown = true;
 
 
 

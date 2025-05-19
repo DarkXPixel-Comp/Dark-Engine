@@ -21,6 +21,12 @@ TSharedPtr<T> MakeShareble(Args... args)
 	return std::make_shared<T>(args...);
 }
 
+template <class Base, class Derived>
+TSharedPtr<Base> StaticCastSharedPtr(const TSharedPtr<Derived>& ptr)
+{
+	return std::static_pointer_cast<Base>(ptr);
+}
+
 template <class T>
 TUniquePtr<T> MakeUnique(T* ptr)
 {

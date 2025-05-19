@@ -24,5 +24,7 @@ public:
 
 	virtual void* GetOSWindowHandle() const { return nullptr; }
 
+	virtual void AdjustSize(FVector2f& Size) const {}
+
 	//virtual void SetTitle(const FString& InTitle) {}
 };

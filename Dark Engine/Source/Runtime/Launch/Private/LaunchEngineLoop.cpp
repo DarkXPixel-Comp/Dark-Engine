@@ -19,6 +19,7 @@
 #include "Misc/OutputDeviceDebug.h"
 #include "Misc/GlobalLogger.h"
 #include "Windows/WindowsConsoleOutputDevice.h"
+#include "Application/DApplication.h"
 //#include "Widgets/DWindow.h"
 
 //import Array;
@@ -94,9 +95,11 @@ int32 FEngineLoop::PreInit(const FString& CmdLine)
 	FWindowsConsoleOutputDevice* Console = new FWindowsConsoleOutputDevice();
 	Console->Show(true);
 
+	FDUIApplication::Create();
 
-	TSharedPtr<DUIWindow> testWnd =  DUINew(DUIWindow)
-		.Title(TEXT("TEST"));
+
+	/*TSharedPtr<DUIWindow> testWnd =  DUINew(DUIWindow)
+		.Title(TEXT("TEST"));*/
 
 
 	return 0;

@@ -30,6 +30,20 @@ FWindowsApplication* FWindowsApplication::CreateWindowsApplication(const HINSTAN
 	return GWindowsApplication.get();
 }
 
+TSharedPtr<FGenericWindow> FWindowsApplication::MakeWindow()
+{
+	return FWindowsWindow::Make();
+}
+
+void FWindowsApplication::InitializeWindow(const TSharedPtr<FGenericWindow>& InWindow, FGenericWindowDefinition InDefinition, const TSharedPtr<FGenericWindow>& InParent, bool bShow)
+{
+	const TSharedPtr<FWindowsWindow> Window = StaticCastSharedPtr<FWindowsWindow>(InWindow);
+	const TSharedPtr<FWindowsWindow> ParentWindow = StaticCastSharedPtr<FWindowsWindow>(InParent);
+
+	Windows.Add(Window);
+	Window->Initialize(this, InDefinition, HInstance, ParentWindow, bShow);
+}
+
 void FWindowsApplication::PumpMessages()
 {
 	MSG Message;
@@ -139,5 +153,32 @@ int32 FWindowsApplication::ProcessMessage(HWND hInWnd, uint32 msg, WPARAM wParam
 
 
 	return DefWindowProc(hInWnd, msg, wParam, lParam);
+}
+
+FWindowsApplication::FWindowsApplication(const HINSTANCE hInIntance, const HICON hInIcon, const HCURSOR hCursor) : HInstance(hInIntance)
+{
+	Register(hInIntance, hInIcon);
+}
+
+bool FWindowsApplication::Register(const HINSTANCE hInIntance, const HICON HIcon)
+{
+	WNDCLASS wc = {};
+	wc.style = CS_DBLCLKS;
+	wc.lpfnWndProc = AppWndProc;
+	wc.cbClsExtra = 0;
+	wc.cbWndExtra = 0;
+	wc.hInstance = hInIntance;
+	wc.hIcon = HIcon;
+	wc.hCursor = NULL;
+	wc.hbrBackground = NULL;
+	wc.lpszMenuName = NULL;
+	wc.lpszClassName = FWindowsWindow::AppWndClass;
+
+	if (!RegisterClass(&wc))
+	{
+		return false;
+	}
+
+	return true;
 }
 

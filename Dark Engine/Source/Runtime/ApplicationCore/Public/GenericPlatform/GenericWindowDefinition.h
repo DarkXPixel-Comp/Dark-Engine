@@ -13,6 +13,13 @@ enum class EWindowType
 	GameWindow
 };
 
+enum class EWindowMode
+{
+	FullScreen,
+	WindowdFullscreen,
+	Windowed
+};
+
 struct FGenericWindowDefinition
 {
 	FString Title;
@@ -23,7 +30,7 @@ struct FGenericWindowDefinition
 	float Width = 0.f;
 	float Height = 0.f;
 
-	bool bHasWindowBorder = true;
+	bool bHasOSWindowBorder = true;
 
 	int32 LeftBorder = 4;
 	int32 TopBorder = 4;
@@ -40,4 +47,27 @@ struct FGenericWindowDefinition
 	int32 CornerRadius = 5;
 
 	EWindowType Type;
+
+	EWindowMode Mode;
+
+	bool AppearsInTaskbar;
+
+	bool IsTopmostWindow;
+
+	bool AcceptsInput;
+
+	bool IsRegularWindow;
+
+	bool FocusWhenFirstShown;
+	bool HasCloseButton;
+	bool SupportsMinimize;
+	bool SupportsMaximize;
+
+	bool IsModalWindow;
+	bool HasSizingFrame;
+	bool ShouldPreserveAspectRatio;
+
+	bool bSizeWillChangeOften;
+	int32 ExpectedMaxWidth;
+	int32 ExpectedMaxHeight;
 };

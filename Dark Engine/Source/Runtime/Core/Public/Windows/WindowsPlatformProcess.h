@@ -12,7 +12,7 @@ static TArray<FString> DllDirectories;
 
 struct FWindowsPlatformProcess
 {
-	static void* LoadLibraryWithSearchPaths(const FString& FileName, const TArray<FString>& SearchPaths)
+	CORE_API static void* LoadLibraryWithSearchPaths(const FString& FileName, const TArray<FString>& SearchPaths)
 	{
 		std::filesystem::path Path = *FileName;
 
@@ -41,25 +41,25 @@ struct FWindowsPlatformProcess
 		return LoadLibraryW(*FullFileName);
 	}
 
-	static void ResolveMissingImportsRecursive(const FString& FileName, const TArray<FString>& SearchPaths, TArray<FString> ImportFileNames, std::set<FString>& VisitedImportNames);
+	CORE_API static void ResolveMissingImportsRecursive(const FString& FileName, const TArray<FString>& SearchPaths, TArray<FString> ImportFileNames, std::set<FString>& VisitedImportNames);
 
-	static bool ReadLibraryImports(const FString& FileName, TArray<FString>& ImportNames);
+	CORE_API static bool ReadLibraryImports(const FString& FileName, TArray<FString>& ImportNames);
 
-	static bool ResolveImport(const FString& Name, const TArray<FString>& SearchPaths, FString& OutFileName);
+	CORE_API static bool ResolveImport(const FString& Name, const TArray<FString>& SearchPaths, FString& OutFileName);
 
-	static bool ReadLibrartImportsFromMemory(const IMAGE_DOS_HEADER* Header, TArray<FString>& ImportNames);
+	CORE_API static bool ReadLibrartImportsFromMemory(const IMAGE_DOS_HEADER* Header, TArray<FString>& ImportNames);
 
-	static void FreeDllHandle(void* DllHandle)
+	CORE_API static void FreeDllHandle(void* DllHandle)
 	{
 		FreeLibrary((HMODULE)DllHandle);
 	}
 
-	static void* GetDllExport(void* DllHandle, const FString& ProcName)
+	CORE_API static void* GetDllExport(void* DllHandle, const FString& ProcName)
 	{
 		return ::GetProcAddress((HMODULE)DllHandle, ProcName.ToString().c_str());
 	}
 
-	static void* GetDllHandle(const TCHAR* FileName)
+	CORE_API static void* GetDllHandle(const TCHAR* FileName)
 	{
 		TArray<FString> SearchPaths;
 		SearchPaths.Reserve(1 + ((DllDirectoryStack.Num() > 0) ? 1 : 0) + DllDirectories.Num());
@@ -77,7 +77,7 @@ struct FWindowsPlatformProcess
 	}
 
 
-	static const TCHAR* BaseDir()
+	CORE_API static const TCHAR* BaseDir()
 	{
 		static TCHAR Result[512] = TEXT("");
 		if (!Result[0])
@@ -111,7 +111,7 @@ struct FWindowsPlatformProcess
 	}
 
 
-	static FString GetModulesDirectory()
+	CORE_API static FString GetModulesDirectory()
 	{
 		static TCHAR Result[512];
 		if (Result[0] == 0)
