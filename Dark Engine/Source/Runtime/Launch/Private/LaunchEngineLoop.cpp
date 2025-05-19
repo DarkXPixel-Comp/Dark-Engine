@@ -14,10 +14,21 @@
 #include "physfs.h"
 #include "Modules/ModuleManager.h"
 #include "Windows/WindowsPlatformProcess.h"
+#include "Logging/LogMacros.h"
+#include "Misc/AssertionMacros.h"
+#include "Misc/OutputDeviceDebug.h"
+#include "Misc/GlobalLogger.h"
+#include "Windows/WindowsConsoleOutputDevice.h"
+//#include "Widgets/DWindow.h"
+
+//import Array;
 
 
+
+DECLARE_LOG_CATEGORY(LaunchLog, Log)
 
 static const FString VitalFolders[] = { "Content", "Config", "Shaders", "Binaires" };
+
 
 static int32 CheckFiles(FString& AdditionalErrorMsg)
 {
@@ -50,6 +61,15 @@ static int32 CheckFiles(FString& AdditionalErrorMsg)
 	return NumFiles == DE_ARRAY_COUNT(VitalFolders);
 }
 
+void CreateMainFrame()
+{
+	TSharedPtr<DUIWindow> RootWindow = DUINew(DUIWindow)
+		.Title(TEXT("HUY"));
+	
+
+
+
+}
 
 int32 FEngineLoop::PreInit(const FString& CmdLine)
 {
@@ -57,9 +77,12 @@ int32 FEngineLoop::PreInit(const FString& CmdLine)
 
 	FString ErrorMsg;
 
-	DUIWindow wnd;
+	//DUIWindow wnd;
+	
+	FGlobalLogger::Get().AddOutputDevice(FOutputDeviceDebug::Get());
 
-	IModule* h = FModuleManager::Get().GetOrLoadModule(TEXT("Test"));
+
+	IModule* h = FModuleManager::Get().GetOrLoadModule(TEXT("TestModule"));
 
 	if (!CheckFiles(ErrorMsg))
 	{
@@ -67,8 +90,18 @@ int32 FEngineLoop::PreInit(const FString& CmdLine)
 		RequestExit();
 		return -1;
 	}
+
+	FWindowsConsoleOutputDevice* Console = new FWindowsConsoleOutputDevice();
+	Console->Show(true);
+
+
+	TSharedPtr<DUIWindow> testWnd =  DUINew(DUIWindow)
+		.Title(TEXT("TEST"));
+
+
 	return 0;
 }
+
 
 int32 FEngineLoop::Init()
 {
@@ -77,6 +110,7 @@ int32 FEngineLoop::Init()
 
 void FEngineLoop::Tick()
 {
+	DE_LOG(LaunchLog, Warning, TEXT("HUYHYHFSDSF"));
 }
 
 void FEngineLoop::Exit()

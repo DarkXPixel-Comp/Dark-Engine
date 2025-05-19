@@ -3,6 +3,16 @@
 #include "Platform/Platform.h"
 
 
+enum class EWindowType
+{
+	Normal,
+	Menu,
+	Tool,
+	Notification,
+	CursorDecorator,
+	GameWindow
+};
+
 struct FGenericWindowDefinition
 {
 	FString Title;
@@ -28,4 +38,6 @@ struct FGenericWindowDefinition
 	bool bSizable = false;
 
 	int32 CornerRadius = 5;
+
+	EWindowType Type;
 };

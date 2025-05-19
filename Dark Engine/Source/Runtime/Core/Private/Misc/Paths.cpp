@@ -4,7 +4,7 @@
 
 CORE_API FString FPaths::LaunchDir()
 {
-	return EngineDir() + TEXT("bin/");
+	return EngineDir() + TEXT("Binaires...");
 }
 
 CORE_API FString FPaths::EngineDir()

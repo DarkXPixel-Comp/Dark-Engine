@@ -42,11 +42,21 @@ else()
 endif()
 
 target_include_directories(${target} 
-    PUBLIC 
-        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/Public> 
-        $<INSTALL_INTERFACE:include/${target}>
+	PUBLIC 
+		$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/Public> 
+		$<INSTALL_INTERFACE:include/${target}>
 )
 target_include_directories(${target} PRIVATE "Private")
+
+target_compile_definitions(${target} PRIVATE UNICODE _UNICODE)
+target_compile_definitions(${target} PRIVATE "PLATFORM_HEADER_NAME=${OS_NAME}")
+target_compile_features(${target} PRIVATE cxx_std_23)
+
+SettingFilesTarget(${target})
+
+if (MSVC)
+    target_compile_options(${target} PRIVATE /experimental:module)
+endif()
 
 install(TARGETS ${target} EXPORT DarkEngineConfig)
 if(EXISTS Public)
@@ -70,13 +80,29 @@ endmacro()
 
 macro(SettingFilesTarget targ)
 	SET(Res "")
+	SET(MODULES "")
 	file(GLOB_RECURSE Result RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "${CMAKE_CURRENT_SOURCE_DIR}/*.h")
 	LIST(APPEND Res ${Result})
 	file(GLOB_RECURSE Result RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "${CMAKE_CURRENT_SOURCE_DIR}/*.cpp")
 	LIST(APPEND Res ${Result})
 	file(GLOB_RECURSE Result RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "${CMAKE_CURRENT_SOURCE_DIR}/*.c")
 	LIST(APPEND Res ${Result})
-	target_sources(${targ} PRIVATE ${Res}})
+	file(GLOB_RECURSE Result RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "${CMAKE_CURRENT_SOURCE_DIR}/*.ixx")
+	LIST(APPEND Res ${Result})
+		file(GLOB_RECURSE Result RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "${CMAKE_CURRENT_SOURCE_DIR}/*.cxx")
+	LIST(APPEND Res ${Result})
+
+	foreach(file ${Res})
+        if("${file}" MATCHES "/Windows/" AND NOT IS_WINDOWS)
+            list(REMOVE_ITEM Res ${file})
+        elseif("${file}" MATCHES "/Linux/" AND NOT IS_LINUX)
+            list(REMOVE_ITEM Res ${file})
+		elseif("${file}" MATCHES "/Mac/" AND NOT IS_MAC)
+			list(REMOVE_ITEM Res ${file})
+        endif()
+    endforeach()
+
+	target_sources(${targ} PRIVATE ${Res})
 endmacro()
 
 
@@ -84,9 +110,9 @@ MACRO(SUBDIRLIST result curdir)
   FILE(GLOB children RELATIVE ${curdir} ${curdir}/*)
   SET(dirlist "")
   FOREACH(child ${children})
-    IF(IS_DIRECTORY ${curdir}/${child})
-      LIST(APPEND dirlist ${child})
-    ENDIF()
+	IF(IS_DIRECTORY ${curdir}/${child})
+	  LIST(APPEND dirlist ${child})
+	ENDIF()
   ENDFOREACH()
   SET(${result} ${dirlist})
 ENDMACRO()
@@ -124,6 +150,59 @@ function(GroupSourcesByFolder target target_files)
 endfunction()
 
 
+function(ADD_PRIVATE_INCLUDE_ONLY target)
+	list(SUBLIST ARGV 1 -1 rest)
+	foreach(dep IN LISTS rest)
+		target_include_directories(${target} PRIVATE $<TARGET_PROPERTY:${dep},INTERFACE_INCLUDE_DIRECTORIES>)
+
+		target_compile_definitions(${target} PRIVATE $<TARGET_PROPERTY:${dep},INTERFACE_COMPILE_DEFINITIONS>)
+	endforeach()
+endfunction()
+
+function(ADD_PUBLIC_INCLUDE_ONLY target)
+	list(SUBLIST ARGV 1 -1 rest)
+	foreach(dep IN LISTS rest)
+		target_include_directories(${target} PUBLIC $<TARGET_PROPERTY:${dep},INTERFACE_INCLUDE_DIRECTORIES>)
+
+		target_compile_definitions(${target} PUBLIC $<TARGET_PROPERTY:${dep},INTERFACE_COMPILE_DEFINITIONS>)
+	endforeach()
+endfunction()
+
+function(ADD_DYNAMICLLY_LOADED target)
+	list(SUBLIST ARGV 1 -1 rest)
+	foreach(dep IN LISTS rest)
+		add_dependencies(${target} ${dep})
+	endforeach()
+endfunction()
+
+function(ADD_PRIVATE_DEFINES target)
+	list(SUBLIST ARGV 1 -1 rest)
+	foreach(define IN LISTS rest)
+        target_compile_definitions(${target} PRIVATE ${define})
+    endforeach()
+endfunction()
+
+function(ADD_PUBLIC_DEFINES target)
+	list(SUBLIST ARGV 1 -1 rest)
+	foreach(define IN LISTS rest)
+        target_compile_definitions(${target} PUBLIC ${define})
+    endforeach()
+endfunction()
+
+function(ADD_PUBLIC_LIBRARY target)
+	list(SUBLIST ARGV 1 -1 rest)
+	foreach(targ IN LISTS rest)
+        target_link_libraries(${target} PUBLIC ${targ})
+    endforeach()
+endfunction()
+
+function(ADD_PRIVATE_LIBRARY target)
+	list(SUBLIST ARGV 1 -1 rest)
+	foreach(targ IN LISTS rest)
+        target_link_libraries(${target} PRIVATE ${targ})
+    endforeach()
+endfunction()
+
 #Includes
 include("${CMAKE_CURRENT_LIST_DIR}/CPM.cmake")
 set(CPM_SOURCE_CACHE "${CMAKE_CURRENT_LIST_DIR}/../Dark Engine/Intermediate/CPM/")
@@ -138,7 +217,34 @@ else()
 set(BUILD_SHARED_LIBS OFF)
 endif()
 
-#set(CMAKE_BINARY_DIR "${DARK_ENGINE_DIR}/TTTT/")
+
+set(PLATFORM_FOLDER "Unknown")
+set(OS_NAME "Unknown")
+set(IS_WINDOWS FALSE)
+set(IS_LINUX FALSE)
+set(IS_MAC FALSE)
+if(CMAKE_SYSTEM_NAME STREQUAL "Windows")
+    set(PLATFORM_FOLDER "Win64")
+	set(OS_NAME "Windows")
+	set(IS_WINDOWS TRUE)
+elseif(CMAKE_SYSTEM_NAME STREQUAL "Linux")
+    set(PLATFORM_FOLDER "Linux")
+	set(OS_NAME "Linux")
+	set(IS_LINUX TRUE)
+elseif(CMAKE_SYSTEM_NAME STREQUAL "Darwin")
+    set(PLATFORM_FOLDER "MacOS")
+	set(OS_NAME "Mac")
+	set(IS_MAC TRUE)
+else()
+    set(PLATFORM_FOLDER "Unknown")
+	set(OS_NAME "Unknown")
+endif()
+
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/Dark Engine/Binaires/${PLATFORM_FOLDER}") # 
+set(CMAKE_BINARY_DIR "${PROJECT_SOURCE_DIR}/Dark Engine/Binaires/${PLATFORM_FOLDER}")
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/Dark Engine/Binaires/${PLATFORM_FOLDER}")
+
+set(DARK_OUTPUT_FOLDER "${PROJECT_SOURCE_DIR}/Dark Engine/Binaires/${PLATFORM_FOLDER}")
 
 set(CMAKE_INSTALL_PREFIX "${DARK_ENGINE_DIR}/Intermediate/Export" CACHE PATH "Install path" FORCE)
 
@@ -150,7 +256,6 @@ if(MSVC AND WIN32 AND NOT MSVC_VERSION VERSION_LESS 142)
 	set(CMAKE_CXX_FLAGS_DEBUG "/MDd /ZI /Ob0 /Od /RTC1")
 endif()
 #
-
 
 set(PROJECT_PREFIX "NewLife")
 if(NOT DEFINED PROJECT_TYPE_LINK)

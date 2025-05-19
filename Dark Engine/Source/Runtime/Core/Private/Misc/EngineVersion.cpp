@@ -1,4 +1,4 @@
-/*#include "Misc/EngineVersion.h"
+#include "Misc/EngineVersion.h"
 #include "Containers/DarkString.h"
 
 
@@ -28,22 +28,16 @@ int32 GetPatchVersion()
 
 int32 GetFixVersion()
 {
-	return int32();
+	return 0;
 }
 
 const TCHAR* GetStringVersionT()
 {
-	if (StringVersion.Len())
+	if (StringVersion.Lenght())
 		return *StringVersion;
 	
 	StringVersion = FString::PrintF(TEXT("v%i.%i.%i.%i-%s"), MAJOR_VERSION, MINOR_VERSION, PATCH_VERSION, FIX_VERSION, VERSION_PREFIX);
 	return *StringVersion;
-}
-
-const ANSICHAR* GetStringVersionA()
-{
-	GetStringVersionT();
-	return !StringVersion;
 }
 
 const TCHAR* GetStringBuildTypeT()
@@ -54,4 +48,4 @@ const TCHAR* GetStringBuildTypeT()
 int32 GetNumberVersion()
 {
 	return NUMBER_VERSION;
-}*/
+}

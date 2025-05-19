@@ -2,6 +2,7 @@
 #include "Containers/Array.h"
 #include <functional>
 #include "Memory/MemoryCore.h"
+#include "Platform/Platform.h"
 		   
 #define FUNC_DECLARE_MULTICAST_DELEGATE(DelegateName, ReturnType, ...) typedef TMultiCastDelegate<ReturnType, __VA_ARGS__> DelegateName
 #define FUNC_DECLARE_DELEGATE(DelegateName, ReturnType, ...) typedef TDelegate<ReturnType, __VA_ARGS__> DelegateName
@@ -214,7 +215,6 @@ public:
 
 	void Bind(std::function<InRetValType(ParamTypes...)> func)
 	{
-		//container = new TFuncContainer<InRetValType, ParamTypes...>(std::forward<InRetValType(*)(ParamTypes...)>(Lambda));
 		container = MakeUnique(new TFuncContainer<InRetValType, ParamTypes...>(func));
 	}
 

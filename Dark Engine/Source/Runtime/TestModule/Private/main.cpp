@@ -1,12 +1,13 @@
 #include "Modules/ModuleManager.h"
 #include "Platform/PlatformMisc.h"
+#include "TestModule.h"
 
 class FTestModule : IModule
 {
 public:
 	virtual void StartModule()
 	{
-		FPlatformMisc::CreateMessageBoxError(TEXT("HUY"), TEXT("hYU"));
+		FPlatformMisc::CreateMessageBoxError(TEXT("HUY"), TEXT("hYUss"));
 	}
 
 	virtual void ShutdownModule() {}
@@ -15,7 +16,8 @@ public:
 IMPLEMENT_DYNAMIC_MODULE(FTestModule, TestModule);
 	
 
-void TESTMODULE_API test()
+void testTestModule()
 {
+	FPlatformMisc::CreateMessageBoxError(TEXT("HUY"), TEXT("hYUss"));
 
 }

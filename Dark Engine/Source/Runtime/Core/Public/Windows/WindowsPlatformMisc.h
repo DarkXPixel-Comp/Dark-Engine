@@ -7,8 +7,8 @@ struct FWindowsPlatformMisc : public FGenericPlatformMisc
 {
 	static CORE_API FString EngineDir(bool bIsBackSlash = false)
 	{
-		TCHAR Result[256];
-		PathCchCombine(Result, 256, *LaunchDir(true), TEXT("..\\..\\"));
+		FString Result = std::filesystem::path(LaunchDir(bIsBackSlash) / TEXT("../../../")).wstring();
+
 		if (!bIsBackSlash)
 		{
 			std::replace(std::begin(Result), std::end(Result), TEXT('\\'), TEXT('/'));
@@ -20,7 +20,7 @@ struct FWindowsPlatformMisc : public FGenericPlatformMisc
 	{
 		FString Path(256);
 		GetModuleFileName(NULL, *Path, 256);
-		PathCchRemoveFileSpec(*Path, 256);
+		Path = std::filesystem::path(Path).parent_path().wstring();
 		if (!bIsBackSlash)
 		{
 			Path.Replace('\\', '/');
@@ -31,8 +31,6 @@ struct FWindowsPlatformMisc : public FGenericPlatformMisc
 	static void NormalizeWindowsPath(FString& Path)
 	{
 		std::filesystem::absolute(*Path);
-
-
 
 		for (auto& Char : Path)
 		{

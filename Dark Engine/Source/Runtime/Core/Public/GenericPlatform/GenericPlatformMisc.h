@@ -16,4 +16,6 @@ struct FGenericPlatformMisc
 
 	static CORE_API bool CreateMessageBoxError(const TCHAR* Text, const TCHAR* Caption) { return false; }
 
+	static CORE_API void LocalPrint(const TCHAR* Str);
+
 };

@@ -1,6 +1,7 @@
 #pragma once
-
 #include "GenericPlatform/GenericPlatform.h"
+#include "Windows/WindowsIncludes.h"
+#include <intrin.h>
 
 struct FWindowsPlatformTypes : public FGenericPlatformTypes
 {

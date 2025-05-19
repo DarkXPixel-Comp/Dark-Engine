@@ -1,34 +1,99 @@
 #pragma once
-
 #include "Containers/DarkString.h"
+#include "Platform/Platform.h"
 
-enum class ELogVerbosity : uint8
+
+namespace ELogVerbosity
 {
-	NoLogging = 1 << 0,
+	enum Type : uint8
+	{
+		/** Not used */
+		NoLogging = 0,
 
-	Fatal = 1 << 1,
+		/** Always prints a fatal error to console (and log file) and crashes (even if logging is disabled) */
+		Fatal,
 
-	Error = 1 << 2,
+		/**
+		 * Prints an error to console (and log file).
+		 * Commandlets and the editor collect and report errors. Error messages result in commandlet failure.
+		 */
+		Error,
 
-	Warning = 1 << 3,
+		/**
+		 * Prints a warning to console (and log file).
+		 * Commandlets and the editor collect and report warnings. Warnings can be treated as an error.
+		 */
+		Warning,
 
-	Log = 1 << 4,
+		/** Prints a message to console (and log file) */
+		Display,
 
-	Console = 1 << 5
-};
+		/** Prints a message to a log file (does not print to console) */
+		Log,
+
+		/**
+		 * Prints a verbose message to a log file (if Verbose logging is enabled for the given category,
+		 * usually used for detailed logging)
+		 */
+		Verbose,
+
+		/**
+		 * Prints a verbose message to a log file (if VeryVerbose logging is enabled,
+		 * usually used for detailed logging that would otherwise spam output)
+		 */
+		VeryVerbose,
+
+		// Log masks and special Enum values
+
+		All = VeryVerbose,
+		NumVerbosity,
+		VerbosityMask = 0xf,
+		SetColor = 0x40, // not actually a verbosity, used to set the color of an output device 
+		BreakOnLog = 0x80
+	};
+
+	FORCEINLINE const TCHAR* ToString(Type Verbosity)
+	{
+		switch (Verbosity)
+		{
+		case Log:
+			return TEXT("Log");
+		case Warning:
+			return TEXT("Warning");
+		case Error:
+			return TEXT("Error");
+		default:
+			return TEXT("Unknown");
+		}
+	}
+}
+
 
 struct CORE_API FLogCategoryBase
 {
-	FLogCategoryBase(const FString& InCategoryName, ELogVerbosity InVerbosity) :
+	FLogCategoryBase(const FString& InCategoryName, ELogVerbosity::Type InVerbosity) :
 		CategoryName(InCategoryName),
 		Verbosity(InVerbosity)
 	{}
 
+	const FString GetCategoryName() const { return CategoryName; }
 
 private:
-	ELogVerbosity Verbosity;
-	ELogVerbosity DefaultVerbosity;
+	ELogVerbosity::Type Verbosity;
+	ELogVerbosity::Type DefaultVerbosity;
 	bool DebugBreakOnLog;
-	ELogVerbosity DebugBreakOnLogVerbosity;
+	ELogVerbosity::Type DebugBreakOnLogVerbosity;
 	const FString CategoryName;
+};
+
+
+template<ELogVerbosity::Type InDefaultVerbosity>
+struct FLogCategory : public FLogCategoryBase
+{
+	FORCEINLINE FLogCategory(const FString& Name) :
+		FLogCategoryBase(Name, InDefaultVerbosity)
+	{
+
+	}
+
 };

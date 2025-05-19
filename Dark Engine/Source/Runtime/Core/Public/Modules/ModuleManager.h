@@ -22,6 +22,8 @@ class FModuleManager
 
 	typedef TSharedPtr<FModuleInfo> ModuleInfoPtr;
 
+	FModuleManager() {}
+
 public:
 	DECLARE_DELEGATE_RetVal(IModule*, FInitStaticModule);
 
@@ -119,3 +121,10 @@ private:
 	{ return (IModule*)new ModuleClass(); } \
 	static FDynamicModuleRegistrant ModuleRegistrant##ModuleName(TEXT(#ModuleName), Initialize##ModuleName##Module);  \
 	extern "C" void IMPLEMENT_MODULE_##ModuleName() {}
+
+
+#if DYNAMIC_TYPE_LINK
+#define IMPLEMENT_MODULE(ModuleClass, ModuleName) IMPLEMENT_DYNAMIC_MODULE(ModuleClass, ModuleName)
+#else
+#define IMPLEMENT_MODULE(ModuleClass, ModuleName) IMPLEMENT_STATIC_MODULE(ModuleClass, ModuleName)
+#endif

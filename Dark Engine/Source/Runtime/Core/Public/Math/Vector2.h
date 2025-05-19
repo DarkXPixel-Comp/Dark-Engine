@@ -35,6 +35,23 @@ namespace DE
 			TVector2(T InF) : X(InF), Y(InF) {}
 			TVector2() : X(0), Y(0) {}
 			TVector2(T InX, T InY) : X(InX), Y(InY) {}
+
+			CORE_API TVector2<T> operator*(const TVector2<T>& V) const
+			{
+				return TVector2<T>(X * V.X, Y * V.Y);
+			}
+
+			CORE_API TVector2<T> operator*=(const TVector2<T>& V)
+			{
+				X *= V.X;
+				Y *= V.Y;
+				return *this;
+			}
+
+			CORE_API bool operator ==(const TVector2<T>& V) const
+			{
+				return X == V.X && Y == V.Y;
+			}
 		};
 
 	}

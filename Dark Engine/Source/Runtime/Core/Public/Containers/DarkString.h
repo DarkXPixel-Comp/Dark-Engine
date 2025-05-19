@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <filesystem>
 #include <algorithm>
 #include "Platform/Platform.h"
 #include "Platform/PlatformString.h"
@@ -36,6 +37,11 @@ public:
 		return *this;
 	}
 
+	CORE_API operator StringType() const
+	{
+		return String;
+	}
+
 	CORE_API std::string ToString() const;
 
 	CORE_API std::string operator!() const;
@@ -44,6 +50,11 @@ public:
 	{
 		String = Other.String;
 		return *this;
+	}
+
+	CORE_API FString operator/(const FString& Other) const
+	{
+		return PrintF(TEXT("%s/%s"), String.c_str(), Other.String.c_str());
 	}
 
 	CORE_API FString operator+(const FString& Other) const
@@ -89,6 +100,13 @@ public:
 		{
 			*this += Buffer;
 		}
+		return *this;
+	}
+
+	template <typename ...TypeArgs>
+	FString& Append(const TCHAR* Fmt, TypeArgs... Args)
+	{
+		*this += PrintF(Fmt, Args...);
 		return *this;
 	}
 

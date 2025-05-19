@@ -43,8 +43,8 @@ class FWidgetProxyHandle
 public:
 	FWidgetProxyHandle() {}
 
-	DarkUI_API bool IsValid(const DUIWidget& Widget) const;
-	DarkUI_API bool IsValid(const DUIWidget* Widget) const;
+	DARKUI_API bool IsValid(const DUIWidget& Widget) const;
+	DARKUI_API bool IsValid(const DUIWidget* Widget) const;
 
 
 };

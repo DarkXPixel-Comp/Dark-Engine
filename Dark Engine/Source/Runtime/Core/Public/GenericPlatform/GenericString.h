@@ -15,6 +15,16 @@ struct FGenericString
 
 	}
 
+	static FORCEINLINE int32 StrLen(const ANSICHAR* String)
+	{
+		return strlen(String);
+	}
+
+	static FORCEINLINE int32 StrLen(const WIDECHAR* String)
+	{
+		return wcslen(String);
+	}
+
 	static int32 StringToInt32(const TCHAR* Str, TCHAR** EndStr, int32 Rad)
 	{
 #if PLATFORM_UTF8CHAR
