@@ -9,6 +9,9 @@ using TSharedPtr = std::shared_ptr<Args...>;
 template<typename T>
 using TUniquePtr = std::unique_ptr<T>;
 
+template<typename T>
+using TWeakPtr = std::weak_ptr<T>;
+
 template <class T>
 TSharedPtr<T> MakeShareble(T* ptr)
 {

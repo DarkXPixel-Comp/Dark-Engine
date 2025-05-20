@@ -240,6 +240,9 @@ public:
 	ElementType& Last() { return _vector[_vector.size() - 1]; }
 	ElementType& First() { return _vector[0]; }
 
+	const ElementType& Last() const { return _vector[_vector.size() - 1]; }
+	const ElementType& First() const { return _vector[0]; }
+
 	//void AddZeroed(uint32 Num) {}
 
 

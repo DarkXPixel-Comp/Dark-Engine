@@ -6,31 +6,41 @@
 #include "Containers/Array.h"
 
 
-class APPLICATIONCORE_API FWindowsApplication : public FGenericApplication
+class IWindowsMessageHandler
 {
 public:
-	static FWindowsApplication* CreateWindowsApplication(const HINSTANCE hInstance, const HICON hIcon, const HCURSOR hCursor = NULL);
-public:
-	TSharedPtr<FGenericWindow> MakeWindow() override;
-	virtual ~FWindowsApplication() {}
+	virtual bool ProcessMessage(HWND hwnd, uint32 msg, WPARAM wParam, LPARAM lParam) = 0;
+};
 
-	virtual void InitializeWindow(const TSharedPtr<FGenericWindow>& InWindow, FGenericWindowDefinition InDefinition, const TSharedPtr<FGenericWindow>& InParent, bool bShow = false) override;
+
+class FWindowsApplication : public FGenericApplication
+{
+public:
+	APPLICATIONCORE_API static FWindowsApplication* CreateWindowsApplication(const HINSTANCE hInstance, const HICON hIcon, const HCURSOR hCursor = NULL);
+public:
+	APPLICATIONCORE_API TSharedPtr<FGenericWindow> MakeWindow() override;
+	APPLICATIONCORE_API virtual ~FWindowsApplication() {}
+
+	APPLICATIONCORE_API virtual void InitializeWindow(const TSharedPtr<FGenericWindow>& InWindow, FGenericWindowDefinition InDefinition, const TSharedPtr<FGenericWindow>& InParent, bool bShow = false) override;
+
+
+	APPLICATIONCORE_API virtual void AddMessageHandler(IWindowsMessageHandler& InMessageHandler);
+	APPLICATIONCORE_API virtual void RemoveMessageHandler(IWindowsMessageHandler& InMessageHandler);
 
 private:
 	static LRESULT AppWndProc(HWND hInWnd, uint32 msg, WPARAM wParam, LPARAM lParam);
-	static bool RegisterApplicationClass(const HINSTANCE hInInstance, const HICON hInIcon, const HCURSOR hInCursor) { return 0; }
 
-	LRESULT WndProc(HWND hInWnd, uint32 msg, WPARAM wParam, LPARAM lParam) { return 0; }
+	APPLICATIONCORE_API LRESULT WndProc(HWND hInWnd, uint32 msg, WPARAM wParam, LPARAM lParam) { return 0; }
 
-	virtual void PumpMessages() override;
+	APPLICATIONCORE_API virtual void PumpMessages() override;
 
-	int32 ProcessMessage(HWND hInWnd, uint32 msg, WPARAM wParam, LPARAM lParam);
+	APPLICATIONCORE_API int32 ProcessMessage(HWND hInWnd, uint32 msg, WPARAM wParam, LPARAM lParam);
 	
 
-	FWindowsApplication(const HINSTANCE hInIntance, const HICON hInIcon, const HCURSOR hCursor = NULL);
+	APPLICATIONCORE_API FWindowsApplication(const HINSTANCE hInIntance, const HICON hInIcon, const HCURSOR hCursor = NULL);
 
 
-	bool Register(const HINSTANCE HInstance, const HICON HIcon);
+	APPLICATIONCORE_API bool Register(const HINSTANCE HInstance, const HICON HIcon);
 
 
 private:
@@ -38,4 +48,6 @@ private:
 	FPlatformLayout PlatformLayout;
 
 	HINSTANCE HInstance = NULL;
+
+	TArray<IWindowsMessageHandler*> MessageHandlers;
 };

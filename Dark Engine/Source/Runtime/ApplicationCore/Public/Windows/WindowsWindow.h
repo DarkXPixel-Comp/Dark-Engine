@@ -50,6 +50,7 @@ public:
 
 	APPLICATIONCORE_API void AdjustSize(FVector2f& Size) const override;
 
+	virtual EWindowMode GetWindowMode() const override;
 
 
 protected:

@@ -45,6 +45,18 @@ public:
 
 	DARKUI_API void ShowWindow();
 
+	DARKUI_API TArray<TSharedPtr<DUIWindow>>& GetChildWindows();
+
+	DARKUI_API TSharedPtr<FGenericWindow> GetNativeWindow() const;
+
+	DARKUI_API bool IsSubWindowOf(const TSharedPtr<DUIWindow>& ParentWindow) const;
+
+	DARKUI_API TSharedPtr<DUIWindow> GetParentWindow() const;
+
+	DARKUI_API EWindowZone GetWindowZoneForPoint(const FVector2f& Point) const;
+
+	EWindowMode GetWindowMode() const { return NativeWindow->GetWindowMode(); }
+
 protected:
 	DARKUI_API void SetCachedSize(FVector2f NewSize);
 
@@ -52,13 +64,21 @@ protected:
 protected:
 	TAttribute<FString> Title;
 	EWindowType Type;
+	bool bHasOSBorder : 1;
+	bool bHasEverBeenShown : 1;
+
+
 	TSharedPtr<FGenericWindow> NativeWindow;
 	FVector2f Size;
 	FVector2f ScreenPosition;
 	FVector2f InitialDesiredScreenPosition;
 	FVector2f InitialDesiredSize;
 
-	bool bHasEverBeenShown = true;
+
+
+	TArray<TSharedPtr<DUIWindow>> ChildWindows;
+
+	TWeakPtr<DUIWindow> ParentWindow;
 
 
 

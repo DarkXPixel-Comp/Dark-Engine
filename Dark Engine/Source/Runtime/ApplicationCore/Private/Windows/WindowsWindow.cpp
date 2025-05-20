@@ -355,3 +355,8 @@ APPLICATIONCORE_API void FWindowsWindow::AdjustSize(FVector2f& Size) const
 		Size.Y = ClientRect.bottom - ClientRect.top;
 	}
 }
+
+EWindowMode FWindowsWindow::GetWindowMode() const
+{
+	return Mode;
+}

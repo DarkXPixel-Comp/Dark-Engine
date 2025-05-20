@@ -1,6 +1,7 @@
 #pragma once
 #include "CoreTypes.h"
 #include "Memory/MemoryCore.h"
+#include "GenericPlatform/GenericWindowDefinition.h"
 
 
 class APPLICATIONCORE_API FGenericWindow
@@ -21,6 +22,8 @@ public:
 	virtual void Minimize() {}
 
 	virtual TSharedPtr<FGenericWindow> MakeWindow() { return MakeShareble(new FGenericWindow()); }
+
+	virtual EWindowMode GetWindowMode() const { return EWindowMode::Windowed; }
 
 	virtual void* GetOSWindowHandle() const { return nullptr; }
 

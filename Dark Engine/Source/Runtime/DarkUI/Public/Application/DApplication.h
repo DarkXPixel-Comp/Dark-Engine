@@ -6,6 +6,8 @@
 #include "GenericPlatform/GenericApplication.h"
 
 
+class DUIWindow;
+
 class FDUIApplication : public FGenericApplicationMessageHandler
 {
 	friend class DUIWidget;
@@ -22,7 +24,7 @@ public:
 
 	virtual bool IsActive() const { return false; }
 
-	TSharedPtr<class DUIWindow> AddWindow(const TSharedPtr<class DUIWindow>& InWindow, bool bShow = false);
+	TSharedPtr<DUIWindow> AddWindow(const TSharedPtr<DUIWindow>& InWindow, bool bShow = false);
 
 	void InitHightDPI(bool bForceEnable);
 
@@ -34,10 +36,18 @@ public:
 	void Tick();
 
 
+	DARKUI_API TSharedPtr<DUIWindow> GetActiveModalWindow() const;
+												
+public:
+	DARKUI_API virtual bool ShouldProcessUserInputMessages(const TSharedPtr<FGenericWindow>& PlatformWindow) const override;
+	virtual EWindowZone GetWindowZoneForPoint(const TSharedPtr<FGenericWindow>& Window, const int32 X, const int32 Y) override;
 
 protected:
-	TSharedPtr<FGenericWindow> MakeWindow(const TSharedPtr<class DUIWindow>& InWindow, bool bShow = false);
+	TSharedPtr<FGenericWindow> MakeWindow(const TSharedPtr<DUIWindow>& InWindow, bool bShow = false);
 	void TickPlatform(float DeltaTime);
+
+protected:
+	static TSharedPtr<DUIWindow> FindWindowByPlatformWindow(const TArray<TSharedPtr<DUIWindow>>& WindowsToSearch, const TSharedPtr<FGenericWindow>& PlatformWindow);
 
 
 
@@ -45,7 +55,11 @@ protected:
 	TSharedPtr<class FDUIRenderer> Renderer;
 
 	static DARKUI_API TSharedPtr<FDUIApplication> CurrentApplication;
-	static DARKUI_API TSharedPtr<class FGenericApplication>	PlatformApplication;
+	static DARKUI_API TSharedPtr<FGenericApplication>	PlatformApplication;
+
+	TArray<TSharedPtr<DUIWindow>> Windows;
+	TArray<TSharedPtr<DUIWindow>> VirtualWindows;
+	TArray<TSharedPtr<DUIWindow>> ActiveModalWindows;
 
 	//FDisplayMetrics DisplayMetrics;
 

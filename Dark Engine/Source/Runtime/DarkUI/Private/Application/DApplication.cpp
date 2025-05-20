@@ -59,6 +59,38 @@ void FDUIApplication::Tick()
 
 }
 
+DARKUI_API TSharedPtr<DUIWindow> FDUIApplication::GetActiveModalWindow() const
+{
+	return ActiveModalWindows.Num() > 0 ? ActiveModalWindows.Last() : nullptr;
+}
+
+bool FDUIApplication::ShouldProcessUserInputMessages(const TSharedPtr<FGenericWindow>& PlatformWindow) const
+{
+	TSharedPtr<DUIWindow> Window;
+
+	if (PlatformWindow)
+	{
+		Window = FindWindowByPlatformWindow(Windows, PlatformWindow);
+	}
+
+	if (ActiveModalWindows.Num() == 0 || (Window && Window->IsSubWindowOf(GetActiveModalWindow())))
+	{
+		return true;
+	}
+	return false;
+}
+
+EWindowZone FDUIApplication::GetWindowZoneForPoint(const TSharedPtr<FGenericWindow>& Window, const int32 X, const int32 Y)
+{
+	TSharedPtr<DUIWindow> CurrentWindow = FindWindowByPlatformWindow(Windows, Window);
+	if (CurrentWindow)
+	{
+		//return CurrentWindow->GetCurr
+	}
+	return EWindowZone::NotInWindow;
+
+}
+
 TSharedPtr<FGenericWindow> FDUIApplication::MakeWindow(const TSharedPtr<class DUIWindow>& InWindow, bool bShow)
 {
 	TSharedPtr<FGenericWindow> NativeParent = nullptr;
@@ -87,4 +119,22 @@ void FDUIApplication::TickPlatform(float DeltaTime)
 
 
 
+}
+
+TSharedPtr<DUIWindow> FDUIApplication::FindWindowByPlatformWindow(const TArray<TSharedPtr<DUIWindow>>& WindowsToSearch, const TSharedPtr<FGenericWindow>& PlatformWindow)
+{
+	for (int32 i = 0; i < WindowsToSearch.Num(); ++i)
+	{
+		TSharedPtr<DUIWindow> Window = WindowsToSearch[i];
+		TSharedPtr<FGenericWindow> NativeWindow = Window->GetNativeWindow();
+
+		if (NativeWindow == PlatformWindow)
+		{
+			return Window;
+		}
+
+		return FindWindowByPlatformWindow(Window->GetChildWindows(), PlatformWindow);
+	}
+	
+	return nullptr;
 }

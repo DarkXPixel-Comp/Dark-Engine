@@ -20,6 +20,28 @@ enum class EWindowMode
 	Windowed
 };
 
+
+enum class EWindowZone
+{
+	NotInWindow = 0,
+	TopLeftBorder = 1,
+	TopBorder = 2,
+	TopRightBorder = 3,
+	LeftBorder = 4,
+	ClientArea = 5,
+	RightBorder = 6,
+	BottomLeftBorder = 7,
+	BottomBorder = 8,
+	BottomRightBorder = 9,
+	TitleBar = 10,
+	MinimizeButton = 11,
+	MaximizeButton = 12,
+	CloseButton = 13,
+	SysMenu = 14,
+
+	Unspecified = 0
+};
+
 struct FGenericWindowDefinition
 {
 	FString Title;

@@ -74,6 +74,53 @@ DARKUI_API void DUIWindow::ShowWindow()
 
 }
 
+DARKUI_API TArray<TSharedPtr<DUIWindow>>& DUIWindow::GetChildWindows()
+{
+	return ChildWindows;
+}
+
+DARKUI_API TSharedPtr<FGenericWindow> DUIWindow::GetNativeWindow() const
+{
+	return NativeWindow;
+}
+
+DARKUI_API bool DUIWindow::IsSubWindowOf(const TSharedPtr<DUIWindow>& ParentWindow) const
+{
+	if (ParentWindow.get() == this)
+	{
+		return true;
+	}
+
+	TSharedPtr<DUIWindow> ParentWnd = GetParentWindow();
+
+	while (ParentWnd)
+	{
+		if (ParentWnd == ParentWindow)
+		{
+			return true;
+		}
+
+		ParentWnd = ParentWnd->GetParentWindow();
+	}
+	return false;
+}
+
+DARKUI_API TSharedPtr<DUIWindow> DUIWindow::GetParentWindow() const
+{
+	return ParentWindow.lock();
+}
+
+DARKUI_API EWindowZone DUIWindow::GetWindowZoneForPoint(const FVector2f& Point) const
+{
+	const bool bIsFullscreen = GetWindowMode() == EWindowMode::FullScreen || GetWindowMode() == EWindowMode::WindowdFullscreen;
+	const bool bIsBorderlessGameWindow = Type == EWindowType::GameWindow && !bHasOSBorder;
+
+	const float DPIScale = 
+
+
+
+}
+
 void DUIWindow::SetCachedSize(FVector2f NewSize)
 {
 	if (NativeWindow)
