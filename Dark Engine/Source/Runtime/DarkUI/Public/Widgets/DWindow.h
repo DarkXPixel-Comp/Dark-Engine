@@ -1,9 +1,19 @@
 #pragma once
 #include "Widgets/DCompoundWidget.h"
 #include "Layout/Children.h"
+#include "Layout/Margin.h"
 #include "GenericPlatform/GenericWindow.h"
 #include "GenericPlatform/GenericWindowDefinition.h"
 
+
+enum class ESizingRule : uint8
+{
+	FixedSize,
+
+	AutoSize,
+
+	UserSize
+};
 
 
 class DUIWindow : public DUICompoundWidget
@@ -11,7 +21,9 @@ class DUIWindow : public DUICompoundWidget
 public:
 	DarkUI_BEGIN_ARGS( DUIWindow ) :
 		_Title(),
-		_Type(EWindowType::Normal)
+		_Type(EWindowType::Normal),
+		_UserResizeBorder(5),
+		_SizingRule(ESizingRule::UserSize)
 	{}
 
 	DarkUI_ATTRIBUTE(FString, Title)
@@ -21,6 +33,8 @@ public:
 	DarkUI_ARGUMENT(bool, AdjustInitialSizeAndPositionForDPIScale)
 	DarkUI_ARGUMENT(bool, IsInitiallyMaximized)
 	DarkUI_ARGUMENT(bool, IsInitiallyMinimized)
+	DarkUI_ARGUMENT(FMargin, UserResizeBorder)
+	DarkUI_ARGUMENT(ESizingRule, SizingRule)
 	DarkUI_END_ARGS()
 
 
@@ -57,6 +71,32 @@ public:
 
 	EWindowMode GetWindowMode() const { return NativeWindow->GetWindowMode(); }
 
+	float GetDPIScale() const;
+
+	DARKUI_API bool IsVisible() const;
+
+	DARKUI_API bool AcceptsInput() const;
+
+	DARKUI_API bool IsScreenSpaceMouseWithin(FVector2d MousePosition) const;
+
+	DARKUI_API FVector2d GetSize() const;
+
+	DARKUI_API FVector2d GetPosition() const;
+
+
+
+public:
+	std::shared_ptr<const DUIWindow> shared_from_this()	const
+	{
+		return std::static_pointer_cast<const DUIWindow>(DUICompoundWidget::shared_from_this());
+	}
+
+	std::shared_ptr<DUIWindow> shared_from_this()
+	{
+		return std::static_pointer_cast<DUIWindow>(DUICompoundWidget::shared_from_this());
+	}
+
+
 protected:
 	DARKUI_API void SetCachedSize(FVector2f NewSize);
 
@@ -64,9 +104,12 @@ protected:
 protected:
 	TAttribute<FString> Title;
 	EWindowType Type;
+
+	FMargin UserResizeBorder;
+	ESizingRule SizingRule;
+
 	bool bHasOSBorder : 1;
 	bool bHasEverBeenShown : 1;
-
 
 	TSharedPtr<FGenericWindow> NativeWindow;
 	FVector2f Size;
@@ -74,7 +117,7 @@ protected:
 	FVector2f InitialDesiredScreenPosition;
 	FVector2f InitialDesiredSize;
 
-
+	mutable EWindowZone WindowZone;
 
 	TArray<TSharedPtr<DUIWindow>> ChildWindows;
 

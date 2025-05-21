@@ -29,6 +29,8 @@ public:
 
 	void MarkPrepassAsDirty() { bNeedsPrepass = true; }
 
+	DARKUI_API void OnToolTipClosing();
+
 	FORCEINLINE bool IsVolatile() const { return bCachedVolatile; }
 
 	FORCEINLINE void CacheVoltatility()

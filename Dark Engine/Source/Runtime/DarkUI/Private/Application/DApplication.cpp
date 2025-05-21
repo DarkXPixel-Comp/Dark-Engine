@@ -2,6 +2,7 @@
 #include "Widgets/DWindow.h"
 #include "GenericPlatform/GenericWindowDefinition.h"
 #include "Platform/PlatformApplicationMisc.h"
+#include "Application/DUser.h"
 
 
 TSharedPtr<FDUIApplication> FDUIApplication::CurrentApplication;
@@ -23,7 +24,8 @@ TSharedPtr<FDUIApplication> FDUIApplication::Create(const TSharedPtr<FGenericApp
 	return CurrentApplication;
 }
 
-FDUIApplication::FDUIApplication()
+FDUIApplication::FDUIApplication() :
+	ApplicationScale(1.f)
 {
 
 }
@@ -137,4 +139,39 @@ TSharedPtr<DUIWindow> FDUIApplication::FindWindowByPlatformWindow(const TArray<T
 	}
 	
 	return nullptr;
+}
+
+float FDUIApplication::GetApplicationScale() const
+{
+	return ApplicationScale;
+}
+
+DARKUI_API void FDUIApplication::LocateWidgetInWindow(const FVector2d& MousePosition, const TSharedPtr<DUIWindow>& Window, bool bIgnoreEnabledStatus, int32 UserIndex) const
+{
+	const bool bAcceptInput = Window->IsVisible() && (Window->AcceptsInput() || IsWindowHousingInteractiveTooltip(Window));
+	if (bAcceptInput && Window->IsScreenSpaceMouseWithin(MousePosition))
+	{
+		if (Window->GetWindowMode() == EWindowMode::FullScreen)
+		{
+			FVector2f WindowSize = Window->GetSize();
+			//FVector2f DisplaySize = 
+		}
+
+
+	}
+
+
+
+}
+
+bool FDUIApplication::IsWindowHousingInteractiveTooltip(const TSharedPtr<const DUIWindow>& WindowToTest) const
+{
+	for (const auto& User : Users)
+	{
+		if (User && User->IsWindowHousingInteractiveTooltip(WindowToTest))
+		{
+			return true;
+		}
+	}
+	return false;
 }

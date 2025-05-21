@@ -8,6 +8,8 @@ void DUIWindow::Construct(const FArguments& InArgs)
 {
 	this->Title = InArgs._Title;
 	this->Type = InArgs._Type;
+	this->UserResizeBorder = InArgs._UserResizeBorder;
+	this->SizingRule = InArgs._SizingRule;
 	FVector2f WindowPosition = InArgs._ScreenPosition;
 
 	if (InArgs._AdjustInitialSizeAndPositionForDPIScale && WindowPosition != FVector2f::ZeroVector)
@@ -115,10 +117,103 @@ DARKUI_API EWindowZone DUIWindow::GetWindowZoneForPoint(const FVector2f& Point) 
 	const bool bIsFullscreen = GetWindowMode() == EWindowMode::FullScreen || GetWindowMode() == EWindowMode::WindowdFullscreen;
 	const bool bIsBorderlessGameWindow = Type == EWindowType::GameWindow && !bHasOSBorder;
 
-	const float DPIScale = 
+	const float DPIScale = FDUIApplication::Get().GetApplicationScale() * GetDPIScale();
 
+	const FMargin DPIScaledResizeBorder = UserResizeBorder * DPIScale;
 
+	//const bool bIsCursorVisible = 
 
+	//if((bIsFullscreen && !bIsBorderlessGameWindow)
+
+	if (Point.X >= 0 && Point.X < Size.X &&
+		Point.Y >= 0 && Point.Y < Size.Y)
+	{
+		int32 Row = 1;
+		int32 Column = 1;
+
+		if (SizingRule == ESizingRule::UserSize && !bIsFullscreen && !NativeWindow->IsMaximize())
+		{
+			if (Point.X < (DPIScaledResizeBorder.Left + 5))
+			{
+				Column = 0;
+			}
+			else if (Point.X >= Size.X - (DPIScaledResizeBorder.Right + 5))
+			{
+				Column = 2;
+			}
+
+			if (Point.Y < (DPIScaledResizeBorder.Top + 5))
+			{
+				Row = 0;
+			}
+			else if (Point.Y >= Size.Y - (DPIScaledResizeBorder.Bottom + 5))
+			{
+				Row = 2;
+			}
+
+			bool bInBorder = Point.X < DPIScaledResizeBorder.Left ||
+				Point.X >= Size.X - DPIScaledResizeBorder.Right ||
+				Point.Y < DPIScaledResizeBorder.Top ||
+				Point.Y >= Size.Y - DPIScaledResizeBorder.Bottom;
+
+			if (!bInBorder)
+			{
+				Row = 1;
+				Column = 1;
+			}
+		}
+
+		static const EWindowZone WindowZones[3][3] =
+		{
+			{ EWindowZone::TopLeftBorder, EWindowZone::TopBorder, EWindowZone::TopRightBorder },
+			{ EWindowZone::LeftBorder, EWindowZone::ClientArea, EWindowZone::RightBorder },
+			{ EWindowZone::BottomLeftBorder, EWindowZone::BottomBorder, EWindowZone::BottomRightBorder }
+		};
+
+		EWindowZone Zone = WindowZones[Row][Column];
+		if (Zone == EWindowZone::ClientArea)
+		{
+
+		}
+	}
+	else
+	{
+		WindowZone = EWindowZone::NotInWindow;
+	}
+
+	return WindowZone;
+
+}
+
+float DUIWindow::GetDPIScale() const
+{
+	return NativeWindow ? NativeWindow->GetDPIScale() : 1.0f;
+}
+
+bool DUIWindow::IsVisible() const
+{
+	return false;//return NativeWindow ? NativeWindow->IsVisile
+}
+
+bool DUIWindow::AcceptsInput() const
+{
+	return Type != EWindowType::CursorDecorator && (Type != EWindowType::Tool || !FDUIApplication::Get().IsWindowHousingInteractiveTooltip(this->shared_from_this()));
+}
+
+bool DUIWindow::IsScreenSpaceMouseWithin(FVector2d MousePosition) const
+{
+	const FVector2f LocalMouseCoord = MousePosition - ScreenPosition;
+	return !LocalMouseCoord.ConatinsNaN() && NativeWindow->IsPointInWindow(static_cast<int32>(LocalMouseCoord.X), static_cast<int32>(LocalMouseCoord.Y));
+}
+
+FVector2d DUIWindow::GetSize() const
+{
+	return Size;
+}
+
+FVector2d DUIWindow::GetPosition() const
+{
+	return ScreenPosition;
 }
 
 void DUIWindow::SetCachedSize(FVector2f NewSize)

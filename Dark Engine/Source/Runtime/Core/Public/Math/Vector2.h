@@ -1,6 +1,7 @@
 #pragma once
 #include "Math/MathFwd.h"
 #include <type_traits>
+#include <cmath>
 
 
 namespace DE
@@ -36,6 +37,9 @@ namespace DE
 			TVector2() : X(0), Y(0) {}
 			TVector2(T InX, T InY) : X(InX), Y(InY) {}
 
+			template<typename U>
+			TVector2(const TVector2<U>& V) : X(static_cast<T>(V.X)), Y(static_cast<T>(V.Y)) {}
+
 			FORCEINLINE TVector2<T> operator*(const TVector2<T>& V) const
 			{
 				return TVector2<T>(X * V.X, Y * V.Y);
@@ -48,9 +52,25 @@ namespace DE
 				return *this;
 			}
 
+			FORCEINLINE TVector2<T> operator/(const TVector2<T>& V) const
+			{
+				return TVector2<T>(X / V.X, Y / V.Y);
+			}
+
+			template<typename U>
+			FORCEINLINE TVector2<T> operator-(const TVector2<U>& V) const
+			{
+				return TVector2<T>(X - V.X, Y - V.Y);
+			}
+
 			FORCEINLINE bool operator ==(const TVector2<T>& V) const
 			{
 				return X == V.X && Y == V.Y;
+			}
+
+			FORCEINLINE bool ConatinsNaN() const
+			{
+				return std::isnan(X) || std::isnan(Y);
 			}
 		};
 

@@ -33,6 +33,11 @@ void DUIWidget::Invalidate(EInvalidateWidgetReason InvalidateReason)
 
 }
 
+void DUIWidget::OnToolTipClosing()
+{
+
+}
+
 void DUIWidget::DUIWidgetConstruct(const FDarkUIBaseNamedArgs& Args)
 {
 	

@@ -21,13 +21,23 @@ public:
 
 	virtual void Minimize() {}
 
+	virtual bool IsMaximize() const { return false; }
+
+	virtual bool IsMinimize() const { return false; }
+
 	virtual TSharedPtr<FGenericWindow> MakeWindow() { return MakeShareble(new FGenericWindow()); }
+
+	virtual float GetDPIScale() const{ return 1.0f; }
+
+	virtual void SetDPIScale(float) {  }
 
 	virtual EWindowMode GetWindowMode() const { return EWindowMode::Windowed; }
 
 	virtual void* GetOSWindowHandle() const { return nullptr; }
 
 	virtual void AdjustSize(FVector2f& Size) const {}
+
+	virtual bool IsPointInWindow(int32 X, int32 Y) const { return false; }
 
 	//virtual void SetTitle(const FString& InTitle) {}
 };

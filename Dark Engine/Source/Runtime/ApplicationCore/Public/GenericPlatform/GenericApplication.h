@@ -3,7 +3,30 @@
 #include "GenericPlatform/GenericWindowDefinition.h"
 #include "GenericPlatform/GenericApplicationMessageHandler.h"
 #include "Memory/MemoryCore.h"
+#include "Containers/DarkString.h"
 
+struct FMonitorInfo
+{
+	FString Name;
+	FString ID;
+	int32 NativeWidth;
+	int32 NativeHeight;
+	
+	bool IsPrimary;
+	int32 DPI;
+
+};
+
+
+struct FDisplayMetrics
+{
+	FDisplayMetrics()
+	{
+
+	}
+
+	int32 PrimaryDisplayWidth;
+};
 
 
 class FGenericApplication

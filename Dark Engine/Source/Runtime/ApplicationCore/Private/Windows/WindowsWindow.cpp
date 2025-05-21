@@ -8,7 +8,12 @@
 const TCHAR FWindowsWindow::AppWndClass[] = TEXT("DarkWindow");
 
 FWindowsWindow::FWindowsWindow() : 
-	hWnd(NULL)
+	hWnd(NULL),
+	bIsVisible(false),
+	bIsFirstTimeVisible(true),
+	bInitiallyMaximized(false),
+	bInitiallyMinimized(false),
+	DPIScale(1.0f)
 {
 
 
@@ -20,9 +25,14 @@ FWindowsWindow::~FWindowsWindow()
 {
 }
 
-APPLICATIONCORE_API bool FWindowsWindow::IsMaximize() const
+bool FWindowsWindow::IsMaximize() const
 {
 	return IsZoomed(hWnd) != 0;
+}
+
+bool FWindowsWindow::IsMinimize() const
+{
+	return IsIconic(hWnd) != 0;
 }
 
 void FWindowsWindow::Initialize(FWindowsApplication* const Application, const FGenericWindowDefinition& InDefinition, HINSTANCE InHInstance, const TSharedPtr<FWindowsWindow>& InParent, const bool bShow)
@@ -43,7 +53,7 @@ void FWindowsWindow::Initialize(FWindowsApplication* const Application, const FG
 	const float HeightInitial = InDefinition.Height;
 
 	
-	DPI = FPlatformApplicationMisc::GetDPIScaleFactorAtPoint(XInitialRect, YInitialRect);
+	DPIScale = FPlatformApplicationMisc::GetDPIScaleFactorAtPoint(XInitialRect, YInitialRect);
 
 	int32 ClientX = static_cast<int32>(XInitialRect);
 	int32 ClientY = static_cast<int32>(YInitialRect);
@@ -359,4 +369,63 @@ APPLICATIONCORE_API void FWindowsWindow::AdjustSize(FVector2f& Size) const
 EWindowMode FWindowsWindow::GetWindowMode() const
 {
 	return Mode;
+}
+
+float FWindowsWindow::GetDPIScale() const
+{
+	return DPIScale;
+}
+
+void FWindowsWindow::SetDPIScale(float Value)
+{
+	DPIScale = Value;
+}
+
+bool FWindowsWindow::IsVisible() const
+{
+	return bIsVisible;
+}
+
+void FWindowsWindow::Show()
+{
+	if (!bIsVisible)
+	{
+		bIsVisible = true;
+
+		int32 ShowWindowCommand = SW_SHOW;
+		if (bIsFirstTimeVisible)
+		{
+			bIsFirstTimeVisible = false;
+
+			if (bInitiallyMaximized)
+			{
+				ShowWindowCommand = SW_SHOWMAXIMIZED;
+			}
+			else if (bInitiallyMinimized)
+			{
+				ShowWindowCommand = SW_MINIMIZE;
+			}
+		}
+
+		ShowWindow(hWnd, ShowWindowCommand);
+	}
+
+}
+
+
+void FWindowsWindow::Hide()
+{
+	if (bIsVisible)
+	{
+		bIsVisible = false;
+		ShowWindow(hWnd, SW_HIDE);
+	}
+}
+
+bool FWindowsWindow::IsPointInWindow(int32 X, int32 Y) const
+{
+	HRGN Region = MakeWindowRegionObject(false);
+	bool Result = PtInRegion(Region, X, Y);
+	DeleteObject(Region);
+	return Result;
 }

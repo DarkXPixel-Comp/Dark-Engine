@@ -4,8 +4,11 @@
 #include "GenericPlatform/GenericApplicationMessageHandler.h"
 #include "GenericPlatform/GenericWindow.h"
 #include "GenericPlatform/GenericApplication.h"
+#include "Containers/Array.h"
 
 
+
+class FDUIUser;
 class DUIWindow;
 
 class FDUIApplication : public FGenericApplicationMessageHandler
@@ -37,6 +40,12 @@ public:
 
 
 	DARKUI_API TSharedPtr<DUIWindow> GetActiveModalWindow() const;
+
+	DARKUI_API float GetApplicationScale() const;
+
+	DARKUI_API void LocateWidgetInWindow(const FVector2d& MousePosition, const TSharedPtr<DUIWindow>& Window, bool bIgnoreEnabledStatus, int32 UserIndex) const;
+
+	DARKUI_API bool IsWindowHousingInteractiveTooltip(const TSharedPtr<const DUIWindow>& WindowToTest) const;
 												
 public:
 	DARKUI_API virtual bool ShouldProcessUserInputMessages(const TSharedPtr<FGenericWindow>& PlatformWindow) const override;
@@ -45,6 +54,7 @@ public:
 protected:
 	TSharedPtr<FGenericWindow> MakeWindow(const TSharedPtr<DUIWindow>& InWindow, bool bShow = false);
 	void TickPlatform(float DeltaTime);
+
 
 protected:
 	static TSharedPtr<DUIWindow> FindWindowByPlatformWindow(const TArray<TSharedPtr<DUIWindow>>& WindowsToSearch, const TSharedPtr<FGenericWindow>& PlatformWindow);
@@ -60,6 +70,10 @@ protected:
 	TArray<TSharedPtr<DUIWindow>> Windows;
 	TArray<TSharedPtr<DUIWindow>> VirtualWindows;
 	TArray<TSharedPtr<DUIWindow>> ActiveModalWindows;
+
+	TArray<TSharedPtr<FDUIUser>> Users;
+
+	float ApplicationScale;
 
 	//FDisplayMetrics DisplayMetrics;
 

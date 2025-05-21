@@ -22,7 +22,9 @@ public:
 	APPLICATIONCORE_API void Destroy() {}
 	APPLICATIONCORE_API void Update() {}
 
-	APPLICATIONCORE_API bool IsMaximize() const;
+	APPLICATIONCORE_API bool IsMaximize() const override;
+
+	APPLICATIONCORE_API bool IsMinimize() const override;
 
 	APPLICATIONCORE_API void Tick(float DeltaTime) {}
 
@@ -52,6 +54,18 @@ public:
 
 	virtual EWindowMode GetWindowMode() const override;
 
+	APPLICATIONCORE_API virtual float GetDPIScale() const override;
+
+	APPLICATIONCORE_API virtual void SetDPIScale(float Value) override;
+
+	APPLICATIONCORE_API virtual bool IsVisible() const;
+
+	APPLICATIONCORE_API virtual void Show();
+
+	APPLICATIONCORE_API virtual void Hide();
+
+	APPLICATIONCORE_API virtual bool IsPointInWindow(int32 X, int32 Y) const;
+
 
 protected:
 	APPLICATIONCORE_API FWindowsWindow();
@@ -73,13 +87,16 @@ private:
 	EWindowMode Mode;
 	EWindowType Type;
 
-	float DPI = 1.0f;
+	//float DPI = 1.0f;
 
 	float AspectRatio;
 
 
-	bool bIsFirstTimeVisible = true;
-	bool bInitiallyMaximized = false;
-	bool bInitiallyMinimized = false;
+	bool bIsVisible : 1;
+	bool bIsFirstTimeVisible : 1;
+	bool bInitiallyMaximized : 1;
+	bool bInitiallyMinimized : 1;
 
+
+	float DPIScale;
 };
