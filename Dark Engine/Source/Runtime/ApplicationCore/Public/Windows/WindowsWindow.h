@@ -50,7 +50,7 @@ public:
 
 	APPLICATIONCORE_API int32 GetWindowBorderSize() const;
 
-	APPLICATIONCORE_API void AdjustSize(FVector2f& Size) const override;
+	APPLICATIONCORE_API void AdjustSize(FVector2d& Size) const override;
 
 	virtual EWindowMode GetWindowMode() const override;
 

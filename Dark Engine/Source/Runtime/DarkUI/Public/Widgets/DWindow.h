@@ -35,6 +35,13 @@ public:
 	DarkUI_ARGUMENT(bool, IsInitiallyMinimized)
 	DarkUI_ARGUMENT(FMargin, UserResizeBorder)
 	DarkUI_ARGUMENT(ESizingRule, SizingRule)
+	DarkUI_ARGUMENT(bool, bHasOSBorder)
+	DarkUI_ARGUMENT(bool, bHasCloseButton)
+	DarkUI_ARGUMENT(bool, bSupportMaximize)
+	DarkUI_ARGUMENT(bool, bSupportMinimize)
+	DarkUI_ARGUMENT(bool, IsPopupWindow)
+	DarkUI_ARGUMENT(bool, IsTopmostWindow)
+	DarkUI_ARGUMENT(bool, FocusWhenFirstShown)
 	DarkUI_END_ARGS()
 
 
@@ -48,8 +55,8 @@ public:
 		return Type;
 	}
 
-	DARKUI_API void SetScreenPosition(const FVector2f& NewPosition);
-	DARKUI_API void SetSize(FVector2f NewSize);
+	DARKUI_API void SetScreenPosition(const FVector2d& NewPosition);
+	DARKUI_API void SetSize(FVector2d NewSize);
 
 	DARKUI_API void SetNativeWindow(const TSharedPtr<FGenericWindow>& InNativeWindow);
 
@@ -83,6 +90,11 @@ public:
 
 	DARKUI_API FVector2d GetPosition() const;
 
+	DARKUI_API FVector2d GetInitialDesiredSize() const;
+	DARKUI_API FVector2d GetInitialDesiredPosition() const;
+	DARKUI_API bool HasOSBorder() const;
+
+
 
 
 public:
@@ -112,10 +124,10 @@ protected:
 	bool bHasEverBeenShown : 1;
 
 	TSharedPtr<FGenericWindow> NativeWindow;
-	FVector2f Size;
-	FVector2f ScreenPosition;
-	FVector2f InitialDesiredScreenPosition;
-	FVector2f InitialDesiredSize;
+	FVector2d Size;
+	FVector2d ScreenPosition;
+	FVector2d InitialDesiredScreenPosition;
+	FVector2d InitialDesiredSize;
 
 	mutable EWindowZone WindowZone;
 

@@ -27,12 +27,19 @@ public:
 	APPLICATIONCORE_API virtual void AddMessageHandler(IWindowsMessageHandler& InMessageHandler);
 	APPLICATIONCORE_API virtual void RemoveMessageHandler(IWindowsMessageHandler& InMessageHandler);
 
+	APPLICATIONCORE_API virtual void RebuildDisplayMetrics(FDisplayMetrics& OutDisplay) override;
+
+
+protected:
+	static void GetMonitorsInfo(TArray<FMonitorInfo>& OutMonitorInfo);
+	static BOOL CALLBACK MonitorEnumProc(HMONITOR Monitor, HDC MonitorDC, LPRECT Rect, LPARAM UserData);
+
 private:
 	static LRESULT AppWndProc(HWND hInWnd, uint32 msg, WPARAM wParam, LPARAM lParam);
 
 	APPLICATIONCORE_API LRESULT WndProc(HWND hInWnd, uint32 msg, WPARAM wParam, LPARAM lParam) { return 0; }
 
-	APPLICATIONCORE_API virtual void PumpMessages() override;
+	APPLICATIONCORE_API virtual void PumpMessages(float DeltaTime) override;
 
 	APPLICATIONCORE_API int32 ProcessMessage(HWND hInWnd, uint32 msg, WPARAM wParam, LPARAM lParam);
 	
@@ -50,4 +57,6 @@ private:
 	HINSTANCE HInstance = NULL;
 
 	TArray<IWindowsMessageHandler*> MessageHandlers;
+
+	FDisplayMetrics InitialDisplayMetrics;
 };

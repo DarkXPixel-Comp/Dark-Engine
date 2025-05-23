@@ -20,6 +20,7 @@ protected:
 
 public:
 	static DARKUI_API void Create();
+	static DARKUI_API void Shutdown();
 
 public:
 	DARKUI_API FDUIApplication();
@@ -27,16 +28,16 @@ public:
 
 	virtual bool IsActive() const { return false; }
 
-	TSharedPtr<DUIWindow> AddWindow(const TSharedPtr<DUIWindow>& InWindow, bool bShow = false);
+	DARKUI_API TSharedPtr<DUIWindow> AddWindow(const TSharedPtr<DUIWindow>& InWindow, bool bShow = true);
 
-	void InitHightDPI(bool bForceEnable);
+	DARKUI_API static void InitHightDPI(bool bForceEnable);
 
 	static FDUIApplication& Get()
 	{
 		return *CurrentApplication;
 	}
 
-	void Tick();
+	DARKUI_API void Tick();
 
 
 	DARKUI_API TSharedPtr<DUIWindow> GetActiveModalWindow() const;
@@ -46,6 +47,10 @@ public:
 	DARKUI_API void LocateWidgetInWindow(const FVector2d& MousePosition, const TSharedPtr<DUIWindow>& Window, bool bIgnoreEnabledStatus, int32 UserIndex) const;
 
 	DARKUI_API bool IsWindowHousingInteractiveTooltip(const TSharedPtr<const DUIWindow>& WindowToTest) const;
+
+	DARKUI_API void GetDisplayMetrics(FDisplayMetrics& OutMetrics) const;
+
+	DARKUI_API void GetCachedDisplayMetrics(FDisplayMetrics& OutMetrics) const;
 												
 public:
 	DARKUI_API virtual bool ShouldProcessUserInputMessages(const TSharedPtr<FGenericWindow>& PlatformWindow) const override;
@@ -75,10 +80,5 @@ protected:
 
 	float ApplicationScale;
 
-	//FDisplayMetrics DisplayMetrics;
-
-
-
-
-
+	mutable FDisplayMetrics CachedDisplayMetrics;
 };

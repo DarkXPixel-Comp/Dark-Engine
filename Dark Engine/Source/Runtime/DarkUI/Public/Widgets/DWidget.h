@@ -38,6 +38,9 @@ public:
 		bCachedVolatile = bForceVolatile || ComputeVolatility();
 	}
 
+	DARKUI_API virtual void SetVisibility(TAttribute<EVisibility> InVisibility);
+	FORCEINLINE EVisibility GetVisibility() const { return Visibility.Get(); }
+
 protected:
 	DARKUI_API void DUIWidgetConstruct(const FDarkUIBaseNamedArgs& Args);
 
@@ -49,9 +52,14 @@ protected:
 
 
 private:
+//	virtual int32 OnPaint(const FPaintArgs& Args, const FGeometry& AllottedGeometry) const = 0;
+
+private:
 	bool bNeedsPrepass = false;
 	bool bCachedVolatile = true;
 	bool bForceVolatile = true;
+
+	TAttribute<EVisibility> Visibility;
 
 
 

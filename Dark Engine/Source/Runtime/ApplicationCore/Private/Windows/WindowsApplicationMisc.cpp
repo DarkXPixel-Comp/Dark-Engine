@@ -7,7 +7,8 @@
 #include "Platform/PlatformProcess.h"
 
 typedef HRESULT(STDAPICALLTYPE* GetDpiForMonitorProc)(HMONITOR Monitor, int32 DPIType, uint32* DPIX, uint32* DPIY);
-APPLICATIONCORE_API GetDpiForMonitorProc GetDpiForMonitor;
+APPLICATIONCORE_API GetDpiForMonitorProc GetDpiForMonitor = nullptr;
+APPLICATIONCORE_API void* ShCoreDll = nullptr;
 
 
 FGenericApplication* FWindowsApplicationMisc::CreateApplication()
@@ -52,7 +53,7 @@ float FWindowsApplicationMisc::GetDPIScaleFactorAtPoint(float X, float Y)
 
 void FWindowsApplicationMisc::SetHighDPIMode()
 {
-	if (void* ShCoreDll = FPlatformProcess::GetDllHandle(TEXT("shcore.dll")))
+	if ((ShCoreDll) || (ShCoreDll = FPlatformProcess::GetDllHandle(TEXT("shcore.dll"))))
 	{
 		typedef enum _PROCESS_DPI_AWARENESS {
 			PROCESS_DPI_UNAWARE = 0,
@@ -77,7 +78,6 @@ void FWindowsApplicationMisc::SetHighDPIMode()
 			}
 
 		}
-		FPlatformProcess::FreeDllHandle(ShCoreDll);
 	} 
 	else if (void* User32Dll = FPlatformProcess::GetDllHandle(TEXT("user32.dll")))
 	{
@@ -88,4 +88,43 @@ void FWindowsApplicationMisc::SetHighDPIMode()
 			BOOL Result = SetProcessDPIAware();
 		}
 	}
+}
+
+int32 FWindowsApplicationMisc::GetMonitorDPI(const FMonitorInfo& MonitorInfo)
+{
+	int32 DisplayDPI = USER_DEFAULT_SCREEN_DPI;
+	
+	if (GetDpiForMonitor)
+	{
+		RECT MonitorDim;
+		MonitorDim.left = MonitorInfo.DisplayRect.Left;
+		MonitorDim.top = MonitorInfo.DisplayRect.Up;
+		MonitorDim.right = MonitorInfo.DisplayRect.Right;
+		MonitorDim.bottom = MonitorInfo.DisplayRect.Down;
+
+		HMONITOR Monitor = MonitorFromRect(&MonitorDim, MONITOR_DEFAULTTONEAREST);
+		if (Monitor)
+		{
+			uint32 DPIX = 0;
+			uint32 DPIY = 0;
+			if (SUCCEEDED(GetDpiForMonitor(Monitor, 0, &DPIX, &DPIY)))
+			{
+				DisplayDPI = DPIX;
+			}
+		}
+	}
+	else
+	{
+		HDC Context = GetDC(nullptr);
+		int32 DPI = GetDeviceCaps(Context, LOGPIXELSX);
+		DisplayDPI = DPI;
+		ReleaseDC(nullptr, Context);
+	}
+
+	return DisplayDPI;
+}
+
+void FWindowsApplicationMisc::Shutdown()
+{
+	FPlatformProcess::FreeDllHandle(ShCoreDll);
 }

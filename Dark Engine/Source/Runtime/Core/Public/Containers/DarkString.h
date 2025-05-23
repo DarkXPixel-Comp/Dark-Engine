@@ -172,6 +172,18 @@ public:
 		return String.end();
 	}
 
+	CORE_API int32 Find(const FString& Other, int32 Offset = 0) const
+	{
+		auto Result = String.find(Other.String, Offset);
+		return Result != StringType::npos ? static_cast<int32>(Result) : -1;
+	}
+
+
+	CORE_API FString Mid(int32 Start, int32 Count) const
+	{
+		return String.substr(Start, Count);
+	}
+
 	CORE_API bool ContainsWithoutCase(const FString& Other) const
 	{
 		StringType Temp0(Lenght(), TEXT('\0')); std::transform(begin(), end(), Temp0.begin(), ::towlower);

@@ -1,7 +1,10 @@
 #include "Windows/WindowsApplication.h"
+#include "Windows/WindowsApplicationMisc.h"
 #include "Windows/WindowsWindow.h"
 #include "CoreGlobals.h"
 #include <dwmapi.h>
+#include <SetupAPI.h>
+#include <cfgmgr32.h>
 
 TUniquePtr<FWindowsApplication> GWindowsApplication;
 
@@ -19,6 +22,9 @@ static TSharedPtr< FWindowsWindow > FindWindowByHWND(const TArray< TSharedPtr< F
 
 	return TSharedPtr<FWindowsWindow>(nullptr);
 }
+
+
+
 
 
 FWindowsApplication* FWindowsApplication::CreateWindowsApplication(const HINSTANCE hInstance, const HICON hIcon, const HCURSOR hCursor)
@@ -56,7 +62,30 @@ void FWindowsApplication::RemoveMessageHandler(IWindowsMessageHandler& InMessage
 	MessageHandlers.Remove(&InMessageHandler);
 }
 
-void FWindowsApplication::PumpMessages()
+void FWindowsApplication::RebuildDisplayMetrics(FDisplayMetrics& OutDisplay)
+{
+	OutDisplay.PrimaryDisplayWidth = GetSystemMetrics(SM_CXSCREEN);
+	OutDisplay.PrimaryDisplayHeight = GetSystemMetrics(SM_CYSCREEN);
+
+	RECT WorkAreaRect;
+	if (!SystemParametersInfo(SPI_GETWORKAREA, 0, &WorkAreaRect, 0))
+	{
+		memset(&WorkAreaRect, 0, sizeof(WorkAreaRect));
+	}
+	OutDisplay.PrimaryDisplayWorkAreaRect.Left = WorkAreaRect.left;
+	OutDisplay.PrimaryDisplayWorkAreaRect.Up = WorkAreaRect.top;
+	OutDisplay.PrimaryDisplayWorkAreaRect.Right = WorkAreaRect.right;
+	OutDisplay.PrimaryDisplayWorkAreaRect.Down = WorkAreaRect.bottom;
+
+	OutDisplay.VirtualDisplayRect.Left = GetSystemMetrics(SM_XVIRTUALSCREEN);
+	OutDisplay.VirtualDisplayRect.Up = GetSystemMetrics(SM_YVIRTUALSCREEN);
+	OutDisplay.VirtualDisplayRect.Right = OutDisplay.VirtualDisplayRect.Left + GetSystemMetrics(SM_CXVIRTUALSCREEN);
+	OutDisplay.VirtualDisplayRect.Down = OutDisplay.VirtualDisplayRect.Up + GetSystemMetrics(SM_CYVIRTUALSCREEN);
+
+	GetMonitorsInfo(OutDisplay.MonitorInfo);
+}
+
+void FWindowsApplication::PumpMessages(float DeltaTime)
 {
 	MSG Message;
 
@@ -65,6 +94,192 @@ void FWindowsApplication::PumpMessages()
 		TranslateMessage(&Message);
 		DispatchMessage(&Message);
 	}
+}
+
+bool GetMonitorSizeFromEDID(const HKEY hevRegKey, int32& OutWidth, int32& OutHeight, int32& OutDPI)
+{
+	static TCHAR ValueName[512];
+
+	DWORD Type;
+	DWORD ActualValueNameLenght = 512;
+
+	BYTE EDIDData[1024];
+	DWORD EDIDSize = sizeof(EDIDData);
+
+	for (LONG i = 0, RetValue = ERROR_SUCCESS; RetValue != ERROR_NO_MORE_ITEMS; ++i)
+	{
+		RetValue = RegEnumValue(hevRegKey, i, &ValueName[0], &ActualValueNameLenght, NULL, &Type, EDIDData, &EDIDSize);
+
+		if (RetValue != ERROR_SUCCESS || FString(ValueName) != TEXT("EDID"))
+		{
+			continue;
+		}
+
+		// EDID data format documented here:
+		// http://en.wikipedia.org/wiki/EDID
+
+		int DetailTimingDescriptorStartIndex = 54;
+		OutWidth = ((EDIDData[DetailTimingDescriptorStartIndex + 4] >> 4) << 8) | EDIDData[DetailTimingDescriptorStartIndex + 2];
+		OutHeight = ((EDIDData[DetailTimingDescriptorStartIndex + 7] >> 4) << 8) | EDIDData[DetailTimingDescriptorStartIndex + 5];
+
+		const int32 HorizontalSizeOffset = 21;
+		const int32 VerticalSizeOffset = 22;
+		const float CmToInch = 0.393701f;
+
+		if (EDIDData[HorizontalSizeOffset] > 0 && EDIDData[VerticalSizeOffset] > 0)
+		{
+			float PhysicalWidth = CmToInch * (float)EDIDData[HorizontalSizeOffset];
+			float PhysicalHeight = CmToInch * (float)EDIDData[VerticalSizeOffset];
+
+			int32 HDpi = static_cast<int32>((float)OutWidth / PhysicalWidth);
+			int32 VDpi = static_cast<int32>((float)OutHeight / PhysicalHeight);
+
+			OutDPI = (HDpi + VDpi) / 2;
+		}
+		else
+		{
+			OutDPI = 0;
+		}
+		return true;
+	}
+	return false;
+}
+
+bool GetSizeForDevID(const FString& TargetDevID, int32 Width, int32& Height, int32& DPI)
+{
+	static const GUID ClassMonitorGUID = { 0x4d36e96e, 0xe325, 0x11ce, {0xbf, 0xc1, 0x08, 0x00, 0x2b, 0xe1, 0x03, 0x18} };
+
+	HDEVINFO DevInfo = SetupDiGetClassDevsEx(
+		&ClassMonitorGUID, NULL, NULL, DIGCF_PRESENT, NULL, NULL, NULL);
+
+	if (DevInfo == NULL)
+		return false;
+
+	bool bRes = false;
+
+	for (ULONG MonitorIndex = 0; ERROR_NO_MORE_ITEMS != GetLastError(); ++MonitorIndex)
+	{
+		SP_DEVINFO_DATA DevInfoData;
+		ZeroMemory(&DevInfoData, sizeof(DevInfoData));
+		DevInfoData.cbSize = sizeof(DevInfoData);
+
+		if (SetupDiEnumDeviceInfo(DevInfo, MonitorIndex, &DevInfoData) == TRUE)
+		{
+			TCHAR Buffer[MAX_DEVICE_ID_LEN];
+			if (CM_Get_Device_ID(DevInfoData.DevInst, Buffer, MAX_DEVICE_ID_LEN, 0) == CR_SUCCESS)
+			{
+				FString DevID(Buffer);
+				DevID = DevID.Mid(8, DevID.Find(TEXT("\\"), 9) - 8);
+				if (DevID == TargetDevID)
+				{
+					HKEY hDevRegKey = SetupDiOpenDevRegKey(DevInfo, &DevInfoData, DICS_FLAG_GLOBAL, 0, DIREG_DEV, KEY_READ);
+
+					if (hDevRegKey && hDevRegKey != INVALID_HANDLE_VALUE)
+					{
+						bRes = GetMonitorSizeFromEDID(hDevRegKey, Width, Height, DPI);
+						RegCloseKey(hDevRegKey);
+						break;
+					}
+				}
+			}
+		}
+	}
+
+	if (SetupDiDestroyDeviceInfoList(DevInfo) == FALSE)
+	{
+		bRes = false;
+	}
+
+	return bRes;
+}
+
+
+void FWindowsApplication::GetMonitorsInfo(TArray<FMonitorInfo>& OutMonitorInfo)
+{
+	DISPLAY_DEVICE DisplayDevice = {};
+	DisplayDevice.cb = sizeof(DISPLAY_DEVICE);
+
+	DWORD DeviceIndex = 0;
+
+	OutMonitorInfo.Empty();
+
+	FString DeviceId;
+
+	while (EnumDisplayDevices(0, DeviceIndex, &DisplayDevice, 0))
+	{
+		if ((DisplayDevice.StateFlags & DISPLAY_DEVICE_ATTACHED_TO_DESKTOP))
+		{
+			DISPLAY_DEVICE Monitor = {};
+			Monitor.cb = sizeof(DISPLAY_DEVICE);
+			DWORD MonitorIndex = 0;
+
+			while (EnumDisplayDevices(DisplayDevice.DeviceName, MonitorIndex, &Monitor, 0))
+			{
+				if (Monitor.StateFlags & DISPLAY_DEVICE_ACTIVE && !(Monitor.StateFlags & DISPLAY_DEVICE_MIRRORING_DRIVER))
+				{
+					FMonitorInfo MonitorInfo;
+					MonitorInfo.Name = DisplayDevice.DeviceName;
+
+					EnumDisplayMonitors(NULL, NULL, MonitorEnumProc, (LPARAM)&MonitorInfo);
+
+					MonitorInfo.ID = Monitor.DeviceID;
+					MonitorInfo.Name = MonitorInfo.ID.Mid(8, MonitorInfo.ID.Find(TEXT("\\"), 9) - 8);
+
+					if (GetSizeForDevID(MonitorInfo.Name, MonitorInfo.NativeWidth, MonitorInfo.NativeHeight, MonitorInfo.DPI))
+					{
+						MonitorInfo.ID = Monitor.DeviceID;
+						MonitorInfo.bIsPrimary = (DisplayDevice.StateFlags & DISPLAY_DEVICE_PRIMARY_DEVICE) > 0;
+
+						if (MonitorInfo.DPI < 96 || MonitorInfo.DPI > 300)
+						{
+							MonitorInfo.DPI = FWindowsApplicationMisc::GetMonitorDPI(MonitorInfo);
+						}
+						else
+						{
+							const float CenterX = 0.5f * float(MonitorInfo.DisplayRect.Right + MonitorInfo.DisplayRect.Left);
+							const float CenterY = 0.5f * float(MonitorInfo.DisplayRect.Down + MonitorInfo.DisplayRect.Up);
+							const float DPIScaleFactor = FWindowsApplicationMisc::GetDPIScaleFactorAtPoint(CenterX, CenterY);
+							MonitorInfo.DPI = int32(float(MonitorInfo.DPI) * DPIScaleFactor);
+						}
+
+
+						OutMonitorInfo.Add(MonitorInfo);
+					}
+				}
+
+				++MonitorIndex;
+				memset(&Monitor, 0, sizeof(Monitor));
+				Monitor.cb = sizeof(DISPLAY_DEVICE);
+			}
+		}
+		++DeviceIndex;
+		memset(&DisplayDevice, 0, sizeof(DisplayDevice));
+		DisplayDevice.cb = sizeof(DISPLAY_DEVICE);
+	}
+}
+
+BOOL FWindowsApplication::MonitorEnumProc(HMONITOR Monitor, HDC MonitorDC, LPRECT Rect, LPARAM UserData)
+{
+	MONITORINFOEX MonitorInfoEx = {};
+	MonitorInfoEx.cbSize = sizeof(MONITORINFOEX);
+	GetMonitorInfo(Monitor, &MonitorInfoEx);
+
+	FMonitorInfo* Info = (FMonitorInfo*)UserData;
+	if (Info && Info->Name == MonitorInfoEx.szDevice)
+	{
+		Info->DisplayRect.Down = MonitorInfoEx.rcMonitor.bottom;
+		Info->DisplayRect.Up = MonitorInfoEx.rcMonitor.top;
+		Info->DisplayRect.Left = MonitorInfoEx.rcMonitor.left;
+		Info->DisplayRect.Right = MonitorInfoEx.rcMonitor.right;
+
+		Info->WorkAreaRect.Down = MonitorInfoEx.rcWork.bottom;
+		Info->WorkAreaRect.Up = MonitorInfoEx.rcWork.top;
+		Info->WorkAreaRect.Left = MonitorInfoEx.rcWork.left;
+		Info->WorkAreaRect.Right = MonitorInfoEx.rcWork.right;
+
+		return FALSE;
+	}
+	return TRUE;
 }
 
 LRESULT FWindowsApplication::AppWndProc(HWND hInWnd, uint32 msg, WPARAM wParam, LPARAM lParam)
@@ -223,7 +438,7 @@ int32 FWindowsApplication::ProcessMessage(HWND hInWnd, uint32 msg, WPARAM wParam
 				const int32 LocalMouseX = (int32)(short)LOWORD(lParam) - Rect.left;
 				const int32 LocalMouseY = (int32)(short)HIWORD(lParam) - Rect.top;
 
-				if (CurrentWindow->GetWndDefinition().IsRegularWindow)
+				if (CurrentWindow->GetWndDefinition().bIsRegularWindow)
 				{
 					EWindowZone Zone = EWindowZone::ClientArea;
 
@@ -266,6 +481,8 @@ int32 FWindowsApplication::ProcessMessage(HWND hInWnd, uint32 msg, WPARAM wParam
 FWindowsApplication::FWindowsApplication(const HINSTANCE hInIntance, const HICON hInIcon, const HCURSOR hCursor) : HInstance(hInIntance)
 {
 	Register(hInIntance, hInIcon);
+
+	RebuildDisplayMetrics(InitialDisplayMetrics);
 }
 
 bool FWindowsApplication::Register(const HINSTANCE hInIntance, const HICON HIcon)

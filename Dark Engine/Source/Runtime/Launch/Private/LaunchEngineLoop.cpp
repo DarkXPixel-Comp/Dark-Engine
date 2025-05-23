@@ -20,7 +20,9 @@
 #include "Misc/GlobalLogger.h"
 #include "Windows/WindowsConsoleOutputDevice.h"
 #include "Application/DApplication.h"
+#include "GenericPlatform/GenericApplicationMisc.h"
 //#include "Widgets/DWindow.h"
+
 
 //import Array;
 
@@ -95,8 +97,18 @@ int32 FEngineLoop::PreInit(const FString& CmdLine)
 	FWindowsConsoleOutputDevice* Console = new FWindowsConsoleOutputDevice();
 	Console->Show(true);
 
+	FDUIApplication::InitHightDPI(true);
 	FDUIApplication::Create();
 
+	auto wnd = DUINew(DUIWindow)
+		.Visibility(EVisibility::All)
+		.ScreenPosition({ 0, 0 })
+		.Size({800, 600});
+
+
+
+
+	FDUIApplication::Get().AddWindow(wnd);
 
 	/*TSharedPtr<DUIWindow> testWnd =  DUINew(DUIWindow)
 		.Title(TEXT("TEST"));*/
@@ -113,10 +125,12 @@ int32 FEngineLoop::Init()
 
 void FEngineLoop::Tick()
 {
-	DE_LOG(LaunchLog, Warning, TEXT("HUYHYHFSDSF"));
+	//DE_LOG(LaunchLog, Warning, TEXT("HUYHYHFSDSF"));
+	FDUIApplication::Get().Tick();
 }
 
 void FEngineLoop::Exit()
 {
 	bExit = true;
+	FDUIApplication::Shutdown();
 }

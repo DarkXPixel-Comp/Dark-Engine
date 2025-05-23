@@ -42,54 +42,100 @@ enum class EWindowZone
 	Unspecified = 0
 };
 
+enum class EWindowActivationPolicy
+{
+	Never,
+	Always,
+	FirstShown
+};
+
+struct FWindowSizeLimits
+{
+public:
+	FWindowSizeLimits& SetMinWidth(int32 InMinWidth)
+	{
+		MinWidth = InMinWidth;
+		return *this;
+	}
+
+	FWindowSizeLimits& SetMinHeight(int32 InMinHeight)
+	{
+		MinHeight = InMinHeight;
+		return *this;
+	}
+
+	FWindowSizeLimits& SetMaxWidth(int32 InMaxWidth)
+	{
+		MaxWidth = InMaxWidth;
+		return *this;
+	}
+
+	FWindowSizeLimits& SetMaxHeight(int32 InMaxHeight)
+	{
+		MaxHeight = InMaxHeight;
+		return *this;
+	}
+
+	int32 GetMinWidth() const
+	{
+		return MinWidth;
+	}
+
+	int32 GetMinHeight() const
+	{
+		return MinHeight;
+	}
+
+	int32 GetMaxWidth() const
+	{
+		return MaxWidth;
+	}
+
+	int32 GetMaxHeight() const
+	{
+		return MaxHeight;
+	}
+
+private:
+	int32 MinWidth;
+	int32 MinHeight;
+	int32 MaxWidth;
+	int32 MaxHeight;
+};
+
 struct FGenericWindowDefinition
 {
 	FString Title;
-	
-	float PosX = 0.f;
-	float PosY = 0.f;
-
-	float Width = 0.f;
-	float Height = 0.f;
-
-	bool bHasOSWindowBorder = true;
-
-	int32 LeftBorder = 4;
-	int32 TopBorder = 4;
-	int32 RightBorder = 4;
-	int32 BottomBorder = 4;
-	
-
-	bool bHasWindowPlatformBorder = true;
-
-	bool bMovable = false;
-
-	bool bSizable = false;
-
-	int32 CornerRadius = 5;
-
 	EWindowType Type;
-
 	EWindowMode Mode;
 
-	bool AppearsInTaskbar;
+	float XDesiredPositionOnScreen;
+	float YDisiredPositionOnScreen;
 
-	bool IsTopmostWindow;
+	float WidthDesiredOnScreen;
+	float HeightDesiredOnScreen;
 
-	bool AcceptsInput;
+	bool bHasOSWindowBorder;
+	bool bAcceptsInput;
+	bool bIsTopmostWindow;
+	bool bAppearsInTaskbar;
+	bool bFocusWhenFirstShown;
+	bool bHasCloseButton;
+	bool bSupportMinimize;
+	bool bSupportMaximize;
 
-	bool IsRegularWindow;
-
-	bool FocusWhenFirstShown;
-	bool HasCloseButton;
-	bool SupportsMinimize;
-	bool SupportsMaximize;
-
-	bool IsModalWindow;
-	bool HasSizingFrame;
-	bool ShouldPreserveAspectRatio;
-
+	bool bIsModalWindow;
+	bool bIsRegularWindow;
+	bool bHasSizingFrame;
 	bool bSizeWillChangeOften;
+	bool bShouldPreserveAspectRatio;
+
 	int32 ExpectedMaxWidth;
 	int32 ExpectedMaxHeight;
+
+	float Opacity;
+	int32 CornerRadius;
+	FWindowSizeLimits SizeLimits;
+	EWindowActivationPolicy ActivationPolicy;
+	bool bManualDPI;
 };

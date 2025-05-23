@@ -46,11 +46,11 @@ void FWindowsWindow::Initialize(FWindowsApplication* const Application, const FG
 
 	RegionWidth = RegionHeight = -1;
 
-	const float XInitialRect = InDefinition.PosX;
-	const float YInitialRect = InDefinition.PosY;
+	const float XInitialRect = InDefinition.XDesiredPositionOnScreen;
+	const float YInitialRect = InDefinition.YDisiredPositionOnScreen;
 
-	const float WidthInitial = InDefinition.Width;
-	const float HeightInitial = InDefinition.Height;
+	const float WidthInitial = InDefinition.WidthDesiredOnScreen;
+	const float HeightInitial = InDefinition.HeightDesiredOnScreen;
 
 	
 	DPIScale = FPlatformApplicationMisc::GetDPIScaleFactorAtPoint(XInitialRect, YInitialRect);
@@ -71,7 +71,7 @@ void FWindowsWindow::Initialize(FWindowsApplication* const Application, const FG
 		WindowExStyle |= WS_EX_WINDOWEDGE;
 		
 		WindowStyle |= WS_POPUP | WS_CLIPCHILDREN | WS_CLIPSIBLINGS;
-		if (InDefinition.AppearsInTaskbar)
+		if (InDefinition.bAppearsInTaskbar)
 		{
 			WindowExStyle |= WS_EX_APPWINDOW;
 		}
@@ -80,12 +80,12 @@ void FWindowsWindow::Initialize(FWindowsApplication* const Application, const FG
 			WindowExStyle |= WS_EX_TOOLWINDOW;
 		}
 
-		if (InDefinition.IsTopmostWindow)
+		if (InDefinition.bIsTopmostWindow)
 		{
 			WindowExStyle |= WS_EX_TOPMOST;
 		}
 
-		if (!InDefinition.AcceptsInput)
+		if (!InDefinition.bAcceptsInput)
 		{
 			WindowExStyle |= WS_EX_TRANSPARENT;
 		}
@@ -95,17 +95,17 @@ void FWindowsWindow::Initialize(FWindowsApplication* const Application, const FG
 		WindowExStyle |= WS_EX_APPWINDOW;
 		WindowStyle |= WS_OVERLAPPEDWINDOW | WS_SYSMENU | WS_CAPTION;
 
-		if (InDefinition.IsRegularWindow)
+		if (InDefinition.bIsRegularWindow)
 		{
-			if(InDefinition.SupportsMaximize)
+			if(InDefinition.bSupportMaximize)
 			{
 				WindowStyle |= WS_MAXIMIZEBOX;
 			}
-			if (InDefinition.SupportsMinimize)
+			if (InDefinition.bSupportMinimize)
 			{
 				WindowStyle |= WS_MINIMIZEBOX;
 			}
-			if (InDefinition.HasSizingFrame)
+			if (InDefinition.bHasSizingFrame)
 			{
 				WindowStyle |= WS_THICKFRAME;
 			}
@@ -153,18 +153,18 @@ void FWindowsWindow::Initialize(FWindowsApplication* const Application, const FG
 	}
 
 	
-	if (WndDefinition.IsRegularWindow && !WndDefinition.bHasOSWindowBorder)
+	if (WndDefinition.bIsRegularWindow && !WndDefinition.bHasOSWindowBorder)
 	{
 		WindowStyle |= WS_OVERLAPPED | WS_CAPTION | WS_SYSMENU;
-		if (WndDefinition.SupportsMaximize)
+		if (WndDefinition.bSupportMaximize)
 		{
 			WindowStyle |= WS_MAXIMIZEBOX;
 		}
-		if (WndDefinition.SupportsMinimize)
+		if (WndDefinition.bSupportMinimize)
 		{
 			WindowStyle |= WS_MINIMIZEBOX;
 		}
-		if (WndDefinition.HasSizingFrame)
+		if (WndDefinition.bHasSizingFrame)
 		{
 			WindowStyle |= WS_THICKFRAME;
 		}
@@ -179,13 +179,13 @@ void FWindowsWindow::Initialize(FWindowsApplication* const Application, const FG
 	}
 	else if (WndDefinition.bHasOSWindowBorder)
 	{
-		if (!WndDefinition.HasCloseButton)
+		if (!WndDefinition.bHasCloseButton)
 		{
 			EnableMenuItem(GetSystemMenu(hWnd, FALSE), SC_CLOSE, MF_GRAYED);
 		}
 	}
 
-	if (WndDefinition.IsRegularWindow)
+	if (WndDefinition.bIsRegularWindow)
 	{
 		AddClipboardFormatListener(hWnd);
 	}
@@ -351,11 +351,11 @@ APPLICATIONCORE_API int32 FWindowsWindow::GetWindowBorderSize() const
 	return WindowInfo.cxWindowBorders;
 }
 
-APPLICATIONCORE_API void FWindowsWindow::AdjustSize(FVector2f& Size) const
+APPLICATIONCORE_API void FWindowsWindow::AdjustSize(FVector2d& Size) const
 {
 	if (WndDefinition.bSizeWillChangeOften)
 	{
-		Size = FVector2f(VirtualWidth, VirtualHeight);
+		Size = FVector2d(VirtualWidth, VirtualHeight);
 	}
 	else if (hWnd)
 	{

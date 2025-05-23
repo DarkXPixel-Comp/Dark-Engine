@@ -18,6 +18,12 @@ void DUIWindow::Construct(const FArguments& InArgs)
 		WindowPosition *= InitialDPIScale;
 	}
 	
+	FDisplayMetrics DisplayMetrics;
+	FDUIApplication::Get().GetCachedDisplayMetrics(DisplayMetrics);
+
+
+	InitialDesiredSize = InArgs._Size;
+	InitialDesiredScreenPosition = WindowPosition;
 
 
 }
@@ -29,16 +35,16 @@ void DUIWindow::ResizeWindowSize(FVector2f NewWindowSize)
 
 }
 
-void DUIWindow::SetScreenPosition(const FVector2f& NewPosition)
+void DUIWindow::SetScreenPosition(const FVector2d& NewPosition)
 {
 	ScreenPosition = NewPosition;
 }
 
-void DUIWindow::SetSize(FVector2f NewSize)
+void DUIWindow::SetSize(FVector2d NewSize)
 {
 	if (NativeWindow)
 	{
-		NativeWindow->AdjustSize(Size);
+		NativeWindow->AdjustSize(NewSize);
 	}
 	if (NewSize != Size)
 	{
@@ -66,11 +72,12 @@ DARKUI_API void DUIWindow::ShowWindow()
 {
 	if (!bHasEverBeenShown)
 	{
-		if (NativeWindow)
-		{
-			//FDUIApplication::
+	}
 
-		}
+	if (NativeWindow)
+	{
+		NativeWindow->Show();
+
 	}
 
 
@@ -214,6 +221,21 @@ FVector2d DUIWindow::GetSize() const
 FVector2d DUIWindow::GetPosition() const
 {
 	return ScreenPosition;
+}
+
+FVector2d DUIWindow::GetInitialDesiredSize() const
+{
+	return InitialDesiredSize;
+}
+
+FVector2d DUIWindow::GetInitialDesiredPosition() const
+{
+	return InitialDesiredScreenPosition;
+}
+
+bool DUIWindow::HasOSBorder() const
+{
+	return bHasOSBorder;
 }
 
 void DUIWindow::SetCachedSize(FVector2f NewSize)

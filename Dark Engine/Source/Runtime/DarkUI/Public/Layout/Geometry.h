@@ -7,14 +7,14 @@
 struct FGeometry
 {
 public:
-	DARKUI_API FGeometry();
+	DARKUI_API FGeometry() {}
 
 	FGeometry(const FGeometry& RHS) = default;
 
-	FGeometry(const FVector2f& OffsetFromParent, 
-		const FVector2f& ParentAbsolutePosition, 
+	FGeometry(const FVector2f& OffsetFromParent,
+		const FVector2f& ParentAbsolutePosition,
 		const FVector2f& InLocalSize,
-		float InScale);
+		float InScale) { }
 
 
 private:

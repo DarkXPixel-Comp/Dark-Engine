@@ -35,7 +35,7 @@ public:
 
 	virtual void* GetOSWindowHandle() const { return nullptr; }
 
-	virtual void AdjustSize(FVector2f& Size) const {}
+	virtual void AdjustSize(FVector2d& Size) const {}
 
 	virtual bool IsPointInWindow(int32 X, int32 Y) const { return false; }
 

@@ -3,6 +3,7 @@
 #include "GenericPlatform/GenericWindowDefinition.h"
 #include "Platform/PlatformApplicationMisc.h"
 #include "Application/DUser.h"
+#include "Layout/ArrangedWidget.h"
 
 
 TSharedPtr<FDUIApplication> FDUIApplication::CurrentApplication;
@@ -13,6 +14,13 @@ void FDUIApplication::Create()
 	Create(MakeShareble(FPlatformApplicationMisc::CreateApplication()));
 }
 
+DARKUI_API void FDUIApplication::Shutdown()
+{
+	FPlatformApplicationMisc::Shutdown();
+
+
+}
+
 TSharedPtr<FDUIApplication> FDUIApplication::Create(const TSharedPtr<FGenericApplication>& InPlatformApplication)  
 {  
 	PlatformApplication = InPlatformApplication;
@@ -20,6 +28,12 @@ TSharedPtr<FDUIApplication> FDUIApplication::Create(const TSharedPtr<FGenericApp
 	CurrentApplication = MakeShareble(new FDUIApplication());
 
 	PlatformApplication->SetMessageHandler(CurrentApplication);
+
+	{
+		FDisplayMetrics DisplayMetrics;
+		FDUIApplication::Get().GetDisplayMetrics(DisplayMetrics);
+	}
+
 
 	return CurrentApplication;
 }
@@ -37,7 +51,7 @@ TSharedPtr<class DUIWindow> FDUIApplication::AddWindow(const TSharedPtr<class DU
 
 	if (bShow)
 	{
-		//InWindow->Show();
+		InWindow->ShowWindow();
 
 	}
 
@@ -56,6 +70,10 @@ void FDUIApplication::InitHightDPI(bool bForceEnable)
 
 void FDUIApplication::Tick()
 {
+	PlatformApplication->PumpMessages(1.f);
+
+	PlatformApplication->Tick(1.f);
+
 
 
 
@@ -100,14 +118,26 @@ TSharedPtr<FGenericWindow> FDUIApplication::MakeWindow(const TSharedPtr<class DU
 
 	FGenericWindowDefinition Definition;
 
+	const FVector2f Size = InWindow->GetInitialDesiredSizeInScreen();
+	const FVector2f Position = InWindow->GetInitialDesiredPositionInScreen();
+
 	Definition.Type = InWindow->GetType();
+	Definition.WidthDesiredOnScreen = Size.X;
+	Definition.HeightDesiredOnScreen = Size.Y;
+
+	Definition.XDesiredPositionOnScreen = Position.X;
+	Definition.YDisiredPositionOnScreen = Position.Y;
+
+	Definition.bHasOSWindowBorder = InWindow->HasOSBorder();
+
+	//Definition.WidthDesiredOnScreen = 
 
 
 	TSharedPtr<FGenericWindow> NewWindow = PlatformApplication->MakeWindow();
 
 	InWindow->SetNativeWindow(NewWindow);
-	InWindow->SetScreenPosition(InWindow->GetInitialDesiredPositionInScreen());
-	InWindow->SetSize(InWindow->GetInitialDesiredSizeInScreen());
+	InWindow->SetScreenPosition(Position);
+	InWindow->SetSize(Size);
 
 	PlatformApplication->InitializeWindow(NewWindow, Definition, NativeParent, bShow);
 
@@ -117,7 +147,7 @@ TSharedPtr<FGenericWindow> FDUIApplication::MakeWindow(const TSharedPtr<class DU
 
 void FDUIApplication::TickPlatform(float DeltaTime)
 {
-	PlatformApplication->PumpMessages();
+	PlatformApplication->PumpMessages(DeltaTime);
 
 
 
@@ -151,11 +181,19 @@ DARKUI_API void FDUIApplication::LocateWidgetInWindow(const FVector2d& MousePosi
 	const bool bAcceptInput = Window->IsVisible() && (Window->AcceptsInput() || IsWindowHousingInteractiveTooltip(Window));
 	if (bAcceptInput && Window->IsScreenSpaceMouseWithin(MousePosition))
 	{
+		FVector2f CursorPosition = MousePosition;
+
 		if (Window->GetWindowMode() == EWindowMode::FullScreen)
 		{
 			FVector2f WindowSize = Window->GetSize();
-			//FVector2f DisplaySize = 
+			FVector2f DisplaySize = { static_cast<float>(CachedDisplayMetrics.PrimaryDisplayWidth), static_cast<float>(CachedDisplayMetrics.PrimaryDisplayHeight) };
+			
+			CursorPosition *= WindowSize / DisplaySize;
 		}
+
+		
+		//TArray<FWidgetAndPointer> WidgetsAndCursors 
+
 
 
 	}
@@ -174,4 +212,15 @@ bool FDUIApplication::IsWindowHousingInteractiveTooltip(const TSharedPtr<const D
 		}
 	}
 	return false;
+}
+
+void FDUIApplication::GetDisplayMetrics(FDisplayMetrics& OutMetrics) const
+{
+	PlatformApplication->RebuildDisplayMetrics(OutMetrics);
+	CachedDisplayMetrics = OutMetrics;
+}
+
+void FDUIApplication::GetCachedDisplayMetrics(FDisplayMetrics& OutMetrics) const
+{
+	OutMetrics = CachedDisplayMetrics;
 }

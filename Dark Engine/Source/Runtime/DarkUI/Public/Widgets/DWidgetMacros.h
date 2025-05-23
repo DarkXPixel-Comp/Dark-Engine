@@ -2,6 +2,7 @@
 
 #include "Misc/Attribute.h"
 #include "Math/Vector2.h"
+#include "Layout/Visibility.h"
 
 
 #define DUI_PRIVATE_ATTRIBUTE_VARIABLE(AttributeType, AttributeName) \
@@ -42,6 +43,7 @@ struct FDarkUIBaseNamedArgs
 	DUI_PRIVATE_ARGUMENT_VARIABLE(float, RenderOpacity) = 1.f;
 	DUI_PRIVATE_ARGUMENT_VARIABLE(bool, EnabledAttributesUpdate) = true;
 	DUI_PRIVATE_ATTRIBUTE_VARIABLE(FVector2d, RenderTransformPivot) = FVector2d::ZeroVector;
+	DUI_PRIVATE_ATTRIBUTE_VARIABLE(EVisibility, Visibility) = EVisibility::Visible;
 };
 
 
@@ -55,6 +57,7 @@ struct TDarkUIBaseNamedArgs : public FDarkUIBaseNamedArgs
 	DUI_PRIVATE_ARGUMENT_FUNCTION(float, RenderOpacity);
 	DUI_PRIVATE_ARGUMENT_FUNCTION(bool, EnabledAttributesUpdate);
 	DUI_PRIVATE_ATTRIBUTE_FUNCTION(FVector2d, RenderTransformPivot);
+	DUI_PRIVATE_ATTRIBUTE_FUNCTION(EVisibility, Visibility);
 
 
 	WidgetArgsType& Me()

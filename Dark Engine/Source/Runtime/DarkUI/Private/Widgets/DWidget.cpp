@@ -38,6 +38,11 @@ void DUIWidget::OnToolTipClosing()
 
 }
 
+void DUIWidget::SetVisibility(TAttribute<EVisibility> InVisibility)
+{
+	Visibility = InVisibility;
+}
+
 void DUIWidget::DUIWidgetConstruct(const FDarkUIBaseNamedArgs& Args)
 {
 	

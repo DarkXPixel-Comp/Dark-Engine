@@ -4,16 +4,21 @@
 #include "GenericPlatform/GenericApplicationMessageHandler.h"
 #include "Memory/MemoryCore.h"
 #include "Containers/DarkString.h"
+#include "Containers/Array.h"
+#include "Math/IntPoint.h"
+#include "Math/Rect.h"
 
 struct FMonitorInfo
 {
 	FString Name;
 	FString ID;
-	int32 NativeWidth;
-	int32 NativeHeight;
-	
-	bool IsPrimary;
-	int32 DPI;
+	int32 NativeWidth = 0;
+	int32 NativeHeight = 0;
+	FIntPoint MaxResolution;
+	FIntRect DisplayRect;
+	FIntRect WorkAreaRect;
+	bool bIsPrimary;
+	int32 DPI = 0;
 
 };
 
@@ -26,6 +31,12 @@ struct FDisplayMetrics
 	}
 
 	int32 PrimaryDisplayWidth;
+	int32 PrimaryDisplayHeight;
+
+	TArray<FMonitorInfo> MonitorInfo;
+
+	FIntRect PrimaryDisplayWorkAreaRect;
+	FIntRect VirtualDisplayRect;
 };
 
 
@@ -40,10 +51,11 @@ public:
 	}
 
 	virtual void InitializeWindow(const TSharedPtr<FGenericWindow>& InWindow, FGenericWindowDefinition InDefinition, const TSharedPtr<FGenericWindow>& InParent, bool bShow = false) {}
-	virtual void PumpMessages() {}
+	virtual void PumpMessages(float DeltaTime) {}
 	virtual void Tick(float DeltaTime) {}
 	virtual void SetMessageHandler(const TSharedPtr<FGenericApplicationMessageHandler>& InMessageHandler) { MessageHandler = InMessageHandler; }
 
+	virtual void RebuildDisplayMetrics(FDisplayMetrics& OutDisplay) {}
 protected:
 	TSharedPtr<FGenericApplicationMessageHandler> MessageHandler;
 };
