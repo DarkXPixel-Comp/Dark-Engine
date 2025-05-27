@@ -45,11 +45,8 @@ jobs:
           xcopy "Dark Engine\\Config"   "Release\\Dark Engine\\Config"   /E /I /Y
           xcopy "Dark Engine\\Source\\Templates"   "Release\\Dark Engine\\Source\\Templates"   /E /I /Y
 
-      - name: Archive release
-        run: Compress-Archive -Path Release\* -DestinationPath dark_framework_build.zip
-
       - name: Upload build artifact
         uses: actions/upload-artifact@v4
         with:
           name: DarkFramework-Windows-Build
-          path: dark_framework_build.zip
+          path: Release
