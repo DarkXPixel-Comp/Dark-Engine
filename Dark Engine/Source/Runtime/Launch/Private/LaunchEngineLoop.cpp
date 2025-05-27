@@ -90,8 +90,8 @@ int32 FEngineLoop::PreInit(const FString& CmdLine)
 	if (!CheckFiles(ErrorMsg))
 	{
 		FPlatformMisc::CreateMessageBoxError(*FString::PrintF(TEXT("Not found all vital files or folders: \n%s"), *ErrorMsg), TEXT("Error vital files"));
-		RequestExit();
-		return -1;
+		//RequestExit();
+		//return -1;
 	}
 
 	FWindowsConsoleOutputDevice* Console = new FWindowsConsoleOutputDevice();
