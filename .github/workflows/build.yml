@@ -17,6 +17,11 @@ jobs:
       - name: Install 7zip
         run: choco install 7zip -y
 
+      - name: Set tag name from date
+        id: tag_date
+        run: echo "TAG_NAME=Release-$(Get-Date -Format 'yyyy-MM-dd-HHmm')" >> $env:GITHUB_ENV
+        shell: pwsh
+
       - name: Setup Ninja manually
         run: |
           curl -L -o ninja.zip https://github.com/ninja-build/ninja/releases/download/v1.11.1/ninja-win.zip
@@ -50,3 +55,27 @@ jobs:
         with:
           name: DarkFramework-Windows-Build
           path: Release
+
+
+      - name: Archive release
+        run: Compress-Archive -Path Release\* -DestinationPath dark_framework_build.zip
+
+      - name: Create GitHub Release
+        id: create_release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ env.TAG_NAME }}
+          name: Release ${{ env.TAG_NAME }}
+          body: Automated build from branch ${{ github.ref_name }}
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload release asset
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ env.TAG_NAME }}
+          files: ./dark_framework_build.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
