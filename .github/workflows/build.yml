@@ -35,7 +35,7 @@ jobs:
       - name: Copy release structure
         run: |
           mkdir Release
-          xcopy "Dark Engine\\Binaries" "Release\\Dark Engine\\Binaries" /E /I /Y
+          xcopy "Dark Engine\\Binaires" "Release\\Dark Engine\\Binaires" /E /I /Y
           xcopy "Dark Engine\\Content"  "Release\\Dark Engine\\Content"  /E /I /Y
           xcopy "Dark Engine\\Shaders"  "Release\\Dark Engine\\Shaders"  /E /I /Y
           xcopy "Dark Engine\\Source"   "Release\\Dark Engine\\Source"   /E /I /Y
