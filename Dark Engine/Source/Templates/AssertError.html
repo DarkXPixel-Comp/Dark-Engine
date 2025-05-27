@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dark Framework Error Report</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Fira Code", "Consolas", monospace;
+      background: #0f0f0f;
+      color: #d0d0d0;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 4vh 2vw;
+    }
+    .container {
+      background: #181818;
+      border: 1px solid #2a2a2a;
+      border-radius: 12px;
+      padding: 2rem;
+      width: 100%;
+      max-width: 900px;
+      box-shadow: 0 0 40px rgba(0, 255, 255, 0.05);
+    }
+    h1 {
+      color: #999999;
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+    }
+    .section-title {
+      font-weight: bold;
+      color: #666666;
+      margin-top: 1.5rem;
+      margin-bottom: 0.3rem;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      cursor: default;
+      user-select: none;
+    }
+    pre {
+      background: #1e1e1e;
+      color: #ccc;
+      padding: 1rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      font-size: 0.9rem;
+      max-height: 250px;
+      overflow-y: auto;
+      margin: 0;
+    }
+    .button {
+      margin-top: 1.5rem;
+      display: inline-block;
+      padding: 0.8rem 1.5rem;
+      background: #444444;
+      color: #d0d0d0;
+      border-radius: 6px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: background 0.3s ease;
+      user-select: none;
+      cursor: pointer;
+    }
+    .button:hover {
+      background: #666666;
+    }
+    .footer {
+      margin-top: 2rem;
+      font-size: 0.85rem;
+      color: #555;
+      text-align: center;
+      user-select: none;
+    }
+    /* Интерактивный стек */
+    .stack-entry {
+      margin-bottom: 0.5rem;
+    }
+    .stack-func {
+      cursor: pointer;
+      color: #a0a0a0;
+      user-select: text;
+    }
+    .stack-details {
+      display: none;
+      margin-left: 1rem;
+      font-size: 0.85rem;
+      color: #888;
+      white-space: pre-wrap;
+    }
+    /* Инфо по системе */
+    .sys-info {
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Error Report</h1>
+    
+    <div class="section-title">Date & Time</div>
+    <pre>{{ERROR_DATETIME}}</pre>
+    
+    <div class="section-title">System Info</div>
+    <pre class="sys-info">{{SYSTEM_INFO}}</pre>
+    
+    <div class="section-title">Message</div>
+    <pre>{{ERROR_MESSAGE}}</pre>
+
+    <div class="section-title">File</div>
+    <pre>{{FILE_PATH}}</pre>
+
+    <div class="section-title">Line</div>
+    <pre>{{LINE_NUMBER}}</pre>
+
+    <div class="section-title">Stack Trace (click to expand)</div>
+    <div id="stackTrace">
+      {{STACK_TRACE_INTERACTIVE}}
+    </div>
+
+    <div class="section-title">Recent Logs</div>
+    <pre>{{RECENT_LOGS}}</pre>
+
+    <button class="button" onclick="copyStackTrace()">Copy Stack Trace</button>
+    <button class="button" onclick="sendReport()">Send Report</button>
+
+    <div class="footer">
+      Dark Framework © 2025 — Helping you debug the shadows.
+    </div>
+  </div>
+
+  <script>
+    // Интерактивность стека: клик — показать/скрыть детали
+    document.getElementById('stackTrace').addEventListener('click', e => {
+      if (e.target.classList.contains('stack-func')) {
+        const details = e.target.nextElementSibling;
+        if (!details) return;
+        details.style.display = details.style.display === 'block' ? 'none' : 'block';
+      }
+    });
+
+    function copyStackTrace() {
+      const text = document.getElementById('stackTrace').innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        alert('Stack trace copied to clipboard');
+      }).catch(() => {
+        alert('Failed to copy stack trace');
+      });
+    }
+
+    function sendReport() {
+      // Пример: открываем почтовый клиент с предзаполненным письмом
+      const subject = encodeURIComponent("Dark Framework Error Report");
+      const body = encodeURIComponent(
+        "Error Message: {{ERROR_MESSAGE}}\n" +
+        "File: {{FILE_PATH}}\n" +
+        "Line: {{LINE_NUMBER}}\n" +
+        "Date & Time: {{ERROR_DATETIME}}\n\n" +
+        "Stack Trace:\n{{STACK_TRACE_PLAIN}}\n\n" +
+        "System Info:\n{{SYSTEM_INFO}}"
+      );
+      window.location.href = `mailto:nahmurin.dima65@gmail.com?subject=${subject}&body=${body}`;
+    }
+  </script>
+</body>
+</html>

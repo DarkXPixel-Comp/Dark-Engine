@@ -1,12 +1,13 @@
-#pragma once
-#include "HAL/CriticalSection.h"
-#include "AssertionMacros.h"
+#pragma	once
+#include "Platform/PlatformCriticalSection.h"
+#include "Misc/AssertionMacros.h"
+
 
 
 class FScopeLock
 {
 public:
-	FScopeLock(FCriticalSection* InCriticalSection):
+	FScopeLock(FCriticalSection* InCriticalSection) :
 		CriticalSection(InCriticalSection)
 	{
 		check(CriticalSection);

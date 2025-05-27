@@ -1,58 +1,41 @@
 #pragma once
-#include <HAL/Platform.h>
-#include "Vector2D.h"
-#include "Vector.h"
-#include "Rotator.h"
-#include "Matrix.h"
-#include "IntPoint.h"
-#include "IntRect.h"
-#include "Vector4.h"
+#include "Platform/Platform.h"
 
 
 namespace DE::Math
 {
-	template<typename T> struct TVector;
-	template<typename T> struct TVector2;
-	template<typename T> struct TRotator;
-	template<typename T> struct TMatrix;
-	template<typename T> struct TIntPoint;
-	template<typename T> struct TIntRect;
-	template<typename T> struct TVector4;
+	template <typename T> struct TVector2;
+	template <typename T> class TTransform2;
+	template <typename T> struct TRect;
+	template <typename T> struct TIntPoint;
 }
 
-
-// ISPC forward declarations
 namespace ispc
 {
-	struct FVector;
-	struct FVector2D;
-	struct FVector4;
-	struct FQuat;
-	struct FMatrix;
-	struct FPlane;
-	struct FTransform;
+	struct FVector2;
+	struct FTransform2;
+	struct FRect;
 	struct FIntPoint;
-	struct FIntRect;
 }
 
+using FVector2 = DE::Math::TVector2<double>;
+using FTransform2 = DE::Math::TTransform2<double>;
+using FRect = DE::Math::TRect<double>;
 
-using FVector =					DE::Math::TVector<double>;
-using FVector2D =				DE::Math::TVector2<double>;
-using FRotator =				DE::Math::TRotator<double>;
+using FVector2d = DE::Math::TVector2<double>;
+using FTransform2d = DE::Math::TTransform2<double>;
+using FRect4d = DE::Math::TRect<double>;
 
+using FVector2f = DE::Math::TVector2<float>;
+using FTransform2f = DE::Math::TVector2<float>;
+using FRect4f = DE::Math::TRect<float>;
 
-using FVector3d =				DE::Math::TVector<double>;
-using FVector2d =				DE::Math::TVector<double>;
-using FRotator3d =				DE::Math::TRotator<double>;
+using FIntRect = DE::Math::TRect<int32>;
 
-using FVector3f =				DE::Math::TVector<float>;
-using FVector2f =				DE::Math::TVector2<float>;
-using FRotator3f =				DE::Math::TRotator<float>;
+using FIntPoint = DE::Math::TIntPoint<int32>;
 
-using FVector4f =				DE::Math::TVector4<float>;
+using FInt32Point = DE::Math::TIntPoint<int32>;
+using FInt64Point = DE::Math::TIntPoint<int64>;
 
-using FMatrix =					DE::Math::TMatrix<double>;
-using FMatrix4x4f =				DE::Math::TMatrix<float>;
-
-using FIntPoint =				DE::Math::TIntPoint<int32>;
-using FIntRect =				DE::Math::TIntRect<int32>;
+using FUint32Point = DE::Math::TIntPoint<uint32>;
+using FUint64Point = DE::Math::TIntPoint<uint64>;

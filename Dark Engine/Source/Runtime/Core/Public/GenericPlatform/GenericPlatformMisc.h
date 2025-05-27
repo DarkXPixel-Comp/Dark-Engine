@@ -1,10 +1,11 @@
 #pragma once
-#include "CoreTypes.h"
+
+#include "Platform/Platform.h"
 #include "Containers/DarkString.h"
 
 struct FGenericPlatformMisc
 {
-	static CORE_API void PlatformPreInit();
+	static CORE_API void PlatformPreInit() {}
 	static CORE_API void PlatformInit() {}
 
 	static CORE_API FString EngineDir() { return FString(); }
@@ -13,6 +14,8 @@ struct FGenericPlatformMisc
 
 	static CORE_API FString GetPathModule() { return FString(); }
 
+	static CORE_API bool CreateMessageBoxError(const TCHAR* Text, const TCHAR* Caption) { return false; }
 
+	static CORE_API void LocalPrint(const TCHAR* Str);
 
 };

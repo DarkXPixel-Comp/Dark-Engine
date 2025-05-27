@@ -1,15 +1,10 @@
 #include "GenericPlatform/GenericPlatformMisc.h"
-#include "Templates/DarkTemplate.h"
 
-
-
-void MakeEngineDir(FString& OutEngineDir)
+void FGenericPlatformMisc::LocalPrint(const TCHAR* Str)
 {
-	FString DefaultEngineDir = /*TEXT*/("../../../Engine/");
-
-	//const TCHAR* BaseDir = FPlatformProcess::BaseDir();
-
-
-	OutEngineDir = MoveTemp(DefaultEngineDir);
-
+#ifdef UNICODE
+	wprintf(TEXT("%s"), Str);
+#else
+	printf("%s", Str);
+#endif
 }

@@ -1,6 +1,5 @@
 #pragma once
-#include "Windows/MinimalWindowsApi.h"
-
+#include "Windows/WindowsIncludes.h"
 
 class FWindowsCriticalSection
 {
@@ -35,22 +34,21 @@ private:
 	CRITICAL_SECTION CriticalSection;
 };
 
-
-class FWindowsSystemWideCriticalSection
-{
-public:
-	FWindowsSystemWideCriticalSection(const class FString& InName);
-
-	~FWindowsSystemWideCriticalSection();
-
-	bool IsValid() const;
-
-	void Release();
-
-private:
-	HANDLE Mutex;
-};
+//class FWindowsSystemWideCriticalSection
+//{
+//public:
+//	FWindowsSystemWideCriticalSection(const class FString& InName);
+//
+//	~FWindowsSystemWideCriticalSection();
+//
+//	bool IsValid() const;
+//
+//	void Release();
+//
+//private:
+//	HANDLE Mutex;
+//};
 
 
 typedef FWindowsCriticalSection FCriticalSection;
-typedef FWindowsSystemWideCriticalSection FSystemWideCriticalSection;
+//typedef FWindowsSystemWideCriticalSection FSystemWideCriticalSection;

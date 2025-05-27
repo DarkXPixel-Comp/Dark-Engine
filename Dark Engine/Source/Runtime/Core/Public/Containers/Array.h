@@ -1,23 +1,14 @@
 #pragma once
-#include "Templates/MakeUnsigned.h"
-#include "Templates/IsSigned.h"
-#include <vector>
-#include <set>
-#include "HAL/Platform.h"
 #include <memory>
+#include <functional>
+#include <vector>
 
-
-
-
-
-template <class ...Args>
-using TSet = std::set<Args...>;
-
+#include "Platform/Platform.h"
 
 
 struct ArrayReserve
 {
-	ArrayReserve(uint64 InReserve): Reserve(InReserve)
+	ArrayReserve(uint64 InReserve) : Reserve(InReserve)
 	{}
 
 	uint64 Reserve;
@@ -41,11 +32,11 @@ public:
 	TArray(std::vector<ElementType> Elements) : _vector(Elements) {}
 
 	template<std::size_t N>
-	TArray(ElementType (&Elements)[N]) :_vector(N) 
+	TArray(ElementType(&Elements)[N]) : _vector(N)
 	{
 		memcpy(_vector.data(), Elements, N);
 	}
-		
+
 	/*TArray(ElementType* Elements, SizeType N) :_vector(N)
 	{
 		memcpy(_vector.data(), Elements, N);
@@ -58,6 +49,77 @@ public:
 	constexpr decltype(auto) end() { return _vector.end(); }
 
 
+	FORCEINLINE bool Contains(const ElementType& Other) const
+	{
+		auto It = std::find(begin(), end(), Other);
+		return It != end();
+	}
+
+	FORCEINLINE const ElementType* Find(const ElementType& Other) const
+	{
+		for (SizeType i = 0; i < Num(); ++i)
+		{
+			if (Other == _vector[i])
+				return GetData() + i;
+		}
+		return nullptr;
+	}
+
+	FORCEINLINE const ElementType* FindByPredicate(std::function<bool(const ElementType&)> func) const
+	{
+		for (SizeType i = 0; i < Num(); ++i)
+		{
+			if (func(_vector[i]))
+				return GetData() + i;
+		}
+		return nullptr;
+	}
+
+	FORCEINLINE ElementType* FindByPredicate(std::function<bool(const ElementType&)> func)
+	{
+		for (SizeType i = 0; i < Num(); ++i)
+		{
+			if (func(_vector[i]))
+				return GetData() + i;
+		}
+		return nullptr;
+	}
+
+	FORCEINLINE bool Contains(std::function<bool(const ElementType&)> func) const
+	{
+		for (const auto& i : *this)
+		{
+			if (func(i))
+				return true;
+		}
+		return false;
+	}
+
+	FORCEINLINE void Sort()
+	{
+		//std::sort(begin(), end());
+	}
+
+	FORCEINLINE void Sort(std::function<bool(const ElementType&, const ElementType&)> func)
+	{
+		//std::sort(begin(), end(), func);
+	}
+
+	FORCEINLINE static constexpr SizeType GetTypeSize()
+	{
+		return sizeof(ElementType);
+	}
+
+	FORCEINLINE int64 IndexOfByPredicate(std::function<bool(const ElementType&)> func) const
+	{
+		for (SizeType i = 0; i < Num(); ++i)
+		{
+			if (func)
+				return i;
+		}
+		return -1;
+	}
+
 	//std::vector<ElementType>::iterator begin()
 
 
@@ -65,8 +127,8 @@ public:
 	//decltype(auto) end() const { return _vector.end(); }
 
 
-	void Add(ElementType&& Item) { return _vector.push_back(Item); }
-	void Add(const ElementType& Item) { return _vector.push_back(Item); }
+	SizeType Add(ElementType&& Item) { _vector.push_back(Item); return Num() - 1; }
+	SizeType Add(const ElementType& Item) { _vector.push_back(Item); return Num() - 1; }
 
 	void Push(ElementType&& Item) { _vector.push_back(Item); }
 	void Push(const ElementType& Item) { _vector.push_back(Item); }
@@ -81,6 +143,13 @@ public:
 		//return Last();
 	}
 
+	template<typename... ArgsType>
+	SizeType Emplace_GetIndex(ArgsType&& ...Args)
+	{
+		_vector.emplace_back(std::forward<ArgsType>(Args)...);
+		return GetSize() - 1;
+	}
+
 
 	auto GetData() { return _vector.data(); }
 	const ElementType* GetData() const { return _vector.data(); }
@@ -88,27 +157,37 @@ public:
 
 	SizeType GetSize() const { return _vector.size(); }
 
+	SizeType size() const { return _vector.size(); }
+
 	SizeType Num() const { return _vector.size(); }
 
 	void Empty() { return _vector.clear(); }
 
 	void Reserve(SizeType Count) { _vector.reserve(Count); }
 
-	void Resize(SizeType Count) { _vector.resize(Count);}
+	void Resize(SizeType Count) { _vector.resize(Count); }
 
 	decltype(auto) Erase(auto it) { return _vector.erase(it); }
+
+	void Erase(SizeType Where) { auto It = _vector.begin() + Where; _vector.erase(It); }
 
 	std::vector<ElementType>& GetVector() { return _vector; }
 
 
-	ElementType PopBack() { if (_vector.size() == 0) return nullptr; auto it = _vector.end() - 1; auto result = *it; _vector.erase(it); return result; }
+	ElementType PopBack() { if (_vector.size() == 0) return	NULL; auto it = _vector.end() - 1; auto result = *it; _vector.erase(it); return result; }
 
 	template<typename OtherElementType>
-	void Append(TArray<OtherElementType>&& Source) { _vector.append_range(Source); }
+	void Append(TArray<OtherElementType>&& Source) { _vector.insert(_vector.end(), Source._vector.begin(), Source._vector.end()); }
 
 	decltype(auto) Insert(auto Where, auto It1, auto It2) { return _vector.insert(Where, It1, It2); }
 
-	void Remove(const ElementType& Element) 
+	bool Has(const ElementType& Element)
+	{
+		auto it = std::find(_vector.begin(), _vector.end(), Element);
+		return it != _vector.end();
+	}
+
+	void Remove(const ElementType& Element)
 	{
 		auto it = std::find(_vector.begin(), _vector.end(), Element);
 		if (it != _vector.end())
@@ -161,6 +240,9 @@ public:
 	ElementType& Last() { return _vector[_vector.size() - 1]; }
 	ElementType& First() { return _vector[0]; }
 
+	const ElementType& Last() const { return _vector[_vector.size() - 1]; }
+	const ElementType& First() const { return _vector[0]; }
+
 	//void AddZeroed(uint32 Num) {}
 
 
@@ -191,175 +273,3 @@ private:
 
 	friend struct std::hash<TArray<ElementType>>;
 };
-
-template <class T>
-inline void hash_combine(std::size_t& seed, const T& v)
-{
-	std::hash<T> hasher;
-	seed ^= hasher(v) + 0x9e3779b9 + (seed << 6) + (seed >> 2);
-}
-
-inline void hash_without_hash_combine(std::size_t& seed, const std::size_t& hash)
-{
-	seed ^= hash + 0x9e3779b9 + (seed << 6) + (seed >> 2);
-}
-
-template<typename T>
-struct std::hash<TArray<T>>
-{
-	std::size_t operator()(const TArray<T>& Key) const
-	{
-		std::size_t Result = 0;
-		for (const auto& i : Key)
-		{
-			hash_combine(Result, i);
-		}
-		return Result;
-	}
-};
-
-
-
-
-//template <typename T>
-//using TArray = std::vector<T>;
-
-
-
-
-
-//
-//namespace Develop
-//{
-//	template<typename InElementType, typename InAllocatorType>
-//	class TTArray
-//	{
-//		template<typename OtherInElementType, typename OtherAllocator>
-//		friend class TArray;
-//
-//	public:
-//		typedef typename InAllocatorType::SizeType SizeType;
-//		typedef InElementType ElementType;
-//		typedef InAllocatorType AllocatorType;
-//
-//	private:
-//		using USizeType = typename TMakeUnsigned<SizeType>::Type;
-//
-//		typedef typename TChooseClass<AllocatorType::NeedsElementType,
-//			typename AllocatorType::template ForElementType<ElementType>,
-//			typename AllocatorType::ForAnyElementType
-//		>::Result ElementAllocatorType;
-//
-//	/*	typedef typename TChooseClass<
-//			AllocatorType::NeedsElementType,
-//			typename AllocatorType::template ForElementType<ElementType>,
-//			typename AllocatorType::ForAnyElementType
-//		>::Result ElementAllocatorType;*/
-//
-//		static_assert(TIsSigned<SizeType>::Value, "TArray only supports signed index types");
-//		
-//
-//		//FORCEINLINE TArray()
-//		//	: ArrayNum(0),
-//		//	ArrayMax(AllocatorInstance.GetInitialCapacity())
-//		//{}
-//
-//		FORCEINLINE TTArray(const ElementType* Ptr, SizeType Count)
-//		{
-//			if(Count < 0)
-//			{
-//				Logger::log(TEXT("Trying to resize TArray to an invalid size of %llu"), LOGGER_ERROR);
-//			}
-//
-//			check(Ptr != nullptr || Count == 0);
-//
-//			CopyToEmpty(Ptr, Count, 0);
-//		}
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//		SizeType AllocatorCalculateSlackReserve(SizeType NewArrayMax)
-//		{
-//	/*		if constexpr (TAllocatorTraits<AllocatorType>::SupportsElementAlignment)
-//			{
-//				return AllocatorInstance.CalculateSlackReserve(NewArrayMax, sizeof(ElementType), alignof(ElementType));
-//			}
-//			else
-//			{
-//				return AllocatorInstance.CalculateSlackReserve(NewArrayMax, sizeof(ElementType));
-//			}*/
-//		}
-//
-//
-//
-//
-//
-//		FORCENOINLINE void ResizeForCopy(SizeType NewMax, SizeType PrevMax)
-//		{
-//			if (NewMax)
-//			{
-//				NewMax = AllocatorCalculateSlackReserve(NewMax);
-//			}
-//			if (NewMax > PrevMax)
-//			{
-//				AllocatorResizeAllocation(0, NewMax);
-//				ArrayMax = NewMax;
-//			}
-//			else
-//			{
-//				ArrayMax = PrevMax;
-//			}
-//		}
-//
-//
-//
-//
-//
-//
-//
-//
-//	protected:
-//		ElementAllocatorType AllocatorInstance;
-//		SizeType ArrayNum;
-//		SizeType ArrayMax;
-//
-//
-//
-//		template <typename OtherElementType, typename OtherSizeType>
-//		void CopyToEmpty(const OtherElementType* OtherData, OtherSizeType OtherNum, SizeType PrevMax)
-//		{
-//			SizeType NewNum = (SizeType)OtherNum;
-//			checkf((OtherSizeType)NewNum == OtherNum, TEXT("Invalid number of elements to add to this array type: %lld"), (long long)NewNum);
-//
-//			ArrayNum = NewNum;
-//			if (OtherNum || PrevMax)
-//			{
-//				ResizeForCopy(NewNum, PrevMax);
-//				//ConstructItems<ElementType>(GetData(), OtherData, OtherNum);
-//			}
-//			else
-//			{
-//				ArrayMax = AllocatorInstance.GetInitialCapacity();
-//			}
-//		}
-//
-//	};
-//
-//}
-
-

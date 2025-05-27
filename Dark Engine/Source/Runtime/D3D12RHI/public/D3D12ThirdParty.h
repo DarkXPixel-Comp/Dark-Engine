@@ -1,6 +1,0 @@
-#pragma once
-#include "HAL/PreprocessorHelpers.h"
-
-#include COMPILED_PLATFORM_HEADER(D3D12ThirdParty.h)
-
-

@@ -1,13 +1,12 @@
 #pragma once
-
 #include <cstdarg>
-#include <corecrt_wstdio.h>
+#include "Platform/PlatformString.h"
 
 #define GET_VARARGS_RESULT(msg, msgsize, len, lastarg, fmt, result)\
 {			  \
 	va_list ap;		\
 	va_start(ap, lastarg); \
-	result = _vsnwprintf(msg, msgsize, fmt, ap);	 \
+	result = FPlatformString::StringPrintf(msg, msgsize, fmt, ap);	 \
 	if (result >= msgsize)		  \
 	{				  \
 		result = -1;	   \

@@ -1,61 +1,30 @@
-#include "Containers/DarkString.h" 
-
+#include "Containers/DarkString.h"
+#include "Misc/VarArgs.h"
 #include "Containers/Array.h"
-#include <Windows.h>
-#include <xlocale>
+#include "Platform/Platform.h"
+#include <format>
 
-
-
-FString::FString(const ANSICHAR* Str)
+FString::FString(const ANSICHAR* Other)
 {
-	int32 Lenght = (int32)strlen(Str) + 1;
-	_string.resize(Lenght);
-
-	size_t ConvertedChars = 0;
-
-	mbstowcs_s(NULL, _string.data(), Lenght, Str, Lenght - 1);
-
-	if (_string.back() == L'\0')
-	{
-		_string.pop_back();
-	}
-
+#if	PLATFORM_UTF8CHAR
+#else
+	FPlatformString::MultiByteToWideChar(Other, *this);
+#endif
 }
 
-FString::FString(const std::wstring& Str)
+CORE_API std::string FString::ToString() const
 {
-	_string = Str;
-}
-
-std::string FString::ToString() const
-{
+#if	PLATFORM_UTF8CHAR
+#else
 	std::string Result;
-	int32 Lenght = (int32)wcslen(_string.c_str()) + 1;
-	Result.resize(Lenght);
-
-	wcstombs_s(NULL, Result.data(), Lenght, _string.data(), Lenght - 1);
-
+	FPlatformString::WideCharToMultiByte(String.c_str(), Result);
 	return Result;
+#endif
 }
 
-const char* FString::GetUTF8() const		 // Change on Multiplatform or FPlatformString
+CORE_API std::string FString::operator!() const
 {
-	std::string Result;
-
-	int sz = WideCharToMultiByte(CP_UTF8, 0, _string.data(), -1, 0, 0, 0, 0);
-	Result.resize(sz);
-	WideCharToMultiByte(CP_UTF8, 0, _string.data(), -1, Result.data(), sz, 0, 0);
-
-	_tempString = Result;
-	return _tempString.c_str();
-}
-
-
-FString::FString(const std::string& Str)
-	: FString(Str.data())
-{
-
-
+	return ToString();
 }
 
 FString FString::PrintFInternal(const TCHAR* Fmt, ...)
@@ -84,15 +53,4 @@ FString FString::PrintFInternal(const TCHAR* Fmt, ...)
 	FString ResultString(Buffer.GetData());
 
 	return ResultString;
-}
-
-FString::FString(const WIDECHAR* Str)
-{
-	_string = Str;
-}
-
-
-int32 FString::Len() const
-{
-	return (int32)_string.size();
 }

@@ -1,100 +1,232 @@
 #pragma once
-
-
 #include <string>
+#include <filesystem>
 #include <algorithm>
-#include <HAL/Platform.h>
-#include "Misc/VarArgs.h"
-
-
-
-
-
-
-
+#include "Platform/Platform.h"
+#include "Platform/PlatformString.h"
 
 class FString
 {
+	using StringType = std::basic_string<TCHAR>;
+
 public:
-	FString() : _string(L"") {}
-	FString(const ANSICHAR* Str);
-	FString(const WIDECHAR* Str);
-	FString(uint32 Size) : _string(Size ,L'\0') {}
+	CORE_API FString() {}
 
-	FString(const std::wstring& Str);
-	FString(const std::string& Str);
-
-	FString(TCHAR* Str) : _string(Str) {}
-
-	FString(const FString& Str)
+	CORE_API FString(const FString& Other)
 	{
-		_string = Str._string;
+		String = Other.String;
 	}
 
-	FString& AppendV(const TCHAR* Fmt, va_list Args)
+	CORE_API FString(uint32 Size) : String(Size, L'\0')
+	{}
+
+	CORE_API FString(FString&& Other) noexcept
 	{
-		TCHAR Buf[512];
-		int32 Res = _vsnwprintf(Buf, 512, Fmt, Args);
-		if (Res >= 0 && Res < sizeof(Buf))
+		String = std::move(Other.String);
+	}
+
+	CORE_API FString(const ANSICHAR* Other);
+
+	FString(const TCHAR* Other) : String(Other) {}
+
+	CORE_API FString(const StringType& Other) : String(Other) {}
+
+	CORE_API FString& operator=(const TCHAR* Other)
+	{
+		String = Other;
+		return *this;
+	}
+
+	CORE_API operator StringType() const
+	{
+		return String;
+	}
+
+	CORE_API std::string ToString() const;
+
+	CORE_API std::string operator!() const;
+
+	CORE_API FString& operator=(const FString& Other)
+	{
+		String = Other.String;
+		return *this;
+	}
+
+	CORE_API FString operator/(const FString& Other) const
+	{
+		return PrintF(TEXT("%s/%s"), String.c_str(), Other.String.c_str());
+	}
+
+	CORE_API FString operator+(const FString& Other) const
+	{
+		StringType Result = String + Other.String;
+		return Result;
+	}
+
+	bool operator==(const FString& Other) const
+	{
+		return String == Other.String;
+	}
+
+	CORE_API FString& operator+=(const FString& Other)
+	{
+		String += Other.String;
+		return *this;
+	}
+
+
+	CORE_API TCHAR* operator*()
+	{
+		return String.data();
+	}
+
+	CORE_API const TCHAR* operator*() const
+	{
+		return String.data();
+	}
+
+	FString& Replace(TCHAR Str1, TCHAR Str2)
+	{
+		std::replace(String.begin(), String.end(), Str1, Str2);
+		return *this;
+	}
+
+	CORE_API FString& AppendV(const TCHAR* Fmt, va_list Args)
+	{
+		TCHAR Buffer[512];
+		int32 Result = FGenericString::StringPrintf(Buffer, 512, Fmt, Args);
+
+		if (Result >= 0 && Result < sizeof(Buffer))
 		{
-			*this += Buf;
-			bChangedString = true;
+			*this += Buffer;
 		}
 		return *this;
 	}
 
-	void PopBack()
+	template <typename ...TypeArgs>
+	FString& Append(const TCHAR* Fmt, TypeArgs... Args)
 	{
-		_string.erase(_string.begin() + _string.size() - 1);
-		bChangedString = true;
+		*this += PrintF(Fmt, Args...);
+		return *this;
 	}
 
-	void PopFirst()
+	CORE_API bool operator<(const FString& Other) const
 	{
-		_string.erase(_string.begin());
-		bChangedString = true;
+		return this->String < Other.String;
 	}
 
-	TCHAR Back() const
+	CORE_API void PopBack()
 	{
-		return _string.size() != 0 ? _string.back() : TEXT('\0');
+		String.erase(String.begin() + String.size() - 1);
 	}
 
-	TCHAR First() const
+
+	CORE_API void PopFirst()
 	{
-		return _string.size() != 0 ? _string.front() : TEXT('\0');
+		String.erase(String.begin());
+		//bChangedString = true;
 	}
 
-	bool Contains(const FString& Other)
+	CORE_API TCHAR Back() const
 	{
-		return _string.find(Other._string) != std::wstring::npos;
+		return String.size() != 0 ? String.back() : TEXT('\0');
 	}
 
-	static int32 FromString(int32& Value, const TCHAR* Buffer)
+	CORE_API TCHAR First() const
 	{
-		//Value = std::stoi(Buffer);
-		Value = wcstol(Buffer, nullptr, 10);
-		return Value;
+		return String.size() != 0 ? String.front() : TEXT('\0');
 	}
 
-	static float FromString(float& Value, const TCHAR* Buffer)
+	CORE_API size_t size() const
+	{
+		return String.size();
+	}
+
+	CORE_API auto Lenght() const
+	{
+		return String.size();
+	}
+
+	CORE_API bool Contains(const FString& Other) const
+	{
+		return String.find(Other.String) != StringType::npos;
+	}
+
+	CORE_API decltype(auto) begin()	const
+	{
+		return String.begin();
+	}
+
+	CORE_API decltype(auto) begin()
+	{
+		return String.begin();
+	}
+
+	CORE_API decltype(auto) end()
+	{
+		return String.end();
+	}
+
+	CORE_API decltype(auto) end() const
+	{
+		return String.end();
+	}
+
+	CORE_API int32 Find(const FString& Other, int32 Offset = 0) const
+	{
+		auto Result = String.find(Other.String, Offset);
+		return Result != StringType::npos ? static_cast<int32>(Result) : -1;
+	}
+
+
+	CORE_API FString Mid(int32 Start, int32 Count) const
+	{
+		return String.substr(Start, Count);
+	}
+
+	CORE_API bool ContainsWithoutCase(const FString& Other) const
+	{
+		StringType Temp0(Lenght(), TEXT('\0')); std::transform(begin(), end(), Temp0.begin(), ::towlower);
+		StringType Temp1(Other.Lenght(), TEXT('\0')); std::transform(Other.begin(), Other.end(), Temp1.begin(), ::towlower);
+
+		return Temp0.find(Temp1) != StringType::npos;
+	}
+
+	CORE_API static int32 FromString(int32& Value, const TCHAR* Buffer)
+	{
+		return Value = FPlatformString::StringToInt32(Buffer, nullptr, 10);
+	}
+
+	CORE_API static float FromString(float& Value, const TCHAR* Buffer)
 	{
 		//Value = std::stof(Buffer);
-		Value = wcstof(Buffer, nullptr);
-		return Value;
+		//Value = wcstof(Buffer, nullptr);
+		return Value = FPlatformString::StringToFloat(Buffer, nullptr);
 	}
-	static bool FromString(bool& Value, const TCHAR* Buffer)
+	CORE_API static bool FromString(bool& Value, const TCHAR* Buffer)
 	{
-		//Value = std::stoi(Buffer);
-		Value = wcstol(Buffer, nullptr, 10);
+		std::wstring Buf = Buffer;
+		std::transform(Buf.begin(), Buf.end(), Buf.begin(), FPlatformString::ToLower);
+
+		if (Buf == TEXT("true"))
+		{
+			Value = true;
+		}
+		else if (Buf == TEXT("false"))
+		{
+			Value = false;
+		}
+		else
+		{
+			Value = FPlatformString::StringToInt32(Buffer, nullptr, 10);
+		}
 		return Value;
 	}
-	static FString FromString(FString& Value, const TCHAR* Buffer)
+	CORE_API static FString FromString(FString& Value, const TCHAR* Buffer)
 	{
 		Value = Buffer;
 		return Value;
 	}
-
 
 
 
@@ -104,166 +236,13 @@ public:
 	{
 		return PrintFInternal(Fmt, Args...);
 	}
-	static FString PrintFInternal(const TCHAR* Fmt, ...);
-
-
-	FString& operator=(const TCHAR* Str) { _string = Str; return *this; }
-	FString& operator=(const FString& Str) { _string = Str._string; return *this; }
-
-	const char* operator-() const
-	{
-		return GetStr();
-	}
-
-	const char* operator!() const
-	{
-		return GetUTF8();
-	}
-
-	FString operator/(const FString& Other)
-	{
-		return FString::PrintF(TEXT("%s/%s"), _string.data(), *Other);
-	}
-
-
-	TCHAR& operator[](int32 Index);
-
-	bool StartsWith(const FString& Other) const
-	{
-		return _string.starts_with(Other._string);
-	}
-
-	bool MinStartsWithMin(const FString& Other) const
-	{
-		std::wstring Str1 = _string;
-		std::wstring Str2 = Other._string;
-		std::transform(Str1.begin(), Str1.end(), Str1.begin(), towlower);
-		std::transform(Str2.begin(), Str2.end(), Str2.begin(), towlower);
-		return Str1.starts_with(Str2);
-	}
-
-	FString& Replace(TCHAR Str1, TCHAR Str2)
-	{
-		std::replace(_string.begin(), _string.end(), Str1, Str2);
-		return *this;
-	}
-
-
-	void Resize(uint32 NewSize)
-	{
-		_string.resize(NewSize);
-	}
-
-	void Reserve(uint32 NewReserve)
-	{
-		_string.reserve(NewReserve);
-	}
-
-	std::wstring& GetNativeString()
-	{
-		return _string;
-	}
-
-
-	int32 Len() const;
-	decltype(auto) Data() const { return _string.c_str(); }
-	TCHAR* Data() { return _string.data(); }
-
-	std::string ToString() const;
-
-
-	template<typename T>
-	static FString NumToString(T Val)
-	{
-		return std::to_wstring(Val);
-	}
-
-	template<>
-	static FString NumToString(int32 Val)
-	{
-		return std::to_wstring(Val);
-	}
-	template<>
-	static FString NumToString(float Val)
-	{
-		return std::to_wstring(Val);
-	}
-	template<>
-	static FString NumToString(bool Val)
-	{
-		return std::to_wstring(Val);
-	}
-	template<>
-	static FString NumToString(FString Val)
-	{
-		return Val;
-	}
-
-
-	
-
-	const char* GetStr() const
-	{
-		_tempString = ToString();
-		return _tempString.c_str();
-	}
-
-	const char* GetUTF8() const;
-
-
-
-
-	FString operator+(FString R)
-	{
-		std::wstring Result;
-		Result.resize(_string.size() + R._string.size());
-		
-		wcscat(Result.data(), _string.c_str());
-		wcscat(Result.data(), R._string.c_str());
-		return Result;
-
-	}
-	FString& operator+=(FString R)
-	{
-		_string += R._string;
-		return *this;
-	}
-
-	const TCHAR* operator*() const { return _string.data(); }
-	TCHAR* operator*() { return _string.data(); }
-
-	bool operator==(const FString& R) const
-	{
-		return _string.compare(R._string) == 0;
-		//return _string == R._string;
-	}
-
-	bool operator<(const FString& R) const
-	{
-		return _string < R._string;
-	}
-	bool operator>(const FString& R) const
-	{
-		return _string > R._string;
-	}
-
-
-	decltype(auto) begin() { return _string.begin(); }
-	decltype(auto) end() { return _string.end(); }
-
-
+	CORE_API static FString PrintFInternal(const TCHAR* Fmt, ...);
 
 private:
-	std::wstring _string;
+	StringType String;
 
-	mutable std::string _tempString;
-	mutable bool bChangedString = true;
-
-private:
 	friend struct std::hash<FString>;
-
 };
-
 
 template<>
 struct std::hash<FString>
@@ -274,6 +253,6 @@ struct std::hash<FString>
 		using std::hash;
 		using std::wstring;
 
-		return hash<wstring>()(Key._string);
+		return hash<wstring>()(Key.String);
 	}
 };

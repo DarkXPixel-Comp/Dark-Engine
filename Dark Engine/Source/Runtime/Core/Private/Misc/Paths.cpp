@@ -1,14 +1,15 @@
 #include "Misc/Paths.h"
-#include "HAL/PlatformMisc.h"
+#include "Platform/PlatformMisc.h"
+
 
 CORE_API FString FPaths::LaunchDir()
 {
-	return EngineDir() + "bin/";
+	return EngineDir() + TEXT("Binaires...");
 }
 
 CORE_API FString FPaths::EngineDir()
 {
-	FString DefaultEngineDir = RootDir() + "Dark Engine/";
+	FString DefaultEngineDir = RootDir() + TEXT("Dark Engine/");
 	return DefaultEngineDir;
 }
 
@@ -19,12 +20,21 @@ CORE_API FString FPaths::CacheDir()
 
 CORE_API FString FPaths::EngineBinariesDir()
 {
-	return EngineDir() + "bin/";
+	return EngineDir() + TEXT("Binaires/");
+}
+
+CORE_API FString FPaths::EngineScriptsDir()
+{
+	return EngineDir() + TEXT("Scripts");
 }
 
 CORE_API FString FPaths::EngineContentDir()
 {
-	return EngineDir() + "Content/";
+	return EngineDir() + TEXT("Content/");
+}
+CORE_API FString FPaths::ConfigDir()
+{
+	return EngineDir() + TEXT("Config");
 }
 CORE_API FString FPaths::ConfigDir()
 {
@@ -44,10 +54,28 @@ CORE_API FString FPaths::CombineDir(FString Str1, FString Str2)
 
 CORE_API FString FPaths::SourceDir()
 {
-	return CORE_API EngineDir() + "Source/";
+	return EngineDir() + TEXT("Source/");
+}
+
+CORE_API FString FPaths::EngineLogDir()
+{
+	return EngineDir() + TEXT("Logs");
 }
 
 CORE_API FString FPaths::EngineShaderDir()
 {
-	return SourceDir() + "Shaders/";
+	return EngineDir() + TEXT("Shaders/");
+}
+
+CORE_API bool FPaths::FileExists(const FString& Path)
+{
+	return FPlatformMisc::FileExists(Path);
+}
+
+CORE_API FString FPaths::ConvertRelativeToFullPath(const FString& InFileName)
+{
+	FString FileName = std::filesystem::absolute(*InFileName).generic_wstring();
+
+	FPlatformMisc::NormalizeWindowsPath(FileName);
+	return FileName;
 }

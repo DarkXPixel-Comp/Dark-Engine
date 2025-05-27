@@ -1,0 +1,45 @@
+name: Build Windows
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Ninja
+        uses: ashutoshvarma/setup-ninja@v1
+
+      - name: Setup MSVC
+        uses: ilammy/msvc-dev-cmd@v1
+
+      - name: Configure with CMakePresets
+        run: cmake --preset Win64-Development
+
+      - name: Build with CMakePresets
+        run: cmake --build --preset Win64-Development
+
+      - name: Copy release structure
+        run: |
+          mkdir Release
+          xcopy "Dark Engine\\Binaries" "Release\\Dark Engine\\Binaries" /E /I /Y
+          xcopy "Dark Engine\\Content" "Release\\Dark Engine\\Content" /E /I /Y
+          xcopy "Dark Engine\\Shaders" "Release\\Dark Engine\\Shaders" /E /I /Y
+          xcopy "Dark Engine\\Source"  "Release\\Dark Engine\\Source"  /E /I /Y
+          REM Не копируем Intermediate
+
+      - name: Archive release
+        run: Compress-Archive -Path Release\* -DestinationPath dark_framework_build.zip
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: DarkFramework-Windows-Build
+          path: dark_framework_build.zip

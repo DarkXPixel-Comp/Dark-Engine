@@ -1,6 +1,6 @@
 #pragma once
-
 #include "Containers/DarkString.h"
+#include "Platform/Platform.h"
 
 
 namespace ELogVerbosity
@@ -51,14 +51,27 @@ namespace ELogVerbosity
 		SetColor = 0x40, // not actually a verbosity, used to set the color of an output device 
 		BreakOnLog = 0x80
 	};
+
+	FORCEINLINE const TCHAR* ToString(Type Verbosity)
+	{
+		switch (Verbosity)
+		{
+		case Log:
+			return TEXT("Log");
+		case Warning:
+			return TEXT("Warning");
+		case Error:
+			return TEXT("Error");
+		default:
+			return TEXT("Unknown");
+		}
+	}
 }
 
 
-
-
-struct FLogCategoryBase
+struct CORE_API FLogCategoryBase
 {
-	FORCEINLINE FLogCategoryBase(const FString& InCategoryName, ELogVerbosity::Type InVerbosity):
+	FLogCategoryBase(const FString& InCategoryName, ELogVerbosity::Type InVerbosity) :
 		CategoryName(InCategoryName),
 		Verbosity(InVerbosity)
 	{}
@@ -69,12 +82,13 @@ private:
 	ELogVerbosity::Type Verbosity;
 	ELogVerbosity::Type DefaultVerbosity;
 	bool DebugBreakOnLog;
+	ELogVerbosity::Type DebugBreakOnLogVerbosity;
 	const FString CategoryName;
 };
 
 
 template<ELogVerbosity::Type InDefaultVerbosity>
-struct FLogCategory	: public FLogCategoryBase
+struct FLogCategory : public FLogCategoryBase
 {
 	FORCEINLINE FLogCategory(const FString& Name) :
 		FLogCategoryBase(Name, InDefaultVerbosity)

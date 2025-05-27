@@ -1,11 +1,6 @@
 #pragma once
-
-
-#include "Templates/DarkTemplate.h"
+#include "Platform/Platform.h"
 #include "Containers/DarkString.h"
-
-
-
 
 class FPaths
 {
@@ -23,11 +18,15 @@ public:
 
 	static CORE_API FString EngineBinariesDir();
 
-	static CORE_API FString EngineUserDir(); 
+	static CORE_API FString EngineUserDir();
 
 	static CORE_API FString EngineShaderDir();
 
+	static CORE_API FString EngineLogDir();
+
 	static CORE_API FString EngineContentDir();
+
+	static CORE_API FString EngineScriptsDir();
 
 	static CORE_API FString SourceDir();
 
@@ -40,6 +39,10 @@ public:
 	static CORE_API FString ProjectUserDir();
 
 	static CORE_API FString ProjectContentDir();
+
+	static CORE_API bool FileExists(const FString& Path);
+
+	static CORE_API FString ConvertRelativeToFullPath(const FString& FileName);
 
 	static CORE_API FString CombineDir(FString Str1, FString Str2);
 };

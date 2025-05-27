@@ -1,22 +1,13 @@
 #pragma once
+#include "Platform/Platform.h"
 
+CORE_API extern bool GIsRequestExit;
 
-#include "Core.h"
-#include "CoreTypes.h"
-#include "CorePlatform.h"
-
-
-extern bool GIsRequestingExit;
-extern bool GIsTitleBarHovered;
-extern class FConfigCache* GConfig;
-extern int32 GRenderMode; //<-TEST
-
-FORCEINLINE bool IsExitRequested()
+FORCEINLINE	void CORE_API RequestExit()
 {
-	return GIsRequestingExit;
+	GIsRequestExit = true;
 }
-
-FORCEINLINE void RequestExit()
+FORCEINLINE bool CORE_API IsExitRequested()
 {
-	GIsRequestingExit = true;
+	return GIsRequestExit;
 }

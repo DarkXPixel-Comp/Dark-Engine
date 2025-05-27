@@ -1,5 +1,5 @@
 #pragma once
-#include "CoreTypes.h"
+#include "Platform/Platform.h"
 
 template <typename T>
 struct TIsInteger

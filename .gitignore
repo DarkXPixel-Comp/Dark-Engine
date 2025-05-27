@@ -31,7 +31,6 @@
 *.lib
 
 # Executables
-*.exe
 *.out
 *.app
 
@@ -46,16 +45,7 @@
 .cache
 
 .vs
-learn
-x64
-DirectXTK-main
-Models
-Resources
-Textures
 logs
-DirectXTK12-main
 Intermediate
-Content
-bin
-Dark Engine/Source/ThirdParty/Vulkan/
-Vulkan
+Binaires
+

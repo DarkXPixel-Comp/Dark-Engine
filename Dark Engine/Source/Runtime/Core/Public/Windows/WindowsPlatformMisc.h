@@ -1,35 +1,17 @@
 #pragma once
-
-
-#include "CoreTypes.h"
-#include "HAL/PlatformMemory.h"
-#include <Microsoft/MinimalWindowsApi.h>
 #include "GenericPlatform/GenericPlatformMisc.h"
-#include <PathCch.h>
-
-#undef GetEnvironmentVariable
-#undef SetEnvironmentVariable
-
+#include "Windows/WindowsGlobals.h"
+#include <filesystem>
 
 struct FWindowsPlatformMisc : public FGenericPlatformMisc
 {
-	static CORE_API void PlatformPreInit();
-
-	static CORE_API void PlatformInit();
-
-	static CORE_API FString GetEnvironmentVariable(const TCHAR* VariableName);
-
-	static CORE_API void SetEnvironmentVariable(const TCHAR* VariableName, const TCHAR* Value);
-
-	static CORE_API FString GetPathModule();
-
 	static CORE_API FString EngineDir(bool bIsBackSlash = false)
 	{
-		FString Result(256);
-		PathCchCombine(*Result, 256, *LaunchDir(true), TEXT("..\\..\\"));
+		FString Result = std::filesystem::path(LaunchDir(bIsBackSlash) / TEXT("../../../")).wstring();
+
 		if (!bIsBackSlash)
 		{
-			Result.Replace('\\', '/');
+			std::replace(std::begin(Result), std::end(Result), TEXT('\\'), TEXT('/'));
 		}
 		return Result;
 	}
@@ -38,7 +20,7 @@ struct FWindowsPlatformMisc : public FGenericPlatformMisc
 	{
 		FString Path(256);
 		GetModuleFileName(NULL, *Path, 256);
-		PathCchRemoveFileSpec(*Path, 256);
+		Path = std::filesystem::path(Path).parent_path().wstring();
 		if (!bIsBackSlash)
 		{
 			Path.Replace('\\', '/');
@@ -46,16 +28,49 @@ struct FWindowsPlatformMisc : public FGenericPlatformMisc
 		return Path;
 	}
 
+	static void NormalizeWindowsPath(FString& Path)
+	{
+		std::filesystem::absolute(*Path);
 
+		for (auto& Char : Path)
+		{
+			if (Char == TEXT('/'))
+			{
+				Char = TEXT('\\');
+			}
+		}
+	}
 
+	static CORE_API bool FileExists(const FString& InPath)
+	{
+		FString Path = InPath;
+		NormalizeWindowsPath(Path);
+		DWORD Result = GetFileAttributesW(*Path);
+		if (Result != 0xFFFFFFFF && !(Result & FILE_ATTRIBUTE_DIRECTORY))
+		{
+			return true;
+		}
+		return false;
+	}
 
+	static CORE_API bool CreateMessageBoxError(const TCHAR* Text, const TCHAR* Caption)
+	{
+		return ::MessageBox(NULL, Text, Caption, MB_YESNO | MB_ICONERROR | MB_SYSTEMMODAL) == IDYES;
+	}
 
+	static CORE_API void DebugPrint(const FString& Text);
 
+	static CORE_API bool IsDebuggerPresent();
+
+	static CORE_API void PromptForRemoteDebugging();
+
+	static CORE_API void OpenHTML(const FString& Path);
+
+	static CORE_API void GetStackTrace(FString& Out);
+
+	static CORE_API void GetStackTrace(CONTEXT* context, FString& Out);
+
+	static CORE_API FString GetExceptionCodeString(DWORD code);
 };
 
-
-
 typedef FWindowsPlatformMisc FPlatformMisc;
-
-
-
