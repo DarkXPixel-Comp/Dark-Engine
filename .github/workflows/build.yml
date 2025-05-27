@@ -32,13 +32,17 @@ jobs:
       - name: Build with CMakePresets
         run: cmake --build --preset Win64-Development
 
+      - name: Clean Release folder
+        run: |
+          if (Test-Path Release) { Remove-Item -Recurse -Force Release }
+          mkdir Release
+
       - name: Copy release structure
         run: |
-          mkdir Release
           xcopy "Dark Engine\\Binaires" "Release\\Dark Engine\\Binaires" /E /I /Y
           xcopy "Dark Engine\\Content"  "Release\\Dark Engine\\Content"  /E /I /Y
           xcopy "Dark Engine\\Shaders"  "Release\\Dark Engine\\Shaders"  /E /I /Y
-          xcopy "Dark Engine\\Config"  "Release\\Dark Engine\\Config"  /E /I /Y
+          xcopy "Dark Engine\\Config"   "Release\\Dark Engine\\Config"   /E /I /Y
           xcopy "Dark Engine\\Source\\Templates"   "Release\\Dark Engine\\Source\\Templates"   /E /I /Y
 
       - name: Archive release
