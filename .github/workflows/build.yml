@@ -34,11 +34,10 @@ jobs:
 
       - name: Copy release structure
         run: |
-          mkdir Release
-          xcopy "Dark Engine\\Binaires" "Release\\Dark Engine\\Binaires" /E /I /Y
-          xcopy "Dark Engine\\Content"  "Release\\Dark Engine\\Content"  /E /I /Y
-          xcopy "Dark Engine\\Shaders"  "Release\\Dark Engine\\Shaders"  /E /I /Y
-          xcopy "Dark Engine\\Source"   "Release\\Dark Engine\\Source"   /E /I /Y
+           mkdir Release
+           robocopy "Dark Engine\Binaires" "Release\Dark Engine\Binaires" /E /NFL /NDL /NJH /NJS /nc /ns /np
+           robocopy "Dark Engine\Content" "Release\Dark Engine\Content" /E /NFL /NDL /NJH /NJS /nc /ns /np
+           robocopy "Dark Engine\Shaders" "Release\Dark Engine\Shaders" /E /NFL /NDL /NJH /NJS /nc /ns /np
 
       - name: Archive release
         run: Compress-Archive -Path Release\* -DestinationPath dark_framework_build.zip
