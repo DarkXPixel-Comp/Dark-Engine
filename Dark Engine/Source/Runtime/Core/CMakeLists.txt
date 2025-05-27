@@ -9,7 +9,8 @@ set(VERSION_PREFIX ${PROJECT_PREFIX})
 set(BUILD_TYPE_PREFIX ${CMAKE_BUILD_TYPE})
 
 configure_file("Private/Misc/EngineVersion.cpp.var" "${CMAKE_CURRENT_SOURCE_DIR}/Private/Misc/EngineVersion.cpp" @ONLY)
-ADD_PRIVATE_LIBRARY(Core Optick)
+ADD_PRIVATE_LIBRARY(Core Optick dbghelp)
+
 
 SettingProject(Core)
 

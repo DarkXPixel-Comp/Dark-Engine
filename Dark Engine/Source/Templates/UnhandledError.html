@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Dark Framework Crash Report</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: "Fira Code", "Consolas", monospace;
+            background: #0f0f0f;
+            color: #d0d0d0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 4vh 2vw;
+        }
+
+        .container {
+            background: #181818;
+            border: 1px solid #2a2a2a;
+            border-radius: 12px;
+            padding: 2rem;
+            width: 100%;
+            max-width: 900px;
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            color: #a0a0a0;
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-weight: bold;
+            color: #666666;
+            margin-top: 1.5rem;
+            margin-bottom: 0.3rem;
+            font-size: 1rem;
+        }
+
+        pre {
+            background: #1e1e1e;
+            color: #bbbbbb;
+            padding: 1rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-size: 0.9rem;
+        }
+
+        .buttons {
+            margin-top: 2rem;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .button {
+            padding: 0.8rem 1.5rem;
+            background: #444444;
+            color: #ddd;
+            border-radius: 6px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: background 0.3s ease;
+            border: none;
+            cursor: pointer;
+            user-select: none;
+            flex: 1;
+            text-align: center;
+        }
+
+            .button:hover {
+                background: #666666;
+            }
+
+        .footer {
+            margin-top: 2rem;
+            font-size: 0.85rem;
+            color: #555555;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Dark Framework Crash Report</h1>
+        <p>Oops! Your application just experienced a crash.</p>
+
+        <div class="section-title">Exception Code</div>
+        <pre id="exceptionCode">{{EXCEPTION_CODE}}</pre>
+
+        <div class="section-title">Exception Address</div>
+        <pre id="exceptionAddress">{{EXCEPTION_ADDRESS}}</pre>
+
+        <div class="section-title">Stack Trace</div>
+        <pre id="stackTrace">{{STACK_TRACE}}</pre>
+
+        <div class="section-title">Error Message</div>
+        <pre id="errorMessage">{{ERROR_MESSAGE}}</pre>
+
+        <div class="section-title">File</div>
+        <pre id="filePath">{{FILE_PATH}}</pre>
+
+        <div class="section-title">Line Number</div>
+        <pre id="lineNumber">{{LINE_NUMBER}}</pre>
+
+        <div class="section-title">Date and Time</div>
+        <pre id="errorDatetime">{{ERROR_DATETIME}}</pre>
+
+        <div class="section-title">Log File</div>
+        <pre id="logFilePath">{{LOG_FILE_PATH}}</pre>
+
+        <div class="buttons">
+            <button class="button" id="sendReportButton">Send Report</button>
+            <button class="button" id="copyReportButton">Copy to Clipboard</button>
+        </div>
+
+        <div class="footer">
+            Dark Framework © 2025 — Helping you debug the shadows.
+        </div>
+    </div>
+
+    <script>
+        function getReportText() {
+            const lines = [
+                "Exception Code: " + document.getElementById('exceptionCode').textContent,
+                "Exception Address: " + document.getElementById('exceptionAddress').textContent,
+                "Stack Trace:\n" + document.getElementById('stackTrace').textContent,
+                "Error Message: " + document.getElementById('errorMessage').textContent,
+                "File: " + document.getElementById('filePath').textContent,
+                "Line Number: " + document.getElementById('lineNumber').textContent,
+                "Date and Time: " + document.getElementById('errorDatetime').textContent,
+                "Log File: " + document.getElementById('logFilePath').textContent,
+            ];
+            return lines.join("\n\n");
+        }
+
+        document.getElementById('sendReportButton').addEventListener('click', function () {
+            const toEmail = "your_email@example.com"; // Заменить на нужный email
+            const subject = encodeURIComponent("Dark Framework Crash Report");
+            const body = encodeURIComponent(getReportText());
+            window.location.href = `mailto:${toEmail}?subject=${subject}&body=${body}`;
+        });
+
+        document.getElementById('copyReportButton').addEventListener('click', function () {
+            const report = getReportText();
+            if (navigator.clipboard && window.isSecureContext) {
+                // современный API
+                navigator.clipboard.writeText(report).then(() => {
+                    alert("Report copied to clipboard!");
+                }, () => {
+                    alert("Failed to copy report.");
+                });
+            } else {
+                // fallback (старые браузеры)
+                const textArea = document.createElement("textarea");
+                textArea.value = report;
+                textArea.style.position = "fixed";  // избежать прокрутки
+                document.body.appendChild(textArea);
+                textArea.focus();
+                textArea.select();
+
+                try {
+                    document.execCommand('copy');
+                    alert("Report copied to clipboard!");
+                } catch (err) {
+                    alert("Failed to copy report.");
+                }
+
+                document.body.removeChild(textArea);
+            }
+        });
+    </script>
+</body>
+</html>

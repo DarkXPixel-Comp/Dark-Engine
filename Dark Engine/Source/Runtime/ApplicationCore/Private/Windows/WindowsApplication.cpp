@@ -6,7 +6,7 @@
 #include <SetupAPI.h>
 #include <cfgmgr32.h>
 
-TUniquePtr<FWindowsApplication> GWindowsApplication;
+FWindowsApplication* GWindowsApplication;
 
 
 static TSharedPtr< FWindowsWindow > FindWindowByHWND(const TArray< TSharedPtr< FWindowsWindow > >& WindowsToSearch, HWND HandleToFind)
@@ -27,14 +27,18 @@ static TSharedPtr< FWindowsWindow > FindWindowByHWND(const TArray< TSharedPtr< F
 
 
 
+FWindowsApplication::~FWindowsApplication()
+{
+}
+
 FWindowsApplication* FWindowsApplication::CreateWindowsApplication(const HINSTANCE hInstance, const HICON hIcon, const HCURSOR hCursor)
 {
 	if (!GWindowsApplication)
 	{
-		GWindowsApplication = MakeUnique(new FWindowsApplication(hInstance, hIcon, hCursor));
+		GWindowsApplication = new FWindowsApplication(hInstance, hIcon, hCursor);
 	}
 
-	return GWindowsApplication.get();
+	return GWindowsApplication;
 }
 
 TSharedPtr<FGenericWindow> FWindowsApplication::MakeWindow()

@@ -55,9 +55,22 @@ struct FWindowsPlatformMisc : public FGenericPlatformMisc
 
 	static CORE_API bool CreateMessageBoxError(const TCHAR* Text, const TCHAR* Caption)
 	{
-		::MessageBox(NULL, Text, Caption, MB_OK | MB_ICONERROR | MB_SYSTEMMODAL);
-		return true;
+		return ::MessageBox(NULL, Text, Caption, MB_YESNO | MB_ICONERROR | MB_SYSTEMMODAL) == IDYES;
 	}
+
+	static CORE_API void DebugPrint(const FString& Text);
+
+	static CORE_API bool IsDebuggerPresent();
+
+	static CORE_API void PromptForRemoteDebugging();
+
+	static CORE_API void OpenHTML(const FString& Path);
+
+	static CORE_API void GetStackTrace(FString& Out);
+
+	static CORE_API void GetStackTrace(CONTEXT* context, FString& Out);
+
+	static CORE_API FString GetExceptionCodeString(DWORD code);
 };
 
 typedef FWindowsPlatformMisc FPlatformMisc;

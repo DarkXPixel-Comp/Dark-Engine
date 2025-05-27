@@ -23,7 +23,9 @@ public:
 		_Title(),
 		_Type(EWindowType::Normal),
 		_UserResizeBorder(5),
-		_SizingRule(ESizingRule::UserSize)
+		_SizingRule(ESizingRule::UserSize),
+		_bHasOSBorder(false),
+		_bIsRegularWindow(true)
 	{}
 
 	DarkUI_ATTRIBUTE(FString, Title)
@@ -42,6 +44,7 @@ public:
 	DarkUI_ARGUMENT(bool, IsPopupWindow)
 	DarkUI_ARGUMENT(bool, IsTopmostWindow)
 	DarkUI_ARGUMENT(bool, FocusWhenFirstShown)
+	DarkUI_ARGUMENT(bool, bIsRegularWindow)
 	DarkUI_END_ARGS()
 
 
@@ -92,7 +95,9 @@ public:
 
 	DARKUI_API FVector2d GetInitialDesiredSize() const;
 	DARKUI_API FVector2d GetInitialDesiredPosition() const;
+
 	DARKUI_API bool HasOSBorder() const;
+	DARKUI_API bool IsRegularWindow() const;
 
 
 
@@ -122,6 +127,7 @@ protected:
 
 	bool bHasOSBorder : 1;
 	bool bHasEverBeenShown : 1;
+	bool bIsRegularWindow : 1;
 
 	TSharedPtr<FGenericWindow> NativeWindow;
 	FVector2d Size;

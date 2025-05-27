@@ -19,7 +19,7 @@ public:
 	APPLICATIONCORE_API static FWindowsApplication* CreateWindowsApplication(const HINSTANCE hInstance, const HICON hIcon, const HCURSOR hCursor = NULL);
 public:
 	APPLICATIONCORE_API TSharedPtr<FGenericWindow> MakeWindow() override;
-	APPLICATIONCORE_API virtual ~FWindowsApplication() {}
+	APPLICATIONCORE_API virtual ~FWindowsApplication();
 
 	APPLICATIONCORE_API virtual void InitializeWindow(const TSharedPtr<FGenericWindow>& InWindow, FGenericWindowDefinition InDefinition, const TSharedPtr<FGenericWindow>& InParent, bool bShow = false) override;
 

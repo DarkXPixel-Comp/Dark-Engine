@@ -125,8 +125,8 @@ void FWindowsWindow::Initialize(FWindowsApplication* const Application, const FG
 		WindowX += BorderRect.left;
 		WindowY += BorderRect.top;
 
-		WindowWidth = BorderRect.right - BorderRect.left;
-		WindowHeight = BorderRect.bottom - BorderRect.top;
+		WindowWidth += BorderRect.right - BorderRect.left;
+		WindowHeight += BorderRect.bottom - BorderRect.top;
 	}
 
 	hWnd = CreateWindowEx(WindowExStyle, AppWndClass, *InDefinition.Title, WindowStyle,
@@ -143,7 +143,7 @@ void FWindowsWindow::Initialize(FWindowsApplication* const Application, const FG
 
 	ReshapeWindow(ClientX, ClientY, ClientWidth, ClientHeight);
 
-	if (WndDefinition.bHasOSWindowBorder)
+	if (!WndDefinition.bHasOSWindowBorder)
 	{
 		const DWMNCRENDERINGPOLICY RenderingPolicy = DWMNCRP_DISABLED;
 		DwmSetWindowAttribute(hWnd, DWMWA_NCRENDERING_POLICY, &RenderingPolicy, sizeof(RenderingPolicy));
@@ -206,8 +206,8 @@ void FWindowsWindow::ReshapeWindow(int32 NewX, int32 NewY, int32 NewWidth, int32
 		AdjustWindowRectEx(&BorderRect, WindowInfo.dwStyle, false, WindowInfo.dwExStyle);
 		NewX += BorderRect.left;
 		NewY += BorderRect.top;
-		NewWidth = BorderRect.right - BorderRect.left;
-		NewHeight = BorderRect.bottom - BorderRect.top;
+		NewWidth += BorderRect.right - BorderRect.left;
+		NewHeight += BorderRect.bottom - BorderRect.top;
 	}
 
 

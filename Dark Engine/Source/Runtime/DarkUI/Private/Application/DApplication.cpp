@@ -129,6 +129,7 @@ TSharedPtr<FGenericWindow> FDUIApplication::MakeWindow(const TSharedPtr<class DU
 	Definition.YDisiredPositionOnScreen = Position.Y;
 
 	Definition.bHasOSWindowBorder = InWindow->HasOSBorder();
+	Definition.bIsRegularWindow = InWindow->IsRegularWindow();
 
 	//Definition.WidthDesiredOnScreen = 
 

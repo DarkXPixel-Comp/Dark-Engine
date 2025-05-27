@@ -24,6 +24,8 @@ void DUIWindow::Construct(const FArguments& InArgs)
 
 	InitialDesiredSize = InArgs._Size;
 	InitialDesiredScreenPosition = WindowPosition;
+	bHasOSBorder = InArgs._bHasOSBorder;
+	bIsRegularWindow = InArgs._bIsRegularWindow;
 
 
 }
@@ -236,6 +238,11 @@ FVector2d DUIWindow::GetInitialDesiredPosition() const
 bool DUIWindow::HasOSBorder() const
 {
 	return bHasOSBorder;
+}
+
+DARKUI_API bool DUIWindow::IsRegularWindow() const
+{
+	return bIsRegularWindow;
 }
 
 void DUIWindow::SetCachedSize(FVector2f NewSize)

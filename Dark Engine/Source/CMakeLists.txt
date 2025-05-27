@@ -6,10 +6,10 @@
 
 SUBDIRLIST(Subs ${CMAKE_CURRENT_SOURCE_DIR})
 
-foreach(sub ${Subs})
-add_subdirectory(${sub})
-endforeach()
+#foreach(sub ${Subs})
+#add_subdirectory(${sub})
+#endforeach()
 
-#add_subdirectory("Runtime")
-#add_subdirectory("ThirdParty")
+add_subdirectory("Runtime")
+add_subdirectory("ThirdParty")
 #add_subdirectory("Scripts")

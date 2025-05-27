@@ -85,7 +85,7 @@ int32 FEngineLoop::PreInit(const FString& CmdLine)
 	FGlobalLogger::Get().AddOutputDevice(FOutputDeviceDebug::Get());
 
 
-	IModule* h = FModuleManager::Get().GetOrLoadModule(TEXT("TestModule"));
+	//IModule* h = FModuleManager::Get().GetOrLoadModule(TEXT("TestModule"));
 
 	if (!CheckFiles(ErrorMsg))
 	{
@@ -103,16 +103,28 @@ int32 FEngineLoop::PreInit(const FString& CmdLine)
 	auto wnd = DUINew(DUIWindow)
 		.Visibility(EVisibility::All)
 		.ScreenPosition({ 0, 0 })
-		.Size({800, 600});
-
-
-
+		.Size({800, 600})
+		.bHasOSBorder(true)
+		.bIsRegularWindow(true);
 
 	FDUIApplication::Get().AddWindow(wnd);
+
+	FDUIApplication::Get().AddWindow(
+		DUINew(DUIWindow)
+		.Visibility(EVisibility::All)
+		.Size({ 500, 500 })
+		.bHasOSBorder(true)
+		.bIsRegularWindow(true)
+		.ScreenPosition({ 800, 600 })
+	);
 
 	/*TSharedPtr<DUIWindow> testWnd =  DUINew(DUIWindow)
 		.Title(TEXT("TEST"));*/
 
+
+	/*int* p = nullptr;
+	*p = 44;*/
+	check(false);
 
 	return 0;
 }
