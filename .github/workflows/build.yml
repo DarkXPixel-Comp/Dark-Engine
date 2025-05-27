@@ -14,10 +14,16 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Setup Ninja
-        uses: ashutoshvarma/setup-ninja@v1
+      - name: Install 7zip
+        run: choco install 7zip -y
 
-      - name: Setup MSVC
+      - name: Setup Ninja manually
+        run: |
+          curl -L -o ninja.zip https://github.com/ninja-build/ninja/releases/download/v1.11.1/ninja-win.zip
+          7z x ninja.zip -o"${{ github.workspace }}/ninja"
+          echo "${{ github.workspace }}/ninja" >> $GITHUB_PATH
+
+      - name: Setup MSVC environment
         uses: ilammy/msvc-dev-cmd@v1
 
       - name: Configure with CMakePresets
@@ -30,10 +36,9 @@ jobs:
         run: |
           mkdir Release
           xcopy "Dark Engine\\Binaries" "Release\\Dark Engine\\Binaries" /E /I /Y
-          xcopy "Dark Engine\\Content" "Release\\Dark Engine\\Content" /E /I /Y
-          xcopy "Dark Engine\\Shaders" "Release\\Dark Engine\\Shaders" /E /I /Y
-          xcopy "Dark Engine\\Source"  "Release\\Dark Engine\\Source"  /E /I /Y
-          REM Не копируем Intermediate
+          xcopy "Dark Engine\\Content"  "Release\\Dark Engine\\Content"  /E /I /Y
+          xcopy "Dark Engine\\Shaders"  "Release\\Dark Engine\\Shaders"  /E /I /Y
+          xcopy "Dark Engine\\Source"   "Release\\Dark Engine\\Source"   /E /I /Y
 
       - name: Archive release
         run: Compress-Archive -Path Release\* -DestinationPath dark_framework_build.zip
