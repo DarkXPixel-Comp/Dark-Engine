@@ -29,22 +29,16 @@ bool FDebug::CheckFailed(const ANSICHAR* Expression, const ANSICHAR* File, int32
 
 std::wstring GetCurrentDateTimeString()
 {
-	// Получаем текущее время с высокой точностью
 	auto now = std::chrono::system_clock::now();
-	// Преобразуем в системное время (time_t)
 	std::time_t now_time = std::chrono::system_clock::to_time_t(now);
 
-	// Для потоковой записи в строку
 	std::wstringstream ss;
-	// Конвертируем время в локальное представление
 	std::tm local_tm;
 #ifdef _WIN32
-	localtime_s(&local_tm, &now_time);  // Windows
+	localtime_s(&local_tm, &now_time);
 #else
-	localtime_r(&now_time, &local_tm);  // Linux/macOS
+	localtime_r(&now_time, &local_tm);
 #endif
-
-	// Форматируем дату и время
 	ss << std::put_time(&local_tm, TEXT("%Y-%m-%d %H:%M:%S"));
 	return ss.str();
 }
@@ -60,27 +54,32 @@ void ReplaceAll(std::wstring& str, const std::wstring& from, const std::wstring&
 }
 
 
-std::wstring EscapeHtml(const std::wstring& data) {
+std::wstring EscapeHtml(const std::wstring& data)
+{
 	std::wstring buffer;
 	buffer.reserve(data.size());
-	for (TCHAR c : data) {
-		switch (c) {
-		case '&': buffer.append(TEXT("&amp;")); break;
-		case '<': buffer.append(TEXT("&lt;")); break;
-		case '>': buffer.append(TEXT("&gt;")); break;
-		case '"': buffer.append(TEXT("&quot;")); break;
-		case '\'': buffer.append(TEXT("&#39;")); break;
-		case '\n': buffer.append(TEXT("<br>")); break; // переносы строк в детали
-		default: buffer.push_back(c); break;
+	for (TCHAR c : data)
+	{
+		switch (c)
+		{
+			case '&': buffer.append(TEXT("&amp;")); break;
+			case '<': buffer.append(TEXT("&lt;")); break;
+			case '>': buffer.append(TEXT("&gt;")); break;
+			case '"': buffer.append(TEXT("&quot;")); break;
+			case '\'': buffer.append(TEXT("&#39;")); break;
+			case '\n': buffer.append(TEXT("<br>")); break;
+			default: buffer.push_back(c); break;
 		}
 	}
 	return buffer;
 }
 
-std::vector<std::wstring> SplitLines(const std::wstring& str) {
+std::vector<std::wstring> SplitLines(const std::wstring& str)
+{
 	std::vector<std::wstring> lines;
 	size_t pos = 0, prev = 0;
-	while ((pos = str.find(L'\n', prev)) != std::wstring::npos) {
+	while ((pos = str.find(L'\n', prev)) != std::wstring::npos)
+	{
 		lines.push_back(str.substr(prev, pos - prev));
 		prev = pos + 1;
 	}
@@ -89,14 +88,15 @@ std::vector<std::wstring> SplitLines(const std::wstring& str) {
 	return lines;
 }
 
-std::wstring GenerateStackTraceHtml(const std::wstring& stackText) {
+std::wstring GenerateStackTraceHtml(const std::wstring& stackText)
+{
 	std::vector<std::wstring> lines = SplitLines(stackText);
 	std::wstring html;
 
-	for (const auto& line : lines) {
+	for (const auto& line : lines)
+	{
 		std::wstring escapedLine = EscapeHtml(line);
 
-		// Разделяем по " at "
 		size_t pos = escapedLine.find(L" at ");
 		std::wstring funcPart = pos == std::wstring::npos ? escapedLine : escapedLine.substr(0, pos);
 		std::wstring addrPart = pos == std::wstring::npos ? L"" : escapedLine.substr(pos + 4);

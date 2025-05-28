@@ -79,14 +79,13 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Upload to public repo
-        run: |
-          git config --global user.name "github-actions"
-          git config --global user.email "github-actions@github.com"
-          git clone https://x-access-token:${{ secrets.PUBLIC_REPO_TOKEN }}@github.com/DarkXPixel-Comp/Dark-Framework-Releases.git public-repo
-          cd public-repo
-          mkdir -p releases/${{ env.TAG_NAME }}
-          cp ../dark_framework_build.zip releases/${{ env.TAG_NAME }}/
-          git add .
-          git commit -m "Add release ${{ env.TAG_NAME }}"
-          git push
+      - name: Upload to public repo release
+        uses: softprops/action-gh-release@v1
+        with:
+          repository: your-org/your-public-repo
+          tag_name: ${{ env.TAG_NAME }}
+          name: Release ${{ env.TAG_NAME }}
+          body: Mirror release from private repo
+          files: ./dark_framework_build.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.PUBLIC_REPO_TOKEN }}
