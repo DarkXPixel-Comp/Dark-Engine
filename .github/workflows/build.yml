@@ -87,6 +87,8 @@ jobs:
           </rss>
           "@
           $appcastContent | Out-File -FilePath appcast.xml -Encoding utf8
+
+
       - name: Create GitHub Release
         id: create_release
         uses: softprops/action-gh-release@v1
@@ -107,14 +109,30 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Upload to public repo (DarkFramework.zip + appcast.xml)
+      - name: Upload appcast.xml to gh-pages branch
         run: |
-          git clone https://x-access-token:${{ secrets.PUBLIC_REPO_TOKEN }}@github.com/DarkXPixel-Comp/Dark-Framework-Releases.git public_repo
-          Copy-Item DarkFramework.zip public_repo/
-          Copy-Item appcast.xml public_repo/
-          cd public_repo
-          git config user.email "github-actions@github.com"
-          git config user.name "GitHub Actions"
-          git add .
-          git commit -m "Release ${{ env.TAG_NAME }}"
-          git push
+            git clone https://x-access-token:${{ secrets.PUBLIC_REPO_TOKEN }}@github.com/DarkXPixel-Comp/Dark-Framework-Releases.git public_repo
+            cd public_repo
+
+            git checkout gh-pages || git checkout --orphan gh-pages
+            Copy-Item ../appcast.xml ./ -Force
+
+            git config user.email "github-actions@github.com"
+            git config user.name "GitHub Actions"
+
+            git add appcast.xml
+            git commit -m "Update appcast.xml for release ${{ env.TAG_NAME }}" || echo "No changes to commit"
+            git push origin gh-pages
+
+      - name: Upload release asset to public repo
+        uses: softprops/action-gh-release@v1
+        with:
+            repository: DarkXPixel-Comp/Dark-Framework-Releases
+            tag_name: ${{ env.TAG_NAME }}
+            name: Release ${{ env.TAG_NAME }}
+            body: Release DarkFramework
+            files: ./DarkFramework.zip
+        env:
+            GITHUB_TOKEN: ${{ secrets.PUBLIC_REPO_TOKEN }}
+
+
