@@ -60,6 +60,7 @@ jobs:
         run: Compress-Archive -Path Release\* -DestinationPath DarkFramework.zip
 
       - name: Generate appcast.xml
+        shell: pwsh
         run: |
           $version = "${{ env.TAG_NAME }}"
           $zipFile = "DarkFramework.zip"
@@ -67,23 +68,24 @@ jobs:
           $url = "https://github.com/DarkXPixel-Comp/Dark-Framework-Releases/releases/download/$version/$zipFile"
           
           $appcastContent = @"
-            <?xml version="1.0" encoding="utf-8"?>
-            <rss version="2.0"
-                 xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle"
-                 xmlns:dc="http://purl.org/dc/elements/1.1/">
-              <channel>
-                <title>Dark Framework Updates</title>
-                <link>https://github.com/DarkXPixel-Comp/Dark-Framework-Releases</link>
-                <description>Latest Dark Framework releases</description>
-                <language>en</language>
-                <item>
-                  <title>$version</title>
-                  <sparkle:releaseNotesLink>https://github.com/DarkXPixel-Comp/Dark-Framework-Releases/releases/tag/$version</sparkle:releaseNotesLink>
-                  <pubDate>$(Get-Date -Format "r")</pubDate>
-                  <enclosure url="$url" sparkle:version="$version" length="$(Get-Item $zipFile).Length" type="application/zip" sparkle:dsaSignature="" sparkle:sha256="$sha256" />
-                </item>
-              </channel>
-            </rss>"@
+          <?xml version="1.0" encoding="utf-8"?>
+          <rss version="2.0"
+                xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle"
+                xmlns:dc="http://purl.org/dc/elements/1.1/">
+            <channel>
+            <title>Dark Framework Updates</title>
+            <link>https://github.com/DarkXPixel-Comp/Dark-Framework-Releases</link>
+            <description>Latest Dark Framework releases</description>
+            <language>en</language>
+            <item>
+                <title>$version</title>
+                <sparkle:releaseNotesLink>https://github.com/DarkXPixel-Comp/Dark-Framework-Releases/releases/tag/$version</sparkle:releaseNotesLink>
+                <pubDate>$pubDate</pubDate>
+                <enclosure url="$url" sparkle:version="$version" length="$length" type="application/zip" sparkle:dsaSignature="" sparkle:sha256="$sha256" />
+            </item>
+            </channel>
+          </rss>
+          "@
           $appcastContent | Out-File -FilePath appcast.xml -Encoding utf8
       - name: Create GitHub Release
         id: create_release
