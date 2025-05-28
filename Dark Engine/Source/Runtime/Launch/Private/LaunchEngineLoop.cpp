@@ -117,15 +117,7 @@ int32 FEngineLoop::PreInit(const FString& CmdLine)
 		.bIsRegularWindow(true)
 		.ScreenPosition({ 800, 600 })
 	);
-
-	/*TSharedPtr<DUIWindow> testWnd =  DUINew(DUIWindow)
-		.Title(TEXT("TEST"));*/
-
-
-	/*int* p = nullptr;
-	*p = 44;*/
-	check(false);
-
+					  
 	return 0;
 }
 

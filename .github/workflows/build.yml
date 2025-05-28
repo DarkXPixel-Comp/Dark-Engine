@@ -136,3 +136,37 @@ jobs:
             GITHUB_TOKEN: ${{ secrets.PUBLIC_REPO_TOKEN }}
 
 
+      - name: Generate release.json
+        shell: pwsh
+        run: |
+          $version = "${{ env.TAG_NAME }}"
+          $zipFile = "DarkFramework.zip"
+          $sha256 = Get-FileHash $zipFile -Algorithm SHA256 | Select-Object -ExpandProperty Hash
+          $length = (Get-Item $zipFile).Length
+          $url = "https://github.com/DarkXPixel-Comp/Dark-Framework-Releases/releases/download/$version/$zipFile"
+
+          $releaseData = @{
+              "version" = $version
+              "url" = $url
+              "sha256" = $sha256
+              "length" = $length
+          }
+
+          $releaseJson = $releaseData | ConvertTo-Json -Depth 3
+          $releaseJson | Out-File -FilePath release.json -Encoding utf8
+
+      - name: Upload release.json to public repo
+        run: |
+            git clone https://x-access-token:${{ secrets.PUBLIC_REPO_TOKEN }}@github.com/DarkXPixel-Comp/Dark-Framework-Releases.git public_repo
+            cd public_repo
+
+            git checkout main || git checkout --orphan main
+            Copy-Item ../release.json ./ -Force
+
+            git config user.email "github-actions@github.com"
+            git config user.name "GitHub Actions"
+
+            git add release.json
+            git commit -m "Update release.json for release ${{ env.TAG_NAME }}" || echo "No changes to commit"
+            git push origin main
+
