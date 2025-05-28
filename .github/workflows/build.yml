@@ -57,7 +57,7 @@ jobs:
           path: Release
 
       - name: Archive release
-        run: Compress-Archive -Path Release\* -DestinationPath dark_framework_build.zip
+        run: Compress-Archive -Path Release\* -DestinationPath DarkFramework.zip
 
       - name: Create GitHub Release
         id: create_release
@@ -65,7 +65,7 @@ jobs:
         with:
           tag_name: ${{ env.TAG_NAME }}
           name: Release ${{ env.TAG_NAME }}
-          body: Automated build from branch ${{ github.ref_name }}
+          body: Automated build
           draft: false
           prerelease: false
         env:
@@ -75,17 +75,17 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           tag_name: ${{ env.TAG_NAME }}
-          files: ./dark_framework_build.zip
+          files: ./DarkFramework.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Upload to public repo release
         uses: softprops/action-gh-release@v1
         with:
-          repository: your-org/your-public-repo
+          repository: DarkXPixel-Comp/Dark-Framework-Releases
           tag_name: ${{ env.TAG_NAME }}
           name: Release ${{ env.TAG_NAME }}
-          body: Mirror release from private repo
-          files: ./dark_framework_build.zip
+          body: Release DarkFramework
+          files: ./DarkFramework.zip
         env:
           GITHUB_TOKEN: ${{ secrets.PUBLIC_REPO_TOKEN }}
