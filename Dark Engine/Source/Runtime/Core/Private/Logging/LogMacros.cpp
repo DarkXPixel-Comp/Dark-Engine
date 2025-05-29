@@ -8,7 +8,6 @@
 #include "Misc/GlobalLogger.h"
 
 
-//////////
 void FMsg::LogV(const ANSICHAR* File, int32 Line, const FString& Category, ELogVerbosity::Type Verbosity, const TCHAR* Fmt, va_list Args)
 {
 	FLogRecord Record;
@@ -27,9 +26,8 @@ void FMsg::LogV(const ANSICHAR* File, int32 Line, const FString& Category, ELogV
 
 void BasicLog(const FLogCategoryBase& Category, const FStaticBasicLogRecord* Log, ...)
 {
-	va_list	 Args;
+	va_list Args;
 	va_start(Args, Log);
-	//FString test = Log->Format;
 	FMsg::LogV(Log->File, Log->Line, Category.GetCategoryName(), Log->Verbosity,
 		static_cast<const wchar_t*>(Log->Format), Args);
 	va_end(Args);

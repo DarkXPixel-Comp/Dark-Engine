@@ -21,6 +21,7 @@
 #include "Windows/WindowsConsoleOutputDevice.h"
 #include "Application/DApplication.h"
 #include "GenericPlatform/GenericApplicationMisc.h"
+#include "optick.h"
 //#include "Widgets/DWindow.h"
 
 
@@ -77,7 +78,7 @@ void CreateMainFrame()
 
 int32 FEngineLoop::PreInit(const FString& CmdLine)
 {
-	//OPTICK_EVENT("PreInit");
+	OPTICK_EVENT("PreInit");
 
 	FString ErrorMsg;
 	
@@ -86,7 +87,7 @@ int32 FEngineLoop::PreInit(const FString& CmdLine)
 
 	if (!CheckFiles(ErrorMsg))
 	{
-		FPlatformMisc::CreateMessageBoxError(*FString::PrintF(TEXT("Not found all vital files or folders: \n%s"), *ErrorMsg), TEXT("Error vital files"));
+		//FPlatformMisc::CreateMessageBoxError(*FString::PrintF(TEXT("Not found all vital files or folders: \n%s"), *ErrorMsg), TEXT("Error vital files"));
 		//RequestExit();
 		//return -1;
 	}
@@ -121,17 +122,24 @@ int32 FEngineLoop::PreInit(const FString& CmdLine)
 
 int32 FEngineLoop::Init()
 {
+	OPTICK_EVENT("Init");
+
 	return 0;
 }
 
 void FEngineLoop::Tick()
 {
+	OPTICK_FRAME("MainThread");
+	OPTICK_EVENT();
+
 	//DE_LOG(LaunchLog, Warning, TEXT("HUYHYHFSDSF"));
 	FDUIApplication::Get().Tick();
 }
 
 void FEngineLoop::Exit()
 {
+	OPTICK_EVENT("Exit");
 	bExit = true;
 	FDUIApplication::Shutdown();
+	Optick::SaveCapture("capture.optick");
 }
