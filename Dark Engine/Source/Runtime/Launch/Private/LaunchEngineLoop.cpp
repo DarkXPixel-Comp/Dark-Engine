@@ -79,13 +79,9 @@ int32 FEngineLoop::PreInit(const FString& CmdLine)
 	OPTICK_EVENT("PreInit");
 
 	FString ErrorMsg;
-
-	//DUIWindow wnd;
 	
 	FGlobalLogger::Get().AddOutputDevice(FOutputDeviceDebug::Get());
 
-
-	//IModule* h = FModuleManager::Get().GetOrLoadModule(TEXT("TestModule"));
 
 	if (!CheckFiles(ErrorMsg))
 	{
