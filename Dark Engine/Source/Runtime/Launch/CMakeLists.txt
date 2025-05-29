@@ -1,7 +1,7 @@
 add_executable(Launch)
 
 SETTINGPROJECT(Launch)
-ADD_PRIVATE_LIBRARY(Launch Core ApplicationCore DarkUI ImGui JSON Optick Agility PhysFS)
+ADD_PRIVATE_LIBRARY(Launch Core ApplicationCore DarkUI ImGui JSON Agility PhysFS)
 ADD_DYNAMICLLY_LOADED(Launch TestModule)
 
 set_target_properties(Launch PROPERTIES OUTPUT_NAME "${PROJECT_NAME}")

@@ -7,7 +7,7 @@
 #include <vector>
 #include <filesystem>
 #include <fstream>
-#include "optick.h"
+//#include "optick.h"
 #include "Misc/Attribute.h"
 #include "Widgets/DWindow.h"
 #include "Misc/Delegate.h"
@@ -25,6 +25,7 @@
 
 
 //import Array;
+
 
 
 
@@ -76,7 +77,7 @@ void CreateMainFrame()
 
 int32 FEngineLoop::PreInit(const FString& CmdLine)
 {
-	OPTICK_EVENT("PreInit");
+	//OPTICK_EVENT("PreInit");
 
 	FString ErrorMsg;
 	
