@@ -4,7 +4,6 @@
 #include <fstream>
 #include "Memory/MemoryCore.h"
 #include "Misc/Paths.h"
-#include "optick.h"
 #include "Logging/StructedLog.h"
 #include "Misc/GlobalLogger.h"
 
@@ -176,10 +175,8 @@ namespace LOGGER
 	}
 	void logging()
 	{
-		OPTICK_THREAD("LoggerThread");
 		while (LoggerGlobal->isWork)
 		{
-			OPTICK_FRAME("LogFrame");
 			std::vector<log_>& TempLogs = LoggerGlobal->TempLogs;
 			if (LoggerGlobal->logs.size())
 			{
@@ -196,8 +193,6 @@ namespace LOGGER
 			}
 			for (auto& i : TempLogs)
 			{
-				OPTICK_EVENT("RecordLog");
-
 				ModernLog(i);
 				record(i);
 				
