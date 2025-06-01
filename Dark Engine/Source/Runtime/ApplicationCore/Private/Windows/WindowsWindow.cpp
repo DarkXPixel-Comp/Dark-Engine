@@ -13,7 +13,8 @@ FWindowsWindow::FWindowsWindow() :
 	bIsFirstTimeVisible(true),
 	bInitiallyMaximized(false),
 	bInitiallyMinimized(false),
-	DPIScale(1.0f)
+	DPIScale(1.0f),
+	bIsInitialized(false)
 {
 
 
@@ -189,6 +190,7 @@ void FWindowsWindow::Initialize(FWindowsApplication* const Application, const FG
 	{
 		AddClipboardFormatListener(hWnd);
 	}
+	bIsInitialized = true;
 }
 
 void FWindowsWindow::ReshapeWindow(int32 NewX, int32 NewY, int32 NewWidth, int32 NewHeight)
@@ -353,7 +355,7 @@ APPLICATIONCORE_API int32 FWindowsWindow::GetWindowBorderSize() const
 
 APPLICATIONCORE_API void FWindowsWindow::AdjustSize(FVector2d& Size) const
 {
-	if (WndDefinition.bSizeWillChangeOften)
+	if (bIsInitialized && WndDefinition.bSizeWillChangeOften)
 	{
 		Size = FVector2d(VirtualWidth, VirtualHeight);
 	}
@@ -428,4 +430,14 @@ bool FWindowsWindow::IsPointInWindow(int32 X, int32 Y) const
 	bool Result = PtInRegion(Region, X, Y);
 	DeleteObject(Region);
 	return Result;
+}
+
+void FWindowsWindow::OnParentWindowMinimized()
+{
+	GetWindowPlacement(hWnd, &PreParentMinimizedWindowPlacement);
+}
+
+void FWindowsWindow::OnParentWindowRestored()
+{
+	SetWindowPlacement(hWnd, &PreParentMinimizedWindowPlacement);
 }

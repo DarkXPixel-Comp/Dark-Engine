@@ -22,6 +22,8 @@
 #include "Application/DApplication.h"
 #include "GenericPlatform/GenericApplicationMisc.h"
 #include "optick.h"
+#include <thread>
+#include <mutex>
 //#include "Widgets/DWindow.h"
 
 
@@ -69,7 +71,7 @@ static int32 CheckFiles(FString& AdditionalErrorMsg)
 void CreateMainFrame()
 {
 	TSharedPtr<DUIWindow> RootWindow = DUINew(DUIWindow)
-		.Title(TEXT("HUY"));
+		.Title(TEXT("Test"));
 	
 
 
@@ -78,7 +80,12 @@ void CreateMainFrame()
 
 int32 FEngineLoop::PreInit(const FString& CmdLine)
 {
-	OPTICK_EVENT("PreInit");
+	//OPTICK_APP("Dark Engine");
+
+	//OPTICK_EVENT("PreInit");
+
+	std::mutex m;
+	//m.lock();
 
 	FString ErrorMsg;
 	
@@ -91,6 +98,8 @@ int32 FEngineLoop::PreInit(const FString& CmdLine)
 		//RequestExit();
 		//return -1;
 	}
+
+	FString ppPath = FPaths::RootDir();
 
 	FWindowsConsoleOutputDevice* Console = new FWindowsConsoleOutputDevice();
 	Console->Show(true);
@@ -111,7 +120,7 @@ int32 FEngineLoop::PreInit(const FString& CmdLine)
 		DUINew(DUIWindow)
 		.Visibility(EVisibility::All)
 		.Size({ 500, 500 })
-		.bHasOSBorder(true)
+		.bHasOSBorder(false)
 		.bIsRegularWindow(true)
 		.ScreenPosition({ 800, 600 })
 	);
@@ -122,15 +131,15 @@ int32 FEngineLoop::PreInit(const FString& CmdLine)
 
 int32 FEngineLoop::Init()
 {
-	OPTICK_EVENT("Init");
+	//OPTICK_EVENT("Init");
 
 	return 0;
 }
 
 void FEngineLoop::Tick()
 {
-	OPTICK_FRAME("MainThread");
-	OPTICK_EVENT();
+	//OPTICK_FRAME("MainThread");
+	//OPTICK_EVENT();
 
 	//DE_LOG(LaunchLog, Warning, TEXT("HUYHYHFSDSF"));
 	FDUIApplication::Get().Tick();
@@ -138,7 +147,7 @@ void FEngineLoop::Tick()
 
 void FEngineLoop::Exit()
 {
-	OPTICK_EVENT("Exit");
+	//OPTICK_EVENT("Exit");
 	bExit = true;
 	FDUIApplication::Shutdown();
 	Optick::SaveCapture("capture.optick");

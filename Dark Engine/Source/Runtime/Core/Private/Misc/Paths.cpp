@@ -2,73 +2,72 @@
 #include "Platform/PlatformMisc.h"
 
 
-CORE_API FString FPaths::LaunchDir()
+FString FPaths::LaunchDir()
 {
-	return EngineDir() + TEXT("Binaires...");
+	return FPlatformMisc::LaunchDir();
 }
 
-CORE_API FString FPaths::EngineDir()
-{
-	FString DefaultEngineDir = RootDir() + TEXT("Dark Engine/");
-	return DefaultEngineDir;
-}
-
-CORE_API FString FPaths::CacheDir()
-{
-	return EngineDir() + TEXT("Cache/");
-}
-
-CORE_API FString FPaths::EngineBinariesDir()
-{
-	return EngineDir() + TEXT("Binaires/");
-}
-
-CORE_API FString FPaths::EngineScriptsDir()
-{
-	return EngineDir() + TEXT("Scripts");
-}
-
-CORE_API FString FPaths::EngineContentDir()
-{
-	return EngineDir() + TEXT("Content/");
-}
-CORE_API FString FPaths::ConfigDir()
-{
-	return EngineDir() + TEXT("Config");
-}
-
-CORE_API FString FPaths::RootDir()
+FString FPaths::EngineDir()
 {
 	return FPlatformMisc::EngineDir();
 }
 
-CORE_API FString FPaths::CombineDir(FString Str1, FString Str2)
+FString FPaths::CacheDir()
+{
+	return EngineDir() + TEXT("Cache/");
+}
+
+FString FPaths::EngineBinariesDir()
+{
+	return EngineDir() + TEXT("Binaires/");
+}
+
+FString FPaths::EngineScriptsDir()
+{
+	return EngineDir() + TEXT("Scripts");
+}
+
+FString FPaths::EngineContentDir()
+{
+	return EngineDir() + TEXT("Content/");
+}
+FString FPaths::EngineConfigDir()
+{
+	return EngineDir() + TEXT("Config/");
+}
+
+FString FPaths::RootDir()
+{
+	return FPlatformMisc::RootDir();
+}
+
+FString FPaths::CombineDir(FString Str1, FString Str2)
 {
 	return Str1 + Str2;
 }
 
 
-CORE_API FString FPaths::SourceDir()
+FString FPaths::SourceDir()
 {
 	return EngineDir() + TEXT("Source/");
 }
 
-CORE_API FString FPaths::EngineLogDir()
+FString FPaths::EngineLogDir()
 {
 	return EngineDir() + TEXT("Logs/");
 }
 
-CORE_API FString FPaths::EngineShaderDir()
+FString FPaths::EngineShaderDir()
 {
 	return EngineDir() + TEXT("Shaders/");
 }
 
-CORE_API bool FPaths::FileExists(const FString& Path)
+bool FPaths::FileExists(const FString& Path)
 {
 	return FPlatformMisc::FileExists(Path);
 }
 
-CORE_API FString FPaths::ConvertRelativeToFullPath(const FString& InFileName)
+FString FPaths::ConvertRelativeToFullPath(const FString& InFileName)
 {
 	FString FileName = std::filesystem::absolute(*InFileName).generic_wstring();
 

@@ -5,6 +5,7 @@
 #include "Windows/WindowsLayout.h"
 #include "Containers/Array.h"
 
+class FWindowsWindow;
 
 class IWindowsMessageHandler
 {
@@ -12,6 +13,20 @@ public:
 	virtual bool ProcessMessage(HWND hwnd, uint32 msg, WPARAM wParam, LPARAM lParam) = 0;
 };
 
+
+struct FDeferredWindowsMessage
+{
+	FDeferredWindowsMessage(TSharedPtr<FWindowsWindow> InNativeWindow, HWND InHwnd, uint32 InMessage, WPARAM InWParam, LPARAM InLParam)
+		: NativeWindow(InNativeWindow), Hwnd(InHwnd), Message(InMessage), WParam(InWParam), LParam(InLParam) {
+	}
+
+	TWeakPtr<FWindowsWindow> NativeWindow;
+	HWND Hwnd;
+	uint32 Message;
+	WPARAM WParam;
+	LPARAM LParam;
+
+};
 
 class FWindowsApplication : public FGenericApplication
 {
@@ -49,9 +64,12 @@ private:
 
 	APPLICATIONCORE_API bool Register(const HINSTANCE HInstance, const HICON HIcon);
 
+	void DeferMessage(TSharedPtr<FWindowsWindow>& NativeWindow, HWND InHwnd, uint32 InMessage, WPARAM InWParam, LPARAM InLParam);
+
 
 private:
-	TArray<TSharedPtr<class FWindowsWindow>> Windows;
+	TArray<TSharedPtr<FWindowsWindow>> Windows;
+	TArray<FDeferredWindowsMessage> DeferredMessages;
 	FPlatformLayout PlatformLayout;
 
 	HINSTANCE HInstance = NULL;

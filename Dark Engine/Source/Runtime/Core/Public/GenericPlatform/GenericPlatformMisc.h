@@ -8,7 +8,7 @@ struct FGenericPlatformMisc
 	static CORE_API void PlatformPreInit() {}
 	static CORE_API void PlatformInit() {}
 
-	static CORE_API FString EngineDir() { return FString(); }
+	static CORE_API FString EngineDir();
 
 	static CORE_API FString LaunchDir() { return FString(); }
 
@@ -18,4 +18,7 @@ struct FGenericPlatformMisc
 
 	static CORE_API void LocalPrint(const TCHAR* Str);
 
+	static CORE_API void CacheLaunchDir();
+
+	static CORE_API const TCHAR* RootDir();
 };

@@ -28,6 +28,10 @@ void DUIWindow::Construct(const FArguments& InArgs)
 	bIsRegularWindow = InArgs._bIsRegularWindow;
 
 
+	//
+	Size = InitialDesiredSize;
+
+
 }
 
 
@@ -182,8 +186,8 @@ DARKUI_API EWindowZone DUIWindow::GetWindowZoneForPoint(const FVector2f& Point) 
 		EWindowZone Zone = WindowZones[Row][Column];
 		if (Zone == EWindowZone::ClientArea)
 		{
-
 		}
+		WindowZone = Zone;
 	}
 	else
 	{

@@ -1,4 +1,5 @@
 #include "Windows/WindowsPlatformProcess.h"
+#include "Platform/PlatformMisc.h"
 #include <Misc/Paths.h>
 
 
@@ -97,6 +98,26 @@ bool FWindowsPlatformProcess::ReadLibrartImportsFromMemory(const IMAGE_DOS_HEADE
 	}
 
 	return false;
+}
+
+void FWindowsPlatformProcess::SetCurrentWorkingDirectoryToBaseDir()
+{
+	FPlatformMisc::CacheLaunchDir();
+
+	SetCurrentDirectory(BaseDir());
+}
+
+FString FWindowsPlatformProcess::GetCurrentWorkingDirectory()
+{
+	uint32 Lenght = GetCurrentDirectory(0, nullptr);
+	if (Lenght == 0)
+	{
+		return TEXT("");
+	}
+	TArray<TCHAR> Buffer(Lenght);
+	GetCurrentDirectory(Lenght, Buffer.GetData());
+
+	return Buffer.GetData();
 }
 
 

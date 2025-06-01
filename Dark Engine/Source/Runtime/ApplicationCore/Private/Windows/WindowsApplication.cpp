@@ -459,8 +459,22 @@ int32 FWindowsApplication::ProcessMessage(HWND hInWnd, uint32 msg, WPARAM wParam
 					return (int32)Results[(int32)Zone];
 
 				}
-
 			}
+		}
+
+		case WM_SHOWWINDOW:
+		{
+			switch (lParam)
+			{
+			case SW_PARENTCLOSING:
+				CurrentWindow->OnParentWindowMinimized();
+			case SW_PARENTOPENING:
+				CurrentWindow->OnParentWindowRestored();
+			default:
+				break;
+			}
+
+			break;
 		}
 		case WM_MOVE:
 		{
@@ -509,5 +523,12 @@ bool FWindowsApplication::Register(const HINSTANCE hInIntance, const HICON HIcon
 	}
 
 	return true;
+}
+
+void FWindowsApplication::DeferMessage(TSharedPtr<FWindowsWindow>& NativeWindow, HWND InHwnd, uint32 InMessage, WPARAM InWParam, LPARAM InLParam)
+{
+
+
+
 }
 

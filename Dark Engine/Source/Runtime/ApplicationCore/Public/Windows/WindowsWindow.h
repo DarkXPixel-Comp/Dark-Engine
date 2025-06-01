@@ -66,6 +66,10 @@ public:
 
 	APPLICATIONCORE_API virtual bool IsPointInWindow(int32 X, int32 Y) const;
 
+	APPLICATIONCORE_API virtual void OnParentWindowMinimized();
+
+	APPLICATIONCORE_API virtual void OnParentWindowRestored();
+
 
 protected:
 	APPLICATIONCORE_API FWindowsWindow();
@@ -87,6 +91,8 @@ private:
 	EWindowMode Mode;
 	EWindowType Type;
 
+	WINDOWPLACEMENT PreParentMinimizedWindowPlacement;
+
 	//float DPI = 1.0f;
 
 	float AspectRatio;
@@ -99,4 +105,6 @@ private:
 
 
 	float DPIScale;
+
+	bool bIsInitialized;
 };

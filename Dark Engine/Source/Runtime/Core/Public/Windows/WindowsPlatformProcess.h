@@ -76,6 +76,10 @@ struct FWindowsPlatformProcess
 		return LoadLibraryWithSearchPaths(FileName, SearchPaths);
 	}
 
+	CORE_API static void SetCurrentWorkingDirectoryToBaseDir();
+
+	CORE_API static FString GetCurrentWorkingDirectory();
+
 
 	CORE_API static const TCHAR* BaseDir()
 	{
@@ -98,7 +102,7 @@ struct FWindowsPlatformProcess
 				--StringLen;
 				for (; StringLen > 0; --StringLen)
 				{
-					if (Result[StringLen - 1] == TEXT('/') || Result[StringLen - 1] == TEXT('//'))
+					if (Result[StringLen - 1] == TEXT('/') || Result[StringLen - 1] == TEXT('\\'))
 					{
 						break;
 					}
@@ -106,6 +110,9 @@ struct FWindowsPlatformProcess
 
 				Result[StringLen] = TEXT('\0');
 			}
+
+			auto path = std::filesystem::canonical(Result);
+			wcscpy(Result, path.generic_wstring().c_str());
 		}
 		return Result;
 	}

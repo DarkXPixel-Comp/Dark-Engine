@@ -46,8 +46,9 @@ FDUIApplication::FDUIApplication() :
 
 
 TSharedPtr<class DUIWindow> FDUIApplication::AddWindow(const TSharedPtr<class DUIWindow>& InWindow, bool bShow)
-{
+{			
 	TSharedPtr<FGenericWindow> NewWindow = MakeWindow(InWindow, bShow);
+	Windows.Push(InWindow);
 
 	if (bShow)
 	{
@@ -105,7 +106,7 @@ EWindowZone FDUIApplication::GetWindowZoneForPoint(const TSharedPtr<FGenericWind
 	TSharedPtr<DUIWindow> CurrentWindow = FindWindowByPlatformWindow(Windows, Window);
 	if (CurrentWindow)
 	{
-		//return CurrentWindow->GetCurr
+		return CurrentWindow->GetWindowZoneForPoint(FVector2f(X, Y));
 	}
 	return EWindowZone::NotInWindow;
 
@@ -166,7 +167,9 @@ TSharedPtr<DUIWindow> FDUIApplication::FindWindowByPlatformWindow(const TArray<T
 			return Window;
 		}
 
-		return FindWindowByPlatformWindow(Window->GetChildWindows(), PlatformWindow);
+		TSharedPtr<DUIWindow> FoundChild = FindWindowByPlatformWindow(Window->GetChildWindows(), PlatformWindow);
+		if (FoundChild)
+			return FoundChild;
 	}
 	
 	return nullptr;

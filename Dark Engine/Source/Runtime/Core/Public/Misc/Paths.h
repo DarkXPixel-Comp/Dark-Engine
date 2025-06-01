@@ -30,7 +30,7 @@ public:
 
 	static CORE_API FString SourceDir();
 
-	static CORE_API FString ConfigDir();
+	static CORE_API FString EngineConfigDir();
 
 	static CORE_API FString RootDir();
 

@@ -5,17 +5,6 @@
 
 struct FWindowsPlatformMisc : public FGenericPlatformMisc
 {
-	static CORE_API FString EngineDir(bool bIsBackSlash = false)
-	{
-		FString Result = std::filesystem::path(LaunchDir(bIsBackSlash) / TEXT("../../../")).wstring();
-
-		if (!bIsBackSlash)
-		{
-			std::replace(std::begin(Result), std::end(Result), TEXT('\\'), TEXT('/'));
-		}
-		return Result;
-	}
-
 	static CORE_API FString LaunchDir(bool bIsBackSlash = false)
 	{
 		FString Path(256);
