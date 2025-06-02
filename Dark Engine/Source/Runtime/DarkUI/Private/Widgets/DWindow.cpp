@@ -10,6 +10,8 @@ void DUIWindow::Construct(const FArguments& InArgs)
 	this->Type = InArgs._Type;
 	this->UserResizeBorder = InArgs._UserResizeBorder;
 	this->SizingRule = InArgs._SizingRule;
+	this->bInitialMaximize = InArgs._IsInitiallyMaximized;
+	this->bInitialMinimize = InArgs._IsInitiallyMinimized;
 	FVector2f WindowPosition = InArgs._ScreenPosition;
 
 	if (InArgs._AdjustInitialSizeAndPositionForDPIScale && WindowPosition != FVector2f::ZeroVector)
@@ -74,19 +76,22 @@ FVector2f DUIWindow::GetInitialDesiredPositionInScreen() const
 	return InitialDesiredScreenPosition;
 }
 
-DARKUI_API void DUIWindow::ShowWindow()
+void DUIWindow::ShowWindow()
 {
 	if (!bHasEverBeenShown)
 	{
+		InitialMaximize();
+
+		InitialMinimize();
 	}
+
+	bHasEverBeenShown = true;
 
 	if (NativeWindow)
 	{
 		NativeWindow->Show();
 
 	}
-
-
 }
 
 DARKUI_API TArray<TSharedPtr<DUIWindow>>& DUIWindow::GetChildWindows()
@@ -256,4 +261,20 @@ void DUIWindow::SetCachedSize(FVector2f NewSize)
 
 	}
 
+}
+
+void DUIWindow::InitialMinimize()
+{
+	if (NativeWindow && bInitialMinimize)
+	{
+		NativeWindow->Minimize();
+	}
+}
+
+void DUIWindow::InitialMaximize()
+{
+	if (NativeWindow && bInitialMaximize)
+	{
+		NativeWindow->Maximize();
+	}
 }

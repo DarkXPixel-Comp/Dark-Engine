@@ -20,6 +20,34 @@ public:
 		return EWindowZone::NotInWindow;
 	}
 
+	virtual bool OnWindowActivationChanged(const TSharedPtr<FGenericWindow>& Window, const EWindowActivation ActivationType)
+	{
+		return false;
+	}
 
+	virtual bool OnApplicationActivationChanged(bool bIsActive)
+	{
+		return false;
+	}
+
+	virtual void OnOSPaint(const TSharedPtr<FGenericWindow>& Window)
+	{
+
+	}
+
+	virtual void OnWindowClose(const TSharedPtr<FGenericWindow>& Window)
+	{
+
+	}
+
+	virtual bool OnWindowAction(const TSharedPtr<FGenericWindow>& Window, EWindowAction InActionType)
+	{
+		return true;
+	}
+
+	virtual FWindowSizeLimits GetSizeLimitsForWindow(const TSharedPtr<FGenericWindow>& Window) const
+	{
+		return FWindowSizeLimits();
+	}
 
 };

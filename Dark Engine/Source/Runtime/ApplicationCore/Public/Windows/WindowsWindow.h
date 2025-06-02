@@ -19,7 +19,7 @@ public:
 
 public:
 	APPLICATIONCORE_API virtual ~FWindowsWindow();
-	APPLICATIONCORE_API void Destroy() {}
+	APPLICATIONCORE_API void Destroy();
 	APPLICATIONCORE_API void Update() {}
 
 	APPLICATIONCORE_API bool IsMaximize() const override;
@@ -64,13 +64,15 @@ public:
 
 	APPLICATIONCORE_API virtual void Hide();
 
+	APPLICATIONCORE_API virtual void Minimize() override;
+
+	APPLICATIONCORE_API virtual void Maximize() override;
+
 	APPLICATIONCORE_API virtual bool IsPointInWindow(int32 X, int32 Y) const;
 
 	APPLICATIONCORE_API virtual void OnParentWindowMinimized();
 
 	APPLICATIONCORE_API virtual void OnParentWindowRestored();
-
-
 protected:
 	APPLICATIONCORE_API FWindowsWindow();
 

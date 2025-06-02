@@ -428,10 +428,6 @@ int32 FWindowsApplication::ProcessMessage(HWND hInWnd, uint32 msg, WPARAM wParam
 			}
 			break;
 		}
-
-
-
-
 		case WM_NCHITTEST:
 		{
 			if (!CurrentWindow->GetWndDefinition().bHasOSWindowBorder)
@@ -460,7 +456,142 @@ int32 FWindowsApplication::ProcessMessage(HWND hInWnd, uint32 msg, WPARAM wParam
 
 				}
 			}
+			break;
 		}
+		case WM_MOUSEACTIVATE:
+		{
+			bForceActivateByMouse = !(LOWORD(lParam) & HTCLIENT);
+			break;
+		}
+		case WM_ACTIVATE:
+		{
+			EWindowActivation ActivationType;
+
+			if (LOWORD(wParam) && WA_ACTIVE)
+			{
+				ActivationType = bForceActivateByMouse ? EWindowActivation::ActivateByMouse : EWindowActivation::Activate;
+			}
+			else if (LOWORD(wParam) & WA_CLICKACTIVE)
+			{
+				ActivationType = EWindowActivation::ActivateByMouse;
+			}
+			else
+			{
+				ActivationType = EWindowActivation::Deactivate;
+			}
+			bForceActivateByMouse = false;
+			UpdateAllModiefierKeyStates();
+
+			BOOL Result = MessageHandler->OnWindowActivationChanged(CurrentWindow, ActivationType);
+			return Result ? 0 : 1;
+		}
+		case WM_ACTIVATEAPP:
+		{
+			UpdateAllModiefierKeyStates();
+			MessageHandler->OnApplicationActivationChanged(static_cast<bool>(wParam));
+			break;
+		}
+		case WM_PAINT:
+		{
+			if (bInModalSizeLoop)
+			{
+				MessageHandler->OnOSPaint(CurrentWindow);
+			}
+			break;
+		}
+		case WM_ERASEBKGND:
+			return 1;
+		case WM_NCACTIVATE:
+			if (!CurrentWindow->GetWndDefinition().bHasOSWindowBorder)
+			{
+				return true;
+			}
+			break;
+		case WM_NCPAINT:
+			if (!CurrentWindow->GetWndDefinition().bHasOSWindowBorder)
+			{
+				return false;
+			}
+			break;
+		case WM_CLOSE:
+			MessageHandler->OnWindowClose(CurrentWindow);
+			return 0;
+
+		case WM_SYSCOMMAND:
+		{
+			switch (wParam & 0xfff0)
+			{	
+			case SC_RESTORE:
+				if (IsIconic(hInWnd))
+				{
+					ShowWindow(hInWnd, SW_RESTORE);
+					return 0;
+				}
+				if (!MessageHandler->OnWindowAction(CurrentWindow, EWindowAction::Restore))
+				{
+					return 1;
+				}
+				break;
+			case SC_MAXIMIZE:
+				if (!MessageHandler->OnWindowAction(CurrentWindow, EWindowAction::Maximize))
+				{
+					return 1;
+				}
+				break;
+			case SC_CLOSE:
+				MessageHandler->OnWindowClose(CurrentWindow);
+				return 1;
+			default:
+				break;
+			}
+			break;
+		}
+		case WM_GETMINMAXINFO:
+		{
+			MINMAXINFO* MinMaxInfo = (MINMAXINFO*)lParam;
+			FWindowSizeLimits SizeLimits = MessageHandler->GetSizeLimitsForWindow(CurrentWindow);
+
+			int32 BorderWidth = 0;
+			int32 BorderHeight = 0;
+			if (CurrentWindow->GetWndDefinition().bHasOSWindowBorder)
+			{
+				const DWORD WindowStyle = GetWindowLong(hInWnd, GWL_STYLE);
+				const DWORD WindowExStyle = GetWindowLong(hInWnd, GWL_EXSTYLE);
+
+				RECT BorderRect = { 0, 0, 0, 0 };
+				::AdjustWindowRectEx(&BorderRect, WindowStyle, false, WindowExStyle);
+
+				BorderWidth = BorderRect.right - BorderRect.left;
+				BorderHeight = BorderRect.bottom - BorderRect.top;
+			}
+			const float DPIScaleFactor = CurrentWindow->GetDPIScale();
+
+			MinMaxInfo->ptMinTrackSize.x = SizeLimits.GetMinWidth().value_or(MinMaxInfo->ptMinTrackSize.x) * DPIScaleFactor;
+			MinMaxInfo->ptMinTrackSize.y = SizeLimits.GetMinHeight().value_or(MinMaxInfo->ptMinTrackSize.y) * DPIScaleFactor;
+			MinMaxInfo->ptMaxTrackSize.x = SizeLimits.GetMaxWidth().value_or(MinMaxInfo->ptMaxTrackSize.x) * DPIScaleFactor;
+			MinMaxInfo->ptMaxTrackSize.y = SizeLimits.GetMaxHeight().value_or(MinMaxInfo->ptMaxTrackSize.y) * DPIScaleFactor;
+			return 0;
+		}
+
+		case WM_DISPLAYCHANGE:
+		{
+			FDisplayMetrics DisplayMetrics;
+			FWindowsApplication::RebuildDisplayMetrics(DisplayMetrics);
+			break;
+		}
+		/*case WM_DPICHANGED:
+		{
+			
+
+			break;
+		}*/
+
+		case WM_GETDLGCODE:
+			return DLGC_WANTALLKEYS;
+		case WM_CREATE:
+			return 0;
+
+
 
 		case WM_SHOWWINDOW:
 		{
@@ -468,18 +599,18 @@ int32 FWindowsApplication::ProcessMessage(HWND hInWnd, uint32 msg, WPARAM wParam
 			{
 			case SW_PARENTCLOSING:
 				CurrentWindow->OnParentWindowMinimized();
+				break;
 			case SW_PARENTOPENING:
 				CurrentWindow->OnParentWindowRestored();
-			default:
 				break;
 			}
 
 			break;
 		}
-		case WM_MOVE:
+		/*case WM_MOVE:
 		{
 
-		}
+		}*/
 
 		default:
 
@@ -496,7 +627,10 @@ int32 FWindowsApplication::ProcessMessage(HWND hInWnd, uint32 msg, WPARAM wParam
 	return DefWindowProc(hInWnd, msg, wParam, lParam);
 }
 
-FWindowsApplication::FWindowsApplication(const HINSTANCE hInIntance, const HICON hInIcon, const HCURSOR hCursor) : HInstance(hInIntance)
+FWindowsApplication::FWindowsApplication(const HINSTANCE hInIntance, const HICON hInIcon, const HCURSOR hCursor) :
+	HInstance(hInIntance),
+	bForceActivateByMouse(false),
+	bInModalSizeLoop(false)
 {
 	Register(hInIntance, hInIcon);
 
@@ -527,8 +661,16 @@ bool FWindowsApplication::Register(const HINSTANCE hInIntance, const HICON HIcon
 
 void FWindowsApplication::DeferMessage(TSharedPtr<FWindowsWindow>& NativeWindow, HWND InHwnd, uint32 InMessage, WPARAM InWParam, LPARAM InLParam)
 {
+}
 
-
-
+void FWindowsApplication::UpdateAllModiefierKeyStates()
+{
+	ModifierKeyState[EModifierKey::LeftShift] = (GetAsyncKeyState(VK_LSHIFT) & 0x8000) != 0;
+	ModifierKeyState[EModifierKey::RightShift] = (GetAsyncKeyState(VK_RSHIFT) & 0x8000) != 0;
+	ModifierKeyState[EModifierKey::LeftControl] = (GetAsyncKeyState(VK_LCONTROL) & 0x8000) != 0;
+	ModifierKeyState[EModifierKey::RightControl] = (GetAsyncKeyState(VK_RCONTROL) & 0x8000) != 0;
+	ModifierKeyState[EModifierKey::LeftAlt] = (GetAsyncKeyState(VK_LMENU) & 0x8000) != 0;
+	ModifierKeyState[EModifierKey::RightAlt] = (GetAsyncKeyState(VK_RMENU) & 0x8000) != 0;
+	ModifierKeyState[EModifierKey::CapsLock] = (GetKeyState(VK_CAPITAL) & 0x0001) != 0;
 }
 

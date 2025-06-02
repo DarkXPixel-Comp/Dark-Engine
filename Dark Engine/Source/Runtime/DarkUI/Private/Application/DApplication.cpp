@@ -112,6 +112,27 @@ EWindowZone FDUIApplication::GetWindowZoneForPoint(const TSharedPtr<FGenericWind
 
 }
 
+void FDUIApplication::OnWindowClose(const TSharedPtr<FGenericWindow>& Window)
+{
+	TSharedPtr<DUIWindow> CurrentWindow = FindWindowByPlatformWindow(Windows, Window);
+
+	if (CurrentWindow)
+	{
+		bool bCanCloseWindow = true;
+		//
+
+
+		if (bCanCloseWindow)
+		{
+			Windows.Remove(CurrentWindow);
+			Window->Destroy();
+		}
+
+	}
+	
+
+}
+
 TSharedPtr<FGenericWindow> FDUIApplication::MakeWindow(const TSharedPtr<class DUIWindow>& InWindow, bool bShow)
 {
 	TSharedPtr<FGenericWindow> NativeParent = nullptr;

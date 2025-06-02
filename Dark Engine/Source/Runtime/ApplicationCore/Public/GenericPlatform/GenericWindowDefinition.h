@@ -42,11 +42,26 @@ enum class EWindowZone
 	Unspecified = 0
 };
 
+enum class EWindowActivation : uint8
+{
+	Activate,
+	ActivateByMouse,
+	Deactivate
+};
+
 enum class EWindowActivationPolicy
 {
 	Never,
 	Always,
 	FirstShown
+};
+
+enum class EWindowAction
+{
+	ClickedNonClientArea,
+	Maximize,
+	Restore,
+	WindowMenu 
 };
 
 struct FWindowSizeLimits
@@ -76,31 +91,31 @@ public:
 		return *this;
 	}
 
-	int32 GetMinWidth() const
+	std::optional<int32> GetMinWidth() const
 	{
 		return MinWidth;
 	}
 
-	int32 GetMinHeight() const
+	std::optional<int32> GetMinHeight() const
 	{
 		return MinHeight;
 	}
 
-	int32 GetMaxWidth() const
+	std::optional<int32> GetMaxWidth() const
 	{
 		return MaxWidth;
 	}
 
-	int32 GetMaxHeight() const
+	std::optional<int32> GetMaxHeight() const
 	{
 		return MaxHeight;
 	}
 
 private:
-	int32 MinWidth;
-	int32 MinHeight;
-	int32 MaxWidth;
-	int32 MaxHeight;
+	std::optional<int32> MinWidth;
+	std::optional<int32> MinHeight;
+	std::optional<int32> MaxWidth;
+	std::optional<int32> MaxHeight;
 };
 
 struct FGenericWindowDefinition

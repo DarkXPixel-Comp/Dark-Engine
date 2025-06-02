@@ -67,11 +67,32 @@ private:
 	void DeferMessage(TSharedPtr<FWindowsWindow>& NativeWindow, HWND InHwnd, uint32 InMessage, WPARAM InWParam, LPARAM InLParam);
 
 
+	APPLICATIONCORE_API void UpdateAllModiefierKeyStates();
+
+
+private:
+	enum EModifierKey : uint32
+	{
+		LeftShift,	
+		RightShift,	
+		LeftControl,
+		RightControl,
+		LeftAlt,		
+		RightAlt,	
+		CapsLock,	
+		Count,
+	};
+
+	bool ModifierKeyState[EModifierKey::Count];
+
 private:
 	TArray<TSharedPtr<FWindowsWindow>> Windows;
 	TArray<FDeferredWindowsMessage> DeferredMessages;
 	FPlatformLayout PlatformLayout;
 
+
+	bool bForceActivateByMouse;
+	bool bInModalSizeLoop;
 	HINSTANCE HInstance = NULL;
 
 	TArray<IWindowsMessageHandler*> MessageHandlers;

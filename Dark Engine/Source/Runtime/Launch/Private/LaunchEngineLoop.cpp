@@ -107,22 +107,16 @@ int32 FEngineLoop::PreInit(const FString& CmdLine)
 	FDUIApplication::InitHightDPI(true);
 	FDUIApplication::Create();
 
-	auto wnd = DUINew(DUIWindow)
-		.Visibility(EVisibility::All)
-		.ScreenPosition({ 0, 0 })
-		.Size({800, 600})
-		.bHasOSBorder(true)
-		.bIsRegularWindow(true);
-
-	FDUIApplication::Get().AddWindow(wnd);
 
 	FDUIApplication::Get().AddWindow(
 		DUINew(DUIWindow)
 		.Visibility(EVisibility::All)
 		.Size({ 500, 500 })
-		.bHasOSBorder(false)
+		.bHasOSBorder(true)
 		.bIsRegularWindow(true)
 		.ScreenPosition({ 800, 600 })
+		.IsInitiallyMaximized(false)
+		.IsInitiallyMinimized(true)
 	);
 					  
 	return 0;

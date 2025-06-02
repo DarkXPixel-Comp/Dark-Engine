@@ -25,7 +25,9 @@ public:
 		_UserResizeBorder(5),
 		_SizingRule(ESizingRule::UserSize),
 		_bHasOSBorder(false),
-		_bIsRegularWindow(true)
+		_bIsRegularWindow(true),
+		_IsInitiallyMaximized(false),
+		_IsInitiallyMinimized(false)
 	{}
 
 	DarkUI_ATTRIBUTE(FString, Title)
@@ -117,6 +119,9 @@ public:
 protected:
 	DARKUI_API void SetCachedSize(FVector2f NewSize);
 
+	DARKUI_API void InitialMinimize();
+	DARKUI_API void InitialMaximize();
+
 
 protected:
 	TAttribute<FString> Title;
@@ -128,6 +133,8 @@ protected:
 	bool bHasOSBorder : 1;
 	bool bHasEverBeenShown : 1;
 	bool bIsRegularWindow : 1;
+	bool bInitialMaximize : 1;
+	bool bInitialMinimize : 1;
 
 	TSharedPtr<FGenericWindow> NativeWindow;
 	FVector2d Size;

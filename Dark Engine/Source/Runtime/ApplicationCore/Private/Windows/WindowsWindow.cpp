@@ -26,6 +26,11 @@ FWindowsWindow::~FWindowsWindow()
 {
 }
 
+void FWindowsWindow::Destroy()
+{
+	DestroyWindow(hWnd);
+}
+
 bool FWindowsWindow::IsMaximize() const
 {
 	return IsZoomed(hWnd) != 0;
@@ -411,7 +416,6 @@ void FWindowsWindow::Show()
 
 		ShowWindow(hWnd, ShowWindowCommand);
 	}
-
 }
 
 
@@ -421,6 +425,32 @@ void FWindowsWindow::Hide()
 	{
 		bIsVisible = false;
 		ShowWindow(hWnd, SW_HIDE);
+	}
+}
+
+void FWindowsWindow::Minimize()
+{
+	if (!bIsFirstTimeVisible)
+	{
+		ShowWindow(hWnd, SW_MINIMIZE);
+	}
+	else
+	{
+		bInitiallyMinimized = true;
+		bInitiallyMaximized = false;
+	}
+}
+
+void FWindowsWindow::Maximize()
+{
+	if (!bIsFirstTimeVisible)
+	{
+		ShowWindow(hWnd, SW_MAXIMIZE);
+	}
+	else
+	{
+		bInitiallyMinimized = false;
+		bInitiallyMaximized = true;
 	}
 }
 
