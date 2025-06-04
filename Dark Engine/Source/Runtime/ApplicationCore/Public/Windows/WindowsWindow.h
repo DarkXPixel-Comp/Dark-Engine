@@ -73,6 +73,8 @@ public:
 	APPLICATIONCORE_API virtual void OnParentWindowMinimized();
 
 	APPLICATIONCORE_API virtual void OnParentWindowRestored();
+
+	float GetAspectRation() const { return AspectRatio; }
 protected:
 	APPLICATIONCORE_API FWindowsWindow();
 

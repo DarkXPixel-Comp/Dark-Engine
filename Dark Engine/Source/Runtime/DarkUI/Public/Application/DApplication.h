@@ -56,6 +56,7 @@ public:
 	DARKUI_API virtual bool ShouldProcessUserInputMessages(const TSharedPtr<FGenericWindow>& PlatformWindow) const override;
 	DARKUI_API virtual EWindowZone GetWindowZoneForPoint(const TSharedPtr<FGenericWindow>& Window, const int32 X, const int32 Y) override;
 	DARKUI_API virtual void OnWindowClose(const TSharedPtr<FGenericWindow>& PlatformWindow) override;
+	DARKUI_API virtual bool OnMovedWindow(const TSharedPtr<FGenericWindow>& Window, const FIntPoint& NewPos);
 
 protected:
 	TSharedPtr<FGenericWindow> MakeWindow(const TSharedPtr<DUIWindow>& InWindow, bool bShow = false);

@@ -133,6 +133,15 @@ void FDUIApplication::OnWindowClose(const TSharedPtr<FGenericWindow>& Window)
 
 }
 
+bool FDUIApplication::OnMovedWindow(const TSharedPtr<FGenericWindow>& PlatformWindow, const FIntPoint& NewPos)
+{
+	TSharedPtr<DUIWindow> Window = FindWindowByPlatformWindow(Windows, PlatformWindow);
+	if(Window)
+		Window->SetCachedPosition(FVector2f(NewPos.X, NewPos.Y));
+
+	return true;
+}
+
 TSharedPtr<FGenericWindow> FDUIApplication::MakeWindow(const TSharedPtr<class DUIWindow>& InWindow, bool bShow)
 {
 	TSharedPtr<FGenericWindow> NativeParent = nullptr;
@@ -152,6 +161,7 @@ TSharedPtr<FGenericWindow> FDUIApplication::MakeWindow(const TSharedPtr<class DU
 
 	Definition.bHasOSWindowBorder = InWindow->HasOSBorder();
 	Definition.bIsRegularWindow = InWindow->IsRegularWindow();
+	Definition.bShouldPreserveAspectRatio = InWindow->ShouldPreserveAspectRation();
 
 	//Definition.WidthDesiredOnScreen = 
 
@@ -159,8 +169,8 @@ TSharedPtr<FGenericWindow> FDUIApplication::MakeWindow(const TSharedPtr<class DU
 	TSharedPtr<FGenericWindow> NewWindow = PlatformApplication->MakeWindow();
 
 	InWindow->SetNativeWindow(NewWindow);
-	InWindow->SetScreenPosition(Position);
-	InWindow->SetSize(Size);
+	InWindow->SetCachedPosition(Position);
+	InWindow->SetCachedSize(Size);
 
 	PlatformApplication->InitializeWindow(NewWindow, Definition, NativeParent, bShow);
 

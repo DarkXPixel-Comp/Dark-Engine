@@ -63,9 +63,10 @@ namespace DE
 				return TVector2<T>(X - V.X, Y - V.Y);
 			}
 
-			FORCEINLINE bool operator ==(const TVector2<T>& V) const
+			template<typename U>
+			FORCEINLINE bool operator ==(const TVector2<U>& V) const
 			{
-				return X == V.X && Y == V.Y;
+				return X == static_cast<T>(V.X) && Y == static_cast<T>(V.Y);
 			}
 
 			FORCEINLINE bool ConatinsNaN() const

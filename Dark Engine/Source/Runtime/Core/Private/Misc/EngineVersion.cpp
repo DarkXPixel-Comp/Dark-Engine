@@ -4,7 +4,7 @@
 
 const int32 MAJOR_VERSION = 0;
 const int32 MINOR_VERSION = 2;
-const int32 PATCH_VERSION = 13;
+const int32 PATCH_VERSION = 18;
 const int32 FIX_VERSION = 0;
 const TCHAR* VERSION_PREFIX = TEXT("NewLife");
 const TCHAR* BUILD_TYPE_PREFIX = TEXT("Debug");

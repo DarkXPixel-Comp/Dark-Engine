@@ -27,7 +27,8 @@ public:
 		_bHasOSBorder(false),
 		_bIsRegularWindow(true),
 		_IsInitiallyMaximized(false),
-		_IsInitiallyMinimized(false)
+		_IsInitiallyMinimized(false),
+		_ShouldPreserveAspectRatio(false)
 	{}
 
 	DarkUI_ATTRIBUTE(FString, Title)
@@ -47,6 +48,7 @@ public:
 	DarkUI_ARGUMENT(bool, IsTopmostWindow)
 	DarkUI_ARGUMENT(bool, FocusWhenFirstShown)
 	DarkUI_ARGUMENT(bool, bIsRegularWindow)
+	DarkUI_ARGUMENT(bool, ShouldPreserveAspectRatio)
 	DarkUI_END_ARGS()
 
 
@@ -60,8 +62,6 @@ public:
 		return Type;
 	}
 
-	DARKUI_API void SetScreenPosition(const FVector2d& NewPosition);
-	DARKUI_API void SetSize(FVector2d NewSize);
 
 	DARKUI_API void SetNativeWindow(const TSharedPtr<FGenericWindow>& InNativeWindow);
 
@@ -100,7 +100,10 @@ public:
 
 	DARKUI_API bool HasOSBorder() const;
 	DARKUI_API bool IsRegularWindow() const;
+	DARKUI_API bool ShouldPreserveAspectRation() const;
 
+	DARKUI_API void SetCachedSize(FVector2f NewSize);
+	DARKUI_API void SetCachedPosition(const FVector2f NewPosition);
 
 
 
@@ -117,7 +120,6 @@ public:
 
 
 protected:
-	DARKUI_API void SetCachedSize(FVector2f NewSize);
 
 	DARKUI_API void InitialMinimize();
 	DARKUI_API void InitialMaximize();
@@ -135,6 +137,7 @@ protected:
 	bool bIsRegularWindow : 1;
 	bool bInitialMaximize : 1;
 	bool bInitialMinimize : 1;
+	bool bShouldPreserveAspectRation : 1;
 
 	TSharedPtr<FGenericWindow> NativeWindow;
 	FVector2d Size;

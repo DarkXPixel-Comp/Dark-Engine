@@ -24,6 +24,12 @@ namespace DE
 			FORCEINLINE TIntPoint() : X(0), Y(0) {}
 			FORCEINLINE TIntPoint(T InX, T InY) : X(InX), Y(InY) {}
 			FORCEINLINE TIntPoint(const TVector2<T>& V) : X(static_cast<T>(V.X)), Y(static_cast<T>(V.Y)) {}
+
+
+			FORCEINLINE bool operator==(const TIntPoint& Other) const
+			{
+				return X == Other.X && Y == Other.Y;
+			}
 		};
 	}
 }

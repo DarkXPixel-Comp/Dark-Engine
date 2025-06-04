@@ -70,6 +70,9 @@ private:
 	APPLICATIONCORE_API void UpdateAllModiefierKeyStates();
 
 
+public:
+	static const FIntPoint MinimizedWindowPosition;
+
 private:
 	enum EModifierKey : uint32
 	{

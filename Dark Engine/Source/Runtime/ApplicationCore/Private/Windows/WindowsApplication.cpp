@@ -9,6 +9,8 @@
 FWindowsApplication* GWindowsApplication;
 
 
+const FIntPoint FWindowsApplication::MinimizedWindowPosition(-32000, -32000);
+
 static TSharedPtr< FWindowsWindow > FindWindowByHWND(const TArray< TSharedPtr< FWindowsWindow > >& WindowsToSearch, HWND HandleToFind)
 {
 	for (int32 WindowIndex = 0; WindowIndex < WindowsToSearch.Num(); ++WindowIndex)
@@ -591,7 +593,154 @@ int32 FWindowsApplication::ProcessMessage(HWND hInWnd, uint32 msg, WPARAM wParam
 		case WM_CREATE:
 			return 0;
 
+		case WM_MOVE:
+		{
+			const int32 NewX = static_cast<const int32>(LOWORD(lParam));
+			const int32 NewY = static_cast<const int32>(HIWORD(lParam));
 
+			FIntPoint NewPosition(NewX, NewY);
+			if (FWindowsApplication::MinimizedWindowPosition != NewPosition)
+			{
+				if (MessageHandler->OnMovedWindow(CurrentWindow, NewPosition))
+					return 0;
+			}
+			break;
+		}
+
+		case WM_SIZING:
+		{
+			MessageHandler->OnResizingWindow(CurrentWindow, {0, 0});
+			if (CurrentWindow->GetWndDefinition().bShouldPreserveAspectRatio)
+			{
+				WINDOWINFO WindowInfo = {};
+				WindowInfo.cbSize = sizeof(WINDOWINFO);
+				GetWindowInfo(hInWnd, &WindowInfo);
+
+				RECT* Rect = (RECT*)lParam;
+				if (CurrentWindow->GetWndDefinition().bHasOSWindowBorder)
+				{
+					RECT NewRect = {};
+					AdjustWindowRectEx(&NewRect, WindowInfo.dwStyle, false, WindowInfo.dwExStyle);
+
+					Rect->left -= NewRect.left;
+					Rect->top -= NewRect.top;
+					Rect->right -= NewRect.right;
+					Rect->bottom -= NewRect.bottom;
+				}
+
+				const float AspectRatio = CurrentWindow->GetAspectRation();
+				int32 NewWidth = Rect->right - Rect->left;
+				int32 NewHeight = Rect->bottom - Rect->top;
+
+				FWindowSizeLimits SizeLimits = MessageHandler->GetSizeLimitsForWindow(CurrentWindow);
+
+				switch (wParam)
+				{
+				case WMSZ_LEFT:
+				case WMSZ_RIGHT:
+				case WMSZ_BOTTOMLEFT:
+				case WMSZ_BOTTOMRIGHT:
+				case WMSZ_TOPLEFT:
+				case WMSZ_TOPRIGHT:
+				{
+					int32 MinWidth = SizeLimits.GetMinWidth().value_or(0);
+					if (SizeLimits.GetMinHeight().value_or(0) < SizeLimits.GetMinWidth().value_or(0))
+					{
+						MinWidth = SizeLimits.GetMinHeight().value_or(0) * AspectRatio;
+					}
+					if (NewWidth < MinWidth)
+					{
+						if (wParam == WMSZ_LEFT || wParam == WMSZ_BOTTOMLEFT || wParam == WMSZ_TOPLEFT)
+						{
+							Rect->left -= (MinWidth - NewWidth);
+						}
+						else if (wParam == WMSZ_RIGHT || wParam == WMSZ_BOTTOMRIGHT || wParam == WMSZ_TOPRIGHT)
+						{
+							Rect->right += (MinWidth - NewWidth);
+						}
+
+						NewWidth = MinWidth;
+					}
+					break;
+				}
+				case WMSZ_TOP:
+				case WMSZ_BOTTOM:
+				{
+					int32 MinHeight = SizeLimits.GetMinHeight().value_or(0);
+					if (SizeLimits.GetMinWidth().value_or(0) < SizeLimits.GetMinHeight().value_or(0))
+					{
+						MinHeight = SizeLimits.GetMinWidth().value_or(0) / AspectRatio;
+					}
+					if (NewHeight < MinHeight)
+					{
+						if (wParam == WMSZ_TOP)
+						{
+							Rect->top -= (MinHeight - NewHeight);
+						}
+						else
+						{
+							Rect->bottom += (MinHeight - NewHeight);
+						}
+
+						NewHeight = MinHeight;
+					}
+					break;
+				}
+				}
+
+				switch (wParam)
+				{
+				case WMSZ_LEFT:
+				case WMSZ_RIGHT:
+				{
+					int32 AdjustedHeight = (int32)((float)NewWidth / AspectRatio);
+					Rect->top -= (AdjustedHeight - NewHeight) / 2;
+					Rect->bottom += (AdjustedHeight - NewHeight) / 2;
+					break;
+				}
+				case WMSZ_TOP:
+				case WMSZ_BOTTOM:
+				{
+					int32 AdjustedWidth = (int32)((float)NewHeight * AspectRatio);
+					Rect->left -= (AdjustedWidth - NewWidth) / 2;
+					Rect->right += (AdjustedWidth - NewWidth) / 2;
+					break;
+				}
+				case WMSZ_TOPLEFT:
+				{
+					int32 AdjustedHeight = (int32)((float)NewWidth / AspectRatio);
+					Rect->top -= AdjustedHeight - NewHeight;
+					break;
+				}
+				case WMSZ_TOPRIGHT:
+				{
+					int32 AdjustedHeight = (int32)((float)NewWidth / AspectRatio);
+					Rect->top -= AdjustedHeight - NewHeight;
+					break;
+				}
+				case WMSZ_BOTTOMLEFT:
+				{
+					int32 AdjustedHeight = (int32)((float)NewWidth / AspectRatio);
+					Rect->bottom += AdjustedHeight - NewHeight;
+					break;
+				}
+				case WMSZ_BOTTOMRIGHT:
+				{
+					int32 AdjustedHeight = (int32)((float)NewWidth / AspectRatio);
+					Rect->bottom += AdjustedHeight - NewHeight;
+					break;
+				}
+				}
+
+				if (CurrentWindow->GetWndDefinition().bHasOSWindowBorder)
+				{
+					AdjustWindowRectEx(Rect, WindowInfo.dwStyle, false, WindowInfo.dwExStyle);
+				}
+				return true;
+			}
+
+			break;
+		}
 
 		case WM_SHOWWINDOW:
 		{
@@ -607,10 +756,34 @@ int32 FWindowsApplication::ProcessMessage(HWND hInWnd, uint32 msg, WPARAM wParam
 
 			break;
 		}
-		/*case WM_MOVE:
-		{
 
-		}*/
+		case WM_NCLBUTTONDOWN:
+		case WM_NCRBUTTONDOWN:
+		case WM_NCMBUTTONDOWN:
+		{
+			switch (wParam)
+			{
+			case HTMINBUTTON:
+				if (!MessageHandler->OnWindowAction(CurrentWindow, EWindowAction::ClickedNonClientArea))
+					return 1;
+				break;
+			case HTMAXBUTTON:
+				if (!MessageHandler->OnWindowAction(CurrentWindow, EWindowAction::ClickedNonClientArea))
+					return 1;
+				break;
+			case HTCLOSE:
+				if (!MessageHandler->OnWindowAction(CurrentWindow, EWindowAction::ClickedNonClientArea))
+					return 1;
+				break;
+			case HTCAPTION:
+				if (!MessageHandler->OnWindowAction(CurrentWindow, EWindowAction::ClickedNonClientArea))
+					return 1;
+				break;
+			default:
+				break;
+			}
+			break;
+		}
 
 		default:
 

@@ -14,7 +14,8 @@ FWindowsWindow::FWindowsWindow() :
 	bInitiallyMaximized(false),
 	bInitiallyMinimized(false),
 	DPIScale(1.0f),
-	bIsInitialized(false)
+	bIsInitialized(false),
+	AspectRatio(1.f)
 {
 
 

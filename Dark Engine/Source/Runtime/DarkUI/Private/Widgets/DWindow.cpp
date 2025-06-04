@@ -12,6 +12,7 @@ void DUIWindow::Construct(const FArguments& InArgs)
 	this->SizingRule = InArgs._SizingRule;
 	this->bInitialMaximize = InArgs._IsInitiallyMaximized;
 	this->bInitialMinimize = InArgs._IsInitiallyMinimized;
+	this->bShouldPreserveAspectRation = InArgs._ShouldPreserveAspectRatio;
 	FVector2f WindowPosition = InArgs._ScreenPosition;
 
 	if (InArgs._AdjustInitialSizeAndPositionForDPIScale && WindowPosition != FVector2f::ZeroVector)
@@ -43,23 +44,6 @@ void DUIWindow::ResizeWindowSize(FVector2f NewWindowSize)
 
 }
 
-void DUIWindow::SetScreenPosition(const FVector2d& NewPosition)
-{
-	ScreenPosition = NewPosition;
-}
-
-void DUIWindow::SetSize(FVector2d NewSize)
-{
-	if (NativeWindow)
-	{
-		NativeWindow->AdjustSize(NewSize);
-	}
-	if (NewSize != Size)
-	{
-		Size = NewSize;
-	}
-	
-}
 
 void DUIWindow::SetNativeWindow(const TSharedPtr<FGenericWindow>& InNativeWindow)
 {
@@ -249,18 +233,34 @@ bool DUIWindow::HasOSBorder() const
 	return bHasOSBorder;
 }
 
-DARKUI_API bool DUIWindow::IsRegularWindow() const
+bool DUIWindow::IsRegularWindow() const
 {
 	return bIsRegularWindow;
+}
+
+bool DUIWindow::ShouldPreserveAspectRation() const
+{
+	return bShouldPreserveAspectRation;
 }
 
 void DUIWindow::SetCachedSize(FVector2f NewSize)
 {
 	if (NativeWindow)
 	{
-
+		FVector2d NewSize2D = NewSize;
+		NativeWindow->AdjustSize(NewSize2D);
+		NewSize = NewSize2D;
+	}
+	if (Size != NewSize)
+	{
+		Size = NewSize;
 	}
 
+}
+
+void DUIWindow::SetCachedPosition(const FVector2f NewPosition)
+{
+	ScreenPosition = NewPosition;
 }
 
 void DUIWindow::InitialMinimize()

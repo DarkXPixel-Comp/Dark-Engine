@@ -116,7 +116,8 @@ int32 FEngineLoop::PreInit(const FString& CmdLine)
 		.bIsRegularWindow(true)
 		.ScreenPosition({ 800, 600 })
 		.IsInitiallyMaximized(false)
-		.IsInitiallyMinimized(true)
+		.IsInitiallyMinimized(false)
+		.ShouldPreserveAspectRatio(true)
 	);
 					  
 	return 0;

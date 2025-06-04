@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.8)
 
 #Dark Engine
-project("Dark Engine" VERSION 0.2.13.0)
+project("Dark Engine" VERSION 0.2.18.0)
 
 include("${CMAKE_SOURCE_DIR}/cmake/Settings.cmake")
 

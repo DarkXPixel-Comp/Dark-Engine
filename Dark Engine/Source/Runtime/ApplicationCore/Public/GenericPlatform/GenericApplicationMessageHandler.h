@@ -45,9 +45,19 @@ public:
 		return true;
 	}
 
+	virtual bool OnResizingWindow(const TSharedPtr<FGenericWindow>& Window, const FVector2f& NewSize)
+	{
+		return false;
+	}
+
 	virtual FWindowSizeLimits GetSizeLimitsForWindow(const TSharedPtr<FGenericWindow>& Window) const
 	{
 		return FWindowSizeLimits();
+	}
+
+	virtual bool OnMovedWindow(const TSharedPtr<FGenericWindow>& Window, const FIntPoint& NewPos)
+	{
+		return false;
 	}
 
 };
