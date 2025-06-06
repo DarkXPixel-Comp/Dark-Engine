@@ -49,6 +49,11 @@ public:
 	DarkUI_ARGUMENT(bool, FocusWhenFirstShown)
 	DarkUI_ARGUMENT(bool, bIsRegularWindow)
 	DarkUI_ARGUMENT(bool, ShouldPreserveAspectRatio)
+
+	DarkUI_ARGUMENT(std::optional<int32>, MinWidth)
+	DarkUI_ARGUMENT(std::optional<int32>, MinHeight)
+	DarkUI_ARGUMENT(std::optional<int32>, MaxWidth)
+	DarkUI_ARGUMENT(std::optional<int32>, MaxHeight)
 	DarkUI_END_ARGS()
 
 
@@ -105,7 +110,7 @@ public:
 	DARKUI_API void SetCachedSize(FVector2f NewSize);
 	DARKUI_API void SetCachedPosition(const FVector2f NewPosition);
 
-
+	DARKUI_API FWindowSizeLimits GetSizeLimits() const;
 
 public:
 	std::shared_ptr<const DUIWindow> shared_from_this()	const
@@ -150,6 +155,9 @@ protected:
 	TArray<TSharedPtr<DUIWindow>> ChildWindows;
 
 	TWeakPtr<DUIWindow> ParentWindow;
+	FWindowSizeLimits SizeLimits;
+
+	
 
 
 

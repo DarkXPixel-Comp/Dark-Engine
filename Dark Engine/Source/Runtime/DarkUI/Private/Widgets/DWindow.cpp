@@ -13,6 +13,11 @@ void DUIWindow::Construct(const FArguments& InArgs)
 	this->bInitialMaximize = InArgs._IsInitiallyMaximized;
 	this->bInitialMinimize = InArgs._IsInitiallyMinimized;
 	this->bShouldPreserveAspectRation = InArgs._ShouldPreserveAspectRatio;
+	this->SizeLimits
+		.SetMaxHeight(InArgs._MaxHeight)
+		.SetMaxWidth(InArgs._MaxWidth)
+		.SetMinHeight(InArgs._MinHeight)
+		.SetMinWidth(InArgs._MinWidth);
 	FVector2f WindowPosition = InArgs._ScreenPosition;
 
 	if (InArgs._AdjustInitialSizeAndPositionForDPIScale && WindowPosition != FVector2f::ZeroVector)
@@ -261,6 +266,11 @@ void DUIWindow::SetCachedSize(FVector2f NewSize)
 void DUIWindow::SetCachedPosition(const FVector2f NewPosition)
 {
 	ScreenPosition = NewPosition;
+}
+
+FWindowSizeLimits DUIWindow::GetSizeLimits() const
+{
+	return SizeLimits;
 }
 
 void DUIWindow::InitialMinimize()

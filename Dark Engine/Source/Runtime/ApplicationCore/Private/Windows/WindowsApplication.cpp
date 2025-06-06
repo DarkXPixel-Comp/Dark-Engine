@@ -581,12 +581,18 @@ int32 FWindowsApplication::ProcessMessage(HWND hInWnd, uint32 msg, WPARAM wParam
 			FWindowsApplication::RebuildDisplayMetrics(DisplayMetrics);
 			break;
 		}
-		/*case WM_DPICHANGED:
-		{
-			
 
-			break;
-		}*/
+		case WM_CHAR:
+		{
+			const TCHAR CharCode = static_cast<TCHAR>(wParam);
+
+			const bool bIsRepeat = (lParam & 0x40000000) != 0;
+
+			MessageHandler->OnKeyChar(CharCode, bIsRepeat);
+			return 0;
+		}
+
+
 
 		case WM_GETDLGCODE:
 			return DLGC_WANTALLKEYS;

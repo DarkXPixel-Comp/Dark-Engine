@@ -118,6 +118,10 @@ int32 FEngineLoop::PreInit(const FString& CmdLine)
 		.IsInitiallyMaximized(false)
 		.IsInitiallyMinimized(false)
 		.ShouldPreserveAspectRatio(true)
+		.MinWidth(250)
+		.MinHeight(250)
+		.MaxWidth(750)
+		.MaxHeight(750)
 	);
 					  
 	return 0;

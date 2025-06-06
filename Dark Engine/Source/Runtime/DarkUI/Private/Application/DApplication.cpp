@@ -142,6 +142,14 @@ bool FDUIApplication::OnMovedWindow(const TSharedPtr<FGenericWindow>& PlatformWi
 	return true;
 }
 
+FWindowSizeLimits FDUIApplication::GetSizeLimitsForWindow(const TSharedPtr<FGenericWindow>& PlatformWindow) const
+{
+	TSharedPtr<DUIWindow> Window = FindWindowByPlatformWindow(Windows, PlatformWindow);
+	if (Window)
+		return Window->GetSizeLimits();
+	return FWindowSizeLimits();
+}
+
 TSharedPtr<FGenericWindow> FDUIApplication::MakeWindow(const TSharedPtr<class DUIWindow>& InWindow, bool bShow)
 {
 	TSharedPtr<FGenericWindow> NativeParent = nullptr;
@@ -175,7 +183,6 @@ TSharedPtr<FGenericWindow> FDUIApplication::MakeWindow(const TSharedPtr<class DU
 	PlatformApplication->InitializeWindow(NewWindow, Definition, NativeParent, bShow);
 
 	return NewWindow;
-
 }
 
 void FDUIApplication::TickPlatform(float DeltaTime)

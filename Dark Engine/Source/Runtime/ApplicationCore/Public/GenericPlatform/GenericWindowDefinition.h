@@ -91,6 +91,30 @@ public:
 		return *this;
 	}
 
+	FWindowSizeLimits& SetMinWidth(const std::optional<int32>& InMinWidth)
+	{
+		MinWidth = InMinWidth;
+		return *this;
+	}
+
+	FWindowSizeLimits& SetMinHeight(const std::optional<int32>& InMinHeight)
+	{
+		MinHeight = InMinHeight;
+		return *this;
+	}
+
+	FWindowSizeLimits& SetMaxWidth(std::optional<int32> InMaxWidth)
+	{
+		MaxWidth = InMaxWidth;
+		return *this;
+	}
+
+	FWindowSizeLimits& SetMaxHeight(const std::optional<int32>& InMaxHeight)
+	{
+		MaxHeight = InMaxHeight;
+		return *this;
+	}
+
 	std::optional<int32> GetMinWidth() const
 	{
 		return MinWidth;

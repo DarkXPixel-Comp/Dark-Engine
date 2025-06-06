@@ -60,4 +60,9 @@ public:
 		return false;
 	}
 
+	virtual void OnKeyChar(TCHAR CharCode, bool bIsRepeat)
+	{
+
+	}
+
 };

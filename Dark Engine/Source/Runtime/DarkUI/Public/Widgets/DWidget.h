@@ -3,6 +3,7 @@
 #include "Widgets/DUIControlConstruction.h"
 #include "Widgets/DWidgetMacros.h"
 #include "Layout/Geometry.h"
+#include "Layout/ArrangedChildren.h"
 
 #include "Math/Rect.h"
 #include "InvalidateWidgetReason.h"
@@ -41,6 +42,8 @@ public:
 	DARKUI_API virtual void SetVisibility(TAttribute<EVisibility> InVisibility);
 	FORCEINLINE EVisibility GetVisibility() const { return Visibility.Get(); }
 
+	DARKUI_API virtual void ArrangeChildren(const FGeometry& AllottedGeometry, FArrangedChildren& ArrangedChildren, bool bInUpdateAttributes) const;
+
 protected:
 	DARKUI_API void DUIWidgetConstruct(const FDarkUIBaseNamedArgs& Args);
 
@@ -53,6 +56,8 @@ protected:
 
 private:
 //	virtual int32 OnPaint(const FPaintArgs& Args, const FGeometry& AllottedGeometry) const = 0;
+
+	virtual void OnArrangeChildren(const FGeometry& AllottedGeometry, FArrangedChildren& ArrangedChildren) const {}
 
 private:
 	bool bNeedsPrepass = false;
