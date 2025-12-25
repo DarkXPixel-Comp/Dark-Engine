@@ -4,7 +4,7 @@
 #include "Layout/Margin.h"
 
 
-enum EDUIBrushDrawType : uint8
+enum class EDUIBrushDrawType : uint8
 {
 	NoDrawType,
 
@@ -18,7 +18,7 @@ enum EDUIBrushDrawType : uint8
 };
 
 
-enum EDUIBrushTileType : uint8
+enum class EDUIBrushTileType : uint8
 {
 	NoTile,
 
@@ -30,7 +30,7 @@ enum EDUIBrushTileType : uint8
 };
 
 
-enum EDUIBrushMirrorType : uint8
+enum class EDUIBrushMirrorType : uint8
 {
 	NoMirror,
 
@@ -41,7 +41,7 @@ enum EDUIBrushMirrorType : uint8
 	Both
 };
 
-enum EDUIBrushImageType : uint8
+enum class EDUIBrushImageType : uint8
 {
 	NoImage,
 
@@ -53,7 +53,7 @@ enum EDUIBrushImageType : uint8
 };
 
 
-enum EDUIBrushRoundingType : uint8
+enum class EDUIBrushRoundingType : uint8
 {
 	FixedRadius,
 
